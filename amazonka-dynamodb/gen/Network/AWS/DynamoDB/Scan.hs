@@ -161,10 +161,10 @@ sAttributesToGet = lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a }) 
 -- Note that if you use /ConditionalOperator/ and / ConditionExpression / at
 -- the same time, DynamoDB will return a /ValidationException/ exception.
 -- This parameter does not support lists or maps. A logical operator to
--- apply to the conditions in the /ScanFilter/ map: AND - If all of the
--- conditions evaluate to true, then the entire map evaluates to true. OR -
--- If at least one of the conditions evaluate to true, then the entire map
--- evaluates to true. If you omit /ConditionalOperator/, then AND is the
+-- apply to the conditions in the /ScanFilter/ map: @AND@ - If all of the
+-- conditions evaluate to true, then the entire map evaluates to true. @OR@
+-- - If at least one of the conditions evaluate to true, then the entire map
+-- evaluates to true. If you omit /ConditionalOperator/, then @AND@ is the
 -- default. The operation will succeed only if the entire map evaluates to
 -- true.
 sConditionalOperator :: Lens' Scan (Maybe ConditionalOperator)
@@ -190,11 +190,11 @@ sExclusiveStartKey =
 -- an expression. To prevent special characters in an attribute name from
 -- being misinterpreted in an expression. Use the # character in an
 -- expression to dereference an attribute name. For example, consider the
--- following expression: order.customerInfo.LastName = "Smith" OR
--- order.customerInfo.LastName = "Jones" Now suppose that you specified the
+-- following expression: @order.customerInfo.LastName = "Smith" OR
+-- order.customerInfo.LastName = "Jones"@ Now suppose that you specified the
 -- following for /ExpressionAttributeNames/:
--- {"n":"order.customerInfo.LastName"} The expression can now be simplified
--- as follows: #n = "Smith" OR #n = "Jones".
+-- @{"n":"order.customerInfo.LastName"}@ The expression can now be
+-- simplified as follows: @#n = "Smith" OR #n = "Jones"@.
 sExpressionAttributeNames :: Lens' Scan (HashMap Text Text)
 sExpressionAttributeNames =
     lens _sExpressionAttributeNames
@@ -203,11 +203,12 @@ sExpressionAttributeNames =
 
 -- | One or more values that can be substituted in an expression. Use the :
 -- character in an expression to dereference an attribute value. For
--- example, consider the following expression: ProductStatus IN
--- ("Available","Backordered","Discontinued") Now suppose that you specified
--- the following for /ExpressionAttributeValues/: { "a":{"S":"Available"},
--- "b":{"S":"Backordered"}, "d":{"S":"Discontinued"} } The expression can
--- now be simplified as follows: ProductStatus IN (:a,:b,:c).
+-- example, consider the following expression: @ProductStatus IN
+-- ("Available","Backordered","Discontinued")@ Now suppose that you
+-- specified the following for /ExpressionAttributeValues/: @{
+-- "a":{"S":"Available"}, "b":{"S":"Backordered"}, "d":{"S":"Discontinued"}
+-- }@ The expression can now be simplified as follows: @ProductStatus IN
+-- (:a,:b,:c)@.
 sExpressionAttributeValues :: Lens' Scan (HashMap Text AttributeValue)
 sExpressionAttributeValues =
     lens _sExpressionAttributeValues
@@ -264,8 +265,8 @@ sReturnConsumedCapacity =
 -- on the operator specified in /ComparisonOperator/ . For type Number,
 -- value comparisons are numeric. String value comparisons for greater than,
 -- equals, or less than are based on ASCII character code values. For
--- example, a is greater than A, and aa is greater than B. For a list of
--- code values, see
+-- example, @a@ is greater than @A@, and @aa@ is greater than @B@. For a
+-- list of code values, see
 -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters
 -- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>. For
 -- Binary, DynamoDB treats each byte of the binary data as unsigned when it
@@ -275,8 +276,8 @@ sReturnConsumedCapacity =
 -- JSON Data Format> in the /Amazon DynamoDB Developer Guide/.
 -- /ComparisonOperator/ - A comparator for evaluating attributes. For
 -- example, equals, greater than, less than, etc. The following comparison
--- operators are available: EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL |
--- CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN For complete
+-- operators are available: @EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL |
+-- CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN@ For complete
 -- descriptions of all comparison operators, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Condition.html
 -- Condition>.
@@ -298,15 +299,15 @@ sSegment = lens _sSegment (\s a -> s { _sSegment = a }) . mapping _Nat
 
 -- | The attributes to be returned in the result. You can retrieve all item
 -- attributes, specific item attributes, or the count of matching items.
--- ALL_ATTRIBUTES - Returns all of the item attributes. COUNT - Returns the
--- number of matching items, rather than the matching items themselves.
--- SPECIFIC_ATTRIBUTES - Returns only the attributes listed in
+-- @ALL_ATTRIBUTES@ - Returns all of the item attributes. @COUNT@ - Returns
+-- the number of matching items, rather than the matching items themselves.
+-- @SPECIFIC_ATTRIBUTES@ - Returns only the attributes listed in
 -- /AttributesToGet/. This return value is equivalent to specifying
 -- /AttributesToGet/ without specifying any value for /Select/. If neither
 -- /Select/ nor /AttributesToGet/ are specified, DynamoDB defaults to
--- ALL_ATTRIBUTES. You cannot use both /AttributesToGet/ and /Select/
+-- @ALL_ATTRIBUTES@. You cannot use both /AttributesToGet/ and /Select/
 -- together in a single request, unless the value for /Select/ is
--- SPECIFIC_ATTRIBUTES. (This usage is equivalent to specifying
+-- @SPECIFIC_ATTRIBUTES@. (This usage is equivalent to specifying
 -- /AttributesToGet/ without any value for /Select/.).
 sSelect :: Lens' Scan (Maybe Select)
 sSelect = lens _sSelect (\s a -> s { _sSelect = a })

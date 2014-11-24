@@ -22,8 +22,8 @@
 
 -- | Returns a list of the subscriptions to a specific topic. Each call returns
 -- a limited list of subscriptions, up to 100. If there are more
--- subscriptions, a NextToken is also returned. Use the NextToken parameter in
--- a new ListSubscriptionsByTopic call to get further results.
+-- subscriptions, a @NextToken@ is also returned. Use the @NextToken@
+-- parameter in a new @ListSubscriptionsByTopic@ call to get further results.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptionsByTopic.html>
 module Network.AWS.SNS.ListSubscriptionsByTopic
@@ -70,7 +70,7 @@ listSubscriptionsByTopic p1 = ListSubscriptionsByTopic
     , _lsbtNextToken = Nothing
     }
 
--- | Token returned by the previous ListSubscriptionsByTopic request.
+-- | Token returned by the previous @ListSubscriptionsByTopic@ request.
 lsbtNextToken :: Lens' ListSubscriptionsByTopic (Maybe Text)
 lsbtNextToken = lens _lsbtNextToken (\s a -> s { _lsbtNextToken = a })
 
@@ -97,7 +97,7 @@ listSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     , _lsbtrNextToken     = Nothing
     }
 
--- | Token to pass along to the next ListSubscriptionsByTopic request. This
+-- | Token to pass along to the next @ListSubscriptionsByTopic@ request. This
 -- element is returned if there are more subscriptions to retrieve.
 lsbtrNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
 lsbtrNextToken = lens _lsbtrNextToken (\s a -> s { _lsbtrNextToken = a })

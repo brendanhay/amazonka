@@ -26,13 +26,13 @@
 -- information is returned for snapshots owned by inactive AWS customer
 -- accounts. If you specify both tag keys and tag values in the same request,
 -- Amazon Redshift returns all snapshots that match any combination of the
--- specified keys and values. For example, if you have owner and environment
--- for tag keys, and admin and test for tag values, all snapshots that have
--- any combination of those values are returned. Only snapshots that you own
--- are returned in the response; shared snapshots are not returned with the
--- tag key and tag value request parameters. If both tag keys and values are
--- omitted from the request, snapshots are returned regardless of whether they
--- have tag keys or values associated with them.
+-- specified keys and values. For example, if you have @owner@ and
+-- @environment@ for tag keys, and @admin@ and @test@ for tag values, all
+-- snapshots that have any combination of those values are returned. Only
+-- snapshots that you own are returned in the response; shared snapshots are
+-- not returned with the tag key and tag value request parameters. If both tag
+-- keys and values are omitted from the request, snapshots are returned
+-- regardless of whether they have tag keys or values associated with them.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSnapshots.html>
 module Network.AWS.Redshift.DescribeClusterSnapshots
@@ -128,24 +128,25 @@ dcs1ClusterIdentifier =
 -- specified time. The time value is specified in ISO 8601 format. For more
 -- information about ISO 8601, go to the
 -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.> Example:
--- 2012-07-16T18:00:00Z.
+-- @2012-07-16T18:00:00Z@.
 dcs1EndTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
 dcs1EndTime = lens _dcs1EndTime (\s a -> s { _dcs1EndTime = a }) . mapping _Time
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusterSnapshots>
--- request exceed the value specified in MaxRecords, AWS returns a value in
--- the Marker field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the Marker
+-- request exceed the value specified in @MaxRecords@, AWS returns a value
+-- in the @Marker@ field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
 dcs1Marker :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcs1Marker = lens _dcs1Marker (\s a -> s { _dcs1Marker = a })
 
 -- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified MaxRecords
--- value, a value is returned in a marker field of the response. You can
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
 -- retrieve the next set of records by retrying the command with the
--- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
+-- returned marker value. Default: @100@ Constraints: minimum 20, maximum
+-- 100.
 dcs1MaxRecords :: Lens' DescribeClusterSnapshots (Maybe Int)
 dcs1MaxRecords = lens _dcs1MaxRecords (\s a -> s { _dcs1MaxRecords = a })
 
@@ -163,8 +164,8 @@ dcs1SnapshotIdentifier =
     lens _dcs1SnapshotIdentifier (\s a -> s { _dcs1SnapshotIdentifier = a })
 
 -- | The type of snapshots for which you are requesting information. By
--- default, snapshots of all types are returned. Valid Values: automated |
--- manual.
+-- default, snapshots of all types are returned. Valid Values: @automated@ |
+-- @manual@.
 dcs1SnapshotType :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcs1SnapshotType = lens _dcs1SnapshotType (\s a -> s { _dcs1SnapshotType = a })
 
@@ -172,14 +173,14 @@ dcs1SnapshotType = lens _dcs1SnapshotType (\s a -> s { _dcs1SnapshotType = a })
 -- time. The time value is specified in ISO 8601 format. For more
 -- information about ISO 8601, go to the
 -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.> Example:
--- 2012-07-16T18:00:00Z.
+-- @2012-07-16T18:00:00Z@.
 dcs1StartTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
 dcs1StartTime = lens _dcs1StartTime (\s a -> s { _dcs1StartTime = a }) . mapping _Time
 
 -- | A tag key or keys for which you want to return all matching cluster
 -- snapshots that are associated with the specified key or keys. For
 -- example, suppose that you have snapshots that are tagged with keys called
--- owner and environment. If you specify both of these tag keys in the
+-- @owner@ and @environment@. If you specify both of these tag keys in the
 -- request, Amazon Redshift returns a response with the snapshots that have
 -- either or both of these tag keys associated with them.
 dcs1TagKeys :: Lens' DescribeClusterSnapshots [Text]
@@ -188,7 +189,7 @@ dcs1TagKeys = lens _dcs1TagKeys (\s a -> s { _dcs1TagKeys = a }) . _List
 -- | A tag value or values for which you want to return all matching cluster
 -- snapshots that are associated with the specified tag value or values. For
 -- example, suppose that you have snapshots that are tagged with values
--- called admin and test. If you specify both of these tag values in the
+-- called @admin@ and @test@. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with the snapshots that have
 -- either or both of these tag values associated with them.
 dcs1TagValues :: Lens' DescribeClusterSnapshots [Text]
@@ -216,8 +217,8 @@ describeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
--- marker value in the Marker parameter and retrying the command. If the
--- Marker field is empty, all response records have been retrieved for the
+-- marker value in the @Marker@ parameter and retrying the command. If the
+-- @Marker@ field is empty, all response records have been retrieved for the
 -- request.
 dcsrMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
 dcsrMarker = lens _dcsrMarker (\s a -> s { _dcsrMarker = a })

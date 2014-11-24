@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Temporarily sets the state of an alarm. When the updated StateValue differs
--- from the previous value, the action configured for the appropriate state is
--- invoked. This is not a permanent change. The next periodic alarm check (in
--- about a minute) will set the alarm to its actual state.
+-- | Temporarily sets the state of an alarm. When the updated @StateValue@
+-- differs from the previous value, the action configured for the appropriate
+-- state is invoked. This is not a permanent change. The next periodic alarm
+-- check (in about a minute) will set the alarm to its actual state.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_SetAlarmState.html>
 module Network.AWS.CloudWatch.SetAlarmState

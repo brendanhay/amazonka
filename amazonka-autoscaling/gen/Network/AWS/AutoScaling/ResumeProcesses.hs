@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Resumes the specified suspended Auto Scaling processes for the specified
--- Auto Scaling group. To resume specific processes, use the ScalingProcesses
--- parameter. To resume all processes, omit the ScalingProcesses parameter.
--- For more information, see
+-- Auto Scaling group. To resume specific processes, use the
+-- @ScalingProcesses@ parameter. To resume all processes, omit the
+-- @ScalingProcesses@ parameter. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html
 -- Suspend and Resume Auto Scaling Processes> in the /Auto Scaling Developer
 -- Guide/.

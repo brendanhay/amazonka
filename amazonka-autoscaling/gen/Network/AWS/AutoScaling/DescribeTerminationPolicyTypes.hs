@@ -72,8 +72,8 @@ describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
     }
 
 -- | The Termination policies supported by Auto Scaling. They are:
--- OldestInstance, OldestLaunchConfiguration, NewestInstance,
--- ClosestToNextInstanceHour, and Default.
+-- @OldestInstance@, @OldestLaunchConfiguration@, @NewestInstance@,
+-- @ClosestToNextInstanceHour@, and @Default@.
 dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
 dtptrTerminationPolicyTypes =
     lens _dtptrTerminationPolicyTypes

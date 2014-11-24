@@ -28,8 +28,8 @@
 -- multiple public key policies. The /SetLoadBalancerPoliciesForBackendServer/
 -- replaces the current set of policies associated with the specified instance
 -- port. Every time you use this action to enable the policies, use the
--- PolicyNames parameter to list all the policies you want to enable. You can
--- use DescribeLoadBalancers> or DescribeLoadBalancerPolicies> action to
+-- @PolicyNames@ parameter to list all the policies you want to enable. You
+-- can use DescribeLoadBalancers> or DescribeLoadBalancerPolicies> action to
 -- verify that the policy has been associated with the back-end server.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesForBackendServer.html>

@@ -76,9 +76,10 @@ describePlacementGroups = DescribePlacementGroups
 dpg1DryRun :: Lens' DescribePlacementGroups (Maybe Bool)
 dpg1DryRun = lens _dpg1DryRun (\s a -> s { _dpg1DryRun = a })
 
--- | One or more filters. group-name - The name of the placement group. state
--- - The state of the placement group (pending | available | deleting |
--- deleted). strategy - The strategy of the placement group (cluster).
+-- | One or more filters. @group-name@ - The name of the placement group.
+-- @state@ - The state of the placement group (@pending@ | @available@ |
+-- @deleting@ | @deleted@). @strategy@ - The strategy of the placement group
+-- (@cluster@).
 dpg1Filters :: Lens' DescribePlacementGroups [Filter]
 dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a }) . _List
 

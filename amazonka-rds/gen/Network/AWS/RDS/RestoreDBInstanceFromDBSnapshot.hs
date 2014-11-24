@@ -160,18 +160,18 @@ rdbifdbsAutoMinorVersionUpgrade =
 -- | The EC2 Availability Zone that the database instance will be created in.
 -- Default: A random, system-chosen Availability Zone. Constraint: You
 -- cannot specify the AvailabilityZone parameter if the MultiAZ parameter is
--- set to true. Example: us-east-1a.
+-- set to @true@. Example: @us-east-1a@.
 rdbifdbsAvailabilityZone :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsAvailabilityZone =
     lens _rdbifdbsAvailabilityZone
         (\s a -> s { _rdbifdbsAvailabilityZone = a })
 
 -- | The compute and memory capacity of the Amazon RDS DB instance. Valid
--- Values: db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
+-- Values: @db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
 -- db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large
 -- | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge |
 -- db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small
--- | db.t2.medium.
+-- | db.t2.medium@.
 rdbifdbsDBInstanceClass :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsDBInstanceClass =
     lens _rdbifdbsDBInstanceClass (\s a -> s { _rdbifdbsDBInstanceClass = a })
@@ -180,7 +180,7 @@ rdbifdbsDBInstanceClass =
 -- isn't case sensitive. Constraints: Must contain from 1 to 255
 -- alphanumeric characters or hyphens First character must be a letter
 -- Cannot end with a hyphen or contain two consecutive hyphens Example:
--- my-snapshot-id.
+-- @my-snapshot-id@.
 rdbifdbsDBInstanceIdentifier :: Lens' RestoreDBInstanceFromDBSnapshot Text
 rdbifdbsDBInstanceIdentifier =
     lens _rdbifdbsDBInstanceIdentifier
@@ -207,7 +207,7 @@ rdbifdbsDBSubnetGroupName =
 
 -- | The database engine to use for the new instance. Default: The same as
 -- source Constraint: Must be compatible with the engine of the source
--- Example: oracle-ee.
+-- Example: @oracle-ee@.
 rdbifdbsEngine :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsEngine = lens _rdbifdbsEngine (\s a -> s { _rdbifdbsEngine = a })
 
@@ -223,15 +223,15 @@ rdbifdbsIops :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Int)
 rdbifdbsIops = lens _rdbifdbsIops (\s a -> s { _rdbifdbsIops = a })
 
 -- | License model information for the restored DB instance. Default: Same as
--- source. Valid values: license-included | bring-your-own-license |
--- general-public-license.
+-- source. Valid values: @license-included@ | @bring-your-own-license@ |
+-- @general-public-license@.
 rdbifdbsLicenseModel :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsLicenseModel =
     lens _rdbifdbsLicenseModel (\s a -> s { _rdbifdbsLicenseModel = a })
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Constraint: You
 -- cannot specify the AvailabilityZone parameter if the MultiAZ parameter is
--- set to true.
+-- set to @true@.
 rdbifdbsMultiAZ :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
 rdbifdbsMultiAZ = lens _rdbifdbsMultiAZ (\s a -> s { _rdbifdbsMultiAZ = a })
 
@@ -245,7 +245,7 @@ rdbifdbsOptionGroupName =
 
 -- | The port number on which the database accepts connections. Default: The
 -- same port as the original DB instance Constraints: Value must be
--- 1150-65535.
+-- @1150-65535@.
 rdbifdbsPort :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Int)
 rdbifdbsPort = lens _rdbifdbsPort (\s a -> s { _rdbifdbsPort = a })
 
@@ -267,8 +267,8 @@ rdbifdbsPubliclyAccessible =
         (\s a -> s { _rdbifdbsPubliclyAccessible = a })
 
 -- | Specifies storage type to be associated with the DB Instance. Valid
--- values: standard | gp2 | io1 If you specify io1, you must also include a
--- value for the Iops parameter.
+-- values: @standard | gp2 | io1@ If you specify @io1@, you must also
+-- include a value for the @Iops@ parameter.
 rdbifdbsStorageType :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsStorageType =
     lens _rdbifdbsStorageType (\s a -> s { _rdbifdbsStorageType = a })

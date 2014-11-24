@@ -89,9 +89,9 @@ rdbiDBInstanceIdentifier =
     lens _rdbiDBInstanceIdentifier
         (\s a -> s { _rdbiDBInstanceIdentifier = a })
 
--- | When true, the reboot will be conducted through a MultiAZ failover.
--- Constraint: You cannot specify true if the instance is not configured for
--- MultiAZ.
+-- | When @true@, the reboot will be conducted through a MultiAZ failover.
+-- Constraint: You cannot specify @true@ if the instance is not configured
+-- for MultiAZ.
 rdbiForceFailover :: Lens' RebootDBInstance (Maybe Bool)
 rdbiForceFailover =
     lens _rdbiForceFailover (\s a -> s { _rdbiForceFailover = a })

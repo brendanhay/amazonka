@@ -72,7 +72,7 @@ purchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOffering
     , _prcnoCacheNodeCount               = Nothing
     }
 
--- | The number of cache node instances to reserve. Default: 1.
+-- | The number of cache node instances to reserve. Default: @1@.
 prcnoCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Int)
 prcnoCacheNodeCount =
     lens _prcnoCacheNodeCount (\s a -> s { _prcnoCacheNodeCount = a })

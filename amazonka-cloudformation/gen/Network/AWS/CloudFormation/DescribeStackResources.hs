@@ -21,19 +21,19 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns AWS resource descriptions for running and deleted stacks. If
--- StackName is specified, all the associated resources that are part of the
--- stack are returned. If PhysicalResourceId is specified, the associated
+-- @StackName@ is specified, all the associated resources that are part of the
+-- stack are returned. If @PhysicalResourceId@ is specified, the associated
 -- resources of the stack that the resource belongs to are returned. Only the
 -- first 100 resources will be returned. If your stack has more resources than
--- this, you should use ListStackResources instead. For deleted stacks,
--- DescribeStackResources returns resource information for up to 90 days after
--- the stack has been deleted. You must specify either StackName or
--- PhysicalResourceId, but not both. In addition, you can specify
--- LogicalResourceId to filter the returned result. For more information about
--- resources, the LogicalResourceId and PhysicalResourceId, go to the
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide AWS
--- CloudFormation User Guide>. A ValidationError is returned if you specify
--- both StackName and PhysicalResourceId in the same request.
+-- this, you should use @ListStackResources@ instead. For deleted stacks,
+-- @DescribeStackResources@ returns resource information for up to 90 days
+-- after the stack has been deleted. You must specify either @StackName@ or
+-- @PhysicalResourceId@, but not both. In addition, you can specify
+-- @LogicalResourceId@ to filter the returned result. For more information
+-- about resources, the @LogicalResourceId@ and @PhysicalResourceId@, go to
+-- the <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide AWS
+-- CloudFormation User Guide>. A @ValidationError@ is returned if you specify
+-- both @StackName@ and @PhysicalResourceId@ in the same request.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResources.html>
 module Network.AWS.CloudFormation.DescribeStackResources
@@ -91,12 +91,12 @@ dsrLogicalResourceId =
 
 -- | The name or unique identifier that corresponds to a physical instance ID
 -- of a resource supported by AWS CloudFormation. For example, for an Amazon
--- Elastic Compute Cloud (EC2) instance, PhysicalResourceId corresponds to
--- the InstanceId. You can pass the EC2 InstanceId to DescribeStackResources
--- to find which stack the instance belongs to and what other resources are
--- part of the stack. Required: Conditional. If you do not specify
--- PhysicalResourceId, you must specify StackName. Default: There is no
--- default value.
+-- Elastic Compute Cloud (EC2) instance, @PhysicalResourceId@ corresponds to
+-- the @InstanceId@. You can pass the EC2 @InstanceId@ to
+-- @DescribeStackResources@ to find which stack the instance belongs to and
+-- what other resources are part of the stack. Required: Conditional. If you
+-- do not specify @PhysicalResourceId@, you must specify @StackName@.
+-- Default: There is no default value.
 dsrPhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
 dsrPhysicalResourceId =
     lens _dsrPhysicalResourceId (\s a -> s { _dsrPhysicalResourceId = a })
@@ -105,8 +105,8 @@ dsrPhysicalResourceId =
 -- not always interchangeable: Running stacks: You can specify either the
 -- stack's name or its unique stack ID. Deleted stacks: You must specify the
 -- unique stack ID. Default: There is no default value. Required:
--- Conditional. If you do not specify StackName, you must specify
--- PhysicalResourceId.
+-- Conditional. If you do not specify @StackName@, you must specify
+-- @PhysicalResourceId@.
 dsrStackName :: Lens' DescribeStackResources (Maybe Text)
 dsrStackName = lens _dsrStackName (\s a -> s { _dsrStackName = a })
 
@@ -131,7 +131,7 @@ describeStackResourcesResponse = DescribeStackResourcesResponse
     { _dsrrStackResources = mempty
     }
 
--- | A list of StackResource structures.
+-- | A list of @StackResource@ structures.
 dsrrStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
 dsrrStackResources =
     lens _dsrrStackResources (\s a -> s { _dsrrStackResources = a })

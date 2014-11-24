@@ -23,7 +23,7 @@
 -- | Returns a list of event source mappings. For each mapping, the API returns
 -- configuration information (see AddEventSource>). You can optionally specify
 -- filters to retrieve specific event source mappings. This operation requires
--- permission for the lambda:ListEventSources action.
+-- permission for the @lambda:ListEventSources@ action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_ListEventSources.html>
 module Network.AWS.Lambda.ListEventSources
@@ -89,7 +89,7 @@ lesFunctionName :: Lens' ListEventSources (Maybe Text)
 lesFunctionName = lens _lesFunctionName (\s a -> s { _lesFunctionName = a })
 
 -- | Optional string. An opaque pagination token returned from a previous
--- ListEventSources operation. If present, specifies to continue the list
+-- @ListEventSources@ operation. If present, specifies to continue the list
 -- from where the returning call left off.
 lesMarker :: Lens' ListEventSources (Maybe Text)
 lesMarker = lens _lesMarker (\s a -> s { _lesMarker = a })
@@ -118,7 +118,7 @@ listEventSourcesResponse = ListEventSourcesResponse
     , _lesrEventSources = mempty
     }
 
--- | An arrary of EventSourceConfiguration objects.
+-- | An arrary of @EventSourceConfiguration@ objects.
 lesrEventSources :: Lens' ListEventSourcesResponse [EventSourceConfiguration]
 lesrEventSources = lens _lesrEventSources (\s a -> s { _lesrEventSources = a }) . _List
 

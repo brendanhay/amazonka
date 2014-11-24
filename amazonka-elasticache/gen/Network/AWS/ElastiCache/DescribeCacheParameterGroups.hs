@@ -87,7 +87,7 @@ dcpgMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpgMarker = lens _dcpgMarker (\s a -> s { _dcpgMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified MaxRecords value, a marker is included in the
+-- exist than the specified @MaxRecords@ value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
 dcpgMaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Int)

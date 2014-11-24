@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Moves the specified instances out of Standby mode. For more information,
+-- | Moves the specified instances out of @Standby@ mode. For more information,
 -- see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html
 -- Auto Scaling InService State> in the /Auto Scaling Developer Guide/.
@@ -99,7 +99,7 @@ exitStandbyResponse = ExitStandbyResponse
     { _esrActivities = mempty
     }
 
--- | The activities related to moving instances out of Standby mode.
+-- | The activities related to moving instances out of @Standby@ mode.
 esrActivities :: Lens' ExitStandbyResponse [Activity]
 esrActivities = lens _esrActivities (\s a -> s { _esrActivities = a }) . _List
 

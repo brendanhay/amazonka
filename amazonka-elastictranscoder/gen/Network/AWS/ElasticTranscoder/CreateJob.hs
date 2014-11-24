@@ -108,12 +108,12 @@ cjOutputKeyPrefix =
     lens _cjOutputKeyPrefix (\s a -> s { _cjOutputKeyPrefix = a })
 
 -- | A section of the request body that provides information about the
--- transcoded (target) files. We recommend that you use the Outputs syntax
--- instead of the Output syntax.
+-- transcoded (target) files. We recommend that you use the @Outputs@ syntax
+-- instead of the @Output@ syntax.
 cjOutputs :: Lens' CreateJob [CreateJobOutput]
 cjOutputs = lens _cjOutputs (\s a -> s { _cjOutputs = a }) . _List
 
--- | The Id of the pipeline that you want Elastic Transcoder to use for
+-- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
 -- Amazon S3 bucket from which Elastic Transcoder gets the files to
 -- transcode and the bucket into which Elastic Transcoder puts the
@@ -121,8 +121,8 @@ cjOutputs = lens _cjOutputs (\s a -> s { _cjOutputs = a }) . _List
 cjPipelineId :: Lens' CreateJob Text
 cjPipelineId = lens _cjPipelineId (\s a -> s { _cjPipelineId = a })
 
--- | If you specify a preset in PresetId for which the value of Container is
--- fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information
+-- | If you specify a preset in @PresetId@ for which the value of @Container@
+-- is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information
 -- about the master playlists that you want Elastic Transcoder to create.
 -- The maximum number of master playlists in a job is 30.
 cjPlaylists :: Lens' CreateJob [CreateJobPlaylist]

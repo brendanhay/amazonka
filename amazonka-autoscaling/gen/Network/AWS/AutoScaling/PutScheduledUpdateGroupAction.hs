@@ -133,9 +133,9 @@ psugaMinSize = lens _psugaMinSize (\s a -> s { _psugaMinSize = a })
 -- | The time when recurring future actions will start. Start time is
 -- specified by the user following the Unix cron syntax format. For
 -- information about cron syntax, go to <http://en.wikipedia.org/wiki/Cron
--- Wikipedia, The Free Encyclopedia>. When StartTime and EndTime are
--- specified with Recurrence, they form the boundaries of when the recurring
--- action will start and stop.
+-- Wikipedia, The Free Encyclopedia>. When @StartTime@ and @EndTime@ are
+-- specified with @Recurrence@, they form the boundaries of when the
+-- recurring action will start and stop.
 psugaRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
 psugaRecurrence = lens _psugaRecurrence (\s a -> s { _psugaRecurrence = a })
 
@@ -145,18 +145,19 @@ psugaScheduledActionName =
     lens _psugaScheduledActionName
         (\s a -> s { _psugaScheduledActionName = a })
 
--- | The time for this action to start, as in --start-time
--- 2010-06-01T00:00:00Z. If you try to schedule your action in the past,
--- Auto Scaling returns an error message. When StartTime and EndTime are
--- specified with Recurrence, they form the boundaries of when the recurring
--- action will start and stop.
+-- | The time for this action to start, as in @--start-time
+-- 2010-06-01T00:00:00Z@. If you try to schedule your action in the past,
+-- Auto Scaling returns an error message. When @StartTime@ and @EndTime@ are
+-- specified with @Recurrence@, they form the boundaries of when the
+-- recurring action will start and stop.
 psugaStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaStartTime = lens _psugaStartTime (\s a -> s { _psugaStartTime = a }) . mapping _Time
 
--- | Time is deprecated. The time for this action to start. Time is an alias
--- for StartTime and can be specified instead of StartTime, or vice versa.
--- If both Time and StartTime are specified, their values should be
--- identical. Otherwise, PutScheduledUpdateGroupAction will return an error.
+-- | @Time@ is deprecated. The time for this action to start. @Time@ is an
+-- alias for @StartTime@ and can be specified instead of @StartTime@, or
+-- vice versa. If both @Time@ and @StartTime@ are specified, their values
+-- should be identical. Otherwise, @PutScheduledUpdateGroupAction@ will
+-- return an error.
 psugaTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaTime = lens _psugaTime (\s a -> s { _psugaTime = a }) . mapping _Time
 

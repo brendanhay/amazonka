@@ -254,15 +254,15 @@ sourceSecurityGroup = SourceSecurityGroup
     , _ssgGroupName  = Nothing
     }
 
--- | Name of the source security group. Use this value for the --source-group
--- parameter of the ec2-authorize command in the Amazon EC2 command line
--- tool.
+-- | Name of the source security group. Use this value for the
+-- @--source-group@ parameter of the @ec2-authorize@ command in the Amazon
+-- EC2 command line tool.
 ssgGroupName :: Lens' SourceSecurityGroup (Maybe Text)
 ssgGroupName = lens _ssgGroupName (\s a -> s { _ssgGroupName = a })
 
 -- | Owner of the source security group. Use this value for the
--- --source-group-user parameter of the ec2-authorize command in the Amazon
--- EC2 command line tool.
+-- @--source-group-user@ parameter of the @ec2-authorize@ command in the
+-- Amazon EC2 command line tool.
 ssgOwnerAlias :: Lens' SourceSecurityGroup (Maybe Text)
 ssgOwnerAlias = lens _ssgOwnerAlias (\s a -> s { _ssgOwnerAlias = a })
 
@@ -611,7 +611,7 @@ lbaConnectionDraining =
 -- | The name of the load balancer attribute. By default, Elastic Load
 -- Balancing maintains a 60-second idle connection timeout for both
 -- front-end and back-end connections of your load balancer. If the
--- ConnectionSettings attribute is set, Elastic Load Balancing will allow
+-- @ConnectionSettings@ attribute is set, Elastic Load Balancing will allow
 -- the connections to remain idle (no data is sent over the connection) for
 -- the specified duration. For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-idle-timeout.html
@@ -689,7 +689,7 @@ alS3BucketName :: Lens' AccessLog (Maybe Text)
 alS3BucketName = lens _alS3BucketName (\s a -> s { _alS3BucketName = a })
 
 -- | The logical hierarchy you created for your Amazon S3 bucket, for example
--- my-bucket-prefix/prod. If the prefix is not provided, the log is placed
+-- @my-bucket-prefix/prod@. If the prefix is not provided, the log is placed
 -- at the root level of the bucket.
 alS3BucketPrefix :: Lens' AccessLog (Maybe Text)
 alS3BucketPrefix = lens _alS3BucketPrefix (\s a -> s { _alS3BucketPrefix = a })
@@ -1062,11 +1062,12 @@ lbdLoadBalancerName =
 lbdPolicies :: Lens' LoadBalancerDescription (Maybe Policies)
 lbdPolicies = lens _lbdPolicies (\s a -> s { _lbdPolicies = a })
 
--- | Specifies the type of load balancer. If the Scheme is internet-facing,
--- the load balancer has a publicly resolvable DNS name that resolves to
--- public IP addresses. If the Scheme is internal, the load balancer has a
--- publicly resolvable DNS name that resolves to private IP addresses. This
--- option is only available for load balancers attached to an Amazon VPC.
+-- | Specifies the type of load balancer. If the @Scheme@ is
+-- @internet-facing@, the load balancer has a publicly resolvable DNS name
+-- that resolves to public IP addresses. If the @Scheme@ is @internal@, the
+-- load balancer has a publicly resolvable DNS name that resolves to private
+-- IP addresses. This option is only available for load balancers attached
+-- to an Amazon VPC.
 lbdScheme :: Lens' LoadBalancerDescription (Maybe Text)
 lbdScheme = lens _lbdScheme (\s a -> s { _lbdScheme = a })
 
@@ -1427,14 +1428,14 @@ lInstancePort = lens _lInstancePort (\s a -> s { _lInstancePort = a }) . _Nat
 -- | Specifies the protocol to use for routing traffic to back-end instances -
 -- HTTP, HTTPS, TCP, or SSL. This property cannot be modified for the life
 -- of the load balancer. If the front-end protocol is HTTP or HTTPS,
--- InstanceProtocol has to be at the same protocol layer, i.e., HTTP or
+-- @InstanceProtocol@ has to be at the same protocol layer, i.e., HTTP or
 -- HTTPS. Likewise, if the front-end protocol is TCP or SSL,
 -- InstanceProtocol has to be TCP or SSL. If there is another listener with
--- the same InstancePort whose InstanceProtocol is secure, i.e., HTTPS or
--- SSL, the listener's InstanceProtocol has to be secure, i.e., HTTPS or
--- SSL. If there is another listener with the same InstancePort whose
--- InstanceProtocol is HTTP or TCP, the listener's InstanceProtocol must be
--- either HTTP or TCP.
+-- the same @InstancePort@ whose @InstanceProtocol@ is secure, i.e., HTTPS
+-- or SSL, the listener's @InstanceProtocol@ has to be secure, i.e., HTTPS
+-- or SSL. If there is another listener with the same @InstancePort@ whose
+-- @InstanceProtocol@ is HTTP or TCP, the listener's @InstanceProtocol@ must
+-- be either HTTP or TCP.
 lInstanceProtocol :: Lens' Listener (Maybe Text)
 lInstanceProtocol =
     lens _lInstanceProtocol (\s a -> s { _lInstanceProtocol = a })
@@ -1553,12 +1554,13 @@ isInstanceId = lens _isInstanceId (\s a -> s { _isInstanceId = a })
 
 -- | Provides information about the cause of /OutOfService/ instances.
 -- Specifically, it indicates whether the cause is Elastic Load Balancing or
--- the instance behind the load balancer. Valid value: ELB|Instance|N/A.
+-- the instance behind the load balancer. Valid value:
+-- @ELB@|@Instance@|@N/A@.
 isReasonCode :: Lens' InstanceState (Maybe Text)
 isReasonCode = lens _isReasonCode (\s a -> s { _isReasonCode = a })
 
 -- | Specifies the current state of the instance. Valid value:
--- InService|OutOfService|Unknown.
+-- @InService@|@OutOfService@|@Unknown@.
 isState :: Lens' InstanceState (Maybe Text)
 isState = lens _isState (\s a -> s { _isState = a })
 

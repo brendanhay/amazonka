@@ -503,8 +503,8 @@ inaDeliveryTopic :: Lens' IdentityNotificationAttributes Text
 inaDeliveryTopic = lens _inaDeliveryTopic (\s a -> s { _inaDeliveryTopic = a })
 
 -- | Describes whether Amazon SES will forward bounce and complaint
--- notifications as email. true indicates that Amazon SES will forward
--- bounce and complaint notifications as email, while false indicates that
+-- notifications as email. @true@ indicates that Amazon SES will forward
+-- bounce and complaint notifications as email, while @false@ indicates that
 -- bounce and complaint notifications will be published only to the
 -- specified bounce and complaint Amazon SNS topics.
 inaForwardingEnabled :: Lens' IdentityNotificationAttributes Bool

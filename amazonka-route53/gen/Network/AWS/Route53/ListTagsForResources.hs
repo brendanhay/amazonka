@@ -73,7 +73,7 @@ ltfr1ResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
 ltfr1ResourceIds = lens _ltfr1ResourceIds (\s a -> s { _ltfr1ResourceIds = a }) . _List1
 
 -- | The type of the resources. The resource type for health checks is
--- healthcheck.
+-- @healthcheck@.
 ltfr1ResourceType :: Lens' ListTagsForResources TagResourceType
 ltfr1ResourceType =
     lens _ltfr1ResourceType (\s a -> s { _ltfr1ResourceType = a })
@@ -99,7 +99,7 @@ listTagsForResourcesResponse = ListTagsForResourcesResponse
     { _ltfrrResourceTagSets = mempty
     }
 
--- | A list of ResourceTagSets containing tags associated with the specified
+-- | A list of @ResourceTagSet@s containing tags associated with the specified
 -- resources.
 ltfrrResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
 ltfrrResourceTagSets =

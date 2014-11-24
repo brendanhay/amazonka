@@ -97,8 +97,8 @@ describeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
     { _dlbasrLoadBasedAutoScalingConfigurations = mempty
     }
 
--- | An array of LoadBasedAutoScalingConfiguration objects that describe each
--- layer's configuration.
+-- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe
+-- each layer's configuration.
 dlbasrLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
 dlbasrLoadBasedAutoScalingConfigurations =
     lens _dlbasrLoadBasedAutoScalingConfigurations

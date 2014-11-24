@@ -21,12 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets the analysis schemes configured for a domain. An analysis scheme
--- defines language-specific text processing options for a text field. Can be
--- limited to specific analysis schemes by name. By default, shows all
+-- defines language-specific text processing options for a @text@ field. Can
+-- be limited to specific analysis schemes by name. By default, shows all
 -- analysis schemes and includes any pending changes to the configuration. Set
--- the Deployed option to true to show the active configuration and exclude
--- pending changes. For more information, see Configuring Analysis Schemes> in
--- the /Amazon CloudSearch Developer Guide/.
+-- the @Deployed@ option to @true@ to show the active configuration and
+-- exclude pending changes. For more information, see Configuring Analysis
+-- Schemes> in the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAnalysisSchemes.html>
 module Network.AWS.CloudSearch.DescribeAnalysisSchemes
@@ -83,8 +83,8 @@ das1AnalysisSchemeNames =
     lens _das1AnalysisSchemeNames (\s a -> s { _das1AnalysisSchemeNames = a })
         . _List
 
--- | Whether to display the deployed configuration (true) or include any
--- pending changes (false). Defaults to false.
+-- | Whether to display the deployed configuration (@true@) or include any
+-- pending changes (@false@). Defaults to @false@.
 das1Deployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
 das1Deployed = lens _das1Deployed (\s a -> s { _das1Deployed = a })
 

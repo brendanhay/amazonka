@@ -118,14 +118,14 @@ plhAutoScalingGroupName =
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. The value for
--- this parameter can be either CONTINUE or ABANDON. The default value for
--- this parameter is ABANDON.
+-- this parameter can be either @CONTINUE@ or @ABANDON@. The default value
+-- for this parameter is @ABANDON@.
 plhDefaultResult :: Lens' PutLifecycleHook (Maybe Text)
 plhDefaultResult = lens _plhDefaultResult (\s a -> s { _plhDefaultResult = a })
 
 -- | Defines the amount of time, in seconds, that can elapse before the
 -- lifecycle hook times out. When the lifecycle hook times out, Auto Scaling
--- performs the action defined in the DefaultResult parameter. You can
+-- performs the action defined in the @DefaultResult@ parameter. You can
 -- prevent the lifecycle hook from timing out by calling
 -- RecordLifecycleActionHeartbeat>. The default value for this parameter is
 -- 3600 seconds (1 hour).
@@ -166,7 +166,7 @@ plhNotificationMetadata =
 -- email key/value pair format when sending notifications to an Amazon SNS
 -- topic. When you call this operation, a test message is sent to the
 -- notification target. This test message contains an additional key/value
--- pair: Event:autoscaling:TEST_NOTIFICATION.
+-- pair: @Event:autoscaling:TEST_NOTIFICATION@.
 plhNotificationTargetARN :: Lens' PutLifecycleHook (Maybe Text)
 plhNotificationTargetARN =
     lens _plhNotificationTargetARN

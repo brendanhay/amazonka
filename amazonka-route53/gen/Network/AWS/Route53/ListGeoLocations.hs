@@ -20,18 +20,18 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | To retrieve a list of supported geo locations, send a GET request to the
--- 2013-04-01/geolocations resource. The response to this request includes a
--- GeoLocationDetailsList element with zero, one, or multiple
--- GeoLocationDetails child elements. The list is sorted by country code, and
--- then subdivision code, followed by continents at the end of the list. By
--- default, the list of geo locations is displayed on a single page. You can
--- control the length of the page that is displayed by using the MaxItems
--- parameter. If the list is truncated, IsTruncated will be set to /true/ and
--- a combination of NextContinentCode, NextCountryCode, NextSubdivisionCode
--- will be populated. You can pass these as parameters to StartContinentCode,
--- StartCountryCode, StartSubdivisionCode to control the geo location that the
--- list begins with.
+-- | To retrieve a list of supported geo locations, send a @GET@ request to the
+-- @2013-04-01/geolocations@ resource. The response to this request includes a
+-- @GeoLocationDetailsList@ element with zero, one, or multiple
+-- @GeoLocationDetails@ child elements. The list is sorted by country code,
+-- and then subdivision code, followed by continents at the end of the list.
+-- By default, the list of geo locations is displayed on a single page. You
+-- can control the length of the page that is displayed by using the
+-- @MaxItems@ parameter. If the list is truncated, @IsTruncated@ will be set
+-- to /true/ and a combination of @NextContinentCode, NextCountryCode,
+-- NextSubdivisionCode@ will be populated. You can pass these as parameters to
+-- @StartContinentCode, StartCountryCode, StartSubdivisionCode@ to control the
+-- geo location that the list begins with.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html>
 module Network.AWS.Route53.ListGeoLocations
@@ -96,26 +96,26 @@ lglMaxItems :: Lens' ListGeoLocations (Maybe Text)
 lglMaxItems = lens _lglMaxItems (\s a -> s { _lglMaxItems = a })
 
 -- | The first continent code in the lexicographic ordering of geo locations
--- that you want the ListGeoLocations request to list. For non-continent geo
--- locations, this should be null. Valid values: AF | AN | AS | EU | OC | NA
--- | SA Constraint: Specifying ContinentCode with either CountryCode or
--- SubdivisionCode returns an InvalidInput> error.
+-- that you want the @ListGeoLocations@ request to list. For non-continent
+-- geo locations, this should be null. Valid values: @AF@ | @AN@ | @AS@ |
+-- @EU@ | @OC@ | @NA@ | @SA@ Constraint: Specifying @ContinentCode@ with
+-- either @CountryCode@ or @SubdivisionCode@ returns an InvalidInput> error.
 lglStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartContinentCode =
     lens _lglStartContinentCode (\s a -> s { _lglStartContinentCode = a })
 
 -- | The first country code in the lexicographic ordering of geo locations
--- that you want the ListGeoLocations request to list. The default geo
--- location uses a * for the country code. All other country codes follow
+-- that you want the @ListGeoLocations@ request to list. The default geo
+-- location uses a @*@ for the country code. All other country codes follow
 -- the ISO 3166 two-character code.
 lglStartCountryCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartCountryCode =
     lens _lglStartCountryCode (\s a -> s { _lglStartCountryCode = a })
 
 -- | The first subdivision code in the lexicographic ordering of geo locations
--- that you want the ListGeoLocations request to list. Constraint:
--- Specifying SubdivisionCode without CountryCode returns an InvalidInput>
--- error.
+-- that you want the @ListGeoLocations@ request to list. Constraint:
+-- Specifying @SubdivisionCode@ without @CountryCode@ returns an
+-- InvalidInput> error.
 lglStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartSubdivisionCode =
     lens _lglStartSubdivisionCode (\s a -> s { _lglStartSubdivisionCode = a })
@@ -171,12 +171,12 @@ lglrGeoLocationDetailsList =
 -- ListGeoLocationsResponse$NextContinentCode>,
 -- ListGeoLocationsResponse$NextCountryCode> and
 -- ListGeoLocationsResponse$NextSubdivisionCode> elements. Valid Values:
--- true | false.
+-- @true@ | @false@.
 lglrIsTruncated :: Lens' ListGeoLocationsResponse Bool
 lglrIsTruncated = lens _lglrIsTruncated (\s a -> s { _lglrIsTruncated = a })
 
 -- | The maximum number of records you requested. The maximum value of
--- MaxItems is 100.
+-- @MaxItems@ is 100.
 lglrMaxItems :: Lens' ListGeoLocationsResponse Text
 lglrMaxItems = lens _lglrMaxItems (\s a -> s { _lglrMaxItems = a })
 

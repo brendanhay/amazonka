@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | To retrieve the delegation set for a hosted zone, send a GET request to the
--- 2013-04-01/hostedzone//hosted zone ID/ resource. The delegation set is the
--- four Route 53 name servers that were assigned to the hosted zone when you
--- created it.
+-- | To retrieve the delegation set for a hosted zone, send a @GET@ request to
+-- the @2013-04-01/hostedzone//hosted zone ID/@ resource. The delegation set
+-- is the four Route 53 name servers that were assigned to the hosted zone
+-- when you created it.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html>
 module Network.AWS.Route53.GetHostedZone

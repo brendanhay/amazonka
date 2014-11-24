@@ -77,23 +77,23 @@ describeVpnGateways = DescribeVpnGateways
 dvg2DryRun :: Lens' DescribeVpnGateways (Maybe Bool)
 dvg2DryRun = lens _dvg2DryRun (\s a -> s { _dvg2DryRun = a })
 
--- | One or more filters. attachment.state - The current state of the
--- attachment between the gateway and the VPC (attaching | attached |
--- detaching | detached). attachment.vpc-id - The ID of an attached VPC.
--- availability-zone - The Availability Zone for the virtual private
--- gateway. state - The state of the virtual private gateway (pending |
--- available | deleting | deleted). tag:/key/=/value/ - The key/value
--- combination of a tag assigned to the resource. tag-key - The key of a tag
--- assigned to the resource. This filter is independent of the tag-value
--- filter. For example, if you use both the filter "tag-key=Purpose" and the
--- filter "tag-value=X", you get any resources assigned both the tag key
--- Purpose (regardless of what the tag's value is), and the tag value X
--- (regardless of what the tag's key is). If you want to list only resources
--- where Purpose is X, see the tag:/key/=/value/ filter. tag-value - The
--- value of a tag assigned to the resource. This filter is independent of
--- the tag-key filter. type - The type of virtual private gateway. Currently
--- the only supported type is ipsec.1. vpn-gateway-id - The ID of the
--- virtual private gateway.
+-- | One or more filters. @attachment.state@ - The current state of the
+-- attachment between the gateway and the VPC (@attaching@ | @attached@ |
+-- @detaching@ | @detached@). @attachment.vpc-id@ - The ID of an attached
+-- VPC. @availability-zone@ - The Availability Zone for the virtual private
+-- gateway. @state@ - The state of the virtual private gateway (@pending@ |
+-- @available@ | @deleting@ | @deleted@). @tag@:/key/=/value/ - The
+-- key/value combination of a tag assigned to the resource. @tag-key@ - The
+-- key of a tag assigned to the resource. This filter is independent of the
+-- @tag-value@ filter. For example, if you use both the filter
+-- "tag-key=Purpose" and the filter "tag-value=X", you get any resources
+-- assigned both the tag key Purpose (regardless of what the tag's value
+-- is), and the tag value X (regardless of what the tag's key is). If you
+-- want to list only resources where Purpose is X, see the
+-- @tag@:/key/=/value/ filter. @tag-value@ - The value of a tag assigned to
+-- the resource. This filter is independent of the @tag-key@ filter. @type@
+-- - The type of virtual private gateway. Currently the only supported type
+-- is @ipsec.1@. @vpn-gateway-id@ - The ID of the virtual private gateway.
 dvg2Filters :: Lens' DescribeVpnGateways [Filter]
 dvg2Filters = lens _dvg2Filters (\s a -> s { _dvg2Filters = a }) . _List
 

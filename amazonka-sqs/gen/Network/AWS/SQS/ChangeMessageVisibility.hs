@@ -28,11 +28,11 @@
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html
 -- Visibility Timeout> in the /Amazon SQS Developer Guide/.) For example,
 -- let's say you have a message and its default message visibility timeout is
--- 30 minutes. You could call ChangeMessageVisiblity with a value of two hours
--- and the effective timeout would be two hours and 30 minutes. When that time
--- comes near you could again extend the time out by calling
+-- 30 minutes. You could call @ChangeMessageVisiblity@ with a value of two
+-- hours and the effective timeout would be two hours and 30 minutes. When
+-- that time comes near you could again extend the time out by calling
 -- ChangeMessageVisiblity, but this time the maximum allowed timeout would be
--- 9 hours and 30 minutes. If you attempt to set the VisibilityTimeout to an
+-- 9 hours and 30 minutes. If you attempt to set the @VisibilityTimeout@ to an
 -- amount more than the maximum time left, Amazon SQS returns an error. It
 -- will not automatically recalculate and increase the timeout to the maximum
 -- time remaining. Unlike with a queue, when you change the visibility timeout
@@ -40,7 +40,7 @@
 -- not saved in memory for that message. If you don't delete a message after
 -- it is received, the visibility timeout for the message the next time it is
 -- received reverts to the original timeout value, not the value you set with
--- the ChangeMessageVisibility action.
+-- the @ChangeMessageVisibility@ action.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibility.html>
 module Network.AWS.SQS.ChangeMessageVisibility

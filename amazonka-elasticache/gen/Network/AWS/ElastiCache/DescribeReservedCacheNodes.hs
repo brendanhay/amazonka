@@ -105,8 +105,8 @@ drcnCacheNodeType =
     lens _drcnCacheNodeType (\s a -> s { _drcnCacheNodeType = a })
 
 -- | The duration filter value, specified in years or seconds. Use this
--- parameter to show only reservations for this duration. Valid Values: 1 |
--- 3 | 31536000 | 94608000.
+-- parameter to show only reservations for this duration. Valid Values: @1 |
+-- 3 | 31536000 | 94608000@.
 drcnDuration :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnDuration = lens _drcnDuration (\s a -> s { _drcnDuration = a })
 
@@ -118,7 +118,7 @@ drcnMarker :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnMarker = lens _drcnMarker (\s a -> s { _drcnMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified MaxRecords value, a marker is included in the
+-- exist than the specified @MaxRecords@ value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
 drcnMaxRecords :: Lens' DescribeReservedCacheNodes (Maybe Int)
@@ -126,7 +126,7 @@ drcnMaxRecords = lens _drcnMaxRecords (\s a -> s { _drcnMaxRecords = a })
 
 -- | The offering type filter value. Use this parameter to show only the
 -- available offerings matching the specified offering type. Valid values:
--- "Light Utilization" | "Medium Utilization" | "Heavy Utilization".
+-- @"Light Utilization" | "Medium Utilization" | "Heavy Utilization"@.
 drcnOfferingType :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnOfferingType = lens _drcnOfferingType (\s a -> s { _drcnOfferingType = a })
 

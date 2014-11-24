@@ -91,25 +91,26 @@ dcvClusterParameterGroupFamily =
     lens _dcvClusterParameterGroupFamily
         (\s a -> s { _dcvClusterParameterGroupFamily = a })
 
--- | The specific cluster version to return. Example: 1.0.
+-- | The specific cluster version to return. Example: @1.0@.
 dcvClusterVersion :: Lens' DescribeClusterVersions (Maybe Text)
 dcvClusterVersion =
     lens _dcvClusterVersion (\s a -> s { _dcvClusterVersion = a })
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusterVersions>
--- request exceed the value specified in MaxRecords, AWS returns a value in
--- the Marker field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the Marker
+-- request exceed the value specified in @MaxRecords@, AWS returns a value
+-- in the @Marker@ field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
 dcvMarker :: Lens' DescribeClusterVersions (Maybe Text)
 dcvMarker = lens _dcvMarker (\s a -> s { _dcvMarker = a })
 
 -- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified MaxRecords
--- value, a value is returned in a marker field of the response. You can
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
 -- retrieve the next set of records by retrying the command with the
--- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
+-- returned marker value. Default: @100@ Constraints: minimum 20, maximum
+-- 100.
 dcvMaxRecords :: Lens' DescribeClusterVersions (Maybe Int)
 dcvMaxRecords = lens _dcvMaxRecords (\s a -> s { _dcvMaxRecords = a })
 
@@ -132,7 +133,7 @@ describeClusterVersionsResponse = DescribeClusterVersionsResponse
     , _dcvrClusterVersions = mempty
     }
 
--- | A list of Version elements.
+-- | A list of @Version@ elements.
 dcvrClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
 dcvrClusterVersions =
     lens _dcvrClusterVersions (\s a -> s { _dcvrClusterVersions = a })
@@ -141,8 +142,8 @@ dcvrClusterVersions =
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
--- marker value in the Marker parameter and retrying the command. If the
--- Marker field is empty, all response records have been retrieved for the
+-- marker value in the @Marker@ parameter and retrying the command. If the
+-- @Marker@ field is empty, all response records have been retrieved for the
 -- request.
 dcvrMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
 dcvrMarker = lens _dcvrMarker (\s a -> s { _dcvrMarker = a })

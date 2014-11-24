@@ -68,13 +68,13 @@ listPresets = ListPresets
     }
 
 -- | To list presets in chronological order by the date and time that they
--- were created, enter true. To list presets in reverse chronological order,
--- enter false.
+-- were created, enter @true@. To list presets in reverse chronological
+-- order, enter @false@.
 lp1Ascending :: Lens' ListPresets (Maybe Text)
 lp1Ascending = lens _lp1Ascending (\s a -> s { _lp1Ascending = a })
 
 -- | When Elastic Transcoder returns more than one page of results, use
--- pageToken in subsequent GET requests to get each successive page of
+-- @pageToken@ in subsequent @GET@ requests to get each successive page of
 -- results.
 lp1PageToken :: Lens' ListPresets (Maybe Text)
 lp1PageToken = lens _lp1PageToken (\s a -> s { _lp1PageToken = a })
@@ -100,12 +100,12 @@ listPresetsResponse = ListPresetsResponse
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the presets fit on one page or when you've reached
--- the last page of results, the value of NextPageToken is null.
+-- the last page of results, the value of @NextPageToken@ is @null@.
 lpr1NextPageToken :: Lens' ListPresetsResponse (Maybe Text)
 lpr1NextPageToken =
     lens _lpr1NextPageToken (\s a -> s { _lpr1NextPageToken = a })
 
--- | An array of Preset objects.
+-- | An array of @Preset@ objects.
 lpr1Presets :: Lens' ListPresetsResponse [Preset]
 lpr1Presets = lens _lpr1Presets (\s a -> s { _lpr1Presets = a }) . _List
 

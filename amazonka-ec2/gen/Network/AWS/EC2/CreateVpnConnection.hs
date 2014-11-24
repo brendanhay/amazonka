@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a VPN connection between an existing virtual private gateway and a
--- VPN customer gateway. The only supported connection type is ipsec.1. The
+-- VPN customer gateway. The only supported connection type is @ipsec.1@. The
 -- response includes information that you need to give to your network
 -- administrator to configure your customer gateway. We strongly recommend
 -- that you use HTTPS when calling this operation because the response
@@ -105,11 +105,11 @@ cvcDryRun = lens _cvcDryRun (\s a -> s { _cvcDryRun = a })
 
 -- | Indicates whether the VPN connection requires static routes. If you are
 -- creating a VPN connection for a device that does not support BGP, you
--- must specify true. Default: false.
+-- must specify @true@. Default: @false@.
 cvcOptions :: Lens' CreateVpnConnection (Maybe VpnConnectionOptionsSpecification)
 cvcOptions = lens _cvcOptions (\s a -> s { _cvcOptions = a })
 
--- | The type of VPN connection (ipsec.1).
+-- | The type of VPN connection (@ipsec.1@).
 cvcType :: Lens' CreateVpnConnection Text
 cvcType = lens _cvcType (\s a -> s { _cvcType = a })
 

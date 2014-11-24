@@ -21,11 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Modifies the attributes of a specified load balancer. You can modify the
--- load balancer attributes, such as AccessLogs, ConnectionDraining, and
--- CrossZoneLoadBalancing by either enabling or disabling them. Or, you can
--- modify the load balancer attribute ConnectionSettings by specifying an idle
--- connection timeout value for your load balancer. For more information, see
--- the following:
+-- load balancer attributes, such as @AccessLogs@, @ConnectionDraining@, and
+-- @CrossZoneLoadBalancing@ by either enabling or disabling them. Or, you can
+-- modify the load balancer attribute @ConnectionSettings@ by specifying an
+-- idle connection timeout value for your load balancer. For more information,
+-- see the following:
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#request-routing
 -- Cross-Zone Load Balancing>
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain

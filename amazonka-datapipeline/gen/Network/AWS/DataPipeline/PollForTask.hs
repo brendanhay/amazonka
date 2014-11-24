@@ -31,7 +31,7 @@
 -- a poll connection for up to a 90 seconds during which time the first newly
 -- scheduled task is handed to the task runner. To accomodate this, set the
 -- socket timeout in your task runner to 90 seconds. The task runner should
--- not call PollForTask> again on the same workerGroup until it receives a
+-- not call PollForTask> again on the same @workerGroup@ until it receives a
 -- response, and this may take up to 90 seconds.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PollForTask.html>
@@ -89,7 +89,7 @@ pftHostname = lens _pftHostname (\s a -> s { _pftHostname = a })
 
 -- | Identity information for the Amazon EC2 instance that is hosting the task
 -- runner. You can get this value by calling the URI,
--- http://169.254.169.254/latest/meta-data/instance-id, from the EC2
+-- @http://169.254.169.254/latest/meta-data/instance-id@, from the EC2
 -- instance. For more information, go to
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html
 -- Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide./
@@ -103,8 +103,8 @@ pftInstanceIdentity =
 -- | Indicates the type of task the task runner is configured to accept and
 -- process. The worker group is set as a field on objects in the pipeline
 -- when they are created. You can only specify a single value for
--- workerGroup in the call to PollForTask>. There are no wildcard values
--- permitted in workerGroup, the string must be an exact, case-sensitive,
+-- @workerGroup@ in the call to PollForTask>. There are no wildcard values
+-- permitted in @workerGroup@, the string must be an exact, case-sensitive,
 -- match.
 pftWorkerGroup :: Lens' PollForTask Text
 pftWorkerGroup = lens _pftWorkerGroup (\s a -> s { _pftWorkerGroup = a })

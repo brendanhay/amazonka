@@ -87,8 +87,8 @@ rcpgParameterGroupName =
 rcpgParameters :: Lens' ResetClusterParameterGroup [Parameter]
 rcpgParameters = lens _rcpgParameters (\s a -> s { _rcpgParameters = a }) . _List
 
--- | If true, all parameters in the specified parameter group will be reset to
--- their default values. Default: true.
+-- | If @true@, all parameters in the specified parameter group will be reset
+-- to their default values. Default: @true@.
 rcpgResetAllParameters :: Lens' ResetClusterParameterGroup (Maybe Bool)
 rcpgResetAllParameters =
     lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })

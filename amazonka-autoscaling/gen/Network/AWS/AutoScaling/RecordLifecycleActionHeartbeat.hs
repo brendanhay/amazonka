@@ -22,7 +22,7 @@
 
 -- | Records a heartbeat for the lifecycle action associated with a specific
 -- token. This extends the timeout by the length of time defined by the
--- HeartbeatTimeout parameter of PutLifecycleHook>. This operation is a part
+-- @HeartbeatTimeout@ parameter of PutLifecycleHook>. This operation is a part
 -- of the basic sequence for adding a lifecycle hook to an Auto Scaling group:
 -- Create a notification target. A target can be either an Amazon SQS queue or
 -- an Amazon SNS topic. Create an IAM role. This role allows Auto Scaling to

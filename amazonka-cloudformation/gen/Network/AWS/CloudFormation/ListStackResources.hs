@@ -105,7 +105,7 @@ listStackResourcesResponse = ListStackResourcesResponse
 lsrrNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
 lsrrNextToken = lens _lsrrNextToken (\s a -> s { _lsrrNextToken = a })
 
--- | A list of StackResourceSummary structures.
+-- | A list of @StackResourceSummary@ structures.
 lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]
 lsrrStackResourceSummaries =
     lens _lsrrStackResourceSummaries

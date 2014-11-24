@@ -29,9 +29,9 @@
 -- accidental termination of a job flow and to ensure that in the event of an
 -- error, the instances will persist so you can recover any data stored in
 -- their ephemeral instance storage. To terminate a job flow that has been
--- locked by setting SetTerminationProtection to true, you must first unlock
+-- locked by setting SetTerminationProtection to @true@, you must first unlock
 -- the job flow by a subsequent call to SetTerminationProtection in which you
--- set the value to false. For more information, go to
+-- set the value to @false@. For more information, go to
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html
 -- Protecting a Job Flow from Termination> in the /Amazon Elastic MapReduce
 -- Developer's Guide./.

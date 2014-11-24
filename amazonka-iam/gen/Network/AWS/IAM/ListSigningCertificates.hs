@@ -23,8 +23,8 @@
 -- | Returns information about the signing certificates associated with the
 -- specified user. If there are none, the action returns an empty list.
 -- Although each user is limited to a small number of signing certificates,
--- you can still paginate the results using the MaxItems and Marker
--- parameters. If the UserName field is not specified, the user name is
+-- you can still paginate the results using the @MaxItems@ and @Marker@
+-- parameters. If the @UserName@ field is not specified, the user name is
 -- determined implicitly based on the AWS access key ID used to sign the
 -- request. Because this action works for access keys under the AWS account,
 -- you can use this action to manage root credentials even if the AWS account
@@ -82,15 +82,15 @@ listSigningCertificates = ListSigningCertificates
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it
--- to the value of the Marker element in the response you just received.
+-- to the value of the @Marker@ element in the response you just received.
 lsc1Marker :: Lens' ListSigningCertificates (Maybe Text)
 lsc1Marker = lens _lsc1Marker (\s a -> s { _lsc1Marker = a })
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- certificate IDs you want in the response. If there are additional
--- certificate IDs beyond the maximum you specify, the IsTruncated response
--- element is true. This parameter is optional. If you do not include it, it
--- defaults to 100.
+-- certificate IDs beyond the maximum you specify, the @IsTruncated@
+-- response element is @true@. This parameter is optional. If you do not
+-- include it, it defaults to 100.
 lsc1MaxItems :: Lens' ListSigningCertificates (Maybe Natural)
 lsc1MaxItems = lens _lsc1MaxItems (\s a -> s { _lsc1MaxItems = a }) . mapping _Nat
 
@@ -129,13 +129,14 @@ lscr1Certificates =
 
 -- | A flag that indicates whether there are more certificate IDs to list. If
 -- your results were truncated, you can make a subsequent pagination request
--- using the Marker request parameter to retrieve more certificates in the
+-- using the @Marker@ request parameter to retrieve more certificates in the
 -- list.
 lscr1IsTruncated :: Lens' ListSigningCertificatesResponse (Maybe Bool)
 lscr1IsTruncated = lens _lscr1IsTruncated (\s a -> s { _lscr1IsTruncated = a })
 
--- | If IsTruncated is true, this element is present and contains the value to
--- use for the Marker parameter in a subsequent pagination request.
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 lscr1Marker :: Lens' ListSigningCertificatesResponse (Maybe Text)
 lscr1Marker = lens _lscr1Marker (\s a -> s { _lscr1Marker = a })
 

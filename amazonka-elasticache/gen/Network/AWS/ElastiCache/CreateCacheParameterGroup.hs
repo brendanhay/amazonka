@@ -76,7 +76,8 @@ createCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroup
     }
 
 -- | The name of the cache parameter group family the cache parameter group
--- can be used with. Valid values are: memcached1.4 | redis2.6 | redis2.8.
+-- can be used with. Valid values are: @memcached1.4@ | @redis2.6@ |
+-- @redis2.8@.
 ccpgCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup Text
 ccpgCacheParameterGroupFamily =
     lens _ccpgCacheParameterGroupFamily

@@ -90,8 +90,8 @@ rcpgParameterNameValues =
         . _List
 
 -- | If /true/, all parameters in the cache parameter group will be reset to
--- default values. If /false/, no such action occurs. Valid values: true |
--- false.
+-- default values. If /false/, no such action occurs. Valid values: @true@ |
+-- @false@.
 rcpgResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
 rcpgResetAllParameters =
     lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })

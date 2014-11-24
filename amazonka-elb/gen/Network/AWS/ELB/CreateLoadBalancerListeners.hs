@@ -70,8 +70,8 @@ createLoadBalancerListeners p1 = CreateLoadBalancerListeners
     , _clblListeners        = mempty
     }
 
--- | A list of LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
--- SSLCertificateId items.
+-- | A list of @LoadBalancerPort@, @InstancePort@, @Protocol@,
+-- @InstanceProtocol@, and @SSLCertificateId@ items.
 clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
 clblListeners = lens _clblListeners (\s a -> s { _clblListeners = a }) . _List
 

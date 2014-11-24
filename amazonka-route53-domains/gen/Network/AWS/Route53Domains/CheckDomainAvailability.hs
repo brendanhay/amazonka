@@ -97,13 +97,13 @@ checkDomainAvailabilityResponse p1 = CheckDomainAvailabilityResponse
     }
 
 -- | Whether the domain name is available for registering. Type: String Valid
--- values: AVAILABLE – The domain name is available. AVAILABLE_RESERVED –
--- The domain name is reserved under specific conditions. AVAILABLE_PREORDER
--- – The domain name is available and can be preordered. UNAVAILABLE – The
--- domain name is not available. UNAVAILABLE_PREMIUM – The domain name is
--- not available. UNAVAILABLE_RESTRICTED – The domain name is forbidden.
--- RESERVED – The domain name has been reserved for another person or
--- organization.
+-- values: @AVAILABLE@ – The domain name is available. @AVAILABLE_RESERVED@
+-- – The domain name is reserved under specific conditions.
+-- @AVAILABLE_PREORDER@ – The domain name is available and can be
+-- preordered. @UNAVAILABLE@ – The domain name is not available.
+-- @UNAVAILABLE_PREMIUM@ – The domain name is not available.
+-- @UNAVAILABLE_RESTRICTED@ – The domain name is forbidden. @RESERVED@ – The
+-- domain name has been reserved for another person or organization.
 cdarAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarAvailability = lens _cdarAvailability (\s a -> s { _cdarAvailability = a })
 

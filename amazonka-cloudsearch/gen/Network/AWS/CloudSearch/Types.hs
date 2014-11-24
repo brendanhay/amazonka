@@ -506,21 +506,21 @@ documentSuggesterOptions p1 = DocumentSuggesterOptions
     }
 
 -- | The level of fuzziness allowed when suggesting matches for a string:
--- none, low, or high. With none, the specified string is treated as an
--- exact prefix. With low, suggestions must differ from the specified string
--- by no more than one character. With high, suggestions can differ by up to
--- two characters. The default is none.
+-- @none@, @low@, or @high@. With none, the specified string is treated as
+-- an exact prefix. With low, suggestions must differ from the specified
+-- string by no more than one character. With high, suggestions can differ
+-- by up to two characters. The default is none.
 dsoFuzzyMatching :: Lens' DocumentSuggesterOptions (Maybe SuggesterFuzzyMatching)
 dsoFuzzyMatching = lens _dsoFuzzyMatching (\s a -> s { _dsoFuzzyMatching = a })
 
 -- | An expression that computes a score for each suggestion to control how
 -- they are sorted. The scores are rounded to the nearest integer, with a
 -- floor of 0 and a ceiling of 2^31-1. A document's relevance score is not
--- computed for suggestions, so sort expressions cannot reference the _score
--- value. To sort suggestions using a numeric field or existing expression,
--- simply specify the name of the field or expression. If no expression is
--- configured for the suggester, the suggestions are sorted with the closest
--- matches listed first.
+-- computed for suggestions, so sort expressions cannot reference the
+-- @_score@ value. To sort suggestions using a numeric field or existing
+-- expression, simply specify the name of the field or expression. If no
+-- expression is configured for the suggester, the suggestions are sorted
+-- with the closest matches listed first.
 dsoSortExpression :: Lens' DocumentSuggesterOptions (Maybe Text)
 dsoSortExpression =
     lens _dsoSortExpression (\s a -> s { _dsoSortExpression = a })
@@ -897,7 +897,7 @@ textArrayOptions = TextArrayOptions
     , _taoAnalysisScheme   = Nothing
     }
 
--- | The name of an analysis scheme for a text-array field.
+-- | The name of an analysis scheme for a @text-array@ field.
 taoAnalysisScheme :: Lens' TextArrayOptions (Maybe Text)
 taoAnalysisScheme =
     lens _taoAnalysisScheme (\s a -> s { _taoAnalysisScheme = a })
@@ -1043,13 +1043,13 @@ scalingParameters = ScalingParameters
     }
 
 -- | The instance type that you want to preconfigure for your domain. For
--- example, search.m1.small.
+-- example, @search.m1.small@.
 spDesiredInstanceType :: Lens' ScalingParameters (Maybe PartitionInstanceType)
 spDesiredInstanceType =
     lens _spDesiredInstanceType (\s a -> s { _spDesiredInstanceType = a })
 
 -- | The number of partitions you want to preconfigure for your domain. Only
--- valid when you select m2.2xlarge as the desired instance type.
+-- valid when you select @m2.2xlarge@ as the desired instance type.
 spDesiredPartitionCount :: Lens' ScalingParameters (Maybe Natural)
 spDesiredPartitionCount =
     lens _spDesiredPartitionCount (\s a -> s { _spDesiredPartitionCount = a })
@@ -1106,8 +1106,8 @@ analysisOptions = AnalysisOptions
     , _aoAlgorithmicStemming            = Nothing
     }
 
--- | The level of algorithmic stemming to perform: none, minimal, light, or
--- full. The available levels vary depending on the language. For more
+-- | The level of algorithmic stemming to perform: @none@, @minimal@, @light@,
+-- or @full@. The available levels vary depending on the language. For more
 -- information, see Language Specific Text Processing Settings> in the
 -- /Amazon CloudSearch Developer Guide/.
 aoAlgorithmicStemming :: Lens' AnalysisOptions (Maybe AlgorithmicStemming)
@@ -1124,17 +1124,18 @@ aoJapaneseTokenizationDictionary =
         (\s a -> s { _aoJapaneseTokenizationDictionary = a })
 
 -- | A JSON object that contains a collection of string:value pairs that each
--- map a term to its stem. For example, {"term1": "stem1", "term2": "stem2",
--- "term3": "stem3"}. The stemming dictionary is applied in addition to any
--- algorithmic stemming. This enables you to override the results of the
--- algorithmic stemming to correct specific cases of overstemming or
--- understemming. The maximum size of a stemming dictionary is 500 KB.
+-- map a term to its stem. For example, @{"term1": "stem1", "term2":
+-- "stem2", "term3": "stem3"}@. The stemming dictionary is applied in
+-- addition to any algorithmic stemming. This enables you to override the
+-- results of the algorithmic stemming to correct specific cases of
+-- overstemming or understemming. The maximum size of a stemming dictionary
+-- is 500 KB.
 aoStemmingDictionary :: Lens' AnalysisOptions (Maybe Text)
 aoStemmingDictionary =
     lens _aoStemmingDictionary (\s a -> s { _aoStemmingDictionary = a })
 
 -- | A JSON array of terms to ignore during indexing and searching. For
--- example, ["a", "an", "the", "of"]. The stopwords dictionary must
+-- example, @["a", "an", "the", "of"]@. The stopwords dictionary must
 -- explicitly list each word you want to ignore. Wildcards and regular
 -- expressions are not supported.
 aoStopwords :: Lens' AnalysisOptions (Maybe Text)
@@ -1286,7 +1287,7 @@ textOptions = TextOptions
     , _toAnalysisScheme   = Nothing
     }
 
--- | The name of an analysis scheme for a text field.
+-- | The name of an analysis scheme for a @text@ field.
 toAnalysisScheme :: Lens' TextOptions (Maybe Text)
 toAnalysisScheme = lens _toAnalysisScheme (\s a -> s { _toAnalysisScheme = a })
 
@@ -1804,11 +1805,11 @@ osPendingDeletion =
     lens _osPendingDeletion (\s a -> s { _osPendingDeletion = a })
 
 -- | The state of processing a change to an option. Possible values:
--- RequiresIndexDocuments: the option's latest value will not be deployed
+-- @RequiresIndexDocuments@: the option's latest value will not be deployed
 -- until IndexDocuments> has been called and indexing is complete.
--- Processing: the option's latest value is in the process of being
--- activated. Active: the option's latest value is completely deployed.
--- FailedToValidate: the option value is not compatible with the domain's
+-- @Processing@: the option's latest value is in the process of being
+-- activated. @Active@: the option's latest value is completely deployed.
+-- @FailedToValidate@: the option value is not compatible with the domain's
 -- data and cannot be used to index the data. You must either modify the
 -- option value or update or remove the incompatible documents.
 osState :: Lens' OptionStatus OptionState

@@ -76,8 +76,8 @@ describeKeyPairs = DescribeKeyPairs
 dkp1DryRun :: Lens' DescribeKeyPairs (Maybe Bool)
 dkp1DryRun = lens _dkp1DryRun (\s a -> s { _dkp1DryRun = a })
 
--- | One or more filters. fingerprint - The fingerprint of the key pair.
--- key-name - The name of the key pair.
+-- | One or more filters. @fingerprint@ - The fingerprint of the key pair.
+-- @key-name@ - The name of the key pair.
 dkp1Filters :: Lens' DescribeKeyPairs [Filter]
 dkp1Filters = lens _dkp1Filters (\s a -> s { _dkp1Filters = a }) . _List
 

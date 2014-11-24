@@ -77,13 +77,13 @@ changeTagsForResource p1 p2 p3 p4 = ChangeTagsForResource
     , _ctfrRemoveTagKeys = withIso _List1 (const id) p4
     }
 
--- | A complex type that contains a list of Tag elements. Each Tag element
+-- | A complex type that contains a list of @Tag@ elements. Each @Tag@ element
 -- identifies a tag that you want to add or update for the specified
 -- resource.
 ctfrAddTags :: Lens' ChangeTagsForResource (NonEmpty Tag)
 ctfrAddTags = lens _ctfrAddTags (\s a -> s { _ctfrAddTags = a }) . _List1
 
--- | A list of Tag keys that you want to remove from the specified resource.
+-- | A list of @Tag@ keys that you want to remove from the specified resource.
 ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (NonEmpty Text)
 ctfrRemoveTagKeys =
     lens _ctfrRemoveTagKeys (\s a -> s { _ctfrRemoveTagKeys = a })
@@ -94,7 +94,7 @@ ctfrResourceId :: Lens' ChangeTagsForResource Text
 ctfrResourceId = lens _ctfrResourceId (\s a -> s { _ctfrResourceId = a })
 
 -- | The type of the resource. The resource type for health checks is
--- healthcheck.
+-- @healthcheck@.
 ctfrResourceType :: Lens' ChangeTagsForResource TagResourceType
 ctfrResourceType = lens _ctfrResourceType (\s a -> s { _ctfrResourceType = a })
 

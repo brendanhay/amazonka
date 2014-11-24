@@ -85,7 +85,7 @@ elBucketName :: Lens' EnableLogging Text
 elBucketName = lens _elBucketName (\s a -> s { _elBucketName = a })
 
 -- | The identifier of the cluster on which logging is to be started. Example:
--- examplecluster.
+-- @examplecluster@.
 elClusterIdentifier :: Lens' EnableLogging Text
 elClusterIdentifier =
     lens _elClusterIdentifier (\s a -> s { _elClusterIdentifier = a })
@@ -154,7 +154,7 @@ elrLastSuccessfulDeliveryTime =
         (\s a -> s { _elrLastSuccessfulDeliveryTime = a })
             . mapping _Time
 
--- | true if logging is on, false if logging is off.
+-- | @true@ if logging is on, @false@ if logging is off.
 elrLoggingEnabled :: Lens' EnableLoggingResponse (Maybe Bool)
 elrLoggingEnabled =
     lens _elrLoggingEnabled (\s a -> s { _elrLoggingEnabled = a })

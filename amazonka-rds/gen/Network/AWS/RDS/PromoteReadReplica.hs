@@ -89,13 +89,13 @@ prrDBInstanceIdentifier =
     lens _prrDBInstanceIdentifier (\s a -> s { _prrDBInstanceIdentifier = a })
 
 -- | The daily time range during which automated backups are created if
--- automated backups are enabled, using the BackupRetentionPeriod parameter.
--- Default: A 30-minute window selected at random from an 8-hour block of
--- time per region. See the Amazon RDS User Guide for the time blocks for
--- each region from which the default backup windows are assigned.
--- Constraints: Must be in the format hh24:mi-hh24:mi. Times should be
--- Universal Time Coordinated (UTC). Must not conflict with the preferred
--- maintenance window. Must be at least 30 minutes.
+-- automated backups are enabled, using the @BackupRetentionPeriod@
+-- parameter. Default: A 30-minute window selected at random from an 8-hour
+-- block of time per region. See the Amazon RDS User Guide for the time
+-- blocks for each region from which the default backup windows are
+-- assigned. Constraints: Must be in the format @hh24:mi-hh24:mi@. Times
+-- should be Universal Time Coordinated (UTC). Must not conflict with the
+-- preferred maintenance window. Must be at least 30 minutes.
 prrPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
 prrPreferredBackupWindow =
     lens _prrPreferredBackupWindow

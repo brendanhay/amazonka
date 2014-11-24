@@ -116,7 +116,7 @@ createSnapshotResponse = CreateSnapshotResponse
 
 -- | The snapshot ID that is used to refer to the snapshot in future
 -- operations such as describing snapshots (Amazon Elastic Compute Cloud API
--- DescribeSnapshots) or creating a volume from a snapshot
+-- @DescribeSnapshots@) or creating a volume from a snapshot
 -- (CreateStorediSCSIVolume>).
 csrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })

@@ -528,8 +528,8 @@ snapshot = Snapshot
     }
 
 -- | A list of the AWS customer accounts authorized to restore the snapshot.
--- Returns null if no accounts are authorized. Visible only to the snapshot
--- owner.
+-- Returns @null@ if no accounts are authorized. Visible only to the
+-- snapshot owner.
 sAccountsWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
 sAccountsWithRestoreAccess =
     lens _sAccountsWithRestoreAccess
@@ -571,7 +571,7 @@ sClusterVersion :: Lens' Snapshot (Maybe Text)
 sClusterVersion = lens _sClusterVersion (\s a -> s { _sClusterVersion = a })
 
 -- | The number of megabytes per second being transferred to the snapshot
--- backup. Returns 0 for a completed backup.
+-- backup. Returns @0@ for a completed backup.
 sCurrentBackupRateInMegaBytesPerSecond :: Lens' Snapshot (Maybe Double)
 sCurrentBackupRateInMegaBytesPerSecond =
     lens _sCurrentBackupRateInMegaBytesPerSecond
@@ -587,19 +587,19 @@ sElapsedTimeInSeconds :: Lens' Snapshot (Maybe Integer)
 sElapsedTimeInSeconds =
     lens _sElapsedTimeInSeconds (\s a -> s { _sElapsedTimeInSeconds = a })
 
--- | If true, the data in the snapshot is encrypted at rest.
+-- | If @true@, the data in the snapshot is encrypted at rest.
 sEncrypted :: Lens' Snapshot (Maybe Bool)
 sEncrypted = lens _sEncrypted (\s a -> s { _sEncrypted = a })
 
 -- | A boolean that indicates whether the snapshot data is encrypted using the
--- HSM keys of the source cluster. true indicates that the data is encrypted
--- using HSM keys.
+-- HSM keys of the source cluster. @true@ indicates that the data is
+-- encrypted using HSM keys.
 sEncryptedWithHSM :: Lens' Snapshot (Maybe Bool)
 sEncryptedWithHSM =
     lens _sEncryptedWithHSM (\s a -> s { _sEncryptedWithHSM = a })
 
 -- | The estimate of the time remaining before the snapshot backup will
--- complete. Returns 0 for a completed backup.
+-- complete. Returns @0@ for a completed backup.
 sEstimatedSecondsToCompletion :: Lens' Snapshot (Maybe Integer)
 sEstimatedSecondsToCompletion =
     lens _sEstimatedSecondsToCompletion
@@ -1247,7 +1247,7 @@ cluster = Cluster
     , _cKmsKeyId                         = Nothing
     }
 
--- | If true, major version upgrades will be applied automatically to the
+-- | If @true@, major version upgrades will be applied automatically to the
 -- cluster during the maintenance window.
 cAllowVersionUpgrade :: Lens' Cluster (Maybe Bool)
 cAllowVersionUpgrade =
@@ -1298,10 +1298,10 @@ cClusterRevisionNumber =
 
 -- | A list of cluster security group that are associated with the cluster.
 -- Each security group is represented by an element that contains
--- ClusterSecurityGroup.Name and ClusterSecurityGroup.Status subelements.
--- Cluster security groups are used when the cluster is not created in a
--- VPC. Clusters that are created in a VPC use VPC security groups, which
--- are listed by the VpcSecurityGroups parameter.
+-- @ClusterSecurityGroup.Name@ and @ClusterSecurityGroup.Status@
+-- subelements. Cluster security groups are used when the cluster is not
+-- created in a VPC. Clusters that are created in a VPC use VPC security
+-- groups, which are listed by the VpcSecurityGroups parameter.
 cClusterSecurityGroups :: Lens' Cluster [ClusterSecurityGroupMembership]
 cClusterSecurityGroups =
     lens _cClusterSecurityGroups (\s a -> s { _cClusterSecurityGroups = a })
@@ -1314,8 +1314,8 @@ cClusterSnapshotCopyStatus =
     lens _cClusterSnapshotCopyStatus
         (\s a -> s { _cClusterSnapshotCopyStatus = a })
 
--- | The current state of this cluster. Possible values include available,
--- creating, deleting, rebooting, renaming, and resizing.
+-- | The current state of this cluster. Possible values include @available@,
+-- @creating@, @deleting@, @rebooting@, @renaming@, and @resizing@.
 cClusterStatus :: Lens' Cluster (Maybe Text)
 cClusterStatus = lens _cClusterStatus (\s a -> s { _cClusterStatus = a })
 
@@ -1341,7 +1341,7 @@ cDBName = lens _cDBName (\s a -> s { _cDBName = a })
 cElasticIpStatus :: Lens' Cluster (Maybe ElasticIpStatus)
 cElasticIpStatus = lens _cElasticIpStatus (\s a -> s { _cElasticIpStatus = a })
 
--- | If true, data in the cluster is encrypted at rest.
+-- | If @true@, data in the cluster is encrypted at rest.
 cEncrypted :: Lens' Cluster (Maybe Bool)
 cEncrypted = lens _cEncrypted (\s a -> s { _cEncrypted = a })
 
@@ -1389,7 +1389,7 @@ cPreferredMaintenanceWindow =
     lens _cPreferredMaintenanceWindow
         (\s a -> s { _cPreferredMaintenanceWindow = a })
 
--- | If true, the cluster can be accessed from a public network.
+-- | If @true@, the cluster can be accessed from a public network.
 cPubliclyAccessible :: Lens' Cluster (Maybe Bool)
 cPubliclyAccessible =
     lens _cPubliclyAccessible (\s a -> s { _cPubliclyAccessible = a })
@@ -1568,7 +1568,7 @@ ecsgEC2SecurityGroupName =
         (\s a -> s { _ecsgEC2SecurityGroupName = a })
 
 -- | The AWS ID of the owner of the EC2 security group specified in the
--- EC2SecurityGroupName field.
+-- @EC2SecurityGroupName@ field.
 ecsgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgEC2SecurityGroupOwnerId =
     lens _ecsgEC2SecurityGroupOwnerId
@@ -1630,7 +1630,7 @@ ocoAvailabilityZones =
     lens _ocoAvailabilityZones (\s a -> s { _ocoAvailabilityZones = a })
         . _List
 
--- | The cluster type, for example multi-node.
+-- | The cluster type, for example @multi-node@.
 ocoClusterType :: Lens' OrderableClusterOption (Maybe Text)
 ocoClusterType = lens _ocoClusterType (\s a -> s { _ocoClusterType = a })
 
@@ -1881,8 +1881,8 @@ defaultClusterParameters = DefaultClusterParameters
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
--- marker value in the Marker parameter and retrying the command. If the
--- Marker field is empty, all response records have been retrieved for the
+-- marker value in the @Marker@ parameter and retrying the command. If the
+-- @Marker@ field is empty, all response records have been retrieved for the
 -- request.
 dcpMarker :: Lens' DefaultClusterParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\s a -> s { _dcpMarker = a })
@@ -1955,8 +1955,8 @@ csg1ClusterSubnetGroupName =
 csg1Description :: Lens' ClusterSubnetGroup (Maybe Text)
 csg1Description = lens _csg1Description (\s a -> s { _csg1Description = a })
 
--- | The status of the cluster subnet group. Possible values are Complete,
--- Incomplete and Invalid.
+-- | The status of the cluster subnet group. Possible values are @Complete@,
+-- @Incomplete@ and @Invalid@.
 csg1SubnetGroupStatus :: Lens' ClusterSubnetGroup (Maybe Text)
 csg1SubnetGroupStatus =
     lens _csg1SubnetGroupStatus (\s a -> s { _csg1SubnetGroupStatus = a })
@@ -2405,7 +2405,7 @@ lsLastSuccessfulDeliveryTime =
         (\s a -> s { _lsLastSuccessfulDeliveryTime = a })
             . mapping _Time
 
--- | true if logging is on, false if logging is off.
+-- | @true@ if logging is on, @false@ if logging is off.
 lsLoggingEnabled :: Lens' LoggingStatus (Maybe Bool)
 lsLoggingEnabled = lens _lsLoggingEnabled (\s a -> s { _lsLoggingEnabled = a })
 
@@ -2554,7 +2554,7 @@ esCustSubscriptionId =
 esCustomerAwsId :: Lens' EventSubscription (Maybe Text)
 esCustomerAwsId = lens _esCustomerAwsId (\s a -> s { _esCustomerAwsId = a })
 
--- | A Boolean value indicating whether the subscription is enabled. true
+-- | A Boolean value indicating whether the subscription is enabled. @true@
 -- indicates the subscription is enabled.
 esEnabled :: Lens' EventSubscription (Maybe Bool)
 esEnabled = lens _esEnabled (\s a -> s { _esEnabled = a })
@@ -2976,7 +2976,7 @@ taggedResource = TaggedResource
     }
 
 -- | The Amazon Resource Name (ARN) with which the tag is associated. For
--- example, arn:aws:redshift:us-east-1:123456789:cluster:t1.
+-- example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
 trResourceName :: Lens' TaggedResource (Maybe Text)
 trResourceName = lens _trResourceName (\s a -> s { _trResourceName = a })
 
@@ -3307,8 +3307,8 @@ pDataType = lens _pDataType (\s a -> s { _pDataType = a })
 pDescription :: Lens' Parameter (Maybe Text)
 pDescription = lens _pDescription (\s a -> s { _pDescription = a })
 
--- | If true, the parameter can be modified. Some parameters have security or
--- operational implications that prevent them from being changed.
+-- | If @true@, the parameter can be modified. Some parameters have security
+-- or operational implications that prevent them from being changed.
 pIsModifiable :: Lens' Parameter (Maybe Bool)
 pIsModifiable = lens _pIsModifiable (\s a -> s { _pIsModifiable = a })
 

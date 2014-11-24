@@ -141,19 +141,20 @@ drioAvailabilityZone =
 drioDryRun :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
 drioDryRun = lens _drioDryRun (\s a -> s { _drioDryRun = a })
 
--- | One or more filters. availability-zone - The Availability Zone where the
--- Reserved Instance can be used. duration - The duration of the Reserved
--- Instance (for example, one year or three years), in seconds (31536000 |
--- 94608000). fixed-price - The purchase price of the Reserved Instance (for
--- example, 9800.0). instance-type - The instance type on which the Reserved
--- Instance can be used. marketplace - Set to true to show only Reserved
--- Instance Marketplace offerings. When this filter is not used, which is
--- the default behavior, all offerings from AWS and Reserved Instance
--- Marketplace are listed. product-description - The description of the
--- Reserved Instance (Linux/UNIX | Linux/UNIX (Amazon VPC) | Windows |
--- Windows (Amazon VPC)). reserved-instances-offering-id - The Reserved
--- Instances offering ID. usage-price - The usage price of the Reserved
--- Instance, per hour (for example, 0.84).
+-- | One or more filters. @availability-zone@ - The Availability Zone where
+-- the Reserved Instance can be used. @duration@ - The duration of the
+-- Reserved Instance (for example, one year or three years), in seconds
+-- (@31536000@ | @94608000@). @fixed-price@ - The purchase price of the
+-- Reserved Instance (for example, 9800.0). @instance-type@ - The instance
+-- type on which the Reserved Instance can be used. @marketplace@ - Set to
+-- @true@ to show only Reserved Instance Marketplace offerings. When this
+-- filter is not used, which is the default behavior, all offerings from AWS
+-- and Reserved Instance Marketplace are listed. @product-description@ - The
+-- description of the Reserved Instance (@Linux/UNIX@ | @Linux/UNIX (Amazon
+-- VPC)@ | @Windows@ | @Windows (Amazon VPC)@).
+-- @reserved-instances-offering-id@ - The Reserved Instances offering ID.
+-- @usage-price@ - The usage price of the Reserved Instance, per hour (for
+-- example, 0.84).
 drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
 drioFilters = lens _drioFilters (\s a -> s { _drioFilters = a }) . _List
 
@@ -163,8 +164,8 @@ drioIncludeMarketplace =
     lens _drioIncludeMarketplace (\s a -> s { _drioIncludeMarketplace = a })
 
 -- | The tenancy of the Reserved Instance offering. A Reserved Instance with
--- dedicated tenancy runs on single-tenant hardware and can only be launched
--- within a VPC. Default: default.
+-- @dedicated@ tenancy runs on single-tenant hardware and can only be
+-- launched within a VPC. Default: @default@.
 drioInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
 drioInstanceTenancy =
     lens _drioInstanceTenancy (\s a -> s { _drioInstanceTenancy = a })
@@ -202,13 +203,13 @@ drioNextToken :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
 drioNextToken = lens _drioNextToken (\s a -> s { _drioNextToken = a })
 
 -- | The Reserved Instance offering type. If you are using tools that predate
--- the 2011-11-01 API version, you only have access to the Medium
--- Utilization Reserved Instance offering type.
+-- the 2011-11-01 API version, you only have access to the @Medium
+-- Utilization@ Reserved Instance offering type.
 drioOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingTypeValues)
 drioOfferingType = lens _drioOfferingType (\s a -> s { _drioOfferingType = a })
 
--- | The Reserved Instance description. Instances that include (Amazon VPC) in
--- the description are for use with Amazon VPC.
+-- | The Reserved Instance description. Instances that include @(Amazon VPC)@
+-- in the description are for use with Amazon VPC.
 drioProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
 drioProductDescription =
     lens _drioProductDescription (\s a -> s { _drioProductDescription = a })

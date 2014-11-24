@@ -24,8 +24,8 @@
 -- result of the delete action on each message is reported individually in the
 -- response. Because the batch request can result in a combination of
 -- successful and unsuccessful actions, you should check for batch errors even
--- when the call returns an HTTP status code of 200. &Attribute.1=this
--- &Attribute.2=that.
+-- when the call returns an HTTP status code of 200. @&Attribute.1=this@
+-- @&Attribute.2=that@.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html>
 module Network.AWS.SQS.DeleteMessageBatch

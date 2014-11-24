@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a manual snapshot of the specified cluster. The cluster must be in
--- the available state. For more information about working with snapshots, go
--- to
+-- the @available@ state. For more information about working with snapshots,
+-- go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
 -- Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management
 -- Guide/.
@@ -87,7 +87,7 @@ ccsClusterIdentifier =
 -- Constraints: Cannot be null, empty, or blank Must contain from 1 to 255
 -- alphanumeric characters or hyphens First character must be a letter
 -- Cannot end with a hyphen or contain two consecutive hyphens Example:
--- my-snapshot-id.
+-- @my-snapshot-id@.
 ccsSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
 ccsSnapshotIdentifier =
     lens _ccsSnapshotIdentifier (\s a -> s { _ccsSnapshotIdentifier = a })

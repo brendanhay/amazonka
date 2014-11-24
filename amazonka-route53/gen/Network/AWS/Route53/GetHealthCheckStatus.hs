@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | To retrieve the health check status, send a GET request to the
--- 2013-04-01/healthcheck//health check ID//status resource. You can use this
--- call to get a health check's current status.
+-- | To retrieve the health check status, send a @GET@ request to the
+-- @2013-04-01/healthcheck//health check ID//status@ resource. You can use
+-- this call to get a health check's current status.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckStatus.html>
 module Network.AWS.Route53.GetHealthCheckStatus
@@ -90,8 +90,8 @@ getHealthCheckStatusResponse = GetHealthCheckStatusResponse
     { _ghcsrHealthCheckObservations = mempty
     }
 
--- | A list that contains one HealthCheckObservation element for each Route 53
--- health checker.
+-- | A list that contains one @HealthCheckObservation@ element for each Route
+-- 53 health checker.
 ghcsrHealthCheckObservations :: Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
 ghcsrHealthCheckObservations =
     lens _ghcsrHealthCheckObservations

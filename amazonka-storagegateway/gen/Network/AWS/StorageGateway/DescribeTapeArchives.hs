@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a description of specified virtual tapes in the virtual tape shelf
--- (VTS). If a specific TapeARN is not specified, AWS Storage Gateway returns
--- a description of all virtual tapes found in the VTS associated with your
--- account.
+-- (VTS). If a specific @TapeARN@ is not specified, AWS Storage Gateway
+-- returns a description of all virtual tapes found in the VTS associated with
+-- your account.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeArchives.html>
 module Network.AWS.StorageGateway.DescribeTapeArchives

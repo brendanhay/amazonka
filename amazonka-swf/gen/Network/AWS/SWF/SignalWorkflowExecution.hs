@@ -20,18 +20,18 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Records a WorkflowExecutionSignaled event in the workflow execution history
--- and creates a decision task for the workflow execution identified by the
--- given domain, workflowId and runId. The event is recorded with the
+-- | Records a @WorkflowExecutionSignaled@ event in the workflow execution
+-- history and creates a decision task for the workflow execution identified
+-- by the given domain, workflowId and runId. The event is recorded with the
 -- specified user defined signalName and input (if provided). Access Control
 -- You can use IAM policies to control this action's access to Amazon SWF
--- resources as follows: Use a Resource element with the domain name to limit
--- the action to only specified domains. Use an Action element to allow or
--- deny permission to call this action. You cannot use an IAM policy to
--- constrain this action's parameters. If the caller does not have sufficient
--- permissions to invoke the action, or the parameter values fall outside the
--- specified constraints, the action fails by throwing OperationNotPermitted.
--- For details and example IAM policies, see
+-- resources as follows: Use a @Resource@ element with the domain name to
+-- limit the action to only specified domains. Use an @Action@ element to
+-- allow or deny permission to call this action. You cannot use an IAM policy
+-- to constrain this action's parameters. If the caller does not have
+-- sufficient permissions to invoke the action, or the parameter values fall
+-- outside the specified constraints, the action fails by throwing
+-- @OperationNotPermitted@. For details and example IAM policies, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
 -- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
@@ -98,7 +98,7 @@ signalWorkflowExecution p1 p2 p3 = SignalWorkflowExecution
 sweDomain :: Lens' SignalWorkflowExecution Text
 sweDomain = lens _sweDomain (\s a -> s { _sweDomain = a })
 
--- | Data to attach to the WorkflowExecutionSignaled event in the target
+-- | Data to attach to the @WorkflowExecutionSignaled@ event in the target
 -- workflow execution's history.
 sweInput :: Lens' SignalWorkflowExecution (Maybe Text)
 sweInput = lens _sweInput (\s a -> s { _sweInput = a })

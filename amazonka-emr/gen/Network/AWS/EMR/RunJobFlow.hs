@@ -24,18 +24,18 @@
 -- the steps specified. Once the job flow completes, the cluster is stopped
 -- and the HDFS partition is lost. To prevent loss of data, configure the last
 -- step of the job flow to store results in Amazon S3. If the
--- JobFlowInstancesConfig> KeepJobFlowAliveWhenNoSteps parameter is set to
--- TRUE, the job flow will transition to the WAITING state rather than
+-- JobFlowInstancesConfig> @KeepJobFlowAliveWhenNoSteps@ parameter is set to
+-- @TRUE@, the job flow will transition to the WAITING state rather than
 -- shutting down once the steps have completed. For additional protection, you
--- can set the JobFlowInstancesConfig> TerminationProtected parameter to TRUE
--- to lock the job flow and prevent it from being terminated by API call, user
--- intervention, or in the event of a job flow error. A maximum of 256 steps
--- are allowed in each job flow. If your job flow is long-running (such as a
--- Hive data warehouse) or complex, you may require more than 256 steps to
--- process your data. You can bypass the 256-step limitation in various ways,
--- including using the SSH shell to connect to the master node and submitting
--- queries directly to the software running on the master node, such as Hive
--- and Hadoop. For more information on how to do this, go to
+-- can set the JobFlowInstancesConfig> @TerminationProtected@ parameter to
+-- @TRUE@ to lock the job flow and prevent it from being terminated by API
+-- call, user intervention, or in the event of a job flow error. A maximum of
+-- 256 steps are allowed in each job flow. If your job flow is long-running
+-- (such as a Hive data warehouse) or complex, you may require more than 256
+-- steps to process your data. You can bypass the 256-step limitation in
+-- various ways, including using the SSH shell to connect to the master node
+-- and submitting queries directly to the software running on the master node,
+-- such as Hive and Hadoop. For more information on how to do this, go to
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html
 -- Add More than 256 Steps to a Job Flow> in the /Amazon Elastic MapReduce
 -- Developer's Guide/. For long running job flows, we recommend that you
@@ -151,9 +151,9 @@ rjfAdditionalInfo =
 -- "latest" (uses the latest AMI) The version number of the AMI to use, for
 -- example, "2.0" If the AMI supports multiple versions of Hadoop (for
 -- example, AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the
--- JobFlowInstancesConfig> HadoopVersion parameter to modify the version of
--- Hadoop from the defaults shown above. For details about the AMI versions
--- currently supported by Amazon Elastic MapReduce, go to
+-- JobFlowInstancesConfig> @HadoopVersion@ parameter to modify the version
+-- of Hadoop from the defaults shown above. For details about the AMI
+-- versions currently supported by Amazon Elastic MapReduce, go to
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported
 -- AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic
 -- MapReduce Developer's Guide./.
@@ -173,7 +173,7 @@ rjfInstances :: Lens' RunJobFlow JobFlowInstancesConfig
 rjfInstances = lens _rjfInstances (\s a -> s { _rjfInstances = a })
 
 -- | An IAM role for the job flow. The EC2 instances of the job flow assume
--- this role. The default role is EMRJobflowDefault. In order to use the
+-- this role. The default role is @EMRJobflowDefault@. In order to use the
 -- default role, you must have already created it using the CLI.
 rjfJobFlowRole :: Lens' RunJobFlow (Maybe Text)
 rjfJobFlowRole = lens _rjfJobFlowRole (\s a -> s { _rjfJobFlowRole = a })
@@ -228,10 +228,10 @@ rjfTags :: Lens' RunJobFlow [Tag]
 rjfTags = lens _rjfTags (\s a -> s { _rjfTags = a }) . _List
 
 -- | Whether the job flow is visible to all IAM users of the AWS account
--- associated with the job flow. If this value is set to true, all IAM users
--- of that AWS account can view and (if they have the proper policy
--- permissions set) manage the job flow. If it is set to false, only the IAM
--- user that created the job flow can view and manage it.
+-- associated with the job flow. If this value is set to @true@, all IAM
+-- users of that AWS account can view and (if they have the proper policy
+-- permissions set) manage the job flow. If it is set to @false@, only the
+-- IAM user that created the job flow can view and manage it.
 rjfVisibleToAllUsers :: Lens' RunJobFlow (Maybe Bool)
 rjfVisibleToAllUsers =
     lens _rjfVisibleToAllUsers (\s a -> s { _rjfVisibleToAllUsers = a })

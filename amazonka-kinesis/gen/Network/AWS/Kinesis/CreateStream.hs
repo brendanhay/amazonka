@@ -34,20 +34,20 @@
 -- the stream. The name is scoped to the AWS account used by the application.
 -- It is also scoped by region. That is, two streams in two different accounts
 -- can have the same name, and two streams in the same account, but in two
--- different regions, can have the same name. CreateStream is an asynchronous
--- operation. Upon receiving a CreateStream request, Amazon Kinesis
--- immediately returns and sets the stream status to CREATING. After the
--- stream is created, Amazon Kinesis sets the stream status to ACTIVE. You
--- should perform read and write operations only on an ACTIVE stream. You
--- receive a LimitExceededException when making a CreateStream request if you
--- try to do one of the following: Have more than five streams in the CREATING
--- state at any point in time. Create more shards than are authorized for your
--- account. The default limit for an AWS account is 10 shards per stream. If
--- you need to create a stream with more than 10 shards,
+-- different regions, can have the same name. @CreateStream@ is an
+-- asynchronous operation. Upon receiving a @CreateStream@ request, Amazon
+-- Kinesis immediately returns and sets the stream status to @CREATING@. After
+-- the stream is created, Amazon Kinesis sets the stream status to @ACTIVE@.
+-- You should perform read and write operations only on an @ACTIVE@ stream.
+-- You receive a @LimitExceededException@ when making a @CreateStream@ request
+-- if you try to do one of the following: Have more than five streams in the
+-- @CREATING@ state at any point in time. Create more shards than are
+-- authorized for your account. The default limit for an AWS account is 10
+-- shards per stream. If you need to create a stream with more than 10 shards,
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html
 -- contact AWS Support> to increase the limit on your account. You can use
--- DescribeStream to check the stream status, which is returned in
--- StreamStatus. CreateStream has a limit of 5 transactions per second per
+-- @DescribeStream@ to check the stream status, which is returned in
+-- @StreamStatus@. @CreateStream@ has a limit of 5 transactions per second per
 -- account.
 --
 -- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_CreateStream.html>

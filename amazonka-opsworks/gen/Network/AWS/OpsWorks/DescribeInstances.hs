@@ -76,17 +76,17 @@ describeInstances = DescribeInstances
     }
 
 -- | An array of instance IDs to be described. If you use this parameter,
--- DescribeInstances returns a description of the specified instances.
+-- @DescribeInstances@ returns a description of the specified instances.
 -- Otherwise, it returns a description of every instance.
 diInstanceIds :: Lens' DescribeInstances [Text]
 diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a }) . _List
 
--- | A layer ID. If you use this parameter, DescribeInstances returns
+-- | A layer ID. If you use this parameter, @DescribeInstances@ returns
 -- descriptions of the instances associated with the specified layer.
 diLayerId :: Lens' DescribeInstances (Maybe Text)
 diLayerId = lens _diLayerId (\s a -> s { _diLayerId = a })
 
--- | A stack ID. If you use this parameter, DescribeInstances returns
+-- | A stack ID. If you use this parameter, @DescribeInstances@ returns
 -- descriptions of the instances associated with the specified stack.
 diStackId :: Lens' DescribeInstances (Maybe Text)
 diStackId = lens _diStackId (\s a -> s { _diStackId = a })
@@ -112,7 +112,7 @@ describeInstancesResponse = DescribeInstancesResponse
     { _dirInstances = mempty
     }
 
--- | An array of Instance objects that describe the instances.
+-- | An array of @Instance@ objects that describe the instances.
 dirInstances :: Lens' DescribeInstancesResponse [Instance]
 dirInstances = lens _dirInstances (\s a -> s { _dirInstances = a }) . _List
 

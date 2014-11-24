@@ -33,13 +33,13 @@
 -- if you cannot pause all file writes to the volume, you should unmount the
 -- volume from within the instance, issue the snapshot command, and then
 -- remount the volume to ensure a consistent and complete snapshot. You may
--- remount and use your volume while the snapshot status is pending. To create
--- a snapshot for Amazon EBS volumes that serve as root devices, you should
--- stop the instance before taking the snapshot. Snapshots that are taken from
--- encrypted volumes are automatically encrypted. Volumes that are created
--- from encrypted snapshots are also automatically encrypted. Your encrypted
--- volumes and any associated snapshots always remain protected. For more
--- information, see
+-- remount and use your volume while the snapshot status is @pending@. To
+-- create a snapshot for Amazon EBS volumes that serve as root devices, you
+-- should stop the instance before taking the snapshot. Snapshots that are
+-- taken from encrypted volumes are automatically encrypted. Volumes that are
+-- created from encrypted snapshots are also automatically encrypted. Your
+-- encrypted volumes and any associated snapshots always remain protected. For
+-- more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html Amazon
 -- Elastic Block Store> and
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
@@ -178,8 +178,8 @@ csr1Description = lens _csr1Description (\s a -> s { _csr1Description = a })
 csr1Encrypted :: Lens' CreateSnapshotResponse (Maybe Bool)
 csr1Encrypted = lens _csr1Encrypted (\s a -> s { _csr1Encrypted = a })
 
--- | The AWS account alias (for example, amazon, self) or AWS account ID that
--- owns the snapshot.
+-- | The AWS account alias (for example, @amazon@, @self@) or AWS account ID
+-- that owns the snapshot.
 csr1OwnerAlias :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1OwnerAlias = lens _csr1OwnerAlias (\s a -> s { _csr1OwnerAlias = a })
 

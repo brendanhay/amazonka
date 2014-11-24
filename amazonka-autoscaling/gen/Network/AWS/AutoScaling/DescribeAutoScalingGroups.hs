@@ -24,7 +24,8 @@
 -- provided, the call describes all Auto Scaling groups. You can specify a
 -- maximum number of items to be returned with a single call. If there are
 -- more items to return, the call returns a token. To get the next set of
--- items, repeat the call with the returned token in the NextToken parameter.
+-- items, repeat the call with the returned token in the @NextToken@
+-- parameter.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingGroups.html>
 module Network.AWS.AutoScaling.DescribeAutoScalingGroups

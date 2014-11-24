@@ -22,8 +22,8 @@
 
 -- | Deletes a security group. If you attempt to delete a security group that is
 -- associated with an instance, or is referenced by another security group,
--- the operation fails with InvalidGroup.InUse in EC2-Classic or
--- DependencyViolation in EC2-VPC.
+-- the operation fails with @InvalidGroup.InUse@ in EC2-Classic or
+-- @DependencyViolation@ in EC2-VPC.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSecurityGroup.html>
 module Network.AWS.EC2.DeleteSecurityGroup

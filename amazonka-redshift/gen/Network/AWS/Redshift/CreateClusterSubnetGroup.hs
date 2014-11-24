@@ -87,7 +87,7 @@ createClusterSubnetGroup p1 p2 = CreateClusterSubnetGroup
 -- lowercase string. Constraints: Must contain no more than 255 alphanumeric
 -- characters or hyphens. Must not be "Default". Must be unique for all
 -- subnet groups that are created by your AWS account. Example:
--- examplesubnetgroup.
+-- @examplesubnetgroup@.
 ccsgClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
 ccsgClusterSubnetGroupName =
     lens _ccsgClusterSubnetGroupName

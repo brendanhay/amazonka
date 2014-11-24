@@ -93,12 +93,12 @@ ddbi1Filters = lens _ddbi1Filters (\s a -> s { _ddbi1Filters = a }) . _List
 
 -- | An optional pagination token provided by a previous DescribeDBInstances
 -- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by MaxRecords .
+-- records beyond the marker, up to the value specified by @MaxRecords@ .
 ddbi1Marker :: Lens' DescribeDBInstances (Maybe Text)
 ddbi1Marker = lens _ddbi1Marker (\s a -> s { _ddbi1Marker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified MaxRecords value, a pagination token called a
+-- exist than the specified @MaxRecords@ value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbi1MaxRecords :: Lens' DescribeDBInstances (Maybe Int)
@@ -129,7 +129,7 @@ ddbirDBInstances = lens _ddbirDBInstances (\s a -> s { _ddbirDBInstances = a }) 
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by MaxRecords .
+-- marker, up to the value specified by @MaxRecords@ .
 ddbirMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 ddbirMarker = lens _ddbirMarker (\s a -> s { _ddbirMarker = a })
 

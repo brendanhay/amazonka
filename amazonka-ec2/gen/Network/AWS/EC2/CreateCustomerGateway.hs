@@ -104,7 +104,8 @@ ccgDryRun = lens _ccgDryRun (\s a -> s { _ccgDryRun = a })
 ccgPublicIp :: Lens' CreateCustomerGateway Text
 ccgPublicIp = lens _ccgPublicIp (\s a -> s { _ccgPublicIp = a })
 
--- | The type of VPN connection that this customer gateway supports (ipsec.1).
+-- | The type of VPN connection that this customer gateway supports
+-- (@ipsec.1@).
 ccgType :: Lens' CreateCustomerGateway GatewayType
 ccgType = lens _ccgType (\s a -> s { _ccgType = a })
 

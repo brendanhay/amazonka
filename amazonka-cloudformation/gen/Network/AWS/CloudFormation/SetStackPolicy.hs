@@ -76,7 +76,7 @@ sspStackName = lens _sspStackName (\s a -> s { _sspStackName = a })
 -- | Structure containing the stack policy body. For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html
 -- Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.
--- You can specify either the StackPolicyBody or the StackPolicyURL
+-- You can specify either the @StackPolicyBody@ or the @StackPolicyURL@
 -- parameter, but not both.
 sspStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
 sspStackPolicyBody =
@@ -84,8 +84,8 @@ sspStackPolicyBody =
 
 -- | Location of a file containing the stack policy. The URL must point to a
 -- policy (max size: 16KB) located in an S3 bucket in the same region as the
--- stack. You can specify either the StackPolicyBody or the StackPolicyURL
--- parameter, but not both.
+-- stack. You can specify either the @StackPolicyBody@ or the
+-- @StackPolicyURL@ parameter, but not both.
 sspStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
 sspStackPolicyURL =
     lens _sspStackPolicyURL (\s a -> s { _sspStackPolicyURL = a })

@@ -21,11 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Launches the specified number of instances using an AMI for which you have
--- permissions. When you launch an instance, it enters the pending state.
--- After the instance is ready for you, it enters the running state. To check
--- the state of your instance, call DescribeInstances>. If you don't specify a
--- security group when launching an instance, Amazon EC2 uses the default
--- security group. For more information, see
+-- permissions. When you launch an instance, it enters the @pending@ state.
+-- After the instance is ready for you, it enters the @running@ state. To
+-- check the state of your instance, call DescribeInstances>. If you don't
+-- specify a security group when launching an instance, Amazon EC2 uses the
+-- default security group. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html
 -- Security Groups> in the /Amazon Elastic Compute Cloud User Guide/. Linux
 -- instances have access to the public key of the key pair at boot. You can
@@ -38,9 +38,9 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html
 -- Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide/. If any
 -- of the AMIs have a product code attached for which the user has not
--- subscribed, RunInstances fails. T2 instance types can only be launched into
--- a VPC. If you do not have a default VPC, or if you do not specify a subnet
--- ID in the request, RunInstances fails. For more information about
+-- subscribed, @RunInstances@ fails. T2 instance types can only be launched
+-- into a VPC. If you do not have a default VPC, or if you do not specify a
+-- subnet ID in the request, @RunInstances@ fails. For more information about
 -- troubleshooting, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html
 -- What To Do If An Instance Immediately Terminates>, and
@@ -221,14 +221,14 @@ riBlockDeviceMappings =
 riClientToken :: Lens' RunInstances (Maybe Text)
 riClientToken = lens _riClientToken (\s a -> s { _riClientToken = a })
 
--- | If you set this parameter to true, you can't terminate the instance using
--- the Amazon EC2 console, CLI, or API; otherwise, you can. If you set this
--- parameter to true and then later want to be able to terminate the
--- instance, you must first change the value of the disableApiTermination
--- attribute to false using ModifyInstanceAttribute>. Alternatively, if you
--- set InstanceInitiatedShutdownBehavior to terminate, you can terminate the
--- instance by running the shutdown command from the instance. Default:
--- false.
+-- | If you set this parameter to @true@, you can't terminate the instance
+-- using the Amazon EC2 console, CLI, or API; otherwise, you can. If you set
+-- this parameter to @true@ and then later want to be able to terminate the
+-- instance, you must first change the value of the @disableApiTermination@
+-- attribute to @false@ using ModifyInstanceAttribute>. Alternatively, if
+-- you set @InstanceInitiatedShutdownBehavior@ to @terminate@, you can
+-- terminate the instance by running the shutdown command from the instance.
+-- Default: @false@.
 riDisableApiTermination :: Lens' RunInstances (Maybe Bool)
 riDisableApiTermination =
     lens _riDisableApiTermination (\s a -> s { _riDisableApiTermination = a })
@@ -240,7 +240,7 @@ riDryRun = lens _riDryRun (\s a -> s { _riDryRun = a })
 -- optimization provides dedicated throughput to Amazon EBS and an optimized
 -- configuration stack to provide optimal Amazon EBS I/O performance. This
 -- optimization isn't available with all instance types. Additional usage
--- charges apply when using an EBS-optimized instance. Default: false.
+-- charges apply when using an EBS-optimized instance. Default: @false@.
 riEbsOptimized :: Lens' RunInstances (Maybe Bool)
 riEbsOptimized = lens _riEbsOptimized (\s a -> s { _riEbsOptimized = a })
 
@@ -255,7 +255,7 @@ riImageId = lens _riImageId (\s a -> s { _riImageId = a })
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
--- shutdown). Default: stop.
+-- shutdown). Default: @stop@.
 riInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe ShutdownBehavior)
 riInstanceInitiatedShutdownBehavior =
     lens _riInstanceInitiatedShutdownBehavior
@@ -264,7 +264,7 @@ riInstanceInitiatedShutdownBehavior =
 -- | The instance type. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
 -- Instance Types> in the /Amazon Elastic Compute Cloud User Guide/.
--- Default: m1.small.
+-- Default: @m1.small@.
 riInstanceType :: Lens' RunInstances (Maybe InstanceType)
 riInstanceType = lens _riInstanceType (\s a -> s { _riInstanceType = a })
 
@@ -283,7 +283,7 @@ riKeyName = lens _riKeyName (\s a -> s { _riKeyName = a })
 
 -- | The maximum number of instances to launch. If you specify more instances
 -- than Amazon EC2 can launch in the target Availability Zone, Amazon EC2
--- launches the largest possible number of instances above MinCount.
+-- launches the largest possible number of instances above @MinCount@.
 -- Constraints: Between 1 and the maximum number you're allowed for the
 -- specified instance type. For more information about the default limits,
 -- and how to request an increase, see
@@ -321,8 +321,8 @@ riPlacement = lens _riPlacement (\s a -> s { _riPlacement = a })
 -- | [EC2-VPC] The primary IP address. You must specify a value from the IP
 -- address range of the subnet. Only one private IP address can be
 -- designated as primary. Therefore, you can't specify this parameter if
--- PrivateIpAddresses.n.Primary is set to true and
--- PrivateIpAddresses.n.PrivateIpAddress is set to an IP address. Default:
+-- @PrivateIpAddresses.n.Primary@ is set to @true@ and
+-- @PrivateIpAddresses.n.PrivateIpAddress@ is set to an IP address. Default:
 -- We select an IP address from the IP address range of the subnet.
 riPrivateIpAddress :: Lens' RunInstances (Maybe Text)
 riPrivateIpAddress =

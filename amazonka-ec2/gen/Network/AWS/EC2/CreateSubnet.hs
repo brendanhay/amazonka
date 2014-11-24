@@ -102,7 +102,7 @@ cs1AvailabilityZone =
     lens _cs1AvailabilityZone (\s a -> s { _cs1AvailabilityZone = a })
 
 -- | The network range for the subnet, in CIDR notation. For example,
--- 10.0.0.0/24.
+-- @10.0.0.0/24@.
 cs1CidrBlock :: Lens' CreateSubnet Text
 cs1CidrBlock = lens _cs1CidrBlock (\s a -> s { _cs1CidrBlock = a })
 

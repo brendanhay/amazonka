@@ -107,7 +107,7 @@ describeStackEventsResponse = DescribeStackEventsResponse
 dserNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
 dserNextToken = lens _dserNextToken (\s a -> s { _dserNextToken = a })
 
--- | A list of StackEvents structures.
+-- | A list of @StackEvents@ structures.
 dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
 dserStackEvents = lens _dserStackEvents (\s a -> s { _dserStackEvents = a }) . _List
 

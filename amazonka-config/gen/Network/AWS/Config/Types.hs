@@ -309,7 +309,7 @@ rRelationshipName :: Lens' Relationship (Maybe Text)
 rRelationshipName =
     lens _rRelationshipName (\s a -> s { _rRelationshipName = a })
 
--- | The resource ID of the related resource (for example, sg-xxxxxx.
+-- | The resource ID of the related resource (for example, @sg-xxxxxx@.
 rResourceId :: Lens' Relationship (Maybe Text)
 rResourceId = lens _rResourceId (\s a -> s { _rResourceId = a })
 
@@ -620,7 +620,7 @@ ciResourceCreationTime =
     lens _ciResourceCreationTime (\s a -> s { _ciResourceCreationTime = a })
         . mapping _Time
 
--- | The ID of the resource (for example., sg-xxxxxx).
+-- | The ID of the resource (for example., @sg-xxxxxx@).
 ciResourceId :: Lens' ConfigurationItem (Maybe Text)
 ciResourceId = lens _ciResourceId (\s a -> s { _ciResourceId = a })
 

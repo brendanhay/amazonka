@@ -28,7 +28,7 @@
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html
 -- Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/
 -- . If you want to shut down the cluster and retain it for future use, set
--- /SkipFinalClusterSnapshot/ to false and specify a name for
+-- /SkipFinalClusterSnapshot/ to @false@ and specify a name for
 -- /FinalClusterSnapshotIdentifier/. You can later restore this snapshot to
 -- resume using the cluster. If a final cluster snapshot is requested, the
 -- status of the cluster will be "final-snapshot" while the snapshot is being
@@ -97,7 +97,7 @@ dc1ClusterIdentifier =
 
 -- | The identifier of the final snapshot that is to be created immediately
 -- before deleting the cluster. If this parameter is provided,
--- /SkipFinalClusterSnapshot/ must be false. Constraints: Must be 1 to 255
+-- /SkipFinalClusterSnapshot/ must be @false@. Constraints: Must be 1 to 255
 -- alphanumeric characters. First character must be a letter. Cannot end
 -- with a hyphen or contain two consecutive hyphens.
 dc1FinalClusterSnapshotIdentifier :: Lens' DeleteCluster (Maybe Text)
@@ -106,10 +106,11 @@ dc1FinalClusterSnapshotIdentifier =
         (\s a -> s { _dc1FinalClusterSnapshotIdentifier = a })
 
 -- | Determines whether a final snapshot of the cluster is created before
--- Amazon Redshift deletes the cluster. If true, a final cluster snapshot is
--- not created. If false, a final cluster snapshot is created before the
--- cluster is deleted. The /FinalClusterSnapshotIdentifier/ parameter must
--- be specified if /SkipFinalClusterSnapshot/ is false. Default: false.
+-- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot
+-- is not created. If @false@, a final cluster snapshot is created before
+-- the cluster is deleted. The /FinalClusterSnapshotIdentifier/ parameter
+-- must be specified if /SkipFinalClusterSnapshot/ is @false@. Default:
+-- @false@.
 dc1SkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
 dc1SkipFinalClusterSnapshot =
     lens _dc1SkipFinalClusterSnapshot

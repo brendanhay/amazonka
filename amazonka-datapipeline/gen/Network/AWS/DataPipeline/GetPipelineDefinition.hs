@@ -73,9 +73,9 @@ gpdPipelineId :: Lens' GetPipelineDefinition Text
 gpdPipelineId = lens _gpdPipelineId (\s a -> s { _gpdPipelineId = a })
 
 -- | The version of the pipeline definition to retrieve. This parameter
--- accepts the values latest (default) and active. Where latest indicates
--- the last definition saved to the pipeline and active indicates the last
--- definition of the pipeline that was activated.
+-- accepts the values @latest@ (default) and @active@. Where @latest@
+-- indicates the last definition saved to the pipeline and @active@
+-- indicates the last definition of the pipeline that was activated.
 gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
 gpdVersion = lens _gpdVersion (\s a -> s { _gpdVersion = a })
 

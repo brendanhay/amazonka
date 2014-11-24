@@ -111,8 +111,8 @@ stsErrorStackTrace =
 stsTaskId :: Lens' SetTaskStatus Text
 stsTaskId = lens _stsTaskId (\s a -> s { _stsTaskId = a })
 
--- | If FINISHED, the task successfully completed. If FAILED the task ended
--- unsuccessfully. The FALSE value is used by preconditions.
+-- | If @FINISHED@, the task successfully completed. If @FAILED@ the task
+-- ended unsuccessfully. The @FALSE@ value is used by preconditions.
 stsTaskStatus :: Lens' SetTaskStatus TaskStatus
 stsTaskStatus = lens _stsTaskStatus (\s a -> s { _stsTaskStatus = a })
 

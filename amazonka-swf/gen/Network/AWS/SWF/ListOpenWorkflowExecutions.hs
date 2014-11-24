@@ -25,16 +25,16 @@
 -- To retrieve subsequent pages, make the call again using the nextPageToken
 -- returned by the initial call. Access Control You can use IAM policies to
 -- control this action's access to Amazon SWF resources as follows: Use a
--- Resource element with the domain name to limit the action to only specified
--- domains. Use an Action element to allow or deny permission to call this
--- action. Constrain the following parameters by using a Condition element
--- with the appropriate keys. tagFilter.tag: String constraint. The key is
--- swf:tagFilter.tag. typeFilter.name: String constraint. The key is
--- swf:typeFilter.name. typeFilter.version: String constraint. The key is
--- swf:typeFilter.version. If the caller does not have sufficient permissions
--- to invoke the action, or the parameter values fall outside the specified
--- constraints, the action fails by throwing OperationNotPermitted. For
--- details and example IAM policies, see
+-- @Resource@ element with the domain name to limit the action to only
+-- specified domains. Use an @Action@ element to allow or deny permission to
+-- call this action. Constrain the following parameters by using a @Condition@
+-- element with the appropriate keys. @tagFilter.tag@: String constraint. The
+-- key is @swf:tagFilter.tag@. @typeFilter.name@: String constraint. The key
+-- is @swf:typeFilter.name@. @typeFilter.version@: String constraint. The key
+-- is @swf:typeFilter.version@. If the caller does not have sufficient
+-- permissions to invoke the action, or the parameter values fall outside the
+-- specified constraints, the action fails by throwing
+-- @OperationNotPermitted@. For details and example IAM policies, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
 -- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
@@ -135,14 +135,14 @@ loweMaximumPageSize =
     lens _loweMaximumPageSize (\s a -> s { _loweMaximumPageSize = a })
         . mapping _Nat
 
--- | If on a previous call to this method a NextPageToken was returned, the
+-- | If on a previous call to this method a @NextPageToken@ was returned, the
 -- results are being paginated. To get the next page of results, repeat the
 -- call with the returned token and all other arguments unchanged.
 loweNextPageToken :: Lens' ListOpenWorkflowExecutions (Maybe Text)
 loweNextPageToken =
     lens _loweNextPageToken (\s a -> s { _loweNextPageToken = a })
 
--- | When set to true, returns the results in reverse order. By default the
+-- | When set to @true@, returns the results in reverse order. By default the
 -- results are returned in descending order of the start time of the
 -- executions.
 loweReverseOrder :: Lens' ListOpenWorkflowExecutions (Maybe Bool)

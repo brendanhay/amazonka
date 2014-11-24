@@ -82,7 +82,7 @@ setLoadBasedAutoScaling p1 = SetLoadBasedAutoScaling
     , _slbasDownScaling = Nothing
     }
 
--- | An AutoScalingThresholds object with the downscaling threshold
+-- | An @AutoScalingThresholds@ object with the downscaling threshold
 -- configuration. If the load falls below these thresholds for a specified
 -- amount of time, AWS OpsWorks stops a specified number of instances.
 slbasDownScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
@@ -96,7 +96,7 @@ slbasEnable = lens _slbasEnable (\s a -> s { _slbasEnable = a })
 slbasLayerId :: Lens' SetLoadBasedAutoScaling Text
 slbasLayerId = lens _slbasLayerId (\s a -> s { _slbasLayerId = a })
 
--- | An AutoScalingThresholds object with the upscaling threshold
+-- | An @AutoScalingThresholds@ object with the upscaling threshold
 -- configuration. If the load exceeds these thresholds for a specified
 -- amount of time, AWS OpsWorks starts a specified number of instances.
 slbasUpScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)

@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | From the command line, use update-subscription. Updates the settings that
+-- | From the command line, use @update-subscription@. Updates the settings that
 -- specify delivery of log files. Changes to a trail do not require stopping
 -- the CloudTrail service. Use this action to designate an existing bucket for
 -- log delivery. If the existing bucket has previously been a target for

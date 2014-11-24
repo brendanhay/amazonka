@@ -344,7 +344,8 @@ smId = lens _smId (\s a -> s { _smId = a })
 smScore :: Lens' SuggestionMatch (Maybe Integer)
 smScore = lens _smScore (\s a -> s { _smScore = a })
 
--- | The string that matches the query string specified in the SuggestRequest.
+-- | The string that matches the query string specified in the
+-- @SuggestRequest@.
 smSuggestion :: Lens' SuggestionMatch (Maybe Text)
 smSuggestion = lens _smSuggestion (\s a -> s { _smSuggestion = a })
 

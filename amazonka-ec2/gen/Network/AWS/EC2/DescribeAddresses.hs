@@ -88,15 +88,15 @@ daDryRun :: Lens' DescribeAddresses (Maybe Bool)
 daDryRun = lens _daDryRun (\s a -> s { _daDryRun = a })
 
 -- | One or more filters. Filter names and values are case-sensitive.
--- allocation-id - [EC2-VPC] The allocation ID for the address.
--- association-id - [EC2-VPC] The association ID for the address. domain -
--- Indicates whether the address is for use in EC2-Classic (standard) or in
--- a VPC (vpc). instance-id - The ID of the instance the address is
--- associated with, if any. network-interface-id - [EC2-VPC] The ID of the
+-- @allocation-id@ - [EC2-VPC] The allocation ID for the address.
+-- @association-id@ - [EC2-VPC] The association ID for the address. @domain@
+-- - Indicates whether the address is for use in EC2-Classic (@standard@) or
+-- in a VPC (@vpc@). @instance-id@ - The ID of the instance the address is
+-- associated with, if any. @network-interface-id@ - [EC2-VPC] The ID of the
 -- network interface that the address is associated with, if any.
--- network-interface-owner-id - The AWS account ID of the owner.
--- private-ip-address - [EC2-VPC] The private IP address associated with the
--- Elastic IP address. public-ip - The Elastic IP address.
+-- @network-interface-owner-id@ - The AWS account ID of the owner.
+-- @private-ip-address@ - [EC2-VPC] The private IP address associated with
+-- the Elastic IP address. @public-ip@ - The Elastic IP address.
 daFilters :: Lens' DescribeAddresses [Filter]
 daFilters = lens _daFilters (\s a -> s { _daFilters = a }) . _List
 

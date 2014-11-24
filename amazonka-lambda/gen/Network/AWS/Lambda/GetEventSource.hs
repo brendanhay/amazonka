@@ -22,7 +22,7 @@
 
 -- | Returns configuration information for the specified event source mapping
 -- (see AddEventSource>). This operation requires permission for the
--- lambda:GetEventSource action.
+-- @lambda:GetEventSource@ action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSource.html>
 module Network.AWS.Lambda.GetEventSource

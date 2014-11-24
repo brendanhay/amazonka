@@ -20,15 +20,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | To retrieve a list of your health checks, send a GET request to the
--- 2013-04-01/healthcheck resource. The response to this request includes a
--- HealthChecks element with zero, one, or multiple HealthCheck child
+-- | To retrieve a list of your health checks, send a @GET@ request to the
+-- @2013-04-01/healthcheck@ resource. The response to this request includes a
+-- @HealthChecks@ element with zero, one, or multiple @HealthCheck@ child
 -- elements. By default, the list of health checks is displayed on a single
 -- page. You can control the length of the page that is displayed by using the
--- MaxItems parameter. You can use the Marker parameter to control the health
--- check that the list begins with. Amazon Route 53 returns a maximum of 100
--- items. If you set MaxItems to a value greater than 100, Amazon Route 53
--- returns only the first 100.
+-- @MaxItems@ parameter. You can use the @Marker@ parameter to control the
+-- health check that the list begins with. Amazon Route 53 returns a maximum
+-- of 100 items. If you set MaxItems to a value greater than 100, Amazon Route
+-- 53 returns only the first 100.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html>
 module Network.AWS.Route53.ListHealthChecks
@@ -78,8 +78,8 @@ listHealthChecks = ListHealthChecks
     }
 
 -- | If the request returned more than one page of results, submit another
--- request and specify the value of NextMarker from the last response in the
--- marker parameter to get the next page of results.
+-- request and specify the value of @NextMarker@ from the last response in
+-- the @marker@ parameter to get the next page of results.
 lhcMarker :: Lens' ListHealthChecks (Maybe Text)
 lhcMarker = lens _lhcMarker (\s a -> s { _lhcMarker = a })
 
@@ -129,30 +129,30 @@ lhcrHealthChecks = lens _lhcrHealthChecks (\s a -> s { _lhcrHealthChecks = a }) 
 
 -- | A flag indicating whether there are more health checks to be listed. If
 -- your results were truncated, you can make a follow-up request for the
--- next page of results by using the Marker element. Valid Values: true |
--- false.
+-- next page of results by using the @Marker@ element. Valid Values: @true@
+-- | @false@.
 lhcrIsTruncated :: Lens' ListHealthChecksResponse Bool
 lhcrIsTruncated = lens _lhcrIsTruncated (\s a -> s { _lhcrIsTruncated = a })
 
 -- | If the request returned more than one page of results, submit another
--- request and specify the value of NextMarker from the last response in the
--- marker parameter to get the next page of results.
+-- request and specify the value of @NextMarker@ from the last response in
+-- the @marker@ parameter to get the next page of results.
 lhcrMarker :: Lens' ListHealthChecksResponse Text
 lhcrMarker = lens _lhcrMarker (\s a -> s { _lhcrMarker = a })
 
 -- | The maximum number of health checks to be included in the response body.
 -- If the number of health checks associated with this AWS account exceeds
--- MaxItems, the value of ListHealthChecksResponse$IsTruncated> in the
--- response is true. Call ListHealthChecks again and specify the value of
--- ListHealthChecksResponse$NextMarker> in the
+-- @MaxItems@, the value of ListHealthChecksResponse$IsTruncated> in the
+-- response is @true@. Call @ListHealthChecks@ again and specify the value
+-- of ListHealthChecksResponse$NextMarker> in the
 -- ListHostedZonesRequest$Marker> element to get the next page of results.
 lhcrMaxItems :: Lens' ListHealthChecksResponse Text
 lhcrMaxItems = lens _lhcrMaxItems (\s a -> s { _lhcrMaxItems = a })
 
 -- | Indicates where to continue listing health checks. If
--- ListHealthChecksResponse$IsTruncated> is true, make another request to
--- ListHealthChecks and include the value of the NextMarker element in the
--- Marker element to get the next page of results.
+-- ListHealthChecksResponse$IsTruncated> is @true@, make another request to
+-- @ListHealthChecks@ and include the value of the @NextMarker@ element in
+-- the @Marker@ element to get the next page of results.
 lhcrNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
 lhcrNextMarker = lens _lhcrNextMarker (\s a -> s { _lhcrNextMarker = a })
 

@@ -66,7 +66,7 @@ deleteTags p1 = DeleteTags
     }
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or
--- tags. For example, arn:aws:redshift:us-east-1:123456789:cluster:t1.
+-- tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
 dt1ResourceName :: Lens' DeleteTags Text
 dt1ResourceName = lens _dt1ResourceName (\s a -> s { _dt1ResourceName = a })
 

@@ -97,7 +97,7 @@ dsMarker :: Lens' DescribeSnapshots (Maybe Text)
 dsMarker = lens _dsMarker (\s a -> s { _dsMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified MaxRecords value, a marker is included in the
+-- exist than the specified @MaxRecords@ value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 50
 -- Constraints: minimum 20; maximum 50.
 dsMaxRecords :: Lens' DescribeSnapshots (Maybe Int)
@@ -108,8 +108,8 @@ dsMaxRecords = lens _dsMaxRecords (\s a -> s { _dsMaxRecords = a })
 dsSnapshotName :: Lens' DescribeSnapshots (Maybe Text)
 dsSnapshotName = lens _dsSnapshotName (\s a -> s { _dsSnapshotName = a })
 
--- | If set to system, the output shows snapshots that were automatically
--- created by ElastiCache. If set to user the output shows snapshots that
+-- | If set to @system@, the output shows snapshots that were automatically
+-- created by ElastiCache. If set to @user@ the output shows snapshots that
 -- were manually created. If omitted, the output shows both automatically
 -- and manually created snapshots.
 dsSnapshotSource :: Lens' DescribeSnapshots (Maybe Text)

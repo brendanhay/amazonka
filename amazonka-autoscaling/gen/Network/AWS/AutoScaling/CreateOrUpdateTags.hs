@@ -73,17 +73,17 @@ createOrUpdateTags = CreateOrUpdateTags
 -- | The tag to be created or updated. Each tag should be defined by its
 -- resource type, resource ID, key, value, and a propagate flag. The
 -- resource type and resource ID identify the type and name of resource for
--- which the tag is created. Currently, auto-scaling-group is the only
+-- which the tag is created. Currently, @auto-scaling-group@ is the only
 -- supported resource type. The valid value for the resource ID is
--- /groupname/. The PropagateAtLaunch flag defines whether the new tag will
--- be applied to instances launched by the group. Valid values are true or
--- false. However, instances that are already running will not get the new
--- or updated tag. Likewise, when you modify a tag, the updated version will
--- be applied only to new instances launched by the group after the change.
--- Running instances that had the previous version of the tag will continue
--- to have the older tag. When you create a tag and a tag of the same name
--- already exists, the operation overwrites the previous tag definition, but
--- you will not get an error message.
+-- /groupname/. The @PropagateAtLaunch@ flag defines whether the new tag
+-- will be applied to instances launched by the group. Valid values are
+-- @true@ or @false@. However, instances that are already running will not
+-- get the new or updated tag. Likewise, when you modify a tag, the updated
+-- version will be applied only to new instances launched by the group after
+-- the change. Running instances that had the previous version of the tag
+-- will continue to have the older tag. When you create a tag and a tag of
+-- the same name already exists, the operation overwrites the previous tag
+-- definition, but you will not get an error message.
 coutTags :: Lens' CreateOrUpdateTags [Tag]
 coutTags = lens _coutTags (\s a -> s { _coutTags = a }) . _List
 

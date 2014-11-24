@@ -24,11 +24,11 @@
 -- updates the configuration settings to an entirely new configuration
 -- template, or updates select configuration option values in the running
 -- environment. Attempting to update both the release and configuration is not
--- allowed and AWS Elastic Beanstalk returns an InvalidParameterCombination
+-- allowed and AWS Elastic Beanstalk returns an @InvalidParameterCombination@
 -- error. When updating the configuration settings to a new template or
 -- individual settings, a draft configuration is created and
 -- DescribeConfigurationSettings> for this environment returns two setting
--- descriptions with different DeploymentStatus values.
+-- descriptions with different @DeploymentStatus@ values.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateEnvironment.html>
 module Network.AWS.ElasticBeanstalk.UpdateEnvironment
@@ -123,18 +123,18 @@ ueDescription :: Lens' UpdateEnvironment (Maybe Text)
 ueDescription = lens _ueDescription (\s a -> s { _ueDescription = a })
 
 -- | The ID of the environment to update. If no environment with this ID
--- exists, AWS Elastic Beanstalk returns an InvalidParameterValue error.
+-- exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
--- MissingRequiredParameter error.
+-- @MissingRequiredParameter@ error.
 ueEnvironmentId :: Lens' UpdateEnvironment (Maybe Text)
 ueEnvironmentId = lens _ueEnvironmentId (\s a -> s { _ueEnvironmentId = a })
 
 -- | The name of the environment to update. If no environment with this name
--- exists, AWS Elastic Beanstalk returns an InvalidParameterValue error.
+-- exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
--- MissingRequiredParameter error.
+-- @MissingRequiredParameter@ error.
 ueEnvironmentName :: Lens' UpdateEnvironment (Maybe Text)
 ueEnvironmentName =
     lens _ueEnvironmentName (\s a -> s { _ueEnvironmentName = a })
@@ -154,21 +154,21 @@ ueOptionsToRemove =
 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys this
 -- configuration template to the environment. If no such configuration
--- template is found, AWS Elastic Beanstalk returns an InvalidParameterValue
--- error.
+-- template is found, AWS Elastic Beanstalk returns an
+-- @InvalidParameterValue@ error.
 ueTemplateName :: Lens' UpdateEnvironment (Maybe Text)
 ueTemplateName = lens _ueTemplateName (\s a -> s { _ueTemplateName = a })
 
 -- | This specifies the tier to use to update the environment. Condition: You
 -- can only update the tier version for an environment. If you change the
--- name of the type, AWS Elastic Beanstalk returns InvalidParameterValue
+-- name of the type, AWS Elastic Beanstalk returns @InvalidParameterValue@
 -- error.
 ueTier :: Lens' UpdateEnvironment (Maybe EnvironmentTier)
 ueTier = lens _ueTier (\s a -> s { _ueTier = a })
 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys the named
 -- application version to the environment. If no such application version is
--- found, returns an InvalidParameterValue error.
+-- found, returns an @InvalidParameterValue@ error.
 ueVersionLabel :: Lens' UpdateEnvironment (Maybe Text)
 ueVersionLabel = lens _ueVersionLabel (\s a -> s { _ueVersionLabel = a })
 
@@ -279,18 +279,18 @@ uerEnvironmentName =
     lens _uerEnvironmentName (\s a -> s { _uerEnvironmentName = a })
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
--- indicates the failure levels for a running environment: Red : Indicates
--- the environment is not working. Yellow: Indicates that something is
+-- indicates the failure levels for a running environment: @Red@ : Indicates
+-- the environment is not working. @Yellow@: Indicates that something is
 -- wrong, the application might not be available, but the instances appear
--- running. Green: Indicates the environment is healthy and fully
--- functional. Red: Indicates the environment is not responsive. Occurs when
--- three or more consecutive failures occur for an environment. Yellow:
--- Indicates that something is wrong. Occurs when two consecutive failures
--- occur for an environment. Green: Indicates the environment is healthy and
--- fully functional. Grey: Default health for a new environment. The
--- environment is not fully launched and health checks have not started or
--- health checks are suspended during an UpdateEnvironment or
--- RestartEnvironement request. Default: Grey.
+-- running. @Green@: Indicates the environment is healthy and fully
+-- functional. @Red@: Indicates the environment is not responsive. Occurs
+-- when three or more consecutive failures occur for an environment.
+-- @Yellow@: Indicates that something is wrong. Occurs when two consecutive
+-- failures occur for an environment. @Green@: Indicates the environment is
+-- healthy and fully functional. @Grey@: Default health for a new
+-- environment. The environment is not fully launched and health checks have
+-- not started or health checks are suspended during an @UpdateEnvironment@
+-- or @RestartEnvironement@ request. Default: @Grey@.
 uerHealth :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentHealth)
 uerHealth = lens _uerHealth (\s a -> s { _uerHealth = a })
 
@@ -298,17 +298,17 @@ uerHealth = lens _uerHealth (\s a -> s { _uerHealth = a })
 uerResources :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
 uerResources = lens _uerResources (\s a -> s { _uerResources = a })
 
--- | The name of the SolutionStack deployed with this environment.
+-- | The name of the @SolutionStack@ deployed with this environment.
 uerSolutionStackName :: Lens' UpdateEnvironmentResponse (Maybe Text)
 uerSolutionStackName =
     lens _uerSolutionStackName (\s a -> s { _uerSolutionStackName = a })
 
--- | The current operational status of the environment: Launching: Environment
--- is in the process of initial deployment. Updating: Environment is in the
--- process of updating its configuration settings or application version.
--- Ready: Environment is available to have an action performed on it, such
--- as update or terminate. Terminating: Environment is in the shut-down
--- process. Terminated: Environment is not running.
+-- | The current operational status of the environment: @Launching@:
+-- Environment is in the process of initial deployment. @Updating@:
+-- Environment is in the process of updating its configuration settings or
+-- application version. @Ready@: Environment is available to have an action
+-- performed on it, such as update or terminate. @Terminating@: Environment
+-- is in the shut-down process. @Terminated@: Environment is not running.
 uerStatus :: Lens' UpdateEnvironmentResponse (Maybe EnvironmentStatus)
 uerStatus = lens _uerStatus (\s a -> s { _uerStatus = a })
 

@@ -25,7 +25,7 @@
 -- information about creating AMIs, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html
 -- Creating Your Own AMIs> in the /Amazon Elastic Compute Cloud User Guide/.
--- You can also use RegisterImage to create an Amazon EBS-backed AMI from a
+-- You can also use @RegisterImage@ to create an Amazon EBS-backed AMI from a
 -- snapshot of a root device volume. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html
 -- Launching an Instance from a Snapshot> in the /Amazon Elastic Compute Cloud
@@ -123,7 +123,7 @@ registerImage p1 = RegisterImage
     , _ri1SriovNetSupport     = Nothing
     }
 
--- | The architecture of the AMI. Default: For Amazon EBS-backed AMIs, i386.
+-- | The architecture of the AMI. Default: For Amazon EBS-backed AMIs, @i386@.
 -- For instance store-backed AMIs, the architecture specified in the
 -- manifest file.
 ri1Architecture :: Lens' RegisterImage (Maybe ArchitectureValues)
@@ -160,21 +160,21 @@ ri1Name = lens _ri1Name (\s a -> s { _ri1Name = a })
 ri1RamdiskId :: Lens' RegisterImage (Maybe Text)
 ri1RamdiskId = lens _ri1RamdiskId (\s a -> s { _ri1RamdiskId = a })
 
--- | The name of the root device (for example, /dev/sda1, or xvda).
+-- | The name of the root device (for example, @/dev/sda1@, or @xvda@).
 ri1RootDeviceName :: Lens' RegisterImage (Maybe Text)
 ri1RootDeviceName =
     lens _ri1RootDeviceName (\s a -> s { _ri1RootDeviceName = a })
 
--- | Set to simple to enable enhanced networking for the AMI and any instances
--- that you launch from the AMI. There is no way to disable enhanced
--- networking at this time. This option is supported only for HVM AMIs.
--- Specifying this option with a PV AMI can make instances launched from the
--- AMI unreachable.
+-- | Set to @simple@ to enable enhanced networking for the AMI and any
+-- instances that you launch from the AMI. There is no way to disable
+-- enhanced networking at this time. This option is supported only for HVM
+-- AMIs. Specifying this option with a PV AMI can make instances launched
+-- from the AMI unreachable.
 ri1SriovNetSupport :: Lens' RegisterImage (Maybe Text)
 ri1SriovNetSupport =
     lens _ri1SriovNetSupport (\s a -> s { _ri1SriovNetSupport = a })
 
--- | The type of virtualization. Default: paravirtual.
+-- | The type of virtualization. Default: @paravirtual@.
 ri1VirtualizationType :: Lens' RegisterImage (Maybe Text)
 ri1VirtualizationType =
     lens _ri1VirtualizationType (\s a -> s { _ri1VirtualizationType = a })

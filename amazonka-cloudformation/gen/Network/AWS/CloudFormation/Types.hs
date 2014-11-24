@@ -210,7 +210,7 @@ tag = Tag
 
 -- | /Required/. A string used to identify this tag. You can specify a maximum
 -- of 128 characters for a tag key. Tags owned by Amazon Web Services (AWS)
--- have the reserved prefix: aws:.
+-- have the reserved prefix: @aws:@.
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
@@ -603,7 +603,7 @@ srdLogicalResourceId :: Lens' StackResourceDetail Text
 srdLogicalResourceId =
     lens _srdLogicalResourceId (\s a -> s { _srdLogicalResourceId = a })
 
--- | The JSON format content of the Metadata attribute declared for the
+-- | The JSON format content of the @Metadata@ attribute declared for the
 -- resource. For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
 -- Metadata Attribute> in the AWS CloudFormation User Guide.
@@ -1233,8 +1233,8 @@ sCreationTime = lens _sCreationTime (\s a -> s { _sCreationTime = a }) . _Time
 sDescription :: Lens' Stack (Maybe Text)
 sDescription = lens _sDescription (\s a -> s { _sDescription = a })
 
--- | Boolean to enable or disable rollback on stack creation failures: true:
--- disable rollback false: enable rollback.
+-- | Boolean to enable or disable rollback on stack creation failures: @true@:
+-- disable rollback @false@: enable rollback.
 sDisableRollback :: Lens' Stack (Maybe Bool)
 sDisableRollback = lens _sDisableRollback (\s a -> s { _sDisableRollback = a })
 
@@ -1253,7 +1253,7 @@ sNotificationARNs =
 sOutputs :: Lens' Stack [Output]
 sOutputs = lens _sOutputs (\s a -> s { _sOutputs = a }) . _List
 
--- | A list of Parameter structures.
+-- | A list of @Parameter@ structures.
 sParameters :: Lens' Stack [Parameter]
 sParameters = lens _sParameters (\s a -> s { _sParameters = a }) . _List
 
@@ -1274,7 +1274,7 @@ sStackStatusReason :: Lens' Stack (Maybe Text)
 sStackStatusReason =
     lens _sStackStatusReason (\s a -> s { _sStackStatusReason = a })
 
--- | A list of Tags that specify cost allocation information for the stack.
+-- | A list of @Tag@s that specify cost allocation information for the stack.
 sTags :: Lens' Stack [Tag]
 sTags = lens _sTags (\s a -> s { _sTags = a }) . _List
 

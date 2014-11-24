@@ -158,9 +158,9 @@ restoreFromClusterSnapshot p1 p2 = RestoreFromClusterSnapshot
     , _rfcsKmsKeyId                         = Nothing
     }
 
--- | If true, major version upgrades can be applied during the maintenance
+-- | If @true@, major version upgrades can be applied during the maintenance
 -- window to the Amazon Redshift engine that is running on the cluster.
--- Default: true.
+-- Default: @true@.
 rfcsAllowVersionUpgrade :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
 rfcsAllowVersionUpgrade =
     lens _rfcsAllowVersionUpgrade (\s a -> s { _rfcsAllowVersionUpgrade = a })
@@ -176,7 +176,8 @@ rfcsAutomatedSnapshotRetentionPeriod =
         (\s a -> s { _rfcsAutomatedSnapshotRetentionPeriod = a })
 
 -- | The Amazon EC2 Availability Zone in which to restore the cluster.
--- Default: A random, system-chosen Availability Zone. Example: us-east-1a.
+-- Default: A random, system-chosen Availability Zone. Example:
+-- @us-east-1a@.
 rfcsAvailabilityZone :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsAvailabilityZone =
     lens _rfcsAvailabilityZone (\s a -> s { _rfcsAvailabilityZone = a })
@@ -250,13 +251,13 @@ rfcsOwnerAccount :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsOwnerAccount = lens _rfcsOwnerAccount (\s a -> s { _rfcsOwnerAccount = a })
 
 -- | The port number on which the cluster accepts connections. Default: The
--- same port as the original cluster. Constraints: Must be between 1115 and
--- 65535.
+-- same port as the original cluster. Constraints: Must be between @1115@
+-- and @65535@.
 rfcsPort :: Lens' RestoreFromClusterSnapshot (Maybe Int)
 rfcsPort = lens _rfcsPort (\s a -> s { _rfcsPort = a })
 
 -- | The weekly time range (in UTC) during which automated cluster maintenance
--- can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default: The value selected
+-- can occur. Format: @ddd:hh24:mi-ddd:hh24:mi@ Default: The value selected
 -- for the cluster from which the snapshot was taken. For more information
 -- about the time blocks for each region, see
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows
@@ -268,7 +269,7 @@ rfcsPreferredMaintenanceWindow =
     lens _rfcsPreferredMaintenanceWindow
         (\s a -> s { _rfcsPreferredMaintenanceWindow = a })
 
--- | If true, the cluster can be accessed from a public network.
+-- | If @true@, the cluster can be accessed from a public network.
 rfcsPubliclyAccessible :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
 rfcsPubliclyAccessible =
     lens _rfcsPubliclyAccessible (\s a -> s { _rfcsPubliclyAccessible = a })
@@ -283,7 +284,7 @@ rfcsSnapshotClusterIdentifier =
         (\s a -> s { _rfcsSnapshotClusterIdentifier = a })
 
 -- | The name of the snapshot from which to create the new cluster. This
--- parameter isn't case sensitive. Example: my-snapshot-id.
+-- parameter isn't case sensitive. Example: @my-snapshot-id@.
 rfcsSnapshotIdentifier :: Lens' RestoreFromClusterSnapshot Text
 rfcsSnapshotIdentifier =
     lens _rfcsSnapshotIdentifier (\s a -> s { _rfcsSnapshotIdentifier = a })

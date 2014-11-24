@@ -202,14 +202,14 @@ gddrAbuseContactPhone =
     lens _gddrAbuseContactPhone (\s a -> s { _gddrAbuseContactPhone = a })
 
 -- | Provides details about the domain administrative contact. Type: Complex
--- Children: FirstName, MiddleName, LastName, ContactType, OrganizationName,
--- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
--- PhoneNumber, Email, Fax, ExtraParams.
+-- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
+-- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
+-- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@.
 gddrAdminContact :: Lens' GetDomainDetailResponse ContactDetail
 gddrAdminContact = lens _gddrAdminContact (\s a -> s { _gddrAdminContact = a })
 
 -- | Specifies whether contact information for the admin contact is concealed
--- from WHOIS queries. If the value is true, WHOIS ("who is") queries will
+-- from WHOIS queries. If the value is @true@, WHOIS ("who is") queries will
 -- return contact information for our registrar partner, Gandi, instead of
 -- the contact information that you enter. Type: Boolean.
 gddrAdminPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
@@ -245,15 +245,15 @@ gddrNameservers :: Lens' GetDomainDetailResponse [Nameserver]
 gddrNameservers = lens _gddrNameservers (\s a -> s { _gddrNameservers = a }) . _List
 
 -- | Provides details about the domain registrant. Type: Complex Children:
--- FirstName, MiddleName, LastName, ContactType, OrganizationName,
--- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
--- PhoneNumber, Email, Fax, ExtraParams.
+-- @FirstName@, @MiddleName@, @LastName@, @ContactType@, @OrganizationName@,
+-- @AddressLine1@, @AddressLine2@, @City@, @State@, @CountryCode@,
+-- @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@.
 gddrRegistrantContact :: Lens' GetDomainDetailResponse ContactDetail
 gddrRegistrantContact =
     lens _gddrRegistrantContact (\s a -> s { _gddrRegistrantContact = a })
 
 -- | Specifies whether contact information for the registrant contact is
--- concealed from WHOIS queries. If the value is true, WHOIS ("who is")
+-- concealed from WHOIS queries. If the value is @true@, WHOIS ("who is")
 -- queries will return contact information for our registrar partner, Gandi,
 -- instead of the contact information that you enter. Type: Boolean.
 gddrRegistrantPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
@@ -261,8 +261,8 @@ gddrRegistrantPrivacy =
     lens _gddrRegistrantPrivacy (\s a -> s { _gddrRegistrantPrivacy = a })
 
 -- | Name of the registrar of the domain as identified in the registry. Amazon
--- Route 53 domains are registered by registrar Gandi. The value is "GANDI
--- SAS". Type: String.
+-- Route 53 domains are registered by registrar Gandi. The value is @"GANDI
+-- SAS"@. Type: String.
 gddrRegistrarName :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrRegistrarName =
     lens _gddrRegistrarName (\s a -> s { _gddrRegistrarName = a })
@@ -277,7 +277,7 @@ gddrRegistryDomainId =
     lens _gddrRegistryDomainId (\s a -> s { _gddrRegistryDomainId = a })
 
 -- | Reseller of the domain. Domains registered or transferred using Amazon
--- Route 53 domains will have "Amazon" as the reseller. Type: String.
+-- Route 53 domains will have @"Amazon"@ as the reseller. Type: String.
 gddrReseller :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrReseller = lens _gddrReseller (\s a -> s { _gddrReseller = a })
 
@@ -290,21 +290,21 @@ gddrReseller = lens _gddrReseller (\s a -> s { _gddrReseller = a })
 -- registration for a domain name, and so on. All registrars use this same
 -- set of status codes. For a current list of domain name status codes and
 -- an explanation of what each code means, go to the <https://www.icann.org/
--- ICANN website> and search for epp status codes. (Search on the ICANN
+-- ICANN website> and search for @epp status codes@. (Search on the ICANN
 -- website; web searches sometimes return an old version of the document.)
 -- Type: Array of String.
 gddrStatusList :: Lens' GetDomainDetailResponse [Text]
 gddrStatusList = lens _gddrStatusList (\s a -> s { _gddrStatusList = a }) . _List
 
 -- | Provides details about the domain technical contact. Type: Complex
--- Children: FirstName, MiddleName, LastName, ContactType, OrganizationName,
--- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode,
--- PhoneNumber, Email, Fax, ExtraParams.
+-- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
+-- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
+-- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@.
 gddrTechContact :: Lens' GetDomainDetailResponse ContactDetail
 gddrTechContact = lens _gddrTechContact (\s a -> s { _gddrTechContact = a })
 
 -- | Specifies whether contact information for the tech contact is concealed
--- from WHOIS queries. If the value is true, WHOIS ("who is") queries will
+-- from WHOIS queries. If the value is @true@, WHOIS ("who is") queries will
 -- return contact information for our registrar partner, Gandi, instead of
 -- the contact information that you enter. Type: Boolean.
 gddrTechPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)

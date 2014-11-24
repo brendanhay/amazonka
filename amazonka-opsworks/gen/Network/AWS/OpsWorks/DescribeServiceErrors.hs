@@ -75,20 +75,21 @@ describeServiceErrors = DescribeServiceErrors
     , _dseServiceErrorIds = mempty
     }
 
--- | The instance ID. If you use this parameter, DescribeServiceErrors returns
--- descriptions of the errors associated with the specified instance.
+-- | The instance ID. If you use this parameter, @DescribeServiceErrors@
+-- returns descriptions of the errors associated with the specified
+-- instance.
 dseInstanceId :: Lens' DescribeServiceErrors (Maybe Text)
 dseInstanceId = lens _dseInstanceId (\s a -> s { _dseInstanceId = a })
 
 -- | An array of service error IDs. If you use this parameter,
--- DescribeServiceErrors returns descriptions of the specified errors.
+-- @DescribeServiceErrors@ returns descriptions of the specified errors.
 -- Otherwise, it returns a description of every error.
 dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
 dseServiceErrorIds =
     lens _dseServiceErrorIds (\s a -> s { _dseServiceErrorIds = a })
         . _List
 
--- | The stack ID. If you use this parameter, DescribeServiceErrors returns
+-- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
 -- descriptions of the errors associated with the specified stack.
 dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
 dseStackId = lens _dseStackId (\s a -> s { _dseStackId = a })
@@ -114,7 +115,7 @@ describeServiceErrorsResponse = DescribeServiceErrorsResponse
     { _dserServiceErrors = mempty
     }
 
--- | An array of ServiceError objects that describe the specified service
+-- | An array of @ServiceError@ objects that describe the specified service
 -- errors.
 dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
 dserServiceErrors =

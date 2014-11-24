@@ -787,11 +787,11 @@ ssCategories :: Lens' SupportService [Category]
 ssCategories = lens _ssCategories (\s a -> s { _ssCategories = a }) . _List
 
 -- | The code for an AWS service returned by the DescribeServices> response.
--- The Name element contains the corresponding friendly name.
+-- The @Name@ element contains the corresponding friendly name.
 ssCode :: Lens' SupportService (Maybe Text)
 ssCode = lens _ssCode (\s a -> s { _ssCode = a })
 
--- | The friendly name for an AWS service. The Code element contains the
+-- | The friendly name for an AWS service. The @Code@ element contains the
 -- corresponding code.
 ssName :: Lens' SupportService (Maybe Text)
 ssName = lens _ssName (\s a -> s { _ssName = a })
@@ -953,7 +953,7 @@ severityLevel = SeverityLevel
 
 -- | One of four values: "low," "medium," "high," and "urgent". These values
 -- correspond to response times returned to the caller in
--- SeverityLevel.name.
+-- @SeverityLevel.name@.
 slCode :: Lens' SeverityLevel (Maybe Text)
 slCode = lens _slCode (\s a -> s { _slCode = a })
 
@@ -1061,7 +1061,7 @@ cdLanguage = lens _cdLanguage (\s a -> s { _cdLanguage = a })
 
 -- | The five most recent communications between you and AWS Support Center,
 -- including the IDs of any attachments to the communications. Also includes
--- a nextToken that you can use to retrieve earlier communications.
+-- a @nextToken@ that you can use to retrieve earlier communications.
 cdRecentCommunications :: Lens' CaseDetails (Maybe RecentCaseCommunications)
 cdRecentCommunications =
     lens _cdRecentCommunications (\s a -> s { _cdRecentCommunications = a })

@@ -109,15 +109,16 @@ describeVpcAttributeResponse = DescribeVpcAttributeResponse
     }
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
--- this attribute is true, instances in the VPC get DNS hostnames;
+-- this attribute is @true@, instances in the VPC get DNS hostnames;
 -- otherwise, they do not.
 dvarEnableDnsHostnames :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
 dvarEnableDnsHostnames =
     lens _dvarEnableDnsHostnames (\s a -> s { _dvarEnableDnsHostnames = a })
 
 -- | Indicates whether DNS resolution is enabled for the VPC. If this
--- attribute is true, the Amazon DNS server resolves DNS hostnames for your
--- instances to their corresponding IP addresses; otherwise, it does not.
+-- attribute is @true@, the Amazon DNS server resolves DNS hostnames for
+-- your instances to their corresponding IP addresses; otherwise, it does
+-- not.
 dvarEnableDnsSupport :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
 dvarEnableDnsSupport =
     lens _dvarEnableDnsSupport (\s a -> s { _dvarEnableDnsSupport = a })

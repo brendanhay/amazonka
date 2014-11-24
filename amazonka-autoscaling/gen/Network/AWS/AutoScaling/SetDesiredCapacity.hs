@@ -81,8 +81,8 @@ sdcDesiredCapacity :: Lens' SetDesiredCapacity Int
 sdcDesiredCapacity =
     lens _sdcDesiredCapacity (\s a -> s { _sdcDesiredCapacity = a })
 
--- | By default, SetDesiredCapacity overrides any cooldown period associated
--- with the Auto Scaling group. Specify True to make Auto Scaling to wait
+-- | By default, @SetDesiredCapacity@ overrides any cooldown period associated
+-- with the Auto Scaling group. Specify @True@ to make Auto Scaling to wait
 -- for the cool-down period associated with the Auto Scaling group to
 -- complete before initiating a scaling activity to set your Auto Scaling
 -- group to its new capacity.

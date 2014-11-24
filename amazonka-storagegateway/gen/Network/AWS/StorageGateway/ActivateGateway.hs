@@ -106,9 +106,9 @@ activateGateway p1 p2 p3 p4 = ActivateGateway
 -- an HTTP GET request with redirects enabled to the gateway IP address
 -- (port 80). The redirect URL returned in the response provides you the
 -- activation key for your gateway in the query string parameter
--- activationKey. It may also include other activation-related parameters,
+-- @activationKey@. It may also include other activation-related parameters,
 -- however, these are merely defaults -- the arguments you pass to the
--- ActivateGateway API call determine the actual configuration of your
+-- @ActivateGateway@ API call determine the actual configuration of your
 -- gateway.
 agActivationKey :: Lens' ActivateGateway Text
 agActivationKey = lens _agActivationKey (\s a -> s { _agActivationKey = a })
@@ -118,8 +118,8 @@ agGatewayName = lens _agGatewayName (\s a -> s { _agGatewayName = a })
 
 -- | One of the values that indicates the region where you want to store the
 -- snapshot backups. The gateway region specified must be the same region as
--- the region in your Host header in the request. For more information about
--- available regions and endpoints for AWS Storage Gateway, see
+-- the region in your @Host@ header in the request. For more information
+-- about available regions and endpoints for AWS Storage Gateway, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region
 -- Regions and Endpoints> in the /Amazon Web Services Glossary/. /Valid
 -- Values/: "us-east-1", "us-west-1", "us-west-2", "eu-west-1",
@@ -137,7 +137,7 @@ agGatewayTimezone =
 
 -- | One of the values that defines the type of gateway to activate. The type
 -- specified is critical to all later functions of the gateway and cannot be
--- changed after activation. The default value is STORED.
+-- changed after activation. The default value is @STORED@.
 agGatewayType :: Lens' ActivateGateway (Maybe Text)
 agGatewayType = lens _agGatewayType (\s a -> s { _agGatewayType = a })
 

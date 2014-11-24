@@ -72,8 +72,8 @@ setSubscriptionAttributes p1 p2 = SetSubscriptionAttributes
     }
 
 -- | The name of the attribute you want to set. Only a subset of the
--- subscriptions attributes are mutable. Valid values: DeliveryPolicy |
--- RawMessageDelivery.
+-- subscriptions attributes are mutable. Valid values: @DeliveryPolicy@ |
+-- @RawMessageDelivery@.
 ssaAttributeName :: Lens' SetSubscriptionAttributes Text
 ssaAttributeName = lens _ssaAttributeName (\s a -> s { _ssaAttributeName = a })
 

@@ -22,15 +22,15 @@
 
 -- | Returns the history of the specified workflow execution. The results may be
 -- split into multiple pages. To retrieve subsequent pages, make the call
--- again using the nextPageToken returned by the initial call. Access Control
--- You can use IAM policies to control this action's access to Amazon SWF
--- resources as follows: Use a Resource element with the domain name to limit
--- the action to only specified domains. Use an Action element to allow or
--- deny permission to call this action. You cannot use an IAM policy to
--- constrain this action's parameters. If the caller does not have sufficient
--- permissions to invoke the action, or the parameter values fall outside the
--- specified constraints, the action fails by throwing OperationNotPermitted.
--- For details and example IAM policies, see
+-- again using the @nextPageToken@ returned by the initial call. Access
+-- Control You can use IAM policies to control this action's access to Amazon
+-- SWF resources as follows: Use a @Resource@ element with the domain name to
+-- limit the action to only specified domains. Use an @Action@ element to
+-- allow or deny permission to call this action. You cannot use an IAM policy
+-- to constrain this action's parameters. If the caller does not have
+-- sufficient permissions to invoke the action, or the parameter values fall
+-- outside the specified constraints, the action fails by throwing
+-- @OperationNotPermitted@. For details and example IAM policies, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
 -- Using IAM to Manage Access to Amazon SWF Workflows>.
 --
@@ -104,7 +104,7 @@ gwehExecution :: Lens' GetWorkflowExecutionHistory WorkflowExecution
 gwehExecution = lens _gwehExecution (\s a -> s { _gwehExecution = a })
 
 -- | Specifies the maximum number of history events returned in one page. The
--- next page in the result is identified by the NextPageToken returned. By
+-- next page in the result is identified by the @NextPageToken@ returned. By
 -- default 100 history events are returned in a page but the caller can
 -- override this value to a page size /smaller/ than the default. You cannot
 -- specify a page size larger than 100. Note that the number of events may
@@ -115,15 +115,15 @@ gwehMaximumPageSize =
     lens _gwehMaximumPageSize (\s a -> s { _gwehMaximumPageSize = a })
         . mapping _Nat
 
--- | If a NextPageToken is returned, the result has more than one pages. To
+-- | If a @NextPageToken@ is returned, the result has more than one pages. To
 -- get the next page, repeat the call and specify the nextPageToken with all
 -- other arguments unchanged.
 gwehNextPageToken :: Lens' GetWorkflowExecutionHistory (Maybe Text)
 gwehNextPageToken =
     lens _gwehNextPageToken (\s a -> s { _gwehNextPageToken = a })
 
--- | When set to true, returns the events in reverse order. By default the
--- results are returned in ascending order of the eventTimeStamp of the
+-- | When set to @true@, returns the events in reverse order. By default the
+-- results are returned in ascending order of the @eventTimeStamp@ of the
 -- events.
 gwehReverseOrder :: Lens' GetWorkflowExecutionHistory (Maybe Bool)
 gwehReverseOrder = lens _gwehReverseOrder (\s a -> s { _gwehReverseOrder = a })

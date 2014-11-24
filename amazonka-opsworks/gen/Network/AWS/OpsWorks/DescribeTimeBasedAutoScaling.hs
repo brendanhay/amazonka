@@ -97,7 +97,7 @@ describeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
     { _dtbasrTimeBasedAutoScalingConfigurations = mempty
     }
 
--- | An array of TimeBasedAutoScalingConfiguration objects that describe the
+-- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe the
 -- configuration for the specified instances.
 dtbasrTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
 dtbasrTimeBasedAutoScalingConfigurations =

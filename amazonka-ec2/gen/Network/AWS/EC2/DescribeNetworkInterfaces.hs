@@ -73,60 +73,62 @@ describeNetworkInterfaces = DescribeNetworkInterfaces
 dni1DryRun :: Lens' DescribeNetworkInterfaces (Maybe Bool)
 dni1DryRun = lens _dni1DryRun (\s a -> s { _dni1DryRun = a })
 
--- | One or more filters. addresses.private-ip-address - The private IP
--- addresses associated with the network interface. addresses.primary -
+-- | One or more filters. @addresses.private-ip-address@ - The private IP
+-- addresses associated with the network interface. @addresses.primary@ -
 -- Whether the private IP address is the primary IP address associated with
--- the network interface. addresses.association.public-ip - The association
--- ID returned when the network interface was associated with the Elastic IP
--- address. addresses.association.owner-id - The owner ID of the addresses
--- associated with the network interface. association.association-id - The
--- association ID returned when the network interface was associated with an
--- IP address. association.allocation-id - The allocation ID returned when
--- you allocated the Elastic IP address for your network interface.
--- association.ip-owner-id - The owner of the Elastic IP address associated
--- with the network interface. association.public-ip - The address of the
--- Elastic IP address bound to the network interface.
--- association.public-dns-name - The public DNS name for the network
--- interface. attachment.attachment-id - The ID of the interface attachment.
--- attachment.instance-id - The ID of the instance to which the network
--- interface is attached. attachment.instance-owner-id - The owner ID of the
--- instance to which the network interface is attached.
--- attachment.device-index - The device index to which the network interface
--- is attached. attachment.status - The status of the attachment (attaching
--- | attached | detaching | detached). attachment.attach.time - The time
--- that the network interface was attached to an instance.
--- attachment.delete-on-termination - Indicates whether the attachment is
--- deleted when an instance is terminated. availability-zone - The
--- Availability Zone of the network interface. description - The description
--- of the network interface. group-id - The ID of a security group
--- associated with the network interface. group-name - The name of a
--- security group associated with the network interface. mac-address - The
--- MAC address of the network interface. network-interface-id - The ID of
--- the network interface. owner-id - The AWS account ID of the network
--- interface owner. private-ip-address - The private IP address or addresses
--- of the network interface. private-dns-name - The private DNS name of the
--- network interface. requester-id - The ID of the entity that launched the
--- instance on your behalf (for example, AWS Management Console, Auto
--- Scaling, and so on). requester-managed - Indicates whether the network
--- interface is being managed by an AWS service (for example, AWS Management
--- Console, Auto Scaling, and so on). source-desk-check - Indicates whether
--- the network interface performs source/destination checking. A value of
--- true means checking is enabled, and false means checking is disabled. The
--- value must be false for the network interface to perform Network Address
--- Translation (NAT) in your VPC. status - The status of the network
+-- the network interface. @addresses.association.public-ip@ - The
+-- association ID returned when the network interface was associated with
+-- the Elastic IP address. @addresses.association.owner-id@ - The owner ID
+-- of the addresses associated with the network interface.
+-- @association.association-id@ - The association ID returned when the
+-- network interface was associated with an IP address.
+-- @association.allocation-id@ - The allocation ID returned when you
+-- allocated the Elastic IP address for your network interface.
+-- @association.ip-owner-id@ - The owner of the Elastic IP address
+-- associated with the network interface. @association.public-ip@ - The
+-- address of the Elastic IP address bound to the network interface.
+-- @association.public-dns-name@ - The public DNS name for the network
+-- interface. @attachment.attachment-id@ - The ID of the interface
+-- attachment. @attachment.instance-id@ - The ID of the instance to which
+-- the network interface is attached. @attachment.instance-owner-id@ - The
+-- owner ID of the instance to which the network interface is attached.
+-- @attachment.device-index@ - The device index to which the network
+-- interface is attached. @attachment.status@ - The status of the attachment
+-- (@attaching@ | @attached@ | @detaching@ | @detached@).
+-- @attachment.attach.time@ - The time that the network interface was
+-- attached to an instance. @attachment.delete-on-termination@ - Indicates
+-- whether the attachment is deleted when an instance is terminated.
+-- @availability-zone@ - The Availability Zone of the network interface.
+-- @description@ - The description of the network interface. @group-id@ -
+-- The ID of a security group associated with the network interface.
+-- @group-name@ - The name of a security group associated with the network
+-- interface. @mac-address@ - The MAC address of the network interface.
+-- @network-interface-id@ - The ID of the network interface. @owner-id@ -
+-- The AWS account ID of the network interface owner. @private-ip-address@ -
+-- The private IP address or addresses of the network interface.
+-- @private-dns-name@ - The private DNS name of the network interface.
+-- @requester-id@ - The ID of the entity that launched the instance on your
+-- behalf (for example, AWS Management Console, Auto Scaling, and so on).
+-- @requester-managed@ - Indicates whether the network interface is being
+-- managed by an AWS service (for example, AWS Management Console, Auto
+-- Scaling, and so on). @source-desk-check@ - Indicates whether the network
+-- interface performs source/destination checking. A value of @true@ means
+-- checking is enabled, and @false@ means checking is disabled. The value
+-- must be @false@ for the network interface to perform Network Address
+-- Translation (NAT) in your VPC. @status@ - The status of the network
 -- interface. If the network interface is not attached to an instance, the
--- status is available; if a network interface is attached to an instance
--- the status is in-use. subnet-id - The ID of the subnet for the network
--- interface. tag:/key/=/value/ - The key/value combination of a tag
--- assigned to the resource. tag-key - The key of a tag assigned to the
--- resource. This filter is independent of the tag-value filter. For
+-- status is @available@; if a network interface is attached to an instance
+-- the status is @in-use@. @subnet-id@ - The ID of the subnet for the
+-- network interface. @tag@:/key/=/value/ - The key/value combination of a
+-- tag assigned to the resource. @tag-key@ - The key of a tag assigned to
+-- the resource. This filter is independent of the @tag-value@ filter. For
 -- example, if you use both the filter "tag-key=Purpose" and the filter
 -- "tag-value=X", you get any resources assigned both the tag key Purpose
 -- (regardless of what the tag's value is), and the tag value X (regardless
 -- of what the tag's key is). If you want to list only resources where
--- Purpose is X, see the tag:/key/=/value/ filter. tag-value - The value of
--- a tag assigned to the resource. This filter is independent of the tag-key
--- filter. vpc-id - The ID of the VPC for the network interface.
+-- Purpose is X, see the @tag@:/key/=/value/ filter. @tag-value@ - The value
+-- of a tag assigned to the resource. This filter is independent of the
+-- @tag-key@ filter. @vpc-id@ - The ID of the VPC for the network interface.
 dni1Filters :: Lens' DescribeNetworkInterfaces [Filter]
 dni1Filters = lens _dni1Filters (\s a -> s { _dni1Filters = a }) . _List
 

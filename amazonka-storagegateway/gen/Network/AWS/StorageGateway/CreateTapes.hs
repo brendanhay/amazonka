@@ -87,7 +87,7 @@ createTapes p1 p2 p3 p4 p5 = CreateTapes
     }
 
 -- | A unique identifier that you use to retry a request. If you retry a
--- request, use the same ClientToken you specified in the initial request.
+-- request, use the same @ClientToken@ you specified in the initial request.
 ctClientToken :: Lens' CreateTapes Text
 ctClientToken = lens _ctClientToken (\s a -> s { _ctClientToken = a })
 

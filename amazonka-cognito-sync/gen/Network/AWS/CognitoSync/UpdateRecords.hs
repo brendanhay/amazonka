@@ -98,8 +98,8 @@ updateRecords p1 p2 p3 p4 = UpdateRecords
     , _urClientContext    = Nothing
     }
 
--- | Intended to supply a device ID that will populate the lastModifiedBy
--- field referenced in other methods. The ClientContext field is not yet
+-- | Intended to supply a device ID that will populate the @lastModifiedBy@
+-- field referenced in other methods. The @ClientContext@ field is not yet
 -- implemented.
 urClientContext :: Lens' UpdateRecords (Maybe Text)
 urClientContext = lens _urClientContext (\s a -> s { _urClientContext = a })

@@ -137,10 +137,10 @@ clbLoadBalancerName =
 -- which resolves to public IP addresses. For more information about
 -- Internet-facing and Internal load balancers, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html
--- Internet-facing and Internal Load Balancers>. Specify the value internal
--- for this option to create an internal load balancer with a DNS name that
--- resolves to private IP addresses. This option is only available for load
--- balancers created within EC2-VPC.
+-- Internet-facing and Internal Load Balancers>. Specify the value
+-- @internal@ for this option to create an internal load balancer with a DNS
+-- name that resolves to private IP addresses. This option is only available
+-- for load balancers created within EC2-VPC.
 clbScheme :: Lens' CreateLoadBalancer (Maybe Text)
 clbScheme = lens _clbScheme (\s a -> s { _clbScheme = a })
 

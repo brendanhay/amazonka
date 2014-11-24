@@ -23,8 +23,8 @@
 -- | Gets the suggesters configured for a domain. A suggester enables you to
 -- display possible matches before users finish typing their queries. Can be
 -- limited to specific suggesters by name. By default, shows all suggesters
--- and includes any pending changes to the configuration. Set the Deployed
--- option to true to show the active configuration and exclude pending
+-- and includes any pending changes to the configuration. Set the @Deployed@
+-- option to @true@ to show the active configuration and exclude pending
 -- changes. For more information, see Getting Search Suggestions> in the
 -- /Amazon CloudSearch Developer Guide/.
 --
@@ -77,8 +77,8 @@ describeSuggesters p1 = DescribeSuggesters
     , _ds1Deployed       = Nothing
     }
 
--- | Whether to display the deployed configuration (true) or include any
--- pending changes (false). Defaults to false.
+-- | Whether to display the deployed configuration (@true@) or include any
+-- pending changes (@false@). Defaults to @false@.
 ds1Deployed :: Lens' DescribeSuggesters (Maybe Bool)
 ds1Deployed = lens _ds1Deployed (\s a -> s { _ds1Deployed = a })
 

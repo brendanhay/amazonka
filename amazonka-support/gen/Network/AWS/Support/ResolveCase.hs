@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Takes a CaseId and returns the initial state of the case along with the
+-- | Takes a @CaseId@ and returns the initial state of the case along with the
 -- state of the case after the call to ResolveCase> completed.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html>

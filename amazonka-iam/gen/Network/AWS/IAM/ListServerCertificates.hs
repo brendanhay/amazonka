@@ -22,7 +22,7 @@
 
 -- | Lists the server certificates that have the specified path prefix. If none
 -- exist, the action returns an empty list. You can paginate the results using
--- the MaxItems and Marker parameters.
+-- the @MaxItems@ and @Marker@ parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServerCertificates.html>
 module Network.AWS.IAM.ListServerCertificates
@@ -76,22 +76,22 @@ listServerCertificates = ListServerCertificates
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it
--- to the value of the Marker element in the response you just received.
+-- to the value of the @Marker@ element in the response you just received.
 lscMarker :: Lens' ListServerCertificates (Maybe Text)
 lscMarker = lens _lscMarker (\s a -> s { _lscMarker = a })
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- server certificates you want in the response. If there are additional
--- server certificates beyond the maximum you specify, the IsTruncated
--- response element will be set to true. This parameter is optional. If you
--- do not include it, it defaults to 100.
+-- server certificates beyond the maximum you specify, the @IsTruncated@
+-- response element will be set to @true@. This parameter is optional. If
+-- you do not include it, it defaults to 100.
 lscMaxItems :: Lens' ListServerCertificates (Maybe Natural)
 lscMaxItems = lens _lscMaxItems (\s a -> s { _lscMaxItems = a }) . mapping _Nat
 
 -- | The path prefix for filtering the results. For example:
--- /company/servercerts would get all server certificates for which the path
--- starts with /company/servercerts. This parameter is optional. If it is
--- not included, it defaults to a slash (/), listing all server
+-- @/company/servercerts@ would get all server certificates for which the
+-- path starts with @/company/servercerts@. This parameter is optional. If
+-- it is not included, it defaults to a slash (/), listing all server
 -- certificates.
 lscPathPrefix :: Lens' ListServerCertificates (Maybe Text)
 lscPathPrefix = lens _lscPathPrefix (\s a -> s { _lscPathPrefix = a })
@@ -121,13 +121,14 @@ listServerCertificatesResponse = ListServerCertificatesResponse
 
 -- | A flag that indicates whether there are more server certificates to list.
 -- If your results were truncated, you can make a subsequent pagination
--- request using the Marker request parameter to retrieve more server
+-- request using the @Marker@ request parameter to retrieve more server
 -- certificates in the list.
 lscrIsTruncated :: Lens' ListServerCertificatesResponse (Maybe Bool)
 lscrIsTruncated = lens _lscrIsTruncated (\s a -> s { _lscrIsTruncated = a })
 
--- | If IsTruncated is true, this element is present and contains the value to
--- use for the Marker parameter in a subsequent pagination request.
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 lscrMarker :: Lens' ListServerCertificatesResponse (Maybe Text)
 lscrMarker = lens _lscrMarker (\s a -> s { _lscrMarker = a })
 

@@ -68,7 +68,7 @@ disableLogging p1 = DisableLogging
     }
 
 -- | The identifier of the cluster on which logging is to be stopped. Example:
--- examplecluster.
+-- @examplecluster@.
 dlClusterIdentifier :: Lens' DisableLogging Text
 dlClusterIdentifier =
     lens _dlClusterIdentifier (\s a -> s { _dlClusterIdentifier = a })
@@ -130,7 +130,7 @@ dlrLastSuccessfulDeliveryTime =
         (\s a -> s { _dlrLastSuccessfulDeliveryTime = a })
             . mapping _Time
 
--- | true if logging is on, false if logging is off.
+-- | @true@ if logging is on, @false@ if logging is off.
 dlrLoggingEnabled :: Lens' DisableLoggingResponse (Maybe Bool)
 dlrLoggingEnabled =
     lens _dlrLoggingEnabled (\s a -> s { _dlrLoggingEnabled = a })

@@ -104,7 +104,7 @@ cogOptionGroupDescription =
 -- | Specifies the name of the option group to be created. Constraints: Must
 -- be 1 to 255 alphanumeric characters or hyphens First character must be a
 -- letter Cannot end with a hyphen or contain two consecutive hyphens
--- Example: myoptiongroup.
+-- Example: @myoptiongroup@.
 cogOptionGroupName :: Lens' CreateOptionGroup Text
 cogOptionGroupName =
     lens _cogOptionGroupName (\s a -> s { _cogOptionGroupName = a })

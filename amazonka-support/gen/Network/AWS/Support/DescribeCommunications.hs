@@ -21,13 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns communications (and attachments) for one or more support cases. You
--- can use the AfterTime and BeforeTime parameters to filter by date. You can
--- use the CaseId parameter to restrict the results to a particular case. Case
--- data is available for 12 months after creation. If a case was created more
--- than 12 months ago, a request for data might cause an error. You can use
--- the MaxResults and NextToken parameters to control the pagination of the
--- result set. Set MaxResults to the number of cases you want displayed on
--- each page, and use NextToken to specify the resumption of pagination.
+-- can use the @AfterTime@ and @BeforeTime@ parameters to filter by date. You
+-- can use the @CaseId@ parameter to restrict the results to a particular
+-- case. Case data is available for 12 months after creation. If a case was
+-- created more than 12 months ago, a request for data might cause an error.
+-- You can use the @MaxResults@ and @NextToken@ parameters to control the
+-- pagination of the result set. Set @MaxResults@ to the number of cases you
+-- want displayed on each page, and use @NextToken@ to specify the resumption
+-- of pagination.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCommunications.html>
 module Network.AWS.Support.DescribeCommunications

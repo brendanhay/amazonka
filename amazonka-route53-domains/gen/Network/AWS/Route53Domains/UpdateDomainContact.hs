@@ -81,10 +81,10 @@ updateDomainContact p1 = UpdateDomainContact
     , _udcTechContact       = Nothing
     }
 
--- | Provides detailed contact information. Type: Complex Children: FirstName,
--- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
--- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
--- ExtraParams Required: Yes.
+-- | Provides detailed contact information. Type: Complex Children:
+-- @FirstName@, @MiddleName@, @LastName@, @ContactType@, @OrganizationName@,
+-- @AddressLine1@, @AddressLine2@, @City@, @State@, @CountryCode@,
+-- @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@ Required: Yes.
 udcAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcAdminContact = lens _udcAdminContact (\s a -> s { _udcAdminContact = a })
 
@@ -95,18 +95,18 @@ udcAdminContact = lens _udcAdminContact (\s a -> s { _udcAdminContact = a })
 udcDomainName :: Lens' UpdateDomainContact Text
 udcDomainName = lens _udcDomainName (\s a -> s { _udcDomainName = a })
 
--- | Provides detailed contact information. Type: Complex Children: FirstName,
--- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
--- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
--- ExtraParams Required: Yes.
+-- | Provides detailed contact information. Type: Complex Children:
+-- @FirstName@, @MiddleName@, @LastName@, @ContactType@, @OrganizationName@,
+-- @AddressLine1@, @AddressLine2@, @City@, @State@, @CountryCode@,
+-- @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@ Required: Yes.
 udcRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcRegistrantContact =
     lens _udcRegistrantContact (\s a -> s { _udcRegistrantContact = a })
 
--- | Provides detailed contact information. Type: Complex Children: FirstName,
--- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
--- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
--- ExtraParams Required: Yes.
+-- | Provides detailed contact information. Type: Complex Children:
+-- @FirstName@, @MiddleName@, @LastName@, @ContactType@, @OrganizationName@,
+-- @AddressLine1@, @AddressLine2@, @City@, @State@, @CountryCode@,
+-- @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@ Required: Yes.
 udcTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcTechContact = lens _udcTechContact (\s a -> s { _udcTechContact = a })
 

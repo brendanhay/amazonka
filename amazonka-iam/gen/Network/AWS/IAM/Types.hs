@@ -1259,8 +1259,8 @@ akSecretAccessKey =
     lens _akSecretAccessKey (\s a -> s { _akSecretAccessKey = a })
         . _Sensitive
 
--- | The status of the access key. Active means the key is valid for API
--- calls, while Inactive means it is not.
+-- | The status of the access key. @Active@ means the key is valid for API
+-- calls, while @Inactive@ means it is not.
 akStatus :: Lens' AccessKey StatusType
 akStatus = lens _akStatus (\s a -> s { _akStatus = a })
 
@@ -1318,7 +1318,7 @@ virtualMFADevice p1 = VirtualMFADevice
     }
 
 -- | The Base32 seed defined as specified in
--- <http://www.ietf.org/rfc/rfc3548.txt RFC3548>. The Base32StringSeed is
+-- <http://www.ietf.org/rfc/rfc3548.txt RFC3548>. The @Base32StringSeed@ is
 -- Base64-encoded.
 vmfadBase32StringSeed :: Lens' VirtualMFADevice (Maybe Base64)
 vmfadBase32StringSeed =
@@ -1329,15 +1329,15 @@ vmfadEnableDate :: Lens' VirtualMFADevice (Maybe UTCTime)
 vmfadEnableDate = lens _vmfadEnableDate (\s a -> s { _vmfadEnableDate = a }) . mapping _Time
 
 -- | A QR code PNG image that encodes
--- otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String
--- where $virtualMFADeviceName is one of the create call arguments,
--- AccountName is the user name if set (otherwise, the account ID
--- otherwise), and Base32String is the seed in Base32 format. The
--- Base32String value is Base64-encoded.
+-- @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@
+-- where @$virtualMFADeviceName@ is one of the create call arguments,
+-- @AccountName@ is the user name if set (otherwise, the account ID
+-- otherwise), and @Base32String@ is the seed in Base32 format. The
+-- @Base32String@ value is Base64-encoded.
 vmfadQRCodePNG :: Lens' VirtualMFADevice (Maybe Base64)
 vmfadQRCodePNG = lens _vmfadQRCodePNG (\s a -> s { _vmfadQRCodePNG = a })
 
--- | The serial number associated with VirtualMFADevice.
+-- | The serial number associated with @VirtualMFADevice@.
 vmfadSerialNumber :: Lens' VirtualMFADevice Text
 vmfadSerialNumber =
     lens _vmfadSerialNumber (\s a -> s { _vmfadSerialNumber = a })
@@ -1406,8 +1406,8 @@ sc1CertificateBody =
 sc1CertificateId :: Lens' SigningCertificate Text
 sc1CertificateId = lens _sc1CertificateId (\s a -> s { _sc1CertificateId = a })
 
--- | The status of the signing certificate. Active means the key is valid for
--- API calls, while Inactive means it is not.
+-- | The status of the signing certificate. @Active@ means the key is valid
+-- for API calls, while @Inactive@ means it is not.
 sc1Status :: Lens' SigningCertificate StatusType
 sc1Status = lens _sc1Status (\s a -> s { _sc1Status = a })
 
@@ -1471,8 +1471,8 @@ akmAccessKeyId = lens _akmAccessKeyId (\s a -> s { _akmAccessKeyId = a })
 akmCreateDate :: Lens' AccessKeyMetadata (Maybe UTCTime)
 akmCreateDate = lens _akmCreateDate (\s a -> s { _akmCreateDate = a }) . mapping _Time
 
--- | The status of the access key. Active means the key is valid for API
--- calls; Inactive means it is not.
+-- | The status of the access key. @Active@ means the key is valid for API
+-- calls; @Inactive@ means it is not.
 akmStatus :: Lens' AccessKeyMetadata (Maybe StatusType)
 akmStatus = lens _akmStatus (\s a -> s { _akmStatus = a })
 

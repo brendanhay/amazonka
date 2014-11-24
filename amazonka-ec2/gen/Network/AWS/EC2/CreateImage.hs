@@ -118,9 +118,9 @@ ci1InstanceId = lens _ci1InstanceId (\s a -> s { _ci1InstanceId = a })
 ci1Name :: Lens' CreateImage Text
 ci1Name = lens _ci1Name (\s a -> s { _ci1Name = a })
 
--- | By default, this parameter is set to false, which means Amazon EC2
+-- | By default, this parameter is set to @false@, which means Amazon EC2
 -- attempts to shut down the instance cleanly before image creation and then
--- reboots the instance. When the parameter is set to true, Amazon EC2
+-- reboots the instance. When the parameter is set to @true@, Amazon EC2
 -- doesn't shut down the instance before creating the image. When this
 -- option is used, file system integrity on the created image can't be
 -- guaranteed.

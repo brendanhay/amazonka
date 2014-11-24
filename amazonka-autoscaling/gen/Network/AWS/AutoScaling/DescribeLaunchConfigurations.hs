@@ -24,7 +24,8 @@
 -- then the call describes all launch configurations. You can specify a
 -- maximum number of items to be returned with a single call. If there are
 -- more items to return, the call returns a token. To get the next set of
--- items, repeat the call with the returned token in the NextToken parameter.
+-- items, repeat the call with the returned token in the @NextToken@
+-- parameter.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurations.html>
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations

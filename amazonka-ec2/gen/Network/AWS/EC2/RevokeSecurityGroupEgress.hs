@@ -115,7 +115,7 @@ rsgeDryRun :: Lens' RevokeSecurityGroupEgress (Maybe Bool)
 rsgeDryRun = lens _rsgeDryRun (\s a -> s { _rsgeDryRun = a })
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. For the ICMP type number, use -1 to specify all ICMP types.
+-- number. For the ICMP type number, use @-1@ to specify all ICMP types.
 rsgeFromPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeFromPort = lens _rsgeFromPort (\s a -> s { _rsgeFromPort = a })
 
@@ -130,9 +130,9 @@ rsgeIpPermissions =
     lens _rsgeIpPermissions (\s a -> s { _rsgeIpPermissions = a })
         . _List
 
--- | The IP protocol name (tcp, udp, icmp) or number (see
+-- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml
--- Protocol Numbers>). Use -1 to specify all.
+-- Protocol Numbers>). Use @-1@ to specify all.
 rsgeIpProtocol :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeIpProtocol = lens _rsgeIpProtocol (\s a -> s { _rsgeIpProtocol = a })
 
@@ -152,7 +152,7 @@ rsgeSourceSecurityGroupOwnerId =
         (\s a -> s { _rsgeSourceSecurityGroupOwnerId = a })
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use -1 to specify all ICMP codes for
+-- number. For the ICMP code number, use @-1@ to specify all ICMP codes for
 -- the ICMP type.
 rsgeToPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeToPort = lens _rsgeToPort (\s a -> s { _rsgeToPort = a })

@@ -22,25 +22,25 @@
 
 -- | Returns a set of temporary credentials for an AWS account or IAM user. The
 -- credentials consist of an access key ID, a secret access key, and a
--- security token. Typically, you use GetSessionToken if you want to use MFA
+-- security token. Typically, you use @GetSessionToken@ if you want to use MFA
 -- to protect programmatic calls to specific AWS APIs like Amazon EC2
--- StopInstances. MFA-enabled IAM users would need to call GetSessionToken and
--- submit an MFA code that is associated with their MFA device. Using the
+-- @StopInstances@. MFA-enabled IAM users would need to call @GetSessionToken@
+-- and submit an MFA code that is associated with their MFA device. Using the
 -- temporary security credentials that are returned from the call, IAM users
 -- can then make programmatic calls to APIs that require MFA authentication.
--- The GetSessionToken action must be called by using the long-term AWS
+-- The @GetSessionToken@ action must be called by using the long-term AWS
 -- security credentials of the AWS account or an IAM user. Credentials that
 -- are created by IAM users are valid for the duration that you specify,
 -- between 900 seconds (15 minutes) and 129600 seconds (36 hours); credentials
 -- that are created by using account credentials have a maximum duration of
 -- 3600 seconds (1 hour). The permissions associated with the temporary
--- security credentials returned by GetSessionToken are based on the
+-- security credentials returned by @GetSessionToken@ are based on the
 -- permissions associated with account or IAM user whose credentials are used
--- to call the action. If GetSessionToken is called using root account
+-- to call the action. If @GetSessionToken@ is called using root account
 -- credentials, the temporary credentials have root account permissions.
--- Similarly, if GetSessionToken is called using the credentials of an IAM
+-- Similarly, if @GetSessionToken@ is called using the credentials of an IAM
 -- user, the temporary credentials have the same permissions as the IAM user.
--- For more information about using GetSessionToken to create temporary
+-- For more information about using @GetSessionToken@ to create temporary
 -- credentials, go to Creating Temporary Credentials to Enable Access for IAM
 -- Users> in /Using Temporary Security Credentials/.
 --
@@ -104,11 +104,11 @@ gstDurationSeconds =
         . mapping _Nat
 
 -- | The identification number of the MFA device that is associated with the
--- IAM user who is making the GetSessionToken call. Specify this value if
+-- IAM user who is making the @GetSessionToken@ call. Specify this value if
 -- the IAM user has a policy that requires MFA authentication. The value is
--- either the serial number for a hardware device (such as GAHT12345678) or
--- an Amazon Resource Name (ARN) for a virtual device (such as
--- arn:aws:iam::123456789012:mfa/user). You can find the device for an IAM
+-- either the serial number for a hardware device (such as @GAHT12345678@)
+-- or an Amazon Resource Name (ARN) for a virtual device (such as
+-- @arn:aws:iam::123456789012:mfa/user@). You can find the device for an IAM
 -- user by going to the AWS Management Console and viewing the user's
 -- security credentials.
 gstSerialNumber :: Lens' GetSessionToken (Maybe Text)

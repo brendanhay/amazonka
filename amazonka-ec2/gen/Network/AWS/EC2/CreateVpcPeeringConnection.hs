@@ -26,9 +26,9 @@
 -- have overlapping CIDR blocks. The owner of the peer VPC must accept the
 -- peering request to activate the peering connection. The VPC peering
 -- connection request expires after 7 days, after which it cannot be accepted
--- or rejected. A CreateVpcPeeringConnection request between VPCs with
+-- or rejected. A @CreateVpcPeeringConnection@ request between VPCs with
 -- overlapping CIDR blocks results in the VPC peering connection having a
--- status of failed.
+-- status of @failed@.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpcPeeringConnection.html>
 module Network.AWS.EC2.CreateVpcPeeringConnection

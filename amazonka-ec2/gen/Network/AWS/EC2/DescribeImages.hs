@@ -87,46 +87,49 @@ di2DryRun :: Lens' DescribeImages (Maybe Bool)
 di2DryRun = lens _di2DryRun (\s a -> s { _di2DryRun = a })
 
 -- | Scopes the images by users with explicit launch permissions. Specify an
--- AWS account ID, self (the sender of the request), or all (public AMIs).
+-- AWS account ID, @self@ (the sender of the request), or @all@ (public
+-- AMIs).
 di2ExecutableUsers :: Lens' DescribeImages [Text]
 di2ExecutableUsers =
     lens _di2ExecutableUsers (\s a -> s { _di2ExecutableUsers = a })
         . _List
 
--- | One or more filters. architecture - The image architecture (i386 |
--- x86_64). block-device-mapping.delete-on-termination - A Boolean value
+-- | One or more filters. @architecture@ - The image architecture (@i386@ |
+-- @x86_64@). @block-device-mapping.delete-on-termination@ - A Boolean value
 -- that indicates whether the Amazon EBS volume is deleted on instance
--- termination. block-device-mapping.device-name - The device name for the
--- Amazon EBS volume (for example, /dev/sdh).
--- block-device-mapping.snapshot-id - The ID of the snapshot used for the
--- Amazon EBS volume. block-device-mapping.volume-size - The volume size of
--- the Amazon EBS volume, in GiB. block-device-mapping.volume-type - The
--- volume type of the Amazon EBS volume (gp2 | standard | io1). description
--- - The description of the image (provided during image creation).
--- hypervisor - The hypervisor type (ovm | xen). image-id - The ID of the
--- image. image-type - The image type (machine | kernel | ramdisk).
--- is-public - A Boolean that indicates whether the image is public.
--- kernel-id - The kernel ID. manifest-location - The location of the image
--- manifest. name - The name of the AMI (provided during image creation).
--- owner-alias - The AWS account alias (for example, amazon). owner-id - The
--- AWS account ID of the image owner. platform - The platform. To only list
--- Windows-based AMIs, use windows. product-code - The product code.
--- product-code.type - The type of the product code (devpay | marketplace).
--- ramdisk-id - The RAM disk ID. root-device-name - The name of the root
--- device volume (for example, /dev/sda1). root-device-type - The type of
--- the root device volume (ebs | instance-store). state - The state of the
--- image (available | pending | failed). state-reason-code - The reason code
--- for the state change. state-reason-message - The message for the state
--- change. tag:/key/=/value/ - The key/value combination of a tag assigned
--- to the resource. tag-key - The key of a tag assigned to the resource.
--- This filter is independent of the tag-value filter. For example, if you
--- use both the filter "tag-key=Purpose" and the filter "tag-value=X", you
--- get any resources assigned both the tag key Purpose (regardless of what
--- the tag's value is), and the tag value X (regardless of what the tag's
--- key is). If you want to list only resources where Purpose is X, see the
--- tag:/key/=/value/ filter. tag-value - The value of a tag assigned to the
--- resource. This filter is independent of the tag-key filter.
--- virtualization-type - The virtualization type (paravirtual | hvm).
+-- termination. @block-device-mapping.device-name@ - The device name for the
+-- Amazon EBS volume (for example, @/dev/sdh@).
+-- @block-device-mapping.snapshot-id@ - The ID of the snapshot used for the
+-- Amazon EBS volume. @block-device-mapping.volume-size@ - The volume size
+-- of the Amazon EBS volume, in GiB. @block-device-mapping.volume-type@ -
+-- The volume type of the Amazon EBS volume (@gp2@ | @standard@ | @io1@).
+-- @description@ - The description of the image (provided during image
+-- creation). @hypervisor@ - The hypervisor type (@ovm@ | @xen@). @image-id@
+-- - The ID of the image. @image-type@ - The image type (@machine@ |
+-- @kernel@ | @ramdisk@). @is-public@ - A Boolean that indicates whether the
+-- image is public. @kernel-id@ - The kernel ID. @manifest-location@ - The
+-- location of the image manifest. @name@ - The name of the AMI (provided
+-- during image creation). @owner-alias@ - The AWS account alias (for
+-- example, @amazon@). @owner-id@ - The AWS account ID of the image owner.
+-- @platform@ - The platform. To only list Windows-based AMIs, use
+-- @windows@. @product-code@ - The product code. @product-code.type@ - The
+-- type of the product code (@devpay@ | @marketplace@). @ramdisk-id@ - The
+-- RAM disk ID. @root-device-name@ - The name of the root device volume (for
+-- example, @/dev/sda1@). @root-device-type@ - The type of the root device
+-- volume (@ebs@ | @instance-store@). @state@ - The state of the image
+-- (@available@ | @pending@ | @failed@). @state-reason-code@ - The reason
+-- code for the state change. @state-reason-message@ - The message for the
+-- state change. @tag@:/key/=/value/ - The key/value combination of a tag
+-- assigned to the resource. @tag-key@ - The key of a tag assigned to the
+-- resource. This filter is independent of the tag-value filter. For
+-- example, if you use both the filter "tag-key=Purpose" and the filter
+-- "tag-value=X", you get any resources assigned both the tag key Purpose
+-- (regardless of what the tag's value is), and the tag value X (regardless
+-- of what the tag's key is). If you want to list only resources where
+-- Purpose is X, see the @tag@:/key/=/value/ filter. @tag-value@ - The value
+-- of a tag assigned to the resource. This filter is independent of the
+-- @tag-key@ filter. @virtualization-type@ - The virtualization type
+-- (@paravirtual@ | @hvm@).
 di2Filters :: Lens' DescribeImages [Filter]
 di2Filters = lens _di2Filters (\s a -> s { _di2Filters = a }) . _List
 
@@ -134,9 +137,9 @@ di2Filters = lens _di2Filters (\s a -> s { _di2Filters = a }) . _List
 di2ImageIds :: Lens' DescribeImages [Text]
 di2ImageIds = lens _di2ImageIds (\s a -> s { _di2ImageIds = a }) . _List
 
--- | Filters the images by the owner. Specify an AWS account ID, amazon (owner
--- is Amazon), aws-marketplace (owner is AWS Marketplace), self (owner is
--- the sender of the request), or all (all owners).
+-- | Filters the images by the owner. Specify an AWS account ID, @amazon@
+-- (owner is Amazon), @aws-marketplace@ (owner is AWS Marketplace), @self@
+-- (owner is the sender of the request), or @all@ (all owners).
 di2Owners :: Lens' DescribeImages [Text]
 di2Owners = lens _di2Owners (\s a -> s { _di2Owners = a }) . _List
 

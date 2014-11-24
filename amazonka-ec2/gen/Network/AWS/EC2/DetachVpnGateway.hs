@@ -25,7 +25,7 @@
 -- virtual private gateway has been completely detached from a VPC by
 -- describing the virtual private gateway (any attachments to the virtual
 -- private gateway are also described). You must wait for the attachment's
--- state to switch to detached before you can delete the VPC or attach a
+-- state to switch to @detached@ before you can delete the VPC or attach a
 -- different VPC to the virtual private gateway.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVpnGateway.html>

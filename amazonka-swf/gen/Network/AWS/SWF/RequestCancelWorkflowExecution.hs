@@ -20,19 +20,19 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Records a WorkflowExecutionCancelRequested event in the currently running
+-- | Records a @WorkflowExecutionCancelRequested@ event in the currently running
 -- workflow execution identified by the given domain, workflowId, and runId.
 -- This logically requests the cancellation of the workflow execution as a
 -- whole. It is up to the decider to take appropriate actions when it receives
 -- an execution history with this event. Access Control You can use IAM
 -- policies to control this action's access to Amazon SWF resources as
--- follows: Use a Resource element with the domain name to limit the action to
--- only specified domains. Use an Action element to allow or deny permission
--- to call this action. You cannot use an IAM policy to constrain this
--- action's parameters. If the caller does not have sufficient permissions to
--- invoke the action, or the parameter values fall outside the specified
--- constraints, the action fails by throwing OperationNotPermitted. For
--- details and example IAM policies, see
+-- follows: Use a @Resource@ element with the domain name to limit the action
+-- to only specified domains. Use an @Action@ element to allow or deny
+-- permission to call this action. You cannot use an IAM policy to constrain
+-- this action's parameters. If the caller does not have sufficient
+-- permissions to invoke the action, or the parameter values fall outside the
+-- specified constraints, the action fails by throwing
+-- @OperationNotPermitted@. For details and example IAM policies, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
 -- Using IAM to Manage Access to Amazon SWF Workflows>.
 --

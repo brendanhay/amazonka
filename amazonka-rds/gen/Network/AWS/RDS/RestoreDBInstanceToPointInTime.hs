@@ -171,18 +171,18 @@ rdbitpitAutoMinorVersionUpgrade =
 -- | The EC2 Availability Zone that the database instance will be created in.
 -- Default: A random, system-chosen Availability Zone. Constraint: You
 -- cannot specify the AvailabilityZone parameter if the MultiAZ parameter is
--- set to true. Example: us-east-1a.
+-- set to true. Example: @us-east-1a@.
 rdbitpitAvailabilityZone :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitAvailabilityZone =
     lens _rdbitpitAvailabilityZone
         (\s a -> s { _rdbitpitAvailabilityZone = a })
 
 -- | The compute and memory capacity of the Amazon RDS DB instance. Valid
--- Values: db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
+-- Values: @db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
 -- db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large
 -- | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge |
 -- db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small
--- | db.t2.medium Default: The same DBInstanceClass as the original DB
+-- | db.t2.medium@ Default: The same DBInstanceClass as the original DB
 -- instance.
 rdbitpitDBInstanceClass :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitDBInstanceClass =
@@ -200,7 +200,7 @@ rdbitpitDBSubnetGroupName =
 
 -- | The database engine to use for the new instance. Default: The same as
 -- source Constraint: Must be compatible with the engine of the source
--- Example: oracle-ee.
+-- Example: @oracle-ee@.
 rdbitpitEngine :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitEngine = lens _rdbitpitEngine (\s a -> s { _rdbitpitEngine = a })
 
@@ -212,15 +212,15 @@ rdbitpitIops :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
 rdbitpitIops = lens _rdbitpitIops (\s a -> s { _rdbitpitIops = a })
 
 -- | License model information for the restored DB instance. Default: Same as
--- source. Valid values: license-included | bring-your-own-license |
--- general-public-license.
+-- source. Valid values: @license-included@ | @bring-your-own-license@ |
+-- @general-public-license@.
 rdbitpitLicenseModel :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitLicenseModel =
     lens _rdbitpitLicenseModel (\s a -> s { _rdbitpitLicenseModel = a })
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Constraint: You
 -- cannot specify the AvailabilityZone parameter if the MultiAZ parameter is
--- set to true.
+-- set to @true@.
 rdbitpitMultiAZ :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rdbitpitMultiAZ = lens _rdbitpitMultiAZ (\s a -> s { _rdbitpitMultiAZ = a })
 
@@ -233,7 +233,7 @@ rdbitpitOptionGroupName =
     lens _rdbitpitOptionGroupName (\s a -> s { _rdbitpitOptionGroupName = a })
 
 -- | The port number on which the database accepts connections. Constraints:
--- Value must be 1150-65535 Default: The same port as the original DB
+-- Value must be @1150-65535@ Default: The same port as the original DB
 -- instance.
 rdbitpitPort :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
 rdbitpitPort = lens _rdbitpitPort (\s a -> s { _rdbitpitPort = a })
@@ -258,7 +258,7 @@ rdbitpitPubliclyAccessible =
 -- | The date and time to restore from. Valid Values: Value must be a UTC time
 -- Constraints: Must be before the latest restorable time for the DB
 -- instance Cannot be specified if UseLatestRestorableTime parameter is true
--- Example: 2009-09-07T23:45:00Z.
+-- Example: @2009-09-07T23:45:00Z@.
 rdbitpitRestoreTime :: Lens' RestoreDBInstanceToPointInTime (Maybe UTCTime)
 rdbitpitRestoreTime =
     lens _rdbitpitRestoreTime (\s a -> s { _rdbitpitRestoreTime = a })
@@ -275,8 +275,8 @@ rdbitpitSourceDBInstanceIdentifier =
         (\s a -> s { _rdbitpitSourceDBInstanceIdentifier = a })
 
 -- | Specifies storage type to be associated with the DB Instance. Valid
--- values: standard | gp2 | io1 If you specify io1, you must also include a
--- value for the Iops parameter.
+-- values: @standard | gp2 | io1@ If you specify @io1@, you must also
+-- include a value for the @Iops@ parameter.
 rdbitpitStorageType :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitStorageType =
     lens _rdbitpitStorageType (\s a -> s { _rdbitpitStorageType = a })
@@ -307,9 +307,9 @@ rdbitpitTdeCredentialPassword =
     lens _rdbitpitTdeCredentialPassword
         (\s a -> s { _rdbitpitTdeCredentialPassword = a })
 
--- | Specifies whether (true) or not (false) the DB instance is restored from
--- the latest backup time. Default: false Constraints: Cannot be specified
--- if RestoreTime parameter is provided.
+-- | Specifies whether (@true@) or not (@false@) the DB instance is restored
+-- from the latest backup time. Default: @false@ Constraints: Cannot be
+-- specified if RestoreTime parameter is provided.
 rdbitpitUseLatestRestorableTime :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rdbitpitUseLatestRestorableTime =
     lens _rdbitpitUseLatestRestorableTime

@@ -187,12 +187,12 @@ createCluster p1 p2 p3 p4 = CreateCluster
     , _ccKmsKeyId                         = Nothing
     }
 
--- | If true, major version upgrades can be applied during the maintenance
+-- | If @true@, major version upgrades can be applied during the maintenance
 -- window to the Amazon Redshift engine that is running on the cluster. When
 -- a new major version of the Amazon Redshift engine is released, you can
 -- request that the service automatically apply upgrades during the
 -- maintenance window to the Amazon Redshift engine that is running on your
--- cluster. Default: true.
+-- cluster. Default: @true@.
 ccAllowVersionUpgrade :: Lens' CreateCluster (Maybe Bool)
 ccAllowVersionUpgrade =
     lens _ccAllowVersionUpgrade (\s a -> s { _ccAllowVersionUpgrade = a })
@@ -200,8 +200,8 @@ ccAllowVersionUpgrade =
 -- | The number of days that automated snapshots are retained. If the value is
 -- 0, automated snapshots are disabled. Even if automated snapshots are
 -- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot>. Default: 1 Constraints: Must be a value from 0 to
--- 35.
+-- CreateClusterSnapshot>. Default: @1@ Constraints: Must be a value from 0
+-- to 35.
 ccAutomatedSnapshotRetentionPeriod :: Lens' CreateCluster (Maybe Int)
 ccAutomatedSnapshotRetentionPeriod =
     lens _ccAutomatedSnapshotRetentionPeriod
@@ -212,8 +212,9 @@ ccAutomatedSnapshotRetentionPeriod =
 -- running in a specific Availability Zone, then you might want the cluster
 -- to be provisioned in the same zone in order to decrease network latency.
 -- Default: A random, system-chosen Availability Zone in the region that is
--- specified by the endpoint. Example: us-east-1d Constraint: The specified
--- Availability Zone must be in the same region as the current endpoint.
+-- specified by the endpoint. Example: @us-east-1d@ Constraint: The
+-- specified Availability Zone must be in the same region as the current
+-- endpoint.
 ccAvailabilityZone :: Lens' CreateCluster (Maybe Text)
 ccAvailabilityZone =
     lens _ccAvailabilityZone (\s a -> s { _ccAvailabilityZone = a })
@@ -225,7 +226,7 @@ ccAvailabilityZone =
 -- hyphens. Alphabetic characters must be lowercase. First character must be
 -- a letter. Cannot end with a hyphen or contain two consecutive hyphens.
 -- Must be unique for all clusters within an AWS account. Example:
--- myexamplecluster.
+-- @myexamplecluster@.
 ccClusterIdentifier :: Lens' CreateCluster Text
 ccClusterIdentifier =
     lens _ccClusterIdentifier (\s a -> s { _ccClusterIdentifier = a })
@@ -257,17 +258,17 @@ ccClusterSubnetGroupName =
     lens _ccClusterSubnetGroupName
         (\s a -> s { _ccClusterSubnetGroupName = a })
 
--- | The type of the cluster. When cluster type is specified as single-node,
--- the NumberOfNodes parameter is not required. multi-node, the
--- NumberOfNodes parameter is required. Valid Values: multi-node |
--- single-node Default: multi-node.
+-- | The type of the cluster. When cluster type is specified as @single-node@,
+-- the NumberOfNodes parameter is not required. @multi-node@, the
+-- NumberOfNodes parameter is required. Valid Values: @multi-node@ |
+-- @single-node@ Default: @multi-node@.
 ccClusterType :: Lens' CreateCluster (Maybe Text)
 ccClusterType = lens _ccClusterType (\s a -> s { _ccClusterType = a })
 
 -- | The version of the Amazon Redshift engine software that you want to
 -- deploy on the cluster. The version selected runs on all the nodes in the
 -- cluster. Constraints: Only version 1.0 is currently available. Example:
--- 1.0.
+-- @1.0@.
 ccClusterVersion :: Lens' CreateCluster (Maybe Text)
 ccClusterVersion = lens _ccClusterVersion (\s a -> s { _ccClusterVersion = a })
 
@@ -277,7 +278,7 @@ ccClusterVersion = lens _ccClusterVersion (\s a -> s { _ccClusterVersion = a })
 -- For more information, go to
 -- <http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html
 -- Create a Database> in the Amazon Redshift Database Developer Guide.
--- Default: dev Constraints: Must contain 1 to 64 alphanumeric characters.
+-- Default: @dev@ Constraints: Must contain 1 to 64 alphanumeric characters.
 -- Must contain only lowercase letters. Cannot be a word that is reserved by
 -- the service. A list of reserved words can be found in
 -- <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html
@@ -295,7 +296,7 @@ ccDBName = lens _ccDBName (\s a -> s { _ccDBName = a })
 ccElasticIp :: Lens' CreateCluster (Maybe Text)
 ccElasticIp = lens _ccElasticIp (\s a -> s { _ccElasticIp = a })
 
--- | If true, the data in the cluster is encrypted at rest. Default: false.
+-- | If @true@, the data in the cluster is encrypted at rest. Default: false.
 ccEncrypted :: Lens' CreateCluster (Maybe Bool)
 ccEncrypted = lens _ccEncrypted (\s a -> s { _ccEncrypted = a })
 
@@ -341,18 +342,18 @@ ccMasterUsername = lens _ccMasterUsername (\s a -> s { _ccMasterUsername = a })
 -- node types, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes
 -- Working with Clusters> in the /Amazon Redshift Cluster Management Guide/.
--- Valid Values: dw1.xlarge | dw1.8xlarge | dw2.large | dw2.8xlarge.
+-- Valid Values: @dw1.xlarge@ | @dw1.8xlarge@ | @dw2.large@ | @dw2.8xlarge@.
 ccNodeType :: Lens' CreateCluster Text
 ccNodeType = lens _ccNodeType (\s a -> s { _ccNodeType = a })
 
 -- | The number of compute nodes in the cluster. This parameter is required
--- when the ClusterType parameter is specified as multi-node. For
+-- when the ClusterType parameter is specified as @multi-node@. For
 -- information about determining how many nodes you need, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes
 -- Working with Clusters> in the /Amazon Redshift Cluster Management Guide/.
 -- If you don't specify this parameter, you get a single-node cluster. When
 -- requesting a multi-node cluster, you must specify the number of nodes
--- that you want in the cluster. Default: 1 Constraints: Value must be at
+-- that you want in the cluster. Default: @1@ Constraints: Value must be at
 -- least 1 and no more than 100.
 ccNumberOfNodes :: Lens' CreateCluster (Maybe Int)
 ccNumberOfNodes = lens _ccNumberOfNodes (\s a -> s { _ccNumberOfNodes = a })
@@ -360,12 +361,13 @@ ccNumberOfNodes = lens _ccNumberOfNodes (\s a -> s { _ccNumberOfNodes = a })
 -- | The port number on which the cluster accepts incoming connections. The
 -- cluster is accessible only via the JDBC and ODBC connection strings. Part
 -- of the connection string requires the port on which the cluster will
--- listen for incoming connections. Default: 5439 Valid Values: 1150-65535.
+-- listen for incoming connections. Default: @5439@ Valid Values:
+-- @1150-65535@.
 ccPort :: Lens' CreateCluster (Maybe Int)
 ccPort = lens _ccPort (\s a -> s { _ccPort = a })
 
 -- | The weekly time range (in UTC) during which automated cluster maintenance
--- can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default: A 30-minute window
+-- can occur. Format: @ddd:hh24:mi-ddd:hh24:mi@ Default: A 30-minute window
 -- selected at random from an 8-hour block of time per region, occurring on
 -- a random day of the week. For more information about the time blocks for
 -- each region, see
@@ -378,7 +380,7 @@ ccPreferredMaintenanceWindow =
     lens _ccPreferredMaintenanceWindow
         (\s a -> s { _ccPreferredMaintenanceWindow = a })
 
--- | If true, the cluster can be accessed from a public network.
+-- | If @true@, the cluster can be accessed from a public network.
 ccPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
 ccPubliclyAccessible =
     lens _ccPubliclyAccessible (\s a -> s { _ccPubliclyAccessible = a })

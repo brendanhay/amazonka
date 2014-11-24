@@ -86,8 +86,8 @@ diAutoScalingGroupName =
 diInstanceIds :: Lens' DetachInstances [Text]
 diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a }) . _List
 
--- | If True, the Auto Scaling group decrements the desired capacity value by
--- the number of instances detached.
+-- | If @True@, the Auto Scaling group decrements the desired capacity value
+-- by the number of instances detached.
 diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
 diShouldDecrementDesiredCapacity =
     lens _diShouldDecrementDesiredCapacity

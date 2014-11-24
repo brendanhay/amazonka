@@ -133,7 +133,7 @@ rnaeNetworkAclId = lens _rnaeNetworkAclId (\s a -> s { _rnaeNetworkAclId = a })
 rnaePortRange :: Lens' ReplaceNetworkAclEntry (Maybe PortRange)
 rnaePortRange = lens _rnaePortRange (\s a -> s { _rnaePortRange = a })
 
--- | The IP protocol. You can specify all or -1 to mean all protocols.
+-- | The IP protocol. You can specify @all@ or @-1@ to mean all protocols.
 rnaeProtocol :: Lens' ReplaceNetworkAclEntry Text
 rnaeProtocol = lens _rnaeProtocol (\s a -> s { _rnaeProtocol = a })
 

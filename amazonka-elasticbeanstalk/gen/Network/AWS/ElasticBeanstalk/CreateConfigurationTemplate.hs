@@ -106,7 +106,7 @@ createConfigurationTemplate p1 p2 = CreateConfigurationTemplate
 
 -- | The name of the application to associate with this configuration
 -- template. If no application is found with this name, AWS Elastic
--- Beanstalk returns an InvalidParameterValue error.
+-- Beanstalk returns an @InvalidParameterValue@ error.
 cctApplicationName :: Lens' CreateConfigurationTemplate Text
 cctApplicationName =
     lens _cctApplicationName (\s a -> s { _cctApplicationName = a })
@@ -134,7 +134,7 @@ cctOptionSettings =
 -- ListAvailableSolutionStacks> to obtain a list of available solution
 -- stacks. A solution stack name or a source configuration parameter must be
 -- specified, otherwise AWS Elastic Beanstalk returns an
--- InvalidParameterValue error. If a solution stack name is not specified
+-- @InvalidParameterValue@ error. If a solution stack name is not specified
 -- and the source configuration parameter is specified, AWS Elastic
 -- Beanstalk uses the same solution stack as the source configuration
 -- template.
@@ -144,13 +144,13 @@ cctSolutionStackName =
 
 -- | If specified, AWS Elastic Beanstalk uses the configuration values from
 -- the specified configuration template to create a new configuration.
--- Values specified in the OptionSettings parameter of this call overrides
--- any values obtained from the SourceConfiguration. If no configuration
--- template is found, returns an InvalidParameterValue error. Constraint: If
--- both the solution stack name parameter and the source configuration
+-- Values specified in the @OptionSettings@ parameter of this call overrides
+-- any values obtained from the @SourceConfiguration@. If no configuration
+-- template is found, returns an @InvalidParameterValue@ error. Constraint:
+-- If both the solution stack name parameter and the source configuration
 -- parameters are specified, the solution stack of the source configuration
 -- template must match the specified solution stack name or else AWS Elastic
--- Beanstalk returns an InvalidParameterCombination error.
+-- Beanstalk returns an @InvalidParameterCombination@ error.
 cctSourceConfiguration :: Lens' CreateConfigurationTemplate (Maybe SourceConfiguration)
 cctSourceConfiguration =
     lens _cctSourceConfiguration (\s a -> s { _cctSourceConfiguration = a })
@@ -158,7 +158,7 @@ cctSourceConfiguration =
 -- | The name of the configuration template. Constraint: This name must be
 -- unique per application. Default: If a configuration template already
 -- exists with this name, AWS Elastic Beanstalk returns an
--- InvalidParameterValue error.
+-- @InvalidParameterValue@ error.
 cctTemplateName :: Lens' CreateConfigurationTemplate Text
 cctTemplateName = lens _cctTemplateName (\s a -> s { _cctTemplateName = a })
 
@@ -223,18 +223,18 @@ cctrDateUpdated :: Lens' CreateConfigurationTemplateResponse (Maybe UTCTime)
 cctrDateUpdated = lens _cctrDateUpdated (\s a -> s { _cctrDateUpdated = a }) . mapping _Time
 
 -- | If this configuration set is associated with an environment, the
--- DeploymentStatus parameter indicates the deployment status of this
--- configuration set: null: This configuration is not associated with a
--- running environment. pending: This is a draft configuration that is not
+-- @DeploymentStatus@ parameter indicates the deployment status of this
+-- configuration set: @null@: This configuration is not associated with a
+-- running environment. @pending@: This is a draft configuration that is not
 -- deployed to the associated environment but is in the process of
--- deploying. deployed: This is the configuration that is currently deployed
--- to the associated running environment. failed: This is a draft
--- configuration, that failed to successfully deploy. null: This
--- configuration is not associated with a running environment. pending: This
--- is a draft configuration that is not deployed to the associated
--- environment but is in the process of deploying. deployed: This is the
+-- deploying. @deployed@: This is the configuration that is currently
+-- deployed to the associated running environment. @failed@: This is a draft
+-- configuration, that failed to successfully deploy. @null@: This
+-- configuration is not associated with a running environment. @pending@:
+-- This is a draft configuration that is not deployed to the associated
+-- environment but is in the process of deploying. @deployed@: This is the
 -- configuration that is currently deployed to the associated running
--- environment. failed: This is a draft configuration that failed to
+-- environment. @failed@: This is a draft configuration that failed to
 -- successfully deploy.
 cctrDeploymentStatus :: Lens' CreateConfigurationTemplateResponse (Maybe ConfigurationDeploymentStatus)
 cctrDeploymentStatus =
@@ -244,7 +244,7 @@ cctrDeploymentStatus =
 cctrDescription :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrDescription = lens _cctrDescription (\s a -> s { _cctrDescription = a })
 
--- | If not null, the name of the environment for this configuration set.
+-- | If not @null@, the name of the environment for this configuration set.
 cctrEnvironmentName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrEnvironmentName =
     lens _cctrEnvironmentName (\s a -> s { _cctrEnvironmentName = a })
@@ -261,7 +261,7 @@ cctrSolutionStackName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrSolutionStackName =
     lens _cctrSolutionStackName (\s a -> s { _cctrSolutionStackName = a })
 
--- | If not null, the name of the configuration template for this
+-- | If not @null@, the name of the configuration template for this
 -- configuration set.
 cctrTemplateName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrTemplateName = lens _cctrTemplateName (\s a -> s { _cctrTemplateName = a })

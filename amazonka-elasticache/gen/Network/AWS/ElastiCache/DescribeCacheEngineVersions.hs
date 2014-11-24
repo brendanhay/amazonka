@@ -101,11 +101,11 @@ dcevCacheParameterGroupFamily =
 dcevDefaultOnly :: Lens' DescribeCacheEngineVersions (Maybe Bool)
 dcevDefaultOnly = lens _dcevDefaultOnly (\s a -> s { _dcevDefaultOnly = a })
 
--- | The cache engine to return. Valid values: memcached | redis.
+-- | The cache engine to return. Valid values: @memcached@ | @redis@.
 dcevEngine :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevEngine = lens _dcevEngine (\s a -> s { _dcevEngine = a })
 
--- | The cache engine version to return. Example: 1.4.14.
+-- | The cache engine version to return. Example: @1.4.14@.
 dcevEngineVersion :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevEngineVersion =
     lens _dcevEngineVersion (\s a -> s { _dcevEngineVersion = a })
@@ -118,7 +118,7 @@ dcevMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevMarker = lens _dcevMarker (\s a -> s { _dcevMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified MaxRecords value, a marker is included in the
+-- exist than the specified @MaxRecords@ value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
 dcevMaxRecords :: Lens' DescribeCacheEngineVersions (Maybe Int)

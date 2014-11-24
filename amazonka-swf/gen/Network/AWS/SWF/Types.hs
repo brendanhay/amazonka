@@ -830,8 +830,8 @@ workflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRequest
 wecreaCause :: Lens' WorkflowExecutionCancelRequestedEventAttributes (Maybe WorkflowExecutionCancelRequestedCause)
 wecreaCause = lens _wecreaCause (\s a -> s { _wecreaCause = a })
 
--- | The id of the RequestCancelExternalWorkflowExecutionInitiated event
--- corresponding to the RequestCancelExternalWorkflowExecution decision to
+-- | The id of the @RequestCancelExternalWorkflowExecutionInitiated@ event
+-- corresponding to the @RequestCancelExternalWorkflowExecution@ decision to
 -- cancel this workflow execution.The source event with this Id can be found
 -- in the history of the source workflow execution. This information can be
 -- useful for diagnosing problems by tracing back the chain of events
@@ -889,11 +889,11 @@ requestCancelExternalWorkflowExecutionDecisionAttributes p1 = RequestCancelExter
 rcewedaControl :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 rcewedaControl = lens _rcewedaControl (\s a -> s { _rcewedaControl = a })
 
--- | The runId of the external workflow execution to cancel.
+-- | The @runId@ of the external workflow execution to cancel.
 rcewedaRunId :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 rcewedaRunId = lens _rcewedaRunId (\s a -> s { _rcewedaRunId = a })
 
--- | The workflowId of the external workflow execution to cancel. This field
+-- | The @workflowId@ of the external workflow execution to cancel. This field
 -- is required.
 rcewedaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes Text
 rcewedaWorkflowId =
@@ -934,8 +934,8 @@ decisionTaskScheduledEventAttributes p1 = DecisionTaskScheduledEventAttributes
 
 -- | The maximum duration for this decision task. The task is considered timed
 -- out if it does not completed within this duration. The valid values are
--- integers greater than or equal to 0. An integer value can be used to
--- specify the duration in seconds while NONE can be used to specify
+-- integers greater than or equal to @0@. An integer value can be used to
+-- specify the duration in seconds while @NONE@ can be used to specify
 -- unlimited duration.
 dtseaStartToCloseTimeout :: Lens' DecisionTaskScheduledEventAttributes (Maybe Text)
 dtseaStartToCloseTimeout =
@@ -977,10 +977,10 @@ workflowExecutionCompletedEventAttributes p1 = WorkflowExecutionCompletedEventAt
     , _weceaResult                       = Nothing
     }
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the CompleteWorkflowExecution decision to complete
--- this execution. This information can be useful for diagnosing problems by
--- tracing back the cause of events.
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @CompleteWorkflowExecution@ decision to
+-- complete this execution. This information can be useful for diagnosing
+-- problems by tracing back the cause of events.
 weceaDecisionTaskCompletedEventId :: Lens' WorkflowExecutionCompletedEventAttributes Integer
 weceaDecisionTaskCompletedEventId =
     lens _weceaDecisionTaskCompletedEventId
@@ -1071,8 +1071,8 @@ startTimerFailedEventAttributes p1 p2 p3 = StartTimerFailedEventAttributes
 stfeaCause :: Lens' StartTimerFailedEventAttributes StartTimerFailedCause
 stfeaCause = lens _stfeaCause (\s a -> s { _stfeaCause = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the StartTimer decision for this activity task.
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @StartTimer@ decision for this activity task.
 -- This information can be useful for diagnosing problems by tracing back
 -- the cause of events.
 stfeaDecisionTaskCompletedEventId :: Lens' StartTimerFailedEventAttributes Integer
@@ -1080,7 +1080,7 @@ stfeaDecisionTaskCompletedEventId =
     lens _stfeaDecisionTaskCompletedEventId
         (\s a -> s { _stfeaDecisionTaskCompletedEventId = a })
 
--- | The timerId provided in the StartTimer decision that failed.
+-- | The timerId provided in the @StartTimer@ decision that failed.
 stfeaTimerId :: Lens' StartTimerFailedEventAttributes Text
 stfeaTimerId = lens _stfeaTimerId (\s a -> s { _stfeaTimerId = a })
 
@@ -1131,20 +1131,20 @@ requestCancelExternalWorkflowExecutionInitiatedEventAttributes p1 p2 = RequestCa
 rceweieaControl :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 rceweieaControl = lens _rceweieaControl (\s a -> s { _rceweieaControl = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the RequestCancelExternalWorkflowExecution decision
--- for this cancellation request. This information can be useful for
--- diagnosing problems by tracing back the cause of events.
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @RequestCancelExternalWorkflowExecution@
+-- decision for this cancellation request. This information can be useful
+-- for diagnosing problems by tracing back the cause of events.
 rceweieaDecisionTaskCompletedEventId :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes Integer
 rceweieaDecisionTaskCompletedEventId =
     lens _rceweieaDecisionTaskCompletedEventId
         (\s a -> s { _rceweieaDecisionTaskCompletedEventId = a })
 
--- | The runId of the external workflow execution to be canceled.
+-- | The @runId@ of the external workflow execution to be canceled.
 rceweieaRunId :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 rceweieaRunId = lens _rceweieaRunId (\s a -> s { _rceweieaRunId = a })
 
--- | The workflowId of the external workflow execution to be canceled.
+-- | The @workflowId@ of the external workflow execution to be canceled.
 rceweieaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes Text
 rceweieaWorkflowId =
     lens _rceweieaWorkflowId (\s a -> s { _rceweieaWorkflowId = a })
@@ -1195,8 +1195,8 @@ recordMarkerFailedEventAttributes p1 p2 p3 = RecordMarkerFailedEventAttributes
 rmfeaCause :: Lens' RecordMarkerFailedEventAttributes RecordMarkerFailedCause
 rmfeaCause = lens _rmfeaCause (\s a -> s { _rmfeaCause = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the RecordMarkerFailed decision for this
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @RecordMarkerFailed@ decision for this
 -- cancellation request. This information can be useful for diagnosing
 -- problems by tracing back the cause of events.
 rmfeaDecisionTaskCompletedEventId :: Lens' RecordMarkerFailedEventAttributes Integer
@@ -1330,7 +1330,7 @@ atseaActivityType =
 atseaControl :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaControl = lens _atseaControl (\s a -> s { _atseaControl = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
 -- that resulted in the scheduling of this activity task. This information
 -- can be useful for diagnosing problems by tracing back the chain of events
 -- leading up to this event.
@@ -1507,9 +1507,9 @@ scheduleActivityTaskDecisionAttributes p1 p2 = ScheduleActivityTaskDecisionAttri
     , _satdaHeartbeatTimeout       = Nothing
     }
 
--- | The activityId of the activity task. This field is required. The
+-- | The @activityId@ of the activity task. This field is required. The
 -- specified string must not start or end with whitespace. It must not
--- contain a : (colon), / (slash), | (vertical bar), or any control
+-- contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control
 -- characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain
 -- the literal string "arn".
 satdaActivityId :: Lens' ScheduleActivityTaskDecisionAttributes Text
@@ -1532,8 +1532,9 @@ satdaControl = lens _satdaControl (\s a -> s { _satdaControl = a })
 -- record a heartbeat or returns a result, it will be ignored. This
 -- overrides the default heartbeat timeout specified when registering the
 -- activity type using RegisterActivityType>. The valid values are integers
--- greater than or equal to 0. An integer value can be used to specify the
--- duration in seconds while NONE can be used to specify unlimited duration.
+-- greater than or equal to @0@. An integer value can be used to specify the
+-- duration in seconds while @NONE@ can be used to specify unlimited
+-- duration.
 satdaHeartbeatTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaHeartbeatTimeout =
     lens _satdaHeartbeatTimeout (\s a -> s { _satdaHeartbeatTimeout = a })
@@ -1543,8 +1544,8 @@ satdaInput :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaInput = lens _satdaInput (\s a -> s { _satdaInput = a })
 
 -- | The maximum duration for this activity task. The valid values are
--- integers greater than or equal to 0. An integer value can be used to
--- specify the duration in seconds while NONE can be used to specify
+-- integers greater than or equal to @0@. An integer value can be used to
+-- specify the duration in seconds while @NONE@ can be used to specify
 -- unlimited duration.
 satdaScheduleToCloseTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaScheduleToCloseTimeout =
@@ -1555,8 +1556,8 @@ satdaScheduleToCloseTimeout =
 -- assigned to a worker. This overrides the default schedule-to-start
 -- timeout specified when registering the activity type using
 -- RegisterActivityType>. The valid values are integers greater than or
--- equal to 0. An integer value can be used to specify the duration in
--- seconds while NONE can be used to specify unlimited duration.
+-- equal to @0@. An integer value can be used to specify the duration in
+-- seconds while @NONE@ can be used to specify unlimited duration.
 satdaScheduleToStartTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaScheduleToStartTimeout =
     lens _satdaScheduleToStartTimeout
@@ -1565,8 +1566,8 @@ satdaScheduleToStartTimeout =
 -- | If set, specifies the maximum duration a worker may take to process this
 -- activity task. This overrides the default start-to-close timeout
 -- specified when registering the activity type using RegisterActivityType>.
--- The valid values are integers greater than or equal to 0. An integer
--- value can be used to specify the duration in seconds while NONE can be
+-- The valid values are integers greater than or equal to @0@. An integer
+-- value can be used to specify the duration in seconds while @NONE@ can be
 -- used to specify unlimited duration.
 satdaStartToCloseTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaStartToCloseTimeout =
@@ -1574,11 +1575,11 @@ satdaStartToCloseTimeout =
         (\s a -> s { _satdaStartToCloseTimeout = a })
 
 -- | If set, specifies the name of the task list in which to schedule the
--- activity task. If not specified, the defaultTaskList registered with the
--- activity type will be used. The specified string must not start or end
--- with whitespace. It must not contain a : (colon), / (slash), | (vertical
--- bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also,
--- it must not contain the literal string "arn".
+-- activity task. If not specified, the @defaultTaskList@ registered with
+-- the activity type will be used. The specified string must not start or
+-- end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@
+-- (vertical bar), or any control characters (\u0000-\u001f | \u007f -
+-- \u009f). Also, it must not contain the literal string "arn".
 satdaTaskList :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe TaskList)
 satdaTaskList = lens _satdaTaskList (\s a -> s { _satdaTaskList = a })
 
@@ -1641,14 +1642,14 @@ activityTypeConfiguration = ActivityTypeConfiguration
 -- | The optional default maximum time, specified when registering the
 -- activity type, before which a worker processing a task must report
 -- progress by calling RecordActivityTaskHeartbeat>. You can override this
--- default when scheduling a task through the ScheduleActivityTask
+-- default when scheduling a task through the @ScheduleActivityTask@
 -- Decision>. If the activity worker subsequently attempts to record a
 -- heartbeat or returns a result, the activity worker receives an
--- UnknownResource fault. In this case, Amazon SWF no longer considers the
+-- @UnknownResource@ fault. In this case, Amazon SWF no longer considers the
 -- activity task to be valid; the activity worker should clean up the
--- activity task. The valid values are integers greater than or equal to 0.
--- An integer value can be used to specify the duration in seconds while
--- NONE can be used to specify unlimited duration.
+-- activity task. The valid values are integers greater than or equal to
+-- @0@. An integer value can be used to specify the duration in seconds
+-- while @NONE@ can be used to specify unlimited duration.
 atcDefaultTaskHeartbeatTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskHeartbeatTimeout =
     lens _atcDefaultTaskHeartbeatTimeout
@@ -1656,18 +1657,18 @@ atcDefaultTaskHeartbeatTimeout =
 
 -- | The optional default task list specified for this activity type at
 -- registration. This default task list is used if a task list is not
--- provided when a task is scheduled through the ScheduleActivityTask
+-- provided when a task is scheduled through the @ScheduleActivityTask@
 -- Decision>. You can override this default when scheduling a task through
--- the ScheduleActivityTask Decision>.
+-- the @ScheduleActivityTask@ Decision>.
 atcDefaultTaskList :: Lens' ActivityTypeConfiguration (Maybe TaskList)
 atcDefaultTaskList =
     lens _atcDefaultTaskList (\s a -> s { _atcDefaultTaskList = a })
 
 -- | The optional default maximum duration, specified when registering the
 -- activity type, for tasks of this activity type. You can override this
--- default when scheduling a task through the ScheduleActivityTask
--- Decision>. The valid values are integers greater than or equal to 0. An
--- integer value can be used to specify the duration in seconds while NONE
+-- default when scheduling a task through the @ScheduleActivityTask@
+-- Decision>. The valid values are integers greater than or equal to @0@. An
+-- integer value can be used to specify the duration in seconds while @NONE@
 -- can be used to specify unlimited duration.
 atcDefaultTaskScheduleToCloseTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskScheduleToCloseTimeout =
@@ -1677,9 +1678,9 @@ atcDefaultTaskScheduleToCloseTimeout =
 -- | The optional default maximum duration, specified when registering the
 -- activity type, that a task of an activity type can wait before being
 -- assigned to a worker. You can override this default when scheduling a
--- task through the ScheduleActivityTask Decision>. The valid values are
--- integers greater than or equal to 0. An integer value can be used to
--- specify the duration in seconds while NONE can be used to specify
+-- task through the @ScheduleActivityTask@ Decision>. The valid values are
+-- integers greater than or equal to @0@. An integer value can be used to
+-- specify the duration in seconds while @NONE@ can be used to specify
 -- unlimited duration.
 atcDefaultTaskScheduleToStartTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskScheduleToStartTimeout =
@@ -1688,9 +1689,9 @@ atcDefaultTaskScheduleToStartTimeout =
 
 -- | The optional default maximum duration for tasks of an activity type
 -- specified when registering the activity type. You can override this
--- default when scheduling a task through the ScheduleActivityTask
--- Decision>. The valid values are integers greater than or equal to 0. An
--- integer value can be used to specify the duration in seconds while NONE
+-- default when scheduling a task through the @ScheduleActivityTask@
+-- Decision>. The valid values are integers greater than or equal to @0@. An
+-- integer value can be used to specify the duration in seconds while @NONE@
 -- can be used to specify unlimited duration.
 atcDefaultTaskStartToCloseTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskStartToCloseTimeout =
@@ -1863,10 +1864,10 @@ childWorkflowExecutionCompletedEventAttributes p1 p2 p3 p4 = ChildWorkflowExecut
     , _cweceaResult            = Nothing
     }
 
--- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
--- the StartChildWorkflowExecution Decision> to start this child workflow
--- execution. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision> to start this child
+-- workflow execution. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
 cweceaInitiatedEventId :: Lens' ChildWorkflowExecutionCompletedEventAttributes Integer
 cweceaInitiatedEventId =
     lens _cweceaInitiatedEventId (\s a -> s { _cweceaInitiatedEventId = a })
@@ -1875,7 +1876,7 @@ cweceaInitiatedEventId =
 cweceaResult :: Lens' ChildWorkflowExecutionCompletedEventAttributes (Maybe Text)
 cweceaResult = lens _cweceaResult (\s a -> s { _cweceaResult = a })
 
--- | The Id of the ChildWorkflowExecutionStarted event recorded when this
+-- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
 -- child workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -2041,11 +2042,12 @@ scheduleActivityTaskFailedEventAttributes p1 p2 p3 p4 = ScheduleActivityTaskFail
     , _satfeaDecisionTaskCompletedEventId = p4
     }
 
--- | The activityId provided in the ScheduleActivityTask decision that failed.
+-- | The activityId provided in the @ScheduleActivityTask@ decision that
+-- failed.
 satfeaActivityId :: Lens' ScheduleActivityTaskFailedEventAttributes Text
 satfeaActivityId = lens _satfeaActivityId (\s a -> s { _satfeaActivityId = a })
 
--- | The activity type provided in the ScheduleActivityTask decision that
+-- | The activity type provided in the @ScheduleActivityTask@ decision that
 -- failed.
 satfeaActivityType :: Lens' ScheduleActivityTaskFailedEventAttributes ActivityType
 satfeaActivityType =
@@ -2056,7 +2058,7 @@ satfeaActivityType =
 satfeaCause :: Lens' ScheduleActivityTaskFailedEventAttributes ScheduleActivityTaskFailedCause
 satfeaCause = lens _satfeaCause (\s a -> s { _satfeaCause = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
 -- that resulted in the scheduling of this activity task. This information
 -- can be useful for diagnosing problems by tracing back the chain of events
 -- leading up to this event.
@@ -2105,8 +2107,8 @@ markerRecordedEventAttributes p1 p2 = MarkerRecordedEventAttributes
     , _mreaDetails                      = Nothing
     }
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the RecordMarker decision that requested this
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @RecordMarker@ decision that requested this
 -- marker. This information can be useful for diagnosing problems by tracing
 -- back the cause of events.
 mreaDecisionTaskCompletedEventId :: Lens' MarkerRecordedEventAttributes Integer
@@ -2178,7 +2180,7 @@ sewedaControl = lens _sewedaControl (\s a -> s { _sewedaControl = a })
 sewedaInput :: Lens' SignalExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 sewedaInput = lens _sewedaInput (\s a -> s { _sewedaInput = a })
 
--- | The runId of the workflow execution to be signaled.
+-- | The @runId@ of the workflow execution to be signaled.
 sewedaRunId :: Lens' SignalExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 sewedaRunId = lens _sewedaRunId (\s a -> s { _sewedaRunId = a })
 
@@ -2187,7 +2189,7 @@ sewedaRunId = lens _sewedaRunId (\s a -> s { _sewedaRunId = a })
 sewedaSignalName :: Lens' SignalExternalWorkflowExecutionDecisionAttributes Text
 sewedaSignalName = lens _sewedaSignalName (\s a -> s { _sewedaSignalName = a })
 
--- | The workflowId of the workflow execution to be signaled. This field is
+-- | The @workflowId@ of the workflow execution to be signaled. This field is
 -- required.
 sewedaWorkflowId :: Lens' SignalExternalWorkflowExecutionDecisionAttributes Text
 sewedaWorkflowId = lens _sewedaWorkflowId (\s a -> s { _sewedaWorkflowId = a })
@@ -2367,10 +2369,10 @@ completeWorkflowExecutionFailedEventAttributes p1 p2 = CompleteWorkflowExecution
 cwefeaCause :: Lens' CompleteWorkflowExecutionFailedEventAttributes CompleteWorkflowExecutionFailedCause
 cwefeaCause = lens _cwefeaCause (\s a -> s { _cwefeaCause = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the CompleteWorkflowExecution decision to complete
--- this execution. This information can be useful for diagnosing problems by
--- tracing back the cause of events.
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @CompleteWorkflowExecution@ decision to
+-- complete this execution. This information can be useful for diagnosing
+-- problems by tracing back the cause of events.
 cwefeaDecisionTaskCompletedEventId :: Lens' CompleteWorkflowExecutionFailedEventAttributes Integer
 cwefeaDecisionTaskCompletedEventId =
     lens _cwefeaDecisionTaskCompletedEventId
@@ -2425,9 +2427,9 @@ stdaStartToFireTimeout =
     lens _stdaStartToFireTimeout (\s a -> s { _stdaStartToFireTimeout = a })
 
 -- | The unique Id of the timer. This field is required. The specified string
--- must not start or end with whitespace. It must not contain a : (colon), /
--- (slash), | (vertical bar), or any control characters (\u0000-\u001f |
--- \u007f - \u009f). Also, it must not contain the literal string "arn".
+-- must not start or end with whitespace. It must not contain a @:@ (colon),
+-- @/@ (slash), @|@ (vertical bar), or any control characters (\u0000-\u001f
+-- | \u007f - \u009f). Also, it must not contain the literal string "arn".
 stdaTimerId :: Lens' StartTimerDecisionAttributes Text
 stdaTimerId = lens _stdaTimerId (\s a -> s { _stdaTimerId = a })
 
@@ -2550,17 +2552,17 @@ rcewefeaCause = lens _rcewefeaCause (\s a -> s { _rcewefeaCause = a })
 rcewefeaControl :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 rcewefeaControl = lens _rcewefeaControl (\s a -> s { _rcewefeaControl = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the RequestCancelExternalWorkflowExecution decision
--- for this cancellation request. This information can be useful for
--- diagnosing problems by tracing back the cause of events.
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @RequestCancelExternalWorkflowExecution@
+-- decision for this cancellation request. This information can be useful
+-- for diagnosing problems by tracing back the cause of events.
 rcewefeaDecisionTaskCompletedEventId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes Integer
 rcewefeaDecisionTaskCompletedEventId =
     lens _rcewefeaDecisionTaskCompletedEventId
         (\s a -> s { _rcewefeaDecisionTaskCompletedEventId = a })
 
--- | The id of the RequestCancelExternalWorkflowExecutionInitiated event
--- corresponding to the RequestCancelExternalWorkflowExecution decision to
+-- | The id of the @RequestCancelExternalWorkflowExecutionInitiated@ event
+-- corresponding to the @RequestCancelExternalWorkflowExecution@ decision to
 -- cancel this external workflow execution. This information can be useful
 -- for diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -2569,11 +2571,11 @@ rcewefeaInitiatedEventId =
     lens _rcewefeaInitiatedEventId
         (\s a -> s { _rcewefeaInitiatedEventId = a })
 
--- | The runId of the external workflow execution.
+-- | The @runId@ of the external workflow execution.
 rcewefeaRunId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 rcewefeaRunId = lens _rcewefeaRunId (\s a -> s { _rcewefeaRunId = a })
 
--- | The workflowId of the external workflow to which the cancel request was
+-- | The @workflowId@ of the external workflow to which the cancel request was
 -- to be delivered.
 rcewefeaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes Text
 rcewefeaWorkflowId =
@@ -2698,16 +2700,16 @@ timerCanceledEventAttributes p1 p2 p3 = TimerCanceledEventAttributes
     , _tceaDecisionTaskCompletedEventId = p3
     }
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the CancelTimer decision to cancel this timer. This
--- information can be useful for diagnosing problems by tracing back the
--- cause of events.
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @CancelTimer@ decision to cancel this timer.
+-- This information can be useful for diagnosing problems by tracing back
+-- the cause of events.
 tceaDecisionTaskCompletedEventId :: Lens' TimerCanceledEventAttributes Integer
 tceaDecisionTaskCompletedEventId =
     lens _tceaDecisionTaskCompletedEventId
         (\s a -> s { _tceaDecisionTaskCompletedEventId = a })
 
--- | The id of the TimerStarted event that was recorded when this timer was
+-- | The id of the @TimerStarted@ event that was recorded when this timer was
 -- started. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
 tceaStartedEventId :: Lens' TimerCanceledEventAttributes Integer
@@ -2790,7 +2792,7 @@ workflowExecutionStartedEventAttributes p1 p2 p3 = WorkflowExecutionStartedEvent
 -- action explicitly or due to an expired timeout. The supported child
 -- policies are: TERMINATE: the child executions will be terminated.
 -- REQUEST_CANCEL: a request to cancel will be attempted for each child
--- execution by recording a WorkflowExecutionCancelRequested event in its
+-- execution by recording a @WorkflowExecutionCancelRequested@ event in its
 -- history. It is up to the decider to take appropriate actions when it
 -- receives an execution history with this event. ABANDON: no action will be
 -- taken. The child executions will continue to run.
@@ -2798,8 +2800,8 @@ weseaChildPolicy :: Lens' WorkflowExecutionStartedEventAttributes ChildPolicy
 weseaChildPolicy = lens _weseaChildPolicy (\s a -> s { _weseaChildPolicy = a })
 
 -- | If this workflow execution was started due to a
--- ContinueAsNewWorkflowExecution decision, then it contains the runId of
--- the previous workflow execution that was closed and continued as this
+-- @ContinueAsNewWorkflowExecution@ decision, then it contains the @runId@
+-- of the previous workflow execution that was closed and continued as this
 -- execution.
 weseaContinuedExecutionRunId :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaContinuedExecutionRunId =
@@ -2807,8 +2809,8 @@ weseaContinuedExecutionRunId =
         (\s a -> s { _weseaContinuedExecutionRunId = a })
 
 -- | The maximum duration for this workflow execution. The valid values are
--- integers greater than or equal to 0. An integer value can be used to
--- specify the duration in seconds while NONE can be used to specify
+-- integers greater than or equal to @0@. An integer value can be used to
+-- specify the duration in seconds while @NONE@ can be used to specify
 -- unlimited duration.
 weseaExecutionStartToCloseTimeout :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaExecutionStartToCloseTimeout =
@@ -2819,8 +2821,8 @@ weseaExecutionStartToCloseTimeout =
 weseaInput :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaInput = lens _weseaInput (\s a -> s { _weseaInput = a })
 
--- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
--- the StartChildWorkflowExecution Decision> to start this workflow
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision> to start this workflow
 -- execution. The source event with this Id can be found in the history of
 -- the source workflow execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
@@ -2849,9 +2851,9 @@ weseaTaskList :: Lens' WorkflowExecutionStartedEventAttributes TaskList
 weseaTaskList = lens _weseaTaskList (\s a -> s { _weseaTaskList = a })
 
 -- | The maximum duration of decision tasks for this workflow type. The valid
--- values are integers greater than or equal to 0. An integer value can be
--- used to specify the duration in seconds while NONE can be used to specify
--- unlimited duration.
+-- values are integers greater than or equal to @0@. An integer value can be
+-- used to specify the duration in seconds while @NONE@ can be used to
+-- specify unlimited duration.
 weseaTaskStartToCloseTimeout :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaTaskStartToCloseTimeout =
     lens _weseaTaskStartToCloseTimeout
@@ -2921,13 +2923,13 @@ workflowTypeConfiguration = WorkflowTypeConfiguration
 -- TerminateWorkflowExecution> action explicitly or due to an expired
 -- timeout. This default can be overridden when starting a workflow
 -- execution using the StartWorkflowExecution> action or the
--- StartChildWorkflowExecution Decision>. The supported child policies are:
--- TERMINATE: the child executions will be terminated. REQUEST_CANCEL: a
--- request to cancel will be attempted for each child execution by recording
--- a WorkflowExecutionCancelRequested event in its history. It is up to the
--- decider to take appropriate actions when it receives an execution history
--- with this event. ABANDON: no action will be taken. The child executions
--- will continue to run.
+-- @StartChildWorkflowExecution@ Decision>. The supported child policies
+-- are: TERMINATE: the child executions will be terminated. REQUEST_CANCEL:
+-- a request to cancel will be attempted for each child execution by
+-- recording a @WorkflowExecutionCancelRequested@ event in its history. It
+-- is up to the decider to take appropriate actions when it receives an
+-- execution history with this event. ABANDON: no action will be taken. The
+-- child executions will continue to run.
 wtcDefaultChildPolicy :: Lens' WorkflowTypeConfiguration (Maybe ChildPolicy)
 wtcDefaultChildPolicy =
     lens _wtcDefaultChildPolicy (\s a -> s { _wtcDefaultChildPolicy = a })
@@ -2935,9 +2937,9 @@ wtcDefaultChildPolicy =
 -- | The optional default maximum duration, specified when registering the
 -- workflow type, for executions of this workflow type. This default can be
 -- overridden when starting a workflow execution using the
--- StartWorkflowExecution> action or the StartChildWorkflowExecution
--- Decision>. The valid values are integers greater than or equal to 0. An
--- integer value can be used to specify the duration in seconds while NONE
+-- StartWorkflowExecution> action or the @StartChildWorkflowExecution@
+-- Decision>. The valid values are integers greater than or equal to @0@. An
+-- integer value can be used to specify the duration in seconds while @NONE@
 -- can be used to specify unlimited duration.
 wtcDefaultExecutionStartToCloseTimeout :: Lens' WorkflowTypeConfiguration (Maybe Text)
 wtcDefaultExecutionStartToCloseTimeout =
@@ -2947,7 +2949,7 @@ wtcDefaultExecutionStartToCloseTimeout =
 -- | The optional default task list, specified when registering the workflow
 -- type, for decisions tasks scheduled for workflow executions of this type.
 -- This default can be overridden when starting a workflow execution using
--- the StartWorkflowExecution> action or the StartChildWorkflowExecution
+-- the StartWorkflowExecution> action or the @StartChildWorkflowExecution@
 -- Decision>.
 wtcDefaultTaskList :: Lens' WorkflowTypeConfiguration (Maybe TaskList)
 wtcDefaultTaskList =
@@ -2960,9 +2962,10 @@ wtcDefaultTaskList =
 -- rescheduled. If the decider eventually reports a completion or failure,
 -- it is ignored. This default can be overridden when starting a workflow
 -- execution using the StartWorkflowExecution> action or the
--- StartChildWorkflowExecution Decision>. The valid values are integers
--- greater than or equal to 0. An integer value can be used to specify the
--- duration in seconds while NONE can be used to specify unlimited duration.
+-- @StartChildWorkflowExecution@ Decision>. The valid values are integers
+-- greater than or equal to @0@. An integer value can be used to specify the
+-- duration in seconds while @NONE@ can be used to specify unlimited
+-- duration.
 wtcDefaultTaskStartToCloseTimeout :: Lens' WorkflowTypeConfiguration (Maybe Text)
 wtcDefaultTaskStartToCloseTimeout =
     lens _wtcDefaultTaskStartToCloseTimeout
@@ -3087,7 +3090,7 @@ activityTaskCompletedEventAttributes p1 p2 = ActivityTaskCompletedEventAttribute
 atceaResult :: Lens' ActivityTaskCompletedEventAttributes (Maybe Text)
 atceaResult = lens _atceaResult (\s a -> s { _atceaResult = a })
 
--- | The id of the ActivityTaskScheduled event that was recorded when this
+-- | The id of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -3095,9 +3098,9 @@ atceaScheduledEventId :: Lens' ActivityTaskCompletedEventAttributes Integer
 atceaScheduledEventId =
     lens _atceaScheduledEventId (\s a -> s { _atceaScheduledEventId = a })
 
--- | The Id of the ActivityTaskStarted event recorded when this activity task
--- was started. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The Id of the @ActivityTaskStarted@ event recorded when this activity
+-- task was started. This information can be useful for diagnosing problems
+-- by tracing back the chain of events leading up to this event.
 atceaStartedEventId :: Lens' ActivityTaskCompletedEventAttributes Integer
 atceaStartedEventId =
     lens _atceaStartedEventId (\s a -> s { _atceaStartedEventId = a })
@@ -3276,7 +3279,7 @@ decisionTaskTimedOutEventAttributes p1 p2 p3 = DecisionTaskTimedOutEventAttribut
     , _dttoeaStartedEventId   = p3
     }
 
--- | The id of the DecisionTaskScheduled event that was recorded when this
+-- | The id of the @DecisionTaskScheduled@ event that was recorded when this
 -- decision task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -3284,9 +3287,9 @@ dttoeaScheduledEventId :: Lens' DecisionTaskTimedOutEventAttributes Integer
 dttoeaScheduledEventId =
     lens _dttoeaScheduledEventId (\s a -> s { _dttoeaScheduledEventId = a })
 
--- | The Id of the DecisionTaskStarted event recorded when this decision task
--- was started. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The Id of the @DecisionTaskStarted@ event recorded when this decision
+-- task was started. This information can be useful for diagnosing problems
+-- by tracing back the chain of events leading up to this event.
 dttoeaStartedEventId :: Lens' DecisionTaskTimedOutEventAttributes Integer
 dttoeaStartedEventId =
     lens _dttoeaStartedEventId (\s a -> s { _dttoeaStartedEventId = a })
@@ -3336,10 +3339,10 @@ childWorkflowExecutionStartedEventAttributes p1 p2 p3 = ChildWorkflowExecutionSt
     , _cweseaInitiatedEventId  = p3
     }
 
--- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
--- the StartChildWorkflowExecution Decision> to start this child workflow
--- execution. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision> to start this child
+-- workflow execution. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
 cweseaInitiatedEventId :: Lens' ChildWorkflowExecutionStartedEventAttributes Integer
 cweseaInitiatedEventId =
     lens _cweseaInitiatedEventId (\s a -> s { _cweseaInitiatedEventId = a })
@@ -3398,16 +3401,16 @@ cancelTimerFailedEventAttributes p1 p2 p3 = CancelTimerFailedEventAttributes
 ctfeaCause :: Lens' CancelTimerFailedEventAttributes CancelTimerFailedCause
 ctfeaCause = lens _ctfeaCause (\s a -> s { _ctfeaCause = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the CancelTimer decision to cancel this timer. This
--- information can be useful for diagnosing problems by tracing back the
--- cause of events.
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @CancelTimer@ decision to cancel this timer.
+-- This information can be useful for diagnosing problems by tracing back
+-- the cause of events.
 ctfeaDecisionTaskCompletedEventId :: Lens' CancelTimerFailedEventAttributes Integer
 ctfeaDecisionTaskCompletedEventId =
     lens _ctfeaDecisionTaskCompletedEventId
         (\s a -> s { _ctfeaDecisionTaskCompletedEventId = a })
 
--- | The timerId provided in the CancelTimer decision that failed.
+-- | The timerId provided in the @CancelTimer@ decision that failed.
 ctfeaTimerId :: Lens' CancelTimerFailedEventAttributes Text
 ctfeaTimerId = lens _ctfeaTimerId (\s a -> s { _ctfeaTimerId = a })
 
@@ -3515,7 +3518,7 @@ activityTaskCanceledEventAttributes p1 p2 = ActivityTaskCanceledEventAttributes
 atcea1Details :: Lens' ActivityTaskCanceledEventAttributes (Maybe Text)
 atcea1Details = lens _atcea1Details (\s a -> s { _atcea1Details = a })
 
--- | If set, contains the Id of the last ActivityTaskCancelRequested event
+-- | If set, contains the Id of the last @ActivityTaskCancelRequested@ event
 -- recorded for this activity task. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -3524,7 +3527,7 @@ atcea1LatestCancelRequestedEventId =
     lens _atcea1LatestCancelRequestedEventId
         (\s a -> s { _atcea1LatestCancelRequestedEventId = a })
 
--- | The id of the ActivityTaskScheduled event that was recorded when this
+-- | The id of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -3532,9 +3535,9 @@ atcea1ScheduledEventId :: Lens' ActivityTaskCanceledEventAttributes Integer
 atcea1ScheduledEventId =
     lens _atcea1ScheduledEventId (\s a -> s { _atcea1ScheduledEventId = a })
 
--- | The Id of the ActivityTaskStarted event recorded when this activity task
--- was started. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The Id of the @ActivityTaskStarted@ event recorded when this activity
+-- task was started. This information can be useful for diagnosing problems
+-- by tracing back the chain of events leading up to this event.
 atcea1StartedEventId :: Lens' ActivityTaskCanceledEventAttributes Integer
 atcea1StartedEventId =
     lens _atcea1StartedEventId (\s a -> s { _atcea1StartedEventId = a })
@@ -3652,7 +3655,7 @@ startChildWorkflowExecutionDecisionAttributes p1 p2 = StartChildWorkflowExecutio
 -- registering the workflow type using RegisterWorkflowType>. The supported
 -- child policies are: TERMINATE: the child executions will be terminated.
 -- REQUEST_CANCEL: a request to cancel will be attempted for each child
--- execution by recording a WorkflowExecutionCancelRequested event in its
+-- execution by recording a @WorkflowExecutionCancelRequested@ event in its
 -- history. It is up to the decider to take appropriate actions when it
 -- receives an execution history with this event. ABANDON: no action will be
 -- taken. The child executions will continue to run.
@@ -3668,9 +3671,9 @@ scwedaControl = lens _scwedaControl (\s a -> s { _scwedaControl = a })
 
 -- | The total duration for this workflow execution. This overrides the
 -- defaultExecutionStartToCloseTimeout specified when registering the
--- workflow type. The valid values are integers greater than or equal to 0.
--- An integer value can be used to specify the duration in seconds while
--- NONE can be used to specify unlimited duration.
+-- workflow type. The valid values are integers greater than or equal to
+-- @0@. An integer value can be used to specify the duration in seconds
+-- while @NONE@ can be used to specify unlimited duration.
 scwedaExecutionStartToCloseTimeout :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaExecutionStartToCloseTimeout =
     lens _scwedaExecutionStartToCloseTimeout
@@ -3689,26 +3692,26 @@ scwedaTagList = lens _scwedaTagList (\s a -> s { _scwedaTagList = a }) . _List
 
 -- | The name of the task list to be used for decision tasks of the child
 -- workflow execution. The specified string must not start or end with
--- whitespace. It must not contain a : (colon), / (slash), | (vertical bar),
--- or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it
--- must not contain the literal string "arn".
+-- whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical
+-- bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also,
+-- it must not contain the literal string "arn".
 scwedaTaskList :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe TaskList)
 scwedaTaskList = lens _scwedaTaskList (\s a -> s { _scwedaTaskList = a })
 
 -- | Specifies the maximum duration of decision tasks for this workflow
--- execution. This parameter overrides the defaultTaskStartToCloseTimout
+-- execution. This parameter overrides the @defaultTaskStartToCloseTimout@
 -- specified when registering the workflow type using RegisterWorkflowType>.
--- The valid values are integers greater than or equal to 0. An integer
--- value can be used to specify the duration in seconds while NONE can be
+-- The valid values are integers greater than or equal to @0@. An integer
+-- value can be used to specify the duration in seconds while @NONE@ can be
 -- used to specify unlimited duration.
 scwedaTaskStartToCloseTimeout :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaTaskStartToCloseTimeout =
     lens _scwedaTaskStartToCloseTimeout
         (\s a -> s { _scwedaTaskStartToCloseTimeout = a })
 
--- | The workflowId of the workflow execution. This field is required. The
+-- | The @workflowId@ of the workflow execution. This field is required. The
 -- specified string must not start or end with whitespace. It must not
--- contain a : (colon), / (slash), | (vertical bar), or any control
+-- contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control
 -- characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain
 -- the literal string "arn".
 scwedaWorkflowId :: Lens' StartChildWorkflowExecutionDecisionAttributes Text
@@ -4023,12 +4026,12 @@ activityTaskTimedOutEventAttributes p1 p2 p3 = ActivityTaskTimedOutEventAttribut
     , _attoeaDetails          = Nothing
     }
 
--- | Contains the content of the details parameter for the last call made by
--- the activity to RecordActivityTaskHeartbeat.
+-- | Contains the content of the @details@ parameter for the last call made by
+-- the activity to @RecordActivityTaskHeartbeat@.
 attoeaDetails :: Lens' ActivityTaskTimedOutEventAttributes (Maybe Text)
 attoeaDetails = lens _attoeaDetails (\s a -> s { _attoeaDetails = a })
 
--- | The id of the ActivityTaskScheduled event that was recorded when this
+-- | The id of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -4036,9 +4039,9 @@ attoeaScheduledEventId :: Lens' ActivityTaskTimedOutEventAttributes Integer
 attoeaScheduledEventId =
     lens _attoeaScheduledEventId (\s a -> s { _attoeaScheduledEventId = a })
 
--- | The Id of the ActivityTaskStarted event recorded when this activity task
--- was started. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The Id of the @ActivityTaskStarted@ event recorded when this activity
+-- task was started. This information can be useful for diagnosing problems
+-- by tracing back the chain of events leading up to this event.
 attoeaStartedEventId :: Lens' ActivityTaskTimedOutEventAttributes Integer
 attoeaStartedEventId =
     lens _attoeaStartedEventId (\s a -> s { _attoeaStartedEventId = a })
@@ -4089,7 +4092,7 @@ requestCancelActivityTaskFailedEventAttributes p1 p2 p3 = RequestCancelActivityT
     , _rcatfeaDecisionTaskCompletedEventId = p3
     }
 
--- | The activityId provided in the RequestCancelActivityTask decision that
+-- | The activityId provided in the @RequestCancelActivityTask@ decision that
 -- failed.
 rcatfeaActivityId :: Lens' RequestCancelActivityTaskFailedEventAttributes Text
 rcatfeaActivityId =
@@ -4100,8 +4103,8 @@ rcatfeaActivityId =
 rcatfeaCause :: Lens' RequestCancelActivityTaskFailedEventAttributes RequestCancelActivityTaskFailedCause
 rcatfeaCause = lens _rcatfeaCause (\s a -> s { _rcatfeaCause = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the RequestCancelActivityTask decision for this
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @RequestCancelActivityTask@ decision for this
 -- cancellation request. This information can be useful for diagnosing
 -- problems by tracing back the cause of events.
 rcatfeaDecisionTaskCompletedEventId :: Lens' RequestCancelActivityTaskFailedEventAttributes Integer
@@ -4176,7 +4179,7 @@ decisionTaskStartedEventAttributes p1 = DecisionTaskStartedEventAttributes
 dtseaIdentity :: Lens' DecisionTaskStartedEventAttributes (Maybe Text)
 dtseaIdentity = lens _dtseaIdentity (\s a -> s { _dtseaIdentity = a })
 
--- | The id of the DecisionTaskScheduled event that was recorded when this
+-- | The id of the @DecisionTaskScheduled@ event that was recorded when this
 -- decision task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -4231,15 +4234,15 @@ childWorkflowExecutionTimedOutEventAttributes p1 p2 p3 p4 p5 = ChildWorkflowExec
     , _cwetoeaStartedEventId    = p5
     }
 
--- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
--- the StartChildWorkflowExecution Decision> to start this child workflow
--- execution. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision> to start this child
+-- workflow execution. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
 cwetoeaInitiatedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes Integer
 cwetoeaInitiatedEventId =
     lens _cwetoeaInitiatedEventId (\s a -> s { _cwetoeaInitiatedEventId = a })
 
--- | The Id of the ChildWorkflowExecutionStarted event recorded when this
+-- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
 -- child workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -4342,10 +4345,10 @@ startChildWorkflowExecutionInitiatedEventAttributes p1 p2 p3 p4 p5 = StartChildW
 -- action or due to an expired timeout. The supported child policies are:
 -- TERMINATE: the child executions will be terminated. REQUEST_CANCEL: a
 -- request to cancel will be attempted for each child execution by recording
--- a WorkflowExecutionCancelRequested event in its history. It is up to the
--- decider to take appropriate actions when it receives an execution history
--- with this event. ABANDON: no action will be taken. The child executions
--- will continue to run.
+-- a @WorkflowExecutionCancelRequested@ event in its history. It is up to
+-- the decider to take appropriate actions when it receives an execution
+-- history with this event. ABANDON: no action will be taken. The child
+-- executions will continue to run.
 scweieaChildPolicy :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes ChildPolicy
 scweieaChildPolicy =
     lens _scweieaChildPolicy (\s a -> s { _scweieaChildPolicy = a })
@@ -4355,8 +4358,8 @@ scweieaChildPolicy =
 scweieaControl :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaControl = lens _scweieaControl (\s a -> s { _scweieaControl = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the StartChildWorkflowExecution Decision> to
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @StartChildWorkflowExecution@ Decision> to
 -- request this child workflow execution. This information can be useful for
 -- diagnosing problems by tracing back the cause of events.
 scweieaDecisionTaskCompletedEventId :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes Integer
@@ -4367,8 +4370,8 @@ scweieaDecisionTaskCompletedEventId =
 -- | The maximum duration for the child workflow execution. If the workflow
 -- execution is not closed within this duration, it will be timed out and
 -- force terminated. The valid values are integers greater than or equal to
--- 0. An integer value can be used to specify the duration in seconds while
--- NONE can be used to specify unlimited duration.
+-- @0@. An integer value can be used to specify the duration in seconds
+-- while @NONE@ can be used to specify unlimited duration.
 scweieaExecutionStartToCloseTimeout :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaExecutionStartToCloseTimeout =
     lens _scweieaExecutionStartToCloseTimeout
@@ -4388,15 +4391,15 @@ scweieaTaskList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes Tas
 scweieaTaskList = lens _scweieaTaskList (\s a -> s { _scweieaTaskList = a })
 
 -- | The maximum duration allowed for the decision tasks for this workflow
--- execution. The valid values are integers greater than or equal to 0. An
--- integer value can be used to specify the duration in seconds while NONE
+-- execution. The valid values are integers greater than or equal to @0@. An
+-- integer value can be used to specify the duration in seconds while @NONE@
 -- can be used to specify unlimited duration.
 scweieaTaskStartToCloseTimeout :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaTaskStartToCloseTimeout =
     lens _scweieaTaskStartToCloseTimeout
         (\s a -> s { _scweieaTaskStartToCloseTimeout = a })
 
--- | The workflowId of the child workflow execution.
+-- | The @workflowId@ of the child workflow execution.
 scweieaWorkflowId :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes Text
 scweieaWorkflowId =
     lens _scweieaWorkflowId (\s a -> s { _scweieaWorkflowId = a })
@@ -4459,8 +4462,8 @@ cancelWorkflowExecutionFailedEventAttributes p1 p2 = CancelWorkflowExecutionFail
 cwefea1Cause :: Lens' CancelWorkflowExecutionFailedEventAttributes CancelWorkflowExecutionFailedCause
 cwefea1Cause = lens _cwefea1Cause (\s a -> s { _cwefea1Cause = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the CancelWorkflowExecution decision for this
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @CancelWorkflowExecution@ decision for this
 -- cancellation request. This information can be useful for diagnosing
 -- problems by tracing back the cause of events.
 cwefea1DecisionTaskCompletedEventId :: Lens' CancelWorkflowExecutionFailedEventAttributes Integer
@@ -4518,7 +4521,7 @@ weteaCause = lens _weteaCause (\s a -> s { _weteaCause = a })
 -- execution. The supported child policies are: TERMINATE: the child
 -- executions will be terminated. REQUEST_CANCEL: a request to cancel will
 -- be attempted for each child execution by recording a
--- WorkflowExecutionCancelRequested event in its history. It is up to the
+-- @WorkflowExecutionCancelRequested@ event in its history. It is up to the
 -- decider to take appropriate actions when it receives an execution history
 -- with this event. ABANDON: no action will be taken. The child executions
 -- will continue to run.
@@ -4672,15 +4675,15 @@ childWorkflowExecutionCanceledEventAttributes p1 p2 p3 p4 = ChildWorkflowExecuti
 cwecea1Details :: Lens' ChildWorkflowExecutionCanceledEventAttributes (Maybe Text)
 cwecea1Details = lens _cwecea1Details (\s a -> s { _cwecea1Details = a })
 
--- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
--- the StartChildWorkflowExecution Decision> to start this child workflow
--- execution. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision> to start this child
+-- workflow execution. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
 cwecea1InitiatedEventId :: Lens' ChildWorkflowExecutionCanceledEventAttributes Integer
 cwecea1InitiatedEventId =
     lens _cwecea1InitiatedEventId (\s a -> s { _cwecea1InitiatedEventId = a })
 
--- | The Id of the ChildWorkflowExecutionStarted event recorded when this
+-- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
 -- child workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -4893,8 +4896,8 @@ sewefeaCause = lens _sewefeaCause (\s a -> s { _sewefeaCause = a })
 sewefeaControl :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 sewefeaControl = lens _sewefeaControl (\s a -> s { _sewefeaControl = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the SignalExternalWorkflowExecution decision for
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @SignalExternalWorkflowExecution@ decision for
 -- this signal. This information can be useful for diagnosing problems by
 -- tracing back the cause of events leading up to this event.
 sewefeaDecisionTaskCompletedEventId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes Integer
@@ -4902,20 +4905,20 @@ sewefeaDecisionTaskCompletedEventId =
     lens _sewefeaDecisionTaskCompletedEventId
         (\s a -> s { _sewefeaDecisionTaskCompletedEventId = a })
 
--- | The id of the SignalExternalWorkflowExecutionInitiated event
--- corresponding to the SignalExternalWorkflowExecution decision to request
--- this signal. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The id of the @SignalExternalWorkflowExecutionInitiated@ event
+-- corresponding to the @SignalExternalWorkflowExecution@ decision to
+-- request this signal. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
 sewefeaInitiatedEventId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes Integer
 sewefeaInitiatedEventId =
     lens _sewefeaInitiatedEventId (\s a -> s { _sewefeaInitiatedEventId = a })
 
--- | The runId of the external workflow execution that the signal was being
+-- | The @runId@ of the external workflow execution that the signal was being
 -- delivered to.
 sewefeaRunId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 sewefeaRunId = lens _sewefeaRunId (\s a -> s { _sewefeaRunId = a })
 
--- | The workflowId of the external workflow execution that the signal was
+-- | The @workflowId@ of the external workflow execution that the signal was
 -- being delivered to.
 sewefeaWorkflowId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes Text
 sewefeaWorkflowId =
@@ -5027,7 +5030,7 @@ activityTaskStartedEventAttributes p1 = ActivityTaskStartedEventAttributes
 atseaIdentity :: Lens' ActivityTaskStartedEventAttributes (Maybe Text)
 atseaIdentity = lens _atseaIdentity (\s a -> s { _atseaIdentity = a })
 
--- | The id of the ActivityTaskScheduled event that was recorded when this
+-- | The id of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -5176,8 +5179,8 @@ activityTaskCancelRequestedEventAttributes p1 p2 = ActivityTaskCancelRequestedEv
 atcreaActivityId :: Lens' ActivityTaskCancelRequestedEventAttributes Text
 atcreaActivityId = lens _atcreaActivityId (\s a -> s { _atcreaActivityId = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the RequestCancelActivityTask decision for this
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @RequestCancelActivityTask@ decision for this
 -- cancellation request. This information can be useful for diagnosing
 -- problems by tracing back the cause of events.
 atcreaDecisionTaskCompletedEventId :: Lens' ActivityTaskCancelRequestedEventAttributes Integer
@@ -5221,7 +5224,7 @@ workflowExecutionTimedOutEventAttributes p1 p2 = WorkflowExecutionTimedOutEventA
 -- execution. The supported child policies are: TERMINATE: the child
 -- executions will be terminated. REQUEST_CANCEL: a request to cancel will
 -- be attempted for each child execution by recording a
--- WorkflowExecutionCancelRequested event in its history. It is up to the
+-- @WorkflowExecutionCancelRequested@ event in its history. It is up to the
 -- decider to take appropriate actions when it receives an execution history
 -- with this event. ABANDON: no action will be taken. The child executions
 -- will continue to run.
@@ -5276,15 +5279,15 @@ childWorkflowExecutionTerminatedEventAttributes p1 p2 p3 p4 = ChildWorkflowExecu
     , _cweteaStartedEventId    = p4
     }
 
--- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
--- the StartChildWorkflowExecution Decision> to start this child workflow
--- execution. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision> to start this child
+-- workflow execution. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
 cweteaInitiatedEventId :: Lens' ChildWorkflowExecutionTerminatedEventAttributes Integer
 cweteaInitiatedEventId =
     lens _cweteaInitiatedEventId (\s a -> s { _cweteaInitiatedEventId = a })
 
--- | The Id of the ChildWorkflowExecutionStarted event recorded when this
+-- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
 -- child workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -5337,8 +5340,8 @@ workflowExecutionCanceledEventAttributes p1 = WorkflowExecutionCanceledEventAttr
     , _wecea1Details                      = Nothing
     }
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the CancelWorkflowExecution decision for this
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @CancelWorkflowExecution@ decision for this
 -- cancellation request. This information can be useful for diagnosing
 -- problems by tracing back the cause of events.
 wecea1DecisionTaskCompletedEventId :: Lens' WorkflowExecutionCanceledEventAttributes Integer
@@ -5389,8 +5392,8 @@ workflowExecutionSignaledEventAttributes p1 = WorkflowExecutionSignaledEventAttr
     , _wesea1ExternalInitiatedEventId  = Nothing
     }
 
--- | The id of the SignalExternalWorkflowExecutionInitiated event
--- corresponding to the SignalExternalWorkflow decision to signal this
+-- | The id of the @SignalExternalWorkflowExecutionInitiated@ event
+-- corresponding to the @SignalExternalWorkflow@ decision to signal this
 -- workflow execution.The source event with this Id can be found in the
 -- history of the source workflow execution. This information can be useful
 -- for diagnosing problems by tracing back the chain of events leading up to
@@ -5522,8 +5525,8 @@ timerStartedEventAttributes p1 p2 p3 = TimerStartedEventAttributes
 tseaControl :: Lens' TimerStartedEventAttributes (Maybe Text)
 tseaControl = lens _tseaControl (\s a -> s { _tseaControl = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the StartTimer decision for this activity task.
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @StartTimer@ decision for this activity task.
 -- This information can be useful for diagnosing problems by tracing back
 -- the cause of events.
 tseaDecisionTaskCompletedEventId :: Lens' TimerStartedEventAttributes Integer
@@ -5573,7 +5576,7 @@ requestCancelActivityTaskDecisionAttributes p1 = RequestCancelActivityTaskDecisi
     { _rcatdaActivityId = p1
     }
 
--- | The activityId of the activity task to be canceled.
+-- | The @activityId@ of the activity task to be canceled.
 rcatdaActivityId :: Lens' RequestCancelActivityTaskDecisionAttributes Text
 rcatdaActivityId = lens _rcatdaActivityId (\s a -> s { _rcatdaActivityId = a })
 
@@ -5650,28 +5653,28 @@ decision p1 = Decision
     , _dStartChildWorkflowExecutionDecisionAttributes            = Nothing
     }
 
--- | Provides details of the CancelTimer decision. It is not set for other
+-- | Provides details of the @CancelTimer@ decision. It is not set for other
 -- decision types.
 dCancelTimerDecisionAttributes :: Lens' Decision (Maybe CancelTimerDecisionAttributes)
 dCancelTimerDecisionAttributes =
     lens _dCancelTimerDecisionAttributes
         (\s a -> s { _dCancelTimerDecisionAttributes = a })
 
--- | Provides details of the CancelWorkflowExecution decision. It is not set
+-- | Provides details of the @CancelWorkflowExecution@ decision. It is not set
 -- for other decision types.
 dCancelWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe CancelWorkflowExecutionDecisionAttributes)
 dCancelWorkflowExecutionDecisionAttributes =
     lens _dCancelWorkflowExecutionDecisionAttributes
         (\s a -> s { _dCancelWorkflowExecutionDecisionAttributes = a })
 
--- | Provides details of the CompleteWorkflowExecution decision. It is not set
--- for other decision types.
+-- | Provides details of the @CompleteWorkflowExecution@ decision. It is not
+-- set for other decision types.
 dCompleteWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe CompleteWorkflowExecutionDecisionAttributes)
 dCompleteWorkflowExecutionDecisionAttributes =
     lens _dCompleteWorkflowExecutionDecisionAttributes
         (\s a -> s { _dCompleteWorkflowExecutionDecisionAttributes = a })
 
--- | Provides details of the ContinueAsNewWorkflowExecution decision. It is
+-- | Provides details of the @ContinueAsNewWorkflowExecution@ decision. It is
 -- not set for other decision types.
 dContinueAsNewWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe ContinueAsNewWorkflowExecutionDecisionAttributes)
 dContinueAsNewWorkflowExecutionDecisionAttributes =
@@ -5682,56 +5685,56 @@ dContinueAsNewWorkflowExecutionDecisionAttributes =
 dDecisionType :: Lens' Decision DecisionType
 dDecisionType = lens _dDecisionType (\s a -> s { _dDecisionType = a })
 
--- | Provides details of the FailWorkflowExecution decision. It is not set for
--- other decision types.
+-- | Provides details of the @FailWorkflowExecution@ decision. It is not set
+-- for other decision types.
 dFailWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe FailWorkflowExecutionDecisionAttributes)
 dFailWorkflowExecutionDecisionAttributes =
     lens _dFailWorkflowExecutionDecisionAttributes
         (\s a -> s { _dFailWorkflowExecutionDecisionAttributes = a })
 
--- | Provides details of the RecordMarker decision. It is not set for other
+-- | Provides details of the @RecordMarker@ decision. It is not set for other
 -- decision types.
 dRecordMarkerDecisionAttributes :: Lens' Decision (Maybe RecordMarkerDecisionAttributes)
 dRecordMarkerDecisionAttributes =
     lens _dRecordMarkerDecisionAttributes
         (\s a -> s { _dRecordMarkerDecisionAttributes = a })
 
--- | Provides details of the RequestCancelActivityTask decision. It is not set
--- for other decision types.
+-- | Provides details of the @RequestCancelActivityTask@ decision. It is not
+-- set for other decision types.
 dRequestCancelActivityTaskDecisionAttributes :: Lens' Decision (Maybe RequestCancelActivityTaskDecisionAttributes)
 dRequestCancelActivityTaskDecisionAttributes =
     lens _dRequestCancelActivityTaskDecisionAttributes
         (\s a -> s { _dRequestCancelActivityTaskDecisionAttributes = a })
 
--- | Provides details of the RequestCancelExternalWorkflowExecution decision.
--- It is not set for other decision types.
+-- | Provides details of the @RequestCancelExternalWorkflowExecution@
+-- decision. It is not set for other decision types.
 dRequestCancelExternalWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes)
 dRequestCancelExternalWorkflowExecutionDecisionAttributes =
     lens _dRequestCancelExternalWorkflowExecutionDecisionAttributes
         (\s a -> s { _dRequestCancelExternalWorkflowExecutionDecisionAttributes = a })
 
--- | Provides details of the ScheduleActivityTask decision. It is not set for
--- other decision types.
+-- | Provides details of the @ScheduleActivityTask@ decision. It is not set
+-- for other decision types.
 dScheduleActivityTaskDecisionAttributes :: Lens' Decision (Maybe ScheduleActivityTaskDecisionAttributes)
 dScheduleActivityTaskDecisionAttributes =
     lens _dScheduleActivityTaskDecisionAttributes
         (\s a -> s { _dScheduleActivityTaskDecisionAttributes = a })
 
--- | Provides details of the SignalExternalWorkflowExecution decision. It is
+-- | Provides details of the @SignalExternalWorkflowExecution@ decision. It is
 -- not set for other decision types.
 dSignalExternalWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe SignalExternalWorkflowExecutionDecisionAttributes)
 dSignalExternalWorkflowExecutionDecisionAttributes =
     lens _dSignalExternalWorkflowExecutionDecisionAttributes
         (\s a -> s { _dSignalExternalWorkflowExecutionDecisionAttributes = a })
 
--- | Provides details of the StartChildWorkflowExecution decision. It is not
+-- | Provides details of the @StartChildWorkflowExecution@ decision. It is not
 -- set for other decision types.
 dStartChildWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe StartChildWorkflowExecutionDecisionAttributes)
 dStartChildWorkflowExecutionDecisionAttributes =
     lens _dStartChildWorkflowExecutionDecisionAttributes
         (\s a -> s { _dStartChildWorkflowExecutionDecisionAttributes = a })
 
--- | Provides details of the StartTimer decision. It is not set for other
+-- | Provides details of the @StartTimer@ decision. It is not set for other
 -- decision types.
 dStartTimerDecisionAttributes :: Lens' Decision (Maybe StartTimerDecisionAttributes)
 dStartTimerDecisionAttributes =
@@ -5792,7 +5795,7 @@ timerFiredEventAttributes p1 p2 = TimerFiredEventAttributes
     , _tfeaStartedEventId = p2
     }
 
--- | The id of the TimerStarted event that was recorded when this timer was
+-- | The id of the @TimerStarted@ event that was recorded when this timer was
 -- started. This information can be useful for diagnosing problems by
 -- tracing back the chain of events leading up to this event.
 tfeaStartedEventId :: Lens' TimerFiredEventAttributes Integer
@@ -5866,10 +5869,10 @@ externalWorkflowExecutionSignaledEventAttributes p1 p2 = ExternalWorkflowExecuti
     , _eweseaInitiatedEventId  = p2
     }
 
--- | The id of the SignalExternalWorkflowExecutionInitiated event
--- corresponding to the SignalExternalWorkflowExecution decision to request
--- this signal. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The id of the @SignalExternalWorkflowExecutionInitiated@ event
+-- corresponding to the @SignalExternalWorkflowExecution@ decision to
+-- request this signal. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
 eweseaInitiatedEventId :: Lens' ExternalWorkflowExecutionSignaledEventAttributes Integer
 eweseaInitiatedEventId =
     lens _eweseaInitiatedEventId (\s a -> s { _eweseaInitiatedEventId = a })
@@ -5955,7 +5958,7 @@ atfeaDetails = lens _atfeaDetails (\s a -> s { _atfeaDetails = a })
 atfeaReason :: Lens' ActivityTaskFailedEventAttributes (Maybe Text)
 atfeaReason = lens _atfeaReason (\s a -> s { _atfeaReason = a })
 
--- | The id of the ActivityTaskScheduled event that was recorded when this
+-- | The id of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -5963,9 +5966,9 @@ atfeaScheduledEventId :: Lens' ActivityTaskFailedEventAttributes Integer
 atfeaScheduledEventId =
     lens _atfeaScheduledEventId (\s a -> s { _atfeaScheduledEventId = a })
 
--- | The Id of the ActivityTaskStarted event recorded when this activity task
--- was started. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The Id of the @ActivityTaskStarted@ event recorded when this activity
+-- task was started. This information can be useful for diagnosing problems
+-- by tracing back the chain of events leading up to this event.
 atfeaStartedEventId :: Lens' ActivityTaskFailedEventAttributes Integer
 atfeaStartedEventId =
     lens _atfeaStartedEventId (\s a -> s { _atfeaStartedEventId = a })
@@ -6011,8 +6014,8 @@ failWorkflowExecutionFailedEventAttributes p1 p2 = FailWorkflowExecutionFailedEv
 fwefeaCause :: Lens' FailWorkflowExecutionFailedEventAttributes FailWorkflowExecutionFailedCause
 fwefeaCause = lens _fwefeaCause (\s a -> s { _fwefeaCause = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the FailWorkflowExecution decision to fail this
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @FailWorkflowExecution@ decision to fail this
 -- execution. This information can be useful for diagnosing problems by
 -- tracing back the cause of events.
 fwefeaDecisionTaskCompletedEventId :: Lens' FailWorkflowExecutionFailedEventAttributes Integer
@@ -6079,8 +6082,8 @@ scwefeaCause = lens _scwefeaCause (\s a -> s { _scwefeaCause = a })
 scwefeaControl :: Lens' StartChildWorkflowExecutionFailedEventAttributes (Maybe Text)
 scwefeaControl = lens _scwefeaControl (\s a -> s { _scwefeaControl = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the StartChildWorkflowExecution Decision> to
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @StartChildWorkflowExecution@ Decision> to
 -- request this child workflow execution. This information can be useful for
 -- diagnosing problems by tracing back the cause of events.
 scwefeaDecisionTaskCompletedEventId :: Lens' StartChildWorkflowExecutionFailedEventAttributes Integer
@@ -6088,20 +6091,20 @@ scwefeaDecisionTaskCompletedEventId =
     lens _scwefeaDecisionTaskCompletedEventId
         (\s a -> s { _scwefeaDecisionTaskCompletedEventId = a })
 
--- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
--- the StartChildWorkflowExecution Decision> to start this child workflow
--- execution. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision> to start this child
+-- workflow execution. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
 scwefeaInitiatedEventId :: Lens' StartChildWorkflowExecutionFailedEventAttributes Integer
 scwefeaInitiatedEventId =
     lens _scwefeaInitiatedEventId (\s a -> s { _scwefeaInitiatedEventId = a })
 
--- | The workflowId of the child workflow execution.
+-- | The @workflowId@ of the child workflow execution.
 scwefeaWorkflowId :: Lens' StartChildWorkflowExecutionFailedEventAttributes Text
 scwefeaWorkflowId =
     lens _scwefeaWorkflowId (\s a -> s { _scwefeaWorkflowId = a })
 
--- | The workflow type provided in the StartChildWorkflowExecution Decision>
+-- | The workflow type provided in the @StartChildWorkflowExecution@ Decision>
 -- that failed.
 scwefeaWorkflowType :: Lens' StartChildWorkflowExecutionFailedEventAttributes WorkflowType
 scwefeaWorkflowType =
@@ -6224,7 +6227,7 @@ dtceaExecutionContext :: Lens' DecisionTaskCompletedEventAttributes (Maybe Text)
 dtceaExecutionContext =
     lens _dtceaExecutionContext (\s a -> s { _dtceaExecutionContext = a })
 
--- | The id of the DecisionTaskScheduled event that was recorded when this
+-- | The id of the @DecisionTaskScheduled@ event that was recorded when this
 -- decision task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -6232,9 +6235,9 @@ dtceaScheduledEventId :: Lens' DecisionTaskCompletedEventAttributes Integer
 dtceaScheduledEventId =
     lens _dtceaScheduledEventId (\s a -> s { _dtceaScheduledEventId = a })
 
--- | The Id of the DecisionTaskStarted event recorded when this decision task
--- was started. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The Id of the @DecisionTaskStarted@ event recorded when this decision
+-- task was started. This information can be useful for diagnosing problems
+-- by tracing back the chain of events leading up to this event.
 dtceaStartedEventId :: Lens' DecisionTaskCompletedEventAttributes Integer
 dtceaStartedEventId =
     lens _dtceaStartedEventId (\s a -> s { _dtceaStartedEventId = a })
@@ -6295,10 +6298,10 @@ childWorkflowExecutionFailedEventAttributes p1 p2 p3 p4 = ChildWorkflowExecution
 cwefeaDetails :: Lens' ChildWorkflowExecutionFailedEventAttributes (Maybe Text)
 cwefeaDetails = lens _cwefeaDetails (\s a -> s { _cwefeaDetails = a })
 
--- | The id of the StartChildWorkflowExecutionInitiated event corresponding to
--- the StartChildWorkflowExecution Decision> to start this child workflow
--- execution. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
+-- to the @StartChildWorkflowExecution@ Decision> to start this child
+-- workflow execution. This information can be useful for diagnosing
+-- problems by tracing back the chain of events leading up to this event.
 cwefeaInitiatedEventId :: Lens' ChildWorkflowExecutionFailedEventAttributes Integer
 cwefeaInitiatedEventId =
     lens _cwefeaInitiatedEventId (\s a -> s { _cwefeaInitiatedEventId = a })
@@ -6307,7 +6310,7 @@ cwefeaInitiatedEventId =
 cwefeaReason :: Lens' ChildWorkflowExecutionFailedEventAttributes (Maybe Text)
 cwefeaReason = lens _cwefeaReason (\s a -> s { _cwefeaReason = a })
 
--- | The Id of the ChildWorkflowExecutionStarted event recorded when this
+-- | The Id of the @ChildWorkflowExecutionStarted@ event recorded when this
 -- child workflow execution was started. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -6612,7 +6615,7 @@ historyEvent p1 p2 p3 = HistoryEvent
     , _heStartChildWorkflowExecutionFailedEventAttributes               = Nothing
     }
 
--- | If the event is of type ActivityTaskcancelRequested then this member is
+-- | If the event is of type @ActivityTaskcancelRequested@ then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 heActivityTaskCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCancelRequestedEventAttributes)
@@ -6620,23 +6623,23 @@ heActivityTaskCancelRequestedEventAttributes =
     lens _heActivityTaskCancelRequestedEventAttributes
         (\s a -> s { _heActivityTaskCancelRequestedEventAttributes = a })
 
--- | If the event is of type ActivityTaskCanceled then this member is set and
--- provides detailed information about the event. It is not set for other
--- event types.
+-- | If the event is of type @ActivityTaskCanceled@ then this member is set
+-- and provides detailed information about the event. It is not set for
+-- other event types.
 heActivityTaskCanceledEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCanceledEventAttributes)
 heActivityTaskCanceledEventAttributes =
     lens _heActivityTaskCanceledEventAttributes
         (\s a -> s { _heActivityTaskCanceledEventAttributes = a })
 
--- | If the event is of type ActivityTaskCompleted then this member is set and
--- provides detailed information about the event. It is not set for other
--- event types.
+-- | If the event is of type @ActivityTaskCompleted@ then this member is set
+-- and provides detailed information about the event. It is not set for
+-- other event types.
 heActivityTaskCompletedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskCompletedEventAttributes)
 heActivityTaskCompletedEventAttributes =
     lens _heActivityTaskCompletedEventAttributes
         (\s a -> s { _heActivityTaskCompletedEventAttributes = a })
 
--- | If the event is of type ActivityTaskFailed then this member is set and
+-- | If the event is of type @ActivityTaskFailed@ then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
 heActivityTaskFailedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskFailedEventAttributes)
@@ -6644,15 +6647,15 @@ heActivityTaskFailedEventAttributes =
     lens _heActivityTaskFailedEventAttributes
         (\s a -> s { _heActivityTaskFailedEventAttributes = a })
 
--- | If the event is of type ActivityTaskScheduled then this member is set and
--- provides detailed information about the event. It is not set for other
--- event types.
+-- | If the event is of type @ActivityTaskScheduled@ then this member is set
+-- and provides detailed information about the event. It is not set for
+-- other event types.
 heActivityTaskScheduledEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskScheduledEventAttributes)
 heActivityTaskScheduledEventAttributes =
     lens _heActivityTaskScheduledEventAttributes
         (\s a -> s { _heActivityTaskScheduledEventAttributes = a })
 
--- | If the event is of type ActivityTaskStarted then this member is set and
+-- | If the event is of type @ActivityTaskStarted@ then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
 heActivityTaskStartedEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskStartedEventAttributes)
@@ -6660,15 +6663,15 @@ heActivityTaskStartedEventAttributes =
     lens _heActivityTaskStartedEventAttributes
         (\s a -> s { _heActivityTaskStartedEventAttributes = a })
 
--- | If the event is of type ActivityTaskTimedOut then this member is set and
--- provides detailed information about the event. It is not set for other
--- event types.
+-- | If the event is of type @ActivityTaskTimedOut@ then this member is set
+-- and provides detailed information about the event. It is not set for
+-- other event types.
 heActivityTaskTimedOutEventAttributes :: Lens' HistoryEvent (Maybe ActivityTaskTimedOutEventAttributes)
 heActivityTaskTimedOutEventAttributes =
     lens _heActivityTaskTimedOutEventAttributes
         (\s a -> s { _heActivityTaskTimedOutEventAttributes = a })
 
--- | If the event is of type CancelTimerFailed then this member is set and
+-- | If the event is of type @CancelTimerFailed@ then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
 heCancelTimerFailedEventAttributes :: Lens' HistoryEvent (Maybe CancelTimerFailedEventAttributes)
@@ -6676,15 +6679,15 @@ heCancelTimerFailedEventAttributes =
     lens _heCancelTimerFailedEventAttributes
         (\s a -> s { _heCancelTimerFailedEventAttributes = a })
 
--- | If the event is of type CancelWorkflowExecutionFailed then this member is
--- set and provides detailed information about the event. It is not set for
--- other event types.
+-- | If the event is of type @CancelWorkflowExecutionFailed@ then this member
+-- is set and provides detailed information about the event. It is not set
+-- for other event types.
 heCancelWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe CancelWorkflowExecutionFailedEventAttributes)
 heCancelWorkflowExecutionFailedEventAttributes =
     lens _heCancelWorkflowExecutionFailedEventAttributes
         (\s a -> s { _heCancelWorkflowExecutionFailedEventAttributes = a })
 
--- | If the event is of type ChildWorkflowExecutionCanceled then this member
+-- | If the event is of type @ChildWorkflowExecutionCanceled@ then this member
 -- is set and provides detailed information about the event. It is not set
 -- for other event types.
 heChildWorkflowExecutionCanceledEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionCanceledEventAttributes)
@@ -6692,39 +6695,39 @@ heChildWorkflowExecutionCanceledEventAttributes =
     lens _heChildWorkflowExecutionCanceledEventAttributes
         (\s a -> s { _heChildWorkflowExecutionCanceledEventAttributes = a })
 
--- | If the event is of type ChildWorkflowExecutionCompleted then this member
--- is set and provides detailed information about the event. It is not set
--- for other event types.
+-- | If the event is of type @ChildWorkflowExecutionCompleted@ then this
+-- member is set and provides detailed information about the event. It is
+-- not set for other event types.
 heChildWorkflowExecutionCompletedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionCompletedEventAttributes)
 heChildWorkflowExecutionCompletedEventAttributes =
     lens _heChildWorkflowExecutionCompletedEventAttributes
         (\s a -> s { _heChildWorkflowExecutionCompletedEventAttributes = a })
 
--- | If the event is of type ChildWorkflowExecutionFailed then this member is
--- set and provides detailed information about the event. It is not set for
--- other event types.
+-- | If the event is of type @ChildWorkflowExecutionFailed@ then this member
+-- is set and provides detailed information about the event. It is not set
+-- for other event types.
 heChildWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionFailedEventAttributes)
 heChildWorkflowExecutionFailedEventAttributes =
     lens _heChildWorkflowExecutionFailedEventAttributes
         (\s a -> s { _heChildWorkflowExecutionFailedEventAttributes = a })
 
--- | If the event is of type ChildWorkflowExecutionStarted then this member is
--- set and provides detailed information about the event. It is not set for
--- other event types.
+-- | If the event is of type @ChildWorkflowExecutionStarted@ then this member
+-- is set and provides detailed information about the event. It is not set
+-- for other event types.
 heChildWorkflowExecutionStartedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionStartedEventAttributes)
 heChildWorkflowExecutionStartedEventAttributes =
     lens _heChildWorkflowExecutionStartedEventAttributes
         (\s a -> s { _heChildWorkflowExecutionStartedEventAttributes = a })
 
--- | If the event is of type ChildWorkflowExecutionTerminated then this member
--- is set and provides detailed information about the event. It is not set
--- for other event types.
+-- | If the event is of type @ChildWorkflowExecutionTerminated@ then this
+-- member is set and provides detailed information about the event. It is
+-- not set for other event types.
 heChildWorkflowExecutionTerminatedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionTerminatedEventAttributes)
 heChildWorkflowExecutionTerminatedEventAttributes =
     lens _heChildWorkflowExecutionTerminatedEventAttributes
         (\s a -> s { _heChildWorkflowExecutionTerminatedEventAttributes = a })
 
--- | If the event is of type ChildWorkflowExecutionTimedOut then this member
+-- | If the event is of type @ChildWorkflowExecutionTimedOut@ then this member
 -- is set and provides detailed information about the event. It is not set
 -- for other event types.
 heChildWorkflowExecutionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionTimedOutEventAttributes)
@@ -6732,15 +6735,15 @@ heChildWorkflowExecutionTimedOutEventAttributes =
     lens _heChildWorkflowExecutionTimedOutEventAttributes
         (\s a -> s { _heChildWorkflowExecutionTimedOutEventAttributes = a })
 
--- | If the event is of type CompleteWorkflowExecutionFailed then this member
--- is set and provides detailed information about the event. It is not set
--- for other event types.
+-- | If the event is of type @CompleteWorkflowExecutionFailed@ then this
+-- member is set and provides detailed information about the event. It is
+-- not set for other event types.
 heCompleteWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe CompleteWorkflowExecutionFailedEventAttributes)
 heCompleteWorkflowExecutionFailedEventAttributes =
     lens _heCompleteWorkflowExecutionFailedEventAttributes
         (\s a -> s { _heCompleteWorkflowExecutionFailedEventAttributes = a })
 
--- | If the event is of type ContinueAsNewWorkflowExecutionFailed then this
+-- | If the event is of type @ContinueAsNewWorkflowExecutionFailed@ then this
 -- member is set and provides detailed information about the event. It is
 -- not set for other event types.
 heContinueAsNewWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes)
@@ -6748,23 +6751,23 @@ heContinueAsNewWorkflowExecutionFailedEventAttributes =
     lens _heContinueAsNewWorkflowExecutionFailedEventAttributes
         (\s a -> s { _heContinueAsNewWorkflowExecutionFailedEventAttributes = a })
 
--- | If the event is of type DecisionTaskCompleted then this member is set and
--- provides detailed information about the event. It is not set for other
--- event types.
+-- | If the event is of type @DecisionTaskCompleted@ then this member is set
+-- and provides detailed information about the event. It is not set for
+-- other event types.
 heDecisionTaskCompletedEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskCompletedEventAttributes)
 heDecisionTaskCompletedEventAttributes =
     lens _heDecisionTaskCompletedEventAttributes
         (\s a -> s { _heDecisionTaskCompletedEventAttributes = a })
 
--- | If the event is of type DecisionTaskScheduled then this member is set and
--- provides detailed information about the event. It is not set for other
--- event types.
+-- | If the event is of type @DecisionTaskScheduled@ then this member is set
+-- and provides detailed information about the event. It is not set for
+-- other event types.
 heDecisionTaskScheduledEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskScheduledEventAttributes)
 heDecisionTaskScheduledEventAttributes =
     lens _heDecisionTaskScheduledEventAttributes
         (\s a -> s { _heDecisionTaskScheduledEventAttributes = a })
 
--- | If the event is of type DecisionTaskStarted then this member is set and
+-- | If the event is of type @DecisionTaskStarted@ then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
 heDecisionTaskStartedEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskStartedEventAttributes)
@@ -6772,9 +6775,9 @@ heDecisionTaskStartedEventAttributes =
     lens _heDecisionTaskStartedEventAttributes
         (\s a -> s { _heDecisionTaskStartedEventAttributes = a })
 
--- | If the event is of type DecisionTaskTimedOut then this member is set and
--- provides detailed information about the event. It is not set for other
--- event types.
+-- | If the event is of type @DecisionTaskTimedOut@ then this member is set
+-- and provides detailed information about the event. It is not set for
+-- other event types.
 heDecisionTaskTimedOutEventAttributes :: Lens' HistoryEvent (Maybe DecisionTaskTimedOutEventAttributes)
 heDecisionTaskTimedOutEventAttributes =
     lens _heDecisionTaskTimedOutEventAttributes
@@ -6793,7 +6796,7 @@ heEventTimestamp = lens _heEventTimestamp (\s a -> s { _heEventTimestamp = a }) 
 heEventType :: Lens' HistoryEvent EventType
 heEventType = lens _heEventType (\s a -> s { _heEventType = a })
 
--- | If the event is of type ExternalWorkflowExecutionCancelRequested then
+-- | If the event is of type @ExternalWorkflowExecutionCancelRequested@ then
 -- this member is set and provides detailed information about the event. It
 -- is not set for other event types.
 heExternalWorkflowExecutionCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes)
@@ -6801,7 +6804,7 @@ heExternalWorkflowExecutionCancelRequestedEventAttributes =
     lens _heExternalWorkflowExecutionCancelRequestedEventAttributes
         (\s a -> s { _heExternalWorkflowExecutionCancelRequestedEventAttributes = a })
 
--- | If the event is of type ExternalWorkflowExecutionSignaled then this
+-- | If the event is of type @ExternalWorkflowExecutionSignaled@ then this
 -- member is set and provides detailed information about the event. It is
 -- not set for other event types.
 heExternalWorkflowExecutionSignaledEventAttributes :: Lens' HistoryEvent (Maybe ExternalWorkflowExecutionSignaledEventAttributes)
@@ -6809,7 +6812,7 @@ heExternalWorkflowExecutionSignaledEventAttributes =
     lens _heExternalWorkflowExecutionSignaledEventAttributes
         (\s a -> s { _heExternalWorkflowExecutionSignaledEventAttributes = a })
 
--- | If the event is of type FailWorkflowExecutionFailed then this member is
+-- | If the event is of type @FailWorkflowExecutionFailed@ then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 heFailWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe FailWorkflowExecutionFailedEventAttributes)
@@ -6817,7 +6820,7 @@ heFailWorkflowExecutionFailedEventAttributes =
     lens _heFailWorkflowExecutionFailedEventAttributes
         (\s a -> s { _heFailWorkflowExecutionFailedEventAttributes = a })
 
--- | If the event is of type MarkerRecorded then this member is set and
+-- | If the event is of type @MarkerRecorded@ then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
 heMarkerRecordedEventAttributes :: Lens' HistoryEvent (Maybe MarkerRecordedEventAttributes)
@@ -6825,7 +6828,7 @@ heMarkerRecordedEventAttributes =
     lens _heMarkerRecordedEventAttributes
         (\s a -> s { _heMarkerRecordedEventAttributes = a })
 
--- | If the event is of type DecisionTaskFailed then this member is set and
+-- | If the event is of type @DecisionTaskFailed@ then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
 heRecordMarkerFailedEventAttributes :: Lens' HistoryEvent (Maybe RecordMarkerFailedEventAttributes)
@@ -6833,23 +6836,23 @@ heRecordMarkerFailedEventAttributes =
     lens _heRecordMarkerFailedEventAttributes
         (\s a -> s { _heRecordMarkerFailedEventAttributes = a })
 
--- | If the event is of type RequestCancelActivityTaskFailed then this member
--- is set and provides detailed information about the event. It is not set
--- for other event types.
+-- | If the event is of type @RequestCancelActivityTaskFailed@ then this
+-- member is set and provides detailed information about the event. It is
+-- not set for other event types.
 heRequestCancelActivityTaskFailedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelActivityTaskFailedEventAttributes)
 heRequestCancelActivityTaskFailedEventAttributes =
     lens _heRequestCancelActivityTaskFailedEventAttributes
         (\s a -> s { _heRequestCancelActivityTaskFailedEventAttributes = a })
 
--- | If the event is of type RequestCancelExternalWorkflowExecutionFailed then
--- this member is set and provides detailed information about the event. It
--- is not set for other event types.
+-- | If the event is of type @RequestCancelExternalWorkflowExecutionFailed@
+-- then this member is set and provides detailed information about the
+-- event. It is not set for other event types.
 heRequestCancelExternalWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes)
 heRequestCancelExternalWorkflowExecutionFailedEventAttributes =
     lens _heRequestCancelExternalWorkflowExecutionFailedEventAttributes
         (\s a -> s { _heRequestCancelExternalWorkflowExecutionFailedEventAttributes = a })
 
--- | If the event is of type RequestCancelExternalWorkflowExecutionInitiated
+-- | If the event is of type @RequestCancelExternalWorkflowExecutionInitiated@
 -- then this member is set and provides detailed information about the
 -- event. It is not set for other event types.
 heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
@@ -6857,7 +6860,7 @@ heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes =
     lens _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes
         (\s a -> s { _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes = a })
 
--- | If the event is of type ScheduleActivityTaskFailed then this member is
+-- | If the event is of type @ScheduleActivityTaskFailed@ then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 heScheduleActivityTaskFailedEventAttributes :: Lens' HistoryEvent (Maybe ScheduleActivityTaskFailedEventAttributes)
@@ -6865,7 +6868,7 @@ heScheduleActivityTaskFailedEventAttributes =
     lens _heScheduleActivityTaskFailedEventAttributes
         (\s a -> s { _heScheduleActivityTaskFailedEventAttributes = a })
 
--- | If the event is of type SignalExternalWorkflowExecutionFailed then this
+-- | If the event is of type @SignalExternalWorkflowExecutionFailed@ then this
 -- member is set and provides detailed information about the event. It is
 -- not set for other event types.
 heSignalExternalWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe SignalExternalWorkflowExecutionFailedEventAttributes)
@@ -6873,7 +6876,7 @@ heSignalExternalWorkflowExecutionFailedEventAttributes =
     lens _heSignalExternalWorkflowExecutionFailedEventAttributes
         (\s a -> s { _heSignalExternalWorkflowExecutionFailedEventAttributes = a })
 
--- | If the event is of type SignalExternalWorkflowExecutionInitiated then
+-- | If the event is of type @SignalExternalWorkflowExecutionInitiated@ then
 -- this member is set and provides detailed information about the event. It
 -- is not set for other event types.
 heSignalExternalWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes)
@@ -6881,7 +6884,7 @@ heSignalExternalWorkflowExecutionInitiatedEventAttributes =
     lens _heSignalExternalWorkflowExecutionInitiatedEventAttributes
         (\s a -> s { _heSignalExternalWorkflowExecutionInitiatedEventAttributes = a })
 
--- | If the event is of type StartChildWorkflowExecutionFailed then this
+-- | If the event is of type @StartChildWorkflowExecutionFailed@ then this
 -- member is set and provides detailed information about the event. It is
 -- not set for other event types.
 heStartChildWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe StartChildWorkflowExecutionFailedEventAttributes)
@@ -6889,7 +6892,7 @@ heStartChildWorkflowExecutionFailedEventAttributes =
     lens _heStartChildWorkflowExecutionFailedEventAttributes
         (\s a -> s { _heStartChildWorkflowExecutionFailedEventAttributes = a })
 
--- | If the event is of type StartChildWorkflowExecutionInitiated then this
+-- | If the event is of type @StartChildWorkflowExecutionInitiated@ then this
 -- member is set and provides detailed information about the event. It is
 -- not set for other event types.
 heStartChildWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe StartChildWorkflowExecutionInitiatedEventAttributes)
@@ -6897,7 +6900,7 @@ heStartChildWorkflowExecutionInitiatedEventAttributes =
     lens _heStartChildWorkflowExecutionInitiatedEventAttributes
         (\s a -> s { _heStartChildWorkflowExecutionInitiatedEventAttributes = a })
 
--- | If the event is of type StartTimerFailed then this member is set and
+-- | If the event is of type @StartTimerFailed@ then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
 heStartTimerFailedEventAttributes :: Lens' HistoryEvent (Maybe StartTimerFailedEventAttributes)
@@ -6905,7 +6908,7 @@ heStartTimerFailedEventAttributes =
     lens _heStartTimerFailedEventAttributes
         (\s a -> s { _heStartTimerFailedEventAttributes = a })
 
--- | If the event is of type TimerCanceled then this member is set and
+-- | If the event is of type @TimerCanceled@ then this member is set and
 -- provides detailed information about the event. It is not set for other
 -- event types.
 heTimerCanceledEventAttributes :: Lens' HistoryEvent (Maybe TimerCanceledEventAttributes)
@@ -6913,7 +6916,7 @@ heTimerCanceledEventAttributes =
     lens _heTimerCanceledEventAttributes
         (\s a -> s { _heTimerCanceledEventAttributes = a })
 
--- | If the event is of type TimerFired then this member is set and provides
+-- | If the event is of type @TimerFired@ then this member is set and provides
 -- detailed information about the event. It is not set for other event
 -- types.
 heTimerFiredEventAttributes :: Lens' HistoryEvent (Maybe TimerFiredEventAttributes)
@@ -6921,31 +6924,31 @@ heTimerFiredEventAttributes =
     lens _heTimerFiredEventAttributes
         (\s a -> s { _heTimerFiredEventAttributes = a })
 
--- | If the event is of type TimerStarted then this member is set and provides
--- detailed information about the event. It is not set for other event
--- types.
+-- | If the event is of type @TimerStarted@ then this member is set and
+-- provides detailed information about the event. It is not set for other
+-- event types.
 heTimerStartedEventAttributes :: Lens' HistoryEvent (Maybe TimerStartedEventAttributes)
 heTimerStartedEventAttributes =
     lens _heTimerStartedEventAttributes
         (\s a -> s { _heTimerStartedEventAttributes = a })
 
--- | If the event is of type WorkflowExecutionCancelRequested then this member
--- is set and provides detailed information about the event. It is not set
--- for other event types.
+-- | If the event is of type @WorkflowExecutionCancelRequested@ then this
+-- member is set and provides detailed information about the event. It is
+-- not set for other event types.
 heWorkflowExecutionCancelRequestedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionCancelRequestedEventAttributes)
 heWorkflowExecutionCancelRequestedEventAttributes =
     lens _heWorkflowExecutionCancelRequestedEventAttributes
         (\s a -> s { _heWorkflowExecutionCancelRequestedEventAttributes = a })
 
--- | If the event is of type WorkflowExecutionCanceled then this member is set
--- and provides detailed information about the event. It is not set for
+-- | If the event is of type @WorkflowExecutionCanceled@ then this member is
+-- set and provides detailed information about the event. It is not set for
 -- other event types.
 heWorkflowExecutionCanceledEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionCanceledEventAttributes)
 heWorkflowExecutionCanceledEventAttributes =
     lens _heWorkflowExecutionCanceledEventAttributes
         (\s a -> s { _heWorkflowExecutionCanceledEventAttributes = a })
 
--- | If the event is of type WorkflowExecutionCompleted then this member is
+-- | If the event is of type @WorkflowExecutionCompleted@ then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 heWorkflowExecutionCompletedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionCompletedEventAttributes)
@@ -6953,15 +6956,15 @@ heWorkflowExecutionCompletedEventAttributes =
     lens _heWorkflowExecutionCompletedEventAttributes
         (\s a -> s { _heWorkflowExecutionCompletedEventAttributes = a })
 
--- | If the event is of type WorkflowExecutionContinuedAsNew then this member
--- is set and provides detailed information about the event. It is not set
--- for other event types.
+-- | If the event is of type @WorkflowExecutionContinuedAsNew@ then this
+-- member is set and provides detailed information about the event. It is
+-- not set for other event types.
 heWorkflowExecutionContinuedAsNewEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionContinuedAsNewEventAttributes)
 heWorkflowExecutionContinuedAsNewEventAttributes =
     lens _heWorkflowExecutionContinuedAsNewEventAttributes
         (\s a -> s { _heWorkflowExecutionContinuedAsNewEventAttributes = a })
 
--- | If the event is of type WorkflowExecutionFailed then this member is set
+-- | If the event is of type @WorkflowExecutionFailed@ then this member is set
 -- and provides detailed information about the event. It is not set for
 -- other event types.
 heWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionFailedEventAttributes)
@@ -6969,23 +6972,23 @@ heWorkflowExecutionFailedEventAttributes =
     lens _heWorkflowExecutionFailedEventAttributes
         (\s a -> s { _heWorkflowExecutionFailedEventAttributes = a })
 
--- | If the event is of type WorkflowExecutionSignaled then this member is set
--- and provides detailed information about the event. It is not set for
+-- | If the event is of type @WorkflowExecutionSignaled@ then this member is
+-- set and provides detailed information about the event. It is not set for
 -- other event types.
 heWorkflowExecutionSignaledEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionSignaledEventAttributes)
 heWorkflowExecutionSignaledEventAttributes =
     lens _heWorkflowExecutionSignaledEventAttributes
         (\s a -> s { _heWorkflowExecutionSignaledEventAttributes = a })
 
--- | If the event is of type WorkflowExecutionStarted then this member is set
--- and provides detailed information about the event. It is not set for
+-- | If the event is of type @WorkflowExecutionStarted@ then this member is
+-- set and provides detailed information about the event. It is not set for
 -- other event types.
 heWorkflowExecutionStartedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionStartedEventAttributes)
 heWorkflowExecutionStartedEventAttributes =
     lens _heWorkflowExecutionStartedEventAttributes
         (\s a -> s { _heWorkflowExecutionStartedEventAttributes = a })
 
--- | If the event is of type WorkflowExecutionTerminated then this member is
+-- | If the event is of type @WorkflowExecutionTerminated@ then this member is
 -- set and provides detailed information about the event. It is not set for
 -- other event types.
 heWorkflowExecutionTerminatedEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionTerminatedEventAttributes)
@@ -6993,8 +6996,8 @@ heWorkflowExecutionTerminatedEventAttributes =
     lens _heWorkflowExecutionTerminatedEventAttributes
         (\s a -> s { _heWorkflowExecutionTerminatedEventAttributes = a })
 
--- | If the event is of type WorkflowExecutionTimedOut then this member is set
--- and provides detailed information about the event. It is not set for
+-- | If the event is of type @WorkflowExecutionTimedOut@ then this member is
+-- set and provides detailed information about the event. It is not set for
 -- other event types.
 heWorkflowExecutionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionTimedOutEventAttributes)
 heWorkflowExecutionTimedOutEventAttributes =
@@ -7134,8 +7137,8 @@ continueAsNewWorkflowExecutionFailedEventAttributes p1 p2 = ContinueAsNewWorkflo
 canwefeaCause :: Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes ContinueAsNewWorkflowExecutionFailedCause
 canwefeaCause = lens _canwefeaCause (\s a -> s { _canwefeaCause = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the ContinueAsNewWorkflowExecution decision that
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @ContinueAsNewWorkflowExecution@ decision that
 -- started this execution. This information can be useful for diagnosing
 -- problems by tracing back the cause of events.
 canwefeaDecisionTaskCompletedEventId :: Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes Integer
@@ -7197,8 +7200,8 @@ signalExternalWorkflowExecutionInitiatedEventAttributes p1 p2 p3 = SignalExterna
 seweieaControl :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 seweieaControl = lens _seweieaControl (\s a -> s { _seweieaControl = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the SignalExternalWorkflowExecution decision for
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @SignalExternalWorkflowExecution@ decision for
 -- this signal. This information can be useful for diagnosing problems by
 -- tracing back the cause of events leading up to this event.
 seweieaDecisionTaskCompletedEventId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Integer
@@ -7210,7 +7213,7 @@ seweieaDecisionTaskCompletedEventId =
 seweieaInput :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 seweieaInput = lens _seweieaInput (\s a -> s { _seweieaInput = a })
 
--- | The runId of the external workflow execution to send the signal to.
+-- | The @runId@ of the external workflow execution to send the signal to.
 seweieaRunId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 seweieaRunId = lens _seweieaRunId (\s a -> s { _seweieaRunId = a })
 
@@ -7219,7 +7222,7 @@ seweieaSignalName :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttribut
 seweieaSignalName =
     lens _seweieaSignalName (\s a -> s { _seweieaSignalName = a })
 
--- | The workflowId of the external workflow execution.
+-- | The @workflowId@ of the external workflow execution.
 seweieaWorkflowId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Text
 seweieaWorkflowId =
     lens _seweieaWorkflowId (\s a -> s { _seweieaWorkflowId = a })
@@ -7296,8 +7299,8 @@ workflowExecutionFailedEventAttributes p1 = WorkflowExecutionFailedEventAttribut
     , _wefeaDetails                      = Nothing
     }
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the FailWorkflowExecution decision to fail this
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @FailWorkflowExecution@ decision to fail this
 -- execution. This information can be useful for diagnosing problems by
 -- tracing back the cause of events.
 wefeaDecisionTaskCompletedEventId :: Lens' WorkflowExecutionFailedEventAttributes Integer
@@ -7362,7 +7365,7 @@ workflowExecutionConfiguration p1 p2 p3 p4 = WorkflowExecutionConfiguration
 -- action explicitly or due to an expired timeout. The supported child
 -- policies are: TERMINATE: the child executions will be terminated.
 -- REQUEST_CANCEL: a request to cancel will be attempted for each child
--- execution by recording a WorkflowExecutionCancelRequested event in its
+-- execution by recording a @WorkflowExecutionCancelRequested@ event in its
 -- history. It is up to the decider to take appropriate actions when it
 -- receives an execution history with this event. ABANDON: no action will be
 -- taken. The child executions will continue to run.
@@ -7370,8 +7373,8 @@ wecChildPolicy :: Lens' WorkflowExecutionConfiguration ChildPolicy
 wecChildPolicy = lens _wecChildPolicy (\s a -> s { _wecChildPolicy = a })
 
 -- | The total duration for this workflow execution. The valid values are
--- integers greater than or equal to 0. An integer value can be used to
--- specify the duration in seconds while NONE can be used to specify
+-- integers greater than or equal to @0@. An integer value can be used to
+-- specify the duration in seconds while @NONE@ can be used to specify
 -- unlimited duration.
 wecExecutionStartToCloseTimeout :: Lens' WorkflowExecutionConfiguration Text
 wecExecutionStartToCloseTimeout =
@@ -7384,8 +7387,8 @@ wecTaskList :: Lens' WorkflowExecutionConfiguration TaskList
 wecTaskList = lens _wecTaskList (\s a -> s { _wecTaskList = a })
 
 -- | The maximum duration allowed for decision tasks for this workflow
--- execution. The valid values are integers greater than or equal to 0. An
--- integer value can be used to specify the duration in seconds while NONE
+-- execution. The valid values are integers greater than or equal to @0@. An
+-- integer value can be used to specify the duration in seconds while @NONE@
 -- can be used to specify unlimited duration.
 wecTaskStartToCloseTimeout :: Lens' WorkflowExecutionConfiguration Text
 wecTaskStartToCloseTimeout =
@@ -7525,7 +7528,7 @@ continueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutio
 -- registering the workflow type using RegisterWorkflowType>. The supported
 -- child policies are: TERMINATE: the child executions will be terminated.
 -- REQUEST_CANCEL: a request to cancel will be attempted for each child
--- execution by recording a WorkflowExecutionCancelRequested event in its
+-- execution by recording a @WorkflowExecutionCancelRequested@ event in its
 -- history. It is up to the decider to take appropriate actions when it
 -- receives an execution history with this event. ABANDON: no action will be
 -- taken. The child executions will continue to run.
@@ -7534,10 +7537,10 @@ canwedaChildPolicy =
     lens _canwedaChildPolicy (\s a -> s { _canwedaChildPolicy = a })
 
 -- | If set, specifies the total duration for this workflow execution. This
--- overrides the defaultExecutionStartToCloseTimeout specified when
+-- overrides the @defaultExecutionStartToCloseTimeout@ specified when
 -- registering the workflow type. The valid values are integers greater than
--- or equal to 0. An integer value can be used to specify the duration in
--- seconds while NONE can be used to specify unlimited duration.
+-- or equal to @0@. An integer value can be used to specify the duration in
+-- seconds while @NONE@ can be used to specify unlimited duration.
 canwedaExecutionStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaExecutionStartToCloseTimeout =
     lens _canwedaExecutionStartToCloseTimeout
@@ -7558,10 +7561,10 @@ canwedaTaskList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe
 canwedaTaskList = lens _canwedaTaskList (\s a -> s { _canwedaTaskList = a })
 
 -- | Specifies the maximum duration of decision tasks for the new workflow
--- execution. This parameter overrides the defaultTaskStartToCloseTimout
+-- execution. This parameter overrides the @defaultTaskStartToCloseTimout@
 -- specified when registering the workflow type using RegisterWorkflowType>.
--- The valid values are integers greater than or equal to 0. An integer
--- value can be used to specify the duration in seconds while NONE can be
+-- The valid values are integers greater than or equal to @0@. An integer
+-- value can be used to specify the duration in seconds while @NONE@ can be
 -- used to specify unlimited duration.
 canwedaTaskStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaTaskStartToCloseTimeout =
@@ -7615,8 +7618,8 @@ externalWorkflowExecutionCancelRequestedEventAttributes p1 p2 = ExternalWorkflow
     , _ewecreaInitiatedEventId  = p2
     }
 
--- | The id of the RequestCancelExternalWorkflowExecutionInitiated event
--- corresponding to the RequestCancelExternalWorkflowExecution decision to
+-- | The id of the @RequestCancelExternalWorkflowExecutionInitiated@ event
+-- corresponding to the @RequestCancelExternalWorkflowExecution@ decision to
 -- cancel this external workflow execution. This information can be useful
 -- for diagnosing problems by tracing back the chain of events leading up to
 -- this event.
@@ -7739,16 +7742,16 @@ workflowExecutionContinuedAsNewEventAttributes p1 p2 p3 p4 p5 = WorkflowExecutio
 -- explicitly or due to an expired timeout. The supported child policies
 -- are: TERMINATE: the child executions will be terminated. REQUEST_CANCEL:
 -- a request to cancel will be attempted for each child execution by
--- recording a WorkflowExecutionCancelRequested event in its history. It is
--- up to the decider to take appropriate actions when it receives an
+-- recording a @WorkflowExecutionCancelRequested@ event in its history. It
+-- is up to the decider to take appropriate actions when it receives an
 -- execution history with this event. ABANDON: no action will be taken. The
 -- child executions will continue to run.
 wecaneaChildPolicy :: Lens' WorkflowExecutionContinuedAsNewEventAttributes ChildPolicy
 wecaneaChildPolicy =
     lens _wecaneaChildPolicy (\s a -> s { _wecaneaChildPolicy = a })
 
--- | The id of the DecisionTaskCompleted event corresponding to the decision
--- task that resulted in the ContinueAsNewWorkflowExecution decision that
+-- | The id of the @DecisionTaskCompleted@ event corresponding to the decision
+-- task that resulted in the @ContinueAsNewWorkflowExecution@ decision that
 -- started this execution. This information can be useful for diagnosing
 -- problems by tracing back the cause of events.
 wecaneaDecisionTaskCompletedEventId :: Lens' WorkflowExecutionContinuedAsNewEventAttributes Integer
@@ -7757,9 +7760,9 @@ wecaneaDecisionTaskCompletedEventId =
         (\s a -> s { _wecaneaDecisionTaskCompletedEventId = a })
 
 -- | The total duration allowed for the new workflow execution. The valid
--- values are integers greater than or equal to 0. An integer value can be
--- used to specify the duration in seconds while NONE can be used to specify
--- unlimited duration.
+-- values are integers greater than or equal to @0@. An integer value can be
+-- used to specify the duration in seconds while @NONE@ can be used to
+-- specify unlimited duration.
 wecaneaExecutionStartToCloseTimeout :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaExecutionStartToCloseTimeout =
     lens _wecaneaExecutionStartToCloseTimeout
@@ -7769,7 +7772,7 @@ wecaneaExecutionStartToCloseTimeout =
 wecaneaInput :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaInput = lens _wecaneaInput (\s a -> s { _wecaneaInput = a })
 
--- | The runId of the new workflow execution.
+-- | The @runId@ of the new workflow execution.
 wecaneaNewExecutionRunId :: Lens' WorkflowExecutionContinuedAsNewEventAttributes Text
 wecaneaNewExecutionRunId =
     lens _wecaneaNewExecutionRunId
@@ -7783,8 +7786,8 @@ wecaneaTaskList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes TaskList
 wecaneaTaskList = lens _wecaneaTaskList (\s a -> s { _wecaneaTaskList = a })
 
 -- | The maximum duration of decision tasks for the new workflow execution.
--- The valid values are integers greater than or equal to 0. An integer
--- value can be used to specify the duration in seconds while NONE can be
+-- The valid values are integers greater than or equal to @0@. An integer
+-- value can be used to specify the duration in seconds while @NONE@ can be
 -- used to specify unlimited duration.
 wecaneaTaskStartToCloseTimeout :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaTaskStartToCloseTimeout =

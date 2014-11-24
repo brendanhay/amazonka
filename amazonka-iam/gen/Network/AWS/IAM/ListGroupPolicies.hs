@@ -22,7 +22,7 @@
 
 -- | Lists the names of the policies associated with the specified group. If
 -- there are none, the action returns an empty list. You can paginate the
--- results using the MaxItems and Marker parameters.
+-- results using the @MaxItems@ and @Marker@ parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupPolicies.html>
 module Network.AWS.IAM.ListGroupPolicies
@@ -81,15 +81,15 @@ lgpGroupName = lens _lgpGroupName (\s a -> s { _lgpGroupName = a })
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it
--- to the value of the Marker element in the response you just received.
+-- to the value of the @Marker@ element in the response you just received.
 lgpMarker :: Lens' ListGroupPolicies (Maybe Text)
 lgpMarker = lens _lgpMarker (\s a -> s { _lgpMarker = a })
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- policy names you want in the response. If there are additional policy
--- names beyond the maximum you specify, the IsTruncated response element is
--- true. This parameter is optional. If you do not include it, it defaults
--- to 100.
+-- names beyond the maximum you specify, the @IsTruncated@ response element
+-- is @true@. This parameter is optional. If you do not include it, it
+-- defaults to 100.
 lgpMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
 lgpMaxItems = lens _lgpMaxItems (\s a -> s { _lgpMaxItems = a }) . mapping _Nat
 
@@ -118,13 +118,14 @@ listGroupPoliciesResponse = ListGroupPoliciesResponse
 
 -- | A flag that indicates whether there are more policy names to list. If
 -- your results were truncated, you can make a subsequent pagination request
--- using the Marker request parameter to retrieve more policy names in the
+-- using the @Marker@ request parameter to retrieve more policy names in the
 -- list.
 lgprIsTruncated :: Lens' ListGroupPoliciesResponse (Maybe Bool)
 lgprIsTruncated = lens _lgprIsTruncated (\s a -> s { _lgprIsTruncated = a })
 
--- | If IsTruncated is true, this element is present and contains the value to
--- use for the Marker parameter in a subsequent pagination request.
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 lgprMarker :: Lens' ListGroupPoliciesResponse (Maybe Text)
 lgprMarker = lens _lgprMarker (\s a -> s { _lgprMarker = a })
 

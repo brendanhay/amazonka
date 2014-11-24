@@ -207,7 +207,7 @@ deleteMessageBatchRequestEntry p1 p2 = DeleteMessageBatchRequestEntry
     }
 
 -- | An identifier for this particular receipt handle. This is used to
--- communicate the result. Note that the Ids of a batch request need to be
+-- communicate the result. Note that the @Id@s of a batch request need to be
 -- unique within the request.
 dmbreId :: Lens' DeleteMessageBatchRequestEntry Text
 dmbreId = lens _dmbreId (\s a -> s { _dmbreId = a })
@@ -364,7 +364,7 @@ changeMessageVisibilityBatchRequestEntry p1 p2 = ChangeMessageVisibilityBatchReq
     }
 
 -- | An identifier for this particular receipt handle. This is used to
--- communicate the result. Note that the Ids of a batch request need to be
+-- communicate the result. Note that the @Id@s of a batch request need to be
 -- unique within the request.
 cmvbre1Id :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
 cmvbre1Id = lens _cmvbre1Id (\s a -> s { _cmvbre1Id = a })
@@ -461,9 +461,9 @@ message = Message
     , _mMessageAttributes      = mempty
     }
 
--- | SenderId, SentTimestamp, ApproximateReceiveCount, and/or
--- ApproximateFirstReceiveTimestamp. SentTimestamp and
--- ApproximateFirstReceiveTimestamp are each returned as an integer
+-- | @SenderId@, @SentTimestamp@, @ApproximateReceiveCount@, and/or
+-- @ApproximateFirstReceiveTimestamp@. @SentTimestamp@ and
+-- @ApproximateFirstReceiveTimestamp@ are each returned as an integer
 -- representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in
 -- milliseconds.
 mAttributes :: Lens' Message (HashMap QueueAttributeName Text)
@@ -563,8 +563,8 @@ smbreDelaySeconds =
     lens _smbreDelaySeconds (\s a -> s { _smbreDelaySeconds = a })
 
 -- | An identifier for the message in this batch. This is used to communicate
--- the result. Note that the Ids of a batch request need to be unique within
--- the request.
+-- the result. Note that the @Id@s of a batch request need to be unique
+-- within the request.
 smbreId :: Lens' SendMessageBatchRequestEntry Text
 smbreId = lens _smbreId (\s a -> s { _smbreId = a })
 

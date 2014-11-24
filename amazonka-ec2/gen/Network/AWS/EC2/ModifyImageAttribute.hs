@@ -130,23 +130,23 @@ miaOperationType :: Lens' ModifyImageAttribute (Maybe Text)
 miaOperationType = lens _miaOperationType (\s a -> s { _miaOperationType = a })
 
 -- | One or more product codes. After you add a product code to an AMI, it
--- can't be removed. This is only valid when modifying the productCodes
+-- can't be removed. This is only valid when modifying the @productCodes@
 -- attribute.
 miaProductCodes :: Lens' ModifyImageAttribute [Text]
 miaProductCodes = lens _miaProductCodes (\s a -> s { _miaProductCodes = a }) . _List
 
 -- | One or more user groups. This is only valid when modifying the
--- launchPermission attribute.
+-- @launchPermission@ attribute.
 miaUserGroups :: Lens' ModifyImageAttribute [Text]
 miaUserGroups = lens _miaUserGroups (\s a -> s { _miaUserGroups = a }) . _List
 
 -- | One or more AWS account IDs. This is only valid when modifying the
--- launchPermission attribute.
+-- @launchPermission@ attribute.
 miaUserIds :: Lens' ModifyImageAttribute [Text]
 miaUserIds = lens _miaUserIds (\s a -> s { _miaUserIds = a }) . _List
 
 -- | The value of the attribute being modified. This is only valid when
--- modifying the description attribute.
+-- modifying the @description@ attribute.
 miaValue :: Lens' ModifyImageAttribute (Maybe Text)
 miaValue = lens _miaValue (\s a -> s { _miaValue = a })
 

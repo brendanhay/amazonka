@@ -27,8 +27,8 @@
 -- queue) can grant or deny permissions to the queue. For more information
 -- about these permissions, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html
--- Shared Queues> in the /Amazon SQS Developer Guide/. &Attribute.1=this
--- &Attribute.2=that.
+-- Shared Queues> in the /Amazon SQS Developer Guide/. @&Attribute.1=this@
+-- @&Attribute.2=that@.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_AddPermission.html>
 module Network.AWS.SQS.AddPermission
@@ -94,20 +94,20 @@ apAWSAccountIds :: Lens' AddPermission [Text]
 apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a }) . _List
 
 -- | The action the client wants to allow for the specified principal. The
--- following are valid values: * | SendMessage | ReceiveMessage |
+-- following are valid values: @* | SendMessage | ReceiveMessage |
 -- DeleteMessage | ChangeMessageVisibility | GetQueueAttributes |
--- GetQueueUrl. For more information about these actions, see
+-- GetQueueUrl@. For more information about these actions, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes
 -- Understanding Permissions> in the /Amazon SQS Developer Guide/.
--- Specifying SendMessage, DeleteMessage, or ChangeMessageVisibility for the
--- ActionName.n also grants permissions for the corresponding batch versions
--- of those actions: SendMessageBatch, DeleteMessageBatch, and
--- ChangeMessageVisibilityBatch.
+-- Specifying @SendMessage@, @DeleteMessage@, or @ChangeMessageVisibility@
+-- for the @ActionName.n@ also grants permissions for the corresponding
+-- batch versions of those actions: @SendMessageBatch@,
+-- @DeleteMessageBatch@, and @ChangeMessageVisibilityBatch@.
 apActions :: Lens' AddPermission [Text]
 apActions = lens _apActions (\s a -> s { _apActions = a }) . _List
 
 -- | The unique identification of the permission you're setting (e.g.,
--- AliceSendMessage). Constraints: Maximum 80 characters; alphanumeric
+-- @AliceSendMessage@). Constraints: Maximum 80 characters; alphanumeric
 -- characters, hyphens (-), and underscores (_) are allowed.
 apLabel :: Lens' AddPermission Text
 apLabel = lens _apLabel (\s a -> s { _apLabel = a })

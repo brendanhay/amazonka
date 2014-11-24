@@ -22,11 +22,11 @@
 
 -- | Updates the configuration for the specified AutoScalingGroup>. To update an
 -- Auto Scaling group with a launch configuration that has the
--- InstanceMonitoring flag set to False, you must first ensure that collection
--- of group metrics is disabled. Otherwise, calls to UpdateAutoScalingGroup>
--- will fail. If you have previously enabled group metrics collection, you can
--- disable collection of all group metrics by calling
--- DisableMetricsCollection>. The new settings are registered upon the
+-- @InstanceMonitoring@ flag set to @False@, you must first ensure that
+-- collection of group metrics is disabled. Otherwise, calls to
+-- UpdateAutoScalingGroup> will fail. If you have previously enabled group
+-- metrics collection, you can disable collection of all group metrics by
+-- calling DisableMetricsCollection>. The new settings are registered upon the
 -- completion of this call. Any launch configuration settings take effect on
 -- any triggers after this call returns. Scaling activities that are currently
 -- in progress aren't affected. If a new value is specified for /MinSize/
@@ -171,7 +171,7 @@ uasgHealthCheckGracePeriod =
         (\s a -> s { _uasgHealthCheckGracePeriod = a })
 
 -- | The type of health check for the instances in the Auto Scaling group. The
--- health check type can either be EC2 for Amazon EC2 or ELB for Elastic
+-- health check type can either be @EC2@ for Amazon EC2 or @ELB@ for Elastic
 -- Load Balancing.
 uasgHealthCheckType :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgHealthCheckType =
@@ -212,8 +212,8 @@ uasgTerminationPolicies =
 
 -- | The subnet identifier for the Amazon VPC connection, if applicable. You
 -- can specify several subnets in a comma-separated list. When you specify
--- VPCZoneIdentifier with AvailabilityZones, ensure that the subnets'
--- Availability Zones match the values you specify for AvailabilityZones.
+-- @VPCZoneIdentifier@ with @AvailabilityZones@, ensure that the subnets'
+-- Availability Zones match the values you specify for @AvailabilityZones@.
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html
 -- Auto Scaling and Amazon VPC> in the /Auto Scaling Developer Guide/.

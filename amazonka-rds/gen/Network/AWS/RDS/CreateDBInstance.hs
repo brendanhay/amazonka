@@ -212,7 +212,7 @@ cdbiAllocatedStorage =
     lens _cdbiAllocatedStorage (\s a -> s { _cdbiAllocatedStorage = a })
 
 -- | Indicates that minor engine upgrades will be applied automatically to the
--- DB instance during the maintenance window. Default: true.
+-- DB instance during the maintenance window. Default: @true@.
 cdbiAutoMinorVersionUpgrade :: Lens' CreateDBInstance (Maybe Bool)
 cdbiAutoMinorVersionUpgrade =
     lens _cdbiAutoMinorVersionUpgrade
@@ -220,8 +220,8 @@ cdbiAutoMinorVersionUpgrade =
 
 -- | The EC2 Availability Zone that the database instance will be created in.
 -- Default: A random, system-chosen Availability Zone in the endpoint's
--- region. Example: us-east-1d Constraint: The AvailabilityZone parameter
--- cannot be specified if the MultiAZ parameter is set to true. The
+-- region. Example: @us-east-1d@ Constraint: The AvailabilityZone parameter
+-- cannot be specified if the MultiAZ parameter is set to @true@. The
 -- specified Availability Zone must be in the same region as the current
 -- endpoint.
 cdbiAvailabilityZone :: Lens' CreateDBInstance (Maybe Text)
@@ -245,11 +245,11 @@ cdbiCharacterSetName =
     lens _cdbiCharacterSetName (\s a -> s { _cdbiCharacterSetName = a })
 
 -- | The compute and memory capacity of the DB instance. Valid Values:
--- db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge |
+-- @db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge |
 -- db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large
 -- | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge |
 -- db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small
--- | db.t2.medium.
+-- | db.t2.medium@.
 cdbiDBInstanceClass :: Lens' CreateDBInstance Text
 cdbiDBInstanceClass =
     lens _cdbiDBInstanceClass (\s a -> s { _cdbiDBInstanceClass = a })
@@ -258,7 +258,7 @@ cdbiDBInstanceClass =
 -- string. Constraints: Must contain from 1 to 63 alphanumeric characters or
 -- hyphens (1 to 15 for SQL Server). First character must be a letter.
 -- Cannot end with a hyphen or contain two consecutive hyphens. Example:
--- mydbinstance.
+-- @mydbinstance@.
 cdbiDBInstanceIdentifier :: Lens' CreateDBInstance Text
 cdbiDBInstanceIdentifier =
     lens _cdbiDBInstanceIdentifier
@@ -275,7 +275,7 @@ cdbiDBInstanceIdentifier =
 -- alphanumeric characters Must begin with a letter or an underscore.
 -- Subsequent characters can be letters, underscores, or digits (0-9).
 -- Cannot be a word reserved by the specified database engine Oracle The
--- Oracle System ID (SID) of the created DB instance. Default: ORCL
+-- Oracle System ID (SID) of the created DB instance. Default: @ORCL@
 -- Constraints: Cannot be longer than 8 characters SQL Server Not
 -- applicable. Must be null.
 cdbiDBName :: Lens' CreateDBInstance (Maybe Text)
@@ -305,14 +305,15 @@ cdbiDBSubnetGroupName =
     lens _cdbiDBSubnetGroupName (\s a -> s { _cdbiDBSubnetGroupName = a })
 
 -- | The name of the database engine to be used for this instance. Valid
--- Values: MySQL | oracle-se1 | oracle-se | oracle-ee | sqlserver-ee |
--- sqlserver-se | sqlserver-ex | sqlserver-web | postgres.
+-- Values: @MySQL@ | @oracle-se1@ | @oracle-se@ | @oracle-ee@ |
+-- @sqlserver-ee@ | @sqlserver-se@ | @sqlserver-ex@ | @sqlserver-web@ |
+-- @postgres@.
 cdbiEngine :: Lens' CreateDBInstance Text
 cdbiEngine = lens _cdbiEngine (\s a -> s { _cdbiEngine = a })
 
--- | The version number of the database engine to use. MySQL Example: 5.1.42
--- Type: String PostgreSQL Example: 9.3 Type: String Oracle Example:
--- 11.2.0.2.v2 Type: String SQL Server Example: 10.50.2789.0.v1.
+-- | The version number of the database engine to use. MySQL Example: @5.1.42@
+-- Type: String PostgreSQL Example: @9.3@ Type: String Oracle Example:
+-- @11.2.0.2.v2@ Type: String SQL Server Example: @10.50.2789.0.v1@.
 cdbiEngineVersion :: Lens' CreateDBInstance (Maybe Text)
 cdbiEngineVersion =
     lens _cdbiEngineVersion (\s a -> s { _cdbiEngineVersion = a })
@@ -324,7 +325,7 @@ cdbiIops :: Lens' CreateDBInstance (Maybe Int)
 cdbiIops = lens _cdbiIops (\s a -> s { _cdbiIops = a })
 
 -- | License model information for this DB instance. Valid values:
--- license-included | bring-your-own-license | general-public-license.
+-- @license-included@ | @bring-your-own-license@ | @general-public-license@.
 cdbiLicenseModel :: Lens' CreateDBInstance (Maybe Text)
 cdbiLicenseModel = lens _cdbiLicenseModel (\s a -> s { _cdbiLicenseModel = a })
 
@@ -364,28 +365,29 @@ cdbiOptionGroupName =
     lens _cdbiOptionGroupName (\s a -> s { _cdbiOptionGroupName = a })
 
 -- | The port number on which the database accepts connections. MySQL Default:
--- 3306 Valid Values: 1150-65535 Type: Integer PostgreSQL Default: 5432
--- Valid Values: 1150-65535 Type: Integer Oracle Default: 1521 Valid Values:
--- 1150-65535 SQL Server Default: 1433 Valid Values: 1150-65535 except for
--- 1434, 3389, 47001, 49152, and 49152 through 49156.
+-- @3306@ Valid Values: @1150-65535@ Type: Integer PostgreSQL Default:
+-- @5432@ Valid Values: @1150-65535@ Type: Integer Oracle Default: @1521@
+-- Valid Values: @1150-65535@ SQL Server Default: @1433@ Valid Values:
+-- @1150-65535@ except for @1434@, @3389@, @47001@, @49152@, and @49152@
+-- through @49156@.
 cdbiPort :: Lens' CreateDBInstance (Maybe Int)
 cdbiPort = lens _cdbiPort (\s a -> s { _cdbiPort = a })
 
 -- | The daily time range during which automated backups are created if
--- automated backups are enabled, using the BackupRetentionPeriod parameter.
--- Default: A 30-minute window selected at random from an 8-hour block of
--- time per region. See the Amazon RDS User Guide for the time blocks for
--- each region from which the default backup windows are assigned.
--- Constraints: Must be in the format hh24:mi-hh24:mi. Times should be
--- Universal Time Coordinated (UTC). Must not conflict with the preferred
--- maintenance window. Must be at least 30 minutes.
+-- automated backups are enabled, using the @BackupRetentionPeriod@
+-- parameter. Default: A 30-minute window selected at random from an 8-hour
+-- block of time per region. See the Amazon RDS User Guide for the time
+-- blocks for each region from which the default backup windows are
+-- assigned. Constraints: Must be in the format @hh24:mi-hh24:mi@. Times
+-- should be Universal Time Coordinated (UTC). Must not conflict with the
+-- preferred maintenance window. Must be at least 30 minutes.
 cdbiPreferredBackupWindow :: Lens' CreateDBInstance (Maybe Text)
 cdbiPreferredBackupWindow =
     lens _cdbiPreferredBackupWindow
         (\s a -> s { _cdbiPreferredBackupWindow = a })
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
--- Format: ddd:hh24:mi-ddd:hh24:mi Default: A 30-minute window selected at
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@ Default: A 30-minute window selected at
 -- random from an 8-hour block of time per region, occurring on a random day
 -- of the week. To see the time blocks available, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html
@@ -414,8 +416,8 @@ cdbiPubliclyAccessible =
     lens _cdbiPubliclyAccessible (\s a -> s { _cdbiPubliclyAccessible = a })
 
 -- | Specifies storage type to be associated with the DB Instance. Valid
--- values: standard | gp2 | io1 If you specify io1, you must also include a
--- value for the Iops parameter.
+-- values: @standard | gp2 | io1@ If you specify @io1@, you must also
+-- include a value for the @Iops@ parameter.
 cdbiStorageType :: Lens' CreateDBInstance (Maybe Text)
 cdbiStorageType = lens _cdbiStorageType (\s a -> s { _cdbiStorageType = a })
 

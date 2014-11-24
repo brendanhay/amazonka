@@ -22,10 +22,10 @@
 
 -- | Gets information about the index fields configured for the search domain.
 -- Can be limited to specific fields by name. By default, shows all fields and
--- includes any pending changes to the configuration. Set the Deployed option
--- to true to show the active configuration and exclude pending changes. For
--- more information, see Getting Domain Information> in the /Amazon
--- CloudSearch Developer Guide/.
+-- includes any pending changes to the configuration. Set the @Deployed@
+-- option to @true@ to show the active configuration and exclude pending
+-- changes. For more information, see Getting Domain Information> in the
+-- /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeIndexFields.html>
 module Network.AWS.CloudSearch.DescribeIndexFields
@@ -76,8 +76,8 @@ describeIndexFields p1 = DescribeIndexFields
     , _difDeployed   = Nothing
     }
 
--- | Whether to display the deployed configuration (true) or include any
--- pending changes (false). Defaults to false.
+-- | Whether to display the deployed configuration (@true@) or include any
+-- pending changes (@false@). Defaults to @false@.
 difDeployed :: Lens' DescribeIndexFields (Maybe Bool)
 difDeployed = lens _difDeployed (\s a -> s { _difDeployed = a })
 

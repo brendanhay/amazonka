@@ -80,14 +80,15 @@ lkpKeyId = lens _lkpKeyId (\s a -> s { _lkpKeyId = a })
 
 -- | Specify this parameter only when paginating results to indicate the
 -- maximum number of policies you want listed in the response. If there are
--- additional policies beyond the maximum you specify, the Truncated
--- response element will be set to true.
+-- additional policies beyond the maximum you specify, the @Truncated@
+-- response element will be set to @true.@.
 lkpLimit :: Lens' ListKeyPolicies (Maybe Natural)
 lkpLimit = lens _lkpLimit (\s a -> s { _lkpLimit = a }) . mapping _Nat
 
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated.
--- Set it to the value of the NextMarker in the response you just received.
+-- Set it to the value of the @NextMarker@ in the response you just
+-- received.
 lkpMarker :: Lens' ListKeyPolicies (Maybe Text)
 lkpMarker = lens _lkpMarker (\s a -> s { _lkpMarker = a })
 
@@ -114,8 +115,9 @@ listKeyPoliciesResponse = ListKeyPoliciesResponse
     , _lkprTruncated   = Nothing
     }
 
--- | If Truncated is true, this value is present and contains the value to use
--- for the Marker request parameter in a subsequent pagination request.
+-- | If @Truncated@ is true, this value is present and contains the value to
+-- use for the @Marker@ request parameter in a subsequent pagination
+-- request.
 lkprNextMarker :: Lens' ListKeyPoliciesResponse (Maybe Text)
 lkprNextMarker = lens _lkprNextMarker (\s a -> s { _lkprNextMarker = a })
 
@@ -126,7 +128,8 @@ lkprPolicyNames = lens _lkprPolicyNames (\s a -> s { _lkprPolicyNames = a }) . _
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the Marker request parameter to retrieve more policies in the list.
+-- using the @Marker@ request parameter to retrieve more policies in the
+-- list.
 lkprTruncated :: Lens' ListKeyPoliciesResponse (Maybe Bool)
 lkprTruncated = lens _lkprTruncated (\s a -> s { _lkprTruncated = a })
 

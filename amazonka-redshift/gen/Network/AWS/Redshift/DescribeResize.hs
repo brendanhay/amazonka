@@ -22,10 +22,11 @@
 
 -- | Returns information about the last resize operation for the specified
 -- cluster. If no resize operation has ever been initiated for the specified
--- cluster, a HTTP 404 error is returned. If a resize operation was initiated
--- and completed, the status of the resize remains as SUCCEEDED until the next
--- resize. A resize operation can be requested using ModifyCluster> and
--- specifying a different number or type of nodes for the cluster.
+-- cluster, a @HTTP 404@ error is returned. If a resize operation was
+-- initiated and completed, the status of the resize remains as @SUCCEEDED@
+-- until the next resize. A resize operation can be requested using
+-- ModifyCluster> and specifying a different number or type of nodes for the
+-- cluster.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeResize.html>
 module Network.AWS.Redshift.DescribeResize
@@ -201,13 +202,13 @@ drrProgressInMegaBytes :: Lens' DescribeResizeResponse (Maybe Integer)
 drrProgressInMegaBytes =
     lens _drrProgressInMegaBytes (\s a -> s { _drrProgressInMegaBytes = a })
 
--- | The status of the resize operation. Valid Values: NONE | IN_PROGRESS |
--- FAILED | SUCCEEDED.
+-- | The status of the resize operation. Valid Values: @NONE@ | @IN_PROGRESS@
+-- | @FAILED@ | @SUCCEEDED@.
 drrStatus :: Lens' DescribeResizeResponse (Maybe Text)
 drrStatus = lens _drrStatus (\s a -> s { _drrStatus = a })
 
 -- | The cluster type after the resize operation is complete. Valid Values:
--- multi-node | single-node.
+-- @multi-node@ | @single-node@.
 drrTargetClusterType :: Lens' DescribeResizeResponse (Maybe Text)
 drrTargetClusterType =
     lens _drrTargetClusterType (\s a -> s { _drrTargetClusterType = a })

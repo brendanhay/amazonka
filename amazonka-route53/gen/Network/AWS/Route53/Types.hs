@@ -300,7 +300,7 @@ resourceRecord p1 = ResourceRecord
     { _rrValue = p1
     }
 
--- | The value of the Value element for the current resource record set.
+-- | The value of the @Value@ element for the current resource record set.
 rrValue :: Lens' ResourceRecord Text
 rrValue = lens _rrValue (\s a -> s { _rrValue = a })
 
@@ -332,11 +332,11 @@ tag = Tag
     , _tagValue = Nothing
     }
 
--- | The key for a Tag.
+-- | The key for a @Tag@.
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
--- | The value for a Tag.
+-- | The value for a @Tag@.
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
@@ -391,19 +391,19 @@ geoLocationDetails = GeoLocationDetails
 gldContinentCode :: Lens' GeoLocationDetails (Maybe Text)
 gldContinentCode = lens _gldContinentCode (\s a -> s { _gldContinentCode = a })
 
--- | The name of the continent. This element is only present if ContinentCode
--- is also present.
+-- | The name of the continent. This element is only present if
+-- @ContinentCode@ is also present.
 gldContinentName :: Lens' GeoLocationDetails (Maybe Text)
 gldContinentName = lens _gldContinentName (\s a -> s { _gldContinentName = a })
 
 -- | The code for a country geo location. The default location uses '*' for
 -- the country code and will match all locations that are not matched by a
--- geo location. The default geo location uses a * for the country code. All
--- other country codes follow the ISO 3166 two-character code.
+-- geo location. The default geo location uses a @*@ for the country code.
+-- All other country codes follow the ISO 3166 two-character code.
 gldCountryCode :: Lens' GeoLocationDetails (Maybe Text)
 gldCountryCode = lens _gldCountryCode (\s a -> s { _gldCountryCode = a })
 
--- | The name of the country. This element is only present if CountryCode is
+-- | The name of the country. This element is only present if @CountryCode@ is
 -- also present.
 gldCountryName :: Lens' GeoLocationDetails (Maybe Text)
 gldCountryName = lens _gldCountryName (\s a -> s { _gldCountryName = a })
@@ -415,7 +415,7 @@ gldSubdivisionCode =
     lens _gldSubdivisionCode (\s a -> s { _gldSubdivisionCode = a })
 
 -- | The name of the subdivision. This element is only present if
--- SubdivisionCode is also present.
+-- @SubdivisionCode@ is also present.
 gldSubdivisionName :: Lens' GeoLocationDetails (Maybe Text)
 gldSubdivisionName =
     lens _gldSubdivisionName (\s a -> s { _gldSubdivisionName = a })
@@ -481,7 +481,7 @@ hcHealthCheckConfig =
     lens _hcHealthCheckConfig (\s a -> s { _hcHealthCheckConfig = a })
 
 -- | The version of the health check. You can optionally pass this value in a
--- call to UpdateHealthCheck to prevent overwriting another change to the
+-- call to @UpdateHealthCheck@ to prevent overwriting another change to the
 -- health check.
 hcHealthCheckVersion :: Lens' HealthCheck Natural
 hcHealthCheckVersion =
@@ -810,7 +810,7 @@ change p1 p2 = Change
     , _cResourceRecordSet = p2
     }
 
--- | The action to perform. Valid values: CREATE | DELETE | UPSERT.
+-- | The action to perform. Valid values: @CREATE@ | @DELETE@ | @UPSERT@.
 cAction :: Lens' Change ChangeAction
 cAction = lens _cAction (\s a -> s { _cAction = a })
 
@@ -898,7 +898,7 @@ hzCallerReference :: Lens' HostedZone Text
 hzCallerReference =
     lens _hzCallerReference (\s a -> s { _hzCallerReference = a })
 
--- | A complex type that contains the Comment element.
+-- | A complex type that contains the @Comment@ element.
 hzConfig :: Lens' HostedZone (Maybe HostedZoneConfig)
 hzConfig = lens _hzConfig (\s a -> s { _hzConfig = a })
 
@@ -912,8 +912,8 @@ hzId = lens _hzId (\s a -> s { _hzId = a })
 -- www.example.com (without a trailing dot) and www.example.com. (with a
 -- trailing dot) as identical. This is the name you have registered with
 -- your DNS registrar. You should ask your registrar to change the
--- authoritative name servers for your domain to the set of NameServers
--- elements returned in DelegationSet.
+-- authoritative name servers for your domain to the set of @NameServers@
+-- elements returned in @DelegationSet@.
 hzName :: Lens' HostedZone Text
 hzName = lens _hzName (\s a -> s { _hzName = a })
 
@@ -969,7 +969,7 @@ rtsResourceId :: Lens' ResourceTagSet (Maybe Text)
 rtsResourceId = lens _rtsResourceId (\s a -> s { _rtsResourceId = a })
 
 -- | The type of the resource. The resource type for health checks is
--- healthcheck.
+-- @healthcheck@.
 rtsResourceType :: Lens' ResourceTagSet (Maybe TagResourceType)
 rtsResourceType = lens _rtsResourceType (\s a -> s { _rtsResourceType = a })
 
@@ -1039,8 +1039,8 @@ changeBatch p1 = ChangeBatch
     , _cbComment = Nothing
     }
 
--- | A complex type that contains one Change element for each resource record
--- set that you want to create or delete.
+-- | A complex type that contains one @Change@ element for each resource
+-- record set that you want to create or delete.
 cbChanges :: Lens' ChangeBatch (NonEmpty Change)
 cbChanges = lens _cbChanges (\s a -> s { _cbChanges = a }) . _List1
 
@@ -1080,10 +1080,10 @@ statusReport = StatusReport
     }
 
 -- | The date and time the health check status was observed, in the format
--- YYYY-MM-DDThh:mm:ssZ, as specified in the ISO 8601 standard (for example,
--- 2009-11-19T19:37:58Z). The Z after the time indicates that the time is
--- listed in Coordinated Universal Time (UTC), which is synonymous with
--- Greenwich Mean Time in this context.
+-- @YYYY-MM-DDThh:mm:ssZ@, as specified in the ISO 8601 standard (for
+-- example, 2009-11-19T19:37:58Z). The @Z@ after the time indicates that the
+-- time is listed in Coordinated Universal Time (UTC), which is synonymous
+-- with Greenwich Mean Time in this context.
 srCheckedTime :: Lens' StatusReport (Maybe UTCTime)
 srCheckedTime = lens _srCheckedTime (\s a -> s { _srCheckedTime = a }) . mapping _Time
 
@@ -1198,8 +1198,8 @@ hostedZoneConfig = HostedZoneConfig
     }
 
 -- | An optional comment about your hosted zone. If you don't want to specify
--- a comment, you can omit the HostedZoneConfig and Comment elements from
--- the XML document.
+-- a comment, you can omit the @HostedZoneConfig@ and @Comment@ elements
+-- from the XML document.
 hzcComment :: Lens' HostedZoneConfig (Maybe Text)
 hzcComment = lens _hzcComment (\s a -> s { _hzcComment = a })
 
@@ -1296,7 +1296,7 @@ rrsAliasTarget = lens _rrsAliasTarget (\s a -> s { _rrsAliasTarget = a })
 -- record set will be returned if: (1) the primary is failing a health check
 -- and either the secondary is passing a health check or has no associated
 -- health check, or (2) there is no primary resource record set. Valid
--- values: PRIMARY | SECONDARY.
+-- values: @PRIMARY@ | @SECONDARY@.
 rrsFailover :: Lens' ResourceRecordSet (Maybe Failover)
 rrsFailover = lens _rrsFailover (\s a -> s { _rrsFailover = a })
 
@@ -1412,7 +1412,7 @@ dsId = lens _dsId (\s a -> s { _dsId = a })
 
 -- | A complex type that contains the authoritative name servers for the
 -- hosted zone. Use the method provided by your domain registrar to add an
--- NS record to your domain for each NameServer that is assigned to your
+-- NS record to your domain for each @NameServer@ that is assigned to your
 -- hosted zone.
 dsNameServers :: Lens' DelegationSet (NonEmpty Text)
 dsNameServers = lens _dsNameServers (\s a -> s { _dsNameServers = a }) . _List1
@@ -1474,17 +1474,17 @@ ciComment = lens _ciComment (\s a -> s { _ciComment = a })
 ciId :: Lens' ChangeInfo Text
 ciId = lens _ciId (\s a -> s { _ciId = a })
 
--- | The current state of the request. PENDING indicates that this request has
--- not yet been applied to all Amazon Route 53 DNS servers. Valid Values:
--- PENDING | INSYNC.
+-- | The current state of the request. @PENDING@ indicates that this request
+-- has not yet been applied to all Amazon Route 53 DNS servers. Valid
+-- Values: @PENDING@ | @INSYNC@.
 ciStatus :: Lens' ChangeInfo ChangeStatus
 ciStatus = lens _ciStatus (\s a -> s { _ciStatus = a })
 
 -- | The date and time the change was submitted, in the format
--- YYYY-MM-DDThh:mm:ssZ, as specified in the ISO 8601 standard (for example,
--- 2009-11-19T19:37:58Z). The Z after the time indicates that the time is
--- listed in Coordinated Universal Time (UTC), which is synonymous with
--- Greenwich Mean Time in this context.
+-- @YYYY-MM-DDThh:mm:ssZ@, as specified in the ISO 8601 standard (for
+-- example, 2009-11-19T19:37:58Z). The @Z@ after the time indicates that the
+-- time is listed in Coordinated Universal Time (UTC), which is synonymous
+-- with Greenwich Mean Time in this context.
 ciSubmittedAt :: Lens' ChangeInfo UTCTime
 ciSubmittedAt = lens _ciSubmittedAt (\s a -> s { _ciSubmittedAt = a }) . _Time
 
@@ -1527,22 +1527,22 @@ geoLocation = GeoLocation
     }
 
 -- | The code for a continent geo location. Note: only continent locations
--- have a continent code. Valid values: AF | AN | AS | EU | OC | NA | SA
--- Constraint: Specifying ContinentCode with either CountryCode or
--- SubdivisionCode returns an InvalidInput> error.
+-- have a continent code. Valid values: @AF@ | @AN@ | @AS@ | @EU@ | @OC@ |
+-- @NA@ | @SA@ Constraint: Specifying @ContinentCode@ with either
+-- @CountryCode@ or @SubdivisionCode@ returns an InvalidInput> error.
 glContinentCode :: Lens' GeoLocation (Maybe Text)
 glContinentCode = lens _glContinentCode (\s a -> s { _glContinentCode = a })
 
 -- | The code for a country geo location. The default location uses '*' for
 -- the country code and will match all locations that are not matched by a
--- geo location. The default geo location uses a * for the country code. All
--- other country codes follow the ISO 3166 two-character code.
+-- geo location. The default geo location uses a @*@ for the country code.
+-- All other country codes follow the ISO 3166 two-character code.
 glCountryCode :: Lens' GeoLocation (Maybe Text)
 glCountryCode = lens _glCountryCode (\s a -> s { _glCountryCode = a })
 
 -- | The code for a country's subdivision (e.g., a province of Canada). A
 -- subdivision code is only valid with the appropriate country code.
--- Constraint: Specifying SubdivisionCode without CountryCode returns an
+-- Constraint: Specifying @SubdivisionCode@ without @CountryCode@ returns an
 -- InvalidInput> error.
 glSubdivisionCode :: Lens' GeoLocation (Maybe Text)
 glSubdivisionCode =

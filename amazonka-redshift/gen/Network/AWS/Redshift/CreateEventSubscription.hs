@@ -116,8 +116,8 @@ createEventSubscription p1 p2 = CreateEventSubscription
     , _cesTags             = mempty
     }
 
--- | A Boolean value; set to true to activate the subscription, set to false
--- to create the subscription but not active it.
+-- | A Boolean value; set to @true@ to activate the subscription, set to
+-- @false@ to create the subscription but not active it.
 cesEnabled :: Lens' CreateEventSubscription (Maybe Bool)
 cesEnabled = lens _cesEnabled (\s a -> s { _cesEnabled = a })
 

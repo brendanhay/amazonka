@@ -26,16 +26,16 @@
 -- parameters require you to specify the following information: IssueType. The
 -- type of issue for the case. You can specify either "customer-service" or
 -- "technical." If you do not indicate a value, the default is "technical."
--- ServiceCode. The code for an AWS service. You obtain the ServiceCode by
+-- ServiceCode. The code for an AWS service. You obtain the @ServiceCode@ by
 -- calling DescribeServices>. CategoryCode. The category for the service
--- defined for the ServiceCode value. You also obtain the category code for a
--- service by calling DescribeServices>. Each AWS service defines its own set
--- of category codes. SeverityCode. A value that indicates the urgency of the
--- case, which in turn determines the response time according to your service
--- level agreement with AWS Support. You obtain the SeverityCode by calling
--- DescribeSeverityLevels>. Subject. The Subject field on the AWS Support
--- Center <https://aws.amazon.com/support/createCase Open a new case> page.
--- CommunicationBody. The Description field on the AWS Support Center
+-- defined for the @ServiceCode@ value. You also obtain the category code for
+-- a service by calling DescribeServices>. Each AWS service defines its own
+-- set of category codes. SeverityCode. A value that indicates the urgency of
+-- the case, which in turn determines the response time according to your
+-- service level agreement with AWS Support. You obtain the SeverityCode by
+-- calling DescribeSeverityLevels>. Subject. The Subject field on the AWS
+-- Support Center <https://aws.amazon.com/support/createCase Open a new case>
+-- page. CommunicationBody. The Description field on the AWS Support Center
 -- <https://aws.amazon.com/support/createCase Open a new case> page.
 -- AttachmentSetId. The ID of a set of attachments that has been created by
 -- using AddAttachmentsToSet>. Language. The human language in which AWS

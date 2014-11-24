@@ -76,9 +76,9 @@ describeRegions = DescribeRegions
 dr1DryRun :: Lens' DescribeRegions (Maybe Bool)
 dr1DryRun = lens _dr1DryRun (\s a -> s { _dr1DryRun = a })
 
--- | One or more filters. endpoint - The endpoint of the region (for example,
--- ec2.us-east-1.amazonaws.com). region-name - The name of the region (for
--- example, us-east-1).
+-- | One or more filters. @endpoint@ - The endpoint of the region (for
+-- example, @ec2.us-east-1.amazonaws.com@). @region-name@ - The name of the
+-- region (for example, @us-east-1@).
 dr1Filters :: Lens' DescribeRegions [Filter]
 dr1Filters = lens _dr1Filters (\s a -> s { _dr1Filters = a }) . _List
 

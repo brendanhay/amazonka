@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new AWS secret access key and corresponding AWS access key ID for
--- the specified user. The default status for new keys is Active. If you do
+-- the specified user. The default status for new keys is @Active@. If you do
 -- not specify a user name, IAM determines the user name implicitly based on
 -- the AWS access key ID signing the request. Because this action works for
 -- access keys under the AWS account, you can use this action to manage root

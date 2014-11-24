@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified manual snapshot. The snapshot must be in the
--- available state, with no other users authorized to access the snapshot.
+-- @available@ state, with no other users authorized to access the snapshot.
 -- Unlike automated snapshots, manual snapshots are retained even after you
 -- delete your cluster. Amazon Redshift does not delete your manual snapshots.
 -- You must delete manual snapshot explicitly to avoid getting charged. If
@@ -82,7 +82,8 @@ dcsSnapshotClusterIdentifier =
         (\s a -> s { _dcsSnapshotClusterIdentifier = a })
 
 -- | The unique identifier of the manual snapshot to be deleted. Constraints:
--- Must be the name of an existing snapshot that is in the available state.
+-- Must be the name of an existing snapshot that is in the @available@
+-- state.
 dcsSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
 dcsSnapshotIdentifier =
     lens _dcsSnapshotIdentifier (\s a -> s { _dcsSnapshotIdentifier = a })

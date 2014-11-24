@@ -101,8 +101,8 @@ describeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
     { _delbrElasticLoadBalancers = mempty
     }
 
--- | A list of ElasticLoadBalancer objects that describe the specified Elastic
--- Load Balancing instances.
+-- | A list of @ElasticLoadBalancer@ objects that describe the specified
+-- Elastic Load Balancing instances.
 delbrElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
 delbrElasticLoadBalancers =
     lens _delbrElasticLoadBalancers

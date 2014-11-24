@@ -89,7 +89,7 @@ updateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
 -- you specify true, WHOIS ("who is") queries will return contact
 -- information for our registrar partner, Gandi, instead of the contact
 -- information that you enter. Type: Boolean Default: None Valid values:
--- true | false Required: No.
+-- @true@ | @false@ Required: No.
 udcpAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpAdminPrivacy = lens _udcpAdminPrivacy (\s a -> s { _udcpAdminPrivacy = a })
 
@@ -104,7 +104,7 @@ udcpDomainName = lens _udcpDomainName (\s a -> s { _udcpDomainName = a })
 -- you specify true, WHOIS ("who is") queries will return contact
 -- information for our registrar partner, Gandi, instead of the contact
 -- information that you enter. Type: Boolean Default: None Valid values:
--- true | false Required: No.
+-- @true@ | @false@ Required: No.
 udcpRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpRegistrantPrivacy =
     lens _udcpRegistrantPrivacy (\s a -> s { _udcpRegistrantPrivacy = a })
@@ -113,7 +113,7 @@ udcpRegistrantPrivacy =
 -- you specify true, WHOIS ("who is") queries will return contact
 -- information for our registrar partner, Gandi, instead of the contact
 -- information that you enter. Type: Boolean Default: None Valid values:
--- true | false Required: No.
+-- @true@ | @false@ Required: No.
 udcpTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpTechPrivacy = lens _udcpTechPrivacy (\s a -> s { _udcpTechPrivacy = a })
 

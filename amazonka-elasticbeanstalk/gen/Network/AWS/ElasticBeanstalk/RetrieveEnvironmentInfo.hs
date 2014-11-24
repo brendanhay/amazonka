@@ -73,17 +73,17 @@ retrieveEnvironmentInfo p1 = RetrieveEnvironmentInfo
     }
 
 -- | The ID of the data's environment. If no such environment is found,
--- returns an InvalidParameterValue error. Condition: You must specify
+-- returns an @InvalidParameterValue@ error. Condition: You must specify
 -- either this or an EnvironmentName, or both. If you do not specify either,
--- AWS Elastic Beanstalk returns MissingRequiredParameter error.
+-- AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 rei1EnvironmentId :: Lens' RetrieveEnvironmentInfo (Maybe Text)
 rei1EnvironmentId =
     lens _rei1EnvironmentId (\s a -> s { _rei1EnvironmentId = a })
 
 -- | The name of the data's environment. If no such environment is found,
--- returns an InvalidParameterValue error. Condition: You must specify
+-- returns an @InvalidParameterValue@ error. Condition: You must specify
 -- either this or an EnvironmentId, or both. If you do not specify either,
--- AWS Elastic Beanstalk returns MissingRequiredParameter error.
+-- AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 rei1EnvironmentName :: Lens' RetrieveEnvironmentInfo (Maybe Text)
 rei1EnvironmentName =
     lens _rei1EnvironmentName (\s a -> s { _rei1EnvironmentName = a })

@@ -20,15 +20,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | To retrieve a list of your reusable delegation sets, send a GET request to
--- the 2013-04-01/delegationset resource. The response to this request
--- includes a DelegationSets element with zero, one, or multiple DelegationSet
--- child elements. By default, the list of delegation sets is displayed on a
--- single page. You can control the length of the page that is displayed by
--- using the MaxItems parameter. You can use the Marker parameter to control
--- the delegation set that the list begins with. Amazon Route 53 returns a
--- maximum of 100 items. If you set MaxItems to a value greater than 100,
--- Amazon Route 53 returns only the first 100.
+-- | To retrieve a list of your reusable delegation sets, send a @GET@ request
+-- to the @2013-04-01/delegationset@ resource. The response to this request
+-- includes a @DelegationSets@ element with zero, one, or multiple
+-- @DelegationSet@ child elements. By default, the list of delegation sets is
+-- displayed on a single page. You can control the length of the page that is
+-- displayed by using the @MaxItems@ parameter. You can use the @Marker@
+-- parameter to control the delegation set that the list begins with. Amazon
+-- Route 53 returns a maximum of 100 items. If you set MaxItems to a value
+-- greater than 100, Amazon Route 53 returns only the first 100.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListReusableDelegationSets.html>
 module Network.AWS.Route53.ListReusableDelegationSets
@@ -78,8 +78,8 @@ listReusableDelegationSets = ListReusableDelegationSets
     }
 
 -- | If the request returned more than one page of results, submit another
--- request and specify the value of NextMarker from the last response in the
--- marker parameter to get the next page of results.
+-- request and specify the value of @NextMarker@ from the last response in
+-- the @marker@ parameter to get the next page of results.
 lrdsMarker :: Lens' ListReusableDelegationSets (Maybe Text)
 lrdsMarker = lens _lrdsMarker (\s a -> s { _lrdsMarker = a })
 
@@ -131,22 +131,22 @@ lrdsrDelegationSets =
 
 -- | A flag indicating whether there are more reusable delegation sets to be
 -- listed. If your results were truncated, you can make a follow-up request
--- for the next page of results by using the Marker element. Valid Values:
--- true | false.
+-- for the next page of results by using the @Marker@ element. Valid Values:
+-- @true@ | @false@.
 lrdsrIsTruncated :: Lens' ListReusableDelegationSetsResponse Bool
 lrdsrIsTruncated = lens _lrdsrIsTruncated (\s a -> s { _lrdsrIsTruncated = a })
 
 -- | If the request returned more than one page of results, submit another
--- request and specify the value of NextMarker from the last response in the
--- marker parameter to get the next page of results.
+-- request and specify the value of @NextMarker@ from the last response in
+-- the @marker@ parameter to get the next page of results.
 lrdsrMarker :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrMarker = lens _lrdsrMarker (\s a -> s { _lrdsrMarker = a })
 
 -- | The maximum number of reusable delegation sets to be included in the
 -- response body. If the number of reusable delegation sets associated with
--- this AWS account exceeds MaxItems, the value of
--- ListReusablDelegationSetsResponse$IsTruncated> in the response is true.
--- Call ListReusableDelegationSets again and specify the value of
+-- this AWS account exceeds @MaxItems@, the value of
+-- ListReusablDelegationSetsResponse$IsTruncated> in the response is @true@.
+-- Call @ListReusableDelegationSets@ again and specify the value of
 -- ListReusableDelegationSetsResponse$NextMarker> in the
 -- ListReusableDelegationSetsRequest$Marker> element to get the next page of
 -- results.
@@ -154,9 +154,10 @@ lrdsrMaxItems :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrMaxItems = lens _lrdsrMaxItems (\s a -> s { _lrdsrMaxItems = a })
 
 -- | Indicates where to continue listing reusable delegation sets. If
--- ListReusableDelegationSetsResponse$IsTruncated> is true, make another
--- request to ListReusableDelegationSets and include the value of the
--- NextMarker element in the Marker element to get the next page of results.
+-- ListReusableDelegationSetsResponse$IsTruncated> is @true@, make another
+-- request to @ListReusableDelegationSets@ and include the value of the
+-- @NextMarker@ element in the @Marker@ element to get the next page of
+-- results.
 lrdsrNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
 lrdsrNextMarker = lens _lrdsrNextMarker (\s a -> s { _lrdsrNextMarker = a })
 

@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns a list of DBParameterGroup descriptions. If a DBParameterGroupName
--- is specified, the list will contain only the description of the specified
--- DB parameter group.
+-- | Returns a list of @DBParameterGroup@ descriptions. If a
+-- @DBParameterGroupName@ is specified, the list will contain only the
+-- description of the specified DB parameter group.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameterGroups.html>
 module Network.AWS.RDS.DescribeDBParameterGroups
@@ -92,14 +92,14 @@ ddbpgFilters :: Lens' DescribeDBParameterGroups [Filter]
 ddbpgFilters = lens _ddbpgFilters (\s a -> s { _ddbpgFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous
--- DescribeDBParameterGroups request. If this parameter is specified, the
+-- @DescribeDBParameterGroups@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
--- specified by MaxRecords.
+-- specified by @MaxRecords@.
 ddbpgMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
 ddbpgMarker = lens _ddbpgMarker (\s a -> s { _ddbpgMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified MaxRecords value, a pagination token called a
+-- exist than the specified @MaxRecords@ value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbpgMaxRecords :: Lens' DescribeDBParameterGroups (Maybe Int)
@@ -132,7 +132,7 @@ ddbpgrDBParameterGroups =
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by MaxRecords.
+-- marker, up to the value specified by @MaxRecords@.
 ddbpgrMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
 ddbpgrMarker = lens _ddbpgrMarker (\s a -> s { _ddbpgrMarker = a })
 

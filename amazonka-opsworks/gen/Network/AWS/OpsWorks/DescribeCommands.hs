@@ -75,20 +75,21 @@ describeCommands = DescribeCommands
     , _dcCommandIds   = mempty
     }
 
--- | An array of command IDs. If you include this parameter, DescribeCommands
--- returns a description of the specified commands. Otherwise, it returns a
--- description of every command.
+-- | An array of command IDs. If you include this parameter,
+-- @DescribeCommands@ returns a description of the specified commands.
+-- Otherwise, it returns a description of every command.
 dcCommandIds :: Lens' DescribeCommands [Text]
 dcCommandIds = lens _dcCommandIds (\s a -> s { _dcCommandIds = a }) . _List
 
--- | The deployment ID. If you include this parameter, DescribeCommands
+-- | The deployment ID. If you include this parameter, @DescribeCommands@
 -- returns a description of the commands associated with the specified
 -- deployment.
 dcDeploymentId :: Lens' DescribeCommands (Maybe Text)
 dcDeploymentId = lens _dcDeploymentId (\s a -> s { _dcDeploymentId = a })
 
--- | The instance ID. If you include this parameter, DescribeCommands returns
--- a description of the commands associated with the specified instance.
+-- | The instance ID. If you include this parameter, @DescribeCommands@
+-- returns a description of the commands associated with the specified
+-- instance.
 dcInstanceId :: Lens' DescribeCommands (Maybe Text)
 dcInstanceId = lens _dcInstanceId (\s a -> s { _dcInstanceId = a })
 
@@ -113,7 +114,8 @@ describeCommandsResponse = DescribeCommandsResponse
     { _dcrCommands = mempty
     }
 
--- | An array of Command objects that describe each of the specified commands.
+-- | An array of @Command@ objects that describe each of the specified
+-- commands.
 dcrCommands :: Lens' DescribeCommandsResponse [Command]
 dcrCommands = lens _dcrCommands (\s a -> s { _dcrCommands = a }) . _List
 

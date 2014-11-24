@@ -22,7 +22,7 @@
 
 -- | Gets information about the access policies that control access to the
 -- domain's document and search endpoints. By default, shows the configuration
--- with any pending changes. Set the Deployed option to true to show the
+-- with any pending changes. Set the @Deployed@ option to @true@ to show the
 -- active configuration and exclude pending changes. For more information, see
 -- Configuring Access for a Search Domain> in the /Amazon CloudSearch
 -- Developer Guide/.
@@ -71,8 +71,8 @@ describeServiceAccessPolicies p1 = DescribeServiceAccessPolicies
     , _dsapDeployed   = Nothing
     }
 
--- | Whether to display the deployed configuration (true) or include any
--- pending changes (false). Defaults to false.
+-- | Whether to display the deployed configuration (@true@) or include any
+-- pending changes (@false@). Defaults to @false@.
 dsapDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
 dsapDeployed = lens _dsapDeployed (\s a -> s { _dsapDeployed = a })
 

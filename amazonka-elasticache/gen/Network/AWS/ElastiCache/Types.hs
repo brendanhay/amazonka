@@ -507,7 +507,7 @@ snapshot = Snapshot
     }
 
 -- | For the source cache cluster, indicates whether minor version patches are
--- applied automatically (true) or not (false).
+-- applied automatically (@true@) or not (@false@).
 sAutoMinorVersionUpgrade :: Lens' Snapshot (Maybe Bool)
 sAutoMinorVersionUpgrade =
     lens _sAutoMinorVersionUpgrade
@@ -593,13 +593,13 @@ sSnapshotRetentionLimit :: Lens' Snapshot (Maybe Int)
 sSnapshotRetentionLimit =
     lens _sSnapshotRetentionLimit (\s a -> s { _sSnapshotRetentionLimit = a })
 
--- | Indicates whether the snapshot is from an automatic backup (automated) or
--- was created manually (manual).
+-- | Indicates whether the snapshot is from an automatic backup (@automated@)
+-- or was created manually (@manual@).
 sSnapshotSource :: Lens' Snapshot (Maybe Text)
 sSnapshotSource = lens _sSnapshotSource (\s a -> s { _sSnapshotSource = a })
 
--- | The status of the snapshot. Valid values: creating | available |
--- restoring | copying | deleting.
+-- | The status of the snapshot. Valid values: @creating@ | @available@ |
+-- @restoring@ | @copying@ | @deleting@.
 sSnapshotStatus :: Lens' Snapshot (Maybe Text)
 sSnapshotStatus = lens _sSnapshotStatus (\s a -> s { _sSnapshotStatus = a })
 
@@ -919,7 +919,7 @@ rgpmvAutomaticFailoverStatus =
         (\s a -> s { _rgpmvAutomaticFailoverStatus = a })
 
 -- | The primary cluster ID which will be applied immediately (if
--- --apply-immediately was specified), or during the next maintenance
+-- @--apply-immediately@ was specified), or during the next maintenance
 -- window.
 rgpmvPrimaryClusterId :: Lens' ReplicationGroupPendingModifiedValues (Maybe Text)
 rgpmvPrimaryClusterId =
@@ -1446,8 +1446,8 @@ cacheCluster = CacheCluster
     , _ccSnapshotWindow             = Nothing
     }
 
--- | If true, then minor version patches are applied automatically; if false,
--- then automatic minor version patches are disabled.
+-- | If @true@, then minor version patches are applied automatically; if
+-- @false@, then automatic minor version patches are disabled.
 ccAutoMinorVersionUpgrade :: Lens' CacheCluster (Maybe Bool)
 ccAutoMinorVersionUpgrade =
     lens _ccAutoMinorVersionUpgrade
@@ -1567,7 +1567,7 @@ ccSnapshotRetentionLimit =
         (\s a -> s { _ccSnapshotRetentionLimit = a })
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
--- a daily snapshot of your cache cluster. Example: 05:00-09:00.
+-- a daily snapshot of your cache cluster. Example: @05:00-09:00@.
 ccSnapshotWindow :: Lens' CacheCluster (Maybe Text)
 ccSnapshotWindow = lens _ccSnapshotWindow (\s a -> s { _ccSnapshotWindow = a })
 
@@ -2196,9 +2196,9 @@ cntspDataType = lens _cntspDataType (\s a -> s { _cntspDataType = a })
 cntspDescription :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspDescription = lens _cntspDescription (\s a -> s { _cntspDescription = a })
 
--- | Indicates whether (true) or not (false) the parameter can be modified.
--- Some parameters have security or operational implications that prevent
--- them from being changed.
+-- | Indicates whether (@true@) or not (@false@) the parameter can be
+-- modified. Some parameters have security or operational implications that
+-- prevent them from being changed.
 cntspIsModifiable :: Lens' CacheNodeTypeSpecificParameter (Maybe Bool)
 cntspIsModifiable =
     lens _cntspIsModifiable (\s a -> s { _cntspIsModifiable = a })
@@ -2768,9 +2768,9 @@ pDataType = lens _pDataType (\s a -> s { _pDataType = a })
 pDescription :: Lens' Parameter (Maybe Text)
 pDescription = lens _pDescription (\s a -> s { _pDescription = a })
 
--- | Indicates whether (true) or not (false) the parameter can be modified.
--- Some parameters have security or operational implications that prevent
--- them from being changed.
+-- | Indicates whether (@true@) or not (@false@) the parameter can be
+-- modified. Some parameters have security or operational implications that
+-- prevent them from being changed.
 pIsModifiable :: Lens' Parameter (Maybe Bool)
 pIsModifiable = lens _pIsModifiable (\s a -> s { _pIsModifiable = a })
 

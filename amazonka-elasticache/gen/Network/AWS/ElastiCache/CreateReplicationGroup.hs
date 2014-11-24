@@ -171,17 +171,17 @@ createReplicationGroup p1 p2 = CreateReplicationGroup
     }
 
 -- | Determines whether minor engine upgrades will be applied automatically to
--- the node group during the maintenance window. A value of true allows
--- these upgrades to occur; false disables automatic upgrades. Default:
--- true.
+-- the node group during the maintenance window. A value of @true@ allows
+-- these upgrades to occur; @false@ disables automatic upgrades. Default:
+-- @true@.
 crgAutoMinorVersionUpgrade :: Lens' CreateReplicationGroup (Maybe Bool)
 crgAutoMinorVersionUpgrade =
     lens _crgAutoMinorVersionUpgrade
         (\s a -> s { _crgAutoMinorVersionUpgrade = a })
 
 -- | Specifies whether a read-only replica will be automatically promoted to
--- read/write primary if the existing primary fails. If true, automatic
--- failover is enabled for this replication group. If false, automatic
+-- read/write primary if the existing primary fails. If @true@, automatic
+-- failover is enabled for this replication group. If @false@, automatic
 -- failover is disabled for this replication group. Default: false.
 crgAutomaticFailoverEnabled :: Lens' CreateReplicationGroup (Maybe Bool)
 crgAutomaticFailoverEnabled =
@@ -190,18 +190,18 @@ crgAutomaticFailoverEnabled =
 
 -- | The compute and memory capacity of the nodes in the node group. Valid
 -- node types are as follows: General purpose: Current generation:
--- cache.t2.micro, cache.t2.small, cache.t2.medium, cache.m3.medium,
--- cache.m3.large, cache.m3.xlarge, cache.m3.2xlarge Previous generation:
--- cache.t1.micro, cache.m1.small, cache.m1.medium, cache.m1.large,
--- cache.m1.xlarge Compute optimized: cache.c1.xlarge Memory optimized
--- Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge,
--- cache.r3.4xlarge, cache.r3.8xlarge Previous generation: cache.m2.xlarge,
--- cache.m2.2xlarge, cache.m2.4xlarge Notes: All t2 instances are created in
--- an Amazon Virtual Private Cloud (VPC). Redis backup/restore is not
--- supported for t2 instances. Redis Append-only files (AOF) functionality
--- is not supported for t1 or t2 instances. For a complete listing of cache
--- node types and specifications, see
--- <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product
+-- @cache.t2.micro@, @cache.t2.small@, @cache.t2.medium@, @cache.m3.medium@,
+-- @cache.m3.large@, @cache.m3.xlarge@, @cache.m3.2xlarge@ Previous
+-- generation: @cache.t1.micro@, @cache.m1.small@, @cache.m1.medium@,
+-- @cache.m1.large@, @cache.m1.xlarge@ Compute optimized: @cache.c1.xlarge@
+-- Memory optimized Current generation: @cache.r3.large@, @cache.r3.xlarge@,
+-- @cache.r3.2xlarge@, @cache.r3.4xlarge@, @cache.r3.8xlarge@ Previous
+-- generation: @cache.m2.xlarge@, @cache.m2.2xlarge@, @cache.m2.4xlarge@
+-- Notes: All t2 instances are created in an Amazon Virtual Private Cloud
+-- (VPC). Redis backup/restore is not supported for t2 instances. Redis
+-- Append-only files (AOF) functionality is not supported for t1 or t2
+-- instances. For a complete listing of cache node types and specifications,
+-- see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product
 -- Features and Details> and
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific
 -- Cache Node Type-Specific Parameters for Memcached> or
@@ -249,10 +249,10 @@ crgNotificationTopicArn =
     lens _crgNotificationTopicArn (\s a -> s { _crgNotificationTopicArn = a })
 
 -- | The number of cache clusters this replication group will initially have.
--- If /AutomaticFailover/ is enabled, the value of this parameter must be at
--- least 2. The maximum permitted value for /NumCacheClusters/ is 6 (primary
--- plus 5 replicas). If you need to exceed this limit, please fill out the
--- ElastiCache Limit Increase Request forrm at
+-- If /AutomaticFailover/ is @enabled@, the value of this parameter must be
+-- at least 2. The maximum permitted value for /NumCacheClusters/ is 6
+-- (primary plus 5 replicas). If you need to exceed this limit, please fill
+-- out the ElastiCache Limit Increase Request forrm at
 -- <http://aws.amazon.com/contact-us/elasticache-node-limit-request
 -- http://aws.amazon.com/contact-us/elasticache-node-limit-request>.
 crgNumCacheClusters :: Lens' CreateReplicationGroup (Maybe Int)
@@ -278,7 +278,7 @@ crgPreferredCacheClusterAZs =
             . _List
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
--- Example: sun:05:00-sun:09:00.
+-- Example: @sun:05:00-sun:09:00@.
 crgPreferredMaintenanceWindow :: Lens' CreateReplicationGroup (Maybe Text)
 crgPreferredMaintenanceWindow =
     lens _crgPreferredMaintenanceWindow
@@ -318,34 +318,34 @@ crgSecurityGroupIds =
 -- that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
 -- The snapshot file will be used to populate the node group. The Amazon S3
 -- object name in the ARN cannot contain any commas. Note: This parameter is
--- only valid if the Engine parameter is redis. Example of an Amazon S3 ARN:
--- arn:aws:s3:::my_bucket/snapshot1.rdb.
+-- only valid if the @Engine@ parameter is @redis@. Example of an Amazon S3
+-- ARN: @arn:aws:s3:::my_bucket/snapshot1.rdb@.
 crgSnapshotArns :: Lens' CreateReplicationGroup [Text]
 crgSnapshotArns = lens _crgSnapshotArns (\s a -> s { _crgSnapshotArns = a }) . _List
 
 -- | The name of a snapshot from which to restore data into the new node
--- group. The snapshot status changes to restoring while the new node group
--- is being created. Note: This parameter is only valid if the Engine
--- parameter is redis.
+-- group. The snapshot status changes to @restoring@ while the new node
+-- group is being created. Note: This parameter is only valid if the
+-- @Engine@ parameter is @redis@.
 crgSnapshotName :: Lens' CreateReplicationGroup (Maybe Text)
 crgSnapshotName = lens _crgSnapshotName (\s a -> s { _crgSnapshotName = a })
 
 -- | The number of days for which ElastiCache will retain automatic snapshots
--- before deleting them. For example, if you set SnapshotRetentionLimit to
+-- before deleting them. For example, if you set @SnapshotRetentionLimit@ to
 -- 5, then a snapshot that was taken today will be retained for 5 days
--- before being deleted. Note: This parameter is only valid if the Engine
--- parameter is redis. Default: 0 (i.e., automatic backups are disabled for
--- this cache cluster).
+-- before being deleted. Note: This parameter is only valid if the @Engine@
+-- parameter is @redis@. Default: 0 (i.e., automatic backups are disabled
+-- for this cache cluster).
 crgSnapshotRetentionLimit :: Lens' CreateReplicationGroup (Maybe Int)
 crgSnapshotRetentionLimit =
     lens _crgSnapshotRetentionLimit
         (\s a -> s { _crgSnapshotRetentionLimit = a })
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
--- a daily snapshot of your node group. Example: 05:00-09:00 If you do not
+-- a daily snapshot of your node group. Example: @05:00-09:00@ If you do not
 -- specify this parameter, then ElastiCache will automatically choose an
--- appropriate time range. Note: This parameter is only valid if the Engine
--- parameter is redis.
+-- appropriate time range. Note: This parameter is only valid if the
+-- @Engine@ parameter is @redis@.
 crgSnapshotWindow :: Lens' CreateReplicationGroup (Maybe Text)
 crgSnapshotWindow =
     lens _crgSnapshotWindow (\s a -> s { _crgSnapshotWindow = a })

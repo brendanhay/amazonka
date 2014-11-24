@@ -170,16 +170,16 @@ query p1 p2 = Query
 -- capacity units consumed based on item size, not on the amount of data
 -- that is returned to an application. You cannot use both /AttributesToGet/
 -- and /Select/ together in a /Query/ request, /unless/ the value for
--- /Select/ is SPECIFIC_ATTRIBUTES. (This usage is equivalent to specifying
--- /AttributesToGet/ without any value for /Select/.) If you query a local
--- secondary index and request only attributes that are projected into that
--- index, the operation will read only the index and not the table. If any
--- of the requested attributes are not projected into the local secondary
--- index, DynamoDB will fetch each of these attributes from the parent
--- table. This extra fetching incurs additional throughput cost and latency.
--- If you query a global secondary index, you can only request attributes
--- that are projected into the index. Global secondary index queries cannot
--- fetch attributes from the parent table.
+-- /Select/ is @SPECIFIC_ATTRIBUTES@. (This usage is equivalent to
+-- specifying /AttributesToGet/ without any value for /Select/.) If you
+-- query a local secondary index and request only attributes that are
+-- projected into that index, the operation will read only the index and not
+-- the table. If any of the requested attributes are not projected into the
+-- local secondary index, DynamoDB will fetch each of these attributes from
+-- the parent table. This extra fetching incurs additional throughput cost
+-- and latency. If you query a global secondary index, you can only request
+-- attributes that are projected into the index. Global secondary index
+-- queries cannot fetch attributes from the parent table.
 qAttributesToGet :: Lens' Query (NonEmpty Text)
 qAttributesToGet = lens _qAttributesToGet (\s a -> s { _qAttributesToGet = a }) . _List1
 
@@ -187,21 +187,21 @@ qAttributesToGet = lens _qAttributesToGet (\s a -> s { _qAttributesToGet = a }) 
 -- Note that if you use /ConditionalOperator/ and / ConditionExpression / at
 -- the same time, DynamoDB will return a /ValidationException/ exception.
 -- This parameter does not support lists or maps. A logical operator to
--- apply to the conditions in the /QueryFilter/ map: AND - If all of the
--- conditions evaluate to true, then the entire map evaluates to true. OR -
--- If at least one of the conditions evaluate to true, then the entire map
--- evaluates to true. If you omit /ConditionalOperator/, then AND is the
+-- apply to the conditions in the /QueryFilter/ map: @AND@ - If all of the
+-- conditions evaluate to true, then the entire map evaluates to true. @OR@
+-- - If at least one of the conditions evaluate to true, then the entire map
+-- evaluates to true. If you omit /ConditionalOperator/, then @AND@ is the
 -- default. The operation will succeed only if the entire map evaluates to
 -- true.
 qConditionalOperator :: Lens' Query (Maybe ConditionalOperator)
 qConditionalOperator =
     lens _qConditionalOperator (\s a -> s { _qConditionalOperator = a })
 
--- | A value that if set to true, then the operation uses strongly consistent
--- reads; otherwise, eventually consistent reads are used. Strongly
--- consistent reads are not supported on global secondary indexes. If you
--- query a global secondary index with /ConsistentRead/ set to true, you
--- will receive an error message.
+-- | A value that if set to @true@, then the operation uses strongly
+-- consistent reads; otherwise, eventually consistent reads are used.
+-- Strongly consistent reads are not supported on global secondary indexes.
+-- If you query a global secondary index with /ConsistentRead/ set to
+-- @true@, you will receive an error message.
 qConsistentRead :: Lens' Query (Maybe Bool)
 qConsistentRead = lens _qConsistentRead (\s a -> s { _qConsistentRead = a })
 
@@ -221,11 +221,11 @@ qExclusiveStartKey =
 -- an expression. To prevent special characters in an attribute name from
 -- being misinterpreted in an expression. Use the # character in an
 -- expression to dereference an attribute name. For example, consider the
--- following expression: order.customerInfo.LastName = "Smith" OR
--- order.customerInfo.LastName = "Jones" Now suppose that you specified the
+-- following expression: @order.customerInfo.LastName = "Smith" OR
+-- order.customerInfo.LastName = "Jones"@ Now suppose that you specified the
 -- following for /ExpressionAttributeNames/:
--- {"n":"order.customerInfo.LastName"} The expression can now be simplified
--- as follows: #n = "Smith" OR #n = "Jones".
+-- @{"n":"order.customerInfo.LastName"}@ The expression can now be
+-- simplified as follows: @#n = "Smith" OR #n = "Jones"@.
 qExpressionAttributeNames :: Lens' Query (HashMap Text Text)
 qExpressionAttributeNames =
     lens _qExpressionAttributeNames
@@ -234,11 +234,12 @@ qExpressionAttributeNames =
 
 -- | One or more values that can be substituted in an expression. Use the :
 -- character in an expression to dereference an attribute value. For
--- example, consider the following expression: ProductStatus IN
--- ("Available","Backordered","Discontinued") Now suppose that you specified
--- the following for /ExpressionAttributeValues/: { "a":{"S":"Available"},
--- "b":{"S":"Backordered"}, "d":{"S":"Discontinued"} } The expression can
--- now be simplified as follows: ProductStatus IN (:a,:b,:c).
+-- example, consider the following expression: @ProductStatus IN
+-- ("Available","Backordered","Discontinued")@ Now suppose that you
+-- specified the following for /ExpressionAttributeValues/: @{
+-- "a":{"S":"Available"}, "b":{"S":"Backordered"}, "d":{"S":"Discontinued"}
+-- }@ The expression can now be simplified as follows: @ProductStatus IN
+-- (:a,:b,:c)@.
 qExpressionAttributeValues :: Lens' Query (HashMap Text AttributeValue)
 qExpressionAttributeValues =
     lens _qExpressionAttributeValues
@@ -259,8 +260,8 @@ qIndexName = lens _qIndexName (\s a -> s { _qIndexName = a })
 
 -- | The selection criteria for the query. For a query on a table, you can
 -- have conditions only on the table primary key attributes. You must
--- specify the hash key attribute name and value as an EQ condition. You can
--- optionally specify a second condition, referring to the range key
+-- specify the hash key attribute name and value as an @EQ@ condition. You
+-- can optionally specify a second condition, referring to the range key
 -- attribute. For a query on an index, you can have conditions only on the
 -- index key attributes. You must specify the index hash attribute name and
 -- value as an EQ condition. You can optionally specify a second condition,
@@ -270,57 +271,57 @@ qIndexName = lens _qIndexName (\s a -> s { _qIndexName = a })
 -- supplied attribute. The number of values in the list depends on the
 -- /ComparisonOperator/ being used. For type Number, value comparisons are
 -- numeric. String value comparisons for greater than, equals, or less than
--- are based on ASCII character code values. For example, a is greater than
--- A, and aa is greater than B. For a list of code values, see
+-- are based on ASCII character code values. For example, @a@ is greater
+-- than @A@, and @aa@ is greater than @B@. For a list of code values, see
 -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters
 -- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>. For
 -- Binary, DynamoDB treats each byte of the binary data as unsigned when it
 -- compares binary values, for example when evaluating query expressions.
 -- /ComparisonOperator/ - A comparator for evaluating attributes, for
 -- example, equals, greater than, less than, and so on. For /KeyConditions/,
--- only the following comparison operators are supported: EQ | LE | LT | GE
--- | GT | BEGINS_WITH | BETWEEN The following are descriptions of these
--- comparison operators. EQ : Equal. /AttributeValueList/ can contain only
+-- only the following comparison operators are supported: @EQ | LE | LT | GE
+-- | GT | BEGINS_WITH | BETWEEN@ The following are descriptions of these
+-- comparison operators. @EQ@ : Equal. /AttributeValueList/ can contain only
 -- one /AttributeValue/ of type String, Number, or Binary (not a set type).
 -- If an item contains an /AttributeValue/ element of a different type than
 -- the one specified in the request, the value does not match. For example,
--- {"S":"6"} does not equal {"N":"6"}. Also, {"N":"6"} does not equal
--- {"NS":["6", "2", "1"]}. LE : Less than or equal. /AttributeValueList/ can
+-- @{"S":"6"}@ does not equal @{"N":"6"}@. Also, @{"N":"6"}@ does not equal
+-- @{"NS":["6", "2", "1"]}@. @LE@ : Less than or equal. /AttributeValueList/
+-- can contain only one /AttributeValue/ element of type String, Number, or
+-- Binary (not a set type). If an item contains an /AttributeValue/ element
+-- of a different type than the one specified in the request, the value does
+-- not match. For example, @{"S":"6"}@ does not equal @{"N":"6"}@. Also,
+-- @{"N":"6"}@ does not compare to @{"NS":["6", "2", "1"]}@. @LT@ : Less
+-- than. /AttributeValueList/ can contain only one /AttributeValue/ of type
+-- String, Number, or Binary (not a set type). If an item contains an
+-- /AttributeValue/ element of a different type than the one specified in
+-- the request, the value does not match. For example, @{"S":"6"}@ does not
+-- equal @{"N":"6"}@. Also, @{"N":"6"}@ does not compare to @{"NS":["6",
+-- "2", "1"]}@. @GE@ : Greater than or equal. /AttributeValueList/ can
 -- contain only one /AttributeValue/ element of type String, Number, or
 -- Binary (not a set type). If an item contains an /AttributeValue/ element
 -- of a different type than the one specified in the request, the value does
--- not match. For example, {"S":"6"} does not equal {"N":"6"}. Also,
--- {"N":"6"} does not compare to {"NS":["6", "2", "1"]}. LT : Less than.
--- /AttributeValueList/ can contain only one /AttributeValue/ of type
--- String, Number, or Binary (not a set type). If an item contains an
--- /AttributeValue/ element of a different type than the one specified in
--- the request, the value does not match. For example, {"S":"6"} does not
--- equal {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2",
--- "1"]}. GE : Greater than or equal. /AttributeValueList/ can contain only
--- one /AttributeValue/ element of type String, Number, or Binary (not a set
--- type). If an item contains an /AttributeValue/ element of a different
--- type than the one specified in the request, the value does not match. For
--- example, {"S":"6"} does not equal {"N":"6"}. Also, {"N":"6"} does not
--- compare to {"NS":["6", "2", "1"]}. GT : Greater than.
--- /AttributeValueList/ can contain only one /AttributeValue/ element of
--- type String, Number, or Binary (not a set type). If an item contains an
--- /AttributeValue/ element of a different type than the one specified in
--- the request, the value does not match. For example, {"S":"6"} does not
--- equal {"N":"6"}. Also, {"N":"6"} does not compare to {"NS":["6", "2",
--- "1"]}. BEGINS_WITH : Checks for a prefix. /AttributeValueList/ can
--- contain only one /AttributeValue/ of type String or Binary (not a Number
--- or a set type). The target attribute of the comparison must be of type
--- String or Binary (not a Number or a set type). BETWEEN : Greater than or
--- equal to the first value, and less than or equal to the second value.
--- /AttributeValueList/ must contain two /AttributeValue/ elements of the
--- same type, either String, Number, or Binary (not a set type). A target
--- attribute matches if the target value is greater than, or equal to, the
--- first element and less than, or equal to, the second element. If an item
--- contains an /AttributeValue/ element of a different type than the one
--- specified in the request, the value does not match. For example,
--- {"S":"6"} does not compare to {"N":"6"}. Also, {"N":"6"} does not compare
--- to {"NS":["6", "2", "1"]} For usage examples of /AttributeValueList/ and
--- /ComparisonOperator/, see
+-- not match. For example, @{"S":"6"}@ does not equal @{"N":"6"}@. Also,
+-- @{"N":"6"}@ does not compare to @{"NS":["6", "2", "1"]}@. @GT@ : Greater
+-- than. /AttributeValueList/ can contain only one /AttributeValue/ element
+-- of type String, Number, or Binary (not a set type). If an item contains
+-- an /AttributeValue/ element of a different type than the one specified in
+-- the request, the value does not match. For example, @{"S":"6"}@ does not
+-- equal @{"N":"6"}@. Also, @{"N":"6"}@ does not compare to @{"NS":["6",
+-- "2", "1"]}@. @BEGINS_WITH@ : Checks for a prefix. /AttributeValueList/
+-- can contain only one /AttributeValue/ of type String or Binary (not a
+-- Number or a set type). The target attribute of the comparison must be of
+-- type String or Binary (not a Number or a set type). @BETWEEN@ : Greater
+-- than or equal to the first value, and less than or equal to the second
+-- value. /AttributeValueList/ must contain two /AttributeValue/ elements of
+-- the same type, either String, Number, or Binary (not a set type). A
+-- target attribute matches if the target value is greater than, or equal
+-- to, the first element and less than, or equal to, the second element. If
+-- an item contains an /AttributeValue/ element of a different type than the
+-- one specified in the request, the value does not match. For example,
+-- @{"S":"6"}@ does not compare to @{"N":"6"}@. Also, @{"N":"6"}@ does not
+-- compare to @{"NS":["6", "2", "1"]}@ For usage examples of
+-- /AttributeValueList/ and /ComparisonOperator/, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html
 -- Legacy Conditional Parameters> in the /Amazon DynamoDB Developer Guide/.
 qKeyConditions :: Lens' Query (HashMap Text Condition)
@@ -365,8 +366,8 @@ qProjectionExpression =
 -- on the operator specified in /ComparisonOperator/. For type Number, value
 -- comparisons are numeric. String value comparisons for greater than,
 -- equals, or less than are based on ASCII character code values. For
--- example, a is greater than A, and aa is greater than B. For a list of
--- code values, see
+-- example, @a@ is greater than @A@, and @aa@ is greater than @B@. For a
+-- list of code values, see
 -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters
 -- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>. For type
 -- Binary, DynamoDB treats each byte of the binary data as unsigned when it
@@ -376,8 +377,8 @@ qProjectionExpression =
 -- JSON Data Format> in the /Amazon DynamoDB Developer Guide/.
 -- /ComparisonOperator/ - A comparator for evaluating attributes. For
 -- example, equals, greater than, less than, etc. The following comparison
--- operators are available: EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL |
--- CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN For complete
+-- operators are available: @EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL |
+-- CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN@ For complete
 -- descriptions of all comparison operators, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Condition.html
 -- API_Condition.html>.
@@ -403,33 +404,33 @@ qScanIndexForward =
 -- | The attributes to be returned in the result. You can retrieve all item
 -- attributes, specific item attributes, the count of matching items, or in
 -- the case of an index, some or all of the attributes projected into the
--- index. ALL_ATTRIBUTES - Returns all of the item attributes from the
+-- index. @ALL_ATTRIBUTES@ - Returns all of the item attributes from the
 -- specified table or index. If you query a local secondary index, then for
 -- each matching item in the index DynamoDB will fetch the entire item from
 -- the parent table. If the index is configured to project all item
 -- attributes, then all of the data can be obtained from the local secondary
--- index, and no fetching is required. ALL_PROJECTED_ATTRIBUTES - Allowed
+-- index, and no fetching is required. @ALL_PROJECTED_ATTRIBUTES@ - Allowed
 -- only when querying an index. Retrieves all attributes that have been
 -- projected into the index. If the index is configured to project all
--- attributes, this return value is equivalent to specifying ALL_ATTRIBUTES.
--- COUNT - Returns the number of matching items, rather than the matching
--- items themselves. SPECIFIC_ATTRIBUTES - Returns only the attributes
--- listed in /AttributesToGet/. This return value is equivalent to
--- specifying /AttributesToGet/ without specifying any value for /Select/.
--- If you query a local secondary index and request only attributes that are
--- projected into that index, the operation will read only the index and not
--- the table. If any of the requested attributes are not projected into the
--- local secondary index, DynamoDB will fetch each of these attributes from
--- the parent table. This extra fetching incurs additional throughput cost
--- and latency. If you query a global secondary index, you can only request
--- attributes that are projected into the index. Global secondary index
--- queries cannot fetch attributes from the parent table. If neither
--- /Select/ nor /AttributesToGet/ are specified, DynamoDB defaults to
--- ALL_ATTRIBUTES when accessing a table, and ALL_PROJECTED_ATTRIBUTES when
--- accessing an index. You cannot use both /Select/ and /AttributesToGet/
--- together in a single request, unless the value for /Select/ is
--- SPECIFIC_ATTRIBUTES. (This usage is equivalent to specifying
--- /AttributesToGet/ without any value for /Select/.).
+-- attributes, this return value is equivalent to specifying
+-- @ALL_ATTRIBUTES@. @COUNT@ - Returns the number of matching items, rather
+-- than the matching items themselves. @SPECIFIC_ATTRIBUTES@ - Returns only
+-- the attributes listed in /AttributesToGet/. This return value is
+-- equivalent to specifying /AttributesToGet/ without specifying any value
+-- for /Select/. If you query a local secondary index and request only
+-- attributes that are projected into that index, the operation will read
+-- only the index and not the table. If any of the requested attributes are
+-- not projected into the local secondary index, DynamoDB will fetch each of
+-- these attributes from the parent table. This extra fetching incurs
+-- additional throughput cost and latency. If you query a global secondary
+-- index, you can only request attributes that are projected into the index.
+-- Global secondary index queries cannot fetch attributes from the parent
+-- table. If neither /Select/ nor /AttributesToGet/ are specified, DynamoDB
+-- defaults to @ALL_ATTRIBUTES@ when accessing a table, and
+-- @ALL_PROJECTED_ATTRIBUTES@ when accessing an index. You cannot use both
+-- /Select/ and /AttributesToGet/ together in a single request, unless the
+-- value for /Select/ is @SPECIFIC_ATTRIBUTES@. (This usage is equivalent to
+-- specifying /AttributesToGet/ without any value for /Select/.).
 qSelect :: Lens' Query (Maybe Select)
 qSelect = lens _qSelect (\s a -> s { _qSelect = a })
 

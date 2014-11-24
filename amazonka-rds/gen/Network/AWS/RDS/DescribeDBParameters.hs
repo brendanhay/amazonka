@@ -95,21 +95,22 @@ ddbpDBParameterGroupName =
 ddbpFilters :: Lens' DescribeDBParameters [Filter]
 ddbpFilters = lens _ddbpFilters (\s a -> s { _ddbpFilters = a }) . _List
 
--- | An optional pagination token provided by a previous DescribeDBParameters
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by MaxRecords.
+-- | An optional pagination token provided by a previous
+-- @DescribeDBParameters@ request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
 ddbpMarker :: Lens' DescribeDBParameters (Maybe Text)
 ddbpMarker = lens _ddbpMarker (\s a -> s { _ddbpMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified MaxRecords value, a pagination token called a
+-- exist than the specified @MaxRecords@ value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbpMaxRecords :: Lens' DescribeDBParameters (Maybe Int)
 ddbpMaxRecords = lens _ddbpMaxRecords (\s a -> s { _ddbpMaxRecords = a })
 
 -- | The parameter types to return. Default: All parameter types returned
--- Valid Values: user | system | engine-default.
+-- Valid Values: @user | system | engine-default@.
 ddbpSource :: Lens' DescribeDBParameters (Maybe Text)
 ddbpSource = lens _ddbpSource (\s a -> s { _ddbpSource = a })
 
@@ -134,7 +135,7 @@ describeDBParametersResponse = DescribeDBParametersResponse
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by MaxRecords.
+-- marker, up to the value specified by @MaxRecords@.
 ddbprMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
 ddbprMarker = lens _ddbprMarker (\s a -> s { _ddbprMarker = a })
 

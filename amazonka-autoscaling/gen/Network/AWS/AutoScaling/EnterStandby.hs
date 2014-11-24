@@ -20,7 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Moves the specified instances into Standby mode. For more information, see
+-- | Moves the specified instances into @Standby@ mode. For more information,
+-- see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html
 -- Auto Scaling InService State> in the /Auto Scaling Developer Guide/.
 --
@@ -79,15 +80,15 @@ esAutoScalingGroupName :: Lens' EnterStandby Text
 esAutoScalingGroupName =
     lens _esAutoScalingGroupName (\s a -> s { _esAutoScalingGroupName = a })
 
--- | One or more instances to move into Standby mode. You must specify at
+-- | One or more instances to move into @Standby@ mode. You must specify at
 -- least one instance ID.
 esInstanceIds :: Lens' EnterStandby [Text]
 esInstanceIds = lens _esInstanceIds (\s a -> s { _esInstanceIds = a }) . _List
 
--- | Specifies whether the instances moved to Standby mode count as part of
+-- | Specifies whether the instances moved to @Standby@ mode count as part of
 -- the Auto Scaling group's desired capacity. If set, the desired capacity
 -- for the Auto Scaling group decrements by the number of instances moved to
--- Standby mode.
+-- @Standby@ mode.
 esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
 esShouldDecrementDesiredCapacity =
     lens _esShouldDecrementDesiredCapacity
@@ -114,7 +115,7 @@ enterStandbyResponse = EnterStandbyResponse
     { _esr1Activities = mempty
     }
 
--- | The activities related to moving instances into Standby mode.
+-- | The activities related to moving instances into @Standby@ mode.
 esr1Activities :: Lens' EnterStandbyResponse [Activity]
 esr1Activities = lens _esr1Activities (\s a -> s { _esr1Activities = a }) . _List
 

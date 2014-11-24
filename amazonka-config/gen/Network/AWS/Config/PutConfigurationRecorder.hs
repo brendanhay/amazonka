@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new configuration recorder to record the resource configurations.
--- You can use this action to change the role (roleARN) of an existing
+-- You can use this action to change the role (@roleARN@) of an existing
 -- recorder. To change the role, call the action on the existing configuration
 -- recorder and specify a role.
 --

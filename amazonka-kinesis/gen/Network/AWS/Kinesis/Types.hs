@@ -252,7 +252,7 @@ streamDescription p1 p2 p3 p4 = StreamDescription
     , _sdShards        = mempty
     }
 
--- | If set to true, more shards in the stream are available to describe.
+-- | If set to @true@, more shards in the stream are available to describe.
 sdHasMoreShards :: Lens' StreamDescription Bool
 sdHasMoreShards = lens _sdHasMoreShards (\s a -> s { _sdHasMoreShards = a })
 
@@ -269,14 +269,15 @@ sdStreamName :: Lens' StreamDescription Text
 sdStreamName = lens _sdStreamName (\s a -> s { _sdStreamName = a })
 
 -- | The current status of the stream being described. The stream status is
--- one of the following states: CREATING - The stream is being created.
--- Amazon Kinesis immediately returns and sets StreamStatus to CREATING.
--- DELETING - The stream is being deleted. The specified stream is in the
--- DELETING state until Amazon Kinesis completes the deletion. ACTIVE - The
--- stream exists and is ready for read and write operations or deletion. You
--- should perform read and write operations only on an ACTIVE stream.
--- UPDATING - Shards in the stream are being merged or split. Read and write
--- operations continue to work while the stream is in the UPDATING state.
+-- one of the following states: @CREATING@ - The stream is being created.
+-- Amazon Kinesis immediately returns and sets @StreamStatus@ to @CREATING@.
+-- @DELETING@ - The stream is being deleted. The specified stream is in the
+-- @DELETING@ state until Amazon Kinesis completes the deletion. @ACTIVE@ -
+-- The stream exists and is ready for read and write operations or deletion.
+-- You should perform read and write operations only on an @ACTIVE@ stream.
+-- @UPDATING@ - Shards in the stream are being merged or split. Read and
+-- write operations continue to work while the stream is in the @UPDATING@
+-- state.
 sdStreamStatus :: Lens' StreamDescription StreamStatus
 sdStreamStatus = lens _sdStreamStatus (\s a -> s { _sdStreamStatus = a })
 
@@ -448,7 +449,7 @@ sequenceNumberRange p1 = SequenceNumberRange
     }
 
 -- | The ending sequence number for the range. Shards that are in the OPEN
--- state have an ending sequence number of null.
+-- state have an ending sequence number of @null@.
 snrEndingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
 snrEndingSequenceNumber =
     lens _snrEndingSequenceNumber (\s a -> s { _snrEndingSequenceNumber = a })

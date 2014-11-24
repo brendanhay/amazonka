@@ -77,7 +77,7 @@ lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
 
 -- | Stack status to use as a filter. Specify one or more stack status codes
 -- to list only stacks with the specified status codes. For a complete list
--- of stack status codes, see the StackStatus parameter of the Stack> data
+-- of stack status codes, see the @StackStatus@ parameter of the Stack> data
 -- type.
 lsStackStatusFilter :: Lens' ListStacks [StackStatus]
 lsStackStatusFilter =
@@ -108,7 +108,7 @@ listStacksResponse = ListStacksResponse
 lsr1NextToken :: Lens' ListStacksResponse (Maybe Text)
 lsr1NextToken = lens _lsr1NextToken (\s a -> s { _lsr1NextToken = a })
 
--- | A list of StackSummary structures containing information about the
+-- | A list of @StackSummary@ structures containing information about the
 -- specified stacks.
 lsr1StackSummaries :: Lens' ListStacksResponse [StackSummary]
 lsr1StackSummaries =

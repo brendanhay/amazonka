@@ -20,15 +20,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Adds one or more attachments to an attachment set. If an AttachmentSetId is
--- not specified, a new attachment set is created, and the ID of the set is
--- returned in the response. If an AttachmentSetId is specified, the
+-- | Adds one or more attachments to an attachment set. If an @AttachmentSetId@
+-- is not specified, a new attachment set is created, and the ID of the set is
+-- returned in the response. If an @AttachmentSetId@ is specified, the
 -- attachments are added to the specified set, if it exists. An attachment set
 -- is a temporary container for attachments that are to be added to a case or
 -- case communication. The set is available for one hour after it is created;
--- the ExpiryTime returned in the response indicates when the set expires. The
--- maximum number of attachments in a set is 3, and the maximum size of any
--- attachment in the set is 5 MB.
+-- the @ExpiryTime@ returned in the response indicates when the set expires.
+-- The maximum number of attachments in a set is 3, and the maximum size of
+-- any attachment in the set is 5 MB.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddAttachmentsToSet.html>
 module Network.AWS.Support.AddAttachmentsToSet
@@ -74,9 +74,9 @@ addAttachmentsToSet = AddAttachmentsToSet
     , _aatsAttachments     = mempty
     }
 
--- | The ID of the attachment set. If an AttachmentSetId is not specified, a
+-- | The ID of the attachment set. If an @AttachmentSetId@ is not specified, a
 -- new attachment set is created, and the ID of the set is returned in the
--- response. If an AttachmentSetId is specified, the attachments are added
+-- response. If an @AttachmentSetId@ is specified, the attachments are added
 -- to the specified set, if it exists.
 aatsAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
 aatsAttachmentSetId =
@@ -106,10 +106,10 @@ addAttachmentsToSetResponse = AddAttachmentsToSetResponse
     , _aatsrExpiryTime      = Nothing
     }
 
--- | The ID of the attachment set. If an AttachmentSetId was not specified, a
--- new attachment set is created, and the ID of the set is returned in the
--- response. If an AttachmentSetId was specified, the attachments are added
--- to the specified set, if it exists.
+-- | The ID of the attachment set. If an @AttachmentSetId@ was not specified,
+-- a new attachment set is created, and the ID of the set is returned in the
+-- response. If an @AttachmentSetId@ was specified, the attachments are
+-- added to the specified set, if it exists.
 aatsrAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
 aatsrAttachmentSetId =
     lens _aatsrAttachmentSetId (\s a -> s { _aatsrAttachmentSetId = a })

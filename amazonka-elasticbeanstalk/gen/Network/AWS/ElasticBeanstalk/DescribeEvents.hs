@@ -119,7 +119,7 @@ deApplicationName =
     lens _deApplicationName (\s a -> s { _deApplicationName = a })
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those that occur up to, but not including, the EndTime.
+-- to those that occur up to, but not including, the @EndTime@.
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a }) . mapping _Time
 

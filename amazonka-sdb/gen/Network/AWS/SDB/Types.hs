@@ -260,8 +260,8 @@ updateCondition = UpdateCondition
 
 -- | A value specifying whether or not the specified attribute must exist with
 -- the specified value in order for the update condition to be satisfied.
--- Specify true if the attribute must exist for the update condition to be
--- satisfied. Specify false if the attribute should not exist in order for
+-- Specify @true@ if the attribute must exist for the update condition to be
+-- satisfied. Specify @false@ if the attribute should not exist in order for
 -- the update condition to be satisfied.
 ucExists :: Lens' UpdateCondition (Maybe Bool)
 ucExists = lens _ucExists (\s a -> s { _ucExists = a })
@@ -271,7 +271,7 @@ ucName :: Lens' UpdateCondition (Maybe Text)
 ucName = lens _ucName (\s a -> s { _ucName = a })
 
 -- | The value of an attribute. This value can only be specified when the
--- Exists parameter is equal to true.
+-- @Exists@ parameter is equal to @true@.
 ucValue :: Lens' UpdateCondition (Maybe Text)
 ucValue = lens _ucValue (\s a -> s { _ucValue = a })
 
@@ -318,7 +318,7 @@ raName :: Lens' ReplaceableAttribute Text
 raName = lens _raName (\s a -> s { _raName = a })
 
 -- | A flag specifying whether or not to replace the attribute/value pair or
--- to add a new attribute/value pair. The default setting is false.
+-- to add a new attribute/value pair. The default setting is @false@.
 raReplace :: Lens' ReplaceableAttribute (Maybe Bool)
 raReplace = lens _raReplace (\s a -> s { _raReplace = a })
 

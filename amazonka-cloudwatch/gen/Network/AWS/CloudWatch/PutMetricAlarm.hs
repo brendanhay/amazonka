@@ -24,8 +24,9 @@
 -- CloudWatch metric. Optionally, this operation can associate one or more
 -- Amazon Simple Notification Service resources with the alarm. When this
 -- operation creates an alarm, the alarm state is immediately set to
--- INSUFFICIENT_DATA. The alarm is evaluated and its StateValue is set
--- appropriately. Any actions associated with the StateValue is then executed.
+-- @INSUFFICIENT_DATA@. The alarm is evaluated and its @StateValue@ is set
+-- appropriately. Any actions associated with the @StateValue@ is then
+-- executed.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html>
 module Network.AWS.CloudWatch.PutMetricAlarm
@@ -147,8 +148,8 @@ pmaActionsEnabled :: Lens' PutMetricAlarm (Maybe Bool)
 pmaActionsEnabled =
     lens _pmaActionsEnabled (\s a -> s { _pmaActionsEnabled = a })
 
--- | The list of actions to execute when this alarm transitions into an ALARM
--- state from any other state. Each action is specified as an Amazon
+-- | The list of actions to execute when this alarm transitions into an
+-- @ALARM@ state from any other state. Each action is specified as an Amazon
 -- Resource Number (ARN). Currently the only action supported is publishing
 -- to an Amazon SNS topic or an Amazon Auto Scaling policy.
 pmaAlarmActions :: Lens' PutMetricAlarm [Text]
@@ -164,8 +165,8 @@ pmaAlarmDescription =
 pmaAlarmName :: Lens' PutMetricAlarm Text
 pmaAlarmName = lens _pmaAlarmName (\s a -> s { _pmaAlarmName = a })
 
--- | The arithmetic operation to use when comparing the specified Statistic
--- and Threshold. The specified Statistic value is used as the first
+-- | The arithmetic operation to use when comparing the specified @Statistic@
+-- and @Threshold@. The specified @Statistic@ value is used as the first
 -- operand.
 pmaComparisonOperator :: Lens' PutMetricAlarm ComparisonOperator
 pmaComparisonOperator =
@@ -183,9 +184,9 @@ pmaEvaluationPeriods =
         . _Nat
 
 -- | The list of actions to execute when this alarm transitions into an
--- INSUFFICIENT_DATA state from any other state. Each action is specified as
--- an Amazon Resource Number (ARN). Currently the only action supported is
--- publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
+-- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
+-- as an Amazon Resource Number (ARN). Currently the only action supported
+-- is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
 pmaInsufficientDataActions :: Lens' PutMetricAlarm [Text]
 pmaInsufficientDataActions =
     lens _pmaInsufficientDataActions
@@ -200,7 +201,7 @@ pmaMetricName = lens _pmaMetricName (\s a -> s { _pmaMetricName = a })
 pmaNamespace :: Lens' PutMetricAlarm Text
 pmaNamespace = lens _pmaNamespace (\s a -> s { _pmaNamespace = a })
 
--- | The list of actions to execute when this alarm transitions into an OK
+-- | The list of actions to execute when this alarm transitions into an @OK@
 -- state from any other state. Each action is specified as an Amazon
 -- Resource Number (ARN). Currently the only action supported is publishing
 -- to an Amazon SNS topic or an Amazon Auto Scaling policy.

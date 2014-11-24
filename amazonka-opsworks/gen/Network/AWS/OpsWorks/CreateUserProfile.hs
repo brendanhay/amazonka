@@ -98,9 +98,9 @@ cupSshPublicKey = lens _cupSshPublicKey (\s a -> s { _cupSshPublicKey = a })
 
 -- | The user's SSH user name. The allowable characters are [a-z], [A-Z],
 -- [0-9], '-', and '_'. If the specified name includes other punctuation
--- marks, AWS OpsWorks removes them. For example, my.name will be changed to
--- myname. If you do not specify an SSH user name, AWS OpsWorks generates
--- one from the IAM user name.
+-- marks, AWS OpsWorks removes them. For example, @my.name@ will be changed
+-- to @myname@. If you do not specify an SSH user name, AWS OpsWorks
+-- generates one from the IAM user name.
 cupSshUsername :: Lens' CreateUserProfile (Maybe Text)
 cupSshUsername = lens _cupSshUsername (\s a -> s { _cupSshUsername = a })
 

@@ -836,7 +836,7 @@ dbevDBParameterGroupFamily =
         (\s a -> s { _dbevDBParameterGroupFamily = a })
 
 -- | The default character set for new instances of this engine version, if
--- the CharacterSetName parameter of the CreateDBInstance API is not
+-- the @CharacterSetName@ parameter of the CreateDBInstance API is not
 -- specified.
 dbevDefaultCharacterSet :: Lens' DBEngineVersion (Maybe CharacterSet)
 dbevDefaultCharacterSet =
@@ -852,7 +852,7 @@ dbevEngineVersion =
     lens _dbevEngineVersion (\s a -> s { _dbevEngineVersion = a })
 
 -- | A list of the character sets supported by this engine for the
--- CharacterSetName parameter of the CreateDBInstance API.
+-- @CharacterSetName@ parameter of the CreateDBInstance API.
 dbevSupportedCharacterSets :: Lens' DBEngineVersion [CharacterSet]
 dbevSupportedCharacterSets =
     lens _dbevSupportedCharacterSets
@@ -1194,7 +1194,7 @@ ecsgEC2SecurityGroupName =
         (\s a -> s { _ecsgEC2SecurityGroupName = a })
 
 -- | Specifies the AWS ID of the owner of the EC2 security group specified in
--- the EC2SecurityGroupName field.
+-- the @EC2SecurityGroupName@ field.
 ecsgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgEC2SecurityGroupOwnerId =
     lens _ecsgEC2SecurityGroupOwnerId
@@ -1746,7 +1746,7 @@ edDBParameterGroupFamily =
 
 -- | An optional pagination token provided by a previous EngineDefaults
 -- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by MaxRecords .
+-- records beyond the marker, up to the value specified by @MaxRecords@ .
 edMarker :: Lens' EngineDefaults (Maybe Text)
 edMarker = lens _edMarker (\s a -> s { _edMarker = a })
 
@@ -2148,7 +2148,7 @@ dbiDBParameterGroups =
         . _List
 
 -- | Provides List of DB security group elements containing only
--- DBSecurityGroup.Name and DBSecurityGroup.Status subelements.
+-- @DBSecurityGroup.Name@ and @DBSecurityGroup.Status@ subelements.
 dbiDBSecurityGroups :: Lens' DBInstance [DBSecurityGroupMembership]
 dbiDBSecurityGroups =
     lens _dbiDBSecurityGroups (\s a -> s { _dbiDBSecurityGroups = a })
@@ -2219,7 +2219,7 @@ dbiPendingModifiedValues =
 
 -- | Specifies the daily time range during which automated backups are created
 -- if automated backups are enabled, as determined by the
--- BackupRetentionPeriod.
+-- @BackupRetentionPeriod@.
 dbiPreferredBackupWindow :: Lens' DBInstance (Maybe Text)
 dbiPreferredBackupWindow =
     lens _dbiPreferredBackupWindow
@@ -3401,7 +3401,7 @@ pendingModifiedValues = PendingModifiedValues
     , _pmvStorageType           = Nothing
     }
 
--- | Contains the new AllocatedStorage size for the DB instance that will be
+-- | Contains the new @AllocatedStorage@ size for the DB instance that will be
 -- applied or is in progress.
 pmvAllocatedStorage :: Lens' PendingModifiedValues (Maybe Int)
 pmvAllocatedStorage =
@@ -3414,13 +3414,13 @@ pmvBackupRetentionPeriod =
     lens _pmvBackupRetentionPeriod
         (\s a -> s { _pmvBackupRetentionPeriod = a })
 
--- | Contains the new DBInstanceClass for the DB instance that will be applied
--- or is in progress.
+-- | Contains the new @DBInstanceClass@ for the DB instance that will be
+-- applied or is in progress.
 pmvDBInstanceClass :: Lens' PendingModifiedValues (Maybe Text)
 pmvDBInstanceClass =
     lens _pmvDBInstanceClass (\s a -> s { _pmvDBInstanceClass = a })
 
--- | Contains the new DBInstanceIdentifier for the DB instance that will be
+-- | Contains the new @DBInstanceIdentifier@ for the DB instance that will be
 -- applied or is in progress.
 pmvDBInstanceIdentifier :: Lens' PendingModifiedValues (Maybe Text)
 pmvDBInstanceIdentifier =
@@ -3591,9 +3591,9 @@ pDataType = lens _pDataType (\s a -> s { _pDataType = a })
 pDescription :: Lens' Parameter (Maybe Text)
 pDescription = lens _pDescription (\s a -> s { _pDescription = a })
 
--- | Indicates whether (true) or not (false) the parameter can be modified.
--- Some parameters have security or operational implications that prevent
--- them from being changed.
+-- | Indicates whether (@true@) or not (@false@) the parameter can be
+-- modified. Some parameters have security or operational implications that
+-- prevent them from being changed.
 pIsModifiable :: Lens' Parameter (Maybe Bool)
 pIsModifiable = lens _pIsModifiable (\s a -> s { _pIsModifiable = a })
 

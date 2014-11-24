@@ -110,7 +110,7 @@ aa1AllocationId = lens _aa1AllocationId (\s a -> s { _aa1AllocationId = a })
 -- | [EC2-VPC] Allows an Elastic IP address that is already associated with an
 -- instance or network interface to be re-associated with the specified
 -- instance or network interface. Otherwise, the operation fails. Default:
--- false.
+-- @false@.
 aa1AllowReassociation :: Lens' AssociateAddress (Maybe Bool)
 aa1AllowReassociation =
     lens _aa1AllowReassociation (\s a -> s { _aa1AllowReassociation = a })

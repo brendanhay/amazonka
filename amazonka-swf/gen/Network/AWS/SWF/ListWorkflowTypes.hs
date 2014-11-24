@@ -23,13 +23,13 @@
 -- | Returns information about workflow types in the specified domain. The
 -- results may be split into multiple pages that can be retrieved by making
 -- the call repeatedly. Access Control You can use IAM policies to control
--- this action's access to Amazon SWF resources as follows: Use a Resource
+-- this action's access to Amazon SWF resources as follows: Use a @Resource@
 -- element with the domain name to limit the action to only specified domains.
--- Use an Action element to allow or deny permission to call this action. You
--- cannot use an IAM policy to constrain this action's parameters. If the
+-- Use an @Action@ element to allow or deny permission to call this action.
+-- You cannot use an IAM policy to constrain this action's parameters. If the
 -- caller does not have sufficient permissions to invoke the action, or the
 -- parameter values fall outside the specified constraints, the action fails
--- by throwing OperationNotPermitted. For details and example IAM policies,
+-- by throwing @OperationNotPermitted@. For details and example IAM policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
 -- Using IAM to Manage Access to Amazon SWF Workflows>.
@@ -119,7 +119,7 @@ lwtMaximumPageSize =
 lwtName :: Lens' ListWorkflowTypes (Maybe Text)
 lwtName = lens _lwtName (\s a -> s { _lwtName = a })
 
--- | If on a previous call to this method a NextPageToken was returned, the
+-- | If on a previous call to this method a @NextPageToken@ was returned, the
 -- results are being paginated. To get the next page of results, repeat the
 -- call with the returned token and all other arguments unchanged.
 lwtNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
@@ -130,8 +130,8 @@ lwtRegistrationStatus :: Lens' ListWorkflowTypes RegistrationStatus
 lwtRegistrationStatus =
     lens _lwtRegistrationStatus (\s a -> s { _lwtRegistrationStatus = a })
 
--- | When set to true, returns the results in reverse order. By default the
--- results are returned in ascending alphabetical order of the name of the
+-- | When set to @true@, returns the results in reverse order. By default the
+-- results are returned in ascending alphabetical order of the @name@ of the
 -- workflow types.
 lwtReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
 lwtReverseOrder = lens _lwtReverseOrder (\s a -> s { _lwtReverseOrder = a })

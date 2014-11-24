@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | From the command line, use create-subscription. Creates a trail that
+-- | From the command line, use @create-subscription@. Creates a trail that
 -- specifies the settings for delivery of log data to an Amazon S3 bucket.
 --
 -- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateTrail.html>

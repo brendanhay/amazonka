@@ -90,8 +90,8 @@ sendMessage p1 p2 = SendMessage
     }
 
 -- | The number of seconds (0 to 900 - 15 minutes) to delay a specific
--- message. Messages with a positive DelaySeconds value become available for
--- processing after the delay time is finished. If you don't specify a
+-- message. Messages with a positive @DelaySeconds@ value become available
+-- for processing after the delay time is finished. If you don't specify a
 -- value, the default value for the queue applies.
 smDelaySeconds :: Lens' SendMessage (Maybe Int)
 smDelaySeconds = lens _smDelaySeconds (\s a -> s { _smDelaySeconds = a })

@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified message from the specified queue. You specify the
--- message by using the message's receipt handle and not the message ID you
--- received when you sent the message. Even if the message is locked by
+-- message by using the message's @receipt handle@ and not the @message ID@
+-- you received when you sent the message. Even if the message is locked by
 -- another reader due to the visibility timeout setting, it is still deleted
 -- from the queue. If you leave a message in the queue for longer than the
 -- queue's configured retention period, Amazon SQS automatically deletes it.

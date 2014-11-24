@@ -92,7 +92,7 @@ describeAlarms = DescribeAlarms
 daActionPrefix :: Lens' DescribeAlarms (Maybe Text)
 daActionPrefix = lens _daActionPrefix (\s a -> s { _daActionPrefix = a })
 
--- | The alarm name prefix. AlarmNames cannot be specified if this parameter
+-- | The alarm name prefix. @AlarmNames@ cannot be specified if this parameter
 -- is specified.
 daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
 daAlarmNamePrefix =

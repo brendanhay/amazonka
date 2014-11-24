@@ -23,7 +23,7 @@
 -- | Returns a list of your Lambda functions. For each function, the response
 -- includes the function configuration information. You must use GetFunction>
 -- to retrieve the code for your function. This operation requires permission
--- for the lambda:ListFunctions action.
+-- for the @lambda:ListFunctions@ action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_ListFunctions.html>
 module Network.AWS.Lambda.ListFunctions
@@ -70,7 +70,7 @@ listFunctions = ListFunctions
     }
 
 -- | Optional string. An opaque pagination token returned from a previous
--- ListFunctions operation. If present, indicates where to continue the
+-- @ListFunctions@ operation. If present, indicates where to continue the
 -- listing.
 lfMarker :: Lens' ListFunctions (Maybe Text)
 lfMarker = lens _lfMarker (\s a -> s { _lfMarker = a })

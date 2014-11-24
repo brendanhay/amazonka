@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This action creates a new health check. To create a new health check, send
--- a POST request to the 2013-04-01/healthcheck resource. The request body
--- must include an XML document with a CreateHealthCheckRequest element. The
--- response returns the CreateHealthCheckResponse element that contains
+-- a @POST@ request to the @2013-04-01/healthcheck@ resource. The request body
+-- must include an XML document with a @CreateHealthCheckRequest@ element. The
+-- response returns the @CreateHealthCheckResponse@ element that contains
 -- metadata about the health check.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html>
@@ -73,11 +73,11 @@ createHealthCheck p1 p2 = CreateHealthCheck
     }
 
 -- | A unique string that identifies the request and that allows failed
--- CreateHealthCheck requests to be retried without the risk of executing
--- the operation twice. You must use a unique CallerReference string every
--- time you create a health check. CallerReference can be any unique string;
--- you might choose to use a string that identifies your project. Valid
--- characters are any Unicode code points that are legal in an XML 1.0
+-- @CreateHealthCheck@ requests to be retried without the risk of executing
+-- the operation twice. You must use a unique @CallerReference@ string every
+-- time you create a health check. @CallerReference@ can be any unique
+-- string; you might choose to use a string that identifies your project.
+-- Valid characters are any Unicode code points that are legal in an XML 1.0
 -- document. The UTF-8 encoding of the value must be less than 128 bytes.
 chcCallerReference :: Lens' CreateHealthCheck Text
 chcCallerReference =

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Sends an email message, with header and content specified by the client.
--- The SendRawEmail action is useful for sending multipart MIME emails. The
+-- The @SendRawEmail@ action is useful for sending multipart MIME emails. The
 -- raw text of the message must comply with Internet email standards;
 -- otherwise, the message cannot be sent. You can only send email from
 -- verified email addresses and domains. If you have not requested production
@@ -114,7 +114,7 @@ sreRawMessage = lens _sreRawMessage (\s a -> s { _sreRawMessage = a })
 -- If the text must contain any other characters, then you must use MIME
 -- encoded-word syntax (RFC 2047) instead of a literal string. MIME
 -- encoded-word syntax uses the following form:
--- =?charset?encoding?encoded-text?=. For more information, see
+-- @=?charset?encoding?encoded-text?=@. For more information, see
 -- <http://tools.ietf.org/html/rfc2047 RFC 2047>.
 sreSource :: Lens' SendRawEmail (Maybe Text)
 sreSource = lens _sreSource (\s a -> s { _sreSource = a })
@@ -135,7 +135,7 @@ sendRawEmailResponse p1 = SendRawEmailResponse
     { _srerMessageId = p1
     }
 
--- | The unique message identifier returned from the SendRawEmail action.
+-- | The unique message identifier returned from the @SendRawEmail@ action.
 srerMessageId :: Lens' SendRawEmailResponse Text
 srerMessageId = lens _srerMessageId (\s a -> s { _srerMessageId = a })
 

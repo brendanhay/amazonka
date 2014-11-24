@@ -25,7 +25,7 @@
 -- individually in the response. The maximum allowed individual message size
 -- is 256 KB (262,144 bytes). The maximum total payload size (i.e., the sum of
 -- all a batch's individual message lengths) is also 256 KB (262,144 bytes).
--- If the DelaySeconds parameter is not specified for an entry, the default
+-- If the @DelaySeconds@ parameter is not specified for an entry, the default
 -- for the queue is used. The following list shows the characters (in Unicode)
 -- that are allowed in your message, according to the W3C XML specification.
 -- For more information, go to <http://www.faqs.org/rfcs/rfc1321.html
@@ -34,7 +34,7 @@
 -- [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to #x10FFFF] Because the
 -- batch request can result in a combination of successful and unsuccessful
 -- actions, you should check for batch errors even when the call returns an
--- HTTP status code of 200. &Attribute.1=this &Attribute.2=that.
+-- HTTP status code of 200. @&Attribute.1=this@ @&Attribute.2=that@.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html>
 module Network.AWS.SQS.SendMessageBatch

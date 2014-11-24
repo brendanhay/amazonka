@@ -22,7 +22,7 @@
 
 -- | Lists the names of the policies associated with the specified user. If
 -- there are none, the action returns an empty list. You can paginate the
--- results using the MaxItems and Marker parameters.
+-- results using the @MaxItems@ and @Marker@ parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserPolicies.html>
 module Network.AWS.IAM.ListUserPolicies
@@ -77,15 +77,15 @@ listUserPolicies p1 = ListUserPolicies
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it
--- to the value of the Marker element in the response you just received.
+-- to the value of the @Marker@ element in the response you just received.
 lupMarker :: Lens' ListUserPolicies (Maybe Text)
 lupMarker = lens _lupMarker (\s a -> s { _lupMarker = a })
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- policy names you want in the response. If there are additional policy
--- names beyond the maximum you specify, the IsTruncated response element is
--- true. This parameter is optional. If you do not include it, it defaults
--- to 100.
+-- names beyond the maximum you specify, the @IsTruncated@ response element
+-- is @true@. This parameter is optional. If you do not include it, it
+-- defaults to 100.
 lupMaxItems :: Lens' ListUserPolicies (Maybe Natural)
 lupMaxItems = lens _lupMaxItems (\s a -> s { _lupMaxItems = a }) . mapping _Nat
 
@@ -118,13 +118,14 @@ listUserPoliciesResponse = ListUserPoliciesResponse
 
 -- | A flag that indicates whether there are more policy names to list. If
 -- your results were truncated, you can make a subsequent pagination request
--- using the Marker request parameter to retrieve more policy names in the
+-- using the @Marker@ request parameter to retrieve more policy names in the
 -- list.
 luprIsTruncated :: Lens' ListUserPoliciesResponse (Maybe Bool)
 luprIsTruncated = lens _luprIsTruncated (\s a -> s { _luprIsTruncated = a })
 
--- | If IsTruncated is true, this element is present and contains the value to
--- use for the Marker parameter in a subsequent pagination request.
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 luprMarker :: Lens' ListUserPoliciesResponse (Maybe Text)
 luprMarker = lens _luprMarker (\s a -> s { _luprMarker = a })
 

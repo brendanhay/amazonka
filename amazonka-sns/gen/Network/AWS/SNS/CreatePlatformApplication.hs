@@ -23,7 +23,7 @@
 -- | Creates a platform application object for one of the supported push
 -- notification services, such as APNS and GCM, to which devices and mobile
 -- apps may register. You must specify PlatformPrincipal and
--- PlatformCredential attributes when using the CreatePlatformApplication
+-- PlatformCredential attributes when using the @CreatePlatformApplication@
 -- action. The PlatformPrincipal is received from the notification service.
 -- For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM,
 -- PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client
@@ -31,8 +31,8 @@
 -- For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM,
 -- PlatformCredential is "API key". For ADM, PlatformCredential is "client
 -- secret". The PlatformApplicationArn that is returned when using
--- CreatePlatformApplication is then used as an attribute for the
--- CreatePlatformEndpoint action. For more information, see
+-- @CreatePlatformApplication@ is then used as an attribute for the
+-- @CreatePlatformEndpoint@ action. For more information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon
 -- SNS Mobile Push Notifications>.
 --

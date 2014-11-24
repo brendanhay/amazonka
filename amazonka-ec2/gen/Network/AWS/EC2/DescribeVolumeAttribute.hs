@@ -111,7 +111,7 @@ describeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     , _dvarProductCodes = mempty
     }
 
--- | The state of autoEnableIO attribute.
+-- | The state of @autoEnableIO@ attribute.
 dvarAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
 dvarAutoEnableIO = lens _dvarAutoEnableIO (\s a -> s { _dvarAutoEnableIO = a })
 

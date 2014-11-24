@@ -22,8 +22,8 @@
 
 -- | Returns a list of configuration items for the specified resource. The list
 -- contains details about each state of the resource during the specified time
--- interval. You can specify a limit on the number of results returned on the
--- page. If a limit is specified, a nextToken is returned as part of the
+-- interval. You can specify a @limit@ on the number of results returned on
+-- the page. If a limit is specified, a @nextToken@ is returned as part of the
 -- result that you can use to continue this request.
 --
 -- <http://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html>
@@ -123,7 +123,7 @@ grchLimit = lens _grchLimit (\s a -> s { _grchLimit = a }) . mapping _Nat
 grchNextToken :: Lens' GetResourceConfigHistory (Maybe Text)
 grchNextToken = lens _grchNextToken (\s a -> s { _grchNextToken = a })
 
--- | The ID of the resource (for example., sg-xxxxxx).
+-- | The ID of the resource (for example., @sg-xxxxxx@).
 grchResourceId :: Lens' GetResourceConfigHistory Text
 grchResourceId = lens _grchResourceId (\s a -> s { _grchResourceId = a })
 

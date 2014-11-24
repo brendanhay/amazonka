@@ -128,7 +128,7 @@ lrrsMaxItems = lens _lrrsMaxItems (\s a -> s { _lrrsMaxItems = a })
 
 -- | /Weighted resource record sets only:/ If results were truncated for a
 -- given DNS name and type, specify the value of
--- ListResourceRecordSetsResponse$NextRecordIdentifier from the previous
+-- @ListResourceRecordSetsResponse$NextRecordIdentifier@ from the previous
 -- response to get the next resource record set that has the current DNS
 -- name and type.
 lrrsStartRecordIdentifier :: Lens' ListResourceRecordSets (Maybe Text)
@@ -137,17 +137,18 @@ lrrsStartRecordIdentifier =
         (\s a -> s { _lrrsStartRecordIdentifier = a })
 
 -- | The first name in the lexicographic ordering of domain names that you
--- want the ListResourceRecordSets request to list.
+-- want the @ListResourceRecordSets@ request to list.
 lrrsStartRecordName :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordName =
     lens _lrrsStartRecordName (\s a -> s { _lrrsStartRecordName = a })
 
 -- | The DNS type at which to begin the listing of resource record sets. Valid
--- values: A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT Values
--- for Weighted Resource Record Sets: A | AAAA | CNAME | TXT Values for
--- Regional Resource Record Sets: A | AAAA | CNAME | TXT Values for Alias
--- Resource Record Sets: A | AAAA Constraint: Specifying type without
--- specifying name returns an InvalidInput> error.
+-- values: @A@ | @AAAA@ | @CNAME@ | @MX@ | @NS@ | @PTR@ | @SOA@ | @SPF@ |
+-- @SRV@ | @TXT@ Values for Weighted Resource Record Sets: @A@ | @AAAA@ |
+-- @CNAME@ | @TXT@ Values for Regional Resource Record Sets: @A@ | @AAAA@ |
+-- @CNAME@ | @TXT@ Values for Alias Resource Record Sets: @A@ | @AAAA@
+-- Constraint: Specifying @type@ without specifying @name@ returns an
+-- InvalidInput> error.
 lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
 lrrsStartRecordType =
     lens _lrrsStartRecordType (\s a -> s { _lrrsStartRecordType = a })
@@ -193,18 +194,18 @@ listResourceRecordSetsResponse p1 p2 = ListResourceRecordSetsResponse
 -- listed. If your results were truncated, you can make a follow-up request
 -- for the next page of results by using the
 -- ListResourceRecordSetsResponse$NextRecordName> element. Valid Values:
--- true | false.
+-- @true@ | @false@.
 lrrsrIsTruncated :: Lens' ListResourceRecordSetsResponse Bool
 lrrsrIsTruncated = lens _lrrsrIsTruncated (\s a -> s { _lrrsrIsTruncated = a })
 
 -- | The maximum number of records you requested. The maximum value of
--- MaxItems is 100.
+-- @MaxItems@ is 100.
 lrrsrMaxItems :: Lens' ListResourceRecordSetsResponse Text
 lrrsrMaxItems = lens _lrrsrMaxItems (\s a -> s { _lrrsrMaxItems = a })
 
 -- | /Weighted resource record sets only:/ If results were truncated for a
--- given DNS name and type, the value of SetIdentifier for the next resource
--- record set that has the current DNS name and type.
+-- given DNS name and type, the value of @SetIdentifier@ for the next
+-- resource record set that has the current DNS name and type.
 lrrsrNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrNextRecordIdentifier =
     lens _lrrsrNextRecordIdentifier

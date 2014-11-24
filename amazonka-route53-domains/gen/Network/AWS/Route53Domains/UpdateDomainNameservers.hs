@@ -79,8 +79,8 @@ updateDomainNameservers p1 = UpdateDomainNameservers
 udnDomainName :: Lens' UpdateDomainNameservers Text
 udnDomainName = lens _udnDomainName (\s a -> s { _udnDomainName = a })
 
--- | A list of new name servers for the domain. Type: Complex Children: Name,
--- GlueIps Required: Yes.
+-- | A list of new name servers for the domain. Type: Complex Children:
+-- @Name@, @GlueIps@ Required: Yes.
 udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
 udnNameservers = lens _udnNameservers (\s a -> s { _udnNameservers = a }) . _List
 

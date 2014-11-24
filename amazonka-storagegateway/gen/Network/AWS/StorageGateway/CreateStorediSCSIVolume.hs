@@ -141,8 +141,8 @@ csscsivSnapshotId =
     lens _csscsivSnapshotId (\s a -> s { _csscsivSnapshotId = a })
 
 -- | The name of the iSCSI target used by initiators to connect to the target
--- and as a suffix for the target ARN. For example, specifying TargetName as
--- /myvolume/ results in the target ARN of
+-- and as a suffix for the target ARN. For example, specifying @TargetName@
+-- as /myvolume/ results in the target ARN of
 -- arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/target/iqn.1997-05.com.amazon:myvolume.
 -- The target name must be unique across all volumes of a gateway.
 csscsivTargetName :: Lens' CreateStorediSCSIVolume Text

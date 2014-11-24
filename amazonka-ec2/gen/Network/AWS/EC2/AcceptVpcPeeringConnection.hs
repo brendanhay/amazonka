@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Accept a VPC peering connection request. To accept a request, the VPC
--- peering connection must be in the pending-acceptance state, and you must be
--- the owner of the peer VPC. Use the DescribeVpcPeeringConnections request to
--- view your outstanding VPC peering connection requests.
+-- peering connection must be in the @pending-acceptance@ state, and you must
+-- be the owner of the peer VPC. Use the @DescribeVpcPeeringConnections@
+-- request to view your outstanding VPC peering connection requests.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AcceptVpcPeeringConnection.html>
 module Network.AWS.EC2.AcceptVpcPeeringConnection

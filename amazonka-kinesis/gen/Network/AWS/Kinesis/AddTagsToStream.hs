@@ -22,7 +22,7 @@
 
 -- | Adds or updates tags for the specified Amazon Kinesis stream. Each stream
 -- can have up to 10 tags. If tags have already been assigned to the stream,
--- AddTagsToStream overwrites any existing tags that correspond to the
+-- @AddTagsToStream@ overwrites any existing tags that correspond to the
 -- specified tag keys.
 --
 -- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html>

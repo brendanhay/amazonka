@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This action creates a new hosted zone. To create a new hosted zone, send a
--- POST request to the 2013-04-01/hostedzone resource. The request body must
--- include an XML document with a CreateHostedZoneRequest element. The
--- response returns the CreateHostedZoneResponse element that contains
+-- @POST@ request to the @2013-04-01/hostedzone@ resource. The request body
+-- must include an XML document with a @CreateHostedZoneRequest@ element. The
+-- response returns the @CreateHostedZoneResponse@ element that contains
 -- metadata about the hosted zone. Route 53 automatically creates a default
 -- SOA record and four NS records for the zone. The NS records in the hosted
 -- zone are the name servers you give your registrar to delegate your domain
@@ -31,8 +31,8 @@
 -- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html
 -- NS and SOA Records that Route 53 Creates for a Hosted Zone> in the /Amazon
 -- Route 53 Developer Guide/. When you create a zone, its initial status is
--- PENDING. This means that it is not yet available on all DNS servers. The
--- status of the zone changes to INSYNC when the NS and SOA records are
+-- @PENDING@. This means that it is not yet available on all DNS servers. The
+-- status of the zone changes to @INSYNC@ when the NS and SOA records are
 -- available on all Route 53 DNS servers. When trying to create a hosted zone
 -- using a reusable delegation set, you could specify an optional
 -- DelegationSetId, and Route53 would assign those 4 NS records for the zone,
@@ -103,13 +103,13 @@ createHostedZone p1 p2 = CreateHostedZone
     }
 
 -- | A unique string that identifies the request and that allows failed
--- CreateHostedZone requests to be retried without the risk of executing the
--- operation twice. You must use a unique CallerReference string every time
--- you create a hosted zone. CallerReference can be any unique string; you
--- might choose to use a string that identifies your project, such as
--- DNSMigration_01. Valid characters are any Unicode code points that are
--- legal in an XML 1.0 document. The UTF-8 encoding of the value must be
--- less than 128 bytes.
+-- @CreateHostedZone@ requests to be retried without the risk of executing
+-- the operation twice. You must use a unique @CallerReference@ string every
+-- time you create a hosted zone. @CallerReference@ can be any unique
+-- string; you might choose to use a string that identifies your project,
+-- such as @DNSMigration_01@. Valid characters are any Unicode code points
+-- that are legal in an XML 1.0 document. The UTF-8 encoding of the value
+-- must be less than 128 bytes.
 chzCallerReference :: Lens' CreateHostedZone Text
 chzCallerReference =
     lens _chzCallerReference (\s a -> s { _chzCallerReference = a })
@@ -131,8 +131,8 @@ chzHostedZoneConfig =
 -- www.example.com (without a trailing dot) and www.example.com. (with a
 -- trailing dot) as identical. This is the name you have registered with
 -- your DNS registrar. You should ask your registrar to change the
--- authoritative name servers for your domain to the set of NameServers
--- elements returned in DelegationSet.
+-- authoritative name servers for your domain to the set of @NameServers@
+-- elements returned in @DelegationSet@.
 chzName :: Lens' CreateHostedZone Text
 chzName = lens _chzName (\s a -> s { _chzName = a })
 

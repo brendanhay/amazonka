@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists the groups that have the specified path prefix. You can paginate the
--- results using the MaxItems and Marker parameters.
+-- results using the @MaxItems@ and @Marker@ parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroups.html>
 module Network.AWS.IAM.ListGroups
@@ -75,21 +75,21 @@ listGroups = ListGroups
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it
--- to the value of the Marker element in the response you just received.
+-- to the value of the @Marker@ element in the response you just received.
 lgMarker :: Lens' ListGroups (Maybe Text)
 lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- groups you want in the response. If there are additional groups beyond
--- the maximum you specify, the IsTruncated response element is true. This
--- parameter is optional. If you do not include it, it defaults to 100.
+-- the maximum you specify, the @IsTruncated@ response element is @true@.
+-- This parameter is optional. If you do not include it, it defaults to 100.
 lgMaxItems :: Lens' ListGroups (Maybe Natural)
 lgMaxItems = lens _lgMaxItems (\s a -> s { _lgMaxItems = a }) . mapping _Nat
 
 -- | The path prefix for filtering the results. For example, the prefix
--- /division_abc/subdivision_xyz/ gets all groups whose path starts with
--- /division_abc/subdivision_xyz/. This parameter is optional. If it is not
--- included, it defaults to a slash (/), listing all groups.
+-- @/division_abc/subdivision_xyz/@ gets all groups whose path starts with
+-- @/division_abc/subdivision_xyz/@. This parameter is optional. If it is
+-- not included, it defaults to a slash (/), listing all groups.
 lgPathPrefix :: Lens' ListGroups (Maybe Text)
 lgPathPrefix = lens _lgPathPrefix (\s a -> s { _lgPathPrefix = a })
 
@@ -122,12 +122,13 @@ lgrGroups = lens _lgrGroups (\s a -> s { _lgrGroups = a }) . _List
 
 -- | A flag that indicates whether there are more groups to list. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the Marker request parameter to retrieve more groups in the list.
+-- using the @Marker@ request parameter to retrieve more groups in the list.
 lgrIsTruncated :: Lens' ListGroupsResponse (Maybe Bool)
 lgrIsTruncated = lens _lgrIsTruncated (\s a -> s { _lgrIsTruncated = a })
 
--- | If IsTruncated is true, this element is present and contains the value to
--- use for the Marker parameter in a subsequent pagination request.
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 lgrMarker :: Lens' ListGroupsResponse (Maybe Text)
 lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
 

@@ -70,14 +70,14 @@ describeRaidArrays = DescribeRaidArrays
     , _draRaidArrayIds = mempty
     }
 
--- | The instance ID. If you use this parameter, DescribeRaidArrays returns
+-- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns
 -- descriptions of the RAID arrays associated with the specified instance.
 draInstanceId :: Lens' DescribeRaidArrays (Maybe Text)
 draInstanceId = lens _draInstanceId (\s a -> s { _draInstanceId = a })
 
--- | An array of RAID array IDs. If you use this parameter, DescribeRaidArrays
--- returns descriptions of the specified arrays. Otherwise, it returns a
--- description of every array.
+-- | An array of RAID array IDs. If you use this parameter,
+-- @DescribeRaidArrays@ returns descriptions of the specified arrays.
+-- Otherwise, it returns a description of every array.
 draRaidArrayIds :: Lens' DescribeRaidArrays [Text]
 draRaidArrayIds = lens _draRaidArrayIds (\s a -> s { _draRaidArrayIds = a }) . _List
 
@@ -102,7 +102,7 @@ describeRaidArraysResponse = DescribeRaidArraysResponse
     { _drarRaidArrays = mempty
     }
 
--- | A RaidArrays object that describes the specified RAID arrays.
+-- | A @RaidArrays@ object that describes the specified RAID arrays.
 drarRaidArrays :: Lens' DescribeRaidArraysResponse [RaidArray]
 drarRaidArrays = lens _drarRaidArrays (\s a -> s { _drarRaidArrays = a }) . _List
 

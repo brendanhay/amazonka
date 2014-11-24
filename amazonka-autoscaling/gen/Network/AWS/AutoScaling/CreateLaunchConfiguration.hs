@@ -145,8 +145,8 @@ createLaunchConfiguration p1 = CreateLaunchConfiguration
 -- you specify a value for this parameter, be sure to specify at least one
 -- subnet using the /VPCZoneIdentifier/ parameter when you create your
 -- group. Default: If the instance is launched into a default subnet, the
--- default is true. If the instance is launched into a nondefault subnet,
--- the default is false. For more information, see
+-- default is @true@. If the instance is launched into a nondefault subnet,
+-- the default is @false@. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide//as-supported-platforms.html
 -- Supported Platforms> in the /Amazon Elastic Compute Cloud User Guide/.
 clcAssociatePublicIpAddress :: Lens' CreateLaunchConfiguration (Maybe Bool)
@@ -209,7 +209,7 @@ clcInstanceId = lens _clcInstanceId (\s a -> s { _clcInstanceId = a })
 -- | Enables detailed monitoring if it is disabled. Detailed monitoring is
 -- enabled by default. When detailed monitoring is enabled, Amazon
 -- Cloudwatch generates metrics every minute and your account is charged a
--- fee. When you disable detailed monitoring, by specifying False,
+-- fee. When you disable detailed monitoring, by specifying @False@,
 -- Cloudwatch generates metrics every 5 minutes. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html
 -- Monitor Your Auto Scaling Instances> in the /Auto Scaling Developer
@@ -243,16 +243,17 @@ clcLaunchConfigurationName =
     lens _clcLaunchConfigurationName
         (\s a -> s { _clcLaunchConfigurationName = a })
 
--- | The tenancy of the instance. An instance with a tenancy of dedicated runs
--- on single-tenant hardware and can only be launched in a VPC. You must set
--- the value of this parameter to dedicated if want to launch Dedicated
--- Instances in a shared tenancy VPC (VPC with instance placement tenancy
--- attribute set to default). If you specify a value for this parameter, be
--- sure to specify at least one VPC subnet using the /VPCZoneIdentifier/
--- parameter when you create your group. For more information, see
+-- | The tenancy of the instance. An instance with a tenancy of @dedicated@
+-- runs on single-tenant hardware and can only be launched in a VPC. You
+-- must set the value of this parameter to @dedicated@ if want to launch
+-- Dedicated Instances in a shared tenancy VPC (VPC with instance placement
+-- tenancy attribute set to @default@). If you specify a value for this
+-- parameter, be sure to specify at least one VPC subnet using the
+-- /VPCZoneIdentifier/ parameter when you create your group. For more
+-- information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html
 -- Auto Scaling and Amazon VPC> in the /Auto Scaling Developer Guide/. Valid
--- values: default | dedicated.
+-- values: @default@ | @dedicated@.
 clcPlacementTenancy :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcPlacementTenancy =
     lens _clcPlacementTenancy (\s a -> s { _clcPlacementTenancy = a })

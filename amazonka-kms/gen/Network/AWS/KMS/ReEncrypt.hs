@@ -109,7 +109,7 @@ reGrantTokens :: Lens' ReEncrypt [Text]
 reGrantTokens = lens _reGrantTokens (\s a -> s { _reGrantTokens = a }) . _List
 
 -- | Encryption context used to encrypt and decrypt the data specified in the
--- CiphertextBlob parameter.
+-- @CiphertextBlob@ parameter.
 reSourceEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
 reSourceEncryptionContext =
     lens _reSourceEncryptionContext

@@ -126,12 +126,12 @@ dodbioLicenseModel =
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by MaxRecords .
+-- the value specified by @MaxRecords@ .
 dodbioMarker :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
 dodbioMarker = lens _dodbioMarker (\s a -> s { _dodbioMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified MaxRecords value, a pagination token called a
+-- exist than the specified @MaxRecords@ value, a pagination token called a
 -- marker is included in the response so that the remaining results can be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 dodbioMaxRecords :: Lens' DescribeOrderableDBInstanceOptions (Maybe Int)
@@ -164,7 +164,7 @@ describeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsR
 -- | An optional pagination token provided by a previous
 -- OrderableDBInstanceOptions request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
--- specified by MaxRecords .
+-- specified by @MaxRecords@ .
 dodbiorMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
 dodbiorMarker = lens _dodbiorMarker (\s a -> s { _dodbiorMarker = a })
 

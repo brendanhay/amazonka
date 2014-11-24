@@ -24,13 +24,13 @@
 -- following targets: Internet gateway or virtual private gateway, NAT
 -- instance, VPC peering connection, or network interface. When determining
 -- how to route traffic, we use the route with the most specific match. For
--- example, let's say the traffic is destined for 192.0.2.3, and the route
--- table includes the following two routes: 192.0.2.0/24 (goes to some target
--- A) 192.0.2.0/28 (goes to some target B) Both routes apply to the traffic
--- destined for 192.0.2.3. However, the second route in the list covers a
--- smaller number of IP addresses and is therefore more specific, so we use
--- that route to determine where to target the traffic. For more information
--- about route tables, see
+-- example, let's say the traffic is destined for @192.0.2.3@, and the route
+-- table includes the following two routes: @192.0.2.0/24@ (goes to some
+-- target A) @192.0.2.0/28@ (goes to some target B) Both routes apply to the
+-- traffic destined for @192.0.2.3@. However, the second route in the list
+-- covers a smaller number of IP addresses and is therefore more specific, so
+-- we use that route to determine where to target the traffic. For more
+-- information about route tables, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html
 -- Route Tables> in the /Amazon Virtual Private Cloud User Guide/.
 --

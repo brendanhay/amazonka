@@ -105,14 +105,14 @@ de1EnvironmentNames =
     lens _de1EnvironmentNames (\s a -> s { _de1EnvironmentNames = a })
         . _List
 
--- | Indicates whether to include deleted environments: true: Environments
--- that have been deleted after IncludedDeletedBackTo are displayed. false:
--- Do not include deleted environments.
+-- | Indicates whether to include deleted environments: @true@: Environments
+-- that have been deleted after @IncludedDeletedBackTo@ are displayed.
+-- @false@: Do not include deleted environments.
 de1IncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
 de1IncludeDeleted =
     lens _de1IncludeDeleted (\s a -> s { _de1IncludeDeleted = a })
 
--- | If specified when IncludeDeleted is set to true, then environments
+-- | If specified when @IncludeDeleted@ is set to @true@, then environments
 -- deleted after this date are displayed.
 de1IncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
 de1IncludedDeletedBackTo =

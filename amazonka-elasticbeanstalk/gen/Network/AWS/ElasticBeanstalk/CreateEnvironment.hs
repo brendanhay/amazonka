@@ -128,8 +128,8 @@ createEnvironment p1 p2 = CreateEnvironment
     }
 
 -- | The name of the application that contains the version to be deployed. If
--- no application is found with this name, CreateEnvironment returns an
--- InvalidParameterValue error.
+-- no application is found with this name, @CreateEnvironment@ returns an
+-- @InvalidParameterValue@ error.
 ceApplicationName :: Lens' CreateEnvironment Text
 ceApplicationName =
     lens _ceApplicationName (\s a -> s { _ceApplicationName = a })
@@ -148,7 +148,7 @@ ceDescription = lens _ceDescription (\s a -> s { _ceDescription = a })
 -- URL. Constraint: Must be from 4 to 23 characters in length. The name can
 -- contain only letters, numbers, and hyphens. It cannot start or end with a
 -- hyphen. This name must be unique in your account. If the specified name
--- already exists, AWS Elastic Beanstalk returns an InvalidParameterValue
+-- already exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@
 -- error. Default: If the CNAME parameter is not specified, the environment
 -- name becomes part of the CNAME, and therefore part of the visible URL for
 -- your application.
@@ -173,10 +173,10 @@ ceOptionsToRemove =
 -- | This is an alternative to specifying a configuration name. If specified,
 -- AWS Elastic Beanstalk sets the configuration values to the default values
 -- associated with the specified solution stack. Condition: You must specify
--- either this or a TemplateName, but not both. If you specify both, AWS
--- Elastic Beanstalk returns an InvalidParameterCombination error. If you do
--- not specify either, AWS Elastic Beanstalk returns a
--- MissingRequiredParameter error.
+-- either this or a @TemplateName@, but not both. If you specify both, AWS
+-- Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you
+-- do not specify either, AWS Elastic Beanstalk returns a
+-- @MissingRequiredParameter@ error.
 ceSolutionStackName :: Lens' CreateEnvironment (Maybe Text)
 ceSolutionStackName =
     lens _ceSolutionStackName (\s a -> s { _ceSolutionStackName = a })
@@ -187,11 +187,11 @@ ceTags = lens _ceTags (\s a -> s { _ceTags = a }) . _List
 
 -- | The name of the configuration template to use in deployment. If no
 -- configuration template is found with this name, AWS Elastic Beanstalk
--- returns an InvalidParameterValue error. Condition: You must specify
--- either this parameter or a SolutionStackName, but not both. If you
+-- returns an @InvalidParameterValue@ error. Condition: You must specify
+-- either this parameter or a @SolutionStackName@, but not both. If you
 -- specify both, AWS Elastic Beanstalk returns an
--- InvalidParameterCombination error. If you do not specify either, AWS
--- Elastic Beanstalk returns a MissingRequiredParameter error.
+-- @InvalidParameterCombination@ error. If you do not specify either, AWS
+-- Elastic Beanstalk returns a @MissingRequiredParameter@ error.
 ceTemplateName :: Lens' CreateEnvironment (Maybe Text)
 ceTemplateName = lens _ceTemplateName (\s a -> s { _ceTemplateName = a })
 
@@ -201,8 +201,8 @@ ceTier = lens _ceTier (\s a -> s { _ceTier = a })
 
 -- | The name of the application version to deploy. If the specified
 -- application has no associated application versions, AWS Elastic Beanstalk
--- UpdateEnvironment returns an InvalidParameterValue error. Default: If not
--- specified, AWS Elastic Beanstalk attempts to launch the sample
+-- @UpdateEnvironment@ returns an @InvalidParameterValue@ error. Default: If
+-- not specified, AWS Elastic Beanstalk attempts to launch the sample
 -- application in the container.
 ceVersionLabel :: Lens' CreateEnvironment (Maybe Text)
 ceVersionLabel = lens _ceVersionLabel (\s a -> s { _ceVersionLabel = a })
@@ -314,18 +314,18 @@ cerEnvironmentName =
     lens _cerEnvironmentName (\s a -> s { _cerEnvironmentName = a })
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
--- indicates the failure levels for a running environment: Red : Indicates
--- the environment is not working. Yellow: Indicates that something is
+-- indicates the failure levels for a running environment: @Red@ : Indicates
+-- the environment is not working. @Yellow@: Indicates that something is
 -- wrong, the application might not be available, but the instances appear
--- running. Green: Indicates the environment is healthy and fully
--- functional. Red: Indicates the environment is not responsive. Occurs when
--- three or more consecutive failures occur for an environment. Yellow:
--- Indicates that something is wrong. Occurs when two consecutive failures
--- occur for an environment. Green: Indicates the environment is healthy and
--- fully functional. Grey: Default health for a new environment. The
--- environment is not fully launched and health checks have not started or
--- health checks are suspended during an UpdateEnvironment or
--- RestartEnvironement request. Default: Grey.
+-- running. @Green@: Indicates the environment is healthy and fully
+-- functional. @Red@: Indicates the environment is not responsive. Occurs
+-- when three or more consecutive failures occur for an environment.
+-- @Yellow@: Indicates that something is wrong. Occurs when two consecutive
+-- failures occur for an environment. @Green@: Indicates the environment is
+-- healthy and fully functional. @Grey@: Default health for a new
+-- environment. The environment is not fully launched and health checks have
+-- not started or health checks are suspended during an @UpdateEnvironment@
+-- or @RestartEnvironement@ request. Default: @Grey@.
 cerHealth :: Lens' CreateEnvironmentResponse (Maybe EnvironmentHealth)
 cerHealth = lens _cerHealth (\s a -> s { _cerHealth = a })
 
@@ -333,17 +333,17 @@ cerHealth = lens _cerHealth (\s a -> s { _cerHealth = a })
 cerResources :: Lens' CreateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
 cerResources = lens _cerResources (\s a -> s { _cerResources = a })
 
--- | The name of the SolutionStack deployed with this environment.
+-- | The name of the @SolutionStack@ deployed with this environment.
 cerSolutionStackName :: Lens' CreateEnvironmentResponse (Maybe Text)
 cerSolutionStackName =
     lens _cerSolutionStackName (\s a -> s { _cerSolutionStackName = a })
 
--- | The current operational status of the environment: Launching: Environment
--- is in the process of initial deployment. Updating: Environment is in the
--- process of updating its configuration settings or application version.
--- Ready: Environment is available to have an action performed on it, such
--- as update or terminate. Terminating: Environment is in the shut-down
--- process. Terminated: Environment is not running.
+-- | The current operational status of the environment: @Launching@:
+-- Environment is in the process of initial deployment. @Updating@:
+-- Environment is in the process of updating its configuration settings or
+-- application version. @Ready@: Environment is available to have an action
+-- performed on it, such as update or terminate. @Terminating@: Environment
+-- is in the shut-down process. @Terminated@: Environment is not running.
 cerStatus :: Lens' CreateEnvironmentResponse (Maybe EnvironmentStatus)
 cerStatus = lens _cerStatus (\s a -> s { _cerStatus = a })
 

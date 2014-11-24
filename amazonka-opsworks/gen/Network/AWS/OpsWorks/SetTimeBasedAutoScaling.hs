@@ -72,7 +72,7 @@ setTimeBasedAutoScaling p1 = SetTimeBasedAutoScaling
     , _stbasAutoScalingSchedule = Nothing
     }
 
--- | An AutoScalingSchedule with the instance schedule.
+-- | An @AutoScalingSchedule@ with the instance schedule.
 stbasAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
 stbasAutoScalingSchedule =
     lens _stbasAutoScalingSchedule

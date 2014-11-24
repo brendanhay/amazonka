@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Revokes any permissions in the queue policy that matches the specified
--- Label parameter. Only the owner of the queue can remove permissions.
+-- @Label@ parameter. Only the owner of the queue can remove permissions.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_RemovePermission.html>
 module Network.AWS.SQS.RemovePermission

@@ -23,9 +23,9 @@
 -- | Returns all the log groups that are associated with the AWS account making
 -- the request. The list returned in the response is ASCII-sorted by log group
 -- name. By default, this operation returns up to 50 log groups. If there are
--- more log groups to list, the response would contain a nextToken value in
+-- more log groups to list, the response would contain a @nextToken@ value in
 -- the response body. You can also limit the number of log groups returned in
--- the response by specifying the limit parameter in the request.
+-- the response by specifying the @limit@ parameter in the request.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html>
 module Network.AWS.CloudWatchLogs.DescribeLogGroups
@@ -87,7 +87,7 @@ dlgLogGroupNamePrefix =
 
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the response of the previous
--- DescribeLogGroups request.
+-- @DescribeLogGroups@ request.
 dlgNextToken :: Lens' DescribeLogGroups (Maybe Text)
 dlgNextToken = lens _dlgNextToken (\s a -> s { _dlgNextToken = a })
 

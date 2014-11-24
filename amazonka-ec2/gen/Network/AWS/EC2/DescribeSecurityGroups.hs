@@ -86,21 +86,22 @@ describeSecurityGroups = DescribeSecurityGroups
 dsg1DryRun :: Lens' DescribeSecurityGroups (Maybe Bool)
 dsg1DryRun = lens _dsg1DryRun (\s a -> s { _dsg1DryRun = a })
 
--- | One or more filters. description - The description of the security group.
--- group-id - The ID of the security group. group-name - The name of the
--- security group. ip-permission.cidr - A CIDR range that has been granted
--- permission. ip-permission.from-port - The start of port range for the TCP
--- and UDP protocols, or an ICMP type number. ip-permission.group-id - The
--- ID of a security group that has been granted permission.
--- ip-permission.group-name - The name of a security group that has been
--- granted permission. ip-permission.protocol - The IP protocol for the
--- permission (tcp | udp | icmp or a protocol number). ip-permission.to-port
--- - The end of port range for the TCP and UDP protocols, or an ICMP code.
--- ip-permission.user-id - The ID of an AWS account that has been granted
--- permission. owner-id - The AWS account ID of the owner of the security
--- group. tag-key - The key of a tag assigned to the security group.
--- tag-value - The value of a tag assigned to the security group. vpc-id -
--- The ID of the VPC specified when the security group was created.
+-- | One or more filters. @description@ - The description of the security
+-- group. @group-id@ - The ID of the security group. @group-name@ - The name
+-- of the security group. @ip-permission.cidr@ - A CIDR range that has been
+-- granted permission. @ip-permission.from-port@ - The start of port range
+-- for the TCP and UDP protocols, or an ICMP type number.
+-- @ip-permission.group-id@ - The ID of a security group that has been
+-- granted permission. @ip-permission.group-name@ - The name of a security
+-- group that has been granted permission. @ip-permission.protocol@ - The IP
+-- protocol for the permission (@tcp@ | @udp@ | @icmp@ or a protocol
+-- number). @ip-permission.to-port@ - The end of port range for the TCP and
+-- UDP protocols, or an ICMP code. @ip-permission.user-id@ - The ID of an
+-- AWS account that has been granted permission. @owner-id@ - The AWS
+-- account ID of the owner of the security group. @tag-key@ - The key of a
+-- tag assigned to the security group. @tag-value@ - The value of a tag
+-- assigned to the security group. @vpc-id@ - The ID of the VPC specified
+-- when the security group was created.
 dsg1Filters :: Lens' DescribeSecurityGroups [Filter]
 dsg1Filters = lens _dsg1Filters (\s a -> s { _dsg1Filters = a }) . _List
 

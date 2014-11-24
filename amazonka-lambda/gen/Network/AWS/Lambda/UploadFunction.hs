@@ -25,7 +25,7 @@
 -- function is provided by a .zip file in the request body. If the function
 -- name already exists, the existing Lambda function is updated with the new
 -- code and metadata. This operation requires permission for the
--- lambda:UploadFunction action.
+-- @lambda:UploadFunction@ action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_UploadFunction.html>
 module Network.AWS.Lambda.UploadFunction

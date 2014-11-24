@@ -151,10 +151,10 @@ bwiReturnConsumedCapacity =
     lens _bwiReturnConsumedCapacity
         (\s a -> s { _bwiReturnConsumedCapacity = a })
 
--- | A value that if set to SIZE, the response includes statistics about item
--- collections, if any, that were modified during the operation are returned
--- in the response. If set to NONE (the default), no statistics are
--- returned.
+-- | A value that if set to @SIZE@, the response includes statistics about
+-- item collections, if any, that were modified during the operation are
+-- returned in the response. If set to @NONE@ (the default), no statistics
+-- are returned.
 bwiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollectionMetrics)
 bwiReturnItemCollectionMetrics =
     lens _bwiReturnItemCollectionMetrics

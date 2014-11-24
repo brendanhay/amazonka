@@ -27,15 +27,16 @@
 -- shards that played in a role in creating the shard. A sequence number is
 -- the identifier associated with every record ingested in the Amazon Kinesis
 -- stream. The sequence number is assigned when a record is put into the
--- stream. You can limit the number of returned shards using the Limit
+-- stream. You can limit the number of returned shards using the @Limit@
 -- parameter. The number of shards in a stream may be too large to return from
--- a single call to DescribeStream. You can detect this by using the
--- HasMoreShards flag in the returned output. HasMoreShards is set to true
--- when there is more data available. DescribeStream is a paginated operation.
--- If there are more shards available, you can request them using the shard ID
--- of the last shard returned. Specify this ID in the ExclusiveStartShardId
--- parameter in a subsequent request to DescribeStream. DescribeStream has a
--- limit of 10 transactions per second per account.
+-- a single call to @DescribeStream@. You can detect this by using the
+-- @HasMoreShards@ flag in the returned output. @HasMoreShards@ is set to
+-- @true@ when there is more data available. @DescribeStream@ is a paginated
+-- operation. If there are more shards available, you can request them using
+-- the shard ID of the last shard returned. Specify this ID in the
+-- @ExclusiveStartShardId@ parameter in a subsequent request to
+-- @DescribeStream@. @DescribeStream@ has a limit of 10 transactions per
+-- second per account.
 --
 -- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStream.html>
 module Network.AWS.Kinesis.DescribeStream

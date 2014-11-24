@@ -114,8 +114,8 @@ drdbiDBInstanceClass =
     lens _drdbiDBInstanceClass (\s a -> s { _drdbiDBInstanceClass = a })
 
 -- | The duration filter value, specified in years or seconds. Specify this
--- parameter to show only reservations for this duration. Valid Values: 1 |
--- 3 | 31536000 | 94608000.
+-- parameter to show only reservations for this duration. Valid Values: @1 |
+-- 3 | 31536000 | 94608000@.
 drdbiDuration :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdbiDuration = lens _drdbiDuration (\s a -> s { _drdbiDuration = a })
 
@@ -125,14 +125,14 @@ drdbiFilters = lens _drdbiFilters (\s a -> s { _drdbiFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by MaxRecords.
+-- marker, up to the value specified by @MaxRecords@.
 drdbiMarker :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdbiMarker = lens _drdbiMarker (\s a -> s { _drdbiMarker = a })
 
 -- | The maximum number of records to include in the response. If more than
--- the MaxRecords value is available, a pagination token called a marker is
--- included in the response so that the following results can be retrieved.
--- Default: 100 Constraints: minimum 20, maximum 100.
+-- the @MaxRecords@ value is available, a pagination token called a marker
+-- is included in the response so that the following results can be
+-- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 drdbiMaxRecords :: Lens' DescribeReservedDBInstances (Maybe Int)
 drdbiMaxRecords = lens _drdbiMaxRecords (\s a -> s { _drdbiMaxRecords = a })
 
@@ -143,7 +143,7 @@ drdbiMultiAZ = lens _drdbiMultiAZ (\s a -> s { _drdbiMultiAZ = a })
 
 -- | The offering type filter value. Specify this parameter to show only the
 -- available offerings matching the specified offering type. Valid Values:
--- "Light Utilization" | "Medium Utilization" | "Heavy Utilization".
+-- @"Light Utilization" | "Medium Utilization" | "Heavy Utilization" @.
 drdbiOfferingType :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdbiOfferingType =
     lens _drdbiOfferingType (\s a -> s { _drdbiOfferingType = a })
@@ -189,7 +189,7 @@ describeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by MaxRecords.
+-- marker, up to the value specified by @MaxRecords@.
 drdbirMarker :: Lens' DescribeReservedDBInstancesResponse (Maybe Text)
 drdbirMarker = lens _drdbirMarker (\s a -> s { _drdbirMarker = a })
 

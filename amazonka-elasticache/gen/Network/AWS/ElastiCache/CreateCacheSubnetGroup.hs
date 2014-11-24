@@ -82,7 +82,7 @@ ccsgCacheSubnetGroupDescription =
 
 -- | A name for the cache subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric
--- characters or hyphens. Example: mysubnetgroup.
+-- characters or hyphens. Example: @mysubnetgroup@.
 ccsgCacheSubnetGroupName :: Lens' CreateCacheSubnetGroup Text
 ccsgCacheSubnetGroupName =
     lens _ccsgCacheSubnetGroupName

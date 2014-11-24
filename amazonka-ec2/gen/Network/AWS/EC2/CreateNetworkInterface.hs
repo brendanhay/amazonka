@@ -108,7 +108,7 @@ cniGroups = lens _cniGroups (\s a -> s { _cniGroups = a }) . _List
 -- | The primary private IP address of the network interface. If you don't
 -- specify an IP address, Amazon EC2 selects one for you from the subnet
 -- range. If you specify an IP address, you cannot indicate any IP addresses
--- specified in privateIpAddresses as primary (only one IP address can be
+-- specified in @privateIpAddresses@ as primary (only one IP address can be
 -- designated as primary).
 cniPrivateIpAddress :: Lens' CreateNetworkInterface (Maybe Text)
 cniPrivateIpAddress =
@@ -124,7 +124,7 @@ cniPrivateIpAddresses =
 -- interface. When you specify a number of secondary IP addresses, Amazon
 -- EC2 selects these IP addresses within the subnet range. You can't specify
 -- this option and specify more than one private IP address using
--- privateIpAddresses. The number of IP addresses you can assign to a
+-- @privateIpAddresses@. The number of IP addresses you can assign to a
 -- network interface varies by instance type. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI
 -- Private IP Addresses Per ENI Per Instance Type> in the /Amazon Elastic

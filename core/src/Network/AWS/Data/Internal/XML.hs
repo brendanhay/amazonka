@@ -1,7 +1,6 @@
 {-# LANGUAGE DefaultSignatures   #-}
 {-# LANGUAGE LambdaCase          #-}
 {-# LANGUAGE OverloadedStrings   #-}
-{-# LANGUAGE RecordWildCards     #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
 -- Module      : Network.AWS.Data.Internal.XML

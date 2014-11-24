@@ -87,7 +87,7 @@ region = NorthVirginia
 
 -- | Required due to errorneous date in the aws4 test suite.
 locale :: TimeLocale
-locale = defaultTimeLocale { wDays = cycle [("Monday", "Mon")] }
+locale = defaultTimeLocale { wDays = repeat ("Monday", "Mon") }
 
 tests :: FilePath -> IO TestTree
 tests dir = do

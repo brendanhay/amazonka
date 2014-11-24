@@ -1,7 +1,5 @@
-{-# LANGUAGE DefaultSignatures          #-}
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE DefaultSignatures #-}
+{-# LANGUAGE FlexibleInstances #-}
 
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -25,7 +23,6 @@ module Network.AWS.Data.Internal.ByteString
     ) where
 
 import           Crypto.Hash
-import           Data.Aeson
 import           Data.ByteString                (ByteString)
 import qualified Data.ByteString.Base64         as Base64
 import           Data.ByteString.Builder        (Builder)
@@ -39,7 +36,6 @@ import           Data.Int
 import           Data.Text                      (Text)
 import qualified Data.Text.Encoding             as Text
 import           Data.Time                      (UTCTime)
-import           GHC.Generics
 import           Network.AWS.Data.Internal.Text
 import           Network.HTTP.Types.Method
 import           Numeric.Natural

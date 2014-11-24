@@ -31,7 +31,6 @@ module Network.AWS.Data.Internal.JSON
     ) where
 
 import           Data.Aeson.Types
-import           Data.HashMap.Strict            (HashMap)
 import qualified Data.HashMap.Strict            as Map
 import           Data.Text                      (Text)
 import           Network.AWS.Data.Internal.Text

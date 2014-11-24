@@ -108,7 +108,7 @@ getAuth m = \case
     FromSession a s t -> return (fromSession a s t)
     FromProfile n     -> show `withExceptT` fromProfileName m n
     FromEnv     a s   -> fromEnvVars a s
-    Discover          -> fromEnv `catchError` const (iam `catchError` (const err))
+    Discover          -> fromEnv `catchError` const (iam `catchError` const err)
       where
         iam = show `withExceptT` fromProfile m
         err = throwError "Unable to read environment variables or IAM profile."

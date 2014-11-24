@@ -22,7 +22,7 @@ module Network.AWS.Error
     -- * Status Checks
       statusSuccess
 
-    -- * REST
+    -- * REST Errors
     , ErrorType (..)
     , RESTError
     , restRequestId
@@ -30,7 +30,7 @@ module Network.AWS.Error
     , restMessage
     , restError
 
-    -- * JSON
+    -- * JSON Errors
     , JSONError
     , jsonType
     , jsonMessage

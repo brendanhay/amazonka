@@ -119,7 +119,7 @@ dgirGatewayARN = lens _dgirGatewayARN (\s a -> s { _dgirGatewayARN = a })
 dgirGatewayId :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirGatewayId = lens _dgirGatewayId (\s a -> s { _dgirGatewayId = a })
 
--- | A NetworkInterface> array that contains descriptions of the gateway
+-- | A 'NetworkInterface' array that contains descriptions of the gateway
 -- network interfaces.
 dgirGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse [NetworkInterface]
 dgirGatewayNetworkInterfaces =

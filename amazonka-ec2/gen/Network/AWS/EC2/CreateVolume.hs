@@ -115,7 +115,7 @@ createVolume p1 = CreateVolume
     }
 
 -- | The Availability Zone in which to create the volume. Use
--- DescribeAvailabilityZones> to list the Availability Zones that are
+-- 'DescribeAvailabilityZones' to list the Availability Zones that are
 -- currently available to you.
 cv1AvailabilityZone :: Lens' CreateVolume Text
 cv1AvailabilityZone =

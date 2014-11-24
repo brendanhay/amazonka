@@ -23,7 +23,7 @@
 -- | Creates an Auto Scaling group with the specified name and attributes. If
 -- you exceed your maximum limit of Auto Scaling groups, which by default is
 -- 20 per region, the call fails. For information about viewing and updating
--- these limits, see DescribeAccountLimits>.
+-- these limits, see 'DescribeAccountLimits'.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateAutoScalingGroup.html>
 module Network.AWS.AutoScaling.CreateAutoScalingGroup

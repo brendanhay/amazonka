@@ -85,11 +85,11 @@ addJobFlowSteps p1 = AddJobFlowSteps
     }
 
 -- | A string that uniquely identifies the job flow. This identifier is
--- returned by RunJobFlow> and can also be obtained from ListClusters>.
+-- returned by 'RunJobFlow' and can also be obtained from 'ListClusters'.
 ajfsJobFlowId :: Lens' AddJobFlowSteps Text
 ajfsJobFlowId = lens _ajfsJobFlowId (\s a -> s { _ajfsJobFlowId = a })
 
--- | A list of StepConfig> to be executed by the job flow.
+-- | A list of 'StepConfig' to be executed by the job flow.
 ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
 ajfsSteps = lens _ajfsSteps (\s a -> s { _ajfsSteps = a }) . _List
 

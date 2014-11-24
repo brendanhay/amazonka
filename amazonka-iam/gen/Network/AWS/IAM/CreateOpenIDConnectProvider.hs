@@ -139,7 +139,7 @@ createOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that
--- was created. For more information, see OpenIDConnectProviderListEntry>.
+-- was created. For more information, see 'OpenIDConnectProviderListEntry'.
 coidcprOpenIDConnectProviderArn :: Lens' CreateOpenIDConnectProviderResponse (Maybe Text)
 coidcprOpenIDConnectProviderArn =
     lens _coidcprOpenIDConnectProviderArn

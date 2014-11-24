@@ -56,19 +56,19 @@
 -- with the identity token. In other words, the identity provider must be
 -- specified in the role's trust policy. For more information about how to use
 -- web identity federation and the @AssumeRoleWithWebIdentity@, see the
--- following resources: Creating a Mobile Application with Third-Party
--- Sign-In> and Creating Temporary Security Credentials for Mobile Apps Using
--- Third-Party Identity Providers> in /Using Temporary Security Credentials/.
--- Web Identity Federation Playground>. This interactive website lets you walk
+-- following resources: Creating a Mobile Application with Third-Party Sign-In
+-- and Creating Temporary Security Credentials for Mobile Apps Using
+-- Third-Party Identity Providers in /Using Temporary Security Credentials/.
+-- Web Identity Federation Playground. This interactive website lets you walk
 -- through the process of authenticating via Login with Amazon, Facebook, or
 -- Google, getting temporary security credentials, and then using those
 -- credentials to make a request to AWS. <http://aws.amazon.com/sdkforios/ AWS
--- SDK for iOS> and AWS SDK for Android>. These toolkits contain sample apps
+-- SDK for iOS> and AWS SDK for Android. These toolkits contain sample apps
 -- that show how to invoke the identity providers, and then how to use the
 -- information from these providers to get and use temporary security
--- credentials. Web Identity Federation with Mobile Applications>. This
--- article discusses web identity federation and shows an example of how to
--- use web identity federation to get access to content in Amazon S3.
+-- credentials. Web Identity Federation with Mobile Applications. This article
+-- discusses web identity federation and shows an example of how to use web
+-- identity federation to get access to content in Amazon S3.
 --
 -- <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html>
 module Network.AWS.STS.AssumeRoleWithWebIdentity

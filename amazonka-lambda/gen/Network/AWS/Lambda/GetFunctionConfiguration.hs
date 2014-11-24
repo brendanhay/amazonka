@@ -22,7 +22,7 @@
 
 -- | Returns the configuration information of the Lambda function. This the same
 -- information you provided as parameters when uploading the function by using
--- UploadFunction>. This operation requires permission for the
+-- 'UploadFunction'. This operation requires permission for the
 -- @lambda:GetFunctionConfiguration@ operation.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html>

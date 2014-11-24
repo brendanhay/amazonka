@@ -79,8 +79,8 @@ setTerminationProtection p1 = SetTerminationProtection
     }
 
 -- | A list of strings that uniquely identify the job flows to protect. This
--- identifier is returned by RunJobFlow> and can also be obtained from
--- DescribeJobFlows> .
+-- identifier is returned by 'RunJobFlow' and can also be obtained from
+-- 'DescribeJobFlows' .
 stpJobFlowIds :: Lens' SetTerminationProtection [Text]
 stpJobFlowIds = lens _stpJobFlowIds (\s a -> s { _stpJobFlowIds = a }) . _List
 

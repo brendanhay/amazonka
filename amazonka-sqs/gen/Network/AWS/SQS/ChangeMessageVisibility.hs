@@ -96,7 +96,7 @@ cmvQueueUrl :: Lens' ChangeMessageVisibility Text
 cmvQueueUrl = lens _cmvQueueUrl (\s a -> s { _cmvQueueUrl = a })
 
 -- | The receipt handle associated with the message whose visibility timeout
--- should be changed. This parameter is returned by the ReceiveMessage>
+-- should be changed. This parameter is returned by the 'ReceiveMessage'
 -- action.
 cmvReceiptHandle :: Lens' ChangeMessageVisibility Text
 cmvReceiptHandle = lens _cmvReceiptHandle (\s a -> s { _cmvReceiptHandle = a })

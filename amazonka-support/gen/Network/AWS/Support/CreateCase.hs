@@ -27,18 +27,18 @@
 -- type of issue for the case. You can specify either "customer-service" or
 -- "technical." If you do not indicate a value, the default is "technical."
 -- ServiceCode. The code for an AWS service. You obtain the @ServiceCode@ by
--- calling DescribeServices>. CategoryCode. The category for the service
+-- calling 'DescribeServices'. CategoryCode. The category for the service
 -- defined for the @ServiceCode@ value. You also obtain the category code for
--- a service by calling DescribeServices>. Each AWS service defines its own
+-- a service by calling 'DescribeServices'. Each AWS service defines its own
 -- set of category codes. SeverityCode. A value that indicates the urgency of
 -- the case, which in turn determines the response time according to your
 -- service level agreement with AWS Support. You obtain the SeverityCode by
--- calling DescribeSeverityLevels>. Subject. The Subject field on the AWS
+-- calling 'DescribeSeverityLevels'. Subject. The Subject field on the AWS
 -- Support Center <https://aws.amazon.com/support/createCase Open a new case>
 -- page. CommunicationBody. The Description field on the AWS Support Center
 -- <https://aws.amazon.com/support/createCase Open a new case> page.
 -- AttachmentSetId. The ID of a set of attachments that has been created by
--- using AddAttachmentsToSet>. Language. The human language in which AWS
+-- using 'AddAttachmentsToSet'. Language. The human language in which AWS
 -- Support handles the case. English and Japanese are currently supported.
 -- CcEmailAddresses. The AWS Support Center CC field on the
 -- <https://aws.amazon.com/support/createCase Open a new case> page. You can
@@ -46,9 +46,9 @@
 -- account that opens the case is already identified by passing the AWS
 -- Credentials in the HTTP POST method or in a method or function call from
 -- one of the programming languages supported by an
--- <http://aws.amazon.com/tools/ AWS SDK>. A successful CreateCase> request
+-- <http://aws.amazon.com/tools/ AWS SDK>. A successful 'CreateCase' request
 -- returns an AWS Support case number. Case numbers are used by the
--- DescribeCases> operation to retrieve existing AWS Support cases.
+-- 'DescribeCases' operation to retrieve existing AWS Support cases.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_CreateCase.html>
 module Network.AWS.Support.CreateCase
@@ -131,7 +131,7 @@ createCase p1 p2 = CreateCase
     }
 
 -- | The ID of a set of one or more attachments for the case. Create the set
--- by using AddAttachmentsToSet>.
+-- by using 'AddAttachmentsToSet'.
 ccAttachmentSetId :: Lens' CreateCase (Maybe Text)
 ccAttachmentSetId =
     lens _ccAttachmentSetId (\s a -> s { _ccAttachmentSetId = a })
@@ -147,7 +147,7 @@ ccCcEmailAddresses =
         . _List
 
 -- | The communication body text when you create an AWS Support case by
--- calling CreateCase>.
+-- calling 'CreateCase'.
 ccCommunicationBody :: Lens' CreateCase Text
 ccCommunicationBody =
     lens _ccCommunicationBody (\s a -> s { _ccCommunicationBody = a })
@@ -164,12 +164,12 @@ ccIssueType = lens _ccIssueType (\s a -> s { _ccIssueType = a })
 ccLanguage :: Lens' CreateCase (Maybe Text)
 ccLanguage = lens _ccLanguage (\s a -> s { _ccLanguage = a })
 
--- | The code for the AWS service returned by the call to DescribeServices>.
+-- | The code for the AWS service returned by the call to 'DescribeServices'.
 ccServiceCode :: Lens' CreateCase (Maybe Text)
 ccServiceCode = lens _ccServiceCode (\s a -> s { _ccServiceCode = a })
 
 -- | The code for the severity level returned by the call to
--- DescribeSeverityLevels>.
+-- 'DescribeSeverityLevels'.
 ccSeverityCode :: Lens' CreateCase (Maybe Text)
 ccSeverityCode = lens _ccSeverityCode (\s a -> s { _ccSeverityCode = a })
 

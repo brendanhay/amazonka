@@ -114,7 +114,7 @@ csscsivGatewayARN =
     lens _csscsivGatewayARN (\s a -> s { _csscsivGatewayARN = a })
 
 -- | The network interface of the gateway on which to expose the iSCSI target.
--- Only IPv4 addresses are accepted. Use DescribeGatewayInformation> to get
+-- Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get
 -- a list of the network interfaces available on a gateway. /Valid Values/:
 -- A valid IP address.
 csscsivNetworkInterfaceId :: Lens' CreateStorediSCSIVolume Text

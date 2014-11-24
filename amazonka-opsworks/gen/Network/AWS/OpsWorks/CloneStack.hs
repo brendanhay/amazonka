@@ -290,7 +290,7 @@ cs1Region = lens _cs1Region (\s a -> s { _cs1Region = a })
 -- parameter to the Amazon Resource Name (ARN) for an existing IAM role. If
 -- you create a stack by using the AWS OpsWorks console, it creates the role
 -- for you. You can obtain an existing stack's IAM ARN programmatically by
--- calling DescribePermissions>. For more information about IAM ARNs, see
+-- calling 'DescribePermissions'. For more information about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
 -- Using Identifiers>.
 cs1ServiceRoleArn :: Lens' CloneStack Text

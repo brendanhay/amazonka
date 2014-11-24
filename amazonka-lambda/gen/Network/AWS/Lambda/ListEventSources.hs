@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of event source mappings. For each mapping, the API returns
--- configuration information (see AddEventSource>). You can optionally specify
--- filters to retrieve specific event source mappings. This operation requires
--- permission for the @lambda:ListEventSources@ action.
+-- configuration information (see 'AddEventSource'). You can optionally
+-- specify filters to retrieve specific event source mappings. This operation
+-- requires permission for the @lambda:ListEventSources@ action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_ListEventSources.html>
 module Network.AWS.Lambda.ListEventSources

@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Changes the visibility timeout of multiple messages. This is a batch
--- version of ChangeMessageVisibility>. The result of the action on each
+-- version of 'ChangeMessageVisibility'. The result of the action on each
 -- message is reported individually in the response. You can send up to 10
--- ChangeMessageVisibility> requests with each @ChangeMessageVisibilityBatch@
+-- 'ChangeMessageVisibility' requests with each @ChangeMessageVisibilityBatch@
 -- action. Because the batch request can result in a combination of successful
 -- and unsuccessful actions, you should check for batch errors even when the
 -- call returns an HTTP status code of 200. @&Attribute.1=this@
@@ -102,11 +102,11 @@ changeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
     , _cmvbrFailed     = mempty
     }
 
--- | A list of BatchResultErrorEntry> items.
+-- | A list of 'BatchResultErrorEntry' items.
 cmvbrFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
 cmvbrFailed = lens _cmvbrFailed (\s a -> s { _cmvbrFailed = a }) . _List
 
--- | A list of ChangeMessageVisibilityBatchResultEntry> items.
+-- | A list of 'ChangeMessageVisibilityBatchResultEntry' items.
 cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
 cmvbrSuccessful = lens _cmvbrSuccessful (\s a -> s { _cmvbrSuccessful = a }) . _List
 

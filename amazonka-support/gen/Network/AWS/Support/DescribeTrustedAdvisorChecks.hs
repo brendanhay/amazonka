@@ -23,7 +23,7 @@
 -- | Returns information about all available Trusted Advisor checks, including
 -- name, ID, category, description, and metadata. You must specify a language
 -- code; English ("en") and Japanese ("ja") are currently supported. The
--- response contains a TrustedAdvisorCheckDescription> for each check.
+-- response contains a 'TrustedAdvisorCheckDescription' for each check.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorChecks.html>
 module Network.AWS.Support.DescribeTrustedAdvisorChecks

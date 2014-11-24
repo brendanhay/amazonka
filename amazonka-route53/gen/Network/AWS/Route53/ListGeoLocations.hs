@@ -99,7 +99,8 @@ lglMaxItems = lens _lglMaxItems (\s a -> s { _lglMaxItems = a })
 -- that you want the @ListGeoLocations@ request to list. For non-continent
 -- geo locations, this should be null. Valid values: @AF@ | @AN@ | @AS@ |
 -- @EU@ | @OC@ | @NA@ | @SA@ Constraint: Specifying @ContinentCode@ with
--- either @CountryCode@ or @SubdivisionCode@ returns an InvalidInput> error.
+-- either @CountryCode@ or @SubdivisionCode@ returns an 'InvalidInput'
+-- error.
 lglStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartContinentCode =
     lens _lglStartContinentCode (\s a -> s { _lglStartContinentCode = a })
@@ -115,7 +116,7 @@ lglStartCountryCode =
 -- | The first subdivision code in the lexicographic ordering of geo locations
 -- that you want the @ListGeoLocations@ request to list. Constraint:
 -- Specifying @SubdivisionCode@ without @CountryCode@ returns an
--- InvalidInput> error.
+-- 'InvalidInput' error.
 lglStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartSubdivisionCode =
     lens _lglStartSubdivisionCode (\s a -> s { _lglStartSubdivisionCode = a })
@@ -168,9 +169,9 @@ lglrGeoLocationDetailsList =
 -- | A flag that indicates whether there are more geo locations to be listed.
 -- If your results were truncated, you can make a follow-up request for the
 -- next page of results by using the values included in the
--- ListGeoLocationsResponse$NextContinentCode>,
--- ListGeoLocationsResponse$NextCountryCode> and
--- ListGeoLocationsResponse$NextSubdivisionCode> elements. Valid Values:
+-- 'ListGeoLocationsResponse$NextContinentCode',
+-- 'ListGeoLocationsResponse$NextCountryCode' and
+-- 'ListGeoLocationsResponse$NextSubdivisionCode' elements. Valid Values:
 -- @true@ | @false@.
 lglrIsTruncated :: Lens' ListGeoLocationsResponse Bool
 lglrIsTruncated = lens _lglrIsTruncated (\s a -> s { _lglrIsTruncated = a })
@@ -182,7 +183,7 @@ lglrMaxItems = lens _lglrMaxItems (\s a -> s { _lglrMaxItems = a })
 
 -- | If the results were truncated, the continent code of the next geo
 -- location in the list. This element is present only if
--- ListGeoLocationsResponse$IsTruncated> is true and the next geo location
+-- 'ListGeoLocationsResponse$IsTruncated' is true and the next geo location
 -- to list is a continent location.
 lglrNextContinentCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrNextContinentCode =
@@ -190,7 +191,7 @@ lglrNextContinentCode =
 
 -- | If the results were truncated, the country code of the next geo location
 -- in the list. This element is present only if
--- ListGeoLocationsResponse$IsTruncated> is true and the next geo location
+-- 'ListGeoLocationsResponse$IsTruncated' is true and the next geo location
 -- to list is not a continent location.
 lglrNextCountryCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrNextCountryCode =
@@ -198,7 +199,7 @@ lglrNextCountryCode =
 
 -- | If the results were truncated, the subdivision code of the next geo
 -- location in the list. This element is present only if
--- ListGeoLocationsResponse$IsTruncated> is true and the next geo location
+-- 'ListGeoLocationsResponse$IsTruncated' is true and the next geo location
 -- has a subdivision.
 lglrNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrNextSubdivisionCode =

@@ -23,8 +23,8 @@
 -- | Creates a configuration template. Templates are associated with a specific
 -- application and are used to deploy different versions of the application
 -- with the same configuration settings. Related Topics
--- DescribeConfigurationOptions> DescribeConfigurationSettings>
--- ListAvailableSolutionStacks>.
+-- 'DescribeConfigurationOptions' 'DescribeConfigurationSettings'
+-- 'ListAvailableSolutionStacks'.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateConfigurationTemplate.html>
 module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
@@ -131,7 +131,7 @@ cctOptionSettings =
 -- stack specifies the operating system, architecture, and application
 -- server for a configuration template. It determines the set of
 -- configuration options as well as the possible and default values. Use
--- ListAvailableSolutionStacks> to obtain a list of available solution
+-- 'ListAvailableSolutionStacks' to obtain a list of available solution
 -- stacks. A solution stack name or a source configuration parameter must be
 -- specified, otherwise AWS Elastic Beanstalk returns an
 -- @InvalidParameterValue@ error. If a solution stack name is not specified

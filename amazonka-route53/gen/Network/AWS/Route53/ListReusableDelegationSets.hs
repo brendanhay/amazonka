@@ -145,16 +145,16 @@ lrdsrMarker = lens _lrdsrMarker (\s a -> s { _lrdsrMarker = a })
 -- | The maximum number of reusable delegation sets to be included in the
 -- response body. If the number of reusable delegation sets associated with
 -- this AWS account exceeds @MaxItems@, the value of
--- ListReusablDelegationSetsResponse$IsTruncated> in the response is @true@.
--- Call @ListReusableDelegationSets@ again and specify the value of
--- ListReusableDelegationSetsResponse$NextMarker> in the
--- ListReusableDelegationSetsRequest$Marker> element to get the next page of
--- results.
+-- 'ListReusablDelegationSetsResponse$IsTruncated' in the response is
+-- @true@. Call @ListReusableDelegationSets@ again and specify the value of
+-- 'ListReusableDelegationSetsResponse$NextMarker' in the
+-- 'ListReusableDelegationSetsRequest$Marker' element to get the next page
+-- of results.
 lrdsrMaxItems :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrMaxItems = lens _lrdsrMaxItems (\s a -> s { _lrdsrMaxItems = a })
 
 -- | Indicates where to continue listing reusable delegation sets. If
--- ListReusableDelegationSetsResponse$IsTruncated> is @true@, make another
+-- 'ListReusableDelegationSetsResponse$IsTruncated' is @true@, make another
 -- request to @ListReusableDelegationSets@ and include the value of the
 -- @NextMarker@ element in the @Marker@ element to get the next page of
 -- results.

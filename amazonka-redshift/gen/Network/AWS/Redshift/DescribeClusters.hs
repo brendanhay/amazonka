@@ -101,7 +101,7 @@ dcClusterIdentifier =
     lens _dcClusterIdentifier (\s a -> s { _dcClusterIdentifier = a })
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusters> request
+-- of response records. When the results of a 'DescribeClusters' request
 -- exceed the value specified in @MaxRecords@, AWS returns a value in the
 -- @Marker@ field of the response. You can retrieve the next set of response
 -- records by providing the returned marker value in the @Marker@ parameter
@@ -156,7 +156,7 @@ describeClustersResponse = DescribeClustersResponse
     , _dcrClusters = mempty
     }
 
--- | A list of Cluster> objects, where each object describes one cluster.
+-- | A list of 'Cluster' objects, where each object describes one cluster.
 dcrClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrClusters = lens _dcrClusters (\s a -> s { _dcrClusters = a }) . _List
 

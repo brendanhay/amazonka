@@ -22,7 +22,7 @@
 
 -- | Updates the specified configuration template to have the specified
 -- properties or configuration option values. Related Topics
--- DescribeConfigurationOptions>.
+-- 'DescribeConfigurationOptions'.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateConfigurationTemplate.html>
 module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate

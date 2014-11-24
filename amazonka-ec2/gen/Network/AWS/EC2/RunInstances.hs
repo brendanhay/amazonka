@@ -23,7 +23,7 @@
 -- | Launches the specified number of instances using an AMI for which you have
 -- permissions. When you launch an instance, it enters the @pending@ state.
 -- After the instance is ready for you, it enters the @running@ state. To
--- check the state of your instance, call DescribeInstances>. If you don't
+-- check the state of your instance, call 'DescribeInstances'. If you don't
 -- specify a security group when launching an instance, Amazon EC2 uses the
 -- default security group. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html
@@ -225,7 +225,7 @@ riClientToken = lens _riClientToken (\s a -> s { _riClientToken = a })
 -- using the Amazon EC2 console, CLI, or API; otherwise, you can. If you set
 -- this parameter to @true@ and then later want to be able to terminate the
 -- instance, you must first change the value of the @disableApiTermination@
--- attribute to @false@ using ModifyInstanceAttribute>. Alternatively, if
+-- attribute to @false@ using 'ModifyInstanceAttribute'. Alternatively, if
 -- you set @InstanceInitiatedShutdownBehavior@ to @terminate@, you can
 -- terminate the instance by running the shutdown command from the instance.
 -- Default: @false@.
@@ -249,7 +249,7 @@ riIamInstanceProfile :: Lens' RunInstances (Maybe IamInstanceProfileSpecificatio
 riIamInstanceProfile =
     lens _riIamInstanceProfile (\s a -> s { _riIamInstanceProfile = a })
 
--- | The ID of the AMI, which you can get by calling DescribeImages>.
+-- | The ID of the AMI, which you can get by calling 'DescribeImages'.
 riImageId :: Lens' RunInstances Text
 riImageId = lens _riImageId (\s a -> s { _riImageId = a })
 
@@ -275,8 +275,8 @@ riInstanceType = lens _riInstanceType (\s a -> s { _riInstanceType = a })
 riKernelId :: Lens' RunInstances (Maybe Text)
 riKernelId = lens _riKernelId (\s a -> s { _riKernelId = a })
 
--- | The name of the key pair. You can create a key pair using CreateKeyPair>
--- or ImportKeyPair>. If you launch an instance without specifying a key
+-- | The name of the key pair. You can create a key pair using 'CreateKeyPair'
+-- or 'ImportKeyPair'. If you launch an instance without specifying a key
 -- pair, you can't connect to the instance.
 riKeyName :: Lens' RunInstances (Maybe Text)
 riKeyName = lens _riKeyName (\s a -> s { _riKeyName = a })
@@ -336,7 +336,7 @@ riRamdiskId :: Lens' RunInstances (Maybe Text)
 riRamdiskId = lens _riRamdiskId (\s a -> s { _riRamdiskId = a })
 
 -- | One or more security group IDs. You can create a security group using
--- CreateSecurityGroup>. Default: Amazon EC2 uses the default security
+-- 'CreateSecurityGroup'. Default: Amazon EC2 uses the default security
 -- group.
 riSecurityGroupIds :: Lens' RunInstances [Text]
 riSecurityGroupIds =

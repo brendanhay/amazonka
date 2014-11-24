@@ -23,7 +23,7 @@
 -- | If you want to learn why a health check is currently failing or why it
 -- failed most recently (if at all), you can get the failure reason for the
 -- most recent failure. Send a @GET@ request to the
--- @2013-04-01/healthcheck//health check ID//lastfailurereason@ resource.
+-- @2013-04-01/healthcheck//health check ID//lastfailurereason resource.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckLastFailureReason.html>
 module Network.AWS.Route53.GetHealthCheckLastFailureReason

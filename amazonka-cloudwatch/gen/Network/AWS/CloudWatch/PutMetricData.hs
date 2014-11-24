@@ -23,7 +23,7 @@
 -- | Publishes metric data points to Amazon CloudWatch. Amazon Cloudwatch
 -- associates the data points with the specified metric. If the specified
 -- metric does not exist, Amazon CloudWatch creates the metric. It can take up
--- to fifteen minutes for a new metric to appear in calls to the ListMetrics>
+-- to fifteen minutes for a new metric to appear in calls to the 'ListMetrics'
 -- action. The size of a PutMetricData request is limited to 8 KB for HTTP GET
 -- requests and 40 KB for HTTP POST requests. Although the @Value@ parameter
 -- accepts numbers of type @Double@, Amazon CloudWatch truncates values with

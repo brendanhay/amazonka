@@ -66,7 +66,7 @@ getOpenIDConnectProvider p1 = GetOpenIDConnectProvider
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to get information for. You can get a list of OIDC provider ARNs by using
--- the ListOpenIDConnectProviders> action.
+-- the 'ListOpenIDConnectProviders' action.
 goidcpOpenIDConnectProviderArn :: Lens' GetOpenIDConnectProvider Text
 goidcpOpenIDConnectProviderArn =
     lens _goidcpOpenIDConnectProviderArn
@@ -101,7 +101,7 @@ getOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse
 
 -- | A list of client IDs (also known as audiences) that are associated with
 -- the specified IAM OpenID Connect provider. For more information, see
--- CreateOpenIDConnectProvider>.
+-- 'CreateOpenIDConnectProvider'.
 goidcprClientIDList :: Lens' GetOpenIDConnectProviderResponse [Text]
 goidcprClientIDList =
     lens _goidcprClientIDList (\s a -> s { _goidcprClientIDList = a })
@@ -116,14 +116,14 @@ goidcprCreateDate =
 
 -- | A list of certificate thumbprints that are associated with the specified
 -- IAM OpenID Connect provider. For more information, see
--- CreateOpenIDConnectProvider>.
+-- 'CreateOpenIDConnectProvider'.
 goidcprThumbprintList :: Lens' GetOpenIDConnectProviderResponse [Text]
 goidcprThumbprintList =
     lens _goidcprThumbprintList (\s a -> s { _goidcprThumbprintList = a })
         . _List
 
 -- | The URL that the IAM OpenID Connect provider is associated with. For more
--- information, see CreateOpenIDConnectProvider>.
+-- information, see 'CreateOpenIDConnectProvider'.
 goidcprUrl :: Lens' GetOpenIDConnectProviderResponse (Maybe Text)
 goidcprUrl = lens _goidcprUrl (\s a -> s { _goidcprUrl = a })
 

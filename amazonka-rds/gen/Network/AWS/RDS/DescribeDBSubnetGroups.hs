@@ -122,7 +122,7 @@ describeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
     , _ddbsgrDBSubnetGroups = mempty
     }
 
--- | A list of DBSubnetGroup> instances.
+-- | A list of 'DBSubnetGroup' instances.
 ddbsgrDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
 ddbsgrDBSubnetGroups =
     lens _ddbsgrDBSubnetGroups (\s a -> s { _ddbsgrDBSubnetGroups = a })

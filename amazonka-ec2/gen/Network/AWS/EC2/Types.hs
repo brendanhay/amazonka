@@ -2475,7 +2475,7 @@ inisDescription :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
 inisDescription = lens _inisDescription (\s a -> s { _inisDescription = a })
 
 -- | The index of the device on the instance for the network interface
--- attachment. If you are specifying a network interface in a RunInstances>
+-- attachment. If you are specifying a network interface in a 'RunInstances'
 -- request, you must provide the device index.
 inisDeviceIndex :: Lens' InstanceNetworkInterfaceSpecification (Maybe Int)
 inisDeviceIndex = lens _inisDeviceIndex (\s a -> s { _inisDeviceIndex = a })
@@ -5337,8 +5337,8 @@ keyPairInfo = KeyPairInfo
     , _kpiKeyFingerprint = Nothing
     }
 
--- | If you used CreateKeyPair> to create the key pair, this is the SHA-1
--- digest of the DER encoded private key. If you used ImportKeyPair> to
+-- | If you used 'CreateKeyPair' to create the key pair, this is the SHA-1
+-- digest of the DER encoded private key. If you used 'ImportKeyPair' to
 -- provide AWS the public key, this is the MD5 public key fingerprint as
 -- specified in section 4 of RFC4716.
 kpiKeyFingerprint :: Lens' KeyPairInfo (Maybe Text)
@@ -8406,7 +8406,7 @@ ipPermission p1 p2 p3 = IpPermission
 ipFromPort :: Lens' IpPermission Int
 ipFromPort = lens _ipFromPort (\s a -> s { _ipFromPort = a })
 
--- | The protocol. When you call DescribeSecurityGroups>, the protocol value
+-- | The protocol. When you call 'DescribeSecurityGroups', the protocol value
 -- returned is the number. Exception: For TCP, UDP, and ICMP, the value
 -- returned is the name (for example, @tcp@, @udp@, or @icmp@). For a list
 -- of protocol numbers, see
@@ -9172,8 +9172,8 @@ isEvents = lens _isEvents (\s a -> s { _isEvents = a }) . _List
 isInstanceId :: Lens' InstanceStatus (Maybe Text)
 isInstanceId = lens _isInstanceId (\s a -> s { _isInstanceId = a })
 
--- | The intended state of the instance. DescribeInstanceStatus> requires that
--- an instance be in the @running@ state.
+-- | The intended state of the instance. 'DescribeInstanceStatus' requires
+-- that an instance be in the @running@ state.
 isInstanceState :: Lens' InstanceStatus (Maybe InstanceState)
 isInstanceState = lens _isInstanceState (\s a -> s { _isInstanceState = a })
 
@@ -11138,8 +11138,8 @@ vpnConnection = VpnConnection
 
 -- | The configuration information for the VPN connection's customer gateway
 -- (in the native XML format). This element is always present in the
--- CreateVpnConnection> response; however, it's present in the
--- DescribeVpnConnections> response only if the VPN connection is in the
+-- 'CreateVpnConnection' response; however, it's present in the
+-- 'DescribeVpnConnections' response only if the VPN connection is in the
 -- @pending@ or @available@ state.
 vcCustomerGatewayConfiguration :: Lens' VpnConnection (Maybe Text)
 vcCustomerGatewayConfiguration =

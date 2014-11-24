@@ -102,8 +102,8 @@ uccSecretToAuthenticateTarget =
         (\s a -> s { _uccSecretToAuthenticateTarget = a })
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
--- DescribeStorediSCSIVolumes> operation to return to retrieve the TargetARN
--- for specified VolumeARN.
+-- 'DescribeStorediSCSIVolumes' operation to return to retrieve the
+-- TargetARN for specified VolumeARN.
 uccTargetARN :: Lens' UpdateChapCredentials Text
 uccTargetARN = lens _uccTargetARN (\s a -> s { _uccTargetARN = a })
 

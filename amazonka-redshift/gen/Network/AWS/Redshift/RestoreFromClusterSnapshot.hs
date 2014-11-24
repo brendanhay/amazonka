@@ -24,7 +24,7 @@
 -- resulting cluster with the same configuration as the original cluster from
 -- which the snapshot was created, except that the new cluster is created with
 -- the default cluster security and parameter group. After Amazon Redshift
--- creates the cluster you can use the ModifyCluster> API to associate a
+-- creates the cluster you can use the 'ModifyCluster' API to associate a
 -- different security group and different parameter group with the restored
 -- cluster. If you restore a cluster into a VPC, you must provide a cluster
 -- subnet group where you want the cluster restored. For more information
@@ -168,7 +168,7 @@ rfcsAllowVersionUpgrade =
 -- | The number of days that automated snapshots are retained. If the value is
 -- 0, automated snapshots are disabled. Even if automated snapshots are
 -- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot>. Default: The value selected for the cluster from
+-- 'CreateClusterSnapshot'. Default: The value selected for the cluster from
 -- which the snapshot was taken. Constraints: Must be a value from 0 to 35.
 rfcsAutomatedSnapshotRetentionPeriod :: Lens' RestoreFromClusterSnapshot (Maybe Int)
 rfcsAutomatedSnapshotRetentionPeriod =

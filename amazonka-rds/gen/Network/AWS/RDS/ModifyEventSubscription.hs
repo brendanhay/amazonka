@@ -22,8 +22,8 @@
 
 -- | Modifies an existing RDS event notification subscription. Note that you
 -- cannot modify the source identifiers using this call; to change source
--- identifiers for a subscription, use the AddSourceIdentifierToSubscription>
--- and RemoveSourceIdentifierFromSubscription> calls. You can see a list of
+-- identifiers for a subscription, use the 'AddSourceIdentifierToSubscription'
+-- and 'RemoveSourceIdentifierFromSubscription' calls. You can see a list of
 -- the event categories for a given SourceType in the
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html
 -- Events> topic in the Amazon RDS User Guide or by using the

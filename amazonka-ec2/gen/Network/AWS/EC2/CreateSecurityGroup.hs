@@ -39,8 +39,8 @@
 -- the appropriate default security group. A default security group includes a
 -- default rule that grants instances unrestricted network access to each
 -- other. You can add or remove rules from your security groups using
--- AuthorizeSecurityGroupIngress>, AuthorizeSecurityGroupEgress>,
--- RevokeSecurityGroupIngress>, and RevokeSecurityGroupEgress>.
+-- 'AuthorizeSecurityGroupIngress', 'AuthorizeSecurityGroupEgress',
+-- 'RevokeSecurityGroupIngress', and 'RevokeSecurityGroupEgress'.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSecurityGroup.html>
 module Network.AWS.EC2.CreateSecurityGroup

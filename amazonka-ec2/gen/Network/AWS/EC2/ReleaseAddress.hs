@@ -28,8 +28,8 @@
 -- address is already allocated to another AWS account. [EC2-Classic, default
 -- VPC] Releasing an Elastic IP address automatically disassociates it from
 -- any instance that it's associated with. To disassociate an Elastic IP
--- address without releasing it, use DisassociateAddress>. [Nondefault VPC]
--- You must use DisassociateAddress> to disassociate the Elastic IP address
+-- address without releasing it, use 'DisassociateAddress'. [Nondefault VPC]
+-- You must use 'DisassociateAddress' to disassociate the Elastic IP address
 -- before you try to release it. Otherwise, Amazon EC2 returns an error
 -- (@InvalidIPAddress.InUse@).
 --

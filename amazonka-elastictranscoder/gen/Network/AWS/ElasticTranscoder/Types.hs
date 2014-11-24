@@ -1523,7 +1523,7 @@ tPaddingPolicy = lens _tPaddingPolicy (\s a -> s { _tPaddingPolicy = a })
 -- @PaddingPolicy@ instead of @Resolution@ and @AspectRatio@. The two groups
 -- of settings are mutually exclusive. Do not use them together. The width
 -- and height of thumbnail files in pixels. Specify a value in the format
--- @/width/@ x @/height/@ where both values are even integers. The values
+-- @/width/ x @/height/ where both values are even integers. The values
 -- cannot exceed the width and height that you specified in the
 -- @Video:Resolution@ object.
 tResolution :: Lens' Thumbnails (Maybe Text)
@@ -2516,7 +2516,7 @@ vpPaddingPolicy = lens _vpPaddingPolicy (\s a -> s { _vpPaddingPolicy = a })
 -- the output file, in pixels. Valid values are @auto@ and /width/ x
 -- /height/: @auto@: Elastic Transcoder attempts to preserve the width and
 -- height of the input file, subject to the following rules. @/width/ x
--- /height/@: The width and height of the output video in pixels. Note the
+-- /height/: The width and height of the output video in pixels. Note the
 -- following about specifying the width and height: The width must be an
 -- even integer between 128 and 4096, inclusive. The height must be an even
 -- integer between 96 and 3072, inclusive. If you specify a resolution that

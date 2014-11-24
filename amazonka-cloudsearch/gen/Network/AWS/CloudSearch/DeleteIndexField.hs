@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Removes an @IndexField>@ from the search domain. For more information, see
--- Configuring Index Fields> in the /Amazon CloudSearch Developer Guide/.
+-- | Removes an @'IndexField' from the search domain. For more information, see
+-- Configuring Index Fields in the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteIndexField.html>
 module Network.AWS.CloudSearch.DeleteIndexField

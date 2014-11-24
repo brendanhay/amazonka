@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new empty pipeline. When this action succeeds, you can then use
--- the PutPipelineDefinition> action to populate the pipeline.
+-- the 'PutPipelineDefinition' action to populate the pipeline.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_CreatePipeline.html>
 module Network.AWS.DataPipeline.CreatePipeline
@@ -87,10 +87,10 @@ cpName = lens _cpName (\s a -> s { _cpName = a })
 -- the pipeline identifier assigned by AWS Data Pipeline. You are
 -- responsible for defining the format and ensuring the uniqueness of this
 -- identifier. You use this parameter to ensure idempotency during repeated
--- calls to CreatePipeline>. For example, if the first call to
--- CreatePipeline> does not return a clear success, you can pass in the same
--- unique identifier and pipeline name combination on a subsequent call to
--- CreatePipeline>. CreatePipeline> ensures that if a pipeline already
+-- calls to 'CreatePipeline'. For example, if the first call to
+-- 'CreatePipeline' does not return a clear success, you can pass in the
+-- same unique identifier and pipeline name combination on a subsequent call
+-- to 'CreatePipeline'. 'CreatePipeline' ensures that if a pipeline already
 -- exists with the same name and unique identifier, a new pipeline will not
 -- be created. Instead, you'll receive the pipeline identifier from the
 -- previous attempt. The uniqueness of the name and unique identifier

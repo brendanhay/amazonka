@@ -67,7 +67,7 @@ describeSnapshotSchedule p1 = DescribeSnapshotSchedule
     { _dssVolumeARN = p1
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes>
+-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes'
 -- operation to return a list of gateway volumes.
 dssVolumeARN :: Lens' DescribeSnapshotSchedule Text
 dssVolumeARN = lens _dssVolumeARN (\s a -> s { _dssVolumeARN = a })

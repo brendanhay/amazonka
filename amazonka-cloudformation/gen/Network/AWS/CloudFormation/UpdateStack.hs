@@ -22,8 +22,8 @@
 
 -- | Updates a stack as specified in the template. After the call completes
 -- successfully, the stack update starts. You can check the status of the
--- stack via the DescribeStacks> action. To get a copy of the template for an
--- existing stack, you can use the GetTemplate> action. Tags that were
+-- stack via the 'DescribeStacks' action. To get a copy of the template for an
+-- existing stack, you can use the 'GetTemplate' action. Tags that were
 -- associated with this stack during creation time will still be associated
 -- with the stack after an @UpdateStack@ operation. For more information about
 -- creating an update template, updating a stack, and monitoring the progress

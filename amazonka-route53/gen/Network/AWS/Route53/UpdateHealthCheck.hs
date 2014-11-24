@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This action updates an existing health check. To update a health check,
--- send a @POST@ request to the @2013-04-01/healthcheck//health check ID/@
+-- send a @POST@ request to the @2013-04-01/healthcheck//health check ID/
 -- resource. The request body must include an XML document with an
 -- @UpdateHealthCheckRequest@ element. The response returns an
 -- @UpdateHealthCheckResponse@ element, which contains metadata about the

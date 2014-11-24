@@ -28,7 +28,7 @@
 -- time zone for scheduled snapshots the gateway snapshot schedule window, an
 -- activation key, and a name for your gateway. The activation process also
 -- associates your gateway with your account; for more information, see
--- UpdateGatewayInformation>.
+-- 'UpdateGatewayInformation'.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ActivateGateway.html>
 module Network.AWS.StorageGateway.ActivateGateway

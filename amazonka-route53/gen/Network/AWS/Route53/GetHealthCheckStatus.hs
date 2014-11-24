@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | To retrieve the health check status, send a @GET@ request to the
--- @2013-04-01/healthcheck//health check ID//status@ resource. You can use
--- this call to get a health check's current status.
+-- @2013-04-01/healthcheck//health check ID//status resource. You can use this
+-- call to get a health check's current status.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckStatus.html>
 module Network.AWS.Route53.GetHealthCheckStatus

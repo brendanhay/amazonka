@@ -23,7 +23,7 @@
 -- | Creates a launch configuration. If you exceed your maximum limit of launch
 -- configurations, which by default is 100 per region, the call fails. For
 -- information about viewing and updating these limits, see
--- DescribeAccountLimits>.
+-- 'DescribeAccountLimits'.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html>
 module Network.AWS.AutoScaling.CreateLaunchConfiguration

@@ -98,7 +98,7 @@ describeClusterParameterGroups = DescribeClusterParameterGroups
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
--- DescribeClusterParameterGroups> request exceed the value specified in
+-- 'DescribeClusterParameterGroups' request exceed the value specified in
 -- @MaxRecords@, AWS returns a value in the @Marker@ field of the response.
 -- You can retrieve the next set of response records by providing the
 -- returned marker value in the @Marker@ parameter and retrying the request.
@@ -168,7 +168,7 @@ describeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
 dcpgrMarker :: Lens' DescribeClusterParameterGroupsResponse (Maybe Text)
 dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 
--- | A list of ClusterParameterGroup> instances. Each instance describes one
+-- | A list of 'ClusterParameterGroup' instances. Each instance describes one
 -- cluster parameter group.
 dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
 dcpgrParameterGroups =

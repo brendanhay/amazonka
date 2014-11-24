@@ -23,8 +23,8 @@
 -- | Initiates a request to compile the specified type of information of the
 -- deployed environment. Setting the @InfoType@ to @tail@ compiles the last
 -- lines from the application server log files of every Amazon EC2 instance in
--- your environment. Use RetrieveEnvironmentInfo> to access the compiled
--- information. Related Topics RetrieveEnvironmentInfo>.
+-- your environment. Use 'RetrieveEnvironmentInfo' to access the compiled
+-- information. Related Topics 'RetrieveEnvironmentInfo'.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RequestEnvironmentInfo.html>
 module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo

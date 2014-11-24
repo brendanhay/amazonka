@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Used by deciders to get a DecisionTask> from the specified decision
+-- | Used by deciders to get a 'DecisionTask' from the specified decision
 -- @taskList@. A decision task may be returned for any open workflow execution
 -- that is using the specified task list. The task includes a paginated view
 -- of the history of the workflow execution. The decider should use the

@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Retrieves the compiled information from a RequestEnvironmentInfo> request.
--- Related Topics RequestEnvironmentInfo>.
+-- | Retrieves the compiled information from a 'RequestEnvironmentInfo' request.
+-- Related Topics 'RequestEnvironmentInfo'.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RetrieveEnvironmentInfo.html>
 module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
@@ -113,7 +113,7 @@ retrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
     { _reirEnvironmentInfo = mempty
     }
 
--- | The EnvironmentInfoDescription> of the environment.
+-- | The 'EnvironmentInfoDescription' of the environment.
 reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
 reirEnvironmentInfo =
     lens _reirEnvironmentInfo (\s a -> s { _reirEnvironmentInfo = a })

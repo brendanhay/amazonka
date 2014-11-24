@@ -120,9 +120,9 @@ registerActivityType p1 p2 p3 = RegisterActivityType
 
 -- | If set, specifies the default maximum time before which a worker
 -- processing a task of this type must report progress by calling
--- RecordActivityTaskHeartbeat>. If the timeout is exceeded, the activity
+-- 'RecordActivityTaskHeartbeat'. If the timeout is exceeded, the activity
 -- task is automatically timed out. This default can be overridden when
--- scheduling an activity task using the @ScheduleActivityTask@ Decision>.
+-- scheduling an activity task using the @ScheduleActivityTask@ 'Decision'.
 -- If the activity worker subsequently attempts to record a heartbeat or
 -- returns a result, the activity worker receives an @UnknownResource@
 -- fault. In this case, Amazon SWF no longer considers the activity task to
@@ -138,14 +138,14 @@ ratDefaultTaskHeartbeatTimeout =
 -- | If set, specifies the default task list to use for scheduling tasks of
 -- this activity type. This default task list is used if a task list is not
 -- provided when a task is scheduled through the @ScheduleActivityTask@
--- Decision>.
+-- 'Decision'.
 ratDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
 ratDefaultTaskList =
     lens _ratDefaultTaskList (\s a -> s { _ratDefaultTaskList = a })
 
 -- | If set, specifies the default maximum duration for a task of this
 -- activity type. This default can be overridden when scheduling an activity
--- task using the @ScheduleActivityTask@ Decision>. The valid values are
+-- task using the @ScheduleActivityTask@ 'Decision'. The valid values are
 -- integers greater than or equal to @0@. An integer value can be used to
 -- specify the duration in seconds while @NONE@ can be used to specify
 -- unlimited duration.
@@ -157,7 +157,7 @@ ratDefaultTaskScheduleToCloseTimeout =
 -- | If set, specifies the default maximum duration that a task of this
 -- activity type can wait before being assigned to a worker. This default
 -- can be overridden when scheduling an activity task using the
--- @ScheduleActivityTask@ Decision>. The valid values are integers greater
+-- @ScheduleActivityTask@ 'Decision'. The valid values are integers greater
 -- than or equal to @0@. An integer value can be used to specify the
 -- duration in seconds while @NONE@ can be used to specify unlimited
 -- duration.
@@ -168,7 +168,7 @@ ratDefaultTaskScheduleToStartTimeout =
 
 -- | If set, specifies the default maximum duration that a worker can take to
 -- process tasks of this activity type. This default can be overridden when
--- scheduling an activity task using the @ScheduleActivityTask@ Decision>.
+-- scheduling an activity task using the @ScheduleActivityTask@ 'Decision'.
 -- The valid values are integers greater than or equal to @0@. An integer
 -- value can be used to specify the duration in seconds while @NONE@ can be
 -- used to specify unlimited duration.

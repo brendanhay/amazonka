@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Queries a pipeline for the names of objects that match a specified set of
--- conditions. The objects returned by QueryObjects> are paginated and then
+-- conditions. The objects returned by 'QueryObjects' are paginated and then
 -- filtered by the value you set for query. This means the action may return
 -- an empty result set with a value set for marker. If @HasMoreResults@ is set
--- to @True@, you should continue to call QueryObjects>, passing in the
+-- to @True@, you should continue to call 'QueryObjects', passing in the
 -- returned value for marker, until @HasMoreResults@ returns @False@.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_QueryObjects.html>
@@ -89,14 +89,14 @@ queryObjects p1 p2 = QueryObjects
     , _qoLimit      = Nothing
     }
 
--- | Specifies the maximum number of object names that QueryObjects> will
+-- | Specifies the maximum number of object names that 'QueryObjects' will
 -- return in a single call. The default value is 100.
 qoLimit :: Lens' QueryObjects (Maybe Int)
 qoLimit = lens _qoLimit (\s a -> s { _qoLimit = a })
 
 -- | The starting point for the results to be returned. The first time you
--- call QueryObjects>, this value should be empty. As long as the action
--- returns @HasMoreResults@ as @True@, you can call QueryObjects> again and
+-- call 'QueryObjects', this value should be empty. As long as the action
+-- returns @HasMoreResults@ as @True@, you can call 'QueryObjects' again and
 -- pass the marker value from the response to retrieve the next set of
 -- results.
 qoMarker :: Lens' QueryObjects (Maybe Text)
@@ -106,7 +106,7 @@ qoMarker = lens _qoMarker (\s a -> s { _qoMarker = a })
 qoPipelineId :: Lens' QueryObjects Text
 qoPipelineId = lens _qoPipelineId (\s a -> s { _qoPipelineId = a })
 
--- | Query that defines the objects to be returned. The Query> object can
+-- | Query that defines the objects to be returned. The 'Query' object can
 -- contain a maximum of ten selectors. The conditions in the query are
 -- limited to top-level String fields in the object. These filters can be
 -- applied to components, instances, and attempts.
@@ -142,7 +142,7 @@ queryObjectsResponse = QueryObjectsResponse
     }
 
 -- | If @True@, there are more results that can be obtained by a subsequent
--- call to QueryObjects>.
+-- call to 'QueryObjects'.
 qorHasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
 qorHasMoreResults =
     lens _qorHasMoreResults (\s a -> s { _qorHasMoreResults = a })
@@ -152,7 +152,7 @@ qorIds :: Lens' QueryObjectsResponse [Text]
 qorIds = lens _qorIds (\s a -> s { _qorIds = a }) . _List
 
 -- | The starting point for the results to be returned. As long as the action
--- returns @HasMoreResults@ as @True@, you can call QueryObjects> again and
+-- returns @HasMoreResults@ as @True@, you can call 'QueryObjects' again and
 -- pass the marker value from the response to retrieve the next set of
 -- results.
 qorMarker :: Lens' QueryObjectsResponse (Maybe Text)

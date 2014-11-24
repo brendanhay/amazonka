@@ -129,8 +129,8 @@ ufDescription = lens _ufDescription (\s a -> s { _ufDescription = a })
 
 -- | The name you want to assign to the function you are uploading. The
 -- function names appear in the console and are returned in the
--- ListFunctions> API. Function names are used to specify functions to other
--- AWS Lambda APIs, such as InvokeAsync>.
+-- 'ListFunctions' API. Function names are used to specify functions to
+-- other AWS Lambda APIs, such as 'InvokeAsync'.
 ufFunctionName :: Lens' UploadFunction Text
 ufFunctionName = lens _ufFunctionName (\s a -> s { _ufFunctionName = a })
 

@@ -40,12 +40,12 @@
 -- }@, which replaces the previous values of the 'b' attribute with the new
 -- value. You cannot specify an empty string as an attribute name. Because
 -- Amazon SimpleDB makes multiple copies of client data and uses an eventual
--- consistency update model, an immediate GetAttributes> or Select> operation
--- (read) immediately after a PutAttributes> or DeleteAttributes> operation
--- (write) might not return the updated data. The following limitations are
--- enforced for this operation: 256 total attribute name-value pairs per item
--- One billion attributes per domain 10 GB of total user data storage per
--- domain.
+-- consistency update model, an immediate 'GetAttributes' or 'Select'
+-- operation (read) immediately after a 'PutAttributes' or 'DeleteAttributes'
+-- operation (write) might not return the updated data. The following
+-- limitations are enforced for this operation: 256 total attribute name-value
+-- pairs per item One billion attributes per domain 10 GB of total user data
+-- storage per domain.
 --
 -- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_PutAttributes.html>
 module Network.AWS.SDB.PutAttributes

@@ -2554,7 +2554,7 @@ lEnableAutoHealing =
 
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is @true@. If this value is set to @false@, you
--- must then update your instances manually by using CreateDeployment> to
+-- must then update your instances manually by using 'CreateDeployment' to
 -- run the @update_dependencies@ stack command or manually running @yum@
 -- (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 lInstallUpdatesOnBoot :: Lens' Layer (Maybe Bool)
@@ -3484,7 +3484,7 @@ iHostname = lens _iHostname (\s a -> s { _iHostname = a })
 
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is @true@. If this value is set to @false@, you
--- must then update your instances manually by using CreateDeployment> to
+-- must then update your instances manually by using 'CreateDeployment' to
 -- run the @update_dependencies@ stack command or manually running @yum@
 -- (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 iInstallUpdatesOnBoot :: Lens' Instance (Maybe Bool)
@@ -3514,7 +3514,7 @@ iInstanceType :: Lens' Instance (Maybe Text)
 iInstanceType = lens _iInstanceType (\s a -> s { _iInstanceType = a })
 
 -- | The ID of the last service error. For more information, call
--- DescribeServiceErrors>.
+-- 'DescribeServiceErrors'.
 iLastServiceErrorId :: Lens' Instance (Maybe Text)
 iLastServiceErrorId =
     lens _iLastServiceErrorId (\s a -> s { _iLastServiceErrorId = a })

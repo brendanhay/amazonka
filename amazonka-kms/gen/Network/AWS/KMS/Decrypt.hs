@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Decrypts ciphertext. Ciphertext is plaintext that has been previously
--- encrypted by using the Encrypt> function.
+-- encrypted by using the 'Encrypt' function.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html>
 module Network.AWS.KMS.Decrypt
@@ -77,7 +77,7 @@ decrypt p1 = Decrypt
 dCiphertextBlob :: Lens' Decrypt Base64
 dCiphertextBlob = lens _dCiphertextBlob (\s a -> s { _dCiphertextBlob = a })
 
--- | The encryption context. If this was specified in the Encrypt> function,
+-- | The encryption context. If this was specified in the 'Encrypt' function,
 -- it must be specified here or the decryption operation will fail. For more
 -- information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html

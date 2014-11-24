@@ -25,7 +25,7 @@
 -- Each gateway-cached volume has one recovery point. A volume recovery point
 -- is a point in time at which all data of the volume is consistent and from
 -- which you can create a snapshot. To create a snapshot from a volume
--- recovery point use the CreateSnapshotFromVolumeRecoveryPoint> operation.
+-- recovery point use the 'CreateSnapshotFromVolumeRecoveryPoint' operation.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeRecoveryPoints.html>
 module Network.AWS.StorageGateway.ListVolumeRecoveryPoints

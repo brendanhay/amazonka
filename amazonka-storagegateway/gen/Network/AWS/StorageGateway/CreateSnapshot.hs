@@ -90,7 +90,7 @@ csSnapshotDescription :: Lens' CreateSnapshot Text
 csSnapshotDescription =
     lens _csSnapshotDescription (\s a -> s { _csSnapshotDescription = a })
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes>
+-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes'
 -- operation to return a list of gateway volumes.
 csVolumeARN :: Lens' CreateSnapshot Text
 csVolumeARN = lens _csVolumeARN (\s a -> s { _csVolumeARN = a })
@@ -117,7 +117,7 @@ createSnapshotResponse = CreateSnapshotResponse
 -- | The snapshot ID that is used to refer to the snapshot in future
 -- operations such as describing snapshots (Amazon Elastic Compute Cloud API
 -- @DescribeSnapshots@) or creating a volume from a snapshot
--- (CreateStorediSCSIVolume>).
+-- ('CreateStorediSCSIVolume').
 csrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
 

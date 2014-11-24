@@ -110,11 +110,11 @@ deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a }) . mapping _Time
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeEvents> request exceed
--- the value specified in @MaxRecords@, AWS returns a value in the @Marker@
--- field of the response. You can retrieve the next set of response records
--- by providing the returned marker value in the @Marker@ parameter and
--- retrying the request.
+-- of response records. When the results of a 'DescribeEvents' request
+-- exceed the value specified in @MaxRecords@, AWS returns a value in the
+-- @Marker@ field of the response. You can retrieve the next set of response
+-- records by providing the returned marker value in the @Marker@ parameter
+-- and retrying the request.
 deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\s a -> s { _deMarker = a })
 
@@ -176,7 +176,7 @@ describeEventsResponse = DescribeEventsResponse
     , _derEvents = mempty
     }
 
--- | A list of Event> instances.
+-- | A list of 'Event' instances.
 derEvents :: Lens' DescribeEventsResponse [Event]
 derEvents = lens _derEvents (\s a -> s { _derEvents = a }) . _List
 

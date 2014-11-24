@@ -594,7 +594,7 @@ applicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage
     { _avdmApplicationVersion = Nothing
     }
 
--- | The ApplicationVersionDescription> of the application version.
+-- | The 'ApplicationVersionDescription' of the application version.
 avdmApplicationVersion :: Lens' ApplicationVersionDescriptionMessage (Maybe ApplicationVersionDescription)
 avdmApplicationVersion =
     lens _avdmApplicationVersion (\s a -> s { _avdmApplicationVersion = a })
@@ -1215,7 +1215,7 @@ applicationDescriptionMessage = ApplicationDescriptionMessage
     { _admApplication = Nothing
     }
 
--- | The ApplicationDescription> of the application.
+-- | The 'ApplicationDescription' of the application.
 admApplication :: Lens' ApplicationDescriptionMessage (Maybe ApplicationDescription)
 admApplication = lens _admApplication (\s a -> s { _admApplication = a })
 

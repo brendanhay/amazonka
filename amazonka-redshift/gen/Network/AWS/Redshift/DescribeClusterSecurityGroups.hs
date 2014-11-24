@@ -104,13 +104,13 @@ dcsgClusterSecurityGroupName =
         (\s a -> s { _dcsgClusterSecurityGroupName = a })
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSecurityGroups>
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request. Constraints: You can specify either
--- the ClusterSecurityGroupName parameter or the Marker parameter, but not
--- both.
+-- of response records. When the results of a
+-- 'DescribeClusterSecurityGroups' request exceed the value specified in
+-- @MaxRecords@, AWS returns a value in the @Marker@ field of the response.
+-- You can retrieve the next set of response records by providing the
+-- returned marker value in the @Marker@ parameter and retrying the request.
+-- Constraints: You can specify either the ClusterSecurityGroupName
+-- parameter or the Marker parameter, but not both.
 dcsgMarker :: Lens' DescribeClusterSecurityGroups (Maybe Text)
 dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 
@@ -161,7 +161,7 @@ describeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
     , _dcsgr1ClusterSecurityGroups = mempty
     }
 
--- | A list of ClusterSecurityGroup> instances.
+-- | A list of 'ClusterSecurityGroup' instances.
 dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
 dcsgr1ClusterSecurityGroups =
     lens _dcsgr1ClusterSecurityGroups

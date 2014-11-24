@@ -73,7 +73,7 @@ gkpKeyId :: Lens' GetKeyPolicy Text
 gkpKeyId = lens _gkpKeyId (\s a -> s { _gkpKeyId = a })
 
 -- | String that contains the name of the policy. Currently, this must be
--- "default". Policy names can be discovered by calling ListKeyPolicies>.
+-- "default". Policy names can be discovered by calling 'ListKeyPolicies'.
 gkpPolicyName :: Lens' GetKeyPolicy Text
 gkpPolicyName = lens _gkpPolicyName (\s a -> s { _gkpPolicyName = a })
 

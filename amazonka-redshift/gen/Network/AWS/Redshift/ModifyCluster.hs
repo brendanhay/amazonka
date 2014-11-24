@@ -150,7 +150,7 @@ mcAllowVersionUpgrade =
 -- | The number of days that automated snapshots are retained. If the value is
 -- 0, automated snapshots are disabled. Even if automated snapshots are
 -- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot>. If you decrease the automated snapshot retention
+-- 'CreateClusterSnapshot'. If you decrease the automated snapshot retention
 -- period from its current value, existing automated snapshots that fall
 -- outside of the new retention period will be immediately deleted. Default:
 -- Uses existing setting. Constraints: Must be a value from 0 to 35.
@@ -167,7 +167,7 @@ mcClusterIdentifier =
 
 -- | The name of the cluster parameter group to apply to this cluster. This
 -- change is applied only after the cluster is rebooted. To reboot a cluster
--- use RebootCluster>. Default: Uses existing setting. Constraints: The
+-- use 'RebootCluster'. Default: Uses existing setting. Constraints: The
 -- cluster parameter group must be in the same parameter group family that
 -- matches the cluster version.
 mcClusterParameterGroupName :: Lens' ModifyCluster (Maybe Text)
@@ -190,7 +190,7 @@ mcClusterSecurityGroups =
 -- existing cluster goes into a read-only mode. After Amazon Redshift
 -- provisions a new cluster based on your resize requirements, there will be
 -- outage for a period while the old cluster is deleted and your connection
--- is switched to the new cluster. You can use DescribeResize> to track the
+-- is switched to the new cluster. You can use 'DescribeResize' to track the
 -- progress of the resize request. Valid Values: @ multi-node | single-node
 -- @.
 mcClusterType :: Lens' ModifyCluster (Maybe Text)
@@ -253,7 +253,7 @@ mcNewClusterIdentifier =
 -- according to your resize requirements, there will be a temporary outage
 -- while the old cluster is deleted and your connection is switched to the
 -- new cluster. When the new connection is complete, the original access
--- permissions for the cluster are restored. You can use DescribeResize> to
+-- permissions for the cluster are restored. You can use 'DescribeResize' to
 -- track the progress of the resize request. Valid Values: @ dw1.xlarge@ |
 -- @dw1.8xlarge@ | @dw2.large@ | @dw2.8xlarge@.
 mcNodeType :: Lens' ModifyCluster (Maybe Text)
@@ -267,7 +267,7 @@ mcNodeType = lens _mcNodeType (\s a -> s { _mcNodeType = a })
 -- outage while the old cluster is deleted and your connection is switched
 -- to the new cluster. When the new connection is complete, the original
 -- access permissions for the cluster are restored. You can use
--- DescribeResize> to track the progress of the resize request. Valid
+-- 'DescribeResize' to track the progress of the resize request. Valid
 -- Values: Integer greater than @0@.
 mcNumberOfNodes :: Lens' ModifyCluster (Maybe Int)
 mcNumberOfNodes = lens _mcNumberOfNodes (\s a -> s { _mcNumberOfNodes = a })

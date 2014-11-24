@@ -83,7 +83,7 @@ addCommunicationToCase p1 = AddCommunicationToCase
     }
 
 -- | The ID of a set of one or more attachments for the communication to add
--- to the case. Create the set by calling AddAttachmentsToSet>.
+-- to the case. Create the set by calling 'AddAttachmentsToSet'.
 actcAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
 actcAttachmentSetId =
     lens _actcAttachmentSetId (\s a -> s { _actcAttachmentSetId = a })
@@ -121,7 +121,7 @@ addCommunicationToCaseResponse = AddCommunicationToCaseResponse
     { _actcrResult = Nothing
     }
 
--- | True if AddCommunicationToCase> succeeds. Otherwise, returns an error.
+-- | True if 'AddCommunicationToCase' succeeds. Otherwise, returns an error.
 actcrResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrResult = lens _actcrResult (\s a -> s { _actcrResult = a })
 

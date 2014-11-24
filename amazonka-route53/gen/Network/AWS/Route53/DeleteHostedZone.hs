@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This action deletes a hosted zone. To delete a hosted zone, send a @DELETE@
--- request to the @2013-04-01/hostedzone//hosted zone ID/@ resource. For more
+-- request to the @2013-04-01/hostedzone//hosted zone ID/ resource. For more
 -- information about deleting a hosted zone, see
 -- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html
 -- Deleting a Hosted Zone> in the /Amazon Route 53 Developer Guide/. You can
@@ -31,7 +31,7 @@
 -- delete your hosted zone. If you try to delete a hosted zone that contains
 -- other resource record sets, Route 53 will deny your request with a
 -- @HostedZoneNotEmpty@ error. For information about deleting records from
--- your hosted zone, see ChangeResourceRecordSets>.
+-- your hosted zone, see 'ChangeResourceRecordSets'.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html>
 module Network.AWS.Route53.DeleteHostedZone

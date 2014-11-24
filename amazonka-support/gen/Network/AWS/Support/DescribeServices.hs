@@ -22,7 +22,7 @@
 
 -- | Returns the current list of AWS services and a list of service categories
 -- that applies to each one. You then use service names and categories in your
--- CreateCase> requests. Each AWS service has its own set of categories. The
+-- 'CreateCase' requests. Each AWS service has its own set of categories. The
 -- service codes and category codes correspond to the values that are
 -- displayed in the Service and Category drop-down lists on the AWS Support
 -- Center <https://aws.amazon.com/support/createCase Open a new case> page.

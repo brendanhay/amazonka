@@ -101,7 +101,7 @@ ussRecurrenceInHours =
 ussStartAt :: Lens' UpdateSnapshotSchedule Natural
 ussStartAt = lens _ussStartAt (\s a -> s { _ussStartAt = a }) . _Nat
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes>
+-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes'
 -- operation to return a list of gateway volumes.
 ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
 ussVolumeARN = lens _ussVolumeARN (\s a -> s { _ussVolumeARN = a })

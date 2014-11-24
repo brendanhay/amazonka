@@ -179,7 +179,7 @@ createHostedZoneResponse p1 p2 p3 p4 = CreateHostedZoneResponse
 
 -- | A complex type that contains information about the request to create a
 -- hosted zone. This includes an ID that you use when you call the
--- GetChange> action to get the current status of the change request.
+-- 'GetChange' action to get the current status of the change request.
 chzrChangeInfo :: Lens' CreateHostedZoneResponse ChangeInfo
 chzrChangeInfo = lens _chzrChangeInfo (\s a -> s { _chzrChangeInfo = a })
 

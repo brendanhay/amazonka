@@ -75,8 +75,8 @@ dcc1InitiatorName =
     lens _dcc1InitiatorName (\s a -> s { _dcc1InitiatorName = a })
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
--- DescribeStorediSCSIVolumes> operation to return to retrieve the TargetARN
--- for specified VolumeARN.
+-- 'DescribeStorediSCSIVolumes' operation to return to retrieve the
+-- TargetARN for specified VolumeARN.
 dcc1TargetARN :: Lens' DeleteChapCredentials Text
 dcc1TargetARN = lens _dcc1TargetARN (\s a -> s { _dcc1TargetARN = a })
 

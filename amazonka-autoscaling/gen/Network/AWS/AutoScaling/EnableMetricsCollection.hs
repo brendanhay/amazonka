@@ -87,7 +87,7 @@ emcGranularity = lens _emcGranularity (\s a -> s { _emcGranularity = a })
 -- GroupStandbyInstances GroupTerminatingInstances GroupTotalInstances If
 -- you omit this parameter, all metrics are enabled. The
 -- @GroupStandbyInstances@ metric is not returned by default. You must
--- explicitly request it when calling EnableMetricsCollection>.
+-- explicitly request it when calling 'EnableMetricsCollection'.
 emcMetrics :: Lens' EnableMetricsCollection [Text]
 emcMetrics = lens _emcMetrics (\s a -> s { _emcMetrics = a }) . _List
 

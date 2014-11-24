@@ -26,7 +26,7 @@
 -- cancel jobs after Elastic Transcoder has started processing them; if you
 -- pause the pipeline to which you submitted the jobs, you have more time to
 -- get the job IDs for the jobs that you want to cancel, and to send a
--- CancelJob> request.
+-- 'CancelJob' request.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineStatus.html>
 module Network.AWS.ElasticTranscoder.UpdatePipelineStatus

@@ -149,7 +149,7 @@ describeDBSnapshotsResponse = DescribeDBSnapshotsResponse
     , _ddbsrDBSnapshots = mempty
     }
 
--- | A list of DBSnapshot> instances.
+-- | A list of 'DBSnapshot' instances.
 ddbsrDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
 ddbsrDBSnapshots = lens _ddbsrDBSnapshots (\s a -> s { _ddbsrDBSnapshots = a }) . _List
 

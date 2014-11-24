@@ -22,7 +22,7 @@
 
 -- | Returns meta-information on the specified load balancer policies defined by
 -- the Elastic Load Balancing service. The policy types that are returned from
--- this action can be used in a CreateLoadBalancerPolicy> action to
+-- this action can be used in a 'CreateLoadBalancerPolicy' action to
 -- instantiate specific policy configurations that will be applied to a load
 -- balancer.
 --

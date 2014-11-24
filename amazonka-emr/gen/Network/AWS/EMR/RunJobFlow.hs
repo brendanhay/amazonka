@@ -24,10 +24,10 @@
 -- the steps specified. Once the job flow completes, the cluster is stopped
 -- and the HDFS partition is lost. To prevent loss of data, configure the last
 -- step of the job flow to store results in Amazon S3. If the
--- JobFlowInstancesConfig> @KeepJobFlowAliveWhenNoSteps@ parameter is set to
+-- 'JobFlowInstancesConfig' @KeepJobFlowAliveWhenNoSteps@ parameter is set to
 -- @TRUE@, the job flow will transition to the WAITING state rather than
 -- shutting down once the steps have completed. For additional protection, you
--- can set the JobFlowInstancesConfig> @TerminationProtected@ parameter to
+-- can set the 'JobFlowInstancesConfig' @TerminationProtected@ parameter to
 -- @TRUE@ to lock the job flow and prevent it from being terminated by API
 -- call, user intervention, or in the event of a job flow error. A maximum of
 -- 256 steps are allowed in each job flow. If your job flow is long-running
@@ -151,7 +151,7 @@ rjfAdditionalInfo =
 -- "latest" (uses the latest AMI) The version number of the AMI to use, for
 -- example, "2.0" If the AMI supports multiple versions of Hadoop (for
 -- example, AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the
--- JobFlowInstancesConfig> @HadoopVersion@ parameter to modify the version
+-- 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version
 -- of Hadoop from the defaults shown above. For details about the AMI
 -- versions currently supported by Amazon Elastic MapReduce, go to
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported

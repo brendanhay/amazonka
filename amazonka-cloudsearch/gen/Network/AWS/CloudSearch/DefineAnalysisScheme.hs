@@ -22,7 +22,7 @@
 
 -- | Configures an analysis scheme that can be applied to a @text@ or
 -- @text-array@ field to define language-specific text processing options. For
--- more information, see Configuring Analysis Schemes> in the /Amazon
+-- more information, see Configuring Analysis Schemes in the /Amazon
 -- CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineAnalysisScheme.html>

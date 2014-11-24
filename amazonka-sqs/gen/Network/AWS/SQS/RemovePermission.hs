@@ -67,7 +67,7 @@ removePermission p1 p2 = RemovePermission
     }
 
 -- | The identification of the permission to remove. This is the label added
--- with the AddPermission> action.
+-- with the 'AddPermission' action.
 rpLabel :: Lens' RemovePermission Text
 rpLabel = lens _rpLabel (\s a -> s { _rpLabel = a })
 

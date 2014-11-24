@@ -138,7 +138,7 @@ prPartitionKey = lens _prPartitionKey (\s a -> s { _prPartitionKey = a })
 -- | Guarantees strictly increasing sequence numbers, for puts from the same
 -- client and to the same partition key. Usage: set the
 -- @SequenceNumberForOrdering@ of record /n/ to the sequence number of
--- record /n-1/ (as returned in the PutRecordResult> when putting record
+-- record /n-1/ (as returned in the 'PutRecordResult' when putting record
 -- /n-1/). If this parameter is not set, records will be coarsely ordered
 -- based on arrival time.
 prSequenceNumberForOrdering :: Lens' PutRecord (Maybe Text)

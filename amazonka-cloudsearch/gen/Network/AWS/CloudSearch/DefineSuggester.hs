@@ -24,8 +24,8 @@
 -- possible matches before users finish typing their queries. When you
 -- configure a suggester, you must specify the name of the text field you want
 -- to search for possible matches and a unique name for the suggester. For
--- more information, see Getting Search Suggestions> in the /Amazon
--- CloudSearch Developer Guide/.
+-- more information, see Getting Search Suggestions in the /Amazon CloudSearch
+-- Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineSuggester.html>
 module Network.AWS.CloudSearch.DefineSuggester

@@ -25,7 +25,7 @@
 -- number of searchable documents in a domain, use the console or submit a
 -- @matchall@ request to your domain's search endpoint:
 -- @q=matchall&amp;q.parser=structured&amp;size=0@. For more information, see
--- Getting Information about a Search Domain> in the /Amazon CloudSearch
+-- Getting Information about a Search Domain in the /Amazon CloudSearch
 -- Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeDomains.html>

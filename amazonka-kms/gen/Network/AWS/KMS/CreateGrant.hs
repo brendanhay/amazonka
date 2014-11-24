@@ -28,7 +28,7 @@
 -- finished using a grant, you retire it. When you want to end a grant
 -- immediately, revoke it. For more information about grants, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants>.
--- ListGrants> RetireGrant> RevokeGrant>.
+-- 'ListGrants' 'RetireGrant' 'RevokeGrant'.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html>
 module Network.AWS.KMS.CreateGrant
@@ -123,7 +123,7 @@ cgOperations :: Lens' CreateGrant [GrantOperation]
 cgOperations = lens _cgOperations (\s a -> s { _cgOperations = a }) . _List
 
 -- | Principal given permission to retire the grant. For more information, see
--- RetireGrant>.
+-- 'RetireGrant'.
 cgRetiringPrincipal :: Lens' CreateGrant (Maybe Text)
 cgRetiringPrincipal =
     lens _cgRetiringPrincipal (\s a -> s { _cgRetiringPrincipal = a })

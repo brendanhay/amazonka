@@ -185,7 +185,7 @@ describeEventsResponse = DescribeEventsResponse
     , _derEvents = mempty
     }
 
--- | A list of Event> instances.
+-- | A list of 'Event' instances.
 derEvents :: Lens' DescribeEventsResponse [Event]
 derEvents = lens _derEvents (\s a -> s { _derEvents = a }) . _List
 

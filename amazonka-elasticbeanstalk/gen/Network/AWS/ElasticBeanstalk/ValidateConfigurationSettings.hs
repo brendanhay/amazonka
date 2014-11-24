@@ -123,7 +123,7 @@ validateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
     { _vcsrMessages = mempty
     }
 
--- | A list of ValidationMessage>.
+-- | A list of 'ValidationMessage'.
 vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrMessages = lens _vcsrMessages (\s a -> s { _vcsrMessages = a }) . _List
 

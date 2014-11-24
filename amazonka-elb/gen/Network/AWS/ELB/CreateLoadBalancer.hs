@@ -114,7 +114,7 @@ createLoadBalancer p1 p2 = CreateLoadBalancer
 -- specified. Specified Availability Zones must be in the same EC2 Region as
 -- the load balancer. Traffic will be equally distributed across all zones.
 -- You can later add more Availability Zones after the creation of the load
--- balancer by calling EnableAvailabilityZonesForLoadBalancer> action.
+-- balancer by calling 'EnableAvailabilityZonesForLoadBalancer' action.
 clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
 clbAvailabilityZones =
     lens _clbAvailabilityZones (\s a -> s { _clbAvailabilityZones = a })

@@ -188,12 +188,12 @@ describeEventsResponse = DescribeEventsResponse
     , _derNextToken = Nothing
     }
 
--- | A list of EventDescription>.
+-- | A list of 'EventDescription'.
 derEvents :: Lens' DescribeEventsResponse [EventDescription]
 derEvents = lens _derEvents (\s a -> s { _derEvents = a }) . _List
 
 -- | If returned, this indicates that there are more results to obtain. Use
--- this token in the next DescribeEvents> call to get the next batch of
+-- this token in the next 'DescribeEvents' call to get the next batch of
 -- events.
 derNextToken :: Lens' DescribeEventsResponse (Maybe Text)
 derNextToken = lens _derNextToken (\s a -> s { _derNextToken = a })

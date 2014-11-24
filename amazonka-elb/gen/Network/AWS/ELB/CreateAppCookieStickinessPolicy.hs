@@ -23,7 +23,7 @@
 -- | Generates a stickiness policy with sticky session lifetimes that follow
 -- that of an application-generated cookie. This policy can be associated only
 -- with HTTP/HTTPS listeners. This policy is similar to the policy created by
--- CreateLBCookieStickinessPolicy>, except that the lifetime of the special
+-- 'CreateLBCookieStickinessPolicy', except that the lifetime of the special
 -- Elastic Load Balancing cookie follows the lifetime of the
 -- application-generated cookie specified in the policy configuration. The
 -- load balancer only inserts a new stickiness cookie when the application

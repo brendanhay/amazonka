@@ -76,7 +76,7 @@ acidtoidcpClientID =
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to add the client ID to. You can get a list of OIDC provider ARNs by
--- using the ListOpenIDConnectProviders> action.
+-- using the 'ListOpenIDConnectProviders' action.
 acidtoidcpOpenIDConnectProviderArn :: Lens' AddClientIDToOpenIDConnectProvider Text
 acidtoidcpOpenIDConnectProviderArn =
     lens _acidtoidcpOpenIDConnectProviderArn

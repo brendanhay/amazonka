@@ -72,7 +72,7 @@ updateOpenIDConnectProviderThumbprint p1 = UpdateOpenIDConnectProviderThumbprint
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to update the thumbprint for. You can get a list of OIDC provider ARNs by
--- using the ListOpenIDConnectProviders> action.
+-- using the 'ListOpenIDConnectProviders' action.
 uoidcptOpenIDConnectProviderArn :: Lens' UpdateOpenIDConnectProviderThumbprint Text
 uoidcptOpenIDConnectProviderArn =
     lens _uoidcptOpenIDConnectProviderArn
@@ -80,7 +80,7 @@ uoidcptOpenIDConnectProviderArn =
 
 -- | A list of certificate thumbprints that are associated with the specified
 -- IAM OpenID Connect provider. For more information, see
--- CreateOpenIDConnectProvider>.
+-- 'CreateOpenIDConnectProvider'.
 uoidcptThumbprintList :: Lens' UpdateOpenIDConnectProviderThumbprint [Text]
 uoidcptThumbprintList =
     lens _uoidcptThumbprintList (\s a -> s { _uoidcptThumbprintList = a })

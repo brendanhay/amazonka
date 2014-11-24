@@ -27,7 +27,7 @@
 -- allowed and AWS Elastic Beanstalk returns an @InvalidParameterCombination@
 -- error. When updating the configuration settings to a new template or
 -- individual settings, a draft configuration is created and
--- DescribeConfigurationSettings> for this environment returns two setting
+-- 'DescribeConfigurationSettings' for this environment returns two setting
 -- descriptions with different @DeploymentStatus@ values.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateEnvironment.html>

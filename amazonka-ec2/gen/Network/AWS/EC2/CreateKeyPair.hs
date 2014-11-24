@@ -26,8 +26,8 @@
 -- If a key with the specified name already exists, Amazon EC2 returns an
 -- error. You can have up to five thousand key pairs per region. The key pair
 -- returned to you is available only in the region in which you create it. To
--- create a key pair that is available in all regions, use ImportKeyPair>. For
--- more information about key pairs, see
+-- create a key pair that is available in all regions, use 'ImportKeyPair'.
+-- For more information about key pairs, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key
 -- Pairs> in the /Amazon Elastic Compute Cloud User Guide/.
 --

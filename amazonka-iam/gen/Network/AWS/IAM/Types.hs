@@ -938,8 +938,8 @@ uCreateDate = lens _uCreateDate (\s a -> s { _uCreateDate = a }) . _Time
 -- this field. When the user does not have a password, this field is null
 -- (not present). When a user's password exists but has never been used, or
 -- when there is no sign-in data associated with the user, this field is
--- null (not present). This value is returned only in the GetUser> and
--- ListUsers> actions.
+-- null (not present). This value is returned only in the 'GetUser' and
+-- 'ListUsers' actions.
 uPasswordLastUsed :: Lens' User (Maybe UTCTime)
 uPasswordLastUsed =
     lens _uPasswordLastUsed (\s a -> s { _uPasswordLastUsed = a })

@@ -23,7 +23,7 @@
 -- | Gets the availability options configured for a domain. By default, shows
 -- the configuration with any pending changes. Set the @Deployed@ option to
 -- @true@ to show the active configuration and exclude pending changes. For
--- more information, see Configuring Availability Options> in the /Amazon
+-- more information, see Configuring Availability Options in the /Amazon
 -- CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAvailabilityOptions.html>

@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This API is deprecated and will eventually be removed. We recommend you use
--- ListClusters>, DescribeCluster>, ListSteps>, ListInstanceGroups> and
--- ListBootstrapActions> instead. DescribeJobFlows returns a list of job flows
--- that match all of the supplied parameters. The parameters can include a
--- list of job flow IDs, job flow states, and restrictions on job flow
+-- 'ListClusters', 'DescribeCluster', 'ListSteps', 'ListInstanceGroups' and
+-- 'ListBootstrapActions' instead. DescribeJobFlows returns a list of job
+-- flows that match all of the supplied parameters. The parameters can include
+-- a list of job flow IDs, job flow states, and restrictions on job flow
 -- creation date and time. Regardless of supplied parameters, only job flows
 -- created within the last two months are returned. If no parameters are
 -- supplied, then job flows matching either of the following criteria are

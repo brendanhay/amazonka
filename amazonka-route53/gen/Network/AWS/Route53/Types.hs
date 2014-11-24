@@ -248,7 +248,7 @@ aliasTarget p1 p2 p3 = AliasTarget
 -- the AWS Resource. For more information and an example, see
 -- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html
 -- Creating Alias Resource Record Sets> in the /Amazon Route 53 Developer
--- Guide/ .
+-- Guide/.
 atDNSName :: Lens' AliasTarget Text
 atDNSName = lens _atDNSName (\s a -> s { _atDNSName = a })
 
@@ -258,7 +258,7 @@ atDNSName = lens _atDNSName (\s a -> s { _atDNSName = a })
 -- more information and an example, see
 -- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html
 -- Creating Alias Resource Record Sets> in the /Amazon Route 53 Developer
--- Guide/ .
+-- Guide/.
 atEvaluateTargetHealth :: Lens' AliasTarget Bool
 atEvaluateTargetHealth =
     lens _atEvaluateTargetHealth (\s a -> s { _atEvaluateTargetHealth = a })
@@ -267,7 +267,7 @@ atEvaluateTargetHealth =
 -- the AWS resource. For more information and an example, see
 -- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html
 -- Creating Alias Resource Record Sets> in the /Amazon Route 53 Developer
--- Guide/ .
+-- Guide/.
 atHostedZoneId :: Lens' AliasTarget Text
 atHostedZoneId = lens _atHostedZoneId (\s a -> s { _atHostedZoneId = a })
 
@@ -1464,7 +1464,7 @@ changeInfo p1 p2 p3 = ChangeInfo
 
 -- | A complex type that describes change information about changes made to
 -- your hosted zone. This element contains an ID that you use when
--- performing a GetChange> action to get detailed information about the
+-- performing a 'GetChange' action to get detailed information about the
 -- change.
 ciComment :: Lens' ChangeInfo (Maybe Text)
 ciComment = lens _ciComment (\s a -> s { _ciComment = a })
@@ -1529,7 +1529,7 @@ geoLocation = GeoLocation
 -- | The code for a continent geo location. Note: only continent locations
 -- have a continent code. Valid values: @AF@ | @AN@ | @AS@ | @EU@ | @OC@ |
 -- @NA@ | @SA@ Constraint: Specifying @ContinentCode@ with either
--- @CountryCode@ or @SubdivisionCode@ returns an InvalidInput> error.
+-- @CountryCode@ or @SubdivisionCode@ returns an 'InvalidInput' error.
 glContinentCode :: Lens' GeoLocation (Maybe Text)
 glContinentCode = lens _glContinentCode (\s a -> s { _glContinentCode = a })
 
@@ -1543,7 +1543,7 @@ glCountryCode = lens _glCountryCode (\s a -> s { _glCountryCode = a })
 -- | The code for a country's subdivision (e.g., a province of Canada). A
 -- subdivision code is only valid with the appropriate country code.
 -- Constraint: Specifying @SubdivisionCode@ without @CountryCode@ returns an
--- InvalidInput> error.
+-- 'InvalidInput' error.
 glSubdivisionCode :: Lens' GeoLocation (Maybe Text)
 glSubdivisionCode =
     lens _glSubdivisionCode (\s a -> s { _glSubdivisionCode = a })

@@ -182,7 +182,7 @@ usCustomJson = lens _usCustomJson (\s a -> s { _usCustomJson = a })
 -- region. For more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and
 -- Endpoints>. If you also specify a value for @DefaultSubnetId@, the subnet
--- must be in the same zone. For more information, see CreateStack>.
+-- must be in the same zone. For more information, see 'CreateStack'.
 usDefaultAvailabilityZone :: Lens' UpdateStack (Maybe Text)
 usDefaultAvailabilityZone =
     lens _usDefaultAvailabilityZone
@@ -220,7 +220,7 @@ usDefaultSshKeyName =
 -- | The stack's default subnet ID. All instances will be launched into this
 -- subnet unless you specify otherwise when you create the instance. If you
 -- also specify a value for @DefaultAvailabilityZone@, the subnet must be in
--- that zone. For more information, see CreateStack>.
+-- that zone. For more information, see 'CreateStack'.
 usDefaultSubnetId :: Lens' UpdateStack (Maybe Text)
 usDefaultSubnetId =
     lens _usDefaultSubnetId (\s a -> s { _usDefaultSubnetId = a })

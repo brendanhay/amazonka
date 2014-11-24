@@ -22,7 +22,7 @@
 
 -- | Deletes the specified Auto Scaling group. The group must have no instances
 -- and no scaling activities in progress. To remove all instances before
--- calling DeleteAutoScalingGroup>, you can call UpdateAutoScalingGroup> to
+-- calling 'DeleteAutoScalingGroup', you can call 'UpdateAutoScalingGroup' to
 -- set the minimum and maximum size of the AutoScalingGroup to zero.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html>

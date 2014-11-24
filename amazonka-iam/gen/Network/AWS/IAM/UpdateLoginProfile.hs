@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Changes the password for the specified user. Users can change their own
--- passwords by calling ChangePassword>. For more information about modifying
+-- passwords by calling 'ChangePassword'. For more information about modifying
 -- passwords, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html
 -- Managing Passwords> in the /Using IAM/ guide.

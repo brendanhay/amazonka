@@ -162,7 +162,7 @@ federatedUser p1 p2 = FederatedUser
 
 -- | The ARN that specifies the federated user that is associated with the
 -- credentials. For more information about ARNs and how to use them in
--- policies, see Identifiers for IAM Entities> in /Using IAM/.
+-- policies, see Identifiers for IAM Entities in /Using IAM/.
 fuArn :: Lens' FederatedUser Text
 fuArn = lens _fuArn (\s a -> s { _fuArn = a })
 
@@ -205,8 +205,8 @@ assumedRoleUser p1 p2 = AssumedRoleUser
     }
 
 -- | The ARN of the temporary security credentials that are returned from the
--- AssumeRole> action. For more information about ARNs and how to use them
--- in policies, see Identifiers for IAM Entities > in /Using IAM/.
+-- 'AssumeRole' action. For more information about ARNs and how to use them
+-- in policies, see Identifiers for IAM Entities in /Using IAM/.
 aruArn :: Lens' AssumedRoleUser Text
 aruArn = lens _aruArn (\s a -> s { _aruArn = a })
 

@@ -139,7 +139,7 @@ describeDBParametersResponse = DescribeDBParametersResponse
 ddbprMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
 ddbprMarker = lens _ddbprMarker (\s a -> s { _ddbprMarker = a })
 
--- | A list of Parameter> values.
+-- | A list of 'Parameter' values.
 ddbprParameters :: Lens' DescribeDBParametersResponse [Parameter]
 ddbprParameters = lens _ddbprParameters (\s a -> s { _ddbprParameters = a }) . _List
 

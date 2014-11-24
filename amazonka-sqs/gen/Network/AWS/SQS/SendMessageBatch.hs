@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Delivers up to ten messages to the specified queue. This is a batch version
--- of SendMessage>. The result of the send action on each message is reported
+-- of 'SendMessage'. The result of the send action on each message is reported
 -- individually in the response. The maximum allowed individual message size
 -- is 256 KB (262,144 bytes). The maximum total payload size (i.e., the sum of
 -- all a batch's individual message lengths) is also 256 KB (262,144 bytes).
@@ -81,7 +81,7 @@ sendMessageBatch p1 = SendMessageBatch
     , _smbEntries  = mempty
     }
 
--- | A list of SendMessageBatchRequestEntry> items.
+-- | A list of 'SendMessageBatchRequestEntry' items.
 smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
 smbEntries = lens _smbEntries (\s a -> s { _smbEntries = a }) . _List
 
@@ -108,12 +108,12 @@ sendMessageBatchResponse = SendMessageBatchResponse
     , _smbrFailed     = mempty
     }
 
--- | A list of BatchResultErrorEntry> items with the error detail about each
+-- | A list of 'BatchResultErrorEntry' items with the error detail about each
 -- message that could not be enqueued.
 smbrFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a }) . _List
 
--- | A list of SendMessageBatchResultEntry> items.
+-- | A list of 'SendMessageBatchResultEntry' items.
 smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
 smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a }) . _List
 

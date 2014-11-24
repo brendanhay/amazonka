@@ -42,7 +42,7 @@
 -- user, the temporary credentials have the same permissions as the IAM user.
 -- For more information about using @GetSessionToken@ to create temporary
 -- credentials, go to Creating Temporary Credentials to Enable Access for IAM
--- Users> in /Using Temporary Security Credentials/.
+-- Users in /Using Temporary Security Credentials/.
 --
 -- <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html>
 module Network.AWS.STS.GetSessionToken

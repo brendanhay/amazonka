@@ -124,7 +124,7 @@ describeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
     , _ddbpgrDBParameterGroups = mempty
     }
 
--- | A list of DBParameterGroup> instances.
+-- | A list of 'DBParameterGroup' instances.
 ddbpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
 ddbpgrDBParameterGroups =
     lens _ddbpgrDBParameterGroups (\s a -> s { _ddbpgrDBParameterGroups = a })

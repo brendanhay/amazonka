@@ -25,7 +25,7 @@
 -- Zone in the same Region to increase fault tolerance in the event of a
 -- service disruption. Changes to the Multi-AZ option can take about half an
 -- hour to become active. For more information, see Configuring Availability
--- Options> in the /Amazon CloudSearch Developer Guide/.
+-- Options in the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateAvailabilityOptions.html>
 module Network.AWS.CloudSearch.UpdateAvailabilityOptions

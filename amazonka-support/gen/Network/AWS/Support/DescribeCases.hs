@@ -25,7 +25,7 @@
 -- @AfterTime@ and @BeforeTime@ request parameters. Case data is available for
 -- 12 months after creation. If a case was created more than 12 months ago, a
 -- request for data might cause an error. The response returns the following
--- in JSON format: One or more CaseDetails> data types. One or more
+-- in JSON format: One or more 'CaseDetails' data types. One or more
 -- @NextToken@ values, which specify where to paginate the returned records
 -- represented by the @CaseDetails@ objects.
 --
@@ -127,14 +127,14 @@ dcCaseIdList = lens _dcCaseIdList (\s a -> s { _dcCaseIdList = a }) . _List
 dcDisplayId :: Lens' DescribeCases (Maybe Text)
 dcDisplayId = lens _dcDisplayId (\s a -> s { _dcDisplayId = a })
 
--- | Specifies whether communications should be included in the DescribeCases>
--- results. The default is /true/.
+-- | Specifies whether communications should be included in the
+-- 'DescribeCases' results. The default is /true/.
 dcIncludeCommunications :: Lens' DescribeCases (Maybe Bool)
 dcIncludeCommunications =
     lens _dcIncludeCommunications (\s a -> s { _dcIncludeCommunications = a })
 
 -- | Specifies whether resolved support cases should be included in the
--- DescribeCases> results. The default is /false/.
+-- 'DescribeCases' results. The default is /false/.
 dcIncludeResolvedCases :: Lens' DescribeCases (Maybe Bool)
 dcIncludeResolvedCases =
     lens _dcIncludeResolvedCases (\s a -> s { _dcIncludeResolvedCases = a })

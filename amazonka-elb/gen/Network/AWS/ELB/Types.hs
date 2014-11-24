@@ -1353,16 +1353,16 @@ policies = Policies
     , _pOtherPolicies               = mempty
     }
 
--- | A list of the AppCookieStickinessPolicy> objects created with
--- CreateAppCookieStickinessPolicy>.
+-- | A list of the 'AppCookieStickinessPolicy' objects created with
+-- 'CreateAppCookieStickinessPolicy'.
 pAppCookieStickinessPolicies :: Lens' Policies [AppCookieStickinessPolicy]
 pAppCookieStickinessPolicies =
     lens _pAppCookieStickinessPolicies
         (\s a -> s { _pAppCookieStickinessPolicies = a })
             . _List
 
--- | A list of LBCookieStickinessPolicy> objects created with
--- CreateAppCookieStickinessPolicy>.
+-- | A list of 'LBCookieStickinessPolicy' objects created with
+-- 'CreateAppCookieStickinessPolicy'.
 pLBCookieStickinessPolicies :: Lens' Policies [LBCookieStickinessPolicy]
 pLBCookieStickinessPolicies =
     lens _pLBCookieStickinessPolicies

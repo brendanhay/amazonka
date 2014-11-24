@@ -29,7 +29,7 @@
 -- You can scale by provisioning multiple shards. Your application should have
 -- one thread per shard, each reading continuously from its stream. To read
 -- from a stream continually, call @GetRecords@ in a loop. Use
--- GetShardIterator> to get the shard iterator to specify in the first
+-- 'GetShardIterator' to get the shard iterator to specify in the first
 -- @GetRecords@ call. @GetRecords@ returns a new shard iterator in
 -- @NextShardIterator@. Specify the shard iterator returned in
 -- @NextShardIterator@ in subsequent calls to @GetRecords@. Note that if the

@@ -22,10 +22,10 @@
 
 -- | Returns the results of the Trusted Advisor check that has the specified
 -- check ID. Check IDs can be obtained by calling
--- DescribeTrustedAdvisorChecks>. The response contains a
--- TrustedAdvisorCheckResult> object, which contains these three objects:
--- TrustedAdvisorCategorySpecificSummary> TrustedAdvisorResourceDetail>
--- TrustedAdvisorResourcesSummary> In addition, the response contains these
+-- 'DescribeTrustedAdvisorChecks'. The response contains a
+-- 'TrustedAdvisorCheckResult' object, which contains these three objects:
+-- 'TrustedAdvisorCategorySpecificSummary' 'TrustedAdvisorResourceDetail'
+-- 'TrustedAdvisorResourcesSummary' In addition, the response contains these
 -- fields: Status. The alert status of the check: "ok" (green), "warning"
 -- (yellow), "error" (red), or "not_available". Timestamp. The time of the
 -- last refresh of the check. CheckId. The unique identifier for the check.

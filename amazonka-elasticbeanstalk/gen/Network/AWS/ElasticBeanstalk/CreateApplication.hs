@@ -93,7 +93,7 @@ createApplicationResponse = CreateApplicationResponse
     { _carApplication = Nothing
     }
 
--- | The ApplicationDescription> of the application.
+-- | The 'ApplicationDescription' of the application.
 carApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
 carApplication = lens _carApplication (\s a -> s { _carApplication = a })
 

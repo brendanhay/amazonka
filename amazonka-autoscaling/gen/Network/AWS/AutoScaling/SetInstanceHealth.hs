@@ -88,7 +88,7 @@ sihInstanceId = lens _sihInstanceId (\s a -> s { _sihInstanceId = a })
 -- will respect the grace period. Set this to @False@, if you do not want
 -- the call to respect the grace period associated with the group. For more
 -- information, see the @HealthCheckGracePeriod@ parameter description for
--- CreateAutoScalingGroup>.
+-- 'CreateAutoScalingGroup'.
 sihShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
 sihShouldRespectGracePeriod =
     lens _sihShouldRespectGracePeriod

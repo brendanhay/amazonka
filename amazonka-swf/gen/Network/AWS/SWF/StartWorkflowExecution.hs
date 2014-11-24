@@ -124,9 +124,9 @@ startWorkflowExecution p1 p2 p3 = StartWorkflowExecution
 
 -- | If set, specifies the policy to use for the child workflow executions of
 -- this workflow execution if it is terminated, by calling the
--- TerminateWorkflowExecution> action explicitly or due to an expired
+-- 'TerminateWorkflowExecution' action explicitly or due to an expired
 -- timeout. This policy overrides the default child policy specified when
--- registering the workflow type using RegisterWorkflowType>. The supported
+-- registering the workflow type using 'RegisterWorkflowType'. The supported
 -- child policies are: TERMINATE: the child executions will be terminated.
 -- REQUEST_CANCEL: a request to cancel will be attempted for each child
 -- execution by recording a @WorkflowExecutionCancelRequested@ event in its
@@ -162,8 +162,8 @@ swe1Input = lens _swe1Input (\s a -> s { _swe1Input = a })
 
 -- | The list of tags to associate with the workflow execution. You can
 -- specify a maximum of 5 tags. You can list workflow executions with a
--- specific tag by calling ListOpenWorkflowExecutions> or
--- ListClosedWorkflowExecutions> and specifying a TagFilter>.
+-- specific tag by calling 'ListOpenWorkflowExecutions' or
+-- 'ListClosedWorkflowExecutions' and specifying a 'TagFilter'.
 swe1TagList :: Lens' StartWorkflowExecution [Text]
 swe1TagList = lens _swe1TagList (\s a -> s { _swe1TagList = a }) . _List
 
@@ -178,10 +178,10 @@ swe1TaskList = lens _swe1TaskList (\s a -> s { _swe1TaskList = a })
 
 -- | Specifies the maximum duration of decision tasks for this workflow
 -- execution. This parameter overrides the @defaultTaskStartToCloseTimout@
--- specified when registering the workflow type using RegisterWorkflowType>.
--- The valid values are integers greater than or equal to @0@. An integer
--- value can be used to specify the duration in seconds while @NONE@ can be
--- used to specify unlimited duration.
+-- specified when registering the workflow type using
+-- 'RegisterWorkflowType'. The valid values are integers greater than or
+-- equal to @0@. An integer value can be used to specify the duration in
+-- seconds while @NONE@ can be used to specify unlimited duration.
 swe1TaskStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
 swe1TaskStartToCloseTimeout =
     lens _swe1TaskStartToCloseTimeout

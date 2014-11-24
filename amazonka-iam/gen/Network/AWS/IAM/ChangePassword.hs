@@ -22,7 +22,7 @@
 
 -- | Changes the password of the IAM user who is calling this action. The root
 -- account password is not affected by this action. To change the password for
--- a different user, see UpdateLoginProfile>. For more information about
+-- a different user, see 'UpdateLoginProfile'. For more information about
 -- modifying passwords, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html
 -- Managing Passwords> in the /Using IAM/ guide.

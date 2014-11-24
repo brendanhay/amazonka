@@ -89,14 +89,14 @@ describeOrderableClusterOptions = DescribeOrderableClusterOptions
 -- | The version filter value. Specify this parameter to show only the
 -- available offerings matching the specified version. Default: All
 -- versions. Constraints: Must be one of the version returned from
--- DescribeClusterVersions>.
+-- 'DescribeClusterVersions'.
 docoClusterVersion :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docoClusterVersion =
     lens _docoClusterVersion (\s a -> s { _docoClusterVersion = a })
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
--- DescribeOrderableClusterOptions> request exceed the value specified in
+-- 'DescribeOrderableClusterOptions' request exceed the value specified in
 -- @MaxRecords@, AWS returns a value in the @Marker@ field of the response.
 -- You can retrieve the next set of response records by providing the
 -- returned marker value in the @Marker@ parameter and retrying the request.
@@ -145,7 +145,7 @@ describeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRespons
 docorMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
 docorMarker = lens _docorMarker (\s a -> s { _docorMarker = a })
 
--- | An OrderableClusterOption> structure containing information about
+-- | An 'OrderableClusterOption' structure containing information about
 -- orderable options for the Cluster.
 docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
 docorOrderableClusterOptions =

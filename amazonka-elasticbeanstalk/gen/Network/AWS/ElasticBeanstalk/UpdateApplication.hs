@@ -92,7 +92,7 @@ updateApplicationResponse = UpdateApplicationResponse
     { _uarApplication = Nothing
     }
 
--- | The ApplicationDescription> of the application.
+-- | The 'ApplicationDescription' of the application.
 uarApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)
 uarApplication = lens _uarApplication (\s a -> s { _uarApplication = a })
 

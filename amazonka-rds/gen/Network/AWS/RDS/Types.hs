@@ -696,13 +696,13 @@ dbsgDBSecurityGroupName :: Lens' DBSecurityGroup (Maybe Text)
 dbsgDBSecurityGroupName =
     lens _dbsgDBSecurityGroupName (\s a -> s { _dbsgDBSecurityGroupName = a })
 
--- | Contains a list of EC2SecurityGroup> elements.
+-- | Contains a list of 'EC2SecurityGroup' elements.
 dbsgEC2SecurityGroups :: Lens' DBSecurityGroup [EC2SecurityGroup]
 dbsgEC2SecurityGroups =
     lens _dbsgEC2SecurityGroups (\s a -> s { _dbsgEC2SecurityGroups = a })
         . _List
 
--- | Contains a list of IPRange> elements.
+-- | Contains a list of 'IPRange' elements.
 dbsgIPRanges :: Lens' DBSecurityGroup [IPRange]
 dbsgIPRanges = lens _dbsgIPRanges (\s a -> s { _dbsgIPRanges = a }) . _List
 
@@ -2560,7 +2560,7 @@ dbsg1SubnetGroupStatus :: Lens' DBSubnetGroup (Maybe Text)
 dbsg1SubnetGroupStatus =
     lens _dbsg1SubnetGroupStatus (\s a -> s { _dbsg1SubnetGroupStatus = a })
 
--- | Contains a list of Subnet> elements.
+-- | Contains a list of 'Subnet' elements.
 dbsg1Subnets :: Lens' DBSubnetGroup [Subnet]
 dbsg1Subnets = lens _dbsg1Subnets (\s a -> s { _dbsg1Subnets = a }) . _List
 

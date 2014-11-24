@@ -169,7 +169,7 @@ arDurationSeconds =
 -- role, they must pass the customer's external ID. The external ID is
 -- useful in order to help third parties bind a role to the customer who
 -- created it. For more information about the external ID, see About the
--- External ID> in /Using Temporary Security Credentials/.
+-- External ID in /Using Temporary Security Credentials/.
 arExternalId :: Lens' AssumeRole (Maybe Text)
 arExternalId = lens _arExternalId (\s a -> s { _arExternalId = a })
 

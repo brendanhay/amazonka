@@ -94,7 +94,7 @@ describeApplicationsResponse = DescribeApplicationsResponse
     { _darApplications = mempty
     }
 
--- | This parameter contains a list of ApplicationDescription>.
+-- | This parameter contains a list of 'ApplicationDescription'.
 darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darApplications = lens _darApplications (\s a -> s { _darApplications = a }) . _List
 

@@ -146,7 +146,7 @@ describeEnvironmentsResponse = DescribeEnvironmentsResponse
     { _derEnvironments = mempty
     }
 
--- | Returns an EnvironmentDescription> list.
+-- | Returns an 'EnvironmentDescription' list.
 derEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
 derEnvironments = lens _derEnvironments (\s a -> s { _derEnvironments = a }) . _List
 

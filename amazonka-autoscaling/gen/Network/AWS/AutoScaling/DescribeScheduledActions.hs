@@ -22,7 +22,7 @@
 
 -- | Lists the actions scheduled for your Auto Scaling group that haven't been
 -- executed. To list the actions that were already executed, use
--- DescribeScalingActivities>.
+-- 'DescribeScalingActivities'.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScheduledActions.html>
 module Network.AWS.AutoScaling.DescribeScheduledActions

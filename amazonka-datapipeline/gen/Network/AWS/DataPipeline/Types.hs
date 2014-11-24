@@ -363,7 +363,7 @@ toPipelineId :: Lens' TaskObject (Maybe Text)
 toPipelineId = lens _toPipelineId (\s a -> s { _toPipelineId = a })
 
 -- | An internal identifier for the task. This ID is passed to the
--- SetTaskStatus> and ReportTaskProgress> actions.
+-- 'SetTaskStatus' and 'ReportTaskProgress' actions.
 toTaskId :: Lens' TaskObject (Maybe Text)
 toTaskId = lens _toTaskId (\s a -> s { _toTaskId = a })
 

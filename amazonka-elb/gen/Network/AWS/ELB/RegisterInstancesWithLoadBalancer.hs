@@ -32,15 +32,15 @@
 -- your Amazon EC2 instances from your load balancer after you stop your
 -- instance, and then register the load balancer with your instance after
 -- you've restarted. To de-register your instances from load balancer, use
--- DeregisterInstancesFromLoadBalancer> action. For more information, see
+-- 'DeregisterInstancesFromLoadBalancer' action. For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html
 -- De-register and Register Amazon EC2 Instances> in the /Elastic Load
 -- Balancing Developer Guide/. In order for this call to be successful, you
 -- must provide the same account credentials as those that were used to create
 -- the load balancer. Completion of this API does not guarantee that operation
 -- has completed. Rather, it means that the request has been registered and
--- the changes will happen shortly. You can use DescribeLoadBalancers> or
--- DescribeInstanceHealth> action to check the state of the newly registered
+-- the changes will happen shortly. You can use 'DescribeLoadBalancers' or
+-- 'DescribeInstanceHealth' action to check the state of the newly registered
 -- instances.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_RegisterInstancesWithLoadBalancer.html>

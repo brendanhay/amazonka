@@ -22,15 +22,16 @@
 
 -- | Replaces the current set of policies associated with a port on which the
 -- back-end server is listening with a new set of policies. After the policies
--- have been created using CreateLoadBalancerPolicy>, they can be applied here
--- as a list. At this time, only the back-end server authentication policy
--- type can be applied to the back-end ports; this policy type is composed of
--- multiple public key policies. The /SetLoadBalancerPoliciesForBackendServer/
--- replaces the current set of policies associated with the specified instance
--- port. Every time you use this action to enable the policies, use the
--- @PolicyNames@ parameter to list all the policies you want to enable. You
--- can use DescribeLoadBalancers> or DescribeLoadBalancerPolicies> action to
--- verify that the policy has been associated with the back-end server.
+-- have been created using 'CreateLoadBalancerPolicy', they can be applied
+-- here as a list. At this time, only the back-end server authentication
+-- policy type can be applied to the back-end ports; this policy type is
+-- composed of multiple public key policies. The
+-- /SetLoadBalancerPoliciesForBackendServer/ replaces the current set of
+-- policies associated with the specified instance port. Every time you use
+-- this action to enable the policies, use the @PolicyNames@ parameter to list
+-- all the policies you want to enable. You can use 'DescribeLoadBalancers' or
+-- 'DescribeLoadBalancerPolicies' action to verify that the policy has been
+-- associated with the back-end server.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesForBackendServer.html>
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer

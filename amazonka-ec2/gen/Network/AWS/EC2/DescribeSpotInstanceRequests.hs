@@ -31,7 +31,7 @@
 -- use @DescribeSpotInstanceRequests@ to find a running Spot Instance by
 -- examining the response. If the status of the Spot Instance is @fulfilled@,
 -- the instance ID appears in the response and contains the identifier of the
--- instance. Alternatively, you can use DescribeInstances> with a filter to
+-- instance. Alternatively, you can use 'DescribeInstances' with a filter to
 -- look for instances where the instance lifecycle is @spot@.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotInstanceRequests.html>

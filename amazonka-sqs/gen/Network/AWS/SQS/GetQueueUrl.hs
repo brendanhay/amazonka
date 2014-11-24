@@ -25,7 +25,7 @@
 -- another AWS account, use the @QueueOwnerAWSAccountId@ parameter to specify
 -- the account ID of the queue's owner. The queue's owner must grant you
 -- permission to access the queue. For more information about shared queue
--- access, see AddPermission> or go to
+-- access, see 'AddPermission' or go to
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html
 -- Shared Queues> in the /Amazon SQS Developer Guide/.
 --

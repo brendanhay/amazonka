@@ -84,7 +84,7 @@ pncAutoScalingGroupName =
 
 -- | The type of event that will cause the notification to be sent. For
 -- details about notification types supported by Auto Scaling, see
--- DescribeAutoScalingNotificationTypes>.
+-- 'DescribeAutoScalingNotificationTypes'.
 pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
 pncNotificationTypes =
     lens _pncNotificationTypes (\s a -> s { _pncNotificationTypes = a })

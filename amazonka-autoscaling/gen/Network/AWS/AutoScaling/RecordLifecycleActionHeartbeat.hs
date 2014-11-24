@@ -22,15 +22,15 @@
 
 -- | Records a heartbeat for the lifecycle action associated with a specific
 -- token. This extends the timeout by the length of time defined by the
--- @HeartbeatTimeout@ parameter of PutLifecycleHook>. This operation is a part
--- of the basic sequence for adding a lifecycle hook to an Auto Scaling group:
--- Create a notification target. A target can be either an Amazon SQS queue or
--- an Amazon SNS topic. Create an IAM role. This role allows Auto Scaling to
--- publish lifecycle notifications to the designated SQS queue or SNS topic.
--- Create the lifecycle hook. You can create a hook that acts when instances
--- launch or when instances terminate. If necessary, record the lifecycle
--- action heartbeat to keep the instance in a pending state. Complete the
--- lifecycle action. For more information, see
+-- @HeartbeatTimeout@ parameter of 'PutLifecycleHook'. This operation is a
+-- part of the basic sequence for adding a lifecycle hook to an Auto Scaling
+-- group: Create a notification target. A target can be either an Amazon SQS
+-- queue or an Amazon SNS topic. Create an IAM role. This role allows Auto
+-- Scaling to publish lifecycle notifications to the designated SQS queue or
+-- SNS topic. Create the lifecycle hook. You can create a hook that acts when
+-- instances launch or when instances terminate. If necessary, record the
+-- lifecycle action heartbeat to keep the instance in a pending state.
+-- Complete the lifecycle action. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html
 -- Auto Scaling Pending State> and
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html

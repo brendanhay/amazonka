@@ -200,7 +200,7 @@ ccAllowVersionUpgrade =
 -- | The number of days that automated snapshots are retained. If the value is
 -- 0, automated snapshots are disabled. Even if automated snapshots are
 -- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot>. Default: @1@ Constraints: Must be a value from 0
+-- 'CreateClusterSnapshot'. Default: @1@ Constraints: Must be a value from 0
 -- to 35.
 ccAutomatedSnapshotRetentionPeriod :: Lens' CreateCluster (Maybe Int)
 ccAutomatedSnapshotRetentionPeriod =

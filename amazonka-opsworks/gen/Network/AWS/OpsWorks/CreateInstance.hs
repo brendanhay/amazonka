@@ -159,11 +159,11 @@ ciArchitecture = lens _ciArchitecture (\s a -> s { _ciArchitecture = a })
 -- AlwaysRunning: A 24/7 instance, which is not affected by auto scaling.
 -- TimeBasedAutoScaling: A time-based auto scaling instance, which is
 -- started and stopped based on a specified schedule. To specify the
--- schedule, call SetTimeBasedAutoScaling>. LoadBasedAutoScaling: A
+-- schedule, call 'SetTimeBasedAutoScaling'. LoadBasedAutoScaling: A
 -- load-based auto scaling instance, which is started and stopped based on
 -- load metrics. To use load-based auto scaling, you must enable it for the
 -- instance layer and configure the thresholds by calling
--- SetLoadBasedAutoScaling>.
+-- 'SetLoadBasedAutoScaling'.
 ciAutoScalingType :: Lens' CreateInstance (Maybe AutoScalingType)
 ciAutoScalingType =
     lens _ciAutoScalingType (\s a -> s { _ciAutoScalingType = a })
@@ -186,7 +186,7 @@ ciHostname = lens _ciHostname (\s a -> s { _ciHostname = a })
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is @true@. To control when updates are
 -- installed, set this value to @false@. You must then update your instances
--- manually by using CreateDeployment> to run the @update_dependencies@
+-- manually by using 'CreateDeployment' to run the @update_dependencies@
 -- stack command or manually running @yum@ (Amazon Linux) or @apt-get@
 -- (Ubuntu) on the instances.
 ciInstallUpdatesOnBoot :: Lens' CreateInstance (Maybe Bool)
@@ -210,7 +210,7 @@ ciLayerIds = lens _ciLayerIds (\s a -> s { _ciLayerIds = a }) . _List
 -- | The instance operating system, which must be set to one of the following.
 -- Standard operating systems: @Amazon Linux@ or @Ubuntu 12.04 LTS@ Custom
 -- AMIs: @Custom@ The default option is @Amazon Linux@. If you set this
--- parameter to @Custom@, you must use the CreateInstance> action's AmiId
+-- parameter to @Custom@, you must use the 'CreateInstance' action's AmiId
 -- parameter to specify the custom AMI that you want to use. For more
 -- information on the standard operating systems, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html

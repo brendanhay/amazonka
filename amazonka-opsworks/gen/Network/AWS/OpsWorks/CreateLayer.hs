@@ -191,7 +191,7 @@ clEnableAutoHealing =
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is @true@. To control when updates are
 -- installed, set this value to @false@. You must then update your instances
--- manually by using CreateDeployment> to run the @update_dependencies@
+-- manually by using 'CreateDeployment' to run the @update_dependencies@
 -- stack command or manually running @yum@ (Amazon Linux) or @apt-get@
 -- (Ubuntu) on the instances.
 clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)

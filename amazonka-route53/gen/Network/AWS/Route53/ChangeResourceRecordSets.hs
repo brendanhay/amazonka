@@ -22,7 +22,7 @@
 
 -- | Use this action to create or change your authoritative DNS information. To
 -- use this action, send a @POST@ request to the
--- @2013-04-01/hostedzone//hosted Zone ID//rrset@ resource. The request body
+-- @2013-04-01/hostedzone//hosted Zone ID//rrset resource. The request body
 -- must include an XML document with a @ChangeResourceRecordSetsRequest@
 -- element. Changes are a list of change items and are considered
 -- transactional. For more information on transactional changes, also known as
@@ -117,7 +117,7 @@ changeResourceRecordSetsResponse p1 = ChangeResourceRecordSetsResponse
 
 -- | A complex type that contains information about changes made to your
 -- hosted zone. This element contains an ID that you use when performing a
--- GetChange> action to get detailed information about the change.
+-- 'GetChange' action to get detailed information about the change.
 crrsrChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrChangeInfo = lens _crrsrChangeInfo (\s a -> s { _crrsrChangeInfo = a })
 

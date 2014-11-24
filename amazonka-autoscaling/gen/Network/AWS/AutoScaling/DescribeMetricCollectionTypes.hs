@@ -22,7 +22,7 @@
 
 -- | Returns a list of metrics and a corresponding list of granularities for
 -- each metric. The @GroupStandbyInstances@ metric is not returned by default.
--- You must explicitly request it when calling EnableMetricsCollection>.
+-- You must explicitly request it when calling 'EnableMetricsCollection'.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeMetricCollectionTypes.html>
 module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
@@ -82,7 +82,7 @@ dmctrGranularities =
 -- GroupDesiredCapacity GroupInServiceInstances GroupPendingInstances
 -- GroupStandbyInstances GroupTerminatingInstances GroupTotalInstances The
 -- @GroupStandbyInstances@ metric is not returned by default. You must
--- explicitly request it when calling EnableMetricsCollection>.
+-- explicitly request it when calling 'EnableMetricsCollection'.
 dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
 dmctrMetrics = lens _dmctrMetrics (\s a -> s { _dmctrMetrics = a }) . _List
 

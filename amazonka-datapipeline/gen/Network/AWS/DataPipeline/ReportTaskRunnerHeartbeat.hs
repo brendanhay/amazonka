@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Task runners call ReportTaskRunnerHeartbeat> every 15 minutes to indicate
+-- | Task runners call 'ReportTaskRunnerHeartbeat' every 15 minutes to indicate
 -- that they are operational. In the case of AWS Data Pipeline Task Runner
 -- launched on a resource managed by AWS Data Pipeline, the web service can
 -- use this call to detect when the task runner application has failed and
@@ -91,7 +91,7 @@ rtrhTaskrunnerId = lens _rtrhTaskrunnerId (\s a -> s { _rtrhTaskrunnerId = a })
 -- | Indicates the type of task the task runner is configured to accept and
 -- process. The worker group is set as a field on objects in the pipeline
 -- when they are created. You can only specify a single value for
--- @workerGroup@ in the call to ReportTaskRunnerHeartbeat>. There are no
+-- @workerGroup@ in the call to 'ReportTaskRunnerHeartbeat'. There are no
 -- wildcard values permitted in @workerGroup@, the string must be an exact,
 -- case-sensitive, match.
 rtrhWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
@@ -114,7 +114,7 @@ reportTaskRunnerHeartbeatResponse p1 = ReportTaskRunnerHeartbeatResponse
     }
 
 -- | Indicates whether the calling task runner should terminate. If @True@,
--- the task runner that called ReportTaskRunnerHeartbeat> should terminate.
+-- the task runner that called 'ReportTaskRunnerHeartbeat' should terminate.
 rtrhrTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
 rtrhrTerminate = lens _rtrhrTerminate (\s a -> s { _rtrhrTerminate = a })
 

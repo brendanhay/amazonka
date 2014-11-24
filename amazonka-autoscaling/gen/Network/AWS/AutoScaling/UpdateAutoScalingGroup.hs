@@ -20,24 +20,25 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Updates the configuration for the specified AutoScalingGroup>. To update an
--- Auto Scaling group with a launch configuration that has the
+-- | Updates the configuration for the specified 'AutoScalingGroup'. To update
+-- an Auto Scaling group with a launch configuration that has the
 -- @InstanceMonitoring@ flag set to @False@, you must first ensure that
 -- collection of group metrics is disabled. Otherwise, calls to
--- UpdateAutoScalingGroup> will fail. If you have previously enabled group
+-- 'UpdateAutoScalingGroup' will fail. If you have previously enabled group
 -- metrics collection, you can disable collection of all group metrics by
--- calling DisableMetricsCollection>. The new settings are registered upon the
--- completion of this call. Any launch configuration settings take effect on
--- any triggers after this call returns. Scaling activities that are currently
--- in progress aren't affected. If a new value is specified for /MinSize/
--- without specifying the value for /DesiredCapacity/, and if the new
--- /MinSize/ is larger than the current size of the Auto Scaling group, there
--- will be an implicit call to SetDesiredCapacity> to set the group to the new
--- /MinSize/. If a new value is specified for /MaxSize/ without specifying the
--- value for /DesiredCapacity/, and the new /MaxSize/ is smaller than the
--- current size of the Auto Scaling group, there will be an implicit call to
--- SetDesiredCapacity> to set the group to the new /MaxSize/. All other
--- optional parameters are left unchanged if not passed in the request.
+-- calling 'DisableMetricsCollection'. The new settings are registered upon
+-- the completion of this call. Any launch configuration settings take effect
+-- on any triggers after this call returns. Scaling activities that are
+-- currently in progress aren't affected. If a new value is specified for
+-- /MinSize/ without specifying the value for /DesiredCapacity/, and if the
+-- new /MinSize/ is larger than the current size of the Auto Scaling group,
+-- there will be an implicit call to 'SetDesiredCapacity' to set the group to
+-- the new /MinSize/. If a new value is specified for /MaxSize/ without
+-- specifying the value for /DesiredCapacity/, and the new /MaxSize/ is
+-- smaller than the current size of the Auto Scaling group, there will be an
+-- implicit call to 'SetDesiredCapacity' to set the group to the new
+-- /MaxSize/. All other optional parameters are left unchanged if not passed
+-- in the request.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateAutoScalingGroup.html>
 module Network.AWS.AutoScaling.UpdateAutoScalingGroup

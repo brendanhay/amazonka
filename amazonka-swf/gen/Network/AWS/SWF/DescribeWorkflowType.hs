@@ -113,7 +113,7 @@ describeWorkflowTypeResponse p1 p2 = DescribeWorkflowTypeResponse
     }
 
 -- | Configuration settings of the workflow type registered through
--- RegisterWorkflowType>.
+-- 'RegisterWorkflowType'.
 dwtrConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
 dwtrConfiguration =
     lens _dwtrConfiguration (\s a -> s { _dwtrConfiguration = a })
@@ -122,7 +122,7 @@ dwtrConfiguration =
 -- type (returned in the WorkflowTypeInfo structure) can be one of the
 -- following. REGISTERED: The type is registered and available. Workers
 -- supporting this type should be running. DEPRECATED: The type was
--- deprecated using DeprecateWorkflowType>, but is still in use. You should
+-- deprecated using 'DeprecateWorkflowType', but is still in use. You should
 -- keep workers supporting this type running. You cannot create new workflow
 -- executions of this type.
 dwtrTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo

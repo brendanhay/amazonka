@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Takes a @CaseId@ and returns the initial state of the case along with the
--- state of the case after the call to ResolveCase> completed.
+-- state of the case after the call to 'ResolveCase' completed.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html>
 module Network.AWS.Support.ResolveCase
@@ -87,12 +87,12 @@ resolveCaseResponse = ResolveCaseResponse
     , _rcrFinalCaseStatus   = Nothing
     }
 
--- | The status of the case after the ResolveCase> request was processed.
+-- | The status of the case after the 'ResolveCase' request was processed.
 rcrFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrFinalCaseStatus =
     lens _rcrFinalCaseStatus (\s a -> s { _rcrFinalCaseStatus = a })
 
--- | The status of the case when the ResolveCase> request was sent.
+-- | The status of the case when the 'ResolveCase' request was sent.
 rcrInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrInitialCaseStatus =
     lens _rcrInitialCaseStatus (\s a -> s { _rcrInitialCaseStatus = a })

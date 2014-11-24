@@ -85,5 +85,7 @@ formatTags = foldMap parse . parseTags
         TagClose "a"               -> ">"
         TagOpen  "i" _             -> "/"
         TagClose "i"               -> "/"
+        TagOpen  "code" _          -> "@"
+        TagClose "code"            -> "@"
         TagText  t                 -> t
         _                          -> mempty

@@ -1,5 +1,5 @@
 SHELL := /usr/bin/env bash
-DEPS  := core amazonka amazonka-ec2 amazonka-sqs
+DEPS  := core amazonka amazonka-ec2 amazonka-sqs amazonka-s3
 
 build:
 	cabal build

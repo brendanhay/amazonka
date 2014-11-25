@@ -1,5 +1,5 @@
 name:                  amazonka-examples
-version:               0.0.0
+version:               0.0.2
 synopsis:              Amazonka examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -27,17 +27,19 @@ library
 
     exposed-modules:
         Examples.EC2
+      , Examples.S3
       , Examples.SQS
 
     other-modules:
         Examples.Internal
 
     build-depends:
-        base         >= 4.7 && < 5
-      , amazonka     == 0.0.1.*
-      , amazonka-ec2 == 0.0.1.*
-      , amazonka-sqs == 0.0.1.*
-      , lens         >= 4.4 && < 5
-      , text
-      , time
-      , transformers
+        base         >= 4.7     && < 5
+      , amazonka     == 0.0.2.*
+      , amazonka-ec2 == 0.0.2.*
+      , amazonka-s3  == 0.0.2.*
+      , amazonka-sqs == 0.0.2.*
+      , lens         >= 4.3     && < 5
+      , text         >= 1.1
+      , time         >= 1.4
+      , transformers == 0.4.*

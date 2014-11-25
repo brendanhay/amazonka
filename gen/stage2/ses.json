@@ -479,7 +479,7 @@
                         "locationName": "Timestamp",
                         "documentation": "-- | Time of the data point.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -616,7 +616,7 @@
                         "locationName": "Timestamp",
                         "documentation": "-- | Time of the data point.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },

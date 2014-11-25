@@ -131,8 +131,8 @@ uctTemplateName = lens _uctTemplateName (\s a -> s { _uctTemplateName = a })
 
 data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
     { _uctrApplicationName   :: Maybe Text
-    , _uctrDateCreated       :: Maybe RFC822
-    , _uctrDateUpdated       :: Maybe RFC822
+    , _uctrDateCreated       :: Maybe ISO8601
+    , _uctrDateUpdated       :: Maybe ISO8601
     , _uctrDeploymentStatus  :: Maybe ConfigurationDeploymentStatus
     , _uctrDescription       :: Maybe Text
     , _uctrEnvironmentName   :: Maybe Text

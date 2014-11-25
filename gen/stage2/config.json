@@ -123,7 +123,7 @@
                         "locationName": "lastAttemptTime",
                         "documentation": "-- | The time of the last attempted delivery.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -138,7 +138,7 @@
                         "locationName": "lastSuccessfulTime",
                         "documentation": "-- | The time of the last successful delivery.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -206,7 +206,7 @@
                         "locationName": "lastAttemptTime",
                         "documentation": "-- | The time of the last attempted delivery.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -221,7 +221,7 @@
                         "locationName": "lastSuccessfulTime",
                         "documentation": "-- | The time of the last successful delivery.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -238,7 +238,7 @@
                         "locationName": "lastAttemptTime",
                         "documentation": "-- | The time of the last attempted delivery.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -298,7 +298,7 @@
                         "locationName": "lastSuccessfulTime",
                         "documentation": "-- | The time of the last successful delivery.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -368,7 +368,7 @@
                         "locationName": "lastStatusChangeTime",
                         "documentation": "-- | The time from the last status change.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -436,7 +436,7 @@
                         "locationName": "lastStatusChangeTime",
                         "documentation": "-- | The time from the last status change.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -498,7 +498,7 @@
                         "locationName": "lastStatusChangeTime",
                         "documentation": "-- | The time from the last status change.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -955,7 +955,7 @@
                         "locationName": "configurationItemCaptureTime",
                         "documentation": "-- | The time when the configuration recording was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1075,7 +1075,7 @@
                         "locationName": "resourceCreationTime",
                         "documentation": "-- | The time stamp when the resource was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1188,7 +1188,7 @@
                         "locationName": "configurationItemCaptureTime",
                         "documentation": "-- | The time when the configuration recording was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1308,7 +1308,7 @@
                         "locationName": "resourceCreationTime",
                         "documentation": "-- | The time stamp when the resource was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1445,7 +1445,7 @@
                         "locationName": "configurationItemCaptureTime",
                         "documentation": "-- | The time when the configuration recording was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1535,7 +1535,7 @@
                         "locationName": "resourceCreationTime",
                         "documentation": "-- | The time stamp when the resource was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1852,7 +1852,7 @@
                         "locationName": "lastStartTime",
                         "documentation": "-- | The time the recorder was last started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1867,7 +1867,7 @@
                         "locationName": "lastStopTime",
                         "documentation": "-- | The time the recorder was last stopped.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1942,7 +1942,7 @@
                         "locationName": "lastStatusChangeTime",
                         "documentation": "-- | The time when the status was last changed.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -1980,7 +1980,7 @@
                         "locationName": "lastStartTime",
                         "documentation": "-- | The time the recorder was last started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1995,7 +1995,7 @@
                         "locationName": "lastStopTime",
                         "documentation": "-- | The time the recorder was last stopped.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2070,7 +2070,7 @@
                         "locationName": "lastStatusChangeTime",
                         "documentation": "-- | The time when the status was last changed.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -2117,7 +2117,7 @@
                         "locationName": "lastStartTime",
                         "documentation": "-- | The time the recorder was last started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2147,7 +2147,7 @@
                         "locationName": "lastStatusChangeTime",
                         "documentation": "-- | The time when the status was last changed.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2162,7 +2162,7 @@
                         "locationName": "lastStopTime",
                         "documentation": "-- | The time the recorder was last stopped.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3710,7 +3710,7 @@
                         "locationName": "laterTime",
                         "documentation": "-- | The time stamp that indicates a later time. If not specified, current time is\n-- taken.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3725,7 +3725,7 @@
                         "locationName": "earlierTime",
                         "documentation": "-- | The time stamp that indicates an earlier time. If not specified, the action\n-- returns paginated results that contain configuration items that start from\n-- when the first configuration item was recorded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3837,7 +3837,7 @@
                         "locationName": "laterTime",
                         "documentation": "-- | The time stamp that indicates a later time. If not specified, current time is\n-- taken.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3852,7 +3852,7 @@
                         "locationName": "earlierTime",
                         "documentation": "-- | The time stamp that indicates an earlier time. If not specified, the action\n-- returns paginated results that contain configuration items that start from\n-- when the first configuration item was recorded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3929,7 +3929,7 @@
                         "locationName": "earlierTime",
                         "documentation": "-- | The time stamp that indicates an earlier time. If not specified, the action\n-- returns paginated results that contain configuration items that start from\n-- when the first configuration item was recorded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3944,7 +3944,7 @@
                         "locationName": "laterTime",
                         "documentation": "-- | The time stamp that indicates a later time. If not specified, current time is\n-- taken.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,

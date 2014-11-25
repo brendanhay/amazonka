@@ -1748,10 +1748,10 @@ instance ToQuery SuggesterStatus where
         ]
 
 data OptionStatus = OptionStatus
-    { _osCreationDate    :: RFC822
+    { _osCreationDate    :: ISO8601
     , _osPendingDeletion :: Maybe Bool
     , _osState           :: OptionState
-    , _osUpdateDate      :: RFC822
+    , _osUpdateDate      :: ISO8601
     , _osUpdateVersion   :: Maybe Nat
     } deriving (Eq, Show)
 

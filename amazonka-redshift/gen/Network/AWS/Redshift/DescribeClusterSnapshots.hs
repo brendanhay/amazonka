@@ -73,13 +73,13 @@ import qualified GHC.Exts
 
 data DescribeClusterSnapshots = DescribeClusterSnapshots
     { _dcs1ClusterIdentifier  :: Maybe Text
-    , _dcs1EndTime            :: Maybe RFC822
+    , _dcs1EndTime            :: Maybe ISO8601
     , _dcs1Marker             :: Maybe Text
     , _dcs1MaxRecords         :: Maybe Int
     , _dcs1OwnerAccount       :: Maybe Text
     , _dcs1SnapshotIdentifier :: Maybe Text
     , _dcs1SnapshotType       :: Maybe Text
-    , _dcs1StartTime          :: Maybe RFC822
+    , _dcs1StartTime          :: Maybe ISO8601
     , _dcs1TagKeys            :: List "TagKey" Text
     , _dcs1TagValues          :: List "TagValue" Text
     } deriving (Eq, Ord, Show)

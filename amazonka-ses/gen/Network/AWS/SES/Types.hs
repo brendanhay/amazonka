@@ -325,7 +325,7 @@ data SendDataPoint = SendDataPoint
     , _sdpComplaints       :: Maybe Integer
     , _sdpDeliveryAttempts :: Maybe Integer
     , _sdpRejects          :: Maybe Integer
-    , _sdpTimestamp        :: Maybe RFC822
+    , _sdpTimestamp        :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'SendDataPoint' constructor.

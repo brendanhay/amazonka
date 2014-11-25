@@ -1071,7 +1071,7 @@ instance ToXML ChangeBatch where
         ]
 
 data StatusReport = StatusReport
-    { _srCheckedTime :: Maybe RFC822
+    { _srCheckedTime :: Maybe ISO8601
     , _srStatus      :: Maybe Text
     } deriving (Eq, Ord, Show)
 
@@ -1443,7 +1443,7 @@ data ChangeInfo = ChangeInfo
     { _ciComment     :: Maybe Text
     , _ciId          :: Text
     , _ciStatus      :: ChangeStatus
-    , _ciSubmittedAt :: RFC822
+    , _ciSubmittedAt :: ISO8601
     } deriving (Eq, Show)
 
 -- | 'ChangeInfo' constructor.

@@ -623,7 +623,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date when the group was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ],
                 "contentPad": 0,
@@ -660,7 +660,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date when the group was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -763,7 +763,7 @@
                         "locationName": "EnableDate",
                         "documentation": "-- | The date when the MFA device was enabled for the user.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ],
                 "contentPad": 0,
@@ -785,7 +785,7 @@
                         "locationName": "EnableDate",
                         "documentation": "-- | The date when the MFA device was enabled for the user.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -902,7 +902,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date when the instance profile was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ],
                 "contentPad": 0,
@@ -955,7 +955,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date when the instance profile was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1125,7 +1125,7 @@
                         "locationName": "UploadDate",
                         "documentation": "-- | The date when the server certificate was uploaded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1140,7 +1140,7 @@
                         "locationName": "Expiration",
                         "documentation": "-- | The date on which the certificate is set to expire.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -1172,7 +1172,7 @@
                         "locationName": "Expiration",
                         "documentation": "-- | The date on which the certificate is set to expire.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1232,7 +1232,7 @@
                         "locationName": "UploadDate",
                         "documentation": "-- | The date when the server certificate was uploaded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -1342,7 +1342,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date when the password for the user was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ],
                 "contentPad": 0,
@@ -1380,7 +1380,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date when the password for the user was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1545,7 +1545,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the user was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ],
                 "contentPad": 0,
@@ -1566,7 +1566,7 @@
                         "locationName": "PasswordLastUsed",
                         "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the user's password was\n-- last used to sign in to an AWS website. For a list of AWS websites that\n-- capture a user's last sign-in time, see the \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports\u003e topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the\n-- first use is returned in this field. When the user does not have a password,\n-- this field is null (not present). When a user's password exists but has never\n-- been used, or when there is no sign-in data associated with the user, this\n-- field is null (not present).\n--\n-- This value is returned only in the 'GetUser' and 'ListUsers' actions.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -1598,7 +1598,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the user was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1613,7 +1613,7 @@
                         "locationName": "PasswordLastUsed",
                         "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the user's password was\n-- last used to sign in to an AWS website. For a list of AWS websites that\n-- capture a user's last sign-in time, see the \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports\u003e topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the\n-- first use is returned in this field. When the user does not have a password,\n-- this field is null (not present). When a user's password exists but has never\n-- been used, or when there is no sign-in data associated with the user, this\n-- field is null (not present).\n--\n-- This value is returned only in the 'GetUser' and 'ListUsers' actions.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1723,7 +1723,7 @@
                         "locationName": "ValidUntil",
                         "documentation": "-- | The expiration date and time for the SAML provider.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1738,7 +1738,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date and time when the SAML provider was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -1770,7 +1770,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date and time when the SAML provider was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1785,7 +1785,7 @@
                         "locationName": "ValidUntil",
                         "documentation": "-- | The expiration date and time for the SAML provider.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -1873,7 +1873,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date when the role was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ],
                 "contentPad": 0,
@@ -1941,7 +1941,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date when the role was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2189,7 +2189,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date when the access key was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -2221,7 +2221,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date when the access key was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2359,7 +2359,7 @@
                         "locationName": "EnableDate",
                         "documentation": "-- | The date and time on which the virtual MFA device was enabled.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -2391,7 +2391,7 @@
                         "locationName": "EnableDate",
                         "documentation": "-- | The date and time on which the virtual MFA device was enabled.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2529,7 +2529,7 @@
                         "locationName": "UploadDate",
                         "documentation": "-- | The date when the signing certificate was uploaded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -2591,7 +2591,7 @@
                         "locationName": "UploadDate",
                         "documentation": "-- | The date when the signing certificate was uploaded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2683,7 +2683,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date when the access key was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -2715,7 +2715,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date when the access key was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -8233,7 +8233,7 @@
                         "locationName": "GeneratedTime",
                         "documentation": "-- | The time and date when the credential report was created, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601date-time format\u003e.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -8265,7 +8265,7 @@
                         "locationName": "GeneratedTime",
                         "documentation": "-- | The time and date when the credential report was created, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601date-time format\u003e.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -9328,7 +9328,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date and time when the IAM OpenID Connect provider entity was created in\n-- the AWS account.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -9360,7 +9360,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date and time when the IAM OpenID Connect provider entity was created in\n-- the AWS account.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -9972,7 +9972,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date and time when the SAML provider was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -9987,7 +9987,7 @@
                         "locationName": "ValidUntil",
                         "documentation": "-- | The expiration date and time for the SAML provider.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -10004,7 +10004,7 @@
                         "locationName": "CreateDate",
                         "documentation": "-- | The date and time when the SAML provider was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -10034,7 +10034,7 @@
                         "locationName": "ValidUntil",
                         "documentation": "-- | The expiration date and time for the SAML provider.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },

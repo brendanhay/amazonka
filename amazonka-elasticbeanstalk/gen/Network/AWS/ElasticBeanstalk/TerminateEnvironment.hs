@@ -123,8 +123,8 @@ teTerminateResources =
 data TerminateEnvironmentResponse = TerminateEnvironmentResponse
     { _terApplicationName   :: Maybe Text
     , _terCNAME             :: Maybe Text
-    , _terDateCreated       :: Maybe RFC822
-    , _terDateUpdated       :: Maybe RFC822
+    , _terDateCreated       :: Maybe ISO8601
+    , _terDateUpdated       :: Maybe ISO8601
     , _terDescription       :: Maybe Text
     , _terEndpointURL       :: Maybe Text
     , _terEnvironmentId     :: Maybe Text

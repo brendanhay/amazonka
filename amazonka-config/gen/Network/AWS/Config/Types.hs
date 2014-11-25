@@ -145,11 +145,11 @@ instance AWSService Config where
     handle = jsonError statusSuccess
 
 data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo
-    { _cediLastAttemptTime    :: Maybe RFC822
+    { _cediLastAttemptTime    :: Maybe ISO8601
     , _cediLastErrorCode      :: Maybe Text
     , _cediLastErrorMessage   :: Maybe Text
     , _cediLastStatus         :: Maybe DeliveryStatus
-    , _cediLastSuccessfulTime :: Maybe RFC822
+    , _cediLastSuccessfulTime :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'ConfigExportDeliveryInfo' constructor.
@@ -222,7 +222,7 @@ data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo
     { _csdiLastErrorCode        :: Maybe Text
     , _csdiLastErrorMessage     :: Maybe Text
     , _csdiLastStatus           :: Maybe DeliveryStatus
-    , _csdiLastStatusChangeTime :: Maybe RFC822
+    , _csdiLastStatusChangeTime :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'ConfigStreamDeliveryInfo' constructor.
@@ -491,13 +491,13 @@ data ConfigurationItem = ConfigurationItem
     , _ciArn                          :: Maybe Text
     , _ciAvailabilityZone             :: Maybe Text
     , _ciConfiguration                :: Maybe Text
-    , _ciConfigurationItemCaptureTime :: Maybe RFC822
+    , _ciConfigurationItemCaptureTime :: Maybe ISO8601
     , _ciConfigurationItemMD5Hash     :: Maybe Text
     , _ciConfigurationItemStatus      :: Maybe ConfigurationItemStatus
     , _ciConfigurationStateId         :: Maybe Text
     , _ciRelatedEvents                :: List "relatedEvents" Text
     , _ciRelationships                :: List "relationships" Relationship
-    , _ciResourceCreationTime         :: Maybe RFC822
+    , _ciResourceCreationTime         :: Maybe ISO8601
     , _ciResourceId                   :: Maybe Text
     , _ciResourceType                 :: Maybe ResourceType
     , _ciTags                         :: Map Text Text
@@ -775,10 +775,10 @@ instance ToJSON DeliveryChannelStatus where
 data ConfigurationRecorderStatus = ConfigurationRecorderStatus
     { _crsLastErrorCode        :: Maybe Text
     , _crsLastErrorMessage     :: Maybe Text
-    , _crsLastStartTime        :: Maybe RFC822
+    , _crsLastStartTime        :: Maybe ISO8601
     , _crsLastStatus           :: Maybe RecorderStatus
-    , _crsLastStatusChangeTime :: Maybe RFC822
-    , _crsLastStopTime         :: Maybe RFC822
+    , _crsLastStatusChangeTime :: Maybe ISO8601
+    , _crsLastStopTime         :: Maybe ISO8601
     , _crsName                 :: Maybe Text
     , _crsRecording            :: Maybe Bool
     } deriving (Eq, Show)

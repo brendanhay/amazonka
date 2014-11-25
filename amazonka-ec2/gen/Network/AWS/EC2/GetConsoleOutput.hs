@@ -95,7 +95,7 @@ gcoInstanceId = lens _gcoInstanceId (\s a -> s { _gcoInstanceId = a })
 data GetConsoleOutputResponse = GetConsoleOutputResponse
     { _gcorInstanceId :: Maybe Text
     , _gcorOutput     :: Maybe Text
-    , _gcorTimestamp  :: Maybe RFC822
+    , _gcorTimestamp  :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'GetConsoleOutputResponse' constructor.

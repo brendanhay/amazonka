@@ -64,8 +64,8 @@ import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
 data DescribeJobFlows = DescribeJobFlows
-    { _djfCreatedAfter  :: Maybe RFC822
-    , _djfCreatedBefore :: Maybe RFC822
+    { _djfCreatedAfter  :: Maybe ISO8601
+    , _djfCreatedBefore :: Maybe ISO8601
     , _djfJobFlowIds    :: List "Args" Text
     , _djfJobFlowStates :: List "JobFlowStates" JobFlowExecutionState
     } deriving (Eq, Show)

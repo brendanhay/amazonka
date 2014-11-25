@@ -248,7 +248,7 @@
                         "locationName": "Timestamp",
                         "documentation": "-- | Time the status was updated.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ],
                 "contentPad": 0,
@@ -496,7 +496,7 @@
                         "locationName": "Timestamp",
                         "documentation": "-- | Time the status was updated.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ]
             },
@@ -538,7 +538,7 @@
                         "locationName": "CreationTime",
                         "documentation": "-- | The time the stack was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -604,7 +604,7 @@
                         "locationName": "LastUpdatedTime",
                         "documentation": "-- | The time the stack was last updated. This field will only be returned if the\n-- stack has been updated at least once.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -619,7 +619,7 @@
                         "locationName": "DeletionTime",
                         "documentation": "-- | The time the stack was deleted.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -651,7 +651,7 @@
                         "locationName": "CreationTime",
                         "documentation": "-- | The time the stack was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -666,7 +666,7 @@
                         "locationName": "DeletionTime",
                         "documentation": "-- | The time the stack was deleted.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -681,7 +681,7 @@
                         "locationName": "LastUpdatedTime",
                         "documentation": "-- | The time the stack was last updated. This field will only be returned if the\n-- stack has been updated at least once.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -813,7 +813,7 @@
                         "locationName": "LastUpdatedTimestamp",
                         "documentation": "-- | Time the status was updated.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -956,7 +956,7 @@
                         "locationName": "LastUpdatedTimestamp",
                         "documentation": "-- | Time the status was updated.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1468,7 +1468,7 @@
                         "locationName": "Timestamp",
                         "documentation": "-- | Time the status was updated.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1701,7 +1701,7 @@
                         "locationName": "Timestamp",
                         "documentation": "-- | Time the status was updated.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ]
             },
@@ -1868,7 +1868,7 @@
                         "locationName": "LastUpdatedTimestamp",
                         "documentation": "-- | Time the status was updated.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1936,7 +1936,7 @@
                         "locationName": "LastUpdatedTimestamp",
                         "documentation": "-- | Time the status was updated.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2086,7 +2086,7 @@
                         "locationName": "CreationTime",
                         "documentation": "-- | Time at which the stack was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2167,7 +2167,7 @@
                         "locationName": "LastUpdatedTime",
                         "documentation": "-- | The time the stack was last updated. This field will only be returned if the\n-- stack has been updated at least once.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2304,7 +2304,7 @@
                         "locationName": "CreationTime",
                         "documentation": "-- | Time at which the stack was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2349,7 +2349,7 @@
                         "locationName": "LastUpdatedTime",
                         "documentation": "-- | The time the stack was last updated. This field will only be returned if the\n-- stack has been updated at least once.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",

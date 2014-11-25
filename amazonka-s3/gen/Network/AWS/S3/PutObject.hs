@@ -70,7 +70,7 @@ module Network.AWS.S3.PutObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
+import Network.AWS.Request.S3
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -85,7 +85,7 @@ data PutObject = PutObject
     , _poContentLength           :: Maybe Int
     , _poContentMD5              :: Maybe Text
     , _poContentType             :: Maybe Text
-    , _poExpires                 :: Maybe RFC822
+    , _poExpires                 :: Maybe ISO8601
     , _poGrantFullControl        :: Maybe Text
     , _poGrantRead               :: Maybe Text
     , _poGrantReadACP            :: Maybe Text
@@ -301,7 +301,7 @@ poWebsiteRedirectLocation =
 
 data PutObjectResponse = PutObjectResponse
     { _porETag                 :: Maybe Text
-    , _porExpiration           :: Maybe RFC822
+    , _porExpiration           :: Maybe ISO8601
     , _porSSECustomerAlgorithm :: Maybe Text
     , _porSSECustomerKeyMD5    :: Maybe Text
     , _porSSEKMSKeyId          :: Maybe (Sensitive Text)

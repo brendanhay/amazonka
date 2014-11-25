@@ -3249,7 +3249,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | A timestamp for when this option was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3264,7 +3264,7 @@
                         "locationName": "UpdateDate",
                         "documentation": "-- | A timestamp for when this option was last updated.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3332,7 +3332,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | A timestamp for when this option was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3377,7 +3377,7 @@
                         "locationName": "UpdateDate",
                         "documentation": "-- | A timestamp for when this option was last updated.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",

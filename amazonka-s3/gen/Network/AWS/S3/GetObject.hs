@@ -79,16 +79,16 @@ module Network.AWS.S3.GetObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
+import Network.AWS.Request.S3
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data GetObject = GetObject
     { _goBucket                     :: Text
     , _goIfMatch                    :: Maybe Text
-    , _goIfModifiedSince            :: Maybe RFC822
+    , _goIfModifiedSince            :: Maybe ISO8601
     , _goIfNoneMatch                :: Maybe Text
-    , _goIfUnmodifiedSince          :: Maybe RFC822
+    , _goIfUnmodifiedSince          :: Maybe ISO8601
     , _goKey                        :: Text
     , _goRange                      :: Maybe Text
     , _goResponseCacheControl       :: Maybe Text
@@ -96,7 +96,7 @@ data GetObject = GetObject
     , _goResponseContentEncoding    :: Maybe Text
     , _goResponseContentLanguage    :: Maybe Text
     , _goResponseContentType        :: Maybe Text
-    , _goResponseExpires            :: Maybe RFC822
+    , _goResponseExpires            :: Maybe ISO8601
     , _goSSECustomerAlgorithm       :: Maybe Text
     , _goSSECustomerKey             :: Maybe (Sensitive Text)
     , _goSSECustomerKeyMD5          :: Maybe Text
@@ -278,9 +278,9 @@ data GetObjectResponse = GetObjectResponse
     , _gorContentType             :: Maybe Text
     , _gorDeleteMarker            :: Maybe Bool
     , _gorETag                    :: Maybe Text
-    , _gorExpiration              :: Maybe RFC822
-    , _gorExpires                 :: Maybe RFC822
-    , _gorLastModified            :: Maybe RFC822
+    , _gorExpiration              :: Maybe ISO8601
+    , _gorExpires                 :: Maybe ISO8601
+    , _gorLastModified            :: Maybe ISO8601
     , _gorMetadata                :: Map (CI Text) Text
     , _gorMissingMeta             :: Maybe Int
     , _gorRestore                 :: Maybe Text

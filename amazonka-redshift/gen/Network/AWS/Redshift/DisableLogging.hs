@@ -77,8 +77,8 @@ dlClusterIdentifier =
 data DisableLoggingResponse = DisableLoggingResponse
     { _dlrBucketName                 :: Maybe Text
     , _dlrLastFailureMessage         :: Maybe Text
-    , _dlrLastFailureTime            :: Maybe RFC822
-    , _dlrLastSuccessfulDeliveryTime :: Maybe RFC822
+    , _dlrLastFailureTime            :: Maybe ISO8601
+    , _dlrLastSuccessfulDeliveryTime :: Maybe ISO8601
     , _dlrLoggingEnabled             :: Maybe Bool
     , _dlrS3KeyPrefix                :: Maybe Text
     } deriving (Eq, Ord, Show)

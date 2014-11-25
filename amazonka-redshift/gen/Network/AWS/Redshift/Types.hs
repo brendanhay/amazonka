@@ -413,7 +413,7 @@ data Snapshot = Snapshot
     , _sActualIncrementalBackupSizeInMegaBytes :: Maybe Double
     , _sAvailabilityZone                       :: Maybe Text
     , _sBackupProgressInMegaBytes              :: Maybe Double
-    , _sClusterCreateTime                      :: Maybe RFC822
+    , _sClusterCreateTime                      :: Maybe ISO8601
     , _sClusterIdentifier                      :: Maybe Text
     , _sClusterVersion                         :: Maybe Text
     , _sCurrentBackupRateInMegaBytesPerSecond  :: Maybe Double
@@ -428,7 +428,7 @@ data Snapshot = Snapshot
     , _sNumberOfNodes                          :: Maybe Int
     , _sOwnerAccount                           :: Maybe Text
     , _sPort                                   :: Maybe Int
-    , _sSnapshotCreateTime                     :: Maybe RFC822
+    , _sSnapshotCreateTime                     :: Maybe ISO8601
     , _sSnapshotIdentifier                     :: Maybe Text
     , _sSnapshotType                           :: Maybe Text
     , _sSourceRegion                           :: Maybe Text
@@ -887,7 +887,7 @@ instance ToQuery RestoreStatus where
         ]
 
 data Event = Event
-    { _eDate             :: Maybe RFC822
+    { _eDate             :: Maybe ISO8601
     , _eEventCategories  :: List "EventCategory" Text
     , _eEventId          :: Maybe Text
     , _eMessage          :: Maybe Text
@@ -1114,7 +1114,7 @@ data Cluster = Cluster
     { _cAllowVersionUpgrade              :: Maybe Bool
     , _cAutomatedSnapshotRetentionPeriod :: Maybe Int
     , _cAvailabilityZone                 :: Maybe Text
-    , _cClusterCreateTime                :: Maybe RFC822
+    , _cClusterCreateTime                :: Maybe ISO8601
     , _cClusterIdentifier                :: Maybe Text
     , _cClusterNodes                     :: List "ClusterNodes" ClusterNode
     , _cClusterParameterGroups           :: List "ClusterParameterGroup" ClusterParameterGroupStatus
@@ -2203,7 +2203,7 @@ data ReservedNode = ReservedNode
     , _rnRecurringCharges       :: List "RecurringCharge" RecurringCharge
     , _rnReservedNodeId         :: Maybe Text
     , _rnReservedNodeOfferingId :: Maybe Text
-    , _rnStartTime              :: Maybe RFC822
+    , _rnStartTime              :: Maybe ISO8601
     , _rnState                  :: Maybe Text
     , _rnUsagePrice             :: Maybe Double
     } deriving (Eq, Show)
@@ -2347,8 +2347,8 @@ instance ToQuery ReservedNode where
 data LoggingStatus = LoggingStatus
     { _lsBucketName                 :: Maybe Text
     , _lsLastFailureMessage         :: Maybe Text
-    , _lsLastFailureTime            :: Maybe RFC822
-    , _lsLastSuccessfulDeliveryTime :: Maybe RFC822
+    , _lsLastFailureTime            :: Maybe ISO8601
+    , _lsLastSuccessfulDeliveryTime :: Maybe ISO8601
     , _lsLoggingEnabled             :: Maybe Bool
     , _lsS3KeyPrefix                :: Maybe Text
     } deriving (Eq, Ord, Show)
@@ -2494,7 +2494,7 @@ data EventSubscription = EventSubscription
     , _esSourceIdsList            :: List "SourceId" Text
     , _esSourceType               :: Maybe Text
     , _esStatus                   :: Maybe Text
-    , _esSubscriptionCreationTime :: Maybe RFC822
+    , _esSubscriptionCreationTime :: Maybe ISO8601
     , _esTags                     :: List "Tag" Tag
     } deriving (Eq, Show)
 

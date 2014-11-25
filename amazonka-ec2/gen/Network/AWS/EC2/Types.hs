@@ -1735,7 +1735,7 @@ data Snapshot = Snapshot
     , _sOwnerId     :: Maybe Text
     , _sProgress    :: Maybe Text
     , _sSnapshotId  :: Maybe Text
-    , _sStartTime   :: Maybe RFC822
+    , _sStartTime   :: Maybe ISO8601
     , _sState       :: Maybe SnapshotState
     , _sTags        :: List "item" Tag
     , _sVolumeId    :: Maybe Text
@@ -2019,7 +2019,7 @@ instance FromXML VpnStaticRouteSource where
 
 data ReservedInstancesListing = ReservedInstancesListing
     { _rilClientToken                :: Maybe Text
-    , _rilCreateDate                 :: Maybe RFC822
+    , _rilCreateDate                 :: Maybe ISO8601
     , _rilInstanceCounts             :: List "item" InstanceCount
     , _rilPriceSchedules             :: List "item" PriceSchedule
     , _rilReservedInstancesId        :: Maybe Text
@@ -2027,7 +2027,7 @@ data ReservedInstancesListing = ReservedInstancesListing
     , _rilStatus                     :: Maybe ListingStatus
     , _rilStatusMessage              :: Maybe Text
     , _rilTags                       :: List "item" Tag
-    , _rilUpdateDate                 :: Maybe RFC822
+    , _rilUpdateDate                 :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'ReservedInstancesListing' constructor.
@@ -3015,7 +3015,7 @@ instance FromXML AccountAttributeName where
     parseXML = parseXMLText "AccountAttributeName"
 
 data NetworkInterfaceAttachment = NetworkInterfaceAttachment
-    { _niaAttachTime          :: Maybe RFC822
+    { _niaAttachTime          :: Maybe ISO8601
     , _niaAttachmentId        :: Maybe Text
     , _niaDeleteOnTermination :: Maybe Bool
     , _niaDeviceIndex         :: Maybe Int
@@ -3821,7 +3821,7 @@ data SpotPrice = SpotPrice
     , _spInstanceType       :: Maybe InstanceType
     , _spProductDescription :: Maybe RIProductDescription
     , _spSpotPrice          :: Maybe Text
-    , _spTimestamp          :: Maybe RFC822
+    , _spTimestamp          :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'SpotPrice' constructor.
@@ -3977,7 +3977,7 @@ instance ToQuery PriceScheduleSpecification where
 data SpotInstanceStatus = SpotInstanceStatus
     { _sisCode       :: Maybe Text
     , _sisMessage    :: Maybe Text
-    , _sisUpdateTime :: Maybe RFC822
+    , _sisUpdateTime :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'SpotInstanceStatus' constructor.
@@ -4046,7 +4046,7 @@ instance FromXML AvailabilityZoneState where
 
 data SpotInstanceRequest = SpotInstanceRequest
     { _siAvailabilityZoneGroup    :: Maybe Text
-    , _siCreateTime               :: Maybe RFC822
+    , _siCreateTime               :: Maybe ISO8601
     , _siFault                    :: Maybe SpotInstanceStateFault
     , _siInstanceId               :: Maybe Text
     , _siLaunchGroup              :: Maybe Text
@@ -4059,8 +4059,8 @@ data SpotInstanceRequest = SpotInstanceRequest
     , _siStatus                   :: Maybe SpotInstanceStatus
     , _siTags                     :: List "item" Tag
     , _siType                     :: Maybe SpotInstanceType
-    , _siValidFrom                :: Maybe RFC822
-    , _siValidUntil               :: Maybe RFC822
+    , _siValidFrom                :: Maybe ISO8601
+    , _siValidUntil               :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'SpotInstanceRequest' constructor.
@@ -4428,8 +4428,8 @@ data VolumeStatusEvent = VolumeStatusEvent
     { _vseDescription :: Maybe Text
     , _vseEventId     :: Maybe Text
     , _vseEventType   :: Maybe Text
-    , _vseNotAfter    :: Maybe RFC822
-    , _vseNotBefore   :: Maybe RFC822
+    , _vseNotAfter    :: Maybe ISO8601
+    , _vseNotBefore   :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'VolumeStatusEvent' constructor.
@@ -4495,7 +4495,7 @@ instance ToQuery VolumeStatusEvent where
 data Volume = Volume
     { _vAttachments      :: List "item" VolumeAttachment
     , _vAvailabilityZone :: Maybe Text
-    , _vCreateTime       :: Maybe RFC822
+    , _vCreateTime       :: Maybe ISO8601
     , _vEncrypted        :: Maybe Bool
     , _vIops             :: Maybe Int
     , _vSize             :: Maybe Int
@@ -4830,14 +4830,14 @@ instance FromXML SummaryStatus where
 
 data ReservedInstancesModification = ReservedInstancesModification
     { _rimClientToken                     :: Maybe Text
-    , _rimCreateDate                      :: Maybe RFC822
-    , _rimEffectiveDate                   :: Maybe RFC822
+    , _rimCreateDate                      :: Maybe ISO8601
+    , _rimEffectiveDate                   :: Maybe ISO8601
     , _rimModificationResults             :: List "item" ReservedInstancesModificationResult
     , _rimReservedInstancesIds            :: List "item" ReservedInstancesId
     , _rimReservedInstancesModificationId :: Maybe Text
     , _rimStatus                          :: Maybe Text
     , _rimStatusMessage                   :: Maybe Text
-    , _rimUpdateDate                      :: Maybe RFC822
+    , _rimUpdateDate                      :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'ReservedInstancesModification' constructor.
@@ -6407,10 +6407,10 @@ data BundleTask = BundleTask
     , _btBundleTaskError :: Maybe BundleTaskError
     , _btInstanceId      :: Maybe Text
     , _btProgress        :: Maybe Text
-    , _btStartTime       :: Maybe RFC822
+    , _btStartTime       :: Maybe ISO8601
     , _btState           :: Maybe BundleTaskState
     , _btStorage         :: Maybe Storage
-    , _btUpdateTime      :: Maybe RFC822
+    , _btUpdateTime      :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'BundleTask' constructor.
@@ -6504,8 +6504,8 @@ instance ToQuery BundleTask where
 data InstanceStatusEvent = InstanceStatusEvent
     { _iseCode        :: Maybe EventCode
     , _iseDescription :: Maybe Text
-    , _iseNotAfter    :: Maybe RFC822
-    , _iseNotBefore   :: Maybe RFC822
+    , _iseNotAfter    :: Maybe ISO8601
+    , _iseNotBefore   :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'InstanceStatusEvent' constructor.
@@ -7200,7 +7200,7 @@ instance FromXML ExportEnvironment where
     parseXML = parseXMLText "ExportEnvironment"
 
 data VolumeAttachment = VolumeAttachment
-    { _vaAttachTime          :: Maybe RFC822
+    { _vaAttachTime          :: Maybe ISO8601
     , _vaDeleteOnTermination :: Maybe Bool
     , _vaDevice              :: Maybe Text
     , _vaInstanceId          :: Maybe Text
@@ -7359,7 +7359,7 @@ instance ToQuery CustomerGateway where
         ]
 
 data EbsInstanceBlockDevice = EbsInstanceBlockDevice
-    { _eibdAttachTime          :: Maybe RFC822
+    { _eibdAttachTime          :: Maybe ISO8601
     , _eibdDeleteOnTermination :: Maybe Bool
     , _eibdStatus              :: Maybe AttachmentStatus
     , _eibdVolumeId            :: Maybe Text
@@ -8137,7 +8137,7 @@ instance FromXML HypervisorType where
     parseXML = parseXMLText "HypervisorType"
 
 data InstanceStatusDetails = InstanceStatusDetails
-    { _isdImpairedSince :: Maybe RFC822
+    { _isdImpairedSince :: Maybe ISO8601
     , _isdName          :: Maybe StatusName
     , _isdStatus        :: Maybe StatusType
     } deriving (Eq, Show)
@@ -9946,7 +9946,7 @@ instance FromXML GatewayType where
     parseXML = parseXMLText "GatewayType"
 
 data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
-    { _iniaAttachTime          :: Maybe RFC822
+    { _iniaAttachTime          :: Maybe ISO8601
     , _iniaAttachmentId        :: Maybe Text
     , _iniaDeleteOnTermination :: Maybe Bool
     , _iniaDeviceIndex         :: Maybe Int
@@ -10818,7 +10818,7 @@ data ReservedInstances = ReservedInstances
     { _ri1AvailabilityZone    :: Maybe Text
     , _ri1CurrencyCode        :: Maybe CurrencyCodeValues
     , _ri1Duration            :: Maybe Integer
-    , _ri1End                 :: Maybe RFC822
+    , _ri1End                 :: Maybe ISO8601
     , _ri1FixedPrice          :: Maybe Double
     , _ri1InstanceCount       :: Maybe Int
     , _ri1InstanceTenancy     :: Maybe Tenancy
@@ -10827,7 +10827,7 @@ data ReservedInstances = ReservedInstances
     , _ri1ProductDescription  :: Maybe RIProductDescription
     , _ri1RecurringCharges    :: List "item" RecurringCharge
     , _ri1ReservedInstancesId :: Maybe Text
-    , _ri1Start               :: Maybe RFC822
+    , _ri1Start               :: Maybe ISO8601
     , _ri1State               :: Maybe ReservedInstanceState
     , _ri1Tags                :: List "item" Tag
     , _ri1UsagePrice          :: Maybe Double
@@ -11376,7 +11376,7 @@ instance FromXML SpotInstanceType where
 
 data VpcPeeringConnection = VpcPeeringConnection
     { _vpc1AccepterVpcInfo        :: Maybe VpcPeeringConnectionVpcInfo
-    , _vpc1ExpirationTime         :: Maybe RFC822
+    , _vpc1ExpirationTime         :: Maybe ISO8601
     , _vpc1RequesterVpcInfo       :: Maybe VpcPeeringConnectionVpcInfo
     , _vpc1Status                 :: Maybe VpcPeeringConnectionStateReason
     , _vpc1Tags                   :: List "item" Tag
@@ -11533,7 +11533,7 @@ instance ToQuery S3Storage where
 
 data VgwTelemetry = VgwTelemetry
     { _vtAcceptedRouteCount :: Maybe Int
-    , _vtLastStatusChange   :: Maybe RFC822
+    , _vtLastStatusChange   :: Maybe ISO8601
     , _vtOutsideIpAddress   :: Maybe Text
     , _vtStatus             :: Maybe TelemetryStatus
     , _vtStatusMessage      :: Maybe Text
@@ -11705,7 +11705,7 @@ data Instance = Instance
     , _i1InstanceType          :: Maybe InstanceType
     , _i1KernelId              :: Maybe Text
     , _i1KeyName               :: Maybe Text
-    , _i1LaunchTime            :: Maybe RFC822
+    , _i1LaunchTime            :: Maybe ISO8601
     , _i1Monitoring            :: Maybe Monitoring
     , _i1NetworkInterfaces     :: List "item" InstanceNetworkInterface
     , _i1Placement             :: Maybe Placement

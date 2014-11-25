@@ -352,10 +352,10 @@ ns :: Text
 ns = "http://elasticache.amazonaws.com/doc/2014-09-30/"
 
 data NodeSnapshot = NodeSnapshot
-    { _nsCacheNodeCreateTime :: Maybe RFC822
+    { _nsCacheNodeCreateTime :: Maybe ISO8601
     , _nsCacheNodeId         :: Maybe Text
     , _nsCacheSize           :: Maybe Text
-    , _nsSnapshotCreateTime  :: Maybe RFC822
+    , _nsSnapshotCreateTime  :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'NodeSnapshot' constructor.
@@ -416,7 +416,7 @@ instance ToQuery NodeSnapshot where
 
 data Snapshot = Snapshot
     { _sAutoMinorVersionUpgrade    :: Maybe Bool
-    , _sCacheClusterCreateTime     :: Maybe RFC822
+    , _sCacheClusterCreateTime     :: Maybe ISO8601
     , _sCacheClusterId             :: Maybe Text
     , _sCacheNodeType              :: Maybe Text
     , _sCacheParameterGroupName    :: Maybe Text
@@ -665,7 +665,7 @@ instance ToQuery Snapshot where
         ]
 
 data Event = Event
-    { _eDate             :: Maybe RFC822
+    { _eDate             :: Maybe ISO8601
     , _eMessage          :: Maybe Text
     , _eSourceIdentifier :: Maybe Text
     , _eSourceType       :: Maybe SourceType
@@ -1126,7 +1126,7 @@ data ReservedCacheNode = ReservedCacheNode
     , _rcnRecurringCharges             :: List "RecurringCharge" RecurringCharge
     , _rcnReservedCacheNodeId          :: Maybe Text
     , _rcnReservedCacheNodesOfferingId :: Maybe Text
-    , _rcnStartTime                    :: Maybe RFC822
+    , _rcnStartTime                    :: Maybe ISO8601
     , _rcnState                        :: Maybe Text
     , _rcnUsagePrice                   :: Maybe Double
     } deriving (Eq, Show)
@@ -1344,7 +1344,7 @@ instance ToQuery SecurityGroupMembership where
 
 data CacheCluster = CacheCluster
     { _ccAutoMinorVersionUpgrade    :: Maybe Bool
-    , _ccCacheClusterCreateTime     :: Maybe RFC822
+    , _ccCacheClusterCreateTime     :: Maybe ISO8601
     , _ccCacheClusterId             :: Maybe Text
     , _ccCacheClusterStatus         :: Maybe Text
     , _ccCacheNodeType              :: Maybe Text
@@ -1738,7 +1738,7 @@ instance ToQuery CacheParameterGroupStatus where
         ]
 
 data CacheNode = CacheNode
-    { _cnCacheNodeCreateTime      :: Maybe RFC822
+    { _cnCacheNodeCreateTime      :: Maybe ISO8601
     , _cnCacheNodeId              :: Maybe Text
     , _cnCacheNodeStatus          :: Maybe Text
     , _cnCustomerAvailabilityZone :: Maybe Text

@@ -56,7 +56,7 @@ getCredentialReport = GetCredentialReport
 
 data GetCredentialReportResponse = GetCredentialReportResponse
     { _gcrrContent       :: Maybe Base64
-    , _gcrrGeneratedTime :: Maybe RFC822
+    , _gcrrGeneratedTime :: Maybe ISO8601
     , _gcrrReportFormat  :: Maybe ReportFormatType
     } deriving (Eq, Show)
 

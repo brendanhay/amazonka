@@ -60,12 +60,12 @@ import qualified GHC.Exts
 
 data DescribeEvents = DescribeEvents
     { _deDuration         :: Maybe Int
-    , _deEndTime          :: Maybe RFC822
+    , _deEndTime          :: Maybe ISO8601
     , _deMarker           :: Maybe Text
     , _deMaxRecords       :: Maybe Int
     , _deSourceIdentifier :: Maybe Text
     , _deSourceType       :: Maybe SourceType
-    , _deStartTime        :: Maybe RFC822
+    , _deStartTime        :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'DescribeEvents' constructor.

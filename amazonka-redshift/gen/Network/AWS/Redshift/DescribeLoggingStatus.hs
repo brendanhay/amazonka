@@ -77,8 +77,8 @@ dlsClusterIdentifier =
 data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
     { _dlsrBucketName                 :: Maybe Text
     , _dlsrLastFailureMessage         :: Maybe Text
-    , _dlsrLastFailureTime            :: Maybe RFC822
-    , _dlsrLastSuccessfulDeliveryTime :: Maybe RFC822
+    , _dlsrLastFailureTime            :: Maybe ISO8601
+    , _dlsrLastSuccessfulDeliveryTime :: Maybe ISO8601
     , _dlsrLoggingEnabled             :: Maybe Bool
     , _dlsrS3KeyPrefix                :: Maybe Text
     } deriving (Eq, Ord, Show)

@@ -1715,7 +1715,7 @@
                         "locationName": "CreatedTime",
                         "documentation": "-- | Provides the date and time the load balancer was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1807,7 +1807,7 @@
                         "locationName": "CreatedTime",
                         "documentation": "-- | Provides the date and time the load balancer was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",

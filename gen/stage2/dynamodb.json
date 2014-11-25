@@ -193,7 +193,7 @@
                         "locationName": "LastIncreaseDateTime",
                         "documentation": "-- | The date and time of the last provisioned throughput increase for this table.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -208,7 +208,7 @@
                         "locationName": "LastDecreaseDateTime",
                         "documentation": "-- | The date and time of the last provisioned throughput decrease for this table.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -276,7 +276,7 @@
                         "locationName": "LastIncreaseDateTime",
                         "documentation": "-- | The date and time of the last provisioned throughput increase for this table.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -291,7 +291,7 @@
                         "locationName": "LastDecreaseDateTime",
                         "documentation": "-- | The date and time of the last provisioned throughput decrease for this table.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -353,7 +353,7 @@
                         "locationName": "LastDecreaseDateTime",
                         "documentation": "-- | The date and time of the last provisioned throughput decrease for this table.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -368,7 +368,7 @@
                         "locationName": "LastIncreaseDateTime",
                         "documentation": "-- | The date and time of the last provisioned throughput increase for this table.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1152,7 +1152,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date and time when the table was created, in \u003chttp://www.epochconverter.com/ UNIX epoch time\u003e format.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1311,7 +1311,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date and time when the table was created, in \u003chttp://www.epochconverter.com/ UNIX epoch time\u003e format.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1418,7 +1418,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date and time when the table was created, in \u003chttp://www.epochconverter.com/ UNIX epoch time\u003e format.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,

@@ -270,7 +270,7 @@
                         "locationName": "AlarmConfigurationUpdatedTimestamp",
                         "documentation": "-- | The time stamp of the last update to the alarm configuration. Amazon\n-- CloudWatch uses Coordinated Universal Time (UTC) when returning time stamps,\n-- which do not accommodate seasonal adjustments such as daylight savings time.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps\u003e in the /Amazon CloudWatch Developer Guide/\n-- .",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -390,7 +390,7 @@
                         "locationName": "StateUpdatedTimestamp",
                         "documentation": "-- | The time stamp of the last update to the alarm's state. Amazon CloudWatch\n-- uses Coordinated Universal Time (UTC) when returning time stamps, which do\n-- not accommodate seasonal adjustments such as daylight savings time. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps\u003e in the /Amazon CloudWatch Developer Guide/.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -587,7 +587,7 @@
                         "locationName": "AlarmConfigurationUpdatedTimestamp",
                         "documentation": "-- | The time stamp of the last update to the alarm configuration. Amazon\n-- CloudWatch uses Coordinated Universal Time (UTC) when returning time stamps,\n-- which do not accommodate seasonal adjustments such as daylight savings time.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps\u003e in the /Amazon CloudWatch Developer Guide/\n-- .",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -782,7 +782,7 @@
                         "locationName": "StateUpdatedTimestamp",
                         "documentation": "-- | The time stamp of the last update to the alarm's state. Amazon CloudWatch\n-- uses Coordinated Universal Time (UTC) when returning time stamps, which do\n-- not accommodate seasonal adjustments such as daylight savings time. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps\u003e in the /Amazon CloudWatch Developer Guide/.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -923,7 +923,7 @@
                         "locationName": "Timestamp",
                         "documentation": "-- | The time stamp used for the metric. If not specified, the default value is\n-- set to the time the metric data was received. Amazon CloudWatch uses\n-- Coordinated Universal Time (UTC) when returning time stamps, which do not\n-- accommodate seasonal adjustments such as daylight savings time. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps\u003e in the /Amazon CloudWatch Developer Guide/.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1030,7 +1030,7 @@
                         "locationName": "Timestamp",
                         "documentation": "-- | The time stamp used for the metric. If not specified, the default value is\n-- set to the time the metric data was received. Amazon CloudWatch uses\n-- Coordinated Universal Time (UTC) when returning time stamps, which do not\n-- accommodate seasonal adjustments such as daylight savings time. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps\u003e in the /Amazon CloudWatch Developer Guide/.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1248,7 +1248,7 @@
                         "locationName": "Timestamp",
                         "documentation": "-- | The time stamp for the alarm history item. Amazon CloudWatch uses\n-- Coordinated Universal Time (UTC) when returning time stamps, which do not\n-- accommodate seasonal adjustments such as daylight savings time. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps\u003e in the /Amazon CloudWatch Developer Guide/.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1370,7 +1370,7 @@
                         "locationName": "Timestamp",
                         "documentation": "-- | The time stamp for the alarm history item. Amazon CloudWatch uses\n-- Coordinated Universal Time (UTC) when returning time stamps, which do not\n-- accommodate seasonal adjustments such as daylight savings time. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps\u003e in the /Amazon CloudWatch Developer Guide/.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -1529,7 +1529,7 @@
                         "locationName": "Timestamp",
                         "documentation": "-- | The time stamp used for the datapoint. Amazon CloudWatch uses Coordinated\n-- Universal Time (UTC) when returning time stamps, which do not accommodate\n-- seasonal adjustments such as daylight savings time. For more information, see \u003chttp://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps\u003e in the /Amazon CloudWatch Developer Guide/.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1711,7 +1711,7 @@
                         "locationName": "Timestamp",
                         "documentation": "-- | The time stamp used for the datapoint. Amazon CloudWatch uses Coordinated\n-- Universal Time (UTC) when returning time stamps, which do not accommodate\n-- seasonal adjustments such as daylight savings time. For more information, see \u003chttp://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps\u003e in the /Amazon CloudWatch Developer Guide/.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2186,7 +2186,7 @@
                         "locationName": "StartDate",
                         "documentation": "-- | The starting date to retrieve alarm history.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2201,7 +2201,7 @@
                         "locationName": "EndDate",
                         "documentation": "-- | The ending date to retrieve alarm history.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2263,7 +2263,7 @@
                         "locationName": "EndDate",
                         "documentation": "-- | The ending date to retrieve alarm history.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2323,7 +2323,7 @@
                         "locationName": "StartDate",
                         "documentation": "-- | The starting date to retrieve alarm history.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             }
@@ -3447,7 +3447,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The time stamp to use for determining the first datapoint to return. The\n-- value specified is inclusive; results include datapoints with the time stamp\n-- specified.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3462,7 +3462,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The time stamp to use for determining the last datapoint to return. The\n-- value specified is exclusive; results will include datapoints up to the time\n-- stamp specified.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3607,7 +3607,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The time stamp to use for determining the last datapoint to return. The\n-- value specified is exclusive; results will include datapoints up to the time\n-- stamp specified.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3667,7 +3667,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The time stamp to use for determining the first datapoint to return. The\n-- value specified is inclusive; results include datapoints with the time stamp\n-- specified.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",

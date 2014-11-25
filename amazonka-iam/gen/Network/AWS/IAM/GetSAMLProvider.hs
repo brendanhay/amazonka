@@ -70,9 +70,9 @@ gsamlpSAMLProviderArn =
     lens _gsamlpSAMLProviderArn (\s a -> s { _gsamlpSAMLProviderArn = a })
 
 data GetSAMLProviderResponse = GetSAMLProviderResponse
-    { _gsamlprCreateDate           :: Maybe RFC822
+    { _gsamlprCreateDate           :: Maybe ISO8601
     , _gsamlprSAMLMetadataDocument :: Maybe Text
-    , _gsamlprValidUntil           :: Maybe RFC822
+    , _gsamlprValidUntil           :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'GetSAMLProviderResponse' constructor.

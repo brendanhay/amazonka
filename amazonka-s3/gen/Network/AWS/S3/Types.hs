@@ -566,7 +566,7 @@ instance ToXML Transition where
 data DeleteMarkerEntry = DeleteMarkerEntry
     { _dmeIsLatest     :: Maybe Bool
     , _dmeKey          :: Maybe Text
-    , _dmeLastModified :: Maybe RFC822
+    , _dmeLastModified :: Maybe ISO8601
     , _dmeOwner        :: Maybe Owner
     , _dmeVersionId    :: Maybe Text
     } deriving (Eq, Show)
@@ -662,7 +662,7 @@ instance ToXML ExpirationStatus where
 
 data Part = Part
     { _pETag         :: Maybe Text
-    , _pLastModified :: Maybe RFC822
+    , _pLastModified :: Maybe ISO8601
     , _pPartNumber   :: Maybe Int
     , _pSize         :: Maybe Int
     } deriving (Eq, Ord, Show)
@@ -1200,7 +1200,7 @@ instance ToXML ObjectVersionStorageClass where
 
 data CopyPartResult = CopyPartResult
     { _cprETag         :: Maybe Text
-    , _cprLastModified :: Maybe RFC822
+    , _cprLastModified :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'CopyPartResult' constructor.
@@ -1549,7 +1549,7 @@ instance ToXML ObjectIdentifier where
         ]
 
 data Bucket = Bucket
-    { _bCreationDate :: Maybe RFC822
+    { _bCreationDate :: Maybe ISO8601
     , _bName         :: Maybe Text
     } deriving (Eq, Ord, Show)
 
@@ -1985,7 +1985,7 @@ data ObjectVersion = ObjectVersion
     { _ovETag         :: Maybe Text
     , _ovIsLatest     :: Maybe Bool
     , _ovKey          :: Maybe Text
-    , _ovLastModified :: Maybe RFC822
+    , _ovLastModified :: Maybe ISO8601
     , _ovOwner        :: Maybe Owner
     , _ovSize         :: Maybe Int
     , _ovStorageClass :: Maybe ObjectVersionStorageClass
@@ -2454,7 +2454,7 @@ instance ToXML CORSConfiguration where
 data Object = Object
     { _oETag         :: Text
     , _oKey          :: Text
-    , _oLastModified :: RFC822
+    , _oLastModified :: ISO8601
     , _oOwner        :: Owner
     , _oSize         :: Int
     , _oStorageClass :: ObjectStorageClass
@@ -2558,7 +2558,7 @@ instance ToXML CommonPrefix where
         ]
 
 data MultipartUpload = MultipartUpload
-    { _muInitiated    :: Maybe RFC822
+    { _muInitiated    :: Maybe ISO8601
     , _muInitiator    :: Maybe Initiator
     , _muKey          :: Maybe Text
     , _muOwner        :: Maybe Owner
@@ -3182,7 +3182,7 @@ instance ToXML IndexDocument where
 
 data CopyObjectResult = CopyObjectResult
     { _corETag         :: Maybe Text
-    , _corLastModified :: Maybe RFC822
+    , _corLastModified :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'CopyObjectResult' constructor.

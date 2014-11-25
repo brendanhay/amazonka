@@ -308,7 +308,7 @@ data StackEvent = StackEvent
     , _seResourceType         :: Maybe Text
     , _seStackId              :: Text
     , _seStackName            :: Text
-    , _seTimestamp            :: RFC822
+    , _seTimestamp            :: ISO8601
     } deriving (Eq, Show)
 
 -- | 'StackEvent' constructor.
@@ -427,9 +427,9 @@ instance ToQuery StackEvent where
         ]
 
 data StackSummary = StackSummary
-    { _ssCreationTime        :: RFC822
-    , _ssDeletionTime        :: Maybe RFC822
-    , _ssLastUpdatedTime     :: Maybe RFC822
+    { _ssCreationTime        :: ISO8601
+    , _ssDeletionTime        :: Maybe ISO8601
+    , _ssLastUpdatedTime     :: Maybe ISO8601
     , _ssStackId             :: Maybe Text
     , _ssStackName           :: Text
     , _ssStackStatus         :: StackStatus
@@ -534,7 +534,7 @@ instance ToQuery StackSummary where
 
 data StackResourceDetail = StackResourceDetail
     { _srdDescription          :: Maybe Text
-    , _srdLastUpdatedTimestamp :: RFC822
+    , _srdLastUpdatedTimestamp :: ISO8601
     , _srdLogicalResourceId    :: Text
     , _srdMetadata             :: Maybe Text
     , _srdPhysicalResourceId   :: Maybe Text
@@ -851,7 +851,7 @@ data StackResource = StackResource
     , _sr1ResourceType         :: Text
     , _sr1StackId              :: Maybe Text
     , _sr1StackName            :: Maybe Text
-    , _sr1Timestamp            :: RFC822
+    , _sr1Timestamp            :: ISO8601
     } deriving (Eq, Show)
 
 -- | 'StackResource' constructor.
@@ -1009,7 +1009,7 @@ instance ToQuery Output where
         ]
 
 data StackResourceSummary = StackResourceSummary
-    { _srsLastUpdatedTimestamp :: RFC822
+    { _srsLastUpdatedTimestamp :: ISO8601
     , _srsLogicalResourceId    :: Text
     , _srsPhysicalResourceId   :: Maybe Text
     , _srsResourceStatus       :: ResourceStatus
@@ -1148,10 +1148,10 @@ instance FromXML ResourceSignalStatus where
 
 data Stack = Stack
     { _sCapabilities      :: List "Capabilities" Capability
-    , _sCreationTime      :: RFC822
+    , _sCreationTime      :: ISO8601
     , _sDescription       :: Maybe Text
     , _sDisableRollback   :: Maybe Bool
-    , _sLastUpdatedTime   :: Maybe RFC822
+    , _sLastUpdatedTime   :: Maybe ISO8601
     , _sNotificationARNs  :: List "NotificationARNs" Text
     , _sOutputs           :: List "Outputs" Output
     , _sParameters        :: List "Parameters" Parameter

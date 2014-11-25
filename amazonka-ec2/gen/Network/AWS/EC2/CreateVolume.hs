@@ -154,7 +154,7 @@ cv1VolumeType = lens _cv1VolumeType (\s a -> s { _cv1VolumeType = a })
 data CreateVolumeResponse = CreateVolumeResponse
     { _cvrAttachments      :: List "item" VolumeAttachment
     , _cvrAvailabilityZone :: Maybe Text
-    , _cvrCreateTime       :: Maybe RFC822
+    , _cvrCreateTime       :: Maybe ISO8601
     , _cvrEncrypted        :: Maybe Bool
     , _cvrIops             :: Maybe Int
     , _cvrSize             :: Maybe Int

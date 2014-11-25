@@ -540,7 +540,7 @@
                         "locationName": "Date",
                         "documentation": "-- | Specifies the date and time of the event.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -557,7 +557,7 @@
                         "locationName": "Date",
                         "documentation": "-- | Specifies the date and time of the event.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1188,7 +1188,7 @@
                         "locationName": "SnapshotCreateTime",
                         "documentation": "-- | Provides the time (UTC) when the snapshot was taken.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1293,7 +1293,7 @@
                         "locationName": "InstanceCreateTime",
                         "documentation": "-- | Specifies the time (UTC) when the snapshot was taken.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1550,7 +1550,7 @@
                         "locationName": "InstanceCreateTime",
                         "documentation": "-- | Specifies the time (UTC) when the snapshot was taken.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1655,7 +1655,7 @@
                         "locationName": "SnapshotCreateTime",
                         "documentation": "-- | Provides the time (UTC) when the snapshot was taken.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2696,7 +2696,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The time the reservation started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3028,7 +3028,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The time the reservation started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3735,7 +3735,7 @@
                         "locationName": "InstanceCreateTime",
                         "documentation": "-- | Provides the date and time the DB instance was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3885,7 +3885,7 @@
                         "locationName": "LatestRestorableTime",
                         "documentation": "-- | Specifies the latest time to which a database can be restored with\n-- point-in-time restore.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -4337,7 +4337,7 @@
                         "locationName": "InstanceCreateTime",
                         "documentation": "-- | Provides the date and time the DB instance was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -4367,7 +4367,7 @@
                         "locationName": "LatestRestorableTime",
                         "documentation": "-- | Specifies the latest time to which a database can be restored with\n-- point-in-time restore.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -17306,7 +17306,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: 2009-07-08T18:00Z",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -17321,7 +17321,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: 2009-07-08T18:00Z",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -17428,7 +17428,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: 2009-07-08T18:00Z",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -17533,7 +17533,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: 2009-07-08T18:00Z",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             }
@@ -24280,7 +24280,7 @@
                         "locationName": "RestoreTime",
                         "documentation": "-- | The date and time to restore from.\n--\n-- Valid Values: Value must be a UTC time\n--\n-- Constraints:\n--\n-- Must be before the latest restorable time for the DB instance Cannot be\n-- specified if UseLatestRestorableTime parameter is true  Example: '2009-09-07T23:45:00Z'",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -24732,7 +24732,7 @@
                         "locationName": "RestoreTime",
                         "documentation": "-- | The date and time to restore from.\n--\n-- Valid Values: Value must be a UTC time\n--\n-- Constraints:\n--\n-- Must be before the latest restorable time for the DB instance Cannot be\n-- specified if UseLatestRestorableTime parameter is true  Example: '2009-09-07T23:45:00Z'",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",

@@ -78,7 +78,7 @@ ns = "https://sts.amazonaws.com/doc/2011-06-15/"
 
 data Credentials = Credentials
     { _cAccessKeyId     :: Text
-    , _cExpiration      :: RFC822
+    , _cExpiration      :: ISO8601
     , _cSecretAccessKey :: Text
     , _cSessionToken    :: Text
     } deriving (Eq, Ord, Show)

@@ -137,7 +137,7 @@
                         "locationName": "firstUsedTime",
                         "documentation": "-- | When the revision was first used by AWS CodeDeploy.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -152,7 +152,7 @@
                         "locationName": "lastUsedTime",
                         "documentation": "-- | When the revision was last used by AWS CodeDeploy.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -167,7 +167,7 @@
                         "locationName": "registerTime",
                         "documentation": "-- | When the revision was registered with AWS CodeDeploy.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -220,7 +220,7 @@
                         "locationName": "firstUsedTime",
                         "documentation": "-- | When the revision was first used by AWS CodeDeploy.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -235,7 +235,7 @@
                         "locationName": "lastUsedTime",
                         "documentation": "-- | When the revision was last used by AWS CodeDeploy.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -250,7 +250,7 @@
                         "locationName": "registerTime",
                         "documentation": "-- | When the revision was registered with AWS CodeDeploy.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -297,7 +297,7 @@
                         "locationName": "firstUsedTime",
                         "documentation": "-- | When the revision was first used by AWS CodeDeploy.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -312,7 +312,7 @@
                         "locationName": "lastUsedTime",
                         "documentation": "-- | When the revision was last used by AWS CodeDeploy.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -327,7 +327,7 @@
                         "locationName": "registerTime",
                         "documentation": "-- | When the revision was registered with AWS CodeDeploy.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -383,7 +383,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | The time that the application was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -451,7 +451,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | The time that the application was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -513,7 +513,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | The time that the application was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -572,7 +572,7 @@
                         "locationName": "start",
                         "documentation": "-- | The time range's start time.\n--\n-- Specify null to leave the time range's start time open-ended.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -587,7 +587,7 @@
                         "locationName": "end",
                         "documentation": "-- | The time range's end time.\n--\n-- Specify null to leave the time range's end time open-ended.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -610,7 +610,7 @@
                         "locationName": "start",
                         "documentation": "-- | The time range's start time.\n--\n-- Specify null to leave the time range's start time open-ended.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -625,7 +625,7 @@
                         "locationName": "end",
                         "documentation": "-- | The time range's end time.\n--\n-- Specify null to leave the time range's end time open-ended.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -642,7 +642,7 @@
                         "locationName": "end",
                         "documentation": "-- | The time range's end time.\n--\n-- Specify null to leave the time range's end time open-ended.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -657,7 +657,7 @@
                         "locationName": "start",
                         "documentation": "-- | The time range's start time.\n--\n-- Specify null to leave the time range's start time open-ended.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -744,7 +744,7 @@
                         "locationName": "lastUpdatedAt",
                         "documentation": "-- | A timestamp indicating when the instance information was last updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -827,7 +827,7 @@
                         "locationName": "lastUpdatedAt",
                         "documentation": "-- | A timestamp indicating when the instance information was last updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -889,7 +889,7 @@
                         "locationName": "lastUpdatedAt",
                         "documentation": "-- | A timestamp indicating when the instance information was last updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2382,7 +2382,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | A timestamp indicating when the deployment was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2397,7 +2397,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | A timestamp indicating when the deployment began deploying to the deployment\n-- group.\n--\n-- Note that in some cases, the reported value of the start time may be later\n-- than the complete time. This is due to differences in the clock settings of\n-- various back-end servers that participate in the overall deployment process.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2412,7 +2412,7 @@
                         "locationName": "completeTime",
                         "documentation": "-- | A timestamp indicating when the deployment was completed.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2600,7 +2600,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | A timestamp indicating when the deployment was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2615,7 +2615,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | A timestamp indicating when the deployment began deploying to the deployment\n-- group.\n--\n-- Note that in some cases, the reported value of the start time may be later\n-- than the complete time. This is due to differences in the clock settings of\n-- various back-end servers that participate in the overall deployment process.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2630,7 +2630,7 @@
                         "locationName": "completeTime",
                         "documentation": "-- | A timestamp indicating when the deployment was completed.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2722,7 +2722,7 @@
                         "locationName": "completeTime",
                         "documentation": "-- | A timestamp indicating when the deployment was completed.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2737,7 +2737,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | A timestamp indicating when the deployment was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2887,7 +2887,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | A timestamp indicating when the deployment began deploying to the deployment\n-- group.\n--\n-- Note that in some cases, the reported value of the start time may be later\n-- than the complete time. This is due to differences in the clock settings of\n-- various back-end servers that participate in the overall deployment process.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2957,7 +2957,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | A timestamp indicating when the deployment lifecycle event started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2972,7 +2972,7 @@
                         "locationName": "endTime",
                         "documentation": "-- | A timestamp indicating when the deployment lifecycle event ended.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3040,7 +3040,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | A timestamp indicating when the deployment lifecycle event started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3055,7 +3055,7 @@
                         "locationName": "endTime",
                         "documentation": "-- | A timestamp indicating when the deployment lifecycle event ended.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3102,7 +3102,7 @@
                         "locationName": "endTime",
                         "documentation": "-- | A timestamp indicating when the deployment lifecycle event ended.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3132,7 +3132,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | A timestamp indicating when the deployment lifecycle event started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3489,7 +3489,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | The time that the deployment configuration was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -3557,7 +3557,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | The time that the deployment configuration was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -3574,7 +3574,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | The time that the deployment configuration was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,

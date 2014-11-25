@@ -1098,7 +1098,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | The time stamp when the snapshot was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1310,7 +1310,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | The time stamp when the snapshot was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1747,7 +1747,7 @@
                         "locationName": "createDate",
                         "documentation": "-- | The time the listing was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1762,7 +1762,7 @@
                         "locationName": "updateDate",
                         "documentation": "-- | The last modified timestamp of the listing.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1884,7 +1884,7 @@
                         "locationName": "createDate",
                         "documentation": "-- | The time the listing was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2004,7 +2004,7 @@
                         "locationName": "updateDate",
                         "documentation": "-- | The last modified timestamp of the listing.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -3807,7 +3807,7 @@
                         "locationName": "attachTime",
                         "documentation": "-- | The timestamp indicating when the attachment initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3839,7 +3839,7 @@
                         "locationName": "attachTime",
                         "documentation": "-- | The timestamp indicating when the attachment initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -5207,7 +5207,7 @@
                         "locationName": "timestamp",
                         "documentation": "-- | The date and time the request was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -5299,7 +5299,7 @@
                         "locationName": "timestamp",
                         "documentation": "-- | The date and time the request was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -5535,7 +5535,7 @@
                         "locationName": "updateTime",
                         "documentation": "-- | The time of the most recent status update.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -5597,7 +5597,7 @@
                         "locationName": "updateTime",
                         "documentation": "-- | The time of the most recent status update.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -5735,7 +5735,7 @@
                         "locationName": "validFrom",
                         "documentation": "-- | The start date of the request. If this is a one-time request, the request\n-- becomes active at this date and time and remains active until all instances\n-- launch, the request expires, or the request is canceled. If the request is\n-- persistent, the request becomes active at this date and time and remains\n-- active until it expires or is canceled.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -5750,7 +5750,7 @@
                         "locationName": "validUntil",
                         "documentation": "-- | The end date of the request. If this is a one-time request, the request\n-- remains active until all instances launch, the request is canceled, or this\n-- date is reached. If the request is persistent, it remains active until it is\n-- canceled or this date is reached.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -5825,7 +5825,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | The time stamp when the Spot Instance request was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -5902,7 +5902,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | The time stamp when the Spot Instance request was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -6097,7 +6097,7 @@
                         "locationName": "validFrom",
                         "documentation": "-- | The start date of the request. If this is a one-time request, the request\n-- becomes active at this date and time and remains active until all instances\n-- launch, the request expires, or the request is canceled. If the request is\n-- persistent, the request becomes active at this date and time and remains\n-- active until it expires or is canceled.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -6112,7 +6112,7 @@
                         "locationName": "validUntil",
                         "documentation": "-- | The end date of the request. If this is a one-time request, the request\n-- remains active until all instances launch, the request is canceled, or this\n-- date is reached. If the request is persistent, it remains active until it is\n-- canceled or this date is reached.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -6644,7 +6644,7 @@
                         "locationName": "notBefore",
                         "documentation": "-- | The earliest start time of the event.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -6659,7 +6659,7 @@
                         "locationName": "notAfter",
                         "documentation": "-- | The latest end time of the event.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -6736,7 +6736,7 @@
                         "locationName": "notAfter",
                         "documentation": "-- | The latest end time of the event.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -6751,7 +6751,7 @@
                         "locationName": "notBefore",
                         "documentation": "-- | The earliest start time of the event.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -6858,7 +6858,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | The time stamp when volume creation was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -6980,7 +6980,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | The time stamp when volume creation was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -7595,7 +7595,7 @@
                         "locationName": "createDate",
                         "documentation": "-- | The time when the modification request was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -7610,7 +7610,7 @@
                         "locationName": "updateDate",
                         "documentation": "-- | The time when the modification request was last updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -7625,7 +7625,7 @@
                         "locationName": "effectiveDate",
                         "documentation": "-- | The time for the modification to become effective.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -7702,7 +7702,7 @@
                         "locationName": "createDate",
                         "documentation": "-- | The time when the modification request was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -7717,7 +7717,7 @@
                         "locationName": "effectiveDate",
                         "documentation": "-- | The time for the modification to become effective.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -7807,7 +7807,7 @@
                         "locationName": "updateDate",
                         "documentation": "-- | The time when the modification request was last updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -10842,7 +10842,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | The time this task started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -10857,7 +10857,7 @@
                         "locationName": "updateTime",
                         "documentation": "-- | The time of the most recent update for the task.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -10979,7 +10979,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | The time this task started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11024,7 +11024,7 @@
                         "locationName": "updateTime",
                         "documentation": "-- | The time of the most recent update for the task.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -11086,7 +11086,7 @@
                         "locationName": "notBefore",
                         "documentation": "-- | The earliest scheduled start time for the event.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11101,7 +11101,7 @@
                         "locationName": "notAfter",
                         "documentation": "-- | The latest scheduled end time for the event.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -11148,7 +11148,7 @@
                         "locationName": "notAfter",
                         "documentation": "-- | The latest scheduled end time for the event.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11163,7 +11163,7 @@
                         "locationName": "notBefore",
                         "documentation": "-- | The earliest scheduled start time for the event.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -12336,7 +12336,7 @@
                         "locationName": "attachTime",
                         "documentation": "-- | The time stamp when the attachment initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -12368,7 +12368,7 @@
                         "locationName": "attachTime",
                         "documentation": "-- | The time stamp when the attachment initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -12704,7 +12704,7 @@
                         "locationName": "attachTime",
                         "documentation": "-- | The time stamp when the attachment initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -12736,7 +12736,7 @@
                         "locationName": "attachTime",
                         "documentation": "-- | The time stamp when the attachment initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -14068,7 +14068,7 @@
                         "locationName": "impairedSince",
                         "documentation": "-- | The time when a status check failed. For an instance that was launched and\n-- impaired, this is the time when the instance was launched.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -14085,7 +14085,7 @@
                         "locationName": "impairedSince",
                         "documentation": "-- | The time when a status check failed. For an instance that was launched and\n-- impaired, this is the time when the instance was launched.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -17551,7 +17551,7 @@
                         "locationName": "attachTime",
                         "documentation": "-- | The time stamp when the attachment initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -17583,7 +17583,7 @@
                         "locationName": "attachTime",
                         "documentation": "-- | The time stamp when the attachment initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -19197,7 +19197,7 @@
                         "locationName": "start",
                         "documentation": "-- | The date and time the Reserved Instance started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -19212,7 +19212,7 @@
                         "locationName": "end",
                         "documentation": "-- | The time when the Reserved Instance expires.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -19439,7 +19439,7 @@
                         "locationName": "end",
                         "documentation": "-- | The time when the Reserved Instance expires.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -19574,7 +19574,7 @@
                         "locationName": "start",
                         "documentation": "-- | The date and time the Reserved Instance started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -20263,7 +20263,7 @@
                         "locationName": "expirationTime",
                         "documentation": "-- | The time that an unaccepted VPC peering connection will expire.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -20355,7 +20355,7 @@
                         "locationName": "expirationTime",
                         "documentation": "-- | The time that an unaccepted VPC peering connection will expire.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -20646,7 +20646,7 @@
                         "locationName": "lastStatusChange",
                         "documentation": "-- | The date and time of the last change in status.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -20708,7 +20708,7 @@
                         "locationName": "lastStatusChange",
                         "documentation": "-- | The date and time of the last change in status.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -21065,7 +21065,7 @@
                         "locationName": "launchTime",
                         "documentation": "-- | The time the instance was launched.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -21667,7 +21667,7 @@
                         "locationName": "launchTime",
                         "documentation": "-- | The time the instance was launched.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -25324,7 +25324,7 @@
                         "locationName": "attachTime",
                         "documentation": "-- | The time stamp when the attachment initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -25356,7 +25356,7 @@
                         "locationName": "attachTime",
                         "documentation": "-- | The time stamp when the attachment initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -32469,7 +32469,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | The time stamp when the snapshot was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -32681,7 +32681,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | The time stamp when the snapshot was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -33694,7 +33694,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | The time stamp when volume creation was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -33816,7 +33816,7 @@
                         "locationName": "createTime",
                         "documentation": "-- | The time stamp when volume creation was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -47482,7 +47482,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | The start date and time of the Spot Price history data.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -47497,7 +47497,7 @@
                         "locationName": "endTime",
                         "documentation": "-- | The end date and time of the Spot Price history data.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -47634,7 +47634,7 @@
                         "locationName": "endTime",
                         "documentation": "-- | The end date and time of the Spot Price history data.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -47724,7 +47724,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | The start date and time of the Spot Price history data.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             }
@@ -50827,7 +50827,7 @@
                         "locationName": "attachTime",
                         "documentation": "-- | The time stamp when the attachment initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -50859,7 +50859,7 @@
                         "locationName": "attachTime",
                         "documentation": "-- | The time stamp when the attachment initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -52168,7 +52168,7 @@
                         "locationName": "timestamp",
                         "documentation": "-- | The time the output was last updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -52230,7 +52230,7 @@
                         "locationName": "timestamp",
                         "documentation": "-- | The time the output was last updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -52410,7 +52410,7 @@
                         "locationName": "timestamp",
                         "documentation": "-- | The time the data was last updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -52472,7 +52472,7 @@
                         "locationName": "timestamp",
                         "documentation": "-- | The time the data was last updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -58668,7 +58668,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | The time at which the reported instance health state began.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -58683,7 +58683,7 @@
                         "locationName": "endTime",
                         "documentation": "-- | The time at which the reported instance health state ended.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -58760,7 +58760,7 @@
                         "locationName": "endTime",
                         "documentation": "-- | The time at which the reported instance health state ended.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -58805,7 +58805,7 @@
                         "locationName": "startTime",
                         "documentation": "-- | The time at which the reported instance health state began.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -59066,7 +59066,7 @@
                         "locationName": "validFrom",
                         "documentation": "-- | The start date of the request. If this is a one-time request, the request\n-- becomes active at this date and time and remains active until all instances\n-- launch, the request expires, or the request is canceled. If the request is\n-- persistent, the request becomes active at this date and time and remains\n-- active until it expires or is canceled.\n--\n-- Default: The request is effective indefinitely.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -59081,7 +59081,7 @@
                         "locationName": "validUntil",
                         "documentation": "-- | The end date of the request. If this is a one-time request, the request\n-- remains active until all instances launch, the request is canceled, or this\n-- date is reached. If the request is persistent, it remains active until it is\n-- canceled or this date and time is reached.\n--\n-- Default: The request is effective indefinitely.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -59248,7 +59248,7 @@
                         "locationName": "validFrom",
                         "documentation": "-- | The start date of the request. If this is a one-time request, the request\n-- becomes active at this date and time and remains active until all instances\n-- launch, the request expires, or the request is canceled. If the request is\n-- persistent, the request becomes active at this date and time and remains\n-- active until it expires or is canceled.\n--\n-- Default: The request is effective indefinitely.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -59263,7 +59263,7 @@
                         "locationName": "validUntil",
                         "documentation": "-- | The end date of the request. If this is a one-time request, the request\n-- remains active until all instances launch, the request is canceled, or this\n-- date is reached. If the request is persistent, it remains active until it is\n-- canceled or this date and time is reached.\n--\n-- Default: The request is effective indefinitely.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             }

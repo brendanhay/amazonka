@@ -582,7 +582,7 @@ instance ToQuery DBParameterGroupStatus where
         ]
 
 data Event = Event
-    { _eDate             :: Maybe RFC822
+    { _eDate             :: Maybe ISO8601
     , _eEventCategories  :: List "EventCategory" Text
     , _eMessage          :: Maybe Text
     , _eSourceIdentifier :: Maybe Text
@@ -884,14 +884,14 @@ data DBSnapshot = DBSnapshot
     , _dbsDBSnapshotIdentifier :: Maybe Text
     , _dbsEngine               :: Maybe Text
     , _dbsEngineVersion        :: Maybe Text
-    , _dbsInstanceCreateTime   :: Maybe RFC822
+    , _dbsInstanceCreateTime   :: Maybe ISO8601
     , _dbsIops                 :: Maybe Int
     , _dbsLicenseModel         :: Maybe Text
     , _dbsMasterUsername       :: Maybe Text
     , _dbsOptionGroupName      :: Maybe Text
     , _dbsPercentProgress      :: Maybe Int
     , _dbsPort                 :: Maybe Int
-    , _dbsSnapshotCreateTime   :: Maybe RFC822
+    , _dbsSnapshotCreateTime   :: Maybe ISO8601
     , _dbsSnapshotType         :: Maybe Text
     , _dbsSourceRegion         :: Maybe Text
     , _dbsStatus               :: Maybe Text
@@ -1555,7 +1555,7 @@ data ReservedDBInstance = ReservedDBInstance
     , _rdbiRecurringCharges              :: List "RecurringCharge" RecurringCharge
     , _rdbiReservedDBInstanceId          :: Maybe Text
     , _rdbiReservedDBInstancesOfferingId :: Maybe Text
-    , _rdbiStartTime                     :: Maybe RFC822
+    , _rdbiStartTime                     :: Maybe ISO8601
     , _rdbiState                         :: Maybe Text
     , _rdbiUsagePrice                    :: Maybe Double
     } deriving (Eq, Show)
@@ -1951,9 +1951,9 @@ data DBInstance = DBInstance
     , _dbiEndpoint                              :: Maybe Endpoint
     , _dbiEngine                                :: Maybe Text
     , _dbiEngineVersion                         :: Maybe Text
-    , _dbiInstanceCreateTime                    :: Maybe RFC822
+    , _dbiInstanceCreateTime                    :: Maybe ISO8601
     , _dbiIops                                  :: Maybe Int
-    , _dbiLatestRestorableTime                  :: Maybe RFC822
+    , _dbiLatestRestorableTime                  :: Maybe ISO8601
     , _dbiLicenseModel                          :: Maybe Text
     , _dbiMasterUsername                        :: Maybe Text
     , _dbiMultiAZ                               :: Maybe Bool

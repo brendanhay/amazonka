@@ -119,7 +119,7 @@ instance AWSService Route53Domains where
 data DomainSummary = DomainSummary
     { _dsAutoRenew    :: Maybe Bool
     , _dsDomainName   :: Text
-    , _dsExpiry       :: Maybe RFC822
+    , _dsExpiry       :: Maybe ISO8601
     , _dsTransferLock :: Maybe Bool
     } deriving (Eq, Ord, Show)
 
@@ -1563,7 +1563,7 @@ instance ToJSON ContactDetail where
 data OperationSummary = OperationSummary
     { _osOperationId   :: Text
     , _osStatus        :: OperationStatus
-    , _osSubmittedDate :: RFC822
+    , _osSubmittedDate :: ISO8601
     , _osType          :: OperationType
     } deriving (Eq, Show)
 

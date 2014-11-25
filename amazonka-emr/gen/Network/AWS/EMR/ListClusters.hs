@@ -55,8 +55,8 @@ import qualified GHC.Exts
 
 data ListClusters = ListClusters
     { _lcClusterStates :: List "ClusterStates" ClusterState
-    , _lcCreatedAfter  :: Maybe RFC822
-    , _lcCreatedBefore :: Maybe RFC822
+    , _lcCreatedAfter  :: Maybe ISO8601
+    , _lcCreatedBefore :: Maybe ISO8601
     , _lcMarker        :: Maybe Text
     } deriving (Eq, Show)
 

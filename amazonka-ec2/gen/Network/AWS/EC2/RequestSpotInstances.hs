@@ -68,8 +68,8 @@ data RequestSpotInstances = RequestSpotInstances
     , _rsiLaunchSpecification   :: Maybe RequestSpotLaunchSpecification
     , _rsiSpotPrice             :: Text
     , _rsiType                  :: Maybe SpotInstanceType
-    , _rsiValidFrom             :: Maybe RFC822
-    , _rsiValidUntil            :: Maybe RFC822
+    , _rsiValidFrom             :: Maybe ISO8601
+    , _rsiValidUntil            :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'RequestSpotInstances' constructor.

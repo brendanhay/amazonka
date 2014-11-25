@@ -125,7 +125,7 @@ data CreateSnapshotResponse = CreateSnapshotResponse
     , _csr1OwnerId     :: Maybe Text
     , _csr1Progress    :: Maybe Text
     , _csr1SnapshotId  :: Maybe Text
-    , _csr1StartTime   :: Maybe RFC822
+    , _csr1StartTime   :: Maybe ISO8601
     , _csr1State       :: Maybe SnapshotState
     , _csr1Tags        :: List "item" Tag
     , _csr1VolumeId    :: Maybe Text

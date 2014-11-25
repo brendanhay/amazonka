@@ -62,7 +62,7 @@ module Network.AWS.S3.UploadPartCopy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
+import Network.AWS.Request.S3
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -70,9 +70,9 @@ data UploadPartCopy = UploadPartCopy
     { _upcBucket                         :: Text
     , _upcCopySource                     :: Text
     , _upcCopySourceIfMatch              :: Maybe Text
-    , _upcCopySourceIfModifiedSince      :: Maybe RFC822
+    , _upcCopySourceIfModifiedSince      :: Maybe ISO8601
     , _upcCopySourceIfNoneMatch          :: Maybe Text
-    , _upcCopySourceIfUnmodifiedSince    :: Maybe RFC822
+    , _upcCopySourceIfUnmodifiedSince    :: Maybe ISO8601
     , _upcCopySourceRange                :: Maybe Text
     , _upcCopySourceSSECustomerAlgorithm :: Maybe Text
     , _upcCopySourceSSECustomerKey       :: Maybe (Sensitive Text)

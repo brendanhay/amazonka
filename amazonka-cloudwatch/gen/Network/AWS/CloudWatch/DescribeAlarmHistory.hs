@@ -55,11 +55,11 @@ import qualified GHC.Exts
 
 data DescribeAlarmHistory = DescribeAlarmHistory
     { _dahAlarmName       :: Maybe Text
-    , _dahEndDate         :: Maybe RFC822
+    , _dahEndDate         :: Maybe ISO8601
     , _dahHistoryItemType :: Maybe HistoryItemType
     , _dahMaxRecords      :: Maybe Nat
     , _dahNextToken       :: Maybe Text
-    , _dahStartDate       :: Maybe RFC822
+    , _dahStartDate       :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'DescribeAlarmHistory' constructor.

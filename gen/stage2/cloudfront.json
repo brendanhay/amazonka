@@ -419,7 +419,7 @@
                         "locationName": "CreateTime",
                         "documentation": "-- | The date and time the invalidation request was first made.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -482,7 +482,7 @@
                         "locationName": "CreateTime",
                         "documentation": "-- | The date and time the invalidation request was first made.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -519,7 +519,7 @@
                         "locationName": "CreateTime",
                         "documentation": "-- | The date and time the invalidation request was first made.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -1986,7 +1986,7 @@
                         "locationName": "LastModifiedTime",
                         "documentation": "-- | The date and time the distribution was last modified.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -2094,7 +2094,7 @@
                         "locationName": "LastModifiedTime",
                         "documentation": "-- | The date and time the distribution was last modified.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -2251,7 +2251,7 @@
                         "locationName": "LastModifiedTime",
                         "documentation": "-- | The date and time the distribution was last modified.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -2477,7 +2477,7 @@
                         "locationName": "LastModifiedTime",
                         "documentation": "-- | The date and time the distribution was last modified.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -2630,7 +2630,7 @@
                         "locationName": "LastModifiedTime",
                         "documentation": "-- | The date and time the distribution was last modified.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -2832,7 +2832,7 @@
                         "locationName": "LastModifiedTime",
                         "documentation": "-- | The date and time the distribution was last modified.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -3310,7 +3310,7 @@
                         "locationName": "CreateTime",
                         "documentation": null,
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -3358,7 +3358,7 @@
                         "locationName": "CreateTime",
                         "documentation": null,
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -3395,7 +3395,7 @@
                         "locationName": "CreateTime",
                         "documentation": null,
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -7369,7 +7369,7 @@
                         "locationName": "LastModifiedTime",
                         "documentation": "-- | The date and time the distribution was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -7513,7 +7513,7 @@
                         "locationName": "LastModifiedTime",
                         "documentation": "-- | The date and time the distribution was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -7575,7 +7575,7 @@
                         "locationName": "LastModifiedTime",
                         "documentation": "-- | The date and time the distribution was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -8084,7 +8084,7 @@
                         "locationName": "LastModifiedTime",
                         "documentation": "-- | The date and time the distribution was last modified.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -8297,7 +8297,7 @@
                         "locationName": "LastModifiedTime",
                         "documentation": "-- | The date and time the distribution was last modified.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -8604,7 +8604,7 @@
                         "locationName": "LastModifiedTime",
                         "documentation": "-- | The date and time the distribution was last modified.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,

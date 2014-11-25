@@ -386,7 +386,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -574,7 +574,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -681,7 +681,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -871,7 +871,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1014,7 +1014,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1121,7 +1121,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1311,7 +1311,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1460,7 +1460,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1567,7 +1567,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2149,7 +2149,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2298,7 +2298,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2405,7 +2405,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2983,7 +2983,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "wrapper": false,
@@ -3177,7 +3177,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -3284,7 +3284,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -4565,7 +4565,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "wrapper": false,
@@ -4759,7 +4759,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -4866,7 +4866,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5400,7 +5400,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "wrapper": false,
@@ -5594,7 +5594,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -5701,7 +5701,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,

@@ -707,7 +707,7 @@ instance ToJSON VTLDevice where
 
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo
     { _trpiTapeARN               :: Maybe Text
-    , _trpiTapeRecoveryPointTime :: Maybe RFC822
+    , _trpiTapeRecoveryPointTime :: Maybe ISO8601
     , _trpiTapeSizeInBytes       :: Maybe Nat
     , _trpiTapeStatus            :: Maybe Text
     } deriving (Eq, Ord, Show)
@@ -830,7 +830,7 @@ instance ToJSON VolumeRecoveryPointInfo where
         ]
 
 data TapeArchive = TapeArchive
-    { _taCompletionTime  :: Maybe RFC822
+    { _taCompletionTime  :: Maybe ISO8601
     , _taRetrievedTo     :: Maybe Text
     , _taTapeARN         :: Maybe Text
     , _taTapeBarcode     :: Maybe Text

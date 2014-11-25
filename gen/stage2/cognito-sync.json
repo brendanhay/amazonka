@@ -128,7 +128,7 @@
                         "locationName": "LastModifiedDate",
                         "documentation": "-- | Date on which the identity pool was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -196,7 +196,7 @@
                         "locationName": "LastModifiedDate",
                         "documentation": "-- | Date on which the identity pool was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -243,7 +243,7 @@
                         "locationName": "LastModifiedDate",
                         "documentation": "-- | Date on which the identity pool was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -333,7 +333,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | Date on which the dataset was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -348,7 +348,7 @@
                         "locationName": "LastModifiedDate",
                         "documentation": "-- | Date when the dataset was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -446,7 +446,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | Date on which the dataset was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -461,7 +461,7 @@
                         "locationName": "LastModifiedDate",
                         "documentation": "-- | Date when the dataset was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -523,7 +523,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | Date on which the dataset was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -598,7 +598,7 @@
                         "locationName": "LastModifiedDate",
                         "documentation": "-- | Date when the dataset was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -701,7 +701,7 @@
                         "locationName": "LastModifiedDate",
                         "documentation": "-- | The date on which the record was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -731,7 +731,7 @@
                         "locationName": "DeviceLastModifiedDate",
                         "documentation": "-- | The last modified date of the client device.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -799,7 +799,7 @@
                         "locationName": "LastModifiedDate",
                         "documentation": "-- | The date on which the record was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -829,7 +829,7 @@
                         "locationName": "DeviceLastModifiedDate",
                         "documentation": "-- | The last modified date of the client device.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -846,7 +846,7 @@
                         "locationName": "DeviceLastModifiedDate",
                         "documentation": "-- | The last modified date of the client device.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -891,7 +891,7 @@
                         "locationName": "LastModifiedDate",
                         "documentation": "-- | The date on which the record was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -977,7 +977,7 @@
                         "locationName": "LastModifiedDate",
                         "documentation": "-- | Date on which the identity was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1060,7 +1060,7 @@
                         "locationName": "LastModifiedDate",
                         "documentation": "-- | Date on which the identity was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1167,7 +1167,7 @@
                         "locationName": "LastModifiedDate",
                         "documentation": "-- | Date on which the identity was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -1252,7 +1252,7 @@
                         "locationName": "DeviceLastModifiedDate",
                         "documentation": "-- | The last modified date of the client device.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -1336,7 +1336,7 @@
                         "locationName": "DeviceLastModifiedDate",
                         "documentation": "-- | The last modified date of the client device.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -1353,7 +1353,7 @@
                         "locationName": "DeviceLastModifiedDate",
                         "documentation": "-- | The last modified date of the client device.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,

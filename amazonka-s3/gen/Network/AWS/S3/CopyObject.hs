@@ -76,7 +76,7 @@ module Network.AWS.S3.CopyObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
+import Network.AWS.Request.S3
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -90,14 +90,14 @@ data CopyObject = CopyObject
     , _coContentType                    :: Maybe Text
     , _coCopySource                     :: Text
     , _coCopySourceIfMatch              :: Maybe Text
-    , _coCopySourceIfModifiedSince      :: Maybe RFC822
+    , _coCopySourceIfModifiedSince      :: Maybe ISO8601
     , _coCopySourceIfNoneMatch          :: Maybe Text
-    , _coCopySourceIfUnmodifiedSince    :: Maybe RFC822
+    , _coCopySourceIfUnmodifiedSince    :: Maybe ISO8601
     , _coCopySourceSSECustomerAlgorithm :: Maybe Text
     , _coCopySourceSSECustomerKey       :: Maybe (Sensitive Text)
     , _coCopySourceSSECustomerKeyMD5    :: Maybe Text
     , _coCopySourceSSEKMSKeyId          :: Maybe (Sensitive Text)
-    , _coExpires                        :: Maybe RFC822
+    , _coExpires                        :: Maybe ISO8601
     , _coGrantFullControl               :: Maybe Text
     , _coGrantRead                      :: Maybe Text
     , _coGrantReadACP                   :: Maybe Text
@@ -382,7 +382,7 @@ coWebsiteRedirectLocation =
 data CopyObjectResponse = CopyObjectResponse
     { _corCopyObjectResult     :: Maybe CopyObjectResult
     , _corCopySourceVersionId  :: Maybe Text
-    , _corExpiration           :: Maybe RFC822
+    , _corExpiration           :: Maybe ISO8601
     , _corSSECustomerAlgorithm :: Maybe Text
     , _corSSECustomerKeyMD5    :: Maybe Text
     , _corSSEKMSKeyId          :: Maybe (Sensitive Text)

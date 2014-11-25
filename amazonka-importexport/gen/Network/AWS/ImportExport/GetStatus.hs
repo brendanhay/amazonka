@@ -84,7 +84,7 @@ gsJobId = lens _gsJobId (\s a -> s { _gsJobId = a })
 data GetStatusResponse = GetStatusResponse
     { _gsrAwsShippingAddress    :: Maybe Text
     , _gsrCarrier               :: Maybe Text
-    , _gsrCreationDate          :: Maybe RFC822
+    , _gsrCreationDate          :: Maybe ISO8601
     , _gsrCurrentManifest       :: Maybe Text
     , _gsrErrorCount            :: Maybe Int
     , _gsrJobId                 :: Maybe Text

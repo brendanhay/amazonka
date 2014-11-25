@@ -102,10 +102,10 @@ data GetDomainDetailResponse = GetDomainDetailResponse
     , _gddrAdminContact      :: ContactDetail
     , _gddrAdminPrivacy      :: Maybe Bool
     , _gddrAutoRenew         :: Maybe Bool
-    , _gddrCreationDate      :: Maybe RFC822
+    , _gddrCreationDate      :: Maybe ISO8601
     , _gddrDnsSec            :: Maybe Text
     , _gddrDomainName        :: Text
-    , _gddrExpirationDate    :: Maybe RFC822
+    , _gddrExpirationDate    :: Maybe ISO8601
     , _gddrNameservers       :: List "Nameservers" Nameserver
     , _gddrRegistrantContact :: ContactDetail
     , _gddrRegistrantPrivacy :: Maybe Bool
@@ -116,7 +116,7 @@ data GetDomainDetailResponse = GetDomainDetailResponse
     , _gddrStatusList        :: List "StatusList" Text
     , _gddrTechContact       :: ContactDetail
     , _gddrTechPrivacy       :: Maybe Bool
-    , _gddrUpdatedDate       :: Maybe RFC822
+    , _gddrUpdatedDate       :: Maybe ISO8601
     , _gddrWhoIsServer       :: Maybe Text
     } deriving (Eq, Show)
 

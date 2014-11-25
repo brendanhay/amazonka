@@ -509,7 +509,7 @@ instance ToXML CloudFrontOriginAccessIdentityList where
         ]
 
 data Invalidation = Invalidation
-    { _iCreateTime        :: RFC822
+    { _iCreateTime        :: ISO8601
     , _iId                :: Text
     , _iInvalidationBatch :: InvalidationBatch
     , _iStatus            :: Text
@@ -1144,7 +1144,7 @@ data Distribution = Distribution
     , _dDomainName                    :: Text
     , _dId                            :: Text
     , _dInProgressInvalidationBatches :: Int
-    , _dLastModifiedTime              :: RFC822
+    , _dLastModifiedTime              :: ISO8601
     , _dStatus                        :: Text
     } deriving (Eq, Show)
 
@@ -1312,7 +1312,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary
     , _sdsDomainName       :: Text
     , _sdsEnabled          :: Bool
     , _sdsId               :: Text
-    , _sdsLastModifiedTime :: RFC822
+    , _sdsLastModifiedTime :: ISO8601
     , _sdsPriceClass       :: PriceClass
     , _sdsS3Origin         :: S3Origin
     , _sdsStatus           :: Text
@@ -1600,7 +1600,7 @@ instance ToXML InvalidationBatch where
         ]
 
 data InvalidationSummary = InvalidationSummary
-    { _isCreateTime :: RFC822
+    { _isCreateTime :: ISO8601
     , _isId         :: Text
     , _isStatus     :: Text
     } deriving (Eq, Ord, Show)
@@ -3108,7 +3108,7 @@ data StreamingDistribution = StreamingDistribution
     { _sdActiveTrustedSigners        :: ActiveTrustedSigners
     , _sdDomainName                  :: Text
     , _sdId                          :: Text
-    , _sdLastModifiedTime            :: Maybe RFC822
+    , _sdLastModifiedTime            :: Maybe ISO8601
     , _sdStatus                      :: Text
     , _sdStreamingDistributionConfig :: StreamingDistributionConfig
     } deriving (Eq, Show)
@@ -3365,7 +3365,7 @@ data DistributionSummary = DistributionSummary
     , _dsDomainName           :: Text
     , _dsEnabled              :: Bool
     , _dsId                   :: Text
-    , _dsLastModifiedTime     :: RFC822
+    , _dsLastModifiedTime     :: ISO8601
     , _dsOrigins              :: Origins
     , _dsPriceClass           :: PriceClass
     , _dsRestrictions         :: Restrictions

@@ -107,8 +107,8 @@ elS3KeyPrefix = lens _elS3KeyPrefix (\s a -> s { _elS3KeyPrefix = a })
 data EnableLoggingResponse = EnableLoggingResponse
     { _elrBucketName                 :: Maybe Text
     , _elrLastFailureMessage         :: Maybe Text
-    , _elrLastFailureTime            :: Maybe RFC822
-    , _elrLastSuccessfulDeliveryTime :: Maybe RFC822
+    , _elrLastFailureTime            :: Maybe ISO8601
+    , _elrLastSuccessfulDeliveryTime :: Maybe ISO8601
     , _elrLoggingEnabled             :: Maybe Bool
     , _elrS3KeyPrefix                :: Maybe Text
     } deriving (Eq, Ord, Show)

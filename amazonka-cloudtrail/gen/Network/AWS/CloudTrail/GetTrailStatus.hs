@@ -78,13 +78,13 @@ gtsName = lens _gtsName (\s a -> s { _gtsName = a })
 data GetTrailStatusResponse = GetTrailStatusResponse
     { _gtsrIsLogging                         :: Maybe Bool
     , _gtsrLatestCloudWatchLogsDeliveryError :: Maybe Text
-    , _gtsrLatestCloudWatchLogsDeliveryTime  :: Maybe RFC822
+    , _gtsrLatestCloudWatchLogsDeliveryTime  :: Maybe ISO8601
     , _gtsrLatestDeliveryError               :: Maybe Text
-    , _gtsrLatestDeliveryTime                :: Maybe RFC822
+    , _gtsrLatestDeliveryTime                :: Maybe ISO8601
     , _gtsrLatestNotificationError           :: Maybe Text
-    , _gtsrLatestNotificationTime            :: Maybe RFC822
-    , _gtsrStartLoggingTime                  :: Maybe RFC822
-    , _gtsrStopLoggingTime                   :: Maybe RFC822
+    , _gtsrLatestNotificationTime            :: Maybe ISO8601
+    , _gtsrStartLoggingTime                  :: Maybe ISO8601
+    , _gtsrStopLoggingTime                   :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'GetTrailStatusResponse' constructor.

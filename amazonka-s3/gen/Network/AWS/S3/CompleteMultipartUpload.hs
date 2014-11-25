@@ -51,7 +51,7 @@ module Network.AWS.S3.CompleteMultipartUpload
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
+import Network.AWS.Request.S3
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 
@@ -101,7 +101,7 @@ cmu1UploadId = lens _cmu1UploadId (\s a -> s { _cmu1UploadId = a })
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
     { _cmur1Bucket               :: Maybe Text
     , _cmur1ETag                 :: Maybe Text
-    , _cmur1Expiration           :: Maybe RFC822
+    , _cmur1Expiration           :: Maybe ISO8601
     , _cmur1Key                  :: Maybe Text
     , _cmur1Location             :: Maybe Text
     , _cmur1SSEKMSKeyId          :: Maybe (Sensitive Text)

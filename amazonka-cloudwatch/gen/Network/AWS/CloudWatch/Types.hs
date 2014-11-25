@@ -219,7 +219,7 @@ data MetricAlarm = MetricAlarm
     { _maActionsEnabled                     :: Maybe Bool
     , _maAlarmActions                       :: List "OKActions" Text
     , _maAlarmArn                           :: Maybe Text
-    , _maAlarmConfigurationUpdatedTimestamp :: Maybe RFC822
+    , _maAlarmConfigurationUpdatedTimestamp :: Maybe ISO8601
     , _maAlarmDescription                   :: Maybe Text
     , _maAlarmName                          :: Maybe Text
     , _maComparisonOperator                 :: Maybe ComparisonOperator
@@ -232,7 +232,7 @@ data MetricAlarm = MetricAlarm
     , _maPeriod                             :: Maybe Nat
     , _maStateReason                        :: Maybe Text
     , _maStateReasonData                    :: Maybe Text
-    , _maStateUpdatedTimestamp              :: Maybe RFC822
+    , _maStateUpdatedTimestamp              :: Maybe ISO8601
     , _maStateValue                         :: Maybe StateValue
     , _maStatistic                          :: Maybe Statistic
     , _maThreshold                          :: Maybe Double
@@ -508,7 +508,7 @@ data MetricDatum = MetricDatum
     { _mdDimensions      :: List "Dimensions" Dimension
     , _mdMetricName      :: Text
     , _mdStatisticValues :: Maybe StatisticSet
-    , _mdTimestamp       :: Maybe RFC822
+    , _mdTimestamp       :: Maybe ISO8601
     , _mdUnit            :: Maybe StandardUnit
     , _mdValue           :: Maybe Double
     } deriving (Eq, Show)
@@ -773,7 +773,7 @@ data AlarmHistoryItem = AlarmHistoryItem
     , _ahiHistoryData     :: Maybe Text
     , _ahiHistoryItemType :: Maybe HistoryItemType
     , _ahiHistorySummary  :: Maybe Text
-    , _ahiTimestamp       :: Maybe RFC822
+    , _ahiTimestamp       :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'AlarmHistoryItem' constructor.
@@ -924,7 +924,7 @@ data Datapoint = Datapoint
     , _dMinimum     :: Maybe Double
     , _dSampleCount :: Maybe Double
     , _dSum         :: Maybe Double
-    , _dTimestamp   :: Maybe RFC822
+    , _dTimestamp   :: Maybe ISO8601
     , _dUnit        :: Maybe StandardUnit
     } deriving (Eq, Show)
 

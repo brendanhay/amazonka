@@ -114,7 +114,7 @@ instance AWSService CognitoSync where
 data IdentityPoolUsage = IdentityPoolUsage
     { _ipuDataStorage       :: Maybe Integer
     , _ipuIdentityPoolId    :: Maybe Text
-    , _ipuLastModifiedDate  :: Maybe RFC822
+    , _ipuLastModifiedDate  :: Maybe ISO8601
     , _ipuSyncSessionsCount :: Maybe Integer
     } deriving (Eq, Ord, Show)
 
@@ -211,12 +211,12 @@ instance ToJSON Platform where
     toJSON = toJSONText
 
 data Dataset = Dataset
-    { _dCreationDate     :: Maybe RFC822
+    { _dCreationDate     :: Maybe ISO8601
     , _dDataStorage      :: Maybe Integer
     , _dDatasetName      :: Maybe Text
     , _dIdentityId       :: Maybe Text
     , _dLastModifiedBy   :: Maybe Text
-    , _dLastModifiedDate :: Maybe RFC822
+    , _dLastModifiedDate :: Maybe ISO8601
     , _dNumRecords       :: Maybe Integer
     } deriving (Eq, Ord, Show)
 
@@ -333,10 +333,10 @@ instance ToJSON Operation where
     toJSON = toJSONText
 
 data Record = Record
-    { _rDeviceLastModifiedDate :: Maybe RFC822
+    { _rDeviceLastModifiedDate :: Maybe ISO8601
     , _rKey                    :: Maybe Text
     , _rLastModifiedBy         :: Maybe Text
-    , _rLastModifiedDate       :: Maybe RFC822
+    , _rLastModifiedDate       :: Maybe ISO8601
     , _rSyncCount              :: Maybe Integer
     , _rValue                  :: Maybe Text
     } deriving (Eq, Ord, Show)
@@ -419,7 +419,7 @@ data IdentityUsage = IdentityUsage
     , _iuDatasetCount     :: Maybe Int
     , _iuIdentityId       :: Maybe Text
     , _iuIdentityPoolId   :: Maybe Text
-    , _iuLastModifiedDate :: Maybe RFC822
+    , _iuLastModifiedDate :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'IdentityUsage' constructor.
@@ -489,7 +489,7 @@ instance ToJSON IdentityUsage where
         ]
 
 data RecordPatch = RecordPatch
-    { _rpDeviceLastModifiedDate :: Maybe RFC822
+    { _rpDeviceLastModifiedDate :: Maybe ISO8601
     , _rpKey                    :: Text
     , _rpOp                     :: Operation
     , _rpSyncCount              :: Integer

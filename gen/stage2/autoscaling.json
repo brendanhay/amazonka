@@ -783,7 +783,7 @@
                         "locationName": "CreatedTime",
                         "documentation": "-- | The creation date and time for the launch configuration.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ],
                 "contentPad": 0,
@@ -1031,7 +1031,7 @@
                         "locationName": "CreatedTime",
                         "documentation": "-- | The creation date and time for the launch configuration.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1388,7 +1388,7 @@
                         "locationName": "CreatedTime",
                         "documentation": "-- | The date and time the group was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ],
                 "contentPad": 0,
@@ -1621,7 +1621,7 @@
                         "locationName": "CreatedTime",
                         "documentation": "-- | The date and time the group was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2264,7 +2264,7 @@
                         "locationName": "Time",
                         "documentation": "-- | 'Time' is deprecated.\n--\n-- The time that the action is scheduled to begin. 'Time' is an alias for 'StartTime'.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2279,7 +2279,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The time that the action is scheduled to begin. This value can be up to one\n-- month in the future.\n--\n-- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they form the\n-- boundaries of when the recurring action will start and stop.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2294,7 +2294,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The time that the action is scheduled to end. This value can be up to one\n-- month in the future.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2401,7 +2401,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The time that the action is scheduled to end. This value can be up to one\n-- month in the future.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2491,7 +2491,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The time that the action is scheduled to begin. This value can be up to one\n-- month in the future.\n--\n-- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they form the\n-- boundaries of when the recurring action will start and stop.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2506,7 +2506,7 @@
                         "locationName": "Time",
                         "documentation": "-- | 'Time' is deprecated.\n--\n-- The time that the action is scheduled to begin. 'Time' is an alias for 'StartTime'.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -3253,7 +3253,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The start time of this activity.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3304,7 +3304,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The end time of this activity.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3441,7 +3441,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The end time of this activity.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3471,7 +3471,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The start time of this activity.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -9879,7 +9879,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The earliest scheduled start time to return. If scheduled action names are\n-- provided, this parameter is ignored.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -9894,7 +9894,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The latest scheduled start time to return. If scheduled action names are\n-- provided, this parameter is ignored.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -9956,7 +9956,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The latest scheduled start time to return. If scheduled action names are\n-- provided, this parameter is ignored.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -10016,7 +10016,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The earliest scheduled start time to return. If scheduled action names are\n-- provided, this parameter is ignored.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             }
@@ -12613,7 +12613,7 @@
                         "locationName": "Time",
                         "documentation": "-- | 'Time' is deprecated.\n--\n-- The time for this action to start. 'Time' is an alias for 'StartTime' and can be\n-- specified instead of 'StartTime', or vice versa. If both 'Time' and 'StartTime' are\n-- specified, their values should be identical. Otherwise, 'PutScheduledUpdateGroupAction' will return an error.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -12628,7 +12628,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The time for this action to start, as in '--start-time 2010-06-01T00:00:00Z'.\n--\n-- If you try to schedule your action in the past, Auto Scaling returns an\n-- error message.\n--\n-- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they form the\n-- boundaries of when the recurring action will start and stop.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -12643,7 +12643,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The time for this action to end.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -12750,7 +12750,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The time for this action to end.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -12825,7 +12825,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The time for this action to start, as in '--start-time 2010-06-01T00:00:00Z'.\n--\n-- If you try to schedule your action in the past, Auto Scaling returns an\n-- error message.\n--\n-- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they form the\n-- boundaries of when the recurring action will start and stop.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -12840,7 +12840,7 @@
                         "locationName": "Time",
                         "documentation": "-- | 'Time' is deprecated.\n--\n-- The time for this action to start. 'Time' is an alias for 'StartTime' and can be\n-- specified instead of 'StartTime', or vice versa. If both 'Time' and 'StartTime' are\n-- specified, their values should be identical. Otherwise, 'PutScheduledUpdateGroupAction' will return an error.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             }

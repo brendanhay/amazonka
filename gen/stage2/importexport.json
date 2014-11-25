@@ -100,7 +100,7 @@
                         "locationName": "CreationDate",
                         "documentation": null,
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -152,7 +152,7 @@
                         "locationName": "CreationDate",
                         "documentation": null,
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1060,7 +1060,7 @@
                         "locationName": "CreationDate",
                         "documentation": null,
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -1107,7 +1107,7 @@
                         "locationName": "CreationDate",
                         "documentation": null,
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",

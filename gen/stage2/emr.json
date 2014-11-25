@@ -1924,7 +1924,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the job flow.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -1939,7 +1939,7 @@
                         "locationName": "StartDateTime",
                         "documentation": "-- | The start date and time of the job flow.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1954,7 +1954,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date and time when the job flow was ready to start running bootstrap\n-- actions.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1969,7 +1969,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The completion date and time of the job flow.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2017,7 +2017,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the job flow.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ],
                 "contentPad": 22,
@@ -2038,7 +2038,7 @@
                         "locationName": "StartDateTime",
                         "documentation": "-- | The start date and time of the job flow.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2053,7 +2053,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date and time when the job flow was ready to start running bootstrap\n-- actions.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2068,7 +2068,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The completion date and time of the job flow.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2100,7 +2100,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the job flow.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -2115,7 +2115,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The completion date and time of the job flow.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2145,7 +2145,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date and time when the job flow was ready to start running bootstrap\n-- actions.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2160,7 +2160,7 @@
                         "locationName": "StartDateTime",
                         "documentation": "-- | The start date and time of the job flow.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2961,7 +2961,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the instance.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2976,7 +2976,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date and time when the instance was ready to perform tasks.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -2991,7 +2991,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date and time when the instance was terminated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -3014,7 +3014,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the instance.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3029,7 +3029,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date and time when the instance was ready to perform tasks.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3044,7 +3044,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date and time when the instance was terminated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -3061,7 +3061,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the instance.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3076,7 +3076,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date and time when the instance was terminated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -3091,7 +3091,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date and time when the instance was ready to perform tasks.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -4171,7 +4171,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date and time when the cluster step was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -4186,7 +4186,7 @@
                         "locationName": "StartDateTime",
                         "documentation": "-- | The date and time when the cluster step execution started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -4201,7 +4201,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date and time when the cluster step execution completed or failed.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -4224,7 +4224,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date and time when the cluster step was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -4239,7 +4239,7 @@
                         "locationName": "StartDateTime",
                         "documentation": "-- | The date and time when the cluster step execution started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -4254,7 +4254,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date and time when the cluster step execution completed or failed.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -4271,7 +4271,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date and time when the cluster step was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -4286,7 +4286,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date and time when the cluster step execution completed or failed.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -4301,7 +4301,7 @@
                         "locationName": "StartDateTime",
                         "documentation": "-- | The date and time when the cluster step execution started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -4918,7 +4918,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date/time the instance group was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -4933,7 +4933,7 @@
                         "locationName": "StartDateTime",
                         "documentation": "-- | The date/time the instance group was started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -4948,7 +4948,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date/time the instance group was available to the cluster.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -4963,7 +4963,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date/time the instance group was terminated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -5071,7 +5071,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date/time the instance group was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ],
                 "contentPad": 22,
@@ -5152,7 +5152,7 @@
                         "locationName": "StartDateTime",
                         "documentation": "-- | The date/time the instance group was started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5167,7 +5167,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date/time the instance group was available to the cluster.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5182,7 +5182,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date/time the instance group was terminated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -5214,7 +5214,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date/time the instance group was created.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -5229,7 +5229,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date/time the instance group was terminated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5364,7 +5364,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date/time the instance group was available to the cluster.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5379,7 +5379,7 @@
                         "locationName": "StartDateTime",
                         "documentation": "-- | The date/time the instance group was started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5818,7 +5818,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the instance group.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5833,7 +5833,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date and time when the instance group became ready to perform tasks.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5848,7 +5848,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date and time when the instance group terminated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -5871,7 +5871,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the instance group.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5886,7 +5886,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date and time when the instance group became ready to perform tasks.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5901,7 +5901,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date and time when the instance group terminated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -5918,7 +5918,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the instance group.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5933,7 +5933,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date and time when the instance group terminated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5948,7 +5948,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date and time when the instance group became ready to perform tasks.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -6069,7 +6069,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the step.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -6084,7 +6084,7 @@
                         "locationName": "StartDateTime",
                         "documentation": "-- | The start date and time of the step.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -6099,7 +6099,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The completion date and time of the step.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -6147,7 +6147,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the step.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ],
                 "contentPad": 22,
@@ -6168,7 +6168,7 @@
                         "locationName": "StartDateTime",
                         "documentation": "-- | The start date and time of the step.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -6183,7 +6183,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The completion date and time of the step.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -6215,7 +6215,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the step.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -6230,7 +6230,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The completion date and time of the step.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -6260,7 +6260,7 @@
                         "locationName": "StartDateTime",
                         "documentation": "-- | The start date and time of the step.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -8571,7 +8571,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the cluster.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -8586,7 +8586,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date and time when the cluster was ready to execute steps.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -8601,7 +8601,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date and time when the cluster was terminated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -8624,7 +8624,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the cluster.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -8639,7 +8639,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date and time when the cluster was ready to execute steps.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -8654,7 +8654,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date and time when the cluster was terminated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -8671,7 +8671,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The creation date and time of the cluster.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -8686,7 +8686,7 @@
                         "locationName": "EndDateTime",
                         "documentation": "-- | The date and time when the cluster was terminated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -8701,7 +8701,7 @@
                         "locationName": "ReadyDateTime",
                         "documentation": "-- | The date and time when the cluster was ready to execute steps.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -10178,7 +10178,7 @@
                         "locationName": "CreatedAfter",
                         "documentation": "-- | Return only job flows created after this date and time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -10193,7 +10193,7 @@
                         "locationName": "CreatedBefore",
                         "documentation": "-- | Return only job flows created before this date and time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -10259,7 +10259,7 @@
                         "locationName": "CreatedAfter",
                         "documentation": "-- | Return only job flows created after this date and time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -10274,7 +10274,7 @@
                         "locationName": "CreatedBefore",
                         "documentation": "-- | Return only job flows created before this date and time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -10321,7 +10321,7 @@
                         "locationName": "CreatedAfter",
                         "documentation": "-- | Return only job flows created after this date and time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -10336,7 +10336,7 @@
                         "locationName": "CreatedBefore",
                         "documentation": "-- | Return only job flows created before this date and time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -11040,7 +11040,7 @@
                         "locationName": "CreatedAfter",
                         "documentation": "-- | The creation date and time beginning value filter for listing clusters .",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -11055,7 +11055,7 @@
                         "locationName": "CreatedBefore",
                         "documentation": "-- | The creation date and time end value filter for listing clusters .",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -11121,7 +11121,7 @@
                         "locationName": "CreatedAfter",
                         "documentation": "-- | The creation date and time beginning value filter for listing clusters .",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -11136,7 +11136,7 @@
                         "locationName": "CreatedBefore",
                         "documentation": "-- | The creation date and time end value filter for listing clusters .",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -11198,7 +11198,7 @@
                         "locationName": "CreatedAfter",
                         "documentation": "-- | The creation date and time beginning value filter for listing clusters .",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -11213,7 +11213,7 @@
                         "locationName": "CreatedBefore",
                         "documentation": "-- | The creation date and time end value filter for listing clusters .",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,

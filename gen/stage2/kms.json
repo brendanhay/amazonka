@@ -167,7 +167,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | Date the key was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -281,7 +281,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | Date the key was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -373,7 +373,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | Date the key was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,

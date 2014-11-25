@@ -366,7 +366,7 @@ instance ToQuery PasswordPolicy where
 
 data Group = Group
     { _gArn        :: Text
-    , _gCreateDate :: RFC822
+    , _gCreateDate :: ISO8601
     , _gGroupId    :: Text
     , _gGroupName  :: Text
     , _gPath       :: Text
@@ -441,7 +441,7 @@ instance ToQuery Group where
         ]
 
 data MFADevice = MFADevice
-    { _mfadEnableDate   :: RFC822
+    { _mfadEnableDate   :: ISO8601
     , _mfadSerialNumber :: Text
     , _mfadUserName     :: Text
     } deriving (Eq, Ord, Show)
@@ -494,7 +494,7 @@ instance ToQuery MFADevice where
 
 data InstanceProfile = InstanceProfile
     { _ipArn                 :: Text
-    , _ipCreateDate          :: RFC822
+    , _ipCreateDate          :: ISO8601
     , _ipInstanceProfileId   :: Text
     , _ipInstanceProfileName :: Text
     , _ipPath                :: Text
@@ -604,11 +604,11 @@ instance FromXML ReportFormatType where
 
 data ServerCertificateMetadata = ServerCertificateMetadata
     { _scmArn                   :: Text
-    , _scmExpiration            :: Maybe RFC822
+    , _scmExpiration            :: Maybe ISO8601
     , _scmPath                  :: Text
     , _scmServerCertificateId   :: Text
     , _scmServerCertificateName :: Text
-    , _scmUploadDate            :: Maybe RFC822
+    , _scmUploadDate            :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'ServerCertificateMetadata' constructor.
@@ -718,7 +718,7 @@ instance ToQuery OpenIDConnectProviderListEntry where
         ]
 
 data LoginProfile = LoginProfile
-    { _lpCreateDate            :: RFC822
+    { _lpCreateDate            :: ISO8601
     , _lpPasswordResetRequired :: Maybe Bool
     , _lpUserName              :: Text
     } deriving (Eq, Ord, Show)
@@ -862,8 +862,8 @@ instance FromXML ReportStateType where
 
 data User = User
     { _uArn              :: Text
-    , _uCreateDate       :: RFC822
-    , _uPasswordLastUsed :: Maybe RFC822
+    , _uCreateDate       :: ISO8601
+    , _uPasswordLastUsed :: Maybe ISO8601
     , _uPath             :: Text
     , _uUserId           :: Text
     , _uUserName         :: Text
@@ -984,8 +984,8 @@ instance FromXML StatusType where
 
 data SAMLProviderListEntry = SAMLProviderListEntry
     { _samlpleArn        :: Maybe Text
-    , _samlpleCreateDate :: Maybe RFC822
-    , _samlpleValidUntil :: Maybe RFC822
+    , _samlpleCreateDate :: Maybe ISO8601
+    , _samlpleValidUntil :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'SAMLProviderListEntry' constructor.
@@ -1037,7 +1037,7 @@ instance ToQuery SAMLProviderListEntry where
 data Role = Role
     { _rArn                      :: Text
     , _rAssumeRolePolicyDocument :: Maybe Text
-    , _rCreateDate               :: RFC822
+    , _rCreateDate               :: ISO8601
     , _rPath                     :: Text
     , _rRoleId                   :: Text
     , _rRoleName                 :: Text
@@ -1182,7 +1182,7 @@ instance ToQuery ServerCertificate where
 
 data AccessKey = AccessKey
     { _akAccessKeyId     :: Text
-    , _akCreateDate      :: Maybe RFC822
+    , _akCreateDate      :: Maybe ISO8601
     , _akSecretAccessKey :: Sensitive Text
     , _akStatus          :: StatusType
     , _akUserName        :: Text
@@ -1257,7 +1257,7 @@ instance ToQuery AccessKey where
 
 data VirtualMFADevice = VirtualMFADevice
     { _vmfadBase32StringSeed :: Maybe Base64
-    , _vmfadEnableDate       :: Maybe RFC822
+    , _vmfadEnableDate       :: Maybe ISO8601
     , _vmfadQRCodePNG        :: Maybe Base64
     , _vmfadSerialNumber     :: Text
     , _vmfadUser             :: Maybe User
@@ -1331,7 +1331,7 @@ data SigningCertificate = SigningCertificate
     { _sc1CertificateBody :: Text
     , _sc1CertificateId   :: Text
     , _sc1Status          :: StatusType
-    , _sc1UploadDate      :: Maybe RFC822
+    , _sc1UploadDate      :: Maybe ISO8601
     , _sc1UserName        :: Text
     } deriving (Eq, Show)
 
@@ -1403,7 +1403,7 @@ instance ToQuery SigningCertificate where
 
 data AccessKeyMetadata = AccessKeyMetadata
     { _akmAccessKeyId :: Maybe Text
-    , _akmCreateDate  :: Maybe RFC822
+    , _akmCreateDate  :: Maybe ISO8601
     , _akmStatus      :: Maybe StatusType
     , _akmUserName    :: Maybe Text
     } deriving (Eq, Show)

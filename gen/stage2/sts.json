@@ -116,7 +116,7 @@
                         "locationName": "Expiration",
                         "documentation": "-- | The date on which the current credentials expire.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     }
                 ],
                 "contentPad": 0,
@@ -153,7 +153,7 @@
                         "locationName": "Expiration",
                         "documentation": "-- | The date on which the current credentials expire.",
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": "querystring",

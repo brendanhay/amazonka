@@ -213,8 +213,8 @@ ceVersionLabel = lens _ceVersionLabel (\s a -> s { _ceVersionLabel = a })
 data CreateEnvironmentResponse = CreateEnvironmentResponse
     { _cerApplicationName   :: Maybe Text
     , _cerCNAME             :: Maybe Text
-    , _cerDateCreated       :: Maybe RFC822
-    , _cerDateUpdated       :: Maybe RFC822
+    , _cerDateCreated       :: Maybe ISO8601
+    , _cerDateUpdated       :: Maybe ISO8601
     , _cerDescription       :: Maybe Text
     , _cerEndpointURL       :: Maybe Text
     , _cerEnvironmentId     :: Maybe Text

@@ -205,7 +205,7 @@
                         "locationName": "SnapshotCreateTime",
                         "documentation": "-- | The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains\n-- a copy of the cluster data as of this exact time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -265,7 +265,7 @@
                         "locationName": "ClusterCreateTime",
                         "documentation": "-- | The time (UTC) when the cluster was originally created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -642,7 +642,7 @@
                         "locationName": "ClusterCreateTime",
                         "documentation": "-- | The time (UTC) when the cluster was originally created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -867,7 +867,7 @@
                         "locationName": "SnapshotCreateTime",
                         "documentation": "-- | The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains\n-- a copy of the cluster data as of this exact time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1418,7 +1418,7 @@
                         "locationName": "Date",
                         "documentation": "-- | The date and time of the event.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1450,7 +1450,7 @@
                         "locationName": "Date",
                         "documentation": "-- | The date and time of the event.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1946,7 +1946,7 @@
                         "locationName": "ClusterCreateTime",
                         "documentation": "-- | The date and time that the cluster was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2353,7 +2353,7 @@
                         "locationName": "ClusterCreateTime",
                         "documentation": "-- | The date and time that the cluster was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -4387,7 +4387,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The time the reservation started. You purchase a reserved node offering for\n-- a duration. This is the start time of that duration.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -4659,7 +4659,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The time the reservation started. You purchase a reserved node offering for\n-- a duration. This is the start time of that duration.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -4767,7 +4767,7 @@
                         "locationName": "LastSuccessfulDeliveryTime",
                         "documentation": "-- | The last time when logs were delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -4782,7 +4782,7 @@
                         "locationName": "LastFailureTime",
                         "documentation": "-- | The last time when logs failed to be delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -4844,7 +4844,7 @@
                         "locationName": "LastFailureTime",
                         "documentation": "-- | The last time when logs failed to be delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -4859,7 +4859,7 @@
                         "locationName": "LastSuccessfulDeliveryTime",
                         "documentation": "-- | The last time when logs were delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -5115,7 +5115,7 @@
                         "locationName": "SubscriptionCreationTime",
                         "documentation": "-- | The date and time the Amazon Redshift event notification subscription was\n-- created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -5357,7 +5357,7 @@
                         "locationName": "SubscriptionCreationTime",
                         "documentation": "-- | The date and time the Amazon Redshift event notification subscription was\n-- created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -13321,7 +13321,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | A value that requests only snapshots created at or after the specified time.\n-- The time value is specified in ISO 8601 format. For more information about\n-- ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.\u003e\n--\n-- Example: '2012-07-16T18:00:00Z'",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -13336,7 +13336,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | A time value that requests only snapshots created at or before the specified\n-- time. The time value is specified in ISO 8601 format. For more information\n-- about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.\u003e\n--\n-- Example: '2012-07-16T18:00:00Z'",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -13443,7 +13443,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | A time value that requests only snapshots created at or before the specified\n-- time. The time value is specified in ISO 8601 format. For more information\n-- about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.\u003e\n--\n-- Example: '2012-07-16T18:00:00Z'",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -13533,7 +13533,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | A value that requests only snapshots created at or after the specified time.\n-- The time value is specified in ISO 8601 format. For more information about\n-- ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.\u003e\n--\n-- Example: '2012-07-16T18:00:00Z'",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -15401,7 +15401,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: '2009-07-08T18:00Z'",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -15416,7 +15416,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: '2009-07-08T18:00Z'",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -15493,7 +15493,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: '2009-07-08T18:00Z'",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -15568,7 +15568,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: '2009-07-08T18:00Z'",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             }
@@ -16306,7 +16306,7 @@
                         "locationName": "LastSuccessfulDeliveryTime",
                         "documentation": "-- | The last time when logs were delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -16321,7 +16321,7 @@
                         "locationName": "LastFailureTime",
                         "documentation": "-- | The last time when logs failed to be delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -16383,7 +16383,7 @@
                         "locationName": "LastFailureTime",
                         "documentation": "-- | The last time when logs failed to be delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -16398,7 +16398,7 @@
                         "locationName": "LastSuccessfulDeliveryTime",
                         "documentation": "-- | The last time when logs were delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -18261,7 +18261,7 @@
                         "locationName": "LastSuccessfulDeliveryTime",
                         "documentation": "-- | The last time when logs were delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -18276,7 +18276,7 @@
                         "locationName": "LastFailureTime",
                         "documentation": "-- | The last time when logs failed to be delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -18338,7 +18338,7 @@
                         "locationName": "LastFailureTime",
                         "documentation": "-- | The last time when logs failed to be delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -18353,7 +18353,7 @@
                         "locationName": "LastSuccessfulDeliveryTime",
                         "documentation": "-- | The last time when logs were delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -18754,7 +18754,7 @@
                         "locationName": "LastSuccessfulDeliveryTime",
                         "documentation": "-- | The last time when logs were delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -18769,7 +18769,7 @@
                         "locationName": "LastFailureTime",
                         "documentation": "-- | The last time when logs failed to be delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -18831,7 +18831,7 @@
                         "locationName": "LastFailureTime",
                         "documentation": "-- | The last time when logs failed to be delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -18846,7 +18846,7 @@
                         "locationName": "LastSuccessfulDeliveryTime",
                         "documentation": "-- | The last time when logs were delivered.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",

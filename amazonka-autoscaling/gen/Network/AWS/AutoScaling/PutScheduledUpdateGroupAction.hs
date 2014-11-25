@@ -64,13 +64,13 @@ import qualified GHC.Exts
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
     { _psugaAutoScalingGroupName :: Text
     , _psugaDesiredCapacity      :: Maybe Int
-    , _psugaEndTime              :: Maybe RFC822
+    , _psugaEndTime              :: Maybe ISO8601
     , _psugaMaxSize              :: Maybe Int
     , _psugaMinSize              :: Maybe Int
     , _psugaRecurrence           :: Maybe Text
     , _psugaScheduledActionName  :: Text
-    , _psugaStartTime            :: Maybe RFC822
-    , _psugaTime                 :: Maybe RFC822
+    , _psugaStartTime            :: Maybe ISO8601
+    , _psugaTime                 :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'PutScheduledUpdateGroupAction' constructor.

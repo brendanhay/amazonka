@@ -88,7 +88,7 @@ data GetFunctionConfigurationResponse = GetFunctionConfigurationResponse
     , _gfcrFunctionARN     :: Maybe Text
     , _gfcrFunctionName    :: Maybe Text
     , _gfcrHandler         :: Maybe Text
-    , _gfcrLastModified    :: Maybe RFC822
+    , _gfcrLastModified    :: Maybe ISO8601
     , _gfcrMemorySize      :: Maybe Nat
     , _gfcrMode            :: Maybe Mode
     , _gfcrRole            :: Maybe Text

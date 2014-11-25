@@ -94,7 +94,7 @@ instance FromXML JobType where
     parseXML = parseXMLText "JobType"
 
 data Job = Job
-    { _jobCreationDate :: RFC822
+    { _jobCreationDate :: ISO8601
     , _jobIsCanceled   :: Bool
     , _jobJobId        :: Text
     , _jobJobType      :: JobType

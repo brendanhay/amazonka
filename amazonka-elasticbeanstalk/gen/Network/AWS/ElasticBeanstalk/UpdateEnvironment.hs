@@ -176,8 +176,8 @@ ueVersionLabel = lens _ueVersionLabel (\s a -> s { _ueVersionLabel = a })
 data UpdateEnvironmentResponse = UpdateEnvironmentResponse
     { _uerApplicationName   :: Maybe Text
     , _uerCNAME             :: Maybe Text
-    , _uerDateCreated       :: Maybe RFC822
-    , _uerDateUpdated       :: Maybe RFC822
+    , _uerDateCreated       :: Maybe ISO8601
+    , _uerDateUpdated       :: Maybe ISO8601
     , _uerDescription       :: Maybe Text
     , _uerEndpointURL       :: Maybe Text
     , _uerEnvironmentId     :: Maybe Text

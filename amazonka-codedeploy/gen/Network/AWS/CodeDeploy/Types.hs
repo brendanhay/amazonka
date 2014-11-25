@@ -240,9 +240,9 @@ instance AWSService CodeDeploy where
 data GenericRevisionInfo = GenericRevisionInfo
     { _griDeploymentGroups :: List "deploymentGroups" Text
     , _griDescription      :: Maybe Text
-    , _griFirstUsedTime    :: Maybe RFC822
-    , _griLastUsedTime     :: Maybe RFC822
-    , _griRegisterTime     :: Maybe RFC822
+    , _griFirstUsedTime    :: Maybe ISO8601
+    , _griLastUsedTime     :: Maybe ISO8601
+    , _griRegisterTime     :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'GenericRevisionInfo' constructor.
@@ -310,7 +310,7 @@ instance ToJSON GenericRevisionInfo where
 data ApplicationInfo = ApplicationInfo
     { _aiApplicationId   :: Maybe Text
     , _aiApplicationName :: Maybe Text
-    , _aiCreateTime      :: Maybe RFC822
+    , _aiCreateTime      :: Maybe ISO8601
     , _aiLinkedToGitHub  :: Maybe Bool
     } deriving (Eq, Ord, Show)
 
@@ -400,8 +400,8 @@ instance ToJSON BundleType where
     toJSON = toJSONText
 
 data TimeRange = TimeRange
-    { _trEnd   :: Maybe RFC822
-    , _trStart :: Maybe RFC822
+    { _trEnd   :: Maybe ISO8601
+    , _trStart :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'TimeRange' constructor.
@@ -473,7 +473,7 @@ instance ToJSON DeploymentCreator where
 data InstanceSummary = InstanceSummary
     { _isDeploymentId    :: Maybe Text
     , _isInstanceId      :: Maybe Text
-    , _isLastUpdatedAt   :: Maybe RFC822
+    , _isLastUpdatedAt   :: Maybe ISO8601
     , _isLifecycleEvents :: List "lifecycleEvents" LifecycleEvent
     , _isStatus          :: Maybe InstanceStatus
     } deriving (Eq, Show)
@@ -1167,8 +1167,8 @@ instance ToJSON SortOrder where
 
 data DeploymentInfo = DeploymentInfo
     { _diApplicationName               :: Maybe Text
-    , _diCompleteTime                  :: Maybe RFC822
-    , _diCreateTime                    :: Maybe RFC822
+    , _diCompleteTime                  :: Maybe ISO8601
+    , _diCreateTime                    :: Maybe ISO8601
     , _diCreator                       :: Maybe DeploymentCreator
     , _diDeploymentConfigName          :: Maybe Text
     , _diDeploymentGroupName           :: Maybe Text
@@ -1178,7 +1178,7 @@ data DeploymentInfo = DeploymentInfo
     , _diErrorInformation              :: Maybe ErrorInformation
     , _diIgnoreApplicationStopFailures :: Maybe Bool
     , _diRevision                      :: Maybe RevisionLocation
-    , _diStartTime                     :: Maybe RFC822
+    , _diStartTime                     :: Maybe ISO8601
     , _diStatus                        :: Maybe DeploymentStatus
     } deriving (Eq, Show)
 
@@ -1349,9 +1349,9 @@ instance ToJSON DeploymentInfo where
 
 data LifecycleEvent = LifecycleEvent
     { _leDiagnostics        :: Maybe Diagnostics
-    , _leEndTime            :: Maybe RFC822
+    , _leEndTime            :: Maybe ISO8601
     , _leLifecycleEventName :: Maybe Text
-    , _leStartTime          :: Maybe RFC822
+    , _leStartTime          :: Maybe ISO8601
     , _leStatus             :: Maybe LifecycleEventStatus
     } deriving (Eq, Show)
 
@@ -1548,7 +1548,7 @@ instance ToJSON ErrorCode where
     toJSON = toJSONText
 
 data DeploymentConfigInfo = DeploymentConfigInfo
-    { _dciCreateTime           :: Maybe RFC822
+    { _dciCreateTime           :: Maybe ISO8601
     , _dciDeploymentConfigId   :: Maybe Text
     , _dciDeploymentConfigName :: Maybe Text
     , _dciMinimumHealthyHosts  :: Maybe MinimumHealthyHosts

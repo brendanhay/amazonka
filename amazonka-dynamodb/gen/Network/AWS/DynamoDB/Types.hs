@@ -299,8 +299,8 @@ instance ToJSON WriteRequest where
         ]
 
 data ProvisionedThroughputDescription = ProvisionedThroughputDescription
-    { _ptdLastDecreaseDateTime   :: Maybe RFC822
-    , _ptdLastIncreaseDateTime   :: Maybe RFC822
+    { _ptdLastDecreaseDateTime   :: Maybe ISO8601
+    , _ptdLastIncreaseDateTime   :: Maybe ISO8601
     , _ptdNumberOfDecreasesToday :: Maybe Nat
     , _ptdReadCapacityUnits      :: Maybe Nat
     , _ptdWriteCapacityUnits     :: Maybe Nat
@@ -676,7 +676,7 @@ instance ToJSON ProjectionType where
 
 data TableDescription = TableDescription
     { _tdAttributeDefinitions   :: List "AttributeDefinitions" AttributeDefinition
-    , _tdCreationDateTime       :: Maybe RFC822
+    , _tdCreationDateTime       :: Maybe ISO8601
     , _tdGlobalSecondaryIndexes :: List "GlobalSecondaryIndexes" GlobalSecondaryIndexDescription
     , _tdItemCount              :: Maybe Integer
     , _tdKeySchema              :: List1 "KeySchema" KeySchemaElement

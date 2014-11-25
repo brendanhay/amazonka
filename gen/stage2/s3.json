@@ -477,7 +477,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | Date and time the object was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -560,7 +560,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | Date and time the object was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -607,7 +607,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | Date and time the object was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -695,7 +695,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | Date and time at which the part was uploaded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -763,7 +763,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | Date and time at which the part was uploaded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -825,7 +825,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | Date and time at which the part was uploaded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -1985,7 +1985,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | Date and time at which the object was uploaded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -2023,7 +2023,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | Date and time at which the object was uploaded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -2055,7 +2055,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | Date and time at which the object was uploaded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -2972,7 +2972,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | Date the bucket was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -3010,7 +3010,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | Date the bucket was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -3027,7 +3027,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | Date the bucket was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -4313,7 +4313,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | Date and time the object was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -4441,7 +4441,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | Date and time the object was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -4518,7 +4518,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | Date and time the object was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5494,7 +5494,7 @@
                         "locationName": "LastModified",
                         "documentation": null,
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -5587,7 +5587,7 @@
                         "locationName": "LastModified",
                         "documentation": null,
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -5699,7 +5699,7 @@
                         "locationName": "LastModified",
                         "documentation": null,
                         "typeExposed": "UTCTime",
-                        "type": "RFC822"
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -5882,7 +5882,7 @@
                         "locationName": "Initiated",
                         "documentation": "-- | Date and time at which the multipart upload was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -5980,7 +5980,7 @@
                         "locationName": "Initiated",
                         "documentation": "-- | Date and time at which the multipart upload was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -6042,7 +6042,7 @@
                         "locationName": "Initiated",
                         "documentation": "-- | Date and time at which the multipart upload was initiated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -7381,7 +7381,7 @@
                         "locationName": "LastModified",
                         "documentation": null,
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "payload": null,
@@ -7419,7 +7419,7 @@
                         "locationName": "LastModified",
                         "documentation": null,
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -7451,7 +7451,7 @@
                         "locationName": "LastModified",
                         "documentation": null,
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -8016,7 +8016,7 @@
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, this will contain the expiration date\n-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -8123,7 +8123,7 @@
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, this will contain the expiration date\n-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": null,
@@ -8534,7 +8534,7 @@
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, the response includes this header.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -8656,7 +8656,7 @@
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, the response includes this header.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -9080,7 +9080,7 @@
                         "locationName": "x-amz-copy-source-if-modified-since",
                         "documentation": "-- | Copies the object if it has been modified since the specified time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -9110,7 +9110,7 @@
                         "locationName": "x-amz-copy-source-if-unmodified-since",
                         "documentation": "-- | Copies the object if it hasn't been modified since the specified time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -9125,7 +9125,7 @@
                         "locationName": "Expires",
                         "documentation": "-- | The date and time at which the object is no longer cacheable.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -9517,7 +9517,7 @@
                         "locationName": "x-amz-copy-source-if-modified-since",
                         "documentation": "-- | Copies the object if it has been modified since the specified time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -9547,7 +9547,7 @@
                         "locationName": "x-amz-copy-source-if-unmodified-since",
                         "documentation": "-- | Copies the object if it hasn't been modified since the specified time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -9622,7 +9622,7 @@
                         "locationName": "Expires",
                         "documentation": "-- | The date and time at which the object is no longer cacheable.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -10857,7 +10857,7 @@
                         "locationName": "Expires",
                         "documentation": "-- | The date and time at which the object is no longer cacheable.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -11159,7 +11159,7 @@
                         "locationName": "Expires",
                         "documentation": "-- | The date and time at which the object is no longer cacheable.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -15402,7 +15402,7 @@
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured (see PUT Bucket lifecycle), the\n-- response includes this header. It includes the expiry-date and rule-id key\n-- value pairs providing object expiration information. The value of the rule-id\n-- is URL encoded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -15432,7 +15432,7 @@
                         "locationName": "Last-Modified",
                         "documentation": "-- | Last modified date of the object",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -15582,7 +15582,7 @@
                         "locationName": "Expires",
                         "documentation": "-- | The date and time at which the object is no longer cacheable.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -15839,7 +15839,7 @@
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured (see PUT Bucket lifecycle), the\n-- response includes this header. It includes the expiry-date and rule-id key\n-- value pairs providing object expiration information. The value of the rule-id\n-- is URL encoded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -15854,7 +15854,7 @@
                         "locationName": "Expires",
                         "documentation": "-- | The date and time at which the object is no longer cacheable.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -15869,7 +15869,7 @@
                         "locationName": "Last-Modified",
                         "documentation": "-- | Last modified date of the object",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "headers",
@@ -16205,7 +16205,7 @@
                         "locationName": "If-Modified-Since",
                         "documentation": "-- | Return the object only if it has been modified since the specified time,\n-- otherwise return a 304 (not modified).",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -16235,7 +16235,7 @@
                         "locationName": "If-Unmodified-Since",
                         "documentation": "-- | Return the object only if it has not been modified since the specified time,\n-- otherwise return a 412 (precondition failed).",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -16340,7 +16340,7 @@
                         "locationName": "response-expires",
                         "documentation": "-- | Sets the Expires header of the response.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -16462,7 +16462,7 @@
                         "locationName": "If-Modified-Since",
                         "documentation": "-- | Return the object only if it has been modified since the specified time,\n-- otherwise return a 304 (not modified).",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -16492,7 +16492,7 @@
                         "locationName": "If-Unmodified-Since",
                         "documentation": "-- | Return the object only if it has not been modified since the specified time,\n-- otherwise return a 412 (precondition failed).",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "uri",
@@ -16612,7 +16612,7 @@
                         "locationName": "response-expires",
                         "documentation": "-- | Sets the Expires header of the response.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -17492,7 +17492,7 @@
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured (see PUT Bucket lifecycle), the\n-- response includes this header. It includes the expiry-date and rule-id key\n-- value pairs providing object expiration information. The value of the rule-id\n-- is URL encoded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -17522,7 +17522,7 @@
                         "locationName": "Last-Modified",
                         "documentation": "-- | Last modified date of the object",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -17672,7 +17672,7 @@
                         "locationName": "Expires",
                         "documentation": "-- | The date and time at which the object is no longer cacheable.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -17914,7 +17914,7 @@
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured (see PUT Bucket lifecycle), the\n-- response includes this header. It includes the expiry-date and rule-id key\n-- value pairs providing object expiration information. The value of the rule-id\n-- is URL encoded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -17929,7 +17929,7 @@
                         "locationName": "Expires",
                         "documentation": "-- | The date and time at which the object is no longer cacheable.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -17944,7 +17944,7 @@
                         "locationName": "Last-Modified",
                         "documentation": "-- | Last modified date of the object",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "headers",
@@ -18250,7 +18250,7 @@
                         "locationName": "If-Modified-Since",
                         "documentation": "-- | Return the object only if it has been modified since the specified time,\n-- otherwise return a 304 (not modified).",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -18280,7 +18280,7 @@
                         "locationName": "If-Unmodified-Since",
                         "documentation": "-- | Return the object only if it has not been modified since the specified time,\n-- otherwise return a 412 (precondition failed).",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -18417,7 +18417,7 @@
                         "locationName": "If-Modified-Since",
                         "documentation": "-- | Return the object only if it has been modified since the specified time,\n-- otherwise return a 304 (not modified).",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -18447,7 +18447,7 @@
                         "locationName": "If-Unmodified-Since",
                         "documentation": "-- | Return the object only if it has not been modified since the specified time,\n-- otherwise return a 412 (precondition failed).",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "uri",
@@ -24474,7 +24474,7 @@
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, this will contain the expiration date\n-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -24596,7 +24596,7 @@
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, this will contain the expiration date\n-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -25028,7 +25028,7 @@
                         "locationName": "Expires",
                         "documentation": "-- | The date and time at which the object is no longer cacheable.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -25375,7 +25375,7 @@
                         "locationName": "Expires",
                         "documentation": "-- | The date and time at which the object is no longer cacheable.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -27435,7 +27435,7 @@
                         "locationName": "x-amz-copy-source-if-modified-since",
                         "documentation": "-- | Copies the object if it has been modified since the specified time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -27465,7 +27465,7 @@
                         "locationName": "x-amz-copy-source-if-unmodified-since",
                         "documentation": "-- | Copies the object if it hasn't been modified since the specified time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -27647,7 +27647,7 @@
                         "locationName": "x-amz-copy-source-if-modified-since",
                         "documentation": "-- | Copies the object if it has been modified since the specified time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",
@@ -27677,7 +27677,7 @@
                         "locationName": "x-amz-copy-source-if-unmodified-since",
                         "documentation": "-- | Copies the object if it hasn't been modified since the specified time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "header",

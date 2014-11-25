@@ -76,13 +76,13 @@ import qualified GHC.Exts
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     { _dsphAvailabilityZone    :: Maybe Text
     , _dsphDryRun              :: Maybe Bool
-    , _dsphEndTime             :: Maybe RFC822
+    , _dsphEndTime             :: Maybe ISO8601
     , _dsphFilters             :: List "Filter" Filter
     , _dsphInstanceTypes       :: List "InstanceType" InstanceType
     , _dsphMaxResults          :: Maybe Int
     , _dsphNextToken           :: Maybe Text
     , _dsphProductDescriptions :: List "ProductDescription" Text
-    , _dsphStartTime           :: Maybe RFC822
+    , _dsphStartTime           :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'DescribeSpotPriceHistory' constructor.

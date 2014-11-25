@@ -54,11 +54,11 @@ import qualified GHC.Exts
 
 data DescribeScheduledActions = DescribeScheduledActions
     { _dsa1AutoScalingGroupName :: Maybe Text
-    , _dsa1EndTime              :: Maybe RFC822
+    , _dsa1EndTime              :: Maybe ISO8601
     , _dsa1MaxRecords           :: Maybe Int
     , _dsa1NextToken            :: Maybe Text
     , _dsa1ScheduledActionNames :: List "ScheduledActionNames" Text
-    , _dsa1StartTime            :: Maybe RFC822
+    , _dsa1StartTime            :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeScheduledActions' constructor.

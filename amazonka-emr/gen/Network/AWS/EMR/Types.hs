@@ -1080,11 +1080,11 @@ instance ToJSON Application where
         ]
 
 data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
-    { _jfesdCreationDateTime      :: RFC822
-    , _jfesdEndDateTime           :: Maybe RFC822
+    { _jfesdCreationDateTime      :: ISO8601
+    , _jfesdEndDateTime           :: Maybe ISO8601
     , _jfesdLastStateChangeReason :: Maybe Text
-    , _jfesdReadyDateTime         :: Maybe RFC822
-    , _jfesdStartDateTime         :: Maybe RFC822
+    , _jfesdReadyDateTime         :: Maybe ISO8601
+    , _jfesdStartDateTime         :: Maybe ISO8601
     , _jfesdState                 :: JobFlowExecutionState
     } deriving (Eq, Show)
 
@@ -1379,9 +1379,9 @@ instance ToJSON Cluster where
         ]
 
 data InstanceTimeline = InstanceTimeline
-    { _itCreationDateTime :: Maybe RFC822
-    , _itEndDateTime      :: Maybe RFC822
-    , _itReadyDateTime    :: Maybe RFC822
+    { _itCreationDateTime :: Maybe ISO8601
+    , _itEndDateTime      :: Maybe ISO8601
+    , _itReadyDateTime    :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'InstanceTimeline' constructor.
@@ -1971,9 +1971,9 @@ instance ToJSON InstanceGroupState where
     toJSON = toJSONText
 
 data StepTimeline = StepTimeline
-    { _stCreationDateTime :: Maybe RFC822
-    , _stEndDateTime      :: Maybe RFC822
-    , _stStartDateTime    :: Maybe RFC822
+    { _stCreationDateTime :: Maybe ISO8601
+    , _stEndDateTime      :: Maybe ISO8601
+    , _stStartDateTime    :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'StepTimeline' constructor.
@@ -2170,8 +2170,8 @@ instance ToJSON InstanceGroupModifyConfig where
 
 data InstanceGroupDetail = InstanceGroupDetail
     { _igdBidPrice              :: Maybe Text
-    , _igdCreationDateTime      :: RFC822
-    , _igdEndDateTime           :: Maybe RFC822
+    , _igdCreationDateTime      :: ISO8601
+    , _igdEndDateTime           :: Maybe ISO8601
     , _igdInstanceGroupId       :: Maybe Text
     , _igdInstanceRequestCount  :: Int
     , _igdInstanceRole          :: InstanceRoleType
@@ -2180,8 +2180,8 @@ data InstanceGroupDetail = InstanceGroupDetail
     , _igdLastStateChangeReason :: Maybe Text
     , _igdMarket                :: MarketType
     , _igdName                  :: Maybe Text
-    , _igdReadyDateTime         :: Maybe RFC822
-    , _igdStartDateTime         :: Maybe RFC822
+    , _igdReadyDateTime         :: Maybe ISO8601
+    , _igdStartDateTime         :: Maybe ISO8601
     , _igdState                 :: InstanceGroupState
     } deriving (Eq, Show)
 
@@ -2535,9 +2535,9 @@ instance ToJSON StepState where
     toJSON = toJSONText
 
 data InstanceGroupTimeline = InstanceGroupTimeline
-    { _igtCreationDateTime :: Maybe RFC822
-    , _igtEndDateTime      :: Maybe RFC822
-    , _igtReadyDateTime    :: Maybe RFC822
+    { _igtCreationDateTime :: Maybe ISO8601
+    , _igtEndDateTime      :: Maybe ISO8601
+    , _igtReadyDateTime    :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'InstanceGroupTimeline' constructor.
@@ -2615,10 +2615,10 @@ instance ToJSON BootstrapActionDetail where
         ]
 
 data StepExecutionStatusDetail = StepExecutionStatusDetail
-    { _sesdCreationDateTime      :: RFC822
-    , _sesdEndDateTime           :: Maybe RFC822
+    { _sesdCreationDateTime      :: ISO8601
+    , _sesdEndDateTime           :: Maybe ISO8601
     , _sesdLastStateChangeReason :: Maybe Text
-    , _sesdStartDateTime         :: Maybe RFC822
+    , _sesdStartDateTime         :: Maybe ISO8601
     , _sesdState                 :: StepExecutionState
     } deriving (Eq, Show)
 
@@ -3433,9 +3433,9 @@ instance ToJSON InstanceState where
     toJSON = toJSONText
 
 data ClusterTimeline = ClusterTimeline
-    { _ctCreationDateTime :: Maybe RFC822
-    , _ctEndDateTime      :: Maybe RFC822
-    , _ctReadyDateTime    :: Maybe RFC822
+    { _ctCreationDateTime :: Maybe ISO8601
+    , _ctEndDateTime      :: Maybe ISO8601
+    , _ctReadyDateTime    :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'ClusterTimeline' constructor.

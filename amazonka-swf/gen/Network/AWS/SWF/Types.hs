@@ -1003,8 +1003,8 @@ instance ToJSON WorkflowExecutionCompletedEventAttributes where
         ]
 
 data ExecutionTimeFilter = ExecutionTimeFilter
-    { _etfLatestDate :: Maybe RFC822
-    , _etfOldestDate :: RFC822
+    { _etfLatestDate :: Maybe ISO8601
+    , _etfOldestDate :: ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'ExecutionTimeFilter' constructor.
@@ -1762,8 +1762,8 @@ instance ToJSON ActivityType where
         ]
 
 data WorkflowTypeInfo = WorkflowTypeInfo
-    { _wtiCreationDate    :: RFC822
-    , _wtiDeprecationDate :: Maybe RFC822
+    { _wtiCreationDate    :: ISO8601
+    , _wtiDeprecationDate :: Maybe ISO8601
     , _wtiDescription     :: Maybe Text
     , _wtiStatus          :: RegistrationStatus
     , _wtiWorkflowType    :: WorkflowType
@@ -2608,8 +2608,8 @@ instance ToJSON RequestCancelExternalWorkflowExecutionFailedEventAttributes wher
 
 data ActivityTypeInfo = ActivityTypeInfo
     { _atiActivityType    :: ActivityType
-    , _atiCreationDate    :: RFC822
-    , _atiDeprecationDate :: Maybe RFC822
+    , _atiCreationDate    :: ISO8601
+    , _atiDeprecationDate :: Maybe ISO8601
     , _atiDescription     :: Maybe Text
     , _atiStatus          :: RegistrationStatus
     } deriving (Eq, Show)
@@ -4721,11 +4721,11 @@ instance ToJSON ChildWorkflowExecutionCanceledEventAttributes where
 data WorkflowExecutionInfo = WorkflowExecutionInfo
     { _weiCancelRequested :: Maybe Bool
     , _weiCloseStatus     :: Maybe CloseStatus
-    , _weiCloseTimestamp  :: Maybe RFC822
+    , _weiCloseTimestamp  :: Maybe ISO8601
     , _weiExecution       :: WorkflowExecution
     , _weiExecutionStatus :: ExecutionStatus
     , _weiParent          :: Maybe WorkflowExecution
-    , _weiStartTimestamp  :: RFC822
+    , _weiStartTimestamp  :: ISO8601
     , _weiTagList         :: List "tagList" Text
     , _weiWorkflowType    :: WorkflowType
     } deriving (Eq, Show)
@@ -6419,7 +6419,7 @@ data HistoryEvent = HistoryEvent
     , _heDecisionTaskStartedEventAttributes                             :: Maybe DecisionTaskStartedEventAttributes
     , _heDecisionTaskTimedOutEventAttributes                            :: Maybe DecisionTaskTimedOutEventAttributes
     , _heEventId                                                        :: Integer
-    , _heEventTimestamp                                                 :: RFC822
+    , _heEventTimestamp                                                 :: ISO8601
     , _heEventType                                                      :: EventType
     , _heExternalWorkflowExecutionCancelRequestedEventAttributes        :: Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes
     , _heExternalWorkflowExecutionSignaledEventAttributes               :: Maybe ExternalWorkflowExecutionSignaledEventAttributes

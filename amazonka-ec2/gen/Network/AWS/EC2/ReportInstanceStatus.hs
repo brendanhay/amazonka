@@ -57,10 +57,10 @@ import qualified GHC.Exts
 data ReportInstanceStatus = ReportInstanceStatus
     { _risDescription :: Maybe Text
     , _risDryRun      :: Maybe Bool
-    , _risEndTime     :: Maybe RFC822
+    , _risEndTime     :: Maybe ISO8601
     , _risInstances   :: List "InstanceId" Text
     , _risReasonCodes :: List "item" ReportInstanceReasonCodes
-    , _risStartTime   :: Maybe RFC822
+    , _risStartTime   :: Maybe ISO8601
     , _risStatus      :: ReportStatusType
     } deriving (Eq, Show)
 

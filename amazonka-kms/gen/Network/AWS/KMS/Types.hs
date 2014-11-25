@@ -129,7 +129,7 @@ instance ToJSON KeyUsageType where
 data KeyMetadata = KeyMetadata
     { _kmAWSAccountId :: Maybe Text
     , _kmArn          :: Maybe Text
-    , _kmCreationDate :: Maybe RFC822
+    , _kmCreationDate :: Maybe ISO8601
     , _kmDescription  :: Maybe Text
     , _kmEnabled      :: Maybe Bool
     , _kmKeyId        :: Text

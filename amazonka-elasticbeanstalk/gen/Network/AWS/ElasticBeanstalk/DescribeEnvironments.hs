@@ -55,7 +55,7 @@ data DescribeEnvironments = DescribeEnvironments
     , _de1EnvironmentIds        :: List "EnvironmentIds" Text
     , _de1EnvironmentNames      :: List "EnvironmentNames" Text
     , _de1IncludeDeleted        :: Maybe Bool
-    , _de1IncludedDeletedBackTo :: Maybe RFC822
+    , _de1IncludedDeletedBackTo :: Maybe ISO8601
     , _de1VersionLabel          :: Maybe Text
     } deriving (Eq, Ord, Show)
 

@@ -295,8 +295,8 @@ ns = "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/"
 data ApplicationDescription = ApplicationDescription
     { _adApplicationName        :: Maybe Text
     , _adConfigurationTemplates :: List "ConfigurationTemplates" Text
-    , _adDateCreated            :: Maybe RFC822
-    , _adDateUpdated            :: Maybe RFC822
+    , _adDateCreated            :: Maybe ISO8601
+    , _adDateUpdated            :: Maybe ISO8601
     , _adDescription            :: Maybe Text
     , _adVersions               :: List "Versions" Text
     } deriving (Eq, Ord, Show)
@@ -453,7 +453,7 @@ instance ToQuery Tag where
 data EventDescription = EventDescription
     { _edApplicationName :: Maybe Text
     , _edEnvironmentName :: Maybe Text
-    , _edEventDate       :: Maybe RFC822
+    , _edEventDate       :: Maybe ISO8601
     , _edMessage         :: Maybe Text
     , _edRequestId       :: Maybe Text
     , _edSeverity        :: Maybe EventSeverity
@@ -740,8 +740,8 @@ instance FromXML ConfigurationOptionValueType where
 
 data ConfigurationSettingsDescription = ConfigurationSettingsDescription
     { _csdApplicationName   :: Maybe Text
-    , _csdDateCreated       :: Maybe RFC822
-    , _csdDateUpdated       :: Maybe RFC822
+    , _csdDateCreated       :: Maybe ISO8601
+    , _csdDateUpdated       :: Maybe ISO8601
     , _csdDeploymentStatus  :: Maybe ConfigurationDeploymentStatus
     , _csdDescription       :: Maybe Text
     , _csdEnvironmentName   :: Maybe Text
@@ -873,8 +873,8 @@ instance ToQuery ConfigurationSettingsDescription where
 
 data ApplicationVersionDescription = ApplicationVersionDescription
     { _avdApplicationName :: Maybe Text
-    , _avdDateCreated     :: Maybe RFC822
-    , _avdDateUpdated     :: Maybe RFC822
+    , _avdDateCreated     :: Maybe ISO8601
+    , _avdDateUpdated     :: Maybe ISO8601
     , _avdDescription     :: Maybe Text
     , _avdSourceBundle    :: Maybe S3Location
     , _avdVersionLabel    :: Maybe Text
@@ -1599,7 +1599,7 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription
     { _eidEc2InstanceId   :: Maybe Text
     , _eidInfoType        :: Maybe EnvironmentInfoType
     , _eidMessage         :: Maybe Text
-    , _eidSampleTimestamp :: Maybe RFC822
+    , _eidSampleTimestamp :: Maybe ISO8601
     } deriving (Eq, Show)
 
 -- | 'EnvironmentInfoDescription' constructor.
@@ -1840,8 +1840,8 @@ instance FromXML EnvironmentInfoType where
 data EnvironmentDescription = EnvironmentDescription
     { _ed1ApplicationName   :: Maybe Text
     , _ed1CNAME             :: Maybe Text
-    , _ed1DateCreated       :: Maybe RFC822
-    , _ed1DateUpdated       :: Maybe RFC822
+    , _ed1DateCreated       :: Maybe ISO8601
+    , _ed1DateUpdated       :: Maybe ISO8601
     , _ed1Description       :: Maybe Text
     , _ed1EndpointURL       :: Maybe Text
     , _ed1EnvironmentId     :: Maybe Text

@@ -175,8 +175,8 @@ cctTemplateName = lens _cctTemplateName (\s a -> s { _cctTemplateName = a })
 
 data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
     { _cctrApplicationName   :: Maybe Text
-    , _cctrDateCreated       :: Maybe RFC822
-    , _cctrDateUpdated       :: Maybe RFC822
+    , _cctrDateCreated       :: Maybe ISO8601
+    , _cctrDateUpdated       :: Maybe ISO8601
     , _cctrDeploymentStatus  :: Maybe ConfigurationDeploymentStatus
     , _cctrDescription       :: Maybe Text
     , _cctrEnvironmentName   :: Maybe Text

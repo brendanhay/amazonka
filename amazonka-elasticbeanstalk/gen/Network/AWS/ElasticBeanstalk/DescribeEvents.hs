@@ -58,14 +58,14 @@ import qualified GHC.Exts
 
 data DescribeEvents = DescribeEvents
     { _deApplicationName :: Maybe Text
-    , _deEndTime         :: Maybe RFC822
+    , _deEndTime         :: Maybe ISO8601
     , _deEnvironmentId   :: Maybe Text
     , _deEnvironmentName :: Maybe Text
     , _deMaxRecords      :: Maybe Nat
     , _deNextToken       :: Maybe Text
     , _deRequestId       :: Maybe Text
     , _deSeverity        :: Maybe EventSeverity
-    , _deStartTime       :: Maybe RFC822
+    , _deStartTime       :: Maybe ISO8601
     , _deTemplateName    :: Maybe Text
     , _deVersionLabel    :: Maybe Text
     } deriving (Eq, Show)

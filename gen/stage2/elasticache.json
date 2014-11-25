@@ -162,7 +162,7 @@
                         "locationName": "CacheNodeCreateTime",
                         "documentation": "-- | The date and time when the cache node was created in the source cache cluster.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -177,7 +177,7 @@
                         "locationName": "SnapshotCreateTime",
                         "documentation": "-- | The date and time when the source node's metadata and cache data set was\n-- obtained for the snapshot.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -194,7 +194,7 @@
                         "locationName": "CacheNodeCreateTime",
                         "documentation": "-- | The date and time when the cache node was created in the source cache cluster.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -239,7 +239,7 @@
                         "locationName": "SnapshotCreateTime",
                         "documentation": "-- | The date and time when the source node's metadata and cache data set was\n-- obtained for the snapshot.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -406,7 +406,7 @@
                         "locationName": "CacheClusterCreateTime",
                         "documentation": "-- | The date and time when the source cache cluster was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -588,7 +588,7 @@
                         "locationName": "CacheClusterCreateTime",
                         "documentation": "-- | The date and time when the source cache cluster was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -935,7 +935,7 @@
                         "locationName": "Date",
                         "documentation": "-- | The date and time when the event occurred.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -952,7 +952,7 @@
                         "locationName": "Date",
                         "documentation": "-- | The date and time when the event occurred.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1817,7 +1817,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The time the reservation started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2089,7 +2089,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The time the reservation started.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2445,7 +2445,7 @@
                         "locationName": "CacheClusterCreateTime",
                         "documentation": "-- | The date and time when the cache cluster was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2657,7 +2657,7 @@
                         "locationName": "CacheClusterCreateTime",
                         "documentation": "-- | The date and time when the cache cluster was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3268,7 +3268,7 @@
                         "locationName": "CacheNodeCreateTime",
                         "documentation": "-- | The date and time when the cache node was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3345,7 +3345,7 @@
                         "locationName": "CacheNodeCreateTime",
                         "documentation": "-- | The date and time when the cache node was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11792,7 +11792,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11807,7 +11807,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11884,7 +11884,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11959,7 +11959,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             }

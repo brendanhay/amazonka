@@ -125,7 +125,7 @@ dvVolumeId :: Lens' DetachVolume Text
 dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
 
 data DetachVolumeResponse = DetachVolumeResponse
-    { _dvrAttachTime          :: Maybe RFC822
+    { _dvrAttachTime          :: Maybe ISO8601
     , _dvrDeleteOnTermination :: Maybe Bool
     , _dvrDevice              :: Maybe Text
     , _dvrInstanceId          :: Maybe Text

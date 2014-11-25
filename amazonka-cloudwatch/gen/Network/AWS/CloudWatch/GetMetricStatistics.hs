@@ -79,11 +79,11 @@ import qualified GHC.Exts
 
 data GetMetricStatistics = GetMetricStatistics
     { _gmsDimensions :: List "Dimensions" Dimension
-    , _gmsEndTime    :: RFC822
+    , _gmsEndTime    :: ISO8601
     , _gmsMetricName :: Text
     , _gmsNamespace  :: Text
     , _gmsPeriod     :: Nat
-    , _gmsStartTime  :: RFC822
+    , _gmsStartTime  :: ISO8601
     , _gmsStatistics :: List1 "Statistics" Statistic
     , _gmsUnit       :: Maybe StandardUnit
     } deriving (Eq, Show)

@@ -926,7 +926,7 @@ data LoadBalancerDescription = LoadBalancerDescription
     , _lbdBackendServerDescriptions :: List "BackendServerDescriptions" BackendServerDescription
     , _lbdCanonicalHostedZoneName   :: Maybe Text
     , _lbdCanonicalHostedZoneNameID :: Maybe Text
-    , _lbdCreatedTime               :: Maybe RFC822
+    , _lbdCreatedTime               :: Maybe ISO8601
     , _lbdDNSName                   :: Maybe Text
     , _lbdHealthCheck               :: Maybe HealthCheck
     , _lbdInstances                 :: List "Instances" Instance

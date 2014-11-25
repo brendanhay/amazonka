@@ -118,7 +118,7 @@ avVolumeId :: Lens' AttachVolume Text
 avVolumeId = lens _avVolumeId (\s a -> s { _avVolumeId = a })
 
 data AttachVolumeResponse = AttachVolumeResponse
-    { _avrAttachTime          :: Maybe RFC822
+    { _avrAttachTime          :: Maybe ISO8601
     , _avrDeleteOnTermination :: Maybe Bool
     , _avrDevice              :: Maybe Text
     , _avrInstanceId          :: Maybe Text

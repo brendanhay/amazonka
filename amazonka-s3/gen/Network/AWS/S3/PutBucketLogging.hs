@@ -43,7 +43,7 @@ module Network.AWS.S3.PutBucketLogging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
+import Network.AWS.Request.S3
 import Network.AWS.S3.Types
 import qualified GHC.Exts
 

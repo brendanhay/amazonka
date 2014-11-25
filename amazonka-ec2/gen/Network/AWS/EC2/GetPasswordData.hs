@@ -90,7 +90,7 @@ gpdInstanceId = lens _gpdInstanceId (\s a -> s { _gpdInstanceId = a })
 data GetPasswordDataResponse = GetPasswordDataResponse
     { _gpdrInstanceId   :: Maybe Text
     , _gpdrPasswordData :: Maybe Text
-    , _gpdrTimestamp    :: Maybe RFC822
+    , _gpdrTimestamp    :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'GetPasswordDataResponse' constructor.

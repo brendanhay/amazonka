@@ -152,7 +152,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The date when the application was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -167,7 +167,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The date when the application was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -244,7 +244,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The date when the application was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -259,7 +259,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The date when the application was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -422,7 +422,7 @@
                         "locationName": "EventDate",
                         "documentation": "-- | The date when the event occurred.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -574,7 +574,7 @@
                         "locationName": "EventDate",
                         "documentation": "-- | The date when the event occurred.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1115,7 +1115,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The date (in UTC time) when this configuration set was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1130,7 +1130,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The date (in UTC time) when this configuration set was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1177,7 +1177,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The date (in UTC time) when this configuration set was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1192,7 +1192,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The date (in UTC time) when this configuration set was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1374,7 +1374,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The creation date of the application version.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1389,7 +1389,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The last modified date of the application version.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -1421,7 +1421,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The creation date of the application version.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -1436,7 +1436,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The last modified date of the application version.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2877,7 +2877,7 @@
                         "locationName": "SampleTimestamp",
                         "documentation": "-- | The time stamp when this information was retrieved.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -2954,7 +2954,7 @@
                         "locationName": "SampleTimestamp",
                         "documentation": "-- | The time stamp when this information was retrieved.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -3440,7 +3440,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The creation date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3455,7 +3455,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The last modified date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3562,7 +3562,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The creation date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -3577,7 +3577,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The last modified date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -4832,7 +4832,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The date (in UTC time) when this configuration set was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -4847,7 +4847,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The date (in UTC time) when this configuration set was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -4894,7 +4894,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The date (in UTC time) when this configuration set was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -4909,7 +4909,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The date (in UTC time) when this configuration set was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -5472,7 +5472,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The creation date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -5487,7 +5487,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The last modified date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -5594,7 +5594,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The creation date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -5609,7 +5609,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The last modified date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -8320,7 +8320,7 @@
                         "locationName": "IncludedDeletedBackTo",
                         "documentation": "-- | If specified when 'IncludeDeleted' is set to 'true', then environments deleted\n-- after this date are displayed.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     }
                 ],
                 "fields": [
@@ -8397,7 +8397,7 @@
                         "locationName": "IncludedDeletedBackTo",
                         "documentation": "-- | If specified when 'IncludeDeleted' is set to 'true', then environments deleted\n-- after this date are displayed.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -8733,7 +8733,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to\n-- those that occur on or after this time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -8748,7 +8748,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to\n-- those that occur up to, but not including, the 'EndTime'.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -8810,7 +8810,7 @@
                         "locationName": "EndTime",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to\n-- those that occur up to, but not including, the 'EndTime'.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -8915,7 +8915,7 @@
                         "locationName": "StartTime",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to\n-- those that occur on or after this time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -10180,7 +10180,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The creation date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -10195,7 +10195,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The last modified date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -10302,7 +10302,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The creation date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -10317,7 +10317,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The last modified date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11199,7 +11199,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The date (in UTC time) when this configuration set was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11214,7 +11214,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The date (in UTC time) when this configuration set was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11261,7 +11261,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The date (in UTC time) when this configuration set was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11276,7 +11276,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The date (in UTC time) when this configuration set was last modified.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11769,7 +11769,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The creation date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11784,7 +11784,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The last modified date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11891,7 +11891,7 @@
                         "locationName": "DateCreated",
                         "documentation": "-- | The creation date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",
@@ -11906,7 +11906,7 @@
                         "locationName": "DateUpdated",
                         "documentation": "-- | The last modified date for this environment.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "type": "Maybe ISO8601"
                     },
                     {
                         "location": "querystring",

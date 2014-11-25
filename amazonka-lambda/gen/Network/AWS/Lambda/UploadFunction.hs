@@ -182,7 +182,7 @@ data UploadFunctionResponse = UploadFunctionResponse
     , _ufrFunctionARN     :: Maybe Text
     , _ufrFunctionName    :: Maybe Text
     , _ufrHandler         :: Maybe Text
-    , _ufrLastModified    :: Maybe RFC822
+    , _ufrLastModified    :: Maybe ISO8601
     , _ufrMemorySize      :: Maybe Nat
     , _ufrMode            :: Maybe Mode
     , _ufrRole            :: Maybe Text

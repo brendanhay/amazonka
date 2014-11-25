@@ -547,7 +547,7 @@ instance ToQuery BlockDeviceMapping where
 data LaunchConfiguration = LaunchConfiguration
     { _lcAssociatePublicIpAddress :: Maybe Bool
     , _lcBlockDeviceMappings      :: List "BlockDeviceMappings" BlockDeviceMapping
-    , _lcCreatedTime              :: RFC822
+    , _lcCreatedTime              :: ISO8601
     , _lcEbsOptimized             :: Maybe Bool
     , _lcIamInstanceProfile       :: Maybe Text
     , _lcImageId                  :: Text
@@ -755,7 +755,7 @@ data AutoScalingGroup = AutoScalingGroup
     { _asgAutoScalingGroupARN     :: Maybe Text
     , _asgAutoScalingGroupName    :: Text
     , _asgAvailabilityZones       :: List1 "AvailabilityZones" Text
-    , _asgCreatedTime             :: RFC822
+    , _asgCreatedTime             :: ISO8601
     , _asgDefaultCooldown         :: Int
     , _asgDesiredCapacity         :: Int
     , _asgEnabledMetrics          :: List "EnabledMetrics" EnabledMetric
@@ -1146,14 +1146,14 @@ instance ToQuery InstanceMonitoring where
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     { _sugaAutoScalingGroupName :: Maybe Text
     , _sugaDesiredCapacity      :: Maybe Int
-    , _sugaEndTime              :: Maybe RFC822
+    , _sugaEndTime              :: Maybe ISO8601
     , _sugaMaxSize              :: Maybe Int
     , _sugaMinSize              :: Maybe Int
     , _sugaRecurrence           :: Maybe Text
     , _sugaScheduledActionARN   :: Maybe Text
     , _sugaScheduledActionName  :: Maybe Text
-    , _sugaStartTime            :: Maybe RFC822
-    , _sugaTime                 :: Maybe RFC822
+    , _sugaStartTime            :: Maybe ISO8601
+    , _sugaTime                 :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
 -- | 'ScheduledUpdateGroupAction' constructor.
@@ -1598,9 +1598,9 @@ data Activity = Activity
     , _aCause                :: Text
     , _aDescription          :: Maybe Text
     , _aDetails              :: Maybe Text
-    , _aEndTime              :: Maybe RFC822
+    , _aEndTime              :: Maybe ISO8601
     , _aProgress             :: Maybe Int
-    , _aStartTime            :: RFC822
+    , _aStartTime            :: ISO8601
     , _aStatusCode           :: ScalingActivityStatusCode
     , _aStatusMessage        :: Maybe Text
     } deriving (Eq, Show)

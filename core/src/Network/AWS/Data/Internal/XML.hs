@@ -24,6 +24,7 @@ module Network.AWS.Data.Internal.XML
     , withContent
     , withElement
     , withNode
+    , localName
     , (.@)
     , (.@?)
 

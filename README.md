@@ -19,6 +19,9 @@
 A comprehensive Amazon Web Services SDK for Haskell supporting all of the currently
 available services.
 
+Parts of the code contained in this repository are auto-generated and
+auto-magically kept up to date with Amazon's latest service APIs.
+
 An introductory blog post detailing some of the motivation and design decisions
 can be found [here](http://brendanhay.github.io/amazonka-comprehensive-haskell-aws-client.html).
 

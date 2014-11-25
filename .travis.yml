@@ -1,3 +1,4 @@
-ghc:     7.8.3
-install: []
-script:  [make test]
+language: haskell
+ghc:      7.8.3
+install:  []
+script:   [make test]

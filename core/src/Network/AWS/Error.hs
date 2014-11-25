@@ -67,7 +67,7 @@ instance FromXML ErrorType where
     parseXML = parseXMLText "Type"
 
 data RESTError = RESTError
-    { _restType      :: !ErrorType
+    { _restType      :: Maybe ErrorType
     , _restCode      :: Text
     , _restMessage   :: Text
     , _restRequestId :: Text
@@ -79,10 +79,10 @@ instance FromXML RESTError where
     parseXML x = withElement "Error" f x
       where
         f y = RESTError
-            <$> y .@ "Type"
-            <*> y .@ "Code"
-            <*> y .@ "Message"
-            <*> x .@ "RequestId"
+            <$> y .@? "Type"
+            <*> y .@  "Code"
+            <*> y .@  "Message"
+            <*> x .@  "RequestId"
 
 restError :: FromXML (Er a)
           => (Status -> Bool)

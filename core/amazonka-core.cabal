@@ -109,7 +109,9 @@ test-suite tests
     build-depends:
           amazonka-core
         , base
+        , old-locale
         , tasty
         , tasty-hunit
         , template-haskell
         , text
+        , time

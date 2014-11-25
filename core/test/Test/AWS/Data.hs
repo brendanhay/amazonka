@@ -12,10 +12,12 @@ module Test.AWS.Data (tests) where
 
 import qualified Test.AWS.Data.List as List
 import qualified Test.AWS.Data.Map  as Map
+import qualified Test.AWS.Data.Time as Time
 import           Test.Tasty
 
 tests :: TestTree
 tests = testGroup "data types"
     [ List.tests
     , Map.tests
+    , Time.tests
     ]

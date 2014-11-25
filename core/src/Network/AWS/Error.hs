@@ -27,6 +27,7 @@ module Network.AWS.Error
     , RESTError
     , restRequestId
     , restType
+    , restCode
     , restMessage
     , restError
 
@@ -39,7 +40,6 @@ module Network.AWS.Error
 
 import           Control.Applicative
 import           Control.Lens
-import           Control.Monad
 import           Data.Aeson
 import qualified Data.ByteString.Lazy       as LBS
 import           Data.ByteString.Lazy.Char8 (unpack)

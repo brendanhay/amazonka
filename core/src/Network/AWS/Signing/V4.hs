@@ -45,7 +45,6 @@ import           Network.AWS.Request.Internal
 import           Network.AWS.Signing.Internal
 import           Network.AWS.Types
 import           Network.HTTP.Types.Header
-import           Network.HTTP.Types.URI       (urlEncode)
 import           System.Locale
 
 data V4
@@ -179,7 +178,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
 
     canonicalRequest = mconcat $ intersperse "\n"
        [ meth
-       , collapseURI (urlEncode True _rqPath)
+       , collapseURI _rqPath
        , canonicalQuery
        , canonicalHeaders
        , signedHeaders

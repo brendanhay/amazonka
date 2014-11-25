@@ -40,6 +40,7 @@ library
       , amazonka-s3  == 0.0.3.*
       , amazonka-sqs == 0.0.3.*
       , lens         >= 4.3     && < 5
+      , lifted-base
       , text         >= 1.1
       , time         >= 1.4
       , transformers == 0.4.*

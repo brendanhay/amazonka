@@ -14,7 +14,7 @@ module Examples.SQS where
 
 import Control.Applicative
 import Control.Concurrent
-import Control.Exception
+import Control.Exception.Lifted
 import Control.Lens
 import Control.Monad
 import Control.Monad.IO.Class
@@ -22,16 +22,15 @@ import Control.Monad.Trans.AWS
 import Examples.Internal
 import Network.AWS.SQS
 
-integration :: Bool -> IO (Either Error [Message])
+integration :: Bool -> IO (Either Error ())
 integration dbg = do
     env  <- discoverEnv dbg
     name <- getTimestamp
-
-    -- Wait 5 seconds, finally, catch, or MonadRetry et al.
-    -- should be used instead in non-example code.
-    let feebleWait = say "Waiting 5 seconds..." >> liftIO (threadDelay 5000000)
-
     runAWST env $ do
+        url <- setup name
+        roundtrip url `finally` cleanup url
+  where
+    setup name = do
         -- Create the queue, ignoring the response so
         -- getQueueUrl can be utilised.
         say "Creating " name
@@ -44,9 +43,9 @@ integration dbg = do
         url <- view gqurQueueUrl <$> send (getQueueUrl name)
 
         say "Found URL " url
+        return url
 
-        feebleWait
-
+    roundtrip url = do
         -- Send a message to the newly created queue.
         say "Sending 'hello' to " url
         void $ send (sendMessage url "hello")
@@ -56,4 +55,20 @@ integration dbg = do
         -- Receive the sent message, waiting a maximum of 2 minutes
         -- until it becomes available.
         say "Receiving messages from " url
-        view rmrMessages <$> send (receiveMessage url & rmWaitTimeSeconds ?~ 20)
+        ms <- view rmrMessages <$>
+            send (receiveMessage url & rmWaitTimeSeconds ?~ 20)
+
+        -- Ack!
+        forM_ ms $ \m -> do
+            say "Acking " m
+            m ^!? mReceiptHandle . _Just . act (send . deleteMessage url)
+
+    cleanup url = do
+        say "Deleting " url
+        void $ send (deleteQueue url)
+
+    -- Wait 5 seconds. Use of finally, catch, or MonadRetry et al.
+    -- should be strongly considered in non-example code.
+    feebleWait = liftIO $ do
+        putStrLn "Waiting 5 seconds..."
+        threadDelay 5000000

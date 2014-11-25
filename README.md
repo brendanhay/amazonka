@@ -63,7 +63,7 @@ Credentials can either be specified or obtained in a [number of ways](http://bre
 
 Usually the easiest is to use `Discover`, which will attempt to read the `AWS_ACCESS_KEY`
 and `AWS_SECRET_KEY` variables from the environment. If either of these variables
-are not set, `amazonka` will attemp to retrieve IAM profile information from
+are not set, `amazonka` will then attempt to retrieve IAM profile information from
 `http://169.254.169.254`.
 
 This allows you to seamlessly move between development environments (where you set the keys)

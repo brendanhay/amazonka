@@ -7697,7 +7697,7 @@
             "namespace": "Network.AWS.S3.AbortMultipartUpload",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -8206,7 +8206,7 @@
             "namespace": "Network.AWS.S3.CompleteMultipartUpload",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -8724,7 +8724,7 @@
             "namespace": "Network.AWS.S3.CopyObject",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -9910,7 +9910,7 @@
             "namespace": "Network.AWS.S3.CreateBucket",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -10571,7 +10571,7 @@
             "namespace": "Network.AWS.S3.CreateMultipartUpload",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -11389,7 +11389,7 @@
             "namespace": "Network.AWS.S3.DeleteBucket",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -11516,7 +11516,7 @@
             "namespace": "Network.AWS.S3.DeleteBucketCors",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -11648,7 +11648,7 @@
             "namespace": "Network.AWS.S3.DeleteBucketLifecycle",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -11780,7 +11780,7 @@
             "namespace": "Network.AWS.S3.DeleteBucketPolicy",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -11912,7 +11912,7 @@
             "namespace": "Network.AWS.S3.DeleteBucketTagging",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -12044,7 +12044,7 @@
             "namespace": "Network.AWS.S3.DeleteBucketWebsite",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -12252,7 +12252,7 @@
             "namespace": "Network.AWS.S3.DeleteObject",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -12567,7 +12567,7 @@
             "namespace": "Network.AWS.S3.DeleteObjects",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -12872,7 +12872,7 @@
             "namespace": "Network.AWS.S3.GetBucketAcl",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -13072,7 +13072,7 @@
             "namespace": "Network.AWS.S3.GetBucketCors",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -13272,7 +13272,7 @@
             "namespace": "Network.AWS.S3.GetBucketLifecycle",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -13470,7 +13470,7 @@
             "namespace": "Network.AWS.S3.GetBucketLocation",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -13668,7 +13668,7 @@
             "namespace": "Network.AWS.S3.GetBucketLogging",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -13940,7 +13940,7 @@
             "namespace": "Network.AWS.S3.GetBucketNotification",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -14154,7 +14154,7 @@
             "namespace": "Network.AWS.S3.GetBucketPolicy",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -14352,7 +14352,7 @@
             "namespace": "Network.AWS.S3.GetBucketRequestPayment",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -14552,7 +14552,7 @@
             "namespace": "Network.AWS.S3.GetBucketTagging",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -14779,7 +14779,7 @@
             "namespace": "Network.AWS.S3.GetBucketVersioning",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -15096,7 +15096,7 @@
             "namespace": "Network.AWS.S3.GetBucketWebsite",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -16012,7 +16012,7 @@
             "namespace": "Network.AWS.S3.GetObject",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -16817,7 +16817,7 @@
             "namespace": "Network.AWS.S3.GetObjectAcl",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -17068,7 +17068,7 @@
             "namespace": "Network.AWS.S3.GetObjectTorrent",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -17220,7 +17220,7 @@
             "namespace": "Network.AWS.S3.HeadBucket",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -18087,7 +18087,7 @@
             "namespace": "Network.AWS.S3.HeadObject",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -18682,7 +18682,7 @@
             "namespace": "Network.AWS.S3.ListBuckets",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -19297,7 +19297,7 @@
             "namespace": "Network.AWS.S3.ListMultipartUploads",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": {
@@ -20229,7 +20229,7 @@
             "namespace": "Network.AWS.S3.ListObjectVersions",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": {
@@ -21026,7 +21026,7 @@
             "namespace": "Network.AWS.S3.ListObjects",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": {
@@ -21820,7 +21820,7 @@
             "namespace": "Network.AWS.S3.ListParts",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": {
@@ -22083,7 +22083,7 @@
             "namespace": "Network.AWS.S3.PutBucketAcl",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -22503,7 +22503,7 @@
             "namespace": "Network.AWS.S3.PutBucketCors",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -22713,7 +22713,7 @@
             "namespace": "Network.AWS.S3.PutBucketLifecycle",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -22923,7 +22923,7 @@
             "namespace": "Network.AWS.S3.PutBucketLogging",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -23133,7 +23133,7 @@
             "namespace": "Network.AWS.S3.PutBucketNotification",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -23343,7 +23343,7 @@
             "namespace": "Network.AWS.S3.PutBucketPolicy",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -23554,7 +23554,7 @@
             "namespace": "Network.AWS.S3.PutBucketRequestPayment",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -23764,7 +23764,7 @@
             "namespace": "Network.AWS.S3.PutBucketTagging",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -23974,7 +23974,7 @@
             "namespace": "Network.AWS.S3.PutBucketVersioning",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -24219,7 +24219,7 @@
             "namespace": "Network.AWS.S3.PutBucketWebsite",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -24679,7 +24679,7 @@
             "namespace": "Network.AWS.S3.PutObject",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -25605,7 +25605,7 @@
             "namespace": "Network.AWS.S3.PutObjectAcl",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -26063,7 +26063,7 @@
             "namespace": "Network.AWS.S3.RestoreObject",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -26490,7 +26490,7 @@
             "namespace": "Network.AWS.S3.UploadPart",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,
@@ -27202,7 +27202,7 @@
             "namespace": "Network.AWS.S3.UploadPartCopy",
             "protocol": "rest-xml",
             "imports": [
-                "Network.AWS.Request.RestXML",
+                "Network.AWS.Request.S3",
                 "Network.AWS.S3.Types"
             ],
             "pager": null,

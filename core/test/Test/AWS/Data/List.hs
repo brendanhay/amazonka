@@ -15,8 +15,8 @@
 module Test.AWS.Data.List (tests) where
 
 import Network.AWS.Prelude
-import Network.AWS.Data
 import Test.AWS.TH
+import Test.AWS.Types
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -24,21 +24,11 @@ tests :: TestTree
 tests = testGroup "list"
     [ testGroup "deserialise xml"
         [ testCase "entries" $
-            parse unflattened (Entries items)
+            assertXML unflattened (Entries items)
         , testCase "flattened" $
-            parse flattened items
+            assertXML flattened items
         ]
     ]
-
-parse :: (FromXML a, Show a, Eq a) => LazyByteString -> a -> Assertion
-parse s x = (decodeXML s >>= parseXML) @?= Right x
-
-newtype Entries = Entries (List "Item" Item)
-    deriving (Eq, Show)
-
-instance FromXML Entries where
-    parseXML x = Entries
-        <$> x .@ "Entries"
 
 data Item = Item
     { itemText :: Text

@@ -62,6 +62,7 @@ encodeURI :: Bool -> ByteString -> ByteString
 encodeURI p = toBS . BS.foldr (mappend . enc) mempty
   where
     enc ' '          = "%20"
+    enc '+'          = "%20"
     enc c@'/'
         | p          = "%2F"
         | otherwise  = build c

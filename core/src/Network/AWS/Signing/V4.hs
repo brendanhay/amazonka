@@ -152,7 +152,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
 
     canonicalQuery = toBS $ query
         & valuesOf %~ Just . maybe "" (encodeURI True)
-        & keysOf   %~ encodeURI False
+        & keysOf   %~ encodeURI True
 
     headers = sortBy (comparing fst)
         . hdr hHost host'

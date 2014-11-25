@@ -7,4 +7,4 @@ include $(TOP)/share/include.mk
 .PHONY: test
 
 test:
-	cabal install --enable-tests
+	cabal install --enable-tests && cabal test

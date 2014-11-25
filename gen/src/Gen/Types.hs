@@ -265,8 +265,9 @@ typesNS (Abbrev a) = namespace [a, "Types"]
 operationNS :: Abbrev -> Text -> NS
 operationNS (Abbrev a) o = namespace [a, Text.dropWhileEnd (not . isAlpha) o]
 
-requestNS :: Protocol -> NS
-requestNS p = NS ["Network", "AWS", "Request", s]
+requestNS :: Abbrev -> Protocol -> NS
+requestNS (Abbrev "S3") _ = namespace ["Request", "S3"]
+requestNS _             p = namespace ["Request", s]
   where
     s = case p of
         Json     -> "JSON"

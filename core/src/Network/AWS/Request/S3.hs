@@ -1,4 +1,4 @@
--- Module      : Network.AWS.Request.RestXML
+-- Module      : Network.AWS.Request.S3
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,15 +8,17 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Request.RestXML
+module Network.AWS.Request.S3
     ( get
     , head
     , delete
     , post
     , put
+    , stream
     ) where
 
 import Control.Lens
+import Crypto.Hash                  (digestToHexByteString)
 import Network.AWS.Data
 import Network.AWS.Request.Internal
 import Network.AWS.Types
@@ -40,5 +42,17 @@ post x = put x & rqMethod .~ POST
 {-# INLINE post #-}
 
 put :: (ToPath a, ToQuery a, ToHeaders a, ToXMLRoot a) => a -> Request a
-put x = get x & rqMethod .~ PUT & rqBody .~ toBody (encodeXML x)
+put x = get x & rqMethod .~ PUT & rqBody .~ toBody (encodeXML x) & content
 {-# INLINE put #-}
+
+stream :: (ToPath a, ToQuery a, ToHeaders a, ToBody a)
+       => StdMethod
+       -> a
+       -> Request a
+stream m x = get x & rqMethod .~ m & rqBody .~ toBody x & content
+{-# INLINE stream #-}
+
+content :: Request a -> Request a
+content rq = rq & rqHeaders %~ hdr hAMZContentSHA256 hash
+  where
+    hash = digestToHexByteString (rq ^. rqBody.bdyHash)

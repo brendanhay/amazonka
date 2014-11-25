@@ -40,6 +40,7 @@ library
         , Network.AWS.Request.Query
         , Network.AWS.Request.RestJSON
         , Network.AWS.Request.RestXML
+        , Network.AWS.Request.S3
         , Network.AWS.Response
         , Network.AWS.Signing.Internal
         , Network.AWS.Signing.V2
@@ -82,7 +83,7 @@ library
         , hashable             >= 1.2
         , http-client          >= 0.3.6  && < 0.4
         , http-types           >= 0.8
-        , lens                 >= 4.4    && < 5
+        , lens                 >= 4.3    && < 5
         , mmorph               >= 1      && < 2
         , mtl                  >= 2.2.1  && < 2.3
         , nats                 >= 0.1.3

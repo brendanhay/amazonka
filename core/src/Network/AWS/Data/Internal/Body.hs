@@ -56,6 +56,9 @@ data RqBody = RqBody
 
 makeLenses ''RqBody
 
+bodyHash :: RqBody -> ByteString
+bodyHash = digestToHexByteString . _bdyHash
+
 instance ToText RqBody where
     toText (RqBody h _) = "RqBody " <> toText h <> " <body>"
 

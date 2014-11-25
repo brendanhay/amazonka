@@ -36,7 +36,7 @@ library
     build-depends:
         base         >= 4.7     && < 5
       , amazonka     == 0.0.3.*
-      , amazonka-ec3 == 0.0.3.*
+      , amazonka-ec2 == 0.0.3.*
       , amazonka-s3  == 0.0.3.*
       , amazonka-sqs == 0.0.3.*
       , lens         >= 4.3     && < 5

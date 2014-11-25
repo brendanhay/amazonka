@@ -51,6 +51,7 @@ module Network.AWS.Types
     , global
     , regional
     , custom
+    , isGlobal
 
     -- * Errors
     , ServiceError  (..)
@@ -318,6 +319,7 @@ data Endpoint
     = Global
     | Regional
     | Custom ByteString
+      deriving (Eq)
 
 instance IsString Endpoint where
     fromString = Custom . fromString
@@ -337,6 +339,9 @@ regional = Regional
 
 custom :: ByteString -> Endpoint
 custom = Custom
+
+isGlobal :: Service a -> Bool
+isGlobal = (== Global) . _svcEndpoint
 
 -- | Attributes specific to an AWS service.
 data Service a = Service

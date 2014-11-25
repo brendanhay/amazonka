@@ -33,6 +33,7 @@ import           Data.ByteString              (ByteString)
 import qualified Data.ByteString.Base16       as Base16
 import qualified Data.ByteString.Char8        as BS
 import qualified Data.CaseInsensitive         as CI
+import           Data.Default.Class
 import qualified Data.Foldable                as Fold
 import           Data.Function
 import           Data.List                    (groupBy, intersperse, sortBy, sort)
@@ -147,13 +148,16 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
     host' = toBS (endpoint s r)
     query = qry credentialScope signedHeaders _rqQuery
 
+    region | isGlobal s = def
+           | otherwise  = r
+
     canonicalQuery = toBS $ query
         & valuesOf %~ Just . maybe "" (encodeURI True)
         & keysOf   %~ encodeURI False
 
     headers = sortBy (comparing fst)
         . hdr hHost host'
-        . hdr hDate (toBS (LocaleTime l t :: ISO8601))
+        . hdr hAMZDate (toBS (LocaleTime l t :: AWSTime))
         $ _rqHeaders
 
     joinedHeaders = map f $ groupBy ((==) `on` fst) headers
@@ -180,12 +184,12 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
        , canonicalQuery
        , canonicalHeaders
        , signedHeaders
-       , digestToHexByteString (_bdyHash _rqBody)
+       , bodyHash _rqBody
        ]
 
     scope =
         [ toBS (LocaleTime l t :: BasicTime)
-        , toBS r
+        , toBS region
         , toBS _svcPrefix
         , "aws4_request"
         ]

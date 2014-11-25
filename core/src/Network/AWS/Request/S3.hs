@@ -18,7 +18,6 @@ module Network.AWS.Request.S3
     ) where
 
 import Control.Lens
-import Crypto.Hash                  (digestToHexByteString)
 import Network.AWS.Data
 import Network.AWS.Request.Internal
 import Network.AWS.Types
@@ -26,7 +25,7 @@ import Network.HTTP.Types.Method
 import Prelude                      hiding (head)
 
 get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-get = defaultRequest
+get = content . defaultRequest
 {-# INLINE get #-}
 
 delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
@@ -42,17 +41,15 @@ post x = put x & rqMethod .~ POST
 {-# INLINE post #-}
 
 put :: (ToPath a, ToQuery a, ToHeaders a, ToXMLRoot a) => a -> Request a
-put x = get x & rqMethod .~ PUT & rqBody .~ toBody (encodeXML x) & content
+put x = content $ get x & rqMethod .~ PUT & rqBody .~ toBody (encodeXML x)
 {-# INLINE put #-}
 
 stream :: (ToPath a, ToQuery a, ToHeaders a, ToBody a)
        => StdMethod
        -> a
        -> Request a
-stream m x = get x & rqMethod .~ m & rqBody .~ toBody x & content
+stream m x = content $ get x & rqMethod .~ m & rqBody .~ toBody x
 {-# INLINE stream #-}
 
 content :: Request a -> Request a
-content rq = rq & rqHeaders %~ hdr hAMZContentSHA256 hash
-  where
-    hash = digestToHexByteString (rq ^. rqBody.bdyHash)
+content rq = rq & rqHeaders %~ hdr hAMZContentSHA256 (bodyHash (rq ^. rqBody))

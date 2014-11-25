@@ -1,5 +1,7 @@
 # Amazonka
 
+[![Build Status](https://travis-ci.org/brendanhay/amazonka.svg?branch=develop)](https://travis-ci.org/brendanhay/amazonka)
+
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)

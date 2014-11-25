@@ -25,6 +25,7 @@ auto-magically kept up to date with Amazon's latest service APIs.
 An introductory blog post detailing some of the motivation and design decisions
 can be found [here](http://brendanhay.github.io/amazonka-comprehensive-haskell-aws-client.html).
 
+Haddock documentation which is in sync with `develop` can be found [here](http://brendanhay.github.io/amazonka).
 
 ## Organisation
 

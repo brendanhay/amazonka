@@ -28,8 +28,6 @@ module Network.AWS.Data.Internal.Map
     , _EMap
     ) where
 
-import Debug.Trace
-
 import           Control.Applicative
 import           Control.Lens                         hiding (coerce, element)
 import           Data.Aeson

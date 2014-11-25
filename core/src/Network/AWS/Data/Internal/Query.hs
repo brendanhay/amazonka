@@ -7,6 +7,7 @@
 {-# LANGUAGE TemplateHaskell     #-}
 {-# LANGUAGE TypeFamilies        #-}
 {-# LANGUAGE TypeOperators       #-}
+{-# LANGUAGE ViewPatterns        #-}
 
 -- Module      : Network.AWS.Data.Internal.Query
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,7 +24,6 @@ module Network.AWS.Data.Internal.Query
     , renderQuery
 
     , Query
-    , keysOf
     , valuesOf
 
     , pair
@@ -43,6 +43,7 @@ import           Data.Text                            (Text)
 import qualified Data.Text.Encoding                   as Text
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
+import           Network.HTTP.Types.URI               (urlEncode)
 import           Numeric.Natural
 
 data Query
@@ -74,9 +75,6 @@ instance ToText Query where
 instance IsString Query where
     fromString = toQuery . BS.pack
 
-keysOf :: Traversal' Query ByteString
-keysOf = deep (_Pair . _1)
-
 valuesOf :: Traversal' Query (Maybe ByteString)
 valuesOf = deep _Value
 
@@ -90,10 +88,10 @@ renderQuery :: Query -> ByteString
 renderQuery = intercalate . sort . enc Nothing
   where
     enc k (List xs)   = concatMap (enc k) xs
-    enc k (Pair k' x)
+    enc k (Pair (urlEncode False -> k') x)
         | Just n <- k = enc (Just $ n <> "." <> k') x
         | otherwise   = enc (Just k') x
-    enc k (Value (Just v))
+    enc k (Value (Just (urlEncode False -> v)))
         | Just n <- k = [n <> vsep <> v]
         | otherwise   = [v]
     enc k _

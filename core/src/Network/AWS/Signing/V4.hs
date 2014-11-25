@@ -45,6 +45,7 @@ import           Network.AWS.Request.Internal
 import           Network.AWS.Signing.Internal
 import           Network.AWS.Types
 import           Network.HTTP.Types.Header
+import           Network.HTTP.Types.URI       (urlEncode)
 import           System.Locale
 
 data V4
@@ -150,9 +151,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
     region | isGlobal s = def
            | otherwise  = r
 
-    canonicalQuery = toBS $ query
-        & valuesOf %~ Just . maybe "" (encodeURI True)
-        & keysOf   %~ encodeURI True
+    canonicalQuery = toBS (query & valuesOf %~ Just . fromMaybe "")
 
     headers = sortBy (comparing fst)
         . hdr hHost host'
@@ -162,13 +161,14 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
     joinedHeaders = map f $ groupBy ((==) `on` fst) headers
       where
         f []     = ("", "")
-        f (h:hs) = (fst h, g $ h : hs)
+        f (h:hs) = (fst h, g (h : hs))
 
         g = BS.intercalate "," . sort . map snd
 
     signedHeaders = mconcat
         . intersperse ";"
-        $ map (CI.foldedCase . fst) joinedHeaders
+        . map (CI.foldedCase . fst)
+        $ joinedHeaders
 
     canonicalHeaders = Fold.foldMap f joinedHeaders
       where
@@ -179,7 +179,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
 
     canonicalRequest = mconcat $ intersperse "\n"
        [ meth
-       , collapseURI (encodeURI False _rqPath)
+       , collapseURI (urlEncode True _rqPath)
        , canonicalQuery
        , canonicalHeaders
        , signedHeaders

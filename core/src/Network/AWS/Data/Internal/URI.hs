@@ -12,15 +12,12 @@
 
 module Network.AWS.Data.Internal.URI
     ( collapseURI
-    , encodeURI
     ) where
 
-import           Data.ByteString.Char8       (ByteString)
-import qualified Data.ByteString.Char8       as BS
-import           Data.Char
-import qualified Data.Foldable               as Fold
+import           Data.ByteString.Char8 (ByteString)
+import qualified Data.ByteString.Char8 as BS
+import qualified Data.Foldable         as Fold
 import           Data.Monoid
-import           Network.AWS.Data.Internal.ByteString
 
 collapseURI :: ByteString -> ByteString
 collapseURI bs
@@ -57,28 +54,3 @@ collapseURI bs
     slash = BS.singleton sep
 
     sep  = '/'
-
-encodeURI :: Bool -> ByteString -> ByteString
-encodeURI p = toBS . BS.foldr (mappend . enc) mempty
-  where
-    enc ' '          = "%20"
-    enc '+'          = "%20"
-    enc c@'/'
-        | p          = "%2F"
-        | otherwise  = build c
-    enc c
-        | reserved c = build c
-    enc c            = char2hex c
-
-    reserved c =
-           isAsciiUpper c
-        || isAsciiLower c
-        || isDigit c
-        || c `elem` "-_.~"
-
-    char2hex c =
-        let (a, b) = fromEnum c `divMod` 16
-         in build ['%', hex a, hex b]
-
-    hex i | i < 10    = toEnum (48 + i)
-          | otherwise = toEnum (65 + i - 10)

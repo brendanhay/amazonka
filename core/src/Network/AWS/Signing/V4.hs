@@ -27,7 +27,6 @@ module Network.AWS.Signing.V4
 
 import           Control.Applicative
 import           Control.Lens
-import           Crypto.Hash                  (digestToHexByteString)
 import qualified Crypto.Hash.SHA256           as SHA256
 import           Data.ByteString              (ByteString)
 import qualified Data.ByteString.Base16       as Base16

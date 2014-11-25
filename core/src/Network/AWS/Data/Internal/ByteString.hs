@@ -24,7 +24,6 @@ module Network.AWS.Data.Internal.ByteString
 
 import           Crypto.Hash
 import           Data.ByteString                (ByteString)
-import qualified Data.ByteString.Base64         as Base64
 import           Data.ByteString.Builder        (Builder)
 import qualified Data.ByteString.Builder        as Build
 import qualified Data.ByteString.Char8          as BS

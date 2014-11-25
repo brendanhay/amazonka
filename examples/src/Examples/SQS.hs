@@ -60,8 +60,10 @@ integration dbg = do
 
         -- Ack!
         forM_ ms $ \m -> do
-            say "Acking " m
-            m ^!? mReceiptHandle . _Just . act (send . deleteMessage url)
+            say "Acking " (m ^. mReceiptHandle)
+            m ^!? mReceiptHandle
+                . _Just
+                . act (send . deleteMessage url)
 
     cleanup url = do
         say "Deleting " url

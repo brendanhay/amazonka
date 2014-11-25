@@ -83,22 +83,23 @@ gquQueueOwnerAWSAccountId =
         (\s a -> s { _gquQueueOwnerAWSAccountId = a })
 
 newtype GetQueueUrlResponse = GetQueueUrlResponse
-    { _gqurQueueUrl :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    { _gqurQueueUrl :: Text
+    } deriving (Eq, Ord, Show, Monoid, IsString)
 
 -- | 'GetQueueUrlResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gqurQueueUrl' @::@ 'Maybe' 'Text'
+-- * 'gqurQueueUrl' @::@ 'Text'
 --
-getQueueUrlResponse :: GetQueueUrlResponse
-getQueueUrlResponse = GetQueueUrlResponse
-    { _gqurQueueUrl = Nothing
+getQueueUrlResponse :: Text -- ^ 'gqurQueueUrl'
+                    -> GetQueueUrlResponse
+getQueueUrlResponse p1 = GetQueueUrlResponse
+    { _gqurQueueUrl = p1
     }
 
 -- | The URL for the queue.
-gqurQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)
+gqurQueueUrl :: Lens' GetQueueUrlResponse Text
 gqurQueueUrl = lens _gqurQueueUrl (\s a -> s { _gqurQueueUrl = a })
 
 instance ToPath GetQueueUrl where
@@ -121,4 +122,4 @@ instance AWSRequest GetQueueUrl where
 
 instance FromXML GetQueueUrlResponse where
     parseXML = withElement "GetQueueUrlResult" $ \x -> GetQueueUrlResponse
-        <$> x .@? "QueueUrl"
+        <$> x .@  "QueueUrl"

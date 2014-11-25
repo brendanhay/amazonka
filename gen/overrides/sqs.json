@@ -9,6 +9,11 @@
     "overrides": {
         "QueueAttributeName": {
             "replaced_by": "Text"
+        },
+        "GetQueueUrlResult": {
+            "required": [
+                "QueueUrl"
+            ]
         }
     }
 }

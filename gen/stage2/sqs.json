@@ -2716,7 +2716,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -2728,22 +2729,38 @@
                     "location": "querystring",
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "gqurQueueUrl",
                     "name": "_gqurQueueUrl",
                     "shape": "String",
                     "locationName": "QueueUrl",
                     "documentation": "-- | The URL for the queue.",
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
+                    "typeExposed": "Text",
+                    "type": "Text"
                 },
                 "contents": [],
                 "wrapper": false,
                 "protocol": "query",
                 "payload": null,
-                "required": [],
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gqurQueueUrl",
+                        "name": "_gqurQueueUrl",
+                        "shape": "String",
+                        "locationName": "QueueUrl",
+                        "documentation": "-- | The URL for the queue.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -2752,38 +2769,22 @@
                 "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
-                "optional": [
-                    {
-                        "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "gqurQueueUrl",
-                        "name": "_gqurQueueUrl",
-                        "shape": "String",
-                        "locationName": "QueueUrl",
-                        "documentation": "-- | The URL for the queue.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
+                "optional": [],
                 "fields": [
                     {
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "gqurQueueUrl",
                         "name": "_gqurQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
                         "documentation": "-- | The URL for the queue.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     }
                 ]
             },

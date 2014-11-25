@@ -1,5 +1,5 @@
 name:                  amazonka
-version:               0.0.2
+version:               0.0.3
 synopsis:              Comprehensive Amazon Web Services SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -34,7 +34,7 @@ library
         , Network.AWS
 
     build-depends:
-          amazonka-core     == 0.0.2.*
+          amazonka-core     == 0.0.3.*
         , base              >= 4.7     && < 5
         , conduit           >= 1.1     && < 1.3
         , exceptions        == 0.6.*

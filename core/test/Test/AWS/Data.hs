@@ -1,4 +1,4 @@
--- Module      : Main
+-- Module      : Test.AWS.Data
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,12 +8,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Main (main) where
+module Test.AWS.Data (tests) where
 
-import qualified Test.AWS.Data as Data
+import qualified Test.AWS.Data.List as List
 import           Test.Tasty
 
-main :: IO ()
-main = defaultMain $ testGroup "amazonka"
-    [ Data.tests
+tests :: TestTree
+tests = testGroup "data types"
+    [ List.tests
     ]

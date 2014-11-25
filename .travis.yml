@@ -1,4 +1,4 @@
 language: haskell
 ghc:      7.8.3
-install:  [cd core && cabal install --only-dep --enable-tests]
-script:   [cd core && cabal configure --enable-tests && cabal build && cabal test]
+install:  []
+script:   [make test]

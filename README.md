@@ -141,6 +141,11 @@ The `paginate` method returns a conduit `Source` which will seamlessly return pa
 of results based on the initial (or default) parameters to the first request, stopping
 when the service signals there are no more results.
 
+> `AWSRequest` is a super-class of `AWSPager`, so you can typically `send` a request
+> such as `DescribeAutoScalingGroups` instead of fully paginating it.
+> This can be a convenient way to obtain only the first page of results without
+> using any conduit operators.
+
 ### Presigned URLs
 
 Presigned URLs can be generated for services which are an instance of [`AWSPresigner`](http://brendanhay.github.io/amazonka/amazonka-core/Network-AWS-Types.html#t:AWSPresigner).

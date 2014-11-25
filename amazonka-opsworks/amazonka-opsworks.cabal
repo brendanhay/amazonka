@@ -1,5 +1,5 @@
 name:                  amazonka-opsworks
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon OpsWorks SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -17,6 +17,7 @@ description:
     and applications. With AWS OpsWorks, you can provision AWS resources, manage
     their configuration, deploy applications to those resources, and monitor
     their health.
+
     .
     /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -100,5 +101,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

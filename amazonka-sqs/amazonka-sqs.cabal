@@ -1,5 +1,5 @@
 name:                  amazonka-sqs
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon Simple Queue Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -20,6 +20,7 @@ description:
     requiring other services to be always available. With SQS, you can offload
     the administrative burden of operating and scaling a highly available
     messaging cluster, while paying a low price for only what you use.
+
     .
     /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -59,5 +60,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

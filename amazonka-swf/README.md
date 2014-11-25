@@ -8,15 +8,15 @@
 
 ## Description
 
-    Amazon Simple Workflow Service (Amazon SWF) makes it easy to build
-    applications that coordinate work across distributed components. In Amazon
-    SWF, a task represents a logical unit of work that is performed by a
-    component of your application. Coordinating tasks across the application
-    involves managing intertask dependencies, scheduling, and concurrency in
-    accordance with the logical flow of the application. Amazon SWF gives you
-    full control over implementing tasks and coordinating them without worrying
-    about underlying complexities such as tracking their progress and maintaining
-    their state.
+Amazon Simple Workflow Service (Amazon SWF) makes it easy to build
+applications that coordinate work across distributed components. In Amazon
+SWF, a task represents a logical unit of work that is performed by a
+component of your application. Coordinating tasks across the application
+involves managing intertask dependencies, scheduling, and concurrency in
+accordance with the logical flow of the application. Amazon SWF gives you
+full control over implementing tasks and coordinating them without worrying
+about underlying complexities such as tracking their progress and maintaining
+their state.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-swf)
 and [AWS API Reference](http://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.html).

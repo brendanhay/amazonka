@@ -8,12 +8,12 @@
 
 ## Description
 
-    AWS Direct Connect links your internal network to an AWS Direct Connect
-    location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable.
-    One end of the cable is connected to your router, the other to an AWS Direct
-    Connect router. With this connection in place, you can create virtual
-    interfaces directly to the AWS cloud and Amazon Virtual Private Cloud,
-    bypassing Internet service providers in your network path.
+AWS Direct Connect links your internal network to an AWS Direct Connect
+location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable.
+One end of the cable is connected to your router, the other to an AWS Direct
+Connect router. With this connection in place, you can create virtual
+interfaces directly to the AWS cloud and Amazon Virtual Private Cloud,
+bypassing Internet service providers in your network path.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-directconnect)
 and [AWS API Reference](http://docs.aws.amazon.com/directconnect/latest/APIReference/Welcome.html).

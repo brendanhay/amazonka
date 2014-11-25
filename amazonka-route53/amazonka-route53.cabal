@@ -1,5 +1,5 @@
 name:                  amazonka-route53
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon Route 53 SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -19,6 +19,7 @@ description:
     EC2), Elastic Load Balancing, or Amazon Simple Storage Service (Amazon S3).
     You can also use Amazon Route 53 to route users to your infrastructure
     outside of AWS.
+
     .
     /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -70,5 +71,5 @@ library
           Network.AWS.Route53.Internal
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

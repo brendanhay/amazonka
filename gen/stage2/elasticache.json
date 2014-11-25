@@ -97,8 +97,8 @@
         "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon ElastiCache",
-        "version": "0.0.2",
-        "description": "    ElastiCache is a web service that makes it easy to deploy, operate, and scale\n    an in-memory cache in the cloud. The service improves the performance of web\n    applications by allowing you to retrieve information from fast, managed,\n    in-memory caches, instead of relying entirely on slower disk-based databases.\n    Amazon ElastiCache automatically detects and replaces failed nodes, reducing\n    the overhead associated with self-managed infrastructures and provides a\n    resilient system that mitigates the risk of overloaded databases, which slow\n    website and application load times. Through integration with Amazon\n    CloudWatch, Amazon ElastiCache provides enhanced visibility into key\n    performance metrics associated with your Memcached or Redis nodes."
+        "version": "0.0.3",
+        "description": "ElastiCache is a web service that makes it easy to deploy, operate, and scale\nan in-memory cache in the cloud. The service improves the performance of web\napplications by allowing you to retrieve information from fast, managed,\nin-memory caches, instead of relying entirely on slower disk-based databases.\nAmazon ElastiCache automatically detects and replaces failed nodes, reducing\nthe overhead associated with self-managed infrastructures and provides a\nresilient system that mitigates the risk of overloaded databases, which slow\nwebsite and application load times. Through integration with Amazon\nCloudWatch, Amazon ElastiCache provides enhanced visibility into key\nperformance metrics associated with your Memcached or Redis nodes."
     },
     "types": {
         "namespace": "Network.AWS.ElastiCache.Types",

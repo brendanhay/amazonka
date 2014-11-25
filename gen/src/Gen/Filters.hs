@@ -23,13 +23,19 @@ import           Text.EDE.Filters
 
 genFilters :: HashMap Text Term
 genFilters = Map.fromList
-    [ "highlight"    @: highlightType
+    [ "indent"       @: indent
+    , "highlight"    @: highlightType
     , "parens"       @: parens
     , "wrapped"      @: wrapped
     , "concat"       @: (mappend :: Text -> Text -> Text)
     , "joinedLength" @: joinedLength
     , "member"       @: (elem :: Text -> [Text] -> Bool)
     ]
+
+indent :: Text -> Int -> Text
+indent t n = Text.unlines . map (sep <>) $ Text.lines t
+  where
+    sep = Text.replicate n (Text.singleton ' ')
 
 parens :: Text -> Text
 parens t = "(" <> t <> ")"

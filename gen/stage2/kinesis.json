@@ -53,8 +53,8 @@
         "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Kinesis",
-        "version": "0.0.2",
-        "description": "    Amazon Kinesis is a managed service that scales elastically for real-time\n    processing of streaming big data. The service takes in large streams of data\n    records that can then be consumed in real time by multiple data-processing\n    applications that can be run on Amazon EC2 instances."
+        "version": "0.0.3",
+        "description": "Amazon Kinesis is a managed service that scales elastically for real-time\nprocessing of streaming big data. The service takes in large streams of data\nrecords that can then be consumed in real time by multiple data-processing\napplications that can be run on Amazon EC2 instances."
     },
     "types": {
         "namespace": "Network.AWS.Kinesis.Types",

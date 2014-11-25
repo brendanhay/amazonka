@@ -195,8 +195,8 @@
         "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Identity and Access Management",
-        "version": "0.0.2",
-        "description": "    AWS Identity and Access Management (IAM) enables you to securely control\n    access to AWS services and resources for your users. Using IAM, you can\n    create and manage AWS users and groups and use permissions to allow and deny\n    their access to AWS resources."
+        "version": "0.0.3",
+        "description": "AWS Identity and Access Management (IAM) enables you to securely control\naccess to AWS services and resources for your users. Using IAM, you can\ncreate and manage AWS users and groups and use permissions to allow and deny\ntheir access to AWS resources."
     },
     "types": {
         "namespace": "Network.AWS.IAM.Types",

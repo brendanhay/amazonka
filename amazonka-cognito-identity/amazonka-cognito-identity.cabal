@@ -1,5 +1,5 @@
 name:                  amazonka-cognito-identity
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon Cognito Identity SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -23,6 +23,7 @@ description:
     access from your application. Your users are provided with Cognito tokens
     that uniquely identify their device and any information provided about
     third-party logins.
+
     .
     /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -59,5 +60,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

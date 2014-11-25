@@ -1,5 +1,5 @@
 name:                  amazonka-support
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon Support SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -22,6 +22,7 @@ description:
     unlimited number of technical support cases with pay-by-the-month pricing and
     no long-term contracts, providing developers and businesses flexibility to
     choose the level of support that meets their needs.
+
     .
     /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -59,5 +60,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

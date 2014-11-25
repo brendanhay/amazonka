@@ -35,18 +35,11 @@ highlightType = Text.unwords . map start . Text.words
         | ')' <- Text.last t = Text.init t <> "')"
         | otherwise          = t <> "'"
 
--- FIXME: merge with wrapHaddock
 wrapDescription :: Text -> Text
 wrapDescription t
-    | x:xs <- wrapped = Text.intercalate "\n" . map indent $ x:xs
+    | x:xs <- wrapped = Text.intercalate "\n" (x:xs)
     | otherwise       = ""
   where
-    indent x
-        | Text.null x = pre
-        | otherwise   = pre <> x
-      where
-        pre = Text.replicate 4 (Text.singleton ' ')
-
     wrapped = formatTags 78 t
 
 wrapHaddock :: Text -> Int -> Int -> Text -> Text

@@ -1,5 +1,5 @@
 name:                  amazonka-cloudformation
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon CloudFormation SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -24,6 +24,7 @@ description:
     deployed, you can modify and update them in a controlled and predictable way,
     in effect applying version control to your AWS infrastructure the same way
     you do with your software.
+
     .
     /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -64,5 +65,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

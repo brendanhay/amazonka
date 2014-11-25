@@ -1,5 +1,5 @@
 name:                  amazonka-kms
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon Key Management Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -20,6 +20,7 @@ description:
     including Amazon EBS, Amazon S3, and Amazon Redshift. Amazon Key Management
     Service is also integrated with Amazon CloudTrail to provide you with logs of
     all key usage to help meet your regulatory and compliance needs.
+
     .
     /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -68,5 +69,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

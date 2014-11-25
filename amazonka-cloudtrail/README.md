@@ -8,11 +8,11 @@
 
 ## Description
 
-    CloudTrail is a web service that records AWS API calls for your AWS account
-    and delivers log files to an Amazon S3 bucket. The recorded information
-    includes the identity of the user, the start time of the AWS API call, the
-    source IP address, the request parameters, and the response elements returned
-    by the service.
+CloudTrail is a web service that records AWS API calls for your AWS account
+and delivers log files to an Amazon S3 bucket. The recorded information
+includes the identity of the user, the start time of the AWS API call, the
+source IP address, the request parameters, and the response elements returned
+by the service.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudtrail)
 and [AWS API Reference](http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html).

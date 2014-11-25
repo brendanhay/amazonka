@@ -1,5 +1,5 @@
 name:                  amazonka-cloudwatch
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon CloudWatch SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -23,6 +23,7 @@ description:
     visibility into resource utilization, application performance, and
     operational health. You can use these insights to react and keep your
     application running smoothly.
+
     .
     /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -57,5 +58,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

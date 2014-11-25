@@ -1,5 +1,5 @@
 name:                  amazonka-dynamodb
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon DynamoDB SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -20,6 +20,7 @@ description:
     spreads the data and traffic for the table over a sufficient number of
     servers to handle the request capacity specified by the customer and the
     amount of data stored, while maintaining consistent and fast performance.
+
     .
     /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -56,5 +57,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

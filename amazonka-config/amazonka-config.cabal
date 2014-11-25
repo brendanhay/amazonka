@@ -1,5 +1,5 @@
 name:                  amazonka-config
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon Config SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -20,6 +20,7 @@ description:
     Amazon resources with all configuration details, and determine how a resource
     was configured at any point in time. These capabilities enable compliance
     auditing, security analysis, resource change tracking, and troubleshooting.
+
     .
     /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -54,5 +55,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

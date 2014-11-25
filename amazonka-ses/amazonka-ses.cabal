@@ -1,5 +1,5 @@
 name:                  amazonka-ses
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon Simple Email Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -21,6 +21,7 @@ description:
     deliverability, Amazon SES provides easy, real-time access to your sending
     statistics and built-in notifications for bounces, complaints, and deliveries
     to help you fine-tune your email-sending strategy.
+
     .
     /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -62,5 +63,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

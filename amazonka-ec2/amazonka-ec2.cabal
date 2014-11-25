@@ -1,5 +1,5 @@
 name:                  amazonka-ec2
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon Elastic Compute Cloud SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -25,6 +25,7 @@ description:
     only for capacity that you actually use. Amazon EC2 provides developers the
     tools to build failure resilient applications and isolate themselves from
     common failure scenarios.
+
     .
     /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -203,5 +204,5 @@ library
           Network.AWS.EC2.Internal
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

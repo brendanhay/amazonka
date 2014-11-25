@@ -1,5 +1,5 @@
 name:                  amazonka-sns
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon Simple Notification Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -23,6 +23,7 @@ description:
     email, to Amazon Simple Queue Service (SQS) queues, or to any HTTP endpoint.
     To prevent messages from being lost, all messages published to Amazon SNS are
     stored redundantly across multiple availability zones.
+
     .
     /See:/ <http://docs.aws.amazon.com/sns/latest/api/Welcome.html AWS API Reference>
     .
@@ -71,5 +72,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

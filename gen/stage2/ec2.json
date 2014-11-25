@@ -339,8 +339,8 @@
         "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html",
         "protocol": "ec2",
         "name": "Amazon Elastic Compute Cloud",
-        "version": "0.0.2",
-        "description": "    Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides\n    resizable compute capacity in the cloud. It is designed to make web-scale\n    computing easier for developers. Amazon EC2’s simple web service interface\n    allows you to obtain and configure capacity with minimal friction. It\n    provides you with complete control of your computing resources and lets you\n    run on Amazon’s proven computing environment. Amazon EC2 reduces the time\n    required to obtain and boot new server instances to minutes, allowing you to\n    quickly scale capacity, both up and down, as your computing requirements\n    change. Amazon EC2 changes the economics of computing by allowing you to pay\n    only for capacity that you actually use. Amazon EC2 provides developers the\n    tools to build failure resilient applications and isolate themselves from\n    common failure scenarios."
+        "version": "0.0.3",
+        "description": "Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides\nresizable compute capacity in the cloud. It is designed to make web-scale\ncomputing easier for developers. Amazon EC2’s simple web service interface\nallows you to obtain and configure capacity with minimal friction. It\nprovides you with complete control of your computing resources and lets you\nrun on Amazon’s proven computing environment. Amazon EC2 reduces the time\nrequired to obtain and boot new server instances to minutes, allowing you to\nquickly scale capacity, both up and down, as your computing requirements\nchange. Amazon EC2 changes the economics of computing by allowing you to pay\nonly for capacity that you actually use. Amazon EC2 provides developers the\ntools to build failure resilient applications and isolate themselves from\ncommon failure scenarios."
     },
     "types": {
         "namespace": "Network.AWS.EC2.Types",

@@ -1,5 +1,5 @@
 name:                  amazonka-redshift
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazon Redshift SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -19,6 +19,7 @@ description:
     small for just $0.25 per hour with no commitments or upfront costs and scale
     to a petabyte or more for $1,000 per terabyte per year, less than a tenth of
     most other data warehousing solutions.
+
     .
     /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -98,5 +99,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.2.*
+          amazonka-core == 0.0.3.*
         , base          >= 4.7     && < 5

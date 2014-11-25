@@ -8,13 +8,13 @@
 
 ## Description
 
-    Amazon DynamoDB is a fully managed NoSQL database service that provides fast
-    and predictable performance with seamless scalability. You can use Amazon
-    DynamoDB to create a database table that can store and retrieve any amount of
-    data, and serve any level of request traffic. Amazon DynamoDB automatically
-    spreads the data and traffic for the table over a sufficient number of
-    servers to handle the request capacity specified by the customer and the
-    amount of data stored, while maintaining consistent and fast performance.
+Amazon DynamoDB is a fully managed NoSQL database service that provides fast
+and predictable performance with seamless scalability. You can use Amazon
+DynamoDB to create a database table that can store and retrieve any amount of
+data, and serve any level of request traffic. Amazon DynamoDB automatically
+spreads the data and traffic for the table over a sufficient number of
+servers to handle the request capacity specified by the customer and the
+amount of data stored, while maintaining consistent and fast performance.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-dynamodb)
 and [AWS API Reference](http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html).

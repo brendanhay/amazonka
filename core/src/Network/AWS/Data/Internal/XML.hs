@@ -142,10 +142,7 @@ findElement n ns = maybe err Right . listToMaybe $ mapMaybe (childNodes n) ns
     err = Left $ "unable to find element "
         ++ show n
         ++ " in nodes "
-        ++ show (mapMaybe name ns)
-
-    name (NodeElement e) = Just (nameLocalName (elementName e))
-    name _               = Nothing
+        ++ show (mapMaybe localName ns)
 {-# INLINE findElement #-}
 
 childNodes :: Text -> Node -> Maybe [Node]
@@ -153,6 +150,11 @@ childNodes n (NodeElement e)
     | nameLocalName (elementName e) == n = Just (elementNodes e)
 childNodes _ _ = Nothing
 {-# INLINE childNodes #-}
+
+localName :: Node -> Maybe Text
+localName (NodeElement e) = Just (nameLocalName (elementName e))
+localName _               = Nothing
+{-# INLINE localName #-}
 
 class FromXML a where
     parseXML :: [Node] -> Either String a

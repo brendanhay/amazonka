@@ -5,6 +5,12 @@
 * [Description](#description)
 * [Organisation](#organisation)
 * [Usage](#usage)
+    * [Credentials](#credentials)
+    * [Type Signatures](#type-signatures)
+    * [Sending Requests](#sending-requests)
+    * [Pagination](#pagination)
+    * [Presigned URLs](#presigned-urls)
+    * [Asynchronous Actions](#asynchronous-actions)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
@@ -81,7 +87,7 @@ For EC2's `DescribeInstances` operation the reduced type would be:
 type Response DescribeInstances = Either (ServiceError EC2Error) DescribeInstancesResponse
 ```
 
-Every operation's response is typically the operation name suffixed by `Response`,
+Every operation's response type is typically the operation name suffixed by `Response`,
 with the exception being responses shared by multiple operations.
 
 ### Sending Requests

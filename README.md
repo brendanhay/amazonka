@@ -131,7 +131,7 @@ computation to exit and the `Either` result of `runAWST` will contain the error
 in the `Left` case, or the result of the entire monadic computation in the `Right` case.
 
 The `*Catch` variants in `Control.Monad.Trans.AWS` are used when you wish to handle
-any specific service errors related to the sent request.
+any specific service errors related to the sent request without exiting the computation.
 
 ### Pagination
 

@@ -143,15 +143,9 @@ instance ( KnownSymbol e
          ) => FromXML (EMap e i j k v) where
     parseXML = fmap fromList . traverse go . mapMaybe (childNodes e)
       where
-        go ns
-            | length ns == 2 =
-                (,) <$> withElement i parseXML ns
-                    <*> withElement j parseXML ns
-            | otherwise      =
-                Left $ "Expected two elements named "
-                     ++ show i ++ " and "
-                     ++ show j ++ " within "
-                     ++ show e
+        go ns = (,)
+            <$> withElement i parseXML ns
+            <*> withElement j parseXML ns
 
         i = fromString $ symbolVal (Proxy :: Proxy i)
         j = fromString $ symbolVal (Proxy :: Proxy j)

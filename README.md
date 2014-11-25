@@ -16,8 +16,8 @@
 
 ## Description
 
-A comprehensive Amazon Web Services SDK for Haskell supporting all of the currently
-available services.
+A comprehensive Amazon Web Services SDK for Haskell supporting all of the
+publicly available services.
 
 Parts of the code contained in this repository are auto-generated and
 auto-magically kept up to date with Amazon's latest service APIs.

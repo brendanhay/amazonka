@@ -78,12 +78,13 @@ instance AWSPresigner V4 where
         out = finalise Nothing qry service a r rq l t
 
         qry cs sh =
-              pair "X-AMZ-Algorithm"      algorithm
-            . pair "X-AMZ-Credential"     cs
-            . pair "X-AMZ-Date"           (LocaleTime l t :: ISO8601)
-            . pair "X-AMZ-Expires"        (LocaleTime l x :: ISO8601)
-            . pair "X-AMZ-SignedHeaders"  sh
-            . pair "X-AMZ-Security-Token" (toBS <$> _authToken a)
+              pair (CI.original hAMZAlgorithm)     algorithm
+            . pair (CI.original hAMZCredential)    cs
+            . pair (CI.original hAMZDate)          (LocaleTime l t :: ISO8601)
+            . pair (CI.original hAMZExpires)       (LocaleTime l x :: ISO8601)
+            . pair (CI.original hAMZSignedHeaders) sh
+            . pair (CI.original hAMZToken)         (toBS <$> _authToken a)
+            . pair (CI.original hAMZContentSHA256) ("UNSIGNED-PAYLOAD" :: ByteString)
 
         auth = mappend "&X-AMZ-Signature=" . _mSignature
 

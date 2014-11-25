@@ -30,24 +30,6 @@ import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Network.HTTP.Types
 
-hHost :: HeaderName
-hHost = "Host"
-
-hAMZToken :: HeaderName
-hAMZToken = "X-Amz-Security-Token"
-
-hAMZTarget :: HeaderName
-hAMZTarget = "X-Amz-Target"
-
-hAMZAuth :: HeaderName
-hAMZAuth = "X-Amzn-Authorization"
-
-hAMZDate :: HeaderName
-hAMZDate = "X-Amz-Date"
-
-hMetaPrefix :: HeaderName
-hMetaPrefix = "X-Amz-"
-
 (~:) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
 hs ~: k = hs ~:? k >>= note
   where
@@ -105,3 +87,36 @@ instance ToByteString a => ToHeader (Maybe a) where
 instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
     toHeader p = map (\(k, v) -> (p <> CI.mk (toBS k), toBS v)) . Map.toList
     {-# INLINE toHeader #-}
+
+hHost :: HeaderName
+hHost = "Host"
+
+hAMZToken :: HeaderName
+hAMZToken = "X-Amz-Security-Token"
+
+hAMZTarget :: HeaderName
+hAMZTarget = "X-Amz-Target"
+
+hAMZAlgorithm :: HeaderName
+hAMZAlgorithm = "X-Amz-Algorithm"
+
+hAMZCredential :: HeaderName
+hAMZCredential = "X-Amz-Credential"
+
+hAMZExpires :: HeaderName
+hAMZExpires = "X-Amz-Expires"
+
+hAMZSignedHeaders :: HeaderName
+hAMZSignedHeaders = "X-Amz-Expires"
+
+hAMZContentSHA256 :: HeaderName
+hAMZContentSHA256 = "X-Amz-Content-SHA256"
+
+hAMZAuth :: HeaderName
+hAMZAuth = "X-Amzn-Authorization"
+
+hAMZDate :: HeaderName
+hAMZDate = "X-Amz-Date"
+
+hMetaPrefix :: HeaderName
+hMetaPrefix = "X-Amz-"

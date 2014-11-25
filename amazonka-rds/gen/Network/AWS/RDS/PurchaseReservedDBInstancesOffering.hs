@@ -76,20 +76,27 @@ purchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOffering
     , _prdbioTags                          = mempty
     }
 
--- | The number of instances to reserve. Default: '1'.
+-- | The number of instances to reserve.
+--
+-- Default: '1'
+--
 prdbioDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Int)
 prdbioDBInstanceCount =
     lens _prdbioDBInstanceCount (\s a -> s { _prdbioDBInstanceCount = a })
 
--- | Customer-specified identifier to track this reservation. Example:
--- myreservationID.
+-- | Customer-specified identifier to track this reservation.
+--
+-- Example: myreservationID
+--
 prdbioReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
 prdbioReservedDBInstanceId =
     lens _prdbioReservedDBInstanceId
         (\s a -> s { _prdbioReservedDBInstanceId = a })
 
--- | The ID of the Reserved DB instance offering to purchase. Example:
--- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
+-- | The ID of the Reserved DB instance offering to purchase.
+--
+-- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
+--
 prdbioReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering Text
 prdbioReservedDBInstancesOfferingId =
     lens _prdbioReservedDBInstancesOfferingId

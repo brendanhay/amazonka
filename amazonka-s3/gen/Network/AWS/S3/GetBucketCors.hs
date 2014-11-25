@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the cors configuration for the bucket.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketCors.html>
 module Network.AWS.S3.GetBucketCors
     (

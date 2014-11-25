@@ -23,9 +23,9 @@
 -- | Initiates the copy of an AMI from the specified source region to the region
 -- in which the request was made. You specify the destination region by using
 -- its endpoint when making the request. AMIs that use encrypted Amazon EBS
--- snapshots cannot be copied with this method. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html
--- Copying AMIs> in the /Amazon Elastic Compute Cloud User Guide/.
+-- snapshots cannot be copied with this method.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copying AMIs> in the /Amazon Elastic Compute CloudUser Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopyImage.html>
 module Network.AWS.EC2.CopyImage
@@ -93,15 +93,14 @@ copyImage p1 p2 p3 = CopyImage
     , _ciClientToken   = Nothing
     }
 
--- | Unique, case-sensitive identifier you provide to ensure idempotency of
--- the request. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html
--- How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User
--- Guide/.
+-- | Unique, case-sensitive identifier you provide to ensure idempotency of the
+-- request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /AmazonElastic Compute Cloud User Guide/.
+--
 ciClientToken :: Lens' CopyImage (Maybe Text)
 ciClientToken = lens _ciClientToken (\s a -> s { _ciClientToken = a })
 
 -- | A description for the new AMI in the destination region.
+--
 ciDescription :: Lens' CopyImage (Maybe Text)
 ciDescription = lens _ciDescription (\s a -> s { _ciDescription = a })
 
@@ -109,14 +108,17 @@ ciDryRun :: Lens' CopyImage (Maybe Bool)
 ciDryRun = lens _ciDryRun (\s a -> s { _ciDryRun = a })
 
 -- | The name of the new AMI in the destination region.
+--
 ciName :: Lens' CopyImage Text
 ciName = lens _ciName (\s a -> s { _ciName = a })
 
 -- | The ID of the AMI to copy.
+--
 ciSourceImageId :: Lens' CopyImage Text
 ciSourceImageId = lens _ciSourceImageId (\s a -> s { _ciSourceImageId = a })
 
 -- | The name of the region that contains the AMI to copy.
+--
 ciSourceRegion :: Lens' CopyImage Text
 ciSourceRegion = lens _ciSourceRegion (\s a -> s { _ciSourceRegion = a })
 
@@ -136,6 +138,7 @@ copyImageResponse = CopyImageResponse
     }
 
 -- | The ID of the new AMI.
+--
 cir1ImageId :: Lens' CopyImageResponse (Maybe Text)
 cir1ImageId = lens _cir1ImageId (\s a -> s { _cir1ImageId = a })
 

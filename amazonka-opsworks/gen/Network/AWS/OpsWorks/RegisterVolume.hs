@@ -23,14 +23,11 @@
 -- | Registers an Amazon EBS volume with a specified stack. A volume can be
 -- registered with only one stack at a time. If the volume is already
 -- registered, you must first deregister it by calling 'DeregisterVolume'. For
--- more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html
--- Resource Management>. Required Permissions: To use this action, an IAM user
--- must have a Manage permissions level for the stack, or an attached policy
--- that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterVolume.html>
 module Network.AWS.OpsWorks.RegisterVolume
@@ -77,10 +74,12 @@ registerVolume p1 = RegisterVolume
     }
 
 -- | The Amazon EBS volume ID.
+--
 rvEc2VolumeId :: Lens' RegisterVolume (Maybe Text)
 rvEc2VolumeId = lens _rvEc2VolumeId (\s a -> s { _rvEc2VolumeId = a })
 
 -- | The stack ID.
+--
 rvStackId :: Lens' RegisterVolume Text
 rvStackId = lens _rvStackId (\s a -> s { _rvStackId = a })
 
@@ -100,6 +99,7 @@ registerVolumeResponse = RegisterVolumeResponse
     }
 
 -- | The volume ID.
+--
 rvrVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvrVolumeId = lens _rvrVolumeId (\s a -> s { _rvrVolumeId = a })
 

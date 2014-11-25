@@ -61,8 +61,9 @@ describeKey p1 = DescribeKey
     { _dk1KeyId = p1
     }
 
--- | Unique identifier of the customer master key to be described. This can be
--- an ARN, an alias, or a globally unique identifier.
+-- | Unique identifier of the customer master key to be described. This can be an
+-- ARN, an alias, or a globally unique identifier.
+--
 dk1KeyId :: Lens' DescribeKey Text
 dk1KeyId = lens _dk1KeyId (\s a -> s { _dk1KeyId = a })
 
@@ -82,6 +83,7 @@ describeKeyResponse = DescribeKeyResponse
     }
 
 -- | Metadata associated with the key.
+--
 dkrKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
 dkrKeyMetadata = lens _dkrKeyMetadata (\s a -> s { _dkrKeyMetadata = a })
 

@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Tests the pipeline definition with a set of validation checks to ensure
--- that it is well formed and can run without error.
+-- | Tests the pipeline definition with a set of validation checks to ensure that
+-- it is well formed and can run without error.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ValidatePipelineDefinition.html>
 module Network.AWS.DataPipeline.ValidatePipelineDefinition
@@ -70,11 +70,13 @@ validatePipelineDefinition p1 = ValidatePipelineDefinition
     }
 
 -- | Identifies the pipeline whose definition is to be validated.
+--
 vpdPipelineId :: Lens' ValidatePipelineDefinition Text
 vpdPipelineId = lens _vpdPipelineId (\s a -> s { _vpdPipelineId = a })
 
--- | A list of objects that define the pipeline changes to validate against
--- the pipeline.
+-- | A list of objects that define the pipeline changes to validate against the
+-- pipeline.
+--
 vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
 vpdPipelineObjects =
     lens _vpdPipelineObjects (\s a -> s { _vpdPipelineObjects = a })
@@ -105,18 +107,19 @@ validatePipelineDefinitionResponse p1 = ValidatePipelineDefinitionResponse
     }
 
 -- | If 'True', there were validation errors.
+--
 vpdrErrored :: Lens' ValidatePipelineDefinitionResponse Bool
 vpdrErrored = lens _vpdrErrored (\s a -> s { _vpdrErrored = a })
 
--- | Lists the validation errors that were found by
--- 'ValidatePipelineDefinition'.
+-- | Lists the validation errors that were found by 'ValidatePipelineDefinition'.
+--
 vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
 vpdrValidationErrors =
     lens _vpdrValidationErrors (\s a -> s { _vpdrValidationErrors = a })
         . _List
 
--- | Lists the validation warnings that were found by
--- 'ValidatePipelineDefinition'.
+-- | Lists the validation warnings that were found by 'ValidatePipelineDefinition'.
+--
 vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
 vpdrValidationWarnings =
     lens _vpdrValidationWarnings (\s a -> s { _vpdrValidationWarnings = a })

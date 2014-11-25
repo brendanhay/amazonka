@@ -20,10 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes one or more regions that are currently available to you. For a
--- list of the regions supported by Amazon EC2, see
--- <http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions
--- and Endpoints>.
+-- | Describes one or more regions that are currently available to you.
+--
+-- For a list of the regions supported by Amazon EC2, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions and Endpoints>.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRegions.html>
 module Network.AWS.EC2.DescribeRegions
@@ -76,13 +75,18 @@ describeRegions = DescribeRegions
 dr1DryRun :: Lens' DescribeRegions (Maybe Bool)
 dr1DryRun = lens _dr1DryRun (\s a -> s { _dr1DryRun = a })
 
--- | One or more filters. 'endpoint' - The endpoint of the region (for
--- example, 'ec2.us-east-1.amazonaws.com'). 'region-name' - The name of the
--- region (for example, 'us-east-1').
+-- | One or more filters.
+--
+-- 'endpoint' - The endpoint of the region (for example, 'ec2.us-east-1.amazonaws.com').
+--
+-- 'region-name' - The name of the region (for example, 'us-east-1').
+--
+--
 dr1Filters :: Lens' DescribeRegions [Filter]
 dr1Filters = lens _dr1Filters (\s a -> s { _dr1Filters = a }) . _List
 
 -- | The names of one or more regions.
+--
 dr1RegionNames :: Lens' DescribeRegions [Text]
 dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a }) . _List
 
@@ -108,6 +112,7 @@ describeRegionsResponse = DescribeRegionsResponse
     }
 
 -- | Information about one or more regions.
+--
 drrRegions :: Lens' DescribeRegionsResponse [Region]
 drrRegions = lens _drrRegions (\s a -> s { _drrRegions = a }) . _List
 

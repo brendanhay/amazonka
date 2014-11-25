@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Get the information about an origin access identity.
---
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetCloudFrontOriginAccessIdentity.html>
 module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
     (
@@ -91,8 +90,8 @@ gcfoairCloudFrontOriginAccessIdentity =
     lens _gcfoairCloudFrontOriginAccessIdentity
         (\s a -> s { _gcfoairCloudFrontOriginAccessIdentity = a })
 
--- | The current version of the origin access identity's information. For
--- example: E2QWRUHAPOMQZL.
+-- | The current version of the origin access identity's information. For example:
+-- E2QWRUHAPOMQZL.
 gcfoairETag :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe Text)
 gcfoairETag = lens _gcfoairETag (\s a -> s { _gcfoairETag = a })
 

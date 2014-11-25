@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Enables I/O operations for a volume that had I/O operations disabled
--- because the data on the volume was potentially inconsistent.
+-- | Enables I/O operations for a volume that had I/O operations disabled because
+-- the data on the volume was potentially inconsistent.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVolumeIO.html>
 module Network.AWS.EC2.EnableVolumeIO
@@ -69,6 +69,7 @@ evioDryRun :: Lens' EnableVolumeIO (Maybe Bool)
 evioDryRun = lens _evioDryRun (\s a -> s { _evioDryRun = a })
 
 -- | The ID of the volume.
+--
 evioVolumeId :: Lens' EnableVolumeIO Text
 evioVolumeId = lens _evioVolumeId (\s a -> s { _evioVolumeId = a })
 

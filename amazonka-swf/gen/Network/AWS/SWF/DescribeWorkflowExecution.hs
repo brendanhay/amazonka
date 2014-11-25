@@ -21,17 +21,20 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns information about the specified workflow execution including its
--- type and some statistics. Access Control You can use IAM policies to
--- control this action's access to Amazon SWF resources as follows: Use a
--- 'Resource' element with the domain name to limit the action to only
--- specified domains. Use an 'Action' element to allow or deny permission to
--- call this action. You cannot use an IAM policy to constrain this action's
--- parameters. If the caller does not have sufficient permissions to invoke
--- the action, or the parameter values fall outside the specified constraints,
--- the action fails by throwing 'OperationNotPermitted'. For details and
--- example IAM policies, see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
--- Using IAM to Manage Access to Amazon SWF Workflows>.
+-- type and some statistics.
+--
+-- Access Control
+--
+-- You can use IAM policies to control this action's access to Amazon SWF
+-- resources as follows:
+--
+-- Use a 'Resource' element with the domain name to limit the action to only
+-- specified domains. Use an 'Action' element to allow or deny permission to call
+-- this action. You cannot use an IAM policy to constrain this action's
+-- parameters.  If the caller does not have sufficient permissions to invoke the
+-- action, or the parameter values fall outside the specified constraints, the
+-- action fails by throwing 'OperationNotPermitted'. For details and example IAM
+-- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeWorkflowExecution.html>
 module Network.AWS.SWF.DescribeWorkflowExecution
@@ -83,10 +86,12 @@ describeWorkflowExecution p1 p2 = DescribeWorkflowExecution
     }
 
 -- | The name of the domain containing the workflow execution.
+--
 dweDomain :: Lens' DescribeWorkflowExecution Text
 dweDomain = lens _dweDomain (\s a -> s { _dweDomain = a })
 
 -- | The workflow execution to describe.
+--
 dweExecution :: Lens' DescribeWorkflowExecution WorkflowExecution
 dweExecution = lens _dweExecution (\s a -> s { _dweExecution = a })
 
@@ -126,20 +131,23 @@ describeWorkflowExecutionResponse p1 p2 p3 = DescribeWorkflowExecutionResponse
 
 -- | The configuration settings for this workflow execution including timeout
 -- values, tasklist etc.
+--
 dwerExecutionConfiguration :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionConfiguration
 dwerExecutionConfiguration =
     lens _dwerExecutionConfiguration
         (\s a -> s { _dwerExecutionConfiguration = a })
 
 -- | Information about the workflow execution.
+--
 dwerExecutionInfo :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionInfo
 dwerExecutionInfo =
     lens _dwerExecutionInfo (\s a -> s { _dwerExecutionInfo = a })
 
 -- | The time when the last activity task was scheduled for this workflow
--- execution. You can use this information to determine if the workflow has
--- not made progress for an unusually long period of time and might require
--- a corrective action.
+-- execution. You can use this information to determine if the workflow has not
+-- made progress for an unusually long period of time and might require a
+-- corrective action.
+--
 dwerLatestActivityTaskTimestamp :: Lens' DescribeWorkflowExecutionResponse (Maybe UTCTime)
 dwerLatestActivityTaskTimestamp =
     lens _dwerLatestActivityTaskTimestamp
@@ -147,9 +155,9 @@ dwerLatestActivityTaskTimestamp =
             . mapping _Time
 
 -- | The latest executionContext provided by the decider for this workflow
--- execution. A decider can provide an executionContext, which is a free
--- form string, when closing a decision task using
--- 'RespondDecisionTaskCompleted'.
+-- execution. A decider can provide an executionContext, which is a free form
+-- string, when closing a decision task using 'RespondDecisionTaskCompleted'.
+--
 dwerLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Text)
 dwerLatestExecutionContext =
     lens _dwerLatestExecutionContext
@@ -157,6 +165,7 @@ dwerLatestExecutionContext =
 
 -- | The number of tasks for this workflow execution. This includes open and
 -- closed tasks of all types.
+--
 dwerOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenCounts
 dwerOpenCounts = lens _dwerOpenCounts (\s a -> s { _dwerOpenCounts = a })
 

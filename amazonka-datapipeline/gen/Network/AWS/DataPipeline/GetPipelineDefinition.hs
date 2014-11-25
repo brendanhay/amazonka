@@ -20,9 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns the definition of the specified pipeline. You can call
--- 'GetPipelineDefinition' to retrieve the pipeline definition you provided
--- using 'PutPipelineDefinition'.
+-- | Returns the definition of the specified pipeline. You can call 'GetPipelineDefinition' to retrieve the pipeline definition you provided using 'PutPipelineDefinition'.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetPipelineDefinition.html>
 module Network.AWS.DataPipeline.GetPipelineDefinition
@@ -69,13 +67,15 @@ getPipelineDefinition p1 = GetPipelineDefinition
     }
 
 -- | The identifier of the pipeline.
+--
 gpdPipelineId :: Lens' GetPipelineDefinition Text
 gpdPipelineId = lens _gpdPipelineId (\s a -> s { _gpdPipelineId = a })
 
--- | The version of the pipeline definition to retrieve. This parameter
--- accepts the values 'latest' (default) and 'active'. Where 'latest'
--- indicates the last definition saved to the pipeline and 'active'
--- indicates the last definition of the pipeline that was activated.
+-- | The version of the pipeline definition to retrieve. This parameter accepts
+-- the values 'latest' (default) and 'active'. Where 'latest' indicates the last
+-- definition saved to the pipeline and 'active' indicates the last definition of
+-- the pipeline that was activated.
+--
 gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
 gpdVersion = lens _gpdVersion (\s a -> s { _gpdVersion = a })
 
@@ -101,6 +101,7 @@ getPipelineDefinitionResponse = GetPipelineDefinitionResponse
     }
 
 -- | An array of objects defined in the pipeline.
+--
 gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
 gpdrPipelineObjects =
     lens _gpdrPipelineObjects (\s a -> s { _gpdrPipelineObjects = a })

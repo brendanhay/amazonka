@@ -20,9 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Indexes the search suggestions. For more information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters
--- Configuring Suggesters> in the /Amazon CloudSearch Developer Guide/.
+-- | Indexes the search suggestions. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters ConfiguringSuggesters> in the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_BuildSuggesters.html>
 module Network.AWS.CloudSearch.BuildSuggesters

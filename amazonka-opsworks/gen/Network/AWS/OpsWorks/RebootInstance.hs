@@ -20,14 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Reboots a specified instance. For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html
--- Starting, Stopping, and Rebooting Instances>. Required Permissions: To use
--- this action, an IAM user must have a Manage permissions level for the
--- stack, or an attached policy that explicitly grants permissions. For more
--- information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Reboots a specified instance. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html Starting, Stopping,and Rebooting Instances>.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RebootInstance.html>
 module Network.AWS.OpsWorks.RebootInstance
@@ -67,6 +64,7 @@ rebootInstance p1 = RebootInstance
     }
 
 -- | The instance ID.
+--
 riInstanceId :: Lens' RebootInstance Text
 riInstanceId = lens _riInstanceId (\s a -> s { _riInstanceId = a })
 

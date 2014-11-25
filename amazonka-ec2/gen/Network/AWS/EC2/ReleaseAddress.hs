@@ -20,18 +20,20 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Releases the specified Elastic IP address. After releasing an Elastic IP
--- address, it is released to the IP address pool and might be unavailable to
--- you. Be sure to update your DNS records and any servers or devices that
--- communicate with the address. If you attempt to release an Elastic IP
--- address that you already released, you'll get an 'AuthFailure' error if the
--- address is already allocated to another AWS account. [EC2-Classic, default
--- VPC] Releasing an Elastic IP address automatically disassociates it from
--- any instance that it's associated with. To disassociate an Elastic IP
--- address without releasing it, use 'DisassociateAddress'. [Nondefault VPC]
--- You must use 'DisassociateAddress' to disassociate the Elastic IP address
--- before you try to release it. Otherwise, Amazon EC2 returns an error
--- ('InvalidIPAddress.InUse').
+-- | Releases the specified Elastic IP address.
+--
+-- After releasing an Elastic IP address, it is released to the IP address pool
+-- and might be unavailable to you. Be sure to update your DNS records and any
+-- servers or devices that communicate with the address. If you attempt to
+-- release an Elastic IP address that you already released, you'll get an 'AuthFailure' error if the address is already allocated to another AWS account.
+--
+-- [EC2-Classic, default VPC] Releasing an Elastic IP address automatically
+-- disassociates it from any instance that it's associated with. To disassociate
+-- an Elastic IP address without releasing it, use 'DisassociateAddress'.
+--
+-- [Nondefault VPC] You must use 'DisassociateAddress' to disassociate the
+-- Elastic IP address before you try to release it. Otherwise, Amazon EC2
+-- returns an error ('InvalidIPAddress.InUse').
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReleaseAddress.html>
 module Network.AWS.EC2.ReleaseAddress
@@ -80,6 +82,7 @@ releaseAddress = ReleaseAddress
     }
 
 -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
+--
 raAllocationId :: Lens' ReleaseAddress (Maybe Text)
 raAllocationId = lens _raAllocationId (\s a -> s { _raAllocationId = a })
 
@@ -87,6 +90,7 @@ raDryRun :: Lens' ReleaseAddress (Maybe Bool)
 raDryRun = lens _raDryRun (\s a -> s { _raDryRun = a })
 
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+--
 raPublicIp :: Lens' ReleaseAddress (Maybe Text)
 raPublicIp = lens _raPublicIp (\s a -> s { _raPublicIp = a })
 

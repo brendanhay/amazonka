@@ -23,12 +23,12 @@
 -- | Requests a reboot of one or more instances. This operation is asynchronous;
 -- it only queues a request to reboot the specified instances. The operation
 -- succeeds if the instances are valid and belong to you. Requests to reboot
--- terminated instances are ignored. If a Linux/Unix instance does not cleanly
--- shut down within four minutes, Amazon EC2 performs a hard reboot. For more
--- information about troubleshooting, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html
--- Getting Console Output and Rebooting Instances> in the /Amazon Elastic
--- Compute Cloud User Guide/.
+-- terminated instances are ignored.
+--
+-- If a Linux/Unix instance does not cleanly shut down within four minutes,
+-- Amazon EC2 performs a hard reboot.
+--
+-- For more information about troubleshooting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html Getting Console Output andRebooting Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RebootInstances.html>
 module Network.AWS.EC2.RebootInstances
@@ -75,6 +75,7 @@ ri2DryRun :: Lens' RebootInstances (Maybe Bool)
 ri2DryRun = lens _ri2DryRun (\s a -> s { _ri2DryRun = a })
 
 -- | One or more instance IDs.
+--
 ri2InstanceIds :: Lens' RebootInstances [Text]
 ri2InstanceIds = lens _ri2InstanceIds (\s a -> s { _ri2InstanceIds = a }) . _List
 

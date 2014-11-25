@@ -13,8 +13,7 @@
 {% include "license.ede" %}
 
 {% if documentation %}
-{{ documentation | above(76, 0) }}
---
+{{ documentation }}
 -- <{{ url }}>
 {% else %}
 -- | <{{ url }}>

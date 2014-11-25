@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns detailed information about all of the attributes associated with
--- the specified load balancer.
+-- | Returns detailed information about all of the attributes associated with the
+-- specified load balancer.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerAttributes.html>
 module Network.AWS.ELB.DescribeLoadBalancerAttributes
@@ -63,6 +63,7 @@ describeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributes
     }
 
 -- | The name of the load balancer.
+--
 dlbaLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
 dlbaLoadBalancerName =
     lens _dlbaLoadBalancerName (\s a -> s { _dlbaLoadBalancerName = a })
@@ -83,6 +84,7 @@ describeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
     }
 
 -- | The load balancer attributes structure.
+--
 dlbarLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 dlbarLoadBalancerAttributes =
     lens _dlbarLoadBalancerAttributes

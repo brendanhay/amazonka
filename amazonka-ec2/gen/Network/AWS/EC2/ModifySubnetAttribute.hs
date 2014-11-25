@@ -69,6 +69,7 @@ msaMapPublicIpOnLaunch =
     lens _msaMapPublicIpOnLaunch (\s a -> s { _msaMapPublicIpOnLaunch = a })
 
 -- | The ID of the subnet.
+--
 msaSubnetId :: Lens' ModifySubnetAttribute Text
 msaSubnetId = lens _msaSubnetId (\s a -> s { _msaSubnetId = a })
 

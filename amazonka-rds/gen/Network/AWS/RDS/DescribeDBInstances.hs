@@ -78,29 +78,39 @@ describeDBInstances = DescribeDBInstances
     }
 
 -- | The user-supplied instance identifier. If this parameter is specified,
--- information from only the specific DB instance is returned. This
--- parameter isn't case sensitive. Constraints: Must contain from 1 to 63
--- alphanumeric characters or hyphens First character must be a letter
--- Cannot end with a hyphen or contain two consecutive hyphens.
+-- information from only the specific DB instance is returned. This parameter
+-- isn't case sensitive.
+--
+-- Constraints:
+--
+-- Must contain from 1 to 63 alphanumeric characters or hyphens First
+-- character must be a letter Cannot end with a hyphen or contain two
+-- consecutive hyphens
 ddbi1DBInstanceIdentifier :: Lens' DescribeDBInstances (Maybe Text)
 ddbi1DBInstanceIdentifier =
     lens _ddbi1DBInstanceIdentifier
         (\s a -> s { _ddbi1DBInstanceIdentifier = a })
 
 -- | This parameter is not currently supported.
+--
 ddbi1Filters :: Lens' DescribeDBInstances [Filter]
 ddbi1Filters = lens _ddbi1Filters (\s a -> s { _ddbi1Filters = a }) . _List
 
 -- | An optional pagination token provided by a previous DescribeDBInstances
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by 'MaxRecords' .
+-- request. If this parameter is specified, the response includes only records
+-- beyond the marker, up to the value specified by 'MaxRecords' .
+--
 ddbi1Marker :: Lens' DescribeDBInstances (Maybe Text)
 ddbi1Marker = lens _ddbi1Marker (\s a -> s { _ddbi1Marker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified 'MaxRecords' value, a pagination token called a
--- marker is included in the response so that the remaining results may be
--- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
+-- exist than the specified 'MaxRecords' value, a pagination token called a marker
+-- is included in the response so that the remaining results may be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: minimum 20, maximum 100
+--
 ddbi1MaxRecords :: Lens' DescribeDBInstances (Maybe Int)
 ddbi1MaxRecords = lens _ddbi1MaxRecords (\s a -> s { _ddbi1MaxRecords = a })
 
@@ -124,12 +134,14 @@ describeDBInstancesResponse = DescribeDBInstancesResponse
     }
 
 -- | A list of 'DBInstance' instances.
+--
 ddbirDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
 ddbirDBInstances = lens _ddbirDBInstances (\s a -> s { _ddbirDBInstances = a }) . _List
 
 -- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords' .
+-- parameter is specified, the response includes only records beyond the marker,
+-- up to the value specified by 'MaxRecords' .
+--
 ddbirMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 ddbirMarker = lens _ddbirMarker (\s a -> s { _ddbirMarker = a })
 

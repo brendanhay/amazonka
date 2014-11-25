@@ -20,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deactivates the specified MFA device and removes it from association with
--- the user name for which it was originally enabled. For more information
--- about creating and working with virtual MFA devices, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html
--- Using a Virtual MFA Device> in the /Using IAM/ guide.
+-- | Deactivates the specified MFA device and removes it from association with the
+-- user name for which it was originally enabled.
+--
+-- For more information about creating and working with virtual MFA devices, go
+-- to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html>
 module Network.AWS.IAM.DeactivateMFADevice
@@ -69,13 +69,15 @@ deactivateMFADevice p1 p2 = DeactivateMFADevice
     , _dmfadSerialNumber = p2
     }
 
--- | The serial number that uniquely identifies the MFA device. For virtual
--- MFA devices, the serial number is the device ARN.
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA
+-- devices, the serial number is the device ARN.
+--
 dmfadSerialNumber :: Lens' DeactivateMFADevice Text
 dmfadSerialNumber =
     lens _dmfadSerialNumber (\s a -> s { _dmfadSerialNumber = a })
 
 -- | The name of the user whose MFA device you want to deactivate.
+--
 dmfadUserName :: Lens' DeactivateMFADevice Text
 dmfadUserName = lens _dmfadUserName (\s a -> s { _dmfadUserName = a })
 

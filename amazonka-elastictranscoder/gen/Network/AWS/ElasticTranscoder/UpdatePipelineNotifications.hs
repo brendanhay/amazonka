@@ -20,9 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | With the UpdatePipelineNotifications operation, you can update Amazon
--- Simple Notification Service (Amazon SNS) notifications for a pipeline. When
--- you update notifications for a pipeline, Elastic Transcoder returns the
+-- | With the UpdatePipelineNotifications operation, you can update Amazon Simple
+-- Notification Service (Amazon SNS) notifications for a pipeline.
+--
+-- When you update notifications for a pipeline, Elastic Transcoder returns the
 -- values that you specified in the request.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineNotifications.html>
@@ -72,25 +73,26 @@ updatePipelineNotifications p1 p2 = UpdatePipelineNotifications
 
 -- | The identifier of the pipeline for which you want to change notification
 -- settings.
+--
 upnId :: Lens' UpdatePipelineNotifications Text
 upnId = lens _upnId (\s a -> s { _upnId = a })
 
--- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
--- topic that you want to notify to report job status. To receive
--- notifications, you must also subscribe to the new topic in the Amazon SNS
--- console. Progressing: The topic ARN for the Amazon Simple Notification
--- Service (Amazon SNS) topic that you want to notify when Elastic
--- Transcoder has started to process jobs that are added to this pipeline.
--- This is the ARN that Amazon SNS returned when you created the topic.
--- Completed: The topic ARN for the Amazon SNS topic that you want to notify
--- when Elastic Transcoder has finished processing a job. This is the ARN
--- that Amazon SNS returned when you created the topic. Warning: The topic
--- ARN for the Amazon SNS topic that you want to notify when Elastic
--- Transcoder encounters a warning condition. This is the ARN that Amazon
--- SNS returned when you created the topic. Error: The topic ARN for the
--- Amazon SNS topic that you want to notify when Elastic Transcoder
--- encounters an error condition. This is the ARN that Amazon SNS returned
--- when you created the topic.
+-- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic
+-- that you want to notify to report job status.
+--
+-- To receive notifications, you must also subscribe to the new topic in the
+-- Amazon SNS console.   Progressing: The topic ARN for the Amazon Simple
+-- Notification Service (Amazon SNS) topic that you want to notify when Elastic
+-- Transcoder has started to process jobs that are added to this pipeline. This
+-- is the ARN that Amazon SNS returned when you created the topic.  Completed:
+-- The topic ARN for the Amazon SNS topic that you want to notify when Elastic
+-- Transcoder has finished processing a job. This is the ARN that Amazon SNS
+-- returned when you created the topic.  Warning: The topic ARN for the Amazon
+-- SNS topic that you want to notify when Elastic Transcoder encounters a
+-- warning condition. This is the ARN that Amazon SNS returned when you created
+-- the topic.  Error: The topic ARN for the Amazon SNS topic that you want to
+-- notify when Elastic Transcoder encounters an error condition. This is the ARN
+-- that Amazon SNS returned when you created the topic.
 upnNotifications :: Lens' UpdatePipelineNotifications Notifications
 upnNotifications = lens _upnNotifications (\s a -> s { _upnNotifications = a })
 
@@ -109,8 +111,8 @@ updatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
     { _upnrPipeline = Nothing
     }
 
--- | A section of the response body that provides information about the
--- pipeline.
+-- | A section of the response body that provides information about the pipeline.
+--
 upnrPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
 upnrPipeline = lens _upnrPipeline (\s a -> s { _upnrPipeline = a })
 

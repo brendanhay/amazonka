@@ -20,11 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes the specified Amazon EBS volume. The volume must be in the
--- 'available' state (not attached to an instance). For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html
--- Deleting an Amazon EBS Volume> in the /Amazon Elastic Compute Cloud User
--- Guide/.
+-- | Deletes the specified Amazon EBS volume. The volume must be in the 'available'
+-- state (not attached to an instance).
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html Deleting an Amazon EBS Volume> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVolume.html>
 module Network.AWS.EC2.DeleteVolume
@@ -72,6 +71,7 @@ dv4DryRun :: Lens' DeleteVolume (Maybe Bool)
 dv4DryRun = lens _dv4DryRun (\s a -> s { _dv4DryRun = a })
 
 -- | The ID of the volume.
+--
 dv4VolumeId :: Lens' DeleteVolume Text
 dv4VolumeId = lens _dv4VolumeId (\s a -> s { _dv4VolumeId = a })
 

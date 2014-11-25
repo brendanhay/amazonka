@@ -20,14 +20,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Changes the visibility timeout of multiple messages. This is a batch
--- version of 'ChangeMessageVisibility'. The result of the action on each
--- message is reported individually in the response. You can send up to 10
--- 'ChangeMessageVisibility' requests with each 'ChangeMessageVisibilityBatch'
--- action. Because the batch request can result in a combination of successful
--- and unsuccessful actions, you should check for batch errors even when the
--- call returns an HTTP status code of 200. '&Attribute.1=this'
--- '&Attribute.2=that'.
+-- | Changes the visibility timeout of multiple messages. This is a batch version
+-- of 'ChangeMessageVisibility'. The result of the action on each message is
+-- reported individually in the response. You can send up to 10 'ChangeMessageVisibility' requests with each 'ChangeMessageVisibilityBatch' action.
+--
+-- Because the batch request can result in a combination of successful and
+-- unsuccessful actions, you should check for batch errors even when the call
+-- returns an HTTP status code of 200. '&Attribute.1=this'
+--
+-- '&Attribute.2=that'
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html>
 module Network.AWS.SQS.ChangeMessageVisibilityBatch
@@ -74,12 +75,14 @@ changeMessageVisibilityBatch p1 = ChangeMessageVisibilityBatch
     , _cmvbEntries  = mempty
     }
 
--- | A list of receipt handles of the messages for which the visibility
--- timeout must be changed.
+-- | A list of receipt handles of the messages for which the visibility timeout
+-- must be changed.
+--
 cmvbEntries :: Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
 cmvbEntries = lens _cmvbEntries (\s a -> s { _cmvbEntries = a }) . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
 cmvbQueueUrl :: Lens' ChangeMessageVisibilityBatch Text
 cmvbQueueUrl = lens _cmvbQueueUrl (\s a -> s { _cmvbQueueUrl = a })
 
@@ -103,10 +106,12 @@ changeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
     }
 
 -- | A list of 'BatchResultErrorEntry' items.
+--
 cmvbrFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
 cmvbrFailed = lens _cmvbrFailed (\s a -> s { _cmvbrFailed = a }) . _List
 
 -- | A list of 'ChangeMessageVisibilityBatchResultEntry' items.
+--
 cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
 cmvbrSuccessful = lens _cmvbrSuccessful (\s a -> s { _cmvbrSuccessful = a }) . _List
 

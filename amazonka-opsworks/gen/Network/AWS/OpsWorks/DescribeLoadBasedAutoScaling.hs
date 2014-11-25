@@ -21,12 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes load-based auto scaling configurations for specified layers.
+--
 -- Required Permissions: To use this action, an IAM user must have a Show,
--- Deploy, or Manage permissions level for the stack, or an attached policy
--- that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- Deploy, or Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeLoadBasedAutoScaling.html>
 module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
@@ -73,6 +71,7 @@ describeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
     }
 
 -- | An array of layer IDs.
+--
 dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
 dlbasLayerIds = lens _dlbasLayerIds (\s a -> s { _dlbasLayerIds = a }) . _List
 
@@ -97,8 +96,9 @@ describeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
     { _dlbasrLoadBasedAutoScalingConfigurations = mempty
     }
 
--- | An array of 'LoadBasedAutoScalingConfiguration' objects that describe
--- each layer's configuration.
+-- | An array of 'LoadBasedAutoScalingConfiguration' objects that describe each
+-- layer's configuration.
+--
 dlbasrLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
 dlbasrLoadBasedAutoScalingConfigurations =
     lens _dlbasrLoadBasedAutoScalingConfigurations

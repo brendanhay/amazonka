@@ -20,12 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Starts a stack's instances. Required Permissions: To use this action, an
--- IAM user must have a Manage permissions level for the stack, or an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Starts a stack's instances.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StartStack.html>
 module Network.AWS.OpsWorks.StartStack
@@ -65,6 +64,7 @@ startStack p1 = StartStack
     }
 
 -- | The stack ID.
+--
 ss2StackId :: Lens' StartStack Text
 ss2StackId = lens _ss2StackId (\s a -> s { _ss2StackId = a })
 

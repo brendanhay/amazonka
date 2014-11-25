@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Adds a new client ID (also known as audience) to the list of client IDs
--- already registered for the specified IAM OpenID Connect provider. This
--- action is idempotent; it does not fail or return an error if you add an
+-- already registered for the specified IAM OpenID Connect provider.
+--
+-- This action is idempotent; it does not fail or return an error if you add an
 -- existing client ID to the provider.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddClientIDToOpenIDConnectProvider.html>
@@ -70,13 +71,14 @@ addClientIDToOpenIDConnectProvider p1 p2 = AddClientIDToOpenIDConnectProvider
 
 -- | The client ID (also known as audience) to add to the IAM OpenID Connect
 -- provider.
+--
 acidtoidcpClientID :: Lens' AddClientIDToOpenIDConnectProvider Text
 acidtoidcpClientID =
     lens _acidtoidcpClientID (\s a -> s { _acidtoidcpClientID = a })
 
--- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
--- to add the client ID to. You can get a list of OIDC provider ARNs by
--- using the 'ListOpenIDConnectProviders' action.
+-- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider to
+-- add the client ID to. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' action.
+--
 acidtoidcpOpenIDConnectProviderArn :: Lens' AddClientIDToOpenIDConnectProvider Text
 acidtoidcpOpenIDConnectProviderArn =
     lens _acidtoidcpOpenIDConnectProviderArn

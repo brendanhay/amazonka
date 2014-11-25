@@ -20,12 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The 'ListDomains' operation lists all domains associated with the Access
--- Key ID. It returns domain names up to the limit set by <#MaxNumberOfDomains
--- MaxNumberOfDomains>. A <#NextToken NextToken> is returned if there are more
--- than 'MaxNumberOfDomains' domains. Calling 'ListDomains' successive times
--- with the 'NextToken' provided by the operation returns up to
--- 'MaxNumberOfDomains' more domain names with each successive operation call.
+-- | The 'ListDomains' operation lists all domains associated with the Access Key
+-- ID. It returns domain names up to the limit set by <#MaxNumberOfDomains MaxNumberOfDomains>. A <#NextToken NextToken> is returned if there are more than 'MaxNumberOfDomains' domains. Calling 'ListDomains' successive times with the 'NextToken' provided by the operation returns up to 'MaxNumberOfDomains' more domain names with each successive operation call.
 --
 -- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_ListDomains.html>
 module Network.AWS.SDB.ListDomains
@@ -71,8 +67,8 @@ listDomains = ListDomains
     , _ldNextToken          = Nothing
     }
 
--- | The maximum number of domain names you want returned. The range is 1 to
--- 100. The default setting is 100.
+-- | The maximum number of domain names you want returned. The range is 1 to 100.
+-- The default setting is 100.
 ldMaxNumberOfDomains :: Lens' ListDomains (Maybe Int)
 ldMaxNumberOfDomains =
     lens _ldMaxNumberOfDomains (\s a -> s { _ldMaxNumberOfDomains = a })
@@ -105,8 +101,7 @@ listDomainsResponse = ListDomainsResponse
 ldrDomainNames :: Lens' ListDomainsResponse [Text]
 ldrDomainNames = lens _ldrDomainNames (\s a -> s { _ldrDomainNames = a }) . _List
 
--- | An opaque token indicating that there are more domains than the specified
--- 'MaxNumberOfDomains' still available.
+-- | An opaque token indicating that there are more domains than the specified 'MaxNumberOfDomains' still available.
 ldrNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
 

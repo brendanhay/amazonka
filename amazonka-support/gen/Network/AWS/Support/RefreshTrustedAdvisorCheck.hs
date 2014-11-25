@@ -20,15 +20,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Requests a refresh of the Trusted Advisor check that has the specified
--- check ID. Check IDs can be obtained by calling
--- 'DescribeTrustedAdvisorChecks'. The response contains a
--- 'RefreshTrustedAdvisorCheckResult' object, which contains these fields:
--- Status. The refresh status of the check: "none", "enqueued", "processing",
--- "success", or "abandoned". MillisUntilNextRefreshable. The amount of time,
--- in milliseconds, until the check is eligible for refresh. CheckId. The
--- unique identifier for the check.
+-- | Requests a refresh of the Trusted Advisor check that has the specified check
+-- ID. Check IDs can be obtained by calling 'DescribeTrustedAdvisorChecks'.
 --
+-- The response contains a 'RefreshTrustedAdvisorCheckResult' object, which
+-- contains these fields:
+--
+-- Status. The refresh status of the check: "none", "enqueued", "processing",
+-- "success", or "abandoned".  MillisUntilNextRefreshable. The amount of time,
+-- in milliseconds, until the check is eligible for refresh.  CheckId. The
+-- unique identifier for the check.
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_RefreshTrustedAdvisorCheck.html>
 module Network.AWS.Support.RefreshTrustedAdvisorCheck
     (
@@ -69,6 +70,7 @@ refreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
     }
 
 -- | The unique identifier for the Trusted Advisor check.
+--
 rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
 rtacCheckId = lens _rtacCheckId (\s a -> s { _rtacCheckId = a })
 
@@ -88,8 +90,9 @@ refreshTrustedAdvisorCheckResponse p1 = RefreshTrustedAdvisorCheckResponse
     { _rtacrStatus = p1
     }
 
--- | The current refresh status for a check, including the amount of time
--- until the check is eligible for refresh.
+-- | The current refresh status for a check, including the amount of time until
+-- the check is eligible for refresh.
+--
 rtacrStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
 rtacrStatus = lens _rtacrStatus (\s a -> s { _rtacrStatus = a })
 

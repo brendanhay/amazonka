@@ -71,22 +71,25 @@ modifyVpcAttribute p1 = ModifyVpcAttribute
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
 -- enabled, instances in the VPC get DNS hostnames; otherwise, they do not.
+--
 -- You can only enable DNS hostnames if you also enable DNS support.
+--
 mvaEnableDnsHostnames :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
 mvaEnableDnsHostnames =
     lens _mvaEnableDnsHostnames (\s a -> s { _mvaEnableDnsHostnames = a })
 
--- | Indicates whether the DNS resolution is supported for the VPC. If
--- enabled, queries to the Amazon provided DNS server at the 169.254.169.253
--- IP address, or the reserved IP address at the base of the VPC network
--- range "plus two" will succeed. If disabled, the Amazon provided DNS
--- service in the VPC that resolves public DNS hostnames to IP addresses is
--- not enabled.
+-- | Indicates whether the DNS resolution is supported for the VPC. If enabled,
+-- queries to the Amazon provided DNS server at the 169.254.169.253 IP address,
+-- or the reserved IP address at the base of the VPC network range "plus two"
+-- will succeed. If disabled, the Amazon provided DNS service in the VPC that
+-- resolves public DNS hostnames to IP addresses is not enabled.
+--
 mvaEnableDnsSupport :: Lens' ModifyVpcAttribute (Maybe AttributeBooleanValue)
 mvaEnableDnsSupport =
     lens _mvaEnableDnsSupport (\s a -> s { _mvaEnableDnsSupport = a })
 
 -- | The ID of the VPC.
+--
 mvaVpcId :: Lens' ModifyVpcAttribute Text
 mvaVpcId = lens _mvaVpcId (\s a -> s { _mvaVpcId = a })
 

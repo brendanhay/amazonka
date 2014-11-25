@@ -102,41 +102,47 @@ trail = Trail
     , _tCloudWatchLogsRoleArn      = Nothing
     }
 
--- | Specifies an Amazon Resource Name (ARN), a unique identifier that
--- represents the log group to which CloudTrail logs will be delivered.
+-- | Specifies an Amazon Resource Name (ARN), a unique identifier that represents
+-- the log group to which CloudTrail logs will be delivered.
+--
 tCloudWatchLogsLogGroupArn :: Lens' Trail (Maybe Text)
 tCloudWatchLogsLogGroupArn =
     lens _tCloudWatchLogsLogGroupArn
         (\s a -> s { _tCloudWatchLogsLogGroupArn = a })
 
--- | Specifies the role for the CloudWatch Logs endpoint to assume to write to
--- a user’s log group.
+-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a
+-- user’s log group.
+--
 tCloudWatchLogsRoleArn :: Lens' Trail (Maybe Text)
 tCloudWatchLogsRoleArn =
     lens _tCloudWatchLogsRoleArn (\s a -> s { _tCloudWatchLogsRoleArn = a })
 
--- | Set to True to include AWS API calls from AWS global services such as
--- IAM. Otherwise, False.
+-- | Set to True to include AWS API calls from AWS global services such as IAM.
+-- Otherwise, False.
+--
 tIncludeGlobalServiceEvents :: Lens' Trail (Maybe Bool)
 tIncludeGlobalServiceEvents =
     lens _tIncludeGlobalServiceEvents
         (\s a -> s { _tIncludeGlobalServiceEvents = a })
 
 -- | Name of the trail set by calling 'CreateTrail'.
+--
 tName :: Lens' Trail (Maybe Text)
 tName = lens _tName (\s a -> s { _tName = a })
 
--- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail
--- files.
+-- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail files.
+--
 tS3BucketName :: Lens' Trail (Maybe Text)
 tS3BucketName = lens _tS3BucketName (\s a -> s { _tS3BucketName = a })
 
 -- | Value of the Amazon S3 prefix.
+--
 tS3KeyPrefix :: Lens' Trail (Maybe Text)
 tS3KeyPrefix = lens _tS3KeyPrefix (\s a -> s { _tS3KeyPrefix = a })
 
 -- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the
 -- account owner when new CloudTrail log files have been delivered.
+--
 tSnsTopicName :: Lens' Trail (Maybe Text)
 tSnsTopicName = lens _tSnsTopicName (\s a -> s { _tSnsTopicName = a })
 

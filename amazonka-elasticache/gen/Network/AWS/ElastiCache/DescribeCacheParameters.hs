@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The /DescribeCacheParameters/ operation returns the detailed parameter list
--- for a particular cache parameter group.
+-- | The /DescribeCacheParameters/ operation returns the detailed parameter list for
+-- a particular cache parameter group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameters.html>
 module Network.AWS.ElastiCache.DescribeCacheParameters
@@ -80,27 +80,35 @@ describeCacheParameters p1 = DescribeCacheParameters
     }
 
 -- | The name of a specific cache parameter group to return details for.
+--
 dcpCacheParameterGroupName :: Lens' DescribeCacheParameters Text
 dcpCacheParameterGroupName =
     lens _dcpCacheParameterGroupName
         (\s a -> s { _dcpCacheParameterGroupName = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by /MaxRecords/.
+-- pagination of results from this operation. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+--
 dcpMarker :: Lens' DescribeCacheParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\s a -> s { _dcpMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified 'MaxRecords' value, a marker is included in the
--- response so that the remaining results can be retrieved. Default: 100
+-- response so that the remaining results can be retrieved.
+--
+-- Default: 100
+--
 -- Constraints: minimum 20; maximum 100.
+--
 dcpMaxRecords :: Lens' DescribeCacheParameters (Maybe Int)
 dcpMaxRecords = lens _dcpMaxRecords (\s a -> s { _dcpMaxRecords = a })
 
--- | The parameter types to return. Valid values: 'user' | 'system' |
--- 'engine-default'.
+-- | The parameter types to return.
+--
+-- Valid values: 'user' | 'system' | 'engine-default'
+--
 dcpSource :: Lens' DescribeCacheParameters (Maybe Text)
 dcpSource = lens _dcpSource (\s a -> s { _dcpSource = a })
 
@@ -127,8 +135,9 @@ describeCacheParametersResponse = DescribeCacheParametersResponse
     , _dcprCacheNodeTypeSpecificParameters = mempty
     }
 
--- | A list of parameters specific to a particular cache node type. Each
--- element in the list contains detailed information about one parameter.
+-- | A list of parameters specific to a particular cache node type. Each element
+-- in the list contains detailed information about one parameter.
+--
 dcprCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse [CacheNodeTypeSpecificParameter]
 dcprCacheNodeTypeSpecificParameters =
     lens _dcprCacheNodeTypeSpecificParameters
@@ -136,10 +145,12 @@ dcprCacheNodeTypeSpecificParameters =
             . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
+--
 dcprMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
 dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
 
 -- | A list of 'Parameter' instances.
+--
 dcprParameters :: Lens' DescribeCacheParametersResponse [Parameter]
 dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a }) . _List
 

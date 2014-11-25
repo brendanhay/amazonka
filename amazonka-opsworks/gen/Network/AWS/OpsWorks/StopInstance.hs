@@ -22,15 +22,12 @@
 
 -- | Stops a specified instance. When you stop a standard instance, the data
 -- disappears and must be reinstalled when you restart the instance. You can
--- stop an Amazon EBS-backed instance without losing data. For more
--- information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html
--- Starting, Stopping, and Rebooting Instances>. Required Permissions: To use
--- this action, an IAM user must have a Manage permissions level for the
--- stack, or an attached policy that explicitly grants permissions. For more
--- information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- stop an Amazon EBS-backed instance without losing data. For more information,
+-- see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html Starting, Stopping, and Rebooting Instances>.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StopInstance.html>
 module Network.AWS.OpsWorks.StopInstance
@@ -70,6 +67,7 @@ stopInstance p1 = StopInstance
     }
 
 -- | The instance ID.
+--
 siInstanceId :: Lens' StopInstance Text
 siInstanceId = lens _siInstanceId (\s a -> s { _siInstanceId = a })
 

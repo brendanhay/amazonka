@@ -13,7 +13,7 @@
 {% include "license.ede" %}
 
 {% if documentation %}
-{{ documentation | above(74, 0) }}
+{{ documentation }}
 {% endif %}
 module {{ namespace }}
     (

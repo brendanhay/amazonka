@@ -21,9 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This operation returns information about the cache of a gateway. This
--- operation is supported only for the gateway-cached volume architecture. The
--- response includes disk IDs that are configured as cache, and it includes
--- the amount of cache allocated and used.
+-- operation is supported only for the gateway-cached volume architecture.
+--
+-- The response includes disk IDs that are configured as cache, and it
+-- includes the amount of cache allocated and used.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCache.html>
 module Network.AWS.StorageGateway.DescribeCache

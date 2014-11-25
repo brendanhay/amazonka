@@ -23,12 +23,15 @@
 -- | Returns one or more cluster subnet group objects, which contain metadata
 -- about your cluster subnet groups. By default, this operation returns
 -- information about all cluster subnet groups that are defined in you AWS
--- account. If you specify both tag keys and tag values in the same request,
--- Amazon Redshift returns all subnet groups that match any combination of the
--- specified keys and values. For example, if you have 'owner' and
--- 'environment' for tag keys, and 'admin' and 'test' for tag values, all
--- subnet groups that have any combination of those values are returned. If
--- both tag keys and values are omitted from the request, subnet groups are
+-- account.
+--
+-- If you specify both tag keys and tag values in the same request, Amazon
+-- Redshift returns all subnet groups that match any combination of the
+-- specified keys and values. For example, if you have 'owner' and 'environment' for
+-- tag keys, and 'admin' and 'test' for tag values, all subnet groups that have any
+-- combination of those values are returned.
+--
+-- If both tag keys and values are omitted from the request, subnet groups are
 -- returned regardless of whether they have tag keys or values associated with
 -- them.
 --
@@ -92,44 +95,51 @@ describeClusterSubnetGroups = DescribeClusterSubnetGroups
     }
 
 -- | The name of the cluster subnet group for which information is requested.
+--
 dcsg1ClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
 dcsg1ClusterSubnetGroupName =
     lens _dcsg1ClusterSubnetGroupName
         (\s a -> s { _dcsg1ClusterSubnetGroupName = a })
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a 'DescribeClusterSubnetGroups'
--- request exceed the value specified in 'MaxRecords', AWS returns a value
--- in the 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
+-- | An optional parameter that specifies the starting point to return a set of
+-- response records. When the results of a 'DescribeClusterSubnetGroups' request
+-- exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker'
+-- field of the response. You can retrieve the next set of response records by
+-- providing the returned marker value in the 'Marker' parameter and retrying the
+-- request.
+--
 dcsg1Marker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
 dcsg1Marker = lens _dcsg1Marker (\s a -> s { _dcsg1Marker = a })
 
--- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified 'MaxRecords'
--- value, a value is returned in a 'marker' field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value. Default: '100' Constraints: minimum 20, maximum
--- 100.
+-- | The maximum number of response records to return in each call. If the number
+-- of remaining response records exceeds the specified 'MaxRecords' value, a value
+-- is returned in a 'marker' field of the response. You can retrieve the next set
+-- of records by retrying the command with the returned marker value.
+--
+-- Default: '100'
+--
+-- Constraints: minimum 20, maximum 100.
+--
 dcsg1MaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Int)
 dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
 
--- | A tag key or keys for which you want to return all matching cluster
--- subnet groups that are associated with the specified key or keys. For
--- example, suppose that you have subnet groups that are tagged with keys
--- called 'owner' and 'environment'. If you specify both of these tag keys
--- in the request, Amazon Redshift returns a response with the subnet groups
--- that have either or both of these tag keys associated with them.
+-- | A tag key or keys for which you want to return all matching cluster subnet
+-- groups that are associated with the specified key or keys. For example,
+-- suppose that you have subnet groups that are tagged with keys called 'owner'
+-- and 'environment'. If you specify both of these tag keys in the request, Amazon
+-- Redshift returns a response with the subnet groups that have either or both
+-- of these tag keys associated with them.
+--
 dcsg1TagKeys :: Lens' DescribeClusterSubnetGroups [Text]
 dcsg1TagKeys = lens _dcsg1TagKeys (\s a -> s { _dcsg1TagKeys = a }) . _List
 
 -- | A tag value or values for which you want to return all matching cluster
--- subnet groups that are associated with the specified tag value or values.
--- For example, suppose that you have subnet groups that are tagged with
--- values called 'admin' and 'test'. If you specify both of these tag values
--- in the request, Amazon Redshift returns a response with the subnet groups
--- that have either or both of these tag values associated with them.
+-- subnet groups that are associated with the specified tag value or values. For
+-- example, suppose that you have subnet groups that are tagged with values
+-- called 'admin' and 'test'. If you specify both of these tag values in the
+-- request, Amazon Redshift returns a response with the subnet groups that have
+-- either or both of these tag values associated with them.
+--
 dcsg1TagValues :: Lens' DescribeClusterSubnetGroups [Text]
 dcsg1TagValues = lens _dcsg1TagValues (\s a -> s { _dcsg1TagValues = a }) . _List
 
@@ -153,6 +163,7 @@ describeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
     }
 
 -- | A list of 'ClusterSubnetGroup' instances.
+--
 dcsgrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
 dcsgrClusterSubnetGroups =
     lens _dcsgrClusterSubnetGroups
@@ -160,11 +171,11 @@ dcsgrClusterSubnetGroups =
             . _List
 
 -- | A value that indicates the starting point for the next set of response
--- records in a subsequent request. If a value is returned in a response,
--- you can retrieve the next set of records by providing this returned
--- marker value in the 'Marker' parameter and retrying the command. If the
--- 'Marker' field is empty, all response records have been retrieved for the
--- request.
+-- records in a subsequent request. If a value is returned in a response, you
+-- can retrieve the next set of records by providing this returned marker value
+-- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
+-- empty, all response records have been retrieved for the request.
+--
 dcsgrMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
 dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 

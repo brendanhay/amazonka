@@ -67,6 +67,7 @@ describeTrustedAdvisorChecks p1 = DescribeTrustedAdvisorChecks
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
+--
 dtacLanguage :: Lens' DescribeTrustedAdvisorChecks Text
 dtacLanguage = lens _dtacLanguage (\s a -> s { _dtacLanguage = a })
 
@@ -92,6 +93,7 @@ describeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse
     }
 
 -- | Information about all available Trusted Advisor checks.
+--
 dtacrChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
 dtacrChecks = lens _dtacrChecks (\s a -> s { _dtacrChecks = a }) . _List
 

@@ -118,113 +118,108 @@ createStack p1 = CreateStack
     , _csTags             = mempty
     }
 
--- | A list of capabilities that you must specify before AWS CloudFormation
--- can create or update certain stacks. Some stack templates might include
--- resources that can affect permissions in your AWS account. For those
--- stacks, you must explicitly acknowledge their capabilities by specifying
--- this parameter. Currently, the only valid value is 'CAPABILITY_IAM',
--- which is required for the following resources:
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
--- AWS::CloudFormation::Stack>,
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html
--- AWS::IAM::AccessKey>,
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html
--- AWS::IAM::Group>,
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html
--- AWS::IAM::InstanceProfile>,
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html
--- AWS::IAM::Policy>,
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
--- AWS::IAM::Role>,
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
--- AWS::IAM::User>, and
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html
--- AWS::IAM::UserToGroupAddition>. If your stack template contains these
--- resources, we recommend that you review any permissions associated with
--- them. If you don't specify this parameter, this action returns an
--- 'InsufficientCapabilities' error.
+-- | A list of capabilities that you must specify before AWS CloudFormation can
+-- create or update certain stacks. Some stack templates might include resources
+-- that can affect permissions in your AWS account. For those stacks, you must
+-- explicitly acknowledge their capabilities by specifying this parameter.
+--
+-- Currently, the only valid value is 'CAPABILITY_IAM', which is required for the
+-- following resources: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html  AWS::CloudFormation::Stack>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html  AWS::IAM::AccessKey>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html  AWS::IAM::InstanceProfile>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html  AWS::IAM::Policy>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html  AWS::IAM::User>, and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html  AWS::IAM::UserToGroupAddition>. If your
+-- stack template contains these resources, we recommend that you review any
+-- permissions associated with them. If you don't specify this parameter, this
+-- action returns an 'InsufficientCapabilities' error.
+--
 csCapabilities :: Lens' CreateStack [Capability]
 csCapabilities = lens _csCapabilities (\s a -> s { _csCapabilities = a }) . _List
 
--- | Set to 'true' to disable rollback of the stack if stack creation failed.
--- You can specify either 'DisableRollback' or 'OnFailure', but not both.
--- Default: 'false'.
+-- | Set to 'true' to disable rollback of the stack if stack creation failed. You
+-- can specify either 'DisableRollback' or 'OnFailure', but not both.
+--
+-- Default: 'false'
+--
 csDisableRollback :: Lens' CreateStack (Maybe Bool)
 csDisableRollback =
     lens _csDisableRollback (\s a -> s { _csDisableRollback = a })
 
 -- | The Simple Notification Service (SNS) topic ARNs to publish stack related
--- events. You can find your SNS topic ARNs using the
--- <http://console.aws.amazon.com/sns SNS console> or your Command Line
--- Interface (CLI).
+-- events. You can find your SNS topic ARNs using the <http://console.aws.amazon.com/sns SNS console> or your
+-- Command Line Interface (CLI).
+--
 csNotificationARNs :: Lens' CreateStack [Text]
 csNotificationARNs =
     lens _csNotificationARNs (\s a -> s { _csNotificationARNs = a })
         . _List
 
--- | Determines what action will be taken if stack creation fails. This must
--- be one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either
--- 'OnFailure' or 'DisableRollback', but not both. Default: 'ROLLBACK'.
+-- | Determines what action will be taken if stack creation fails. This must be
+-- one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either 'OnFailure' or 'DisableRollback', but not both.
+--
+-- Default: 'ROLLBACK'
+--
 csOnFailure :: Lens' CreateStack (Maybe OnFailure)
 csOnFailure = lens _csOnFailure (\s a -> s { _csOnFailure = a })
 
--- | A list of 'Parameter' structures that specify input parameters for the
--- stack.
+-- | A list of 'Parameter' structures that specify input parameters for the stack.
+--
 csParameters :: Lens' CreateStack [Parameter]
 csParameters = lens _csParameters (\s a -> s { _csParameters = a }) . _List
 
--- | The name associated with the stack. The name must be unique within your
--- AWS account. Must contain only alphanumeric characters (case sensitive)
--- and start with an alpha character. Maximum length of the name is 255
--- characters.
+-- | The name associated with the stack. The name must be unique within your AWS
+-- account.
+--
+-- Must contain only alphanumeric characters (case sensitive) and start with an
+-- alpha character. Maximum length of the name is 255 characters.
 csStackName :: Lens' CreateStack Text
 csStackName = lens _csStackName (\s a -> s { _csStackName = a })
 
--- | Structure containing the stack policy body. For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html
--- Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.
--- You can specify either the 'StackPolicyBody' or the 'StackPolicyURL'
--- parameter, but not both.
+-- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You
+-- can specify either the 'StackPolicyBody' or the 'StackPolicyURL' parameter, but
+-- not both.
+--
 csStackPolicyBody :: Lens' CreateStack (Maybe Text)
 csStackPolicyBody =
     lens _csStackPolicyBody (\s a -> s { _csStackPolicyBody = a })
 
 -- | Location of a file containing the stack policy. The URL must point to a
 -- policy (max size: 16KB) located in an S3 bucket in the same region as the
--- stack. You can specify either the 'StackPolicyBody' or the
--- 'StackPolicyURL' parameter, but not both.
+-- stack. You can specify either the 'StackPolicyBody' or the 'StackPolicyURL'
+-- parameter, but not both.
+--
 csStackPolicyURL :: Lens' CreateStack (Maybe Text)
 csStackPolicyURL = lens _csStackPolicyURL (\s a -> s { _csStackPolicyURL = a })
 
 -- | A set of user-defined 'Tags' to associate with this stack, represented by
--- key/value pairs. Tags defined for the stack are propagated to EC2
--- resources that are created as part of the stack. A maximum number of 10
--- tags can be specified.
+-- key/value pairs. Tags defined for the stack are propagated to EC2 resources
+-- that are created as part of the stack. A maximum number of 10 tags can be
+-- specified.
+--
 csTags :: Lens' CreateStack [Tag]
 csTags = lens _csTags (\s a -> s { _csTags = a }) . _List
 
--- | Structure containing the template body with a minimum length of 1 byte
--- and a maximum length of 51,200 bytes. For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
--- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
--- must specify either the 'TemplateBody' or the 'TemplateURL' parameter,
--- but not both.
+-- | Structure containing the template body with a minimum length of 1 byte and a
+-- maximum length of 51,200 bytes. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the AWS CloudFormation User Guide.
+--
+-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'
+-- parameter, but not both.
+--
 csTemplateBody :: Lens' CreateStack (Maybe Text)
 csTemplateBody = lens _csTemplateBody (\s a -> s { _csTemplateBody = a })
 
 -- | Location of file containing the template body. The URL must point to a
--- template (max size: 307,200 bytes) located in an S3 bucket in the same
--- region as the stack. For more information, go to the
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
--- Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You
--- must specify either the 'TemplateBody' or the 'TemplateURL' parameter,
--- but not both.
+-- template (max size: 307,200 bytes) located in an S3 bucket in the same region
+-- as the stack. For more information, go to the <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS
+-- CloudFormation User Guide.
+--
+-- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'
+-- parameter, but not both.
+--
 csTemplateURL :: Lens' CreateStack (Maybe Text)
 csTemplateURL = lens _csTemplateURL (\s a -> s { _csTemplateURL = a })
 
 -- | The amount of time that can pass before the stack status becomes
--- CREATE_FAILED; if 'DisableRollback' is not set or is set to 'false', the
--- stack will be rolled back.
+-- CREATE_FAILED; if 'DisableRollback' is not set or is set to 'false', the stack
+-- will be rolled back.
+--
 csTimeoutInMinutes :: Lens' CreateStack (Maybe Natural)
 csTimeoutInMinutes =
     lens _csTimeoutInMinutes (\s a -> s { _csTimeoutInMinutes = a })
@@ -246,6 +241,7 @@ createStackResponse = CreateStackResponse
     }
 
 -- | Unique identifier of the stack.
+--
 csrStackId :: Lens' CreateStackResponse (Maybe Text)
 csrStackId = lens _csrStackId (\s a -> s { _csrStackId = a })
 

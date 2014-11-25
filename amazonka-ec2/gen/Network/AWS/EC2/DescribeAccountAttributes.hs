@@ -66,6 +66,7 @@ describeAccountAttributes = DescribeAccountAttributes
     }
 
 -- | One or more account attribute names.
+--
 daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
 daaAttributeNames =
     lens _daaAttributeNames (\s a -> s { _daaAttributeNames = a })
@@ -96,6 +97,7 @@ describeAccountAttributesResponse = DescribeAccountAttributesResponse
     }
 
 -- | Information about one or more account attributes.
+--
 daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
 daarAccountAttributes =
     lens _daarAccountAttributes (\s a -> s { _daarAccountAttributes = a })

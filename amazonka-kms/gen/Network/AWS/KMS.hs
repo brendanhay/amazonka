@@ -9,13 +9,12 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Amazon Key Management Service (KMS) is a managed service that makes it easy
--- for you to create and control the encryption keys used to encrypt your
--- data, and uses Hardware Security Modules (HSMs) to protect the security of
--- your keys. Amazon Key Management Service is integrated with other Amazon
--- services including Amazon EBS, Amazon S3, and Amazon Redshift. Amazon Key
--- Management Service is also integrated with Amazon CloudTrail to provide you
--- with logs of all key usage to help meet your regulatory and compliance
--- needs.
+-- for you to create and control the encryption keys used to encrypt your data,
+-- and uses Hardware Security Modules (HSMs) to protect the security of your
+-- keys. Amazon Key Management Service is integrated with other Amazon services
+-- including Amazon EBS, Amazon S3, and Amazon Redshift. Amazon Key Management
+-- Service is also integrated with Amazon CloudTrail to provide you with logs of
+-- all key usage to help meet your regulatory and compliance needs.
 module Network.AWS.KMS
     ( module Network.AWS.KMS.CreateAlias
     , module Network.AWS.KMS.CreateGrant

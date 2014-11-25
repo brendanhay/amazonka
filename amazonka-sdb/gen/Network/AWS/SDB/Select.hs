@@ -20,15 +20,18 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The 'Select' operation returns a set of attributes for 'ItemNames' that
--- match the select expression. 'Select' is similar to the standard SQL SELECT
--- statement. The total size of the response cannot exceed 1 MB in total size.
--- Amazon SimpleDB automatically adjusts the number of items returned per page
--- to enforce this limit. For example, if the client asks to retrieve 2500
--- items, but each individual item is 10 kB in size, the system returns 100
--- items and an appropriate 'NextToken' so the client can access the next page
--- of results. For information on how to construct select expressions, see
--- Using Select to Create Amazon SimpleDB Queries in the Developer Guide.
+-- | The 'Select' operation returns a set of attributes for 'ItemNames' that match
+-- the select expression. 'Select' is similar to the standard SQL SELECT
+-- statement.
+--
+-- The total size of the response cannot exceed 1 MB in total size. Amazon
+-- SimpleDB automatically adjusts the number of items returned per page to
+-- enforce this limit. For example, if the client asks to retrieve 2500 items,
+-- but each individual item is 10 kB in size, the system returns 100 items and
+-- an appropriate 'NextToken' so the client can access the next page of results.
+--
+-- For information on how to construct select expressions, see Using Select to
+-- Create Amazon SimpleDB Queries in the Developer Guide.
 --
 -- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_Select.html>
 module Network.AWS.SDB.Select
@@ -80,16 +83,14 @@ select p1 = Select
     , _sConsistentRead   = Nothing
     }
 
--- | Determines whether or not strong consistency should be enforced when data
--- is read from SimpleDB. If 'true', any data previously written to SimpleDB
--- will be returned. Otherwise, results will be consistent eventually, and
--- the client may not see data that was written immediately before your
--- read.
+-- | Determines whether or not strong consistency should be enforced when data is
+-- read from SimpleDB. If 'true', any data previously written to SimpleDB will be
+-- returned. Otherwise, results will be consistent eventually, and the client
+-- may not see data that was written immediately before your read.
 sConsistentRead :: Lens' Select (Maybe Bool)
 sConsistentRead = lens _sConsistentRead (\s a -> s { _sConsistentRead = a })
 
--- | A string informing Amazon SimpleDB where to start the next list of
--- 'ItemNames'.
+-- | A string informing Amazon SimpleDB where to start the next list of 'ItemNames'.
 sNextToken :: Lens' Select (Maybe Text)
 sNextToken = lens _sNextToken (\s a -> s { _sNextToken = a })
 

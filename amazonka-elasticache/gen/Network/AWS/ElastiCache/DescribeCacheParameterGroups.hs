@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The /DescribeCacheParameterGroups/ operation returns a list of cache
--- parameter group descriptions. If a cache parameter group name is specified,
--- the list will contain only the descriptions for that group.
+-- | The /DescribeCacheParameterGroups/ operation returns a list of cache parameter
+-- group descriptions. If a cache parameter group name is specified, the list
+-- will contain only the descriptions for that group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameterGroups.html>
 module Network.AWS.ElastiCache.DescribeCacheParameterGroups
@@ -74,22 +74,28 @@ describeCacheParameterGroups = DescribeCacheParameterGroups
     }
 
 -- | The name of a specific cache parameter group to return details for.
+--
 dcpgCacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpgCacheParameterGroupName =
     lens _dcpgCacheParameterGroupName
         (\s a -> s { _dcpgCacheParameterGroupName = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by /MaxRecords/.
+-- pagination of results from this operation. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+--
 dcpgMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpgMarker = lens _dcpgMarker (\s a -> s { _dcpgMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified 'MaxRecords' value, a marker is included in the
--- response so that the remaining results can be retrieved. Default: 100
+-- response so that the remaining results can be retrieved.
+--
+-- Default: 100
+--
 -- Constraints: minimum 20; maximum 100.
+--
 dcpgMaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Int)
 dcpgMaxRecords = lens _dcpgMaxRecords (\s a -> s { _dcpgMaxRecords = a })
 
@@ -112,8 +118,9 @@ describeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
     , _dcpgrCacheParameterGroups = mempty
     }
 
--- | A list of cache parameter groups. Each element in the list contains
--- detailed information about one cache parameter group.
+-- | A list of cache parameter groups. Each element in the list contains detailed
+-- information about one cache parameter group.
+--
 dcpgrCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
 dcpgrCacheParameterGroups =
     lens _dcpgrCacheParameterGroups
@@ -121,6 +128,7 @@ dcpgrCacheParameterGroups =
             . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
+--
 dcpgrMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
 dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 

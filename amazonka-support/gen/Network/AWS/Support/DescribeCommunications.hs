@@ -21,14 +21,16 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns communications (and attachments) for one or more support cases. You
--- can use the 'AfterTime' and 'BeforeTime' parameters to filter by date. You
--- can use the 'CaseId' parameter to restrict the results to a particular
--- case. Case data is available for 12 months after creation. If a case was
--- created more than 12 months ago, a request for data might cause an error.
+-- can use the 'AfterTime' and 'BeforeTime' parameters to filter by date. You can
+-- use the 'CaseId' parameter to restrict the results to a particular case.
+--
+-- Case data is available for 12 months after creation. If a case was created
+-- more than 12 months ago, a request for data might cause an error.
+--
 -- You can use the 'MaxResults' and 'NextToken' parameters to control the
--- pagination of the result set. Set 'MaxResults' to the number of cases you
--- want displayed on each page, and use 'NextToken' to specify the resumption
--- of pagination.
+-- pagination of the result set. Set 'MaxResults' to the number of cases you want
+-- displayed on each page, and use 'NextToken' to specify the resumption of
+-- pagination.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCommunications.html>
 module Network.AWS.Support.DescribeCommunications
@@ -92,25 +94,29 @@ describeCommunications p1 = DescribeCommunications
 
 -- | The start date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
+--
 dc1AfterTime :: Lens' DescribeCommunications (Maybe Text)
 dc1AfterTime = lens _dc1AfterTime (\s a -> s { _dc1AfterTime = a })
 
--- | The end date for a filtered date search on support case communications.
--- Case communications are available for 12 months after creation.
+-- | The end date for a filtered date search on support case communications. Case
+-- communications are available for 12 months after creation.
+--
 dc1BeforeTime :: Lens' DescribeCommunications (Maybe Text)
 dc1BeforeTime = lens _dc1BeforeTime (\s a -> s { _dc1BeforeTime = a })
 
--- | The AWS Support case ID requested or returned in the call. The case ID is
--- an alphanumeric string formatted as shown in this example:
--- case-/12345678910-2013-c4c1d2bf33c5cf47/.
+-- | The AWS Support case ID requested or returned in the call. The case ID is an
+-- alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
+--
 dc1CaseId :: Lens' DescribeCommunications Text
 dc1CaseId = lens _dc1CaseId (\s a -> s { _dc1CaseId = a })
 
 -- | The maximum number of results to return before paginating.
+--
 dc1MaxResults :: Lens' DescribeCommunications (Maybe Natural)
 dc1MaxResults = lens _dc1MaxResults (\s a -> s { _dc1MaxResults = a }) . mapping _Nat
 
 -- | A resumption point for pagination.
+--
 dc1NextToken :: Lens' DescribeCommunications (Maybe Text)
 dc1NextToken = lens _dc1NextToken (\s a -> s { _dc1NextToken = a })
 
@@ -134,12 +140,14 @@ describeCommunicationsResponse = DescribeCommunicationsResponse
     }
 
 -- | The communications for the case.
+--
 dcrCommunications :: Lens' DescribeCommunicationsResponse [Communication]
 dcrCommunications =
     lens _dcrCommunications (\s a -> s { _dcrCommunications = a })
         . _List
 
 -- | A resumption point for pagination.
+--
 dcrNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
 dcrNextToken = lens _dcrNextToken (\s a -> s { _dcrNextToken = a })
 

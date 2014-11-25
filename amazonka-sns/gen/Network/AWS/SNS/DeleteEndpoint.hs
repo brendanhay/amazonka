@@ -21,9 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the endpoint from Amazon SNS. This action is idempotent. For more
--- information, see
--- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon
--- SNS Mobile Push Notifications>.
+-- information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_DeleteEndpoint.html>
 module Network.AWS.SNS.DeleteEndpoint
@@ -63,6 +61,7 @@ deleteEndpoint p1 = DeleteEndpoint
     }
 
 -- | EndpointArn of endpoint to delete.
+--
 deEndpointArn :: Lens' DeleteEndpoint Text
 deEndpointArn = lens _deEndpointArn (\s a -> s { _deEndpointArn = a })
 

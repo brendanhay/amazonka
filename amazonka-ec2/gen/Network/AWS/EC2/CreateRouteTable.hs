@@ -20,11 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates a route table for the specified VPC. After you create a route
--- table, you can add routes and associate the table with a subnet. For more
--- information about route tables, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html
--- Route Tables> in the /Amazon Virtual Private Cloud User Guide/.
+-- | Creates a route table for the specified VPC. After you create a route table,
+-- you can add routes and associate the table with a subnet.
+--
+-- For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /AmazonVirtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRouteTable.html>
 module Network.AWS.EC2.CreateRouteTable
@@ -74,6 +73,7 @@ crtDryRun :: Lens' CreateRouteTable (Maybe Bool)
 crtDryRun = lens _crtDryRun (\s a -> s { _crtDryRun = a })
 
 -- | The ID of the VPC.
+--
 crtVpcId :: Lens' CreateRouteTable Text
 crtVpcId = lens _crtVpcId (\s a -> s { _crtVpcId = a })
 
@@ -93,6 +93,7 @@ createRouteTableResponse = CreateRouteTableResponse
     }
 
 -- | Information about the route table.
+--
 crtrRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtrRouteTable = lens _crtrRouteTable (\s a -> s { _crtrRouteTable = a })
 

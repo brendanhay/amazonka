@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This operation lists in-progress multipart uploads.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListMultipartUploads.html>
 module Network.AWS.S3.ListMultipartUploads
     (
@@ -112,25 +111,25 @@ lmuDelimiter = lens _lmuDelimiter (\s a -> s { _lmuDelimiter = a })
 lmuEncodingType :: Lens' ListMultipartUploads (Maybe EncodingType)
 lmuEncodingType = lens _lmuEncodingType (\s a -> s { _lmuEncodingType = a })
 
--- | Together with upload-id-marker, this parameter specifies the multipart
--- upload after which listing should begin.
+-- | Together with upload-id-marker, this parameter specifies the multipart upload
+-- after which listing should begin.
 lmuKeyMarker :: Lens' ListMultipartUploads (Maybe Text)
 lmuKeyMarker = lens _lmuKeyMarker (\s a -> s { _lmuKeyMarker = a })
 
--- | Sets the maximum number of multipart uploads, from 1 to 1,000, to return
--- in the response body. 1,000 is the maximum number of uploads that can be
+-- | Sets the maximum number of multipart uploads, from 1 to 1,000, to return in
+-- the response body. 1,000 is the maximum number of uploads that can be
 -- returned in a response.
 lmuMaxUploads :: Lens' ListMultipartUploads (Maybe Int)
 lmuMaxUploads = lens _lmuMaxUploads (\s a -> s { _lmuMaxUploads = a })
 
--- | Lists in-progress uploads only for those keys that begin with the
--- specified prefix.
+-- | Lists in-progress uploads only for those keys that begin with the specified
+-- prefix.
 lmuPrefix :: Lens' ListMultipartUploads (Maybe Text)
 lmuPrefix = lens _lmuPrefix (\s a -> s { _lmuPrefix = a })
 
--- | Together with key-marker, specifies the multipart upload after which
--- listing should begin. If key-marker is not specified, the
--- upload-id-marker parameter is ignored.
+-- | Together with key-marker, specifies the multipart upload after which listing
+-- should begin. If key-marker is not specified, the upload-id-marker parameter
+-- is ignored.
 lmuUploadIdMarker :: Lens' ListMultipartUploads (Maybe Text)
 lmuUploadIdMarker =
     lens _lmuUploadIdMarker (\s a -> s { _lmuUploadIdMarker = a })
@@ -238,9 +237,8 @@ lmurNextUploadIdMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmurNextUploadIdMarker =
     lens _lmurNextUploadIdMarker (\s a -> s { _lmurNextUploadIdMarker = a })
 
--- | When a prefix is provided in the request, this field contains the
--- specified prefix. The result contains only keys starting with the
--- specified prefix.
+-- | When a prefix is provided in the request, this field contains the specified
+-- prefix. The result contains only keys starting with the specified prefix.
 lmurPrefix :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmurPrefix = lens _lmurPrefix (\s a -> s { _lmurPrefix = a })
 

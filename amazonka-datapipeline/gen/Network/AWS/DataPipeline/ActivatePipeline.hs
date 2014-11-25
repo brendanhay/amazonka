@@ -20,11 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Validates a pipeline and initiates processing. If the pipeline does not
--- pass validation, activation fails. Call this action to start processing
--- pipeline tasks of a pipeline you've created using the 'CreatePipeline' and
--- 'PutPipelineDefinition' actions. A pipeline cannot be modified after it has
--- been successfully activated.
+-- | Validates a pipeline and initiates processing. If the pipeline does not pass
+-- validation, activation fails.
+--
+-- Call this action to start processing pipeline tasks of a pipeline you've
+-- created using the 'CreatePipeline' and 'PutPipelineDefinition' actions. A
+-- pipeline cannot be modified after it has been successfully activated.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ActivatePipeline.html>
 module Network.AWS.DataPipeline.ActivatePipeline
@@ -64,6 +65,7 @@ activatePipeline p1 = ActivatePipeline
     }
 
 -- | The identifier of the pipeline to activate.
+--
 apPipelineId :: Lens' ActivatePipeline Text
 apPipelineId = lens _apPipelineId (\s a -> s { _apPipelineId = a })
 

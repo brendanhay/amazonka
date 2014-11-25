@@ -9,9 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | The AWS Security Token Service (STS) is a web service that enables you to
--- request temporary, limited-privilege credentials for AWS Identity and
--- Access Management (IAM) users or for users that you authenticate (federated
--- users).
+-- request temporary, limited-privilege credentials for AWS Identity and Access
+-- Management (IAM) users or for users that you authenticate (federated users).
 module Network.AWS.STS
     ( module Network.AWS.STS.AssumeRole
     , module Network.AWS.STS.AssumeRoleWithSAML

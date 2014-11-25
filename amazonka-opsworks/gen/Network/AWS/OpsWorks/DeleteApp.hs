@@ -20,12 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes a specified app. Required Permissions: To use this action, an IAM
--- user must have a Manage permissions level for the stack, or an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Deletes a specified app.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteApp.html>
 module Network.AWS.OpsWorks.DeleteApp
@@ -65,6 +64,7 @@ deleteApp p1 = DeleteApp
     }
 
 -- | The app ID.
+--
 daAppId :: Lens' DeleteApp Text
 daAppId = lens _daAppId (\s a -> s { _daAppId = a })
 

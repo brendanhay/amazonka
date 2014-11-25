@@ -254,15 +254,14 @@ sourceSecurityGroup = SourceSecurityGroup
     , _ssgGroupName  = Nothing
     }
 
--- | Name of the source security group. Use this value for the
--- '--source-group' parameter of the 'ec2-authorize' command in the Amazon
--- EC2 command line tool.
+-- | Name of the source security group. Use this value for the '--source-group'
+-- parameter of the 'ec2-authorize' command in the Amazon EC2 command line tool.
+--
 ssgGroupName :: Lens' SourceSecurityGroup (Maybe Text)
 ssgGroupName = lens _ssgGroupName (\s a -> s { _ssgGroupName = a })
 
--- | Owner of the source security group. Use this value for the
--- '--source-group-user' parameter of the 'ec2-authorize' command in the
--- Amazon EC2 command line tool.
+-- | Owner of the source security group. Use this value for the '--source-group-user' parameter of the 'ec2-authorize' command in the Amazon EC2 command line tool.
+--
 ssgOwnerAlias :: Lens' SourceSecurityGroup (Maybe Text)
 ssgOwnerAlias = lens _ssgOwnerAlias (\s a -> s { _ssgOwnerAlias = a })
 
@@ -298,11 +297,13 @@ tagDescription p1 = TagDescription
     }
 
 -- | The name of the load balancer.
+--
 tdLoadBalancerName :: Lens' TagDescription (Maybe Text)
 tdLoadBalancerName =
     lens _tdLoadBalancerName (\s a -> s { _tdLoadBalancerName = a })
 
 -- | List of tags associated with the load balancer.
+--
 tdTags :: Lens' TagDescription (NonEmpty Tag)
 tdTags = lens _tdTags (\s a -> s { _tdTags = a }) . _List1
 
@@ -338,10 +339,12 @@ tag p1 = Tag
     }
 
 -- | The key of the tag.
+--
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
 -- | The value of the tag.
+--
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
@@ -388,27 +391,31 @@ policyAttributeTypeDescription = PolicyAttributeTypeDescription
     }
 
 -- | The name of the attribute associated with the policy type.
+--
 patdAttributeName :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 patdAttributeName =
     lens _patdAttributeName (\s a -> s { _patdAttributeName = a })
 
 -- | The type of attribute. For example, Boolean, Integer, etc.
+--
 patdAttributeType :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 patdAttributeType =
     lens _patdAttributeType (\s a -> s { _patdAttributeType = a })
 
--- | The cardinality of the attribute. Valid Values: ONE(1) : Single value
--- required ZERO_OR_ONE(0..1) : Up to one value can be supplied
--- ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
--- ONE_OR_MORE(1..*0) : Required. Multiple values are allowed.
+-- | The cardinality of the attribute. Valid Values:  ONE(1) : Single value
+-- required ZERO_OR_ONE(0..1) : Up to one value can be supplied ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
+-- ONE_OR_MORE(1..*0) : Required. Multiple values are allowed
+--
 patdCardinality :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 patdCardinality = lens _patdCardinality (\s a -> s { _patdCardinality = a })
 
 -- | The default value of the attribute, if applicable.
+--
 patdDefaultValue :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 patdDefaultValue = lens _patdDefaultValue (\s a -> s { _patdDefaultValue = a })
 
 -- | A human-readable description of the attribute.
+--
 patdDescription :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 patdDescription = lens _patdDescription (\s a -> s { _patdDescription = a })
 
@@ -465,42 +472,53 @@ healthCheck p1 p2 p3 p4 p5 = HealthCheck
     , _hcHealthyThreshold   = withIso _Nat (const id) p5
     }
 
--- | Specifies the number of consecutive health probe successes required
--- before moving the instance to the /Healthy/ state.
+-- | Specifies the number of consecutive health probe successes required before
+-- moving the instance to the /Healthy/ state.
+--
 hcHealthyThreshold :: Lens' HealthCheck Natural
 hcHealthyThreshold =
     lens _hcHealthyThreshold (\s a -> s { _hcHealthyThreshold = a })
         . _Nat
 
--- | Specifies the approximate interval, in seconds, between health checks of
--- an individual instance.
+-- | Specifies the approximate interval, in seconds, between health checks of an
+-- individual instance.
+--
 hcInterval :: Lens' HealthCheck Natural
 hcInterval = lens _hcInterval (\s a -> s { _hcInterval = a }) . _Nat
 
 -- | Specifies the instance being checked. The protocol is either TCP, HTTP,
--- HTTPS, or SSL. The range of valid ports is one (1) through 65535. TCP is
--- the default, specified as a TCP: port pair, for example "TCP:5000". In
--- this case a healthcheck simply attempts to open a TCP connection to the
+-- HTTPS, or SSL. The range of valid ports is one (1) through 65535.
+--
+-- TCP is the default, specified as a TCP: port pair, for example "TCP:5000".
+-- In this case a healthcheck simply attempts to open a TCP connection to the
 -- instance on the specified port. Failure to connect within the configured
--- timeout is considered unhealthy. SSL is also specified as SSL: port pair,
--- for example, SSL:5000. For HTTP or HTTPS protocol, the situation is
--- different. You have to include a ping path in the string. HTTP is
--- specified as a HTTP:port;/;PathToPing; grouping, for example
--- "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is
--- issued to the instance on the given port and path. Any answer other than
--- "200 OK" within the timeout period is considered unhealthy. The total
--- length of the HTTP ping target needs to be 1024 16-bit Unicode characters
--- or less.
+-- timeout is considered unhealthy.
+--
+-- SSL is also specified as SSL: port pair, for example, SSL:5000.
+--
+-- For HTTP or HTTPS protocol, the situation is different. You have to include
+-- a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing;
+-- grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP
+-- GET request is issued to the instance on the given port and path. Any answer
+-- other than "200 OK" within the timeout period is considered unhealthy.
+--
+-- The total length of the HTTP ping target needs to be 1024 16-bit Unicode
+-- characters or less.
+--
+--
 hcTarget :: Lens' HealthCheck Text
 hcTarget = lens _hcTarget (\s a -> s { _hcTarget = a })
 
--- | Specifies the amount of time, in seconds, during which no response means
--- a failed health probe. This value must be less than the /Interval/ value.
+-- | Specifies the amount of time, in seconds, during which no response means a
+-- failed health probe.
+--
+-- This value must be less than the /Interval/ value.
 hcTimeout :: Lens' HealthCheck Natural
 hcTimeout = lens _hcTimeout (\s a -> s { _hcTimeout = a }) . _Nat
 
 -- | Specifies the number of consecutive health probe failures required before
 -- moving the instance to the /Unhealthy/ state.
+--
 hcUnhealthyThreshold :: Lens' HealthCheck Natural
 hcUnhealthyThreshold =
     lens _hcUnhealthyThreshold (\s a -> s { _hcUnhealthyThreshold = a })
@@ -539,8 +557,8 @@ crossZoneLoadBalancing p1 = CrossZoneLoadBalancing
     { _czlbEnabled = p1
     }
 
--- | Specifies whether cross-zone load balancing is enabled for the load
--- balancer.
+-- | Specifies whether cross-zone load balancing is enabled for the load balancer.
+--
 czlbEnabled :: Lens' CrossZoneLoadBalancing Bool
 czlbEnabled = lens _czlbEnabled (\s a -> s { _czlbEnabled = a })
 
@@ -586,10 +604,10 @@ loadBalancerAttributes = LoadBalancerAttributes
 
 -- | The name of the load balancer attribute. If enabled, the load balancer
 -- captures detailed information of all the requests and delivers the
--- information to the Amazon S3 bucket that you specify. For more
--- information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-access-logs.html
--- Enable Access Logs>.
+-- information to the Amazon S3 bucket that you specify.
+--
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-access-logs.html Enable Access Logs>.
+--
 lbaAccessLog :: Lens' LoadBalancerAttributes (Maybe AccessLog)
 lbaAccessLog = lens _lbaAccessLog (\s a -> s { _lbaAccessLog = a })
 
@@ -598,33 +616,36 @@ lbaAdditionalAttributes =
     lens _lbaAdditionalAttributes (\s a -> s { _lbaAdditionalAttributes = a })
         . _List
 
--- | The name of the load balancer attribute. If enabled, the load balancer
--- allows existing requests to complete before the load balancer shifts
--- traffic away from a deregistered or unhealthy back-end instance. For more
--- information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-conn-drain.html
--- Enable Connection Draining>.
+-- | The name of the load balancer attribute. If enabled, the load balancer allows
+-- existing requests to complete before the load balancer shifts traffic away
+-- from a deregistered or unhealthy back-end instance.
+--
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-conn-drain.html Enable Connection Draining>.
+--
 lbaConnectionDraining :: Lens' LoadBalancerAttributes (Maybe ConnectionDraining)
 lbaConnectionDraining =
     lens _lbaConnectionDraining (\s a -> s { _lbaConnectionDraining = a })
 
--- | The name of the load balancer attribute. By default, Elastic Load
--- Balancing maintains a 60-second idle connection timeout for both
--- front-end and back-end connections of your load balancer. If the
--- 'ConnectionSettings' attribute is set, Elastic Load Balancing will allow
--- the connections to remain idle (no data is sent over the connection) for
--- the specified duration. For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-idle-timeout.html
--- Configure Idle Connection Timeout>.
+-- | The name of the load balancer attribute.
+--
+-- By default, Elastic Load Balancing maintains a 60-second idle connection
+-- timeout for both front-end and back-end connections of your load balancer. If
+-- the 'ConnectionSettings' attribute is set, Elastic Load Balancing will allow
+-- the connections to remain idle (no data is sent over the connection) for the
+-- specified duration.
+--
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-idle-timeout.html Configure Idle Connection Timeout>.
+--
 lbaConnectionSettings :: Lens' LoadBalancerAttributes (Maybe ConnectionSettings)
 lbaConnectionSettings =
     lens _lbaConnectionSettings (\s a -> s { _lbaConnectionSettings = a })
 
--- | The name of the load balancer attribute. If enabled, the load balancer
--- routes the request traffic evenly across all back-end instances
--- regardless of the Availability Zones. For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-disable-crosszone-lb.html
--- Enable Cross-Zone Load Balancing>.
+-- | The name of the load balancer attribute. If enabled, the load balancer routes
+-- the request traffic evenly across all back-end instances regardless of the
+-- Availability Zones.
+--
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-disable-crosszone-lb.html Enable Cross-Zone Load Balancing>.
+--
 lbaCrossZoneLoadBalancing :: Lens' LoadBalancerAttributes (Maybe CrossZoneLoadBalancing)
 lbaCrossZoneLoadBalancing =
     lens _lbaCrossZoneLoadBalancing
@@ -675,22 +696,27 @@ accessLog p1 = AccessLog
     , _alS3BucketPrefix = Nothing
     }
 
--- | The interval for publishing the access logs. You can specify an interval
--- of either 5 minutes or 60 minutes. Default: 60 minutes.
+-- | The interval for publishing the access logs. You can specify an interval of
+-- either 5 minutes or 60 minutes.
+--
+-- Default: 60 minutes
+--
 alEmitInterval :: Lens' AccessLog (Maybe Int)
 alEmitInterval = lens _alEmitInterval (\s a -> s { _alEmitInterval = a })
 
 -- | Specifies whether access log is enabled for the load balancer.
+--
 alEnabled :: Lens' AccessLog Bool
 alEnabled = lens _alEnabled (\s a -> s { _alEnabled = a })
 
 -- | The name of the Amazon S3 bucket where the access logs are stored.
+--
 alS3BucketName :: Lens' AccessLog (Maybe Text)
 alS3BucketName = lens _alS3BucketName (\s a -> s { _alS3BucketName = a })
 
--- | The logical hierarchy you created for your Amazon S3 bucket, for example
--- 'my-bucket-prefix/prod'. If the prefix is not provided, the log is placed
--- at the root level of the bucket.
+-- | The logical hierarchy you created for your Amazon S3 bucket, for example 'my-bucket-prefix/prod'. If the prefix is not provided, the log is placed at the root level of the
+-- bucket.
+--
 alS3BucketPrefix :: Lens' AccessLog (Maybe Text)
 alS3BucketPrefix = lens _alS3BucketPrefix (\s a -> s { _alS3BucketPrefix = a })
 
@@ -731,8 +757,9 @@ listenerDescription = ListenerDescription
 ldListener :: Lens' ListenerDescription (Maybe Listener)
 ldListener = lens _ldListener (\s a -> s { _ldListener = a })
 
--- | A list of policies enabled for this listener. An empty list indicates
--- that no policies are enabled.
+-- | A list of policies enabled for this listener. An empty list indicates that
+-- no policies are enabled.
+--
 ldPolicyNames :: Lens' ListenerDescription [Text]
 ldPolicyNames = lens _ldPolicyNames (\s a -> s { _ldPolicyNames = a }) . _List
 
@@ -766,16 +793,18 @@ lbcookieStickinessPolicy = LBCookieStickinessPolicy
     , _lbcspCookieExpirationPeriod = Nothing
     }
 
--- | The time period in seconds after which the cookie should be considered
--- stale. Not specifying this parameter indicates that the stickiness
--- session will last for the duration of the browser session.
+-- | The time period in seconds after which the cookie should be considered stale.
+-- Not specifying this parameter indicates that the stickiness session will last
+-- for the duration of the browser session.
+--
 lbcspCookieExpirationPeriod :: Lens' LBCookieStickinessPolicy (Maybe Integer)
 lbcspCookieExpirationPeriod =
     lens _lbcspCookieExpirationPeriod
         (\s a -> s { _lbcspCookieExpirationPeriod = a })
 
--- | The name for the policy being created. The name must be unique within the
--- set of policies for this load balancer.
+-- | The name for the policy being created. The name must be unique within the set
+-- of policies for this load balancer.
+--
 lbcspPolicyName :: Lens' LBCookieStickinessPolicy (Maybe Text)
 lbcspPolicyName = lens _lbcspPolicyName (\s a -> s { _lbcspPolicyName = a })
 
@@ -814,6 +843,7 @@ policyDescription = PolicyDescription
     }
 
 -- | A list of policy attribute description structures.
+--
 pdPolicyAttributeDescriptions :: Lens' PolicyDescription [PolicyAttributeDescription]
 pdPolicyAttributeDescriptions =
     lens _pdPolicyAttributeDescriptions
@@ -821,10 +851,12 @@ pdPolicyAttributeDescriptions =
             . _List
 
 -- | The name of the policy associated with the load balancer.
+--
 pdPolicyName :: Lens' PolicyDescription (Maybe Text)
 pdPolicyName = lens _pdPolicyName (\s a -> s { _pdPolicyName = a })
 
 -- | The name of the policy type associated with the load balancer.
+--
 pdPolicyTypeName :: Lens' PolicyDescription (Maybe Text)
 pdPolicyTypeName = lens _pdPolicyTypeName (\s a -> s { _pdPolicyTypeName = a })
 
@@ -861,11 +893,13 @@ appCookieStickinessPolicy = AppCookieStickinessPolicy
     }
 
 -- | The name of the application cookie used for stickiness.
+--
 acspCookieName :: Lens' AppCookieStickinessPolicy (Maybe Text)
 acspCookieName = lens _acspCookieName (\s a -> s { _acspCookieName = a })
 
 -- | The mnemonic name for the policy being created. The name must be unique
 -- within a set of policies for this load balancer.
+--
 acspPolicyName :: Lens' AppCookieStickinessPolicy (Maybe Text)
 acspPolicyName = lens _acspPolicyName (\s a -> s { _acspPolicyName = a })
 
@@ -900,10 +934,12 @@ policyAttribute = PolicyAttribute
     }
 
 -- | The name of the attribute associated with the policy.
+--
 paAttributeName :: Lens' PolicyAttribute (Maybe Text)
 paAttributeName = lens _paAttributeName (\s a -> s { _paAttributeName = a })
 
 -- | The value of the attribute associated with the policy.
+--
 paAttributeValue :: Lens' PolicyAttribute (Maybe Text)
 paAttributeValue = lens _paAttributeValue (\s a -> s { _paAttributeValue = a })
 
@@ -994,103 +1030,115 @@ loadBalancerDescription = LoadBalancerDescription
     }
 
 -- | Specifies a list of Availability Zones.
+--
 lbdAvailabilityZones :: Lens' LoadBalancerDescription [Text]
 lbdAvailabilityZones =
     lens _lbdAvailabilityZones (\s a -> s { _lbdAvailabilityZones = a })
         . _List
 
 -- | Contains a list of back-end server descriptions.
+--
 lbdBackendServerDescriptions :: Lens' LoadBalancerDescription [BackendServerDescription]
 lbdBackendServerDescriptions =
     lens _lbdBackendServerDescriptions
         (\s a -> s { _lbdBackendServerDescriptions = a })
             . _List
 
--- | Provides the name of the Amazon Route 53 hosted zone that is associated
--- with the load balancer. For information on how to associate your load
--- balancer with a hosted zone, go to
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html
--- Using Domain Names With Elastic Load Balancing> in the /Elastic Load
--- Balancing Developer Guide/.
+-- | Provides the name of the Amazon Route 53 hosted zone that is associated with
+-- the load balancer. For information on how to associate your load balancer
+-- with a hosted zone, go to <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html Using Domain Names With Elastic Load Balancing> in
+-- the /Elastic Load Balancing Developer Guide/.
+--
 lbdCanonicalHostedZoneName :: Lens' LoadBalancerDescription (Maybe Text)
 lbdCanonicalHostedZoneName =
     lens _lbdCanonicalHostedZoneName
         (\s a -> s { _lbdCanonicalHostedZoneName = a })
 
--- | Provides the ID of the Amazon Route 53 hosted zone name that is
--- associated with the load balancer. For information on how to associate or
--- disassociate your load balancer with a hosted zone, go to
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html
--- Using Domain Names With Elastic Load Balancing> in the /Elastic Load
--- Balancing Developer Guide/.
+-- | Provides the ID of the Amazon Route 53 hosted zone name that is associated
+-- with the load balancer. For information on how to associate or disassociate
+-- your load balancer with a hosted zone, go to <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html Using Domain Names With ElasticLoad Balancing> in the /Elastic Load Balancing Developer Guide/.
+--
 lbdCanonicalHostedZoneNameID :: Lens' LoadBalancerDescription (Maybe Text)
 lbdCanonicalHostedZoneNameID =
     lens _lbdCanonicalHostedZoneNameID
         (\s a -> s { _lbdCanonicalHostedZoneNameID = a })
 
 -- | Provides the date and time the load balancer was created.
+--
 lbdCreatedTime :: Lens' LoadBalancerDescription (Maybe UTCTime)
 lbdCreatedTime = lens _lbdCreatedTime (\s a -> s { _lbdCreatedTime = a }) . mapping _Time
 
 -- | Specifies the external DNS name associated with the load balancer.
+--
 lbdDNSName :: Lens' LoadBalancerDescription (Maybe Text)
 lbdDNSName = lens _lbdDNSName (\s a -> s { _lbdDNSName = a })
 
--- | Specifies information regarding the various health probes conducted on
--- the load balancer.
+-- | Specifies information regarding the various health probes conducted on the
+-- load balancer.
+--
 lbdHealthCheck :: Lens' LoadBalancerDescription (Maybe HealthCheck)
 lbdHealthCheck = lens _lbdHealthCheck (\s a -> s { _lbdHealthCheck = a })
 
 -- | Provides a list of EC2 instance IDs for the load balancer.
+--
 lbdInstances :: Lens' LoadBalancerDescription [Instance]
 lbdInstances = lens _lbdInstances (\s a -> s { _lbdInstances = a }) . _List
 
--- | LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
--- PolicyNames are returned in a list of tuples in the ListenerDescriptions
--- element.
+-- | LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and PolicyNames
+-- are returned in a list of tuples in the ListenerDescriptions element.
+--
 lbdListenerDescriptions :: Lens' LoadBalancerDescription [ListenerDescription]
 lbdListenerDescriptions =
     lens _lbdListenerDescriptions (\s a -> s { _lbdListenerDescriptions = a })
         . _List
 
 -- | Specifies the name associated with the load balancer.
+--
 lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
 lbdLoadBalancerName =
     lens _lbdLoadBalancerName (\s a -> s { _lbdLoadBalancerName = a })
 
 -- | Provides a list of policies defined for the load balancer.
+--
 lbdPolicies :: Lens' LoadBalancerDescription (Maybe Policies)
 lbdPolicies = lens _lbdPolicies (\s a -> s { _lbdPolicies = a })
 
--- | Specifies the type of load balancer. If the 'Scheme' is
--- 'internet-facing', the load balancer has a publicly resolvable DNS name
--- that resolves to public IP addresses. If the 'Scheme' is 'internal', the
--- load balancer has a publicly resolvable DNS name that resolves to private
--- IP addresses. This option is only available for load balancers attached
--- to an Amazon VPC.
+-- | Specifies the type of load balancer.
+--
+-- If the 'Scheme' is 'internet-facing', the load balancer has a publicly
+-- resolvable DNS name that resolves to public IP addresses.
+--
+-- If the 'Scheme' is 'internal', the load balancer has a publicly resolvable DNS
+-- name that resolves to private IP addresses.
+--
+-- This option is only available for load balancers attached to an Amazon VPC.
+--
 lbdScheme :: Lens' LoadBalancerDescription (Maybe Text)
 lbdScheme = lens _lbdScheme (\s a -> s { _lbdScheme = a })
 
 -- | The security groups the load balancer is a member of (VPC only).
+--
 lbdSecurityGroups :: Lens' LoadBalancerDescription [Text]
 lbdSecurityGroups =
     lens _lbdSecurityGroups (\s a -> s { _lbdSecurityGroups = a })
         . _List
 
--- | The security group that you can use as part of your inbound rules for
--- your load balancer's back-end Amazon EC2 application instances. To only
--- allow traffic from load balancers, add a security group rule to your back
--- end instance that specifies this source security group as the inbound
--- source.
+-- | The security group that you can use as part of your inbound rules for your
+-- load balancer's back-end Amazon EC2 application instances. To only allow
+-- traffic from load balancers, add a security group rule to your back end
+-- instance that specifies this source security group as the inbound source.
+--
 lbdSourceSecurityGroup :: Lens' LoadBalancerDescription (Maybe SourceSecurityGroup)
 lbdSourceSecurityGroup =
     lens _lbdSourceSecurityGroup (\s a -> s { _lbdSourceSecurityGroup = a })
 
 -- | Provides a list of VPC subnet IDs for the load balancer.
+--
 lbdSubnets :: Lens' LoadBalancerDescription [Text]
 lbdSubnets = lens _lbdSubnets (\s a -> s { _lbdSubnets = a }) . _List
 
 -- | Provides the ID of the VPC attached to the load balancer.
+--
 lbdVPCId :: Lens' LoadBalancerDescription (Maybe Text)
 lbdVPCId = lens _lbdVPCId (\s a -> s { _lbdVPCId = a })
 
@@ -1153,10 +1201,12 @@ backendServerDescription = BackendServerDescription
     }
 
 -- | Provides the port on which the back-end server is listening.
+--
 bsdInstancePort :: Lens' BackendServerDescription (Maybe Natural)
 bsdInstancePort = lens _bsdInstancePort (\s a -> s { _bsdInstancePort = a }) . mapping _Nat
 
 -- | Provides a list of policy names enabled for the back-end server.
+--
 bsdPolicyNames :: Lens' BackendServerDescription [Text]
 bsdPolicyNames = lens _bsdPolicyNames (\s a -> s { _bsdPolicyNames = a }) . _List
 
@@ -1191,10 +1241,12 @@ policyAttributeDescription = PolicyAttributeDescription
     }
 
 -- | The name of the attribute associated with the policy.
+--
 padAttributeName :: Lens' PolicyAttributeDescription (Maybe Text)
 padAttributeName = lens _padAttributeName (\s a -> s { _padAttributeName = a })
 
 -- | The value of the attribute associated with the policy.
+--
 padAttributeValue :: Lens' PolicyAttributeDescription (Maybe Text)
 padAttributeValue =
     lens _padAttributeValue (\s a -> s { _padAttributeValue = a })
@@ -1262,9 +1314,9 @@ connectionSettings p1 = ConnectionSettings
     { _csIdleTimeout = withIso _Nat (const id) p1
     }
 
--- | Specifies the time (in seconds) the connection is allowed to be idle (no
--- data has been sent over the connection) before it is closed by the load
--- balancer.
+-- | Specifies the time (in seconds) the connection is allowed to be idle (no data
+-- has been sent over the connection) before it is closed by the load balancer.
+--
 csIdleTimeout :: Lens' ConnectionSettings Natural
 csIdleTimeout = lens _csIdleTimeout (\s a -> s { _csIdleTimeout = a }) . _Nat
 
@@ -1301,11 +1353,13 @@ policyTypeDescription = PolicyTypeDescription
     }
 
 -- | A human-readable description of the policy type.
+--
 ptdDescription :: Lens' PolicyTypeDescription (Maybe Text)
 ptdDescription = lens _ptdDescription (\s a -> s { _ptdDescription = a })
 
--- | The description of the policy attributes associated with the load
--- balancer policies defined by the Elastic Load Balancing service.
+-- | The description of the policy attributes associated with the load balancer
+-- policies defined by the Elastic Load Balancing service.
+--
 ptdPolicyAttributeTypeDescriptions :: Lens' PolicyTypeDescription [PolicyAttributeTypeDescription]
 ptdPolicyAttributeTypeDescriptions =
     lens _ptdPolicyAttributeTypeDescriptions
@@ -1313,6 +1367,7 @@ ptdPolicyAttributeTypeDescriptions =
             . _List
 
 -- | The name of the policy type.
+--
 ptdPolicyTypeName :: Lens' PolicyTypeDescription (Maybe Text)
 ptdPolicyTypeName =
     lens _ptdPolicyTypeName (\s a -> s { _ptdPolicyTypeName = a })
@@ -1353,16 +1408,16 @@ policies = Policies
     , _pOtherPolicies               = mempty
     }
 
--- | A list of the 'AppCookieStickinessPolicy' objects created with
--- 'CreateAppCookieStickinessPolicy'.
+-- | A list of the 'AppCookieStickinessPolicy' objects created with 'CreateAppCookieStickinessPolicy'.
+--
 pAppCookieStickinessPolicies :: Lens' Policies [AppCookieStickinessPolicy]
 pAppCookieStickinessPolicies =
     lens _pAppCookieStickinessPolicies
         (\s a -> s { _pAppCookieStickinessPolicies = a })
             . _List
 
--- | A list of 'LBCookieStickinessPolicy' objects created with
--- 'CreateAppCookieStickinessPolicy'.
+-- | A list of 'LBCookieStickinessPolicy' objects created with 'CreateAppCookieStickinessPolicy'.
+--
 pLBCookieStickinessPolicies :: Lens' Policies [LBCookieStickinessPolicy]
 pLBCookieStickinessPolicies =
     lens _pLBCookieStickinessPolicies
@@ -1370,6 +1425,7 @@ pLBCookieStickinessPolicies =
             . _List
 
 -- | A list of policy names other than the stickiness policies.
+--
 pOtherPolicies :: Lens' Policies [Text]
 pOtherPolicies = lens _pOtherPolicies (\s a -> s { _pOtherPolicies = a }) . _List
 
@@ -1422,40 +1478,41 @@ listener p1 p2 p3 = Listener
 
 -- | Specifies the TCP port on which the instance server is listening. This
 -- property cannot be modified for the life of the load balancer.
+--
 lInstancePort :: Lens' Listener Natural
 lInstancePort = lens _lInstancePort (\s a -> s { _lInstancePort = a }) . _Nat
 
 -- | Specifies the protocol to use for routing traffic to back-end instances -
--- HTTP, HTTPS, TCP, or SSL. This property cannot be modified for the life
--- of the load balancer. If the front-end protocol is HTTP or HTTPS,
--- 'InstanceProtocol' has to be at the same protocol layer, i.e., HTTP or
--- HTTPS. Likewise, if the front-end protocol is TCP or SSL,
--- InstanceProtocol has to be TCP or SSL. If there is another listener with
--- the same 'InstancePort' whose 'InstanceProtocol' is secure, i.e., HTTPS
--- or SSL, the listener's 'InstanceProtocol' has to be secure, i.e., HTTPS
--- or SSL. If there is another listener with the same 'InstancePort' whose
--- 'InstanceProtocol' is HTTP or TCP, the listener's 'InstanceProtocol' must
--- be either HTTP or TCP.
+-- HTTP, HTTPS, TCP, or SSL. This property cannot be modified for the life of
+-- the load balancer.
+--
+-- If the front-end protocol is HTTP or HTTPS, 'InstanceProtocol' has to be at
+-- the same protocol layer, i.e., HTTP or HTTPS. Likewise, if the front-end
+-- protocol is TCP or SSL, InstanceProtocol has to be TCP or SSL.   If there is
+-- another listener with the same 'InstancePort' whose 'InstanceProtocol' is secure,
+-- i.e., HTTPS or SSL, the listener's 'InstanceProtocol' has to be secure, i.e.,
+-- HTTPS or SSL. If there is another listener with the same 'InstancePort' whose 'InstanceProtocol' is HTTP or TCP, the listener's 'InstanceProtocol' must be either HTTP or TCP.
 lInstanceProtocol :: Lens' Listener (Maybe Text)
 lInstanceProtocol =
     lens _lInstanceProtocol (\s a -> s { _lInstanceProtocol = a })
 
 -- | Specifies the external load balancer port number. This property cannot be
 -- modified for the life of the load balancer.
+--
 lLoadBalancerPort :: Lens' Listener Int
 lLoadBalancerPort =
     lens _lLoadBalancerPort (\s a -> s { _lLoadBalancerPort = a })
 
 -- | Specifies the load balancer transport protocol to use for routing - HTTP,
--- HTTPS, TCP or SSL. This property cannot be modified for the life of the
--- load balancer.
+-- HTTPS, TCP or SSL. This property cannot be modified for the life of the load
+-- balancer.
+--
 lProtocol :: Lens' Listener Text
 lProtocol = lens _lProtocol (\s a -> s { _lProtocol = a })
 
 -- | The ARN string of the server certificate. To get the ARN of the server
--- certificate, call the AWS Identity and Access Management
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/index.html?API_UploadServerCertificate.html
--- UploadServerCertificate > API.
+-- certificate, call the AWS Identity and Access Management <http://docs.aws.amazon.com/IAM/latest/APIReference/index.html?API_UploadServerCertificate.html UploadServerCertificate > API.
+--
 lSSLCertificateId :: Lens' Listener (Maybe Text)
 lSSLCertificateId =
     lens _lSSLCertificateId (\s a -> s { _lSSLCertificateId = a })
@@ -1498,11 +1555,13 @@ connectionDraining p1 = ConnectionDraining
     }
 
 -- | Specifies whether connection draining is enabled for the load balancer.
+--
 cdEnabled :: Lens' ConnectionDraining Bool
 cdEnabled = lens _cdEnabled (\s a -> s { _cdEnabled = a })
 
--- | Specifies the maximum time (in seconds) to keep the existing connections
--- open before deregistering the instances.
+-- | Specifies the maximum time (in seconds) to keep the existing connections open
+-- before deregistering the instances.
+--
 cdTimeout :: Lens' ConnectionDraining (Maybe Int)
 cdTimeout = lens _cdTimeout (\s a -> s { _cdTimeout = a })
 
@@ -1545,22 +1604,28 @@ instanceState = InstanceState
     }
 
 -- | Provides a description of the instance state.
+--
 isDescription :: Lens' InstanceState (Maybe Text)
 isDescription = lens _isDescription (\s a -> s { _isDescription = a })
 
 -- | Provides an EC2 instance ID.
+--
 isInstanceId :: Lens' InstanceState (Maybe Text)
 isInstanceId = lens _isInstanceId (\s a -> s { _isInstanceId = a })
 
 -- | Provides information about the cause of /OutOfService/ instances.
--- Specifically, it indicates whether the cause is Elastic Load Balancing or
--- the instance behind the load balancer. Valid value:
--- 'ELB'|'Instance'|'N/A'.
+-- Specifically, it indicates whether the cause is Elastic Load Balancing or the
+-- instance behind the load balancer.
+--
+-- Valid value: 'ELB'|'Instance'|'N/A'
+--
 isReasonCode :: Lens' InstanceState (Maybe Text)
 isReasonCode = lens _isReasonCode (\s a -> s { _isReasonCode = a })
 
--- | Specifies the current state of the instance. Valid value:
--- 'InService'|'OutOfService'|'Unknown'.
+-- | Specifies the current state of the instance.
+--
+-- Valid value: 'InService'|'OutOfService'|'Unknown'
+--
 isState :: Lens' InstanceState (Maybe Text)
 isState = lens _isState (\s a -> s { _isState = a })
 
@@ -1595,6 +1660,7 @@ tagKeyOnly = TagKeyOnly
     }
 
 -- | The name of the key.
+--
 tkoKey :: Lens' TagKeyOnly (Maybe Text)
 tkoKey = lens _tkoKey (\s a -> s { _tkoKey = a })
 
@@ -1623,6 +1689,7 @@ instance' = Instance
     }
 
 -- | Provides an EC2 instance ID.
+--
 iInstanceId :: Lens' Instance (Maybe Text)
 iInstanceId = lens _iInstanceId (\s a -> s { _iInstanceId = a })
 

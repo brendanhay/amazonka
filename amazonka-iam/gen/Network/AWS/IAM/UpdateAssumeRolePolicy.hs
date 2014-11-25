@@ -21,9 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Updates the policy that grants an entity permission to assume a role. For
--- more information about roles, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html
--- Working with Roles>.
+-- more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html>
 module Network.AWS.IAM.UpdateAssumeRolePolicy
@@ -69,11 +67,13 @@ updateAssumeRolePolicy p1 p2 = UpdateAssumeRolePolicy
     }
 
 -- | The policy that grants an entity permission to assume the role.
+--
 uarpPolicyDocument :: Lens' UpdateAssumeRolePolicy Text
 uarpPolicyDocument =
     lens _uarpPolicyDocument (\s a -> s { _uarpPolicyDocument = a })
 
 -- | The name of the role to update.
+--
 uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
 uarpRoleName = lens _uarpRoleName (\s a -> s { _uarpRoleName = a })
 

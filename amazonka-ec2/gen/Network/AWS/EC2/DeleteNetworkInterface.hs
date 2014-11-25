@@ -69,6 +69,7 @@ dni2DryRun :: Lens' DeleteNetworkInterface (Maybe Bool)
 dni2DryRun = lens _dni2DryRun (\s a -> s { _dni2DryRun = a })
 
 -- | The ID of the network interface.
+--
 dni2NetworkInterfaceId :: Lens' DeleteNetworkInterface Text
 dni2NetworkInterfaceId =
     lens _dni2NetworkInterfaceId (\s a -> s { _dni2NetworkInterfaceId = a })

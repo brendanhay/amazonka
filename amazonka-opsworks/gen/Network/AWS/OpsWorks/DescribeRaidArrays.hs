@@ -20,12 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describe an instance's RAID arrays. Required Permissions: To use this
--- action, an IAM user must have a Show, Deploy, or Manage permissions level
--- for the stack, or an attached policy that explicitly grants permissions.
--- For more information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Describe an instance's RAID arrays.
+--
+-- Required Permissions: To use this action, an IAM user must have a Show,
+-- Deploy, or Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeRaidArrays.html>
 module Network.AWS.OpsWorks.DescribeRaidArrays
@@ -72,12 +71,14 @@ describeRaidArrays = DescribeRaidArrays
 
 -- | The instance ID. If you use this parameter, 'DescribeRaidArrays' returns
 -- descriptions of the RAID arrays associated with the specified instance.
+--
 draInstanceId :: Lens' DescribeRaidArrays (Maybe Text)
 draInstanceId = lens _draInstanceId (\s a -> s { _draInstanceId = a })
 
--- | An array of RAID array IDs. If you use this parameter,
--- 'DescribeRaidArrays' returns descriptions of the specified arrays.
--- Otherwise, it returns a description of every array.
+-- | An array of RAID array IDs. If you use this parameter, 'DescribeRaidArrays'
+-- returns descriptions of the specified arrays. Otherwise, it returns a
+-- description of every array.
+--
 draRaidArrayIds :: Lens' DescribeRaidArrays [Text]
 draRaidArrayIds = lens _draRaidArrayIds (\s a -> s { _draRaidArrayIds = a }) . _List
 
@@ -103,6 +104,7 @@ describeRaidArraysResponse = DescribeRaidArraysResponse
     }
 
 -- | A 'RaidArrays' object that describes the specified RAID arrays.
+--
 drarRaidArrays :: Lens' DescribeRaidArraysResponse [RaidArray]
 drarRaidArrays = lens _drarRaidArrays (\s a -> s { _drarRaidArrays = a }) . _List
 

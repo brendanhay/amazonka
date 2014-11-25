@@ -20,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Changes the password for the specified user. Users can change their own
--- passwords by calling 'ChangePassword'. For more information about modifying
--- passwords, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html
--- Managing Passwords> in the /Using IAM/ guide.
+-- | Changes the password for the specified user.
+--
+-- Users can change their own passwords by calling 'ChangePassword'. For more
+-- information about modifying passwords, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords> in the /Using IAM/
+-- guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateLoginProfile.html>
 module Network.AWS.IAM.UpdateLoginProfile
@@ -74,16 +74,19 @@ updateLoginProfile p1 = UpdateLoginProfile
     }
 
 -- | The new password for the specified user.
+--
 ulpPassword :: Lens' UpdateLoginProfile (Maybe Text)
 ulpPassword = lens _ulpPassword (\s a -> s { _ulpPassword = a }) . mapping _Sensitive
 
 -- | Require the specified user to set a new password on next sign-in.
+--
 ulpPasswordResetRequired :: Lens' UpdateLoginProfile (Maybe Bool)
 ulpPasswordResetRequired =
     lens _ulpPasswordResetRequired
         (\s a -> s { _ulpPasswordResetRequired = a })
 
 -- | The name of the user whose password you want to update.
+--
 ulpUserName :: Lens' UpdateLoginProfile Text
 ulpUserName = lens _ulpUserName (\s a -> s { _ulpUserName = a })
 

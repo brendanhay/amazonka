@@ -21,10 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of virtual tape recovery points that are available for the
--- specified gateway-VTL. A recovery point is a point in time view of a
--- virtual tape at which all the data on the virtual tape is consistent. If
--- your gateway crashes, virtual tapes that have recovery points can be
--- recovered to a new gateway.
+-- specified gateway-VTL.
+--
+-- A recovery point is a point in time view of a virtual tape at which all the
+-- data on the virtual tape is consistent. If your gateway crashes, virtual
+-- tapes that have recovery points can be recovered to a new gateway.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeRecoveryPoints.html>
 module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
@@ -80,13 +81,15 @@ describeTapeRecoveryPoints p1 = DescribeTapeRecoveryPoints
 dtrpGatewayARN :: Lens' DescribeTapeRecoveryPoints Text
 dtrpGatewayARN = lens _dtrpGatewayARN (\s a -> s { _dtrpGatewayARN = a })
 
--- | Specifies that the number of virtual tape recovery points that are
--- described be limited to the specified number.
+-- | Specifies that the number of virtual tape recovery points that are described
+-- be limited to the specified number.
+--
 dtrpLimit :: Lens' DescribeTapeRecoveryPoints (Maybe Natural)
 dtrpLimit = lens _dtrpLimit (\s a -> s { _dtrpLimit = a }) . mapping _Nat
 
--- | An opaque string that indicates the position at which to begin describing
--- the virtual tape recovery points.
+-- | An opaque string that indicates the position at which to begin describing the
+-- virtual tape recovery points.
+--
 dtrpMarker :: Lens' DescribeTapeRecoveryPoints (Maybe Text)
 dtrpMarker = lens _dtrpMarker (\s a -> s { _dtrpMarker = a })
 
@@ -117,15 +120,18 @@ dtrprGatewayARN :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrprGatewayARN = lens _dtrprGatewayARN (\s a -> s { _dtrprGatewayARN = a })
 
 -- | An opaque string that indicates the position at which the virtual tape
--- recovery points that were listed for description ended. Use this marker
--- in your next request to list the next set of virtual tape recovery points
--- in the list. If there are no more recovery points to describe, this field
--- does not appear in the response.
+-- recovery points that were listed for description ended.
+--
+-- Use this marker in your next request to list the next set of virtual tape
+-- recovery points in the list. If there are no more recovery points to
+-- describe, this field does not appear in the response.
+--
 dtrprMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrprMarker = lens _dtrprMarker (\s a -> s { _dtrprMarker = a })
 
 -- | An array of TapeRecoveryPointInfos that are available for the specified
 -- gateway.
+--
 dtrprTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse [TapeRecoveryPointInfo]
 dtrprTapeRecoveryPointInfos =
     lens _dtrprTapeRecoveryPointInfos

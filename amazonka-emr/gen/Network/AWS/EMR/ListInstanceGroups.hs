@@ -68,10 +68,12 @@ listInstanceGroups p1 = ListInstanceGroups
     }
 
 -- | The identifier of the cluster for which to list the instance groups.
+--
 ligClusterId :: Lens' ListInstanceGroups Text
 ligClusterId = lens _ligClusterId (\s a -> s { _ligClusterId = a })
 
 -- | The pagination token that indicates the next set of results to retrieve.
+--
 ligMarker :: Lens' ListInstanceGroups (Maybe Text)
 ligMarker = lens _ligMarker (\s a -> s { _ligMarker = a })
 
@@ -95,12 +97,14 @@ listInstanceGroupsResponse = ListInstanceGroupsResponse
     }
 
 -- | The list of instance groups for the cluster and given filters.
+--
 ligrInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
 ligrInstanceGroups =
     lens _ligrInstanceGroups (\s a -> s { _ligrInstanceGroups = a })
         . _List
 
 -- | The pagination token that indicates the next set of results to retrieve.
+--
 ligrMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
 ligrMarker = lens _ligrMarker (\s a -> s { _ligrMarker = a })
 

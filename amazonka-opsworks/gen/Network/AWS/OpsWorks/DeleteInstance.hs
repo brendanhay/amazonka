@@ -20,15 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes a specified instance. You must stop an instance before you can
--- delete it. For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html
--- Deleting Instances>. Required Permissions: To use this action, an IAM user
--- must have a Manage permissions level for the stack, or an attached policy
--- that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Deletes a specified instance. You must stop an instance before you can delete
+-- it. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html Deleting Instances>.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteInstance.html>
 module Network.AWS.OpsWorks.DeleteInstance
@@ -78,15 +75,18 @@ deleteInstance p1 = DeleteInstance
     }
 
 -- | Whether to delete the instance Elastic IP address.
+--
 diDeleteElasticIp :: Lens' DeleteInstance (Maybe Bool)
 diDeleteElasticIp =
     lens _diDeleteElasticIp (\s a -> s { _diDeleteElasticIp = a })
 
 -- | Whether to delete the instance's Amazon EBS volumes.
+--
 diDeleteVolumes :: Lens' DeleteInstance (Maybe Bool)
 diDeleteVolumes = lens _diDeleteVolumes (\s a -> s { _diDeleteVolumes = a })
 
 -- | The instance ID.
+--
 diInstanceId :: Lens' DeleteInstance Text
 diInstanceId = lens _diInstanceId (\s a -> s { _diInstanceId = a })
 

@@ -69,6 +69,7 @@ describeDeliveryChannels = DescribeDeliveryChannels
     }
 
 -- | A list of delivery channel names.
+--
 ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
 ddcDeliveryChannelNames =
     lens _ddcDeliveryChannelNames (\s a -> s { _ddcDeliveryChannelNames = a })
@@ -96,6 +97,7 @@ describeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse
     }
 
 -- | A list that contains the descriptions of the specified delivery channel.
+--
 ddcrDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
 ddcrDeliveryChannels =
     lens _ddcrDeliveryChannels (\s a -> s { _ddcrDeliveryChannels = a })

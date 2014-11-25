@@ -20,8 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Displays all connections in this region. If a connection ID is provided,
--- the call returns only that particular connection.
+-- | Displays all connections in this region.
+--
+-- If a connection ID is provided, the call returns only that particular
+-- connection.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnections.html>
 module Network.AWS.DirectConnect.DescribeConnections
@@ -86,6 +88,7 @@ describeConnectionsResponse = DescribeConnectionsResponse
     }
 
 -- | A list of connections.
+--
 dcrConnections :: Lens' DescribeConnectionsResponse [Connection]
 dcrConnections = lens _dcrConnections (\s a -> s { _dcrConnections = a }) . _List
 

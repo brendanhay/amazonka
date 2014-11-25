@@ -20,13 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns detailed descriptions of the policies. If you specify a load
--- balancer name, the action returns the descriptions of all the policies
--- created for the load balancer. If you specify a policy name associated with
--- your load balancer, the action returns the description of that policy. If
--- you don't specify a load balancer name, the action returns descriptions of
--- the specified sample policies, or descriptions of all the sample policies.
--- The names of the sample policies have the 'ELBSample-' prefix.
+-- | Returns detailed descriptions of the policies. If you specify a load balancer
+-- name, the action returns the descriptions of all the policies created for the
+-- load balancer. If you specify a policy name associated with your load
+-- balancer, the action returns the description of that policy. If you don't
+-- specify a load balancer name, the action returns descriptions of the
+-- specified sample policies, or descriptions of all the sample policies. The
+-- names of the sample policies have the 'ELBSample-' prefix.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicies.html>
 module Network.AWS.ELB.DescribeLoadBalancerPolicies
@@ -75,12 +75,14 @@ describeLoadBalancerPolicies = DescribeLoadBalancerPolicies
 -- specified, the operation returns the attributes of either all the sample
 -- policies pre-defined by Elastic Load Balancing or the specified sample
 -- polices.
+--
 dlbpLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
 dlbpLoadBalancerName =
     lens _dlbpLoadBalancerName (\s a -> s { _dlbpLoadBalancerName = a })
 
--- | The names of load balancer policies you've created or Elastic Load
--- Balancing sample policy names.
+-- | The names of load balancer policies you've created or Elastic Load Balancing
+-- sample policy names.
+--
 dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
 dlbpPolicyNames = lens _dlbpPolicyNames (\s a -> s { _dlbpPolicyNames = a }) . _List
 
@@ -106,6 +108,7 @@ describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
     }
 
 -- | A list of policy description structures.
+--
 dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
 dlbprPolicyDescriptions =
     lens _dlbprPolicyDescriptions (\s a -> s { _dlbprPolicyDescriptions = a })

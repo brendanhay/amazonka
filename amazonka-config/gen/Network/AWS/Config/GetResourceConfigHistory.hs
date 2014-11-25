@@ -22,9 +22,9 @@
 
 -- | Returns a list of configuration items for the specified resource. The list
 -- contains details about each state of the resource during the specified time
--- interval. You can specify a 'limit' on the number of results returned on
--- the page. If a limit is specified, a 'nextToken' is returned as part of the
--- result that you can use to continue this request.
+-- interval. You can specify a 'limit' on the number of results returned on the
+-- page. If a limit is specified, a 'nextToken' is returned as part of the result
+-- that you can use to continue this request.
 --
 -- <http://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html>
 module Network.AWS.Config.GetResourceConfigHistory
@@ -99,35 +99,42 @@ getResourceConfigHistory p1 p2 = GetResourceConfigHistory
 
 -- | The chronological order for configuration items listed. By default the
 -- results are listed in reverse chronological order.
+--
 grchChronologicalOrder :: Lens' GetResourceConfigHistory (Maybe ChronologicalOrder)
 grchChronologicalOrder =
     lens _grchChronologicalOrder (\s a -> s { _grchChronologicalOrder = a })
 
--- | The time stamp that indicates an earlier time. If not specified, the
--- action returns paginated results that contain configuration items that
--- start from when the first configuration item was recorded.
+-- | The time stamp that indicates an earlier time. If not specified, the action
+-- returns paginated results that contain configuration items that start from
+-- when the first configuration item was recorded.
+--
 grchEarlierTime :: Lens' GetResourceConfigHistory (Maybe UTCTime)
 grchEarlierTime = lens _grchEarlierTime (\s a -> s { _grchEarlierTime = a }) . mapping _Time
 
--- | The time stamp that indicates a later time. If not specified, current
--- time is taken.
+-- | The time stamp that indicates a later time. If not specified, current time is
+-- taken.
+--
 grchLaterTime :: Lens' GetResourceConfigHistory (Maybe UTCTime)
 grchLaterTime = lens _grchLaterTime (\s a -> s { _grchLaterTime = a }) . mapping _Time
 
--- | The maximum number of configuration items returned in each page. The
--- default is 10. You cannot specify a limit greater than 100.
+-- | The maximum number of configuration items returned in each page. The default
+-- is 10. You cannot specify a limit greater than 100.
+--
 grchLimit :: Lens' GetResourceConfigHistory (Maybe Natural)
 grchLimit = lens _grchLimit (\s a -> s { _grchLimit = a }) . mapping _Nat
 
 -- | An optional parameter used for pagination of the results.
+--
 grchNextToken :: Lens' GetResourceConfigHistory (Maybe Text)
 grchNextToken = lens _grchNextToken (\s a -> s { _grchNextToken = a })
 
 -- | The ID of the resource (for example., 'sg-xxxxxx').
+--
 grchResourceId :: Lens' GetResourceConfigHistory Text
 grchResourceId = lens _grchResourceId (\s a -> s { _grchResourceId = a })
 
 -- | The resource type.
+--
 grchResourceType :: Lens' GetResourceConfigHistory ResourceType
 grchResourceType = lens _grchResourceType (\s a -> s { _grchResourceType = a })
 
@@ -151,12 +158,14 @@ getResourceConfigHistoryResponse = GetResourceConfigHistoryResponse
     }
 
 -- | A list that contains the configuration history of one or more resources.
+--
 grchrConfigurationItems :: Lens' GetResourceConfigHistoryResponse [ConfigurationItem]
 grchrConfigurationItems =
     lens _grchrConfigurationItems (\s a -> s { _grchrConfigurationItems = a })
         . _List
 
 -- | A token used for pagination of results.
+--
 grchrNextToken :: Lens' GetResourceConfigHistoryResponse (Maybe Text)
 grchrNextToken = lens _grchrNextToken (\s a -> s { _grchrNextToken = a })
 

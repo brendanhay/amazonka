@@ -20,10 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Lists all tags on an Amazon RDS resource. For an overview on tagging an
--- Amazon RDS resource, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html
--- Tagging Amazon RDS Resources>.
+-- | Lists all tags on an Amazon RDS resource.
+--
+-- For an overview on tagging an Amazon RDS resource, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDSResources>.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ListTagsForResource.html>
 module Network.AWS.RDS.ListTagsForResource
@@ -70,13 +69,13 @@ listTagsForResource p1 = ListTagsForResource
     }
 
 -- | This parameter is not currently supported.
+--
 ltfrFilters :: Lens' ListTagsForResource [Filter]
 ltfrFilters = lens _ltfrFilters (\s a -> s { _ltfrFilters = a }) . _List
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon
--- Resource Name (ARN). For information about creating an ARN, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN
--- Constructing an RDS Amazon Resource Name (ARN)>.
+-- Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructingan RDS Amazon Resource Name (ARN)>.
+--
 ltfrResourceName :: Lens' ListTagsForResource Text
 ltfrResourceName = lens _ltfrResourceName (\s a -> s { _ltfrResourceName = a })
 
@@ -102,6 +101,7 @@ listTagsForResourceResponse = ListTagsForResourceResponse
     }
 
 -- | List of tags returned by the ListTagsForResource operation.
+--
 ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrTagList = lens _ltfrrTagList (\s a -> s { _ltfrrTagList = a }) . _List
 

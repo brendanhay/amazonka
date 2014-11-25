@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Removes the specified client ID (also known as audience) from the list of
--- client IDs registered for the specified IAM OpenID Connect provider. This
--- action is idempotent; it does not fail or return an error if you try to
+-- client IDs registered for the specified IAM OpenID Connect provider.
+--
+-- This action is idempotent; it does not fail or return an error if you try to
 -- remove a client ID that was removed previously.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveClientIDFromOpenIDConnectProvider.html>
@@ -68,16 +69,17 @@ removeClientIDFromOpenIDConnectProvider p1 p2 = RemoveClientIDFromOpenIDConnectP
     , _rcidfoidcpClientID                 = p2
     }
 
--- | The client ID (also known as audience) to remove from the IAM OpenID
--- Connect provider. For more information about client IDs, see
--- 'CreateOpenIDConnectProvider'.
+-- | The client ID (also known as audience) to remove from the IAM OpenID Connect
+-- provider. For more information about client IDs, see 'CreateOpenIDConnectProvider'.
+--
 rcidfoidcpClientID :: Lens' RemoveClientIDFromOpenIDConnectProvider Text
 rcidfoidcpClientID =
     lens _rcidfoidcpClientID (\s a -> s { _rcidfoidcpClientID = a })
 
--- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
--- to remove the client ID from. You can get a list of OIDC provider ARNs by
--- using the 'ListOpenIDConnectProviders' action.
+-- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider to
+-- remove the client ID from. You can get a list of OIDC provider ARNs by using
+-- the 'ListOpenIDConnectProviders' action.
+--
 rcidfoidcpOpenIDConnectProviderArn :: Lens' RemoveClientIDFromOpenIDConnectProvider Text
 rcidfoidcpOpenIDConnectProviderArn =
     lens _rcidfoidcpOpenIDConnectProviderArn

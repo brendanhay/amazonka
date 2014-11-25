@@ -21,10 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified set of tags from the specified set of resources. This
--- call is designed to follow a 'DescribeTags' request. For more information
--- about tags, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging
--- Your Resources> in the /Amazon Elastic Compute Cloud User Guide/.
+-- call is designed to follow a 'DescribeTags' request.
+--
+-- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteTags.html>
 module Network.AWS.EC2.DeleteTags
@@ -75,15 +74,16 @@ deleteTags = DeleteTags
 dt1DryRun :: Lens' DeleteTags (Maybe Bool)
 dt1DryRun = lens _dt1DryRun (\s a -> s { _dt1DryRun = a })
 
--- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
--- than one resource ID.
+-- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more than
+-- one resource ID.
+--
 dt1Resources :: Lens' DeleteTags [Text]
 dt1Resources = lens _dt1Resources (\s a -> s { _dt1Resources = a }) . _List
 
--- | One or more tags to delete. If you omit the 'value' parameter, we delete
--- the tag regardless of its value. If you specify this parameter with an
--- empty string as the value, we delete the key only if its value is an
--- empty string.
+-- | One or more tags to delete. If you omit the 'value' parameter, we delete the
+-- tag regardless of its value. If you specify this parameter with an empty
+-- string as the value, we delete the key only if its value is an empty string.
+--
 dt1Tags :: Lens' DeleteTags [Tag]
 dt1Tags = lens _dt1Tags (\s a -> s { _dt1Tags = a }) . _List
 

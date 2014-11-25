@@ -62,10 +62,18 @@ retrieveDomainAuthCode p1 = RetrieveDomainAuthCode
     { _rdacDomainName = p1
     }
 
--- | The name of a domain. Type: String Default: None Constraints: The domain
--- name can contain only the letters a through z, the numbers 0 through 9,
--- and hyphen (-). Internationalized Domain Names are not supported.
--- Required: Yes.
+-- | The name of a domain.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: The domain name can contain only the letters a through z, the
+-- numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
+-- supported.
+--
+-- Required: Yes
+--
 rdacDomainName :: Lens' RetrieveDomainAuthCode Text
 rdacDomainName = lens _rdacDomainName (\s a -> s { _rdacDomainName = a })
 
@@ -85,7 +93,10 @@ retrieveDomainAuthCodeResponse p1 = RetrieveDomainAuthCodeResponse
     { _rdacrAuthCode = withIso _Sensitive (const id) p1
     }
 
--- | The authorization code for the domain. Type: String.
+-- | The authorization code for the domain.
+--
+-- Type: String
+--
 rdacrAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
 rdacrAuthCode = lens _rdacrAuthCode (\s a -> s { _rdacrAuthCode = a }) . _Sensitive
 

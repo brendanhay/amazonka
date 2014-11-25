@@ -20,8 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns a list containing all of the identities (email addresses and
--- domains) for a specific AWS Account, regardless of verification status.
+-- | Returns a list containing all of the identities (email addresses and domains)
+-- for a specific AWS Account, regardless of verification status.
+--
 -- This action is throttled at one request per second.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentities.html>
@@ -73,18 +74,20 @@ listIdentities = ListIdentities
     , _liMaxItems     = Nothing
     }
 
--- | The type of the identities to list. Possible values are "EmailAddress"
--- and "Domain". If this parameter is omitted, then all identities will be
--- listed.
+-- | The type of the identities to list. Possible values are "EmailAddress" and
+-- "Domain". If this parameter is omitted, then all identities will be listed.
+--
 liIdentityType :: Lens' ListIdentities (Maybe IdentityType)
 liIdentityType = lens _liIdentityType (\s a -> s { _liIdentityType = a })
 
 -- | The maximum number of identities per page. Possible values are 1-100
 -- inclusive.
+--
 liMaxItems :: Lens' ListIdentities (Maybe Int)
 liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
 
 -- | The token to use for pagination.
+--
 liNextToken :: Lens' ListIdentities (Maybe Text)
 liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
 
@@ -108,10 +111,12 @@ listIdentitiesResponse = ListIdentitiesResponse
     }
 
 -- | A list of identities.
+--
 lirIdentities :: Lens' ListIdentitiesResponse [Text]
 lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a }) . _List
 
 -- | The token used for pagination.
+--
 lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
 

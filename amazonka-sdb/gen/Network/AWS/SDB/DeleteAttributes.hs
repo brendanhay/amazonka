@@ -20,14 +20,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes one or more attributes associated with an item. If all attributes
--- of the item are deleted, the item is deleted. 'DeleteAttributes' is an
--- idempotent operation; running it multiple times on the same item or
--- attribute does not result in an error response. Because Amazon SimpleDB
--- makes multiple copies of item data and uses an eventual consistency update
--- model, performing a 'GetAttributes' or 'Select' operation (read)
--- immediately after a 'DeleteAttributes' or 'PutAttributes' operation (write)
--- might not return updated item data.
+-- | Deletes one or more attributes associated with an item. If all attributes of
+-- the item are deleted, the item is deleted.
+--
+-- 'DeleteAttributes' is an idempotent operation; running it multiple times on
+-- the same item or attribute does not result in an error response.
+--
+-- Because Amazon SimpleDB makes multiple copies of item data and uses an
+-- eventual consistency update model, performing a 'GetAttributes' or 'Select'
+-- operation (read) immediately after a 'DeleteAttributes' or 'PutAttributes'
+-- operation (write) might not return updated item data.
 --
 -- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteAttributes.html>
 module Network.AWS.SDB.DeleteAttributes
@@ -91,10 +93,9 @@ daAttributes = lens _daAttributes (\s a -> s { _daAttributes = a }) . _List
 daDomainName :: Lens' DeleteAttributes Text
 daDomainName = lens _daDomainName (\s a -> s { _daDomainName = a })
 
--- | The update condition which, if specified, determines whether the
--- specified attributes will be deleted or not. The update condition must be
--- satisfied in order for this request to be processed and the attributes to
--- be deleted.
+-- | The update condition which, if specified, determines whether the specified
+-- attributes will be deleted or not. The update condition must be satisfied in
+-- order for this request to be processed and the attributes to be deleted.
 daExpected :: Lens' DeleteAttributes (Maybe UpdateCondition)
 daExpected = lens _daExpected (\s a -> s { _daExpected = a })
 

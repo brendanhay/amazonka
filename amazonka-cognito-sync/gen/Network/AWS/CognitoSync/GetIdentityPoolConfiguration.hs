@@ -63,8 +63,9 @@ getIdentityPoolConfiguration p1 = GetIdentityPoolConfiguration
     }
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. This is the ID of the pool for which to return a configuration.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- This is the ID of the pool for which to return a configuration.
+--
 gipcIdentityPoolId :: Lens' GetIdentityPoolConfiguration Text
 gipcIdentityPoolId =
     lens _gipcIdentityPoolId (\s a -> s { _gipcIdentityPoolId = a })
@@ -89,13 +90,14 @@ getIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
     }
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+--
 gipcrIdentityPoolId :: Lens' GetIdentityPoolConfigurationResponse (Maybe Text)
 gipcrIdentityPoolId =
     lens _gipcrIdentityPoolId (\s a -> s { _gipcrIdentityPoolId = a })
 
 -- | Configuration options applied to the identity pool.
+--
 gipcrPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
 gipcrPushSync = lens _gipcrPushSync (\s a -> s { _gipcrPushSync = a })
 

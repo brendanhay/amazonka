@@ -21,19 +21,19 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | The CreatePreset operation creates a preset with settings that you specify.
--- Elastic Transcoder checks the CreatePreset settings to ensure that they
--- meet Elastic Transcoder requirements and to determine whether they comply
--- with H.264 standards. If your settings are not valid for Elastic
--- Transcoder, Elastic Transcoder returns an HTTP 400 response
--- ('ValidationException') and does not create the preset. If the settings are
--- valid for Elastic Transcoder but aren't strictly compliant with the H.264
--- standard, Elastic Transcoder creates the preset and returns a warning
--- message in the response. This helps you determine whether your settings
--- comply with the H.264 standard while giving you greater flexibility with
--- respect to the video that Elastic Transcoder produces. Elastic Transcoder
--- uses the H.264 video-compression format. For more information, see the
--- International Telecommunication Union publication /Recommendation ITU-T
--- H.264: Advanced video coding for generic audiovisual services/.
+--
+-- Elastic Transcoder checks the CreatePreset settings to ensure that they meet
+-- Elastic Transcoder requirements and to determine whether they comply with
+-- H.264 standards. If your settings are not valid for Elastic Transcoder,
+-- Elastic Transcoder returns an HTTP 400 response ('ValidationException') and
+-- does not create the preset. If the settings are valid for Elastic Transcoder
+-- but aren't strictly compliant with the H.264 standard, Elastic Transcoder
+-- creates the preset and returns a warning message in the response. This helps
+-- you determine whether your settings comply with the H.264 standard while
+-- giving you greater flexibility with respect to the video that Elastic
+-- Transcoder produces. Elastic Transcoder uses the H.264 video-compression
+-- format. For more information, see the International Telecommunication Union
+-- publication /Recommendation ITU-T H.264: Advanced video coding for genericaudiovisual services/.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePreset.html>
 module Network.AWS.ElasticTranscoder.CreatePreset
@@ -102,29 +102,33 @@ createPreset p1 p2 = CreatePreset
     }
 
 -- | A section of the request body that specifies the audio parameters.
+--
 cpAudio :: Lens' CreatePreset (Maybe AudioParameters)
 cpAudio = lens _cpAudio (\s a -> s { _cpAudio = a })
 
--- | The container type for the output file. Valid values include 'fmp4',
--- 'mp3', 'mp4', 'ogg', 'ts', and 'webm'.
+-- | The container type for the output file. Valid values include 'fmp4', 'mp3', 'mp4', 'ogg', 'ts', and 'webm'.
+--
 cpContainer :: Lens' CreatePreset Text
 cpContainer = lens _cpContainer (\s a -> s { _cpContainer = a })
 
 -- | A description of the preset.
+--
 cpDescription :: Lens' CreatePreset (Maybe Text)
 cpDescription = lens _cpDescription (\s a -> s { _cpDescription = a })
 
--- | The name of the preset. We recommend that the name be unique within the
--- AWS account, but uniqueness is not enforced.
+-- | The name of the preset. We recommend that the name be unique within the AWS
+-- account, but uniqueness is not enforced.
+--
 cpName :: Lens' CreatePreset Text
 cpName = lens _cpName (\s a -> s { _cpName = a })
 
--- | A section of the request body that specifies the thumbnail parameters, if
--- any.
+-- | A section of the request body that specifies the thumbnail parameters, if any.
+--
 cpThumbnails :: Lens' CreatePreset (Maybe Thumbnails)
 cpThumbnails = lens _cpThumbnails (\s a -> s { _cpThumbnails = a })
 
 -- | A section of the request body that specifies the video parameters.
+--
 cpVideo :: Lens' CreatePreset (Maybe VideoParameters)
 cpVideo = lens _cpVideo (\s a -> s { _cpVideo = a })
 
@@ -149,14 +153,15 @@ createPresetResponse = CreatePresetResponse
 
 -- | A section of the response body that provides information about the preset
 -- that is created.
+--
 cprPreset :: Lens' CreatePresetResponse (Maybe Preset)
 cprPreset = lens _cprPreset (\s a -> s { _cprPreset = a })
 
--- | If the preset settings don't comply with the standards for the video
--- codec but Elastic Transcoder created the preset, this message explains
--- the reason the preset settings don't meet the standard. Elastic
--- Transcoder created the preset because the settings might produce
--- acceptable output.
+-- | If the preset settings don't comply with the standards for the video codec
+-- but Elastic Transcoder created the preset, this message explains the reason
+-- the preset settings don't meet the standard. Elastic Transcoder created the
+-- preset because the settings might produce acceptable output.
+--
 cprWarning :: Lens' CreatePresetResponse (Maybe Text)
 cprWarning = lens _cprWarning (\s a -> s { _cprWarning = a })
 

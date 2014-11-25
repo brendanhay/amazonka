@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the list of severity levels that you can assign to an AWS Support
--- case. The severity level for a case is also a field in the 'CaseDetails'
--- data type included in any 'CreateCase' request.
+-- case. The severity level for a case is also a field in the 'CaseDetails' data
+-- type included in any 'CreateCase' request.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeSeverityLevels.html>
 module Network.AWS.Support.DescribeSeverityLevels
@@ -65,6 +65,7 @@ describeSeverityLevels = DescribeSeverityLevels
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
+--
 dslLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
 dslLanguage = lens _dslLanguage (\s a -> s { _dslLanguage = a })
 
@@ -89,8 +90,9 @@ describeSeverityLevelsResponse = DescribeSeverityLevelsResponse
     { _dslrSeverityLevels = mempty
     }
 
--- | The available severity levels for the support case. Available severity
--- levels are defined by your service level agreement with AWS.
+-- | The available severity levels for the support case. Available severity levels
+-- are defined by your service level agreement with AWS.
+--
 dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrSeverityLevels =
     lens _dslrSeverityLevels (\s a -> s { _dslrSeverityLevels = a })

@@ -328,12 +328,13 @@ applicationDescription = ApplicationDescription
     }
 
 -- | The name of the application.
+--
 adApplicationName :: Lens' ApplicationDescription (Maybe Text)
 adApplicationName =
     lens _adApplicationName (\s a -> s { _adApplicationName = a })
 
--- | The names of the configuration templates associated with this
--- application.
+-- | The names of the configuration templates associated with this application.
+--
 adConfigurationTemplates :: Lens' ApplicationDescription [Text]
 adConfigurationTemplates =
     lens _adConfigurationTemplates
@@ -341,18 +342,22 @@ adConfigurationTemplates =
             . _List
 
 -- | The date when the application was created.
+--
 adDateCreated :: Lens' ApplicationDescription (Maybe UTCTime)
 adDateCreated = lens _adDateCreated (\s a -> s { _adDateCreated = a }) . mapping _Time
 
 -- | The date when the application was last modified.
+--
 adDateUpdated :: Lens' ApplicationDescription (Maybe UTCTime)
 adDateUpdated = lens _adDateUpdated (\s a -> s { _adDateUpdated = a }) . mapping _Time
 
 -- | User-defined description of the application.
+--
 adDescription :: Lens' ApplicationDescription (Maybe Text)
 adDescription = lens _adDescription (\s a -> s { _adDescription = a })
 
 -- | The names of the versions for this application.
+--
 adVersions :: Lens' ApplicationDescription [Text]
 adVersions = lens _adVersions (\s a -> s { _adVersions = a }) . _List
 
@@ -433,10 +438,12 @@ tag = Tag
     }
 
 -- | The key of the tag.
+--
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
 -- | The value of the tag.
+--
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
@@ -495,36 +502,44 @@ eventDescription = EventDescription
     }
 
 -- | The application associated with the event.
+--
 edApplicationName :: Lens' EventDescription (Maybe Text)
 edApplicationName =
     lens _edApplicationName (\s a -> s { _edApplicationName = a })
 
 -- | The name of the environment associated with this event.
+--
 edEnvironmentName :: Lens' EventDescription (Maybe Text)
 edEnvironmentName =
     lens _edEnvironmentName (\s a -> s { _edEnvironmentName = a })
 
 -- | The date when the event occurred.
+--
 edEventDate :: Lens' EventDescription (Maybe UTCTime)
 edEventDate = lens _edEventDate (\s a -> s { _edEventDate = a }) . mapping _Time
 
 -- | The event message.
+--
 edMessage :: Lens' EventDescription (Maybe Text)
 edMessage = lens _edMessage (\s a -> s { _edMessage = a })
 
 -- | The web service request ID for the activity of this event.
+--
 edRequestId :: Lens' EventDescription (Maybe Text)
 edRequestId = lens _edRequestId (\s a -> s { _edRequestId = a })
 
 -- | The severity level of this event.
+--
 edSeverity :: Lens' EventDescription (Maybe EventSeverity)
 edSeverity = lens _edSeverity (\s a -> s { _edSeverity = a })
 
 -- | The name of the configuration associated with this event.
+--
 edTemplateName :: Lens' EventDescription (Maybe Text)
 edTemplateName = lens _edTemplateName (\s a -> s { _edTemplateName = a })
 
 -- | The release label for the application version associated with this event.
+--
 edVersionLabel :: Lens' EventDescription (Maybe Text)
 edVersionLabel = lens _edVersionLabel (\s a -> s { _edVersionLabel = a })
 
@@ -567,6 +582,7 @@ launchConfiguration = LaunchConfiguration
     }
 
 -- | The name of the launch configuration.
+--
 lcName :: Lens' LaunchConfiguration (Maybe Text)
 lcName = lens _lcName (\s a -> s { _lcName = a })
 
@@ -595,6 +611,7 @@ applicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage
     }
 
 -- | The 'ApplicationVersionDescription' of the application version.
+--
 avdmApplicationVersion :: Lens' ApplicationVersionDescriptionMessage (Maybe ApplicationVersionDescription)
 avdmApplicationVersion =
     lens _avdmApplicationVersion (\s a -> s { _avdmApplicationVersion = a })
@@ -624,6 +641,7 @@ autoScalingGroup = AutoScalingGroup
     }
 
 -- | The name of the 'AutoScalingGroup' .
+--
 asgName :: Lens' AutoScalingGroup (Maybe Text)
 asgName = lens _asgName (\s a -> s { _asgName = a })
 
@@ -689,14 +707,17 @@ configurationOptionSetting = ConfigurationOptionSetting
     }
 
 -- | A unique namespace identifying the option's associated AWS resource.
+--
 cosNamespace :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosNamespace = lens _cosNamespace (\s a -> s { _cosNamespace = a })
 
 -- | The name of the configuration option.
+--
 cosOptionName :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosOptionName = lens _cosOptionName (\s a -> s { _cosOptionName = a })
 
 -- | The current value for the configuration option.
+--
 cosValue :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosValue = lens _cosValue (\s a -> s { _cosValue = a })
 
@@ -787,59 +808,71 @@ configurationSettingsDescription = ConfigurationSettingsDescription
     }
 
 -- | The name of the application associated with this configuration set.
+--
 csdApplicationName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdApplicationName =
     lens _csdApplicationName (\s a -> s { _csdApplicationName = a })
 
 -- | The date (in UTC time) when this configuration set was created.
+--
 csdDateCreated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
 csdDateCreated = lens _csdDateCreated (\s a -> s { _csdDateCreated = a }) . mapping _Time
 
 -- | The date (in UTC time) when this configuration set was last modified.
+--
 csdDateUpdated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
 csdDateUpdated = lens _csdDateUpdated (\s a -> s { _csdDateUpdated = a }) . mapping _Time
 
--- | If this configuration set is associated with an environment, the
--- 'DeploymentStatus' parameter indicates the deployment status of this
--- configuration set: 'null': This configuration is not associated with a
--- running environment. 'pending': This is a draft configuration that is not
--- deployed to the associated environment but is in the process of
--- deploying. 'deployed': This is the configuration that is currently
--- deployed to the associated running environment. 'failed': This is a draft
--- configuration, that failed to successfully deploy. 'null': This
--- configuration is not associated with a running environment. 'pending':
--- This is a draft configuration that is not deployed to the associated
--- environment but is in the process of deploying. 'deployed': This is the
+-- | If this configuration set is associated with an environment, the 'DeploymentStatus' parameter indicates the deployment status of this configuration set:
+--
+-- 'null': This configuration is not associated with a running environment.
+--
+-- 'pending': This is a draft configuration that is not deployed to the
+-- associated environment but is in the process of deploying.
+--
+-- 'deployed': This is the configuration that is currently deployed to the
+-- associated running environment.
+--
+-- 'failed': This is a draft configuration, that failed to successfully
+-- deploy.
+--
+-- 'null': This configuration is not associated with a running environment.   'pending': This is a draft configuration that is not deployed to the associated
+-- environment but is in the process of deploying.   'deployed': This is the
 -- configuration that is currently deployed to the associated running
--- environment. 'failed': This is a draft configuration that failed to
+-- environment.   'failed': This is a draft configuration that failed to
 -- successfully deploy.
 csdDeploymentStatus :: Lens' ConfigurationSettingsDescription (Maybe ConfigurationDeploymentStatus)
 csdDeploymentStatus =
     lens _csdDeploymentStatus (\s a -> s { _csdDeploymentStatus = a })
 
 -- | Describes this configuration set.
+--
 csdDescription :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdDescription = lens _csdDescription (\s a -> s { _csdDescription = a })
 
 -- | If not 'null', the name of the environment for this configuration set.
+--
 csdEnvironmentName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdEnvironmentName =
     lens _csdEnvironmentName (\s a -> s { _csdEnvironmentName = a })
 
--- | A list of the configuration options and their values in this
--- configuration set.
+-- | A list of the configuration options and their values in this configuration
+-- set.
+--
 csdOptionSettings :: Lens' ConfigurationSettingsDescription [ConfigurationOptionSetting]
 csdOptionSettings =
     lens _csdOptionSettings (\s a -> s { _csdOptionSettings = a })
         . _List
 
 -- | The name of the solution stack this configuration set uses.
+--
 csdSolutionStackName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdSolutionStackName =
     lens _csdSolutionStackName (\s a -> s { _csdSolutionStackName = a })
 
--- | If not 'null', the name of the configuration template for this
--- configuration set.
+-- | If not 'null', the name of the configuration template for this configuration
+-- set.
+--
 csdTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdTemplateName = lens _csdTemplateName (\s a -> s { _csdTemplateName = a })
 
@@ -904,27 +937,33 @@ applicationVersionDescription = ApplicationVersionDescription
     }
 
 -- | The name of the application associated with this release.
+--
 avdApplicationName :: Lens' ApplicationVersionDescription (Maybe Text)
 avdApplicationName =
     lens _avdApplicationName (\s a -> s { _avdApplicationName = a })
 
 -- | The creation date of the application version.
+--
 avdDateCreated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
 avdDateCreated = lens _avdDateCreated (\s a -> s { _avdDateCreated = a }) . mapping _Time
 
 -- | The last modified date of the application version.
+--
 avdDateUpdated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
 avdDateUpdated = lens _avdDateUpdated (\s a -> s { _avdDateUpdated = a }) . mapping _Time
 
 -- | The description of this application version.
+--
 avdDescription :: Lens' ApplicationVersionDescription (Maybe Text)
 avdDescription = lens _avdDescription (\s a -> s { _avdDescription = a })
 
 -- | The location where the source bundle is located for this version.
+--
 avdSourceBundle :: Lens' ApplicationVersionDescription (Maybe S3Location)
 avdSourceBundle = lens _avdSourceBundle (\s a -> s { _avdSourceBundle = a })
 
 -- | A label uniquely identifying the version for the associated application.
+--
 avdVersionLabel :: Lens' ApplicationVersionDescription (Maybe Text)
 avdVersionLabel = lens _avdVersionLabel (\s a -> s { _avdVersionLabel = a })
 
@@ -967,10 +1006,12 @@ optionSpecification = OptionSpecification
     }
 
 -- | A unique namespace identifying the option's associated AWS resource.
+--
 osNamespace :: Lens' OptionSpecification (Maybe Text)
 osNamespace = lens _osNamespace (\s a -> s { _osNamespace = a })
 
 -- | The name of the configuration option.
+--
 osOptionName :: Lens' OptionSpecification (Maybe Text)
 osOptionName = lens _osOptionName (\s a -> s { _osOptionName = a })
 
@@ -1025,35 +1066,42 @@ environmentResourceDescription = EnvironmentResourceDescription
     }
 
 -- | The 'AutoScalingGroups' used by this environment.
+--
 erdAutoScalingGroups :: Lens' EnvironmentResourceDescription [AutoScalingGroup]
 erdAutoScalingGroups =
     lens _erdAutoScalingGroups (\s a -> s { _erdAutoScalingGroups = a })
         . _List
 
 -- | The name of the environment.
+--
 erdEnvironmentName :: Lens' EnvironmentResourceDescription (Maybe Text)
 erdEnvironmentName =
     lens _erdEnvironmentName (\s a -> s { _erdEnvironmentName = a })
 
 -- | The Amazon EC2 instances used by this environment.
+--
 erdInstances :: Lens' EnvironmentResourceDescription [Instance]
 erdInstances = lens _erdInstances (\s a -> s { _erdInstances = a }) . _List
 
 -- | The Auto Scaling launch configurations in use by this environment.
+--
 erdLaunchConfigurations :: Lens' EnvironmentResourceDescription [LaunchConfiguration]
 erdLaunchConfigurations =
     lens _erdLaunchConfigurations (\s a -> s { _erdLaunchConfigurations = a })
         . _List
 
 -- | The LoadBalancers in use by this environment.
+--
 erdLoadBalancers :: Lens' EnvironmentResourceDescription [LoadBalancer]
 erdLoadBalancers = lens _erdLoadBalancers (\s a -> s { _erdLoadBalancers = a }) . _List
 
 -- | The queues used by this environment.
+--
 erdQueues :: Lens' EnvironmentResourceDescription [Queue]
 erdQueues = lens _erdQueues (\s a -> s { _erdQueues = a }) . _List
 
 -- | The 'AutoScaling' triggers in use by this environment.
+--
 erdTriggers :: Lens' EnvironmentResourceDescription [Trigger]
 erdTriggers = lens _erdTriggers (\s a -> s { _erdTriggers = a }) . _List
 
@@ -1098,10 +1146,12 @@ queue = Queue
     }
 
 -- | The name of the queue.
+--
 qName :: Lens' Queue (Maybe Text)
 qName = lens _qName (\s a -> s { _qName = a })
 
 -- | The URL of the queue.
+--
 qURL :: Lens' Queue (Maybe Text)
 qURL = lens _qURL (\s a -> s { _qURL = a })
 
@@ -1175,14 +1225,17 @@ loadBalancerDescription = LoadBalancerDescription
     }
 
 -- | The domain name of the LoadBalancer.
+--
 lbdDomain :: Lens' LoadBalancerDescription (Maybe Text)
 lbdDomain = lens _lbdDomain (\s a -> s { _lbdDomain = a })
 
 -- | A list of Listeners used by the LoadBalancer.
+--
 lbdListeners :: Lens' LoadBalancerDescription [Listener]
 lbdListeners = lens _lbdListeners (\s a -> s { _lbdListeners = a }) . _List
 
 -- | The name of the LoadBalancer.
+--
 lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
 lbdLoadBalancerName =
     lens _lbdLoadBalancerName (\s a -> s { _lbdLoadBalancerName = a })
@@ -1216,6 +1269,7 @@ applicationDescriptionMessage = ApplicationDescriptionMessage
     }
 
 -- | The 'ApplicationDescription' of the application.
+--
 admApplication :: Lens' ApplicationDescriptionMessage (Maybe ApplicationDescription)
 admApplication = lens _admApplication (\s a -> s { _admApplication = a })
 
@@ -1252,14 +1306,17 @@ environmentTier = EnvironmentTier
     }
 
 -- | The name of this environment tier.
+--
 etName :: Lens' EnvironmentTier (Maybe Text)
 etName = lens _etName (\s a -> s { _etName = a })
 
 -- | The type of this environment tier.
+--
 etType :: Lens' EnvironmentTier (Maybe Text)
 etType = lens _etType (\s a -> s { _etType = a })
 
 -- | The version of this environment tier.
+--
 etVersion :: Lens' EnvironmentTier (Maybe Text)
 etVersion = lens _etVersion (\s a -> s { _etVersion = a })
 
@@ -1292,6 +1349,7 @@ loadBalancer = LoadBalancer
     }
 
 -- | The name of the LoadBalancer.
+--
 lbName :: Lens' LoadBalancer (Maybe Text)
 lbName = lens _lbName (\s a -> s { _lbName = a })
 
@@ -1320,6 +1378,7 @@ environmentResourcesDescription = EnvironmentResourcesDescription
     }
 
 -- | Describes the LoadBalancer.
+--
 erdLoadBalancer :: Lens' EnvironmentResourcesDescription (Maybe LoadBalancerDescription)
 erdLoadBalancer = lens _erdLoadBalancer (\s a -> s { _erdLoadBalancer = a })
 
@@ -1352,11 +1411,13 @@ optionRestrictionRegex = OptionRestrictionRegex
     }
 
 -- | A unique name representing this regular expression.
+--
 orrLabel :: Lens' OptionRestrictionRegex (Maybe Text)
 orrLabel = lens _orrLabel (\s a -> s { _orrLabel = a })
 
--- | The regular expression pattern that a string configuration option value
--- with this restriction must match.
+-- | The regular expression pattern that a string configuration option value with
+-- this restriction must match.
+--
 orrPattern :: Lens' OptionRestrictionRegex (Maybe Text)
 orrPattern = lens _orrPattern (\s a -> s { _orrPattern = a })
 
@@ -1427,84 +1488,110 @@ configurationOptionDescription = ConfigurationOptionDescription
     }
 
 -- | An indication of which action is required if the value for this
--- configuration option changes: NoInterruption - There is no interruption
--- to the environment or application availability. RestartEnvironment - The
--- environment is restarted, all AWS resources are deleted and recreated,
--- and the environment is unavailable during the process.
+-- configuration option changes:
+--
+-- NoInterruption - There is no interruption to the environment or
+-- application availability.
+--
+-- RestartEnvironment - The environment is restarted, all AWS resources are
+-- deleted and recreated, and the environment is unavailable during the process.
+--
 -- RestartApplicationServer - The environment is available the entire time.
--- However, a short application outage occurs when the application servers
--- on the running Amazon EC2 instances are restarted. 'NoInterruption' :
--- There is no interruption to the environment or application availability.
--- 'RestartEnvironment' : The environment is entirely restarted, all AWS
--- resources are deleted and recreated, and the environment is unavailable
--- during the process. 'RestartApplicationServer' : The environment is
--- available the entire time. However, a short application outage occurs
--- when the application servers on the running Amazon EC2 instances are
+-- However, a short application outage occurs when the application servers on
+-- the running Amazon EC2 instances are restarted.
+--
+-- 'NoInterruption' : There is no interruption to the environment or
+-- application availability.   'RestartEnvironment' : The environment is entirely
+-- restarted, all AWS resources are deleted and recreated, and the environment
+-- is unavailable during the process.   'RestartApplicationServer' : The
+-- environment is available the entire time. However, a short application outage
+-- occurs when the application servers on the running Amazon EC2 instances are
 -- restarted.
 codChangeSeverity :: Lens' ConfigurationOptionDescription (Maybe Text)
 codChangeSeverity =
     lens _codChangeSeverity (\s a -> s { _codChangeSeverity = a })
 
 -- | The default value for this configuration option.
+--
 codDefaultValue :: Lens' ConfigurationOptionDescription (Maybe Text)
 codDefaultValue = lens _codDefaultValue (\s a -> s { _codDefaultValue = a })
 
--- | If specified, the configuration option must be a string value no longer
--- than this value.
+-- | If specified, the configuration option must be a string value no longer than
+-- this value.
+--
 codMaxLength :: Lens' ConfigurationOptionDescription (Maybe Int)
 codMaxLength = lens _codMaxLength (\s a -> s { _codMaxLength = a })
 
 -- | If specified, the configuration option must be a numeric value less than
 -- this value.
+--
 codMaxValue :: Lens' ConfigurationOptionDescription (Maybe Int)
 codMaxValue = lens _codMaxValue (\s a -> s { _codMaxValue = a })
 
--- | If specified, the configuration option must be a numeric value greater
--- than this value.
+-- | If specified, the configuration option must be a numeric value greater than
+-- this value.
+--
 codMinValue :: Lens' ConfigurationOptionDescription (Maybe Int)
 codMinValue = lens _codMinValue (\s a -> s { _codMinValue = a })
 
 -- | The name of the configuration option.
+--
 codName :: Lens' ConfigurationOptionDescription (Maybe Text)
 codName = lens _codName (\s a -> s { _codName = a })
 
 -- | A unique namespace identifying the option's associated AWS resource.
+--
 codNamespace :: Lens' ConfigurationOptionDescription (Maybe Text)
 codNamespace = lens _codNamespace (\s a -> s { _codNamespace = a })
 
--- | If specified, the configuration option must be a string value that
--- satisfies this regular expression.
+-- | If specified, the configuration option must be a string value that satisfies
+-- this regular expression.
+--
 codRegex :: Lens' ConfigurationOptionDescription (Maybe OptionRestrictionRegex)
 codRegex = lens _codRegex (\s a -> s { _codRegex = a })
 
 -- | An indication of whether the user defined this configuration option:
+--
 -- 'true' : This configuration option was defined by the user. It is a valid
--- choice for specifying this as an Option to Remove when updating
--- configuration settings. 'false' : This configuration was not defined by
--- the user. 'true' : This configuration option was defined by the user. It
--- is a valid choice for specifying if this as an 'Option to Remove' when
--- updating configuration settings. 'false' : This configuration was not
--- defined by the user. Constraint: You can remove only 'UserDefined'
--- options from a configuration. Valid Values: 'true' | 'false'.
+-- choice for specifying this as an Option to Remove when updating configuration
+-- settings.
+--
+-- 'false' : This configuration was not defined by the user.
+--
+-- 'true' : This configuration option was defined by the user. It is a valid
+-- choice for specifying if this as an 'Option to Remove' when updating
+-- configuration settings.
+--
+-- 'false' : This configuration was not defined by the user.    Constraint: You
+-- can remove only 'UserDefined' options from a configuration.
+--
+-- Valid Values: 'true' | 'false'
+--
 codUserDefined :: Lens' ConfigurationOptionDescription (Maybe Bool)
 codUserDefined = lens _codUserDefined (\s a -> s { _codUserDefined = a })
 
 -- | If specified, values for the configuration option are selected from this
 -- list.
+--
 codValueOptions :: Lens' ConfigurationOptionDescription [Text]
 codValueOptions = lens _codValueOptions (\s a -> s { _codValueOptions = a }) . _List
 
 -- | An indication of which type of values this option has and whether it is
--- allowable to select one or more than one of the possible values: 'Scalar'
--- : Values for this option are a single selection from the possible values,
--- or a unformatted string or numeric value governed by the MIN/MAX/Regex
--- constraints: 'List' : Values for this option are multiple selections of
--- the possible values. 'Boolean' : Values for this option are either 'true'
--- or 'false' . 'Scalar' : Values for this option are a single selection
--- from the possible values, or an unformatted string, or numeric value
--- governed by the 'MIN/MAX/Regex' constraints. 'List' : Values for this
--- option are multiple selections from the possible values. 'Boolean' :
--- Values for this option are either 'true' or 'false' .
+-- allowable to select one or more than one of the possible values:
+--
+-- 'Scalar' : Values for this option are a single selection from the possible
+-- values, or a unformatted string or numeric value governed by the
+-- MIN/MAX/Regex constraints:
+--
+-- 'List' : Values for this option are multiple selections of the possible
+-- values.
+--
+-- 'Boolean' : Values for this option are either 'true' or 'false' .
+--
+-- 'Scalar' : Values for this option are a single selection from the
+-- possible values, or an unformatted string, or numeric value governed by the 'MIN/MAX/Regex' constraints.   'List' : Values for this option are multiple selections from
+-- the possible values.   'Boolean' : Values for this option are either 'true' or 'false' .
+--
 codValueType :: Lens' ConfigurationOptionDescription (Maybe ConfigurationOptionValueType)
 codValueType = lens _codValueType (\s a -> s { _codValueType = a })
 
@@ -1557,11 +1644,13 @@ sourceConfiguration = SourceConfiguration
     }
 
 -- | The name of the application associated with the configuration.
+--
 scApplicationName :: Lens' SourceConfiguration (Maybe Text)
 scApplicationName =
     lens _scApplicationName (\s a -> s { _scApplicationName = a })
 
 -- | The name of the configuration template.
+--
 scTemplateName :: Lens' SourceConfiguration (Maybe Text)
 scTemplateName = lens _scTemplateName (\s a -> s { _scTemplateName = a })
 
@@ -1604,18 +1693,22 @@ environmentInfoDescription = EnvironmentInfoDescription
     }
 
 -- | The Amazon EC2 Instance ID for this information.
+--
 eidEc2InstanceId :: Lens' EnvironmentInfoDescription (Maybe Text)
 eidEc2InstanceId = lens _eidEc2InstanceId (\s a -> s { _eidEc2InstanceId = a })
 
 -- | The type of information retrieved.
+--
 eidInfoType :: Lens' EnvironmentInfoDescription (Maybe EnvironmentInfoType)
 eidInfoType = lens _eidInfoType (\s a -> s { _eidInfoType = a })
 
 -- | The retrieved information.
+--
 eidMessage :: Lens' EnvironmentInfoDescription (Maybe Text)
 eidMessage = lens _eidMessage (\s a -> s { _eidMessage = a })
 
 -- | The time stamp when this information was retrieved.
+--
 eidSampleTimestamp :: Lens' EnvironmentInfoDescription (Maybe UTCTime)
 eidSampleTimestamp =
     lens _eidSampleTimestamp (\s a -> s { _eidSampleTimestamp = a })
@@ -1656,10 +1749,12 @@ s3Location = S3Location
     }
 
 -- | The Amazon S3 bucket where the data is located.
+--
 slS3Bucket :: Lens' S3Location (Maybe Text)
 slS3Bucket = lens _slS3Bucket (\s a -> s { _slS3Bucket = a })
 
 -- | The Amazon S3 key where the data is located.
+--
 slS3Key :: Lens' S3Location (Maybe Text)
 slS3Key = lens _slS3Key (\s a -> s { _slS3Key = a })
 
@@ -1702,22 +1797,30 @@ validationMessage = ValidationMessage
     }
 
 -- | A message describing the error or warning.
+--
 vmMessage :: Lens' ValidationMessage (Maybe Text)
 vmMessage = lens _vmMessage (\s a -> s { _vmMessage = a })
 
 -- | 
+--
 vmNamespace :: Lens' ValidationMessage (Maybe Text)
 vmNamespace = lens _vmNamespace (\s a -> s { _vmNamespace = a })
 
 -- | 
+--
 vmOptionName :: Lens' ValidationMessage (Maybe Text)
 vmOptionName = lens _vmOptionName (\s a -> s { _vmOptionName = a })
 
--- | An indication of the severity of this message: error: This message
--- indicates that this is not a valid setting for an option. warning: This
--- message is providing information you should take into account. error:
--- This message indicates that this is not a valid setting for an option.
+-- | An indication of the severity of this message:
+--
+-- error: This message indicates that this is not a valid setting for an
+-- option.
+--
 -- warning: This message is providing information you should take into
+-- account.
+--
+-- error: This message indicates that this is not a valid setting for an
+-- option.   warning: This message is providing information you should take into
 -- account.
 vmSeverity :: Lens' ValidationMessage (Maybe ValidationSeverity)
 vmSeverity = lens _vmSeverity (\s a -> s { _vmSeverity = a })
@@ -1779,6 +1882,7 @@ trigger = Trigger
     }
 
 -- | The name of the trigger.
+--
 tName :: Lens' Trigger (Maybe Text)
 tName = lens _tName (\s a -> s { _tName = a })
 
@@ -1885,84 +1989,103 @@ environmentDescription = EnvironmentDescription
     }
 
 -- | The name of the application associated with this environment.
+--
 ed1ApplicationName :: Lens' EnvironmentDescription (Maybe Text)
 ed1ApplicationName =
     lens _ed1ApplicationName (\s a -> s { _ed1ApplicationName = a })
 
 -- | The URL to the CNAME for this environment.
+--
 ed1CNAME :: Lens' EnvironmentDescription (Maybe Text)
 ed1CNAME = lens _ed1CNAME (\s a -> s { _ed1CNAME = a })
 
 -- | The creation date for this environment.
+--
 ed1DateCreated :: Lens' EnvironmentDescription (Maybe UTCTime)
 ed1DateCreated = lens _ed1DateCreated (\s a -> s { _ed1DateCreated = a }) . mapping _Time
 
 -- | The last modified date for this environment.
+--
 ed1DateUpdated :: Lens' EnvironmentDescription (Maybe UTCTime)
 ed1DateUpdated = lens _ed1DateUpdated (\s a -> s { _ed1DateUpdated = a }) . mapping _Time
 
 -- | Describes this environment.
+--
 ed1Description :: Lens' EnvironmentDescription (Maybe Text)
 ed1Description = lens _ed1Description (\s a -> s { _ed1Description = a })
 
--- | For load-balanced, autoscaling environments, the URL to the LoadBalancer.
--- For single-instance environments, the IP address of the instance.
+-- | For load-balanced, autoscaling environments, the URL to the LoadBalancer. For
+-- single-instance environments, the IP address of the instance.
+--
 ed1EndpointURL :: Lens' EnvironmentDescription (Maybe Text)
 ed1EndpointURL = lens _ed1EndpointURL (\s a -> s { _ed1EndpointURL = a })
 
 -- | The ID of this environment.
+--
 ed1EnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
 ed1EnvironmentId = lens _ed1EnvironmentId (\s a -> s { _ed1EnvironmentId = a })
 
 -- | The name of this environment.
+--
 ed1EnvironmentName :: Lens' EnvironmentDescription (Maybe Text)
 ed1EnvironmentName =
     lens _ed1EnvironmentName (\s a -> s { _ed1EnvironmentName = a })
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
--- indicates the failure levels for a running environment: 'Red' : Indicates
--- the environment is not working. 'Yellow': Indicates that something is
--- wrong, the application might not be available, but the instances appear
--- running. 'Green': Indicates the environment is healthy and fully
--- functional. 'Red': Indicates the environment is not responsive. Occurs
--- when three or more consecutive failures occur for an environment.
--- 'Yellow': Indicates that something is wrong. Occurs when two consecutive
--- failures occur for an environment. 'Green': Indicates the environment is
--- healthy and fully functional. 'Grey': Default health for a new
--- environment. The environment is not fully launched and health checks have
--- not started or health checks are suspended during an 'UpdateEnvironment'
--- or 'RestartEnvironement' request. Default: 'Grey'.
+-- indicates the failure levels for a running environment:
+--
+-- 'Red' : Indicates the environment is not working.
+--
+-- 'Yellow': Indicates that something is wrong, the application might not be
+-- available, but the instances appear running.
+--
+-- 'Green': Indicates the environment is healthy and fully functional.
+--
+-- 'Red': Indicates the environment is not responsive. Occurs when three or
+-- more consecutive failures occur for an environment.   'Yellow': Indicates that
+-- something is wrong. Occurs when two consecutive failures occur for an
+-- environment.   'Green': Indicates the environment is healthy and fully
+-- functional.   'Grey': Default health for a new environment. The environment is
+-- not fully launched and health checks have not started or health checks are
+-- suspended during an 'UpdateEnvironment' or 'RestartEnvironement' request.
+-- Default: 'Grey'
+--
 ed1Health :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
 ed1Health = lens _ed1Health (\s a -> s { _ed1Health = a })
 
 -- | The description of the AWS resources used by this environment.
+--
 ed1Resources :: Lens' EnvironmentDescription (Maybe EnvironmentResourcesDescription)
 ed1Resources = lens _ed1Resources (\s a -> s { _ed1Resources = a })
 
 -- | The name of the 'SolutionStack' deployed with this environment.
+--
 ed1SolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
 ed1SolutionStackName =
     lens _ed1SolutionStackName (\s a -> s { _ed1SolutionStackName = a })
 
--- | The current operational status of the environment: 'Launching':
--- Environment is in the process of initial deployment. 'Updating':
--- Environment is in the process of updating its configuration settings or
--- application version. 'Ready': Environment is available to have an action
--- performed on it, such as update or terminate. 'Terminating': Environment
--- is in the shut-down process. 'Terminated': Environment is not running.
+-- | The current operational status of the environment:
+--
+-- 'Launching': Environment is in the process of initial deployment.   'Updating': Environment is in the process of updating its configuration settings or application version.
+-- 'Ready': Environment is available to have an action performed on it, such as
+-- update or terminate.   'Terminating': Environment is in the shut-down process.
+-- 'Terminated': Environment is not running.
 ed1Status :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
 ed1Status = lens _ed1Status (\s a -> s { _ed1Status = a })
 
 -- | The name of the configuration template used to originally launch this
 -- environment.
+--
 ed1TemplateName :: Lens' EnvironmentDescription (Maybe Text)
 ed1TemplateName = lens _ed1TemplateName (\s a -> s { _ed1TemplateName = a })
 
 -- | Describes the current tier of this environment.
+--
 ed1Tier :: Lens' EnvironmentDescription (Maybe EnvironmentTier)
 ed1Tier = lens _ed1Tier (\s a -> s { _ed1Tier = a })
 
 -- | The application version deployed in this environment.
+--
 ed1VersionLabel :: Lens' EnvironmentDescription (Maybe Text)
 ed1VersionLabel = lens _ed1VersionLabel (\s a -> s { _ed1VersionLabel = a })
 
@@ -2023,10 +2146,12 @@ listener = Listener
     }
 
 -- | The port that is used by the Listener.
+--
 lPort :: Lens' Listener (Maybe Int)
 lPort = lens _lPort (\s a -> s { _lPort = a })
 
 -- | The protocol that is used by the Listener.
+--
 lProtocol :: Lens' Listener (Maybe Text)
 lProtocol = lens _lProtocol (\s a -> s { _lProtocol = a })
 
@@ -2089,6 +2214,7 @@ instance' = Instance
     }
 
 -- | The ID of the Amazon EC2 instance.
+--
 iId :: Lens' Instance (Maybe Text)
 iId = lens _iId (\s a -> s { _iId = a })
 
@@ -2121,12 +2247,14 @@ solutionStackDescription = SolutionStackDescription
     }
 
 -- | The permitted file types allowed for a solution stack.
+--
 ssdPermittedFileTypes :: Lens' SolutionStackDescription [Text]
 ssdPermittedFileTypes =
     lens _ssdPermittedFileTypes (\s a -> s { _ssdPermittedFileTypes = a })
         . _List
 
 -- | The name of the solution stack.
+--
 ssdSolutionStackName :: Lens' SolutionStackDescription (Maybe Text)
 ssdSolutionStackName =
     lens _ssdSolutionStackName (\s a -> s { _ssdSolutionStackName = a })

@@ -20,11 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Exports a running or stopped instance to an Amazon S3 bucket. For
--- information about the supported operating systems, image formats, and known
--- limitations for the types of instances you can export, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html
--- Exporting EC2 Instances> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Exports a running or stopped instance to an Amazon S3 bucket.
+--
+-- For information about the supported operating systems, image formats, and
+-- known limitations for the types of instances you can export, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html ExportingEC2 Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInstanceExportTask.html>
 module Network.AWS.EC2.CreateInstanceExportTask
@@ -82,6 +81,7 @@ createInstanceExportTask p1 = CreateInstanceExportTask
 
 -- | A description for the conversion task or the resource being exported. The
 -- maximum length is 255 bytes.
+--
 cietDescription :: Lens' CreateInstanceExportTask (Maybe Text)
 cietDescription = lens _cietDescription (\s a -> s { _cietDescription = a })
 
@@ -90,10 +90,12 @@ cietExportToS3Task =
     lens _cietExportToS3Task (\s a -> s { _cietExportToS3Task = a })
 
 -- | The ID of the instance.
+--
 cietInstanceId :: Lens' CreateInstanceExportTask Text
 cietInstanceId = lens _cietInstanceId (\s a -> s { _cietInstanceId = a })
 
 -- | The target virtualization environment.
+--
 cietTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
 cietTargetEnvironment =
     lens _cietTargetEnvironment (\s a -> s { _cietTargetEnvironment = a })

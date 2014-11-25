@@ -22,18 +22,20 @@
 
 -- | Returns the current status of Easy DKIM signing for an entity. For domain
 -- name identities, this action also returns the DKIM tokens that are required
--- for Easy DKIM signing, and whether Amazon SES has successfully verified
--- that these tokens have been published. This action takes a list of
--- identities as input and returns the following information for each: Whether
--- Easy DKIM signing is enabled or disabled. A set of DKIM tokens that
+-- for Easy DKIM signing, and whether Amazon SES has successfully verified that
+-- these tokens have been published.
+--
+-- This action takes a list of identities as input and returns the following
+-- information for each:
+--
+-- Whether Easy DKIM signing is enabled or disabled. A set of DKIM tokens that
 -- represent the identity. If the identity is an email address, the tokens
 -- represent the domain of that address. Whether Amazon SES has successfully
 -- verified the DKIM tokens published in the domain's DNS. This information is
--- only returned for domain name identities, not for email addresses. This
--- action is throttled at one request per second. For more information about
--- creating DNS records using DKIM tokens, go to the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html
--- Amazon SES Developer Guide>.
+-- only returned for domain name identities, not for email addresses.  This
+-- action is throttled at one request per second.
+--
+-- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityDkimAttributes.html>
 module Network.AWS.SES.GetIdentityDkimAttributes
@@ -79,8 +81,8 @@ getIdentityDkimAttributes = GetIdentityDkimAttributes
     { _gidaIdentities = mempty
     }
 
--- | A list of one or more verified identities - email addresses, domains, or
--- both.
+-- | A list of one or more verified identities - email addresses, domains, or both.
+--
 gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
 gidaIdentities = lens _gidaIdentities (\s a -> s { _gidaIdentities = a }) . _List
 
@@ -100,6 +102,7 @@ getIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     }
 
 -- | The DKIM attributes for an email address or a domain.
+--
 gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
 gidarDkimAttributes =
     lens _gidarDkimAttributes (\s a -> s { _gidarDkimAttributes = a })

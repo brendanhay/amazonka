@@ -22,17 +22,20 @@
 
 -- | Deletes the queue specified by the queue URL, regardless of whether the
 -- queue is empty. If the specified queue does not exist, Amazon SQS returns a
--- successful response. Use 'DeleteQueue' with care; once you delete your
--- queue, any messages in the queue are no longer available. When you delete a
--- queue, the deletion process takes up to 60 seconds. Requests you send
--- involving that queue during the 60 seconds might succeed. For example, a
--- 'SendMessage' request might succeed, but after the 60 seconds, the queue
--- and that message you sent no longer exist. Also, when you delete a queue,
--- you must wait at least 60 seconds before creating a queue with the same
--- name. We reserve the right to delete queues that have had no activity for
--- more than 30 days. For more information, see
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSConcepts.html
--- How Amazon SQS Queues Work> in the /Amazon SQS Developer Guide/.
+-- successful response.
+--
+-- Use 'DeleteQueue' with care; once you delete your queue, any messages in the
+-- queue are no longer available.
+--
+-- When you delete a queue, the deletion process takes up to 60 seconds.
+-- Requests you send involving that queue during the 60 seconds might succeed.
+-- For example, a 'SendMessage' request might succeed, but after the 60 seconds,
+-- the queue and that message you sent no longer exist. Also, when you delete a
+-- queue, you must wait at least 60 seconds before creating a queue with the
+-- same name.
+--
+-- We reserve the right to delete queues that have had no activity for more
+-- than 30 days. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSConcepts.html How Amazon SQS Queues Work> in the /Amazon SQS Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html>
 module Network.AWS.SQS.DeleteQueue
@@ -72,6 +75,7 @@ deleteQueue p1 = DeleteQueue
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
 dqQueueUrl :: Lens' DeleteQueue Text
 dqQueueUrl = lens _dqQueueUrl (\s a -> s { _dqQueueUrl = a })
 

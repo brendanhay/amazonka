@@ -20,10 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Accept ownership of a private virtual interface created by another
--- customer. After the virtual interface owner calls this function, the
--- virtual interface will be created and attached to the given virtual private
--- gateway, and will be available for handling traffic.
+-- | Accept ownership of a private virtual interface created by another customer.
+--
+-- After the virtual interface owner calls this function, the virtual interface
+-- will be created and attached to the given virtual private gateway, and will
+-- be available for handling traffic.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPrivateVirtualInterface.html>
 module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
@@ -71,10 +72,13 @@ confirmPrivateVirtualInterface p1 p2 = ConfirmPrivateVirtualInterface
     }
 
 -- | ID of the virtual private gateway that will be attached to the virtual
--- interface. A virtual private gateway can be managed via the Amazon
--- Virtual Private Cloud (VPC) console or the
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html
--- EC2 CreateVpnGateway> action. Default: None.
+-- interface.
+--
+-- A virtual private gateway can be managed via the Amazon Virtual Private
+-- Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action.
+--
+-- Default: None
+--
 cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface Text
 cpviVirtualGatewayId =
     lens _cpviVirtualGatewayId (\s a -> s { _cpviVirtualGatewayId = a })

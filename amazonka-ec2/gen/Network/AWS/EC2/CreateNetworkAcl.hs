@@ -22,9 +22,8 @@
 
 -- | Creates a network ACL in a VPC. Network ACLs provide an optional layer of
 -- security (in addition to security groups) for the instances in your VPC.
--- For more information about network ACLs, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html
--- Network ACLs> in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /AmazonVirtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkAcl.html>
 module Network.AWS.EC2.CreateNetworkAcl
@@ -74,6 +73,7 @@ cnaDryRun :: Lens' CreateNetworkAcl (Maybe Bool)
 cnaDryRun = lens _cnaDryRun (\s a -> s { _cnaDryRun = a })
 
 -- | The ID of the VPC.
+--
 cnaVpcId :: Lens' CreateNetworkAcl Text
 cnaVpcId = lens _cnaVpcId (\s a -> s { _cnaVpcId = a })
 
@@ -93,6 +93,7 @@ createNetworkAclResponse = CreateNetworkAclResponse
     }
 
 -- | Information about the network ACL.
+--
 cnarNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)
 cnarNetworkAcl = lens _cnarNetworkAcl (\s a -> s { _cnarNetworkAcl = a })
 

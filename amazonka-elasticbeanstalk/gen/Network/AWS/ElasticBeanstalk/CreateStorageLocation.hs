@@ -20,8 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates the Amazon S3 storage location for the account. This location is
--- used to store user log files.
+-- | Creates the Amazon S3 storage location for the account.
+--
+-- This location is used to store user log files.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateStorageLocation.html>
 module Network.AWS.ElasticBeanstalk.CreateStorageLocation
@@ -67,6 +68,7 @@ createStorageLocationResponse = CreateStorageLocationResponse
     }
 
 -- | The name of the Amazon S3 bucket created.
+--
 cslrS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrS3Bucket = lens _cslrS3Bucket (\s a -> s { _cslrS3Bucket = a })
 

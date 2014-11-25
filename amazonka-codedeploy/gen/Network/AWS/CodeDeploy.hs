@@ -8,13 +8,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon CodeDeploy is a service that automates code deployments to Amazon
--- EC2 instances. Amazon CodeDeploy makes it easier for you to rapidly release
--- new features, helps you avoid downtime during deployment, and handles the
+-- | Amazon CodeDeploy is a service that automates code deployments to Amazon EC2
+-- instances. Amazon CodeDeploy makes it easier for you to rapidly release new
+-- features, helps you avoid downtime during deployment, and handles the
 -- complexity of updating your applications. You can use Amazon CodeDeploy to
--- automate deployments, eliminating the need for error-prone manual
--- operations, and the service scales with your infrastructure so you can
--- easily deploy to one EC2 instance or thousands.
+-- automate deployments, eliminating the need for error-prone manual operations,
+-- and the service scales with your infrastructure so you can easily deploy to
+-- one EC2 instance or thousands.
 module Network.AWS.CodeDeploy
     ( module Network.AWS.CodeDeploy.BatchGetApplications
     , module Network.AWS.CodeDeploy.BatchGetDeployments

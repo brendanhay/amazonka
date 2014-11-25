@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This operation returns your gateway's weekly maintenance start time
--- including the day and time of the week. Note that values are in terms of
--- the gateway's time zone.
+-- | This operation returns your gateway's weekly maintenance start time including
+-- the day and time of the week. Note that values are in terms of the gateway's
+-- time zone.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeMaintenanceStartTime.html>
 module Network.AWS.StorageGateway.DescribeMaintenanceStartTime

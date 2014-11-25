@@ -10,8 +10,8 @@
 
 -- | AWS Identity and Access Management (IAM) enables you to securely control
 -- access to AWS services and resources for your users. Using IAM, you can
--- create and manage AWS users and groups and use permissions to allow and
--- deny their access to AWS resources.
+-- create and manage AWS users and groups and use permissions to allow and deny
+-- their access to AWS resources.
 module Network.AWS.IAM
     ( module Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
     , module Network.AWS.IAM.AddRoleToInstanceProfile

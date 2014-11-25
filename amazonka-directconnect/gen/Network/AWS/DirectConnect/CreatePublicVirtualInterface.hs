@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates a new public virtual interface. A virtual interface is the VLAN
--- that transports AWS Direct Connect traffic. A public virtual interface
--- supports sending traffic to public services of AWS such as Amazon Simple
--- Storage Service (Amazon S3).
+-- | Creates a new public virtual interface. A virtual interface is the VLAN that
+-- transports AWS Direct Connect traffic. A public virtual interface supports
+-- sending traffic to public services of AWS such as Amazon Simple Storage
+-- Service (Amazon S3).
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePublicVirtualInterface.html>
 module Network.AWS.DirectConnect.CreatePublicVirtualInterface
@@ -88,7 +88,9 @@ cpviConnectionId :: Lens' CreatePublicVirtualInterface Text
 cpviConnectionId = lens _cpviConnectionId (\s a -> s { _cpviConnectionId = a })
 
 -- | Detailed information for the public virtual interface to be created.
--- Default: None.
+--
+-- Default: None
+--
 cpviNewPublicVirtualInterface :: Lens' CreatePublicVirtualInterface NewPublicVirtualInterface
 cpviNewPublicVirtualInterface =
     lens _cpviNewPublicVirtualInterface
@@ -184,6 +186,7 @@ cpvirCustomerAddress =
     lens _cpvirCustomerAddress (\s a -> s { _cpvirCustomerAddress = a })
 
 -- | Information for generating the customer router configuration.
+--
 cpvirCustomerRouterConfig :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
 cpvirCustomerRouterConfig =
     lens _cpvirCustomerRouterConfig

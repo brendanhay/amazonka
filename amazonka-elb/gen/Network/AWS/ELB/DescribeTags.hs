@@ -62,6 +62,7 @@ describeTags p1 = DescribeTags
     }
 
 -- | The names of the load balancers.
+--
 dtLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
 dtLoadBalancerNames =
     lens _dtLoadBalancerNames (\s a -> s { _dtLoadBalancerNames = a })
@@ -89,6 +90,7 @@ describeTagsResponse = DescribeTagsResponse
     }
 
 -- | A list of tag description structures.
+--
 dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrTagDescriptions =
     lens _dtrTagDescriptions (\s a -> s { _dtrTagDescriptions = a })

@@ -27,9 +27,9 @@
 -- your database is running on the Internet. Required parameters for this API
 -- are one of CIDR range, EC2SecurityGroupId for VPC, or
 -- (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
--- EC2SecurityGroupId for non-VPC). For an overview of CIDR ranges, go to the
--- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia
--- Tutorial>.
+-- EC2SecurityGroupId for non-VPC).
+--
+-- For an overview of CIDR ranges, go to the <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AuthorizeDBSecurityGroupIngress.html>
 module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
@@ -91,38 +91,36 @@ authorizeDBSecurityGroupIngress p1 = AuthorizeDBSecurityGroupIngress
     }
 
 -- | The IP range to authorize.
+--
 adbsgiCIDRIP :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgiCIDRIP = lens _adbsgiCIDRIP (\s a -> s { _adbsgiCIDRIP = a })
 
 -- | The name of the DB security group to add authorization to.
+--
 adbsgiDBSecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress Text
 adbsgiDBSecurityGroupName =
     lens _adbsgiDBSecurityGroupName
         (\s a -> s { _adbsgiDBSecurityGroupName = a })
 
--- | Id of the EC2 security group to authorize. For VPC DB security groups,
--- 'EC2SecurityGroupId' must be provided. Otherwise, EC2SecurityGroupOwnerId
--- and either 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be
--- provided.
+-- | Id of the EC2 security group to authorize. For VPC DB security groups, 'EC2SecurityGroupId' must be provided. Otherwise, EC2SecurityGroupOwnerId and either 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
+--
 adbsgiEC2SecurityGroupId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgiEC2SecurityGroupId =
     lens _adbsgiEC2SecurityGroupId
         (\s a -> s { _adbsgiEC2SecurityGroupId = a })
 
--- | Name of the EC2 security group to authorize. For VPC DB security groups,
--- 'EC2SecurityGroupId' must be provided. Otherwise, EC2SecurityGroupOwnerId
--- and either 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be
--- provided.
+-- | Name of the EC2 security group to authorize. For VPC DB security groups, 'EC2SecurityGroupId' must be provided. Otherwise, EC2SecurityGroupOwnerId and either 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
+--
 adbsgiEC2SecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgiEC2SecurityGroupName =
     lens _adbsgiEC2SecurityGroupName
         (\s a -> s { _adbsgiEC2SecurityGroupName = a })
 
--- | AWS Account Number of the owner of the EC2 security group specified in
--- the EC2SecurityGroupName parameter. The AWS Access Key ID is not an
--- acceptable value. For VPC DB security groups, 'EC2SecurityGroupId' must
--- be provided. Otherwise, EC2SecurityGroupOwnerId and either
--- 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
+-- | AWS Account Number of the owner of the EC2 security group specified in the
+-- EC2SecurityGroupName parameter. The AWS Access Key ID is not an acceptable
+-- value. For VPC DB security groups, 'EC2SecurityGroupId' must be provided.
+-- Otherwise, EC2SecurityGroupOwnerId and either 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
+--
 adbsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adbsgiEC2SecurityGroupOwnerId =
     lens _adbsgiEC2SecurityGroupOwnerId

@@ -20,14 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates a Spot Instance request. Spot Instances are instances that Amazon
--- EC2 starts on your behalf when the maximum price that you specify exceeds
--- the current Spot Price. Amazon EC2 periodically sets the Spot Price based
--- on available Spot Instance capacity and current Spot Instance requests. For
--- more information about Spot Instances, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
--- Spot Instances> in the /Amazon Elastic Compute Cloud User Guide/. Users
--- must be subscribed to the required product to run an instance with AWS
+-- | Creates a Spot Instance request. Spot Instances are instances that Amazon EC2
+-- starts on your behalf when the maximum price that you specify exceeds the
+-- current Spot Price. Amazon EC2 periodically sets the Spot Price based on
+-- available Spot Instance capacity and current Spot Instance requests. For more
+-- information about Spot Instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html Spot Instances> in the /Amazon ElasticCompute Cloud User Guide/.
+--
+-- Users must be subscribed to the required product to run an instance with AWS
 -- Marketplace product codes.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotInstances.html>
@@ -109,23 +108,27 @@ requestSpotInstances p1 = RequestSpotInstances
     , _rsiLaunchSpecification   = Nothing
     }
 
--- | The user-specified name for a logical grouping of bids. When you specify
--- an Availability Zone group in a Spot Instance request, all Spot Instances
--- in the request are launched in the same Availability Zone. Instance
--- proximity is maintained with this parameter, but the choice of
--- Availability Zone is not. The group applies only to bids for Spot
--- Instances of the same instance type. Any additional Spot Instance
--- requests that are specified with the same Availability Zone group name
--- are launched in that same Availability Zone, as long as at least one
--- instance from the group is still active. If there is no active instance
--- running in the Availability Zone group that you specify for a new Spot
--- Instance request (all instances are terminated, the bid is expired, or
--- the bid falls below current market), then Amazon EC2 launches the
--- instance in any Availability Zone where the constraint can be met.
--- Consequently, the subsequent set of Spot Instances could be placed in a
+-- | The user-specified name for a logical grouping of bids.
+--
+-- When you specify an Availability Zone group in a Spot Instance request, all
+-- Spot Instances in the request are launched in the same Availability Zone.
+-- Instance proximity is maintained with this parameter, but the choice of
+-- Availability Zone is not. The group applies only to bids for Spot Instances
+-- of the same instance type. Any additional Spot Instance requests that are
+-- specified with the same Availability Zone group name are launched in that
+-- same Availability Zone, as long as at least one instance from the group is
+-- still active.
+--
+-- If there is no active instance running in the Availability Zone group that
+-- you specify for a new Spot Instance request (all instances are terminated,
+-- the bid is expired, or the bid falls below current market), then Amazon EC2
+-- launches the instance in any Availability Zone where the constraint can be
+-- met. Consequently, the subsequent set of Spot Instances could be placed in a
 -- different zone from the original request, even if you specified the same
--- Availability Zone group. Default: Instances are launched in any available
--- Availability Zone.
+-- Availability Zone group.
+--
+-- Default: Instances are launched in any available Availability Zone.
+--
 rsiAvailabilityZoneGroup :: Lens' RequestSpotInstances (Maybe Text)
 rsiAvailabilityZoneGroup =
     lens _rsiAvailabilityZoneGroup
@@ -134,13 +137,18 @@ rsiAvailabilityZoneGroup =
 rsiDryRun :: Lens' RequestSpotInstances (Maybe Bool)
 rsiDryRun = lens _rsiDryRun (\s a -> s { _rsiDryRun = a })
 
--- | The maximum number of Spot Instances to launch. Default: 1.
+-- | The maximum number of Spot Instances to launch.
+--
+-- Default: 1
+--
 rsiInstanceCount :: Lens' RequestSpotInstances (Maybe Int)
 rsiInstanceCount = lens _rsiInstanceCount (\s a -> s { _rsiInstanceCount = a })
 
 -- | The instance launch group. Launch groups are Spot Instances that launch
--- together and terminate together. Default: Instances are launched and
--- terminated individually.
+-- together and terminate together.
+--
+-- Default: Instances are launched and terminated individually
+--
 rsiLaunchGroup :: Lens' RequestSpotInstances (Maybe Text)
 rsiLaunchGroup = lens _rsiLaunchGroup (\s a -> s { _rsiLaunchGroup = a })
 
@@ -150,27 +158,35 @@ rsiLaunchSpecification =
 
 -- | The maximum hourly price for any Spot Instance launched to fulfill the
 -- request.
+--
 rsiSpotPrice :: Lens' RequestSpotInstances Text
 rsiSpotPrice = lens _rsiSpotPrice (\s a -> s { _rsiSpotPrice = a })
 
--- | The Spot Instance request type. Default: 'one-time'.
+-- | The Spot Instance request type.
+--
+-- Default: 'one-time'
+--
 rsiType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
 rsiType = lens _rsiType (\s a -> s { _rsiType = a })
 
 -- | The start date of the request. If this is a one-time request, the request
--- becomes active at this date and time and remains active until all
--- instances launch, the request expires, or the request is canceled. If the
--- request is persistent, the request becomes active at this date and time
--- and remains active until it expires or is canceled. Default: The request
--- is effective indefinitely.
+-- becomes active at this date and time and remains active until all instances
+-- launch, the request expires, or the request is canceled. If the request is
+-- persistent, the request becomes active at this date and time and remains
+-- active until it expires or is canceled.
+--
+-- Default: The request is effective indefinitely.
+--
 rsiValidFrom :: Lens' RequestSpotInstances (Maybe UTCTime)
 rsiValidFrom = lens _rsiValidFrom (\s a -> s { _rsiValidFrom = a }) . mapping _Time
 
 -- | The end date of the request. If this is a one-time request, the request
--- remains active until all instances launch, the request is canceled, or
--- this date is reached. If the request is persistent, it remains active
--- until it is canceled or this date and time is reached. Default: The
--- request is effective indefinitely.
+-- remains active until all instances launch, the request is canceled, or this
+-- date is reached. If the request is persistent, it remains active until it is
+-- canceled or this date and time is reached.
+--
+-- Default: The request is effective indefinitely.
+--
 rsiValidUntil :: Lens' RequestSpotInstances (Maybe UTCTime)
 rsiValidUntil = lens _rsiValidUntil (\s a -> s { _rsiValidUntil = a }) . mapping _Time
 
@@ -196,6 +212,7 @@ requestSpotInstancesResponse = RequestSpotInstancesResponse
     }
 
 -- | Information about the Spot Instance request.
+--
 rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
 rsirSpotInstanceRequests =
     lens _rsirSpotInstanceRequests

@@ -74,17 +74,20 @@ modifyClusterSubnetGroup p1 = ModifyClusterSubnetGroup
     }
 
 -- | The name of the subnet group to be modified.
+--
 mcsgClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup Text
 mcsgClusterSubnetGroupName =
     lens _mcsgClusterSubnetGroupName
         (\s a -> s { _mcsgClusterSubnetGroupName = a })
 
 -- | A text description of the subnet group to be modified.
+--
 mcsgDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
 mcsgDescription = lens _mcsgDescription (\s a -> s { _mcsgDescription = a })
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
+--
 mcsgSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
 mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a }) . _List
 

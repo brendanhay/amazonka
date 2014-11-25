@@ -21,9 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | The ListJobsByPipeline operation gets a list of the jobs currently in a
--- pipeline. Elastic Transcoder returns all of the jobs currently in the
--- specified pipeline. The response body contains one element for each job
--- that satisfies the search criteria.
+-- pipeline.
+--
+-- Elastic Transcoder returns all of the jobs currently in the specified
+-- pipeline. The response body contains one element for each job that satisfies
+-- the search criteria.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByPipeline.html>
 module Network.AWS.ElasticTranscoder.ListJobsByPipeline
@@ -76,18 +78,19 @@ listJobsByPipeline p1 = ListJobsByPipeline
     }
 
 -- | To list jobs in chronological order by the date and time that they were
--- submitted, enter 'true'. To list jobs in reverse chronological order,
--- enter 'false'.
+-- submitted, enter 'true'. To list jobs in reverse chronological order, enter 'false'.
+--
 ljbpAscending :: Lens' ListJobsByPipeline (Maybe Text)
 ljbpAscending = lens _ljbpAscending (\s a -> s { _ljbpAscending = a })
 
--- | When Elastic Transcoder returns more than one page of results, use
--- 'pageToken' in subsequent 'GET' requests to get each successive page of
--- results.
+-- | When Elastic Transcoder returns more than one page of results, use 'pageToken'
+-- in subsequent 'GET' requests to get each successive page of results.
+--
 ljbpPageToken :: Lens' ListJobsByPipeline (Maybe Text)
 ljbpPageToken = lens _ljbpPageToken (\s a -> s { _ljbpPageToken = a })
 
 -- | The ID of the pipeline for which you want to get job information.
+--
 ljbpPipelineId :: Lens' ListJobsByPipeline Text
 ljbpPipelineId = lens _ljbpPipelineId (\s a -> s { _ljbpPipelineId = a })
 
@@ -111,13 +114,14 @@ listJobsByPipelineResponse = ListJobsByPipelineResponse
     }
 
 -- | An array of 'Job' objects that are in the specified pipeline.
+--
 ljbprJobs :: Lens' ListJobsByPipelineResponse [Job']
 ljbprJobs = lens _ljbprJobs (\s a -> s { _ljbprJobs = a }) . _List
 
--- | A value that you use to access the second and subsequent pages of
--- results, if any. When the jobs in the specified pipeline fit on one page
--- or when you've reached the last page of results, the value of
--- 'NextPageToken' is 'null'.
+-- | A value that you use to access the second and subsequent pages of results,
+-- if any. When the jobs in the specified pipeline fit on one page or when
+-- you've reached the last page of results, the value of 'NextPageToken' is 'null'.
+--
 ljbprNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
 ljbprNextPageToken =
     lens _ljbprNextPageToken (\s a -> s { _ljbprNextPageToken = a })

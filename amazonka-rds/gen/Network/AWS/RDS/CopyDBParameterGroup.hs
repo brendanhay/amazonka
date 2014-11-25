@@ -78,13 +78,18 @@ copyDBParameterGroup p1 p2 p3 = CopyDBParameterGroup
     , _cdbpgTags                              = mempty
     }
 
--- | The identifier or ARN for the source DB Parameter Group. Constraints:
+-- | The identifier or ARN for the source DB Parameter Group.
+--
+-- Constraints:
+--
 -- Must specify a valid DB Parameter Group. If the source DB Parameter Group
 -- is in the same region as the copy, specify a valid DB Parameter Group
 -- identifier, or a valid ARN. If the source DB Parameter Group is in a
--- different region than the copy, specify a valid DB parameter group ARN.
--- Example: 'my-db-param-group' Example:
--- 'arn:aws:rds:us-west-2:123456789012:pg:special-parameters'.
+-- different region than the copy, specify a valid DB parameter group ARN.  Example:
+-- 'my-db-param-group'
+--
+-- Example: 'arn:aws:rds:us-west-2:123456789012:pg:special-parameters'
+--
 cdbpgSourceDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
 cdbpgSourceDBParameterGroupIdentifier =
     lens _cdbpgSourceDBParameterGroupIdentifier
@@ -94,15 +99,20 @@ cdbpgTags :: Lens' CopyDBParameterGroup [Tag]
 cdbpgTags = lens _cdbpgTags (\s a -> s { _cdbpgTags = a }) . _List
 
 -- | The description for the copied DB Parameter Group.
+--
 cdbpgTargetDBParameterGroupDescription :: Lens' CopyDBParameterGroup Text
 cdbpgTargetDBParameterGroupDescription =
     lens _cdbpgTargetDBParameterGroupDescription
         (\s a -> s { _cdbpgTargetDBParameterGroupDescription = a })
 
--- | The identifier for the copied DB Parameter Group. Constraints: Cannot be
--- null, empty, or blank Must contain from 1 to 255 alphanumeric characters
--- or hyphens First character must be a letter Cannot end with a hyphen or
--- contain two consecutive hyphens Example: 'my-db-parameter-group'.
+-- | The identifier for the copied DB Parameter Group.
+--
+-- Constraints:
+--
+-- Cannot be null, empty, or blank Must contain from 1 to 255 alphanumeric
+-- characters or hyphens First character must be a letter Cannot end with a
+-- hyphen or contain two consecutive hyphens  Example: 'my-db-parameter-group'
+--
 cdbpgTargetDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
 cdbpgTargetDBParameterGroupIdentifier =
     lens _cdbpgTargetDBParameterGroupIdentifier

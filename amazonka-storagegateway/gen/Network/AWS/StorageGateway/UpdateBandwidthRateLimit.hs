@@ -20,14 +20,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This operation updates the bandwidth rate limits of a gateway. You can
--- update both the upload and download bandwidth rate limit or specify only
--- one of the two. If you don't set a bandwidth rate limit, the existing rate
--- limit remains. By default, a gateway's bandwidth rate limits are not set.
--- If you don't set any limit, the gateway does not have any limitations on
--- its bandwidth usage and could potentially use the maximum available
--- bandwidth. To specify which gateway to update, use the Amazon Resource Name
--- (ARN) of the gateway in your request.
+-- | This operation updates the bandwidth rate limits of a gateway. You can update
+-- both the upload and download bandwidth rate limit or specify only one of the
+-- two. If you don't set a bandwidth rate limit, the existing rate limit remains.
+--
+-- By default, a gateway's bandwidth rate limits are not set. If you don't set
+-- any limit, the gateway does not have any limitations on its bandwidth usage
+-- and could potentially use the maximum available bandwidth.
+--
+-- To specify which gateway to update, use the Amazon Resource Name (ARN) of
+-- the gateway in your request.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateBandwidthRateLimit.html>
 module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
@@ -79,6 +81,7 @@ updateBandwidthRateLimit p1 = UpdateBandwidthRateLimit
     }
 
 -- | The average download bandwidth rate limit in bits per second.
+--
 ubrlAverageDownloadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
 ubrlAverageDownloadRateLimitInBitsPerSec =
     lens _ubrlAverageDownloadRateLimitInBitsPerSec
@@ -86,6 +89,7 @@ ubrlAverageDownloadRateLimitInBitsPerSec =
             . mapping _Nat
 
 -- | The average upload bandwidth rate limit in bits per second.
+--
 ubrlAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
 ubrlAverageUploadRateLimitInBitsPerSec =
     lens _ubrlAverageUploadRateLimitInBitsPerSec

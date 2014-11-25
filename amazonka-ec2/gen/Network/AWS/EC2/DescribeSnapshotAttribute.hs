@@ -20,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes the specified attribute of the specified snapshot. You can
--- specify only one attribute at a time. For more information about Amazon EBS
--- snapshots, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html
--- Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Describes the specified attribute of the specified snapshot. You can specify
+-- only one attribute at a time.
+--
+-- For more information about Amazon EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in
+-- the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshotAttribute.html>
 module Network.AWS.EC2.DescribeSnapshotAttribute
@@ -79,6 +79,7 @@ describeSnapshotAttribute p1 p2 = DescribeSnapshotAttribute
     }
 
 -- | The snapshot attribute you would like to view.
+--
 dsaAttribute :: Lens' DescribeSnapshotAttribute SnapshotAttributeName
 dsaAttribute = lens _dsaAttribute (\s a -> s { _dsaAttribute = a })
 
@@ -86,6 +87,7 @@ dsaDryRun :: Lens' DescribeSnapshotAttribute (Maybe Bool)
 dsaDryRun = lens _dsaDryRun (\s a -> s { _dsaDryRun = a })
 
 -- | The ID of the Amazon EBS snapshot.
+--
 dsaSnapshotId :: Lens' DescribeSnapshotAttribute Text
 dsaSnapshotId = lens _dsaSnapshotId (\s a -> s { _dsaSnapshotId = a })
 
@@ -113,6 +115,7 @@ describeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     }
 
 -- | A list of permissions for creating volumes from the snapshot.
+--
 dsarCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
 dsarCreateVolumePermissions =
     lens _dsarCreateVolumePermissions
@@ -120,10 +123,12 @@ dsarCreateVolumePermissions =
             . _List
 
 -- | A list of product codes.
+--
 dsarProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
 dsarProductCodes = lens _dsarProductCodes (\s a -> s { _dsarProductCodes = a }) . _List
 
 -- | The ID of the Amazon EBS snapshot.
+--
 dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsarSnapshotId = lens _dsarSnapshotId (\s a -> s { _dsarSnapshotId = a })
 

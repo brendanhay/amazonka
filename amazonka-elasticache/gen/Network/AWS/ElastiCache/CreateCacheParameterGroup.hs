@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The /CreateCacheParameterGroup/ operation creates a new cache parameter
--- group. A cache parameter group is a collection of parameters that you apply
--- to all of the nodes in a cache cluster.
+-- | The /CreateCacheParameterGroup/ operation creates a new cache parameter group.
+-- A cache parameter group is a collection of parameters that you apply to all
+-- of the nodes in a cache cluster.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheParameterGroup.html>
 module Network.AWS.ElastiCache.CreateCacheParameterGroup
@@ -75,21 +75,25 @@ createCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroup
     , _ccpgDescription               = p3
     }
 
--- | The name of the cache parameter group family the cache parameter group
--- can be used with. Valid values are: 'memcached1.4' | 'redis2.6' |
--- 'redis2.8'.
+-- | The name of the cache parameter group family the cache parameter group can be
+-- used with.
+--
+-- Valid values are: 'memcached1.4' | 'redis2.6' | 'redis2.8'
+--
 ccpgCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup Text
 ccpgCacheParameterGroupFamily =
     lens _ccpgCacheParameterGroupFamily
         (\s a -> s { _ccpgCacheParameterGroupFamily = a })
 
 -- | A user-specified name for the cache parameter group.
+--
 ccpgCacheParameterGroupName :: Lens' CreateCacheParameterGroup Text
 ccpgCacheParameterGroupName =
     lens _ccpgCacheParameterGroupName
         (\s a -> s { _ccpgCacheParameterGroupName = a })
 
 -- | A user-specified description for the cache parameter group.
+--
 ccpgDescription :: Lens' CreateCacheParameterGroup Text
 ccpgDescription = lens _ccpgDescription (\s a -> s { _ccpgDescription = a })
 

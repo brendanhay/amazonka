@@ -20,13 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Schedules delivery of a configuration snapshot to the Amazon S3 bucket in
--- the specified delivery channel. After the delivery has started, AWS Config
--- sends following notifications using an Amazon SNS topic that you have
--- specified. Notification of starting the delivery. Notification of delivery
--- completed, if the delivery was successfully completed. Notification of
--- delivery failure, if the delivery failed to complete.
+-- | Schedules delivery of a configuration snapshot to the Amazon S3 bucket in the
+-- specified delivery channel. After the delivery has started, AWS Config sends
+-- following notifications using an Amazon SNS topic that you have specified.
 --
+-- Notification of starting the delivery. Notification of delivery completed,
+-- if the delivery was successfully completed. Notification of delivery failure,
+-- if the delivery failed to complete.
 -- <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliverConfigSnapshot.html>
 module Network.AWS.Config.DeliverConfigSnapshot
     (
@@ -67,6 +67,7 @@ deliverConfigSnapshot p1 = DeliverConfigSnapshot
     }
 
 -- | The name of the delivery channel through which the snapshot is delivered.
+--
 dcsDeliveryChannelName :: Lens' DeliverConfigSnapshot Text
 dcsDeliveryChannelName =
     lens _dcsDeliveryChannelName (\s a -> s { _dcsDeliveryChannelName = a })
@@ -87,6 +88,7 @@ deliverConfigSnapshotResponse = DeliverConfigSnapshotResponse
     }
 
 -- | The ID of the snapshot that is being created.
+--
 dcsrConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
 dcsrConfigSnapshotId =
     lens _dcsrConfigSnapshotId (\s a -> s { _dcsrConfigSnapshotId = a })

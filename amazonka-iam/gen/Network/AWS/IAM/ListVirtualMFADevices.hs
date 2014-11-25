@@ -20,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Lists the virtual MFA devices under the AWS account by assignment status.
--- If you do not specify an assignment status, the action returns a list of
--- all virtual MFA devices. Assignment status can be 'Assigned', 'Unassigned',
--- or 'Any'. You can paginate the results using the 'MaxItems' and 'Marker'
--- parameters.
+-- | Lists the virtual MFA devices under the AWS account by assignment status. If
+-- you do not specify an assignment status, the action returns a list of all
+-- virtual MFA devices. Assignment status can be 'Assigned', 'Unassigned', or 'Any'.
+--
+-- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListVirtualMFADevices.html>
 module Network.AWS.IAM.ListVirtualMFADevices
@@ -77,24 +77,24 @@ listVirtualMFADevices = ListVirtualMFADevices
     }
 
 -- | The status (unassigned or assigned) of the devices to list. If you do not
--- specify an 'AssignmentStatus', the action defaults to 'Any' which lists
--- both assigned and unassigned virtual MFA devices.
+-- specify an 'AssignmentStatus', the action defaults to 'Any' which lists both
+-- assigned and unassigned virtual MFA devices.
+--
 lvmfadAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
 lvmfadAssignmentStatus =
     lens _lvmfadAssignmentStatus (\s a -> s { _lvmfadAssignmentStatus = a })
 
 -- | Use this parameter only when paginating results, and only in a subsequent
--- request after you've received a response where the results are truncated.
--- Set it to the value of the 'Marker' element in the response you just
--- received.
+-- request after you've received a response where the results are truncated. Set
+-- it to the value of the 'Marker' element in the response you just received.
+--
 lvmfadMarker :: Lens' ListVirtualMFADevices (Maybe Text)
 lvmfadMarker = lens _lvmfadMarker (\s a -> s { _lvmfadMarker = a })
 
 -- | Use this parameter only when paginating results to indicate the maximum
--- number of MFA devices you want in the response. If there are additional
--- MFA devices beyond the maximum you specify, the 'IsTruncated' response
--- element is 'true'. This parameter is optional. If you do not include it,
--- it defaults to 100.
+-- number of MFA devices you want in the response. If there are additional MFA
+-- devices beyond the maximum you specify, the 'IsTruncated' response element is 'true'. This parameter is optional. If you do not include it, it defaults to 100.
+--
 lvmfadMaxItems :: Lens' ListVirtualMFADevices (Maybe Natural)
 lvmfadMaxItems = lens _lvmfadMaxItems (\s a -> s { _lvmfadMaxItems = a }) . mapping _Nat
 
@@ -121,21 +121,22 @@ listVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     , _lvmfadrMarker            = Nothing
     }
 
--- | A flag that indicates whether there are more items to list. If your
--- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more items the list.
+-- | A flag that indicates whether there are more items to list. If your results
+-- were truncated, you can make a subsequent pagination request using the 'Marker'
+-- request parameter to retrieve more items the list.
+--
 lvmfadrIsTruncated :: Lens' ListVirtualMFADevicesResponse (Maybe Bool)
 lvmfadrIsTruncated =
     lens _lvmfadrIsTruncated (\s a -> s { _lvmfadrIsTruncated = a })
 
--- | If 'IsTruncated' is 'true', this element is present and contains the
--- value to use for the 'Marker' parameter in a subsequent pagination
--- request.
+-- | If 'IsTruncated' is 'true', this element is present and contains the value to
+-- use for the 'Marker' parameter in a subsequent pagination request.
+--
 lvmfadrMarker :: Lens' ListVirtualMFADevicesResponse (Maybe Text)
 lvmfadrMarker = lens _lvmfadrMarker (\s a -> s { _lvmfadrMarker = a })
 
--- | The list of virtual MFA devices in the current account that match the
--- 'AssignmentStatus' value that was passed in the request.
+-- | The list of virtual MFA devices in the current account that match the 'AssignmentStatus' value that was passed in the request.
+--
 lvmfadrVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevice]
 lvmfadrVirtualMFADevices =
     lens _lvmfadrVirtualMFADevices

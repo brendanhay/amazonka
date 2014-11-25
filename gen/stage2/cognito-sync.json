@@ -25,7 +25,7 @@
         ],
         "name": "Amazon Cognito Sync",
         "version": "2014-06-30",
-        "documentation": "Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it's available even if the device is offline. Developer credentials don't need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity.",
+        "documentation": "-- | Amazon Cognito Sync provides an AWS service and client library that enable\n-- cross-device syncing of application-related user data. High-level client\n-- libraries are available for both iOS and Android. You can use these libraries\n-- to persist data locally so that it's available even if the device is offline.\n-- Developer credentials don't need to be stored on the mobile device to access\n-- the service. You can use Amazon Cognito to obtain a normalized user ID and\n-- credentials. User data is persisted in a dataset that can store up to 1 MB of\n-- key-value pairs, and you can have up to 20 datasets per user identity.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
         "endpoint": "Regional",
@@ -56,7 +56,7 @@
         "protocol": "rest-json",
         "name": "Amazon Cognito Sync",
         "version": "0.0.2",
-        "description": "Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it's available even if the device is offline. Developer credentials don't need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity."
+        "description": "    Amazon Cognito Sync provides an AWS service and client library that enable\n    cross-device syncing of application-related user data. High-level client\n    libraries are available for both iOS and Android. You can use these libraries\n    to persist data locally so that it's available even if the device is offline.\n    Developer credentials don't need to be stored on the mobile device to access\n    the service. You can use Amazon Cognito to obtain a normalized user ID and\n    credentials. User data is persisted in a dataset that can store up to 1 MB of\n    key-value pairs, and you can have up to 20 datasets per user identity."
     },
     "types": {
         "namespace": "Network.AWS.CognitoSync.Types",
@@ -81,7 +81,7 @@
                         "name": "_ipuIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -96,7 +96,7 @@
                         "name": "_ipuSyncSessionsCount",
                         "shape": "Long",
                         "locationName": "SyncSessionsCount",
-                        "documentation": "Number of sync sessions for the identity pool.",
+                        "documentation": "-- | Number of sync sessions for the identity pool.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -111,7 +111,7 @@
                         "name": "_ipuDataStorage",
                         "shape": "Long",
                         "locationName": "DataStorage",
-                        "documentation": "Data storage information for the identity pool.",
+                        "documentation": "-- | Data storage information for the identity pool.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -126,7 +126,7 @@
                         "name": "_ipuLastModifiedDate",
                         "shape": "Date",
                         "locationName": "LastModifiedDate",
-                        "documentation": "Date on which the identity pool was last modified.",
+                        "documentation": "-- | Date on which the identity pool was last modified.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -149,7 +149,7 @@
                         "name": "_ipuIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -164,7 +164,7 @@
                         "name": "_ipuSyncSessionsCount",
                         "shape": "Long",
                         "locationName": "SyncSessionsCount",
-                        "documentation": "Number of sync sessions for the identity pool.",
+                        "documentation": "-- | Number of sync sessions for the identity pool.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -179,7 +179,7 @@
                         "name": "_ipuDataStorage",
                         "shape": "Long",
                         "locationName": "DataStorage",
-                        "documentation": "Data storage information for the identity pool.",
+                        "documentation": "-- | Data storage information for the identity pool.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -194,7 +194,7 @@
                         "name": "_ipuLastModifiedDate",
                         "shape": "Date",
                         "locationName": "LastModifiedDate",
-                        "documentation": "Date on which the identity pool was last modified.",
+                        "documentation": "-- | Date on which the identity pool was last modified.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -211,7 +211,7 @@
                         "name": "_ipuDataStorage",
                         "shape": "Long",
                         "locationName": "DataStorage",
-                        "documentation": "Data storage information for the identity pool.",
+                        "documentation": "-- | Data storage information for the identity pool.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -226,7 +226,7 @@
                         "name": "_ipuIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -241,7 +241,7 @@
                         "name": "_ipuLastModifiedDate",
                         "shape": "Date",
                         "locationName": "LastModifiedDate",
-                        "documentation": "Date on which the identity pool was last modified.",
+                        "documentation": "-- | Date on which the identity pool was last modified.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -256,7 +256,7 @@
                         "name": "_ipuSyncSessionsCount",
                         "shape": "Long",
                         "locationName": "SyncSessionsCount",
-                        "documentation": "Number of sync sessions for the identity pool.",
+                        "documentation": "-- | Number of sync sessions for the identity pool.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     }
@@ -301,7 +301,7 @@
                         "name": "_dIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -316,7 +316,7 @@
                         "name": "_dDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).",
+                        "documentation": "-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n-- (underscore), '-' (dash), and '.' (dot).",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -331,7 +331,7 @@
                         "name": "_dCreationDate",
                         "shape": "Date",
                         "locationName": "CreationDate",
-                        "documentation": "Date on which the dataset was created.",
+                        "documentation": "-- | Date on which the dataset was created.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -346,7 +346,7 @@
                         "name": "_dLastModifiedDate",
                         "shape": "Date",
                         "locationName": "LastModifiedDate",
-                        "documentation": "Date when the dataset was last modified.",
+                        "documentation": "-- | Date when the dataset was last modified.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -361,7 +361,7 @@
                         "name": "_dLastModifiedBy",
                         "shape": "String",
                         "locationName": "LastModifiedBy",
-                        "documentation": "The device that made the last change to this dataset.",
+                        "documentation": "-- | The device that made the last change to this dataset.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -376,7 +376,7 @@
                         "name": "_dDataStorage",
                         "shape": "Long",
                         "locationName": "DataStorage",
-                        "documentation": "Total size in bytes of the records in this dataset.",
+                        "documentation": "-- | Total size in bytes of the records in this dataset.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -391,7 +391,7 @@
                         "name": "_dNumRecords",
                         "shape": "Long",
                         "locationName": "NumRecords",
-                        "documentation": "Number of records in this dataset.",
+                        "documentation": "-- | Number of records in this dataset.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     }
@@ -414,7 +414,7 @@
                         "name": "_dIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -429,7 +429,7 @@
                         "name": "_dDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).",
+                        "documentation": "-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n-- (underscore), '-' (dash), and '.' (dot).",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -444,7 +444,7 @@
                         "name": "_dCreationDate",
                         "shape": "Date",
                         "locationName": "CreationDate",
-                        "documentation": "Date on which the dataset was created.",
+                        "documentation": "-- | Date on which the dataset was created.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -459,7 +459,7 @@
                         "name": "_dLastModifiedDate",
                         "shape": "Date",
                         "locationName": "LastModifiedDate",
-                        "documentation": "Date when the dataset was last modified.",
+                        "documentation": "-- | Date when the dataset was last modified.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -474,7 +474,7 @@
                         "name": "_dLastModifiedBy",
                         "shape": "String",
                         "locationName": "LastModifiedBy",
-                        "documentation": "The device that made the last change to this dataset.",
+                        "documentation": "-- | The device that made the last change to this dataset.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -489,7 +489,7 @@
                         "name": "_dDataStorage",
                         "shape": "Long",
                         "locationName": "DataStorage",
-                        "documentation": "Total size in bytes of the records in this dataset.",
+                        "documentation": "-- | Total size in bytes of the records in this dataset.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -504,7 +504,7 @@
                         "name": "_dNumRecords",
                         "shape": "Long",
                         "locationName": "NumRecords",
-                        "documentation": "Number of records in this dataset.",
+                        "documentation": "-- | Number of records in this dataset.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     }
@@ -521,7 +521,7 @@
                         "name": "_dCreationDate",
                         "shape": "Date",
                         "locationName": "CreationDate",
-                        "documentation": "Date on which the dataset was created.",
+                        "documentation": "-- | Date on which the dataset was created.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -536,7 +536,7 @@
                         "name": "_dDataStorage",
                         "shape": "Long",
                         "locationName": "DataStorage",
-                        "documentation": "Total size in bytes of the records in this dataset.",
+                        "documentation": "-- | Total size in bytes of the records in this dataset.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -551,7 +551,7 @@
                         "name": "_dDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).",
+                        "documentation": "-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n-- (underscore), '-' (dash), and '.' (dot).",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -566,7 +566,7 @@
                         "name": "_dIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -581,7 +581,7 @@
                         "name": "_dLastModifiedBy",
                         "shape": "String",
                         "locationName": "LastModifiedBy",
-                        "documentation": "The device that made the last change to this dataset.",
+                        "documentation": "-- | The device that made the last change to this dataset.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -596,7 +596,7 @@
                         "name": "_dLastModifiedDate",
                         "shape": "Date",
                         "locationName": "LastModifiedDate",
-                        "documentation": "Date when the dataset was last modified.",
+                        "documentation": "-- | Date when the dataset was last modified.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -611,7 +611,7 @@
                         "name": "_dNumRecords",
                         "shape": "Long",
                         "locationName": "NumRecords",
-                        "documentation": "Number of records in this dataset.",
+                        "documentation": "-- | Number of records in this dataset.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     }
@@ -654,7 +654,7 @@
                         "name": "_rKey",
                         "shape": "RecordKey",
                         "locationName": "Key",
-                        "documentation": "The key for the record.",
+                        "documentation": "-- | The key for the record.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -669,7 +669,7 @@
                         "name": "_rValue",
                         "shape": "RecordValue",
                         "locationName": "Value",
-                        "documentation": "The value for the record.",
+                        "documentation": "-- | The value for the record.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -684,7 +684,7 @@
                         "name": "_rSyncCount",
                         "shape": "Long",
                         "locationName": "SyncCount",
-                        "documentation": "The server sync count for this record.",
+                        "documentation": "-- | The server sync count for this record.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -699,7 +699,7 @@
                         "name": "_rLastModifiedDate",
                         "shape": "Date",
                         "locationName": "LastModifiedDate",
-                        "documentation": "The date on which the record was last modified.",
+                        "documentation": "-- | The date on which the record was last modified.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -714,7 +714,7 @@
                         "name": "_rLastModifiedBy",
                         "shape": "String",
                         "locationName": "LastModifiedBy",
-                        "documentation": "The user/device that made the last change to this record.",
+                        "documentation": "-- | The user/device that made the last change to this record.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -729,7 +729,7 @@
                         "name": "_rDeviceLastModifiedDate",
                         "shape": "Date",
                         "locationName": "DeviceLastModifiedDate",
-                        "documentation": "The last modified date of the client device.",
+                        "documentation": "-- | The last modified date of the client device.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -752,7 +752,7 @@
                         "name": "_rKey",
                         "shape": "RecordKey",
                         "locationName": "Key",
-                        "documentation": "The key for the record.",
+                        "documentation": "-- | The key for the record.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -767,7 +767,7 @@
                         "name": "_rValue",
                         "shape": "RecordValue",
                         "locationName": "Value",
-                        "documentation": "The value for the record.",
+                        "documentation": "-- | The value for the record.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -782,7 +782,7 @@
                         "name": "_rSyncCount",
                         "shape": "Long",
                         "locationName": "SyncCount",
-                        "documentation": "The server sync count for this record.",
+                        "documentation": "-- | The server sync count for this record.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -797,7 +797,7 @@
                         "name": "_rLastModifiedDate",
                         "shape": "Date",
                         "locationName": "LastModifiedDate",
-                        "documentation": "The date on which the record was last modified.",
+                        "documentation": "-- | The date on which the record was last modified.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -812,7 +812,7 @@
                         "name": "_rLastModifiedBy",
                         "shape": "String",
                         "locationName": "LastModifiedBy",
-                        "documentation": "The user/device that made the last change to this record.",
+                        "documentation": "-- | The user/device that made the last change to this record.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -827,7 +827,7 @@
                         "name": "_rDeviceLastModifiedDate",
                         "shape": "Date",
                         "locationName": "DeviceLastModifiedDate",
-                        "documentation": "The last modified date of the client device.",
+                        "documentation": "-- | The last modified date of the client device.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -844,7 +844,7 @@
                         "name": "_rDeviceLastModifiedDate",
                         "shape": "Date",
                         "locationName": "DeviceLastModifiedDate",
-                        "documentation": "The last modified date of the client device.",
+                        "documentation": "-- | The last modified date of the client device.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -859,7 +859,7 @@
                         "name": "_rKey",
                         "shape": "RecordKey",
                         "locationName": "Key",
-                        "documentation": "The key for the record.",
+                        "documentation": "-- | The key for the record.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -874,7 +874,7 @@
                         "name": "_rLastModifiedBy",
                         "shape": "String",
                         "locationName": "LastModifiedBy",
-                        "documentation": "The user/device that made the last change to this record.",
+                        "documentation": "-- | The user/device that made the last change to this record.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -889,7 +889,7 @@
                         "name": "_rLastModifiedDate",
                         "shape": "Date",
                         "locationName": "LastModifiedDate",
-                        "documentation": "The date on which the record was last modified.",
+                        "documentation": "-- | The date on which the record was last modified.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -904,7 +904,7 @@
                         "name": "_rSyncCount",
                         "shape": "Long",
                         "locationName": "SyncCount",
-                        "documentation": "The server sync count for this record.",
+                        "documentation": "-- | The server sync count for this record.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -919,7 +919,7 @@
                         "name": "_rValue",
                         "shape": "RecordValue",
                         "locationName": "Value",
-                        "documentation": "The value for the record.",
+                        "documentation": "-- | The value for the record.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -945,7 +945,7 @@
                         "name": "_iuIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -960,7 +960,7 @@
                         "name": "_iuIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -975,7 +975,7 @@
                         "name": "_iuLastModifiedDate",
                         "shape": "Date",
                         "locationName": "LastModifiedDate",
-                        "documentation": "Date on which the identity was last modified.",
+                        "documentation": "-- | Date on which the identity was last modified.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -990,7 +990,7 @@
                         "name": "_iuDatasetCount",
                         "shape": "Integer",
                         "locationName": "DatasetCount",
-                        "documentation": "Number of datasets for the identity.",
+                        "documentation": "-- | Number of datasets for the identity.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -1005,7 +1005,7 @@
                         "name": "_iuDataStorage",
                         "shape": "Long",
                         "locationName": "DataStorage",
-                        "documentation": "Total data storage for this identity.",
+                        "documentation": "-- | Total data storage for this identity.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     }
@@ -1028,7 +1028,7 @@
                         "name": "_iuIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1043,7 +1043,7 @@
                         "name": "_iuIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1058,7 +1058,7 @@
                         "name": "_iuLastModifiedDate",
                         "shape": "Date",
                         "locationName": "LastModifiedDate",
-                        "documentation": "Date on which the identity was last modified.",
+                        "documentation": "-- | Date on which the identity was last modified.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1073,7 +1073,7 @@
                         "name": "_iuDatasetCount",
                         "shape": "Integer",
                         "locationName": "DatasetCount",
-                        "documentation": "Number of datasets for the identity.",
+                        "documentation": "-- | Number of datasets for the identity.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -1088,7 +1088,7 @@
                         "name": "_iuDataStorage",
                         "shape": "Long",
                         "locationName": "DataStorage",
-                        "documentation": "Total data storage for this identity.",
+                        "documentation": "-- | Total data storage for this identity.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     }
@@ -1105,7 +1105,7 @@
                         "name": "_iuDataStorage",
                         "shape": "Long",
                         "locationName": "DataStorage",
-                        "documentation": "Total data storage for this identity.",
+                        "documentation": "-- | Total data storage for this identity.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -1120,7 +1120,7 @@
                         "name": "_iuDatasetCount",
                         "shape": "Integer",
                         "locationName": "DatasetCount",
-                        "documentation": "Number of datasets for the identity.",
+                        "documentation": "-- | Number of datasets for the identity.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -1135,7 +1135,7 @@
                         "name": "_iuIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1150,7 +1150,7 @@
                         "name": "_iuIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1165,7 +1165,7 @@
                         "name": "_iuLastModifiedDate",
                         "shape": "Date",
                         "locationName": "LastModifiedDate",
-                        "documentation": "Date on which the identity was last modified.",
+                        "documentation": "-- | Date on which the identity was last modified.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -1190,7 +1190,7 @@
                         "name": "_rpOp",
                         "shape": "Operation",
                         "locationName": "Op",
-                        "documentation": "An operation, either replace or remove.",
+                        "documentation": "-- | An operation, either replace or remove.",
                         "typeExposed": "Operation",
                         "type": "Operation"
                     },
@@ -1205,7 +1205,7 @@
                         "name": "_rpKey",
                         "shape": "RecordKey",
                         "locationName": "Key",
-                        "documentation": "The key associated with the record patch.",
+                        "documentation": "-- | The key associated with the record patch.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1220,7 +1220,7 @@
                         "name": "_rpValue",
                         "shape": "RecordValue",
                         "locationName": "Value",
-                        "documentation": "The value associated with the record patch.",
+                        "documentation": "-- | The value associated with the record patch.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1235,7 +1235,7 @@
                         "name": "_rpSyncCount",
                         "shape": "Long",
                         "locationName": "SyncCount",
-                        "documentation": "Last known server sync count for this record. Set to 0 if unknown.",
+                        "documentation": "-- | Last known server sync count for this record. Set to 0 if unknown.",
                         "typeExposed": "Integer",
                         "type": "Integer"
                     },
@@ -1250,7 +1250,7 @@
                         "name": "_rpDeviceLastModifiedDate",
                         "shape": "Date",
                         "locationName": "DeviceLastModifiedDate",
-                        "documentation": "The last modified date of the client device.",
+                        "documentation": "-- | The last modified date of the client device.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -1268,7 +1268,7 @@
                         "name": "_rpOp",
                         "shape": "Operation",
                         "locationName": "Op",
-                        "documentation": "An operation, either replace or remove.",
+                        "documentation": "-- | An operation, either replace or remove.",
                         "typeExposed": "Operation",
                         "type": "Operation"
                     },
@@ -1283,7 +1283,7 @@
                         "name": "_rpKey",
                         "shape": "RecordKey",
                         "locationName": "Key",
-                        "documentation": "The key associated with the record patch.",
+                        "documentation": "-- | The key associated with the record patch.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1298,7 +1298,7 @@
                         "name": "_rpSyncCount",
                         "shape": "Long",
                         "locationName": "SyncCount",
-                        "documentation": "Last known server sync count for this record. Set to 0 if unknown.",
+                        "documentation": "-- | Last known server sync count for this record. Set to 0 if unknown.",
                         "typeExposed": "Integer",
                         "type": "Integer"
                     }
@@ -1319,7 +1319,7 @@
                         "name": "_rpValue",
                         "shape": "RecordValue",
                         "locationName": "Value",
-                        "documentation": "The value associated with the record patch.",
+                        "documentation": "-- | The value associated with the record patch.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1334,7 +1334,7 @@
                         "name": "_rpDeviceLastModifiedDate",
                         "shape": "Date",
                         "locationName": "DeviceLastModifiedDate",
-                        "documentation": "The last modified date of the client device.",
+                        "documentation": "-- | The last modified date of the client device.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -1351,7 +1351,7 @@
                         "name": "_rpDeviceLastModifiedDate",
                         "shape": "Date",
                         "locationName": "DeviceLastModifiedDate",
-                        "documentation": "The last modified date of the client device.",
+                        "documentation": "-- | The last modified date of the client device.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1366,7 +1366,7 @@
                         "name": "_rpKey",
                         "shape": "RecordKey",
                         "locationName": "Key",
-                        "documentation": "The key associated with the record patch.",
+                        "documentation": "-- | The key associated with the record patch.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1381,7 +1381,7 @@
                         "name": "_rpOp",
                         "shape": "Operation",
                         "locationName": "Op",
-                        "documentation": "An operation, either replace or remove.",
+                        "documentation": "-- | An operation, either replace or remove.",
                         "typeExposed": "Operation",
                         "type": "Operation"
                     },
@@ -1396,7 +1396,7 @@
                         "name": "_rpSyncCount",
                         "shape": "Long",
                         "locationName": "SyncCount",
-                        "documentation": "Last known server sync count for this record. Set to 0 if unknown.",
+                        "documentation": "-- | Last known server sync count for this record. Set to 0 if unknown.",
                         "typeExposed": "Integer",
                         "type": "Integer"
                     },
@@ -1411,7 +1411,7 @@
                         "name": "_rpValue",
                         "shape": "RecordValue",
                         "locationName": "Value",
-                        "documentation": "The value associated with the record patch.",
+                        "documentation": "-- | The value associated with the record patch.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1437,7 +1437,7 @@
                         "name": "_psApplicationArns",
                         "shape": "ApplicationArnList",
                         "locationName": "ApplicationArns",
-                        "documentation": "\u003cp\u003eList of SNS platform application ARNs that could be used by clients.\u003c/p\u003e",
+                        "documentation": "-- | List of SNS platform application ARNs that could be used by clients.\n--",
                         "typeExposed": "[Text]",
                         "type": "List \"ApplicationArns\" Text"
                     },
@@ -1452,7 +1452,7 @@
                         "name": "_psRoleArn",
                         "shape": "AssumeRoleArn",
                         "locationName": "RoleArn",
-                        "documentation": "\u003cp\u003eA role configured to allow Cognito to call SNS on behalf of the developer.\u003c/p\u003e",
+                        "documentation": "-- | A role configured to allow Cognito to call SNS on behalf of the developer.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1475,7 +1475,7 @@
                         "name": "_psApplicationArns",
                         "shape": "ApplicationArnList",
                         "locationName": "ApplicationArns",
-                        "documentation": "\u003cp\u003eList of SNS platform application ARNs that could be used by clients.\u003c/p\u003e",
+                        "documentation": "-- | List of SNS platform application ARNs that could be used by clients.\n--",
                         "typeExposed": "[Text]",
                         "type": "List \"ApplicationArns\" Text"
                     },
@@ -1490,7 +1490,7 @@
                         "name": "_psRoleArn",
                         "shape": "AssumeRoleArn",
                         "locationName": "RoleArn",
-                        "documentation": "\u003cp\u003eA role configured to allow Cognito to call SNS on behalf of the developer.\u003c/p\u003e",
+                        "documentation": "-- | A role configured to allow Cognito to call SNS on behalf of the developer.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1507,7 +1507,7 @@
                         "name": "_psApplicationArns",
                         "shape": "ApplicationArnList",
                         "locationName": "ApplicationArns",
-                        "documentation": "\u003cp\u003eList of SNS platform application ARNs that could be used by clients.\u003c/p\u003e",
+                        "documentation": "-- | List of SNS platform application ARNs that could be used by clients.\n--",
                         "typeExposed": "[Text]",
                         "type": "List \"ApplicationArns\" Text"
                     },
@@ -1522,7 +1522,7 @@
                         "name": "_psRoleArn",
                         "shape": "AssumeRoleArn",
                         "locationName": "RoleArn",
-                        "documentation": "\u003cp\u003eA role configured to allow Cognito to call SNS on behalf of the developer.\u003c/p\u003e",
+                        "documentation": "-- | A role configured to allow Cognito to call SNS on behalf of the developer.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1562,7 +1562,7 @@
                     "name": "_ddr1Dataset",
                     "shape": "Dataset",
                     "locationName": "Dataset",
-                    "documentation": "A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.",
+                    "documentation": "-- | A collection of data for an identity pool. An identity pool can have multiple\n-- datasets. A dataset is per identity and can be general or associated with a\n-- particular entity in an application (like a saved game). Datasets are\n-- automatically created if they don't exist. Data is synced by dataset, and a\n-- dataset can hold up to 1MB of key-value pairs.",
                     "typeExposed": "Maybe Dataset",
                     "type": "Maybe Dataset"
                 },
@@ -1578,7 +1578,7 @@
                         "name": "_ddr1Dataset",
                         "shape": "Dataset",
                         "locationName": "Dataset",
-                        "documentation": "A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.",
+                        "documentation": "-- | A collection of data for an identity pool. An identity pool can have multiple\n-- datasets. A dataset is per identity and can be general or associated with a\n-- particular entity in an application (like a saved game). Datasets are\n-- automatically created if they don't exist. Data is synced by dataset, and a\n-- dataset can hold up to 1MB of key-value pairs.",
                         "typeExposed": "Maybe Dataset",
                         "type": "Maybe Dataset"
                     }
@@ -1607,7 +1607,7 @@
                         "name": "_ddr1Dataset",
                         "shape": "Dataset",
                         "locationName": "Dataset",
-                        "documentation": "A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.",
+                        "documentation": "-- | A collection of data for an identity pool. An identity pool can have multiple\n-- datasets. A dataset is per identity and can be general or associated with a\n-- particular entity in an application (like a saved game). Datasets are\n-- automatically created if they don't exist. Data is synced by dataset, and a\n-- dataset can hold up to 1MB of key-value pairs.",
                         "typeExposed": "Maybe Dataset",
                         "type": "Maybe Dataset"
                     }
@@ -1624,7 +1624,7 @@
                         "name": "_ddr1Dataset",
                         "shape": "Dataset",
                         "locationName": "Dataset",
-                        "documentation": "A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.",
+                        "documentation": "-- | A collection of data for an identity pool. An identity pool can have multiple\n-- datasets. A dataset is per identity and can be general or associated with a\n-- particular entity in an application (like a saved game). Datasets are\n-- automatically created if they don't exist. Data is synced by dataset, and a\n-- dataset can hold up to 1MB of key-value pairs.",
                         "typeExposed": "Maybe Dataset",
                         "type": "Maybe Dataset"
                     }
@@ -1640,7 +1640,7 @@
             "pager": null,
             "name": "DeleteDataset",
             "method": "delete",
-            "documentation": "Deletes the specific dataset. The dataset will be deleted permanently, and the action can't be undone. Datasets that this dataset was merged with will no longer report the merge. Any consequent operation on this dataset will result in a ResourceNotFoundException.",
+            "documentation": "-- | Deletes the specific dataset. The dataset will be deleted permanently, and\n-- the action can't be undone. Datasets that this dataset was merged with will\n-- no longer report the merge. Any consequent operation on this dataset will\n-- result in a ResourceNotFoundException.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1694,7 +1694,7 @@
                         "name": "_dd1IdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1709,7 +1709,7 @@
                         "name": "_dd1IdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1724,7 +1724,7 @@
                         "name": "_dd1DatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).",
+                        "documentation": "-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n-- (underscore), '-' (dash), and '.' (dot).",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1752,7 +1752,7 @@
                         "name": "_dd1DatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).",
+                        "documentation": "-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n-- (underscore), '-' (dash), and '.' (dot).",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1767,7 +1767,7 @@
                         "name": "_dd1IdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1782,7 +1782,7 @@
                         "name": "_dd1IdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1813,7 +1813,7 @@
                     "name": "_ddrDataset",
                     "shape": "Dataset",
                     "locationName": "Dataset",
-                    "documentation": "Metadata for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.",
+                    "documentation": "-- | Metadata for a collection of data for an identity. An identity can have\n-- multiple datasets. A dataset can be general or associated with a particular\n-- entity in an application (like a saved game). Datasets are automatically\n-- created if they don't exist. Data is synced by dataset, and a dataset can\n-- hold up to 1MB of key-value pairs.",
                     "typeExposed": "Maybe Dataset",
                     "type": "Maybe Dataset"
                 },
@@ -1829,7 +1829,7 @@
                         "name": "_ddrDataset",
                         "shape": "Dataset",
                         "locationName": "Dataset",
-                        "documentation": "Metadata for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.",
+                        "documentation": "-- | Metadata for a collection of data for an identity. An identity can have\n-- multiple datasets. A dataset can be general or associated with a particular\n-- entity in an application (like a saved game). Datasets are automatically\n-- created if they don't exist. Data is synced by dataset, and a dataset can\n-- hold up to 1MB of key-value pairs.",
                         "typeExposed": "Maybe Dataset",
                         "type": "Maybe Dataset"
                     }
@@ -1858,7 +1858,7 @@
                         "name": "_ddrDataset",
                         "shape": "Dataset",
                         "locationName": "Dataset",
-                        "documentation": "Metadata for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.",
+                        "documentation": "-- | Metadata for a collection of data for an identity. An identity can have\n-- multiple datasets. A dataset can be general or associated with a particular\n-- entity in an application (like a saved game). Datasets are automatically\n-- created if they don't exist. Data is synced by dataset, and a dataset can\n-- hold up to 1MB of key-value pairs.",
                         "typeExposed": "Maybe Dataset",
                         "type": "Maybe Dataset"
                     }
@@ -1875,7 +1875,7 @@
                         "name": "_ddrDataset",
                         "shape": "Dataset",
                         "locationName": "Dataset",
-                        "documentation": "Metadata for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.",
+                        "documentation": "-- | Metadata for a collection of data for an identity. An identity can have\n-- multiple datasets. A dataset can be general or associated with a particular\n-- entity in an application (like a saved game). Datasets are automatically\n-- created if they don't exist. Data is synced by dataset, and a dataset can\n-- hold up to 1MB of key-value pairs.",
                         "typeExposed": "Maybe Dataset",
                         "type": "Maybe Dataset"
                     }
@@ -1891,7 +1891,7 @@
             "pager": null,
             "name": "DescribeDataset",
             "method": "get",
-            "documentation": "Gets metadata about a dataset by identity and dataset name. The credentials used to make this API call need to have access to the identity data. With Amazon Cognito Sync, each identity has access only to its own data. You should use Amazon Cognito Identity service to retrieve the credentials necessary to make this API call.",
+            "documentation": "-- | Gets metadata about a dataset by identity and dataset name. The credentials\n-- used to make this API call need to have access to the identity data. With\n-- Amazon Cognito Sync, each identity has access only to its own data. You\n-- should use Amazon Cognito Identity service to retrieve the credentials\n-- necessary to make this API call.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1945,7 +1945,7 @@
                         "name": "_ddIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1960,7 +1960,7 @@
                         "name": "_ddIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1975,7 +1975,7 @@
                         "name": "_ddDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).",
+                        "documentation": "-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n-- (underscore), '-' (dash), and '.' (dot).",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2003,7 +2003,7 @@
                         "name": "_ddDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).",
+                        "documentation": "-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n-- (underscore), '-' (dash), and '.' (dot).",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2018,7 +2018,7 @@
                         "name": "_ddIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2033,7 +2033,7 @@
                         "name": "_ddIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2064,7 +2064,7 @@
                     "name": "_dipurIdentityPoolUsage",
                     "shape": "IdentityPoolUsage",
                     "locationName": "IdentityPoolUsage",
-                    "documentation": "Information about the usage of the identity pool.",
+                    "documentation": "-- | Information about the usage of the identity pool.",
                     "typeExposed": "Maybe IdentityPoolUsage",
                     "type": "Maybe IdentityPoolUsage"
                 },
@@ -2080,7 +2080,7 @@
                         "name": "_dipurIdentityPoolUsage",
                         "shape": "IdentityPoolUsage",
                         "locationName": "IdentityPoolUsage",
-                        "documentation": "Information about the usage of the identity pool.",
+                        "documentation": "-- | Information about the usage of the identity pool.",
                         "typeExposed": "Maybe IdentityPoolUsage",
                         "type": "Maybe IdentityPoolUsage"
                     }
@@ -2109,7 +2109,7 @@
                         "name": "_dipurIdentityPoolUsage",
                         "shape": "IdentityPoolUsage",
                         "locationName": "IdentityPoolUsage",
-                        "documentation": "Information about the usage of the identity pool.",
+                        "documentation": "-- | Information about the usage of the identity pool.",
                         "typeExposed": "Maybe IdentityPoolUsage",
                         "type": "Maybe IdentityPoolUsage"
                     }
@@ -2126,7 +2126,7 @@
                         "name": "_dipurIdentityPoolUsage",
                         "shape": "IdentityPoolUsage",
                         "locationName": "IdentityPoolUsage",
-                        "documentation": "Information about the usage of the identity pool.",
+                        "documentation": "-- | Information about the usage of the identity pool.",
                         "typeExposed": "Maybe IdentityPoolUsage",
                         "type": "Maybe IdentityPoolUsage"
                     }
@@ -2142,7 +2142,7 @@
             "pager": null,
             "name": "DescribeIdentityPoolUsage",
             "method": "get",
-            "documentation": "Gets usage details (for example, data storage) about a particular identity pool.",
+            "documentation": "-- | Gets usage details (for example, data storage) about a particular identity\n-- pool.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2169,7 +2169,7 @@
                     "name": "_dipuIdentityPoolId",
                     "shape": "IdentityPoolId",
                     "locationName": "IdentityPoolId",
-                    "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                    "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2198,7 +2198,7 @@
                         "name": "_dipuIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2226,7 +2226,7 @@
                         "name": "_dipuIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2257,7 +2257,7 @@
                     "name": "_diurIdentityUsage",
                     "shape": "IdentityUsage",
                     "locationName": "IdentityUsage",
-                    "documentation": "Usage information for the identity.",
+                    "documentation": "-- | Usage information for the identity.",
                     "typeExposed": "Maybe IdentityUsage",
                     "type": "Maybe IdentityUsage"
                 },
@@ -2273,7 +2273,7 @@
                         "name": "_diurIdentityUsage",
                         "shape": "IdentityUsage",
                         "locationName": "IdentityUsage",
-                        "documentation": "Usage information for the identity.",
+                        "documentation": "-- | Usage information for the identity.",
                         "typeExposed": "Maybe IdentityUsage",
                         "type": "Maybe IdentityUsage"
                     }
@@ -2302,7 +2302,7 @@
                         "name": "_diurIdentityUsage",
                         "shape": "IdentityUsage",
                         "locationName": "IdentityUsage",
-                        "documentation": "Usage information for the identity.",
+                        "documentation": "-- | Usage information for the identity.",
                         "typeExposed": "Maybe IdentityUsage",
                         "type": "Maybe IdentityUsage"
                     }
@@ -2319,7 +2319,7 @@
                         "name": "_diurIdentityUsage",
                         "shape": "IdentityUsage",
                         "locationName": "IdentityUsage",
-                        "documentation": "Usage information for the identity.",
+                        "documentation": "-- | Usage information for the identity.",
                         "typeExposed": "Maybe IdentityUsage",
                         "type": "Maybe IdentityUsage"
                     }
@@ -2335,7 +2335,7 @@
             "pager": null,
             "name": "DescribeIdentityUsage",
             "method": "get",
-            "documentation": "Gets usage information for an identity, including number of datasets and data usage.",
+            "documentation": "-- | Gets usage information for an identity, including number of datasets and data\n-- usage.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2381,7 +2381,7 @@
                         "name": "_diuIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2396,7 +2396,7 @@
                         "name": "_diuIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2424,7 +2424,7 @@
                         "name": "_diuIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2439,7 +2439,7 @@
                         "name": "_diuIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2470,7 +2470,7 @@
                         "name": "_gipcrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2485,7 +2485,7 @@
                         "name": "_gipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "\u003cp\u003eConfiguration options applied to the identity pool.\u003c/p\u003e",
+                        "documentation": "-- | Configuration options applied to the identity pool.\n--",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -2514,7 +2514,7 @@
                         "name": "_gipcrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2529,7 +2529,7 @@
                         "name": "_gipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "\u003cp\u003eConfiguration options applied to the identity pool.\u003c/p\u003e",
+                        "documentation": "-- | Configuration options applied to the identity pool.\n--",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -2546,7 +2546,7 @@
                         "name": "_gipcrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2561,7 +2561,7 @@
                         "name": "_gipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "\u003cp\u003eConfiguration options applied to the identity pool.\u003c/p\u003e",
+                        "documentation": "-- | Configuration options applied to the identity pool.\n--",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -2577,7 +2577,7 @@
             "pager": null,
             "name": "GetIdentityPoolConfiguration",
             "method": "get",
-            "documentation": "\u003cp\u003eGets the configuration settings of an identity pool.\u003c/p\u003e",
+            "documentation": "-- | Gets the configuration settings of an identity pool.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2604,7 +2604,7 @@
                     "name": "_gipcIdentityPoolId",
                     "shape": "IdentityPoolId",
                     "locationName": "IdentityPoolId",
-                    "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.\u003c/p\u003e",
+                    "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool for which to return a configuration.\n--",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2637,7 +2637,7 @@
                         "name": "_gipcIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool for which to return a configuration.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2665,7 +2665,7 @@
                         "name": "_gipcIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool for which to return a configuration.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2696,7 +2696,7 @@
                         "name": "_ldrDatasets",
                         "shape": "DatasetList",
                         "locationName": "Datasets",
-                        "documentation": "A set of datasets.",
+                        "documentation": "-- | A set of datasets.",
                         "typeExposed": "[Dataset]",
                         "type": "List \"Datasets\" Dataset"
                     },
@@ -2711,7 +2711,7 @@
                         "name": "_ldrCount",
                         "shape": "Integer",
                         "locationName": "Count",
-                        "documentation": "Number of datasets returned.",
+                        "documentation": "-- | Number of datasets returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -2726,7 +2726,7 @@
                         "name": "_ldrNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2755,7 +2755,7 @@
                         "name": "_ldrDatasets",
                         "shape": "DatasetList",
                         "locationName": "Datasets",
-                        "documentation": "A set of datasets.",
+                        "documentation": "-- | A set of datasets.",
                         "typeExposed": "[Dataset]",
                         "type": "List \"Datasets\" Dataset"
                     },
@@ -2770,7 +2770,7 @@
                         "name": "_ldrCount",
                         "shape": "Integer",
                         "locationName": "Count",
-                        "documentation": "Number of datasets returned.",
+                        "documentation": "-- | Number of datasets returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -2785,7 +2785,7 @@
                         "name": "_ldrNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2802,7 +2802,7 @@
                         "name": "_ldrCount",
                         "shape": "Integer",
                         "locationName": "Count",
-                        "documentation": "Number of datasets returned.",
+                        "documentation": "-- | Number of datasets returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -2817,7 +2817,7 @@
                         "name": "_ldrDatasets",
                         "shape": "DatasetList",
                         "locationName": "Datasets",
-                        "documentation": "A set of datasets.",
+                        "documentation": "-- | A set of datasets.",
                         "typeExposed": "[Dataset]",
                         "type": "List \"Datasets\" Dataset"
                     },
@@ -2832,7 +2832,7 @@
                         "name": "_ldrNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2848,7 +2848,7 @@
             "pager": null,
             "name": "ListDatasets",
             "method": "get",
-            "documentation": "Lists datasets for an identity. The credentials used to make this API call need to have access to the identity data. With Amazon Cognito Sync, each identity has access only to its own data. You should use Amazon Cognito Identity service to retrieve the credentials necessary to make this API call.",
+            "documentation": "-- | Lists datasets for an identity. The credentials used to make this API call\n-- need to have access to the identity data. With Amazon Cognito Sync, each\n-- identity has access only to its own data. You should use Amazon Cognito\n-- Identity service to retrieve the credentials necessary to make this API call.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2898,7 +2898,7 @@
                         "name": "_ldIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2913,7 +2913,7 @@
                         "name": "_ldIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2951,7 +2951,7 @@
                         "name": "_ldNextToken",
                         "shape": "String",
                         "locationName": "nextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2966,7 +2966,7 @@
                         "name": "_ldMaxResults",
                         "shape": "IntegerString",
                         "locationName": "maxResults",
-                        "documentation": "The maximum number of results to be returned.",
+                        "documentation": "-- | The maximum number of results to be returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     }
@@ -2983,7 +2983,7 @@
                         "name": "_ldIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2998,7 +2998,7 @@
                         "name": "_ldIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3013,7 +3013,7 @@
                         "name": "_ldMaxResults",
                         "shape": "IntegerString",
                         "locationName": "maxResults",
-                        "documentation": "The maximum number of results to be returned.",
+                        "documentation": "-- | The maximum number of results to be returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3028,7 +3028,7 @@
                         "name": "_ldNextToken",
                         "shape": "String",
                         "locationName": "nextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3059,7 +3059,7 @@
                         "name": "_lipurIdentityPoolUsages",
                         "shape": "IdentityPoolUsageList",
                         "locationName": "IdentityPoolUsages",
-                        "documentation": "Usage information for the identity pools.",
+                        "documentation": "-- | Usage information for the identity pools.",
                         "typeExposed": "[IdentityPoolUsage]",
                         "type": "List \"IdentityPoolUsages\" IdentityPoolUsage"
                     },
@@ -3074,7 +3074,7 @@
                         "name": "_lipurMaxResults",
                         "shape": "Integer",
                         "locationName": "MaxResults",
-                        "documentation": "The maximum number of results to be returned.",
+                        "documentation": "-- | The maximum number of results to be returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3089,7 +3089,7 @@
                         "name": "_lipurCount",
                         "shape": "Integer",
                         "locationName": "Count",
-                        "documentation": "Total number of identities for the identity pool.",
+                        "documentation": "-- | Total number of identities for the identity pool.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3104,7 +3104,7 @@
                         "name": "_lipurNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3133,7 +3133,7 @@
                         "name": "_lipurIdentityPoolUsages",
                         "shape": "IdentityPoolUsageList",
                         "locationName": "IdentityPoolUsages",
-                        "documentation": "Usage information for the identity pools.",
+                        "documentation": "-- | Usage information for the identity pools.",
                         "typeExposed": "[IdentityPoolUsage]",
                         "type": "List \"IdentityPoolUsages\" IdentityPoolUsage"
                     },
@@ -3148,7 +3148,7 @@
                         "name": "_lipurMaxResults",
                         "shape": "Integer",
                         "locationName": "MaxResults",
-                        "documentation": "The maximum number of results to be returned.",
+                        "documentation": "-- | The maximum number of results to be returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3163,7 +3163,7 @@
                         "name": "_lipurCount",
                         "shape": "Integer",
                         "locationName": "Count",
-                        "documentation": "Total number of identities for the identity pool.",
+                        "documentation": "-- | Total number of identities for the identity pool.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3178,7 +3178,7 @@
                         "name": "_lipurNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3195,7 +3195,7 @@
                         "name": "_lipurCount",
                         "shape": "Integer",
                         "locationName": "Count",
-                        "documentation": "Total number of identities for the identity pool.",
+                        "documentation": "-- | Total number of identities for the identity pool.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3210,7 +3210,7 @@
                         "name": "_lipurIdentityPoolUsages",
                         "shape": "IdentityPoolUsageList",
                         "locationName": "IdentityPoolUsages",
-                        "documentation": "Usage information for the identity pools.",
+                        "documentation": "-- | Usage information for the identity pools.",
                         "typeExposed": "[IdentityPoolUsage]",
                         "type": "List \"IdentityPoolUsages\" IdentityPoolUsage"
                     },
@@ -3225,7 +3225,7 @@
                         "name": "_lipurMaxResults",
                         "shape": "Integer",
                         "locationName": "MaxResults",
-                        "documentation": "The maximum number of results to be returned.",
+                        "documentation": "-- | The maximum number of results to be returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3240,7 +3240,7 @@
                         "name": "_lipurNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3256,7 +3256,7 @@
             "pager": null,
             "name": "ListIdentityPoolUsage",
             "method": "get",
-            "documentation": "Gets a list of identity pools registered with Cognito.",
+            "documentation": "-- | Gets a list of identity pools registered with Cognito.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3312,7 +3312,7 @@
                         "name": "_lipuNextToken",
                         "shape": "String",
                         "locationName": "nextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3327,7 +3327,7 @@
                         "name": "_lipuMaxResults",
                         "shape": "IntegerString",
                         "locationName": "maxResults",
-                        "documentation": "The maximum number of results to be returned.",
+                        "documentation": "-- | The maximum number of results to be returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     }
@@ -3344,7 +3344,7 @@
                         "name": "_lipuMaxResults",
                         "shape": "IntegerString",
                         "locationName": "maxResults",
-                        "documentation": "The maximum number of results to be returned.",
+                        "documentation": "-- | The maximum number of results to be returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3359,7 +3359,7 @@
                         "name": "_lipuNextToken",
                         "shape": "String",
                         "locationName": "nextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3390,7 +3390,7 @@
                         "name": "_lrrRecords",
                         "shape": "RecordList",
                         "locationName": "Records",
-                        "documentation": "A list of all records.",
+                        "documentation": "-- | A list of all records.",
                         "typeExposed": "[Record]",
                         "type": "List \"Records\" Record"
                     },
@@ -3405,7 +3405,7 @@
                         "name": "_lrrNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3420,7 +3420,7 @@
                         "name": "_lrrCount",
                         "shape": "Integer",
                         "locationName": "Count",
-                        "documentation": "Total number of records.",
+                        "documentation": "-- | Total number of records.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3435,7 +3435,7 @@
                         "name": "_lrrDatasetSyncCount",
                         "shape": "Long",
                         "locationName": "DatasetSyncCount",
-                        "documentation": "Server sync count for this dataset.",
+                        "documentation": "-- | Server sync count for this dataset.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -3450,7 +3450,7 @@
                         "name": "_lrrLastModifiedBy",
                         "shape": "String",
                         "locationName": "LastModifiedBy",
-                        "documentation": "The user/device that made the last change to this record.",
+                        "documentation": "-- | The user/device that made the last change to this record.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3465,7 +3465,7 @@
                         "name": "_lrrMergedDatasetNames",
                         "shape": "MergedDatasetNameList",
                         "locationName": "MergedDatasetNames",
-                        "documentation": "Names of merged datasets.",
+                        "documentation": "-- | Names of merged datasets.",
                         "typeExposed": "[Text]",
                         "type": "List \"MergedDatasetNames\" Text"
                     },
@@ -3480,7 +3480,7 @@
                         "name": "_lrrDatasetExists",
                         "shape": "Boolean",
                         "locationName": "DatasetExists",
-                        "documentation": "Indicates whether the dataset exists.",
+                        "documentation": "-- | Indicates whether the dataset exists.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -3495,7 +3495,7 @@
                         "name": "_lrrDatasetDeletedAfterRequestedSyncCount",
                         "shape": "Boolean",
                         "locationName": "DatasetDeletedAfterRequestedSyncCount",
-                        "documentation": "A boolean value specifying whether to delete the dataset locally.",
+                        "documentation": "-- | A boolean value specifying whether to delete the dataset locally.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -3510,7 +3510,7 @@
                         "name": "_lrrSyncSessionToken",
                         "shape": "String",
                         "locationName": "SyncSessionToken",
-                        "documentation": "A token containing a session ID, identity ID, and expiration.",
+                        "documentation": "-- | A token containing a session ID, identity ID, and expiration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3539,7 +3539,7 @@
                         "name": "_lrrRecords",
                         "shape": "RecordList",
                         "locationName": "Records",
-                        "documentation": "A list of all records.",
+                        "documentation": "-- | A list of all records.",
                         "typeExposed": "[Record]",
                         "type": "List \"Records\" Record"
                     },
@@ -3554,7 +3554,7 @@
                         "name": "_lrrNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3569,7 +3569,7 @@
                         "name": "_lrrCount",
                         "shape": "Integer",
                         "locationName": "Count",
-                        "documentation": "Total number of records.",
+                        "documentation": "-- | Total number of records.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3584,7 +3584,7 @@
                         "name": "_lrrDatasetSyncCount",
                         "shape": "Long",
                         "locationName": "DatasetSyncCount",
-                        "documentation": "Server sync count for this dataset.",
+                        "documentation": "-- | Server sync count for this dataset.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -3599,7 +3599,7 @@
                         "name": "_lrrLastModifiedBy",
                         "shape": "String",
                         "locationName": "LastModifiedBy",
-                        "documentation": "The user/device that made the last change to this record.",
+                        "documentation": "-- | The user/device that made the last change to this record.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3614,7 +3614,7 @@
                         "name": "_lrrMergedDatasetNames",
                         "shape": "MergedDatasetNameList",
                         "locationName": "MergedDatasetNames",
-                        "documentation": "Names of merged datasets.",
+                        "documentation": "-- | Names of merged datasets.",
                         "typeExposed": "[Text]",
                         "type": "List \"MergedDatasetNames\" Text"
                     },
@@ -3629,7 +3629,7 @@
                         "name": "_lrrDatasetExists",
                         "shape": "Boolean",
                         "locationName": "DatasetExists",
-                        "documentation": "Indicates whether the dataset exists.",
+                        "documentation": "-- | Indicates whether the dataset exists.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -3644,7 +3644,7 @@
                         "name": "_lrrDatasetDeletedAfterRequestedSyncCount",
                         "shape": "Boolean",
                         "locationName": "DatasetDeletedAfterRequestedSyncCount",
-                        "documentation": "A boolean value specifying whether to delete the dataset locally.",
+                        "documentation": "-- | A boolean value specifying whether to delete the dataset locally.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -3659,7 +3659,7 @@
                         "name": "_lrrSyncSessionToken",
                         "shape": "String",
                         "locationName": "SyncSessionToken",
-                        "documentation": "A token containing a session ID, identity ID, and expiration.",
+                        "documentation": "-- | A token containing a session ID, identity ID, and expiration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3676,7 +3676,7 @@
                         "name": "_lrrCount",
                         "shape": "Integer",
                         "locationName": "Count",
-                        "documentation": "Total number of records.",
+                        "documentation": "-- | Total number of records.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3691,7 +3691,7 @@
                         "name": "_lrrDatasetDeletedAfterRequestedSyncCount",
                         "shape": "Boolean",
                         "locationName": "DatasetDeletedAfterRequestedSyncCount",
-                        "documentation": "A boolean value specifying whether to delete the dataset locally.",
+                        "documentation": "-- | A boolean value specifying whether to delete the dataset locally.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -3706,7 +3706,7 @@
                         "name": "_lrrDatasetExists",
                         "shape": "Boolean",
                         "locationName": "DatasetExists",
-                        "documentation": "Indicates whether the dataset exists.",
+                        "documentation": "-- | Indicates whether the dataset exists.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -3721,7 +3721,7 @@
                         "name": "_lrrDatasetSyncCount",
                         "shape": "Long",
                         "locationName": "DatasetSyncCount",
-                        "documentation": "Server sync count for this dataset.",
+                        "documentation": "-- | Server sync count for this dataset.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -3736,7 +3736,7 @@
                         "name": "_lrrLastModifiedBy",
                         "shape": "String",
                         "locationName": "LastModifiedBy",
-                        "documentation": "The user/device that made the last change to this record.",
+                        "documentation": "-- | The user/device that made the last change to this record.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3751,7 +3751,7 @@
                         "name": "_lrrMergedDatasetNames",
                         "shape": "MergedDatasetNameList",
                         "locationName": "MergedDatasetNames",
-                        "documentation": "Names of merged datasets.",
+                        "documentation": "-- | Names of merged datasets.",
                         "typeExposed": "[Text]",
                         "type": "List \"MergedDatasetNames\" Text"
                     },
@@ -3766,7 +3766,7 @@
                         "name": "_lrrNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3781,7 +3781,7 @@
                         "name": "_lrrRecords",
                         "shape": "RecordList",
                         "locationName": "Records",
-                        "documentation": "A list of all records.",
+                        "documentation": "-- | A list of all records.",
                         "typeExposed": "[Record]",
                         "type": "List \"Records\" Record"
                     },
@@ -3796,7 +3796,7 @@
                         "name": "_lrrSyncSessionToken",
                         "shape": "String",
                         "locationName": "SyncSessionToken",
-                        "documentation": "A token containing a session ID, identity ID, and expiration.",
+                        "documentation": "-- | A token containing a session ID, identity ID, and expiration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3812,7 +3812,7 @@
             "pager": null,
             "name": "ListRecords",
             "method": "get",
-            "documentation": "Gets paginated records, optionally changed after a particular sync count for a dataset and identity. The credentials used to make this API call need to have access to the identity data. With Amazon Cognito Sync, each identity has access only to its own data. You should use Amazon Cognito Identity service to retrieve the credentials necessary to make this API call.",
+            "documentation": "-- | Gets paginated records, optionally changed after a particular sync count for\n-- a dataset and identity. The credentials used to make this API call need to\n-- have access to the identity data. With Amazon Cognito Sync, each identity has\n-- access only to its own data. You should use Amazon Cognito Identity service\n-- to retrieve the credentials necessary to make this API call.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3870,7 +3870,7 @@
                         "name": "_lrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3885,7 +3885,7 @@
                         "name": "_lrIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3900,7 +3900,7 @@
                         "name": "_lrDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).",
+                        "documentation": "-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n-- (underscore), '-' (dash), and '.' (dot).",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3948,7 +3948,7 @@
                         "name": "_lrLastSyncCount",
                         "shape": "Long",
                         "locationName": "lastSyncCount",
-                        "documentation": "The last server sync count for this record.",
+                        "documentation": "-- | The last server sync count for this record.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -3963,7 +3963,7 @@
                         "name": "_lrNextToken",
                         "shape": "String",
                         "locationName": "nextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3978,7 +3978,7 @@
                         "name": "_lrMaxResults",
                         "shape": "IntegerString",
                         "locationName": "maxResults",
-                        "documentation": "The maximum number of results to be returned.",
+                        "documentation": "-- | The maximum number of results to be returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3993,7 +3993,7 @@
                         "name": "_lrSyncSessionToken",
                         "shape": "SyncSessionToken",
                         "locationName": "syncSessionToken",
-                        "documentation": "A token containing a session ID, identity ID, and expiration.",
+                        "documentation": "-- | A token containing a session ID, identity ID, and expiration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4010,7 +4010,7 @@
                         "name": "_lrDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).",
+                        "documentation": "-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n-- (underscore), '-' (dash), and '.' (dot).",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4025,7 +4025,7 @@
                         "name": "_lrIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4040,7 +4040,7 @@
                         "name": "_lrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4055,7 +4055,7 @@
                         "name": "_lrLastSyncCount",
                         "shape": "Long",
                         "locationName": "lastSyncCount",
-                        "documentation": "The last server sync count for this record.",
+                        "documentation": "-- | The last server sync count for this record.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -4070,7 +4070,7 @@
                         "name": "_lrMaxResults",
                         "shape": "IntegerString",
                         "locationName": "maxResults",
-                        "documentation": "The maximum number of results to be returned.",
+                        "documentation": "-- | The maximum number of results to be returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -4085,7 +4085,7 @@
                         "name": "_lrNextToken",
                         "shape": "String",
                         "locationName": "nextToken",
-                        "documentation": "A pagination token for obtaining the next page of results.",
+                        "documentation": "-- | A pagination token for obtaining the next page of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4100,7 +4100,7 @@
                         "name": "_lrSyncSessionToken",
                         "shape": "SyncSessionToken",
                         "locationName": "syncSessionToken",
-                        "documentation": "A token containing a session ID, identity ID, and expiration.",
+                        "documentation": "-- | A token containing a session ID, identity ID, and expiration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4133,7 +4133,7 @@
                     "name": "_rdrDeviceId",
                     "shape": "DeviceId",
                     "locationName": "DeviceId",
-                    "documentation": "\u003cp\u003eThe unique ID generated for this device by Cognito.\u003c/p\u003e",
+                    "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -4149,7 +4149,7 @@
                         "name": "_rdrDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "\u003cp\u003eThe unique ID generated for this device by Cognito.\u003c/p\u003e",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4178,7 +4178,7 @@
                         "name": "_rdrDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "\u003cp\u003eThe unique ID generated for this device by Cognito.\u003c/p\u003e",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4195,7 +4195,7 @@
                         "name": "_rdrDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "\u003cp\u003eThe unique ID generated for this device by Cognito.\u003c/p\u003e",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4211,7 +4211,7 @@
             "pager": null,
             "name": "RegisterDevice",
             "method": "post",
-            "documentation": "\u003cp\u003eRegisters a device to receive push sync notifications.\u003c/p\u003e",
+            "documentation": "-- | Registers a device to receive push sync notifications.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4235,7 +4235,7 @@
                         "name": "_rdPlatform",
                         "shape": "Platform",
                         "locationName": "Platform",
-                        "documentation": "\u003cp\u003eThe SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\u003c/p\u003e",
+                        "documentation": "-- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\n--",
                         "typeExposed": "Platform",
                         "type": "Platform"
                     },
@@ -4250,7 +4250,7 @@
                         "name": "_rdToken",
                         "shape": "PushToken",
                         "locationName": "Token",
-                        "documentation": "\u003cp\u003eThe push token.\u003c/p\u003e",
+                        "documentation": "-- | The push token.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4291,7 +4291,7 @@
                         "name": "_rdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- Here, the ID of the pool that the identity belongs to.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4306,7 +4306,7 @@
                         "name": "_rdIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eThe unique ID for this identity.\u003c/p\u003e",
+                        "documentation": "-- | The unique ID for this identity.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4321,7 +4321,7 @@
                         "name": "_rdPlatform",
                         "shape": "Platform",
                         "locationName": "Platform",
-                        "documentation": "\u003cp\u003eThe SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\u003c/p\u003e",
+                        "documentation": "-- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\n--",
                         "typeExposed": "Platform",
                         "type": "Platform"
                     },
@@ -4336,7 +4336,7 @@
                         "name": "_rdToken",
                         "shape": "PushToken",
                         "locationName": "Token",
-                        "documentation": "\u003cp\u003eThe push token.\u003c/p\u003e",
+                        "documentation": "-- | The push token.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4364,7 +4364,7 @@
                         "name": "_rdIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eThe unique ID for this identity.\u003c/p\u003e",
+                        "documentation": "-- | The unique ID for this identity.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4379,7 +4379,7 @@
                         "name": "_rdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- Here, the ID of the pool that the identity belongs to.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4394,7 +4394,7 @@
                         "name": "_rdPlatform",
                         "shape": "Platform",
                         "locationName": "Platform",
-                        "documentation": "\u003cp\u003eThe SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\u003c/p\u003e",
+                        "documentation": "-- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\n--",
                         "typeExposed": "Platform",
                         "type": "Platform"
                     },
@@ -4409,7 +4409,7 @@
                         "name": "_rdToken",
                         "shape": "PushToken",
                         "locationName": "Token",
-                        "documentation": "\u003cp\u003eThe push token.\u003c/p\u003e",
+                        "documentation": "-- | The push token.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4440,7 +4440,7 @@
                         "name": "_sipcrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4455,7 +4455,7 @@
                         "name": "_sipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "\u003cp\u003eConfiguration options applied to the identity pool.\u003c/p\u003e",
+                        "documentation": "-- | Configuration options applied to the identity pool.\n--",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -4484,7 +4484,7 @@
                         "name": "_sipcrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4499,7 +4499,7 @@
                         "name": "_sipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "\u003cp\u003eConfiguration options applied to the identity pool.\u003c/p\u003e",
+                        "documentation": "-- | Configuration options applied to the identity pool.\n--",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -4516,7 +4516,7 @@
                         "name": "_sipcrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4531,7 +4531,7 @@
                         "name": "_sipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "\u003cp\u003eConfiguration options applied to the identity pool.\u003c/p\u003e",
+                        "documentation": "-- | Configuration options applied to the identity pool.\n--",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -4547,7 +4547,7 @@
             "pager": null,
             "name": "SetIdentityPoolConfiguration",
             "method": "post",
-            "documentation": "\u003cp\u003eSets the necessary configuration for push sync.\u003c/p\u003e",
+            "documentation": "-- | Sets the necessary configuration for push sync.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4571,7 +4571,7 @@
                         "name": "_sipcPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "\u003cp\u003eConfiguration options to be applied to the identity pool.\u003c/p\u003e",
+                        "documentation": "-- | Configuration options to be applied to the identity pool.\n--",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -4604,7 +4604,7 @@
                         "name": "_sipcIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool to modify.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4631,7 +4631,7 @@
                         "name": "_sipcPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "\u003cp\u003eConfiguration options to be applied to the identity pool.\u003c/p\u003e",
+                        "documentation": "-- | Configuration options to be applied to the identity pool.\n--",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -4648,7 +4648,7 @@
                         "name": "_sipcIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool to modify.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4663,7 +4663,7 @@
                         "name": "_sipcPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "\u003cp\u003eConfiguration options to be applied to the identity pool.\u003c/p\u003e",
+                        "documentation": "-- | Configuration options to be applied to the identity pool.\n--",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -4706,7 +4706,7 @@
             "pager": null,
             "name": "SubscribeToDataset",
             "method": "post",
-            "documentation": "\u003cp\u003eSubscribes to receive notifications when a dataset is modified by another device.\u003c/p\u003e",
+            "documentation": "-- | Subscribes to receive notifications when a dataset is modified by another\n-- device.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4768,7 +4768,7 @@
                         "name": "_stdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- The ID of the pool to which the identity belongs.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4783,7 +4783,7 @@
                         "name": "_stdIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eUnique ID for this identity.\u003c/p\u003e",
+                        "documentation": "-- | Unique ID for this identity.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4798,7 +4798,7 @@
                         "name": "_stdDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "\u003cp\u003eThe name of the dataset to subcribe to.\u003c/p\u003e",
+                        "documentation": "-- | The name of the dataset to subcribe to.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4813,7 +4813,7 @@
                         "name": "_stdDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "\u003cp\u003eThe unique ID generated for this device by Cognito.\u003c/p\u003e",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4841,7 +4841,7 @@
                         "name": "_stdDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "\u003cp\u003eThe name of the dataset to subcribe to.\u003c/p\u003e",
+                        "documentation": "-- | The name of the dataset to subcribe to.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4856,7 +4856,7 @@
                         "name": "_stdDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "\u003cp\u003eThe unique ID generated for this device by Cognito.\u003c/p\u003e",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4871,7 +4871,7 @@
                         "name": "_stdIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eUnique ID for this identity.\u003c/p\u003e",
+                        "documentation": "-- | Unique ID for this identity.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4886,7 +4886,7 @@
                         "name": "_stdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- The ID of the pool to which the identity belongs.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4929,7 +4929,7 @@
             "pager": null,
             "name": "UnsubscribeFromDataset",
             "method": "delete",
-            "documentation": "\u003cp\u003eUnsubscribe from receiving notifications when a dataset is modified by another device.\u003c/p\u003e",
+            "documentation": "-- | Unsubscribe from receiving notifications when a dataset is modified by\n-- another device.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4991,7 +4991,7 @@
                         "name": "_ufdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- The ID of the pool to which this identity belongs.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5006,7 +5006,7 @@
                         "name": "_ufdIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eUnique ID for this identity.\u003c/p\u003e",
+                        "documentation": "-- | Unique ID for this identity.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5021,7 +5021,7 @@
                         "name": "_ufdDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "\u003cp\u003eThe name of the dataset from which to unsubcribe.\u003c/p\u003e",
+                        "documentation": "-- | The name of the dataset from which to unsubcribe.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5036,7 +5036,7 @@
                         "name": "_ufdDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "\u003cp\u003eThe unique ID generated for this device by Cognito.\u003c/p\u003e",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5064,7 +5064,7 @@
                         "name": "_ufdDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "\u003cp\u003eThe name of the dataset from which to unsubcribe.\u003c/p\u003e",
+                        "documentation": "-- | The name of the dataset from which to unsubcribe.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5079,7 +5079,7 @@
                         "name": "_ufdDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "\u003cp\u003eThe unique ID generated for this device by Cognito.\u003c/p\u003e",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5094,7 +5094,7 @@
                         "name": "_ufdIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eUnique ID for this identity.\u003c/p\u003e",
+                        "documentation": "-- | Unique ID for this identity.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5109,7 +5109,7 @@
                         "name": "_ufdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eA name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.\u003c/p\u003e",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- The ID of the pool to which this identity belongs.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5142,7 +5142,7 @@
                     "name": "_urrRecords",
                     "shape": "RecordList",
                     "locationName": "Records",
-                    "documentation": "A list of records that have been updated.",
+                    "documentation": "-- | A list of records that have been updated.",
                     "typeExposed": "[Record]",
                     "type": "List \"Records\" Record"
                 },
@@ -5158,7 +5158,7 @@
                         "name": "_urrRecords",
                         "shape": "RecordList",
                         "locationName": "Records",
-                        "documentation": "A list of records that have been updated.",
+                        "documentation": "-- | A list of records that have been updated.",
                         "typeExposed": "[Record]",
                         "type": "List \"Records\" Record"
                     }
@@ -5187,7 +5187,7 @@
                         "name": "_urrRecords",
                         "shape": "RecordList",
                         "locationName": "Records",
-                        "documentation": "A list of records that have been updated.",
+                        "documentation": "-- | A list of records that have been updated.",
                         "typeExposed": "[Record]",
                         "type": "List \"Records\" Record"
                     }
@@ -5204,7 +5204,7 @@
                         "name": "_urrRecords",
                         "shape": "RecordList",
                         "locationName": "Records",
-                        "documentation": "A list of records that have been updated.",
+                        "documentation": "-- | A list of records that have been updated.",
                         "typeExposed": "[Record]",
                         "type": "List \"Records\" Record"
                     }
@@ -5220,7 +5220,7 @@
             "pager": null,
             "name": "UpdateRecords",
             "method": "post",
-            "documentation": "Posts updates to records and add and delete records for a dataset and user. The credentials used to make this API call need to have access to the identity data. With Amazon Cognito Sync, each identity has access only to its own data. You should use Amazon Cognito Identity service to retrieve the credentials necessary to make this API call.",
+            "documentation": "-- | Posts updates to records and add and delete records for a dataset and user.\n-- The credentials used to make this API call need to have access to the\n-- identity data. With Amazon Cognito Sync, each identity has access only to its\n-- own data. You should use Amazon Cognito Identity service to retrieve the\n-- credentials necessary to make this API call.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5244,7 +5244,7 @@
                         "name": "_urDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "\u003cp\u003eThe unique ID generated for this device by Cognito.\u003c/p\u003e",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5259,7 +5259,7 @@
                         "name": "_urRecordPatches",
                         "shape": "RecordPatchList",
                         "locationName": "RecordPatches",
-                        "documentation": "A list of patch operations.",
+                        "documentation": "-- | A list of patch operations.",
                         "typeExposed": "[RecordPatch]",
                         "type": "List \"RecordPatches\" RecordPatch"
                     },
@@ -5274,7 +5274,7 @@
                         "name": "_urSyncSessionToken",
                         "shape": "SyncSessionToken",
                         "locationName": "SyncSessionToken",
-                        "documentation": "The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.",
+                        "documentation": "-- | The SyncSessionToken returned by a previous call to ListRecords for this\n-- dataset and identity.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5319,7 +5319,7 @@
                         "name": "_urIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5334,7 +5334,7 @@
                         "name": "_urIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5349,7 +5349,7 @@
                         "name": "_urDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).",
+                        "documentation": "-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n-- (underscore), '-' (dash), and '.' (dot).",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5364,7 +5364,7 @@
                         "name": "_urSyncSessionToken",
                         "shape": "SyncSessionToken",
                         "locationName": "SyncSessionToken",
-                        "documentation": "The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.",
+                        "documentation": "-- | The SyncSessionToken returned by a previous call to ListRecords for this\n-- dataset and identity.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5397,7 +5397,7 @@
                         "name": "_urDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "\u003cp\u003eThe unique ID generated for this device by Cognito.\u003c/p\u003e",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5412,7 +5412,7 @@
                         "name": "_urRecordPatches",
                         "shape": "RecordPatchList",
                         "locationName": "RecordPatches",
-                        "documentation": "A list of patch operations.",
+                        "documentation": "-- | A list of patch operations.",
                         "typeExposed": "[RecordPatch]",
                         "type": "List \"RecordPatches\" RecordPatch"
                     },
@@ -5427,7 +5427,7 @@
                         "name": "_urClientContext",
                         "shape": "ClientContext",
                         "locationName": "x-amz-Client-Context",
-                        "documentation": "Intended to supply a device ID that will populate the \u003ccode\u003elastModifiedBy\u003c/code\u003e field referenced in other methods. The \u003ccode\u003eClientContext\u003c/code\u003e field is not yet implemented.",
+                        "documentation": "-- | Intended to supply a device ID that will populate the 'lastModifiedBy' field\n-- referenced in other methods. The 'ClientContext' field is not yet implemented.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5444,7 +5444,7 @@
                         "name": "_urClientContext",
                         "shape": "ClientContext",
                         "locationName": "x-amz-Client-Context",
-                        "documentation": "Intended to supply a device ID that will populate the \u003ccode\u003elastModifiedBy\u003c/code\u003e field referenced in other methods. The \u003ccode\u003eClientContext\u003c/code\u003e field is not yet implemented.",
+                        "documentation": "-- | Intended to supply a device ID that will populate the 'lastModifiedBy' field\n-- referenced in other methods. The 'ClientContext' field is not yet implemented.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5459,7 +5459,7 @@
                         "name": "_urDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).",
+                        "documentation": "-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n-- (underscore), '-' (dash), and '.' (dot).",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5474,7 +5474,7 @@
                         "name": "_urDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "\u003cp\u003eThe unique ID generated for this device by Cognito.\u003c/p\u003e",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5489,7 +5489,7 @@
                         "name": "_urIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5504,7 +5504,7 @@
                         "name": "_urIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5519,7 +5519,7 @@
                         "name": "_urRecordPatches",
                         "shape": "RecordPatchList",
                         "locationName": "RecordPatches",
-                        "documentation": "A list of patch operations.",
+                        "documentation": "-- | A list of patch operations.",
                         "typeExposed": "[RecordPatch]",
                         "type": "List \"RecordPatches\" RecordPatch"
                     },
@@ -5534,7 +5534,7 @@
                         "name": "_urSyncSessionToken",
                         "shape": "SyncSessionToken",
                         "locationName": "SyncSessionToken",
-                        "documentation": "The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.",
+                        "documentation": "-- | The SyncSessionToken returned by a previous call to ListRecords for this\n-- dataset and identity.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }

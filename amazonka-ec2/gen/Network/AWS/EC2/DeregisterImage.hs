@@ -20,8 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deregisters the specified AMI. After you deregister an AMI, it can't be
--- used to launch new instances. This command does not delete the AMI.
+-- | Deregisters the specified AMI. After you deregister an AMI, it can't be used
+-- to launch new instances.
+--
+-- This command does not delete the AMI.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeregisterImage.html>
 module Network.AWS.EC2.DeregisterImage
@@ -69,6 +71,7 @@ diDryRun :: Lens' DeregisterImage (Maybe Bool)
 diDryRun = lens _diDryRun (\s a -> s { _diDryRun = a })
 
 -- | The ID of the AMI.
+--
 diImageId :: Lens' DeregisterImage Text
 diImageId = lens _diImageId (\s a -> s { _diImageId = a })
 

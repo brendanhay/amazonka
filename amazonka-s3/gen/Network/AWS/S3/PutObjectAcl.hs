@@ -20,9 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | uses the acl subresource to set the access control list (ACL) permissions
--- for an object that already exists in a bucket.
---
+-- | uses the acl subresource to set the access control list (ACL) permissions for
+-- an object that already exists in a bucket
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutObjectAcl.html>
 module Network.AWS.S3.PutObjectAcl
     (
@@ -120,8 +119,8 @@ poaBucket = lens _poaBucket (\s a -> s { _poaBucket = a })
 poaContentMD5 :: Lens' PutObjectAcl (Maybe Text)
 poaContentMD5 = lens _poaContentMD5 (\s a -> s { _poaContentMD5 = a })
 
--- | Allows grantee the read, write, read ACP, and write ACP permissions on
--- the bucket.
+-- | Allows grantee the read, write, read ACP, and write ACP permissions on the
+-- bucket.
 poaGrantFullControl :: Lens' PutObjectAcl (Maybe Text)
 poaGrantFullControl =
     lens _poaGrantFullControl (\s a -> s { _poaGrantFullControl = a })

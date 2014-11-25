@@ -20,22 +20,23 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Generates a stickiness policy with sticky session lifetimes that follow
--- that of an application-generated cookie. This policy can be associated only
--- with HTTP/HTTPS listeners. This policy is similar to the policy created by
--- 'CreateLBCookieStickinessPolicy', except that the lifetime of the special
--- Elastic Load Balancing cookie follows the lifetime of the
--- application-generated cookie specified in the policy configuration. The
--- load balancer only inserts a new stickiness cookie when the application
--- response includes a new application cookie. If the application cookie is
--- explicitly removed or expires, the session stops being sticky until a new
--- application cookie is issued. An application client must receive and send
--- two cookies: the application-generated cookie and the special Elastic Load
--- Balancing cookie named 'AWSELB'. This is the default behavior for many
--- common web browsers. For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsAppCookies
--- Enabling Application-Controlled Session Stickiness> in the /Elastic Load
--- Balancing Developer Guide/.
+-- | Generates a stickiness policy with sticky session lifetimes that follow that
+-- of an application-generated cookie. This policy can be associated only with
+-- HTTP/HTTPS listeners.
+--
+-- This policy is similar to the policy created by 'CreateLBCookieStickinessPolicy', except that the lifetime of the special Elastic Load Balancing cookie
+-- follows the lifetime of the application-generated cookie specified in the
+-- policy configuration. The load balancer only inserts a new stickiness cookie
+-- when the application response includes a new application cookie.
+--
+-- If the application cookie is explicitly removed or expires, the session
+-- stops being sticky until a new application cookie is issued.
+--
+-- An application client must receive and send two cookies: the
+-- application-generated cookie and the special Elastic Load Balancing cookie
+-- named 'AWSELB'. This is the default behavior for many common web browsers.  For
+-- more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsAppCookies Enabling Application-Controlled Session Stickiness> in
+-- the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateAppCookieStickinessPolicy.html>
 module Network.AWS.ELB.CreateAppCookieStickinessPolicy
@@ -87,16 +88,19 @@ createAppCookieStickinessPolicy p1 p2 p3 = CreateAppCookieStickinessPolicy
     }
 
 -- | Name of the application cookie used for stickiness.
+--
 cacspCookieName :: Lens' CreateAppCookieStickinessPolicy Text
 cacspCookieName = lens _cacspCookieName (\s a -> s { _cacspCookieName = a })
 
 -- | The name of the load balancer.
+--
 cacspLoadBalancerName :: Lens' CreateAppCookieStickinessPolicy Text
 cacspLoadBalancerName =
     lens _cacspLoadBalancerName (\s a -> s { _cacspLoadBalancerName = a })
 
--- | The name of the policy being created. The name must be unique within the
--- set of policies for this load balancer.
+-- | The name of the policy being created. The name must be unique within the set
+-- of policies for this load balancer.
+--
 cacspPolicyName :: Lens' CreateAppCookieStickinessPolicy Text
 cacspPolicyName = lens _cacspPolicyName (\s a -> s { _cacspPolicyName = a })
 

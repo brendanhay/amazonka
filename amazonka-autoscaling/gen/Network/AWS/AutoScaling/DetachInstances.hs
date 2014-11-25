@@ -22,10 +22,10 @@
 
 -- | Removes one or more instances from the specified Auto Scaling group. After
 -- the instances are detached, you can manage them independently from the rest
--- of the Auto Scaling group. For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html
--- Detach EC2 Instances from Your Auto Scaling Group> in the /Auto Scaling
--- Developer Guide/.
+-- of the Auto Scaling group.
+--
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group>
+-- in the /Auto Scaling Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachInstances.html>
 module Network.AWS.AutoScaling.DetachInstances
@@ -78,16 +78,19 @@ detachInstances p1 p2 = DetachInstances
     }
 
 -- | The name of the group.
+--
 diAutoScalingGroupName :: Lens' DetachInstances Text
 diAutoScalingGroupName =
     lens _diAutoScalingGroupName (\s a -> s { _diAutoScalingGroupName = a })
 
 -- | One or more instance IDs.
+--
 diInstanceIds :: Lens' DetachInstances [Text]
 diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a }) . _List
 
--- | If 'True', the Auto Scaling group decrements the desired capacity value
--- by the number of instances detached.
+-- | If 'True', the Auto Scaling group decrements the desired capacity value by the
+-- number of instances detached.
+--
 diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
 diShouldDecrementDesiredCapacity =
     lens _diShouldDecrementDesiredCapacity
@@ -114,8 +117,8 @@ detachInstancesResponse = DetachInstancesResponse
     { _dirActivities = mempty
     }
 
--- | The activities related to detaching the instances from the Auto Scaling
--- group.
+-- | The activities related to detaching the instances from the Auto Scaling group.
+--
 dirActivities :: Lens' DetachInstancesResponse [Activity]
 dirActivities = lens _dirActivities (\s a -> s { _dirActivities = a }) . _List
 

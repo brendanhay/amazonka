@@ -66,6 +66,7 @@ listDomainNamesResponse = ListDomainNamesResponse
     }
 
 -- | The names of the search domains owned by an account.
+--
 ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrDomainNames = lens _ldnrDomainNames (\s a -> s { _ldnrDomainNames = a }) . _EMap
 

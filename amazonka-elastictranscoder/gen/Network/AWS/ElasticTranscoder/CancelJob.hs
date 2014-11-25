@@ -59,9 +59,10 @@ cancelJob p1 = CancelJob
     { _cjId = p1
     }
 
--- | The identifier of the job that you want to cancel. To get a list of the
--- jobs (including their 'jobId') that have a status of 'Submitted', use the
--- 'ListJobsByStatus' API action.
+-- | The identifier of the job that you want to cancel.
+--
+-- To get a list of the jobs (including their 'jobId') that have a status of 'Submitted', use the 'ListJobsByStatus' API action.
+--
 cjId :: Lens' CancelJob Text
 cjId = lens _cjId (\s a -> s { _cjId = a })
 

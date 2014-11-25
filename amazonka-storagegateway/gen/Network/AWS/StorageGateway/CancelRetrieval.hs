@@ -74,6 +74,7 @@ crGatewayARN = lens _crGatewayARN (\s a -> s { _crGatewayARN = a })
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
 -- retrieval for.
+--
 crTapeARN :: Lens' CancelRetrieval Text
 crTapeARN = lens _crTapeARN (\s a -> s { _crTapeARN = a })
 
@@ -92,8 +93,9 @@ cancelRetrievalResponse = CancelRetrievalResponse
     { _crrTapeARN = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval
--- was canceled.
+-- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval was
+-- canceled.
+--
 crrTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrTapeARN = lens _crrTapeARN (\s a -> s { _crrTapeARN = a })
 

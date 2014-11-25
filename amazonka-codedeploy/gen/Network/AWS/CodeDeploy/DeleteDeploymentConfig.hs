@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes a deployment configuration. A deployment configuration cannot be
--- deleted if it is currently in use. Also, predefined configurations cannot
--- be deleted.
+-- | Deletes a deployment configuration.
 --
+-- A deployment configuration cannot be deleted if it is currently in use.
+-- Also, predefined configurations cannot be deleted.
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentConfig.html>
 module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     (
@@ -61,8 +61,8 @@ deleteDeploymentConfig p1 = DeleteDeploymentConfig
     { _ddcDeploymentConfigName = p1
     }
 
--- | The name of an existing deployment configuration within the AWS user
--- account.
+-- | The name of an existing deployment configuration within the AWS user account.
+--
 ddcDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
 ddcDeploymentConfigName =
     lens _ddcDeploymentConfigName (\s a -> s { _ddcDeploymentConfigName = a })

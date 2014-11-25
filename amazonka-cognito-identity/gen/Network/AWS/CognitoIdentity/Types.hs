@@ -97,8 +97,7 @@ identityDescription = IdentityDescription
 idIdentityId :: Lens' IdentityDescription (Maybe Text)
 idIdentityId = lens _idIdentityId (\s a -> s { _idIdentityId = a })
 
--- | A set of optional name-value pairs that map provider names to provider
--- tokens.
+-- | A set of optional name-value pairs that map provider names to provider tokens.
 idLogins :: Lens' IdentityDescription [Text]
 idLogins = lens _idLogins (\s a -> s { _idLogins = a }) . _List
 
@@ -158,6 +157,7 @@ ipAllowUnauthenticatedIdentities =
         (\s a -> s { _ipAllowUnauthenticatedIdentities = a })
 
 -- | The "domain" by which Cognito will refer to your users.
+--
 ipDeveloperProviderName :: Lens' IdentityPool (Maybe Text)
 ipDeveloperProviderName =
     lens _ipDeveloperProviderName (\s a -> s { _ipDeveloperProviderName = a })
@@ -167,6 +167,7 @@ ipIdentityPoolId :: Lens' IdentityPool Text
 ipIdentityPoolId = lens _ipIdentityPoolId (\s a -> s { _ipIdentityPoolId = a })
 
 -- | A string that you provide.
+--
 ipIdentityPoolName :: Lens' IdentityPool Text
 ipIdentityPoolName =
     lens _ipIdentityPoolName (\s a -> s { _ipIdentityPoolName = a })
@@ -178,6 +179,7 @@ ipOpenIdConnectProviderARNs =
             . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
+--
 ipSupportedLoginProviders :: Lens' IdentityPool (HashMap Text Text)
 ipSupportedLoginProviders =
     lens _ipSupportedLoginProviders

@@ -25,8 +25,9 @@
 -- state, and the user account that owns the pipeline. Using account
 -- credentials, you can retrieve metadata about pipelines that you or your IAM
 -- users have created. If you are using an IAM user account, you can retrieve
--- metadata about only those pipelines you have read permission for. To
--- retrieve the full pipeline definition instead of metadata about the
+-- metadata about only those pipelines you have read permission for.
+--
+-- To retrieve the full pipeline definition instead of metadata about the
 -- pipeline, call the 'GetPipelineDefinition' action.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribePipelines.html>
@@ -74,8 +75,9 @@ describePipelines = DescribePipelines
     }
 
 -- | Identifiers of the pipelines to describe. You can pass as many as 25
--- identifiers in a single call to 'DescribePipelines'. You can obtain
--- pipeline identifiers by calling 'ListPipelines'.
+-- identifiers in a single call to 'DescribePipelines'. You can obtain pipeline
+-- identifiers by calling 'ListPipelines'.
+--
 dpPipelineIds :: Lens' DescribePipelines [Text]
 dpPipelineIds = lens _dpPipelineIds (\s a -> s { _dpPipelineIds = a }) . _List
 
@@ -101,6 +103,7 @@ describePipelinesResponse = DescribePipelinesResponse
     }
 
 -- | An array of descriptions returned for the specified pipelines.
+--
 dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
 dprPipelineDescriptionList =
     lens _dprPipelineDescriptionList

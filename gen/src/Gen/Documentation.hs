@@ -1,5 +1,6 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.Documentation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -13,10 +14,10 @@
 
 module Gen.Documentation where
 
-import           Data.Foldable      (foldl')
+import           Data.Foldable     (foldl')
 import           Data.Monoid
-import           Data.Text          (Text)
-import qualified Data.Text          as Text
+import           Data.Text         (Text)
+import qualified Data.Text         as Text
 import           Text.HTML.TagSoup
 
 highlightType :: Text -> Text
@@ -34,40 +35,32 @@ highlightType = Text.unwords . map start . Text.words
         | ')' <- Text.last t = Text.init t <> "')"
         | otherwise          = t <> "'"
 
+-- FIXME: merge with wrapHaddock
 wrapDescription :: Text -> Text
-wrapDescription = Text.intercalate "\n" . map (indent <>) . wrapLines 72
-  where
-    indent = Text.replicate 4 (Text.singleton ' ')
-
-wrapHaddock :: Text -> Text -> Int -> Int -> Text
-wrapHaddock start t n i
-    | x:xs <- wrapped = Text.intercalate "\n" . map (indent <>) $ start <> x:xs
+wrapDescription t
+    | x:xs <- wrapped = Text.intercalate "\n" . map indent $ x:xs
     | otherwise       = ""
   where
-    indent = Text.replicate i (Text.singleton ' ') <> "-- "
+    indent x
+        | Text.null x = pre
+        | otherwise   = pre <> x
+      where
+        pre = Text.replicate 4 (Text.singleton ' ')
 
-    wrapped = wrapLines n
-        . f
-        . Text.strip
-        . Text.unwords
-        . Text.lines
-        $ formatTags t
+    wrapped = formatTags 78 t
 
-    f ""  = ""
-    f " " = ""
-    f x   = endWith "." x
+wrapHaddock :: Text -> Int -> Int -> Text -> Text
+wrapHaddock start n i txt
+    | x:xs <- wrapped = Text.intercalate "\n" . map indent $ start <> x:xs
+    | otherwise       = ""
+  where
+    indent x
+        | Text.null x = pre <> "--"
+        | otherwise   = pre <> "-- " <> x
+      where
+        pre = Text.replicate i (Text.singleton ' ')
 
-wrapLines :: Int -> Text -> [Text]
-wrapLines n = map (Text.pack . unwords) . go 0 [] . words . Text.unpack
-    where
-      go :: Int -> [String] -> [String] -> [[String]]
-      go _ acc [] = [reverse acc]
-      go k acc ws@(w : rest)
-          | l >= n     = reverse acc : [w] : go 0 [] rest
-          | k + l >= n = reverse acc       : go 0 [] ws
-          | otherwise  = go (k + l + 1) (w : acc) rest
-        where
-          l = length w
+    wrapped = formatTags n txt
 
 endWith :: Text -> Text -> Text
 endWith x y
@@ -75,32 +68,65 @@ endWith x y
     | otherwise             = y <> x
 
 data Mode
-    = Anchor
+    = Ref
     | Link
     | Code
-    | Emphasis
+    | Em
     | Text
 
-formatTags :: Text -> Text
-formatTags = fst . foldl' (uncurry go) (mempty, Text) . parseTags
+formatTags :: Int -> Text -> [Text]
+formatTags n = map Text.strip . parse
   where
-    go x Link     (TagText  t)                = (x <> t,    Link)
-    go x Link     (TagClose "a")              = (x <> ">",  Text)
+    parse = Text.lines
+        . fst
+        . foldl' (uncurry go) (mempty, Text)
+        . splitTags n
+        . parseTags
 
-    go x Anchor   (TagText  t)                = (x <> t,    Anchor)
-    go x Anchor   (TagClose "a")              = (x <> "'",  Text)
+    go x Link (TagText  t)                 = (x <> t,    Link)
+    go x Link (TagClose "a")               = (x <> ">",  Text)
 
-    go x Emphasis (TagText  t)                = (x <> t,    Emphasis)
-    go x Emphasis (TagClose "i")              = (x <> "/",  Text)
+    go x Ref  (TagText  t)                 = (x <> t,    Ref)
+    go x Ref  (TagClose "a")               = (x <> "'",  Text)
 
-    go x Code     (TagText  t)                = (x <> t,    Code)
-    go x Code     (TagClose "code")           = (x <> "'",  Text)
+    go x Em   (TagText  t)                 = (x <> t,    Em)
+    go x Em   (TagClose "i")               = (x <> "/",  Text)
 
-    go x m        (TagOpen "a" [("href", a)]) = (x <> "<" <> a <> " ", Link)
-    go x m        (TagOpen "a" [])            = (x <> "'",  Anchor)
-    go x m        (TagOpen "p"    _)          = (x <> "\n", Text)
-    go x m        (TagOpen "i"    _)          = (x <> "/",  Emphasis)
-    go x m        (TagOpen "code" _)          = (x <> "'",  Code)
-    go x m        (TagText t)                 = (x <> t,    m)
+    go x Code (TagText  t)                 = (x <> t,    Code)
+    go x Code (TagClose "code")            = (x <> "'",  Text)
 
-    go x m        _                           = (x, m)
+    go x _    (TagOpen  "a" [("href", a)]) = (x <> "<" <> a <> " ", Link)
+    go x _    (TagOpen  "a" [])            = (x <> "'",  Ref)
+    go x _    (TagOpen  "i"    _)          = (x <> "/",  Em)
+    go x _    (TagOpen  "code" _)          = (x <> "'",  Code)
+    go x Text (TagOpen  "br"   _)          = (x <> "\n", Text)
+
+    go x m    (TagText  t)                 = (x <> t,    m)
+
+    go x m    _                            = (x, m)
+
+splitTags :: Int -> [Tag Text] -> [Tag Text]
+splitTags n = reverse . fst . foldl' go ([], 0)
+  where
+    go :: ([Tag Text], Int) -> Tag Text -> ([Tag Text], Int)
+    go (xs, col) = \case
+         TagOpen  "p" _      -> (xs, col)
+         TagClose "p"        -> (line : line : xs, 0)
+         TagText t
+             | col >= n      -> go (line : xs, 0) (TagText t)
+             | len + col > n ->
+                 let hd     = Text.take diff t
+                     (k, _) = Text.breakOnEnd " " hd
+                     lst    = Text.drop (Text.length k) t
+                  in if Text.null k
+                         then    (line : TagText t : xs, 0)
+                         else go (line : TagText (Text.stripEnd k) : xs, 0) (TagText lst)
+
+             | otherwise     -> (TagText t : xs, col + len)
+           where
+             len  = Text.length t
+             diff = n - col
+
+         x                   -> (x : xs, col)
+
+    line = TagOpen "br" []

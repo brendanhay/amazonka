@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Configures the access rules that control access to the domain's document
--- and search endpoints. For more information, see Configuring Access for an
--- Amazon CloudSearch Domain.
+-- | Configures the access rules that control access to the domain's document and
+-- search endpoints. For more information, see  Configuring Access for an Amazon
+-- CloudSearch Domain.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateServiceAccessPolicies.html>
 module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
@@ -71,6 +71,7 @@ updateServiceAccessPolicies p1 p2 = UpdateServiceAccessPolicies
 
 -- | The access rules you want to configure. These rules replace any existing
 -- rules.
+--
 usapAccessPolicies :: Lens' UpdateServiceAccessPolicies Text
 usapAccessPolicies =
     lens _usapAccessPolicies (\s a -> s { _usapAccessPolicies = a })
@@ -95,6 +96,7 @@ updateServiceAccessPoliciesResponse p1 = UpdateServiceAccessPoliciesResponse
     }
 
 -- | The access rules configured for the domain.
+--
 usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
 usaprAccessPolicies =
     lens _usaprAccessPolicies (\s a -> s { _usaprAccessPolicies = a })

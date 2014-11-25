@@ -20,9 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes the specified route table. You must disassociate the route table
--- from any subnets before you can delete it. You can't delete the main route
--- table.
+-- | Deletes the specified route table. You must disassociate the route table from
+-- any subnets before you can delete it. You can't delete the main route table.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRouteTable.html>
 module Network.AWS.EC2.DeleteRouteTable
@@ -70,6 +69,7 @@ drt1DryRun :: Lens' DeleteRouteTable (Maybe Bool)
 drt1DryRun = lens _drt1DryRun (\s a -> s { _drt1DryRun = a })
 
 -- | The ID of the route table.
+--
 drt1RouteTableId :: Lens' DeleteRouteTable Text
 drt1RouteTableId = lens _drt1RouteTableId (\s a -> s { _drt1RouteTableId = a })
 

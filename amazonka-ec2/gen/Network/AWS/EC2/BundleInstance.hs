@@ -20,11 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Bundles an Amazon instance store-backed Windows instance. During bundling,
--- only the root device volume (C:\) is bundled. Data on other instance store
--- volumes is not preserved. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html
--- Creating an Instance Store-Backed Windows AMI>.
+-- | Bundles an Amazon instance store-backed Windows instance.
+--
+-- During bundling, only the root device volume (C:\) is bundled. Data on other
+-- instance store volumes is not preserved.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI>.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-BundleInstance.html>
 module Network.AWS.EC2.BundleInstance
@@ -80,13 +81,14 @@ biDryRun :: Lens' BundleInstance (Maybe Bool)
 biDryRun = lens _biDryRun (\s a -> s { _biDryRun = a })
 
 -- | The ID of the instance to bundle.
+--
 biInstanceId :: Lens' BundleInstance Text
 biInstanceId = lens _biInstanceId (\s a -> s { _biInstanceId = a })
 
 -- | The bucket in which to store the AMI. You can specify a bucket that you
--- already own or a new bucket that Amazon EC2 creates on your behalf. If
--- you specify a bucket that belongs to someone else, Amazon EC2 returns an
--- error.
+-- already own or a new bucket that Amazon EC2 creates on your behalf. If you
+-- specify a bucket that belongs to someone else, Amazon EC2 returns an error.
+--
 biStorage :: Lens' BundleInstance Storage
 biStorage = lens _biStorage (\s a -> s { _biStorage = a })
 
@@ -106,6 +108,7 @@ bundleInstanceResponse = BundleInstanceResponse
     }
 
 -- | Information about the bundle task.
+--
 birBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
 birBundleTask = lens _birBundleTask (\s a -> s { _birBundleTask = a })
 

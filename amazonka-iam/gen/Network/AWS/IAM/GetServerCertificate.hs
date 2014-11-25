@@ -61,8 +61,8 @@ getServerCertificate p1 = GetServerCertificate
     { _gscServerCertificateName = p1
     }
 
--- | The name of the server certificate you want to retrieve information
--- about.
+-- | The name of the server certificate you want to retrieve information about.
+--
 gscServerCertificateName :: Lens' GetServerCertificate Text
 gscServerCertificateName =
     lens _gscServerCertificateName
@@ -85,6 +85,7 @@ getServerCertificateResponse p1 = GetServerCertificateResponse
     }
 
 -- | Information about the server certificate.
+--
 gscrServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
 gscrServerCertificate =
     lens _gscrServerCertificate (\s a -> s { _gscrServerCertificate = a })

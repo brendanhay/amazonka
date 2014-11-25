@@ -21,11 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This operation returns information about the working storage of a gateway.
--- This operation is supported only for the gateway-stored volume
--- architecture. This operation is deprecated in cached-volumes API version
--- (20120630). Use DescribeUploadBuffer instead. The response includes disk
--- IDs that are configured as working storage, and it includes the amount of
--- working storage allocated and used.
+-- This operation is supported only for the gateway-stored volume architecture.
+-- This operation is deprecated in cached-volumes API version (20120630). Use
+-- DescribeUploadBuffer instead.
+--
+-- The response includes disk IDs that are configured as working storage, and
+-- it includes the amount of working storage allocated and used.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeWorkingStorage.html>
 module Network.AWS.StorageGateway.DescribeWorkingStorage
@@ -100,17 +101,19 @@ describeWorkingStorageResponse = DescribeWorkingStorageResponse
     }
 
 -- | An array of the gateway's local disk IDs that are configured as working
--- storage. Each local disk ID is specified as a string (minimum length of 1
--- and maximum length of 300). If no local disks are configured as working
--- storage, then the DiskIds array is empty.
+-- storage. Each local disk ID is specified as a string (minimum length of 1 and
+-- maximum length of 300). If no local disks are configured as working storage,
+-- then the DiskIds array is empty.
+--
 dwsrDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
 dwsrDiskIds = lens _dwsrDiskIds (\s a -> s { _dwsrDiskIds = a }) . _List
 
 dwsrGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
 dwsrGatewayARN = lens _dwsrGatewayARN (\s a -> s { _dwsrGatewayARN = a })
 
--- | The total working storage in bytes allocated for the gateway. If no
--- working storage is configured for the gateway, this field returns 0.
+-- | The total working storage in bytes allocated for the gateway. If no working
+-- storage is configured for the gateway, this field returns 0.
+--
 dwsrWorkingStorageAllocatedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
 dwsrWorkingStorageAllocatedInBytes =
     lens _dwsrWorkingStorageAllocatedInBytes
@@ -118,6 +121,7 @@ dwsrWorkingStorageAllocatedInBytes =
 
 -- | The total working storage in bytes in use by the gateway. If no working
 -- storage is configured for the gateway, this field returns 0.
+--
 dwsrWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
 dwsrWorkingStorageUsedInBytes =
     lens _dwsrWorkingStorageUsedInBytes

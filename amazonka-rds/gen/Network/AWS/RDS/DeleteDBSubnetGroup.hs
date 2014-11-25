@@ -59,9 +59,12 @@ deleteDBSubnetGroup p1 = DeleteDBSubnetGroup
     { _ddbsg1DBSubnetGroupName = p1
     }
 
--- | The name of the database subnet group to delete. Constraints: Must be 1
--- to 255 alphanumeric characters First character must be a letter Cannot
--- end with a hyphen or contain two consecutive hyphens.
+-- | The name of the database subnet group to delete.
+--
+-- Constraints:
+--
+-- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
+--
 ddbsg1DBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text
 ddbsg1DBSubnetGroupName =
     lens _ddbsg1DBSubnetGroupName (\s a -> s { _ddbsg1DBSubnetGroupName = a })

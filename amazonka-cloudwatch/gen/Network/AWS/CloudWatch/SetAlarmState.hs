@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Temporarily sets the state of an alarm. When the updated 'StateValue'
--- differs from the previous value, the action configured for the appropriate
--- state is invoked. This is not a permanent change. The next periodic alarm
--- check (in about a minute) will set the alarm to its actual state.
+-- | Temporarily sets the state of an alarm. When the updated 'StateValue' differs
+-- from the previous value, the action configured for the appropriate state is
+-- invoked. This is not a permanent change. The next periodic alarm check (in
+-- about a minute) will set the alarm to its actual state.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_SetAlarmState.html>
 module Network.AWS.CloudWatch.SetAlarmState
@@ -81,21 +81,25 @@ setAlarmState p1 p2 p3 = SetAlarmState
 
 -- | The descriptive name for the alarm. This name must be unique within the
 -- user's AWS account. The maximum length is 255 characters.
+--
 sasAlarmName :: Lens' SetAlarmState Text
 sasAlarmName = lens _sasAlarmName (\s a -> s { _sasAlarmName = a })
 
--- | The reason that this alarm is set to this specific state (in
--- human-readable text format).
+-- | The reason that this alarm is set to this specific state (in human-readable
+-- text format)
+--
 sasStateReason :: Lens' SetAlarmState Text
 sasStateReason = lens _sasStateReason (\s a -> s { _sasStateReason = a })
 
 -- | The reason that this alarm is set to this specific state (in
--- machine-readable JSON format).
+-- machine-readable JSON format)
+--
 sasStateReasonData :: Lens' SetAlarmState (Maybe Text)
 sasStateReasonData =
     lens _sasStateReasonData (\s a -> s { _sasStateReasonData = a })
 
 -- | The value of the state.
+--
 sasStateValue :: Lens' SetAlarmState StateValue
 sasStateValue = lens _sasStateValue (\s a -> s { _sasStateValue = a })
 

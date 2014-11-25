@@ -20,9 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes the datafeed for Spot Instances. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
--- Spot Instances> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Describes the datafeed for Spot Instances. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html SpotInstances> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotDatafeedSubscription.html>
 module Network.AWS.EC2.DescribeSpotDatafeedSubscription
@@ -81,6 +79,7 @@ describeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionRespo
     }
 
 -- | The Spot Instance datafeed subscription.
+--
 dsdsrSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 dsdsrSpotDatafeedSubscription =
     lens _dsdsrSpotDatafeedSubscription

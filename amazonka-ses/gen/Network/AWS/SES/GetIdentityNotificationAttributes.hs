@@ -20,12 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Given a list of verified identities (email addresses and/or domains),
--- returns a structure describing identity notification attributes. This
--- action is throttled at one request per second. For more information about
--- using notifications with Amazon SES, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html
--- Amazon SES Developer Guide>.
+-- | Given a list of verified identities (email addresses and/or domains), returns
+-- a structure describing identity notification attributes.
+--
+-- This action is throttled at one request per second.
+--
+-- For more information about using notifications with Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityNotificationAttributes.html>
 module Network.AWS.SES.GetIdentityNotificationAttributes
@@ -72,6 +72,7 @@ getIdentityNotificationAttributes = GetIdentityNotificationAttributes
     }
 
 -- | A list of one or more identities.
+--
 ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
 ginaIdentities = lens _ginaIdentities (\s a -> s { _ginaIdentities = a }) . _List
 
@@ -91,6 +92,7 @@ getIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesRes
     }
 
 -- | A map of Identity to IdentityNotificationAttributes.
+--
 ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)
 ginarNotificationAttributes =
     lens _ginarNotificationAttributes

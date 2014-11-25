@@ -88,43 +88,51 @@ createDeployment p1 = CreateDeployment
 
 -- | The name of an existing AWS CodeDeploy application within the AWS user
 -- account.
+--
 cdApplicationName :: Lens' CreateDeployment Text
 cdApplicationName =
     lens _cdApplicationName (\s a -> s { _cdApplicationName = a })
 
--- | The name of an existing deployment configuration within the AWS user
--- account. If not specified, the value configured in the deployment group
--- will be used as the default. If the deployment group does not have a
--- deployment configuration associated with it, then
--- CodeDeployDefault.OneAtATime will be used by default.
+-- | The name of an existing deployment configuration within the AWS user account.
+--
+-- If not specified, the value configured in the deployment group will be used
+-- as the default. If the deployment group does not have a deployment
+-- configuration associated with it, then CodeDeployDefault.OneAtATime will be
+-- used by default.
+--
 cdDeploymentConfigName :: Lens' CreateDeployment (Maybe Text)
 cdDeploymentConfigName =
     lens _cdDeploymentConfigName (\s a -> s { _cdDeploymentConfigName = a })
 
 -- | The deployment group's name.
+--
 cdDeploymentGroupName :: Lens' CreateDeployment (Maybe Text)
 cdDeploymentGroupName =
     lens _cdDeploymentGroupName (\s a -> s { _cdDeploymentGroupName = a })
 
 -- | A comment about the deployment.
+--
 cdDescription :: Lens' CreateDeployment (Maybe Text)
 cdDescription = lens _cdDescription (\s a -> s { _cdDescription = a })
 
--- | If set to true, then if the deployment causes the ApplicationStop
--- deployment lifecycle event to fail to a specific instance, the deployment
--- will not be considered to have failed to that instance at that point and
--- will continue on to the BeforeInstall deployment lifecycle event. If set
--- to false or not specified, then if the deployment causes the
--- ApplicationStop deployment lifecycle event to fail to a specific
--- instance, the deployment will stop to that instance, and the deployment
--- to that instance will be considered to have failed.
+-- | If set to true, then if the deployment causes the ApplicationStop deployment
+-- lifecycle event to fail to a specific instance, the deployment will not be
+-- considered to have failed to that instance at that point and will continue on
+-- to the BeforeInstall deployment lifecycle event.
+--
+-- If set to false or not specified, then if the deployment causes the
+-- ApplicationStop deployment lifecycle event to fail to a specific instance,
+-- the deployment will stop to that instance, and the deployment to that
+-- instance will be considered to have failed.
+--
 cdIgnoreApplicationStopFailures :: Lens' CreateDeployment (Maybe Bool)
 cdIgnoreApplicationStopFailures =
     lens _cdIgnoreApplicationStopFailures
         (\s a -> s { _cdIgnoreApplicationStopFailures = a })
 
--- | The type of revision to deploy, along with information about the
--- revision's location.
+-- | The type of revision to deploy, along with information about the revision's
+-- location.
+--
 cdRevision :: Lens' CreateDeployment (Maybe RevisionLocation)
 cdRevision = lens _cdRevision (\s a -> s { _cdRevision = a })
 
@@ -144,6 +152,7 @@ createDeploymentResponse = CreateDeploymentResponse
     }
 
 -- | A unique deployment ID.
+--
 cdrDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrDeploymentId = lens _cdrDeploymentId (\s a -> s { _cdrDeploymentId = a })
 

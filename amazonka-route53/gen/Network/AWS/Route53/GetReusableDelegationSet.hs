@@ -20,8 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | To retrieve the reusable delegation set, send a 'GET' request to the
--- '2013-04-01/delegationset//delegation set ID/ resource.
+-- | To retrieve the reusable delegation set, send a 'GET' request to the '2013-04-01/delegationset//delegation set ID/ resource.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html>
 module Network.AWS.Route53.GetReusableDelegationSet
@@ -62,8 +61,9 @@ getReusableDelegationSet p1 = GetReusableDelegationSet
     { _grdsId = p1
     }
 
--- | The ID of the reusable delegation set for which you want to get a list of
--- the name server.
+-- | The ID of the reusable delegation set for which you want to get a list of the
+-- name server.
+--
 grdsId :: Lens' GetReusableDelegationSet Text
 grdsId = lens _grdsId (\s a -> s { _grdsId = a })
 
@@ -83,8 +83,9 @@ getReusableDelegationSetResponse p1 = GetReusableDelegationSetResponse
     { _grdsrDelegationSet = p1
     }
 
--- | A complex type that contains the information about the nameservers for
--- the specified delegation set ID.
+-- | A complex type that contains the information about the nameservers for the
+-- specified delegation set ID.
+--
 grdsrDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
 grdsrDelegationSet =
     lens _grdsrDelegationSet (\s a -> s { _grdsrDelegationSet = a })

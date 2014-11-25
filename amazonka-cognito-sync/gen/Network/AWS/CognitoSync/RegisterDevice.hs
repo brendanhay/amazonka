@@ -80,20 +80,24 @@ registerDevice p1 p2 p3 p4 = RegisterDevice
     }
 
 -- | The unique ID for this identity.
+--
 rdIdentityId :: Lens' RegisterDevice Text
 rdIdentityId = lens _rdIdentityId (\s a -> s { _rdIdentityId = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. Here, the ID of the pool that the identity belongs to.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- Here, the ID of the pool that the identity belongs to.
+--
 rdIdentityPoolId :: Lens' RegisterDevice Text
 rdIdentityPoolId = lens _rdIdentityPoolId (\s a -> s { _rdIdentityPoolId = a })
 
 -- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
+--
 rdPlatform :: Lens' RegisterDevice Platform
 rdPlatform = lens _rdPlatform (\s a -> s { _rdPlatform = a })
 
 -- | The push token.
+--
 rdToken :: Lens' RegisterDevice Text
 rdToken = lens _rdToken (\s a -> s { _rdToken = a })
 
@@ -113,6 +117,7 @@ registerDeviceResponse = RegisterDeviceResponse
     }
 
 -- | The unique ID generated for this device by Cognito.
+--
 rdrDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
 rdrDeviceId = lens _rdrDeviceId (\s a -> s { _rdrDeviceId = a })
 

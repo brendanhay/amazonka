@@ -21,11 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets the expressions configured for the search domain. Can be limited to
--- specific expressions by name. By default, shows all expressions and
--- includes any pending changes to the configuration. Set the 'Deployed'
--- option to 'true' to show the active configuration and exclude pending
--- changes. For more information, see Configuring Expressions in the /Amazon
--- CloudSearch Developer Guide/.
+-- specific expressions by name. By default, shows all expressions and includes
+-- any pending changes to the configuration. Set the 'Deployed' option to 'true' to
+-- show the active configuration and exclude pending changes. For more
+-- information, see Configuring Expressions in the /Amazon CloudSearch DeveloperGuide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeExpressions.html>
 module Network.AWS.CloudSearch.DescribeExpressions
@@ -76,17 +75,20 @@ describeExpressions p1 = DescribeExpressions
     , _deDeployed        = Nothing
     }
 
--- | Whether to display the deployed configuration ('true') or include any
--- pending changes ('false'). Defaults to 'false'.
+-- | Whether to display the deployed configuration ('true') or include any pending
+-- changes ('false'). Defaults to 'false'.
+--
 deDeployed :: Lens' DescribeExpressions (Maybe Bool)
 deDeployed = lens _deDeployed (\s a -> s { _deDeployed = a })
 
 -- | The name of the domain you want to describe.
+--
 deDomainName :: Lens' DescribeExpressions Text
 deDomainName = lens _deDomainName (\s a -> s { _deDomainName = a })
 
--- | Limits the ''DescribeExpressions' response to the specified expressions.
--- If not specified, all expressions are shown.
+-- | Limits the ''DescribeExpressions' response to the specified expressions. If not
+-- specified, all expressions are shown.
+--
 deExpressionNames :: Lens' DescribeExpressions [Text]
 deExpressionNames =
     lens _deExpressionNames (\s a -> s { _deExpressionNames = a })
@@ -114,6 +116,7 @@ describeExpressionsResponse = DescribeExpressionsResponse
     }
 
 -- | The expressions configured for the domain.
+--
 derExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
 derExpressions = lens _derExpressions (\s a -> s { _derExpressions = a }) . _List
 

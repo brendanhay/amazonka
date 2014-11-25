@@ -22,10 +22,9 @@
 
 -- | Posts updates to records and add and delete records for a dataset and user.
 -- The credentials used to make this API call need to have access to the
--- identity data. With Amazon Cognito Sync, each identity has access only to
--- its own data. You should use Amazon Cognito Identity service to retrieve
--- the credentials necessary to make this API call.
---
+-- identity data. With Amazon Cognito Sync, each identity has access only to its
+-- own data. You should use Amazon Cognito Identity service to retrieve the
+-- credentials necessary to make this API call.
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UpdateRecords.html>
 module Network.AWS.CognitoSync.UpdateRecords
     (
@@ -98,30 +97,30 @@ updateRecords p1 p2 p3 p4 = UpdateRecords
     , _urClientContext    = Nothing
     }
 
--- | Intended to supply a device ID that will populate the 'lastModifiedBy'
--- field referenced in other methods. The 'ClientContext' field is not yet
--- implemented.
+-- | Intended to supply a device ID that will populate the 'lastModifiedBy' field
+-- referenced in other methods. The 'ClientContext' field is not yet implemented.
 urClientContext :: Lens' UpdateRecords (Maybe Text)
 urClientContext = lens _urClientContext (\s a -> s { _urClientContext = a })
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
--- '_' (underscore), '-' (dash), and '.' (dot).
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'
+-- (underscore), '-' (dash), and '.' (dot).
 urDatasetName :: Lens' UpdateRecords Text
 urDatasetName = lens _urDatasetName (\s a -> s { _urDatasetName = a })
 
 -- | The unique ID generated for this device by Cognito.
+--
 urDeviceId :: Lens' UpdateRecords (Maybe Text)
 urDeviceId = lens _urDeviceId (\s a -> s { _urDeviceId = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 urIdentityId :: Lens' UpdateRecords Text
 urIdentityId = lens _urIdentityId (\s a -> s { _urIdentityId = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 urIdentityPoolId :: Lens' UpdateRecords Text
 urIdentityPoolId = lens _urIdentityPoolId (\s a -> s { _urIdentityPoolId = a })
 

@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the region the bucket resides in.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLocation.html>
 module Network.AWS.S3.GetBucketLocation
     (

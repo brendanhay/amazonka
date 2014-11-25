@@ -21,17 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Removes the specified EC2 Availability Zones from the set of configured
--- Availability Zones for the load balancer. There must be at least one
--- Availability Zone registered with a load balancer at all times. Once an
--- Availability Zone is removed, all the instances registered with the load
--- balancer that are in the removed Availability Zone go into the
--- /OutOfService/ state. Upon Availability Zone removal, the load balancer
--- attempts to equally balance the traffic among its remaining usable
--- Availability Zones. Trying to remove an Availability Zone that was not
--- associated with the load balancer does nothing. For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_ShrinkLBApp04.html
--- Disable an Availability Zone from a Load-Balanced Application> in the
--- /Elastic Load Balancing Developer Guide/.
+-- Availability Zones for the load balancer.
+--
+-- There must be at least one Availability Zone registered with a load
+-- balancer at all times. Once an Availability Zone is removed, all the
+-- instances registered with the load balancer that are in the removed
+-- Availability Zone go into the /OutOfService/ state. Upon Availability Zone
+-- removal, the load balancer attempts to equally balance the traffic among its
+-- remaining usable Availability Zones. Trying to remove an Availability Zone
+-- that was not associated with the load balancer does nothing.
+--
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_ShrinkLBApp04.html Disable an Availability Zone from a Load-BalancedApplication> in the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DisableAvailabilityZonesForLoadBalancer.html>
 module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
@@ -77,15 +77,18 @@ disableAvailabilityZonesForLoadBalancer p1 = DisableAvailabilityZonesForLoadBala
     , _dazflbAvailabilityZones = mempty
     }
 
--- | A list of Availability Zones to be removed from the load balancer. There
--- must be at least one Availability Zone registered with a load balancer at
--- all times. Specified Availability Zones must be in the same region.
+-- | A list of Availability Zones to be removed from the load balancer.
+--
+-- There must be at least one Availability Zone registered with a load
+-- balancer at all times. Specified Availability Zones must be in the same
+-- region.
 dazflbAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer [Text]
 dazflbAvailabilityZones =
     lens _dazflbAvailabilityZones (\s a -> s { _dazflbAvailabilityZones = a })
         . _List
 
 -- | The name associated with the load balancer.
+--
 dazflbLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
 dazflbLoadBalancerName =
     lens _dazflbLoadBalancerName (\s a -> s { _dazflbLoadBalancerName = a })
@@ -112,6 +115,7 @@ disableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoa
     }
 
 -- | A list of updated Availability Zones for the load balancer.
+--
 dazflbrAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]
 dazflbrAvailabilityZones =
     lens _dazflbrAvailabilityZones

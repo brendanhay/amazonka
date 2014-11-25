@@ -20,13 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Resumes the specified suspended Auto Scaling processes for the specified
--- Auto Scaling group. To resume specific processes, use the
--- 'ScalingProcesses' parameter. To resume all processes, omit the
--- 'ScalingProcesses' parameter. For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html
--- Suspend and Resume Auto Scaling Processes> in the /Auto Scaling Developer
--- Guide/.
+-- | Resumes the specified suspended Auto Scaling processes for the specified Auto
+-- Scaling group. To resume specific processes, use the 'ScalingProcesses'
+-- parameter. To resume all processes, omit the 'ScalingProcesses' parameter. For
+-- more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspend and Resume Auto Scaling Processes> in the /AutoScaling Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ResumeProcesses.html>
 module Network.AWS.AutoScaling.ResumeProcesses
@@ -71,13 +68,15 @@ resumeProcesses p1 = ResumeProcesses
     }
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+--
 rpAutoScalingGroupName :: Lens' ResumeProcesses Text
 rpAutoScalingGroupName =
     lens _rpAutoScalingGroupName (\s a -> s { _rpAutoScalingGroupName = a })
 
--- | One or more of the following processes: Launch Terminate HealthCheck
--- ReplaceUnhealthy AZRebalance AlarmNotification ScheduledActions
--- AddToLoadBalancer.
+-- | One or more of the following processes:
+--
+-- Launch Terminate HealthCheck ReplaceUnhealthy AZRebalance AlarmNotification
+-- ScheduledActions AddToLoadBalancer
 rpScalingProcesses :: Lens' ResumeProcesses [Text]
 rpScalingProcesses =
     lens _rpScalingProcesses (\s a -> s { _rpScalingProcesses = a })

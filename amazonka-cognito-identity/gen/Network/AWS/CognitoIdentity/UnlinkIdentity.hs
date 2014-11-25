@@ -75,8 +75,7 @@ unlinkIdentity p1 = UnlinkIdentity
 uiIdentityId :: Lens' UnlinkIdentity Text
 uiIdentityId = lens _uiIdentityId (\s a -> s { _uiIdentityId = a })
 
--- | A set of optional name-value pairs that map provider names to provider
--- tokens.
+-- | A set of optional name-value pairs that map provider names to provider tokens.
 uiLogins :: Lens' UnlinkIdentity (HashMap Text Text)
 uiLogins = lens _uiLogins (\s a -> s { _uiLogins = a }) . _Map
 

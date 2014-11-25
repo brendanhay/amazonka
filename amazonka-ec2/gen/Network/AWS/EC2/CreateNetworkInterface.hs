@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates a network interface in the specified subnet. For more information
--- about network interfaces, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html Elastic
--- Network Interfaces> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Creates a network interface in the specified subnet.
+--
+-- For more information about network interfaces, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html Elastic Network Interfaces>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkInterface.html>
 module Network.AWS.EC2.CreateNetworkInterface
@@ -95,6 +95,7 @@ createNetworkInterface p1 = CreateNetworkInterface
     }
 
 -- | A description for the network interface.
+--
 cniDescription :: Lens' CreateNetworkInterface (Maybe Text)
 cniDescription = lens _cniDescription (\s a -> s { _cniDescription = a })
 
@@ -102,39 +103,40 @@ cniDryRun :: Lens' CreateNetworkInterface (Maybe Bool)
 cniDryRun = lens _cniDryRun (\s a -> s { _cniDryRun = a })
 
 -- | The IDs of one or more security groups.
+--
 cniGroups :: Lens' CreateNetworkInterface [Text]
 cniGroups = lens _cniGroups (\s a -> s { _cniGroups = a }) . _List
 
--- | The primary private IP address of the network interface. If you don't
--- specify an IP address, Amazon EC2 selects one for you from the subnet
--- range. If you specify an IP address, you cannot indicate any IP addresses
--- specified in 'privateIpAddresses' as primary (only one IP address can be
--- designated as primary).
+-- | The primary private IP address of the network interface. If you don't specify
+-- an IP address, Amazon EC2 selects one for you from the subnet range. If you
+-- specify an IP address, you cannot indicate any IP addresses specified in 'privateIpAddresses' as primary (only one IP address can be designated as primary).
+--
 cniPrivateIpAddress :: Lens' CreateNetworkInterface (Maybe Text)
 cniPrivateIpAddress =
     lens _cniPrivateIpAddress (\s a -> s { _cniPrivateIpAddress = a })
 
 -- | One or more private IP addresses.
+--
 cniPrivateIpAddresses :: Lens' CreateNetworkInterface [PrivateIpAddressSpecification]
 cniPrivateIpAddresses =
     lens _cniPrivateIpAddresses (\s a -> s { _cniPrivateIpAddresses = a })
         . _List
 
 -- | The number of secondary private IP addresses to assign to a network
--- interface. When you specify a number of secondary IP addresses, Amazon
--- EC2 selects these IP addresses within the subnet range. You can't specify
--- this option and specify more than one private IP address using
--- 'privateIpAddresses'. The number of IP addresses you can assign to a
--- network interface varies by instance type. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI
--- Private IP Addresses Per ENI Per Instance Type> in the /Amazon Elastic
--- Compute Cloud User Guide/.
+-- interface. When you specify a number of secondary IP addresses, Amazon EC2
+-- selects these IP addresses within the subnet range. You can't specify this
+-- option and specify more than one private IP address using 'privateIpAddresses'.
+--
+-- The number of IP addresses you can assign to a network interface varies by
+-- instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI Private IP Addresses Per ENI PerInstance Type> in the /Amazon Elastic Compute Cloud User Guide/.
+--
 cniSecondaryPrivateIpAddressCount :: Lens' CreateNetworkInterface (Maybe Int)
 cniSecondaryPrivateIpAddressCount =
     lens _cniSecondaryPrivateIpAddressCount
         (\s a -> s { _cniSecondaryPrivateIpAddressCount = a })
 
 -- | The ID of the subnet to associate with the network interface.
+--
 cniSubnetId :: Lens' CreateNetworkInterface Text
 cniSubnetId = lens _cniSubnetId (\s a -> s { _cniSubnetId = a })
 
@@ -154,6 +156,7 @@ createNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     }
 
 -- | Information about the network interface.
+--
 cnirNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
 cnirNetworkInterface =
     lens _cnirNetworkInterface (\s a -> s { _cnirNetworkInterface = a })

@@ -64,6 +64,7 @@ describeTable p1 = DescribeTable
     }
 
 -- | The name of the table to describe.
+--
 dt1TableName :: Lens' DescribeTable Text
 dt1TableName = lens _dt1TableName (\s a -> s { _dt1TableName = a })
 

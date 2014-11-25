@@ -68,18 +68,34 @@ listDomains = ListDomains
     }
 
 -- | For an initial request for a list of domains, omit this element. If the
--- number of domains that are associated with the current AWS account is
--- greater than the value that you specified for 'MaxItems', you can use
--- 'Marker' to return additional domains. Get the value of 'NextPageMarker'
--- from the previous response, and submit another request that includes the
--- value of 'NextPageMarker' in the 'Marker' element. Type: String Default:
--- None Constraints: The marker must match the value specified in the
--- previous request. Required: No.
+-- number of domains that are associated with the current AWS account is greater
+-- than the value that you specified for 'MaxItems', you can use 'Marker' to return
+-- additional domains. Get the value of 'NextPageMarker' from the previous
+-- response, and submit another request that includes the value of 'NextPageMarker'
+-- in the 'Marker' element.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: The marker must match the value specified in the previous
+-- request.
+--
+-- Required: No
+--
 ldMarker :: Lens' ListDomains (Maybe Text)
 ldMarker = lens _ldMarker (\s a -> s { _ldMarker = a })
 
--- | Number of domains to be returned. Type: Integer Default: 20 Constraints:
--- A numeral between 1 and 100. Required: No.
+-- | Number of domains to be returned.
+--
+-- Type: Integer
+--
+-- Default: 20
+--
+-- Constraints: A numeral between 1 and 100.
+--
+-- Required: No
+--
 ldMaxItems :: Lens' ListDomains (Maybe Int)
 ldMaxItems = lens _ldMaxItems (\s a -> s { _ldMaxItems = a })
 
@@ -102,14 +118,23 @@ listDomainsResponse = ListDomainsResponse
     , _ldrNextPageMarker = Nothing
     }
 
--- | A summary of domains. Type: Complex type containing a list of domain
--- summaries. Children: 'AutoRenew', 'DomainName', 'Expiry', 'TransferLock'.
+-- | A summary of domains.
+--
+-- Type: Complex type containing a list of domain summaries.
+--
+-- Children: 'AutoRenew', 'DomainName', 'Expiry', 'TransferLock'
+--
 ldrDomains :: Lens' ListDomainsResponse [DomainSummary]
 ldrDomains = lens _ldrDomains (\s a -> s { _ldrDomains = a }) . _List
 
--- | If there are more domains than you specified for 'MaxItems' in the
--- request, submit another request and include the value of 'NextPageMarker'
--- in the value of 'Marker'. Type: String Parent: 'Operations'.
+-- | If there are more domains than you specified for 'MaxItems' in the request,
+-- submit another request and include the value of 'NextPageMarker' in the value
+-- of 'Marker'.
+--
+-- Type: String
+--
+-- Parent: 'Operations'
+--
 ldrNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextPageMarker =
     lens _ldrNextPageMarker (\s a -> s { _ldrNextPageMarker = a })

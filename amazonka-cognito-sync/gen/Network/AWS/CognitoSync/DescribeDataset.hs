@@ -25,7 +25,6 @@
 -- Amazon Cognito Sync, each identity has access only to its own data. You
 -- should use Amazon Cognito Identity service to retrieve the credentials
 -- necessary to make this API call.
---
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeDataset.html>
 module Network.AWS.CognitoSync.DescribeDataset
     (
@@ -77,20 +76,20 @@ describeDataset p1 p2 p3 = DescribeDataset
     , _ddDatasetName    = p3
     }
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
--- '_' (underscore), '-' (dash), and '.' (dot).
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'
+-- (underscore), '-' (dash), and '.' (dot).
 ddDatasetName :: Lens' DescribeDataset Text
 ddDatasetName = lens _ddDatasetName (\s a -> s { _ddDatasetName = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 ddIdentityId :: Lens' DescribeDataset Text
 ddIdentityId = lens _ddIdentityId (\s a -> s { _ddIdentityId = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 ddIdentityPoolId :: Lens' DescribeDataset Text
 ddIdentityPoolId = lens _ddIdentityPoolId (\s a -> s { _ddIdentityPoolId = a })
 
@@ -110,10 +109,10 @@ describeDatasetResponse = DescribeDatasetResponse
     }
 
 -- | Metadata for a collection of data for an identity. An identity can have
--- multiple datasets. A dataset can be general or associated with a
--- particular entity in an application (like a saved game). Datasets are
--- automatically created if they don't exist. Data is synced by dataset, and
--- a dataset can hold up to 1MB of key-value pairs.
+-- multiple datasets. A dataset can be general or associated with a particular
+-- entity in an application (like a saved game). Datasets are automatically
+-- created if they don't exist. Data is synced by dataset, and a dataset can
+-- hold up to 1MB of key-value pairs.
 ddrDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
 ddrDataset = lens _ddrDataset (\s a -> s { _ddrDataset = a })
 

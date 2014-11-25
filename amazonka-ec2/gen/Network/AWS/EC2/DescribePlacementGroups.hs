@@ -21,9 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more of your placement groups. For more information about
--- placement groups and cluster instances, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html
--- Cluster Instances> in the /Amazon Elastic Compute Cloud User Guide/.
+-- placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePlacementGroups.html>
 module Network.AWS.EC2.DescribePlacementGroups
@@ -76,15 +74,23 @@ describePlacementGroups = DescribePlacementGroups
 dpg1DryRun :: Lens' DescribePlacementGroups (Maybe Bool)
 dpg1DryRun = lens _dpg1DryRun (\s a -> s { _dpg1DryRun = a })
 
--- | One or more filters. 'group-name' - The name of the placement group.
--- 'state' - The state of the placement group ('pending' | 'available' |
--- 'deleting' | 'deleted'). 'strategy' - The strategy of the placement group
--- ('cluster').
+-- | One or more filters.
+--
+-- 'group-name' - The name of the placement group.
+--
+-- 'state' - The state of the placement group ('pending' | 'available' | 'deleting' | 'deleted').
+--
+-- 'strategy' - The strategy of the placement group ('cluster').
+--
+--
 dpg1Filters :: Lens' DescribePlacementGroups [Filter]
 dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a }) . _List
 
--- | One or more placement group names. Default: Describes all your placement
--- groups, or only those otherwise specified.
+-- | One or more placement group names.
+--
+-- Default: Describes all your placement groups, or only those otherwise
+-- specified.
+--
 dpg1GroupNames :: Lens' DescribePlacementGroups [Text]
 dpg1GroupNames = lens _dpg1GroupNames (\s a -> s { _dpg1GroupNames = a }) . _List
 
@@ -110,6 +116,7 @@ describePlacementGroupsResponse = DescribePlacementGroupsResponse
     }
 
 -- | One or more placement groups.
+--
 dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrPlacementGroups =
     lens _dpgrPlacementGroups (\s a -> s { _dpgrPlacementGroups = a })

@@ -64,11 +64,13 @@ updateApplication = UpdateApplication
     }
 
 -- | The current name of the application that you want to change.
+--
 uaApplicationName :: Lens' UpdateApplication (Maybe Text)
 uaApplicationName =
     lens _uaApplicationName (\s a -> s { _uaApplicationName = a })
 
 -- | The new name that you want to change the application to.
+--
 uaNewApplicationName :: Lens' UpdateApplication (Maybe Text)
 uaNewApplicationName =
     lens _uaNewApplicationName (\s a -> s { _uaNewApplicationName = a })

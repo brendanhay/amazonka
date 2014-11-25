@@ -65,14 +65,16 @@ describeApplicationVersions = DescribeApplicationVersions
     , _dav1VersionLabels   = mempty
     }
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to only include ones that are associated with the specified application.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- only include ones that are associated with the specified application.
+--
 dav1ApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
 dav1ApplicationName =
     lens _dav1ApplicationName (\s a -> s { _dav1ApplicationName = a })
 
--- | If specified, restricts the returned descriptions to only include ones
--- that have the specified version labels.
+-- | If specified, restricts the returned descriptions to only include ones that
+-- have the specified version labels.
+--
 dav1VersionLabels :: Lens' DescribeApplicationVersions [Text]
 dav1VersionLabels =
     lens _dav1VersionLabels (\s a -> s { _dav1VersionLabels = a })
@@ -100,6 +102,7 @@ describeApplicationVersionsResponse = DescribeApplicationVersionsResponse
     }
 
 -- | A list of 'ApplicationVersionDescription' .
+--
 davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrApplicationVersions =
     lens _davrApplicationVersions (\s a -> s { _davrApplicationVersions = a })

@@ -66,10 +66,12 @@ deleteRolePolicy p1 p2 = DeleteRolePolicy
     }
 
 -- | The name of the policy document to delete.
+--
 drpPolicyName :: Lens' DeleteRolePolicy Text
 drpPolicyName = lens _drpPolicyName (\s a -> s { _drpPolicyName = a })
 
 -- | The name of the role the associated with the policy.
+--
 drpRoleName :: Lens' DeleteRolePolicy Text
 drpRoleName = lens _drpRoleName (\s a -> s { _drpRoleName = a })
 

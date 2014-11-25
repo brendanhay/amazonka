@@ -94,47 +94,58 @@ listApplicationRevisions p1 = ListApplicationRevisions
 
 -- | The name of an existing AWS CodeDeploy application within the AWS user
 -- account.
+--
 larApplicationName :: Lens' ListApplicationRevisions Text
 larApplicationName =
     lens _larApplicationName (\s a -> s { _larApplicationName = a })
 
 -- | Whether to list revisions based on whether the revision is the target
--- revision of an deployment group: include: List revisions that are target
--- revisions of a deployment group. exclude: Do not list revisions that are
--- target revisions of a deployment group. ignore: List all revisions,
--- regardless of whether they are target revisions of a deployment group.
+-- revision of an deployment group:
+--
+-- include: List revisions that are target revisions of a deployment group. exclude: Do not list revisions that are target revisions of a deployment group.
+-- ignore: List all revisions, regardless of whether they are target revisions
+-- of a deployment group.
 larDeployed :: Lens' ListApplicationRevisions (Maybe ListStateFilterAction)
 larDeployed = lens _larDeployed (\s a -> s { _larDeployed = a })
 
--- | An identifier that was returned from the previous list application
--- revisions call, which can be used to return the next set of applications
--- in the list.
+-- | An identifier that was returned from the previous list application revisions
+-- call, which can be used to return the next set of applications in the list.
+--
 larNextToken :: Lens' ListApplicationRevisions (Maybe Text)
 larNextToken = lens _larNextToken (\s a -> s { _larNextToken = a })
 
--- | A specific Amazon S3 bucket name to limit the search for revisions. If
--- set to null, then all of the user's buckets will be searched.
+-- | A specific Amazon S3 bucket name to limit the search for revisions.
+--
+-- If set to null, then all of the user's buckets will be searched.
+--
 larS3Bucket :: Lens' ListApplicationRevisions (Maybe Text)
 larS3Bucket = lens _larS3Bucket (\s a -> s { _larS3Bucket = a })
 
--- | A specific key prefix for the set of Amazon S3 objects to limit the
--- search for revisions.
+-- | A specific key prefix for the set of Amazon S3 objects to limit the search
+-- for revisions.
+--
 larS3KeyPrefix :: Lens' ListApplicationRevisions (Maybe Text)
 larS3KeyPrefix = lens _larS3KeyPrefix (\s a -> s { _larS3KeyPrefix = a })
 
--- | The column name to sort the list results by: registerTime: Sort the list
--- results by when the revisions were registered with AWS CodeDeploy.
--- firstUsedTime: Sort the list results by when the revisions were first
--- used by in a deployment. lastUsedTime: Sort the list results by when the
--- revisions were last used in a deployment. If not specified or set to
--- null, the results will be returned in an arbitrary order.
+-- | The column name to sort the list results by:
+--
+-- registerTime: Sort the list results by when the revisions were registered
+-- with AWS CodeDeploy. firstUsedTime: Sort the list results by when the
+-- revisions were first used by in a deployment. lastUsedTime: Sort the list
+-- results by when the revisions were last used in a deployment.  If not
+-- specified or set to null, the results will be returned in an arbitrary order.
+--
 larSortBy :: Lens' ListApplicationRevisions (Maybe ApplicationRevisionSortBy)
 larSortBy = lens _larSortBy (\s a -> s { _larSortBy = a })
 
--- | The order to sort the list results by: ascending: Sort the list results
--- in ascending order. descending: Sort the list results in descending
--- order. If not specified, the results will be sorted in ascending order.
+-- | The order to sort the list results by:
+--
+-- ascending: Sort the list results in ascending order. descending: Sort the
+-- list results in descending order.  If not specified, the results will be
+-- sorted in ascending order.
+--
 -- If set to null, the results will be sorted in an arbitrary order.
+--
 larSortOrder :: Lens' ListApplicationRevisions (Maybe SortOrder)
 larSortOrder = lens _larSortOrder (\s a -> s { _larSortOrder = a })
 
@@ -159,12 +170,14 @@ listApplicationRevisionsResponse = ListApplicationRevisionsResponse
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
--- application revisions call to return the next set of application
--- revisions in the list.
+-- application revisions call to return the next set of application revisions in
+-- the list.
+--
 larrNextToken :: Lens' ListApplicationRevisionsResponse (Maybe Text)
 larrNextToken = lens _larrNextToken (\s a -> s { _larrNextToken = a })
 
 -- | A list of revision locations that contain the matching revisions.
+--
 larrRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
 larrRevisions = lens _larrRevisions (\s a -> s { _larrRevisions = a }) . _List
 

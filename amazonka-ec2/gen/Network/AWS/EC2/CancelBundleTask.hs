@@ -67,6 +67,7 @@ cancelBundleTask p1 = CancelBundleTask
     }
 
 -- | The ID of the bundle task.
+--
 cbtBundleId :: Lens' CancelBundleTask Text
 cbtBundleId = lens _cbtBundleId (\s a -> s { _cbtBundleId = a })
 
@@ -89,6 +90,7 @@ cancelBundleTaskResponse = CancelBundleTaskResponse
     }
 
 -- | The bundle task.
+--
 cbtrBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
 cbtrBundleTask = lens _cbtrBundleTask (\s a -> s { _cbtrBundleTask = a })
 

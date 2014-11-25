@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The /DeleteCacheParameterGroup/ operation deletes the specified cache
--- parameter group. You cannot delete a cache parameter group if it is
--- associated with any cache clusters.
+-- | The /DeleteCacheParameterGroup/ operation deletes the specified cache parameter
+-- group. You cannot delete a cache parameter group if it is associated with any
+-- cache clusters.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheParameterGroup.html>
 module Network.AWS.ElastiCache.DeleteCacheParameterGroup
@@ -62,6 +62,7 @@ deleteCacheParameterGroup p1 = DeleteCacheParameterGroup
     }
 
 -- | The name of the cache parameter group to delete.
+--
 dcpg1CacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
 dcpg1CacheParameterGroupName =
     lens _dcpg1CacheParameterGroupName

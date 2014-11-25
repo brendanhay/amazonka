@@ -20,11 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This operation returns information about the upload buffer of a gateway.
--- This operation is supported for both the gateway-stored and gateway-cached
--- volume architectures. The response includes disk IDs that are configured as
--- upload buffer space, and it includes the amount of upload buffer space
--- allocated and used.
+-- | This operation returns information about the upload buffer of a gateway. This
+-- operation is supported for both the gateway-stored and gateway-cached volume
+-- architectures.
+--
+-- The response includes disk IDs that are configured as upload buffer space,
+-- and it includes the amount of upload buffer space allocated and used.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeUploadBuffer.html>
 module Network.AWS.StorageGateway.DescribeUploadBuffer

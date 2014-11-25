@@ -20,13 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Adds one or more tags for the specified load balancer. Each load balancer
--- can have a maximum of 10 tags. Each tag consists of a key and an optional
--- value. Tag keys must be unique for each load balancer. If a tag with the
--- same key is already associated with the load balancer, this action will
--- update the value of the key. For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb
--- Tagging> in the /Elastic Load Balancing Developer Guide/.
+-- | Adds one or more tags for the specified load balancer. Each load balancer can
+-- have a maximum of 10 tags. Each tag consists of a key and an optional value.
+--
+-- Tag keys must be unique for each load balancer. If a tag with the same key
+-- is already associated with the load balancer, this action will update the
+-- value of the key.
+--
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging> in the /Elastic Load Balancing DeveloperGuide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AddTags.html>
 module Network.AWS.ELB.AddTags
@@ -70,14 +71,16 @@ addTags p1 = AddTags
     , _atLoadBalancerNames = mempty
     }
 
--- | The name of the load balancer to tag. You can specify a maximum of one
--- load balancer name.
+-- | The name of the load balancer to tag. You can specify a maximum of one load
+-- balancer name.
+--
 atLoadBalancerNames :: Lens' AddTags [Text]
 atLoadBalancerNames =
     lens _atLoadBalancerNames (\s a -> s { _atLoadBalancerNames = a })
         . _List
 
 -- | A list of tags for each load balancer.
+--
 atTags :: Lens' AddTags (NonEmpty Tag)
 atTags = lens _atTags (\s a -> s { _atTags = a }) . _List1
 

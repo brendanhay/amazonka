@@ -20,12 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Initiates a multipart upload and returns an upload ID. Note: After you
--- initiate multipart upload and upload one or more parts, you must either
--- complete or abort multipart upload in order to stop getting charged for
--- storage of the uploaded parts. Only after you either complete or abort
--- multipart upload, Amazon S3 frees up the parts storage and stops charging
--- you for the parts storage.
+-- | Initiates a multipart upload and returns an upload ID.
+--
+-- Note: After you initiate multipart upload and upload one or more parts, you
+-- must either complete or abort multipart upload in order to stop getting
+-- charged for storage of the uploaded parts. Only after you either complete or
+-- abort multipart upload, Amazon S3 frees up the parts storage and stops
+-- charging you for the parts storage.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/CreateMultipartUpload.html>
 module Network.AWS.S3.CreateMultipartUpload
@@ -190,8 +191,8 @@ cmuContentDisposition =
     lens _cmuContentDisposition (\s a -> s { _cmuContentDisposition = a })
 
 -- | Specifies what content encodings have been applied to the object and thus
--- what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
+-- what decoding mechanisms must be applied to obtain the media-type referenced
+-- by the Content-Type header field.
 cmuContentEncoding :: Lens' CreateMultipartUpload (Maybe Text)
 cmuContentEncoding =
     lens _cmuContentEncoding (\s a -> s { _cmuContentEncoding = a })
@@ -209,8 +210,7 @@ cmuContentType = lens _cmuContentType (\s a -> s { _cmuContentType = a })
 cmuExpires :: Lens' CreateMultipartUpload (Maybe UTCTime)
 cmuExpires = lens _cmuExpires (\s a -> s { _cmuExpires = a }) . mapping _Time
 
--- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
--- object.
+-- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 cmuGrantFullControl :: Lens' CreateMultipartUpload (Maybe Text)
 cmuGrantFullControl =
     lens _cmuGrantFullControl (\s a -> s { _cmuGrantFullControl = a })
@@ -234,8 +234,8 @@ cmuKey = lens _cmuKey (\s a -> s { _cmuKey = a })
 cmuMetadata :: Lens' CreateMultipartUpload (HashMap (CI Text) Text)
 cmuMetadata = lens _cmuMetadata (\s a -> s { _cmuMetadata = a }) . _Map
 
--- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256, aws:kms).
+-- | Specifies the algorithm to use to when encrypting the object (e.g., AES256,
+-- aws:kms).
 cmuSSECustomerAlgorithm :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSECustomerAlgorithm =
     lens _cmuSSECustomerAlgorithm (\s a -> s { _cmuSSECustomerAlgorithm = a })
@@ -250,9 +250,9 @@ cmuSSECustomerKey =
     lens _cmuSSECustomerKey (\s a -> s { _cmuSSECustomerKey = a })
         . mapping _Sensitive
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
+-- Amazon S3 uses this header for a message integrity check to ensure the
+-- encryption key was transmitted without error.
 cmuSSECustomerKeyMD5 :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSECustomerKeyMD5 =
     lens _cmuSSECustomerKeyMD5 (\s a -> s { _cmuSSECustomerKeyMD5 = a })
@@ -271,9 +271,9 @@ cmuServerSideEncryption =
 cmuStorageClass :: Lens' CreateMultipartUpload (Maybe StorageClass)
 cmuStorageClass = lens _cmuStorageClass (\s a -> s { _cmuStorageClass = a })
 
--- | If the bucket is configured as a website, redirects requests for this
--- object to another object in the same bucket or to an external URL. Amazon
--- S3 stores the value of this header in the object metadata.
+-- | If the bucket is configured as a website, redirects requests for this object
+-- to another object in the same bucket or to an external URL. Amazon S3 stores
+-- the value of this header in the object metadata.
 cmuWebsiteRedirectLocation :: Lens' CreateMultipartUpload (Maybe Text)
 cmuWebsiteRedirectLocation =
     lens _cmuWebsiteRedirectLocation
@@ -327,8 +327,8 @@ cmurKey :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmurKey = lens _cmurKey (\s a -> s { _cmurKey = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
+-- requested, the response will include this header confirming the encryption
+-- algorithm used.
 cmurSSECustomerAlgorithm :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmurSSECustomerAlgorithm =
     lens _cmurSSECustomerAlgorithm

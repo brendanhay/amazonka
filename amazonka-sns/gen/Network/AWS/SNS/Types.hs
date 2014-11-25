@@ -105,6 +105,7 @@ topic = Topic
     }
 
 -- | The topic's ARN.
+--
 tTopicArn :: Lens' Topic (Maybe Text)
 tTopicArn = lens _tTopicArn (\s a -> s { _tTopicArn = a })
 
@@ -143,19 +144,18 @@ messageAttributeValue p1 = MessageAttributeValue
 
 -- | Binary type attributes can store any binary data, for example, compressed
 -- data, encrypted data, or images.
+--
 mavBinaryValue :: Lens' MessageAttributeValue (Maybe Base64)
 mavBinaryValue = lens _mavBinaryValue (\s a -> s { _mavBinaryValue = a })
 
 -- | Amazon SNS supports the following logical data types: String, Number, and
--- Binary. For more information, see
--- <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes
--- Message Attribute Data Types>.
+-- Binary. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types>.
+--
 mavDataType :: Lens' MessageAttributeValue Text
 mavDataType = lens _mavDataType (\s a -> s { _mavDataType = a })
 
--- | Strings are Unicode with UTF8 binary encoding. For a list of code values,
--- see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters
--- http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
+-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
+--
 mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 
@@ -192,10 +192,12 @@ platformApplication = PlatformApplication
     }
 
 -- | Attributes for platform application object.
+--
 paAttributes :: Lens' PlatformApplication (HashMap Text Text)
 paAttributes = lens _paAttributes (\s a -> s { _paAttributes = a }) . _EMap
 
 -- | PlatformApplicationArn for platform application object.
+--
 paPlatformApplicationArn :: Lens' PlatformApplication (Maybe Text)
 paPlatformApplicationArn =
     lens _paPlatformApplicationArn
@@ -244,23 +246,28 @@ subscription = Subscription
     }
 
 -- | The subscription's endpoint (format depends on the protocol).
+--
 s1Endpoint :: Lens' Subscription (Maybe Text)
 s1Endpoint = lens _s1Endpoint (\s a -> s { _s1Endpoint = a })
 
 -- | The subscription's owner.
+--
 s1Owner :: Lens' Subscription (Maybe Text)
 s1Owner = lens _s1Owner (\s a -> s { _s1Owner = a })
 
 -- | The subscription's protocol.
+--
 s1Protocol :: Lens' Subscription (Maybe Text)
 s1Protocol = lens _s1Protocol (\s a -> s { _s1Protocol = a })
 
 -- | The subscription's ARN.
+--
 s1SubscriptionArn :: Lens' Subscription (Maybe Text)
 s1SubscriptionArn =
     lens _s1SubscriptionArn (\s a -> s { _s1SubscriptionArn = a })
 
 -- | The ARN of the subscription's topic.
+--
 s1TopicArn :: Lens' Subscription (Maybe Text)
 s1TopicArn = lens _s1TopicArn (\s a -> s { _s1TopicArn = a })
 
@@ -301,10 +308,12 @@ endpoint = Endpoint
     }
 
 -- | Attributes for endpoint.
+--
 eAttributes :: Lens' Endpoint (HashMap Text Text)
 eAttributes = lens _eAttributes (\s a -> s { _eAttributes = a }) . _EMap
 
 -- | EndpointArn for mobile app and device.
+--
 eEndpointArn :: Lens' Endpoint (Maybe Text)
 eEndpointArn = lens _eEndpointArn (\s a -> s { _eEndpointArn = a })
 

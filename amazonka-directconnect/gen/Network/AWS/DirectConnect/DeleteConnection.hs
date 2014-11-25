@@ -20,10 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes the connection. Deleting a connection only stops the AWS Direct
--- Connect port hour and data transfer charges. You need to cancel separately
--- with the providers any services or charges for cross-connects or network
--- circuits that connect you to the AWS Direct Connect location.
+-- | Deletes the connection.
+--
+-- Deleting a connection only stops the AWS Direct Connect port hour and data
+-- transfer charges. You need to cancel separately with the providers any
+-- services or charges for cross-connects or network circuits that connect you
+-- to the AWS Direct Connect location.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteConnection.html>
 module Network.AWS.DirectConnect.DeleteConnection
@@ -122,8 +124,12 @@ deleteConnectionResponse = DeleteConnectionResponse
     , _dcrPartnerName     = Nothing
     }
 
--- | Bandwidth of the connection. Example: 1Gbps (for regular connections), or
--- 500Mbps (for hosted connections) Default: None.
+-- | Bandwidth of the connection.
+--
+-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
+--
+-- Default: None
+--
 dcrBandwidth :: Lens' DeleteConnectionResponse (Maybe Text)
 dcrBandwidth = lens _dcrBandwidth (\s a -> s { _dcrBandwidth = a })
 

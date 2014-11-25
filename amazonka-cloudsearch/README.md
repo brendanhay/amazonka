@@ -8,7 +8,11 @@
 
 ## Description
 
-Amazon CloudSearch is a fully-managed service in the AWS Cloud that makes it simple and cost-effective to set up, manage, and scale a search solution for your website or application. Amazon CloudSearch supports 34 languages and popular search features such as highlighting, autocomplete, and geospatial search.
+    Amazon CloudSearch is a fully-managed service in the AWS Cloud that makes it
+    simple and cost-effective to set up, manage, and scale a search solution for
+    your website or application. Amazon CloudSearch supports 34 languages and
+    popular search features such as highlighting, autocomplete, and geospatial
+    search.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudsearch)
 and [AWS API Reference](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html).

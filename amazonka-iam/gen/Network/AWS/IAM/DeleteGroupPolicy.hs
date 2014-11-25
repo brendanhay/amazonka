@@ -66,10 +66,12 @@ deleteGroupPolicy p1 p2 = DeleteGroupPolicy
     }
 
 -- | The name of the group the policy is associated with.
+--
 dgpGroupName :: Lens' DeleteGroupPolicy Text
 dgpGroupName = lens _dgpGroupName (\s a -> s { _dgpGroupName = a })
 
 -- | The name of the policy document to delete.
+--
 dgpPolicyName :: Lens' DeleteGroupPolicy Text
 dgpPolicyName = lens _dgpPolicyName (\s a -> s { _dgpPolicyName = a })
 

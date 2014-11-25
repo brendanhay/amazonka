@@ -67,10 +67,12 @@ disableVgwRoutePropagation p1 p2 = DisableVgwRoutePropagation
     }
 
 -- | The ID of the virtual private gateway.
+--
 dvrpGatewayId :: Lens' DisableVgwRoutePropagation Text
 dvrpGatewayId = lens _dvrpGatewayId (\s a -> s { _dvrpGatewayId = a })
 
 -- | The ID of the route table.
+--
 dvrpRouteTableId :: Lens' DisableVgwRoutePropagation Text
 dvrpRouteTableId = lens _dvrpRouteTableId (\s a -> s { _dvrpRouteTableId = a })
 

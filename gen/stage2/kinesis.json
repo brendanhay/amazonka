@@ -24,7 +24,7 @@
         ],
         "name": "Amazon Kinesis",
         "version": "2013-12-02",
-        "documentation": "Amazon Kinesis is a managed service that scales elastically for real-time processing of streaming big data. The service takes in large streams of data records that can then be consumed in real time by multiple data-processing applications that can be run on Amazon EC2 instances.",
+        "documentation": "-- | Amazon Kinesis is a managed service that scales elastically for real-time\n-- processing of streaming big data. The service takes in large streams of data\n-- records that can then be consumed in real time by multiple data-processing\n-- applications that can be run on Amazon EC2 instances.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
         "endpoint": "Regional",
@@ -54,7 +54,7 @@
         "protocol": "json",
         "name": "Amazon Kinesis",
         "version": "0.0.2",
-        "description": "Amazon Kinesis is a managed service that scales elastically for real-time processing of streaming big data. The service takes in large streams of data records that can then be consumed in real time by multiple data-processing applications that can be run on Amazon EC2 instances."
+        "description": "    Amazon Kinesis is a managed service that scales elastically for real-time\n    processing of streaming big data. The service takes in large streams of data\n    records that can then be consumed in real time by multiple data-processing\n    applications that can be run on Amazon EC2 instances."
     },
     "types": {
         "namespace": "Network.AWS.Kinesis.Types",
@@ -78,7 +78,7 @@
                         "name": "_sShardId",
                         "shape": "ShardId",
                         "locationName": "ShardId",
-                        "documentation": "\u003cp\u003eThe unique identifier of the shard within the Amazon Kinesis stream.\u003c/p\u003e",
+                        "documentation": "-- | The unique identifier of the shard within the Amazon Kinesis stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -93,7 +93,7 @@
                         "name": "_sParentShardId",
                         "shape": "ShardId",
                         "locationName": "ParentShardId",
-                        "documentation": "\u003cp\u003eThe shard Id of the shard's parent.\u003c/p\u003e",
+                        "documentation": "-- | The shard Id of the shard's parent.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -108,7 +108,7 @@
                         "name": "_sAdjacentParentShardId",
                         "shape": "ShardId",
                         "locationName": "AdjacentParentShardId",
-                        "documentation": "\u003cp\u003eThe shard Id of the shard adjacent to the shard's parent.\u003c/p\u003e",
+                        "documentation": "-- | The shard Id of the shard adjacent to the shard's parent.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -123,7 +123,7 @@
                         "name": "_sHashKeyRange",
                         "shape": "HashKeyRange",
                         "locationName": "HashKeyRange",
-                        "documentation": "\u003cp\u003eThe range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.\u003c/p\u003e",
+                        "documentation": "-- | The range of possible hash key values for the shard, which is a set of\n-- ordered contiguous positive integers.\n--",
                         "typeExposed": "HashKeyRange",
                         "type": "HashKeyRange"
                     },
@@ -138,7 +138,7 @@
                         "name": "_sSequenceNumberRange",
                         "shape": "SequenceNumberRange",
                         "locationName": "SequenceNumberRange",
-                        "documentation": "\u003cp\u003eThe range of possible sequence numbers for the shard.\u003c/p\u003e",
+                        "documentation": "-- | The range of possible sequence numbers for the shard.\n--",
                         "typeExposed": "SequenceNumberRange",
                         "type": "SequenceNumberRange"
                     }
@@ -156,7 +156,7 @@
                         "name": "_sShardId",
                         "shape": "ShardId",
                         "locationName": "ShardId",
-                        "documentation": "\u003cp\u003eThe unique identifier of the shard within the Amazon Kinesis stream.\u003c/p\u003e",
+                        "documentation": "-- | The unique identifier of the shard within the Amazon Kinesis stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -171,7 +171,7 @@
                         "name": "_sHashKeyRange",
                         "shape": "HashKeyRange",
                         "locationName": "HashKeyRange",
-                        "documentation": "\u003cp\u003eThe range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.\u003c/p\u003e",
+                        "documentation": "-- | The range of possible hash key values for the shard, which is a set of\n-- ordered contiguous positive integers.\n--",
                         "typeExposed": "HashKeyRange",
                         "type": "HashKeyRange"
                     },
@@ -186,7 +186,7 @@
                         "name": "_sSequenceNumberRange",
                         "shape": "SequenceNumberRange",
                         "locationName": "SequenceNumberRange",
-                        "documentation": "\u003cp\u003eThe range of possible sequence numbers for the shard.\u003c/p\u003e",
+                        "documentation": "-- | The range of possible sequence numbers for the shard.\n--",
                         "typeExposed": "SequenceNumberRange",
                         "type": "SequenceNumberRange"
                     }
@@ -207,7 +207,7 @@
                         "name": "_sParentShardId",
                         "shape": "ShardId",
                         "locationName": "ParentShardId",
-                        "documentation": "\u003cp\u003eThe shard Id of the shard's parent.\u003c/p\u003e",
+                        "documentation": "-- | The shard Id of the shard's parent.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -222,7 +222,7 @@
                         "name": "_sAdjacentParentShardId",
                         "shape": "ShardId",
                         "locationName": "AdjacentParentShardId",
-                        "documentation": "\u003cp\u003eThe shard Id of the shard adjacent to the shard's parent.\u003c/p\u003e",
+                        "documentation": "-- | The shard Id of the shard adjacent to the shard's parent.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -239,7 +239,7 @@
                         "name": "_sAdjacentParentShardId",
                         "shape": "ShardId",
                         "locationName": "AdjacentParentShardId",
-                        "documentation": "\u003cp\u003eThe shard Id of the shard adjacent to the shard's parent.\u003c/p\u003e",
+                        "documentation": "-- | The shard Id of the shard adjacent to the shard's parent.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -254,7 +254,7 @@
                         "name": "_sHashKeyRange",
                         "shape": "HashKeyRange",
                         "locationName": "HashKeyRange",
-                        "documentation": "\u003cp\u003eThe range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.\u003c/p\u003e",
+                        "documentation": "-- | The range of possible hash key values for the shard, which is a set of\n-- ordered contiguous positive integers.\n--",
                         "typeExposed": "HashKeyRange",
                         "type": "HashKeyRange"
                     },
@@ -269,7 +269,7 @@
                         "name": "_sParentShardId",
                         "shape": "ShardId",
                         "locationName": "ParentShardId",
-                        "documentation": "\u003cp\u003eThe shard Id of the shard's parent.\u003c/p\u003e",
+                        "documentation": "-- | The shard Id of the shard's parent.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -284,7 +284,7 @@
                         "name": "_sSequenceNumberRange",
                         "shape": "SequenceNumberRange",
                         "locationName": "SequenceNumberRange",
-                        "documentation": "\u003cp\u003eThe range of possible sequence numbers for the shard.\u003c/p\u003e",
+                        "documentation": "-- | The range of possible sequence numbers for the shard.\n--",
                         "typeExposed": "SequenceNumberRange",
                         "type": "SequenceNumberRange"
                     },
@@ -299,7 +299,7 @@
                         "name": "_sShardId",
                         "shape": "ShardId",
                         "locationName": "ShardId",
-                        "documentation": "\u003cp\u003eThe unique identifier of the shard within the Amazon Kinesis stream.\u003c/p\u003e",
+                        "documentation": "-- | The unique identifier of the shard within the Amazon Kinesis stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -325,7 +325,7 @@
                         "name": "_tagKey",
                         "shape": "TagKey",
                         "locationName": "Key",
-                        "documentation": "\u003cp\u003eA unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier for the tag. Maximum length: 128 characters. Valid\n-- characters: Unicode letters, digits, white space, _ . / = + - % @\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -340,7 +340,7 @@
                         "name": "_tagValue",
                         "shape": "TagValue",
                         "locationName": "Value",
-                        "documentation": "\u003cp\u003eAn optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @\u003c/p\u003e",
+                        "documentation": "-- | An optional string, typically used to describe or define the tag. Maximum\n-- length: 256 characters. Valid characters: Unicode letters, digits, white\n-- space, _ . / = + - % @\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -358,7 +358,7 @@
                         "name": "_tagKey",
                         "shape": "TagKey",
                         "locationName": "Key",
-                        "documentation": "\u003cp\u003eA unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier for the tag. Maximum length: 128 characters. Valid\n-- characters: Unicode letters, digits, white space, _ . / = + - % @\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -379,7 +379,7 @@
                         "name": "_tagValue",
                         "shape": "TagValue",
                         "locationName": "Value",
-                        "documentation": "\u003cp\u003eAn optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @\u003c/p\u003e",
+                        "documentation": "-- | An optional string, typically used to describe or define the tag. Maximum\n-- length: 256 characters. Valid characters: Unicode letters, digits, white\n-- space, _ . / = + - % @\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -396,7 +396,7 @@
                         "name": "_tagKey",
                         "shape": "TagKey",
                         "locationName": "Key",
-                        "documentation": "\u003cp\u003eA unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier for the tag. Maximum length: 128 characters. Valid\n-- characters: Unicode letters, digits, white space, _ . / = + - % @\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -411,7 +411,7 @@
                         "name": "_tagValue",
                         "shape": "TagValue",
                         "locationName": "Value",
-                        "documentation": "\u003cp\u003eAn optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @\u003c/p\u003e",
+                        "documentation": "-- | An optional string, typically used to describe or define the tag. Maximum\n-- length: 256 characters. Valid characters: Unicode letters, digits, white\n-- space, _ . / = + - % @\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -436,7 +436,7 @@
                         "name": "_sdStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream being described.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream being described.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -451,7 +451,7 @@
                         "name": "_sdStreamARN",
                         "shape": "StreamARN",
                         "locationName": "StreamARN",
-                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) for the stream being described.\u003c/p\u003e",
+                        "documentation": "-- | The Amazon Resource Name (ARN) for the stream being described.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -466,7 +466,7 @@
                         "name": "_sdStreamStatus",
                         "shape": "StreamStatus",
                         "locationName": "StreamStatus",
-                        "documentation": "\u003cp\u003eThe current status of the stream being described.\u003c/p\u003e \u003cp\u003eThe stream status is one of the following states:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCREATING\u003c/code\u003e - The stream is being created. Amazon Kinesis immediately returns and sets \u003ccode\u003eStreamStatus\u003c/code\u003e to \u003ccode\u003eCREATING\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDELETING\u003c/code\u003e - The stream is being deleted. The specified stream is in the \u003ccode\u003eDELETING\u003c/code\u003e state until Amazon Kinesis completes the deletion.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eACTIVE\u003c/code\u003e - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an \u003ccode\u003eACTIVE\u003c/code\u003e stream.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUPDATING\u003c/code\u003e - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the \u003ccode\u003eUPDATING\u003c/code\u003e state.\u003c/li\u003e \u003c/ul\u003e",
+                        "documentation": "-- | The current status of the stream being described.\n--\n-- The stream status is one of the following states:\n--\n-- 'CREATING' - The stream is being created. Amazon Kinesis immediately returns\n-- and sets 'StreamStatus' to 'CREATING'.  'DELETING' - The stream is being deleted.\n-- The specified stream is in the 'DELETING' state until Amazon Kinesis completes\n-- the deletion.  'ACTIVE' - The stream exists and is ready for read and write\n-- operations or deletion. You should perform read and write operations only on\n-- an 'ACTIVE' stream.  'UPDATING' - Shards in the stream are being merged or split.\n-- Read and write operations continue to work while the stream is in the 'UPDATING'\n-- state.",
                         "typeExposed": "StreamStatus",
                         "type": "StreamStatus"
                     },
@@ -481,7 +481,7 @@
                         "name": "_sdShards",
                         "shape": "ShardList",
                         "locationName": "Shards",
-                        "documentation": "\u003cp\u003eThe shards that comprise the stream.\u003c/p\u003e",
+                        "documentation": "-- | The shards that comprise the stream.\n--",
                         "typeExposed": "[Shard]",
                         "type": "List \"Shards\" Shard"
                     },
@@ -496,7 +496,7 @@
                         "name": "_sdHasMoreShards",
                         "shape": "BooleanObject",
                         "locationName": "HasMoreShards",
-                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, more shards in the stream are available to describe.\u003c/p\u003e",
+                        "documentation": "-- | If set to 'true', more shards in the stream are available to describe.\n--",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -514,7 +514,7 @@
                         "name": "_sdStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream being described.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream being described.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -529,7 +529,7 @@
                         "name": "_sdStreamARN",
                         "shape": "StreamARN",
                         "locationName": "StreamARN",
-                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) for the stream being described.\u003c/p\u003e",
+                        "documentation": "-- | The Amazon Resource Name (ARN) for the stream being described.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -544,7 +544,7 @@
                         "name": "_sdStreamStatus",
                         "shape": "StreamStatus",
                         "locationName": "StreamStatus",
-                        "documentation": "\u003cp\u003eThe current status of the stream being described.\u003c/p\u003e \u003cp\u003eThe stream status is one of the following states:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCREATING\u003c/code\u003e - The stream is being created. Amazon Kinesis immediately returns and sets \u003ccode\u003eStreamStatus\u003c/code\u003e to \u003ccode\u003eCREATING\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDELETING\u003c/code\u003e - The stream is being deleted. The specified stream is in the \u003ccode\u003eDELETING\u003c/code\u003e state until Amazon Kinesis completes the deletion.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eACTIVE\u003c/code\u003e - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an \u003ccode\u003eACTIVE\u003c/code\u003e stream.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUPDATING\u003c/code\u003e - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the \u003ccode\u003eUPDATING\u003c/code\u003e state.\u003c/li\u003e \u003c/ul\u003e",
+                        "documentation": "-- | The current status of the stream being described.\n--\n-- The stream status is one of the following states:\n--\n-- 'CREATING' - The stream is being created. Amazon Kinesis immediately returns\n-- and sets 'StreamStatus' to 'CREATING'.  'DELETING' - The stream is being deleted.\n-- The specified stream is in the 'DELETING' state until Amazon Kinesis completes\n-- the deletion.  'ACTIVE' - The stream exists and is ready for read and write\n-- operations or deletion. You should perform read and write operations only on\n-- an 'ACTIVE' stream.  'UPDATING' - Shards in the stream are being merged or split.\n-- Read and write operations continue to work while the stream is in the 'UPDATING'\n-- state.",
                         "typeExposed": "StreamStatus",
                         "type": "StreamStatus"
                     },
@@ -559,7 +559,7 @@
                         "name": "_sdHasMoreShards",
                         "shape": "BooleanObject",
                         "locationName": "HasMoreShards",
-                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, more shards in the stream are available to describe.\u003c/p\u003e",
+                        "documentation": "-- | If set to 'true', more shards in the stream are available to describe.\n--",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -580,7 +580,7 @@
                         "name": "_sdShards",
                         "shape": "ShardList",
                         "locationName": "Shards",
-                        "documentation": "\u003cp\u003eThe shards that comprise the stream.\u003c/p\u003e",
+                        "documentation": "-- | The shards that comprise the stream.\n--",
                         "typeExposed": "[Shard]",
                         "type": "List \"Shards\" Shard"
                     }
@@ -597,7 +597,7 @@
                         "name": "_sdHasMoreShards",
                         "shape": "BooleanObject",
                         "locationName": "HasMoreShards",
-                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, more shards in the stream are available to describe.\u003c/p\u003e",
+                        "documentation": "-- | If set to 'true', more shards in the stream are available to describe.\n--",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -612,7 +612,7 @@
                         "name": "_sdShards",
                         "shape": "ShardList",
                         "locationName": "Shards",
-                        "documentation": "\u003cp\u003eThe shards that comprise the stream.\u003c/p\u003e",
+                        "documentation": "-- | The shards that comprise the stream.\n--",
                         "typeExposed": "[Shard]",
                         "type": "List \"Shards\" Shard"
                     },
@@ -627,7 +627,7 @@
                         "name": "_sdStreamARN",
                         "shape": "StreamARN",
                         "locationName": "StreamARN",
-                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) for the stream being described.\u003c/p\u003e",
+                        "documentation": "-- | The Amazon Resource Name (ARN) for the stream being described.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -642,7 +642,7 @@
                         "name": "_sdStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream being described.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream being described.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -657,7 +657,7 @@
                         "name": "_sdStreamStatus",
                         "shape": "StreamStatus",
                         "locationName": "StreamStatus",
-                        "documentation": "\u003cp\u003eThe current status of the stream being described.\u003c/p\u003e \u003cp\u003eThe stream status is one of the following states:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ccode\u003eCREATING\u003c/code\u003e - The stream is being created. Amazon Kinesis immediately returns and sets \u003ccode\u003eStreamStatus\u003c/code\u003e to \u003ccode\u003eCREATING\u003c/code\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDELETING\u003c/code\u003e - The stream is being deleted. The specified stream is in the \u003ccode\u003eDELETING\u003c/code\u003e state until Amazon Kinesis completes the deletion.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eACTIVE\u003c/code\u003e - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an \u003ccode\u003eACTIVE\u003c/code\u003e stream.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eUPDATING\u003c/code\u003e - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the \u003ccode\u003eUPDATING\u003c/code\u003e state.\u003c/li\u003e \u003c/ul\u003e",
+                        "documentation": "-- | The current status of the stream being described.\n--\n-- The stream status is one of the following states:\n--\n-- 'CREATING' - The stream is being created. Amazon Kinesis immediately returns\n-- and sets 'StreamStatus' to 'CREATING'.  'DELETING' - The stream is being deleted.\n-- The specified stream is in the 'DELETING' state until Amazon Kinesis completes\n-- the deletion.  'ACTIVE' - The stream exists and is ready for read and write\n-- operations or deletion. You should perform read and write operations only on\n-- an 'ACTIVE' stream.  'UPDATING' - Shards in the stream are being merged or split.\n-- Read and write operations continue to work while the stream is in the 'UPDATING'\n-- state.",
                         "typeExposed": "StreamStatus",
                         "type": "StreamStatus"
                     }
@@ -702,7 +702,7 @@
                         "name": "_hkrStartingHashKey",
                         "shape": "HashKey",
                         "locationName": "StartingHashKey",
-                        "documentation": "\u003cp\u003eThe starting hash key of the hash key range.\u003c/p\u003e",
+                        "documentation": "-- | The starting hash key of the hash key range.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -717,7 +717,7 @@
                         "name": "_hkrEndingHashKey",
                         "shape": "HashKey",
                         "locationName": "EndingHashKey",
-                        "documentation": "\u003cp\u003eThe ending hash key of the hash key range.\u003c/p\u003e",
+                        "documentation": "-- | The ending hash key of the hash key range.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -735,7 +735,7 @@
                         "name": "_hkrStartingHashKey",
                         "shape": "HashKey",
                         "locationName": "StartingHashKey",
-                        "documentation": "\u003cp\u003eThe starting hash key of the hash key range.\u003c/p\u003e",
+                        "documentation": "-- | The starting hash key of the hash key range.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -750,7 +750,7 @@
                         "name": "_hkrEndingHashKey",
                         "shape": "HashKey",
                         "locationName": "EndingHashKey",
-                        "documentation": "\u003cp\u003eThe ending hash key of the hash key range.\u003c/p\u003e",
+                        "documentation": "-- | The ending hash key of the hash key range.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -772,7 +772,7 @@
                         "name": "_hkrEndingHashKey",
                         "shape": "HashKey",
                         "locationName": "EndingHashKey",
-                        "documentation": "\u003cp\u003eThe ending hash key of the hash key range.\u003c/p\u003e",
+                        "documentation": "-- | The ending hash key of the hash key range.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -787,7 +787,7 @@
                         "name": "_hkrStartingHashKey",
                         "shape": "HashKey",
                         "locationName": "StartingHashKey",
-                        "documentation": "\u003cp\u003eThe starting hash key of the hash key range.\u003c/p\u003e",
+                        "documentation": "-- | The starting hash key of the hash key range.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -812,7 +812,7 @@
                         "name": "_rSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "SequenceNumber",
-                        "documentation": "\u003cp\u003eThe unique identifier for the record in the Amazon Kinesis stream.\u003c/p\u003e",
+                        "documentation": "-- | The unique identifier for the record in the Amazon Kinesis stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -827,7 +827,7 @@
                         "name": "_rData",
                         "shape": "Data",
                         "locationName": "Data",
-                        "documentation": "\u003cp\u003eThe data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) \u003c/p\u003e",
+                        "documentation": "-- | The data blob. The data in the blob is both opaque and immutable to the\n-- Amazon Kinesis service, which does not inspect, interpret, or change the data\n-- in the blob in any way. The maximum size of the data blob (the payload before\n-- Base64-encoding) is 50 kilobytes (KB)\n--",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     },
@@ -842,7 +842,7 @@
                         "name": "_rPartitionKey",
                         "shape": "PartitionKey",
                         "locationName": "PartitionKey",
-                        "documentation": "\u003cp\u003eIdentifies which shard in the stream the data record is assigned to.\u003c/p\u003e",
+                        "documentation": "-- | Identifies which shard in the stream the data record is assigned to.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -860,7 +860,7 @@
                         "name": "_rSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "SequenceNumber",
-                        "documentation": "\u003cp\u003eThe unique identifier for the record in the Amazon Kinesis stream.\u003c/p\u003e",
+                        "documentation": "-- | The unique identifier for the record in the Amazon Kinesis stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -875,7 +875,7 @@
                         "name": "_rData",
                         "shape": "Data",
                         "locationName": "Data",
-                        "documentation": "\u003cp\u003eThe data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) \u003c/p\u003e",
+                        "documentation": "-- | The data blob. The data in the blob is both opaque and immutable to the\n-- Amazon Kinesis service, which does not inspect, interpret, or change the data\n-- in the blob in any way. The maximum size of the data blob (the payload before\n-- Base64-encoding) is 50 kilobytes (KB)\n--",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     },
@@ -890,7 +890,7 @@
                         "name": "_rPartitionKey",
                         "shape": "PartitionKey",
                         "locationName": "PartitionKey",
-                        "documentation": "\u003cp\u003eIdentifies which shard in the stream the data record is assigned to.\u003c/p\u003e",
+                        "documentation": "-- | Identifies which shard in the stream the data record is assigned to.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -912,7 +912,7 @@
                         "name": "_rData",
                         "shape": "Data",
                         "locationName": "Data",
-                        "documentation": "\u003cp\u003eThe data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) \u003c/p\u003e",
+                        "documentation": "-- | The data blob. The data in the blob is both opaque and immutable to the\n-- Amazon Kinesis service, which does not inspect, interpret, or change the data\n-- in the blob in any way. The maximum size of the data blob (the payload before\n-- Base64-encoding) is 50 kilobytes (KB)\n--",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     },
@@ -927,7 +927,7 @@
                         "name": "_rPartitionKey",
                         "shape": "PartitionKey",
                         "locationName": "PartitionKey",
-                        "documentation": "\u003cp\u003eIdentifies which shard in the stream the data record is assigned to.\u003c/p\u003e",
+                        "documentation": "-- | Identifies which shard in the stream the data record is assigned to.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -942,7 +942,7 @@
                         "name": "_rSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "SequenceNumber",
-                        "documentation": "\u003cp\u003eThe unique identifier for the record in the Amazon Kinesis stream.\u003c/p\u003e",
+                        "documentation": "-- | The unique identifier for the record in the Amazon Kinesis stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -968,7 +968,7 @@
                         "name": "_snrStartingSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "StartingSequenceNumber",
-                        "documentation": "\u003cp\u003eThe starting sequence number for the range.\u003c/p\u003e",
+                        "documentation": "-- | The starting sequence number for the range.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -983,7 +983,7 @@
                         "name": "_snrEndingSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "EndingSequenceNumber",
-                        "documentation": "\u003cp\u003eThe ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of \u003ccode\u003enull\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | The ending sequence number for the range. Shards that are in the OPEN state\n-- have an ending sequence number of 'null'.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1001,7 +1001,7 @@
                         "name": "_snrStartingSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "StartingSequenceNumber",
-                        "documentation": "\u003cp\u003eThe starting sequence number for the range.\u003c/p\u003e",
+                        "documentation": "-- | The starting sequence number for the range.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1022,7 +1022,7 @@
                         "name": "_snrEndingSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "EndingSequenceNumber",
-                        "documentation": "\u003cp\u003eThe ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of \u003ccode\u003enull\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | The ending sequence number for the range. Shards that are in the OPEN state\n-- have an ending sequence number of 'null'.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1039,7 +1039,7 @@
                         "name": "_snrEndingSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "EndingSequenceNumber",
-                        "documentation": "\u003cp\u003eThe ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of \u003ccode\u003enull\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | The ending sequence number for the range. Shards that are in the OPEN state\n-- have an ending sequence number of 'null'.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1054,7 +1054,7 @@
                         "name": "_snrStartingSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "StartingSequenceNumber",
-                        "documentation": "\u003cp\u003eThe starting sequence number for the range.\u003c/p\u003e",
+                        "documentation": "-- | The starting sequence number for the range.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1120,7 +1120,7 @@
             "pager": null,
             "name": "AddTagsToStream",
             "method": "post",
-            "documentation": "\u003cp\u003eAdds or updates tags for the specified Amazon Kinesis stream. Each stream can have up to 10 tags. \u003c/p\u003e \u003cp\u003eIf tags have already been assigned to the stream, \u003ccode\u003eAddTagsToStream\u003c/code\u003e overwrites any existing tags that correspond to the specified tag keys.\u003c/p\u003e",
+            "documentation": "-- | Adds or updates tags for the specified Amazon Kinesis stream. Each stream can\n-- have up to 10 tags.\n--\n-- If tags have already been assigned to the stream, 'AddTagsToStream' overwrites\n-- any existing tags that correspond to the specified tag keys.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1144,7 +1144,7 @@
                         "name": "_attsStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1159,7 +1159,7 @@
                         "name": "_attsTags",
                         "shape": "TagMap",
                         "locationName": "Tags",
-                        "documentation": "\u003cp\u003eThe set of key-value pairs to use to create the tags.\u003c/p\u003e",
+                        "documentation": "-- | The set of key-value pairs to use to create the tags.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -1184,7 +1184,7 @@
                         "name": "_attsStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1211,7 +1211,7 @@
                         "name": "_attsTags",
                         "shape": "TagMap",
                         "locationName": "Tags",
-                        "documentation": "\u003cp\u003eThe set of key-value pairs to use to create the tags.\u003c/p\u003e",
+                        "documentation": "-- | The set of key-value pairs to use to create the tags.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -1228,7 +1228,7 @@
                         "name": "_attsStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1243,7 +1243,7 @@
                         "name": "_attsTags",
                         "shape": "TagMap",
                         "locationName": "Tags",
-                        "documentation": "\u003cp\u003eThe set of key-value pairs to use to create the tags.\u003c/p\u003e",
+                        "documentation": "-- | The set of key-value pairs to use to create the tags.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -1286,7 +1286,7 @@
             "pager": null,
             "name": "CreateStream",
             "method": "post",
-            "documentation": "\u003cp\u003eCreates a Amazon Kinesis stream. A stream captures and transports data records that are continuously emitted from different data sources or \u003ci\u003eproducers\u003c/i\u003e. Scale-out within an Amazon Kinesis stream is explicitly supported by means of shards, which are uniquely identified groups of data records in an Amazon Kinesis stream.\u003c/p\u003e \u003cp\u003eYou specify and control the number of shards that a stream is composed of. Each open shard can support up to 5 read transactions per second, up to a maximum total of 2 MB of data read per second. Each shard can support up to 1000 write transactions per second, up to a maximum total of 1 MB data written per second. You can add shards to a stream if the amount of data input increases and you can remove shards if the amount of data input decreases.\u003c/p\u003e \u003cp\u003eThe stream name identifies the stream. The name is scoped to the AWS account used by the application. It is also scoped by region. That is, two streams in two different accounts can have the same name, and two streams in the same account, but in two different regions, can have the same name. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eCreateStream\u003c/code\u003e is an asynchronous operation. Upon receiving a \u003ccode\u003eCreateStream\u003c/code\u003e request, Amazon Kinesis immediately returns and sets the stream status to \u003ccode\u003eCREATING\u003c/code\u003e. After the stream is created, Amazon Kinesis sets the stream status to \u003ccode\u003eACTIVE\u003c/code\u003e. You should perform read and write operations only on an \u003ccode\u003eACTIVE\u003c/code\u003e stream. \u003c/p\u003e \u003cp\u003eYou receive a \u003ccode\u003eLimitExceededException\u003c/code\u003e when making a \u003ccode\u003eCreateStream\u003c/code\u003e request if you try to do one of the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003eHave more than five streams in the \u003ccode\u003eCREATING\u003c/code\u003e state at any point in time.\u003c/li\u003e \u003cli\u003eCreate more shards than are authorized for your account.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eThe default limit for an AWS account is 10 shards per stream. If you need to create a stream with more than 10 shards, \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\"\u003econtact AWS Support\u003c/a\u003e to increase the limit on your account.\u003c/p\u003e \u003cp\u003eYou can use \u003ccode\u003eDescribeStream\u003c/code\u003e to check the stream status, which is returned in \u003ccode\u003eStreamStatus\u003c/code\u003e.\u003c/p\u003e \u003cp\u003e\u003ccode\u003eCreateStream\u003c/code\u003e has a limit of 5 transactions per second per account.\u003c/p\u003e",
+            "documentation": "-- | Creates a Amazon Kinesis stream. A stream captures and transports data\n-- records that are continuously emitted from different data sources or /producers/\n-- . Scale-out within an Amazon Kinesis stream is explicitly supported by means\n-- of shards, which are uniquely identified groups of data records in an Amazon\n-- Kinesis stream.\n--\n-- You specify and control the number of shards that a stream is composed of.\n-- Each open shard can support up to 5 read transactions per second, up to a\n-- maximum total of 2 MB of data read per second. Each shard can support up to\n-- 1000 write transactions per second, up to a maximum total of 1 MB data\n-- written per second. You can add shards to a stream if the amount of data\n-- input increases and you can remove shards if the amount of data input\n-- decreases.\n--\n-- The stream name identifies the stream. The name is scoped to the AWS account\n-- used by the application. It is also scoped by region. That is, two streams in\n-- two different accounts can have the same name, and two streams in the same\n-- account, but in two different regions, can have the same name.\n--\n-- 'CreateStream' is an asynchronous operation. Upon receiving a 'CreateStream'\n-- request, Amazon Kinesis immediately returns and sets the stream status to 'CREATING'. After the stream is created, Amazon Kinesis sets the stream status to 'ACTIVE'\n-- . You should perform read and write operations only on an 'ACTIVE' stream.\n--\n-- You receive a 'LimitExceededException' when making a 'CreateStream' request if\n-- you try to do one of the following:\n--\n-- Have more than five streams in the 'CREATING' state at any point in time. Create more shards than are authorized for your account.\n-- The default limit for an AWS account is 10 shards per stream. If you need\n-- to create a stream with more than 10 shards, \u003chttp://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support\u003e to increase\n-- the limit on your account.\n--\n-- You can use 'DescribeStream' to check the stream status, which is returned in 'StreamStatus'.\n--\n-- 'CreateStream' has a limit of 5 transactions per second per account.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1311,7 +1311,7 @@
                         "name": "_csStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eA name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by region. That is, two streams in two different AWS accounts can have the same name, and two streams in the same AWS account, but in two different regions, can have the same name.\u003c/p\u003e",
+                        "documentation": "-- | A name to identify the stream. The stream name is scoped to the AWS account\n-- used by the application that creates the stream. It is also scoped by region.\n-- That is, two streams in two different AWS accounts can have the same name,\n-- and two streams in the same AWS account, but in two different regions, can\n-- have the same name.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1326,7 +1326,7 @@
                         "name": "_csShardCount",
                         "shape": "PositiveIntegerObject",
                         "locationName": "ShardCount",
-                        "documentation": "\u003cp\u003eThe number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.\u003c/p\u003e \u003cp\u003e\u003cb\u003eNote:\u003c/b\u003e The default limit for an AWS account is 10 shards per stream. If you need to create a stream with more than 10 shards, \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\"\u003econtact AWS Support\u003c/a\u003e to increase the limit on your account.\u003c/p\u003e",
+                        "documentation": "-- | The number of shards that the stream will use. The throughput of the stream\n-- is a function of the number of shards; more shards are required for greater\n-- provisioned throughput.\n--\n-- Note: The default limit for an AWS account is 10 shards per stream. If you\n-- need to create a stream with more than 10 shards, \u003chttp://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support\u003e to\n-- increase the limit on your account.\n--",
                         "typeExposed": "Natural",
                         "type": "Nat"
                     }
@@ -1351,7 +1351,7 @@
                         "name": "_csStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eA name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by region. That is, two streams in two different AWS accounts can have the same name, and two streams in the same AWS account, but in two different regions, can have the same name.\u003c/p\u003e",
+                        "documentation": "-- | A name to identify the stream. The stream name is scoped to the AWS account\n-- used by the application that creates the stream. It is also scoped by region.\n-- That is, two streams in two different AWS accounts can have the same name,\n-- and two streams in the same AWS account, but in two different regions, can\n-- have the same name.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1366,7 +1366,7 @@
                         "name": "_csShardCount",
                         "shape": "PositiveIntegerObject",
                         "locationName": "ShardCount",
-                        "documentation": "\u003cp\u003eThe number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.\u003c/p\u003e \u003cp\u003e\u003cb\u003eNote:\u003c/b\u003e The default limit for an AWS account is 10 shards per stream. If you need to create a stream with more than 10 shards, \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\"\u003econtact AWS Support\u003c/a\u003e to increase the limit on your account.\u003c/p\u003e",
+                        "documentation": "-- | The number of shards that the stream will use. The throughput of the stream\n-- is a function of the number of shards; more shards are required for greater\n-- provisioned throughput.\n--\n-- Note: The default limit for an AWS account is 10 shards per stream. If you\n-- need to create a stream with more than 10 shards, \u003chttp://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support\u003e to\n-- increase the limit on your account.\n--",
                         "typeExposed": "Natural",
                         "type": "Nat"
                     }
@@ -1394,7 +1394,7 @@
                         "name": "_csShardCount",
                         "shape": "PositiveIntegerObject",
                         "locationName": "ShardCount",
-                        "documentation": "\u003cp\u003eThe number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.\u003c/p\u003e \u003cp\u003e\u003cb\u003eNote:\u003c/b\u003e The default limit for an AWS account is 10 shards per stream. If you need to create a stream with more than 10 shards, \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\"\u003econtact AWS Support\u003c/a\u003e to increase the limit on your account.\u003c/p\u003e",
+                        "documentation": "-- | The number of shards that the stream will use. The throughput of the stream\n-- is a function of the number of shards; more shards are required for greater\n-- provisioned throughput.\n--\n-- Note: The default limit for an AWS account is 10 shards per stream. If you\n-- need to create a stream with more than 10 shards, \u003chttp://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support\u003e to\n-- increase the limit on your account.\n--",
                         "typeExposed": "Natural",
                         "type": "Nat"
                     },
@@ -1409,7 +1409,7 @@
                         "name": "_csStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eA name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by region. That is, two streams in two different AWS accounts can have the same name, and two streams in the same AWS account, but in two different regions, can have the same name.\u003c/p\u003e",
+                        "documentation": "-- | A name to identify the stream. The stream name is scoped to the AWS account\n-- used by the application that creates the stream. It is also scoped by region.\n-- That is, two streams in two different AWS accounts can have the same name,\n-- and two streams in the same AWS account, but in two different regions, can\n-- have the same name.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1452,7 +1452,7 @@
             "pager": null,
             "name": "DeleteStream",
             "method": "post",
-            "documentation": "\u003cp\u003eDeletes a stream and all its shards and data. You must shut down any applications that are operating on the stream before you delete the stream. If an application attempts to operate on a deleted stream, it will receive the exception \u003ccode\u003eResourceNotFoundException\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eIf the stream is in the \u003ccode\u003eACTIVE\u003c/code\u003e state, you can delete it. After a \u003ccode\u003eDeleteStream\u003c/code\u003e request, the specified stream is in the \u003ccode\u003eDELETING\u003c/code\u003e state until Amazon Kinesis completes the deletion.\u003c/p\u003e \u003cp\u003e\u003cb\u003eNote:\u003c/b\u003e Amazon Kinesis might continue to accept data read and write operations, such as \u003ca\u003ePutRecord\u003c/a\u003e and \u003ca\u003eGetRecords\u003c/a\u003e, on a stream in the \u003ccode\u003eDELETING\u003c/code\u003e state until the stream deletion is complete.\u003c/p\u003e \u003cp\u003eWhen you delete a stream, any shards in that stream are also deleted, and any tags are dissociated from the stream.\u003c/p\u003e \u003cp\u003eYou can use the \u003ca\u003eDescribeStream\u003c/a\u003e operation to check the state of the stream, which is returned in \u003ccode\u003eStreamStatus\u003c/code\u003e.\u003c/p\u003e \u003cp\u003e\u003ccode\u003eDeleteStream\u003c/code\u003e has a limit of 5 transactions per second per account.\u003c/p\u003e",
+            "documentation": "-- | Deletes a stream and all its shards and data. You must shut down any\n-- applications that are operating on the stream before you delete the stream.\n-- If an application attempts to operate on a deleted stream, it will receive\n-- the exception 'ResourceNotFoundException'.\n--\n-- If the stream is in the 'ACTIVE' state, you can delete it. After a 'DeleteStream'\n-- request, the specified stream is in the 'DELETING' state until Amazon Kinesis\n-- completes the deletion.\n--\n-- Note: Amazon Kinesis might continue to accept data read and write\n-- operations, such as 'PutRecord' and 'GetRecords', on a stream in the 'DELETING'\n-- state until the stream deletion is complete.\n--\n-- When you delete a stream, any shards in that stream are also deleted, and\n-- any tags are dissociated from the stream.\n--\n-- You can use the 'DescribeStream' operation to check the state of the stream,\n-- which is returned in 'StreamStatus'.\n--\n-- 'DeleteStream' has a limit of 5 transactions per second per account.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1479,7 +1479,7 @@
                     "name": "_dsStreamName",
                     "shape": "StreamName",
                     "locationName": "StreamName",
-                    "documentation": "\u003cp\u003eThe name of the stream to delete.\u003c/p\u003e",
+                    "documentation": "-- | The name of the stream to delete.\n--",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -1495,7 +1495,7 @@
                         "name": "_dsStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream to delete.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream to delete.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1520,7 +1520,7 @@
                         "name": "_dsStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream to delete.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream to delete.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1548,7 +1548,7 @@
                         "name": "_dsStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream to delete.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream to delete.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1579,7 +1579,7 @@
                     "name": "_dsrStreamDescription",
                     "shape": "StreamDescription",
                     "locationName": "StreamDescription",
-                    "documentation": "\u003cp\u003eThe current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.\u003c/p\u003e",
+                    "documentation": "-- | The current status of the stream, the stream ARN, an array of shard objects\n-- that comprise the stream, and states whether there are more shards available.\n--",
                     "typeExposed": "StreamDescription",
                     "type": "StreamDescription"
                 },
@@ -1595,7 +1595,7 @@
                         "name": "_dsrStreamDescription",
                         "shape": "StreamDescription",
                         "locationName": "StreamDescription",
-                        "documentation": "\u003cp\u003eThe current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.\u003c/p\u003e",
+                        "documentation": "-- | The current status of the stream, the stream ARN, an array of shard objects\n-- that comprise the stream, and states whether there are more shards available.\n--",
                         "typeExposed": "StreamDescription",
                         "type": "StreamDescription"
                     }
@@ -1615,7 +1615,7 @@
                         "name": "_dsrStreamDescription",
                         "shape": "StreamDescription",
                         "locationName": "StreamDescription",
-                        "documentation": "\u003cp\u003eThe current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.\u003c/p\u003e",
+                        "documentation": "-- | The current status of the stream, the stream ARN, an array of shard objects\n-- that comprise the stream, and states whether there are more shards available.\n--",
                         "typeExposed": "StreamDescription",
                         "type": "StreamDescription"
                     }
@@ -1641,7 +1641,7 @@
                         "name": "_dsrStreamDescription",
                         "shape": "StreamDescription",
                         "locationName": "StreamDescription",
-                        "documentation": "\u003cp\u003eThe current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.\u003c/p\u003e",
+                        "documentation": "-- | The current status of the stream, the stream ARN, an array of shard objects\n-- that comprise the stream, and states whether there are more shards available.\n--",
                         "typeExposed": "StreamDescription",
                         "type": "StreamDescription"
                     }
@@ -1666,7 +1666,7 @@
             },
             "name": "DescribeStream",
             "method": "post",
-            "documentation": "\u003cp\u003eDescribes the specified stream.\u003c/p\u003e \u003cp\u003eThe information about the stream includes its current status, its Amazon Resource Name (ARN), and an array of shard objects. For each shard object, there is information about the hash key and sequence number ranges that the shard spans, and the IDs of any earlier shards that played in a role in creating the shard. A sequence number is the identifier associated with every record ingested in the Amazon Kinesis stream. The sequence number is assigned when a record is put into the stream.\u003c/p\u003e \u003cp\u003eYou can limit the number of returned shards using the \u003ccode\u003eLimit\u003c/code\u003e parameter. The number of shards in a stream may be too large to return from a single call to \u003ccode\u003eDescribeStream\u003c/code\u003e. You can detect this by using the \u003ccode\u003eHasMoreShards\u003c/code\u003e flag in the returned output. \u003ccode\u003eHasMoreShards\u003c/code\u003e is set to \u003ccode\u003etrue\u003c/code\u003e when there is more data available. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eDescribeStream\u003c/code\u003e is a paginated operation. If there are more shards available, you can request them using the shard ID of the last shard returned. Specify this ID in the \u003ccode\u003eExclusiveStartShardId\u003c/code\u003e parameter in a subsequent request to \u003ccode\u003eDescribeStream\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eDescribeStream\u003c/code\u003e has a limit of 10 transactions per second per account.\u003c/p\u003e",
+            "documentation": "-- | Describes the specified stream.\n--\n-- The information about the stream includes its current status, its Amazon\n-- Resource Name (ARN), and an array of shard objects. For each shard object,\n-- there is information about the hash key and sequence number ranges that the\n-- shard spans, and the IDs of any earlier shards that played in a role in\n-- creating the shard. A sequence number is the identifier associated with every\n-- record ingested in the Amazon Kinesis stream. The sequence number is assigned\n-- when a record is put into the stream.\n--\n-- You can limit the number of returned shards using the 'Limit' parameter. The\n-- number of shards in a stream may be too large to return from a single call to 'DescribeStream'. You can detect this by using the 'HasMoreShards' flag in the\n-- returned output. 'HasMoreShards' is set to 'true' when there is more data\n-- available.\n--\n-- 'DescribeStream' is a paginated operation. If there are more shards available,\n-- you can request them using the shard ID of the last shard returned. Specify\n-- this ID in the 'ExclusiveStartShardId' parameter in a subsequent request to 'DescribeStream'.\n--\n-- 'DescribeStream' has a limit of 10 transactions per second per account.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1691,7 +1691,7 @@
                         "name": "_ds1StreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream to describe.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream to describe.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1706,7 +1706,7 @@
                         "name": "_ds1Limit",
                         "shape": "DescribeStreamInputLimit",
                         "locationName": "Limit",
-                        "documentation": "\u003cp\u003eThe maximum number of shards to return.\u003c/p\u003e",
+                        "documentation": "-- | The maximum number of shards to return.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -1721,7 +1721,7 @@
                         "name": "_ds1ExclusiveStartShardId",
                         "shape": "ShardId",
                         "locationName": "ExclusiveStartShardId",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard to start with.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard to start with.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1746,7 +1746,7 @@
                         "name": "_ds1StreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream to describe.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream to describe.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1773,7 +1773,7 @@
                         "name": "_ds1Limit",
                         "shape": "DescribeStreamInputLimit",
                         "locationName": "Limit",
-                        "documentation": "\u003cp\u003eThe maximum number of shards to return.\u003c/p\u003e",
+                        "documentation": "-- | The maximum number of shards to return.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -1788,7 +1788,7 @@
                         "name": "_ds1ExclusiveStartShardId",
                         "shape": "ShardId",
                         "locationName": "ExclusiveStartShardId",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard to start with.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard to start with.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1805,7 +1805,7 @@
                         "name": "_ds1ExclusiveStartShardId",
                         "shape": "ShardId",
                         "locationName": "ExclusiveStartShardId",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard to start with.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard to start with.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1820,7 +1820,7 @@
                         "name": "_ds1Limit",
                         "shape": "DescribeStreamInputLimit",
                         "locationName": "Limit",
-                        "documentation": "\u003cp\u003eThe maximum number of shards to return.\u003c/p\u003e",
+                        "documentation": "-- | The maximum number of shards to return.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -1835,7 +1835,7 @@
                         "name": "_ds1StreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream to describe.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream to describe.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1866,7 +1866,7 @@
                         "name": "_grrRecords",
                         "shape": "RecordList",
                         "locationName": "Records",
-                        "documentation": "\u003cP\u003eThe data records retrieved from the shard.\u003c/P\u003e",
+                        "documentation": "-- | The data records retrieved from the shard.",
                         "typeExposed": "[Record]",
                         "type": "List \"Records\" Record"
                     },
@@ -1881,7 +1881,7 @@
                         "name": "_grrNextShardIterator",
                         "shape": "ShardIterator",
                         "locationName": "NextShardIterator",
-                        "documentation": "\u003cp\u003eThe next position in the shard from which to start sequentially reading data records. If set to \u003ccode\u003enull\u003c/code\u003e, the shard has been closed and the requested iterator will not return any more data. \u003c/p\u003e",
+                        "documentation": "-- | The next position in the shard from which to start sequentially reading data\n-- records. If set to 'null', the shard has been closed and the requested iterator\n-- will not return any more data.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1910,7 +1910,7 @@
                         "name": "_grrRecords",
                         "shape": "RecordList",
                         "locationName": "Records",
-                        "documentation": "\u003cP\u003eThe data records retrieved from the shard.\u003c/P\u003e",
+                        "documentation": "-- | The data records retrieved from the shard.",
                         "typeExposed": "[Record]",
                         "type": "List \"Records\" Record"
                     },
@@ -1925,7 +1925,7 @@
                         "name": "_grrNextShardIterator",
                         "shape": "ShardIterator",
                         "locationName": "NextShardIterator",
-                        "documentation": "\u003cp\u003eThe next position in the shard from which to start sequentially reading data records. If set to \u003ccode\u003enull\u003c/code\u003e, the shard has been closed and the requested iterator will not return any more data. \u003c/p\u003e",
+                        "documentation": "-- | The next position in the shard from which to start sequentially reading data\n-- records. If set to 'null', the shard has been closed and the requested iterator\n-- will not return any more data.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1942,7 +1942,7 @@
                         "name": "_grrNextShardIterator",
                         "shape": "ShardIterator",
                         "locationName": "NextShardIterator",
-                        "documentation": "\u003cp\u003eThe next position in the shard from which to start sequentially reading data records. If set to \u003ccode\u003enull\u003c/code\u003e, the shard has been closed and the requested iterator will not return any more data. \u003c/p\u003e",
+                        "documentation": "-- | The next position in the shard from which to start sequentially reading data\n-- records. If set to 'null', the shard has been closed and the requested iterator\n-- will not return any more data.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1957,7 +1957,7 @@
                         "name": "_grrRecords",
                         "shape": "RecordList",
                         "locationName": "Records",
-                        "documentation": "\u003cP\u003eThe data records retrieved from the shard.\u003c/P\u003e",
+                        "documentation": "-- | The data records retrieved from the shard.",
                         "typeExposed": "[Record]",
                         "type": "List \"Records\" Record"
                     }
@@ -1973,7 +1973,7 @@
             "pager": null,
             "name": "GetRecords",
             "method": "post",
-            "documentation": "\u003cp\u003eGets data records from a shard.\u003c/p\u003e \u003cp\u003eSpecify a shard iterator using the \u003ccode\u003eShardIterator\u003c/code\u003e parameter. The shard iterator specifies the position in the shard from which you want to start reading data records sequentially. If there are no records available in the portion of the shard that the iterator points to, \u003ccode\u003eGetRecords\u003c/code\u003e returns an empty list. Note that it might take multiple calls to get to a portion of the shard that contains records.\u003c/p\u003e \u003cp\u003eYou can scale by provisioning multiple shards. Your application should have one thread per shard, each reading continuously from its stream. To read from a stream continually, call \u003ccode\u003eGetRecords\u003c/code\u003e in a loop. Use \u003ca\u003eGetShardIterator\u003c/a\u003e to get the shard iterator to specify in the first \u003ccode\u003eGetRecords\u003c/code\u003e call. \u003ccode\u003eGetRecords\u003c/code\u003e returns a new shard iterator in \u003ccode\u003eNextShardIterator\u003c/code\u003e. Specify the shard iterator returned in \u003ccode\u003eNextShardIterator\u003c/code\u003e in subsequent calls to \u003ccode\u003eGetRecords\u003c/code\u003e. Note that if the shard has been closed, the shard iterator can't return more data and \u003ccode\u003eGetRecords\u003c/code\u003e returns \u003ccode\u003enull\u003c/code\u003e in \u003ccode\u003eNextShardIterator\u003c/code\u003e. You can terminate the loop when the shard is closed, or when the shard iterator reaches the record with the sequence number or other attribute that marks it as the last record to process.\u003c/p\u003e \u003cp\u003eEach data record can be up to 50 KB in size, and each shard can read up to 2 MB per second. You can ensure that your calls don't exceed the maximum supported size or throughput by specifying the maximum number of records that \u003ccode\u003eGetRecords\u003c/code\u003e can return in the \u003ccode\u003eLimit\u003c/code\u003e parameter. Consider your average record size when determining this limit. For example, if your average record size is 40 KB, you can limit the data returned to about 1 MB per call by specifying 25 as the limit.\u003c/p\u003e \u003cp\u003eThe size of the data returned by \u003ccode\u003eGetRecords\u003c/code\u003e will vary depending on the utilization of the shard. The maximum size of data that \u003ccode\u003eGetRecords\u003c/code\u003e can return is 10 MB. If a call returns 10 MB of data, subsequent calls made within the next 5 seconds throw \u003ccode\u003eProvisionedThroughputExceededException\u003c/code\u003e. If there is insufficient provisioned throughput on the shard, subsequent calls made within the next 1 second throw \u003ccode\u003eProvisionedThroughputExceededException\u003c/code\u003e. Note that \u003ccode\u003eGetRecords\u003c/code\u003e won't return any data when it throws an exception. For this reason, we recommend that you wait one second between calls to \u003ccode\u003eGetRecords\u003c/code\u003e; however, it's possible that the application will get exceptions for longer than 1 second.\u003c/p\u003e \u003cp\u003eTo detect whether the application is falling behind in processing, add a timestamp to your records and note how long it takes to process them. You can also monitor how much data is in a stream using the CloudWatch metrics for \u003ccode\u003ePutRecord\u003c/code\u003e. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html\"\u003eMonitoring Amazon Kinesis with Amazon CloudWatch\u003c/a\u003e in the \u003ci\u003eAmazon Kinesis Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "documentation": "-- | Gets data records from a shard.\n--\n-- Specify a shard iterator using the 'ShardIterator' parameter. The shard\n-- iterator specifies the position in the shard from which you want to start\n-- reading data records sequentially. If there are no records available in the\n-- portion of the shard that the iterator points to, 'GetRecords' returns an empty\n-- list. Note that it might take multiple calls to get to a portion of the shard\n-- that contains records.\n--\n-- You can scale by provisioning multiple shards. Your application should have\n-- one thread per shard, each reading continuously from its stream. To read from\n-- a stream continually, call 'GetRecords' in a loop. Use 'GetShardIterator' to get\n-- the shard iterator to specify in the first 'GetRecords' call. 'GetRecords'\n-- returns a new shard iterator in 'NextShardIterator'. Specify the shard iterator\n-- returned in 'NextShardIterator' in subsequent calls to 'GetRecords'. Note that if\n-- the shard has been closed, the shard iterator can't return more data and 'GetRecords' returns 'null' in 'NextShardIterator'. You can terminate the loop when the shard\n-- is closed, or when the shard iterator reaches the record with the sequence\n-- number or other attribute that marks it as the last record to process.\n--\n-- Each data record can be up to 50 KB in size, and each shard can read up to 2\n-- MB per second. You can ensure that your calls don't exceed the maximum\n-- supported size or throughput by specifying the maximum number of records that 'GetRecords' can return in the 'Limit' parameter. Consider your average record\n-- size when determining this limit. For example, if your average record size is\n-- 40 KB, you can limit the data returned to about 1 MB per call by specifying\n-- 25 as the limit.\n--\n-- The size of the data returned by 'GetRecords' will vary depending on the\n-- utilization of the shard. The maximum size of data that 'GetRecords' can return\n-- is 10 MB. If a call returns 10 MB of data, subsequent calls made within the\n-- next 5 seconds throw 'ProvisionedThroughputExceededException'. If there is\n-- insufficient provisioned throughput on the shard, subsequent calls made\n-- within the next 1 second throw 'ProvisionedThroughputExceededException'. Note\n-- that 'GetRecords' won't return any data when it throws an exception. For this\n-- reason, we recommend that you wait one second between calls to 'GetRecords';\n-- however, it's possible that the application will get exceptions for longer\n-- than 1 second.\n--\n-- To detect whether the application is falling behind in processing, add a\n-- timestamp to your records and note how long it takes to process them. You can\n-- also monitor how much data is in a stream using the CloudWatch metrics for 'PutRecord'. For more information, see \u003chttp://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html Monitoring Amazon Kinesis with Amazon CloudWatch\u003e\n-- in the /Amazon Kinesis Developer Guide/.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1998,7 +1998,7 @@
                         "name": "_grShardIterator",
                         "shape": "ShardIterator",
                         "locationName": "ShardIterator",
-                        "documentation": "\u003cp\u003eThe position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.\u003c/p\u003e",
+                        "documentation": "-- | The position in the shard from which you want to start sequentially reading\n-- data records. A shard iterator specifies this position using the sequence\n-- number of a data record in the shard.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2013,7 +2013,7 @@
                         "name": "_grLimit",
                         "shape": "GetRecordsInputLimit",
                         "locationName": "Limit",
-                        "documentation": "\u003cp\u003eThe maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, \u003ccode\u003eGetRecords\u003c/code\u003e throws \u003ccode\u003eInvalidArgumentException\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | The maximum number of records to return. Specify a value of up to 10,000. If\n-- you specify a value that is greater than 10,000, 'GetRecords' throws 'InvalidArgumentException'.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -2038,7 +2038,7 @@
                         "name": "_grShardIterator",
                         "shape": "ShardIterator",
                         "locationName": "ShardIterator",
-                        "documentation": "\u003cp\u003eThe position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.\u003c/p\u003e",
+                        "documentation": "-- | The position in the shard from which you want to start sequentially reading\n-- data records. A shard iterator specifies this position using the sequence\n-- number of a data record in the shard.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2065,7 +2065,7 @@
                         "name": "_grLimit",
                         "shape": "GetRecordsInputLimit",
                         "locationName": "Limit",
-                        "documentation": "\u003cp\u003eThe maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, \u003ccode\u003eGetRecords\u003c/code\u003e throws \u003ccode\u003eInvalidArgumentException\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | The maximum number of records to return. Specify a value of up to 10,000. If\n-- you specify a value that is greater than 10,000, 'GetRecords' throws 'InvalidArgumentException'.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -2082,7 +2082,7 @@
                         "name": "_grLimit",
                         "shape": "GetRecordsInputLimit",
                         "locationName": "Limit",
-                        "documentation": "\u003cp\u003eThe maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, \u003ccode\u003eGetRecords\u003c/code\u003e throws \u003ccode\u003eInvalidArgumentException\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | The maximum number of records to return. Specify a value of up to 10,000. If\n-- you specify a value that is greater than 10,000, 'GetRecords' throws 'InvalidArgumentException'.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -2097,7 +2097,7 @@
                         "name": "_grShardIterator",
                         "shape": "ShardIterator",
                         "locationName": "ShardIterator",
-                        "documentation": "\u003cp\u003eThe position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.\u003c/p\u003e",
+                        "documentation": "-- | The position in the shard from which you want to start sequentially reading\n-- data records. A shard iterator specifies this position using the sequence\n-- number of a data record in the shard.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2130,7 +2130,7 @@
                     "name": "_gsirShardIterator",
                     "shape": "ShardIterator",
                     "locationName": "ShardIterator",
-                    "documentation": "\u003cp\u003eThe position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.\u003c/p\u003e",
+                    "documentation": "-- | The position in the shard from which to start reading data records\n-- sequentially. A shard iterator specifies this position using the sequence\n-- number of a data record in a shard.\n--",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -2146,7 +2146,7 @@
                         "name": "_gsirShardIterator",
                         "shape": "ShardIterator",
                         "locationName": "ShardIterator",
-                        "documentation": "\u003cp\u003eThe position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.\u003c/p\u003e",
+                        "documentation": "-- | The position in the shard from which to start reading data records\n-- sequentially. A shard iterator specifies this position using the sequence\n-- number of a data record in a shard.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2175,7 +2175,7 @@
                         "name": "_gsirShardIterator",
                         "shape": "ShardIterator",
                         "locationName": "ShardIterator",
-                        "documentation": "\u003cp\u003eThe position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.\u003c/p\u003e",
+                        "documentation": "-- | The position in the shard from which to start reading data records\n-- sequentially. A shard iterator specifies this position using the sequence\n-- number of a data record in a shard.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2192,7 +2192,7 @@
                         "name": "_gsirShardIterator",
                         "shape": "ShardIterator",
                         "locationName": "ShardIterator",
-                        "documentation": "\u003cp\u003eThe position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.\u003c/p\u003e",
+                        "documentation": "-- | The position in the shard from which to start reading data records\n-- sequentially. A shard iterator specifies this position using the sequence\n-- number of a data record in a shard.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2208,7 +2208,7 @@
             "pager": null,
             "name": "GetShardIterator",
             "method": "post",
-            "documentation": "\u003cp\u003eGets a shard iterator. A shard iterator expires five minutes after it is returned to the requester.\u003c/p\u003e \u003cp\u003eA shard iterator specifies the position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard. A sequence number is the identifier associated with every record ingested in the Amazon Kinesis stream. The sequence number is assigned when a record is put into the stream. \u003c/p\u003e \u003cp\u003eYou must specify the shard iterator type. For example, you can set the \u003ccode\u003eShardIteratorType\u003c/code\u003e parameter to read exactly from the position denoted by a specific sequence number by using the \u003ccode\u003eAT_SEQUENCE_NUMBER\u003c/code\u003e shard iterator type, or right after the sequence number by using the \u003ccode\u003eAFTER_SEQUENCE_NUMBER\u003c/code\u003e shard iterator type, using sequence numbers returned by earlier calls to \u003ca\u003ePutRecord\u003c/a\u003e, \u003ca\u003eGetRecords\u003c/a\u003e, or \u003ca\u003eDescribeStream\u003c/a\u003e. You can specify the shard iterator type \u003ccode\u003eTRIM_HORIZON\u003c/code\u003e in the request to cause \u003ccode\u003eShardIterator\u003c/code\u003e to point to the last untrimmed record in the shard in the system, which is the oldest data record in the shard. Or you can point to just after the most recent record in the shard, by using the shard iterator type \u003ccode\u003eLATEST\u003c/code\u003e, so that you always read the most recent data in the shard. \u003c/p\u003e \u003cp\u003eWhen you repeatedly read from an Amazon Kinesis stream use a \u003ca\u003eGetShardIterator\u003c/a\u003e request to get the first shard iterator to to use in your first \u003ccode\u003eGetRecords\u003c/code\u003e request and then use the shard iterator returned by the \u003ccode\u003eGetRecords\u003c/code\u003e request in \u003ccode\u003eNextShardIterator\u003c/code\u003e for subsequent reads. A new shard iterator is returned by every \u003ccode\u003eGetRecords\u003c/code\u003e request in \u003ccode\u003eNextShardIterator\u003c/code\u003e, which you use in the \u003ccode\u003eShardIterator\u003c/code\u003e parameter of the next \u003ccode\u003eGetRecords\u003c/code\u003e request. \u003c/p\u003e \u003cp\u003eIf a \u003ccode\u003eGetShardIterator\u003c/code\u003e request is made too often, you receive a \u003ccode\u003eProvisionedThroughputExceededException\u003c/code\u003e. For more information about throughput limits, see \u003ca\u003eGetRecords\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eIf the shard is closed, the iterator can't return more data, and \u003ccode\u003eGetShardIterator\u003c/code\u003e returns \u003ccode\u003enull\u003c/code\u003e for its \u003ccode\u003eShardIterator\u003c/code\u003e. A shard can be closed using \u003ca\u003eSplitShard\u003c/a\u003e or \u003ca\u003eMergeShards\u003c/a\u003e.\u003c/p\u003e \u003cp\u003e\u003ccode\u003eGetShardIterator\u003c/code\u003e has a limit of 5 transactions per second per account per open shard.\u003c/p\u003e",
+            "documentation": "-- | Gets a shard iterator. A shard iterator expires five minutes after it is\n-- returned to the requester.\n--\n-- A shard iterator specifies the position in the shard from which to start\n-- reading data records sequentially. A shard iterator specifies this position\n-- using the sequence number of a data record in a shard. A sequence number is\n-- the identifier associated with every record ingested in the Amazon Kinesis\n-- stream. The sequence number is assigned when a record is put into the stream.\n--\n-- You must specify the shard iterator type. For example, you can set the 'ShardIteratorType' parameter to read exactly from the position denoted by a specific sequence\n-- number by using the 'AT_SEQUENCE_NUMBER' shard iterator type, or right after\n-- the sequence number by using the 'AFTER_SEQUENCE_NUMBER' shard iterator type,\n-- using sequence numbers returned by earlier calls to 'PutRecord', 'GetRecords', or 'DescribeStream'. You can specify the shard iterator type 'TRIM_HORIZON' in the\n-- request to cause 'ShardIterator' to point to the last untrimmed record in the\n-- shard in the system, which is the oldest data record in the shard. Or you can\n-- point to just after the most recent record in the shard, by using the shard\n-- iterator type 'LATEST', so that you always read the most recent data in the\n-- shard.\n--\n-- When you repeatedly read from an Amazon Kinesis stream use a 'GetShardIterator'\n-- request to get the first shard iterator to to use in your first 'GetRecords'\n-- request and then use the shard iterator returned by the 'GetRecords' request in 'NextShardIterator' for subsequent reads. A new shard iterator is returned by\n-- every 'GetRecords' request in 'NextShardIterator', which you use in the 'ShardIterator' parameter of the next 'GetRecords' request.\n--\n-- If a 'GetShardIterator' request is made too often, you receive a 'ProvisionedThroughputExceededException'. For more information about throughput limits, see 'GetRecords'.\n--\n-- If the shard is closed, the iterator can't return more data, and 'GetShardIterator' returns 'null' for its 'ShardIterator'. A shard can be closed using 'SplitShard'\n-- or 'MergeShards'.\n--\n-- 'GetShardIterator' has a limit of 5 transactions per second per account per\n-- open shard.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2232,7 +2232,7 @@
                         "name": "_gsiStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2247,7 +2247,7 @@
                         "name": "_gsiShardId",
                         "shape": "ShardId",
                         "locationName": "ShardId",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard to get the iterator for.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard to get the iterator for.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2262,7 +2262,7 @@
                         "name": "_gsiShardIteratorType",
                         "shape": "ShardIteratorType",
                         "locationName": "ShardIteratorType",
-                        "documentation": "\u003cp\u003eDetermines how the shard iterator is used to start reading data records from the shard.\u003c/p\u003e \u003cp\u003eThe following are the valid shard iterator types:\u003c/p\u003e \u003cul\u003e \u003cli\u003eAT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eAFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eTRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.\u003c/li\u003e \u003cli\u003eLATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.\u003c/li\u003e \u003c/ul\u003e",
+                        "documentation": "-- | Determines how the shard iterator is used to start reading data records from\n-- the shard.\n--\n-- The following are the valid shard iterator types:\n--\n-- AT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a\n-- specific sequence number. AFTER_SEQUENCE_NUMBER - Start reading right after\n-- the position denoted by a specific sequence number. TRIM_HORIZON - Start\n-- reading at the last untrimmed record in the shard in the system, which is the\n-- oldest data record in the shard. LATEST - Start reading just after the most\n-- recent record in the shard, so that you always read the most recent data in\n-- the shard.",
                         "typeExposed": "ShardIteratorType",
                         "type": "ShardIteratorType"
                     },
@@ -2277,7 +2277,7 @@
                         "name": "_gsiStartingSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "StartingSequenceNumber",
-                        "documentation": "\u003cp\u003eThe sequence number of the data record in the shard from which to start reading from.\u003c/p\u003e",
+                        "documentation": "-- | The sequence number of the data record in the shard from which to start\n-- reading from.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2302,7 +2302,7 @@
                         "name": "_gsiStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2317,7 +2317,7 @@
                         "name": "_gsiShardId",
                         "shape": "ShardId",
                         "locationName": "ShardId",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard to get the iterator for.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard to get the iterator for.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2332,7 +2332,7 @@
                         "name": "_gsiShardIteratorType",
                         "shape": "ShardIteratorType",
                         "locationName": "ShardIteratorType",
-                        "documentation": "\u003cp\u003eDetermines how the shard iterator is used to start reading data records from the shard.\u003c/p\u003e \u003cp\u003eThe following are the valid shard iterator types:\u003c/p\u003e \u003cul\u003e \u003cli\u003eAT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eAFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eTRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.\u003c/li\u003e \u003cli\u003eLATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.\u003c/li\u003e \u003c/ul\u003e",
+                        "documentation": "-- | Determines how the shard iterator is used to start reading data records from\n-- the shard.\n--\n-- The following are the valid shard iterator types:\n--\n-- AT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a\n-- specific sequence number. AFTER_SEQUENCE_NUMBER - Start reading right after\n-- the position denoted by a specific sequence number. TRIM_HORIZON - Start\n-- reading at the last untrimmed record in the shard in the system, which is the\n-- oldest data record in the shard. LATEST - Start reading just after the most\n-- recent record in the shard, so that you always read the most recent data in\n-- the shard.",
                         "typeExposed": "ShardIteratorType",
                         "type": "ShardIteratorType"
                     }
@@ -2359,7 +2359,7 @@
                         "name": "_gsiStartingSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "StartingSequenceNumber",
-                        "documentation": "\u003cp\u003eThe sequence number of the data record in the shard from which to start reading from.\u003c/p\u003e",
+                        "documentation": "-- | The sequence number of the data record in the shard from which to start\n-- reading from.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2376,7 +2376,7 @@
                         "name": "_gsiShardId",
                         "shape": "ShardId",
                         "locationName": "ShardId",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard to get the iterator for.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard to get the iterator for.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2391,7 +2391,7 @@
                         "name": "_gsiShardIteratorType",
                         "shape": "ShardIteratorType",
                         "locationName": "ShardIteratorType",
-                        "documentation": "\u003cp\u003eDetermines how the shard iterator is used to start reading data records from the shard.\u003c/p\u003e \u003cp\u003eThe following are the valid shard iterator types:\u003c/p\u003e \u003cul\u003e \u003cli\u003eAT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eAFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number.\u003c/li\u003e \u003cli\u003eTRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.\u003c/li\u003e \u003cli\u003eLATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.\u003c/li\u003e \u003c/ul\u003e",
+                        "documentation": "-- | Determines how the shard iterator is used to start reading data records from\n-- the shard.\n--\n-- The following are the valid shard iterator types:\n--\n-- AT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a\n-- specific sequence number. AFTER_SEQUENCE_NUMBER - Start reading right after\n-- the position denoted by a specific sequence number. TRIM_HORIZON - Start\n-- reading at the last untrimmed record in the shard in the system, which is the\n-- oldest data record in the shard. LATEST - Start reading just after the most\n-- recent record in the shard, so that you always read the most recent data in\n-- the shard.",
                         "typeExposed": "ShardIteratorType",
                         "type": "ShardIteratorType"
                     },
@@ -2406,7 +2406,7 @@
                         "name": "_gsiStartingSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "StartingSequenceNumber",
-                        "documentation": "\u003cp\u003eThe sequence number of the data record in the shard from which to start reading from.\u003c/p\u003e",
+                        "documentation": "-- | The sequence number of the data record in the shard from which to start\n-- reading from.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2421,7 +2421,7 @@
                         "name": "_gsiStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2453,7 +2453,7 @@
                         "name": "_lsrStreamNames",
                         "shape": "StreamNameList",
                         "locationName": "StreamNames",
-                        "documentation": "\u003cp\u003eThe names of the streams that are associated with the AWS account making the \u003ccode\u003eListStreams\u003c/code\u003e request.\u003c/p\u003e",
+                        "documentation": "-- | The names of the streams that are associated with the AWS account making the 'ListStreams' request.\n--",
                         "typeExposed": "[Text]",
                         "type": "List \"StreamNames\" Text"
                     },
@@ -2468,7 +2468,7 @@
                         "name": "_lsrHasMoreStreams",
                         "shape": "BooleanObject",
                         "locationName": "HasMoreStreams",
-                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, there are more streams available to list.\u003c/p\u003e",
+                        "documentation": "-- | If set to 'true', there are more streams available to list.\n--",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -2488,7 +2488,7 @@
                         "name": "_lsrHasMoreStreams",
                         "shape": "BooleanObject",
                         "locationName": "HasMoreStreams",
-                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, there are more streams available to list.\u003c/p\u003e",
+                        "documentation": "-- | If set to 'true', there are more streams available to list.\n--",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -2513,7 +2513,7 @@
                         "name": "_lsrStreamNames",
                         "shape": "StreamNameList",
                         "locationName": "StreamNames",
-                        "documentation": "\u003cp\u003eThe names of the streams that are associated with the AWS account making the \u003ccode\u003eListStreams\u003c/code\u003e request.\u003c/p\u003e",
+                        "documentation": "-- | The names of the streams that are associated with the AWS account making the 'ListStreams' request.\n--",
                         "typeExposed": "[Text]",
                         "type": "List \"StreamNames\" Text"
                     }
@@ -2530,7 +2530,7 @@
                         "name": "_lsrHasMoreStreams",
                         "shape": "BooleanObject",
                         "locationName": "HasMoreStreams",
-                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, there are more streams available to list.\u003c/p\u003e",
+                        "documentation": "-- | If set to 'true', there are more streams available to list.\n--",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -2545,7 +2545,7 @@
                         "name": "_lsrStreamNames",
                         "shape": "StreamNameList",
                         "locationName": "StreamNames",
-                        "documentation": "\u003cp\u003eThe names of the streams that are associated with the AWS account making the \u003ccode\u003eListStreams\u003c/code\u003e request.\u003c/p\u003e",
+                        "documentation": "-- | The names of the streams that are associated with the AWS account making the 'ListStreams' request.\n--",
                         "typeExposed": "[Text]",
                         "type": "List \"StreamNames\" Text"
                     }
@@ -2570,7 +2570,7 @@
             },
             "name": "ListStreams",
             "method": "post",
-            "documentation": "\u003cp\u003e Lists your streams.\u003c/p\u003e \u003cp\u003e The number of streams may be too large to return from a single call to \u003ccode\u003eListStreams\u003c/code\u003e. You can limit the number of returned streams using the \u003ccode\u003eLimit\u003c/code\u003e parameter. If you do not specify a value for the \u003ccode\u003eLimit\u003c/code\u003e parameter, Amazon Kinesis uses the default limit, which is currently 10.\u003c/p\u003e \u003cp\u003e You can detect if there are more streams available to list by using the \u003ccode\u003eHasMoreStreams\u003c/code\u003e flag from the returned output. If there are more streams available, you can request more streams by using the name of the last stream returned by the \u003ccode\u003eListStreams\u003c/code\u003e request in the \u003ccode\u003eExclusiveStartStreamName\u003c/code\u003e parameter in a subsequent request to \u003ccode\u003eListStreams\u003c/code\u003e. The group of stream names returned by the subsequent request is then added to the list. You can continue this process until all the stream names have been collected in the list. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eListStreams\u003c/code\u003e has a limit of 5 transactions per second per account.\u003c/p\u003e",
+            "documentation": "-- | Lists your streams.\n--\n-- The number of streams may be too large to return from a single call to 'ListStreams'. You can limit the number of returned streams using the 'Limit' parameter. If\n-- you do not specify a value for the 'Limit' parameter, Amazon Kinesis uses the\n-- default limit, which is currently 10.\n--\n-- You can detect if there are more streams available to list by using the 'HasMoreStreams' flag from the returned output. If there are more streams available, you can\n-- request more streams by using the name of the last stream returned by the 'ListStreams' request in the 'ExclusiveStartStreamName' parameter in a subsequent request to 'ListStreams'. The group of stream names returned by the subsequent request is\n-- then added to the list. You can continue this process until all the stream\n-- names have been collected in the list.\n--\n-- 'ListStreams' has a limit of 5 transactions per second per account.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2595,7 +2595,7 @@
                         "name": "_lsLimit",
                         "shape": "ListStreamsInputLimit",
                         "locationName": "Limit",
-                        "documentation": "\u003cp\u003eThe maximum number of streams to list.\u003c/p\u003e",
+                        "documentation": "-- | The maximum number of streams to list.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -2610,7 +2610,7 @@
                         "name": "_lsExclusiveStartStreamName",
                         "shape": "StreamName",
                         "locationName": "ExclusiveStartStreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream to start the list with.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream to start the list with.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2646,7 +2646,7 @@
                         "name": "_lsLimit",
                         "shape": "ListStreamsInputLimit",
                         "locationName": "Limit",
-                        "documentation": "\u003cp\u003eThe maximum number of streams to list.\u003c/p\u003e",
+                        "documentation": "-- | The maximum number of streams to list.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -2661,7 +2661,7 @@
                         "name": "_lsExclusiveStartStreamName",
                         "shape": "StreamName",
                         "locationName": "ExclusiveStartStreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream to start the list with.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream to start the list with.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2678,7 +2678,7 @@
                         "name": "_lsExclusiveStartStreamName",
                         "shape": "StreamName",
                         "locationName": "ExclusiveStartStreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream to start the list with.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream to start the list with.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2693,7 +2693,7 @@
                         "name": "_lsLimit",
                         "shape": "ListStreamsInputLimit",
                         "locationName": "Limit",
-                        "documentation": "\u003cp\u003eThe maximum number of streams to list.\u003c/p\u003e",
+                        "documentation": "-- | The maximum number of streams to list.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -2724,7 +2724,7 @@
                         "name": "_ltfsrTags",
                         "shape": "TagList",
                         "locationName": "Tags",
-                        "documentation": "\u003cp\u003eA list of tags associated with \u003ccode\u003eStreamName\u003c/code\u003e, starting with the first tag after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e and up to the specified \u003ccode\u003eLimit\u003c/code\u003e. \u003c/p\u003e",
+                        "documentation": "-- | A list of tags associated with 'StreamName', starting with the first tag after 'ExclusiveStartTagKey' and up to the specified 'Limit'.\n--",
                         "typeExposed": "[Tag]",
                         "type": "List \"Tags\" Tag"
                     },
@@ -2739,7 +2739,7 @@
                         "name": "_ltfsrHasMoreTags",
                         "shape": "BooleanObject",
                         "locationName": "HasMoreTags",
-                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, more tags are available. To request additional tags, set \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e to the key of the last tag returned.\u003c/p\u003e",
+                        "documentation": "-- | If set to 'true', more tags are available. To request additional tags, set 'ExclusiveStartTagKey' to the key of the last tag returned.\n--",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -2759,7 +2759,7 @@
                         "name": "_ltfsrHasMoreTags",
                         "shape": "BooleanObject",
                         "locationName": "HasMoreTags",
-                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, more tags are available. To request additional tags, set \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e to the key of the last tag returned.\u003c/p\u003e",
+                        "documentation": "-- | If set to 'true', more tags are available. To request additional tags, set 'ExclusiveStartTagKey' to the key of the last tag returned.\n--",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -2784,7 +2784,7 @@
                         "name": "_ltfsrTags",
                         "shape": "TagList",
                         "locationName": "Tags",
-                        "documentation": "\u003cp\u003eA list of tags associated with \u003ccode\u003eStreamName\u003c/code\u003e, starting with the first tag after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e and up to the specified \u003ccode\u003eLimit\u003c/code\u003e. \u003c/p\u003e",
+                        "documentation": "-- | A list of tags associated with 'StreamName', starting with the first tag after 'ExclusiveStartTagKey' and up to the specified 'Limit'.\n--",
                         "typeExposed": "[Tag]",
                         "type": "List \"Tags\" Tag"
                     }
@@ -2801,7 +2801,7 @@
                         "name": "_ltfsrHasMoreTags",
                         "shape": "BooleanObject",
                         "locationName": "HasMoreTags",
-                        "documentation": "\u003cp\u003eIf set to \u003ccode\u003etrue\u003c/code\u003e, more tags are available. To request additional tags, set \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e to the key of the last tag returned.\u003c/p\u003e",
+                        "documentation": "-- | If set to 'true', more tags are available. To request additional tags, set 'ExclusiveStartTagKey' to the key of the last tag returned.\n--",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -2816,7 +2816,7 @@
                         "name": "_ltfsrTags",
                         "shape": "TagList",
                         "locationName": "Tags",
-                        "documentation": "\u003cp\u003eA list of tags associated with \u003ccode\u003eStreamName\u003c/code\u003e, starting with the first tag after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e and up to the specified \u003ccode\u003eLimit\u003c/code\u003e. \u003c/p\u003e",
+                        "documentation": "-- | A list of tags associated with 'StreamName', starting with the first tag after 'ExclusiveStartTagKey' and up to the specified 'Limit'.\n--",
                         "typeExposed": "[Tag]",
                         "type": "List \"Tags\" Tag"
                     }
@@ -2832,7 +2832,7 @@
             "pager": null,
             "name": "ListTagsForStream",
             "method": "post",
-            "documentation": "\u003cp\u003eLists the tags for the specified Amazon Kinesis stream.\u003c/p\u003e",
+            "documentation": "-- | Lists the tags for the specified Amazon Kinesis stream.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2857,7 +2857,7 @@
                         "name": "_ltfsStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2872,7 +2872,7 @@
                         "name": "_ltfsExclusiveStartTagKey",
                         "shape": "TagKey",
                         "locationName": "ExclusiveStartTagKey",
-                        "documentation": "\u003cp\u003eThe key to use as the starting point for the list of tags. If this parameter is set, \u003ccode\u003eListTagsForStream\u003c/code\u003e gets all tags that occur after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e. \u003c/p\u003e",
+                        "documentation": "-- | The key to use as the starting point for the list of tags. If this parameter\n-- is set, 'ListTagsForStream' gets all tags that occur after 'ExclusiveStartTagKey'.\n--\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2887,7 +2887,7 @@
                         "name": "_ltfsLimit",
                         "shape": "ListTagsForStreamInputLimit",
                         "locationName": "Limit",
-                        "documentation": "\u003cp\u003eThe number of tags to return. If this number is less than the total number of tags associated with the stream, \u003ccode\u003eHasMoreTags\u003c/code\u003e is set to \u003ccode\u003etrue\u003c/code\u003e. To list additional tags, set \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e to the last key in the response.\u003c/p\u003e",
+                        "documentation": "-- | The number of tags to return. If this number is less than the total number of\n-- tags associated with the stream, 'HasMoreTags' is set to 'true'. To list\n-- additional tags, set 'ExclusiveStartTagKey' to the last key in the response.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -2912,7 +2912,7 @@
                         "name": "_ltfsStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2939,7 +2939,7 @@
                         "name": "_ltfsExclusiveStartTagKey",
                         "shape": "TagKey",
                         "locationName": "ExclusiveStartTagKey",
-                        "documentation": "\u003cp\u003eThe key to use as the starting point for the list of tags. If this parameter is set, \u003ccode\u003eListTagsForStream\u003c/code\u003e gets all tags that occur after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e. \u003c/p\u003e",
+                        "documentation": "-- | The key to use as the starting point for the list of tags. If this parameter\n-- is set, 'ListTagsForStream' gets all tags that occur after 'ExclusiveStartTagKey'.\n--\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2954,7 +2954,7 @@
                         "name": "_ltfsLimit",
                         "shape": "ListTagsForStreamInputLimit",
                         "locationName": "Limit",
-                        "documentation": "\u003cp\u003eThe number of tags to return. If this number is less than the total number of tags associated with the stream, \u003ccode\u003eHasMoreTags\u003c/code\u003e is set to \u003ccode\u003etrue\u003c/code\u003e. To list additional tags, set \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e to the last key in the response.\u003c/p\u003e",
+                        "documentation": "-- | The number of tags to return. If this number is less than the total number of\n-- tags associated with the stream, 'HasMoreTags' is set to 'true'. To list\n-- additional tags, set 'ExclusiveStartTagKey' to the last key in the response.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -2971,7 +2971,7 @@
                         "name": "_ltfsExclusiveStartTagKey",
                         "shape": "TagKey",
                         "locationName": "ExclusiveStartTagKey",
-                        "documentation": "\u003cp\u003eThe key to use as the starting point for the list of tags. If this parameter is set, \u003ccode\u003eListTagsForStream\u003c/code\u003e gets all tags that occur after \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e. \u003c/p\u003e",
+                        "documentation": "-- | The key to use as the starting point for the list of tags. If this parameter\n-- is set, 'ListTagsForStream' gets all tags that occur after 'ExclusiveStartTagKey'.\n--\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2986,7 +2986,7 @@
                         "name": "_ltfsLimit",
                         "shape": "ListTagsForStreamInputLimit",
                         "locationName": "Limit",
-                        "documentation": "\u003cp\u003eThe number of tags to return. If this number is less than the total number of tags associated with the stream, \u003ccode\u003eHasMoreTags\u003c/code\u003e is set to \u003ccode\u003etrue\u003c/code\u003e. To list additional tags, set \u003ccode\u003eExclusiveStartTagKey\u003c/code\u003e to the last key in the response.\u003c/p\u003e",
+                        "documentation": "-- | The number of tags to return. If this number is less than the total number of\n-- tags associated with the stream, 'HasMoreTags' is set to 'true'. To list\n-- additional tags, set 'ExclusiveStartTagKey' to the last key in the response.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -3001,7 +3001,7 @@
                         "name": "_ltfsStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3044,7 +3044,7 @@
             "pager": null,
             "name": "MergeShards",
             "method": "post",
-            "documentation": "\u003cp\u003eMerges two adjacent shards in a stream and combines them into a single shard to reduce the stream's capacity to ingest and transport data. Two shards are considered adjacent if the union of the hash key ranges for the two shards form a contiguous set with no gaps. For example, if you have two shards, one with a hash key range of 276...381 and the other with a hash key range of 382...454, then you could merge these two shards into a single shard that would have a hash key range of 276...454. After the merge, the single child shard receives data for all hash key values covered by the two parent shards.\u003c/p\u003e \u003cp\u003e\u003ccode\u003eMergeShards\u003c/code\u003e is called when there is a need to reduce the overall capacity of a stream because of excess capacity that is not being used. You must specify the shard to be merged and the adjacent shard for a stream. For more information about merging shards, see \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-java-resharding-merge\"\u003eMerge Two Shards\u003c/a\u003e in the \u003ci\u003eAmazon Kinesis Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eIf the stream is in the \u003ccode\u003eACTIVE\u003c/code\u003e state, you can call \u003ccode\u003eMergeShards\u003c/code\u003e. If a stream is in the \u003ccode\u003eCREATING\u003c/code\u003e, \u003ccode\u003eUPDATING\u003c/code\u003e, or \u003ccode\u003eDELETING\u003c/code\u003e state, \u003ccode\u003eMergeShards\u003c/code\u003e returns a \u003ccode\u003eResourceInUseException\u003c/code\u003e. If the specified stream does not exist, \u003ccode\u003eMergeShards\u003c/code\u003e returns a \u003ccode\u003eResourceNotFoundException\u003c/code\u003e. \u003c/p\u003e \u003cp\u003eYou can use \u003ca\u003eDescribeStream\u003c/a\u003e to check the state of the stream, which is returned in \u003ccode\u003eStreamStatus\u003c/code\u003e.\u003c/p\u003e \u003cp\u003e\u003ccode\u003eMergeShards\u003c/code\u003e is an asynchronous operation. Upon receiving a \u003ccode\u003eMergeShards\u003c/code\u003e request, Amazon Kinesis immediately returns a response and sets the \u003ccode\u003eStreamStatus\u003c/code\u003e to \u003ccode\u003eUPDATING\u003c/code\u003e. After the operation is completed, Amazon Kinesis sets the \u003ccode\u003eStreamStatus\u003c/code\u003e to \u003ccode\u003eACTIVE\u003c/code\u003e. Read and write operations continue to work while the stream is in the \u003ccode\u003eUPDATING\u003c/code\u003e state. \u003c/p\u003e \u003cp\u003eYou use \u003ca\u003eDescribeStream\u003c/a\u003e to determine the shard IDs that are specified in the \u003ccode\u003eMergeShards\u003c/code\u003e request. \u003c/p\u003e \u003cp\u003eIf you try to operate on too many streams in parallel using \u003ca\u003eCreateStream\u003c/a\u003e, \u003ca\u003eDeleteStream\u003c/a\u003e, \u003ccode\u003eMergeShards\u003c/code\u003e or \u003ca\u003eSplitShard\u003c/a\u003e, you will receive a \u003ccode\u003eLimitExceededException\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eMergeShards\u003c/code\u003e has limit of 5 transactions per second per account.\u003c/p\u003e",
+            "documentation": "-- | Merges two adjacent shards in a stream and combines them into a single shard\n-- to reduce the stream's capacity to ingest and transport data. Two shards are\n-- considered adjacent if the union of the hash key ranges for the two shards\n-- form a contiguous set with no gaps. For example, if you have two shards, one\n-- with a hash key range of 276...381 and the other with a hash key range of\n-- 382...454, then you could merge these two shards into a single shard that\n-- would have a hash key range of 276...454. After the merge, the single child\n-- shard receives data for all hash key values covered by the two parent shards.\n--\n-- 'MergeShards' is called when there is a need to reduce the overall capacity of\n-- a stream because of excess capacity that is not being used. You must specify\n-- the shard to be merged and the adjacent shard for a stream. For more\n-- information about merging shards, see \u003chttp://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-java-resharding-merge Merge Two Shards\u003e in the /Amazon KinesisDeveloper Guide/.\n--\n-- If the stream is in the 'ACTIVE' state, you can call 'MergeShards'. If a stream\n-- is in the 'CREATING', 'UPDATING', or 'DELETING' state, 'MergeShards' returns a 'ResourceInUseException'. If the specified stream does not exist, 'MergeShards' returns a 'ResourceNotFoundException'.\n--\n-- You can use 'DescribeStream' to check the state of the stream, which is\n-- returned in 'StreamStatus'.\n--\n-- 'MergeShards' is an asynchronous operation. Upon receiving a 'MergeShards'\n-- request, Amazon Kinesis immediately returns a response and sets the 'StreamStatus' to 'UPDATING'. After the operation is completed, Amazon Kinesis sets the 'StreamStatus' to 'ACTIVE'. Read and write operations continue to work while the stream is in\n-- the 'UPDATING' state.\n--\n-- You use 'DescribeStream' to determine the shard IDs that are specified in the 'MergeShards' request.\n--\n-- If you try to operate on too many streams in parallel using 'CreateStream', 'DeleteStream', 'MergeShards' or 'SplitShard', you will receive a 'LimitExceededException'.\n--\n-- 'MergeShards' has limit of 5 transactions per second per account.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3069,7 +3069,7 @@
                         "name": "_msStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream for the merge.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream for the merge.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3084,7 +3084,7 @@
                         "name": "_msShardToMerge",
                         "shape": "ShardId",
                         "locationName": "ShardToMerge",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard to combine with the adjacent shard for the merge.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard to combine with the adjacent shard for the merge.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3099,7 +3099,7 @@
                         "name": "_msAdjacentShardToMerge",
                         "shape": "ShardId",
                         "locationName": "AdjacentShardToMerge",
-                        "documentation": "\u003cp\u003eThe shard ID of the adjacent shard for the merge.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the adjacent shard for the merge.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3124,7 +3124,7 @@
                         "name": "_msStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream for the merge.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream for the merge.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3139,7 +3139,7 @@
                         "name": "_msShardToMerge",
                         "shape": "ShardId",
                         "locationName": "ShardToMerge",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard to combine with the adjacent shard for the merge.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard to combine with the adjacent shard for the merge.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3154,7 +3154,7 @@
                         "name": "_msAdjacentShardToMerge",
                         "shape": "ShardId",
                         "locationName": "AdjacentShardToMerge",
-                        "documentation": "\u003cp\u003eThe shard ID of the adjacent shard for the merge.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the adjacent shard for the merge.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3182,7 +3182,7 @@
                         "name": "_msAdjacentShardToMerge",
                         "shape": "ShardId",
                         "locationName": "AdjacentShardToMerge",
-                        "documentation": "\u003cp\u003eThe shard ID of the adjacent shard for the merge.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the adjacent shard for the merge.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3197,7 +3197,7 @@
                         "name": "_msShardToMerge",
                         "shape": "ShardId",
                         "locationName": "ShardToMerge",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard to combine with the adjacent shard for the merge.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard to combine with the adjacent shard for the merge.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3212,7 +3212,7 @@
                         "name": "_msStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream for the merge.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream for the merge.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3244,7 +3244,7 @@
                         "name": "_prrShardId",
                         "shape": "ShardId",
                         "locationName": "ShardId",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard where the data record was placed.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard where the data record was placed.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3259,7 +3259,7 @@
                         "name": "_prrSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "SequenceNumber",
-                        "documentation": "\u003cp\u003eThe sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.\u003c/p\u003e",
+                        "documentation": "-- | The sequence number identifier that was assigned to the put data record. The\n-- sequence number for the record is unique across all records in the stream. A\n-- sequence number is the identifier associated with every record put into the\n-- stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3279,7 +3279,7 @@
                         "name": "_prrShardId",
                         "shape": "ShardId",
                         "locationName": "ShardId",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard where the data record was placed.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard where the data record was placed.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3294,7 +3294,7 @@
                         "name": "_prrSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "SequenceNumber",
-                        "documentation": "\u003cp\u003eThe sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.\u003c/p\u003e",
+                        "documentation": "-- | The sequence number identifier that was assigned to the put data record. The\n-- sequence number for the record is unique across all records in the stream. A\n-- sequence number is the identifier associated with every record put into the\n-- stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3320,7 +3320,7 @@
                         "name": "_prrSequenceNumber",
                         "shape": "SequenceNumber",
                         "locationName": "SequenceNumber",
-                        "documentation": "\u003cp\u003eThe sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.\u003c/p\u003e",
+                        "documentation": "-- | The sequence number identifier that was assigned to the put data record. The\n-- sequence number for the record is unique across all records in the stream. A\n-- sequence number is the identifier associated with every record put into the\n-- stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3335,7 +3335,7 @@
                         "name": "_prrShardId",
                         "shape": "ShardId",
                         "locationName": "ShardId",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard where the data record was placed.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard where the data record was placed.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3351,7 +3351,7 @@
             "pager": null,
             "name": "PutRecord",
             "method": "post",
-            "documentation": "\u003cp\u003ePuts a data record from a producer into an Amazon Kinesis stream. You must call \u003ccode\u003ePutRecord\u003c/code\u003e to send data from the producer into the Amazon Kinesis stream for real-time ingestion and subsequent processing. You must specify the name of the stream that captures, stores, and transports the data; a partition key; and the data blob itself. The data blob could be a segment from a log file, geographic/location data, website clickstream data, or any other data type.\u003c/p\u003e \u003cp\u003eThe partition key is used to distribute data across shards. Amazon Kinesis segregates the data records that belong to a data stream into multiple shards, using the partition key associated with each data record to determine which shard a given data record belongs to. \u003c/p\u003e \u003cp\u003ePartition keys are Unicode strings, with a maximum length limit of 256 bytes. An MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards using the hash key ranges of the shards. You can override hashing the partition key to determine the shard by explicitly specifying a hash value using the \u003ccode\u003eExplicitHashKey\u003c/code\u003e parameter. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-partition-key\"\u003ePartition Key\u003c/a\u003e in the \u003ci\u003eAmazon Kinesis Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003e\u003ccode\u003ePutRecord\u003c/code\u003e returns the shard ID of where the data record was placed and the sequence number that was assigned to the data record.\u003c/p\u003e \u003cp\u003eSequence numbers generally increase over time. To guarantee strictly increasing ordering, use the \u003ccode\u003eSequenceNumberForOrdering\u003c/code\u003e parameter. For more information, see \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-sequence-number\"\u003eSequence Number\u003c/a\u003e in the \u003ci\u003eAmazon Kinesis Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eIf a \u003ccode\u003ePutRecord\u003c/code\u003e request cannot be processed because of insufficient provisioned throughput on the shard involved in the request, \u003ccode\u003ePutRecord\u003c/code\u003e throws \u003ccode\u003eProvisionedThroughputExceededException\u003c/code\u003e. \u003c/p\u003e \u003cp\u003eData records are accessible for only 24 hours from the time that they are added to an Amazon Kinesis stream.\u003c/p\u003e",
+            "documentation": "-- | Puts a data record from a producer into an Amazon Kinesis stream. You must\n-- call 'PutRecord' to send data from the producer into the Amazon Kinesis stream\n-- for real-time ingestion and subsequent processing. You must specify the name\n-- of the stream that captures, stores, and transports the data; a partition\n-- key; and the data blob itself. The data blob could be a segment from a log\n-- file, geographic/location data, website clickstream data, or any other data\n-- type.\n--\n-- The partition key is used to distribute data across shards. Amazon Kinesis\n-- segregates the data records that belong to a data stream into multiple\n-- shards, using the partition key associated with each data record to determine\n-- which shard a given data record belongs to.\n--\n-- Partition keys are Unicode strings, with a maximum length limit of 256\n-- bytes. An MD5 hash function is used to map partition keys to 128-bit integer\n-- values and to map associated data records to shards using the hash key ranges\n-- of the shards. You can override hashing the partition key to determine the\n-- shard by explicitly specifying a hash value using the 'ExplicitHashKey'\n-- parameter. For more information, see \u003chttp://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-partition-key Partition Key\u003e in the /Amazon KinesisDeveloper Guide/.\n--\n-- 'PutRecord' returns the shard ID of where the data record was placed and the\n-- sequence number that was assigned to the data record.\n--\n-- Sequence numbers generally increase over time. To guarantee strictly\n-- increasing ordering, use the 'SequenceNumberForOrdering' parameter. For more\n-- information, see \u003chttp://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-sequence-number Sequence Number\u003e in the /Amazon Kinesis Developer Guide/.\n--\n-- If a 'PutRecord' request cannot be processed because of insufficient\n-- provisioned throughput on the shard involved in the request, 'PutRecord' throws 'ProvisionedThroughputExceededException'.\n--\n-- Data records are accessible for only 24 hours from the time that they are\n-- added to an Amazon Kinesis stream.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3375,7 +3375,7 @@
                         "name": "_prStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream to put the data record into.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream to put the data record into.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3390,7 +3390,7 @@
                         "name": "_prData",
                         "shape": "Data",
                         "locationName": "Data",
-                        "documentation": "\u003cp\u003eThe data blob to put into the record, which is Base64-encoded when the blob is serialized. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) \u003c/p\u003e",
+                        "documentation": "-- | The data blob to put into the record, which is Base64-encoded when the blob\n-- is serialized. The maximum size of the data blob (the payload before\n-- Base64-encoding) is 50 kilobytes (KB)\n--",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     },
@@ -3405,7 +3405,7 @@
                         "name": "_prPartitionKey",
                         "shape": "PartitionKey",
                         "locationName": "PartitionKey",
-                        "documentation": "\u003cp\u003eDetermines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 bytes. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key will map to the same shard within the stream.\u003c/p\u003e",
+                        "documentation": "-- | Determines which shard in the stream the data record is assigned to.\n-- Partition keys are Unicode strings with a maximum length limit of 256 bytes.\n-- Amazon Kinesis uses the partition key as input to a hash function that maps\n-- the partition key and associated data to a specific shard. Specifically, an\n-- MD5 hash function is used to map partition keys to 128-bit integer values and\n-- to map associated data records to shards. As a result of this hashing\n-- mechanism, all data records with the same partition key will map to the same\n-- shard within the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3420,7 +3420,7 @@
                         "name": "_prExplicitHashKey",
                         "shape": "HashKey",
                         "locationName": "ExplicitHashKey",
-                        "documentation": "\u003cp\u003eThe hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.\u003c/p\u003e",
+                        "documentation": "-- | The hash value used to explicitly determine the shard the data record is\n-- assigned to by overriding the partition key hash.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3435,7 +3435,7 @@
                         "name": "_prSequenceNumberForOrdering",
                         "shape": "SequenceNumber",
                         "locationName": "SequenceNumberForOrdering",
-                        "documentation": "\u003cp\u003eGuarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the \u003ccode\u003eSequenceNumberForOrdering\u003c/code\u003e of record \u003ci\u003en\u003c/i\u003e to the sequence number of record \u003ci\u003en-1\u003c/i\u003e (as returned in the \u003ca\u003ePutRecordResult\u003c/a\u003e when putting record \u003ci\u003en-1\u003c/i\u003e). If this parameter is not set, records will be coarsely ordered based on arrival time.\u003c/p\u003e",
+                        "documentation": "-- | Guarantees strictly increasing sequence numbers, for puts from the same\n-- client and to the same partition key. Usage: set the 'SequenceNumberForOrdering'\n-- of record /n/ to the sequence number of record /n-1/ (as returned in the 'PutRecordResult' when putting record /n-1/). If this parameter is not set, records will be\n-- coarsely ordered based on arrival time.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3460,7 +3460,7 @@
                         "name": "_prStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream to put the data record into.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream to put the data record into.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3475,7 +3475,7 @@
                         "name": "_prData",
                         "shape": "Data",
                         "locationName": "Data",
-                        "documentation": "\u003cp\u003eThe data blob to put into the record, which is Base64-encoded when the blob is serialized. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) \u003c/p\u003e",
+                        "documentation": "-- | The data blob to put into the record, which is Base64-encoded when the blob\n-- is serialized. The maximum size of the data blob (the payload before\n-- Base64-encoding) is 50 kilobytes (KB)\n--",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     },
@@ -3490,7 +3490,7 @@
                         "name": "_prPartitionKey",
                         "shape": "PartitionKey",
                         "locationName": "PartitionKey",
-                        "documentation": "\u003cp\u003eDetermines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 bytes. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key will map to the same shard within the stream.\u003c/p\u003e",
+                        "documentation": "-- | Determines which shard in the stream the data record is assigned to.\n-- Partition keys are Unicode strings with a maximum length limit of 256 bytes.\n-- Amazon Kinesis uses the partition key as input to a hash function that maps\n-- the partition key and associated data to a specific shard. Specifically, an\n-- MD5 hash function is used to map partition keys to 128-bit integer values and\n-- to map associated data records to shards. As a result of this hashing\n-- mechanism, all data records with the same partition key will map to the same\n-- shard within the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3517,7 +3517,7 @@
                         "name": "_prExplicitHashKey",
                         "shape": "HashKey",
                         "locationName": "ExplicitHashKey",
-                        "documentation": "\u003cp\u003eThe hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.\u003c/p\u003e",
+                        "documentation": "-- | The hash value used to explicitly determine the shard the data record is\n-- assigned to by overriding the partition key hash.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3532,7 +3532,7 @@
                         "name": "_prSequenceNumberForOrdering",
                         "shape": "SequenceNumber",
                         "locationName": "SequenceNumberForOrdering",
-                        "documentation": "\u003cp\u003eGuarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the \u003ccode\u003eSequenceNumberForOrdering\u003c/code\u003e of record \u003ci\u003en\u003c/i\u003e to the sequence number of record \u003ci\u003en-1\u003c/i\u003e (as returned in the \u003ca\u003ePutRecordResult\u003c/a\u003e when putting record \u003ci\u003en-1\u003c/i\u003e). If this parameter is not set, records will be coarsely ordered based on arrival time.\u003c/p\u003e",
+                        "documentation": "-- | Guarantees strictly increasing sequence numbers, for puts from the same\n-- client and to the same partition key. Usage: set the 'SequenceNumberForOrdering'\n-- of record /n/ to the sequence number of record /n-1/ (as returned in the 'PutRecordResult' when putting record /n-1/). If this parameter is not set, records will be\n-- coarsely ordered based on arrival time.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3549,7 +3549,7 @@
                         "name": "_prData",
                         "shape": "Data",
                         "locationName": "Data",
-                        "documentation": "\u003cp\u003eThe data blob to put into the record, which is Base64-encoded when the blob is serialized. The maximum size of the data blob (the payload before Base64-encoding) is 50 kilobytes (KB) \u003c/p\u003e",
+                        "documentation": "-- | The data blob to put into the record, which is Base64-encoded when the blob\n-- is serialized. The maximum size of the data blob (the payload before\n-- Base64-encoding) is 50 kilobytes (KB)\n--",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     },
@@ -3564,7 +3564,7 @@
                         "name": "_prExplicitHashKey",
                         "shape": "HashKey",
                         "locationName": "ExplicitHashKey",
-                        "documentation": "\u003cp\u003eThe hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.\u003c/p\u003e",
+                        "documentation": "-- | The hash value used to explicitly determine the shard the data record is\n-- assigned to by overriding the partition key hash.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3579,7 +3579,7 @@
                         "name": "_prPartitionKey",
                         "shape": "PartitionKey",
                         "locationName": "PartitionKey",
-                        "documentation": "\u003cp\u003eDetermines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 bytes. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key will map to the same shard within the stream.\u003c/p\u003e",
+                        "documentation": "-- | Determines which shard in the stream the data record is assigned to.\n-- Partition keys are Unicode strings with a maximum length limit of 256 bytes.\n-- Amazon Kinesis uses the partition key as input to a hash function that maps\n-- the partition key and associated data to a specific shard. Specifically, an\n-- MD5 hash function is used to map partition keys to 128-bit integer values and\n-- to map associated data records to shards. As a result of this hashing\n-- mechanism, all data records with the same partition key will map to the same\n-- shard within the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3594,7 +3594,7 @@
                         "name": "_prSequenceNumberForOrdering",
                         "shape": "SequenceNumber",
                         "locationName": "SequenceNumberForOrdering",
-                        "documentation": "\u003cp\u003eGuarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the \u003ccode\u003eSequenceNumberForOrdering\u003c/code\u003e of record \u003ci\u003en\u003c/i\u003e to the sequence number of record \u003ci\u003en-1\u003c/i\u003e (as returned in the \u003ca\u003ePutRecordResult\u003c/a\u003e when putting record \u003ci\u003en-1\u003c/i\u003e). If this parameter is not set, records will be coarsely ordered based on arrival time.\u003c/p\u003e",
+                        "documentation": "-- | Guarantees strictly increasing sequence numbers, for puts from the same\n-- client and to the same partition key. Usage: set the 'SequenceNumberForOrdering'\n-- of record /n/ to the sequence number of record /n-1/ (as returned in the 'PutRecordResult' when putting record /n-1/). If this parameter is not set, records will be\n-- coarsely ordered based on arrival time.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3609,7 +3609,7 @@
                         "name": "_prStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream to put the data record into.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream to put the data record into.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3652,7 +3652,7 @@
             "pager": null,
             "name": "RemoveTagsFromStream",
             "method": "post",
-            "documentation": "\u003cp\u003eDeletes tags from the specified Amazon Kinesis stream.\u003c/p\u003e \u003cp\u003eIf you specify a tag that does not exist, it is ignored.\u003c/p\u003e",
+            "documentation": "-- | Deletes tags from the specified Amazon Kinesis stream.\n--\n-- If you specify a tag that does not exist, it is ignored.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3677,7 +3677,7 @@
                         "name": "_rtfsStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3692,7 +3692,7 @@
                         "name": "_rtfsTagKeys",
                         "shape": "TagKeyList",
                         "locationName": "TagKeys",
-                        "documentation": "\u003cp\u003eA list of tag keys. Each corresponding tag is removed from the stream.\u003c/p\u003e",
+                        "documentation": "-- | A list of tag keys. Each corresponding tag is removed from the stream.\n--",
                         "typeExposed": "NonEmpty Text",
                         "type": "List1 \"TagKeys\" Text"
                     }
@@ -3717,7 +3717,7 @@
                         "name": "_rtfsStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3732,7 +3732,7 @@
                         "name": "_rtfsTagKeys",
                         "shape": "TagKeyList",
                         "locationName": "TagKeys",
-                        "documentation": "\u003cp\u003eA list of tag keys. Each corresponding tag is removed from the stream.\u003c/p\u003e",
+                        "documentation": "-- | A list of tag keys. Each corresponding tag is removed from the stream.\n--",
                         "typeExposed": "NonEmpty Text",
                         "type": "List1 \"TagKeys\" Text"
                     }
@@ -3760,7 +3760,7 @@
                         "name": "_rtfsStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3775,7 +3775,7 @@
                         "name": "_rtfsTagKeys",
                         "shape": "TagKeyList",
                         "locationName": "TagKeys",
-                        "documentation": "\u003cp\u003eA list of tag keys. Each corresponding tag is removed from the stream.\u003c/p\u003e",
+                        "documentation": "-- | A list of tag keys. Each corresponding tag is removed from the stream.\n--",
                         "typeExposed": "NonEmpty Text",
                         "type": "List1 \"TagKeys\" Text"
                     }
@@ -3818,7 +3818,7 @@
             "pager": null,
             "name": "SplitShard",
             "method": "post",
-            "documentation": "\u003cp\u003eSplits a shard into two new shards in the stream, to increase the stream's capacity to ingest and transport data. \u003ccode\u003eSplitShard\u003c/code\u003e is called when there is a need to increase the overall capacity of stream because of an expected increase in the volume of data records being ingested. \u003c/p\u003e \u003cp\u003eYou can also use \u003ccode\u003eSplitShard\u003c/code\u003e when a shard appears to be approaching its maximum utilization, for example, when the set of producers sending data into the specific shard are suddenly sending more than previously anticipated. You can also call \u003ccode\u003eSplitShard\u003c/code\u003e to increase stream capacity, so that more Amazon Kinesis applications can simultaneously read data from the stream for real-time processing. \u003c/p\u003e \u003cp\u003eYou must specify the shard to be split and the new hash key, which is the position in the shard where the shard gets split in two. In many cases, the new hash key might simply be the average of the beginning and ending hash key, but it can be any hash key value in the range being mapped into the shard. For more information about splitting shards, see \u003ca href=\"http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-java-resharding-split\"\u003eSplit a Shard\u003c/a\u003e in the \u003ci\u003eAmazon Kinesis Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eYou can use \u003ca\u003eDescribeStream\u003c/a\u003e to determine the shard ID and hash key values for the \u003ccode\u003eShardToSplit\u003c/code\u003e and \u003ccode\u003eNewStartingHashKey\u003c/code\u003e parameters that are specified in the \u003ccode\u003eSplitShard\u003c/code\u003e request.\u003c/p\u003e \u003cp\u003e\u003ccode\u003eSplitShard\u003c/code\u003e is an asynchronous operation. Upon receiving a \u003ccode\u003eSplitShard\u003c/code\u003e request, Amazon Kinesis immediately returns a response and sets the stream status to \u003ccode\u003eUPDATING\u003c/code\u003e. After the operation is completed, Amazon Kinesis sets the stream status to \u003ccode\u003eACTIVE\u003c/code\u003e. Read and write operations continue to work while the stream is in the \u003ccode\u003eUPDATING\u003c/code\u003e state. \u003c/p\u003e \u003cp\u003eYou can use \u003ccode\u003eDescribeStream\u003c/code\u003e to check the status of the stream, which is returned in \u003ccode\u003eStreamStatus\u003c/code\u003e. If the stream is in the \u003ccode\u003eACTIVE\u003c/code\u003e state, you can call \u003ccode\u003eSplitShard\u003c/code\u003e. If a stream is in \u003ccode\u003eCREATING\u003c/code\u003e or \u003ccode\u003eUPDATING\u003c/code\u003e or \u003ccode\u003eDELETING\u003c/code\u003e states, \u003ccode\u003eDescribeStream\u003c/code\u003e returns a \u003ccode\u003eResourceInUseException\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eIf the specified stream does not exist, \u003ccode\u003eDescribeStream\u003c/code\u003e returns a \u003ccode\u003eResourceNotFoundException\u003c/code\u003e. If you try to create more shards than are authorized for your account, you receive a \u003ccode\u003eLimitExceededException\u003c/code\u003e. \u003c/p\u003e \u003cp\u003eThe default limit for an AWS account is 10 shards per stream. If you need to create a stream with more than 10 shards, \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html\"\u003econtact AWS Support\u003c/a\u003e to increase the limit on your account.\u003c/p\u003e \u003cp\u003eIf you try to operate on too many streams in parallel using \u003ca\u003eCreateStream\u003c/a\u003e, \u003ca\u003eDeleteStream\u003c/a\u003e, \u003ca\u003eMergeShards\u003c/a\u003e or \u003ca\u003eSplitShard\u003c/a\u003e, you receive a \u003ccode\u003eLimitExceededException\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e\u003ccode\u003eSplitShard\u003c/code\u003e has limit of 5 transactions per second per account.\u003c/p\u003e",
+            "documentation": "-- | Splits a shard into two new shards in the stream, to increase the stream's\n-- capacity to ingest and transport data. 'SplitShard' is called when there is a\n-- need to increase the overall capacity of stream because of an expected\n-- increase in the volume of data records being ingested.\n--\n-- You can also use 'SplitShard' when a shard appears to be approaching its\n-- maximum utilization, for example, when the set of producers sending data into\n-- the specific shard are suddenly sending more than previously anticipated. You\n-- can also call 'SplitShard' to increase stream capacity, so that more Amazon\n-- Kinesis applications can simultaneously read data from the stream for\n-- real-time processing.\n--\n-- You must specify the shard to be split and the new hash key, which is the\n-- position in the shard where the shard gets split in two. In many cases, the\n-- new hash key might simply be the average of the beginning and ending hash\n-- key, but it can be any hash key value in the range being mapped into the\n-- shard. For more information about splitting shards, see \u003chttp://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-java-resharding-split Split a Shard\u003e in the /Amazon Kinesis Developer Guide/.\n--\n-- You can use 'DescribeStream' to determine the shard ID and hash key values for\n-- the 'ShardToSplit' and 'NewStartingHashKey' parameters that are specified in the 'SplitShard' request.\n--\n-- 'SplitShard' is an asynchronous operation. Upon receiving a 'SplitShard'\n-- request, Amazon Kinesis immediately returns a response and sets the stream\n-- status to 'UPDATING'. After the operation is completed, Amazon Kinesis sets the\n-- stream status to 'ACTIVE'. Read and write operations continue to work while the\n-- stream is in the 'UPDATING' state.\n--\n-- You can use 'DescribeStream' to check the status of the stream, which is\n-- returned in 'StreamStatus'. If the stream is in the 'ACTIVE' state, you can call 'SplitShard'. If a stream is in 'CREATING' or 'UPDATING' or 'DELETING' states, 'DescribeStream'\n-- returns a 'ResourceInUseException'.\n--\n-- If the specified stream does not exist, 'DescribeStream' returns a 'ResourceNotFoundException'. If you try to create more shards than are authorized for your account, you\n-- receive a 'LimitExceededException'.\n--\n-- The default limit for an AWS account is 10 shards per stream. If you need to\n-- create a stream with more than 10 shards, \u003chttp://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support\u003e to increase the\n-- limit on your account.\n--\n-- If you try to operate on too many streams in parallel using 'CreateStream', 'DeleteStream', 'MergeShards' or 'SplitShard', you receive a 'LimitExceededException'.\n--\n-- 'SplitShard' has limit of 5 transactions per second per account.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3843,7 +3843,7 @@
                         "name": "_ssStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream for the shard split.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream for the shard split.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3858,7 +3858,7 @@
                         "name": "_ssShardToSplit",
                         "shape": "ShardId",
                         "locationName": "ShardToSplit",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard to split.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard to split.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3873,7 +3873,7 @@
                         "name": "_ssNewStartingHashKey",
                         "shape": "HashKey",
                         "locationName": "NewStartingHashKey",
-                        "documentation": "\u003cp\u003eA hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for \u003ccode\u003eNewStartingHashKey\u003c/code\u003e must be in the range of hash keys being mapped into the shard. The \u003ccode\u003eNewStartingHashKey\u003c/code\u003e hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.\u003c/p\u003e",
+                        "documentation": "-- | A hash key value for the starting hash key of one of the child shards created\n-- by the split. The hash key range for a given shard constitutes a set of\n-- ordered contiguous positive integers. The value for 'NewStartingHashKey' must\n-- be in the range of hash keys being mapped into the shard. The 'NewStartingHashKey' hash key value and all higher hash key values in hash key range are\n-- distributed to one of the child shards. All the lower hash key values in the\n-- range are distributed to the other child shard.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3898,7 +3898,7 @@
                         "name": "_ssStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream for the shard split.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream for the shard split.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3913,7 +3913,7 @@
                         "name": "_ssShardToSplit",
                         "shape": "ShardId",
                         "locationName": "ShardToSplit",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard to split.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard to split.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3928,7 +3928,7 @@
                         "name": "_ssNewStartingHashKey",
                         "shape": "HashKey",
                         "locationName": "NewStartingHashKey",
-                        "documentation": "\u003cp\u003eA hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for \u003ccode\u003eNewStartingHashKey\u003c/code\u003e must be in the range of hash keys being mapped into the shard. The \u003ccode\u003eNewStartingHashKey\u003c/code\u003e hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.\u003c/p\u003e",
+                        "documentation": "-- | A hash key value for the starting hash key of one of the child shards created\n-- by the split. The hash key range for a given shard constitutes a set of\n-- ordered contiguous positive integers. The value for 'NewStartingHashKey' must\n-- be in the range of hash keys being mapped into the shard. The 'NewStartingHashKey' hash key value and all higher hash key values in hash key range are\n-- distributed to one of the child shards. All the lower hash key values in the\n-- range are distributed to the other child shard.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3956,7 +3956,7 @@
                         "name": "_ssNewStartingHashKey",
                         "shape": "HashKey",
                         "locationName": "NewStartingHashKey",
-                        "documentation": "\u003cp\u003eA hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for \u003ccode\u003eNewStartingHashKey\u003c/code\u003e must be in the range of hash keys being mapped into the shard. The \u003ccode\u003eNewStartingHashKey\u003c/code\u003e hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.\u003c/p\u003e",
+                        "documentation": "-- | A hash key value for the starting hash key of one of the child shards created\n-- by the split. The hash key range for a given shard constitutes a set of\n-- ordered contiguous positive integers. The value for 'NewStartingHashKey' must\n-- be in the range of hash keys being mapped into the shard. The 'NewStartingHashKey' hash key value and all higher hash key values in hash key range are\n-- distributed to one of the child shards. All the lower hash key values in the\n-- range are distributed to the other child shard.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3971,7 +3971,7 @@
                         "name": "_ssShardToSplit",
                         "shape": "ShardId",
                         "locationName": "ShardToSplit",
-                        "documentation": "\u003cp\u003eThe shard ID of the shard to split.\u003c/p\u003e",
+                        "documentation": "-- | The shard ID of the shard to split.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3986,7 +3986,7 @@
                         "name": "_ssStreamName",
                         "shape": "StreamName",
                         "locationName": "StreamName",
-                        "documentation": "\u003cp\u003eThe name of the stream for the shard split.\u003c/p\u003e",
+                        "documentation": "-- | The name of the stream for the shard split.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }

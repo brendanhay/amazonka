@@ -68,12 +68,14 @@ addInstanceGroups p1 = AddInstanceGroups
     }
 
 -- | Instance Groups to add.
+--
 aigInstanceGroups :: Lens' AddInstanceGroups [InstanceGroupConfig]
 aigInstanceGroups =
     lens _aigInstanceGroups (\s a -> s { _aigInstanceGroups = a })
         . _List
 
 -- | Job flow in which to add the instance groups.
+--
 aigJobFlowId :: Lens' AddInstanceGroups Text
 aigJobFlowId = lens _aigJobFlowId (\s a -> s { _aigJobFlowId = a })
 
@@ -97,12 +99,14 @@ addInstanceGroupsResponse = AddInstanceGroupsResponse
     }
 
 -- | Instance group IDs of the newly created instance groups.
+--
 aigrInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
 aigrInstanceGroupIds =
     lens _aigrInstanceGroupIds (\s a -> s { _aigrInstanceGroupIds = a })
         . _List
 
 -- | The job flow ID in which the instance groups are added.
+--
 aigrJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
 aigrJobFlowId = lens _aigrJobFlowId (\s a -> s { _aigrJobFlowId = a })
 

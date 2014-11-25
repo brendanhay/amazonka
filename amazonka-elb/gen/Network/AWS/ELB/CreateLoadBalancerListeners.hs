@@ -23,10 +23,9 @@
 -- | Creates one or more listeners on a load balancer for the specified port. If
 -- a listener with the given port does not already exist, it will be created;
 -- otherwise, the properties of the new listener must match the properties of
--- the existing listener. For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html
--- Add a Listener to Your Load Balancer> in the /Elastic Load Balancing
--- Developer Guide/.
+-- the existing listener.
+--
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html Add a Listener to Your Load Balancer> in the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerListeners.html>
 module Network.AWS.ELB.CreateLoadBalancerListeners
@@ -70,12 +69,13 @@ createLoadBalancerListeners p1 = CreateLoadBalancerListeners
     , _clblListeners        = mempty
     }
 
--- | A list of 'LoadBalancerPort', 'InstancePort', 'Protocol',
--- 'InstanceProtocol', and 'SSLCertificateId' items.
+-- | A list of 'LoadBalancerPort', 'InstancePort', 'Protocol', 'InstanceProtocol', and 'SSLCertificateId' items.
+--
 clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
 clblListeners = lens _clblListeners (\s a -> s { _clblListeners = a }) . _List
 
 -- | The name of the load balancer.
+--
 clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
 clblLoadBalancerName =
     lens _clblLoadBalancerName (\s a -> s { _clblLoadBalancerName = a })

@@ -21,19 +21,20 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns information about Amazon Redshift security groups. If the name of a
--- security group is specified, the response will contain only information
--- about only that security group. For information about managing security
--- groups, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html
--- Amazon Redshift Cluster Security Groups> in the /Amazon Redshift Cluster
--- Management Guide/. If you specify both tag keys and tag values in the same
--- request, Amazon Redshift returns all security groups that match any
--- combination of the specified keys and values. For example, if you have
--- 'owner' and 'environment' for tag keys, and 'admin' and 'test' for tag
--- values, all security groups that have any combination of those values are
--- returned. If both tag keys and values are omitted from the request,
--- security groups are returned regardless of whether they have tag keys or
--- values associated with them.
+-- security group is specified, the response will contain only information about
+-- only that security group.
+--
+-- For information about managing security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon RedshiftCluster Security Groups> in the /Amazon Redshift Cluster Management Guide/.
+--
+-- If you specify both tag keys and tag values in the same request, Amazon
+-- Redshift returns all security groups that match any combination of the
+-- specified keys and values. For example, if you have 'owner' and 'environment' for
+-- tag keys, and 'admin' and 'test' for tag values, all security groups that have
+-- any combination of those values are returned.
+--
+-- If both tag keys and values are omitted from the request, security groups
+-- are returned regardless of whether they have tag keys or values associated
+-- with them.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSecurityGroups.html>
 module Network.AWS.Redshift.DescribeClusterSecurityGroups
@@ -94,51 +95,59 @@ describeClusterSecurityGroups = DescribeClusterSecurityGroups
     , _dcsgTagValues                = mempty
     }
 
--- | The name of a cluster security group for which you are requesting
--- details. You can specify either the Marker parameter or a
--- ClusterSecurityGroupName parameter, but not both. Example:
--- 'securitygroup1'.
+-- | The name of a cluster security group for which you are requesting details.
+-- You can specify either the Marker parameter or a ClusterSecurityGroupName
+-- parameter, but not both.
+--
+-- Example: 'securitygroup1'
+--
 dcsgClusterSecurityGroupName :: Lens' DescribeClusterSecurityGroups (Maybe Text)
 dcsgClusterSecurityGroupName =
     lens _dcsgClusterSecurityGroupName
         (\s a -> s { _dcsgClusterSecurityGroupName = a })
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a
--- 'DescribeClusterSecurityGroups' request exceed the value specified in
--- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
--- You can retrieve the next set of response records by providing the
--- returned marker value in the 'Marker' parameter and retrying the request.
--- Constraints: You can specify either the ClusterSecurityGroupName
--- parameter or the Marker parameter, but not both.
+-- | An optional parameter that specifies the starting point to return a set of
+-- response records. When the results of a 'DescribeClusterSecurityGroups' request
+-- exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker'
+-- field of the response. You can retrieve the next set of response records by
+-- providing the returned marker value in the 'Marker' parameter and retrying the
+-- request.
+--
+-- Constraints: You can specify either the ClusterSecurityGroupName parameter
+-- or the Marker parameter, but not both.
+--
 dcsgMarker :: Lens' DescribeClusterSecurityGroups (Maybe Text)
 dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 
--- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified 'MaxRecords'
--- value, a value is returned in a 'marker' field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value. Default: '100' Constraints: minimum 20, maximum
--- 100.
+-- | The maximum number of response records to return in each call. If the number
+-- of remaining response records exceeds the specified 'MaxRecords' value, a value
+-- is returned in a 'marker' field of the response. You can retrieve the next set
+-- of records by retrying the command with the returned marker value.
+--
+-- Default: '100'
+--
+-- Constraints: minimum 20, maximum 100.
+--
 dcsgMaxRecords :: Lens' DescribeClusterSecurityGroups (Maybe Int)
 dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
 
--- | A tag key or keys for which you want to return all matching cluster
--- security groups that are associated with the specified key or keys. For
--- example, suppose that you have security groups that are tagged with keys
--- called 'owner' and 'environment'. If you specify both of these tag keys
--- in the request, Amazon Redshift returns a response with the security
--- groups that have either or both of these tag keys associated with them.
+-- | A tag key or keys for which you want to return all matching cluster security
+-- groups that are associated with the specified key or keys. For example,
+-- suppose that you have security groups that are tagged with keys called 'owner'
+-- and 'environment'. If you specify both of these tag keys in the request, Amazon
+-- Redshift returns a response with the security groups that have either or both
+-- of these tag keys associated with them.
+--
 dcsgTagKeys :: Lens' DescribeClusterSecurityGroups [Text]
 dcsgTagKeys = lens _dcsgTagKeys (\s a -> s { _dcsgTagKeys = a }) . _List
 
 -- | A tag value or values for which you want to return all matching cluster
--- security groups that are associated with the specified tag value or
--- values. For example, suppose that you have security groups that are
--- tagged with values called 'admin' and 'test'. If you specify both of
--- these tag values in the request, Amazon Redshift returns a response with
--- the security groups that have either or both of these tag values
--- associated with them.
+-- security groups that are associated with the specified tag value or values.
+-- For example, suppose that you have security groups that are tagged with
+-- values called 'admin' and 'test'. If you specify both of these tag values in the
+-- request, Amazon Redshift returns a response with the security groups that
+-- have either or both of these tag values associated with them.
+--
 dcsgTagValues :: Lens' DescribeClusterSecurityGroups [Text]
 dcsgTagValues = lens _dcsgTagValues (\s a -> s { _dcsgTagValues = a }) . _List
 
@@ -162,6 +171,7 @@ describeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
     }
 
 -- | A list of 'ClusterSecurityGroup' instances.
+--
 dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
 dcsgr1ClusterSecurityGroups =
     lens _dcsgr1ClusterSecurityGroups
@@ -169,11 +179,11 @@ dcsgr1ClusterSecurityGroups =
             . _List
 
 -- | A value that indicates the starting point for the next set of response
--- records in a subsequent request. If a value is returned in a response,
--- you can retrieve the next set of records by providing this returned
--- marker value in the 'Marker' parameter and retrying the command. If the
--- 'Marker' field is empty, all response records have been retrieved for the
--- request.
+-- records in a subsequent request. If a value is returned in a response, you
+-- can retrieve the next set of records by providing this returned marker value
+-- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
+-- empty, all response records have been retrieved for the request.
+--
 dcsgr1Marker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
 dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
 

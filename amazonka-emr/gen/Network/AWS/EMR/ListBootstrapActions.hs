@@ -68,10 +68,12 @@ listBootstrapActions p1 = ListBootstrapActions
     }
 
 -- | The cluster identifier for the bootstrap actions to list .
+--
 lbaClusterId :: Lens' ListBootstrapActions Text
 lbaClusterId = lens _lbaClusterId (\s a -> s { _lbaClusterId = a })
 
 -- | The pagination token that indicates the next set of results to retrieve .
+--
 lbaMarker :: Lens' ListBootstrapActions (Maybe Text)
 lbaMarker = lens _lbaMarker (\s a -> s { _lbaMarker = a })
 
@@ -95,12 +97,14 @@ listBootstrapActionsResponse = ListBootstrapActionsResponse
     }
 
 -- | The bootstrap actions associated with the cluster .
+--
 lbarBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
 lbarBootstrapActions =
     lens _lbarBootstrapActions (\s a -> s { _lbarBootstrapActions = a })
         . _List
 
 -- | The pagination token that indicates the next set of results to retrieve .
+--
 lbarMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbarMarker = lens _lbarMarker (\s a -> s { _lbarMarker = a })
 

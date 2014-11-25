@@ -20,14 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
--- Elastic IP addresses>. Required Permissions: To use this action, an IAM
--- user must have a Show, Deploy, or Manage permissions level for the stack,
--- or an attached policy that explicitly grants permissions. For more
--- information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Describes <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP addresses>.
+--
+-- Required Permissions: To use this action, an IAM user must have a Show,
+-- Deploy, or Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeElasticIps.html>
 module Network.AWS.OpsWorks.DescribeElasticIps
@@ -77,22 +74,24 @@ describeElasticIps = DescribeElasticIps
     , _deiIps        = mempty
     }
 
--- | The instance ID. If you include this parameter, 'DescribeElasticIps'
--- returns a description of the Elastic IP addresses associated with the
--- specified instance.
+-- | The instance ID. If you include this parameter, 'DescribeElasticIps' returns a
+-- description of the Elastic IP addresses associated with the specified
+-- instance.
+--
 deiInstanceId :: Lens' DescribeElasticIps (Maybe Text)
 deiInstanceId = lens _deiInstanceId (\s a -> s { _deiInstanceId = a })
 
 -- | An array of Elastic IP addresses to be described. If you include this
--- parameter, 'DescribeElasticIps' returns a description of the specified
--- Elastic IP addresses. Otherwise, it returns a description of every
--- Elastic IP address.
+-- parameter, 'DescribeElasticIps' returns a description of the specified Elastic
+-- IP addresses. Otherwise, it returns a description of every Elastic IP address.
+--
 deiIps :: Lens' DescribeElasticIps [Text]
 deiIps = lens _deiIps (\s a -> s { _deiIps = a }) . _List
 
 -- | A stack ID. If you include this parameter, 'DescribeElasticIps' returns a
 -- description of the Elastic IP addresses that are registered with the
 -- specified stack.
+--
 deiStackId :: Lens' DescribeElasticIps (Maybe Text)
 deiStackId = lens _deiStackId (\s a -> s { _deiStackId = a })
 
@@ -118,6 +117,7 @@ describeElasticIpsResponse = DescribeElasticIpsResponse
     }
 
 -- | An 'ElasticIps' object that describes the specified Elastic IP addresses.
+--
 deirElasticIps :: Lens' DescribeElasticIpsResponse [ElasticIp]
 deirElasticIps = lens _deirElasticIps (\s a -> s { _deirElasticIps = a }) . _List
 

@@ -20,16 +20,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates an Amazon Redshift parameter group. Creating parameter groups is
--- independent of creating clusters. You can associate a cluster with a
--- parameter group when you create the cluster. You can also associate an
--- existing cluster with a parameter group after the cluster is created by
--- using 'ModifyCluster'. Parameters in the parameter group define specific
--- behavior that applies to the databases you create on the cluster. For more
--- information about managing parameter groups, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html
--- Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster
--- Management Guide/.
+-- | Creates an Amazon Redshift parameter group.
+--
+-- Creating parameter groups is independent of creating clusters. You can
+-- associate a cluster with a parameter group when you create the cluster. You
+-- can also associate an existing cluster with a parameter group after the
+-- cluster is created by using 'ModifyCluster'.
+--
+-- Parameters in the parameter group define specific behavior that applies to
+-- the databases you create on the cluster. For more information about managing
+-- parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /AmazonRedshift Cluster Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterParameterGroup.html>
 module Network.AWS.Redshift.CreateClusterParameterGroup
@@ -88,33 +88,38 @@ createClusterParameterGroup p1 p2 p3 = CreateClusterParameterGroup
     }
 
 -- | A description of the parameter group.
+--
 ccpgDescription :: Lens' CreateClusterParameterGroup Text
 ccpgDescription = lens _ccpgDescription (\s a -> s { _ccpgDescription = a })
 
 -- | The Amazon Redshift engine version to which the cluster parameter group
--- applies. The cluster engine version determines the set of parameters. To
--- get a list of valid parameter group family names, you can call
--- 'DescribeClusterParameterGroups'. By default, Amazon Redshift returns a
--- list of all the parameter groups that are owned by your AWS account,
--- including the default parameter groups for each Amazon Redshift engine
--- version. The parameter group family names associated with the default
--- parameter groups provide you the valid values. For example, a valid
--- family name is "redshift-1.0".
+-- applies. The cluster engine version determines the set of parameters.
+--
+-- To get a list of valid parameter group family names, you can call 'DescribeClusterParameterGroups'. By default, Amazon Redshift returns a list of all the parameter groups that
+-- are owned by your AWS account, including the default parameter groups for
+-- each Amazon Redshift engine version. The parameter group family names
+-- associated with the default parameter groups provide you the valid values.
+-- For example, a valid family name is "redshift-1.0".
+--
 ccpgParameterGroupFamily :: Lens' CreateClusterParameterGroup Text
 ccpgParameterGroupFamily =
     lens _ccpgParameterGroupFamily
         (\s a -> s { _ccpgParameterGroupFamily = a })
 
--- | The name of the cluster parameter group. Constraints: Must be 1 to 255
--- alphanumeric characters or hyphens First character must be a letter.
--- Cannot end with a hyphen or contain two consecutive hyphens. Must be
--- unique withing your AWS account. This value is stored as a lower-case
+-- | The name of the cluster parameter group.
+--
+-- Constraints:
+--
+-- Must be 1 to 255 alphanumeric characters or hyphens First character must be
+-- a letter. Cannot end with a hyphen or contain two consecutive hyphens. Must
+-- be unique withing your AWS account.  This value is stored as a lower-case
 -- string.
 ccpgParameterGroupName :: Lens' CreateClusterParameterGroup Text
 ccpgParameterGroupName =
     lens _ccpgParameterGroupName (\s a -> s { _ccpgParameterGroupName = a })
 
 -- | A list of tag instances.
+--
 ccpgTags :: Lens' CreateClusterParameterGroup [Tag]
 ccpgTags = lens _ccpgTags (\s a -> s { _ccpgTags = a }) . _List
 

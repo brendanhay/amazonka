@@ -76,11 +76,13 @@ digDryRun :: Lens' DetachInternetGateway (Maybe Bool)
 digDryRun = lens _digDryRun (\s a -> s { _digDryRun = a })
 
 -- | The ID of the Internet gateway.
+--
 digInternetGatewayId :: Lens' DetachInternetGateway Text
 digInternetGatewayId =
     lens _digInternetGatewayId (\s a -> s { _digInternetGatewayId = a })
 
 -- | The ID of the VPC.
+--
 digVpcId :: Lens' DetachInternetGateway Text
 digVpcId = lens _digVpcId (\s a -> s { _digVpcId = a })
 

@@ -22,7 +22,6 @@
 
 -- | This operation enables you to delete multiple objects from a bucket using a
 -- single HTTP request. You may specify up to 1000 keys.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObjects.html>
 module Network.AWS.S3.DeleteObjects
     (
@@ -80,8 +79,8 @@ do1Bucket = lens _do1Bucket (\s a -> s { _do1Bucket = a })
 do1Delete :: Lens' DeleteObjects Delete
 do1Delete = lens _do1Delete (\s a -> s { _do1Delete = a })
 
--- | The concatenation of the authentication device's serial number, a space,
--- and the value that is displayed on your authentication device.
+-- | The concatenation of the authentication device's serial number, a space, and
+-- the value that is displayed on your authentication device.
 do1MFA :: Lens' DeleteObjects (Maybe Text)
 do1MFA = lens _do1MFA (\s a -> s { _do1MFA = a })
 

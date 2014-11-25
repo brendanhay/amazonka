@@ -69,6 +69,7 @@ describeDeliveryChannelStatus = DescribeDeliveryChannelStatus
     }
 
 -- | A list of delivery channel names.
+--
 ddcsDeliveryChannelNames :: Lens' DescribeDeliveryChannelStatus [Text]
 ddcsDeliveryChannelNames =
     lens _ddcsDeliveryChannelNames
@@ -97,6 +98,7 @@ describeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse
     }
 
 -- | A list that contains the status of a specified delivery channel.
+--
 ddcsrDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [DeliveryChannelStatus]
 ddcsrDeliveryChannelsStatus =
     lens _ddcsrDeliveryChannelsStatus

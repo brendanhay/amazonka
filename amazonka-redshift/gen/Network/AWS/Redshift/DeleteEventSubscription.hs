@@ -59,8 +59,8 @@ deleteEventSubscription p1 = DeleteEventSubscription
     { _desSubscriptionName = p1
     }
 
--- | The name of the Amazon Redshift event notification subscription to be
--- deleted.
+-- | The name of the Amazon Redshift event notification subscription to be deleted.
+--
 desSubscriptionName :: Lens' DeleteEventSubscription Text
 desSubscriptionName =
     lens _desSubscriptionName (\s a -> s { _desSubscriptionName = a })

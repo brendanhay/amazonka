@@ -20,12 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes an Amazon Redshift security group. You cannot delete a security
--- group that is associated with any clusters. You cannot delete the default
--- security group. For information about managing security groups, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html
--- Amazon Redshift Cluster Security Groups> in the /Amazon Redshift Cluster
--- Management Guide/.
+-- | Deletes an Amazon Redshift security group.
+--
+-- You cannot delete a security group that is associated with any clusters. You
+-- cannot delete the default security group.  For information about managing
+-- security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups> in the /AmazonRedshift Cluster Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSecurityGroup.html>
 module Network.AWS.Redshift.DeleteClusterSecurityGroup
@@ -65,6 +64,7 @@ deleteClusterSecurityGroup p1 = DeleteClusterSecurityGroup
     }
 
 -- | The name of the cluster security group to be deleted.
+--
 dcsg1ClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup Text
 dcsg1ClusterSecurityGroupName =
     lens _dcsg1ClusterSecurityGroupName

@@ -60,6 +60,7 @@ deleteHsmConfiguration p1 = DeleteHsmConfiguration
     }
 
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
+--
 dhcHsmConfigurationIdentifier :: Lens' DeleteHsmConfiguration Text
 dhcHsmConfigurationIdentifier =
     lens _dhcHsmConfigurationIdentifier

@@ -498,28 +498,34 @@ instanceGroupConfig p1 p2 p3 = InstanceGroupConfig
     , _igcBidPrice      = Nothing
     }
 
--- | Bid price for each Amazon EC2 instance in the instance group when
--- launching nodes as Spot Instances, expressed in USD.
+-- | Bid price for each Amazon EC2 instance in the instance group when launching
+-- nodes as Spot Instances, expressed in USD.
+--
 igcBidPrice :: Lens' InstanceGroupConfig (Maybe Text)
 igcBidPrice = lens _igcBidPrice (\s a -> s { _igcBidPrice = a })
 
 -- | Target number of instances for the instance group.
+--
 igcInstanceCount :: Lens' InstanceGroupConfig Int
 igcInstanceCount = lens _igcInstanceCount (\s a -> s { _igcInstanceCount = a })
 
 -- | The role of the instance group in the cluster.
+--
 igcInstanceRole :: Lens' InstanceGroupConfig InstanceRoleType
 igcInstanceRole = lens _igcInstanceRole (\s a -> s { _igcInstanceRole = a })
 
 -- | The Amazon EC2 instance type for all instances in the instance group.
+--
 igcInstanceType :: Lens' InstanceGroupConfig Text
 igcInstanceType = lens _igcInstanceType (\s a -> s { _igcInstanceType = a })
 
 -- | Market type of the Amazon EC2 instances used to create a cluster node.
+--
 igcMarket :: Lens' InstanceGroupConfig (Maybe MarketType)
 igcMarket = lens _igcMarket (\s a -> s { _igcMarket = a })
 
 -- | Friendly name given to the instance group.
+--
 igcName :: Lens' InstanceGroupConfig (Maybe Text)
 igcName = lens _igcName (\s a -> s { _igcName = a })
 
@@ -562,10 +568,12 @@ instanceStateChangeReason = InstanceStateChangeReason
     }
 
 -- | The programmable code for the state change reason.
+--
 iscrCode :: Lens' InstanceStateChangeReason (Maybe InstanceStateChangeReasonCode)
 iscrCode = lens _iscrCode (\s a -> s { _iscrCode = a })
 
 -- | The status change reason description.
+--
 iscrMessage :: Lens' InstanceStateChangeReason (Maybe Text)
 iscrMessage = lens _iscrMessage (\s a -> s { _iscrMessage = a })
 
@@ -645,69 +653,78 @@ jobFlowDetail p1 p2 p3 p4 = JobFlowDetail
 
 -- | The version of the AMI used to initialize Amazon EC2 instances in the job
 -- flow. For a list of AMI versions currently supported by Amazon
--- ElasticMapReduce, go to
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported
--- AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic
--- MapReduce Developer's Guide./.
+-- ElasticMapReduce, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic MapReduce Developer's Guide./
+--
 jfdAmiVersion :: Lens' JobFlowDetail (Maybe Text)
 jfdAmiVersion = lens _jfdAmiVersion (\s a -> s { _jfdAmiVersion = a })
 
 -- | A list of the bootstrap actions run by the job flow.
+--
 jfdBootstrapActions :: Lens' JobFlowDetail [BootstrapActionDetail]
 jfdBootstrapActions =
     lens _jfdBootstrapActions (\s a -> s { _jfdBootstrapActions = a })
         . _List
 
 -- | Describes the execution status of the job flow.
+--
 jfdExecutionStatusDetail :: Lens' JobFlowDetail JobFlowExecutionStatusDetail
 jfdExecutionStatusDetail =
     lens _jfdExecutionStatusDetail
         (\s a -> s { _jfdExecutionStatusDetail = a })
 
 -- | Describes the Amazon EC2 instances of the job flow.
+--
 jfdInstances :: Lens' JobFlowDetail JobFlowInstancesDetail
 jfdInstances = lens _jfdInstances (\s a -> s { _jfdInstances = a })
 
 -- | The job flow identifier.
+--
 jfdJobFlowId :: Lens' JobFlowDetail Text
 jfdJobFlowId = lens _jfdJobFlowId (\s a -> s { _jfdJobFlowId = a })
 
 -- | The IAM role that was specified when the job flow was launched. The EC2
 -- instances of the job flow assume this role.
+--
 jfdJobFlowRole :: Lens' JobFlowDetail (Maybe Text)
 jfdJobFlowRole = lens _jfdJobFlowRole (\s a -> s { _jfdJobFlowRole = a })
 
 -- | The location in Amazon S3 where log files for the job are stored.
+--
 jfdLogUri :: Lens' JobFlowDetail (Maybe Text)
 jfdLogUri = lens _jfdLogUri (\s a -> s { _jfdLogUri = a })
 
 -- | The name of the job flow.
+--
 jfdName :: Lens' JobFlowDetail Text
 jfdName = lens _jfdName (\s a -> s { _jfdName = a })
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access AWS
 -- resources on your behalf.
+--
 jfdServiceRole :: Lens' JobFlowDetail (Maybe Text)
 jfdServiceRole = lens _jfdServiceRole (\s a -> s { _jfdServiceRole = a })
 
 -- | A list of steps run by the job flow.
+--
 jfdSteps :: Lens' JobFlowDetail [StepDetail]
 jfdSteps = lens _jfdSteps (\s a -> s { _jfdSteps = a }) . _List
 
--- | A list of strings set by third party software when the job flow is
--- launched. If you are not using third party software to manage the job
--- flow this value is empty.
+-- | A list of strings set by third party software when the job flow is launched.
+-- If you are not using third party software to manage the job flow this value
+-- is empty.
+--
 jfdSupportedProducts :: Lens' JobFlowDetail [Text]
 jfdSupportedProducts =
     lens _jfdSupportedProducts (\s a -> s { _jfdSupportedProducts = a })
         . _List
 
--- | Specifies whether the job flow is visible to all IAM users of the AWS
--- account associated with the job flow. If this value is set to 'true', all
--- IAM users of that AWS account can view and (if they have the proper
--- policy permissions set) manage the job flow. If it is set to 'false',
--- only the IAM user that created the job flow can view and manage it. This
--- value can be changed using the 'SetVisibleToAllUsers' action.
+-- | Specifies whether the job flow is visible to all IAM users of the AWS account
+-- associated with the job flow. If this value is set to 'true', all IAM users of
+-- that AWS account can view and (if they have the proper policy permissions
+-- set) manage the job flow. If it is set to 'false', only the IAM user that
+-- created the job flow can view and manage it. This value can be changed using
+-- the 'SetVisibleToAllUsers' action.
+--
 jfdVisibleToAllUsers :: Lens' JobFlowDetail (Maybe Bool)
 jfdVisibleToAllUsers =
     lens _jfdVisibleToAllUsers (\s a -> s { _jfdVisibleToAllUsers = a })
@@ -763,10 +780,12 @@ keyValue = KeyValue
     }
 
 -- | The unique identifier of a key value pair.
+--
 kvKey :: Lens' KeyValue (Maybe Text)
 kvKey = lens _kvKey (\s a -> s { _kvKey = a })
 
 -- | The value part of the identified key.
+--
 kvValue :: Lens' KeyValue (Maybe Text)
 kvValue = lens _kvValue (\s a -> s { _kvValue = a })
 
@@ -801,10 +820,12 @@ supportedProductConfig = SupportedProductConfig
     }
 
 -- | The list of user-supplied arguments.
+--
 spcArgs :: Lens' SupportedProductConfig [Text]
 spcArgs = lens _spcArgs (\s a -> s { _spcArgs = a }) . _List
 
 -- | The name of the product configuration.
+--
 spcName :: Lens' SupportedProductConfig (Maybe Text)
 spcName = lens _spcName (\s a -> s { _spcName = a })
 
@@ -843,14 +864,17 @@ command = Command
     }
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
+--
 cArgs :: Lens' Command [Text]
 cArgs = lens _cArgs (\s a -> s { _cArgs = a }) . _List
 
 -- | The name of the command.
+--
 cName :: Lens' Command (Maybe Text)
 cName = lens _cName (\s a -> s { _cName = a })
 
 -- | The Amazon S3 location of the command script.
+--
 cScriptPath :: Lens' Command (Maybe Text)
 cScriptPath = lens _cScriptPath (\s a -> s { _cScriptPath = a })
 
@@ -966,10 +990,12 @@ clusterStateChangeReason = ClusterStateChangeReason
     }
 
 -- | The programmatic code for the state change reason.
+--
 cscrCode :: Lens' ClusterStateChangeReason (Maybe ClusterStateChangeReasonCode)
 cscrCode = lens _cscrCode (\s a -> s { _cscrCode = a })
 
 -- | The descriptive message for the state change reason.
+--
 cscrMessage :: Lens' ClusterStateChangeReason (Maybe Text)
 cscrMessage = lens _cscrMessage (\s a -> s { _cscrMessage = a })
 
@@ -1004,16 +1030,13 @@ tag = Tag
     }
 
 -- | A user-defined key, which is the minimum required information for a valid
--- tag. For more information, see
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html
--- Tagging Amazon EMR Resources>.
+-- tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
+--
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
--- | A user-defined value, which is optional in a tag. For more information,
--- see
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html
--- Tagging Amazon EMR Resources>.
+-- | A user-defined value, which is optional in a tag. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
+--
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
@@ -1056,20 +1079,23 @@ application = Application
     }
 
 -- | This option is for advanced users only. This is meta information about
--- third-party applications that third-party vendors use for testing
--- purposes.
+-- third-party applications that third-party vendors use for testing purposes.
+--
 aAdditionalInfo :: Lens' Application (HashMap Text Text)
 aAdditionalInfo = lens _aAdditionalInfo (\s a -> s { _aAdditionalInfo = a }) . _Map
 
 -- | Arguments for Amazon EMR to pass to the application.
+--
 aArgs :: Lens' Application [Text]
 aArgs = lens _aArgs (\s a -> s { _aArgs = a }) . _List
 
 -- | The name of the application.
+--
 aName :: Lens' Application (Maybe Text)
 aName = lens _aName (\s a -> s { _aName = a })
 
 -- | The version of the application.
+--
 aVersion :: Lens' Application (Maybe Text)
 aVersion = lens _aVersion (\s a -> s { _aVersion = a })
 
@@ -1126,16 +1152,19 @@ jobFlowExecutionStatusDetail p1 p2 = JobFlowExecutionStatusDetail
     }
 
 -- | The creation date and time of the job flow.
+--
 jfesdCreationDateTime :: Lens' JobFlowExecutionStatusDetail UTCTime
 jfesdCreationDateTime =
     lens _jfesdCreationDateTime (\s a -> s { _jfesdCreationDateTime = a })
         . _Time
 
 -- | The completion date and time of the job flow.
+--
 jfesdEndDateTime :: Lens' JobFlowExecutionStatusDetail (Maybe UTCTime)
 jfesdEndDateTime = lens _jfesdEndDateTime (\s a -> s { _jfesdEndDateTime = a }) . mapping _Time
 
 -- | Description of the job flow last changed state.
+--
 jfesdLastStateChangeReason :: Lens' JobFlowExecutionStatusDetail (Maybe Text)
 jfesdLastStateChangeReason =
     lens _jfesdLastStateChangeReason
@@ -1143,18 +1172,21 @@ jfesdLastStateChangeReason =
 
 -- | The date and time when the job flow was ready to start running bootstrap
 -- actions.
+--
 jfesdReadyDateTime :: Lens' JobFlowExecutionStatusDetail (Maybe UTCTime)
 jfesdReadyDateTime =
     lens _jfesdReadyDateTime (\s a -> s { _jfesdReadyDateTime = a })
         . mapping _Time
 
 -- | The start date and time of the job flow.
+--
 jfesdStartDateTime :: Lens' JobFlowExecutionStatusDetail (Maybe UTCTime)
 jfesdStartDateTime =
     lens _jfesdStartDateTime (\s a -> s { _jfesdStartDateTime = a })
         . mapping _Time
 
 -- | The state of the job flow.
+--
 jfesdState :: Lens' JobFlowExecutionStatusDetail JobFlowExecutionState
 jfesdState = lens _jfesdState (\s a -> s { _jfesdState = a })
 
@@ -1201,15 +1233,18 @@ instanceGroupStatus = InstanceGroupStatus
     }
 
 -- | The current state of the instance group.
+--
 igsState :: Lens' InstanceGroupStatus (Maybe InstanceGroupState)
 igsState = lens _igsState (\s a -> s { _igsState = a })
 
 -- | The status change reason details for the instance group.
+--
 igsStateChangeReason :: Lens' InstanceGroupStatus (Maybe InstanceGroupStateChangeReason)
 igsStateChangeReason =
     lens _igsStateChangeReason (\s a -> s { _igsStateChangeReason = a })
 
 -- | The timeline of the instance group status over time.
+--
 igsTimeline :: Lens' InstanceGroupStatus (Maybe InstanceGroupTimeline)
 igsTimeline = lens _igsTimeline (\s a -> s { _igsTimeline = a })
 
@@ -1290,11 +1325,12 @@ cluster = Cluster
     }
 
 -- | The applications installed on this cluster.
+--
 c1Applications :: Lens' Cluster [Application]
 c1Applications = lens _c1Applications (\s a -> s { _c1Applications = a }) . _List
 
--- | Specifies whether the cluster should terminate after completing all
--- steps.
+-- | Specifies whether the cluster should terminate after completing all steps.
+--
 c1AutoTerminate :: Lens' Cluster (Maybe Bool)
 c1AutoTerminate = lens _c1AutoTerminate (\s a -> s { _c1AutoTerminate = a })
 
@@ -1303,56 +1339,64 @@ c1Ec2InstanceAttributes =
     lens _c1Ec2InstanceAttributes (\s a -> s { _c1Ec2InstanceAttributes = a })
 
 -- | The unique identifier for the cluster.
+--
 c1Id :: Lens' Cluster (Maybe Text)
 c1Id = lens _c1Id (\s a -> s { _c1Id = a })
 
--- | The path to the Amazon S3 location where logs for this cluster are
--- stored.
+-- | The path to the Amazon S3 location where logs for this cluster are stored.
+--
 c1LogUri :: Lens' Cluster (Maybe Text)
 c1LogUri = lens _c1LogUri (\s a -> s { _c1LogUri = a })
 
 -- | The name of the cluster.
+--
 c1Name :: Lens' Cluster (Maybe Text)
 c1Name = lens _c1Name (\s a -> s { _c1Name = a })
 
 -- | The AMI version requested for this cluster.
+--
 c1RequestedAmiVersion :: Lens' Cluster (Maybe Text)
 c1RequestedAmiVersion =
     lens _c1RequestedAmiVersion (\s a -> s { _c1RequestedAmiVersion = a })
 
 -- | The AMI version running on this cluster. This differs from the requested
--- version only if the requested version is a meta version, such as
--- "latest".
+-- version only if the requested version is a meta version, such as "latest".
+--
 c1RunningAmiVersion :: Lens' Cluster (Maybe Text)
 c1RunningAmiVersion =
     lens _c1RunningAmiVersion (\s a -> s { _c1RunningAmiVersion = a })
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access AWS
 -- resources on your behalf.
+--
 c1ServiceRole :: Lens' Cluster (Maybe Text)
 c1ServiceRole = lens _c1ServiceRole (\s a -> s { _c1ServiceRole = a })
 
 -- | The current status details about the cluster.
+--
 c1Status :: Lens' Cluster (Maybe ClusterStatus)
 c1Status = lens _c1Status (\s a -> s { _c1Status = a })
 
 -- | A list of tags associated with a cluster.
+--
 c1Tags :: Lens' Cluster [Tag]
 c1Tags = lens _c1Tags (\s a -> s { _c1Tags = a }) . _List
 
 -- | Indicates whether Amazon EMR will lock the cluster to prevent the EC2
--- instances from being terminated by an API call or user intervention, or
--- in the event of a cluster error.
+-- instances from being terminated by an API call or user intervention, or in
+-- the event of a cluster error.
+--
 c1TerminationProtected :: Lens' Cluster (Maybe Bool)
 c1TerminationProtected =
     lens _c1TerminationProtected (\s a -> s { _c1TerminationProtected = a })
 
--- | Indicates whether the job flow is visible to all IAM users of the AWS
--- account associated with the job flow. If this value is set to 'true', all
--- IAM users of that AWS account can view and manage the job flow if they
--- have the proper policy permissions set. If this value is 'false', only
--- the IAM user that created the cluster can view and manage it. This value
--- can be changed using the 'SetVisibleToAllUsers' action.
+-- | Indicates whether the job flow is visible to all IAM users of the AWS account
+-- associated with the job flow. If this value is set to 'true', all IAM users of
+-- that AWS account can view and manage the job flow if they have the proper
+-- policy permissions set. If this value is 'false', only the IAM user that
+-- created the cluster can view and manage it. This value can be changed using
+-- the 'SetVisibleToAllUsers' action.
+--
 c1VisibleToAllUsers :: Lens' Cluster (Maybe Bool)
 c1VisibleToAllUsers =
     lens _c1VisibleToAllUsers (\s a -> s { _c1VisibleToAllUsers = a })
@@ -1414,16 +1458,19 @@ instanceTimeline = InstanceTimeline
     }
 
 -- | The creation date and time of the instance.
+--
 itCreationDateTime :: Lens' InstanceTimeline (Maybe UTCTime)
 itCreationDateTime =
     lens _itCreationDateTime (\s a -> s { _itCreationDateTime = a })
         . mapping _Time
 
 -- | The date and time when the instance was terminated.
+--
 itEndDateTime :: Lens' InstanceTimeline (Maybe UTCTime)
 itEndDateTime = lens _itEndDateTime (\s a -> s { _itEndDateTime = a }) . mapping _Time
 
 -- | The date and time when the instance was ready to perform tasks.
+--
 itReadyDateTime :: Lens' InstanceTimeline (Maybe UTCTime)
 itReadyDateTime = lens _itReadyDateTime (\s a -> s { _itReadyDateTime = a }) . mapping _Time
 
@@ -1468,27 +1515,32 @@ ec2InstanceAttributes = Ec2InstanceAttributes
     }
 
 -- | The Availability Zone in which the cluster will run.
+--
 eiaEc2AvailabilityZone :: Lens' Ec2InstanceAttributes (Maybe Text)
 eiaEc2AvailabilityZone =
     lens _eiaEc2AvailabilityZone (\s a -> s { _eiaEc2AvailabilityZone = a })
 
--- | The name of the Amazon EC2 key pair to use when connecting with SSH into
--- the master node as a user named "hadoop".
+-- | The name of the Amazon EC2 key pair to use when connecting with SSH into the
+-- master node as a user named "hadoop".
+--
 eiaEc2KeyName :: Lens' Ec2InstanceAttributes (Maybe Text)
 eiaEc2KeyName = lens _eiaEc2KeyName (\s a -> s { _eiaEc2KeyName = a })
 
--- | To launch the job flow in Amazon VPC, set this parameter to the
--- identifier of the Amazon VPC subnet where you want the job flow to
--- launch. If you do not specify this value, the job flow is launched in the
--- normal AWS cloud, outside of a VPC. Amazon VPC currently does not support
--- cluster compute quadruple extra large (cc1.4xlarge) instances. Thus, you
--- cannot specify the cc1.4xlarge instance type for nodes of a job flow
--- launched in a VPC.
+-- | To launch the job flow in Amazon VPC, set this parameter to the identifier
+-- of the Amazon VPC subnet where you want the job flow to launch. If you do not
+-- specify this value, the job flow is launched in the normal AWS cloud, outside
+-- of a VPC.
+--
+-- Amazon VPC currently does not support cluster compute quadruple extra large
+-- (cc1.4xlarge) instances. Thus, you cannot specify the cc1.4xlarge instance
+-- type for nodes of a job flow launched in a VPC.
+--
 eiaEc2SubnetId :: Lens' Ec2InstanceAttributes (Maybe Text)
 eiaEc2SubnetId = lens _eiaEc2SubnetId (\s a -> s { _eiaEc2SubnetId = a })
 
 -- | The IAM role that was specified when the job flow was launched. The EC2
 -- instances of the job flow assume this role.
+--
 eiaIamInstanceProfile :: Lens' Ec2InstanceAttributes (Maybe Text)
 eiaIamInstanceProfile =
     lens _eiaIamInstanceProfile (\s a -> s { _eiaIamInstanceProfile = a })
@@ -1604,22 +1656,26 @@ hadoopStepConfig = HadoopStepConfig
     , _hscArgs       = mempty
     }
 
--- | The list of command line arguments to pass to the JAR file's main
--- function for execution.
+-- | The list of command line arguments to pass to the JAR file's main function
+-- for execution.
+--
 hscArgs :: Lens' HadoopStepConfig [Text]
 hscArgs = lens _hscArgs (\s a -> s { _hscArgs = a }) . _List
 
 -- | The path to the JAR file that runs during the step.
+--
 hscJar :: Lens' HadoopStepConfig (Maybe Text)
 hscJar = lens _hscJar (\s a -> s { _hscJar = a })
 
--- | The name of the main class in the specified Java file. If not specified,
--- the JAR file should specify a main class in its manifest file.
+-- | The name of the main class in the specified Java file. If not specified, the
+-- JAR file should specify a main class in its manifest file.
+--
 hscMainClass :: Lens' HadoopStepConfig (Maybe Text)
 hscMainClass = lens _hscMainClass (\s a -> s { _hscMainClass = a })
 
 -- | The list of Java properties that are set when the step runs. You can use
 -- these properties to pass key value pairs to your main function.
+--
 hscProperties :: Lens' HadoopStepConfig (HashMap Text Text)
 hscProperties = lens _hscProperties (\s a -> s { _hscProperties = a }) . _Map
 
@@ -1707,11 +1763,13 @@ stepDetail p1 p2 = StepDetail
     }
 
 -- | The description of the step status.
+--
 sdExecutionStatusDetail :: Lens' StepDetail StepExecutionStatusDetail
 sdExecutionStatusDetail =
     lens _sdExecutionStatusDetail (\s a -> s { _sdExecutionStatusDetail = a })
 
 -- | The step configuration.
+--
 sdStepConfig :: Lens' StepDetail StepConfig
 sdStepConfig = lens _sdStepConfig (\s a -> s { _sdStepConfig = a })
 
@@ -1746,10 +1804,12 @@ instanceGroupStateChangeReason = InstanceGroupStateChangeReason
     }
 
 -- | The programmable code for the state change reason.
+--
 igscrCode :: Lens' InstanceGroupStateChangeReason (Maybe InstanceGroupStateChangeReasonCode)
 igscrCode = lens _igscrCode (\s a -> s { _igscrCode = a })
 
 -- | The status change reason description.
+--
 igscrMessage :: Lens' InstanceGroupStateChangeReason (Maybe Text)
 igscrMessage = lens _igscrMessage (\s a -> s { _igscrMessage = a })
 
@@ -1855,15 +1915,18 @@ stepStatus = StepStatus
     }
 
 -- | The execution state of the cluster step.
+--
 ssState :: Lens' StepStatus (Maybe StepState)
 ssState = lens _ssState (\s a -> s { _ssState = a })
 
 -- | The reason for the step execution status change.
+--
 ssStateChangeReason :: Lens' StepStatus (Maybe StepStateChangeReason)
 ssStateChangeReason =
     lens _ssStateChangeReason (\s a -> s { _ssStateChangeReason = a })
 
 -- | The timeline of the cluster step status over time.
+--
 ssTimeline :: Lens' StepStatus (Maybe StepTimeline)
 ssTimeline = lens _ssTimeline (\s a -> s { _ssTimeline = a })
 
@@ -1904,14 +1967,17 @@ stepSummary = StepSummary
     }
 
 -- | The identifier of the cluster step.
+--
 ssId :: Lens' StepSummary (Maybe Text)
 ssId = lens _ssId (\s a -> s { _ssId = a })
 
 -- | The name of the cluster step.
+--
 ssName :: Lens' StepSummary (Maybe Text)
 ssName = lens _ssName (\s a -> s { _ssName = a })
 
 -- | The current execution status details of the cluster step.
+--
 ssStatus :: Lens' StepSummary (Maybe StepStatus)
 ssStatus = lens _ssStatus (\s a -> s { _ssStatus = a })
 
@@ -2005,16 +2071,19 @@ stepTimeline = StepTimeline
     }
 
 -- | The date and time when the cluster step was created.
+--
 stCreationDateTime :: Lens' StepTimeline (Maybe UTCTime)
 stCreationDateTime =
     lens _stCreationDateTime (\s a -> s { _stCreationDateTime = a })
         . mapping _Time
 
 -- | The date and time when the cluster step execution completed or failed.
+--
 stEndDateTime :: Lens' StepTimeline (Maybe UTCTime)
 stEndDateTime = lens _stEndDateTime (\s a -> s { _stEndDateTime = a }) . mapping _Time
 
 -- | The date and time when the cluster step execution started.
+--
 stStartDateTime :: Lens' StepTimeline (Maybe UTCTime)
 stStartDateTime = lens _stStartDateTime (\s a -> s { _stStartDateTime = a }) . mapping _Time
 
@@ -2048,6 +2117,7 @@ placementType p1 = PlacementType
     }
 
 -- | The Amazon EC2 Availability Zone for the job flow.
+--
 ptAvailabilityZone :: Lens' PlacementType Text
 ptAvailabilityZone =
     lens _ptAvailabilityZone (\s a -> s { _ptAvailabilityZone = a })
@@ -2089,22 +2159,26 @@ hadoopJarStepConfig p1 = HadoopJarStepConfig
     , _hjscArgs       = mempty
     }
 
--- | A list of command line arguments passed to the JAR file's main function
--- when executed.
+-- | A list of command line arguments passed to the JAR file's main function when
+-- executed.
+--
 hjscArgs :: Lens' HadoopJarStepConfig [Text]
 hjscArgs = lens _hjscArgs (\s a -> s { _hjscArgs = a }) . _List
 
 -- | A path to a JAR file run during the step.
+--
 hjscJar :: Lens' HadoopJarStepConfig Text
 hjscJar = lens _hjscJar (\s a -> s { _hjscJar = a })
 
--- | The name of the main class in the specified Java file. If not specified,
--- the JAR file should specify a Main-Class in its manifest file.
+-- | The name of the main class in the specified Java file. If not specified, the
+-- JAR file should specify a Main-Class in its manifest file.
+--
 hjscMainClass :: Lens' HadoopJarStepConfig (Maybe Text)
 hjscMainClass = lens _hjscMainClass (\s a -> s { _hjscMainClass = a })
 
--- | A list of Java properties that are set when the step runs. You can use
--- these properties to pass key value pairs to your main function.
+-- | A list of Java properties that are set when the step runs. You can use these
+-- properties to pass key value pairs to your main function.
+--
 hjscProperties :: Lens' HadoopJarStepConfig [KeyValue]
 hjscProperties = lens _hjscProperties (\s a -> s { _hjscProperties = a }) . _List
 
@@ -2147,9 +2221,10 @@ instanceGroupModifyConfig p1 = InstanceGroupModifyConfig
     , _igmcEC2InstanceIdsToTerminate = mempty
     }
 
--- | The EC2 InstanceIds to terminate. For advanced users only. Once you
--- terminate the instances, the instance group will not return to its
--- original requested size.
+-- | The EC2 InstanceIds to terminate. For advanced users only. Once you terminate
+-- the instances, the instance group will not return to its original requested
+-- size.
+--
 igmcEC2InstanceIdsToTerminate :: Lens' InstanceGroupModifyConfig [Text]
 igmcEC2InstanceIdsToTerminate =
     lens _igmcEC2InstanceIdsToTerminate
@@ -2157,11 +2232,13 @@ igmcEC2InstanceIdsToTerminate =
             . _List
 
 -- | Target size for the instance group.
+--
 igmcInstanceCount :: Lens' InstanceGroupModifyConfig (Maybe Int)
 igmcInstanceCount =
     lens _igmcInstanceCount (\s a -> s { _igmcInstanceCount = a })
 
 -- | Unique ID of the instance group to expand or shrink.
+--
 igmcInstanceGroupId :: Lens' InstanceGroupModifyConfig Text
 igmcInstanceGroupId =
     lens _igmcInstanceGroupId (\s a -> s { _igmcInstanceGroupId = a })
@@ -2253,68 +2330,82 @@ instanceGroupDetail p1 p2 p3 p4 p5 p6 p7 = InstanceGroupDetail
     , _igdEndDateTime           = Nothing
     }
 
--- | Bid price for EC2 Instances when launching nodes as Spot Instances,
--- expressed in USD.
+-- | Bid price for EC2 Instances when launching nodes as Spot Instances, expressed
+-- in USD.
+--
 igdBidPrice :: Lens' InstanceGroupDetail (Maybe Text)
 igdBidPrice = lens _igdBidPrice (\s a -> s { _igdBidPrice = a })
 
 -- | The date/time the instance group was created.
+--
 igdCreationDateTime :: Lens' InstanceGroupDetail UTCTime
 igdCreationDateTime =
     lens _igdCreationDateTime (\s a -> s { _igdCreationDateTime = a })
         . _Time
 
 -- | The date/time the instance group was terminated.
+--
 igdEndDateTime :: Lens' InstanceGroupDetail (Maybe UTCTime)
 igdEndDateTime = lens _igdEndDateTime (\s a -> s { _igdEndDateTime = a }) . mapping _Time
 
 -- | Unique identifier for the instance group.
+--
 igdInstanceGroupId :: Lens' InstanceGroupDetail (Maybe Text)
 igdInstanceGroupId =
     lens _igdInstanceGroupId (\s a -> s { _igdInstanceGroupId = a })
 
 -- | Target number of instances to run in the instance group.
+--
 igdInstanceRequestCount :: Lens' InstanceGroupDetail Int
 igdInstanceRequestCount =
     lens _igdInstanceRequestCount (\s a -> s { _igdInstanceRequestCount = a })
 
--- | Instance group role in the cluster.
+-- | Instance group role in the cluster
+--
 igdInstanceRole :: Lens' InstanceGroupDetail InstanceRoleType
 igdInstanceRole = lens _igdInstanceRole (\s a -> s { _igdInstanceRole = a })
 
 -- | Actual count of running instances.
+--
 igdInstanceRunningCount :: Lens' InstanceGroupDetail Int
 igdInstanceRunningCount =
     lens _igdInstanceRunningCount (\s a -> s { _igdInstanceRunningCount = a })
 
 -- | Amazon EC2 Instance type.
+--
 igdInstanceType :: Lens' InstanceGroupDetail Text
 igdInstanceType = lens _igdInstanceType (\s a -> s { _igdInstanceType = a })
 
 -- | Details regarding the state of the instance group.
+--
 igdLastStateChangeReason :: Lens' InstanceGroupDetail (Maybe Text)
 igdLastStateChangeReason =
     lens _igdLastStateChangeReason
         (\s a -> s { _igdLastStateChangeReason = a })
 
 -- | Market type of the Amazon EC2 instances used to create a cluster node.
+--
 igdMarket :: Lens' InstanceGroupDetail MarketType
 igdMarket = lens _igdMarket (\s a -> s { _igdMarket = a })
 
 -- | Friendly name for the instance group.
+--
 igdName :: Lens' InstanceGroupDetail (Maybe Text)
 igdName = lens _igdName (\s a -> s { _igdName = a })
 
 -- | The date/time the instance group was available to the cluster.
+--
 igdReadyDateTime :: Lens' InstanceGroupDetail (Maybe UTCTime)
 igdReadyDateTime = lens _igdReadyDateTime (\s a -> s { _igdReadyDateTime = a }) . mapping _Time
 
 -- | The date/time the instance group was started.
+--
 igdStartDateTime :: Lens' InstanceGroupDetail (Maybe UTCTime)
 igdStartDateTime = lens _igdStartDateTime (\s a -> s { _igdStartDateTime = a }) . mapping _Time
 
 -- | State of instance group. The following values are deprecated: STARTING,
 -- TERMINATED, and FAILED.
+--
 igdState :: Lens' InstanceGroupDetail InstanceGroupState
 igdState = lens _igdState (\s a -> s { _igdState = a })
 
@@ -2373,10 +2464,12 @@ stepStateChangeReason = StepStateChangeReason
     }
 
 -- | The programmable code for the state change reason.
+--
 sscrCode :: Lens' StepStateChangeReason (Maybe StepStateChangeReasonCode)
 sscrCode = lens _sscrCode (\s a -> s { _sscrCode = a })
 
 -- | The descriptive message for the state change reason.
+--
 sscrMessage :: Lens' StepStateChangeReason (Maybe Text)
 sscrMessage = lens _sscrMessage (\s a -> s { _sscrMessage = a })
 
@@ -2468,22 +2561,27 @@ step = Step
 
 -- | This specifies what action to take when the cluster step fails. Possible
 -- values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE.
+--
 sActionOnFailure :: Lens' Step (Maybe ActionOnFailure)
 sActionOnFailure = lens _sActionOnFailure (\s a -> s { _sActionOnFailure = a })
 
 -- | The Hadoop job configuration of the cluster step.
+--
 sConfig :: Lens' Step (Maybe HadoopStepConfig)
 sConfig = lens _sConfig (\s a -> s { _sConfig = a })
 
 -- | The identifier of the cluster step.
+--
 sId :: Lens' Step (Maybe Text)
 sId = lens _sId (\s a -> s { _sId = a })
 
 -- | The name of the cluster step.
+--
 sName :: Lens' Step (Maybe Text)
 sName = lens _sName (\s a -> s { _sName = a })
 
 -- | The current execution status details of the cluster step.
+--
 sStatus :: Lens' Step (Maybe StepStatus)
 sStatus = lens _sStatus (\s a -> s { _sStatus = a })
 
@@ -2569,16 +2667,19 @@ instanceGroupTimeline = InstanceGroupTimeline
     }
 
 -- | The creation date and time of the instance group.
+--
 igtCreationDateTime :: Lens' InstanceGroupTimeline (Maybe UTCTime)
 igtCreationDateTime =
     lens _igtCreationDateTime (\s a -> s { _igtCreationDateTime = a })
         . mapping _Time
 
 -- | The date and time when the instance group terminated.
+--
 igtEndDateTime :: Lens' InstanceGroupTimeline (Maybe UTCTime)
 igtEndDateTime = lens _igtEndDateTime (\s a -> s { _igtEndDateTime = a }) . mapping _Time
 
 -- | The date and time when the instance group became ready to perform tasks.
+--
 igtReadyDateTime :: Lens' InstanceGroupTimeline (Maybe UTCTime)
 igtReadyDateTime = lens _igtReadyDateTime (\s a -> s { _igtReadyDateTime = a }) . mapping _Time
 
@@ -2611,6 +2712,7 @@ bootstrapActionDetail = BootstrapActionDetail
     }
 
 -- | A description of the bootstrap action.
+--
 badBootstrapActionConfig :: Lens' BootstrapActionDetail (Maybe BootstrapActionConfig)
 badBootstrapActionConfig =
     lens _badBootstrapActionConfig
@@ -2659,28 +2761,33 @@ stepExecutionStatusDetail p1 p2 = StepExecutionStatusDetail
     }
 
 -- | The creation date and time of the step.
+--
 sesdCreationDateTime :: Lens' StepExecutionStatusDetail UTCTime
 sesdCreationDateTime =
     lens _sesdCreationDateTime (\s a -> s { _sesdCreationDateTime = a })
         . _Time
 
 -- | The completion date and time of the step.
+--
 sesdEndDateTime :: Lens' StepExecutionStatusDetail (Maybe UTCTime)
 sesdEndDateTime = lens _sesdEndDateTime (\s a -> s { _sesdEndDateTime = a }) . mapping _Time
 
 -- | A description of the step's current state.
+--
 sesdLastStateChangeReason :: Lens' StepExecutionStatusDetail (Maybe Text)
 sesdLastStateChangeReason =
     lens _sesdLastStateChangeReason
         (\s a -> s { _sesdLastStateChangeReason = a })
 
 -- | The start date and time of the step.
+--
 sesdStartDateTime :: Lens' StepExecutionStatusDetail (Maybe UTCTime)
 sesdStartDateTime =
     lens _sesdStartDateTime (\s a -> s { _sesdStartDateTime = a })
         . mapping _Time
 
 -- | The state of the job flow step.
+--
 sesdState :: Lens' StepExecutionStatusDetail StepExecutionState
 sesdState = lens _sesdState (\s a -> s { _sesdState = a })
 
@@ -2725,15 +2832,18 @@ instanceStatus = InstanceStatus
     }
 
 -- | The current state of the instance.
+--
 isState :: Lens' InstanceStatus (Maybe InstanceState)
 isState = lens _isState (\s a -> s { _isState = a })
 
 -- | The details of the status change reason for the instance.
+--
 isStateChangeReason :: Lens' InstanceStatus (Maybe InstanceStateChangeReason)
 isStateChangeReason =
     lens _isStateChangeReason (\s a -> s { _isStateChangeReason = a })
 
 -- | The timeline of the instance status over time.
+--
 isTimeline :: Lens' InstanceStatus (Maybe InstanceTimeline)
 isTimeline = lens _isTimeline (\s a -> s { _isTimeline = a })
 
@@ -2834,64 +2944,73 @@ jobFlowInstancesConfig = JobFlowInstancesConfig
     }
 
 -- | The name of the Amazon EC2 key pair that can be used to ssh to the master
--- node as the user called "hadoop.".
+-- node as the user called "hadoop."
+--
 jficEc2KeyName :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEc2KeyName = lens _jficEc2KeyName (\s a -> s { _jficEc2KeyName = a })
 
 -- | To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set
--- this parameter to the identifier of the Amazon VPC subnet where you want
--- the job flow to launch. If you do not specify this value, the job flow is
--- launched in the normal Amazon Web Services cloud, outside of an Amazon
--- VPC. Amazon VPC currently does not support cluster compute quadruple
--- extra large (cc1.4xlarge) instances. Thus you cannot specify the
--- cc1.4xlarge instance type for nodes of a job flow launched in a Amazon
--- VPC.
+-- this parameter to the identifier of the Amazon VPC subnet where you want the
+-- job flow to launch. If you do not specify this value, the job flow is
+-- launched in the normal Amazon Web Services cloud, outside of an Amazon VPC.
+--
+-- Amazon VPC currently does not support cluster compute quadruple extra large
+-- (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge instance
+-- type for nodes of a job flow launched in a Amazon VPC.
+--
 jficEc2SubnetId :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEc2SubnetId = lens _jficEc2SubnetId (\s a -> s { _jficEc2SubnetId = a })
 
 -- | The Hadoop version for the job flow. Valid inputs are "0.18", "0.20", or
--- "0.20.205". If you do not set this value, the default of 0.18 is used,
--- unless the AmiVersion parameter is set in the RunJobFlow call, in which
--- case the default version of Hadoop for that AMI version is used.
+-- "0.20.205". If you do not set this value, the default of 0.18 is used, unless
+-- the AmiVersion parameter is set in the RunJobFlow call, in which case the
+-- default version of Hadoop for that AMI version is used.
+--
 jficHadoopVersion :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficHadoopVersion =
     lens _jficHadoopVersion (\s a -> s { _jficHadoopVersion = a })
 
 -- | The number of Amazon EC2 instances used to execute the job flow.
+--
 jficInstanceCount :: Lens' JobFlowInstancesConfig (Maybe Int)
 jficInstanceCount =
     lens _jficInstanceCount (\s a -> s { _jficInstanceCount = a })
 
 -- | Configuration for the job flow's instance groups.
+--
 jficInstanceGroups :: Lens' JobFlowInstancesConfig [InstanceGroupConfig]
 jficInstanceGroups =
     lens _jficInstanceGroups (\s a -> s { _jficInstanceGroups = a })
         . _List
 
--- | Specifies whether the job flow should terminate after completing all
--- steps.
+-- | Specifies whether the job flow should terminate after completing all steps.
+--
 jficKeepJobFlowAliveWhenNoSteps :: Lens' JobFlowInstancesConfig (Maybe Bool)
 jficKeepJobFlowAliveWhenNoSteps =
     lens _jficKeepJobFlowAliveWhenNoSteps
         (\s a -> s { _jficKeepJobFlowAliveWhenNoSteps = a })
 
 -- | The EC2 instance type of the master node.
+--
 jficMasterInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficMasterInstanceType =
     lens _jficMasterInstanceType (\s a -> s { _jficMasterInstanceType = a })
 
 -- | The Availability Zone the job flow will run in.
+--
 jficPlacement :: Lens' JobFlowInstancesConfig (Maybe PlacementType)
 jficPlacement = lens _jficPlacement (\s a -> s { _jficPlacement = a })
 
 -- | The EC2 instance type of the slave nodes.
+--
 jficSlaveInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficSlaveInstanceType =
     lens _jficSlaveInstanceType (\s a -> s { _jficSlaveInstanceType = a })
 
--- | Specifies whether to lock the job flow to prevent the Amazon EC2
--- instances from being terminated by API call, user intervention, or in the
--- event of a job flow error.
+-- | Specifies whether to lock the job flow to prevent the Amazon EC2 instances
+-- from being terminated by API call, user intervention, or in the event of a
+-- job flow error.
+--
 jficTerminationProtected :: Lens' JobFlowInstancesConfig (Maybe Bool)
 jficTerminationProtected =
     lens _jficTerminationProtected
@@ -2950,15 +3069,18 @@ stepConfig p1 p2 = StepConfig
     }
 
 -- | The action to take if the job flow step fails.
+--
 scActionOnFailure :: Lens' StepConfig (Maybe ActionOnFailure)
 scActionOnFailure =
     lens _scActionOnFailure (\s a -> s { _scActionOnFailure = a })
 
 -- | The JAR file used for the job flow step.
+--
 scHadoopJarStep :: Lens' StepConfig HadoopJarStepConfig
 scHadoopJarStep = lens _scHadoopJarStep (\s a -> s { _scHadoopJarStep = a })
 
 -- | The name of the job flow step.
+--
 scName :: Lens' StepConfig Text
 scName = lens _scName (\s a -> s { _scName = a })
 
@@ -3024,43 +3146,52 @@ instanceGroup = InstanceGroup
 
 -- | The bid price for each EC2 instance in the instance group when launching
 -- nodes as Spot Instances, expressed in USD.
+--
 igBidPrice :: Lens' InstanceGroup (Maybe Text)
 igBidPrice = lens _igBidPrice (\s a -> s { _igBidPrice = a })
 
 -- | The identifier of the instance group.
+--
 igId :: Lens' InstanceGroup (Maybe Text)
 igId = lens _igId (\s a -> s { _igId = a })
 
 -- | The type of the instance group. Valid values are MASTER, CORE or TASK.
+--
 igInstanceGroupType :: Lens' InstanceGroup (Maybe InstanceGroupType)
 igInstanceGroupType =
     lens _igInstanceGroupType (\s a -> s { _igInstanceGroupType = a })
 
 -- | The EC2 instance type for all instances in the instance group.
+--
 igInstanceType :: Lens' InstanceGroup (Maybe Text)
 igInstanceType = lens _igInstanceType (\s a -> s { _igInstanceType = a })
 
 -- | The marketplace to provision instances for this group. Valid values are
 -- ON_DEMAND or SPOT.
+--
 igMarket :: Lens' InstanceGroup (Maybe MarketType)
 igMarket = lens _igMarket (\s a -> s { _igMarket = a })
 
 -- | The name of the instance group.
+--
 igName :: Lens' InstanceGroup (Maybe Text)
 igName = lens _igName (\s a -> s { _igName = a })
 
 -- | The target number of instances for the instance group.
+--
 igRequestedInstanceCount :: Lens' InstanceGroup (Maybe Int)
 igRequestedInstanceCount =
     lens _igRequestedInstanceCount
         (\s a -> s { _igRequestedInstanceCount = a })
 
 -- | The number of instances currently running in this instance group.
+--
 igRunningInstanceCount :: Lens' InstanceGroup (Maybe Int)
 igRunningInstanceCount =
     lens _igRunningInstanceCount (\s a -> s { _igRunningInstanceCount = a })
 
 -- | The current status of the instance group.
+--
 igStatus :: Lens' InstanceGroup (Maybe InstanceGroupStatus)
 igStatus = lens _igStatus (\s a -> s { _igStatus = a })
 
@@ -3111,10 +3242,12 @@ bootstrapActionConfig p1 p2 = BootstrapActionConfig
     }
 
 -- | The name of the bootstrap action.
+--
 bacName :: Lens' BootstrapActionConfig Text
 bacName = lens _bacName (\s a -> s { _bacName = a })
 
 -- | The script run by the bootstrap action.
+--
 bacScriptBootstrapAction :: Lens' BootstrapActionConfig ScriptBootstrapActionConfig
 bacScriptBootstrapAction =
     lens _bacScriptBootstrapAction
@@ -3155,14 +3288,17 @@ clusterSummary = ClusterSummary
     }
 
 -- | The unique identifier for the cluster.
+--
 csId :: Lens' ClusterSummary (Maybe Text)
 csId = lens _csId (\s a -> s { _csId = a })
 
 -- | The name of the cluster.
+--
 csName :: Lens' ClusterSummary (Maybe Text)
 csName = lens _csName (\s a -> s { _csName = a })
 
 -- | The details about the current status of the cluster.
+--
 csStatus :: Lens' ClusterSummary (Maybe ClusterStatus)
 csStatus = lens _csStatus (\s a -> s { _csStatus = a })
 
@@ -3245,17 +3381,20 @@ jobFlowInstancesDetail p1 p2 p3 = JobFlowInstancesDetail
     , _jfidHadoopVersion               = Nothing
     }
 
--- | The name of an Amazon EC2 key pair that can be used to ssh to the master
--- node of job flow.
+-- | The name of an Amazon EC2 key pair that can be used to ssh to the master node
+-- of job flow.
+--
 jfidEc2KeyName :: Lens' JobFlowInstancesDetail (Maybe Text)
 jfidEc2KeyName = lens _jfidEc2KeyName (\s a -> s { _jfidEc2KeyName = a })
 
 -- | For job flows launched within Amazon Virtual Private Cloud, this value
 -- specifies the identifier of the subnet where the job flow was launched.
+--
 jfidEc2SubnetId :: Lens' JobFlowInstancesDetail (Maybe Text)
 jfidEc2SubnetId = lens _jfidEc2SubnetId (\s a -> s { _jfidEc2SubnetId = a })
 
 -- | The Hadoop version for the job flow.
+--
 jfidHadoopVersion :: Lens' JobFlowInstancesDetail (Maybe Text)
 jfidHadoopVersion =
     lens _jfidHadoopVersion (\s a -> s { _jfidHadoopVersion = a })
@@ -3264,61 +3403,70 @@ jfidHadoopVersion =
 -- same instance serves as both the master and slave node. If the value is
 -- greater than 1, one instance is the master node and all others are slave
 -- nodes.
+--
 jfidInstanceCount :: Lens' JobFlowInstancesDetail Int
 jfidInstanceCount =
     lens _jfidInstanceCount (\s a -> s { _jfidInstanceCount = a })
 
 -- | Details about the job flow's instance groups.
+--
 jfidInstanceGroups :: Lens' JobFlowInstancesDetail [InstanceGroupDetail]
 jfidInstanceGroups =
     lens _jfidInstanceGroups (\s a -> s { _jfidInstanceGroups = a })
         . _List
 
--- | Specifies whether the job flow should terminate after completing all
--- steps.
+-- | Specifies whether the job flow should terminate after completing all steps.
+--
 jfidKeepJobFlowAliveWhenNoSteps :: Lens' JobFlowInstancesDetail (Maybe Bool)
 jfidKeepJobFlowAliveWhenNoSteps =
     lens _jfidKeepJobFlowAliveWhenNoSteps
         (\s a -> s { _jfidKeepJobFlowAliveWhenNoSteps = a })
 
 -- | The Amazon EC2 instance identifier of the master node.
+--
 jfidMasterInstanceId :: Lens' JobFlowInstancesDetail (Maybe Text)
 jfidMasterInstanceId =
     lens _jfidMasterInstanceId (\s a -> s { _jfidMasterInstanceId = a })
 
 -- | The Amazon EC2 master node instance type.
+--
 jfidMasterInstanceType :: Lens' JobFlowInstancesDetail Text
 jfidMasterInstanceType =
     lens _jfidMasterInstanceType (\s a -> s { _jfidMasterInstanceType = a })
 
 -- | The DNS name of the master node.
+--
 jfidMasterPublicDnsName :: Lens' JobFlowInstancesDetail (Maybe Text)
 jfidMasterPublicDnsName =
     lens _jfidMasterPublicDnsName (\s a -> s { _jfidMasterPublicDnsName = a })
 
--- | An approximation of the cost of the job flow, represented in
--- m1.small/hours. This value is incremented once for every hour an m1.small
--- runs. Larger instances are weighted more, so an Amazon EC2 instance that
--- is roughly four times more expensive would result in the normalized
--- instance hours being incremented by four. This result is only an
--- approximation and does not reflect the actual billing rate.
+-- | An approximation of the cost of the job flow, represented in m1.small/hours.
+-- This value is incremented once for every hour an m1.small runs. Larger
+-- instances are weighted more, so an Amazon EC2 instance that is roughly four
+-- times more expensive would result in the normalized instance hours being
+-- incremented by four. This result is only an approximation and does not
+-- reflect the actual billing rate.
+--
 jfidNormalizedInstanceHours :: Lens' JobFlowInstancesDetail (Maybe Int)
 jfidNormalizedInstanceHours =
     lens _jfidNormalizedInstanceHours
         (\s a -> s { _jfidNormalizedInstanceHours = a })
 
 -- | The Amazon EC2 Availability Zone for the job flow.
+--
 jfidPlacement :: Lens' JobFlowInstancesDetail (Maybe PlacementType)
 jfidPlacement = lens _jfidPlacement (\s a -> s { _jfidPlacement = a })
 
 -- | The Amazon EC2 slave node instance type.
+--
 jfidSlaveInstanceType :: Lens' JobFlowInstancesDetail Text
 jfidSlaveInstanceType =
     lens _jfidSlaveInstanceType (\s a -> s { _jfidSlaveInstanceType = a })
 
--- | Specifies whether the Amazon EC2 instances in the cluster are protected
--- from termination by API calls, user intervention, or in the event of a
--- job flow error.
+-- | Specifies whether the Amazon EC2 instances in the cluster are protected from
+-- termination by API calls, user intervention, or in the event of a job flow
+-- error.
+--
 jfidTerminationProtected :: Lens' JobFlowInstancesDetail (Maybe Bool)
 jfidTerminationProtected =
     lens _jfidTerminationProtected
@@ -3381,16 +3529,19 @@ clusterStatus = ClusterStatus
     }
 
 -- | The current state of the cluster.
+--
 csState :: Lens' ClusterStatus (Maybe ClusterState)
 csState = lens _csState (\s a -> s { _csState = a })
 
 -- | The reason for the cluster status change.
+--
 csStateChangeReason :: Lens' ClusterStatus (Maybe ClusterStateChangeReason)
 csStateChangeReason =
     lens _csStateChangeReason (\s a -> s { _csStateChangeReason = a })
 
--- | A timeline that represents the status of a cluster over the lifetime of
--- the cluster.
+-- | A timeline that represents the status of a cluster over the lifetime of the
+-- cluster.
+--
 csTimeline :: Lens' ClusterStatus (Maybe ClusterTimeline)
 csTimeline = lens _csTimeline (\s a -> s { _csTimeline = a })
 
@@ -3469,16 +3620,19 @@ clusterTimeline = ClusterTimeline
     }
 
 -- | The creation date and time of the cluster.
+--
 ctCreationDateTime :: Lens' ClusterTimeline (Maybe UTCTime)
 ctCreationDateTime =
     lens _ctCreationDateTime (\s a -> s { _ctCreationDateTime = a })
         . mapping _Time
 
 -- | The date and time when the cluster was terminated.
+--
 ctEndDateTime :: Lens' ClusterTimeline (Maybe UTCTime)
 ctEndDateTime = lens _ctEndDateTime (\s a -> s { _ctEndDateTime = a }) . mapping _Time
 
 -- | The date and time when the cluster was ready to execute steps.
+--
 ctReadyDateTime :: Lens' ClusterTimeline (Maybe UTCTime)
 ctReadyDateTime = lens _ctReadyDateTime (\s a -> s { _ctReadyDateTime = a }) . mapping _Time
 
@@ -3573,31 +3727,38 @@ instance' = Instance
     }
 
 -- | The unique identifier of the instance in Amazon EC2.
+--
 iEc2InstanceId :: Lens' Instance (Maybe Text)
 iEc2InstanceId = lens _iEc2InstanceId (\s a -> s { _iEc2InstanceId = a })
 
 -- | The unique identifier for the instance in Amazon EMR.
+--
 iId :: Lens' Instance (Maybe Text)
 iId = lens _iId (\s a -> s { _iId = a })
 
 -- | The private DNS name of the instance.
+--
 iPrivateDnsName :: Lens' Instance (Maybe Text)
 iPrivateDnsName = lens _iPrivateDnsName (\s a -> s { _iPrivateDnsName = a })
 
 -- | The private IP address of the instance.
+--
 iPrivateIpAddress :: Lens' Instance (Maybe Text)
 iPrivateIpAddress =
     lens _iPrivateIpAddress (\s a -> s { _iPrivateIpAddress = a })
 
 -- | The public DNS name of the instance.
+--
 iPublicDnsName :: Lens' Instance (Maybe Text)
 iPublicDnsName = lens _iPublicDnsName (\s a -> s { _iPublicDnsName = a })
 
 -- | The public IP address of the instance.
+--
 iPublicIpAddress :: Lens' Instance (Maybe Text)
 iPublicIpAddress = lens _iPublicIpAddress (\s a -> s { _iPublicIpAddress = a })
 
 -- | The current status of the instance.
+--
 iStatus :: Lens' Instance (Maybe InstanceStatus)
 iStatus = lens _iStatus (\s a -> s { _iStatus = a })
 
@@ -3643,11 +3804,13 @@ scriptBootstrapActionConfig p1 = ScriptBootstrapActionConfig
     }
 
 -- | A list of command line arguments to pass to the bootstrap action script.
+--
 sbacArgs :: Lens' ScriptBootstrapActionConfig [Text]
 sbacArgs = lens _sbacArgs (\s a -> s { _sbacArgs = a }) . _List
 
 -- | Location of the script to run during a bootstrap action. Can be either a
 -- location in Amazon S3 or on a local file system.
+--
 sbacPath :: Lens' ScriptBootstrapActionConfig Text
 sbacPath = lens _sbacPath (\s a -> s { _sbacPath = a })
 

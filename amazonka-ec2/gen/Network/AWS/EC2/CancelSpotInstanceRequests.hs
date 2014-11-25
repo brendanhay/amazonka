@@ -20,15 +20,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Cancels one or more Spot Instance requests. Spot Instances are instances
--- that Amazon EC2 starts on your behalf when the maximum price that you
--- specify exceeds the current Spot Price. Amazon EC2 periodically sets the
--- Spot Price based on available Spot Instance capacity and current Spot
--- Instance requests. For more information about Spot Instances, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
--- Spot Instances> in the /Amazon Elastic Compute Cloud User Guide/. Canceling
--- a Spot Instance request does not terminate running Spot Instances
+-- | Cancels one or more Spot Instance requests. Spot Instances are instances that
+-- Amazon EC2 starts on your behalf when the maximum price that you specify
+-- exceeds the current Spot Price. Amazon EC2 periodically sets the Spot Price
+-- based on available Spot Instance capacity and current Spot Instance requests.
+-- For more information about Spot Instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html Spot Instances> in the /AmazonElastic Compute Cloud User Guide/.
+--
+-- Canceling a Spot Instance request does not terminate running Spot Instances
 -- associated with the request.
+--
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotInstanceRequests.html>
 module Network.AWS.EC2.CancelSpotInstanceRequests
@@ -77,6 +77,7 @@ csirDryRun :: Lens' CancelSpotInstanceRequests (Maybe Bool)
 csirDryRun = lens _csirDryRun (\s a -> s { _csirDryRun = a })
 
 -- | One or more Spot Instance request IDs.
+--
 csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
 csirSpotInstanceRequestIds =
     lens _csirSpotInstanceRequestIds
@@ -105,6 +106,7 @@ cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     }
 
 -- | One or more Spot Instance requests.
+--
 csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
 csirrCancelledSpotInstanceRequests =
     lens _csirrCancelledSpotInstanceRequests

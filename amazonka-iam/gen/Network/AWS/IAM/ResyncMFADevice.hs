@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Synchronizes the specified MFA device with AWS servers. For more
--- information about creating and working with virtual MFA devices, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html
--- Using a Virtual MFA Device> in the /Using IAM/ guide.
+-- | Synchronizes the specified MFA device with AWS servers.
+--
+-- For more information about creating and working with virtual MFA devices, go
+-- to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ResyncMFADevice.html>
 module Network.AWS.IAM.ResyncMFADevice
@@ -81,23 +81,27 @@ resyncMFADevice p1 p2 p3 p4 = ResyncMFADevice
     }
 
 -- | An authentication code emitted by the device.
+--
 rmfadAuthenticationCode1 :: Lens' ResyncMFADevice Text
 rmfadAuthenticationCode1 =
     lens _rmfadAuthenticationCode1
         (\s a -> s { _rmfadAuthenticationCode1 = a })
 
 -- | A subsequent authentication code emitted by the device.
+--
 rmfadAuthenticationCode2 :: Lens' ResyncMFADevice Text
 rmfadAuthenticationCode2 =
     lens _rmfadAuthenticationCode2
         (\s a -> s { _rmfadAuthenticationCode2 = a })
 
 -- | Serial number that uniquely identifies the MFA device.
+--
 rmfadSerialNumber :: Lens' ResyncMFADevice Text
 rmfadSerialNumber =
     lens _rmfadSerialNumber (\s a -> s { _rmfadSerialNumber = a })
 
 -- | The name of the user whose MFA device you want to resynchronize.
+--
 rmfadUserName :: Lens' ResyncMFADevice Text
 rmfadUserName = lens _rmfadUserName (\s a -> s { _rmfadUserName = a })
 

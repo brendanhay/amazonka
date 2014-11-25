@@ -20,22 +20,27 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The /DescribeCacheClusters/ operation returns information about all
--- provisioned cache clusters if no cache cluster identifier is specified, or
--- about a specific cache cluster if a cache cluster identifier is supplied.
+-- | The /DescribeCacheClusters/ operation returns information about all provisioned
+-- cache clusters if no cache cluster identifier is specified, or about a
+-- specific cache cluster if a cache cluster identifier is supplied.
+--
 -- By default, abbreviated information about the cache clusters(s) will be
 -- returned. You can use the optional /ShowDetails/ flag to retrieve detailed
 -- information about the cache nodes associated with the cache clusters. These
--- details include the DNS address and port for the cache node endpoint. If
--- the cluster is in the CREATING state, only cluster level information will
--- be displayed until all of the nodes are successfully provisioned. If the
--- cluster is in the DELETING state, only cluster level information will be
--- displayed. If cache nodes are currently being added to the cache cluster,
--- node endpoint information and creation time for the additional nodes will
--- not be displayed until they are completely provisioned. When the cache
--- cluster state is /available/, the cluster is ready for use. If cache nodes
--- are currently being removed from the cache cluster, no endpoint information
--- for the removed nodes is displayed.
+-- details include the DNS address and port for the cache node endpoint.
+--
+-- If the cluster is in the CREATING state, only cluster level information will
+-- be displayed until all of the nodes are successfully provisioned.
+--
+-- If the cluster is in the DELETING state, only cluster level information will
+-- be displayed.
+--
+-- If cache nodes are currently being added to the cache cluster, node endpoint
+-- information and creation time for the additional nodes will not be displayed
+-- until they are completely provisioned. When the cache cluster state is /available/, the cluster is ready for use.
+--
+-- If cache nodes are currently being removed from the cache cluster, no
+-- endpoint information for the removed nodes is displayed.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheClusters.html>
 module Network.AWS.ElastiCache.DescribeCacheClusters
@@ -91,29 +96,36 @@ describeCacheClusters = DescribeCacheClusters
     , _dcc1ShowCacheNodeInfo = Nothing
     }
 
--- | The user-supplied cluster identifier. If this parameter is specified,
--- only information about that specific cache cluster is returned. This
--- parameter isn't case sensitive.
+-- | The user-supplied cluster identifier. If this parameter is specified, only
+-- information about that specific cache cluster is returned. This parameter
+-- isn't case sensitive.
+--
 dcc1CacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
 dcc1CacheClusterId =
     lens _dcc1CacheClusterId (\s a -> s { _dcc1CacheClusterId = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by /MaxRecords/.
+-- pagination of results from this operation. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+--
 dcc1Marker :: Lens' DescribeCacheClusters (Maybe Text)
 dcc1Marker = lens _dcc1Marker (\s a -> s { _dcc1Marker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified 'MaxRecords' value, a marker is included in the
--- response so that the remaining results can be retrieved. Default: 100
+-- response so that the remaining results can be retrieved.
+--
+-- Default: 100
+--
 -- Constraints: minimum 20; maximum 100.
+--
 dcc1MaxRecords :: Lens' DescribeCacheClusters (Maybe Int)
 dcc1MaxRecords = lens _dcc1MaxRecords (\s a -> s { _dcc1MaxRecords = a })
 
--- | An optional flag that can be included in the DescribeCacheCluster request
--- to retrieve information about the individual cache nodes.
+-- | An optional flag that can be included in the DescribeCacheCluster request to
+-- retrieve information about the individual cache nodes.
+--
 dcc1ShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
 dcc1ShowCacheNodeInfo =
     lens _dcc1ShowCacheNodeInfo (\s a -> s { _dcc1ShowCacheNodeInfo = a })
@@ -137,14 +149,16 @@ describeCacheClustersResponse = DescribeCacheClustersResponse
     , _dccrCacheClusters = mempty
     }
 
--- | A list of cache clusters. Each item in the list contains detailed
--- information about one cache cluster.
+-- | A list of cache clusters. Each item in the list contains detailed information
+-- about one cache cluster.
+--
 dccrCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
 dccrCacheClusters =
     lens _dccrCacheClusters (\s a -> s { _dccrCacheClusters = a })
         . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
+--
 dccrMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
 dccrMarker = lens _dccrMarker (\s a -> s { _dccrMarker = a })
 

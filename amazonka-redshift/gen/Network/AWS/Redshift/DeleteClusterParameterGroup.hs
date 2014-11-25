@@ -60,9 +60,12 @@ deleteClusterParameterGroup p1 = DeleteClusterParameterGroup
     { _dcpg1ParameterGroupName = p1
     }
 
--- | The name of the parameter group to be deleted. Constraints: Must be the
--- name of an existing cluster parameter group. Cannot delete a default
--- cluster parameter group.
+-- | The name of the parameter group to be deleted.
+--
+-- Constraints:
+--
+-- Must be the name of an existing cluster parameter group. Cannot delete a
+-- default cluster parameter group.
 dcpg1ParameterGroupName :: Lens' DeleteClusterParameterGroup Text
 dcpg1ParameterGroupName =
     lens _dcpg1ParameterGroupName (\s a -> s { _dcpg1ParameterGroupName = a })

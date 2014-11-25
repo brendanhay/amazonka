@@ -21,18 +21,20 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a VPN connection between an existing virtual private gateway and a
--- VPN customer gateway. The only supported connection type is 'ipsec.1'. The
--- response includes information that you need to give to your network
--- administrator to configure your customer gateway. We strongly recommend
--- that you use HTTPS when calling this operation because the response
--- contains sensitive cryptographic information for configuring your customer
--- gateway. If you decide to shut down your VPN connection for any reason and
--- later create a new VPN connection, you must reconfigure your customer
--- gateway with the new information returned from this call. For more
--- information about VPN connections, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding
--- a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual
--- Private Cloud User Guide/.
+-- VPN customer gateway. The only supported connection type is 'ipsec.1'.
+--
+-- The response includes information that you need to give to your network
+-- administrator to configure your customer gateway.
+--
+-- We strongly recommend that you use HTTPS when calling this operation
+-- because the response contains sensitive cryptographic information for
+-- configuring your customer gateway.
+--
+-- If you decide to shut down your VPN connection for any reason and later
+-- create a new VPN connection, you must reconfigure your customer gateway with
+-- the new information returned from this call.
+--
+-- For more information about VPN connections, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware VirtualPrivate Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnConnection.html>
 module Network.AWS.EC2.CreateVpnConnection
@@ -96,6 +98,7 @@ createVpnConnection p1 p2 p3 = CreateVpnConnection
     }
 
 -- | The ID of the customer gateway.
+--
 cvcCustomerGatewayId :: Lens' CreateVpnConnection Text
 cvcCustomerGatewayId =
     lens _cvcCustomerGatewayId (\s a -> s { _cvcCustomerGatewayId = a })
@@ -104,16 +107,21 @@ cvcDryRun :: Lens' CreateVpnConnection (Maybe Bool)
 cvcDryRun = lens _cvcDryRun (\s a -> s { _cvcDryRun = a })
 
 -- | Indicates whether the VPN connection requires static routes. If you are
--- creating a VPN connection for a device that does not support BGP, you
--- must specify 'true'. Default: 'false'.
+-- creating a VPN connection for a device that does not support BGP, you must
+-- specify 'true'.
+--
+-- Default: 'false'
+--
 cvcOptions :: Lens' CreateVpnConnection (Maybe VpnConnectionOptionsSpecification)
 cvcOptions = lens _cvcOptions (\s a -> s { _cvcOptions = a })
 
 -- | The type of VPN connection ('ipsec.1').
+--
 cvcType :: Lens' CreateVpnConnection Text
 cvcType = lens _cvcType (\s a -> s { _cvcType = a })
 
 -- | The ID of the virtual private gateway.
+--
 cvcVpnGatewayId :: Lens' CreateVpnConnection Text
 cvcVpnGatewayId = lens _cvcVpnGatewayId (\s a -> s { _cvcVpnGatewayId = a })
 
@@ -133,6 +141,7 @@ createVpnConnectionResponse = CreateVpnConnectionResponse
     }
 
 -- | Information about the VPN connection.
+--
 cvcrVpnConnection :: Lens' CreateVpnConnectionResponse (Maybe VpnConnection)
 cvcrVpnConnection =
     lens _cvcrVpnConnection (\s a -> s { _cvcrVpnConnection = a })

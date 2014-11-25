@@ -20,10 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes a SAML provider. Deleting the provider does not update any roles
--- that reference the SAML provider as a principal in their trust policies.
--- Any attempt to assume a role that references a SAML provider that has been
--- deleted will fail.
+-- | Deletes a SAML provider.
+--
+-- Deleting the provider does not update any roles that reference the SAML
+-- provider as a principal in their trust policies. Any attempt to assume a role
+-- that references a SAML provider that has been deleted will fail.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSAMLProvider.html>
 module Network.AWS.IAM.DeleteSAMLProvider
@@ -63,6 +64,7 @@ deleteSAMLProvider p1 = DeleteSAMLProvider
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
+--
 dsamlpSAMLProviderArn :: Lens' DeleteSAMLProvider Text
 dsamlpSAMLProviderArn =
     lens _dsamlpSAMLProviderArn (\s a -> s { _dsamlpSAMLProviderArn = a })

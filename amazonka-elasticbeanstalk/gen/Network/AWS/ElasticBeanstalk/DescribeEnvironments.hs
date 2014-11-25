@@ -85,43 +85,52 @@ describeEnvironments = DescribeEnvironments
     , _de1IncludedDeletedBackTo = Nothing
     }
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to include only those that are associated with this application.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- include only those that are associated with this application.
+--
 de1ApplicationName :: Lens' DescribeEnvironments (Maybe Text)
 de1ApplicationName =
     lens _de1ApplicationName (\s a -> s { _de1ApplicationName = a })
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to include only those that have the specified IDs.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- include only those that have the specified IDs.
+--
 de1EnvironmentIds :: Lens' DescribeEnvironments [Text]
 de1EnvironmentIds =
     lens _de1EnvironmentIds (\s a -> s { _de1EnvironmentIds = a })
         . _List
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to include only those that have the specified names.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- include only those that have the specified names.
+--
 de1EnvironmentNames :: Lens' DescribeEnvironments [Text]
 de1EnvironmentNames =
     lens _de1EnvironmentNames (\s a -> s { _de1EnvironmentNames = a })
         . _List
 
--- | Indicates whether to include deleted environments: 'true': Environments
--- that have been deleted after 'IncludedDeletedBackTo' are displayed.
+-- | Indicates whether to include deleted environments:
+--
+-- 'true': Environments that have been deleted after 'IncludedDeletedBackTo' are
+-- displayed.
+--
 -- 'false': Do not include deleted environments.
+--
 de1IncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
 de1IncludeDeleted =
     lens _de1IncludeDeleted (\s a -> s { _de1IncludeDeleted = a })
 
--- | If specified when 'IncludeDeleted' is set to 'true', then environments
--- deleted after this date are displayed.
+-- | If specified when 'IncludeDeleted' is set to 'true', then environments deleted
+-- after this date are displayed.
+--
 de1IncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
 de1IncludedDeletedBackTo =
     lens _de1IncludedDeletedBackTo
         (\s a -> s { _de1IncludedDeletedBackTo = a })
             . mapping _Time
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to include only those that are associated with this application version.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- include only those that are associated with this application version.
+--
 de1VersionLabel :: Lens' DescribeEnvironments (Maybe Text)
 de1VersionLabel = lens _de1VersionLabel (\s a -> s { _de1VersionLabel = a })
 
@@ -147,6 +156,7 @@ describeEnvironmentsResponse = DescribeEnvironmentsResponse
     }
 
 -- | Returns an 'EnvironmentDescription' list.
+--
 derEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
 derEnvironments = lens _derEnvironments (\s a -> s { _derEnvironments = a }) . _List
 

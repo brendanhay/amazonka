@@ -101,49 +101,61 @@ describeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
     , _drdbioMarker                        = Nothing
     }
 
--- | The DB instance class filter value. Specify this parameter to show only
--- the available offerings matching the specified DB instance class.
+-- | The DB instance class filter value. Specify this parameter to show only the
+-- available offerings matching the specified DB instance class.
+--
 drdbioDBInstanceClass :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbioDBInstanceClass =
     lens _drdbioDBInstanceClass (\s a -> s { _drdbioDBInstanceClass = a })
 
--- | Duration filter value, specified in years or seconds. Specify this
--- parameter to show only reservations for this duration. Valid Values: '1 |
--- 3 | 31536000 | 94608000'.
+-- | Duration filter value, specified in years or seconds. Specify this parameter
+-- to show only reservations for this duration.
+--
+-- Valid Values: '1 | 3 | 31536000 | 94608000'
+--
 drdbioDuration :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbioDuration = lens _drdbioDuration (\s a -> s { _drdbioDuration = a })
 
 -- | This parameter is not currently supported.
+--
 drdbioFilters :: Lens' DescribeReservedDBInstancesOfferings [Filter]
 drdbioFilters = lens _drdbioFilters (\s a -> s { _drdbioFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- parameter is specified, the response includes only records beyond the marker,
+-- up to the value specified by 'MaxRecords'.
+--
 drdbioMarker :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbioMarker = lens _drdbioMarker (\s a -> s { _drdbioMarker = a })
 
--- | The maximum number of records to include in the response. If more than
--- the 'MaxRecords' value is available, a pagination token called a marker
--- is included in the response so that the following results can be
--- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more than the 'MaxRecords' value is available, a pagination token called a marker is included in the
+-- response so that the following results can be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: minimum 20, maximum 100
+--
 drdbioMaxRecords :: Lens' DescribeReservedDBInstancesOfferings (Maybe Int)
 drdbioMaxRecords = lens _drdbioMaxRecords (\s a -> s { _drdbioMaxRecords = a })
 
--- | The Multi-AZ filter value. Specify this parameter to show only the
--- available offerings matching the specified Multi-AZ parameter.
+-- | The Multi-AZ filter value. Specify this parameter to show only the available
+-- offerings matching the specified Multi-AZ parameter.
+--
 drdbioMultiAZ :: Lens' DescribeReservedDBInstancesOfferings (Maybe Bool)
 drdbioMultiAZ = lens _drdbioMultiAZ (\s a -> s { _drdbioMultiAZ = a })
 
 -- | The offering type filter value. Specify this parameter to show only the
--- available offerings matching the specified offering type. Valid Values:
--- '"Light Utilization" | "Medium Utilization" | "Heavy Utilization" '.
+-- available offerings matching the specified offering type.
+--
+-- Valid Values: '"Light Utilization" | "Medium Utilization" | "HeavyUtilization" '
+--
 drdbioOfferingType :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbioOfferingType =
     lens _drdbioOfferingType (\s a -> s { _drdbioOfferingType = a })
 
 -- | Product description filter value. Specify this parameter to show only the
 -- available offerings matching the specified product description.
+--
 drdbioProductDescription :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbioProductDescription =
     lens _drdbioProductDescription
@@ -151,7 +163,9 @@ drdbioProductDescription =
 
 -- | The offering identifier filter value. Specify this parameter to show only
 -- the available offering that matches the specified reservation identifier.
--- Example: '438012d3-4052-4cc7-b2e3-8d3372e0e706'.
+--
+-- Example: '438012d3-4052-4cc7-b2e3-8d3372e0e706'
+--
 drdbioReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdbioReservedDBInstancesOfferingId =
     lens _drdbioReservedDBInstancesOfferingId
@@ -177,12 +191,14 @@ describeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferi
     }
 
 -- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- parameter is specified, the response includes only records beyond the marker,
+-- up to the value specified by 'MaxRecords'.
+--
 drdbiorMarker :: Lens' DescribeReservedDBInstancesOfferingsResponse (Maybe Text)
 drdbiorMarker = lens _drdbiorMarker (\s a -> s { _drdbiorMarker = a })
 
 -- | A list of reserved DB instance offerings.
+--
 drdbiorReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse [ReservedDBInstancesOffering]
 drdbiorReservedDBInstancesOfferings =
     lens _drdbiorReservedDBInstancesOfferings

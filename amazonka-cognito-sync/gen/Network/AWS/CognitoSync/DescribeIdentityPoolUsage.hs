@@ -22,7 +22,6 @@
 
 -- | Gets usage details (for example, data storage) about a particular identity
 -- pool.
---
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityPoolUsage.html>
 module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     (
@@ -63,8 +62,8 @@ describeIdentityPoolUsage p1 = DescribeIdentityPoolUsage
     }
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 dipuIdentityPoolId :: Lens' DescribeIdentityPoolUsage Text
 dipuIdentityPoolId =
     lens _dipuIdentityPoolId (\s a -> s { _dipuIdentityPoolId = a })

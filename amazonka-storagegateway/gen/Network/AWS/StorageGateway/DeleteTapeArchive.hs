@@ -61,8 +61,9 @@ deleteTapeArchive p1 = DeleteTapeArchive
     { _dtaTapeARN = p1
     }
 
--- | The Amazon Resource Name (ARN) of the virtual tape to delete from the
--- virtual tape shelf (VTS).
+-- | The Amazon Resource Name (ARN) of the virtual tape to delete from the virtual
+-- tape shelf (VTS).
+--
 dtaTapeARN :: Lens' DeleteTapeArchive Text
 dtaTapeARN = lens _dtaTapeARN (\s a -> s { _dtaTapeARN = a })
 
@@ -81,8 +82,9 @@ deleteTapeArchiveResponse = DeleteTapeArchiveResponse
     { _dtarTapeARN = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the virtual tape that was deleted from
--- the virtual tape shelf (VTS).
+-- | The Amazon Resource Name (ARN) of the virtual tape that was deleted from the
+-- virtual tape shelf (VTS).
+--
 dtarTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
 dtarTapeARN = lens _dtarTapeARN (\s a -> s { _dtarTapeARN = a })
 

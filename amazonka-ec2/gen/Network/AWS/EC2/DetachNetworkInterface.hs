@@ -70,6 +70,7 @@ detachNetworkInterface p1 = DetachNetworkInterface
     }
 
 -- | The ID of the attachment.
+--
 dniAttachmentId :: Lens' DetachNetworkInterface Text
 dniAttachmentId = lens _dniAttachmentId (\s a -> s { _dniAttachmentId = a })
 
@@ -77,6 +78,7 @@ dniDryRun :: Lens' DetachNetworkInterface (Maybe Bool)
 dniDryRun = lens _dniDryRun (\s a -> s { _dniDryRun = a })
 
 -- | Specifies whether to force a detachment.
+--
 dniForce :: Lens' DetachNetworkInterface (Maybe Bool)
 dniForce = lens _dniForce (\s a -> s { _dniForce = a })
 

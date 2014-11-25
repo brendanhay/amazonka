@@ -20,12 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This operation configures one or more gateway local disks as working
--- storage for a gateway. This operation is supported only for the
--- gateway-stored volume architecture. This operation is deprecated method in
--- cached-volumes API version (20120630). Use AddUploadBuffer instead. In the
--- request, you specify the gateway Amazon Resource Name (ARN) to which you
--- want to add working storage, and one or more disk IDs that you want to
+-- | This operation configures one or more gateway local disks as working storage
+-- for a gateway. This operation is supported only for the gateway-stored volume
+-- architecture. This operation is deprecated method in cached-volumes API
+-- version (20120630). Use AddUploadBuffer instead.
+--
+-- In the request, you specify the gateway Amazon Resource Name (ARN) to which
+-- you want to add working storage, and one or more disk IDs that you want to
 -- configure as working storage.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddWorkingStorage.html>
@@ -72,9 +73,10 @@ addWorkingStorage p1 = AddWorkingStorage
     , _awsDiskIds    = mempty
     }
 
--- | An array of strings that identify disks that are to be configured as
--- working storage. Each string have a minimum length of 1 and maximum
--- length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
+-- | An array of strings that identify disks that are to be configured as working
+-- storage. Each string have a minimum length of 1 and maximum length of 300.
+-- You can get the disk IDs from the 'ListLocalDisks' API.
+--
 awsDiskIds :: Lens' AddWorkingStorage [Text]
 awsDiskIds = lens _awsDiskIds (\s a -> s { _awsDiskIds = a }) . _List
 

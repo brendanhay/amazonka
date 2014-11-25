@@ -21,10 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more launch configurations. If you omit the list of names,
--- then the call describes all launch configurations. You can specify a
--- maximum number of items to be returned with a single call. If there are
--- more items to return, the call returns a token. To get the next set of
--- items, repeat the call with the returned token in the 'NextToken'
+-- then the call describes all launch configurations.
+--
+-- You can specify a maximum number of items to be returned with a single call.
+-- If there are more items to return, the call returns a token. To get the next
+-- set of items, repeat the call with the returned token in the 'NextToken'
 -- parameter.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurations.html>
@@ -77,6 +78,7 @@ describeLaunchConfigurations = DescribeLaunchConfigurations
     }
 
 -- | The launch configuration names.
+--
 dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
 dlcLaunchConfigurationNames =
     lens _dlcLaunchConfigurationNames
@@ -84,11 +86,13 @@ dlcLaunchConfigurationNames =
             . _List
 
 -- | The maximum number of items to return with this call. The default is 100.
+--
 dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
 dlcMaxRecords = lens _dlcMaxRecords (\s a -> s { _dlcMaxRecords = a })
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.).
+-- | The token for the next set of items to return. (You received this token from
+-- a previous call.)
+--
 dlcNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
 dlcNextToken = lens _dlcNextToken (\s a -> s { _dlcNextToken = a })
 
@@ -112,6 +116,7 @@ describeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
     }
 
 -- | The launch configurations.
+--
 dlcrLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
 dlcrLaunchConfigurations =
     lens _dlcrLaunchConfigurations
@@ -120,6 +125,7 @@ dlcrLaunchConfigurations =
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
+--
 dlcrNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
 dlcrNextToken = lens _dlcrNextToken (\s a -> s { _dlcrNextToken = a })
 

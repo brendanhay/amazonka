@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes and recreates all of the AWS resources (for example: the Auto
--- Scaling group, load balancer, etc.) for a specified environment and forces
--- a restart.
+-- Scaling group, load balancer, etc.) for a specified environment and forces a
+-- restart.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RebuildEnvironment.html>
 module Network.AWS.ElasticBeanstalk.RebuildEnvironment
@@ -65,15 +65,19 @@ rebuildEnvironment = RebuildEnvironment
     , _reEnvironmentName = Nothing
     }
 
--- | The ID of the environment to rebuild. Condition: You must specify either
--- this or an EnvironmentName, or both. If you do not specify either, AWS
--- Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- | The ID of the environment to rebuild.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+--
 reEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
 reEnvironmentId = lens _reEnvironmentId (\s a -> s { _reEnvironmentId = a })
 
--- | The name of the environment to rebuild. Condition: You must specify
--- either this or an EnvironmentId, or both. If you do not specify either,
--- AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- | The name of the environment to rebuild.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+--
 reEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
 reEnvironmentName =
     lens _reEnvironmentName (\s a -> s { _reEnvironmentName = a })

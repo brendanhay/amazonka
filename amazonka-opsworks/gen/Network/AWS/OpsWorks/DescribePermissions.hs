@@ -20,12 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes the permissions for a specified stack. Required Permissions: To
--- use this action, an IAM user must have a Manage permissions level for the
--- stack, or an attached policy that explicitly grants permissions. For more
--- information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Describes the permissions for a specified stack.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribePermissions.html>
 module Network.AWS.OpsWorks.DescribePermissions
@@ -70,13 +69,14 @@ describePermissions = DescribePermissions
     , _dpStackId    = Nothing
     }
 
--- | The user's IAM ARN. For more information about IAM ARNs, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- Using Identifiers>.
+-- | The user's IAM ARN. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>
+-- .
+--
 dpIamUserArn :: Lens' DescribePermissions (Maybe Text)
 dpIamUserArn = lens _dpIamUserArn (\s a -> s { _dpIamUserArn = a })
 
 -- | The stack ID.
+--
 dpStackId :: Lens' DescribePermissions (Maybe Text)
 dpStackId = lens _dpStackId (\s a -> s { _dpStackId = a })
 
@@ -101,14 +101,13 @@ describePermissionsResponse = DescribePermissionsResponse
     { _dprPermissions = mempty
     }
 
--- | An array of 'Permission' objects that describe the stack permissions. If
--- the request object contains only a stack ID, the array contains a
--- 'Permission' object with permissions for each of the stack IAM ARNs. If
--- the request object contains only an IAM ARN, the array contains a
--- 'Permission' object with permissions for each of the user's stack IDs. If
--- the request contains a stack ID and an IAM ARN, the array contains a
--- single 'Permission' object with permissions for the specified stack and
--- IAM ARN.
+-- | An array of 'Permission' objects that describe the stack permissions.
+--
+-- If the request object contains only a stack ID, the array contains a 'Permission' object with permissions for each of the stack IAM ARNs. If the request
+-- object contains only an IAM ARN, the array contains a 'Permission' object with
+-- permissions for each of the user's stack IDs. If the request contains a stack
+-- ID and an IAM ARN, the array contains a single 'Permission' object with
+-- permissions for the specified stack and IAM ARN.
 dprPermissions :: Lens' DescribePermissionsResponse [Permission]
 dprPermissions = lens _dprPermissions (\s a -> s { _dprPermissions = a }) . _List
 

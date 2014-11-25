@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Create a new invalidation.
---
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateInvalidation.html>
 module Network.AWS.CloudFront.CreateInvalidation
     (
@@ -100,8 +99,8 @@ createInvalidationResponse = CreateInvalidationResponse
 cirInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
 cirInvalidation = lens _cirInvalidation (\s a -> s { _cirInvalidation = a })
 
--- | The fully qualified URI of the distribution and invalidation batch
--- request, including the Invalidation ID.
+-- | The fully qualified URI of the distribution and invalidation batch request,
+-- including the Invalidation ID.
 cirLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cirLocation = lens _cirLocation (\s a -> s { _cirLocation = a })
 

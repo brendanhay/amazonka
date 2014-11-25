@@ -22,8 +22,7 @@
 
 -- | Retrieves the specified policy document for the specified group. The
 -- returned policy is URL-encoded according to RFC 3986. For more information
--- about RFC 3986, go to <http://www.faqs.org/rfcs/rfc3986.html
--- http://www.faqs.org/rfcs/rfc3986.html>.
+-- about RFC 3986, go to <http://www.faqs.org/rfcs/rfc3986.html http://www.faqs.org/rfcs/rfc3986.html>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html>
 module Network.AWS.IAM.GetGroupPolicy
@@ -73,10 +72,12 @@ getGroupPolicy p1 p2 = GetGroupPolicy
     }
 
 -- | The name of the group the policy is associated with.
+--
 ggpGroupName :: Lens' GetGroupPolicy Text
 ggpGroupName = lens _ggpGroupName (\s a -> s { _ggpGroupName = a })
 
 -- | The name of the policy document to get.
+--
 ggpPolicyName :: Lens' GetGroupPolicy Text
 ggpPolicyName = lens _ggpPolicyName (\s a -> s { _ggpPolicyName = a })
 
@@ -107,15 +108,18 @@ getGroupPolicyResponse p1 p2 p3 = GetGroupPolicyResponse
     }
 
 -- | The group the policy is associated with.
+--
 ggprGroupName :: Lens' GetGroupPolicyResponse Text
 ggprGroupName = lens _ggprGroupName (\s a -> s { _ggprGroupName = a })
 
 -- | The policy document.
+--
 ggprPolicyDocument :: Lens' GetGroupPolicyResponse Text
 ggprPolicyDocument =
     lens _ggprPolicyDocument (\s a -> s { _ggprPolicyDocument = a })
 
 -- | The name of the policy.
+--
 ggprPolicyName :: Lens' GetGroupPolicyResponse Text
 ggprPolicyName = lens _ggprPolicyName (\s a -> s { _ggprPolicyName = a })
 

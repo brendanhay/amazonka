@@ -20,23 +20,26 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates an RDS event notification subscription. This action requires a
--- topic ARN (Amazon Resource Name) created by either the RDS console, the SNS
+-- | Creates an RDS event notification subscription. This action requires a topic
+-- ARN (Amazon Resource Name) created by either the RDS console, the SNS
 -- console, or the SNS API. To obtain an ARN with SNS, you must create a topic
 -- in Amazon SNS and subscribe to the topic. The ARN is displayed in the SNS
--- console. You can specify the type of source (SourceType) you want to be
--- notified of, provide a list of RDS sources (SourceIds) that triggers the
--- events, and provide a list of event categories (EventCategories) for events
--- you want to be notified of. For example, you can specify SourceType =
--- db-instance, SourceIds = mydbinstance1, mydbinstance2 and EventCategories =
--- Availability, Backup. If you specify both the SourceType and SourceIds,
--- such as SourceType = db-instance and SourceIdentifier = myDBInstance1, you
--- will be notified of all the db-instance events for the specified source. If
--- you specify a SourceType but do not specify a SourceIdentifier, you will
--- receive notice of the events for that source type for all your RDS sources.
--- If you do not specify either the SourceType nor the SourceIdentifier, you
--- will be notified of events generated from all RDS sources belonging to your
--- customer account.
+-- console.
+--
+-- You can specify the type of source (SourceType) you want to be notified of,
+-- provide a list of RDS sources (SourceIds) that triggers the events, and
+-- provide a list of event categories (EventCategories) for events you want to
+-- be notified of. For example, you can specify SourceType = db-instance,
+-- SourceIds = mydbinstance1, mydbinstance2 and EventCategories = Availability,
+-- Backup.
+--
+-- If you specify both the SourceType and SourceIds, such as SourceType =
+-- db-instance and SourceIdentifier = myDBInstance1, you will be notified of all
+-- the db-instance events for the specified source. If you specify a SourceType
+-- but do not specify a SourceIdentifier, you will receive notice of the events
+-- for that source type for all your RDS sources. If you do not specify either
+-- the SourceType nor the SourceIdentifier, you will be notified of events
+-- generated from all RDS sources belonging to your customer account.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateEventSubscription.html>
 module Network.AWS.RDS.CreateEventSubscription
@@ -108,51 +111,59 @@ createEventSubscription p1 p2 = CreateEventSubscription
     , _cesTags             = mempty
     }
 
--- | A Boolean value; set to true to activate the subscription, set to false
--- to create the subscription but not active it.
+-- | A Boolean value; set to true to activate the subscription, set to false to
+-- create the subscription but not active it.
+--
 cesEnabled :: Lens' CreateEventSubscription (Maybe Bool)
 cesEnabled = lens _cesEnabled (\s a -> s { _cesEnabled = a })
 
--- | A list of event categories for a SourceType that you want to subscribe
--- to. You can see a list of the categories for a given SourceType in the
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html
--- Events> topic in the Amazon RDS User Guide or by using the
--- DescribeEventCategories action.
+-- | A list of event categories for a SourceType that you want to subscribe to.
+-- You can see a list of the categories for a given SourceType in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
+-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories
+-- action.
+--
 cesEventCategories :: Lens' CreateEventSubscription [Text]
 cesEventCategories =
     lens _cesEventCategories (\s a -> s { _cesEventCategories = a })
         . _List
 
 -- | The Amazon Resource Name (ARN) of the SNS topic created for event
--- notification. The ARN is created by Amazon SNS when you create a topic
--- and subscribe to it.
+-- notification. The ARN is created by Amazon SNS when you create a topic and
+-- subscribe to it.
+--
 cesSnsTopicArn :: Lens' CreateEventSubscription Text
 cesSnsTopicArn = lens _cesSnsTopicArn (\s a -> s { _cesSnsTopicArn = a })
 
 -- | The list of identifiers of the event sources for which events will be
--- returned. If not specified, then all sources are included in the
--- response. An identifier must begin with a letter and must contain only
--- ASCII letters, digits, and hyphens; it cannot end with a hyphen or
--- contain two consecutive hyphens. Constraints: If SourceIds are supplied,
--- SourceType must also be provided. If the source type is a DB instance,
--- then a 'DBInstanceIdentifier' must be supplied. If the source type is a
--- DB security group, a 'DBSecurityGroupName' must be supplied. If the
--- source type is a DB parameter group, a 'DBParameterGroupName' must be
--- supplied. If the source type is a DB snapshot, a 'DBSnapshotIdentifier'
--- must be supplied.
+-- returned. If not specified, then all sources are included in the response. An
+-- identifier must begin with a letter and must contain only ASCII letters,
+-- digits, and hyphens; it cannot end with a hyphen or contain two consecutive
+-- hyphens.
+--
+-- Constraints:
+--
+-- If SourceIds are supplied, SourceType must also be provided. If the source
+-- type is a DB instance, then a 'DBInstanceIdentifier' must be supplied. If the
+-- source type is a DB security group, a 'DBSecurityGroupName' must be supplied. If the source type is a DB parameter group, a
+-- 'DBParameterGroupName' must be supplied. If the source type is a DB snapshot, a 'DBSnapshotIdentifier' must be supplied.
 cesSourceIds :: Lens' CreateEventSubscription [Text]
 cesSourceIds = lens _cesSourceIds (\s a -> s { _cesSourceIds = a }) . _List
 
--- | The type of source that will be generating the events. For example, if
--- you want to be notified of events generated by a DB instance, you would
--- set this parameter to db-instance. if this value is not specified, all
--- events are returned. Valid values: db-instance | db-parameter-group |
--- db-security-group | db-snapshot.
+-- | The type of source that will be generating the events. For example, if you
+-- want to be notified of events generated by a DB instance, you would set this
+-- parameter to db-instance. if this value is not specified, all events are
+-- returned.
+--
+-- Valid values: db-instance | db-parameter-group | db-security-group |
+-- db-snapshot
+--
 cesSourceType :: Lens' CreateEventSubscription (Maybe Text)
 cesSourceType = lens _cesSourceType (\s a -> s { _cesSourceType = a })
 
--- | The name of the subscription. Constraints: The name must be less than 255
--- characters.
+-- | The name of the subscription.
+--
+-- Constraints: The name must be less than 255 characters.
+--
 cesSubscriptionName :: Lens' CreateEventSubscription Text
 cesSubscriptionName =
     lens _cesSubscriptionName (\s a -> s { _cesSubscriptionName = a })

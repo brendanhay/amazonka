@@ -21,9 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Generates a credential report for the AWS account. For more information
--- about the credential report, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html
--- Getting Credential Reports> in the /Using IAM/ guide.
+-- about the credential report, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports> in the /Using IAM/
+-- guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html>
 module Network.AWS.IAM.GenerateCredentialReport
@@ -74,10 +73,12 @@ generateCredentialReportResponse = GenerateCredentialReportResponse
     }
 
 -- | Information about the credential report.
+--
 gcrrDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrDescription = lens _gcrrDescription (\s a -> s { _gcrrDescription = a })
 
 -- | Information about the state of a credential report.
+--
 gcrrState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
 gcrrState = lens _gcrrState (\s a -> s { _gcrrState = a })
 

@@ -9,11 +9,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | AWS Direct Connect links your internal network to an AWS Direct Connect
--- location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic
--- cable. One end of the cable is connected to your router, the other to an
--- AWS Direct Connect router. With this connection in place, you can create
--- virtual interfaces directly to the AWS cloud and Amazon Virtual Private
--- Cloud, bypassing Internet service providers in your network path.
+-- location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable.
+-- One end of the cable is connected to your router, the other to an AWS Direct
+-- Connect router. With this connection in place, you can create virtual
+-- interfaces directly to the AWS cloud and Amazon Virtual Private Cloud,
+-- bypassing Internet service providers in your network path.
 module Network.AWS.DirectConnect
     ( module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     , module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface

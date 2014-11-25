@@ -20,10 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The DeletePipeline operation removes a pipeline. You can only delete a
--- pipeline that has never been used or that is not currently in use (doesn't
--- contain any active jobs). If the pipeline is currently in use,
--- 'DeletePipeline' returns an error.
+-- | The DeletePipeline operation removes a pipeline.
+--
+-- You can only delete a pipeline that has never been used or that is not
+-- currently in use (doesn't contain any active jobs). If the pipeline is
+-- currently in use, 'DeletePipeline' returns an error.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePipeline.html>
 module Network.AWS.ElasticTranscoder.DeletePipeline
@@ -63,6 +64,7 @@ deletePipeline p1 = DeletePipeline
     }
 
 -- | The identifier of the pipeline that you want to delete.
+--
 dp1Id :: Lens' DeletePipeline Text
 dp1Id = lens _dp1Id (\s a -> s { _dp1Id = a })
 

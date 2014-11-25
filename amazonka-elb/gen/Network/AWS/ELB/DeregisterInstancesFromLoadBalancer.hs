@@ -21,14 +21,16 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deregisters instances from the load balancer. Once the instance is
--- deregistered, it will stop receiving traffic from the load balancer. In
--- order to successfully call this API, the same account credentials as those
--- used to create the load balancer must be provided. For more information,
--- see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html
--- De-register and Register Amazon EC2 Instances> in the /Elastic Load
--- Balancing Developer Guide/. You can use 'DescribeLoadBalancers' to verify
--- if the instance is deregistered from the load balancer.
+-- deregistered, it will stop receiving traffic from the load balancer.
+--
+-- In order to successfully call this API, the same account credentials as
+-- those used to create the load balancer must be provided.
+--
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html De-register and Register Amazon EC2 Instances> in
+-- the /Elastic Load Balancing Developer Guide/.
+--
+-- You can use 'DescribeLoadBalancers' to verify if the instance is deregistered
+-- from the load balancer.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeregisterInstancesFromLoadBalancer.html>
 module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
@@ -74,12 +76,13 @@ deregisterInstancesFromLoadBalancer p1 = DeregisterInstancesFromLoadBalancer
     , _diflbInstances        = mempty
     }
 
--- | A list of EC2 instance IDs consisting of all instances to be
--- deregistered.
+-- | A list of EC2 instance IDs consisting of all instances to be deregistered.
+--
 diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
 diflbInstances = lens _diflbInstances (\s a -> s { _diflbInstances = a }) . _List
 
 -- | The name associated with the load balancer.
+--
 diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
 diflbLoadBalancerName =
     lens _diflbLoadBalancerName (\s a -> s { _diflbLoadBalancerName = a })
@@ -106,6 +109,7 @@ deregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalance
     }
 
 -- | An updated list of remaining instances registered with the load balancer.
+--
 diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
 diflbrInstances = lens _diflbrInstances (\s a -> s { _diflbrInstances = a }) . _List
 

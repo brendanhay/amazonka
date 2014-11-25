@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes the specified Internet gateway. You must detach the Internet
--- gateway from the VPC before you can delete it.
+-- | Deletes the specified Internet gateway. You must detach the Internet gateway
+-- from the VPC before you can delete it.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteInternetGateway.html>
 module Network.AWS.EC2.DeleteInternetGateway
@@ -69,6 +69,7 @@ dig2DryRun :: Lens' DeleteInternetGateway (Maybe Bool)
 dig2DryRun = lens _dig2DryRun (\s a -> s { _dig2DryRun = a })
 
 -- | The ID of the Internet gateway.
+--
 dig2InternetGatewayId :: Lens' DeleteInternetGateway Text
 dig2InternetGatewayId =
     lens _dig2InternetGatewayId (\s a -> s { _dig2InternetGatewayId = a })

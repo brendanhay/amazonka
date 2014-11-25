@@ -1,5 +1,5 @@
   {% if type.documentation %}
-{{ type.documentation | above(76, 0) }}
+{{ type.documentation }}
   {% endif %}
 data {{ type.name }}
     {% for branch in type.branches %}

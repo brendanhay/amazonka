@@ -22,10 +22,10 @@
 
 -- | Configures the availability options for a domain. Enabling the Multi-AZ
 -- option expands an Amazon CloudSearch domain to an additional Availability
--- Zone in the same Region to increase fault tolerance in the event of a
--- service disruption. Changes to the Multi-AZ option can take about half an
--- hour to become active. For more information, see Configuring Availability
--- Options in the /Amazon CloudSearch Developer Guide/.
+-- Zone in the same Region to increase fault tolerance in the event of a service
+-- disruption. Changes to the Multi-AZ option can take about half an hour to
+-- become active. For more information, see Configuring Availability Options in
+-- the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateAvailabilityOptions.html>
 module Network.AWS.CloudSearch.UpdateAvailabilityOptions
@@ -75,10 +75,11 @@ updateAvailabilityOptions p1 p2 = UpdateAvailabilityOptions
 uaoDomainName :: Lens' UpdateAvailabilityOptions Text
 uaoDomainName = lens _uaoDomainName (\s a -> s { _uaoDomainName = a })
 
--- | You expand an existing search domain to a second Availability Zone by
--- setting the Multi-AZ option to true. Similarly, you can turn off the
--- Multi-AZ option to downgrade the domain to a single Availability Zone by
--- setting the Multi-AZ option to 'false'.
+-- | You expand an existing search domain to a second Availability Zone by setting
+-- the Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option
+-- to downgrade the domain to a single Availability Zone by setting the Multi-AZ
+-- option to 'false'.
+--
 uaoMultiAZ :: Lens' UpdateAvailabilityOptions Bool
 uaoMultiAZ = lens _uaoMultiAZ (\s a -> s { _uaoMultiAZ = a })
 
@@ -99,6 +100,7 @@ updateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
 
 -- | The newly-configured availability options. Indicates whether Multi-AZ is
 -- enabled for the domain.
+--
 uaorAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 uaorAvailabilityOptions =
     lens _uaorAvailabilityOptions (\s a -> s { _uaorAvailabilityOptions = a })

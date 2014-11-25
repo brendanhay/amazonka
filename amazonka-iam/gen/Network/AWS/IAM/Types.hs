@@ -283,6 +283,7 @@ passwordPolicy = PasswordPolicy
     }
 
 -- | Specifies whether IAM users are allowed to change their own password.
+--
 ppAllowUsersToChangePassword :: Lens' PasswordPolicy (Maybe Bool)
 ppAllowUsersToChangePassword =
     lens _ppAllowUsersToChangePassword
@@ -290,27 +291,32 @@ ppAllowUsersToChangePassword =
 
 -- | Specifies whether IAM users are required to change their password after a
 -- specified number of days.
+--
 ppExpirePasswords :: Lens' PasswordPolicy (Maybe Bool)
 ppExpirePasswords =
     lens _ppExpirePasswords (\s a -> s { _ppExpirePasswords = a })
 
--- | Specifies whether IAM users are prevented from setting a new password
--- after their password has expired.
+-- | Specifies whether IAM users are prevented from setting a new password after
+-- their password has expired.
+--
 ppHardExpiry :: Lens' PasswordPolicy (Maybe Bool)
 ppHardExpiry = lens _ppHardExpiry (\s a -> s { _ppHardExpiry = a })
 
 -- | The number of days that an IAM user password is valid.
+--
 ppMaxPasswordAge :: Lens' PasswordPolicy (Maybe Natural)
 ppMaxPasswordAge = lens _ppMaxPasswordAge (\s a -> s { _ppMaxPasswordAge = a }) . mapping _Nat
 
 -- | Minimum length to require for IAM user passwords.
+--
 ppMinimumPasswordLength :: Lens' PasswordPolicy (Maybe Natural)
 ppMinimumPasswordLength =
     lens _ppMinimumPasswordLength (\s a -> s { _ppMinimumPasswordLength = a })
         . mapping _Nat
 
--- | Specifies the number of previous passwords that IAM users are prevented
--- from reusing.
+-- | Specifies the number of previous passwords that IAM users are prevented from
+-- reusing.
+--
 ppPasswordReusePrevention :: Lens' PasswordPolicy (Maybe Natural)
 ppPasswordReusePrevention =
     lens _ppPasswordReusePrevention
@@ -318,20 +324,24 @@ ppPasswordReusePrevention =
             . mapping _Nat
 
 -- | Specifies whether to require lowercase characters for IAM user passwords.
+--
 ppRequireLowercaseCharacters :: Lens' PasswordPolicy (Maybe Bool)
 ppRequireLowercaseCharacters =
     lens _ppRequireLowercaseCharacters
         (\s a -> s { _ppRequireLowercaseCharacters = a })
 
 -- | Specifies whether to require numbers for IAM user passwords.
+--
 ppRequireNumbers :: Lens' PasswordPolicy (Maybe Bool)
 ppRequireNumbers = lens _ppRequireNumbers (\s a -> s { _ppRequireNumbers = a })
 
 -- | Specifies whether to require symbols for IAM user passwords.
+--
 ppRequireSymbols :: Lens' PasswordPolicy (Maybe Bool)
 ppRequireSymbols = lens _ppRequireSymbols (\s a -> s { _ppRequireSymbols = a })
 
 -- | Specifies whether to require uppercase characters for IAM user passwords.
+--
 ppRequireUppercaseCharacters :: Lens' PasswordPolicy (Maybe Bool)
 ppRequireUppercaseCharacters =
     lens _ppRequireUppercaseCharacters
@@ -401,30 +411,30 @@ group p1 p2 p3 p4 p5 = Group
     }
 
 -- | The Amazon Resource Name (ARN) specifying the group. For more information
--- about ARNs and how to use them in policies, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- about ARNs and how to use them in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /UsingIAM/ guide.
+--
 gArn :: Lens' Group Text
 gArn = lens _gArn (\s a -> s { _gArn = a })
 
 -- | The date when the group was created.
+--
 gCreateDate :: Lens' Group UTCTime
 gCreateDate = lens _gCreateDate (\s a -> s { _gCreateDate = a }) . _Time
 
 -- | The stable and unique string identifying the group. For more information
--- about IDs, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+--
 gGroupId :: Lens' Group Text
 gGroupId = lens _gGroupId (\s a -> s { _gGroupId = a })
 
 -- | The name that identifies the group.
+--
 gGroupName :: Lens' Group Text
 gGroupName = lens _gGroupName (\s a -> s { _gGroupName = a })
 
--- | The path to the group. For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- | The path to the group. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+--
 gPath :: Lens' Group Text
 gPath = lens _gPath (\s a -> s { _gPath = a })
 
@@ -472,15 +482,18 @@ mfadevice p1 p2 p3 = MFADevice
     }
 
 -- | The date when the MFA device was enabled for the user.
+--
 mfadEnableDate :: Lens' MFADevice UTCTime
 mfadEnableDate = lens _mfadEnableDate (\s a -> s { _mfadEnableDate = a }) . _Time
 
--- | The serial number that uniquely identifies the MFA device. For virtual
--- MFA devices, the serial number is the device ARN.
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA
+-- devices, the serial number is the device ARN.
+--
 mfadSerialNumber :: Lens' MFADevice Text
 mfadSerialNumber = lens _mfadSerialNumber (\s a -> s { _mfadSerialNumber = a })
 
 -- | The user with whom the MFA device is associated.
+--
 mfadUserName :: Lens' MFADevice Text
 mfadUserName = lens _mfadUserName (\s a -> s { _mfadUserName = a })
 
@@ -538,36 +551,37 @@ instanceProfile p1 p2 p3 p4 p5 = InstanceProfile
     }
 
 -- | The Amazon Resource Name (ARN) specifying the instance profile. For more
--- information about ARNs and how to use them in policies, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- information about ARNs and how to use them in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+--
 ipArn :: Lens' InstanceProfile Text
 ipArn = lens _ipArn (\s a -> s { _ipArn = a })
 
 -- | The date when the instance profile was created.
+--
 ipCreateDate :: Lens' InstanceProfile UTCTime
 ipCreateDate = lens _ipCreateDate (\s a -> s { _ipCreateDate = a }) . _Time
 
 -- | The stable and unique string identifying the instance profile. For more
--- information about IDs, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+--
 ipInstanceProfileId :: Lens' InstanceProfile Text
 ipInstanceProfileId =
     lens _ipInstanceProfileId (\s a -> s { _ipInstanceProfileId = a })
 
 -- | The name identifying the instance profile.
+--
 ipInstanceProfileName :: Lens' InstanceProfile Text
 ipInstanceProfileName =
     lens _ipInstanceProfileName (\s a -> s { _ipInstanceProfileName = a })
 
--- | The path to the instance profile. For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- | The path to the instance profile. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAMIdentifiers> in the /Using IAM/ guide.
+--
 ipPath :: Lens' InstanceProfile Text
 ipPath = lens _ipPath (\s a -> s { _ipPath = a })
 
 -- | The role associated with the instance profile.
+--
 ipRoles :: Lens' InstanceProfile [Role]
 ipRoles = lens _ipRoles (\s a -> s { _ipRoles = a }) . _List
 
@@ -651,38 +665,39 @@ serverCertificateMetadata p1 p2 p3 p4 = ServerCertificateMetadata
     , _scmExpiration            = Nothing
     }
 
--- | The Amazon Resource Name (ARN) specifying the server certificate. For
--- more information about ARNs and how to use them in policies, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- | The Amazon Resource Name (ARN) specifying the server certificate. For more
+-- information about ARNs and how to use them in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+--
 scmArn :: Lens' ServerCertificateMetadata Text
 scmArn = lens _scmArn (\s a -> s { _scmArn = a })
 
 -- | The date on which the certificate is set to expire.
+--
 scmExpiration :: Lens' ServerCertificateMetadata (Maybe UTCTime)
 scmExpiration = lens _scmExpiration (\s a -> s { _scmExpiration = a }) . mapping _Time
 
--- | The path to the server certificate. For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- | The path to the server certificate. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+--
 scmPath :: Lens' ServerCertificateMetadata Text
 scmPath = lens _scmPath (\s a -> s { _scmPath = a })
 
 -- | The stable and unique string identifying the server certificate. For more
--- information about IDs, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+--
 scmServerCertificateId :: Lens' ServerCertificateMetadata Text
 scmServerCertificateId =
     lens _scmServerCertificateId (\s a -> s { _scmServerCertificateId = a })
 
 -- | The name that identifies the server certificate.
+--
 scmServerCertificateName :: Lens' ServerCertificateMetadata Text
 scmServerCertificateName =
     lens _scmServerCertificateName
         (\s a -> s { _scmServerCertificateName = a })
 
 -- | The date when the server certificate was uploaded.
+--
 scmUploadDate :: Lens' ServerCertificateMetadata (Maybe UTCTime)
 scmUploadDate = lens _scmUploadDate (\s a -> s { _scmUploadDate = a }) . mapping _Time
 
@@ -758,17 +773,19 @@ loginProfile p1 p2 = LoginProfile
     }
 
 -- | The date when the password for the user was created.
+--
 lpCreateDate :: Lens' LoginProfile UTCTime
 lpCreateDate = lens _lpCreateDate (\s a -> s { _lpCreateDate = a }) . _Time
 
--- | Specifies whether the user is required to set a new password on next
--- sign-in.
+-- | Specifies whether the user is required to set a new password on next sign-in.
+--
 lpPasswordResetRequired :: Lens' LoginProfile (Maybe Bool)
 lpPasswordResetRequired =
     lens _lpPasswordResetRequired (\s a -> s { _lpPasswordResetRequired = a })
 
--- | The name of the user, which can be used for signing in to the AWS
--- Management Console.
+-- | The name of the user, which can be used for signing in to the AWS Management
+-- Console.
+--
 lpUserName :: Lens' LoginProfile Text
 lpUserName = lens _lpUserName (\s a -> s { _lpUserName = a })
 
@@ -916,49 +933,46 @@ user p1 p2 p3 p4 p5 = User
     , _uPasswordLastUsed = Nothing
     }
 
--- | The Amazon Resource Name (ARN) that identifies the user. For more
--- information about ARNs and how to use ARNs in policies, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- | The Amazon Resource Name (ARN) that identifies the user. For more information
+-- about ARNs and how to use ARNs in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /UsingIAM/ guide.
+--
 uArn :: Lens' User Text
 uArn = lens _uArn (\s a -> s { _uArn = a })
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time
--- format>, when the user was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the user was created.
+--
 uCreateDate :: Lens' User UTCTime
 uCreateDate = lens _uCreateDate (\s a -> s { _uCreateDate = a }) . _Time
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time
--- format>, when the user's password was last used to sign in to an AWS
--- website. For a list of AWS websites that capture a user's last sign-in
--- time, see the
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html
--- Credential Reports> topic in the /Using IAM/ guide. If a password is used
--- more than once in a five-minute span, only the first use is returned in
--- this field. When the user does not have a password, this field is null
--- (not present). When a user's password exists but has never been used, or
--- when there is no sign-in data associated with the user, this field is
--- null (not present). This value is returned only in the 'GetUser' and
--- 'ListUsers' actions.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the user's password was
+-- last used to sign in to an AWS website. For a list of AWS websites that
+-- capture a user's last sign-in time, see the <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports> topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the
+-- first use is returned in this field. When the user does not have a password,
+-- this field is null (not present). When a user's password exists but has never
+-- been used, or when there is no sign-in data associated with the user, this
+-- field is null (not present).
+--
+-- This value is returned only in the 'GetUser' and 'ListUsers' actions.
+--
 uPasswordLastUsed :: Lens' User (Maybe UTCTime)
 uPasswordLastUsed =
     lens _uPasswordLastUsed (\s a -> s { _uPasswordLastUsed = a })
         . mapping _Time
 
--- | The path to the user. For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- | The path to the user. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+--
 uPath :: Lens' User Text
 uPath = lens _uPath (\s a -> s { _uPath = a })
 
--- | The stable and unique string identifying the user. For more information
--- about IDs, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- | The stable and unique string identifying the user. For more information about
+-- IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+--
 uUserId :: Lens' User Text
 uUserId = lens _uUserId (\s a -> s { _uUserId = a })
 
 -- | The friendly name identifying the user.
+--
 uUserName :: Lens' User Text
 uUserName = lens _uUserName (\s a -> s { _uUserName = a })
 
@@ -1031,16 +1045,19 @@ samlproviderListEntry = SAMLProviderListEntry
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
+--
 samlpleArn :: Lens' SAMLProviderListEntry (Maybe Text)
 samlpleArn = lens _samlpleArn (\s a -> s { _samlpleArn = a })
 
 -- | The date and time when the SAML provider was created.
+--
 samlpleCreateDate :: Lens' SAMLProviderListEntry (Maybe UTCTime)
 samlpleCreateDate =
     lens _samlpleCreateDate (\s a -> s { _samlpleCreateDate = a })
         . mapping _Time
 
 -- | The expiration date and time for the SAML provider.
+--
 samlpleValidUntil :: Lens' SAMLProviderListEntry (Maybe UTCTime)
 samlpleValidUntil =
     lens _samlpleValidUntil (\s a -> s { _samlpleValidUntil = a })
@@ -1100,39 +1117,40 @@ role p1 p2 p3 p4 p5 = Role
     }
 
 -- | The Amazon Resource Name (ARN) specifying the role. For more information
--- about ARNs and how to use them in policies, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- about ARNs and how to use them in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /UsingIAM/ guide.
+--
 rArn :: Lens' Role Text
 rArn = lens _rArn (\s a -> s { _rArn = a })
 
--- | The policy that grants an entity permission to assume the role. The
--- returned policy is URL-encoded according to RFC 3986. For more
--- information about RFC 3986, go to <http://www.faqs.org/rfcs/rfc3986.html
--- http://www.faqs.org/rfcs/rfc3986.html>.
+-- | The policy that grants an entity permission to assume the role.
+--
+-- The returned policy is URL-encoded according to RFC 3986. For more
+-- information about RFC 3986, go to <http://www.faqs.org/rfcs/rfc3986.html http://www.faqs.org/rfcs/rfc3986.html>.
+--
 rAssumeRolePolicyDocument :: Lens' Role (Maybe Text)
 rAssumeRolePolicyDocument =
     lens _rAssumeRolePolicyDocument
         (\s a -> s { _rAssumeRolePolicyDocument = a })
 
 -- | The date when the role was created.
+--
 rCreateDate :: Lens' Role UTCTime
 rCreateDate = lens _rCreateDate (\s a -> s { _rCreateDate = a }) . _Time
 
--- | The path to the role. For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- | The path to the role. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+--
 rPath :: Lens' Role Text
 rPath = lens _rPath (\s a -> s { _rPath = a })
 
 -- | The stable and unique string identifying the role. For more information
--- about IDs, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide.
+-- about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+--
 rRoleId :: Lens' Role Text
 rRoleId = lens _rRoleId (\s a -> s { _rRoleId = a })
 
 -- | The name that identifies the role.
+--
 rRoleName :: Lens' Role Text
 rRoleName = lens _rRoleName (\s a -> s { _rRoleName = a })
 
@@ -1181,17 +1199,20 @@ serverCertificate p1 p2 = ServerCertificate
     }
 
 -- | The contents of the public key certificate.
+--
 scCertificateBody :: Lens' ServerCertificate Text
 scCertificateBody =
     lens _scCertificateBody (\s a -> s { _scCertificateBody = a })
 
 -- | The contents of the public key certificate chain.
+--
 scCertificateChain :: Lens' ServerCertificate (Maybe Text)
 scCertificateChain =
     lens _scCertificateChain (\s a -> s { _scCertificateChain = a })
 
--- | The meta information of the server certificate, such as its name, path,
--- ID, and ARN.
+-- | The meta information of the server certificate, such as its name, path, ID,
+-- and ARN.
+--
 scServerCertificateMetadata :: Lens' ServerCertificate ServerCertificateMetadata
 scServerCertificateMetadata =
     lens _scServerCertificateMetadata
@@ -1246,25 +1267,30 @@ accessKey p1 p2 p3 p4 = AccessKey
     }
 
 -- | The ID for this access key.
+--
 akAccessKeyId :: Lens' AccessKey Text
 akAccessKeyId = lens _akAccessKeyId (\s a -> s { _akAccessKeyId = a })
 
 -- | The date when the access key was created.
+--
 akCreateDate :: Lens' AccessKey (Maybe UTCTime)
 akCreateDate = lens _akCreateDate (\s a -> s { _akCreateDate = a }) . mapping _Time
 
 -- | The secret key used to sign requests.
+--
 akSecretAccessKey :: Lens' AccessKey Text
 akSecretAccessKey =
     lens _akSecretAccessKey (\s a -> s { _akSecretAccessKey = a })
         . _Sensitive
 
--- | The status of the access key. 'Active' means the key is valid for API
--- calls, while 'Inactive' means it is not.
+-- | The status of the access key. 'Active' means the key is valid for API calls,
+-- while 'Inactive' means it is not.
+--
 akStatus :: Lens' AccessKey StatusType
 akStatus = lens _akStatus (\s a -> s { _akStatus = a })
 
 -- | The name of the IAM user that the access key is associated with.
+--
 akUserName :: Lens' AccessKey Text
 akUserName = lens _akUserName (\s a -> s { _akUserName = a })
 
@@ -1317,27 +1343,26 @@ virtualMFADevice p1 = VirtualMFADevice
     , _vmfadEnableDate       = Nothing
     }
 
--- | The Base32 seed defined as specified in
--- <http://www.ietf.org/rfc/rfc3548.txt RFC3548>. The 'Base32StringSeed' is
+-- | The Base32 seed defined as specified in <http://www.ietf.org/rfc/rfc3548.txt RFC3548>. The 'Base32StringSeed' is
 -- Base64-encoded.
+--
 vmfadBase32StringSeed :: Lens' VirtualMFADevice (Maybe Base64)
 vmfadBase32StringSeed =
     lens _vmfadBase32StringSeed (\s a -> s { _vmfadBase32StringSeed = a })
 
 -- | The date and time on which the virtual MFA device was enabled.
+--
 vmfadEnableDate :: Lens' VirtualMFADevice (Maybe UTCTime)
 vmfadEnableDate = lens _vmfadEnableDate (\s a -> s { _vmfadEnableDate = a }) . mapping _Time
 
--- | A QR code PNG image that encodes
--- 'otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String'
--- where '$virtualMFADeviceName' is one of the create call arguments,
--- 'AccountName' is the user name if set (otherwise, the account ID
--- otherwise), and 'Base32String' is the seed in Base32 format. The
--- 'Base32String' value is Base64-encoded.
+-- | A QR code PNG image that encodes 'otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String' where '$virtualMFADeviceName' is one of the create call arguments, 'AccountName'
+-- is the user name if set (otherwise, the account ID otherwise), and 'Base32String' is the seed in Base32 format. The 'Base32String' value is Base64-encoded.
+--
 vmfadQRCodePNG :: Lens' VirtualMFADevice (Maybe Base64)
 vmfadQRCodePNG = lens _vmfadQRCodePNG (\s a -> s { _vmfadQRCodePNG = a })
 
 -- | The serial number associated with 'VirtualMFADevice'.
+--
 vmfadSerialNumber :: Lens' VirtualMFADevice Text
 vmfadSerialNumber =
     lens _vmfadSerialNumber (\s a -> s { _vmfadSerialNumber = a })
@@ -1398,24 +1423,29 @@ signingCertificate p1 p2 p3 p4 = SigningCertificate
     }
 
 -- | The contents of the signing certificate.
+--
 sc1CertificateBody :: Lens' SigningCertificate Text
 sc1CertificateBody =
     lens _sc1CertificateBody (\s a -> s { _sc1CertificateBody = a })
 
 -- | The ID for the signing certificate.
+--
 sc1CertificateId :: Lens' SigningCertificate Text
 sc1CertificateId = lens _sc1CertificateId (\s a -> s { _sc1CertificateId = a })
 
--- | The status of the signing certificate. 'Active' means the key is valid
--- for API calls, while 'Inactive' means it is not.
+-- | The status of the signing certificate. 'Active' means the key is valid for API
+-- calls, while 'Inactive' means it is not.
+--
 sc1Status :: Lens' SigningCertificate StatusType
 sc1Status = lens _sc1Status (\s a -> s { _sc1Status = a })
 
 -- | The date when the signing certificate was uploaded.
+--
 sc1UploadDate :: Lens' SigningCertificate (Maybe UTCTime)
 sc1UploadDate = lens _sc1UploadDate (\s a -> s { _sc1UploadDate = a }) . mapping _Time
 
 -- | The name of the user the signing certificate is associated with.
+--
 sc1UserName :: Lens' SigningCertificate Text
 sc1UserName = lens _sc1UserName (\s a -> s { _sc1UserName = a })
 
@@ -1464,19 +1494,22 @@ accessKeyMetadata = AccessKeyMetadata
     }
 
 -- | The ID for this access key.
+--
 akmAccessKeyId :: Lens' AccessKeyMetadata (Maybe Text)
 akmAccessKeyId = lens _akmAccessKeyId (\s a -> s { _akmAccessKeyId = a })
 
 -- | The date when the access key was created.
+--
 akmCreateDate :: Lens' AccessKeyMetadata (Maybe UTCTime)
 akmCreateDate = lens _akmCreateDate (\s a -> s { _akmCreateDate = a }) . mapping _Time
 
--- | The status of the access key. 'Active' means the key is valid for API
--- calls; 'Inactive' means it is not.
+-- | The status of the access key. 'Active' means the key is valid for API calls; 'Inactive' means it is not.
+--
 akmStatus :: Lens' AccessKeyMetadata (Maybe StatusType)
 akmStatus = lens _akmStatus (\s a -> s { _akmStatus = a })
 
 -- | The name of the IAM user that the key is associated with.
+--
 akmUserName :: Lens' AccessKeyMetadata (Maybe Text)
 akmUserName = lens _akmUserName (\s a -> s { _akmUserName = a })
 

@@ -21,11 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists the instance profiles that have the specified associated role. If
--- there are none, the action returns an empty list. For more information
--- about instance profiles, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html
--- About Instance Profiles>. You can paginate the results using the 'MaxItems'
--- and 'Marker' parameters.
+-- there are none, the action returns an empty list. For more information about
+-- instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+--
+-- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfilesForRole.html>
 module Network.AWS.IAM.ListInstanceProfilesForRole
@@ -79,21 +78,23 @@ listInstanceProfilesForRole p1 = ListInstanceProfilesForRole
     }
 
 -- | Use this parameter only when paginating results, and only in a subsequent
--- request after you've received a response where the results are truncated.
--- Set it to the value of the 'Marker' element in the response you just
--- received.
+-- request after you've received a response where the results are truncated. Set
+-- it to the value of the 'Marker' element in the response you just received.
+--
 lipfrMarker :: Lens' ListInstanceProfilesForRole (Maybe Text)
 lipfrMarker = lens _lipfrMarker (\s a -> s { _lipfrMarker = a })
 
 -- | Use this parameter only when paginating results to indicate the maximum
--- number of instance profiles you want in the response. If there are
--- additional instance profiles beyond the maximum you specify, the
--- 'IsTruncated' response element is 'true'. This parameter is optional. If
--- you do not include it, it defaults to 100.
+-- number of instance profiles you want in the response. If there are additional
+-- instance profiles beyond the maximum you specify, the 'IsTruncated' response
+-- element is 'true'. This parameter is optional. If you do not include it, it
+-- defaults to 100.
+--
 lipfrMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Natural)
 lipfrMaxItems = lens _lipfrMaxItems (\s a -> s { _lipfrMaxItems = a }) . mapping _Nat
 
 -- | The name of the role to list instance profiles for.
+--
 lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
 lipfrRoleName = lens _lipfrRoleName (\s a -> s { _lipfrRoleName = a })
 
@@ -121,22 +122,24 @@ listInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     }
 
 -- | A list of instance profiles.
+--
 lipfrrInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstanceProfile]
 lipfrrInstanceProfiles =
     lens _lipfrrInstanceProfiles (\s a -> s { _lipfrrInstanceProfiles = a })
         . _List
 
--- | A flag that indicates whether there are more instance profiles to list.
--- If your results were truncated, you can make a subsequent pagination
--- request using the 'Marker' request parameter to retrieve more instance
--- profiles in the list.
+-- | A flag that indicates whether there are more instance profiles to list. If
+-- your results were truncated, you can make a subsequent pagination request
+-- using the 'Marker' request parameter to retrieve more instance profiles in the
+-- list.
+--
 lipfrrIsTruncated :: Lens' ListInstanceProfilesForRoleResponse (Maybe Bool)
 lipfrrIsTruncated =
     lens _lipfrrIsTruncated (\s a -> s { _lipfrrIsTruncated = a })
 
--- | If 'IsTruncated' is 'true', this element is present and contains the
--- value to use for the 'Marker' parameter in a subsequent pagination
--- request.
+-- | If 'IsTruncated' is 'true', this element is present and contains the value to
+-- use for the 'Marker' parameter in a subsequent pagination request.
+--
 lipfrrMarker :: Lens' ListInstanceProfilesForRoleResponse (Maybe Text)
 lipfrrMarker = lens _lipfrrMarker (\s a -> s { _lipfrrMarker = a })
 

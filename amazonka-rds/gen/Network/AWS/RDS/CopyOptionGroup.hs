@@ -78,12 +78,17 @@ copyOptionGroup p1 p2 p3 = CopyOptionGroup
     , _cog1Tags                         = mempty
     }
 
--- | The identifier or ARN for the source Option Group. Constraints: Must
--- specify a valid Option Group. If the source Option Group is in the same
--- region as the copy, specify a valid Option Group identifier, or a valid
+-- | The identifier or ARN for the source Option Group.
+--
+-- Constraints:
+--
+-- Must specify a valid Option Group. If the source Option Group is in the
+-- same region as the copy, specify a valid Option Group identifier, or a valid
 -- ARN. If the source Option Group is in a different region than the copy,
--- specify a valid Option group ARN. Example: 'my-option-group' Example:
--- 'arn:aws:rds:us-west-2:123456789012:og:special-options'.
+-- specify a valid Option group ARN.  Example: 'my-option-group'
+--
+-- Example: 'arn:aws:rds:us-west-2:123456789012:og:special-options'
+--
 cog1SourceOptionGroupIdentifier :: Lens' CopyOptionGroup Text
 cog1SourceOptionGroupIdentifier =
     lens _cog1SourceOptionGroupIdentifier
@@ -93,15 +98,20 @@ cog1Tags :: Lens' CopyOptionGroup [Tag]
 cog1Tags = lens _cog1Tags (\s a -> s { _cog1Tags = a }) . _List
 
 -- | The description for the copied Option Group.
+--
 cog1TargetOptionGroupDescription :: Lens' CopyOptionGroup Text
 cog1TargetOptionGroupDescription =
     lens _cog1TargetOptionGroupDescription
         (\s a -> s { _cog1TargetOptionGroupDescription = a })
 
--- | The identifier for the copied Option Group. Constraints: Cannot be null,
--- empty, or blank Must contain from 1 to 255 alphanumeric characters or
--- hyphens First character must be a letter Cannot end with a hyphen or
--- contain two consecutive hyphens Example: 'my-option-group'.
+-- | The identifier for the copied Option Group.
+--
+-- Constraints:
+--
+-- Cannot be null, empty, or blank Must contain from 1 to 255 alphanumeric
+-- characters or hyphens First character must be a letter Cannot end with a
+-- hyphen or contain two consecutive hyphens  Example: 'my-option-group'
+--
 cog1TargetOptionGroupIdentifier :: Lens' CopyOptionGroup Text
 cog1TargetOptionGroupIdentifier =
     lens _cog1TargetOptionGroupIdentifier

@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Modifies an existing DB subnet group. DB subnet groups must contain at
--- least one subnet in at least two AZs in the region.
+-- | Modifies an existing DB subnet group. DB subnet groups must contain at least
+-- one subnet in at least two AZs in the region.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSubnetGroup.html>
 module Network.AWS.RDS.ModifyDBSubnetGroup
@@ -73,19 +73,26 @@ modifyDBSubnetGroup p1 = ModifyDBSubnetGroup
     }
 
 -- | The description for the DB subnet group.
+--
 mdbsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
 mdbsgDBSubnetGroupDescription =
     lens _mdbsgDBSubnetGroupDescription
         (\s a -> s { _mdbsgDBSubnetGroupDescription = a })
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
--- string. Constraints: Must contain no more than 255 alphanumeric
--- characters or hyphens. Must not be "Default". Example: 'mySubnetgroup'.
+-- string.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters or
+-- hyphens. Must not be "Default".
+--
+-- Example: 'mySubnetgroup'
+--
 mdbsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
 mdbsgDBSubnetGroupName =
     lens _mdbsgDBSubnetGroupName (\s a -> s { _mdbsgDBSubnetGroupName = a })
 
 -- | The EC2 subnet IDs for the DB subnet group.
+--
 mdbsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
 mdbsgSubnetIds = lens _mdbsgSubnetIds (\s a -> s { _mdbsgSubnetIds = a }) . _List
 

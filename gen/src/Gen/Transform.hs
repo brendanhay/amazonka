@@ -50,7 +50,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         , _cUrl          = url
         , _cLibrary      = overrides ^. oLibrary
         , _cVersion      = overrides ^. oVersion
-        , _cDescription  = help
+        , _cDescription  = description (s1 ^. s1Documentation)
         , _cProtocol     = protocol
         , _cExposed      = sort $
             service ^. svNamespace : typesNamespace : operationNamespaces
@@ -65,7 +65,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         , _svNamespace      = namespace [unAbbrev abbrev]
         , _svImports        = sort (typesNamespace : operationNamespaces)
         , _svVersion        = version
-        , _svDocumentation  = help
+        , _svDocumentation  = above (s1 ^. s1Documentation)
         , _svProtocol       = protocol
         , _svEndpoint       = endpoint
         , _svEndpointPrefix = endpointPrefix
@@ -97,8 +97,6 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
     version  = s1 ^. mApiVersion
 
     (ops, ts, share) = dataTypes overrides abbrev s1
-
-    help = Doc (s1 ^. s1Documentation)
 
     endpointPrefix = s1 ^. mEndpointPrefix
 
@@ -200,7 +198,7 @@ operation a proto base ns ss pgs n o = do
         , _opProtocol         = proto
         , _opNamespace        = operationNS a n
         , _opImports          = requestNS proto : typesNS a : ns
-        , _opDocumentation    = documentation (o ^. oDocumentation)
+        , _opDocumentation    = above <$> o ^. oDocumentation
         , _opDocumentationUrl = o ^. oDocumentationUrl
         , _opMethod           = o ^. oHttp.hMethod
         , _opRequest          = rq
@@ -507,7 +505,7 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
             , _fLocationName  = fromMaybe fld (r ^. refLocationName)
             , _fPayload       = Just fld == pay
             , _fStream        = fromMaybe False (r ^. refStreaming)
-            , _fDocumentation = Doc <$> (r ^. refDocumentation)
+            , _fDocumentation = above <$> r ^. refDocumentation
             }
 
     require :: [Text] -> Text -> Type -> Type

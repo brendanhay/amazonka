@@ -21,10 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Disables monitoring for a running instance. For more information about
--- monitoring instances, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html
--- Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud
--- User Guide/.
+-- monitoring instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnmonitorInstances.html>
 module Network.AWS.EC2.UnmonitorInstances
@@ -73,6 +70,7 @@ uiDryRun :: Lens' UnmonitorInstances (Maybe Bool)
 uiDryRun = lens _uiDryRun (\s a -> s { _uiDryRun = a })
 
 -- | One or more instance IDs.
+--
 uiInstanceIds :: Lens' UnmonitorInstances [Text]
 uiInstanceIds = lens _uiInstanceIds (\s a -> s { _uiInstanceIds = a }) . _List
 
@@ -98,6 +96,7 @@ unmonitorInstancesResponse = UnmonitorInstancesResponse
     }
 
 -- | Monitoring information for one or more instances.
+--
 uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirInstanceMonitorings =
     lens _uirInstanceMonitorings (\s a -> s { _uirInstanceMonitorings = a })

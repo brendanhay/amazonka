@@ -23,14 +23,13 @@
 -- | Returns a detailed list of parameters contained within the specified Amazon
 -- Redshift parameter group. For each parameter the response includes
 -- information such as parameter name, description, data type, value, whether
--- the parameter value is modifiable, and so on. You can specify /source/
--- filter to retrieve parameters of only specific type. For example, to
--- retrieve parameters that were modified by a user action such as from
--- 'ModifyClusterParameterGroup', you can specify /source/ equal to /user/.
--- For more information about managing parameter groups, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html
--- Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster
--- Management Guide/.
+-- the parameter value is modifiable, and so on.
+--
+-- You can specify /source/ filter to retrieve parameters of only specific type.
+-- For example, to retrieve parameters that were modified by a user action such
+-- as from 'ModifyClusterParameterGroup', you can specify /source/ equal to /user/.
+--
+-- For more information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon RedshiftParameter Groups> in the /Amazon Redshift Cluster Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameters.html>
 module Network.AWS.Redshift.DescribeClusterParameters
@@ -87,33 +86,42 @@ describeClusterParameters p1 = DescribeClusterParameters
     , _dcp1Marker             = Nothing
     }
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a 'DescribeClusterParameters'
--- request exceed the value specified in 'MaxRecords', AWS returns a value
--- in the 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
+-- | An optional parameter that specifies the starting point to return a set of
+-- response records. When the results of a 'DescribeClusterParameters' request
+-- exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker'
+-- field of the response. You can retrieve the next set of response records by
+-- providing the returned marker value in the 'Marker' parameter and retrying the
+-- request.
+--
 dcp1Marker :: Lens' DescribeClusterParameters (Maybe Text)
 dcp1Marker = lens _dcp1Marker (\s a -> s { _dcp1Marker = a })
 
--- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified 'MaxRecords'
--- value, a value is returned in a 'marker' field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value. Default: '100' Constraints: minimum 20, maximum
--- 100.
+-- | The maximum number of response records to return in each call. If the number
+-- of remaining response records exceeds the specified 'MaxRecords' value, a value
+-- is returned in a 'marker' field of the response. You can retrieve the next set
+-- of records by retrying the command with the returned marker value.
+--
+-- Default: '100'
+--
+-- Constraints: minimum 20, maximum 100.
+--
 dcp1MaxRecords :: Lens' DescribeClusterParameters (Maybe Int)
 dcp1MaxRecords = lens _dcp1MaxRecords (\s a -> s { _dcp1MaxRecords = a })
 
 -- | The name of a cluster parameter group for which to return details.
+--
 dcp1ParameterGroupName :: Lens' DescribeClusterParameters Text
 dcp1ParameterGroupName =
     lens _dcp1ParameterGroupName (\s a -> s { _dcp1ParameterGroupName = a })
 
 -- | The parameter types to return. Specify 'user' to show parameters that are
 -- different form the default. Similarly, specify 'engine-default' to show
--- parameters that are the same as the default parameter group. Default: All
--- parameter types returned. Valid Values: 'user' | 'engine-default'.
+-- parameters that are the same as the default parameter group.
+--
+-- Default: All parameter types returned.
+--
+-- Valid Values: 'user' | 'engine-default'
+--
 dcp1Source :: Lens' DescribeClusterParameters (Maybe Text)
 dcp1Source = lens _dcp1Source (\s a -> s { _dcp1Source = a })
 
@@ -137,16 +145,17 @@ describeClusterParametersResponse = DescribeClusterParametersResponse
     }
 
 -- | A value that indicates the starting point for the next set of response
--- records in a subsequent request. If a value is returned in a response,
--- you can retrieve the next set of records by providing this returned
--- marker value in the 'Marker' parameter and retrying the command. If the
--- 'Marker' field is empty, all response records have been retrieved for the
--- request.
+-- records in a subsequent request. If a value is returned in a response, you
+-- can retrieve the next set of records by providing this returned marker value
+-- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
+-- empty, all response records have been retrieved for the request.
+--
 dcprMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
 dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
 
--- | A list of 'Parameter' instances. Each instance lists the parameters of
--- one cluster parameter group.
+-- | A list of 'Parameter' instances. Each instance lists the parameters of one
+-- cluster parameter group.
+--
 dcprParameters :: Lens' DescribeClusterParametersResponse [Parameter]
 dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a }) . _List
 

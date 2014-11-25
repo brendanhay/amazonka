@@ -20,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Task runners call 'ReportTaskRunnerHeartbeat' every 15 minutes to indicate
--- that they are operational. In the case of AWS Data Pipeline Task Runner
--- launched on a resource managed by AWS Data Pipeline, the web service can
--- use this call to detect when the task runner application has failed and
--- restart a new instance.
+-- | Task runners call 'ReportTaskRunnerHeartbeat' every 15 minutes to indicate that
+-- they are operational. In the case of AWS Data Pipeline Task Runner launched
+-- on a resource managed by AWS Data Pipeline, the web service can use this call
+-- to detect when the task runner application has failed and restart a new
+-- instance.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskRunnerHeartbeat.html>
 module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
@@ -76,24 +76,24 @@ reportTaskRunnerHeartbeat p1 = ReportTaskRunnerHeartbeat
     }
 
 -- | The public DNS name of the calling task runner.
+--
 rtrhHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
 rtrhHostname = lens _rtrhHostname (\s a -> s { _rtrhHostname = a })
 
--- | The identifier of the task runner. This value should be unique across
--- your AWS account. In the case of AWS Data Pipeline Task Runner launched
--- on a resource managed by AWS Data Pipeline, the web service provides a
--- unique identifier when it launches the application. If you have written a
--- custom task runner, you should assign a unique identifier for the task
--- runner.
+-- | The identifier of the task runner. This value should be unique across your
+-- AWS account. In the case of AWS Data Pipeline Task Runner launched on a
+-- resource managed by AWS Data Pipeline, the web service provides a unique
+-- identifier when it launches the application. If you have written a custom
+-- task runner, you should assign a unique identifier for the task runner.
+--
 rtrhTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
 rtrhTaskrunnerId = lens _rtrhTaskrunnerId (\s a -> s { _rtrhTaskrunnerId = a })
 
 -- | Indicates the type of task the task runner is configured to accept and
--- process. The worker group is set as a field on objects in the pipeline
--- when they are created. You can only specify a single value for
--- 'workerGroup' in the call to 'ReportTaskRunnerHeartbeat'. There are no
--- wildcard values permitted in 'workerGroup', the string must be an exact,
--- case-sensitive, match.
+-- process. The worker group is set as a field on objects in the pipeline when
+-- they are created. You can only specify a single value for 'workerGroup' in the
+-- call to 'ReportTaskRunnerHeartbeat'. There are no wildcard values permitted in 'workerGroup', the string must be an exact, case-sensitive, match.
+--
 rtrhWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
 rtrhWorkerGroup = lens _rtrhWorkerGroup (\s a -> s { _rtrhWorkerGroup = a })
 
@@ -113,8 +113,9 @@ reportTaskRunnerHeartbeatResponse p1 = ReportTaskRunnerHeartbeatResponse
     { _rtrhrTerminate = p1
     }
 
--- | Indicates whether the calling task runner should terminate. If 'True',
--- the task runner that called 'ReportTaskRunnerHeartbeat' should terminate.
+-- | Indicates whether the calling task runner should terminate. If 'True', the task
+-- runner that called 'ReportTaskRunnerHeartbeat' should terminate.
+--
 rtrhrTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
 rtrhrTerminate = lens _rtrhrTerminate (\s a -> s { _rtrhrTerminate = a })
 

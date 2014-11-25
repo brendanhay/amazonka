@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes the specified subnet. You must terminate all running instances in
--- the subnet before you can delete the subnet.
+-- | Deletes the specified subnet. You must terminate all running instances in the
+-- subnet before you can delete the subnet.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSubnet.html>
 module Network.AWS.EC2.DeleteSubnet
@@ -69,6 +69,7 @@ ds2DryRun :: Lens' DeleteSubnet (Maybe Bool)
 ds2DryRun = lens _ds2DryRun (\s a -> s { _ds2DryRun = a })
 
 -- | The ID of the subnet.
+--
 ds2SubnetId :: Lens' DeleteSubnet Text
 ds2SubnetId = lens _ds2SubnetId (\s a -> s { _ds2SubnetId = a })
 

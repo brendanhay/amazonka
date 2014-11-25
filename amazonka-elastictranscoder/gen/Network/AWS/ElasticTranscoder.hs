@@ -9,10 +9,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Amazon Elastic Transcoder lets you convert media files that you have stored
--- in Amazon Simple Storage Service (Amazon S3) into media files in the
--- formats required by consumer playback devices. For example, you can convert
--- large, high-quality digital media files into formats that users can play
--- back on mobile devices, tablets, web browsers, and connected televisions.
+-- in Amazon Simple Storage Service (Amazon S3) into media files in the formats
+-- required by consumer playback devices. For example, you can convert large,
+-- high-quality digital media files into formats that users can play back on
+-- mobile devices, tablets, web browsers, and connected televisions.
 module Network.AWS.ElasticTranscoder
     ( module Network.AWS.ElasticTranscoder.CancelJob
     , module Network.AWS.ElasticTranscoder.CreateJob

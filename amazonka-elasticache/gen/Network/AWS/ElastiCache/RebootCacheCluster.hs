@@ -22,11 +22,14 @@
 
 -- | The /RebootCacheCluster/ operation reboots some, or all, of the cache nodes
 -- within a provisioned cache cluster. This API will apply any modified cache
--- parameter groups to the cache cluster. The reboot action takes place as
--- soon as possible, and results in a momentary outage to the cache cluster.
--- During the reboot, the cache cluster status is set to REBOOTING. The reboot
--- causes the contents of the cache (for each cache node being rebooted) to be
--- lost. When the reboot is complete, a cache cluster event is created.
+-- parameter groups to the cache cluster. The reboot action takes place as soon
+-- as possible, and results in a momentary outage to the cache cluster. During
+-- the reboot, the cache cluster status is set to REBOOTING.
+--
+-- The reboot causes the contents of the cache (for each cache node being
+-- rebooted) to be lost.
+--
+-- When the reboot is complete, a cache cluster event is created.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebootCacheCluster.html>
 module Network.AWS.ElastiCache.RebootCacheCluster
@@ -72,15 +75,16 @@ rebootCacheCluster p1 = RebootCacheCluster
     , _rccCacheNodeIdsToReboot = mempty
     }
 
--- | The cache cluster identifier. This parameter is stored as a lowercase
--- string.
+-- | The cache cluster identifier. This parameter is stored as a lowercase string.
+--
 rccCacheClusterId :: Lens' RebootCacheCluster Text
 rccCacheClusterId =
     lens _rccCacheClusterId (\s a -> s { _rccCacheClusterId = a })
 
--- | A list of cache node IDs to reboot. A node ID is a numeric identifier
--- (0001, 0002, etc.). To reboot an entire cache cluster, specify all of the
--- cache node IDs.
+-- | A list of cache node IDs to reboot. A node ID is a numeric identifier (0001,
+-- 0002, etc.). To reboot an entire cache cluster, specify all of the cache node
+-- IDs.
+--
 rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
 rccCacheNodeIdsToReboot =
     lens _rccCacheNodeIdsToReboot (\s a -> s { _rccCacheNodeIdsToReboot = a })

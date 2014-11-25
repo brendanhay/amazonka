@@ -21,15 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Assigns one of the stack's registered Amazon EBS volumes to a specified
--- instance. The volume must first be registered with the stack by calling
--- 'RegisterVolume'. For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html
--- Resource Management>. Required Permissions: To use this action, an IAM user
--- must have a Manage permissions level for the stack, or an attached policy
--- that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- instance. The volume must first be registered with the stack by calling 'RegisterVolume'. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssignVolume.html>
 module Network.AWS.OpsWorks.AssignVolume
@@ -74,10 +70,12 @@ assignVolume p1 = AssignVolume
     }
 
 -- | The instance ID.
+--
 avInstanceId :: Lens' AssignVolume (Maybe Text)
 avInstanceId = lens _avInstanceId (\s a -> s { _avInstanceId = a })
 
 -- | The volume ID.
+--
 avVolumeId :: Lens' AssignVolume Text
 avVolumeId = lens _avVolumeId (\s a -> s { _avVolumeId = a })
 

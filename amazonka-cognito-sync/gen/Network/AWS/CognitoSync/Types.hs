@@ -143,8 +143,8 @@ ipuDataStorage :: Lens' IdentityPoolUsage (Maybe Integer)
 ipuDataStorage = lens _ipuDataStorage (\s a -> s { _ipuDataStorage = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 ipuIdentityPoolId :: Lens' IdentityPoolUsage (Maybe Text)
 ipuIdentityPoolId =
     lens _ipuIdentityPoolId (\s a -> s { _ipuIdentityPoolId = a })
@@ -257,14 +257,14 @@ dCreationDate = lens _dCreationDate (\s a -> s { _dCreationDate = a }) . mapping
 dDataStorage :: Lens' Dataset (Maybe Integer)
 dDataStorage = lens _dDataStorage (\s a -> s { _dDataStorage = a })
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
--- '_' (underscore), '-' (dash), and '.' (dot).
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'
+-- (underscore), '-' (dash), and '.' (dot).
 dDatasetName :: Lens' Dataset (Maybe Text)
 dDatasetName = lens _dDatasetName (\s a -> s { _dDatasetName = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 dIdentityId :: Lens' Dataset (Maybe Text)
 dIdentityId = lens _dIdentityId (\s a -> s { _dIdentityId = a })
 
@@ -454,14 +454,14 @@ iuDatasetCount :: Lens' IdentityUsage (Maybe Int)
 iuDatasetCount = lens _iuDatasetCount (\s a -> s { _iuDatasetCount = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 iuIdentityId :: Lens' IdentityUsage (Maybe Text)
 iuIdentityId = lens _iuIdentityId (\s a -> s { _iuIdentityId = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 iuIdentityPoolId :: Lens' IdentityUsage (Maybe Text)
 iuIdentityPoolId = lens _iuIdentityPoolId (\s a -> s { _iuIdentityPoolId = a })
 
@@ -582,13 +582,14 @@ pushSync = PushSync
     }
 
 -- | List of SNS platform application ARNs that could be used by clients.
+--
 psApplicationArns :: Lens' PushSync [Text]
 psApplicationArns =
     lens _psApplicationArns (\s a -> s { _psApplicationArns = a })
         . _List
 
--- | A role configured to allow Cognito to call SNS on behalf of the
--- developer.
+-- | A role configured to allow Cognito to call SNS on behalf of the developer.
+--
 psRoleArn :: Lens' PushSync (Maybe Text)
 psRoleArn = lens _psRoleArn (\s a -> s { _psRoleArn = a })
 

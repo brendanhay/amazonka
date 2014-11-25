@@ -20,8 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes tags from the specified Amazon Kinesis stream. If you specify a tag
--- that does not exist, it is ignored.
+-- | Deletes tags from the specified Amazon Kinesis stream.
+--
+-- If you specify a tag that does not exist, it is ignored.
 --
 -- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_RemoveTagsFromStream.html>
 module Network.AWS.Kinesis.RemoveTagsFromStream
@@ -67,10 +68,12 @@ removeTagsFromStream p1 p2 = RemoveTagsFromStream
     }
 
 -- | The name of the stream.
+--
 rtfsStreamName :: Lens' RemoveTagsFromStream Text
 rtfsStreamName = lens _rtfsStreamName (\s a -> s { _rtfsStreamName = a })
 
 -- | A list of tag keys. Each corresponding tag is removed from the stream.
+--
 rtfsTagKeys :: Lens' RemoveTagsFromStream (NonEmpty Text)
 rtfsTagKeys = lens _rtfsTagKeys (\s a -> s { _rtfsTagKeys = a }) . _List1
 

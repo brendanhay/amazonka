@@ -22,9 +22,10 @@
 
 -- | Performs multiple DeleteAttributes operations in a single call, which
 -- reduces round trips and latencies. This enables Amazon SimpleDB to optimize
--- requests, which generally yields better throughput. The following
--- limitations are enforced for this operation: 1 MB request size 25 item
--- limit per BatchDeleteAttributes operation.
+-- requests, which generally yields better throughput.
+--
+-- The following limitations are enforced for this operation:  1 MB request
+-- size 25 item limit per BatchDeleteAttributes operation
 --
 -- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_BatchDeleteAttributes.html>
 module Network.AWS.SDB.BatchDeleteAttributes

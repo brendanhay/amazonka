@@ -24,10 +24,12 @@
 -- down, any step not yet completed is canceled and the EC2 instances on which
 -- the job flow is running are stopped. Any log files not already saved are
 -- uploaded to Amazon S3 if a LogUri was specified when the job flow was
--- created. The call to TerminateJobFlows is asynchronous. Depending on the
+-- created.
+--
+-- The call to TerminateJobFlows is asynchronous. Depending on the
 -- configuration of the job flow, it may take up to 5-20 minutes for the job
--- flow to completely terminate and release allocated resources, such as
--- Amazon EC2 instances.
+-- flow to completely terminate and release allocated resources, such as Amazon
+-- EC2 instances.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_TerminateJobFlows.html>
 module Network.AWS.EMR.TerminateJobFlows
@@ -72,6 +74,7 @@ terminateJobFlows = TerminateJobFlows
     }
 
 -- | A list of job flows to be shutdown.
+--
 tjfJobFlowIds :: Lens' TerminateJobFlows [Text]
 tjfJobFlowIds = lens _tjfJobFlowIds (\s a -> s { _tjfJobFlowIds = a }) . _List
 

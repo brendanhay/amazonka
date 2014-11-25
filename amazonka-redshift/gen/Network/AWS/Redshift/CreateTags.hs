@@ -20,11 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Adds one or more tags to a specified resource. A resource can have up to 10
--- tags. If you try to create more than 10 tags for a resource, you will
--- receive an error and the attempt will fail. If you specify a key that
--- already exists for the resource, the value for that key will be updated
--- with the new value.
+-- | Adds one or more tags to a specified resource.
+--
+-- A resource can have up to 10 tags. If you try to create more than 10 tags
+-- for a resource, you will receive an error and the attempt will fail.
+--
+-- If you specify a key that already exists for the resource, the value for
+-- that key will be updated with the new value.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateTags.html>
 module Network.AWS.Redshift.CreateTags
@@ -68,19 +70,18 @@ createTags p1 = CreateTags
     , _ctTags         = mempty
     }
 
--- | The Amazon Resource Name (ARN) to which you want to add the tag or tags.
--- For example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
+-- | The Amazon Resource Name (ARN) to which you want to add the tag or tags. For
+-- example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
+--
 ctResourceName :: Lens' CreateTags Text
 ctResourceName = lens _ctResourceName (\s a -> s { _ctResourceName = a })
 
--- | One or more name/value pairs to add as tags to the specified resource.
--- Each tag name is passed in with the parameter 'tag-key' and the
--- corresponding value is passed in with the parameter 'tag-value'. The
--- 'tag-key' and 'tag-value' parameters are separated by a colon (:).
--- Separate multiple tags with a space. For example, '--tags
--- "tag-key"="owner":"tag-value"="admin"
--- "tag-key"="environment":"tag-value"="test"
--- "tag-key"="version":"tag-value"="1.0"'.
+-- | One or more name/value pairs to add as tags to the specified resource. Each
+-- tag name is passed in with the parameter 'tag-key' and the corresponding value
+-- is passed in with the parameter 'tag-value'. The 'tag-key' and 'tag-value'
+-- parameters are separated by a colon (:). Separate multiple tags with a space.
+-- For example, '--tags "tag-key"="owner":"tag-value"="admin""tag-key"="environment":"tag-value"="test""tag-key"="version":"tag-value"="1.0"'.
+--
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\s a -> s { _ctTags = a }) . _List
 

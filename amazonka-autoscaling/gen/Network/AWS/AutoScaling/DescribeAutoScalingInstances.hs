@@ -20,12 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes one or more Auto Scaling instances. If a list is not provided,
--- the call describes all instances. You can describe up to a maximum of 50
--- instances with a single call. By default, a call returns up to 20
--- instances. If there are more items to return, the call returns a token. To
--- get the next set of items, repeat the call with the returned token in the
--- 'NextToken' parameter.
+-- | Describes one or more Auto Scaling instances. If a list is not provided, the
+-- call describes all instances.
+--
+-- You can describe up to a maximum of 50 instances with a single call. By
+-- default, a call returns up to 20 instances. If there are more items to
+-- return, the call returns a token. To get the next set of items, repeat the
+-- call with the returned token in the 'NextToken' parameter.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstances.html>
 module Network.AWS.AutoScaling.DescribeAutoScalingInstances
@@ -76,18 +77,21 @@ describeAutoScalingInstances = DescribeAutoScalingInstances
     , _dasiNextToken   = Nothing
     }
 
--- | One or more Auto Scaling instances to describe, up to 50 instances. If
--- you omit this parameter, all Auto Scaling instances are described. If you
--- specify an ID that does not exist, it is ignored with no error.
+-- | One or more Auto Scaling instances to describe, up to 50 instances. If you
+-- omit this parameter, all Auto Scaling instances are described. If you specify
+-- an ID that does not exist, it is ignored with no error.
+--
 dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
 dasiInstanceIds = lens _dasiInstanceIds (\s a -> s { _dasiInstanceIds = a }) . _List
 
 -- | The maximum number of items to return with this call.
+--
 dasiMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Int)
 dasiMaxRecords = lens _dasiMaxRecords (\s a -> s { _dasiMaxRecords = a })
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.).
+-- | The token for the next set of items to return. (You received this token from
+-- a previous call.)
+--
 dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
 dasiNextToken = lens _dasiNextToken (\s a -> s { _dasiNextToken = a })
 
@@ -111,6 +115,7 @@ describeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     }
 
 -- | The instances.
+--
 dasirAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
 dasirAutoScalingInstances =
     lens _dasirAutoScalingInstances
@@ -119,6 +124,7 @@ dasirAutoScalingInstances =
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
+--
 dasirNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
 dasirNextToken = lens _dasirNextToken (\s a -> s { _dasirNextToken = a })
 

@@ -9,9 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | AWS Storage Gateway is a service that connects an on-premises software
--- appliance with cloud-based storage to provide seamless and secure
--- integration between your on-premises IT environment and AWS's storage
--- infrastructure.
+-- appliance with cloud-based storage to provide seamless and secure integration
+-- between your on-premises IT environment and AWS's storage infrastructure.
 module Network.AWS.StorageGateway
     ( module Network.AWS.StorageGateway.ActivateGateway
     , module Network.AWS.StorageGateway.AddCache

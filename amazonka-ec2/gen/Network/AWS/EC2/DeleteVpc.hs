@@ -23,9 +23,8 @@
 -- | Deletes the specified VPC. You must detach or delete all gateways and
 -- resources that are associated with the VPC before you can delete it. For
 -- example, you must terminate all instances running in the VPC, delete all
--- security groups associated with the VPC (except the default one), delete
--- all route tables associated with the VPC (except the default one), and so
--- on.
+-- security groups associated with the VPC (except the default one), delete all
+-- route tables associated with the VPC (except the default one), and so on.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVpc.html>
 module Network.AWS.EC2.DeleteVpc
@@ -73,6 +72,7 @@ dv3DryRun :: Lens' DeleteVpc (Maybe Bool)
 dv3DryRun = lens _dv3DryRun (\s a -> s { _dv3DryRun = a })
 
 -- | The ID of the VPC.
+--
 dv3VpcId :: Lens' DeleteVpc Text
 dv3VpcId = lens _dv3VpcId (\s a -> s { _dv3VpcId = a })
 

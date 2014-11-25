@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Delete an origin access identity.
---
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteCloudFrontOriginAccessIdentity.html>
 module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     (
@@ -68,8 +67,8 @@ deleteCloudFrontOriginAccessIdentity p1 = DeleteCloudFrontOriginAccessIdentity
 dcfoaiId :: Lens' DeleteCloudFrontOriginAccessIdentity Text
 dcfoaiId = lens _dcfoaiId (\s a -> s { _dcfoaiId = a })
 
--- | The value of the ETag header you received from a previous GET or PUT
--- request. For example: E2QWRUHAPOMQZL.
+-- | The value of the ETag header you received from a previous GET or PUT request.
+-- For example: E2QWRUHAPOMQZL.
 dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
 dcfoaiIfMatch = lens _dcfoaiIfMatch (\s a -> s { _dcfoaiIfMatch = a })
 

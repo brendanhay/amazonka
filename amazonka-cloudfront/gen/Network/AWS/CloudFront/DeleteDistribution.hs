@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Delete a distribution.
---
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteDistribution.html>
 module Network.AWS.CloudFront.DeleteDistribution
     (
@@ -68,8 +67,8 @@ deleteDistribution p1 = DeleteDistribution
 ddId :: Lens' DeleteDistribution Text
 ddId = lens _ddId (\s a -> s { _ddId = a })
 
--- | The value of the ETag header you received when you disabled the
--- distribution. For example: E2QWRUHAPOMQZL.
+-- | The value of the ETag header you received when you disabled the distribution.
+-- For example: E2QWRUHAPOMQZL.
 ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
 ddIfMatch = lens _ddIfMatch (\s a -> s { _ddIfMatch = a })
 

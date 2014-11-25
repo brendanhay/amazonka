@@ -20,12 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes an instance's Amazon EBS volumes. Required Permissions: To use
--- this action, an IAM user must have a Show, Deploy, or Manage permissions
--- level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Describes an instance's Amazon EBS volumes.
+--
+-- Required Permissions: To use this action, an IAM user must have a Show,
+-- Deploy, or Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeVolumes.html>
 module Network.AWS.OpsWorks.DescribeVolumes
@@ -82,22 +81,25 @@ describeVolumes = DescribeVolumes
 
 -- | The instance ID. If you use this parameter, 'DescribeVolumes' returns
 -- descriptions of the volumes associated with the specified instance.
+--
 dvInstanceId :: Lens' DescribeVolumes (Maybe Text)
 dvInstanceId = lens _dvInstanceId (\s a -> s { _dvInstanceId = a })
 
 -- | The RAID array ID. If you use this parameter, 'DescribeVolumes' returns
 -- descriptions of the volumes associated with the specified RAID array.
+--
 dvRaidArrayId :: Lens' DescribeVolumes (Maybe Text)
 dvRaidArrayId = lens _dvRaidArrayId (\s a -> s { _dvRaidArrayId = a })
 
--- | A stack ID. The action describes the stack's registered Amazon EBS
--- volumes.
+-- | A stack ID. The action describes the stack's registered Amazon EBS volumes.
+--
 dvStackId :: Lens' DescribeVolumes (Maybe Text)
 dvStackId = lens _dvStackId (\s a -> s { _dvStackId = a })
 
--- | Am array of volume IDs. If you use this parameter, 'DescribeVolumes'
--- returns descriptions of the specified volumes. Otherwise, it returns a
--- description of every volume.
+-- | Am array of volume IDs. If you use this parameter, 'DescribeVolumes' returns
+-- descriptions of the specified volumes. Otherwise, it returns a description of
+-- every volume.
+--
 dvVolumeIds :: Lens' DescribeVolumes [Text]
 dvVolumeIds = lens _dvVolumeIds (\s a -> s { _dvVolumeIds = a }) . _List
 
@@ -123,6 +125,7 @@ describeVolumesResponse = DescribeVolumesResponse
     }
 
 -- | An array of volume IDs.
+--
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a }) . _List
 

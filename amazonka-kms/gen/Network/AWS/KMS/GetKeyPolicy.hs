@@ -69,11 +69,13 @@ getKeyPolicy p1 p2 = GetKeyPolicy
 
 -- | Unique identifier of the key. This can be an ARN, an alias, or a globally
 -- unique identifier.
+--
 gkpKeyId :: Lens' GetKeyPolicy Text
 gkpKeyId = lens _gkpKeyId (\s a -> s { _gkpKeyId = a })
 
 -- | String that contains the name of the policy. Currently, this must be
 -- "default". Policy names can be discovered by calling 'ListKeyPolicies'.
+--
 gkpPolicyName :: Lens' GetKeyPolicy Text
 gkpPolicyName = lens _gkpPolicyName (\s a -> s { _gkpPolicyName = a })
 
@@ -93,6 +95,7 @@ getKeyPolicyResponse = GetKeyPolicyResponse
     }
 
 -- | A policy document in JSON format.
+--
 gkprPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
 gkprPolicy = lens _gkprPolicy (\s a -> s { _gkprPolicy = a })
 

@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified application along with all associated versions and
--- configurations. The application versions will not be deleted from your
--- Amazon S3 bucket.
+-- configurations. The application versions will not be deleted from your Amazon
+-- S3 bucket.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplication.html>
 module Network.AWS.ElasticBeanstalk.DeleteApplication
@@ -67,12 +67,14 @@ deleteApplication p1 = DeleteApplication
     }
 
 -- | The name of the application to delete.
+--
 daApplicationName :: Lens' DeleteApplication Text
 daApplicationName =
     lens _daApplicationName (\s a -> s { _daApplicationName = a })
 
--- | When set to true, running environments will be terminated before deleting
--- the application.
+-- | When set to true, running environments will be terminated before deleting the
+-- application.
+--
 daTerminateEnvByForce :: Lens' DeleteApplication (Maybe Bool)
 daTerminateEnvByForce =
     lens _daTerminateEnvByForce (\s a -> s { _daTerminateEnvByForce = a })

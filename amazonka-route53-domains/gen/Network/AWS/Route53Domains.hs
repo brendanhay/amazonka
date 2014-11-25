@@ -8,7 +8,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Pending.
+-- | Pending
 module Network.AWS.Route53Domains
     ( module Network.AWS.Route53Domains.CheckDomainAvailability
     , module Network.AWS.Route53Domains.DisableDomainAutoRenew

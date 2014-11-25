@@ -20,12 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Rejects a VPC peering connection request. The VPC peering connection must
--- be in the 'pending-acceptance' state. Use the
--- 'DescribeVpcPeeringConnections' request to view your outstanding VPC
--- peering connection requests. To delete an active VPC peering connection, or
--- to delete a VPC peering connection request that you initiated, use
--- 'DeleteVpcPeeringConnection'.
+-- | Rejects a VPC peering connection request. The VPC peering connection must be
+-- in the 'pending-acceptance' state. Use the 'DescribeVpcPeeringConnections'
+-- request to view your outstanding VPC peering connection requests. To delete
+-- an active VPC peering connection, or to delete a VPC peering connection
+-- request that you initiated, use 'DeleteVpcPeeringConnection'.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RejectVpcPeeringConnection.html>
 module Network.AWS.EC2.RejectVpcPeeringConnection
@@ -75,6 +74,7 @@ rvpcDryRun :: Lens' RejectVpcPeeringConnection (Maybe Bool)
 rvpcDryRun = lens _rvpcDryRun (\s a -> s { _rvpcDryRun = a })
 
 -- | The ID of the VPC peering connection.
+--
 rvpcVpcPeeringConnectionId :: Lens' RejectVpcPeeringConnection Text
 rvpcVpcPeeringConnectionId =
     lens _rvpcVpcPeeringConnectionId
@@ -96,6 +96,7 @@ rejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     }
 
 -- | Returns 'true' if the request succeeds; otherwise, it returns an error.
+--
 rvpcrReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)
 rvpcrReturn = lens _rvpcrReturn (\s a -> s { _rvpcrReturn = a })
 

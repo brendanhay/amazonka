@@ -21,11 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This operation returns the jobs associated with the requester. AWS
--- Import/Export lists the jobs in reverse chronological order based on the
--- date of creation. For example if Job Test1 was created 2009Dec30 and Test2
--- was created 2010Feb05, the ListJobs operation would return Test2 followed
--- by Test1.
---
+-- Import/Export lists the jobs in reverse chronological order based on the date
+-- of creation. For example if Job Test1 was created 2009Dec30 and Test2 was
+-- created 2010Feb05, the ListJobs operation would return Test2 followed by
+-- Test1.
 -- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebListJobs.html>
 module Network.AWS.ImportExport.ListJobs
     (

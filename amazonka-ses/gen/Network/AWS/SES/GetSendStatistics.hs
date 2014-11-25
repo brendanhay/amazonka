@@ -21,9 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the user's sending statistics. The result is a list of data points,
--- representing the last two weeks of sending activity. Each data point in the
--- list contains statistics for a 15-minute interval. This action is throttled
--- at one request per second.
+-- representing the last two weeks of sending activity.
+--
+-- Each data point in the list contains statistics for a 15-minute interval.
+--
+-- This action is throttled at one request per second.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendStatistics.html>
 module Network.AWS.SES.GetSendStatistics
@@ -75,6 +77,7 @@ getSendStatisticsResponse = GetSendStatisticsResponse
     }
 
 -- | A list of data points, each of which represents 15 minutes of activity.
+--
 gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrSendDataPoints =
     lens _gssrSendDataPoints (\s a -> s { _gssrSendDataPoints = a })

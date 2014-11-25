@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes a DBSnapshot. If the snapshot is being copied, the copy operation
--- is terminated.
+-- | Deletes a DBSnapshot. If the snapshot is being copied, the copy operation is
+-- terminated.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSnapshot.html>
 module Network.AWS.RDS.DeleteDBSnapshot
@@ -62,8 +62,11 @@ deleteDBSnapshot p1 = DeleteDBSnapshot
     { _ddbs1DBSnapshotIdentifier = p1
     }
 
--- | The DBSnapshot identifier. Constraints: Must be the name of an existing
--- DB snapshot in the 'available' state.
+-- | The DBSnapshot identifier.
+--
+-- Constraints: Must be the name of an existing DB snapshot in the 'available'
+-- state.
+--
 ddbs1DBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
 ddbs1DBSnapshotIdentifier =
     lens _ddbs1DBSnapshotIdentifier

@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes a suggester. For more information, see Getting Search Suggestions
--- in the /Amazon CloudSearch Developer Guide/.
+-- | Deletes a suggester. For more information, see Getting Search Suggestions in
+-- the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteSuggester.html>
 module Network.AWS.CloudSearch.DeleteSuggester
@@ -72,6 +72,7 @@ ds3DomainName :: Lens' DeleteSuggester Text
 ds3DomainName = lens _ds3DomainName (\s a -> s { _ds3DomainName = a })
 
 -- | Specifies the name of the suggester you want to delete.
+--
 ds3SuggesterName :: Lens' DeleteSuggester Text
 ds3SuggesterName = lens _ds3SuggesterName (\s a -> s { _ds3SuggesterName = a })
 
@@ -92,6 +93,7 @@ deleteSuggesterResponse p1 = DeleteSuggesterResponse
     }
 
 -- | The status of the suggester being deleted.
+--
 dsr1Suggester :: Lens' DeleteSuggesterResponse SuggesterStatus
 dsr1Suggester = lens _dsr1Suggester (\s a -> s { _dsr1Suggester = a })
 

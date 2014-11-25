@@ -20,13 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates a virtual private gateway. A virtual private gateway is the
--- endpoint on the VPC side of your VPN connection. You can create a virtual
--- private gateway before creating the VPC itself. For more information about
--- virtual private gateways, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding
--- a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual
--- Private Cloud User Guide/.
+-- | Creates a virtual private gateway. A virtual private gateway is the endpoint
+-- on the VPC side of your VPN connection. You can create a virtual private
+-- gateway before creating the VPC itself.
+--
+-- For more information about virtual private gateways, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a HardwareVirtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud UserGuide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html>
 module Network.AWS.EC2.CreateVpnGateway
@@ -78,6 +76,7 @@ createVpnGateway p1 = CreateVpnGateway
     }
 
 -- | The Availability Zone for the virtual private gateway.
+--
 cvgAvailabilityZone :: Lens' CreateVpnGateway (Maybe Text)
 cvgAvailabilityZone =
     lens _cvgAvailabilityZone (\s a -> s { _cvgAvailabilityZone = a })
@@ -86,6 +85,7 @@ cvgDryRun :: Lens' CreateVpnGateway (Maybe Bool)
 cvgDryRun = lens _cvgDryRun (\s a -> s { _cvgDryRun = a })
 
 -- | The type of VPN connection this virtual private gateway supports.
+--
 cvgType :: Lens' CreateVpnGateway GatewayType
 cvgType = lens _cvgType (\s a -> s { _cvgType = a })
 
@@ -105,6 +105,7 @@ createVpnGatewayResponse = CreateVpnGatewayResponse
     }
 
 -- | Information about the virtual private gateway.
+--
 cvgrVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)
 cvgrVpnGateway = lens _cvgrVpnGateway (\s a -> s { _cvgrVpnGateway = a })
 

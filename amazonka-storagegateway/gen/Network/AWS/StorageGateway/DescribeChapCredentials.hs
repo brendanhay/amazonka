@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This operation returns an array of Challenge-Handshake Authentication
--- Protocol (CHAP) credentials information for a specified iSCSI target, one
--- for each target-initiator pair.
+-- Protocol (CHAP) credentials information for a specified iSCSI target, one for
+-- each target-initiator pair.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeChapCredentials.html>
 module Network.AWS.StorageGateway.DescribeChapCredentials
@@ -63,9 +63,8 @@ describeChapCredentials p1 = DescribeChapCredentials
     { _dccTargetARN = p1
     }
 
--- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
--- 'DescribeStorediSCSIVolumes' operation to return to retrieve the
--- TargetARN for specified VolumeARN.
+-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
+--
 dccTargetARN :: Lens' DescribeChapCredentials Text
 dccTargetARN = lens _dccTargetARN (\s a -> s { _dccTargetARN = a })
 
@@ -90,17 +89,22 @@ describeChapCredentialsResponse = DescribeChapCredentialsResponse
     { _dccrChapCredentials = mempty
     }
 
--- | An array of 'ChapInfo' objects that represent CHAP credentials. Each
--- object in the array contains CHAP credential information for one
--- target-initiator pair. If no CHAP credentials are set, an empty array is
--- returned. CHAP credential information is provided in a JSON object with
--- the following fields: InitiatorName: The iSCSI initiator that connects to
--- the target. SecretToAuthenticateInitiator: The secret key that the
--- initiator (e.g. Windows client) must provide to participate in mutual
--- CHAP with the target. SecretToAuthenticateTarget: The secret key that the
--- target must provide to participate in mutual CHAP with the initiator
--- (e.g. Windows client). TargetARN: The Amazon Resource Name (ARN) of the
--- storage volume.
+-- | An array of 'ChapInfo' objects that represent CHAP credentials. Each object in
+-- the array contains CHAP credential information for one target-initiator pair.
+-- If no CHAP credentials are set, an empty array is returned. CHAP credential
+-- information is provided in a JSON object with the following fields:
+--
+-- InitiatorName: The iSCSI initiator that connects to the target.
+--
+-- SecretToAuthenticateInitiator: The secret key that the initiator (e.g.
+-- Windows client) must provide to participate in mutual CHAP with the target.
+--
+-- SecretToAuthenticateTarget: The secret key that the target must provide to
+-- participate in mutual CHAP with the initiator (e.g. Windows client).
+--
+-- TargetARN: The Amazon Resource Name (ARN) of the storage volume.
+--
+--
 dccrChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
 dccrChapCredentials =
     lens _dccrChapCredentials (\s a -> s { _dccrChapCredentials = a })

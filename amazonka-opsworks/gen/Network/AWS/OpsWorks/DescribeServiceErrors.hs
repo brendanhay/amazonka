@@ -20,12 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes AWS OpsWorks service errors. Required Permissions: To use this
--- action, an IAM user must have a Show, Deploy, or Manage permissions level
--- for the stack, or an attached policy that explicitly grants permissions.
--- For more information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Describes AWS OpsWorks service errors.
+--
+-- Required Permissions: To use this action, an IAM user must have a Show,
+-- Deploy, or Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeServiceErrors.html>
 module Network.AWS.OpsWorks.DescribeServiceErrors
@@ -75,15 +74,15 @@ describeServiceErrors = DescribeServiceErrors
     , _dseServiceErrorIds = mempty
     }
 
--- | The instance ID. If you use this parameter, 'DescribeServiceErrors'
--- returns descriptions of the errors associated with the specified
--- instance.
+-- | The instance ID. If you use this parameter, 'DescribeServiceErrors' returns
+-- descriptions of the errors associated with the specified instance.
+--
 dseInstanceId :: Lens' DescribeServiceErrors (Maybe Text)
 dseInstanceId = lens _dseInstanceId (\s a -> s { _dseInstanceId = a })
 
--- | An array of service error IDs. If you use this parameter,
--- 'DescribeServiceErrors' returns descriptions of the specified errors.
--- Otherwise, it returns a description of every error.
+-- | An array of service error IDs. If you use this parameter, 'DescribeServiceErrors' returns descriptions of the specified errors. Otherwise, it returns a
+-- description of every error.
+--
 dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
 dseServiceErrorIds =
     lens _dseServiceErrorIds (\s a -> s { _dseServiceErrorIds = a })
@@ -91,6 +90,7 @@ dseServiceErrorIds =
 
 -- | The stack ID. If you use this parameter, 'DescribeServiceErrors' returns
 -- descriptions of the errors associated with the specified stack.
+--
 dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
 dseStackId = lens _dseStackId (\s a -> s { _dseStackId = a })
 
@@ -115,8 +115,8 @@ describeServiceErrorsResponse = DescribeServiceErrorsResponse
     { _dserServiceErrors = mempty
     }
 
--- | An array of 'ServiceError' objects that describe the specified service
--- errors.
+-- | An array of 'ServiceError' objects that describe the specified service errors.
+--
 dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
 dserServiceErrors =
     lens _dserServiceErrors (\s a -> s { _dserServiceErrors = a })

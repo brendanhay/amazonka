@@ -22,9 +22,8 @@
 
 -- | Unlinks a 'DeveloperUserIdentifier' from an existing identity. Unlinked
 -- developer users will be considered new identities next time they are seen.
--- If, for a given Cognito identity, you remove all federated identities as
--- well as the developer user identifier, the Cognito identity becomes
--- inaccessible.
+-- If, for a given Cognito identity, you remove all federated identities as well
+-- as the developer user identifier, the Cognito identity becomes inaccessible.
 --
 -- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UnlinkDeveloperIdentity.html>
 module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
@@ -82,23 +81,25 @@ unlinkDeveloperIdentity p1 p2 p3 p4 = UnlinkDeveloperIdentity
     }
 
 -- | The "domain" by which Cognito will refer to your users.
+--
 udiDeveloperProviderName :: Lens' UnlinkDeveloperIdentity Text
 udiDeveloperProviderName =
     lens _udiDeveloperProviderName
         (\s a -> s { _udiDeveloperProviderName = a })
 
--- | A unique ID used by your backend authentication process to identify a
--- user.
+-- | A unique ID used by your backend authentication process to identify a user.
 udiDeveloperUserIdentifier :: Lens' UnlinkDeveloperIdentity Text
 udiDeveloperUserIdentifier =
     lens _udiDeveloperUserIdentifier
         (\s a -> s { _udiDeveloperUserIdentifier = a })
 
 -- | A unique identifier in the format REGION:GUID.
+--
 udiIdentityId :: Lens' UnlinkDeveloperIdentity Text
 udiIdentityId = lens _udiIdentityId (\s a -> s { _udiIdentityId = a })
 
 -- | An identity pool ID in the format REGION:GUID.
+--
 udiIdentityPoolId :: Lens' UnlinkDeveloperIdentity Text
 udiIdentityPoolId =
     lens _udiIdentityPoolId (\s a -> s { _udiIdentityPoolId = a })

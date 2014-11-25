@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Enables the automatic copy of snapshots from one region to another region
--- for a specified cluster.
+-- | Enables the automatic copy of snapshots from one region to another region for
+-- a specified cluster.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableSnapshotCopy.html>
 module Network.AWS.Redshift.EnableSnapshotCopy
@@ -74,23 +74,29 @@ enableSnapshotCopy p1 p2 = EnableSnapshotCopy
     }
 
 -- | The unique identifier of the source cluster to copy snapshots from.
+--
 -- Constraints: Must be the valid name of an existing cluster that does not
 -- already have cross-region snapshot copy enabled.
+--
 escClusterIdentifier :: Lens' EnableSnapshotCopy Text
 escClusterIdentifier =
     lens _escClusterIdentifier (\s a -> s { _escClusterIdentifier = a })
 
--- | The destination region that you want to copy snapshots to. Constraints:
--- Must be the name of a valid region. For more information, see
--- <http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region
--- Regions and Endpoints> in the Amazon Web Services General Reference.
+-- | The destination region that you want to copy snapshots to.
+--
+-- Constraints: Must be the name of a valid region. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.
+--
 escDestinationRegion :: Lens' EnableSnapshotCopy Text
 escDestinationRegion =
     lens _escDestinationRegion (\s a -> s { _escDestinationRegion = a })
 
--- | The number of days to retain automated snapshots in the destination
--- region after they are copied from the source region. Default: 7.
+-- | The number of days to retain automated snapshots in the destination region
+-- after they are copied from the source region.
+--
+-- Default: 7.
+--
 -- Constraints: Must be at least 1 and no more than 35.
+--
 escRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Int)
 escRetentionPeriod =
     lens _escRetentionPeriod (\s a -> s { _escRetentionPeriod = a })

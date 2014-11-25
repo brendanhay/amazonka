@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the versioning state of a bucket.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketVersioning.html>
 module Network.AWS.S3.GetBucketVersioning
     (
@@ -86,8 +85,8 @@ getBucketVersioningResponse = GetBucketVersioningResponse
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
--- configured with MFA delete. If the bucket has never been so configured,
--- this element is not returned.
+-- configured with MFA delete. If the bucket has never been so configured, this
+-- element is not returned.
 gbvrMFADelete :: Lens' GetBucketVersioningResponse (Maybe MFADeleteStatus)
 gbvrMFADelete = lens _gbvrMFADelete (\s a -> s { _gbvrMFADelete = a })
 

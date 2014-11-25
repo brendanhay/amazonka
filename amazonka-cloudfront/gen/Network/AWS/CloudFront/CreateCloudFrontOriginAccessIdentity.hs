@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Create a new origin access identity.
---
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateCloudFrontOriginAccessIdentity.html>
 module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     (
@@ -102,10 +101,9 @@ ccfoairCloudFrontOriginAccessIdentity =
 ccfoairETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ccfoairETag = lens _ccfoairETag (\s a -> s { _ccfoairETag = a })
 
--- | The fully qualified URI of the new origin access identity just created.
--- For example:
+-- | The fully qualified URI of the new origin access identity just created. For
+-- example:
 -- https://cloudfront.amazonaws.com/2010-11-01/origin-access-identity/cloudfront/E74FTE3AJFJ256A.
--- 
 ccfoairLocation :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ccfoairLocation = lens _ccfoairLocation (\s a -> s { _ccfoairLocation = a })
 

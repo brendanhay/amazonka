@@ -22,8 +22,7 @@
 
 -- | Attaches an Internet gateway to a VPC, enabling connectivity between the
 -- Internet and the VPC. For more information about your VPC and Internet
--- gateway, see the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/
--- Amazon Virtual Private Cloud User Guide>.
+-- gateway, see the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide>.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachInternetGateway.html>
 module Network.AWS.EC2.AttachInternetGateway
@@ -77,11 +76,13 @@ aigDryRun :: Lens' AttachInternetGateway (Maybe Bool)
 aigDryRun = lens _aigDryRun (\s a -> s { _aigDryRun = a })
 
 -- | The ID of the Internet gateway.
+--
 aigInternetGatewayId :: Lens' AttachInternetGateway Text
 aigInternetGatewayId =
     lens _aigInternetGatewayId (\s a -> s { _aigInternetGatewayId = a })
 
 -- | The ID of the VPC.
+--
 aigVpcId :: Lens' AttachInternetGateway Text
 aigVpcId = lens _aigVpcId (\s a -> s { _aigVpcId = a })
 

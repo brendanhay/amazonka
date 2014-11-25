@@ -24,11 +24,12 @@
 -- successful response from the web service indicates the request was received
 -- correctly. When you delete a DB instance, all automated backups for that
 -- instance are deleted and cannot be recovered. Manual DB snapshots of the DB
--- instance to be deleted are not deleted. If a final DB snapshot is requested
--- the status of the RDS instance will be "deleting" until the DB snapshot is
--- created. The API action 'DescribeDBInstance' is used to monitor the status
--- of this operation. The action cannot be canceled or reverted once
--- submitted.
+-- instance to be deleted are not deleted.
+--
+-- If a final DB snapshot is requested the status of the RDS instance will be
+-- "deleting" until the DB snapshot is created. The API action 'DescribeDBInstance'
+-- is used to monitor the status of this operation. The action cannot be
+-- canceled or reverted once submitted.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBInstance.html>
 module Network.AWS.RDS.DeleteDBInstance
@@ -79,29 +80,39 @@ deleteDBInstance p1 = DeleteDBInstance
     , _ddbiFinalDBSnapshotIdentifier = Nothing
     }
 
--- | The DB instance identifier for the DB instance to be deleted. This
--- parameter isn't case sensitive. Constraints: Must contain from 1 to 63
--- alphanumeric characters or hyphens First character must be a letter
--- Cannot end with a hyphen or contain two consecutive hyphens.
+-- | The DB instance identifier for the DB instance to be deleted. This parameter
+-- isn't case sensitive.
+--
+-- Constraints:
+--
+-- Must contain from 1 to 63 alphanumeric characters or hyphens First
+-- character must be a letter Cannot end with a hyphen or contain two
+-- consecutive hyphens
 ddbiDBInstanceIdentifier :: Lens' DeleteDBInstance Text
 ddbiDBInstanceIdentifier =
     lens _ddbiDBInstanceIdentifier
         (\s a -> s { _ddbiDBInstanceIdentifier = a })
 
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when
--- SkipFinalSnapshot is set to 'false'. Constraints: Must be 1 to 255
--- alphanumeric characters First character must be a letter Cannot end with
--- a hyphen or contain two consecutive hyphens Cannot be specified when
--- deleting a read replica.
+-- SkipFinalSnapshot is set to 'false'.
+--
+-- Constraints:
+--
+-- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
+-- Cannot be specified when deleting a read replica.
 ddbiFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
 ddbiFinalDBSnapshotIdentifier =
     lens _ddbiFinalDBSnapshotIdentifier
         (\s a -> s { _ddbiFinalDBSnapshotIdentifier = a })
 
--- | Determines whether a final DB snapshot is created before the DB instance
--- is deleted. If 'true' is specified, no DBSnapshot is created. If 'false'
--- is specified, a DB snapshot is created before the DB instance is deleted.
--- Specify 'true' when deleting a read replica. Default: 'false'.
+-- | Determines whether a final DB snapshot is created before the DB instance is
+-- deleted. If 'true' is specified, no DBSnapshot is created. If 'false' is
+-- specified, a DB snapshot is created before the DB instance is deleted.
+--
+-- Specify 'true' when deleting a read replica.
+--
+-- Default: 'false'
+--
 ddbiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
 ddbiSkipFinalSnapshot =
     lens _ddbiSkipFinalSnapshot (\s a -> s { _ddbiSkipFinalSnapshot = a })

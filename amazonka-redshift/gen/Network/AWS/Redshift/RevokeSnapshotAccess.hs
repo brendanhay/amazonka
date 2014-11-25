@@ -22,11 +22,9 @@
 
 -- | Removes the ability of the specified AWS customer account to restore the
 -- specified snapshot. If the account is currently restoring the snapshot, the
--- restore will run to completion. For more information about working with
--- snapshots, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
--- Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management
--- Guide/.
+-- restore will run to completion.
+--
+-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon RedshiftSnapshots> in the /Amazon Redshift Cluster Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeSnapshotAccess.html>
 module Network.AWS.Redshift.RevokeSnapshotAccess
@@ -80,21 +78,23 @@ revokeSnapshotAccess p1 p2 = RevokeSnapshotAccess
 
 -- | The identifier of the AWS customer account that can no longer restore the
 -- specified snapshot.
+--
 rsaAccountWithRestoreAccess :: Lens' RevokeSnapshotAccess Text
 rsaAccountWithRestoreAccess =
     lens _rsaAccountWithRestoreAccess
         (\s a -> s { _rsaAccountWithRestoreAccess = a })
 
--- | The identifier of the cluster the snapshot was created from. This
--- parameter is required if your IAM user has a policy containing a snapshot
--- resource element that specifies anything other than * for the cluster
--- name.
+-- | The identifier of the cluster the snapshot was created from. This parameter
+-- is required if your IAM user has a policy containing a snapshot resource
+-- element that specifies anything other than * for the cluster name.
+--
 rsaSnapshotClusterIdentifier :: Lens' RevokeSnapshotAccess (Maybe Text)
 rsaSnapshotClusterIdentifier =
     lens _rsaSnapshotClusterIdentifier
         (\s a -> s { _rsaSnapshotClusterIdentifier = a })
 
 -- | The identifier of the snapshot that the account can no longer access.
+--
 rsaSnapshotIdentifier :: Lens' RevokeSnapshotAccess Text
 rsaSnapshotIdentifier =
     lens _rsaSnapshotIdentifier (\s a -> s { _rsaSnapshotIdentifier = a })

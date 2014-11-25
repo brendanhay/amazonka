@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Get the information about a streaming distribution.
---
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetStreamingDistribution.html>
 module Network.AWS.CloudFront.GetStreamingDistribution
     (
@@ -85,8 +84,8 @@ getStreamingDistributionResponse = GetStreamingDistributionResponse
     , _gsdrETag                  = Nothing
     }
 
--- | The current version of the streaming distribution's information. For
--- example: E2QWRUHAPOMQZL.
+-- | The current version of the streaming distribution's information. For example:
+-- E2QWRUHAPOMQZL.
 gsdrETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
 gsdrETag = lens _gsdrETag (\s a -> s { _gsdrETag = a })
 

@@ -22,18 +22,17 @@
 
 -- | Provides information to AWS about your VPN customer gateway device. The
 -- customer gateway is the appliance at your end of the VPN connection. (The
--- device on the AWS side of the VPN connection is the virtual private
--- gateway.) You must provide the Internet-routable IP address of the customer
--- gateway's external interface. The IP address must be static and can't be
--- behind a device performing network address translation (NAT). For devices
--- that use Border Gateway Protocol (BGP), you can also provide the device's
--- BGP Autonomous System Number (ASN). You can use an existing ASN assigned to
--- your network. If you don't have an ASN already, you can use a private ASN
--- (in the 64512 - 65534 range). For more information about VPN customer
--- gateways, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding
--- a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual
--- Private Cloud User Guide/.
+-- device on the AWS side of the VPN connection is the virtual private gateway.)
+-- You must provide the Internet-routable IP address of the customer gateway's
+-- external interface. The IP address must be static and can't be behind a
+-- device performing network address translation (NAT).
+--
+-- For devices that use Border Gateway Protocol (BGP), you can also provide the
+-- device's BGP Autonomous System Number (ASN). You can use an existing ASN
+-- assigned to your network. If you don't have an ASN already, you can use a
+-- private ASN (in the 64512 - 65534 range).
+--
+-- For more information about VPN customer gateways, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a HardwareVirtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud UserGuide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateCustomerGateway.html>
 module Network.AWS.EC2.CreateCustomerGateway
@@ -91,8 +90,10 @@ createCustomerGateway p1 p2 p3 = CreateCustomerGateway
     , _ccgDryRun   = Nothing
     }
 
--- | For devices that support BGP, the customer gateway's BGP ASN. Default:
--- 65000.
+-- | For devices that support BGP, the customer gateway's BGP ASN.
+--
+-- Default: 65000
+--
 ccgBgpAsn :: Lens' CreateCustomerGateway Int
 ccgBgpAsn = lens _ccgBgpAsn (\s a -> s { _ccgBgpAsn = a })
 
@@ -101,11 +102,12 @@ ccgDryRun = lens _ccgDryRun (\s a -> s { _ccgDryRun = a })
 
 -- | The Internet-routable IP address for the customer gateway's outside
 -- interface. The address must be static.
+--
 ccgPublicIp :: Lens' CreateCustomerGateway Text
 ccgPublicIp = lens _ccgPublicIp (\s a -> s { _ccgPublicIp = a })
 
--- | The type of VPN connection that this customer gateway supports
--- ('ipsec.1').
+-- | The type of VPN connection that this customer gateway supports ('ipsec.1').
+--
 ccgType :: Lens' CreateCustomerGateway GatewayType
 ccgType = lens _ccgType (\s a -> s { _ccgType = a })
 
@@ -125,6 +127,7 @@ createCustomerGatewayResponse = CreateCustomerGatewayResponse
     }
 
 -- | Information about the customer gateway.
+--
 ccgrCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
 ccgrCustomerGateway =
     lens _ccgrCustomerGateway (\s a -> s { _ccgrCustomerGateway = a })

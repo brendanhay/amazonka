@@ -70,8 +70,9 @@ deleteRoute p1 p2 = DeleteRoute
     , _drDryRun               = Nothing
     }
 
--- | The CIDR range for the route. The value you specify must match the CIDR
--- for the route exactly.
+-- | The CIDR range for the route. The value you specify must match the CIDR for
+-- the route exactly.
+--
 drDestinationCidrBlock :: Lens' DeleteRoute Text
 drDestinationCidrBlock =
     lens _drDestinationCidrBlock (\s a -> s { _drDestinationCidrBlock = a })
@@ -80,6 +81,7 @@ drDryRun :: Lens' DeleteRoute (Maybe Bool)
 drDryRun = lens _drDryRun (\s a -> s { _drDryRun = a })
 
 -- | The ID of the route table.
+--
 drRouteTableId :: Lens' DeleteRoute Text
 drRouteTableId = lens _drRouteTableId (\s a -> s { _drRouteTableId = a })
 

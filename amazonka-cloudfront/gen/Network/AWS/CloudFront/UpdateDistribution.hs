@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Update a distribution.
---
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateDistribution.html>
 module Network.AWS.CloudFront.UpdateDistribution
     (
@@ -82,8 +81,8 @@ udDistributionConfig =
 udId :: Lens' UpdateDistribution Text
 udId = lens _udId (\s a -> s { _udId = a })
 
--- | The value of the ETag header you received when retrieving the
--- distribution's configuration. For example: E2QWRUHAPOMQZL.
+-- | The value of the ETag header you received when retrieving the distribution's
+-- configuration. For example: E2QWRUHAPOMQZL.
 udIfMatch :: Lens' UpdateDistribution (Maybe Text)
 udIfMatch = lens _udIfMatch (\s a -> s { _udIfMatch = a })
 

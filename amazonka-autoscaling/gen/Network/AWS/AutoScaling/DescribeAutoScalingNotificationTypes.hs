@@ -72,10 +72,18 @@ describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTy
     }
 
 -- | One or more of the following notification types:
--- 'autoscaling:EC2_INSTANCE_LAUNCH' 'autoscaling:EC2_INSTANCE_LAUNCH_ERROR'
+--
+-- 'autoscaling:EC2_INSTANCE_LAUNCH'
+--
+-- 'autoscaling:EC2_INSTANCE_LAUNCH_ERROR'
+--
 -- 'autoscaling:EC2_INSTANCE_TERMINATE'
+--
 -- 'autoscaling:EC2_INSTANCE_TERMINATE_ERROR'
--- 'autoscaling:TEST_NOTIFICATION'.
+--
+-- 'autoscaling:TEST_NOTIFICATION'
+--
+--
 dasntrAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
 dasntrAutoScalingNotificationTypes =
     lens _dasntrAutoScalingNotificationTypes

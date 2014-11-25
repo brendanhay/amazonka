@@ -73,15 +73,17 @@ copyDBSnapshot p1 p2 = CopyDBSnapshot
     , _cdbsTags                       = mempty
     }
 
--- | The identifier for the source DB snapshot. Constraints: Must specify a
--- valid system snapshot in the "available" state. If the source snapshot is
--- in the same region as the copy, specify a valid DB snapshot identifier.
--- If the source snapshot is in a different region than the copy, specify a
--- valid DB snapshot ARN. For more information, go to
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html
--- Copying a DB Snapshot>. Example: 'rds:mydb-2012-04-02-00-01' Example:
--- 'arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805'.
--- 
+-- | The identifier for the source DB snapshot.
+--
+-- Constraints:
+--
+-- Must specify a valid system snapshot in the "available" state. If the
+-- source snapshot is in the same region as the copy, specify a valid DB
+-- snapshot identifier. If the source snapshot is in a different region than the
+-- copy, specify a valid DB snapshot ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html  Copying aDB Snapshot>.  Example: 'rds:mydb-2012-04-02-00-01'
+--
+-- Example: 'arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805'
+--
 cdbsSourceDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
 cdbsSourceDBSnapshotIdentifier =
     lens _cdbsSourceDBSnapshotIdentifier
@@ -90,10 +92,14 @@ cdbsSourceDBSnapshotIdentifier =
 cdbsTags :: Lens' CopyDBSnapshot [Tag]
 cdbsTags = lens _cdbsTags (\s a -> s { _cdbsTags = a }) . _List
 
--- | The identifier for the copied snapshot. Constraints: Cannot be null,
--- empty, or blank Must contain from 1 to 255 alphanumeric characters or
--- hyphens First character must be a letter Cannot end with a hyphen or
--- contain two consecutive hyphens Example: 'my-db-snapshot'.
+-- | The identifier for the copied snapshot.
+--
+-- Constraints:
+--
+-- Cannot be null, empty, or blank Must contain from 1 to 255 alphanumeric
+-- characters or hyphens First character must be a letter Cannot end with a
+-- hyphen or contain two consecutive hyphens  Example: 'my-db-snapshot'
+--
 cdbsTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
 cdbsTargetDBSnapshotIdentifier =
     lens _cdbsTargetDBSnapshotIdentifier

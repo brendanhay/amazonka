@@ -21,12 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes time-based auto scaling configurations for specified instances.
+--
 -- Required Permissions: To use this action, an IAM user must have a Show,
--- Deploy, or Manage permissions level for the stack, or an attached policy
--- that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- Deploy, or Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeTimeBasedAutoScaling.html>
 module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
@@ -73,6 +71,7 @@ describeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling
     }
 
 -- | An array of instance IDs.
+--
 dtbasInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
 dtbasInstanceIds = lens _dtbasInstanceIds (\s a -> s { _dtbasInstanceIds = a }) . _List
 
@@ -99,6 +98,7 @@ describeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
 
 -- | An array of 'TimeBasedAutoScalingConfiguration' objects that describe the
 -- configuration for the specified instances.
+--
 dtbasrTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
 dtbasrTimeBasedAutoScalingConfigurations =
     lens _dtbasrTimeBasedAutoScalingConfigurations

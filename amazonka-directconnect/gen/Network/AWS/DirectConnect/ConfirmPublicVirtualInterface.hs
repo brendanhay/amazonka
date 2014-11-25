@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Accept ownership of a public virtual interface created by another customer.
--- After the virtual interface owner calls this function, the specified
--- virtual interface will be created and made available for handling traffic.
+--
+-- After the virtual interface owner calls this function, the specified virtual
+-- interface will be created and made available for handling traffic.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPublicVirtualInterface.html>
 module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface

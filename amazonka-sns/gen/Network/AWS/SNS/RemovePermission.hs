@@ -66,10 +66,12 @@ removePermission p1 p2 = RemovePermission
     }
 
 -- | The unique label of the statement you want to remove.
+--
 rpLabel :: Lens' RemovePermission Text
 rpLabel = lens _rpLabel (\s a -> s { _rpLabel = a })
 
 -- | The ARN of the topic whose access control policy you wish to modify.
+--
 rpTopicArn :: Lens' RemovePermission Text
 rpTopicArn = lens _rpTopicArn (\s a -> s { _rpTopicArn = a })
 

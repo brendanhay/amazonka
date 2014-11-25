@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Create a new streaming distribution.
---
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateStreamingDistribution.html>
 module Network.AWS.CloudFront.CreateStreamingDistribution
     (
@@ -99,7 +98,6 @@ csdrETag = lens _csdrETag (\s a -> s { _csdrETag = a })
 -- | The fully qualified URI of the new streaming distribution resource just
 -- created. For example:
 -- https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8.
--- 
 csdrLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
 csdrLocation = lens _csdrLocation (\s a -> s { _csdrLocation = a })
 

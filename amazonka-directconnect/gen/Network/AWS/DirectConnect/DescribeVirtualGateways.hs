@@ -20,12 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns a list of virtual private gateways owned by the AWS account. You
--- can create one or more AWS Direct Connect private virtual interfaces
+-- | Returns a list of virtual private gateways owned by the AWS account.
+--
+-- You can create one or more AWS Direct Connect private virtual interfaces
 -- linking to a virtual private gateway. A virtual private gateway can be
--- managed via Amazon Virtual Private Cloud (VPC) console or the
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html
--- EC2 CreateVpnGateway> action.
+-- managed via Amazon Virtual Private Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2CreateVpnGateway> action.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualGateways.html>
 module Network.AWS.DirectConnect.DescribeVirtualGateways
@@ -77,6 +76,7 @@ describeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
     }
 
 -- | A list of virtual private gateways.
+--
 dvgrVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
 dvgrVirtualGateways =
     lens _dvgrVirtualGateways (\s a -> s { _dvgrVirtualGateways = a })

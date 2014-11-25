@@ -20,13 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Modifies the parameters of a DB parameter group to the engine/system
--- default value. To reset specific parameters submit a list of the following:
--- 'ParameterName' and 'ApplyMethod'. To reset the entire DB parameter group,
--- specify the 'DBParameterGroup' name and 'ResetAllParameters' parameters.
--- When resetting the entire group, dynamic parameters are updated immediately
--- and static parameters are set to 'pending-reboot' to take effect on the
--- next DB instance restart or 'RebootDBInstance' request.
+-- | Modifies the parameters of a DB parameter group to the engine/system default
+-- value. To reset specific parameters submit a list of the following: 'ParameterName' and 'ApplyMethod'. To reset the entire DB parameter group, specify the 'DBParameterGroup' name and 'ResetAllParameters' parameters. When resetting the entire group,
+-- dynamic parameters are updated immediately and static parameters are set to 'pending-reboot' to take effect on the next DB instance restart or 'RebootDBInstance' request.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ResetDBParameterGroup.html>
 module Network.AWS.RDS.ResetDBParameterGroup
@@ -77,28 +73,42 @@ resetDBParameterGroup p1 = ResetDBParameterGroup
     , _rdbpgParameters           = mempty
     }
 
--- | The name of the DB parameter group. Constraints: Must be 1 to 255
--- alphanumeric characters First character must be a letter Cannot end with
--- a hyphen or contain two consecutive hyphens.
+-- | The name of the DB parameter group.
+--
+-- Constraints:
+--
+-- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
+--
 rdbpgDBParameterGroupName :: Lens' ResetDBParameterGroup Text
 rdbpgDBParameterGroupName =
     lens _rdbpgDBParameterGroupName
         (\s a -> s { _rdbpgDBParameterGroupName = a })
 
--- | An array of parameter names, values, and the apply method for the
--- parameter update. At least one parameter name, value, and apply method
--- must be supplied; subsequent arguments are optional. A maximum of 20
--- parameters may be modified in a single request. MySQL Valid Values (for
--- Apply method): 'immediate' | 'pending-reboot' You can use the immediate
--- value with dynamic parameters only. You can use the 'pending-reboot'
--- value for both dynamic and static parameters, and changes are applied
--- when DB instance reboots. Oracle Valid Values (for Apply method):
--- 'pending-reboot'.
+-- | An array of parameter names, values, and the apply method for the parameter
+-- update. At least one parameter name, value, and apply method must be
+-- supplied; subsequent arguments are optional. A maximum of 20 parameters may
+-- be modified in a single request.
+--
+-- MySQL
+--
+-- Valid Values (for Apply method): 'immediate' | 'pending-reboot'
+--
+-- You can use the immediate value with dynamic parameters only. You can use
+-- the 'pending-reboot' value for both dynamic and static parameters, and changes
+-- are applied when DB instance reboots.
+--
+-- Oracle
+--
+-- Valid Values (for Apply method): 'pending-reboot'
+--
 rdbpgParameters :: Lens' ResetDBParameterGroup [Parameter]
 rdbpgParameters = lens _rdbpgParameters (\s a -> s { _rdbpgParameters = a }) . _List
 
--- | Specifies whether ('true') or not ('false') to reset all parameters in
--- the DB parameter group to default values. Default: 'true'.
+-- | Specifies whether ('true') or not ('false') to reset all parameters in the DB
+-- parameter group to default values.
+--
+-- Default: 'true'
+--
 rdbpgResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
 rdbpgResetAllParameters =
     lens _rdbpgResetAllParameters (\s a -> s { _rdbpgResetAllParameters = a })
@@ -119,6 +129,7 @@ resetDBParameterGroupResponse = ResetDBParameterGroupResponse
     }
 
 -- | The name of the DB parameter group.
+--
 rdbpgrDBParameterGroupName :: Lens' ResetDBParameterGroupResponse (Maybe Text)
 rdbpgrDBParameterGroupName =
     lens _rdbpgrDBParameterGroupName

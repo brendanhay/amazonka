@@ -22,9 +22,8 @@
 
 -- | Sets one or more parameters of the specified parameter group to their
 -- default values and sets the source values of the parameters to
--- "engine-default". To reset the entire parameter group specify the
--- /ResetAllParameters/ parameter. For parameter changes to take effect you
--- must reboot any associated clusters.
+-- "engine-default". To reset the entire parameter group specify the /ResetAllParameters/ parameter. For parameter changes to take effect you must reboot any
+-- associated clusters.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ResetClusterParameterGroup.html>
 module Network.AWS.Redshift.ResetClusterParameterGroup
@@ -77,18 +76,24 @@ resetClusterParameterGroup p1 = ResetClusterParameterGroup
     }
 
 -- | The name of the cluster parameter group to be reset.
+--
 rcpgParameterGroupName :: Lens' ResetClusterParameterGroup Text
 rcpgParameterGroupName =
     lens _rcpgParameterGroupName (\s a -> s { _rcpgParameterGroupName = a })
 
--- | An array of names of parameters to be reset. If /ResetAllParameters/
--- option is not used, then at least one parameter name must be supplied.
+-- | An array of names of parameters to be reset. If /ResetAllParameters/ option is
+-- not used, then at least one parameter name must be supplied.
+--
 -- Constraints: A maximum of 20 parameters can be reset in a single request.
+--
 rcpgParameters :: Lens' ResetClusterParameterGroup [Parameter]
 rcpgParameters = lens _rcpgParameters (\s a -> s { _rcpgParameters = a }) . _List
 
--- | If 'true', all parameters in the specified parameter group will be reset
--- to their default values. Default: 'true'.
+-- | If 'true', all parameters in the specified parameter group will be reset to
+-- their default values.
+--
+-- Default: 'true'
+--
 rcpgResetAllParameters :: Lens' ResetClusterParameterGroup (Maybe Bool)
 rcpgResetAllParameters =
     lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })
@@ -113,13 +118,15 @@ resetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
     }
 
 -- | The name of the cluster parameter group.
+--
 rcpgrParameterGroupName :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
 rcpgrParameterGroupName =
     lens _rcpgrParameterGroupName (\s a -> s { _rcpgrParameterGroupName = a })
 
 -- | The status of the parameter group. For example, if you made a change to a
--- parameter group name-value pair, then the change could be pending a
--- reboot of an associated cluster.
+-- parameter group name-value pair, then the change could be pending a reboot of
+-- an associated cluster.
+--
 rcpgrParameterGroupStatus :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
 rcpgrParameterGroupStatus =
     lens _rcpgrParameterGroupStatus

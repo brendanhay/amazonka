@@ -21,9 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a description of specified virtual tapes in the virtual tape shelf
--- (VTS). If a specific 'TapeARN' is not specified, AWS Storage Gateway
--- returns a description of all virtual tapes found in the VTS associated with
--- your account.
+-- (VTS).
+--
+-- If a specific 'TapeARN' is not specified, AWS Storage Gateway returns a
+-- description of all virtual tapes found in the VTS associated with your
+-- account.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeArchives.html>
 module Network.AWS.StorageGateway.DescribeTapeArchives
@@ -76,16 +78,19 @@ describeTapeArchives = DescribeTapeArchives
 
 -- | Specifies that the number of virtual tapes descried be limited to the
 -- specified number.
+--
 dtaLimit :: Lens' DescribeTapeArchives (Maybe Natural)
 dtaLimit = lens _dtaLimit (\s a -> s { _dtaLimit = a }) . mapping _Nat
 
 -- | An opaque string that indicates the position at which to begin describing
 -- virtual tapes.
+--
 dtaMarker :: Lens' DescribeTapeArchives (Maybe Text)
 dtaMarker = lens _dtaMarker (\s a -> s { _dtaMarker = a })
 
--- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
--- the virtual tapes you want to describe.
+-- | Specifies one or more unique Amazon Resource Names (ARNs) that represent the
+-- virtual tapes you want to describe.
+--
 dtaTapeARNs :: Lens' DescribeTapeArchives [Text]
 dtaTapeARNs = lens _dtaTapeARNs (\s a -> s { _dtaTapeARNs = a }) . _List
 
@@ -108,19 +113,21 @@ describeTapeArchivesResponse = DescribeTapeArchivesResponse
     , _dtarMarker       = Nothing
     }
 
--- | An opaque string that indicates the position at which the virtual tapes
--- that were fetched for description ended. Use this marker in your next
--- request to fetch the next set of virtual tapes in the virtual tape shelf
--- (VTS). If there are no more virtual tapes to describe, this field does
--- not appear in the response.
+-- | An opaque string that indicates the position at which the virtual tapes that
+-- were fetched for description ended. Use this marker in your next request to
+-- fetch the next set of virtual tapes in the virtual tape shelf (VTS). If there
+-- are no more virtual tapes to describe, this field does not appear in the
+-- response.
+--
 dtarMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
 dtarMarker = lens _dtarMarker (\s a -> s { _dtarMarker = a })
 
 -- | An array of virtual tape objects in the virtual tape shelf (VTS). The
--- description includes of the Amazon Resource Name(ARN) of the virtual
--- tapes. The information returned includes the Amazon Resource Names (ARNs)
--- of the tapes, size of the tapes, status of the tapes, progress of the
--- description and tape barcode.
+-- description includes of the Amazon Resource Name(ARN) of the virtual tapes.
+-- The information returned includes the Amazon Resource Names (ARNs) of the
+-- tapes, size of the tapes, status of the tapes, progress of the description
+-- and tape barcode.
+--
 dtarTapeArchives :: Lens' DescribeTapeArchivesResponse [TapeArchive]
 dtarTapeArchives = lens _dtarTapeArchives (\s a -> s { _dtarTapeArchives = a }) . _List
 

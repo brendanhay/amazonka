@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a copy of an object that is already stored in Amazon S3.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/CopyObject.html>
 module Network.AWS.S3.CopyObject
     (
@@ -231,8 +230,8 @@ coContentDisposition =
     lens _coContentDisposition (\s a -> s { _coContentDisposition = a })
 
 -- | Specifies what content encodings have been applied to the object and thus
--- what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
+-- what decoding mechanisms must be applied to obtain the media-type referenced
+-- by the Content-Type header field.
 coContentEncoding :: Lens' CopyObject (Maybe Text)
 coContentEncoding =
     lens _coContentEncoding (\s a -> s { _coContentEncoding = a })
@@ -246,8 +245,8 @@ coContentLanguage =
 coContentType :: Lens' CopyObject (Maybe Text)
 coContentType = lens _coContentType (\s a -> s { _coContentType = a })
 
--- | The name of the source bucket and key name of the source object,
--- separated by a slash (/). Must be URL-encoded.
+-- | The name of the source bucket and key name of the source object, separated by
+-- a slash (/). Must be URL-encoded.
 coCopySource :: Lens' CopyObject Text
 coCopySource = lens _coCopySource (\s a -> s { _coCopySource = a })
 
@@ -263,8 +262,8 @@ coCopySourceIfModifiedSince =
         (\s a -> s { _coCopySourceIfModifiedSince = a })
             . mapping _Time
 
--- | Copies the object if its entity tag (ETag) is different than the
--- specified ETag.
+-- | Copies the object if its entity tag (ETag) is different than the specified
+-- ETag.
 coCopySourceIfNoneMatch :: Lens' CopyObject (Maybe Text)
 coCopySourceIfNoneMatch =
     lens _coCopySourceIfNoneMatch (\s a -> s { _coCopySourceIfNoneMatch = a })
@@ -284,17 +283,17 @@ coCopySourceSSECustomerAlgorithm =
         (\s a -> s { _coCopySourceSSECustomerAlgorithm = a })
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use to
--- decrypt the source object. The encryption key provided in this header
--- must be one that was used when the source object was created.
+-- decrypt the source object. The encryption key provided in this header must be
+-- one that was used when the source object was created.
 coCopySourceSSECustomerKey :: Lens' CopyObject (Maybe Text)
 coCopySourceSSECustomerKey =
     lens _coCopySourceSSECustomerKey
         (\s a -> s { _coCopySourceSSECustomerKey = a })
             . mapping _Sensitive
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
+-- Amazon S3 uses this header for a message integrity check to ensure the
+-- encryption key was transmitted without error.
 coCopySourceSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
 coCopySourceSSECustomerKeyMD5 =
     lens _coCopySourceSSECustomerKeyMD5
@@ -310,8 +309,7 @@ coCopySourceSSEKMSKeyId =
 coExpires :: Lens' CopyObject (Maybe UTCTime)
 coExpires = lens _coExpires (\s a -> s { _coExpires = a }) . mapping _Time
 
--- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
--- object.
+-- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 coGrantFullControl :: Lens' CopyObject (Maybe Text)
 coGrantFullControl =
     lens _coGrantFullControl (\s a -> s { _coGrantFullControl = a })
@@ -335,14 +333,14 @@ coKey = lens _coKey (\s a -> s { _coKey = a })
 coMetadata :: Lens' CopyObject (HashMap (CI Text) Text)
 coMetadata = lens _coMetadata (\s a -> s { _coMetadata = a }) . _Map
 
--- | Specifies whether the metadata is copied from the source object or
--- replaced with metadata provided in the request.
+-- | Specifies whether the metadata is copied from the source object or replaced
+-- with metadata provided in the request.
 coMetadataDirective :: Lens' CopyObject (Maybe MetadataDirective)
 coMetadataDirective =
     lens _coMetadataDirective (\s a -> s { _coMetadataDirective = a })
 
--- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256, aws:kms).
+-- | Specifies the algorithm to use to when encrypting the object (e.g., AES256,
+-- aws:kms).
 coSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
 coSSECustomerAlgorithm =
     lens _coSSECustomerAlgorithm (\s a -> s { _coSSECustomerAlgorithm = a })
@@ -355,9 +353,9 @@ coSSECustomerAlgorithm =
 coSSECustomerKey :: Lens' CopyObject (Maybe Text)
 coSSECustomerKey = lens _coSSECustomerKey (\s a -> s { _coSSECustomerKey = a }) . mapping _Sensitive
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
+-- Amazon S3 uses this header for a message integrity check to ensure the
+-- encryption key was transmitted without error.
 coSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
 coSSECustomerKeyMD5 =
     lens _coSSECustomerKeyMD5 (\s a -> s { _coSSECustomerKeyMD5 = a })
@@ -372,9 +370,9 @@ coServerSideEncryption =
 coStorageClass :: Lens' CopyObject (Maybe StorageClass)
 coStorageClass = lens _coStorageClass (\s a -> s { _coStorageClass = a })
 
--- | If the bucket is configured as a website, redirects requests for this
--- object to another object in the same bucket or to an external URL. Amazon
--- S3 stores the value of this header in the object metadata.
+-- | If the bucket is configured as a website, redirects requests for this object
+-- to another object in the same bucket or to an external URL. Amazon S3 stores
+-- the value of this header in the object metadata.
 coWebsiteRedirectLocation :: Lens' CopyObject (Maybe Text)
 coWebsiteRedirectLocation =
     lens _coWebsiteRedirectLocation
@@ -427,14 +425,13 @@ corCopySourceVersionId :: Lens' CopyObjectResponse (Maybe Text)
 corCopySourceVersionId =
     lens _corCopySourceVersionId (\s a -> s { _corCopySourceVersionId = a })
 
--- | If the object expiration is configured, the response includes this
--- header.
+-- | If the object expiration is configured, the response includes this header.
 corExpiration :: Lens' CopyObjectResponse (Maybe UTCTime)
 corExpiration = lens _corExpiration (\s a -> s { _corExpiration = a }) . mapping _Time
 
 -- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
+-- requested, the response will include this header confirming the encryption
+-- algorithm used.
 corSSECustomerAlgorithm :: Lens' CopyObjectResponse (Maybe Text)
 corSSECustomerAlgorithm =
     lens _corSSECustomerAlgorithm (\s a -> s { _corSSECustomerAlgorithm = a })

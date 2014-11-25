@@ -60,9 +60,12 @@ deleteDBParameterGroup p1 = DeleteDBParameterGroup
     { _ddbpg1DBParameterGroupName = p1
     }
 
--- | The name of the DB parameter group. Constraints: Must be the name of an
--- existing DB parameter group You cannot delete a default DB parameter
--- group Cannot be associated with any DB instances.
+-- | The name of the DB parameter group.
+--
+-- Constraints:
+--
+-- Must be the name of an existing DB parameter group You cannot delete a
+-- default DB parameter group Cannot be associated with any DB instances
 ddbpg1DBParameterGroupName :: Lens' DeleteDBParameterGroup Text
 ddbpg1DBParameterGroupName =
     lens _ddbpg1DBParameterGroupName

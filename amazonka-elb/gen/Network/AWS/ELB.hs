@@ -8,11 +8,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Elastic Load Balancing automatically distributes incoming application
--- traffic across multiple Amazon EC2 instances. It enables you to achieve
--- greater levels of fault tolerance in your applications, seamlessly
--- providing the required amount of load balancing capacity needed to
--- distribute application traffic.
+-- | Elastic Load Balancing automatically distributes incoming application traffic
+-- across multiple Amazon EC2 instances. It enables you to achieve greater
+-- levels of fault tolerance in your applications, seamlessly providing the
+-- required amount of load balancing capacity needed to distribute application
+-- traffic.
 module Network.AWS.ELB
     ( module Network.AWS.ELB.AddTags
     , module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer

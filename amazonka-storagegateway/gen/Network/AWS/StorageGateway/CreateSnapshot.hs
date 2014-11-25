@@ -20,19 +20,19 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This operation initiates a snapshot of a volume. AWS Storage Gateway
--- provides the ability to back up point-in-time snapshots of your data to
--- Amazon Simple Storage (S3) for durable off-site recovery, as well as import
--- the data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic
--- Compute Cloud (EC2). You can take snapshots of your gateway volume on a
--- scheduled or ad-hoc basis. This API enables you to take ad-hoc snapshot.
--- For more information, see
--- <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html
--- Working With Snapshots in the AWS Storage Gateway Console>. In the
--- CreateSnapshot request you identify the volume by providing its Amazon
--- Resource Name (ARN). You must also provide description for the snapshot.
--- When AWS Storage Gateway takes the snapshot of specified volume, the
--- snapshot and description appears in the AWS Storage Gateway Console. In
+-- | This operation initiates a snapshot of a volume.
+--
+-- AWS Storage Gateway provides the ability to back up point-in-time snapshots
+-- of your data to Amazon Simple Storage (S3) for durable off-site recovery, as
+-- well as import the data to an Amazon Elastic Block Store (EBS) volume in
+-- Amazon Elastic Compute Cloud (EC2). You can take snapshots of your gateway
+-- volume on a scheduled or ad-hoc basis. This API enables you to take ad-hoc
+-- snapshot. For more information, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working With Snapshots in the AWS StorageGateway Console>.
+--
+-- In the CreateSnapshot request you identify the volume by providing its
+-- Amazon Resource Name (ARN). You must also provide description for the
+-- snapshot. When AWS Storage Gateway takes the snapshot of specified volume,
+-- the snapshot and description appears in the AWS Storage Gateway Console. In
 -- response, AWS Storage Gateway returns you a snapshot ID. You can use this
 -- snapshot ID to check the snapshot progress or later use it when you want to
 -- create a volume from a snapshot.
@@ -83,15 +83,17 @@ createSnapshot p1 p2 = CreateSnapshot
     , _csSnapshotDescription = p2
     }
 
--- | Textual description of the snapshot that appears in the Amazon EC2
--- console, Elastic Block Store snapshots panel in the Description field,
--- and in the AWS Storage Gateway snapshot Details pane, Description field.
+-- | Textual description of the snapshot that appears in the Amazon EC2 console,
+-- Elastic Block Store snapshots panel in the Description field, and in the AWS
+-- Storage Gateway snapshot Details pane, Description field
+--
 csSnapshotDescription :: Lens' CreateSnapshot Text
 csSnapshotDescription =
     lens _csSnapshotDescription (\s a -> s { _csSnapshotDescription = a })
 
--- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes'
--- operation to return a list of gateway volumes.
+-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation
+-- to return a list of gateway volumes.
+--
 csVolumeARN :: Lens' CreateSnapshot Text
 csVolumeARN = lens _csVolumeARN (\s a -> s { _csVolumeARN = a })
 
@@ -114,15 +116,14 @@ createSnapshotResponse = CreateSnapshotResponse
     , _csrSnapshotId = Nothing
     }
 
--- | The snapshot ID that is used to refer to the snapshot in future
--- operations such as describing snapshots (Amazon Elastic Compute Cloud API
--- 'DescribeSnapshots') or creating a volume from a snapshot
--- ('CreateStorediSCSIVolume').
+-- | The snapshot ID that is used to refer to the snapshot in future operations
+-- such as describing snapshots (Amazon Elastic Compute Cloud API 'DescribeSnapshots') or creating a volume from a snapshot ('CreateStorediSCSIVolume').
+--
 csrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
 
--- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
--- taken.
+-- | The Amazon Resource Name (ARN) of the volume of which the snapshot was taken.
+--
 csrVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
 csrVolumeARN = lens _csrVolumeARN (\s a -> s { _csrVolumeARN = a })
 

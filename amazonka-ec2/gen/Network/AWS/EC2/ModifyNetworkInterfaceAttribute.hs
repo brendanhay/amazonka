@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Modifies the specified network interface attribute. You can specify only
--- one attribute at a time.
+-- | Modifies the specified network interface attribute. You can specify only one
+-- attribute at a time.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyNetworkInterfaceAttribute.html>
 module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
@@ -86,36 +86,37 @@ modifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute
     }
 
 -- | Information about the interface attachment. If modifying the 'delete on
--- termination' attribute, you must specify the ID of the interface
--- attachment.
+-- termination' attribute, you must specify the ID of the interface attachment.
+--
 mniaAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)
 mniaAttachment = lens _mniaAttachment (\s a -> s { _mniaAttachment = a })
 
 -- | A description for the network interface.
+--
 mniaDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
 mniaDescription = lens _mniaDescription (\s a -> s { _mniaDescription = a })
 
 mniaDryRun :: Lens' ModifyNetworkInterfaceAttribute (Maybe Bool)
 mniaDryRun = lens _mniaDryRun (\s a -> s { _mniaDryRun = a })
 
--- | Changes the security groups for the network interface. The new set of
--- groups you specify replaces the current set. You must specify at least
--- one group, even if it's just the default security group in the VPC. You
--- must specify the ID of the security group, not the name.
+-- | Changes the security groups for the network interface. The new set of groups
+-- you specify replaces the current set. You must specify at least one group,
+-- even if it's just the default security group in the VPC. You must specify the
+-- ID of the security group, not the name.
+--
 mniaGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
 mniaGroups = lens _mniaGroups (\s a -> s { _mniaGroups = a }) . _List
 
 -- | The ID of the network interface.
+--
 mniaNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute Text
 mniaNetworkInterfaceId =
     lens _mniaNetworkInterfaceId (\s a -> s { _mniaNetworkInterfaceId = a })
 
--- | Indicates whether source/destination checking is enabled. A value of
--- 'true' means checking is enabled, and 'false' means checking is disabled.
--- This value must be 'false' for a NAT instance to perform NAT. For more
--- information, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html
--- NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
+-- | Indicates whether source/destination checking is enabled. A value of 'true'
+-- means checking is enabled, and 'false' means checking is disabled. This value
+-- must be 'false' for a NAT instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
+--
 mniaSourceDestCheck :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeBooleanValue)
 mniaSourceDestCheck =
     lens _mniaSourceDestCheck (\s a -> s { _mniaSourceDestCheck = a })

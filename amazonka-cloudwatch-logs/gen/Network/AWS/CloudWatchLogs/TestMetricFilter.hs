@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Tests the filter pattern of a metric filter against a sample of log event
--- messages. You can use this operation to validate the correctness of a
--- metric filter pattern.
+-- messages. You can use this operation to validate the correctness of a metric
+-- filter pattern.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TestMetricFilter.html>
 module Network.AWS.CloudWatchLogs.TestMetricFilter

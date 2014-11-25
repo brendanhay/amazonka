@@ -20,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describe specified users. Required Permissions: To use this action, an IAM
--- user must have an attached policy that explicitly grants permissions. For
--- more information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Describe specified users.
+--
+-- Required Permissions: To use this action, an IAM user must have an attached
+-- policy that explicitly grants permissions. For more information on user
+-- permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeUserProfiles.html>
 module Network.AWS.OpsWorks.DescribeUserProfiles
@@ -71,6 +71,7 @@ describeUserProfiles = DescribeUserProfiles
     }
 
 -- | An array of IAM user ARNs that identify the users to be described.
+--
 dupIamUserArns :: Lens' DescribeUserProfiles [Text]
 dupIamUserArns = lens _dupIamUserArns (\s a -> s { _dupIamUserArns = a }) . _List
 
@@ -96,6 +97,7 @@ describeUserProfilesResponse = DescribeUserProfilesResponse
     }
 
 -- | A 'Users' object that describes the specified users.
+--
 duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
 duprUserProfiles = lens _duprUserProfiles (\s a -> s { _duprUserProfiles = a }) . _List
 

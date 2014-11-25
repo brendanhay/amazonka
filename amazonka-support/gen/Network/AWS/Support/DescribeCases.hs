@@ -20,15 +20,18 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns a list of cases that you specify by passing one or more case IDs.
--- In addition, you can filter the cases by date by setting values for the
--- 'AfterTime' and 'BeforeTime' request parameters. Case data is available for
--- 12 months after creation. If a case was created more than 12 months ago, a
--- request for data might cause an error. The response returns the following
--- in JSON format: One or more 'CaseDetails' data types. One or more
--- 'NextToken' values, which specify where to paginate the returned records
--- represented by the 'CaseDetails' objects.
+-- | Returns a list of cases that you specify by passing one or more case IDs. In
+-- addition, you can filter the cases by date by setting values for the 'AfterTime'
+-- and 'BeforeTime' request parameters.
 --
+-- Case data is available for 12 months after creation. If a case was created
+-- more than 12 months ago, a request for data might cause an error.
+--
+-- The response returns the following in JSON format:
+--
+-- One or more 'CaseDetails' data types.  One or more 'NextToken' values, which
+-- specify where to paginate the returned records represented by the 'CaseDetails'
+-- objects.
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCases.html>
 module Network.AWS.Support.DescribeCases
     (
@@ -110,31 +113,36 @@ describeCases = DescribeCases
 
 -- | The start date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
+--
 dcAfterTime :: Lens' DescribeCases (Maybe Text)
 dcAfterTime = lens _dcAfterTime (\s a -> s { _dcAfterTime = a })
 
--- | The end date for a filtered date search on support case communications.
--- Case communications are available for 12 months after creation.
+-- | The end date for a filtered date search on support case communications. Case
+-- communications are available for 12 months after creation.
+--
 dcBeforeTime :: Lens' DescribeCases (Maybe Text)
 dcBeforeTime = lens _dcBeforeTime (\s a -> s { _dcBeforeTime = a })
 
 -- | A list of ID numbers of the support cases you want returned. The maximum
 -- number of cases is 100.
+--
 dcCaseIdList :: Lens' DescribeCases [Text]
 dcCaseIdList = lens _dcCaseIdList (\s a -> s { _dcCaseIdList = a }) . _List
 
 -- | The ID displayed for a case in the AWS Support Center user interface.
+--
 dcDisplayId :: Lens' DescribeCases (Maybe Text)
 dcDisplayId = lens _dcDisplayId (\s a -> s { _dcDisplayId = a })
 
--- | Specifies whether communications should be included in the
--- 'DescribeCases' results. The default is /true/.
+-- | Specifies whether communications should be included in the 'DescribeCases'
+-- results. The default is /true/.
+--
 dcIncludeCommunications :: Lens' DescribeCases (Maybe Bool)
 dcIncludeCommunications =
     lens _dcIncludeCommunications (\s a -> s { _dcIncludeCommunications = a })
 
--- | Specifies whether resolved support cases should be included in the
--- 'DescribeCases' results. The default is /false/.
+-- | Specifies whether resolved support cases should be included in the 'DescribeCases' results. The default is /false/.
+--
 dcIncludeResolvedCases :: Lens' DescribeCases (Maybe Bool)
 dcIncludeResolvedCases =
     lens _dcIncludeResolvedCases (\s a -> s { _dcIncludeResolvedCases = a })
@@ -142,14 +150,17 @@ dcIncludeResolvedCases =
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
+--
 dcLanguage :: Lens' DescribeCases (Maybe Text)
 dcLanguage = lens _dcLanguage (\s a -> s { _dcLanguage = a })
 
 -- | The maximum number of results to return before paginating.
+--
 dcMaxResults :: Lens' DescribeCases (Maybe Natural)
 dcMaxResults = lens _dcMaxResults (\s a -> s { _dcMaxResults = a }) . mapping _Nat
 
 -- | A resumption point for pagination.
+--
 dcNextToken :: Lens' DescribeCases (Maybe Text)
 dcNextToken = lens _dcNextToken (\s a -> s { _dcNextToken = a })
 
@@ -173,10 +184,12 @@ describeCasesResponse = DescribeCasesResponse
     }
 
 -- | The details for the cases that match the request.
+--
 dcr1Cases :: Lens' DescribeCasesResponse [CaseDetails]
 dcr1Cases = lens _dcr1Cases (\s a -> s { _dcr1Cases = a }) . _List
 
 -- | A resumption point for pagination.
+--
 dcr1NextToken :: Lens' DescribeCasesResponse (Maybe Text)
 dcr1NextToken = lens _dcr1NextToken (\s a -> s { _dcr1NextToken = a })
 

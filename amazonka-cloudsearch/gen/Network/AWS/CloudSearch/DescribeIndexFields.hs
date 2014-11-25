@@ -20,12 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Gets information about the index fields configured for the search domain.
--- Can be limited to specific fields by name. By default, shows all fields and
--- includes any pending changes to the configuration. Set the 'Deployed'
--- option to 'true' to show the active configuration and exclude pending
--- changes. For more information, see Getting Domain Information in the
--- /Amazon CloudSearch Developer Guide/.
+-- | Gets information about the index fields configured for the search domain. Can
+-- be limited to specific fields by name. By default, shows all fields and
+-- includes any pending changes to the configuration. Set the 'Deployed' option to 'true' to show the active configuration and exclude pending changes. For more
+-- information, see Getting Domain Information in the /Amazon CloudSearchDeveloper Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeIndexFields.html>
 module Network.AWS.CloudSearch.DescribeIndexFields
@@ -76,17 +74,20 @@ describeIndexFields p1 = DescribeIndexFields
     , _difDeployed   = Nothing
     }
 
--- | Whether to display the deployed configuration ('true') or include any
--- pending changes ('false'). Defaults to 'false'.
+-- | Whether to display the deployed configuration ('true') or include any pending
+-- changes ('false'). Defaults to 'false'.
+--
 difDeployed :: Lens' DescribeIndexFields (Maybe Bool)
 difDeployed = lens _difDeployed (\s a -> s { _difDeployed = a })
 
 -- | The name of the domain you want to describe.
+--
 difDomainName :: Lens' DescribeIndexFields Text
 difDomainName = lens _difDomainName (\s a -> s { _difDomainName = a })
 
 -- | A list of the index fields you want to describe. If not specified,
 -- information is returned for all configured index fields.
+--
 difFieldNames :: Lens' DescribeIndexFields [Text]
 difFieldNames = lens _difFieldNames (\s a -> s { _difFieldNames = a }) . _List
 
@@ -112,6 +113,7 @@ describeIndexFieldsResponse = DescribeIndexFieldsResponse
     }
 
 -- | The index fields configured for the domain.
+--
 difrIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
 difrIndexFields = lens _difrIndexFields (\s a -> s { _difrIndexFields = a }) . _List
 

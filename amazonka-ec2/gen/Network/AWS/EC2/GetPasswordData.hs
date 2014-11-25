@@ -21,16 +21,18 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves the encrypted administrator password for an instance running
--- Windows. The Windows password is generated at boot if the 'EC2Config'
--- service plugin, 'Ec2SetPassword', is enabled. This usually only happens the
--- first time an AMI is launched, and then 'Ec2SetPassword' is automatically
--- disabled. The password is not generated for rebundled AMIs unless
--- 'Ec2SetPassword' is enabled before bundling. The password is encrypted
--- using the key pair that you specified when you launched the instance. You
--- must provide the corresponding key pair file. Password generation and
--- encryption takes a few moments. We recommend that you wait up to 15 minutes
--- after launching an instance before trying to retrieve the generated
--- password.
+-- Windows.
+--
+-- The Windows password is generated at boot if the 'EC2Config' service plugin, 'Ec2SetPassword', is enabled. This usually only happens the first time an AMI is launched,
+-- and then 'Ec2SetPassword' is automatically disabled. The password is not
+-- generated for rebundled AMIs unless 'Ec2SetPassword' is enabled before bundling.
+--
+-- The password is encrypted using the key pair that you specified when you
+-- launched the instance. You must provide the corresponding key pair file.
+--
+-- Password generation and encryption takes a few moments. We recommend that
+-- you wait up to 15 minutes after launching an instance before trying to
+-- retrieve the generated password.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetPasswordData.html>
 module Network.AWS.EC2.GetPasswordData
@@ -82,6 +84,7 @@ gpdDryRun :: Lens' GetPasswordData (Maybe Bool)
 gpdDryRun = lens _gpdDryRun (\s a -> s { _gpdDryRun = a })
 
 -- | The ID of the Windows instance.
+--
 gpdInstanceId :: Lens' GetPasswordData Text
 gpdInstanceId = lens _gpdInstanceId (\s a -> s { _gpdInstanceId = a })
 
@@ -109,14 +112,17 @@ getPasswordDataResponse = GetPasswordDataResponse
     }
 
 -- | The ID of the Windows instance.
+--
 gpdrInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)
 gpdrInstanceId = lens _gpdrInstanceId (\s a -> s { _gpdrInstanceId = a })
 
 -- | The password of the instance.
+--
 gpdrPasswordData :: Lens' GetPasswordDataResponse (Maybe Text)
 gpdrPasswordData = lens _gpdrPasswordData (\s a -> s { _gpdrPasswordData = a })
 
 -- | The time the data was last updated.
+--
 gpdrTimestamp :: Lens' GetPasswordDataResponse (Maybe UTCTime)
 gpdrTimestamp = lens _gpdrTimestamp (\s a -> s { _gpdrTimestamp = a }) . mapping _Time
 

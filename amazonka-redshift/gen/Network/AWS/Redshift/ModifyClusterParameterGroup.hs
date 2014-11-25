@@ -20,11 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Modifies the parameters of a parameter group. For more information about
--- managing parameter groups, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html
--- Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster
--- Management Guide/.
+-- | Modifies the parameters of a parameter group.
+--
+-- For more information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon RedshiftParameter Groups> in the /Amazon Redshift Cluster Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterParameterGroup.html>
 module Network.AWS.Redshift.ModifyClusterParameterGroup
@@ -72,16 +70,21 @@ modifyClusterParameterGroup p1 = ModifyClusterParameterGroup
     }
 
 -- | The name of the parameter group to be modified.
+--
 mcpgParameterGroupName :: Lens' ModifyClusterParameterGroup Text
 mcpgParameterGroupName =
     lens _mcpgParameterGroupName (\s a -> s { _mcpgParameterGroupName = a })
 
 -- | An array of parameters to be modified. A maximum of 20 parameters can be
--- modified in a single request. For each parameter to be modified, you must
--- supply at least the parameter name and parameter value; other name-value
--- pairs of the parameter are optional. For the workload management (WLM)
--- configuration, you must supply all the name-value pairs in the
--- wlm_json_configuration parameter.
+-- modified in a single request.
+--
+-- For each parameter to be modified, you must supply at least the parameter
+-- name and parameter value; other name-value pairs of the parameter are
+-- optional.
+--
+-- For the workload management (WLM) configuration, you must supply all the
+-- name-value pairs in the wlm_json_configuration parameter.
+--
 mcpgParameters :: Lens' ModifyClusterParameterGroup [Parameter]
 mcpgParameters = lens _mcpgParameters (\s a -> s { _mcpgParameters = a }) . _List
 
@@ -105,13 +108,15 @@ modifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
     }
 
 -- | The name of the cluster parameter group.
+--
 mcpgrParameterGroupName :: Lens' ModifyClusterParameterGroupResponse (Maybe Text)
 mcpgrParameterGroupName =
     lens _mcpgrParameterGroupName (\s a -> s { _mcpgrParameterGroupName = a })
 
 -- | The status of the parameter group. For example, if you made a change to a
--- parameter group name-value pair, then the change could be pending a
--- reboot of an associated cluster.
+-- parameter group name-value pair, then the change could be pending a reboot of
+-- an associated cluster.
+--
 mcpgrParameterGroupStatus :: Lens' ModifyClusterParameterGroupResponse (Maybe Text)
 mcpgrParameterGroupStatus =
     lens _mcpgrParameterGroupStatus

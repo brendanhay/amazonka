@@ -60,6 +60,7 @@ startLogging p1 = StartLogging
     }
 
 -- | The name of the trail for which CloudTrail logs AWS API calls.
+--
 sl1Name :: Lens' StartLogging Text
 sl1Name = lens _sl1Name (\s a -> s { _sl1Name = a })
 

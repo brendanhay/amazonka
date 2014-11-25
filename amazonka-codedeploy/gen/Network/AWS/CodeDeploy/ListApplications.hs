@@ -63,6 +63,7 @@ listApplications = ListApplications
 
 -- | An identifier that was returned from the previous list applications call,
 -- which can be used to return the next set of applications in the list.
+--
 laNextToken :: Lens' ListApplications (Maybe Text)
 laNextToken = lens _laNextToken (\s a -> s { _laNextToken = a })
 
@@ -86,12 +87,14 @@ listApplicationsResponse = ListApplicationsResponse
     }
 
 -- | A list of application names.
+--
 lar1Applications :: Lens' ListApplicationsResponse [Text]
 lar1Applications = lens _lar1Applications (\s a -> s { _lar1Applications = a }) . _List
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
 -- applications call to return the next set of applications in the list.
+--
 lar1NextToken :: Lens' ListApplicationsResponse (Maybe Text)
 lar1NextToken = lens _lar1NextToken (\s a -> s { _lar1NextToken = a })
 

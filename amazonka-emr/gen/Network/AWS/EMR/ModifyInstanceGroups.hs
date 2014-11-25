@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | ModifyInstanceGroups modifies the number of nodes and configuration
--- settings of an instance group. The input parameters include the new target
--- instance count for the group and the instance group ID. The call will
--- either succeed or fail atomically.
+-- | ModifyInstanceGroups modifies the number of nodes and configuration settings
+-- of an instance group. The input parameters include the new target instance
+-- count for the group and the instance group ID. The call will either succeed
+-- or fail atomically.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ModifyInstanceGroups.html>
 module Network.AWS.EMR.ModifyInstanceGroups
@@ -68,6 +68,7 @@ modifyInstanceGroups = ModifyInstanceGroups
     }
 
 -- | Instance groups to change.
+--
 migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
 migInstanceGroups =
     lens _migInstanceGroups (\s a -> s { _migInstanceGroups = a })

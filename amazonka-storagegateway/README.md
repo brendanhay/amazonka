@@ -8,7 +8,9 @@
 
 ## Description
 
-AWS Storage Gateway is a service that connects an on-premises software appliance with cloud-based storage to provide seamless and secure integration between your on-premises IT environment and AWS's storage infrastructure.
+    AWS Storage Gateway is a service that connects an on-premises software
+    appliance with cloud-based storage to provide seamless and secure integration
+    between your on-premises IT environment and AWS's storage infrastructure.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-storagegateway)
 and [AWS API Reference](http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html).

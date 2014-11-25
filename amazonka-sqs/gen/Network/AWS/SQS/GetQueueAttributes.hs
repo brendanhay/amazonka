@@ -21,37 +21,24 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets attributes for the specified queue. The following attributes are
--- supported: 'All' - returns all values. 'ApproximateNumberOfMessages' -
--- returns the approximate number of visible messages in a queue. For more
--- information, see
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html
--- Resources Required to Process Messages> in the /Amazon SQS Developer
--- Guide/. 'ApproximateNumberOfMessagesNotVisible' - returns the approximate
--- number of messages that are not timed-out and not deleted. For more
--- information, see
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html
--- Resources Required to Process Messages> in the /Amazon SQS Developer
--- Guide/. 'VisibilityTimeout' - returns the visibility timeout for the queue.
--- For more information about visibility timeout, see
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html
--- Visibility Timeout> in the /Amazon SQS Developer Guide/. 'CreatedTimestamp'
--- - returns the time when the queue was created (epoch time in seconds).
--- 'LastModifiedTimestamp' - returns the time when the queue was last changed
--- (epoch time in seconds). 'Policy' - returns the queue's policy.
--- 'MaximumMessageSize' - returns the limit of how many bytes a message can
--- contain before Amazon SQS rejects it. 'MessageRetentionPeriod' - returns
--- the number of seconds Amazon SQS retains a message. 'QueueArn' - returns
--- the queue's Amazon resource name (ARN).
--- 'ApproximateNumberOfMessagesDelayed' - returns the approximate number of
--- messages that are pending to be added to the queue. 'DelaySeconds' -
--- returns the default delay on the queue in seconds.
--- 'ReceiveMessageWaitTimeSeconds' - returns the time for which a
--- ReceiveMessage call will wait for a message to arrive. 'RedrivePolicy' -
--- returns the parameters for dead letter queue functionality of the source
--- queue. For more information about RedrivePolicy and dead letter queues, see
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html
--- Using Amazon SQS Dead Letter Queues> in the /Amazon SQS Developer Guide/.
--- '&Attribute.1=this' '&Attribute.2=that'.
+-- supported:   'All' - returns all values.  'ApproximateNumberOfMessages' - returns
+-- the approximate number of visible messages in a queue. For more information,
+-- see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html Resources Required to Process Messages> in the /Amazon SQS Developer Guide/.
+-- 'ApproximateNumberOfMessagesNotVisible' - returns the approximate number of
+-- messages that are not timed-out and not deleted. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html Resources Required to Process Messages> in the /Amazon SQS Developer Guide/.  'VisibilityTimeout' - returns the
+-- visibility timeout for the queue. For more information about visibility
+-- timeout, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout> in the /Amazon SQS Developer Guide/.  'CreatedTimestamp' - returns the time when the queue was created (epoch time in seconds).  'LastModifiedTimestamp' - returns the time when the queue was last changed (epoch time in seconds).  'Policy' - returns the queue's policy.  'MaximumMessageSize' - returns the limit
+-- of how many bytes a message can contain before Amazon SQS rejects it.  'MessageRetentionPeriod' - returns the number of seconds Amazon SQS retains a message.  'QueueArn' -
+-- returns the queue's Amazon resource name (ARN).  'ApproximateNumberOfMessagesDelayed' - returns the approximate number of messages that are pending to be added to
+-- the queue.  'DelaySeconds' - returns the default delay on the queue in seconds.
+-- 'ReceiveMessageWaitTimeSeconds' - returns the time for which a ReceiveMessage
+-- call will wait for a message to arrive.  'RedrivePolicy' - returns the
+-- parameters for dead letter queue functionality of the source queue. For more
+-- information about RedrivePolicy and dead letter queues, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQSDead Letter Queues> in the /Amazon SQS Developer Guide/.
+--
+-- '&Attribute.1=this'
+--
+-- '&Attribute.2=that'
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.html>
 module Network.AWS.SQS.GetQueueAttributes
@@ -98,12 +85,14 @@ getQueueAttributes p1 = GetQueueAttributes
     }
 
 -- | A list of attributes to retrieve information for.
+--
 gqaAttributeNames :: Lens' GetQueueAttributes [Text]
 gqaAttributeNames =
     lens _gqaAttributeNames (\s a -> s { _gqaAttributeNames = a })
         . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
 gqaQueueUrl :: Lens' GetQueueAttributes Text
 gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
 
@@ -123,6 +112,7 @@ getQueueAttributesResponse = GetQueueAttributesResponse
     }
 
 -- | A map of attributes to the respective values.
+--
 gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap Text Text)
 gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a }) . _EMap
 

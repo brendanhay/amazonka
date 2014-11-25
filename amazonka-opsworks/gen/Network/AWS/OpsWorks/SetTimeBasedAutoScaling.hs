@@ -21,14 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Specify the time-based auto scaling configuration for a specified instance.
--- For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html
--- Managing Load with Time-based and Load-based Instances>. Required
--- Permissions: To use this action, an IAM user must have a Manage permissions
--- level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html Managing Load with Time-based and Load-basedInstances>.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetTimeBasedAutoScaling.html>
 module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
@@ -73,12 +70,14 @@ setTimeBasedAutoScaling p1 = SetTimeBasedAutoScaling
     }
 
 -- | An 'AutoScalingSchedule' with the instance schedule.
+--
 stbasAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
 stbasAutoScalingSchedule =
     lens _stbasAutoScalingSchedule
         (\s a -> s { _stbasAutoScalingSchedule = a })
 
 -- | The instance ID.
+--
 stbasInstanceId :: Lens' SetTimeBasedAutoScaling Text
 stbasInstanceId = lens _stbasInstanceId (\s a -> s { _stbasInstanceId = a })
 

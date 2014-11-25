@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates a new private virtual interface. A virtual interface is the VLAN
--- that transports AWS Direct Connect traffic. A private virtual interface
--- supports sending traffic to a single virtual private cloud (VPC).
+-- | Creates a new private virtual interface. A virtual interface is the VLAN that
+-- transports AWS Direct Connect traffic. A private virtual interface supports
+-- sending traffic to a single virtual private cloud (VPC).
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePrivateVirtualInterface.html>
 module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
@@ -88,7 +88,9 @@ cpvi1ConnectionId =
     lens _cpvi1ConnectionId (\s a -> s { _cpvi1ConnectionId = a })
 
 -- | Detailed information for the private virtual interface to be created.
--- Default: None.
+--
+-- Default: None
+--
 cpvi1NewPrivateVirtualInterface :: Lens' CreatePrivateVirtualInterface NewPrivateVirtualInterface
 cpvi1NewPrivateVirtualInterface =
     lens _cpvi1NewPrivateVirtualInterface
@@ -184,6 +186,7 @@ cpvir2CustomerAddress =
     lens _cpvir2CustomerAddress (\s a -> s { _cpvir2CustomerAddress = a })
 
 -- | Information for generating the customer router configuration.
+--
 cpvir2CustomerRouterConfig :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 cpvir2CustomerRouterConfig =
     lens _cpvir2CustomerRouterConfig

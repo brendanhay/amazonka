@@ -20,19 +20,24 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Gets the console output for the specified instance. Instances do not have a
--- physical monitor through which you can view their console output. They also
--- lack physical controls that allow you to power up, reboot, or shut them
--- down. To allow these actions, we provide them through the Amazon EC2 API
--- and command line interface. Instance console output is buffered and posted
--- shortly after instance boot, reboot, and termination. Amazon EC2 preserves
--- the most recent 64 KB output which is available for at least one hour after
--- the most recent post. For Linux/Unix instances, the instance console output
--- displays the exact console output that would normally be displayed on a
--- physical monitor attached to a machine. This output is buffered because the
--- instance produces it and then posts it to a store where the instance's
--- owner can retrieve it. For Windows instances, the instance console output
--- displays the last three system event log errors.
+-- | Gets the console output for the specified instance.
+--
+-- Instances do not have a physical monitor through which you can view their
+-- console output. They also lack physical controls that allow you to power up,
+-- reboot, or shut them down. To allow these actions, we provide them through
+-- the Amazon EC2 API and command line interface.
+--
+-- Instance console output is buffered and posted shortly after instance boot,
+-- reboot, and termination. Amazon EC2 preserves the most recent 64 KB output
+-- which is available for at least one hour after the most recent post.
+--
+-- For Linux/Unix instances, the instance console output displays the exact
+-- console output that would normally be displayed on a physical monitor
+-- attached to a machine. This output is buffered because the instance produces
+-- it and then posts it to a store where the instance's owner can retrieve it.
+--
+-- For Windows instances, the instance console output displays the last three
+-- system event log errors.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetConsoleOutput.html>
 module Network.AWS.EC2.GetConsoleOutput
@@ -84,6 +89,7 @@ gcoDryRun :: Lens' GetConsoleOutput (Maybe Bool)
 gcoDryRun = lens _gcoDryRun (\s a -> s { _gcoDryRun = a })
 
 -- | The ID of the instance.
+--
 gcoInstanceId :: Lens' GetConsoleOutput Text
 gcoInstanceId = lens _gcoInstanceId (\s a -> s { _gcoInstanceId = a })
 
@@ -111,14 +117,17 @@ getConsoleOutputResponse = GetConsoleOutputResponse
     }
 
 -- | The ID of the instance.
+--
 gcorInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorInstanceId = lens _gcorInstanceId (\s a -> s { _gcorInstanceId = a })
 
 -- | The console output, Base64 encoded.
+--
 gcorOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorOutput = lens _gcorOutput (\s a -> s { _gcorOutput = a })
 
 -- | The time the output was last updated.
+--
 gcorTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
 gcorTimestamp = lens _gcorTimestamp (\s a -> s { _gcorTimestamp = a }) . mapping _Time
 

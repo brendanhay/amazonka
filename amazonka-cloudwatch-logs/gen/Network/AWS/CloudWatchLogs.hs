@@ -8,8 +8,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon CloudWatch Logs enables you to monitor, store, and access your
--- system, application, and custom log files.
+-- | Amazon CloudWatch Logs enables you to monitor, store, and access your system,
+-- application, and custom log files.
 module Network.AWS.CloudWatchLogs
     ( module Network.AWS.CloudWatchLogs.CreateLogGroup
     , module Network.AWS.CloudWatchLogs.CreateLogStream

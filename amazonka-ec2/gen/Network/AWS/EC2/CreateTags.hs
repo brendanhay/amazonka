@@ -21,11 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Adds or overwrites one or more tags for the specified EC2 resource or
--- resources. Each resource can have a maximum of 10 tags. Each tag consists
--- of a key and optional value. Tag keys must be unique per resource. For more
--- information about tags, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging
--- Your Resources> in the /Amazon Elastic Compute Cloud User Guide/.
+-- resources. Each resource can have a maximum of 10 tags. Each tag consists of
+-- a key and optional value. Tag keys must be unique per resource.
+--
+-- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateTags.html>
 module Network.AWS.EC2.CreateTags
@@ -77,12 +76,14 @@ ct1DryRun :: Lens' CreateTags (Maybe Bool)
 ct1DryRun = lens _ct1DryRun (\s a -> s { _ct1DryRun = a })
 
 -- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
+--
 ct1Resources :: Lens' CreateTags [Text]
 ct1Resources = lens _ct1Resources (\s a -> s { _ct1Resources = a }) . _List
 
--- | One or more tags. The 'value' parameter is required, but if you don't
--- want the tag to have a value, specify the parameter with no value, and we
--- set the value to an empty string.
+-- | One or more tags. The 'value' parameter is required, but if you don't want the
+-- tag to have a value, specify the parameter with no value, and we set the
+-- value to an empty string.
+--
 ct1Tags :: Lens' CreateTags [Tag]
 ct1Tags = lens _ct1Tags (\s a -> s { _ct1Tags = a }) . _List
 

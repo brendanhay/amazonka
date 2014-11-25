@@ -20,12 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes the specified attribute of the specified instance. You can
--- specify only one attribute at a time. Valid attribute values are:
--- 'instanceType' | 'kernel' | 'ramdisk' | 'userData' |
--- 'disableApiTermination' | 'instanceInitiatedShutdownBehavior' |
--- 'rootDeviceName' | 'blockDeviceMapping' | 'productCodes' |
--- 'sourceDestCheck' | 'groupSet' | 'ebsOptimized' | 'sriovNetSupport'.
+-- | Describes the specified attribute of the specified instance. You can specify
+-- only one attribute at a time. Valid attribute values are: 'instanceType' | 'kernel' | 'ramdisk' | 'userData' | 'disableApiTermination' | 'instanceInitiatedShutdownBehavior' | 'rootDeviceName' | 'blockDeviceMapping' | 'productCodes' | 'sourceDestCheck' | 'groupSet' | 'ebsOptimized' | 'sriovNetSupport'
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceAttribute.html>
 module Network.AWS.EC2.DescribeInstanceAttribute
@@ -91,6 +87,7 @@ describeInstanceAttribute p1 p2 = DescribeInstanceAttribute
     }
 
 -- | The instance attribute.
+--
 diaAttribute :: Lens' DescribeInstanceAttribute InstanceAttributeName
 diaAttribute = lens _diaAttribute (\s a -> s { _diaAttribute = a })
 
@@ -98,6 +95,7 @@ diaDryRun :: Lens' DescribeInstanceAttribute (Maybe Bool)
 diaDryRun = lens _diaDryRun (\s a -> s { _diaDryRun = a })
 
 -- | The ID of the instance.
+--
 diaInstanceId :: Lens' DescribeInstanceAttribute Text
 diaInstanceId = lens _diaInstanceId (\s a -> s { _diaInstanceId = a })
 
@@ -169,67 +167,78 @@ describeInstanceAttributeResponse = DescribeInstanceAttributeResponse
     }
 
 -- | The block device mapping of the instance.
+--
 diar1BlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
 diar1BlockDeviceMappings =
     lens _diar1BlockDeviceMappings
         (\s a -> s { _diar1BlockDeviceMappings = a })
             . _List
 
--- | If the value is 'true', you can't terminate the instance through the
--- Amazon EC2 console, CLI, or API; otherwise, you can.
+-- | If the value is 'true', you can't terminate the instance through the Amazon EC2
+-- console, CLI, or API; otherwise, you can.
+--
 diar1DisableApiTermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 diar1DisableApiTermination =
     lens _diar1DisableApiTermination
         (\s a -> s { _diar1DisableApiTermination = a })
 
 -- | Indicates whether the instance is optimized for EBS I/O.
+--
 diar1EbsOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 diar1EbsOptimized =
     lens _diar1EbsOptimized (\s a -> s { _diar1EbsOptimized = a })
 
 -- | The security groups associated with the instance.
+--
 diar1Groups :: Lens' DescribeInstanceAttributeResponse [GroupIdentifier]
 diar1Groups = lens _diar1Groups (\s a -> s { _diar1Groups = a }) . _List
 
 -- | The ID of the instance.
+--
 diar1InstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
 diar1InstanceId = lens _diar1InstanceId (\s a -> s { _diar1InstanceId = a })
 
--- | Indicates whether an instance stops or terminates when you initiate
--- shutdown from the instance (using the operating system command for system
--- shutdown).
+-- | Indicates whether an instance stops or terminates when you initiate shutdown
+-- from the instance (using the operating system command for system shutdown).
+--
 diar1InstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diar1InstanceInitiatedShutdownBehavior =
     lens _diar1InstanceInitiatedShutdownBehavior
         (\s a -> s { _diar1InstanceInitiatedShutdownBehavior = a })
 
 -- | The instance type.
+--
 diar1InstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diar1InstanceType =
     lens _diar1InstanceType (\s a -> s { _diar1InstanceType = a })
 
 -- | The kernel ID.
+--
 diar1KernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diar1KernelId = lens _diar1KernelId (\s a -> s { _diar1KernelId = a })
 
 -- | A list of product codes.
+--
 diar1ProductCodes :: Lens' DescribeInstanceAttributeResponse [ProductCode]
 diar1ProductCodes =
     lens _diar1ProductCodes (\s a -> s { _diar1ProductCodes = a })
         . _List
 
 -- | The RAM disk ID.
+--
 diar1RamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diar1RamdiskId = lens _diar1RamdiskId (\s a -> s { _diar1RamdiskId = a })
 
 -- | The name of the root device (for example, '/dev/sda1').
+--
 diar1RootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diar1RootDeviceName =
     lens _diar1RootDeviceName (\s a -> s { _diar1RootDeviceName = a })
 
--- | Indicates whether source/destination checking is enabled. A value of
--- 'true' means checking is enabled, and 'false' means checking is disabled.
--- This value must be 'false' for a NAT instance to perform NAT.
+-- | Indicates whether source/destination checking is enabled. A value of 'true'
+-- means checking is enabled, and 'false' means checking is disabled. This value
+-- must be 'false' for a NAT instance to perform NAT.
+--
 diar1SourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 diar1SourceDestCheck =
     lens _diar1SourceDestCheck (\s a -> s { _diar1SourceDestCheck = a })
@@ -239,6 +248,7 @@ diar1SriovNetSupport =
     lens _diar1SriovNetSupport (\s a -> s { _diar1SriovNetSupport = a })
 
 -- | The Base64-encoded MIME user data.
+--
 diar1UserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diar1UserData = lens _diar1UserData (\s a -> s { _diar1UserData = a })
 

@@ -20,10 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes the specified delivery channel. The delivery channel cannot be
--- deleted if it is the only delivery channel and the configuration recorder
--- is still running. To delete the delivery channel, stop the running
--- configuration recorder using the 'StopConfigurationRecorder' action.
+-- | Deletes the specified delivery channel.
+--
+-- The delivery channel cannot be deleted if it is the only delivery channel
+-- and the configuration recorder is still running. To delete the delivery
+-- channel, stop the running configuration recorder using the 'StopConfigurationRecorder' action.
 --
 -- <http://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html>
 module Network.AWS.Config.DeleteDeliveryChannel
@@ -63,6 +64,7 @@ deleteDeliveryChannel p1 = DeleteDeliveryChannel
     }
 
 -- | The name of the delivery channel to delete.
+--
 ddcDeliveryChannelName :: Lens' DeleteDeliveryChannel Text
 ddcDeliveryChannelName =
     lens _ddcDeliveryChannelName (\s a -> s { _ddcDeliveryChannelName = a })

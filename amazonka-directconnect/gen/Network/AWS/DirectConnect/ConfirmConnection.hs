@@ -20,9 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Confirm the creation of a hosted connection on an interconnect. Upon
--- creation, the hosted connection is initially in the 'Ordering' state, and
--- will remain in this state until the owner calls ConfirmConnection to
+-- | Confirm the creation of a hosted connection on an interconnect.
+--
+-- Upon creation, the hosted connection is initially in the 'Ordering' state,
+-- and will remain in this state until the owner calls ConfirmConnection to
 -- confirm creation of the hosted connection.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmConnection.html>

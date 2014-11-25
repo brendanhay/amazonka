@@ -21,8 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the refresh status of the Trusted Advisor checks that have the
--- specified check IDs. Check IDs can be obtained by calling
--- 'DescribeTrustedAdvisorChecks'.
+-- specified check IDs. Check IDs can be obtained by calling 'DescribeTrustedAdvisorChecks'.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckRefreshStatuses.html>
 module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
@@ -69,6 +68,7 @@ describeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshS
     }
 
 -- | The IDs of the Trusted Advisor checks.
+--
 dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
 dtacrsCheckIds = lens _dtacrsCheckIds (\s a -> s { _dtacrsCheckIds = a }) . _List
 
@@ -94,6 +94,7 @@ describeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheck
     }
 
 -- | The refresh status of the specified Trusted Advisor checks.
+--
 dtacrsrStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
 dtacrsrStatuses = lens _dtacrsrStatuses (\s a -> s { _dtacrsrStatuses = a }) . _List
 

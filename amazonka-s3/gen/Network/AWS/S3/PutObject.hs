@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Adds an object to a bucket.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutObject.html>
 module Network.AWS.S3.PutObject
     (
@@ -205,8 +204,8 @@ poContentDisposition =
     lens _poContentDisposition (\s a -> s { _poContentDisposition = a })
 
 -- | Specifies what content encodings have been applied to the object and thus
--- what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
+-- what decoding mechanisms must be applied to obtain the media-type referenced
+-- by the Content-Type header field.
 poContentEncoding :: Lens' PutObject (Maybe Text)
 poContentEncoding =
     lens _poContentEncoding (\s a -> s { _poContentEncoding = a })
@@ -216,8 +215,8 @@ poContentLanguage :: Lens' PutObject (Maybe Text)
 poContentLanguage =
     lens _poContentLanguage (\s a -> s { _poContentLanguage = a })
 
--- | Size of the body in bytes. This parameter is useful when the size of the
--- body cannot be determined automatically.
+-- | Size of the body in bytes. This parameter is useful when the size of the body
+-- cannot be determined automatically.
 poContentLength :: Lens' PutObject (Maybe Int)
 poContentLength = lens _poContentLength (\s a -> s { _poContentLength = a })
 
@@ -232,8 +231,7 @@ poContentType = lens _poContentType (\s a -> s { _poContentType = a })
 poExpires :: Lens' PutObject (Maybe UTCTime)
 poExpires = lens _poExpires (\s a -> s { _poExpires = a }) . mapping _Time
 
--- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
--- object.
+-- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 poGrantFullControl :: Lens' PutObject (Maybe Text)
 poGrantFullControl =
     lens _poGrantFullControl (\s a -> s { _poGrantFullControl = a })
@@ -257,8 +255,8 @@ poKey = lens _poKey (\s a -> s { _poKey = a })
 poMetadata :: Lens' PutObject (HashMap (CI Text) Text)
 poMetadata = lens _poMetadata (\s a -> s { _poMetadata = a }) . _Map
 
--- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256, aws:kms).
+-- | Specifies the algorithm to use to when encrypting the object (e.g., AES256,
+-- aws:kms).
 poSSECustomerAlgorithm :: Lens' PutObject (Maybe Text)
 poSSECustomerAlgorithm =
     lens _poSSECustomerAlgorithm (\s a -> s { _poSSECustomerAlgorithm = a })
@@ -271,9 +269,9 @@ poSSECustomerAlgorithm =
 poSSECustomerKey :: Lens' PutObject (Maybe Text)
 poSSECustomerKey = lens _poSSECustomerKey (\s a -> s { _poSSECustomerKey = a }) . mapping _Sensitive
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
+-- Amazon S3 uses this header for a message integrity check to ensure the
+-- encryption key was transmitted without error.
 poSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
 poSSECustomerKeyMD5 =
     lens _poSSECustomerKeyMD5 (\s a -> s { _poSSECustomerKeyMD5 = a })
@@ -292,9 +290,9 @@ poServerSideEncryption =
 poStorageClass :: Lens' PutObject (Maybe StorageClass)
 poStorageClass = lens _poStorageClass (\s a -> s { _poStorageClass = a })
 
--- | If the bucket is configured as a website, redirects requests for this
--- object to another object in the same bucket or to an external URL. Amazon
--- S3 stores the value of this header in the object metadata.
+-- | If the bucket is configured as a website, redirects requests for this object
+-- to another object in the same bucket or to an external URL. Amazon S3 stores
+-- the value of this header in the object metadata.
 poWebsiteRedirectLocation :: Lens' PutObject (Maybe Text)
 poWebsiteRedirectLocation =
     lens _poWebsiteRedirectLocation
@@ -343,15 +341,14 @@ putObjectResponse = PutObjectResponse
 porETag :: Lens' PutObjectResponse (Maybe Text)
 porETag = lens _porETag (\s a -> s { _porETag = a })
 
--- | If the object expiration is configured, this will contain the expiration
--- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
--- encoded.
+-- | If the object expiration is configured, this will contain the expiration date
+-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 porExpiration :: Lens' PutObjectResponse (Maybe UTCTime)
 porExpiration = lens _porExpiration (\s a -> s { _porExpiration = a }) . mapping _Time
 
 -- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
+-- requested, the response will include this header confirming the encryption
+-- algorithm used.
 porSSECustomerAlgorithm :: Lens' PutObjectResponse (Maybe Text)
 porSSECustomerAlgorithm =
     lens _porSSECustomerAlgorithm (\s a -> s { _porSSECustomerAlgorithm = a })

@@ -21,20 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a platform application object for one of the supported push
--- notification services, such as APNS and GCM, to which devices and mobile
--- apps may register. You must specify PlatformPrincipal and
--- PlatformCredential attributes when using the 'CreatePlatformApplication'
--- action. The PlatformPrincipal is received from the notification service.
--- For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM,
+-- notification services, such as APNS and GCM, to which devices and mobile apps
+-- may register. You must specify PlatformPrincipal and PlatformCredential
+-- attributes when using the 'CreatePlatformApplication' action. The
+-- PlatformPrincipal is received from the notification service. For
+-- APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM,
 -- PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client
 -- id". The PlatformCredential is also received from the notification service.
 -- For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM,
 -- PlatformCredential is "API key". For ADM, PlatformCredential is "client
--- secret". The PlatformApplicationArn that is returned when using
--- 'CreatePlatformApplication' is then used as an attribute for the
--- 'CreatePlatformEndpoint' action. For more information, see
--- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon
--- SNS Mobile Push Notifications>.
+-- secret". The PlatformApplicationArn that is returned when using 'CreatePlatformApplication' is then used as an attribute for the 'CreatePlatformEndpoint' action. For more
+-- information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html>
 module Network.AWS.SNS.CreatePlatformApplication
@@ -86,21 +83,22 @@ createPlatformApplication p1 p2 = CreatePlatformApplication
     , _cpaAttributes = mempty
     }
 
--- | For a list of attributes, see
--- <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html
--- SetPlatformApplicationAttributes>.
+-- | For a list of attributes, see <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
+--
 cpaAttributes :: Lens' CreatePlatformApplication (HashMap Text Text)
 cpaAttributes = lens _cpaAttributes (\s a -> s { _cpaAttributes = a }) . _EMap
 
 -- | Application names must be made up of only uppercase and lowercase ASCII
--- letters, numbers, underscores, hyphens, and periods, and must be between
--- 1 and 256 characters long.
+-- letters, numbers, underscores, hyphens, and periods, and must be between 1
+-- and 256 characters long.
+--
 cpaName :: Lens' CreatePlatformApplication Text
 cpaName = lens _cpaName (\s a -> s { _cpaName = a })
 
--- | The following platforms are supported: ADM (Amazon Device Messaging),
--- APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google
--- Cloud Messaging).
+-- | The following platforms are supported: ADM (Amazon Device Messaging), APNS
+-- (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud
+-- Messaging).
+--
 cpaPlatform :: Lens' CreatePlatformApplication Text
 cpaPlatform = lens _cpaPlatform (\s a -> s { _cpaPlatform = a })
 
@@ -120,6 +118,7 @@ createPlatformApplicationResponse = CreatePlatformApplicationResponse
     }
 
 -- | PlatformApplicationArn is returned.
+--
 cparPlatformApplicationArn :: Lens' CreatePlatformApplicationResponse (Maybe Text)
 cparPlatformApplicationArn =
     lens _cparPlatformApplicationArn

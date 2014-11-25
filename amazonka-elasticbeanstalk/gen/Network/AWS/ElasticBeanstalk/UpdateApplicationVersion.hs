@@ -72,20 +72,24 @@ updateApplicationVersion p1 p2 = UpdateApplicationVersion
     , _uavDescription     = Nothing
     }
 
--- | The name of the application associated with this version. If no
--- application is found with this name, 'UpdateApplication' returns an
--- 'InvalidParameterValue' error.
+-- | The name of the application associated with this version.
+--
+-- If no application is found with this name, 'UpdateApplication' returns an 'InvalidParameterValue' error.
+--
 uavApplicationName :: Lens' UpdateApplicationVersion Text
 uavApplicationName =
     lens _uavApplicationName (\s a -> s { _uavApplicationName = a })
 
 -- | A new description for this release.
+--
 uavDescription :: Lens' UpdateApplicationVersion (Maybe Text)
 uavDescription = lens _uavDescription (\s a -> s { _uavDescription = a })
 
--- | The name of the version to update. If no application version is found
--- with this label, 'UpdateApplication' returns an 'InvalidParameterValue'
--- error.
+-- | The name of the version to update.
+--
+-- If no application version is found with this label, 'UpdateApplication'
+-- returns an 'InvalidParameterValue' error.
+--
 uavVersionLabel :: Lens' UpdateApplicationVersion Text
 uavVersionLabel = lens _uavVersionLabel (\s a -> s { _uavVersionLabel = a })
 
@@ -105,6 +109,7 @@ updateApplicationVersionResponse = UpdateApplicationVersionResponse
     }
 
 -- | The 'ApplicationVersionDescription' of the application version.
+--
 uavrApplicationVersion :: Lens' UpdateApplicationVersionResponse (Maybe ApplicationVersionDescription)
 uavrApplicationVersion =
     lens _uavrApplicationVersion (\s a -> s { _uavrApplicationVersion = a })

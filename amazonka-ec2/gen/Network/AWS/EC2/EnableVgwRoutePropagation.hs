@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Enables a virtual private gateway (VGW) to propagate routes to the
--- specified route table of a VPC.
+-- | Enables a virtual private gateway (VGW) to propagate routes to the specified
+-- route table of a VPC.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVgwRoutePropagation.html>
 module Network.AWS.EC2.EnableVgwRoutePropagation
@@ -67,10 +67,12 @@ enableVgwRoutePropagation p1 p2 = EnableVgwRoutePropagation
     }
 
 -- | The ID of the virtual private gateway.
+--
 evrpGatewayId :: Lens' EnableVgwRoutePropagation Text
 evrpGatewayId = lens _evrpGatewayId (\s a -> s { _evrpGatewayId = a })
 
 -- | The ID of the route table.
+--
 evrpRouteTableId :: Lens' EnableVgwRoutePropagation Text
 evrpRouteTableId = lens _evrpRouteTableId (\s a -> s { _evrpRouteTableId = a })
 

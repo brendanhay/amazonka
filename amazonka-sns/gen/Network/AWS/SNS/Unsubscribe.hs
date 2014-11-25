@@ -22,11 +22,11 @@
 
 -- | Deletes a subscription. If the subscription requires authentication for
 -- deletion, only the owner of the subscription or the topic's owner can
--- unsubscribe, and an AWS signature is required. If the 'Unsubscribe' call
--- does not require authentication and the requester is not the subscription
--- owner, a final cancellation message is delivered to the endpoint, so that
--- the endpoint owner can easily resubscribe to the topic if the 'Unsubscribe'
--- request was unintended.
+-- unsubscribe, and an AWS signature is required. If the 'Unsubscribe' call does
+-- not require authentication and the requester is not the subscription owner, a
+-- final cancellation message is delivered to the endpoint, so that the endpoint
+-- owner can easily resubscribe to the topic if the 'Unsubscribe' request was
+-- unintended.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html>
 module Network.AWS.SNS.Unsubscribe
@@ -66,6 +66,7 @@ unsubscribe p1 = Unsubscribe
     }
 
 -- | The ARN of the subscription to be deleted.
+--
 uSubscriptionArn :: Lens' Unsubscribe Text
 uSubscriptionArn = lens _uSubscriptionArn (\s a -> s { _uSubscriptionArn = a })
 

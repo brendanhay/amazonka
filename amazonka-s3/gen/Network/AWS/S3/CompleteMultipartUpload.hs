@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Completes a multipart upload by assembling previously uploaded parts.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/CompleteMultipartUpload.html>
 module Network.AWS.S3.CompleteMultipartUpload
     (
@@ -148,9 +147,8 @@ cmur1Bucket = lens _cmur1Bucket (\s a -> s { _cmur1Bucket = a })
 cmur1ETag :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 cmur1ETag = lens _cmur1ETag (\s a -> s { _cmur1ETag = a })
 
--- | If the object expiration is configured, this will contain the expiration
--- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
--- encoded.
+-- | If the object expiration is configured, this will contain the expiration date
+-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 cmur1Expiration :: Lens' CompleteMultipartUploadResponse (Maybe UTCTime)
 cmur1Expiration = lens _cmur1Expiration (\s a -> s { _cmur1Expiration = a }) . mapping _Time
 

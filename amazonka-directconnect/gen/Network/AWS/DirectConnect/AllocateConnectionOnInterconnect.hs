@@ -20,9 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates a hosted connection on an interconnect. Allocates a VLAN number and
--- a specified amount of bandwidth for use by a hosted connection on the given
--- interconnect.
+-- | Creates a hosted connection on an interconnect.
+--
+-- Allocates a VLAN number and a specified amount of bandwidth for use by a
+-- hosted connection on the given interconnect.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateConnectionOnInterconnect.html>
 module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
@@ -95,29 +96,51 @@ allocateConnectionOnInterconnect p1 p2 p3 p4 p5 = AllocateConnectionOnInterconne
     , _acoiVlan           = p5
     }
 
--- | Bandwidth of the connection. Example: "/500Mbps/" Default: None.
+-- | Bandwidth of the connection.
+--
+-- Example: "/500Mbps/"
+--
+-- Default: None
+--
 acoiBandwidth :: Lens' AllocateConnectionOnInterconnect Text
 acoiBandwidth = lens _acoiBandwidth (\s a -> s { _acoiBandwidth = a })
 
--- | Name of the provisioned connection. Example: "/500M Connection to AWS/"
--- Default: None.
+-- | Name of the provisioned connection.
+--
+-- Example: "/500M Connection to AWS/"
+--
+-- Default: None
+--
 acoiConnectionName :: Lens' AllocateConnectionOnInterconnect Text
 acoiConnectionName =
     lens _acoiConnectionName (\s a -> s { _acoiConnectionName = a })
 
 -- | ID of the interconnect on which the connection will be provisioned.
--- Example: dxcon-456abc78 Default: None.
+--
+-- Example: dxcon-456abc78
+--
+-- Default: None
+--
 acoiInterconnectId :: Lens' AllocateConnectionOnInterconnect Text
 acoiInterconnectId =
     lens _acoiInterconnectId (\s a -> s { _acoiInterconnectId = a })
 
 -- | Numeric account Id of the customer for whom the connection will be
--- provisioned. Example: 123443215678 Default: None.
+-- provisioned.
+--
+-- Example: 123443215678
+--
+-- Default: None
+--
 acoiOwnerAccount :: Lens' AllocateConnectionOnInterconnect Text
 acoiOwnerAccount = lens _acoiOwnerAccount (\s a -> s { _acoiOwnerAccount = a })
 
--- | The dedicated VLAN provisioned to the connection. Example: 101 Default:
--- None.
+-- | The dedicated VLAN provisioned to the connection.
+--
+-- Example: 101
+--
+-- Default: None
+--
 acoiVlan :: Lens' AllocateConnectionOnInterconnect Int
 acoiVlan = lens _acoiVlan (\s a -> s { _acoiVlan = a })
 
@@ -168,8 +191,12 @@ allocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnectRespo
     , _acoirPartnerName     = Nothing
     }
 
--- | Bandwidth of the connection. Example: 1Gbps (for regular connections), or
--- 500Mbps (for hosted connections) Default: None.
+-- | Bandwidth of the connection.
+--
+-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
+--
+-- Default: None
+--
 acoirBandwidth :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 acoirBandwidth = lens _acoirBandwidth (\s a -> s { _acoirBandwidth = a })
 

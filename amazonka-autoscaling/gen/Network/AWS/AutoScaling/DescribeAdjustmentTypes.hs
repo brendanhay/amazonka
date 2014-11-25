@@ -72,6 +72,7 @@ describeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     }
 
 -- | The policy adjustment types.
+--
 datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrAdjustmentTypes =
     lens _datrAdjustmentTypes (\s a -> s { _datrAdjustmentTypes = a })

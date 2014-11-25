@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Starts logging information, such as queries and connection attempts, for
--- the specified Amazon Redshift cluster.
+-- | Starts logging information, such as queries and connection attempts, for the
+-- specified Amazon Redshift cluster.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableLogging.html>
 module Network.AWS.Redshift.EnableLogging
@@ -79,21 +79,29 @@ enableLogging p1 p2 = EnableLogging
     }
 
 -- | The name of an existing S3 bucket where the log files are to be stored.
--- Constraints: Must be in the same region as the cluster The cluster must
--- have read bucket and put object permissions.
+--
+-- Constraints:
+--
+-- Must be in the same region as the cluster The cluster must have read bucket
+-- and put object permissions
 elBucketName :: Lens' EnableLogging Text
 elBucketName = lens _elBucketName (\s a -> s { _elBucketName = a })
 
--- | The identifier of the cluster on which logging is to be started. Example:
--- 'examplecluster'.
+-- | The identifier of the cluster on which logging is to be started.
+--
+-- Example: 'examplecluster'
+--
 elClusterIdentifier :: Lens' EnableLogging Text
 elClusterIdentifier =
     lens _elClusterIdentifier (\s a -> s { _elClusterIdentifier = a })
 
--- | The prefix applied to the log file names. Constraints: Cannot exceed 512
--- characters Cannot contain spaces( ), double quotes ("), single quotes
--- ('), a backslash (\), or control characters. The hexadecimal codes for
--- invalid characters are: x00 to x20 x22 x27 x5c x7f or larger.
+-- | The prefix applied to the log file names.
+--
+-- Constraints:
+--
+-- Cannot exceed 512 characters Cannot contain spaces( ), double quotes ("),
+-- single quotes ('), a backslash (\), or control characters. The hexadecimal
+-- codes for invalid characters are:  x00 to x20 x22 x27 x5c x7f or larger
 elS3KeyPrefix :: Lens' EnableLogging (Maybe Text)
 elS3KeyPrefix = lens _elS3KeyPrefix (\s a -> s { _elS3KeyPrefix = a })
 
@@ -133,21 +141,25 @@ enableLoggingResponse = EnableLoggingResponse
     }
 
 -- | The name of the S3 bucket where the log files are stored.
+--
 elrBucketName :: Lens' EnableLoggingResponse (Maybe Text)
 elrBucketName = lens _elrBucketName (\s a -> s { _elrBucketName = a })
 
 -- | The message indicating that logs failed to be delivered.
+--
 elrLastFailureMessage :: Lens' EnableLoggingResponse (Maybe Text)
 elrLastFailureMessage =
     lens _elrLastFailureMessage (\s a -> s { _elrLastFailureMessage = a })
 
 -- | The last time when logs failed to be delivered.
+--
 elrLastFailureTime :: Lens' EnableLoggingResponse (Maybe UTCTime)
 elrLastFailureTime =
     lens _elrLastFailureTime (\s a -> s { _elrLastFailureTime = a })
         . mapping _Time
 
 -- | The last time when logs were delivered.
+--
 elrLastSuccessfulDeliveryTime :: Lens' EnableLoggingResponse (Maybe UTCTime)
 elrLastSuccessfulDeliveryTime =
     lens _elrLastSuccessfulDeliveryTime
@@ -155,11 +167,13 @@ elrLastSuccessfulDeliveryTime =
             . mapping _Time
 
 -- | 'true' if logging is on, 'false' if logging is off.
+--
 elrLoggingEnabled :: Lens' EnableLoggingResponse (Maybe Bool)
 elrLoggingEnabled =
     lens _elrLoggingEnabled (\s a -> s { _elrLoggingEnabled = a })
 
 -- | The prefix applied to the log file names.
+--
 elrS3KeyPrefix :: Lens' EnableLoggingResponse (Maybe Text)
 elrS3KeyPrefix = lens _elrS3KeyPrefix (\s a -> s { _elrS3KeyPrefix = a })
 

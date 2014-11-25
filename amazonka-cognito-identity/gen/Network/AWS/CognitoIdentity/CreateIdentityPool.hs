@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new identity pool. The identity pool is a store of user identity
--- information that is specific to your AWS account. The limit on identity
--- pools is 60 per account.
+-- information that is specific to your AWS account. The limit on identity pools
+-- is 60 per account.
 --
 -- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_CreateIdentityPool.html>
 module Network.AWS.CognitoIdentity.CreateIdentityPool
@@ -90,23 +90,27 @@ createIdentityPool p1 p2 = CreateIdentityPool
     }
 
 -- | TRUE if the identity pool supports unauthenticated logins.
+--
 cipAllowUnauthenticatedIdentities :: Lens' CreateIdentityPool Bool
 cipAllowUnauthenticatedIdentities =
     lens _cipAllowUnauthenticatedIdentities
         (\s a -> s { _cipAllowUnauthenticatedIdentities = a })
 
--- | The "domain" by which Cognito will refer to your users. This name acts as
--- a placeholder that allows your backend and the Cognito service to
--- communicate about the developer provider. For the
--- 'DeveloperProviderName', you can use letters as well as period ('.'),
--- underscore ('_'), and dash ('-'). Once you have set a developer provider
--- name, you cannot change it. Please take care in setting this parameter.
+-- | The "domain" by which Cognito will refer to your users. This name acts as a
+-- placeholder that allows your backend and the Cognito service to communicate
+-- about the developer provider. For the 'DeveloperProviderName', you can use
+-- letters as well as period ('.'), underscore ('_'), and dash ('-').
+--
+-- Once you have set a developer provider name, you cannot change it. Please
+-- take care in setting this parameter.
+--
 cipDeveloperProviderName :: Lens' CreateIdentityPool (Maybe Text)
 cipDeveloperProviderName =
     lens _cipDeveloperProviderName
         (\s a -> s { _cipDeveloperProviderName = a })
 
 -- | A string that you provide.
+--
 cipIdentityPoolName :: Lens' CreateIdentityPool Text
 cipIdentityPoolName =
     lens _cipIdentityPoolName (\s a -> s { _cipIdentityPoolName = a })
@@ -118,6 +122,7 @@ cipOpenIdConnectProviderARNs =
             . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
+--
 cipSupportedLoginProviders :: Lens' CreateIdentityPool (HashMap Text Text)
 cipSupportedLoginProviders =
     lens _cipSupportedLoginProviders
@@ -169,6 +174,7 @@ ciprAllowUnauthenticatedIdentities =
         (\s a -> s { _ciprAllowUnauthenticatedIdentities = a })
 
 -- | The "domain" by which Cognito will refer to your users.
+--
 ciprDeveloperProviderName :: Lens' CreateIdentityPoolResponse (Maybe Text)
 ciprDeveloperProviderName =
     lens _ciprDeveloperProviderName
@@ -180,6 +186,7 @@ ciprIdentityPoolId =
     lens _ciprIdentityPoolId (\s a -> s { _ciprIdentityPoolId = a })
 
 -- | A string that you provide.
+--
 ciprIdentityPoolName :: Lens' CreateIdentityPoolResponse Text
 ciprIdentityPoolName =
     lens _ciprIdentityPoolName (\s a -> s { _ciprIdentityPoolName = a })
@@ -191,6 +198,7 @@ ciprOpenIdConnectProviderARNs =
             . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
+--
 ciprSupportedLoginProviders :: Lens' CreateIdentityPoolResponse (HashMap Text Text)
 ciprSupportedLoginProviders =
     lens _ciprSupportedLoginProviders

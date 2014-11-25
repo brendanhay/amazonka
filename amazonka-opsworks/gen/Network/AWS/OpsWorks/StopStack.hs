@@ -20,12 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Stops a specified stack. Required Permissions: To use this action, an IAM
--- user must have a Manage permissions level for the stack, or an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Stops a specified stack.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StopStack.html>
 module Network.AWS.OpsWorks.StopStack
@@ -65,6 +64,7 @@ stopStack p1 = StopStack
     }
 
 -- | The stack ID.
+--
 ss1StackId :: Lens' StopStack Text
 ss1StackId = lens _ss1StackId (\s a -> s { _ss1StackId = a })
 

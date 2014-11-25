@@ -22,12 +22,15 @@
 
 -- | This operation initiates a snapshot of a gateway from a volume recovery
 -- point. This operation is supported only for the gateway-cached volume
--- architecture (see ). A volume recovery point is a point in time at which
--- all data of the volume is consistent and from which you can create a
--- snapshot. To get a list of volume recovery point for gateway-cached
--- volumes, use 'ListVolumeRecoveryPoints'. In the
--- 'CreateSnapshotFromVolumeRecoveryPoint' request, you identify the volume by
--- providing its Amazon Resource Name (ARN). You must also provide a
+-- architecture (see ).
+--
+-- A volume recovery point is a point in time at which all data of the volume
+-- is consistent and from which you can create a snapshot. To get a list of
+-- volume recovery point for gateway-cached volumes, use 'ListVolumeRecoveryPoints'
+-- .
+--
+-- In the 'CreateSnapshotFromVolumeRecoveryPoint' request, you identify the
+-- volume by providing its Amazon Resource Name (ARN). You must also provide a
 -- description for the snapshot. When AWS Storage Gateway takes a snapshot of
 -- the specified volume, the snapshot and its description appear in the AWS
 -- Storage Gateway console. In response, AWS Storage Gateway returns you a

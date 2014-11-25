@@ -21,9 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Prepares to subscribe an endpoint by sending the endpoint a confirmation
--- message. To actually create a subscription, the endpoint owner must call
--- the 'ConfirmSubscription' action with the token from the confirmation
--- message. Confirmation tokens are valid for three days.
+-- message. To actually create a subscription, the endpoint owner must call the 'ConfirmSubscription' action with the token from the confirmation message. Confirmation tokens are
+-- valid for three days.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html>
 module Network.AWS.SNS.Subscribe
@@ -76,28 +75,30 @@ subscribe p1 p2 = Subscribe
     }
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by
--- protocol: For the 'http' protocol, the endpoint is an URL beginning with
--- "http://" For the 'https' protocol, the endpoint is a URL beginning with
--- "https://" For the 'email' protocol, the endpoint is an email address For
--- the 'email-json' protocol, the endpoint is an email address For the 'sms'
--- protocol, the endpoint is a phone number of an SMS-enabled device For the
--- 'sqs' protocol, the endpoint is the ARN of an Amazon SQS queue For the
--- 'application' protocol, the endpoint is the EndpointArn of a mobile app
--- and device.
+-- protocol:
+--
+-- For the 'http' protocol, the endpoint is an URL beginning with "http://" For
+-- the 'https' protocol, the endpoint is a URL beginning with "https://" For the 'email' protocol, the endpoint is an email address For the 'email-json' protocol, the
+-- endpoint is an email address For the 'sms' protocol, the endpoint is a phone
+-- number of an SMS-enabled device For the 'sqs' protocol, the endpoint is the ARN
+-- of an Amazon SQS queue For the 'application' protocol, the endpoint is the
+-- EndpointArn of a mobile app and device.
 sEndpoint :: Lens' Subscribe (Maybe Text)
 sEndpoint = lens _sEndpoint (\s a -> s { _sEndpoint = a })
 
--- | The protocol you want to use. Supported protocols include: 'http' --
--- delivery of JSON-encoded message via HTTP POST 'https' -- delivery of
--- JSON-encoded message via HTTPS POST 'email' -- delivery of message via
--- SMTP 'email-json' -- delivery of JSON-encoded message via SMTP 'sms' --
--- delivery of message via SMS 'sqs' -- delivery of JSON-encoded message to
--- an Amazon SQS queue 'application' -- delivery of JSON-encoded message to
--- an EndpointArn for a mobile app and device.
+-- | The protocol you want to use. Supported protocols include:
+--
+-- 'http' -- delivery of JSON-encoded message via HTTP POST  'https' -- delivery
+-- of JSON-encoded message via HTTPS POST  'email' -- delivery of message via SMTP
+-- 'email-json' -- delivery of JSON-encoded message via SMTP  'sms' -- delivery of
+-- message via SMS  'sqs' -- delivery of JSON-encoded message to an Amazon SQS
+-- queue  'application' -- delivery of JSON-encoded message to an EndpointArn for
+-- a mobile app and device.
 sProtocol :: Lens' Subscribe Text
 sProtocol = lens _sProtocol (\s a -> s { _sProtocol = a })
 
 -- | The ARN of the topic you want to subscribe to.
+--
 sTopicArn :: Lens' Subscribe Text
 sTopicArn = lens _sTopicArn (\s a -> s { _sTopicArn = a })
 
@@ -116,8 +117,9 @@ subscribeResponse = SubscribeResponse
     { _srSubscriptionArn = Nothing
     }
 
--- | The ARN of the subscription, if the service was able to create a
--- subscription immediately (without requiring endpoint owner confirmation).
+-- | The ARN of the subscription, if the service was able to create a subscription
+-- immediately (without requiring endpoint owner confirmation).
+--
 srSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
 srSubscriptionArn =
     lens _srSubscriptionArn (\s a -> s { _srSubscriptionArn = a })

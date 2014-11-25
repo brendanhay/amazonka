@@ -23,8 +23,9 @@
 -- | The /DeleteCacheCluster/ operation deletes a previously provisioned cache
 -- cluster. /DeleteCacheCluster/ deletes all associated cache nodes, node
 -- endpoints and the cache cluster itself. When you receive a successful
--- response from this operation, Amazon ElastiCache immediately begins
--- deleting the cache cluster; you cannot cancel or revert this operation.
+-- response from this operation, Amazon ElastiCache immediately begins deleting
+-- the cache cluster; you cannot cancel or revert this operation.
+--
 -- This API cannot be used to delete a cache cluster that is the last read
 -- replica of a replication group that has automatic failover mode enabled.
 --
@@ -72,15 +73,17 @@ deleteCacheCluster p1 = DeleteCacheCluster
     , _dccFinalSnapshotIdentifier = Nothing
     }
 
--- | The cache cluster identifier for the cluster to be deleted. This
--- parameter is not case sensitive.
+-- | The cache cluster identifier for the cluster to be deleted. This parameter is
+-- not case sensitive.
+--
 dccCacheClusterId :: Lens' DeleteCacheCluster Text
 dccCacheClusterId =
     lens _dccCacheClusterId (\s a -> s { _dccCacheClusterId = a })
 
--- | The user-supplied name of a final cache cluster snapshot. This is the
--- unique name that identifies the snapshot. ElastiCache creates the
--- snapshot, and then deletes the cache cluster immediately afterward.
+-- | The user-supplied name of a final cache cluster snapshot. This is the unique
+-- name that identifies the snapshot. ElastiCache creates the snapshot, and then
+-- deletes the cache cluster immediately afterward.
+--
 dccFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
 dccFinalSnapshotIdentifier =
     lens _dccFinalSnapshotIdentifier

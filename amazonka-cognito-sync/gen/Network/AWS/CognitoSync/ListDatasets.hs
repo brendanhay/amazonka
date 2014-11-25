@@ -23,9 +23,7 @@
 -- | Lists datasets for an identity. The credentials used to make this API call
 -- need to have access to the identity data. With Amazon Cognito Sync, each
 -- identity has access only to its own data. You should use Amazon Cognito
--- Identity service to retrieve the credentials necessary to make this API
--- call.
---
+-- Identity service to retrieve the credentials necessary to make this API call.
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListDatasets.html>
 module Network.AWS.CognitoSync.ListDatasets
     (
@@ -84,14 +82,14 @@ listDatasets p1 p2 = ListDatasets
     }
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 ldIdentityId :: Lens' ListDatasets Text
 ldIdentityId = lens _ldIdentityId (\s a -> s { _ldIdentityId = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 ldIdentityPoolId :: Lens' ListDatasets Text
 ldIdentityPoolId = lens _ldIdentityPoolId (\s a -> s { _ldIdentityPoolId = a })
 

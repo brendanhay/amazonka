@@ -20,7 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Verifies a domain. This action is throttled at one request per second.
+-- | Verifies a domain.
+--
+-- This action is throttled at one request per second.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainIdentity.html>
 module Network.AWS.SES.VerifyDomainIdentity
@@ -62,6 +64,7 @@ verifyDomainIdentity p1 = VerifyDomainIdentity
     }
 
 -- | The domain to be verified.
+--
 vdiDomain :: Lens' VerifyDomainIdentity Text
 vdiDomain = lens _vdiDomain (\s a -> s { _vdiDomain = a })
 
@@ -81,8 +84,9 @@ verifyDomainIdentityResponse p1 = VerifyDomainIdentityResponse
     { _vdirVerificationToken = p1
     }
 
--- | A TXT record that must be placed in the DNS settings for the domain, in
--- order to complete domain verification.
+-- | A TXT record that must be placed in the DNS settings for the domain, in order
+-- to complete domain verification.
+--
 vdirVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirVerificationToken =
     lens _vdirVerificationToken (\s a -> s { _vdirVerificationToken = a })

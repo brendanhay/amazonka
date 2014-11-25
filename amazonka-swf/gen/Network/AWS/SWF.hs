@@ -15,8 +15,8 @@
 -- involves managing intertask dependencies, scheduling, and concurrency in
 -- accordance with the logical flow of the application. Amazon SWF gives you
 -- full control over implementing tasks and coordinating them without worrying
--- about underlying complexities such as tracking their progress and
--- maintaining their state.
+-- about underlying complexities such as tracking their progress and maintaining
+-- their state.
 module Network.AWS.SWF
     ( module Network.AWS.SWF.CountClosedWorkflowExecutions
     , module Network.AWS.SWF.CountOpenWorkflowExecutions

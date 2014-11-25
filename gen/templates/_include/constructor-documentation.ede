@@ -1,5 +1,5 @@
 {% if type.documentation %}
-{{ type.documentation | above(74, 0) }}
+{{ type.documentation }}
 {% else %}
 -- | '{{ type.name }}' constructor.
 {% endif %}

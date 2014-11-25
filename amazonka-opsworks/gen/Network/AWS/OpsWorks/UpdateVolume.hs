@@ -20,14 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Updates an Amazon EBS volume's name or mount point. For more information,
--- see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html
--- Resource Management>. Required Permissions: To use this action, an IAM user
--- must have a Manage permissions level for the stack, or an attached policy
--- that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Updates an Amazon EBS volume's name or mount point. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateVolume.html>
 module Network.AWS.OpsWorks.UpdateVolume
@@ -77,14 +74,17 @@ updateVolume p1 = UpdateVolume
     }
 
 -- | The new mount point.
+--
 uv1MountPoint :: Lens' UpdateVolume (Maybe Text)
 uv1MountPoint = lens _uv1MountPoint (\s a -> s { _uv1MountPoint = a })
 
 -- | The new name.
+--
 uv1Name :: Lens' UpdateVolume (Maybe Text)
 uv1Name = lens _uv1Name (\s a -> s { _uv1Name = a })
 
 -- | The volume ID.
+--
 uv1VolumeId :: Lens' UpdateVolume Text
 uv1VolumeId = lens _uv1VolumeId (\s a -> s { _uv1VolumeId = a })
 

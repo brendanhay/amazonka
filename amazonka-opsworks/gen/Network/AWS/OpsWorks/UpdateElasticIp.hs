@@ -20,14 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Updates a registered Elastic IP address's name. For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html
--- Resource Management>. Required Permissions: To use this action, an IAM user
--- must have a Manage permissions level for the stack, or an attached policy
--- that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Updates a registered Elastic IP address's name. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateElasticIp.html>
 module Network.AWS.OpsWorks.UpdateElasticIp
@@ -72,10 +69,12 @@ updateElasticIp p1 = UpdateElasticIp
     }
 
 -- | The address.
+--
 ueiElasticIp :: Lens' UpdateElasticIp Text
 ueiElasticIp = lens _ueiElasticIp (\s a -> s { _ueiElasticIp = a })
 
 -- | The new name.
+--
 ueiName :: Lens' UpdateElasticIp (Maybe Text)
 ueiName = lens _ueiName (\s a -> s { _ueiName = a })
 

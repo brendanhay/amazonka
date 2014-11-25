@@ -22,7 +22,6 @@
 
 -- | Revokes a grant. You can revoke a grant to actively deny operations that
 -- depend on it.
---
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html>
 module Network.AWS.KMS.RevokeGrant
     (
@@ -67,10 +66,12 @@ revokeGrant p1 p2 = RevokeGrant
     }
 
 -- | Identifier of the grant to be revoked.
+--
 rgGrantId :: Lens' RevokeGrant Text
 rgGrantId = lens _rgGrantId (\s a -> s { _rgGrantId = a })
 
 -- | Unique identifier of the key associated with the grant.
+--
 rgKeyId :: Lens' RevokeGrant Text
 rgKeyId = lens _rgKeyId (\s a -> s { _rgKeyId = a })
 

@@ -20,10 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes one or more of your key pairs. For more information about key
--- pairs, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key
--- Pairs> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Describes one or more of your key pairs.
+--
+-- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon ElasticCompute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeKeyPairs.html>
 module Network.AWS.EC2.DescribeKeyPairs
@@ -76,12 +75,20 @@ describeKeyPairs = DescribeKeyPairs
 dkp1DryRun :: Lens' DescribeKeyPairs (Maybe Bool)
 dkp1DryRun = lens _dkp1DryRun (\s a -> s { _dkp1DryRun = a })
 
--- | One or more filters. 'fingerprint' - The fingerprint of the key pair.
+-- | One or more filters.
+--
+-- 'fingerprint' - The fingerprint of the key pair.
+--
 -- 'key-name' - The name of the key pair.
+--
+--
 dkp1Filters :: Lens' DescribeKeyPairs [Filter]
 dkp1Filters = lens _dkp1Filters (\s a -> s { _dkp1Filters = a }) . _List
 
--- | One or more key pair names. Default: Describes all your key pairs.
+-- | One or more key pair names.
+--
+-- Default: Describes all your key pairs.
+--
 dkp1KeyNames :: Lens' DescribeKeyPairs [Text]
 dkp1KeyNames = lens _dkp1KeyNames (\s a -> s { _dkp1KeyNames = a }) . _List
 
@@ -107,6 +114,7 @@ describeKeyPairsResponse = DescribeKeyPairsResponse
     }
 
 -- | Information about one or more key pairs.
+--
 dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
 dkprKeyPairs = lens _dkprKeyPairs (\s a -> s { _dkprKeyPairs = a }) . _List
 

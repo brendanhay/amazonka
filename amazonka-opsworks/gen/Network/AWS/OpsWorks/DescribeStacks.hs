@@ -20,12 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Requests a description of one or more stacks. Required Permissions: To use
--- this action, an IAM user must have a Show, Deploy, or Manage permissions
--- level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Requests a description of one or more stacks.
+--
+-- Required Permissions: To use this action, an IAM user must have a Show,
+-- Deploy, or Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStacks.html>
 module Network.AWS.OpsWorks.DescribeStacks
@@ -71,9 +70,9 @@ describeStacks = DescribeStacks
     { _dsStackIds = mempty
     }
 
--- | An array of stack IDs that specify the stacks to be described. If you
--- omit this parameter, 'DescribeStacks' returns a description of every
--- stack.
+-- | An array of stack IDs that specify the stacks to be described. If you omit
+-- this parameter, 'DescribeStacks' returns a description of every stack.
+--
 dsStackIds :: Lens' DescribeStacks [Text]
 dsStackIds = lens _dsStackIds (\s a -> s { _dsStackIds = a }) . _List
 
@@ -99,6 +98,7 @@ describeStacksResponse = DescribeStacksResponse
     }
 
 -- | An array of 'Stack' objects that describe the stacks.
+--
 dsrStacks :: Lens' DescribeStacksResponse [Stack]
 dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a }) . _List
 

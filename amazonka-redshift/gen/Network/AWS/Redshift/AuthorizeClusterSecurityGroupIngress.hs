@@ -21,21 +21,18 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Adds an inbound (ingress) rule to an Amazon Redshift security group.
--- Depending on whether the application accessing your cluster is running on
--- the Internet or an EC2 instance, you can authorize inbound access to either
--- a Classless Interdomain Routing (CIDR) IP address range or an EC2 security
--- group. You can add as many as 20 ingress rules to an Amazon Redshift
--- security group. The EC2 security group must be defined in the AWS region
--- where the cluster resides. For an overview of CIDR blocks, see the
--- Wikipedia article on
--- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless
--- Inter-Domain Routing>. You must also associate the security group with a
--- cluster so that clients running on these IP addresses or the EC2 instance
--- are authorized to connect to the cluster. For information about managing
--- security groups, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html
--- Working with Security Groups> in the /Amazon Redshift Cluster Management
--- Guide/.
+-- Depending on whether the application accessing your cluster is running on the
+-- Internet or an EC2 instance, you can authorize inbound access to either a
+-- Classless Interdomain Routing (CIDR) IP address range or an EC2 security
+-- group. You can add as many as 20 ingress rules to an Amazon Redshift security
+-- group.
+--
+-- The EC2 security group must be defined in the AWS region where the cluster
+-- resides.  For an overview of CIDR blocks, see the Wikipedia article on <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing>.
+--
+-- You must also associate the security group with a cluster so that clients
+-- running on these IP addresses or the EC2 instance are authorized to connect
+-- to the cluster. For information about managing security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Workingwith Security Groups> in the /Amazon Redshift Cluster Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeClusterSecurityGroupIngress.html>
 module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
@@ -92,24 +89,28 @@ authorizeClusterSecurityGroupIngress p1 = AuthorizeClusterSecurityGroupIngress
     }
 
 -- | The IP range to be added the Amazon Redshift security group.
+--
 acsgiCIDRIP :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
 acsgiCIDRIP = lens _acsgiCIDRIP (\s a -> s { _acsgiCIDRIP = a })
 
 -- | The name of the security group to which the ingress rule is added.
+--
 acsgiClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress Text
 acsgiClusterSecurityGroupName =
     lens _acsgiClusterSecurityGroupName
         (\s a -> s { _acsgiClusterSecurityGroupName = a })
 
 -- | The EC2 security group to be added the Amazon Redshift security group.
+--
 acsgiEC2SecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
 acsgiEC2SecurityGroupName =
     lens _acsgiEC2SecurityGroupName
         (\s a -> s { _acsgiEC2SecurityGroupName = a })
 
--- | The AWS account number of the owner of the security group specified by
--- the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an
--- acceptable value. Example: '111122223333'.
+-- | The AWS account number of the owner of the security group specified by the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an acceptable value.
+--
+-- Example: '111122223333'
+--
 acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
 acsgiEC2SecurityGroupOwnerId =
     lens _acsgiEC2SecurityGroupOwnerId

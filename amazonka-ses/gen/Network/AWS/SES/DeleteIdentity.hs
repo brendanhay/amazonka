@@ -21,7 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the specified identity (email address or domain) from the list of
--- verified identities. This action is throttled at one request per second.
+-- verified identities.
+--
+-- This action is throttled at one request per second.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentity.html>
 module Network.AWS.SES.DeleteIdentity
@@ -60,8 +62,8 @@ deleteIdentity p1 = DeleteIdentity
     { _diIdentity = p1
     }
 
--- | The identity to be removed from the list of identities for the AWS
--- Account.
+-- | The identity to be removed from the list of identities for the AWS Account.
+--
 diIdentity :: Lens' DeleteIdentity Text
 diIdentity = lens _diIdentity (\s a -> s { _diIdentity = a })
 

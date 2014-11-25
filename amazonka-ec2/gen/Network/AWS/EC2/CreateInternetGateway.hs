@@ -21,10 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates an Internet gateway for use with a VPC. After creating the Internet
--- gateway, you attach it to a VPC using 'AttachInternetGateway'. For more
--- information about your VPC and Internet gateway, see the
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual
--- Private Cloud User Guide>.
+-- gateway, you attach it to a VPC using 'AttachInternetGateway'.
+--
+-- For more information about your VPC and Internet gateway, see the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ AmazonVirtual Private Cloud User Guide>.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInternetGateway.html>
 module Network.AWS.EC2.CreateInternetGateway
@@ -83,6 +82,7 @@ createInternetGatewayResponse = CreateInternetGatewayResponse
     }
 
 -- | Information about the Internet gateway.
+--
 cigrInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
 cigrInternetGateway =
     lens _cigrInternetGateway (\s a -> s { _cigrInternetGateway = a })

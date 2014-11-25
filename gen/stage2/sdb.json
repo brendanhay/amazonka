@@ -22,7 +22,7 @@
         ],
         "name": "Amazon SimpleDB",
         "version": "2009-04-15",
-        "documentation": "Amazon SimpleDB is a highly available and flexible non-relational data store that offloads the work of database administration. Developers simply store and query data items via web services requests and Amazon SimpleDB does the rest. Unbound by the strict requirements of a relational database, Amazon SimpleDB is optimized to provide high availability and flexibility, with little or no administrative burden. Behind the scenes, Amazon SimpleDB creates and manages multiple geographically distributed replicas of your data automatically to enable high availability and data durability. The service charges you only for the resources actually consumed in storing your data and serving your requests. You can change your data model on the fly, and data is automatically indexed for you. With Amazon SimpleDB, you can focus on application development without worrying about infrastructure provisioning, high availability, software maintenance, schema and index management, or performance tuning.",
+        "documentation": "-- | Amazon SimpleDB is a highly available and flexible non-relational data store\n-- that offloads the work of database administration. Developers simply store\n-- and query data items via web services requests and Amazon SimpleDB does the\n-- rest. Unbound by the strict requirements of a relational database, Amazon\n-- SimpleDB is optimized to provide high availability and flexibility, with\n-- little or no administrative burden. Behind the scenes, Amazon SimpleDB\n-- creates and manages multiple geographically distributed replicas of your data\n-- automatically to enable high availability and data durability. The service\n-- charges you only for the resources actually consumed in storing your data and\n-- serving your requests. You can change your data model on the fly, and data is\n-- automatically indexed for you. With Amazon SimpleDB, you can focus on\n-- application development without worrying about infrastructure provisioning,\n-- high availability, software maintenance, schema and index management, or\n-- performance tuning.",
         "xmlNamespace": "http://sdb.amazonaws.com/doc/2009-04-15/",
         "jsonVersion": null,
         "endpoint": "Regional",
@@ -50,7 +50,7 @@
         "protocol": "query",
         "name": "Amazon SimpleDB",
         "version": "0.0.2",
-        "description": "Amazon SimpleDB is a highly available and flexible non-relational data store that offloads the work of database administration. Developers simply store and query data items via web services requests and Amazon SimpleDB does the rest. Unbound by the strict requirements of a relational database, Amazon SimpleDB is optimized to provide high availability and flexibility, with little or no administrative burden. Behind the scenes, Amazon SimpleDB creates and manages multiple geographically distributed replicas of your data automatically to enable high availability and data durability. The service charges you only for the resources actually consumed in storing your data and serving your requests. You can change your data model on the fly, and data is automatically indexed for you. With Amazon SimpleDB, you can focus on application development without worrying about infrastructure provisioning, high availability, software maintenance, schema and index management, or performance tuning."
+        "description": "    Amazon SimpleDB is a highly available and flexible non-relational data store\n    that offloads the work of database administration. Developers simply store\n    and query data items via web services requests and Amazon SimpleDB does the\n    rest. Unbound by the strict requirements of a relational database, Amazon\n    SimpleDB is optimized to provide high availability and flexibility, with\n    little or no administrative burden. Behind the scenes, Amazon SimpleDB\n    creates and manages multiple geographically distributed replicas of your data\n    automatically to enable high availability and data durability. The service\n    charges you only for the resources actually consumed in storing your data and\n    serving your requests. You can change your data model on the fly, and data is\n    automatically indexed for you. With Amazon SimpleDB, you can focus on\n    application development without worrying about infrastructure provisioning,\n    high availability, software maintenance, schema and index management, or\n    performance tuning."
     },
     "types": {
         "namespace": "Network.AWS.SDB.Types",
@@ -77,7 +77,7 @@
                         "name": "_aName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "The name of the attribute.",
+                        "documentation": "-- | The name of the attribute.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -92,7 +92,7 @@
                         "name": "_aValue",
                         "shape": "String",
                         "locationName": "Value",
-                        "documentation": "The value of the attribute.",
+                        "documentation": "-- | The value of the attribute.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -113,7 +113,7 @@
                         "name": "_aAlternateNameEncoding",
                         "shape": "String",
                         "locationName": "AlternateNameEncoding",
-                        "documentation": "\u003cp\u003e\u003c/p\u003e",
+                        "documentation": "-- | \n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -128,7 +128,7 @@
                         "name": "_aAlternateValueEncoding",
                         "shape": "String",
                         "locationName": "AlternateValueEncoding",
-                        "documentation": "\u003cp\u003e\u003c/p\u003e",
+                        "documentation": "-- | \n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -145,7 +145,7 @@
                         "name": "_aAlternateNameEncoding",
                         "shape": "String",
                         "locationName": "AlternateNameEncoding",
-                        "documentation": "\u003cp\u003e\u003c/p\u003e",
+                        "documentation": "-- | \n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -160,7 +160,7 @@
                         "name": "_aAlternateValueEncoding",
                         "shape": "String",
                         "locationName": "AlternateValueEncoding",
-                        "documentation": "\u003cp\u003e\u003c/p\u003e",
+                        "documentation": "-- | \n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -175,7 +175,7 @@
                         "name": "_aName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "The name of the attribute.",
+                        "documentation": "-- | The name of the attribute.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -190,7 +190,7 @@
                         "name": "_aValue",
                         "shape": "String",
                         "locationName": "Value",
-                        "documentation": "The value of the attribute.",
+                        "documentation": "-- | The value of the attribute.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -297,7 +297,7 @@
                         "name": "_riName",
                         "shape": "String",
                         "locationName": "ItemName",
-                        "documentation": "The name of the replaceable item.",
+                        "documentation": "-- | The name of the replaceable item.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -318,7 +318,7 @@
                         "name": "_riAttributes",
                         "shape": "ReplaceableAttributeList",
                         "locationName": "Attributes",
-                        "documentation": "The list of attributes for a replaceable item.",
+                        "documentation": "-- | The list of attributes for a replaceable item.",
                         "typeExposed": "[ReplaceableAttribute]",
                         "type": "List \"Attribute\" ReplaceableAttribute"
                     }
@@ -335,7 +335,7 @@
                         "name": "_riAttributes",
                         "shape": "ReplaceableAttributeList",
                         "locationName": "Attributes",
-                        "documentation": "The list of attributes for a replaceable item.",
+                        "documentation": "-- | The list of attributes for a replaceable item.",
                         "typeExposed": "[ReplaceableAttribute]",
                         "type": "List \"Attribute\" ReplaceableAttribute"
                     },
@@ -350,7 +350,7 @@
                         "name": "_riName",
                         "shape": "String",
                         "locationName": "ItemName",
-                        "documentation": "The name of the replaceable item.",
+                        "documentation": "-- | The name of the replaceable item.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -383,7 +383,7 @@
                         "name": "_ucName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "\u003cp\u003eThe name of the attribute involved in the condition.\u003c/p\u003e",
+                        "documentation": "-- | The name of the attribute involved in the condition.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -398,7 +398,7 @@
                         "name": "_ucValue",
                         "shape": "String",
                         "locationName": "Value",
-                        "documentation": "\u003cp\u003eThe value of an attribute. This value can only be specified when the \u003ccode\u003eExists\u003c/code\u003e parameter is equal to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | The value of an attribute. This value can only be specified when the 'Exists'\n-- parameter is equal to 'true'.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -413,7 +413,7 @@
                         "name": "_ucExists",
                         "shape": "Boolean",
                         "locationName": "Exists",
-                        "documentation": "\u003cp\u003eA value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify \u003ccode\u003etrue\u003c/code\u003e if the attribute must exist for the update condition to be satisfied. Specify \u003ccode\u003efalse\u003c/code\u003e if the attribute should not exist in order for the update condition to be satisfied.\u003c/p\u003e",
+                        "documentation": "-- | A value specifying whether or not the specified attribute must exist with the\n-- specified value in order for the update condition to be satisfied. Specify 'true' if the attribute must exist for the update condition to be satisfied.\n-- Specify 'false' if the attribute should not exist in order for the update\n-- condition to be satisfied.\n--",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -430,7 +430,7 @@
                         "name": "_ucExists",
                         "shape": "Boolean",
                         "locationName": "Exists",
-                        "documentation": "\u003cp\u003eA value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify \u003ccode\u003etrue\u003c/code\u003e if the attribute must exist for the update condition to be satisfied. Specify \u003ccode\u003efalse\u003c/code\u003e if the attribute should not exist in order for the update condition to be satisfied.\u003c/p\u003e",
+                        "documentation": "-- | A value specifying whether or not the specified attribute must exist with the\n-- specified value in order for the update condition to be satisfied. Specify 'true' if the attribute must exist for the update condition to be satisfied.\n-- Specify 'false' if the attribute should not exist in order for the update\n-- condition to be satisfied.\n--",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -445,7 +445,7 @@
                         "name": "_ucName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "\u003cp\u003eThe name of the attribute involved in the condition.\u003c/p\u003e",
+                        "documentation": "-- | The name of the attribute involved in the condition.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -460,7 +460,7 @@
                         "name": "_ucValue",
                         "shape": "String",
                         "locationName": "Value",
-                        "documentation": "\u003cp\u003eThe value of an attribute. This value can only be specified when the \u003ccode\u003eExists\u003c/code\u003e parameter is equal to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | The value of an attribute. This value can only be specified when the 'Exists'\n-- parameter is equal to 'true'.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -488,7 +488,7 @@
                         "name": "_raName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "The name of the replaceable attribute.",
+                        "documentation": "-- | The name of the replaceable attribute.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -503,7 +503,7 @@
                         "name": "_raValue",
                         "shape": "String",
                         "locationName": "Value",
-                        "documentation": "The value of the replaceable attribute.",
+                        "documentation": "-- | The value of the replaceable attribute.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -524,7 +524,7 @@
                         "name": "_raReplace",
                         "shape": "Boolean",
                         "locationName": "Replace",
-                        "documentation": "A flag specifying whether or not to replace the attribute/value pair or to add a new attribute/value pair. The default setting is \u003ccode\u003efalse\u003c/code\u003e.",
+                        "documentation": "-- | A flag specifying whether or not to replace the attribute/value pair or to\n-- add a new attribute/value pair. The default setting is 'false'.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -541,7 +541,7 @@
                         "name": "_raName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "The name of the replaceable attribute.",
+                        "documentation": "-- | The name of the replaceable attribute.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -556,7 +556,7 @@
                         "name": "_raReplace",
                         "shape": "Boolean",
                         "locationName": "Replace",
-                        "documentation": "A flag specifying whether or not to replace the attribute/value pair or to add a new attribute/value pair. The default setting is \u003ccode\u003efalse\u003c/code\u003e.",
+                        "documentation": "-- | A flag specifying whether or not to replace the attribute/value pair or to\n-- add a new attribute/value pair. The default setting is 'false'.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -571,7 +571,7 @@
                         "name": "_raValue",
                         "shape": "String",
                         "locationName": "Value",
-                        "documentation": "The value of the replaceable attribute.",
+                        "documentation": "-- | The value of the replaceable attribute.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -598,7 +598,7 @@
                         "name": "_iName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "The name of the item.",
+                        "documentation": "-- | The name of the item.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -619,7 +619,7 @@
                         "name": "_iAlternateNameEncoding",
                         "shape": "String",
                         "locationName": "AlternateNameEncoding",
-                        "documentation": "\u003cp\u003e\u003c/p\u003e",
+                        "documentation": "-- | \n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -634,7 +634,7 @@
                         "name": "_iAttributes",
                         "shape": "AttributeList",
                         "locationName": "Attributes",
-                        "documentation": "A list of attributes.",
+                        "documentation": "-- | A list of attributes.",
                         "typeExposed": "[Attribute]",
                         "type": "List \"Attribute\" Attribute"
                     }
@@ -651,7 +651,7 @@
                         "name": "_iAlternateNameEncoding",
                         "shape": "String",
                         "locationName": "AlternateNameEncoding",
-                        "documentation": "\u003cp\u003e\u003c/p\u003e",
+                        "documentation": "-- | \n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -666,7 +666,7 @@
                         "name": "_iAttributes",
                         "shape": "AttributeList",
                         "locationName": "Attributes",
-                        "documentation": "A list of attributes.",
+                        "documentation": "-- | A list of attributes.",
                         "typeExposed": "[Attribute]",
                         "type": "List \"Attribute\" Attribute"
                     },
@@ -681,7 +681,7 @@
                         "name": "_iName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "The name of the item.",
+                        "documentation": "-- | The name of the item.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -730,7 +730,7 @@
             "pager": null,
             "name": "BatchDeleteAttributes",
             "method": "post",
-            "documentation": "\u003cp\u003e Performs multiple DeleteAttributes operations in a single call, which reduces round trips and latencies. This enables Amazon SimpleDB to optimize requests, which generally yields better throughput. \u003c/p\u003e \u003cp\u003e The following limitations are enforced for this operation: \u003cul\u003e \u003cli\u003e1 MB request size\u003c/li\u003e \u003cli\u003e25 item limit per BatchDeleteAttributes operation\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+            "documentation": "-- | Performs multiple DeleteAttributes operations in a single call, which\n-- reduces round trips and latencies. This enables Amazon SimpleDB to optimize\n-- requests, which generally yields better throughput.\n--\n-- The following limitations are enforced for this operation:  1 MB request\n-- size 25 item limit per BatchDeleteAttributes operation\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -763,7 +763,7 @@
                         "name": "_bdaDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain in which the attributes are being deleted.",
+                        "documentation": "-- | The name of the domain in which the attributes are being deleted.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -801,7 +801,7 @@
                         "name": "_bdaItems",
                         "shape": "DeletableItemList",
                         "locationName": "Items",
-                        "documentation": "A list of items on which to perform the operation.",
+                        "documentation": "-- | A list of items on which to perform the operation.",
                         "typeExposed": "[DeletableItem]",
                         "type": "List \"Item\" DeletableItem"
                     }
@@ -818,7 +818,7 @@
                         "name": "_bdaDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain in which the attributes are being deleted.",
+                        "documentation": "-- | The name of the domain in which the attributes are being deleted.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -833,7 +833,7 @@
                         "name": "_bdaItems",
                         "shape": "DeletableItemList",
                         "locationName": "Items",
-                        "documentation": "A list of items on which to perform the operation.",
+                        "documentation": "-- | A list of items on which to perform the operation.",
                         "typeExposed": "[DeletableItem]",
                         "type": "List \"Item\" DeletableItem"
                     }
@@ -876,7 +876,7 @@
             "pager": null,
             "name": "BatchPutAttributes",
             "method": "post",
-            "documentation": "\u003cp\u003e The \u003ccode\u003eBatchPutAttributes\u003c/code\u003e operation creates or replaces attributes within one or more items. By using this operation, the client can perform multiple \u003ca\u003ePutAttribute\u003c/a\u003e operation with a single call. This helps yield savings in round trips and latencies, enabling Amazon SimpleDB to optimize requests and generally produce better throughput. \u003c/p\u003e \u003cp\u003e The client may specify the item name with the \u003ccode\u003eItem.X.ItemName\u003c/code\u003e parameter. The client may specify new attributes using a combination of the \u003ccode\u003eItem.X.Attribute.Y.Name\u003c/code\u003e and \u003ccode\u003eItem.X.Attribute.Y.Value\u003c/code\u003e parameters. The client may specify the first attribute for the first item using the parameters \u003ccode\u003eItem.0.Attribute.0.Name\u003c/code\u003e and \u003ccode\u003eItem.0.Attribute.0.Value\u003c/code\u003e, and for the second attribute for the first item by the parameters \u003ccode\u003eItem.0.Attribute.1.Name\u003c/code\u003e and \u003ccode\u003eItem.0.Attribute.1.Value\u003c/code\u003e, and so on. \u003c/p\u003e \u003cp\u003e Attributes are uniquely identified within an item by their name/value combination. For example, a single item can have the attributes \u003ccode\u003e{ \"first_name\", \"first_value\" }\u003c/code\u003e and \u003ccode\u003e{ \"first_name\", \"second_value\" }\u003c/code\u003e. However, it cannot have two attribute instances where both the \u003ccode\u003eItem.X.Attribute.Y.Name\u003c/code\u003e and \u003ccode\u003eItem.X.Attribute.Y.Value\u003c/code\u003e are the same. \u003c/p\u003e \u003cp\u003e Optionally, the requester can supply the \u003ccode\u003eReplace\u003c/code\u003e parameter for each individual value. Setting this value to \u003ccode\u003etrue\u003c/code\u003e will cause the new attribute values to replace the existing attribute values. For example, if an item \u003ccode\u003eI\u003c/code\u003e has the attributes \u003ccode\u003e{ 'a', '1' }, { 'b', '2'}\u003c/code\u003e and \u003ccode\u003e{ 'b', '3' }\u003c/code\u003e and the requester does a BatchPutAttributes of \u003ccode\u003e{'I', 'b', '4' }\u003c/code\u003e with the Replace parameter set to true, the final attributes of the item will be \u003ccode\u003e{ 'a', '1' }\u003c/code\u003e and \u003ccode\u003e{ 'b', '4' }\u003c/code\u003e, replacing the previous values of the 'b' attribute with the new value. \u003c/p\u003e \u003cimportant\u003e This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method. This operation does not support conditions using \u003ccode\u003eExpected.X.Name\u003c/code\u003e, \u003ccode\u003eExpected.X.Value\u003c/code\u003e, or \u003ccode\u003eExpected.X.Exists\u003c/code\u003e. \u003c/important\u003e \u003cp\u003e You can execute multiple \u003ccode\u003eBatchPutAttributes\u003c/code\u003e operations and other operations in parallel. However, large numbers of concurrent \u003ccode\u003eBatchPutAttributes\u003c/code\u003e calls can result in Service Unavailable (503) responses. \u003c/p\u003e \u003cp\u003e The following limitations are enforced for this operation: \u003cul\u003e \u003cli\u003e256 attribute name-value pairs per item\u003c/li\u003e \u003cli\u003e1 MB request size\u003c/li\u003e \u003cli\u003e1 billion attributes per domain\u003c/li\u003e \u003cli\u003e10 GB of total user data storage per domain\u003c/li\u003e \u003cli\u003e25 item limit per \u003ccode\u003eBatchPutAttributes\u003c/code\u003e operation\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+            "documentation": "-- | The 'BatchPutAttributes' operation creates or replaces attributes within one\n-- or more items. By using this operation, the client can perform multiple 'PutAttribute' operation with a single call. This helps yield savings in round trips and\n-- latencies, enabling Amazon SimpleDB to optimize requests and generally\n-- produce better throughput.\n--\n-- The client may specify the item name with the 'Item.X.ItemName' parameter.\n-- The client may specify new attributes using a combination of the 'Item.X.Attribute.Y.Name' and 'Item.X.Attribute.Y.Value' parameters. The client may specify the first\n-- attribute for the first item using the parameters 'Item.0.Attribute.0.Name' and 'Item.0.Attribute.0.Value', and for the second attribute for the first item by\n-- the parameters 'Item.0.Attribute.1.Name' and 'Item.0.Attribute.1.Value', and so\n-- on.\n--\n-- Attributes are uniquely identified within an item by their name/value\n-- combination. For example, a single item can have the attributes '{\"first_name\", \"first_value\" }' and '{ \"first_name\", \"second_value\" }'. However,\n-- it cannot have two attribute instances where both the 'Item.X.Attribute.Y.Name'\n-- and 'Item.X.Attribute.Y.Value' are the same.\n--\n-- Optionally, the requester can supply the 'Replace' parameter for each\n-- individual value. Setting this value to 'true' will cause the new attribute\n-- values to replace the existing attribute values. For example, if an item 'I'\n-- has the attributes '{ 'a', '1' }, { 'b', '2'}' and '{ 'b', '3' }' and the\n-- requester does a BatchPutAttributes of '{'I', 'b', '4' }' with the Replace\n-- parameter set to true, the final attributes of the item will be '{ 'a', '1' }'\n-- and '{ 'b', '4' }', replacing the previous values of the 'b' attribute with the\n-- new value.\n--\n-- This operation is vulnerable to exceeding the maximum URL size when making\n-- a REST request using the HTTP GET method. This operation does not support\n-- conditions using 'Expected.X.Name', 'Expected.X.Value', or 'Expected.X.Exists'.\n-- You can execute multiple 'BatchPutAttributes' operations and other operations\n-- in parallel. However, large numbers of concurrent 'BatchPutAttributes' calls\n-- can result in Service Unavailable (503) responses.\n--\n-- The following limitations are enforced for this operation:  256 attribute\n-- name-value pairs per item 1 MB request size 1 billion attributes per domain 10 GB of total user data storage per domain\n-- 25 item limit per 'BatchPutAttributes' operation\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -909,7 +909,7 @@
                         "name": "_bpaDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain in which the attributes are being stored.",
+                        "documentation": "-- | The name of the domain in which the attributes are being stored.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -947,7 +947,7 @@
                         "name": "_bpaItems",
                         "shape": "ReplaceableItemList",
                         "locationName": "Items",
-                        "documentation": "A list of items on which to perform the operation.",
+                        "documentation": "-- | A list of items on which to perform the operation.",
                         "typeExposed": "[ReplaceableItem]",
                         "type": "List \"Item\" ReplaceableItem"
                     }
@@ -964,7 +964,7 @@
                         "name": "_bpaDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain in which the attributes are being stored.",
+                        "documentation": "-- | The name of the domain in which the attributes are being stored.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -979,7 +979,7 @@
                         "name": "_bpaItems",
                         "shape": "ReplaceableItemList",
                         "locationName": "Items",
-                        "documentation": "A list of items on which to perform the operation.",
+                        "documentation": "-- | A list of items on which to perform the operation.",
                         "typeExposed": "[ReplaceableItem]",
                         "type": "List \"Item\" ReplaceableItem"
                     }
@@ -1022,7 +1022,7 @@
             "pager": null,
             "name": "CreateDomain",
             "method": "post",
-            "documentation": "\u003cp\u003e The \u003ccode\u003eCreateDomain\u003c/code\u003e operation creates a new domain. The domain name should be unique among the domains associated with the Access Key ID provided in the request. The \u003ccode\u003eCreateDomain\u003c/code\u003e operation may take 10 or more seconds to complete. \u003c/p\u003e \u003cp\u003e The client can create up to 100 domains per account. \u003c/p\u003e \u003cp\u003e If the client requires additional domains, go to \u003ca href=\"http://aws.amazon.com/contact-us/simpledb-limit-request/\"\u003e http://aws.amazon.com/contact-us/simpledb-limit-request/\u003c/a\u003e. \u003c/p\u003e",
+            "documentation": "-- | The 'CreateDomain' operation creates a new domain. The domain name should be\n-- unique among the domains associated with the Access Key ID provided in the\n-- request. The 'CreateDomain' operation may take 10 or more seconds to complete.\n--\n-- The client can create up to 100 domains per account.\n--\n-- If the client requires additional domains, go to \u003chttp://aws.amazon.com/contact-us/simpledb-limit-request/ http://aws.amazon.com/contact-us/simpledb-limit-request/\u003e.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1049,7 +1049,7 @@
                     "name": "_cdDomainName",
                     "shape": "String",
                     "locationName": "DomainName",
-                    "documentation": "The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.",
+                    "documentation": "-- | The name of the domain to create. The name can range between 3 and 255\n-- characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-',\n-- and '.'.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -1074,7 +1074,7 @@
                         "name": "_cdDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.",
+                        "documentation": "-- | The name of the domain to create. The name can range between 3 and 255\n-- characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-',\n-- and '.'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1108,7 +1108,7 @@
                         "name": "_cdDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.",
+                        "documentation": "-- | The name of the domain to create. The name can range between 3 and 255\n-- characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-',\n-- and '.'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1151,7 +1151,7 @@
             "pager": null,
             "name": "DeleteAttributes",
             "method": "post",
-            "documentation": "\u003cp\u003e Deletes one or more attributes associated with an item. If all attributes of the item are deleted, the item is deleted. \u003c/p\u003e \u003cp\u003e \u003ccode\u003eDeleteAttributes\u003c/code\u003e is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response. \u003c/p\u003e \u003cp\u003e Because Amazon SimpleDB makes multiple copies of item data and uses an eventual consistency update model, performing a \u003ca\u003eGetAttributes\u003c/a\u003e or \u003ca\u003eSelect\u003c/a\u003e operation (read) immediately after a \u003ccode\u003eDeleteAttributes\u003c/code\u003e or \u003ca\u003ePutAttributes\u003c/a\u003e operation (write) might not return updated item data. \u003c/p\u003e",
+            "documentation": "-- | Deletes one or more attributes associated with an item. If all attributes of\n-- the item are deleted, the item is deleted.\n--\n-- 'DeleteAttributes' is an idempotent operation; running it multiple times on\n-- the same item or attribute does not result in an error response.\n--\n-- Because Amazon SimpleDB makes multiple copies of item data and uses an\n-- eventual consistency update model, performing a 'GetAttributes' or 'Select'\n-- operation (read) immediately after a 'DeleteAttributes' or 'PutAttributes'\n-- operation (write) might not return updated item data.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1184,7 +1184,7 @@
                         "name": "_daDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain in which to perform the operation.",
+                        "documentation": "-- | The name of the domain in which to perform the operation.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1199,7 +1199,7 @@
                         "name": "_daItemName",
                         "shape": "String",
                         "locationName": "ItemName",
-                        "documentation": "The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.",
+                        "documentation": "-- | The name of the item. Similar to rows on a spreadsheet, items represent\n-- individual objects that contain one or more value-attribute pairs.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1247,7 +1247,7 @@
                         "name": "_daAttributes",
                         "shape": "AttributeList",
                         "locationName": "Attributes",
-                        "documentation": "A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.",
+                        "documentation": "-- | A list of Attributes. Similar to columns on a spreadsheet, attributes\n-- represent categories of data that can be assigned to items.",
                         "typeExposed": "[Attribute]",
                         "type": "List \"Attribute\" Attribute"
                     },
@@ -1262,7 +1262,7 @@
                         "name": "_daExpected",
                         "shape": "UpdateCondition",
                         "locationName": "Expected",
-                        "documentation": "The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.",
+                        "documentation": "-- | The update condition which, if specified, determines whether the specified\n-- attributes will be deleted or not. The update condition must be satisfied in\n-- order for this request to be processed and the attributes to be deleted.",
                         "typeExposed": "Maybe UpdateCondition",
                         "type": "Maybe UpdateCondition"
                     }
@@ -1279,7 +1279,7 @@
                         "name": "_daAttributes",
                         "shape": "AttributeList",
                         "locationName": "Attributes",
-                        "documentation": "A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.",
+                        "documentation": "-- | A list of Attributes. Similar to columns on a spreadsheet, attributes\n-- represent categories of data that can be assigned to items.",
                         "typeExposed": "[Attribute]",
                         "type": "List \"Attribute\" Attribute"
                     },
@@ -1294,7 +1294,7 @@
                         "name": "_daDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain in which to perform the operation.",
+                        "documentation": "-- | The name of the domain in which to perform the operation.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1309,7 +1309,7 @@
                         "name": "_daExpected",
                         "shape": "UpdateCondition",
                         "locationName": "Expected",
-                        "documentation": "The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.",
+                        "documentation": "-- | The update condition which, if specified, determines whether the specified\n-- attributes will be deleted or not. The update condition must be satisfied in\n-- order for this request to be processed and the attributes to be deleted.",
                         "typeExposed": "Maybe UpdateCondition",
                         "type": "Maybe UpdateCondition"
                     },
@@ -1324,7 +1324,7 @@
                         "name": "_daItemName",
                         "shape": "String",
                         "locationName": "ItemName",
-                        "documentation": "The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.",
+                        "documentation": "-- | The name of the item. Similar to rows on a spreadsheet, items represent\n-- individual objects that contain one or more value-attribute pairs.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1367,7 +1367,7 @@
             "pager": null,
             "name": "DeleteDomain",
             "method": "post",
-            "documentation": "\u003cp\u003e The \u003ccode\u003eDeleteDomain\u003c/code\u003e operation deletes a domain. Any items (and their attributes) in the domain are deleted as well. The \u003ccode\u003eDeleteDomain\u003c/code\u003e operation might take 10 or more seconds to complete. \u003c/p\u003e",
+            "documentation": "-- | The 'DeleteDomain' operation deletes a domain. Any items (and their\n-- attributes) in the domain are deleted as well. The 'DeleteDomain' operation\n-- might take 10 or more seconds to complete.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1394,7 +1394,7 @@
                     "name": "_ddDomainName",
                     "shape": "String",
                     "locationName": "DomainName",
-                    "documentation": "The name of the domain to delete.",
+                    "documentation": "-- | The name of the domain to delete.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -1419,7 +1419,7 @@
                         "name": "_ddDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain to delete.",
+                        "documentation": "-- | The name of the domain to delete.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1453,7 +1453,7 @@
                         "name": "_ddDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain to delete.",
+                        "documentation": "-- | The name of the domain to delete.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1498,7 +1498,7 @@
                         "name": "_dmrItemCount",
                         "shape": "Integer",
                         "locationName": "ItemCount",
-                        "documentation": "The number of all items in the domain.",
+                        "documentation": "-- | The number of all items in the domain.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -1513,7 +1513,7 @@
                         "name": "_dmrItemNamesSizeBytes",
                         "shape": "Long",
                         "locationName": "ItemNamesSizeBytes",
-                        "documentation": "The total size of all item names in the domain, in bytes.",
+                        "documentation": "-- | The total size of all item names in the domain, in bytes.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -1528,7 +1528,7 @@
                         "name": "_dmrAttributeNameCount",
                         "shape": "Integer",
                         "locationName": "AttributeNameCount",
-                        "documentation": "The number of unique attribute names in the domain.",
+                        "documentation": "-- | The number of unique attribute names in the domain.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -1543,7 +1543,7 @@
                         "name": "_dmrAttributeNamesSizeBytes",
                         "shape": "Long",
                         "locationName": "AttributeNamesSizeBytes",
-                        "documentation": "The total size of all unique attribute names in the domain, in bytes.",
+                        "documentation": "-- | The total size of all unique attribute names in the domain, in bytes.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -1558,7 +1558,7 @@
                         "name": "_dmrAttributeValueCount",
                         "shape": "Integer",
                         "locationName": "AttributeValueCount",
-                        "documentation": "The number of all attribute name/value pairs in the domain.",
+                        "documentation": "-- | The number of all attribute name/value pairs in the domain.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -1573,7 +1573,7 @@
                         "name": "_dmrAttributeValuesSizeBytes",
                         "shape": "Long",
                         "locationName": "AttributeValuesSizeBytes",
-                        "documentation": "The total size of all attribute values in the domain, in bytes.",
+                        "documentation": "-- | The total size of all attribute values in the domain, in bytes.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -1588,7 +1588,7 @@
                         "name": "_dmrTimestamp",
                         "shape": "Integer",
                         "locationName": "Timestamp",
-                        "documentation": "The data and time when metadata was calculated, in Epoch (UNIX) seconds.",
+                        "documentation": "-- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     }
@@ -1605,7 +1605,7 @@
                         "name": "_dmrAttributeNameCount",
                         "shape": "Integer",
                         "locationName": "AttributeNameCount",
-                        "documentation": "The number of unique attribute names in the domain.",
+                        "documentation": "-- | The number of unique attribute names in the domain.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -1620,7 +1620,7 @@
                         "name": "_dmrAttributeNamesSizeBytes",
                         "shape": "Long",
                         "locationName": "AttributeNamesSizeBytes",
-                        "documentation": "The total size of all unique attribute names in the domain, in bytes.",
+                        "documentation": "-- | The total size of all unique attribute names in the domain, in bytes.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -1635,7 +1635,7 @@
                         "name": "_dmrAttributeValueCount",
                         "shape": "Integer",
                         "locationName": "AttributeValueCount",
-                        "documentation": "The number of all attribute name/value pairs in the domain.",
+                        "documentation": "-- | The number of all attribute name/value pairs in the domain.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -1650,7 +1650,7 @@
                         "name": "_dmrAttributeValuesSizeBytes",
                         "shape": "Long",
                         "locationName": "AttributeValuesSizeBytes",
-                        "documentation": "The total size of all attribute values in the domain, in bytes.",
+                        "documentation": "-- | The total size of all attribute values in the domain, in bytes.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -1665,7 +1665,7 @@
                         "name": "_dmrItemCount",
                         "shape": "Integer",
                         "locationName": "ItemCount",
-                        "documentation": "The number of all items in the domain.",
+                        "documentation": "-- | The number of all items in the domain.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -1680,7 +1680,7 @@
                         "name": "_dmrItemNamesSizeBytes",
                         "shape": "Long",
                         "locationName": "ItemNamesSizeBytes",
-                        "documentation": "The total size of all item names in the domain, in bytes.",
+                        "documentation": "-- | The total size of all item names in the domain, in bytes.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -1695,7 +1695,7 @@
                         "name": "_dmrTimestamp",
                         "shape": "Integer",
                         "locationName": "Timestamp",
-                        "documentation": "The data and time when metadata was calculated, in Epoch (UNIX) seconds.",
+                        "documentation": "-- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     }
@@ -1711,7 +1711,7 @@
             "pager": null,
             "name": "DomainMetadata",
             "method": "post",
-            "documentation": "\u003cp\u003e Returns information about the domain, including when the domain was created, the number of items and attributes in the domain, and the size of the attribute names and values. \u003c/p\u003e",
+            "documentation": "-- | Returns information about the domain, including when the domain was created,\n-- the number of items and attributes in the domain, and the size of the\n-- attribute names and values.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1738,7 +1738,7 @@
                     "name": "_dmDomainName",
                     "shape": "String",
                     "locationName": "DomainName",
-                    "documentation": "The name of the domain for which to display the metadata of.",
+                    "documentation": "-- | The name of the domain for which to display the metadata of.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -1763,7 +1763,7 @@
                         "name": "_dmDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain for which to display the metadata of.",
+                        "documentation": "-- | The name of the domain for which to display the metadata of.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1797,7 +1797,7 @@
                         "name": "_dmDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain for which to display the metadata of.",
+                        "documentation": "-- | The name of the domain for which to display the metadata of.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1830,7 +1830,7 @@
                     "name": "_garAttributes",
                     "shape": "AttributeList",
                     "locationName": "Attributes",
-                    "documentation": "The list of attributes returned by the operation.",
+                    "documentation": "-- | The list of attributes returned by the operation.",
                     "typeExposed": "[Attribute]",
                     "type": "List \"Attribute\" Attribute"
                 },
@@ -1859,7 +1859,7 @@
                         "name": "_garAttributes",
                         "shape": "AttributeList",
                         "locationName": "Attributes",
-                        "documentation": "The list of attributes returned by the operation.",
+                        "documentation": "-- | The list of attributes returned by the operation.",
                         "typeExposed": "[Attribute]",
                         "type": "List \"Attribute\" Attribute"
                     }
@@ -1876,7 +1876,7 @@
                         "name": "_garAttributes",
                         "shape": "AttributeList",
                         "locationName": "Attributes",
-                        "documentation": "The list of attributes returned by the operation.",
+                        "documentation": "-- | The list of attributes returned by the operation.",
                         "typeExposed": "[Attribute]",
                         "type": "List \"Attribute\" Attribute"
                     }
@@ -1892,7 +1892,7 @@
             "pager": null,
             "name": "GetAttributes",
             "method": "post",
-            "documentation": "\u003cp\u003e Returns all of the attributes associated with the specified item. Optionally, the attributes returned can be limited to one or more attributes by specifying an attribute name parameter. \u003c/p\u003e \u003cp\u003e If the item does not exist on the replica that was accessed for this operation, an empty set is returned. The system does not return an error as it cannot guarantee the item does not exist on other replicas. \u003c/p\u003e",
+            "documentation": "-- | Returns all of the attributes associated with the specified item.\n-- Optionally, the attributes returned can be limited to one or more attributes\n-- by specifying an attribute name parameter.\n--\n-- If the item does not exist on the replica that was accessed for this\n-- operation, an empty set is returned. The system does not return an error as\n-- it cannot guarantee the item does not exist on other replicas.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1926,7 +1926,7 @@
                         "name": "_gaDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain in which to perform the operation.",
+                        "documentation": "-- | The name of the domain in which to perform the operation.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1941,7 +1941,7 @@
                         "name": "_gaItemName",
                         "shape": "String",
                         "locationName": "ItemName",
-                        "documentation": "The name of the item.",
+                        "documentation": "-- | The name of the item.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1989,7 +1989,7 @@
                         "name": "_gaAttributeNames",
                         "shape": "AttributeNameList",
                         "locationName": "AttributeNames",
-                        "documentation": "The names of the attributes.",
+                        "documentation": "-- | The names of the attributes.",
                         "typeExposed": "[Text]",
                         "type": "List \"AttributeName\" Text"
                     },
@@ -2004,7 +2004,7 @@
                         "name": "_gaConsistentRead",
                         "shape": "Boolean",
                         "locationName": "ConsistentRead",
-                        "documentation": "Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If \u003ccode\u003etrue\u003c/code\u003e, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.",
+                        "documentation": "-- | Determines whether or not strong consistency should be enforced when data is\n-- read from SimpleDB. If 'true', any data previously written to SimpleDB will be\n-- returned. Otherwise, results will be consistent eventually, and the client\n-- may not see data that was written immediately before your read.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -2021,7 +2021,7 @@
                         "name": "_gaAttributeNames",
                         "shape": "AttributeNameList",
                         "locationName": "AttributeNames",
-                        "documentation": "The names of the attributes.",
+                        "documentation": "-- | The names of the attributes.",
                         "typeExposed": "[Text]",
                         "type": "List \"AttributeName\" Text"
                     },
@@ -2036,7 +2036,7 @@
                         "name": "_gaConsistentRead",
                         "shape": "Boolean",
                         "locationName": "ConsistentRead",
-                        "documentation": "Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If \u003ccode\u003etrue\u003c/code\u003e, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.",
+                        "documentation": "-- | Determines whether or not strong consistency should be enforced when data is\n-- read from SimpleDB. If 'true', any data previously written to SimpleDB will be\n-- returned. Otherwise, results will be consistent eventually, and the client\n-- may not see data that was written immediately before your read.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -2051,7 +2051,7 @@
                         "name": "_gaDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain in which to perform the operation.",
+                        "documentation": "-- | The name of the domain in which to perform the operation.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2066,7 +2066,7 @@
                         "name": "_gaItemName",
                         "shape": "String",
                         "locationName": "ItemName",
-                        "documentation": "The name of the item.",
+                        "documentation": "-- | The name of the item.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2111,7 +2111,7 @@
                         "name": "_ldrDomainNames",
                         "shape": "DomainNameList",
                         "locationName": "DomainNames",
-                        "documentation": "A list of domain names that match the expression.",
+                        "documentation": "-- | A list of domain names that match the expression.",
                         "typeExposed": "[Text]",
                         "type": "List \"DomainName\" Text"
                     },
@@ -2126,7 +2126,7 @@
                         "name": "_ldrNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "An opaque token indicating that there are more domains than the specified \u003ccode\u003eMaxNumberOfDomains\u003c/code\u003e still available.",
+                        "documentation": "-- | An opaque token indicating that there are more domains than the specified 'MaxNumberOfDomains' still available.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2143,7 +2143,7 @@
                         "name": "_ldrDomainNames",
                         "shape": "DomainNameList",
                         "locationName": "DomainNames",
-                        "documentation": "A list of domain names that match the expression.",
+                        "documentation": "-- | A list of domain names that match the expression.",
                         "typeExposed": "[Text]",
                         "type": "List \"DomainName\" Text"
                     },
@@ -2158,7 +2158,7 @@
                         "name": "_ldrNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "An opaque token indicating that there are more domains than the specified \u003ccode\u003eMaxNumberOfDomains\u003c/code\u003e still available.",
+                        "documentation": "-- | An opaque token indicating that there are more domains than the specified 'MaxNumberOfDomains' still available.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2183,7 +2183,7 @@
             },
             "name": "ListDomains",
             "method": "post",
-            "documentation": "\u003cp\u003e The \u003ccode\u003eListDomains\u003c/code\u003e operation lists all domains associated with the Access Key ID. It returns domain names up to the limit set by \u003ca href=\"#MaxNumberOfDomains\"\u003eMaxNumberOfDomains\u003c/a\u003e. A \u003ca href=\"#NextToken\"\u003eNextToken\u003c/a\u003e is returned if there are more than \u003ccode\u003eMaxNumberOfDomains\u003c/code\u003e domains. Calling \u003ccode\u003eListDomains\u003c/code\u003e successive times with the \u003ccode\u003eNextToken\u003c/code\u003e provided by the operation returns up to \u003ccode\u003eMaxNumberOfDomains\u003c/code\u003e more domain names with each successive operation call. \u003c/p\u003e",
+            "documentation": "-- | The 'ListDomains' operation lists all domains associated with the Access Key\n-- ID. It returns domain names up to the limit set by \u003c#MaxNumberOfDomains MaxNumberOfDomains\u003e. A \u003c#NextToken NextToken\u003e is returned if there are more than 'MaxNumberOfDomains' domains. Calling 'ListDomains' successive times with the 'NextToken' provided by the operation returns up to 'MaxNumberOfDomains' more domain names with each successive operation call.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2239,7 +2239,7 @@
                         "name": "_ldMaxNumberOfDomains",
                         "shape": "Integer",
                         "locationName": "MaxNumberOfDomains",
-                        "documentation": "The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100.",
+                        "documentation": "-- | The maximum number of domain names you want returned. The range is 1 to 100.\n-- The default setting is 100.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -2254,7 +2254,7 @@
                         "name": "_ldNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "A string informing Amazon SimpleDB where to start the next list of domain names.",
+                        "documentation": "-- | A string informing Amazon SimpleDB where to start the next list of domain\n-- names.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2271,7 +2271,7 @@
                         "name": "_ldMaxNumberOfDomains",
                         "shape": "Integer",
                         "locationName": "MaxNumberOfDomains",
-                        "documentation": "The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100.",
+                        "documentation": "-- | The maximum number of domain names you want returned. The range is 1 to 100.\n-- The default setting is 100.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -2286,7 +2286,7 @@
                         "name": "_ldNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "A string informing Amazon SimpleDB where to start the next list of domain names.",
+                        "documentation": "-- | A string informing Amazon SimpleDB where to start the next list of domain\n-- names.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2329,7 +2329,7 @@
             "pager": null,
             "name": "PutAttributes",
             "method": "post",
-            "documentation": "\u003cp\u003e The PutAttributes operation creates or replaces attributes in an item. The client may specify new attributes using a combination of the \u003ccode\u003eAttribute.X.Name\u003c/code\u003e and \u003ccode\u003eAttribute.X.Value\u003c/code\u003e parameters. The client specifies the first attribute by the parameters \u003ccode\u003eAttribute.0.Name\u003c/code\u003e and \u003ccode\u003eAttribute.0.Value\u003c/code\u003e, the second attribute by the parameters \u003ccode\u003eAttribute.1.Name\u003c/code\u003e and \u003ccode\u003eAttribute.1.Value\u003c/code\u003e, and so on. \u003c/p\u003e \u003cp\u003e Attributes are uniquely identified in an item by their name/value combination. For example, a single item can have the attributes \u003ccode\u003e{ \"first_name\", \"first_value\" }\u003c/code\u003e and \u003ccode\u003e{ \"first_name\", second_value\" }\u003c/code\u003e. However, it cannot have two attribute instances where both the \u003ccode\u003eAttribute.X.Name\u003c/code\u003e and \u003ccode\u003eAttribute.X.Value\u003c/code\u003e are the same. \u003c/p\u003e \u003cp\u003e Optionally, the requestor can supply the \u003ccode\u003eReplace\u003c/code\u003e parameter for each individual attribute. Setting this value to \u003ccode\u003etrue\u003c/code\u003e causes the new attribute value to replace the existing attribute value(s). For example, if an item has the attributes \u003ccode\u003e{ 'a', '1' }\u003c/code\u003e, \u003ccode\u003e{ 'b', '2'}\u003c/code\u003e and \u003ccode\u003e{ 'b', '3' }\u003c/code\u003e and the requestor calls \u003ccode\u003ePutAttributes\u003c/code\u003e using the attributes \u003ccode\u003e{ 'b', '4' }\u003c/code\u003e with the \u003ccode\u003eReplace\u003c/code\u003e parameter set to true, the final attributes of the item are changed to \u003ccode\u003e{ 'a', '1' }\u003c/code\u003e and \u003ccode\u003e{ 'b', '4' }\u003c/code\u003e, which replaces the previous values of the 'b' attribute with the new value. \u003c/p\u003e \u003cp\u003e You cannot specify an empty string as an attribute name. \u003c/p\u003e \u003cp\u003e Because Amazon SimpleDB makes multiple copies of client data and uses an eventual consistency update model, an immediate \u003ca\u003eGetAttributes\u003c/a\u003e or \u003ca\u003eSelect\u003c/a\u003e operation (read) immediately after a \u003ca\u003ePutAttributes\u003c/a\u003e or \u003ca\u003eDeleteAttributes\u003c/a\u003e operation (write) might not return the updated data. \u003c/p\u003e \u003cp\u003e The following limitations are enforced for this operation: \u003cul\u003e \u003cli\u003e256 total attribute name-value pairs per item\u003c/li\u003e \u003cli\u003eOne billion attributes per domain\u003c/li\u003e \u003cli\u003e10 GB of total user data storage per domain\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+            "documentation": "-- | The PutAttributes operation creates or replaces attributes in an item. The\n-- client may specify new attributes using a combination of the 'Attribute.X.Name'\n-- and 'Attribute.X.Value' parameters. The client specifies the first attribute by\n-- the parameters 'Attribute.0.Name' and 'Attribute.0.Value', the second attribute\n-- by the parameters 'Attribute.1.Name' and 'Attribute.1.Value', and so on.\n--\n-- Attributes are uniquely identified in an item by their name/value\n-- combination. For example, a single item can have the attributes '{\"first_name\", \"first_value\" }' and '{ \"first_name\", second_value\" }'. However,\n-- it cannot have two attribute instances where both the 'Attribute.X.Name' and 'Attribute.X.Value' are the same.\n--\n-- Optionally, the requestor can supply the 'Replace' parameter for each\n-- individual attribute. Setting this value to 'true' causes the new attribute\n-- value to replace the existing attribute value(s). For example, if an item has\n-- the attributes '{ 'a', '1' }', '{ 'b', '2'}' and '{ 'b', '3' }' and the requestor\n-- calls 'PutAttributes' using the attributes '{ 'b', '4' }' with the 'Replace'\n-- parameter set to true, the final attributes of the item are changed to '{ 'a','1' }' and '{ 'b', '4' }', which replaces the previous values of the 'b'\n-- attribute with the new value.\n--\n-- You cannot specify an empty string as an attribute name.\n--\n-- Because Amazon SimpleDB makes multiple copies of client data and uses an\n-- eventual consistency update model, an immediate 'GetAttributes' or 'Select'\n-- operation (read) immediately after a 'PutAttributes' or 'DeleteAttributes'\n-- operation (write) might not return the updated data.\n--\n-- The following limitations are enforced for this operation:  256 total\n-- attribute name-value pairs per item One billion attributes per domain 10 GB\n-- of total user data storage per domain\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2362,7 +2362,7 @@
                         "name": "_paDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain in which to perform the operation.",
+                        "documentation": "-- | The name of the domain in which to perform the operation.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2377,7 +2377,7 @@
                         "name": "_paItemName",
                         "shape": "String",
                         "locationName": "ItemName",
-                        "documentation": "The name of the item.",
+                        "documentation": "-- | The name of the item.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2425,7 +2425,7 @@
                         "name": "_paAttributes",
                         "shape": "ReplaceableAttributeList",
                         "locationName": "Attributes",
-                        "documentation": "The list of attributes.",
+                        "documentation": "-- | The list of attributes.",
                         "typeExposed": "[ReplaceableAttribute]",
                         "type": "List \"Attribute\" ReplaceableAttribute"
                     },
@@ -2440,7 +2440,7 @@
                         "name": "_paExpected",
                         "shape": "UpdateCondition",
                         "locationName": "Expected",
-                        "documentation": "The update condition which, if specified, determines whether the specified attributes will be updated or not. The update condition must be satisfied in order for this request to be processed and the attributes to be updated.",
+                        "documentation": "-- | The update condition which, if specified, determines whether the specified\n-- attributes will be updated or not. The update condition must be satisfied in\n-- order for this request to be processed and the attributes to be updated.",
                         "typeExposed": "Maybe UpdateCondition",
                         "type": "Maybe UpdateCondition"
                     }
@@ -2457,7 +2457,7 @@
                         "name": "_paAttributes",
                         "shape": "ReplaceableAttributeList",
                         "locationName": "Attributes",
-                        "documentation": "The list of attributes.",
+                        "documentation": "-- | The list of attributes.",
                         "typeExposed": "[ReplaceableAttribute]",
                         "type": "List \"Attribute\" ReplaceableAttribute"
                     },
@@ -2472,7 +2472,7 @@
                         "name": "_paDomainName",
                         "shape": "String",
                         "locationName": "DomainName",
-                        "documentation": "The name of the domain in which to perform the operation.",
+                        "documentation": "-- | The name of the domain in which to perform the operation.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2487,7 +2487,7 @@
                         "name": "_paExpected",
                         "shape": "UpdateCondition",
                         "locationName": "Expected",
-                        "documentation": "The update condition which, if specified, determines whether the specified attributes will be updated or not. The update condition must be satisfied in order for this request to be processed and the attributes to be updated.",
+                        "documentation": "-- | The update condition which, if specified, determines whether the specified\n-- attributes will be updated or not. The update condition must be satisfied in\n-- order for this request to be processed and the attributes to be updated.",
                         "typeExposed": "Maybe UpdateCondition",
                         "type": "Maybe UpdateCondition"
                     },
@@ -2502,7 +2502,7 @@
                         "name": "_paItemName",
                         "shape": "String",
                         "locationName": "ItemName",
-                        "documentation": "The name of the item.",
+                        "documentation": "-- | The name of the item.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2546,7 +2546,7 @@
                         "name": "_srItems",
                         "shape": "ItemList",
                         "locationName": "Items",
-                        "documentation": "A list of items that match the select expression.",
+                        "documentation": "-- | A list of items that match the select expression.",
                         "typeExposed": "[Item]",
                         "type": "List \"Item\" Item"
                     },
@@ -2561,7 +2561,7 @@
                         "name": "_srNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "An opaque token indicating that more items than \u003ccode\u003eMaxNumberOfItems\u003c/code\u003e were matched, the response size exceeded 1 megabyte, or the execution time exceeded 5 seconds.",
+                        "documentation": "-- | An opaque token indicating that more items than 'MaxNumberOfItems' were\n-- matched, the response size exceeded 1 megabyte, or the execution time\n-- exceeded 5 seconds.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2578,7 +2578,7 @@
                         "name": "_srItems",
                         "shape": "ItemList",
                         "locationName": "Items",
-                        "documentation": "A list of items that match the select expression.",
+                        "documentation": "-- | A list of items that match the select expression.",
                         "typeExposed": "[Item]",
                         "type": "List \"Item\" Item"
                     },
@@ -2593,7 +2593,7 @@
                         "name": "_srNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "An opaque token indicating that more items than \u003ccode\u003eMaxNumberOfItems\u003c/code\u003e were matched, the response size exceeded 1 megabyte, or the execution time exceeded 5 seconds.",
+                        "documentation": "-- | An opaque token indicating that more items than 'MaxNumberOfItems' were\n-- matched, the response size exceeded 1 megabyte, or the execution time\n-- exceeded 5 seconds.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2618,7 +2618,7 @@
             },
             "name": "Select",
             "method": "post",
-            "documentation": "\u003cp\u003e The \u003ccode\u003eSelect\u003c/code\u003e operation returns a set of attributes for \u003ccode\u003eItemNames\u003c/code\u003e that match the select expression. \u003ccode\u003eSelect\u003c/code\u003e is similar to the standard SQL SELECT statement. \u003c/p\u003e \u003cp\u003e The total size of the response cannot exceed 1 MB in total size. Amazon SimpleDB automatically adjusts the number of items returned per page to enforce this limit. For example, if the client asks to retrieve 2500 items, but each individual item is 10 kB in size, the system returns 100 items and an appropriate \u003ccode\u003eNextToken\u003c/code\u003e so the client can access the next page of results. \u003c/p\u003e \u003cp\u003e For information on how to construct select expressions, see Using Select to Create Amazon SimpleDB Queries in the Developer Guide. \u003c/p\u003e",
+            "documentation": "-- | The 'Select' operation returns a set of attributes for 'ItemNames' that match\n-- the select expression. 'Select' is similar to the standard SQL SELECT\n-- statement.\n--\n-- The total size of the response cannot exceed 1 MB in total size. Amazon\n-- SimpleDB automatically adjusts the number of items returned per page to\n-- enforce this limit. For example, if the client asks to retrieve 2500 items,\n-- but each individual item is 10 kB in size, the system returns 100 items and\n-- an appropriate 'NextToken' so the client can access the next page of results.\n--\n-- For information on how to construct select expressions, see Using Select to\n-- Create Amazon SimpleDB Queries in the Developer Guide.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2652,7 +2652,7 @@
                         "name": "_sSelectExpression",
                         "shape": "String",
                         "locationName": "SelectExpression",
-                        "documentation": "The expression used to query the domain.",
+                        "documentation": "-- | The expression used to query the domain.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2695,7 +2695,7 @@
                         "name": "_sNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "A string informing Amazon SimpleDB where to start the next list of \u003ccode\u003eItemNames\u003c/code\u003e.",
+                        "documentation": "-- | A string informing Amazon SimpleDB where to start the next list of 'ItemNames'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2710,7 +2710,7 @@
                         "name": "_sConsistentRead",
                         "shape": "Boolean",
                         "locationName": "ConsistentRead",
-                        "documentation": "Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If \u003ccode\u003etrue\u003c/code\u003e, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.",
+                        "documentation": "-- | Determines whether or not strong consistency should be enforced when data is\n-- read from SimpleDB. If 'true', any data previously written to SimpleDB will be\n-- returned. Otherwise, results will be consistent eventually, and the client\n-- may not see data that was written immediately before your read.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -2727,7 +2727,7 @@
                         "name": "_sConsistentRead",
                         "shape": "Boolean",
                         "locationName": "ConsistentRead",
-                        "documentation": "Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If \u003ccode\u003etrue\u003c/code\u003e, any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.",
+                        "documentation": "-- | Determines whether or not strong consistency should be enforced when data is\n-- read from SimpleDB. If 'true', any data previously written to SimpleDB will be\n-- returned. Otherwise, results will be consistent eventually, and the client\n-- may not see data that was written immediately before your read.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -2742,7 +2742,7 @@
                         "name": "_sNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "A string informing Amazon SimpleDB where to start the next list of \u003ccode\u003eItemNames\u003c/code\u003e.",
+                        "documentation": "-- | A string informing Amazon SimpleDB where to start the next list of 'ItemNames'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2757,7 +2757,7 @@
                         "name": "_sSelectExpression",
                         "shape": "String",
                         "locationName": "SelectExpression",
-                        "documentation": "The expression used to query the domain.",
+                        "documentation": "-- | The expression used to query the domain.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }

@@ -20,13 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Requests a description of one or more layers in a specified stack. Required
--- Permissions: To use this action, an IAM user must have a Show, Deploy, or
--- Manage permissions level for the stack, or an attached policy that
--- explicitly grants permissions. For more information on user permissions,
--- see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Requests a description of one or more layers in a specified stack.
+--
+-- Required Permissions: To use this action, an IAM user must have a Show,
+-- Deploy, or Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeLayers.html>
 module Network.AWS.OpsWorks.DescribeLayers
@@ -71,13 +69,15 @@ describeLayers = DescribeLayers
     , _dlLayerIds = mempty
     }
 
--- | An array of layer IDs that specify the layers to be described. If you
--- omit this parameter, 'DescribeLayers' returns a description of every
--- layer in the specified stack.
+-- | An array of layer IDs that specify the layers to be described. If you omit
+-- this parameter, 'DescribeLayers' returns a description of every layer in the
+-- specified stack.
+--
 dlLayerIds :: Lens' DescribeLayers [Text]
 dlLayerIds = lens _dlLayerIds (\s a -> s { _dlLayerIds = a }) . _List
 
 -- | The stack ID.
+--
 dlStackId :: Lens' DescribeLayers (Maybe Text)
 dlStackId = lens _dlStackId (\s a -> s { _dlStackId = a })
 
@@ -103,6 +103,7 @@ describeLayersResponse = DescribeLayersResponse
     }
 
 -- | An array of 'Layer' objects that describe the layers.
+--
 dlrLayers :: Lens' DescribeLayersResponse [Layer]
 dlrLayers = lens _dlrLayers (\s a -> s { _dlrLayers = a }) . _List
 

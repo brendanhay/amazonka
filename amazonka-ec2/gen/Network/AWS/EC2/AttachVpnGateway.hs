@@ -20,10 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Attaches a virtual private gateway to a VPC. For more information, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding
--- a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual
--- Private Cloud User Guide/.
+-- | Attaches a virtual private gateway to a VPC. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Addinga Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual PrivateCloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVpnGateway.html>
 module Network.AWS.EC2.AttachVpnGateway
@@ -79,10 +76,12 @@ avgDryRun :: Lens' AttachVpnGateway (Maybe Bool)
 avgDryRun = lens _avgDryRun (\s a -> s { _avgDryRun = a })
 
 -- | The ID of the VPC.
+--
 avgVpcId :: Lens' AttachVpnGateway Text
 avgVpcId = lens _avgVpcId (\s a -> s { _avgVpcId = a })
 
 -- | The ID of the virtual private gateway.
+--
 avgVpnGatewayId :: Lens' AttachVpnGateway Text
 avgVpnGatewayId = lens _avgVpnGatewayId (\s a -> s { _avgVpnGatewayId = a })
 
@@ -102,6 +101,7 @@ attachVpnGatewayResponse = AttachVpnGatewayResponse
     }
 
 -- | Information about the attachment.
+--
 avgrVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)
 avgrVpcAttachment =
     lens _avgrVpcAttachment (\s a -> s { _avgrVpcAttachment = a })

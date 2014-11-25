@@ -73,15 +73,18 @@ putKeyPolicy p1 p2 p3 = PutKeyPolicy
 
 -- | Unique identifier of the key. This can be an ARN, an alias, or a globally
 -- unique identifier.
+--
 pkpKeyId :: Lens' PutKeyPolicy Text
 pkpKeyId = lens _pkpKeyId (\s a -> s { _pkpKeyId = a })
 
 -- | The policy, in JSON format, to be attached to the key.
+--
 pkpPolicy :: Lens' PutKeyPolicy Text
 pkpPolicy = lens _pkpPolicy (\s a -> s { _pkpPolicy = a })
 
 -- | Name of the policy to be attached. Currently, the only supported name is
 -- "default".
+--
 pkpPolicyName :: Lens' PutKeyPolicy Text
 pkpPolicyName = lens _pkpPolicyName (\s a -> s { _pkpPolicyName = a })
 

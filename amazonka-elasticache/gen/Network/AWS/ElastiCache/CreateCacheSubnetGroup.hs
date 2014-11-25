@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | The /CreateCacheSubnetGroup/ operation creates a new cache subnet group.
--- Use this parameter only when you are creating a cluster in an Amazon
--- Virtual Private Cloud (VPC).
+--
+-- Use this parameter only when you are creating a cluster in an Amazon Virtual
+-- Private Cloud (VPC).
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html>
 module Network.AWS.ElastiCache.CreateCacheSubnetGroup
@@ -75,20 +76,26 @@ createCacheSubnetGroup p1 p2 = CreateCacheSubnetGroup
     }
 
 -- | A description for the cache subnet group.
+--
 ccsgCacheSubnetGroupDescription :: Lens' CreateCacheSubnetGroup Text
 ccsgCacheSubnetGroupDescription =
     lens _ccsgCacheSubnetGroupDescription
         (\s a -> s { _ccsgCacheSubnetGroupDescription = a })
 
--- | A name for the cache subnet group. This value is stored as a lowercase
--- string. Constraints: Must contain no more than 255 alphanumeric
--- characters or hyphens. Example: 'mysubnetgroup'.
+-- | A name for the cache subnet group. This value is stored as a lowercase string.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters or
+-- hyphens.
+--
+-- Example: 'mysubnetgroup'
+--
 ccsgCacheSubnetGroupName :: Lens' CreateCacheSubnetGroup Text
 ccsgCacheSubnetGroupName =
     lens _ccsgCacheSubnetGroupName
         (\s a -> s { _ccsgCacheSubnetGroupName = a })
 
 -- | A list of VPC subnet IDs for the cache subnet group.
+--
 ccsgSubnetIds :: Lens' CreateCacheSubnetGroup [Text]
 ccsgSubnetIds = lens _ccsgSubnetIds (\s a -> s { _ccsgSubnetIds = a }) . _List
 

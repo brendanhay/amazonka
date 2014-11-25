@@ -66,10 +66,12 @@ removeUserFromGroup p1 p2 = RemoveUserFromGroup
     }
 
 -- | The name of the group to update.
+--
 rufgGroupName :: Lens' RemoveUserFromGroup Text
 rufgGroupName = lens _rufgGroupName (\s a -> s { _rufgGroupName = a })
 
 -- | The name of the user to remove.
+--
 rufgUserName :: Lens' RemoveUserFromGroup Text
 rufgUserName = lens _rufgUserName (\s a -> s { _rufgUserName = a })
 

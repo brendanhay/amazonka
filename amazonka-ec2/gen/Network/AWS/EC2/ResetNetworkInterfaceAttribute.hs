@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Resets a network interface attribute. You can specify only one attribute at
--- a time.
+-- | Resets a network interface attribute. You can specify only one attribute at a
+-- time.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetNetworkInterfaceAttribute.html>
 module Network.AWS.EC2.ResetNetworkInterfaceAttribute
@@ -74,11 +74,13 @@ rniaDryRun :: Lens' ResetNetworkInterfaceAttribute (Maybe Bool)
 rniaDryRun = lens _rniaDryRun (\s a -> s { _rniaDryRun = a })
 
 -- | The ID of the network interface.
+--
 rniaNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute Text
 rniaNetworkInterfaceId =
     lens _rniaNetworkInterfaceId (\s a -> s { _rniaNetworkInterfaceId = a })
 
 -- | The source/destination checking attribute. Resets the value to 'true'.
+--
 rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
 rniaSourceDestCheck =
     lens _rniaSourceDestCheck (\s a -> s { _rniaSourceDestCheck = a })

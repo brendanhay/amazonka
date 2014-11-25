@@ -20,12 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Disables a gateway when the gateway is no longer functioning. For example,
--- if your gateway VM is damaged, you can disable the gateway so you can
--- recover virtual tapes. Use this operation for a gateway-VTL that is not
--- reachable or not functioning. Once a gateway is disabled it cannot be
--- enabled.
+-- | Disables a gateway when the gateway is no longer functioning. For example, if
+-- your gateway VM is damaged, you can disable the gateway so you can recover
+-- virtual tapes.
 --
+-- Use this operation for a gateway-VTL that is not reachable or not
+-- functioning.
+--
+-- Once a gateway is disabled it cannot be enabled.
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DisableGateway.html>
 module Network.AWS.StorageGateway.DisableGateway
     (
@@ -84,6 +86,7 @@ disableGatewayResponse = DisableGatewayResponse
     }
 
 -- | The unique Amazon Resource Name of the disabled gateway.
+--
 dgr1GatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 dgr1GatewayARN = lens _dgr1GatewayARN (\s a -> s { _dgr1GatewayARN = a })
 

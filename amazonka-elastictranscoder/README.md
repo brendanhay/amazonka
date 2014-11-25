@@ -8,7 +8,11 @@
 
 ## Description
 
-Amazon Elastic Transcoder lets you convert media files that you have stored in Amazon Simple Storage Service (Amazon S3) into media files in the formats required by consumer playback devices. For example, you can convert large, high-quality digital media files into formats that users can play back on mobile devices, tablets, web browsers, and connected televisions.
+    Amazon Elastic Transcoder lets you convert media files that you have stored
+    in Amazon Simple Storage Service (Amazon S3) into media files in the formats
+    required by consumer playback devices. For example, you can convert large,
+    high-quality digital media files into formats that users can play back on
+    mobile devices, tablets, web browsers, and connected televisions.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elastictranscoder)
 and [AWS API Reference](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html).

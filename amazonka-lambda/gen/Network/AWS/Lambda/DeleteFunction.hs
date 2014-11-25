@@ -20,8 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes the specified Lambda function code and configuration. This
--- operation requires permission for the 'lambda:DeleteFunction' action.
+-- | Deletes the specified Lambda function code and configuration.
+--
+-- This operation requires permission for the 'lambda:DeleteFunction' action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteFunction.html>
 module Network.AWS.Lambda.DeleteFunction
@@ -61,6 +62,7 @@ deleteFunction p1 = DeleteFunction
     }
 
 -- | The Lambda function to delete.
+--
 dfFunctionName :: Lens' DeleteFunction Text
 dfFunctionName = lens _dfFunctionName (\s a -> s { _dfFunctionName = a })
 

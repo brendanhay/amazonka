@@ -66,14 +66,31 @@ disableMetricsCollection p1 = DisableMetricsCollection
     }
 
 -- | The name or Amazon Resource Name (ARN) of the group.
+--
 dmcAutoScalingGroupName :: Lens' DisableMetricsCollection Text
 dmcAutoScalingGroupName =
     lens _dmcAutoScalingGroupName (\s a -> s { _dmcAutoScalingGroupName = a })
 
--- | One or more of the following metrics: GroupMinSize GroupMaxSize
--- GroupDesiredCapacity GroupInServiceInstances GroupPendingInstances
--- GroupStandbyInstances GroupTerminatingInstances GroupTotalInstances If
--- you omit this parameter, all metrics are disabled.
+-- | One or more of the following metrics:
+--
+-- GroupMinSize
+--
+-- GroupMaxSize
+--
+-- GroupDesiredCapacity
+--
+-- GroupInServiceInstances
+--
+-- GroupPendingInstances
+--
+-- GroupStandbyInstances
+--
+-- GroupTerminatingInstances
+--
+-- GroupTotalInstances
+--
+-- If you omit this parameter, all metrics are disabled.
+--
 dmcMetrics :: Lens' DisableMetricsCollection [Text]
 dmcMetrics = lens _dmcMetrics (\s a -> s { _dmcMetrics = a }) . _List
 

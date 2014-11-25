@@ -20,13 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Gets paginated records, optionally changed after a particular sync count
--- for a dataset and identity. The credentials used to make this API call need
--- to have access to the identity data. With Amazon Cognito Sync, each
--- identity has access only to its own data. You should use Amazon Cognito
--- Identity service to retrieve the credentials necessary to make this API
--- call.
---
+-- | Gets paginated records, optionally changed after a particular sync count for
+-- a dataset and identity. The credentials used to make this API call need to
+-- have access to the identity data. With Amazon Cognito Sync, each identity has
+-- access only to its own data. You should use Amazon Cognito Identity service
+-- to retrieve the credentials necessary to make this API call.
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListRecords.html>
 module Network.AWS.CognitoSync.ListRecords
     (
@@ -106,20 +104,20 @@ listRecords p1 p2 p3 = ListRecords
     , _lrSyncSessionToken = Nothing
     }
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
--- '_' (underscore), '-' (dash), and '.' (dot).
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'
+-- (underscore), '-' (dash), and '.' (dot).
 lrDatasetName :: Lens' ListRecords Text
 lrDatasetName = lens _lrDatasetName (\s a -> s { _lrDatasetName = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 lrIdentityId :: Lens' ListRecords Text
 lrIdentityId = lens _lrIdentityId (\s a -> s { _lrIdentityId = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 lrIdentityPoolId :: Lens' ListRecords Text
 lrIdentityPoolId = lens _lrIdentityPoolId (\s a -> s { _lrIdentityPoolId = a })
 

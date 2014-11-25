@@ -66,14 +66,17 @@ updateApplication p1 = UpdateApplication
     , _uaDescription     = Nothing
     }
 
--- | The name of the application to update. If no such application is found,
--- 'UpdateApplication' returns an 'InvalidParameterValue' error.
+-- | The name of the application to update. If no such application is found, 'UpdateApplication' returns an 'InvalidParameterValue' error.
+--
 uaApplicationName :: Lens' UpdateApplication Text
 uaApplicationName =
     lens _uaApplicationName (\s a -> s { _uaApplicationName = a })
 
--- | A new description for the application. Default: If not specified, AWS
--- Elastic Beanstalk does not update the description.
+-- | A new description for the application.
+--
+-- Default: If not specified, AWS Elastic Beanstalk does not update the
+-- description.
+--
 uaDescription :: Lens' UpdateApplication (Maybe Text)
 uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
 
@@ -93,6 +96,7 @@ updateApplicationResponse = UpdateApplicationResponse
     }
 
 -- | The 'ApplicationDescription' of the application.
+--
 uarApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)
 uarApplication = lens _uarApplication (\s a -> s { _uarApplication = a })
 

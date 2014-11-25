@@ -62,8 +62,9 @@ getStackPolicy p1 = GetStackPolicy
     { _gspStackName = p1
     }
 
--- | The name or stack ID that is associated with the stack whose policy you
--- want to get.
+-- | The name or stack ID that is associated with the stack whose policy you want
+-- to get.
+--
 gspStackName :: Lens' GetStackPolicy Text
 gspStackName = lens _gspStackName (\s a -> s { _gspStackName = a })
 
@@ -82,10 +83,8 @@ getStackPolicyResponse = GetStackPolicyResponse
     { _gsprStackPolicyBody = Nothing
     }
 
--- | Structure containing the stack policy body. (For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html
--- Prevent Updates to Stack Resources> in the AWS CloudFormation User
--- Guide.).
+-- | Structure containing the stack policy body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.)
+--
 gsprStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprStackPolicyBody =
     lens _gsprStackPolicyBody (\s a -> s { _gsprStackPolicyBody = a })

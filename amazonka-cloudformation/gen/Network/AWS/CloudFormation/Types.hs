@@ -208,14 +208,16 @@ tag = Tag
     , _tagValue = Nothing
     }
 
--- | /Required/. A string used to identify this tag. You can specify a maximum
--- of 128 characters for a tag key. Tags owned by Amazon Web Services (AWS)
--- have the reserved prefix: 'aws:'.
+-- | /Required/. A string used to identify this tag. You can specify a maximum of
+-- 128 characters for a tag key. Tags owned by Amazon Web Services (AWS) have
+-- the reserved prefix: 'aws:'.
+--
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
 -- | /Required/. A string containing the value for this tag. You can specify a
 -- maximum of 256 characters for a tag value.
+--
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
@@ -354,49 +356,58 @@ stackEvent p1 p2 p3 p4 = StackEvent
     }
 
 -- | The unique ID of this event.
+--
 seEventId :: Lens' StackEvent Text
 seEventId = lens _seEventId (\s a -> s { _seEventId = a })
 
 -- | The logical name of the resource specified in the template.
+--
 seLogicalResourceId :: Lens' StackEvent (Maybe Text)
 seLogicalResourceId =
     lens _seLogicalResourceId (\s a -> s { _seLogicalResourceId = a })
 
--- | The name or unique identifier associated with the physical instance of
--- the resource.
+-- | The name or unique identifier associated with the physical instance of the
+-- resource.
+--
 sePhysicalResourceId :: Lens' StackEvent (Maybe Text)
 sePhysicalResourceId =
     lens _sePhysicalResourceId (\s a -> s { _sePhysicalResourceId = a })
 
 -- | BLOB of the properties used to create the resource.
+--
 seResourceProperties :: Lens' StackEvent (Maybe Text)
 seResourceProperties =
     lens _seResourceProperties (\s a -> s { _seResourceProperties = a })
 
 -- | Current status of the resource.
+--
 seResourceStatus :: Lens' StackEvent (Maybe ResourceStatus)
 seResourceStatus = lens _seResourceStatus (\s a -> s { _seResourceStatus = a })
 
 -- | Success/failure message associated with the resource.
+--
 seResourceStatusReason :: Lens' StackEvent (Maybe Text)
 seResourceStatusReason =
     lens _seResourceStatusReason (\s a -> s { _seResourceStatusReason = a })
 
--- | Type of resource. (For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
--- AWS Resource Types Reference> in the AWS CloudFormation User Guide.).
+-- | Type of resource. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference>
+-- in the AWS CloudFormation User Guide.)
+--
 seResourceType :: Lens' StackEvent (Maybe Text)
 seResourceType = lens _seResourceType (\s a -> s { _seResourceType = a })
 
 -- | The unique ID name of the instance of the stack.
+--
 seStackId :: Lens' StackEvent Text
 seStackId = lens _seStackId (\s a -> s { _seStackId = a })
 
 -- | The name associated with a stack.
+--
 seStackName :: Lens' StackEvent Text
 seStackName = lens _seStackName (\s a -> s { _seStackName = a })
 
 -- | Time the status was updated.
+--
 seTimestamp :: Lens' StackEvent UTCTime
 seTimestamp = lens _seTimestamp (\s a -> s { _seTimestamp = a }) . _Time
 
@@ -474,38 +485,46 @@ stackSummary p1 p2 p3 = StackSummary
     }
 
 -- | The time the stack was created.
+--
 ssCreationTime :: Lens' StackSummary UTCTime
 ssCreationTime = lens _ssCreationTime (\s a -> s { _ssCreationTime = a }) . _Time
 
 -- | The time the stack was deleted.
+--
 ssDeletionTime :: Lens' StackSummary (Maybe UTCTime)
 ssDeletionTime = lens _ssDeletionTime (\s a -> s { _ssDeletionTime = a }) . mapping _Time
 
--- | The time the stack was last updated. This field will only be returned if
--- the stack has been updated at least once.
+-- | The time the stack was last updated. This field will only be returned if the
+-- stack has been updated at least once.
+--
 ssLastUpdatedTime :: Lens' StackSummary (Maybe UTCTime)
 ssLastUpdatedTime =
     lens _ssLastUpdatedTime (\s a -> s { _ssLastUpdatedTime = a })
         . mapping _Time
 
 -- | Unique stack identifier.
+--
 ssStackId :: Lens' StackSummary (Maybe Text)
 ssStackId = lens _ssStackId (\s a -> s { _ssStackId = a })
 
 -- | The name associated with the stack.
+--
 ssStackName :: Lens' StackSummary Text
 ssStackName = lens _ssStackName (\s a -> s { _ssStackName = a })
 
 -- | The current status of the stack.
+--
 ssStackStatus :: Lens' StackSummary StackStatus
 ssStackStatus = lens _ssStackStatus (\s a -> s { _ssStackStatus = a })
 
 -- | Success/Failure message associated with the stack status.
+--
 ssStackStatusReason :: Lens' StackSummary (Maybe Text)
 ssStackStatusReason =
     lens _ssStackStatusReason (\s a -> s { _ssStackStatusReason = a })
 
 -- | The template description of the template used to create the stack.
+--
 ssTemplateDescription :: Lens' StackSummary (Maybe Text)
 ssTemplateDescription =
     lens _ssTemplateDescription (\s a -> s { _ssTemplateDescription = a })
@@ -589,54 +608,62 @@ stackResourceDetail p1 p2 p3 p4 = StackResourceDetail
     }
 
 -- | User defined description associated with the resource.
+--
 srdDescription :: Lens' StackResourceDetail (Maybe Text)
 srdDescription = lens _srdDescription (\s a -> s { _srdDescription = a })
 
 -- | Time the status was updated.
+--
 srdLastUpdatedTimestamp :: Lens' StackResourceDetail UTCTime
 srdLastUpdatedTimestamp =
     lens _srdLastUpdatedTimestamp (\s a -> s { _srdLastUpdatedTimestamp = a })
         . _Time
 
 -- | The logical name of the resource specified in the template.
+--
 srdLogicalResourceId :: Lens' StackResourceDetail Text
 srdLogicalResourceId =
     lens _srdLogicalResourceId (\s a -> s { _srdLogicalResourceId = a })
 
--- | The JSON format content of the 'Metadata' attribute declared for the
--- resource. For more information, see
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html
--- Metadata Attribute> in the AWS CloudFormation User Guide.
+-- | The JSON format content of the 'Metadata' attribute declared for the resource.
+-- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute> in the AWS CloudFormation User
+-- Guide.
+--
 srdMetadata :: Lens' StackResourceDetail (Maybe Text)
 srdMetadata = lens _srdMetadata (\s a -> s { _srdMetadata = a })
 
--- | The name or unique identifier that corresponds to a physical instance ID
--- of a resource supported by AWS CloudFormation.
+-- | The name or unique identifier that corresponds to a physical instance ID of a
+-- resource supported by AWS CloudFormation.
+--
 srdPhysicalResourceId :: Lens' StackResourceDetail (Maybe Text)
 srdPhysicalResourceId =
     lens _srdPhysicalResourceId (\s a -> s { _srdPhysicalResourceId = a })
 
 -- | Current status of the resource.
+--
 srdResourceStatus :: Lens' StackResourceDetail ResourceStatus
 srdResourceStatus =
     lens _srdResourceStatus (\s a -> s { _srdResourceStatus = a })
 
 -- | Success/failure message associated with the resource.
+--
 srdResourceStatusReason :: Lens' StackResourceDetail (Maybe Text)
 srdResourceStatusReason =
     lens _srdResourceStatusReason (\s a -> s { _srdResourceStatusReason = a })
 
--- | Type of resource. ((For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
--- AWS Resource Types Reference> in the AWS CloudFormation User Guide.).
+-- | Type of resource. ((For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference>
+-- in the AWS CloudFormation User Guide.)
+--
 srdResourceType :: Lens' StackResourceDetail Text
 srdResourceType = lens _srdResourceType (\s a -> s { _srdResourceType = a })
 
 -- | Unique identifier of the stack.
+--
 srdStackId :: Lens' StackResourceDetail (Maybe Text)
 srdStackId = lens _srdStackId (\s a -> s { _srdStackId = a })
 
 -- | The name associated with the stack.
+--
 srdStackName :: Lens' StackResourceDetail (Maybe Text)
 srdStackName = lens _srdStackName (\s a -> s { _srdStackName = a })
 
@@ -745,19 +772,23 @@ templateParameter = TemplateParameter
     }
 
 -- | The default value associated with the parameter.
+--
 tpDefaultValue :: Lens' TemplateParameter (Maybe Text)
 tpDefaultValue = lens _tpDefaultValue (\s a -> s { _tpDefaultValue = a })
 
 -- | User defined description associated with the parameter.
+--
 tpDescription :: Lens' TemplateParameter (Maybe Text)
 tpDescription = lens _tpDescription (\s a -> s { _tpDescription = a })
 
--- | Flag indicating whether the parameter should be displayed as plain text
--- in logs and UIs.
+-- | Flag indicating whether the parameter should be displayed as plain text in
+-- logs and UIs.
+--
 tpNoEcho :: Lens' TemplateParameter (Maybe Bool)
 tpNoEcho = lens _tpNoEcho (\s a -> s { _tpNoEcho = a })
 
 -- | The name associated with the parameter.
+--
 tpParameterKey :: Lens' TemplateParameter (Maybe Text)
 tpParameterKey = lens _tpParameterKey (\s a -> s { _tpParameterKey = a })
 
@@ -808,23 +839,28 @@ parameterDeclaration = ParameterDeclaration
     }
 
 -- | The default value of the parameter.
+--
 pdDefaultValue :: Lens' ParameterDeclaration (Maybe Text)
 pdDefaultValue = lens _pdDefaultValue (\s a -> s { _pdDefaultValue = a })
 
 -- | The description that is associate with the parameter.
+--
 pdDescription :: Lens' ParameterDeclaration (Maybe Text)
 pdDescription = lens _pdDescription (\s a -> s { _pdDescription = a })
 
 -- | Flag that indicates whether the parameter value is shown as plain text in
 -- logs and in the AWS Management Console.
+--
 pdNoEcho :: Lens' ParameterDeclaration (Maybe Bool)
 pdNoEcho = lens _pdNoEcho (\s a -> s { _pdNoEcho = a })
 
 -- | The name that is associated with the parameter.
+--
 pdParameterKey :: Lens' ParameterDeclaration (Maybe Text)
 pdParameterKey = lens _pdParameterKey (\s a -> s { _pdParameterKey = a })
 
 -- | The type of parameter.
+--
 pdParameterType :: Lens' ParameterDeclaration (Maybe Text)
 pdParameterType = lens _pdParameterType (\s a -> s { _pdParameterType = a })
 
@@ -897,45 +933,53 @@ stackResource p1 p2 p3 p4 = StackResource
     }
 
 -- | User defined description associated with the resource.
+--
 sr1Description :: Lens' StackResource (Maybe Text)
 sr1Description = lens _sr1Description (\s a -> s { _sr1Description = a })
 
 -- | The logical name of the resource specified in the template.
+--
 sr1LogicalResourceId :: Lens' StackResource Text
 sr1LogicalResourceId =
     lens _sr1LogicalResourceId (\s a -> s { _sr1LogicalResourceId = a })
 
--- | The name or unique identifier that corresponds to a physical instance ID
--- of a resource supported by AWS CloudFormation.
+-- | The name or unique identifier that corresponds to a physical instance ID of a
+-- resource supported by AWS CloudFormation.
+--
 sr1PhysicalResourceId :: Lens' StackResource (Maybe Text)
 sr1PhysicalResourceId =
     lens _sr1PhysicalResourceId (\s a -> s { _sr1PhysicalResourceId = a })
 
 -- | Current status of the resource.
+--
 sr1ResourceStatus :: Lens' StackResource ResourceStatus
 sr1ResourceStatus =
     lens _sr1ResourceStatus (\s a -> s { _sr1ResourceStatus = a })
 
 -- | Success/failure message associated with the resource.
+--
 sr1ResourceStatusReason :: Lens' StackResource (Maybe Text)
 sr1ResourceStatusReason =
     lens _sr1ResourceStatusReason (\s a -> s { _sr1ResourceStatusReason = a })
 
--- | Type of resource. (For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
--- AWS Resource Types Reference> in the AWS CloudFormation User Guide.).
+-- | Type of resource. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference>
+-- in the AWS CloudFormation User Guide.)
+--
 sr1ResourceType :: Lens' StackResource Text
 sr1ResourceType = lens _sr1ResourceType (\s a -> s { _sr1ResourceType = a })
 
 -- | Unique identifier of the stack.
+--
 sr1StackId :: Lens' StackResource (Maybe Text)
 sr1StackId = lens _sr1StackId (\s a -> s { _sr1StackId = a })
 
 -- | The name associated with the stack.
+--
 sr1StackName :: Lens' StackResource (Maybe Text)
 sr1StackName = lens _sr1StackName (\s a -> s { _sr1StackName = a })
 
 -- | Time the status was updated.
+--
 sr1Timestamp :: Lens' StackResource UTCTime
 sr1Timestamp = lens _sr1Timestamp (\s a -> s { _sr1Timestamp = a }) . _Time
 
@@ -988,14 +1032,17 @@ output = Output
     }
 
 -- | User defined description associated with the output.
+--
 oDescription :: Lens' Output (Maybe Text)
 oDescription = lens _oDescription (\s a -> s { _oDescription = a })
 
 -- | The key associated with the output.
+--
 oOutputKey :: Lens' Output (Maybe Text)
 oOutputKey = lens _oOutputKey (\s a -> s { _oOutputKey = a })
 
 -- | The value associated with the output.
+--
 oOutputValue :: Lens' Output (Maybe Text)
 oOutputValue = lens _oOutputValue (\s a -> s { _oOutputValue = a })
 
@@ -1052,35 +1099,40 @@ stackResourceSummary p1 p2 p3 p4 = StackResourceSummary
     }
 
 -- | Time the status was updated.
+--
 srsLastUpdatedTimestamp :: Lens' StackResourceSummary UTCTime
 srsLastUpdatedTimestamp =
     lens _srsLastUpdatedTimestamp (\s a -> s { _srsLastUpdatedTimestamp = a })
         . _Time
 
 -- | The logical name of the resource specified in the template.
+--
 srsLogicalResourceId :: Lens' StackResourceSummary Text
 srsLogicalResourceId =
     lens _srsLogicalResourceId (\s a -> s { _srsLogicalResourceId = a })
 
--- | The name or unique identifier that corresponds to a physical instance ID
--- of the resource.
+-- | The name or unique identifier that corresponds to a physical instance ID of
+-- the resource.
+--
 srsPhysicalResourceId :: Lens' StackResourceSummary (Maybe Text)
 srsPhysicalResourceId =
     lens _srsPhysicalResourceId (\s a -> s { _srsPhysicalResourceId = a })
 
 -- | Current status of the resource.
+--
 srsResourceStatus :: Lens' StackResourceSummary ResourceStatus
 srsResourceStatus =
     lens _srsResourceStatus (\s a -> s { _srsResourceStatus = a })
 
 -- | Success/failure message associated with the resource.
+--
 srsResourceStatusReason :: Lens' StackResourceSummary (Maybe Text)
 srsResourceStatusReason =
     lens _srsResourceStatusReason (\s a -> s { _srsResourceStatusReason = a })
 
--- | Type of resource. (For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
--- AWS Resource Types Reference> in the AWS CloudFormation User Guide.).
+-- | Type of resource. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html  AWS Resource Types Reference>
+-- in the AWS CloudFormation User Guide.)
+--
 srsResourceType :: Lens' StackResourceSummary Text
 srsResourceType = lens _srsResourceType (\s a -> s { _srsResourceType = a })
 
@@ -1222,63 +1274,78 @@ stack p1 p2 p3 = Stack
     }
 
 -- | The capabilities allowed in the stack.
+--
 sCapabilities :: Lens' Stack [Capability]
 sCapabilities = lens _sCapabilities (\s a -> s { _sCapabilities = a }) . _List
 
 -- | Time at which the stack was created.
+--
 sCreationTime :: Lens' Stack UTCTime
 sCreationTime = lens _sCreationTime (\s a -> s { _sCreationTime = a }) . _Time
 
 -- | User defined description associated with the stack.
+--
 sDescription :: Lens' Stack (Maybe Text)
 sDescription = lens _sDescription (\s a -> s { _sDescription = a })
 
--- | Boolean to enable or disable rollback on stack creation failures: 'true':
--- disable rollback 'false': enable rollback.
+-- | Boolean to enable or disable rollback on stack creation failures:
+--
+-- 'true': disable rollback  'false': enable rollback
+--
 sDisableRollback :: Lens' Stack (Maybe Bool)
 sDisableRollback = lens _sDisableRollback (\s a -> s { _sDisableRollback = a })
 
--- | The time the stack was last updated. This field will only be returned if
--- the stack has been updated at least once.
+-- | The time the stack was last updated. This field will only be returned if the
+-- stack has been updated at least once.
+--
 sLastUpdatedTime :: Lens' Stack (Maybe UTCTime)
 sLastUpdatedTime = lens _sLastUpdatedTime (\s a -> s { _sLastUpdatedTime = a }) . mapping _Time
 
 -- | SNS topic ARNs to which stack related events are published.
+--
 sNotificationARNs :: Lens' Stack [Text]
 sNotificationARNs =
     lens _sNotificationARNs (\s a -> s { _sNotificationARNs = a })
         . _List
 
 -- | A list of output structures.
+--
 sOutputs :: Lens' Stack [Output]
 sOutputs = lens _sOutputs (\s a -> s { _sOutputs = a }) . _List
 
 -- | A list of 'Parameter' structures.
+--
 sParameters :: Lens' Stack [Parameter]
 sParameters = lens _sParameters (\s a -> s { _sParameters = a }) . _List
 
 -- | Unique identifier of the stack.
+--
 sStackId :: Lens' Stack (Maybe Text)
 sStackId = lens _sStackId (\s a -> s { _sStackId = a })
 
 -- | The name associated with the stack.
+--
 sStackName :: Lens' Stack Text
 sStackName = lens _sStackName (\s a -> s { _sStackName = a })
 
 -- | Current status of the stack.
+--
 sStackStatus :: Lens' Stack StackStatus
 sStackStatus = lens _sStackStatus (\s a -> s { _sStackStatus = a })
 
 -- | Success/failure message associated with the stack status.
+--
 sStackStatusReason :: Lens' Stack (Maybe Text)
 sStackStatusReason =
     lens _sStackStatusReason (\s a -> s { _sStackStatusReason = a })
 
 -- | A list of 'Tag's that specify cost allocation information for the stack.
+--
 sTags :: Lens' Stack [Tag]
 sTags = lens _sTags (\s a -> s { _sTags = a }) . _List
 
 -- | The amount of time within which stack creation should complete.
+--
 sTimeoutInMinutes :: Lens' Stack (Maybe Natural)
 sTimeoutInMinutes =
     lens _sTimeoutInMinutes (\s a -> s { _sTimeoutInMinutes = a })
@@ -1372,15 +1439,18 @@ parameter = Parameter
     }
 
 -- | The key associated with the parameter.
+--
 pParameterKey :: Lens' Parameter (Maybe Text)
 pParameterKey = lens _pParameterKey (\s a -> s { _pParameterKey = a })
 
 -- | The value associated with the parameter.
+--
 pParameterValue :: Lens' Parameter (Maybe Text)
 pParameterValue = lens _pParameterValue (\s a -> s { _pParameterValue = a })
 
--- | During a stack update, use the existing parameter value that is being
--- used for the stack.
+-- | During a stack update, use the existing parameter value that is being used
+-- for the stack.
+--
 pUsePreviousValue :: Lens' Parameter (Maybe Bool)
 pUsePreviousValue =
     lens _pUsePreviousValue (\s a -> s { _pUsePreviousValue = a })

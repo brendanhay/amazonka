@@ -12,10 +12,9 @@
 -- resource inventory, configuration history, and configuration change
 -- notifications to enable security and governance. With Amazon Config you can
 -- discover existing Amazon resources, export a complete inventory of your
--- Amazon resources with all configuration details, and determine how a
--- resource was configured at any point in time. These capabilities enable
--- compliance auditing, security analysis, resource change tracking, and
--- troubleshooting.
+-- Amazon resources with all configuration details, and determine how a resource
+-- was configured at any point in time. These capabilities enable compliance
+-- auditing, security analysis, resource change tracking, and troubleshooting.
 module Network.AWS.Config
     ( module Network.AWS.Config.DeleteDeliveryChannel
     , module Network.AWS.Config.DeliverConfigSnapshot

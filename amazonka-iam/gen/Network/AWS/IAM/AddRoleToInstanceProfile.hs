@@ -21,11 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Adds the specified role to the specified instance profile. For more
--- information about roles, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html
--- Working with Roles>. For more information about instance profiles, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html
--- About Instance Profiles>.
+-- information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>. For more information about
+-- instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddRoleToInstanceProfile.html>
 module Network.AWS.IAM.AddRoleToInstanceProfile
@@ -71,12 +68,14 @@ addRoleToInstanceProfile p1 p2 = AddRoleToInstanceProfile
     }
 
 -- | The name of the instance profile to update.
+--
 artipInstanceProfileName :: Lens' AddRoleToInstanceProfile Text
 artipInstanceProfileName =
     lens _artipInstanceProfileName
         (\s a -> s { _artipInstanceProfileName = a })
 
 -- | The name of the role to add.
+--
 artipRoleName :: Lens' AddRoleToInstanceProfile Text
 artipRoleName = lens _artipRoleName (\s a -> s { _artipRoleName = a })
 

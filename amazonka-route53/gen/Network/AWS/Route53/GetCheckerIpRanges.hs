@@ -21,10 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | To retrieve a list of the IP ranges used by Amazon Route 53 health checkers
--- to check the health of your resources, send a 'GET' request to the
--- '2013-04-01/checkeripranges' resource. You can use these IP addresses to
--- configure router and firewall rules to allow health checkers to check the
--- health of your resources.
+-- to check the health of your resources, send a 'GET' request to the '2013-04-01/checkeripranges' resource. You can use these IP addresses to configure router and firewall
+-- rules to allow health checkers to check the health of your resources.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetCheckerIpRanges.html>
 module Network.AWS.Route53.GetCheckerIpRanges
@@ -77,6 +75,7 @@ getCheckerIpRangesResponse = GetCheckerIpRangesResponse
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.
+--
 gcirrCheckerIpRanges :: Lens' GetCheckerIpRangesResponse [Text]
 gcirrCheckerIpRanges =
     lens _gcirrCheckerIpRanges (\s a -> s { _gcirrCheckerIpRanges = a })

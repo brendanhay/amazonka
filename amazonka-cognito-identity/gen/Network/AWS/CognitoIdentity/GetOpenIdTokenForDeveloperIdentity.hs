@@ -20,19 +20,20 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Registers (or retrieves) a Cognito 'IdentityId' and an OpenID Connect token
--- for a user authenticated by your backend authentication process. Supplying
--- multiple logins will create an implicit linked account. You can only
--- specify one developer provider as part of the 'Logins' map, which is linked
--- to the identity pool. The developer provider is the "domain" by which
--- Cognito will refer to your users. You can use
--- 'GetOpenIdTokenForDeveloperIdentity' to create a new identity and to link
--- new logins (that is, user credentials issued by a public provider or
+-- | Registers (or retrieves) a Cognito 'IdentityId' and an OpenID Connect token for
+-- a user authenticated by your backend authentication process. Supplying
+-- multiple logins will create an implicit linked account. You can only specify
+-- one developer provider as part of the 'Logins' map, which is linked to the
+-- identity pool. The developer provider is the "domain" by which Cognito will
+-- refer to your users.
+--
+-- You can use 'GetOpenIdTokenForDeveloperIdentity' to create a new identity and
+-- to link new logins (that is, user credentials issued by a public provider or
 -- developer provider) to an existing identity. When you want to create a new
 -- identity, the 'IdentityId' should be null. When you want to associate a new
--- login with an existing authenticated/unauthenticated identity, you can do
--- so by providing the existing 'IdentityId'. This API will create the
--- identity in the specified 'IdentityPoolId'.
+-- login with an existing authenticated/unauthenticated identity, you can do so
+-- by providing the existing 'IdentityId'. This API will create the identity in
+-- the specified 'IdentityPoolId'.
 --
 -- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdTokenForDeveloperIdentity.html>
 module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
@@ -90,36 +91,38 @@ getOpenIdTokenForDeveloperIdentity p1 = GetOpenIdTokenForDeveloperIdentity
     }
 
 -- | A unique identifier in the format REGION:GUID.
+--
 goitfdiIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentity (Maybe Text)
 goitfdiIdentityId =
     lens _goitfdiIdentityId (\s a -> s { _goitfdiIdentityId = a })
 
 -- | An identity pool ID in the format REGION:GUID.
+--
 goitfdiIdentityPoolId :: Lens' GetOpenIdTokenForDeveloperIdentity Text
 goitfdiIdentityPoolId =
     lens _goitfdiIdentityPoolId (\s a -> s { _goitfdiIdentityPoolId = a })
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens. Each name-value pair represents a user from a public provider or
--- developer provider. If the user is from a developer provider, the
--- name-value pair will follow the syntax '"developer_provider_name":
--- "developer_user_identifier"'. The developer provider is the "domain" by
--- which Cognito will refer to your users; you provided this domain while
+-- developer provider. If the user is from a developer provider, the name-value
+-- pair will follow the syntax '"developer_provider_name":"developer_user_identifier"'. The developer provider is the "domain" by which
+-- Cognito will refer to your users; you provided this domain while
 -- creating/updating the identity pool. The developer user identifier is an
--- identifier from your backend that uniquely identifies a user. When you
--- create an identity pool, you can specify the supported logins.
+-- identifier from your backend that uniquely identifies a user. When you create
+-- an identity pool, you can specify the supported logins.
+--
 goitfdiLogins :: Lens' GetOpenIdTokenForDeveloperIdentity (HashMap Text Text)
 goitfdiLogins = lens _goitfdiLogins (\s a -> s { _goitfdiLogins = a }) . _Map
 
 -- | The expiration time of the token, in seconds. You can specify a custom
--- expiration time for the token so that you can cache it. If you don't
--- provide an expiration time, the token is valid for 15 minutes. You can
--- exchange the token with Amazon STS for temporary AWS credentials, which
--- are valid for a maximum of one hour. The maximum token duration you can
--- set is 24 hours. You should take care in setting the expiration time for
--- a token, as there are significant security implications: an attacker
--- could use a leaked token to access your AWS resources for the token's
--- duration.
+-- expiration time for the token so that you can cache it. If you don't provide
+-- an expiration time, the token is valid for 15 minutes. You can exchange the
+-- token with Amazon STS for temporary AWS credentials, which are valid for a
+-- maximum of one hour. The maximum token duration you can set is 24 hours. You
+-- should take care in setting the expiration time for a token, as there are
+-- significant security implications: an attacker could use a leaked token to
+-- access your AWS resources for the token's duration.
+--
 goitfdiTokenDuration :: Lens' GetOpenIdTokenForDeveloperIdentity (Maybe Natural)
 goitfdiTokenDuration =
     lens _goitfdiTokenDuration (\s a -> s { _goitfdiTokenDuration = a })
@@ -145,11 +148,13 @@ getOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityR
     }
 
 -- | A unique identifier in the format REGION:GUID.
+--
 goitfdirIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
 goitfdirIdentityId =
     lens _goitfdirIdentityId (\s a -> s { _goitfdirIdentityId = a })
 
 -- | An OpenID token.
+--
 goitfdirToken :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
 goitfdirToken = lens _goitfdirToken (\s a -> s { _goitfdirToken = a })
 

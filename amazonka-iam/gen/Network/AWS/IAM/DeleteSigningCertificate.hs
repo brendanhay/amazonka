@@ -20,11 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes the specified signing certificate associated with the specified
--- user. If you do not specify a user name, IAM determines the user name
--- implicitly based on the AWS access key ID signing the request. Because this
--- action works for access keys under the AWS account, you can use this action
--- to manage root credentials even if the AWS account has no associated users.
+-- | Deletes the specified signing certificate associated with the specified user.
+--
+-- If you do not specify a user name, IAM determines the user name implicitly
+-- based on the AWS access key ID signing the request. Because this action works
+-- for access keys under the AWS account, you can use this action to manage root
+-- credentials even if the AWS account has no associated users.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSigningCertificate.html>
 module Network.AWS.IAM.DeleteSigningCertificate
@@ -69,10 +70,12 @@ deleteSigningCertificate p1 = DeleteSigningCertificate
     }
 
 -- | The ID of the signing certificate to delete.
+--
 dscCertificateId :: Lens' DeleteSigningCertificate Text
 dscCertificateId = lens _dscCertificateId (\s a -> s { _dscCertificateId = a })
 
 -- | The name of the user the signing certificate belongs to.
+--
 dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
 dscUserName = lens _dscUserName (\s a -> s { _dscUserName = a })
 

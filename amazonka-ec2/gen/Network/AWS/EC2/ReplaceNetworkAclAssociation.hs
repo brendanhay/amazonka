@@ -21,10 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Changes which network ACL a subnet is associated with. By default when you
--- create a subnet, it's automatically associated with the default network
--- ACL. For more information about network ACLs, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html
--- Network ACLs> in the /Amazon Virtual Private Cloud User Guide/.
+-- create a subnet, it's automatically associated with the default network ACL.
+-- For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /AmazonVirtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkAclAssociation.html>
 module Network.AWS.EC2.ReplaceNetworkAclAssociation
@@ -76,8 +74,9 @@ replaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
     , _rnaaDryRun        = Nothing
     }
 
--- | The ID of the current association between the original network ACL and
--- the subnet.
+-- | The ID of the current association between the original network ACL and the
+-- subnet.
+--
 rnaaAssociationId :: Lens' ReplaceNetworkAclAssociation Text
 rnaaAssociationId =
     lens _rnaaAssociationId (\s a -> s { _rnaaAssociationId = a })
@@ -86,6 +85,7 @@ rnaaDryRun :: Lens' ReplaceNetworkAclAssociation (Maybe Bool)
 rnaaDryRun = lens _rnaaDryRun (\s a -> s { _rnaaDryRun = a })
 
 -- | The ID of the new network ACL to associate with the subnet.
+--
 rnaaNetworkAclId :: Lens' ReplaceNetworkAclAssociation Text
 rnaaNetworkAclId = lens _rnaaNetworkAclId (\s a -> s { _rnaaNetworkAclId = a })
 
@@ -105,6 +105,7 @@ replaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     }
 
 -- | The ID of the new association.
+--
 rnaarNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)
 rnaarNewAssociationId =
     lens _rnaarNewAssociationId (\s a -> s { _rnaarNewAssociationId = a })

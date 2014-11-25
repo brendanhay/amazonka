@@ -23,10 +23,11 @@
 -- | This operation replaces the current set of name servers for the domain with
 -- the specified set of name servers. If you use Amazon Route 53 as your DNS
 -- service, specify the four name servers in the delegation set for the hosted
--- zone for the domain. If successful, this operation returns an operation ID
--- that you can use to track the progress and completion of the action. If the
--- request is not completed successfully, the domain registrant will be
--- notified by email.
+-- zone for the domain.
+--
+-- If successful, this operation returns an operation ID that you can use to
+-- track the progress and completion of the action. If the request is not
+-- completed successfully, the domain registrant will be notified by email.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainNameservers.html>
 module Network.AWS.Route53Domains.UpdateDomainNameservers
@@ -72,15 +73,29 @@ updateDomainNameservers p1 = UpdateDomainNameservers
     , _udnNameservers = mempty
     }
 
--- | The name of a domain. Type: String Default: None Constraints: The domain
--- name can contain only the letters a through z, the numbers 0 through 9,
--- and hyphen (-). Internationalized Domain Names are not supported.
--- Required: Yes.
+-- | The name of a domain.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: The domain name can contain only the letters a through z, the
+-- numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
+-- supported.
+--
+-- Required: Yes
+--
 udnDomainName :: Lens' UpdateDomainNameservers Text
 udnDomainName = lens _udnDomainName (\s a -> s { _udnDomainName = a })
 
--- | A list of new name servers for the domain. Type: Complex Children:
--- 'Name', 'GlueIps' Required: Yes.
+-- | A list of new name servers for the domain.
+--
+-- Type: Complex
+--
+-- Children: 'Name', 'GlueIps'
+--
+-- Required: Yes
+--
 udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
 udnNameservers = lens _udnNameservers (\s a -> s { _udnNameservers = a }) . _List
 
@@ -100,9 +115,15 @@ updateDomainNameserversResponse p1 = UpdateDomainNameserversResponse
     { _udnrOperationId = p1
     }
 
--- | Identifier for tracking the progress of the request. To use this ID to
--- query the operation status, use GetOperationDetail. Type: String Default:
--- None Constraints: Maximum 255 characters.
+-- | Identifier for tracking the progress of the request. To use this ID to query
+-- the operation status, use GetOperationDetail.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters.
+--
 udnrOperationId :: Lens' UpdateDomainNameserversResponse Text
 udnrOperationId = lens _udnrOperationId (\s a -> s { _udnrOperationId = a })
 

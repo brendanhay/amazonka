@@ -21,10 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Enables monitoring for a running instance. For more information about
--- monitoring instances, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html
--- Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud
--- User Guide/.
+-- monitoring instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-MonitorInstances.html>
 module Network.AWS.EC2.MonitorInstances
@@ -73,6 +70,7 @@ miDryRun :: Lens' MonitorInstances (Maybe Bool)
 miDryRun = lens _miDryRun (\s a -> s { _miDryRun = a })
 
 -- | One or more instance IDs.
+--
 miInstanceIds :: Lens' MonitorInstances [Text]
 miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a }) . _List
 
@@ -98,6 +96,7 @@ monitorInstancesResponse = MonitorInstancesResponse
     }
 
 -- | Monitoring information for one or more instances.
+--
 mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirInstanceMonitorings =
     lens _mirInstanceMonitorings (\s a -> s { _mirInstanceMonitorings = a })

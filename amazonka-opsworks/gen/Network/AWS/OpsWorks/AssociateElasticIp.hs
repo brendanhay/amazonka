@@ -22,14 +22,11 @@
 
 -- | Associates one of the stack's registered Elastic IP addresses with a
 -- specified instance. The address must first be registered with the stack by
--- calling 'RegisterElasticIp'. For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html
--- Resource Management>. Required Permissions: To use this action, an IAM user
--- must have a Manage permissions level for the stack, or an attached policy
--- that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- calling 'RegisterElasticIp'. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssociateElasticIp.html>
 module Network.AWS.OpsWorks.AssociateElasticIp
@@ -74,10 +71,12 @@ associateElasticIp p1 = AssociateElasticIp
     }
 
 -- | The Elastic IP address.
+--
 aeiElasticIp :: Lens' AssociateElasticIp Text
 aeiElasticIp = lens _aeiElasticIp (\s a -> s { _aeiElasticIp = a })
 
 -- | The instance ID.
+--
 aeiInstanceId :: Lens' AssociateElasticIp (Maybe Text)
 aeiInstanceId = lens _aeiInstanceId (\s a -> s { _aeiInstanceId = a })
 

@@ -14,12 +14,12 @@
 -- allows you to obtain and configure capacity with minimal friction. It
 -- provides you with complete control of your computing resources and lets you
 -- run on Amazon’s proven computing environment. Amazon EC2 reduces the time
--- required to obtain and boot new server instances to minutes, allowing you
--- to quickly scale capacity, both up and down, as your computing requirements
--- change. Amazon EC2 changes the economics of computing by allowing you to
--- pay only for capacity that you actually use. Amazon EC2 provides developers
--- the tools to build failure resilient applications and isolate themselves
--- from common failure scenarios.
+-- required to obtain and boot new server instances to minutes, allowing you to
+-- quickly scale capacity, both up and down, as your computing requirements
+-- change. Amazon EC2 changes the economics of computing by allowing you to pay
+-- only for capacity that you actually use. Amazon EC2 provides developers the
+-- tools to build failure resilient applications and isolate themselves from
+-- common failure scenarios.
 module Network.AWS.EC2
     ( module Network.AWS.EC2.AcceptVpcPeeringConnection
     , module Network.AWS.EC2.AllocateAddress

@@ -72,16 +72,19 @@ registerApplicationRevision p1 p2 = RegisterApplicationRevision
 
 -- | The name of an existing AWS CodeDeploy application within the AWS user
 -- account.
+--
 rarApplicationName :: Lens' RegisterApplicationRevision Text
 rarApplicationName =
     lens _rarApplicationName (\s a -> s { _rarApplicationName = a })
 
 -- | A comment about the revision.
+--
 rarDescription :: Lens' RegisterApplicationRevision (Maybe Text)
 rarDescription = lens _rarDescription (\s a -> s { _rarDescription = a })
 
 -- | Information about the application revision to register, including the
 -- revision's type and its location.
+--
 rarRevision :: Lens' RegisterApplicationRevision RevisionLocation
 rarRevision = lens _rarRevision (\s a -> s { _rarRevision = a })
 

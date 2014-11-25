@@ -20,11 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | From the command line, use 'update-subscription'. Updates the settings that
--- specify delivery of log files. Changes to a trail do not require stopping
--- the CloudTrail service. Use this action to designate an existing bucket for
--- log delivery. If the existing bucket has previously been a target for
--- CloudTrail log files, an IAM policy exists for the bucket.
+-- | From the command line, use 'update-subscription'.
+--
+-- Updates the settings that specify delivery of log files. Changes to a trail
+-- do not require stopping the CloudTrail service. Use this action to designate
+-- an existing bucket for log delivery. If the existing bucket has previously
+-- been a target for CloudTrail log files, an IAM policy exists for the bucket.
 --
 -- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_UpdateTrail.html>
 module Network.AWS.CloudTrail.UpdateTrail
@@ -104,40 +105,47 @@ updateTrail p1 = UpdateTrail
 -- | Specifies a log group name using an Amazon Resource Name (ARN), a unique
 -- identifier that represents the log group to which CloudTrail logs will be
 -- delivered. Not required unless you specify CloudWatchLogsRoleArn.
+--
 utCloudWatchLogsLogGroupArn :: Lens' UpdateTrail (Maybe Text)
 utCloudWatchLogsLogGroupArn =
     lens _utCloudWatchLogsLogGroupArn
         (\s a -> s { _utCloudWatchLogsLogGroupArn = a })
 
--- | Specifies the role for the CloudWatch Logs endpoint to assume to write to
--- a user’s log group.
+-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a
+-- user’s log group.
+--
 utCloudWatchLogsRoleArn :: Lens' UpdateTrail (Maybe Text)
 utCloudWatchLogsRoleArn =
     lens _utCloudWatchLogsRoleArn (\s a -> s { _utCloudWatchLogsRoleArn = a })
 
--- | Specifies whether the trail is publishing events from global services
--- such as IAM to the log files.
+-- | Specifies whether the trail is publishing events from global services such as
+-- IAM to the log files.
+--
 utIncludeGlobalServiceEvents :: Lens' UpdateTrail (Maybe Bool)
 utIncludeGlobalServiceEvents =
     lens _utIncludeGlobalServiceEvents
         (\s a -> s { _utIncludeGlobalServiceEvents = a })
 
 -- | Specifies the name of the trail.
+--
 utName :: Lens' UpdateTrail Text
 utName = lens _utName (\s a -> s { _utName = a })
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
+--
 utS3BucketName :: Lens' UpdateTrail (Maybe Text)
 utS3BucketName = lens _utS3BucketName (\s a -> s { _utS3BucketName = a })
 
--- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
--- you have designated for log file delivery.
+-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you
+-- have designated for log file delivery.
+--
 utS3KeyPrefix :: Lens' UpdateTrail (Maybe Text)
 utS3KeyPrefix = lens _utS3KeyPrefix (\s a -> s { _utS3KeyPrefix = a })
 
--- | Specifies the name of the Amazon SNS topic defined for notification of
--- log file delivery.
+-- | Specifies the name of the Amazon SNS topic defined for notification of log
+-- file delivery.
+--
 utSnsTopicName :: Lens' UpdateTrail (Maybe Text)
 utSnsTopicName = lens _utSnsTopicName (\s a -> s { _utSnsTopicName = a })
 
@@ -180,43 +188,50 @@ updateTrailResponse = UpdateTrailResponse
     , _utrCloudWatchLogsRoleArn      = Nothing
     }
 
--- | Specifies the Amazon Resource Name (ARN) of the log group to which
--- CloudTrail logs will be delivered.
+-- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail
+-- logs will be delivered.
+--
 utrCloudWatchLogsLogGroupArn :: Lens' UpdateTrailResponse (Maybe Text)
 utrCloudWatchLogsLogGroupArn =
     lens _utrCloudWatchLogsLogGroupArn
         (\s a -> s { _utrCloudWatchLogsLogGroupArn = a })
 
--- | Specifies the role for the CloudWatch Logs endpoint to assume to write to
--- a user’s log group.
+-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a
+-- user’s log group.
+--
 utrCloudWatchLogsRoleArn :: Lens' UpdateTrailResponse (Maybe Text)
 utrCloudWatchLogsRoleArn =
     lens _utrCloudWatchLogsRoleArn
         (\s a -> s { _utrCloudWatchLogsRoleArn = a })
 
--- | Specifies whether the trail is publishing events from global services
--- such as IAM to the log files.
+-- | Specifies whether the trail is publishing events from global services such as
+-- IAM to the log files.
+--
 utrIncludeGlobalServiceEvents :: Lens' UpdateTrailResponse (Maybe Bool)
 utrIncludeGlobalServiceEvents =
     lens _utrIncludeGlobalServiceEvents
         (\s a -> s { _utrIncludeGlobalServiceEvents = a })
 
 -- | Specifies the name of the trail.
+--
 utrName :: Lens' UpdateTrailResponse (Maybe Text)
 utrName = lens _utrName (\s a -> s { _utrName = a })
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
+--
 utrS3BucketName :: Lens' UpdateTrailResponse (Maybe Text)
 utrS3BucketName = lens _utrS3BucketName (\s a -> s { _utrS3BucketName = a })
 
--- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
--- you have designated for log file delivery.
+-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you
+-- have designated for log file delivery.
+--
 utrS3KeyPrefix :: Lens' UpdateTrailResponse (Maybe Text)
 utrS3KeyPrefix = lens _utrS3KeyPrefix (\s a -> s { _utrS3KeyPrefix = a })
 
--- | Specifies the name of the Amazon SNS topic defined for notification of
--- log file delivery.
+-- | Specifies the name of the Amazon SNS topic defined for notification of log
+-- file delivery.
+--
 utrSnsTopicName :: Lens' UpdateTrailResponse (Maybe Text)
 utrSnsTopicName = lens _utrSnsTopicName (\s a -> s { _utrSnsTopicName = a })
 

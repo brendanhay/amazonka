@@ -176,26 +176,31 @@ configExportDeliveryInfo = ConfigExportDeliveryInfo
     }
 
 -- | The time of the last attempted delivery.
+--
 cediLastAttemptTime :: Lens' ConfigExportDeliveryInfo (Maybe UTCTime)
 cediLastAttemptTime =
     lens _cediLastAttemptTime (\s a -> s { _cediLastAttemptTime = a })
         . mapping _Time
 
 -- | The error code from the last attempted delivery.
+--
 cediLastErrorCode :: Lens' ConfigExportDeliveryInfo (Maybe Text)
 cediLastErrorCode =
     lens _cediLastErrorCode (\s a -> s { _cediLastErrorCode = a })
 
 -- | The error message from the last attempted delivery.
+--
 cediLastErrorMessage :: Lens' ConfigExportDeliveryInfo (Maybe Text)
 cediLastErrorMessage =
     lens _cediLastErrorMessage (\s a -> s { _cediLastErrorMessage = a })
 
 -- | Status of the last attempted delivery.
+--
 cediLastStatus :: Lens' ConfigExportDeliveryInfo (Maybe DeliveryStatus)
 cediLastStatus = lens _cediLastStatus (\s a -> s { _cediLastStatus = a })
 
 -- | The time of the last successful delivery.
+--
 cediLastSuccessfulTime :: Lens' ConfigExportDeliveryInfo (Maybe UTCTime)
 cediLastSuccessfulTime =
     lens _cediLastSuccessfulTime (\s a -> s { _cediLastSuccessfulTime = a })
@@ -246,20 +251,24 @@ configStreamDeliveryInfo = ConfigStreamDeliveryInfo
     }
 
 -- | The error code from the last attempted delivery.
+--
 csdiLastErrorCode :: Lens' ConfigStreamDeliveryInfo (Maybe Text)
 csdiLastErrorCode =
     lens _csdiLastErrorCode (\s a -> s { _csdiLastErrorCode = a })
 
 -- | The error message from the last attempted delivery.
+--
 csdiLastErrorMessage :: Lens' ConfigStreamDeliveryInfo (Maybe Text)
 csdiLastErrorMessage =
     lens _csdiLastErrorMessage (\s a -> s { _csdiLastErrorMessage = a })
 
 -- | Status of the last attempted delivery.
+--
 csdiLastStatus :: Lens' ConfigStreamDeliveryInfo (Maybe DeliveryStatus)
 csdiLastStatus = lens _csdiLastStatus (\s a -> s { _csdiLastStatus = a })
 
 -- | The time from the last status change.
+--
 csdiLastStatusChangeTime :: Lens' ConfigStreamDeliveryInfo (Maybe UTCTime)
 csdiLastStatusChangeTime =
     lens _csdiLastStatusChangeTime
@@ -305,15 +314,18 @@ relationship = Relationship
     }
 
 -- | The name of the related resource.
+--
 rRelationshipName :: Lens' Relationship (Maybe Text)
 rRelationshipName =
     lens _rRelationshipName (\s a -> s { _rRelationshipName = a })
 
 -- | The resource ID of the related resource (for example, 'sg-xxxxxx'.
+--
 rResourceId :: Lens' Relationship (Maybe Text)
 rResourceId = lens _rResourceId (\s a -> s { _rResourceId = a })
 
 -- | The resource type of the related resource.
+--
 rResourceType :: Lens' Relationship (Maybe ResourceType)
 rResourceType = lens _rResourceType (\s a -> s { _rResourceType = a })
 
@@ -360,20 +372,24 @@ deliveryChannel = DeliveryChannel
 -- | The name of the delivery channel. By default, AWS Config automatically
 -- assigns the name "default" when creating the delivery channel. You cannot
 -- change the assigned name.
+--
 dcName :: Lens' DeliveryChannel (Maybe Text)
 dcName = lens _dcName (\s a -> s { _dcName = a })
 
--- | The name of the Amazon S3 bucket used to store configuration history for
--- the delivery channel.
+-- | The name of the Amazon S3 bucket used to store configuration history for the
+-- delivery channel.
+--
 dcS3BucketName :: Lens' DeliveryChannel (Maybe Text)
 dcS3BucketName = lens _dcS3BucketName (\s a -> s { _dcS3BucketName = a })
 
 -- | The prefix for the specified Amazon S3 bucket.
+--
 dcS3KeyPrefix :: Lens' DeliveryChannel (Maybe Text)
 dcS3KeyPrefix = lens _dcS3KeyPrefix (\s a -> s { _dcS3KeyPrefix = a })
 
--- | The Amazon Resource Name (ARN) of the IAM role used for accessing the
--- Amazon S3 bucket and the Amazon SNS topic.
+-- | The Amazon Resource Name (ARN) of the IAM role used for accessing the Amazon
+-- S3 bucket and the Amazon SNS topic.
+--
 dcSnsTopicARN :: Lens' DeliveryChannel (Maybe Text)
 dcSnsTopicARN = lens _dcSnsTopicARN (\s a -> s { _dcSnsTopicARN = a })
 
@@ -558,38 +574,46 @@ configurationItem = ConfigurationItem
     }
 
 -- | The 12 digit AWS account ID associated with the resource.
+--
 ciAccountId :: Lens' ConfigurationItem (Maybe Text)
 ciAccountId = lens _ciAccountId (\s a -> s { _ciAccountId = a })
 
 -- | The Amazon Resource Name (ARN) of the resource.
+--
 ciArn :: Lens' ConfigurationItem (Maybe Text)
 ciArn = lens _ciArn (\s a -> s { _ciArn = a })
 
 -- | The Availability Zone associated with the resource.
+--
 ciAvailabilityZone :: Lens' ConfigurationItem (Maybe Text)
 ciAvailabilityZone =
     lens _ciAvailabilityZone (\s a -> s { _ciAvailabilityZone = a })
 
 -- | The description of the resource configuration.
+--
 ciConfiguration :: Lens' ConfigurationItem (Maybe Text)
 ciConfiguration = lens _ciConfiguration (\s a -> s { _ciConfiguration = a })
 
 -- | The time when the configuration recording was initiated.
+--
 ciConfigurationItemCaptureTime :: Lens' ConfigurationItem (Maybe UTCTime)
 ciConfigurationItemCaptureTime =
     lens _ciConfigurationItemCaptureTime
         (\s a -> s { _ciConfigurationItemCaptureTime = a })
             . mapping _Time
 
--- | Unique MD5 hash that represents the configuration item's state. You can
--- use MD5 hash to compare the states of two or more configuration items
--- that are associated with the same resource.
+-- | Unique MD5 hash that represents the configuration item's state.
+--
+-- You can use MD5 hash to compare the states of two or more configuration
+-- items that are associated with the same resource.
+--
 ciConfigurationItemMD5Hash :: Lens' ConfigurationItem (Maybe Text)
 ciConfigurationItemMD5Hash =
     lens _ciConfigurationItemMD5Hash
         (\s a -> s { _ciConfigurationItemMD5Hash = a })
 
 -- | The configuration item status.
+--
 ciConfigurationItemStatus :: Lens' ConfigurationItem (Maybe ConfigurationItemStatus)
 ciConfigurationItemStatus =
     lens _ciConfigurationItemStatus
@@ -597,42 +621,52 @@ ciConfigurationItemStatus =
 
 -- | An identifier that indicates the ordering of the configuration items of a
 -- resource.
+--
 ciConfigurationStateId :: Lens' ConfigurationItem (Maybe Text)
 ciConfigurationStateId =
     lens _ciConfigurationStateId (\s a -> s { _ciConfigurationStateId = a })
 
--- | A list of CloudTrail event IDs. A populated field indicates that the
--- current configuration was initiated by the events recorded in the
--- CloudTrail log. For more information about CloudTrail, see
--- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html
--- What is AWS CloudTrail?>. An empty field indicates that the current
--- configuration was not initiated by any event.
+-- | A list of CloudTrail event IDs.
+--
+-- A populated field indicates that the current configuration was initiated by
+-- the events recorded in the CloudTrail log. For more information about
+-- CloudTrail, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?>.
+--
+-- An empty field indicates that the current configuration was not initiated by
+-- any event.
+--
 ciRelatedEvents :: Lens' ConfigurationItem [Text]
 ciRelatedEvents = lens _ciRelatedEvents (\s a -> s { _ciRelatedEvents = a }) . _List
 
 -- | A list of related AWS resources.
+--
 ciRelationships :: Lens' ConfigurationItem [Relationship]
 ciRelationships = lens _ciRelationships (\s a -> s { _ciRelationships = a }) . _List
 
 -- | The time stamp when the resource was created.
+--
 ciResourceCreationTime :: Lens' ConfigurationItem (Maybe UTCTime)
 ciResourceCreationTime =
     lens _ciResourceCreationTime (\s a -> s { _ciResourceCreationTime = a })
         . mapping _Time
 
 -- | The ID of the resource (for example., 'sg-xxxxxx').
+--
 ciResourceId :: Lens' ConfigurationItem (Maybe Text)
 ciResourceId = lens _ciResourceId (\s a -> s { _ciResourceId = a })
 
 -- | The type of AWS resource.
+--
 ciResourceType :: Lens' ConfigurationItem (Maybe ResourceType)
 ciResourceType = lens _ciResourceType (\s a -> s { _ciResourceType = a })
 
 -- | A mapping of key value tags associated with the resource.
+--
 ciTags :: Lens' ConfigurationItem (HashMap Text Text)
 ciTags = lens _ciTags (\s a -> s { _ciTags = a }) . _Map
 
 -- | The version number of the resource configuration.
+--
 ciVersion :: Lens' ConfigurationItem (Maybe Text)
 ciVersion = lens _ciVersion (\s a -> s { _ciVersion = a })
 
@@ -729,15 +763,17 @@ deliveryChannelStatus = DeliveryChannelStatus
     , _dcsConfigStreamDeliveryInfo   = Nothing
     }
 
--- | A list that contains the status of the delivery of the configuration
--- history to the specified Amazon S3 bucket.
+-- | A list that contains the status of the delivery of the configuration history
+-- to the specified Amazon S3 bucket.
+--
 dcsConfigHistoryDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigExportDeliveryInfo)
 dcsConfigHistoryDeliveryInfo =
     lens _dcsConfigHistoryDeliveryInfo
         (\s a -> s { _dcsConfigHistoryDeliveryInfo = a })
 
--- | A list containing the status of the delivery of the snapshot to the
--- specified Amazon S3 bucket.
+-- | A list containing the status of the delivery of the snapshot to the specified
+-- Amazon S3 bucket.
+--
 dcsConfigSnapshotDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigExportDeliveryInfo)
 dcsConfigSnapshotDeliveryInfo =
     lens _dcsConfigSnapshotDeliveryInfo
@@ -745,12 +781,14 @@ dcsConfigSnapshotDeliveryInfo =
 
 -- | A list containing the status of the delivery of the configuration stream
 -- notification to the specified Amazon SNS topic.
+--
 dcsConfigStreamDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigStreamDeliveryInfo)
 dcsConfigStreamDeliveryInfo =
     lens _dcsConfigStreamDeliveryInfo
         (\s a -> s { _dcsConfigStreamDeliveryInfo = a })
 
 -- | The name of the delivery channel.
+--
 dcsName :: Lens' DeliveryChannelStatus (Maybe Text)
 dcsName = lens _dcsName (\s a -> s { _dcsName = a })
 
@@ -813,37 +851,45 @@ configurationRecorderStatus = ConfigurationRecorderStatus
     }
 
 -- | The error code indicating that the recording failed.
+--
 crsLastErrorCode :: Lens' ConfigurationRecorderStatus (Maybe Text)
 crsLastErrorCode = lens _crsLastErrorCode (\s a -> s { _crsLastErrorCode = a })
 
 -- | The message indicating that the recording failed due to an error.
+--
 crsLastErrorMessage :: Lens' ConfigurationRecorderStatus (Maybe Text)
 crsLastErrorMessage =
     lens _crsLastErrorMessage (\s a -> s { _crsLastErrorMessage = a })
 
 -- | The time the recorder was last started.
+--
 crsLastStartTime :: Lens' ConfigurationRecorderStatus (Maybe UTCTime)
 crsLastStartTime = lens _crsLastStartTime (\s a -> s { _crsLastStartTime = a }) . mapping _Time
 
 -- | The last (previous) status of the recorder.
+--
 crsLastStatus :: Lens' ConfigurationRecorderStatus (Maybe RecorderStatus)
 crsLastStatus = lens _crsLastStatus (\s a -> s { _crsLastStatus = a })
 
 -- | The time when the status was last changed.
+--
 crsLastStatusChangeTime :: Lens' ConfigurationRecorderStatus (Maybe UTCTime)
 crsLastStatusChangeTime =
     lens _crsLastStatusChangeTime (\s a -> s { _crsLastStatusChangeTime = a })
         . mapping _Time
 
 -- | The time the recorder was last stopped.
+--
 crsLastStopTime :: Lens' ConfigurationRecorderStatus (Maybe UTCTime)
 crsLastStopTime = lens _crsLastStopTime (\s a -> s { _crsLastStopTime = a }) . mapping _Time
 
 -- | The name of the configuration recorder.
+--
 crsName :: Lens' ConfigurationRecorderStatus (Maybe Text)
 crsName = lens _crsName (\s a -> s { _crsName = a })
 
 -- | Specifies whether the recorder is currently recording or not.
+--
 crsRecording :: Lens' ConfigurationRecorderStatus (Maybe Bool)
 crsRecording = lens _crsRecording (\s a -> s { _crsRecording = a })
 
@@ -924,14 +970,16 @@ configurationRecorder = ConfigurationRecorder
     , _crRoleARN = Nothing
     }
 
--- | The name of the recorder. By default, AWS Config automatically assigns
--- the name "default" when creating the configuration recorder. You cannot
--- change the assigned name.
+-- | The name of the recorder. By default, AWS Config automatically assigns the
+-- name "default" when creating the configuration recorder. You cannot change
+-- the assigned name.
+--
 crName :: Lens' ConfigurationRecorder (Maybe Text)
 crName = lens _crName (\s a -> s { _crName = a })
 
--- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS
--- resources associated with the account.
+-- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources
+-- associated with the account.
+--
 crRoleARN :: Lens' ConfigurationRecorder (Maybe Text)
 crRoleARN = lens _crRoleARN (\s a -> s { _crRoleARN = a })
 

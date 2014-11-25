@@ -5,7 +5,7 @@
   {% for field in type.fields %}
 
     {% if field.value.documentation %}
-{{ field.value.documentation | above(74, 0) }}
+{{ field.value.documentation }}
     {% endif %}
 {{ field.value.lens }} :: Lens' {{ type.name }} {{ field.value.typeExposed | wrapped }}
     {% if (field.value.name | length) > 24 %}

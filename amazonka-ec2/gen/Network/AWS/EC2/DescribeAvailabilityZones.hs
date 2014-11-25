@@ -22,12 +22,10 @@
 
 -- | Describes one or more of the Availability Zones that are available to you.
 -- The results include zones only for the region you're currently using. If
--- there is an event impacting an Availability Zone, you can use this request
--- to view the state and any provided message for that Availability Zone. For
--- more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
--- Regions and Availability Zones> in the /Amazon Elastic Compute Cloud User
--- Guide/.
+-- there is an event impacting an Availability Zone, you can use this request to
+-- view the state and any provided message for that Availability Zone.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html Regions and Availability Zones> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAvailabilityZones.html>
 module Network.AWS.EC2.DescribeAvailabilityZones
@@ -80,15 +78,23 @@ describeAvailabilityZones = DescribeAvailabilityZones
 dazDryRun :: Lens' DescribeAvailabilityZones (Maybe Bool)
 dazDryRun = lens _dazDryRun (\s a -> s { _dazDryRun = a })
 
--- | One or more filters. 'message' - Information about the Availability Zone.
+-- | One or more filters.
+--
+-- 'message' - Information about the Availability Zone.
+--
 -- 'region-name' - The name of the region for the Availability Zone (for
--- example, 'us-east-1'). 'state' - The state of the Availability Zone
--- ('available' | 'impaired' | 'unavailable'). 'zone-name' - The name of the
--- Availability Zone (for example, 'us-east-1a').
+-- example, 'us-east-1').
+--
+-- 'state' - The state of the Availability Zone ('available' | 'impaired' | 'unavailable').
+--
+-- 'zone-name' - The name of the Availability Zone (for example, 'us-east-1a').
+--
+--
 dazFilters :: Lens' DescribeAvailabilityZones [Filter]
 dazFilters = lens _dazFilters (\s a -> s { _dazFilters = a }) . _List
 
 -- | The names of one or more Availability Zones.
+--
 dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
 dazZoneNames = lens _dazZoneNames (\s a -> s { _dazZoneNames = a }) . _List
 
@@ -114,6 +120,7 @@ describeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     }
 
 -- | Information about one or more Availability Zones.
+--
 dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
 dazrAvailabilityZones =
     lens _dazrAvailabilityZones (\s a -> s { _dazrAvailabilityZones = a })

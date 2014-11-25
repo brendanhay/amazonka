@@ -25,7 +25,7 @@
         ],
         "name": "Amazon Cognito Identity",
         "version": "2014-06-30",
-        "documentation": "Amazon Cognito is a web service that facilitates the delivery of scoped, temporary credentials to mobile devices or other untrusted environments. Amazon Cognito uniquely identifies a device or user and supplies the user with a consistent identity throughout the lifetime of an application. Amazon Cognito lets users authenticate with third-party identity providers (Facebook, Google, or Login with Amazon). As a developer, you decide which identity providers to trust. You can also choose to support unauthenticated access from your application. Your users are provided with Cognito tokens that uniquely identify their device and any information provided about third-party logins.",
+        "documentation": "-- | Amazon Cognito is a web service that facilitates the delivery of scoped,\n-- temporary credentials to mobile devices or other untrusted environments.\n-- Amazon Cognito uniquely identifies a device or user and supplies the user\n-- with a consistent identity throughout the lifetime of an application. Amazon\n-- Cognito lets users authenticate with third-party identity providers\n-- (Facebook, Google, or Login with Amazon). As a developer, you decide which\n-- identity providers to trust. You can also choose to support unauthenticated\n-- access from your application. Your users are provided with Cognito tokens\n-- that uniquely identify their device and any information provided about\n-- third-party logins.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
         "endpoint": "Regional",
@@ -56,7 +56,7 @@
         "protocol": "json",
         "name": "Amazon Cognito Identity",
         "version": "0.0.2",
-        "description": "Amazon Cognito is a web service that facilitates the delivery of scoped, temporary credentials to mobile devices or other untrusted environments. Amazon Cognito uniquely identifies a device or user and supplies the user with a consistent identity throughout the lifetime of an application. Amazon Cognito lets users authenticate with third-party identity providers (Facebook, Google, or Login with Amazon). As a developer, you decide which identity providers to trust. You can also choose to support unauthenticated access from your application. Your users are provided with Cognito tokens that uniquely identify their device and any information provided about third-party logins."
+        "description": "    Amazon Cognito is a web service that facilitates the delivery of scoped,\n    temporary credentials to mobile devices or other untrusted environments.\n    Amazon Cognito uniquely identifies a device or user and supplies the user\n    with a consistent identity throughout the lifetime of an application. Amazon\n    Cognito lets users authenticate with third-party identity providers\n    (Facebook, Google, or Login with Amazon). As a developer, you decide which\n    identity providers to trust. You can also choose to support unauthenticated\n    access from your application. Your users are provided with Cognito tokens\n    that uniquely identify their device and any information provided about\n    third-party logins."
     },
     "types": {
         "namespace": "Network.AWS.CognitoIdentity.Types",
@@ -81,7 +81,7 @@
                         "name": "_idIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -96,7 +96,7 @@
                         "name": "_idLogins",
                         "shape": "LoginsList",
                         "locationName": "Logins",
-                        "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "[Text]",
                         "type": "List \"Logins\" Text"
                     }
@@ -119,7 +119,7 @@
                         "name": "_idIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -134,7 +134,7 @@
                         "name": "_idLogins",
                         "shape": "LoginsList",
                         "locationName": "Logins",
-                        "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "[Text]",
                         "type": "List \"Logins\" Text"
                     }
@@ -151,7 +151,7 @@
                         "name": "_idIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -166,7 +166,7 @@
                         "name": "_idLogins",
                         "shape": "LoginsList",
                         "locationName": "Logins",
-                        "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "[Text]",
                         "type": "List \"Logins\" Text"
                     }
@@ -191,7 +191,7 @@
                         "name": "_ipIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -206,7 +206,7 @@
                         "name": "_ipIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -221,7 +221,7 @@
                         "name": "_ipAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -236,7 +236,7 @@
                         "name": "_ipSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -251,7 +251,7 @@
                         "name": "_ipDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -284,7 +284,7 @@
                         "name": "_ipIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -299,7 +299,7 @@
                         "name": "_ipIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -314,7 +314,7 @@
                         "name": "_ipAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -335,7 +335,7 @@
                         "name": "_ipSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -350,7 +350,7 @@
                         "name": "_ipDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -382,7 +382,7 @@
                         "name": "_ipAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -397,7 +397,7 @@
                         "name": "_ipDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -412,7 +412,7 @@
                         "name": "_ipIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -427,7 +427,7 @@
                         "name": "_ipIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -457,7 +457,7 @@
                         "name": "_ipSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -483,7 +483,7 @@
                         "name": "_ipsdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -498,7 +498,7 @@
                         "name": "_ipsdIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "A string that you provide.",
+                        "documentation": "-- | A string that you provide.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -521,7 +521,7 @@
                         "name": "_ipsdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -536,7 +536,7 @@
                         "name": "_ipsdIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "A string that you provide.",
+                        "documentation": "-- | A string that you provide.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -553,7 +553,7 @@
                         "name": "_ipsdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -568,7 +568,7 @@
                         "name": "_ipsdIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "A string that you provide.",
+                        "documentation": "-- | A string that you provide.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -605,7 +605,7 @@
                         "name": "_ciprIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -620,7 +620,7 @@
                         "name": "_ciprIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -635,7 +635,7 @@
                         "name": "_ciprAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -650,7 +650,7 @@
                         "name": "_ciprSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -665,7 +665,7 @@
                         "name": "_ciprDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -700,7 +700,7 @@
                         "name": "_ciprIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -715,7 +715,7 @@
                         "name": "_ciprIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -730,7 +730,7 @@
                         "name": "_ciprAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -755,7 +755,7 @@
                         "name": "_ciprSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -770,7 +770,7 @@
                         "name": "_ciprDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -802,7 +802,7 @@
                         "name": "_ciprAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -817,7 +817,7 @@
                         "name": "_ciprDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -832,7 +832,7 @@
                         "name": "_ciprIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -847,7 +847,7 @@
                         "name": "_ciprIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -877,7 +877,7 @@
                         "name": "_ciprSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -893,7 +893,7 @@
             "pager": null,
             "name": "CreateIdentityPool",
             "method": "post",
-            "documentation": "\u003cp\u003eCreates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The limit on identity pools is 60 per account.\u003c/p\u003e",
+            "documentation": "-- | Creates a new identity pool. The identity pool is a store of user identity\n-- information that is specific to your AWS account. The limit on identity pools\n-- is 60 per account.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -917,7 +917,7 @@
                         "name": "_cipIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -932,7 +932,7 @@
                         "name": "_cipAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "\u003cp\u003eTRUE if the identity pool supports unauthenticated logins.\u003c/p\u003e",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.\n--",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -947,7 +947,7 @@
                         "name": "_cipSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -962,7 +962,7 @@
                         "name": "_cipDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the \u003ccode\u003eDeveloperProviderName\u003c/code\u003e, you can use letters as well as period (\u003ccode\u003e.\u003c/code\u003e), underscore (\u003ccode\u003e_\u003c/code\u003e), and dash (\u003ccode\u003e-\u003c/code\u003e).\u003c/p\u003e \u003cp\u003eOnce you have set a developer provider name, you cannot change it. Please take care in setting this parameter.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users. This name acts as a\n-- placeholder that allows your backend and the Cognito service to communicate\n-- about the developer provider. For the 'DeveloperProviderName', you can use\n-- letters as well as period ('.'), underscore ('_'), and dash ('-').\n--\n-- Once you have set a developer provider name, you cannot change it. Please\n-- take care in setting this parameter.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1002,7 +1002,7 @@
                         "name": "_cipIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1017,7 +1017,7 @@
                         "name": "_cipAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "\u003cp\u003eTRUE if the identity pool supports unauthenticated logins.\u003c/p\u003e",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.\n--",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -1044,7 +1044,7 @@
                         "name": "_cipSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -1059,7 +1059,7 @@
                         "name": "_cipDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the \u003ccode\u003eDeveloperProviderName\u003c/code\u003e, you can use letters as well as period (\u003ccode\u003e.\u003c/code\u003e), underscore (\u003ccode\u003e_\u003c/code\u003e), and dash (\u003ccode\u003e-\u003c/code\u003e).\u003c/p\u003e \u003cp\u003eOnce you have set a developer provider name, you cannot change it. Please take care in setting this parameter.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users. This name acts as a\n-- placeholder that allows your backend and the Cognito service to communicate\n-- about the developer provider. For the 'DeveloperProviderName', you can use\n-- letters as well as period ('.'), underscore ('_'), and dash ('-').\n--\n-- Once you have set a developer provider name, you cannot change it. Please\n-- take care in setting this parameter.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1091,7 +1091,7 @@
                         "name": "_cipAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "\u003cp\u003eTRUE if the identity pool supports unauthenticated logins.\u003c/p\u003e",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.\n--",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -1106,7 +1106,7 @@
                         "name": "_cipDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the \u003ccode\u003eDeveloperProviderName\u003c/code\u003e, you can use letters as well as period (\u003ccode\u003e.\u003c/code\u003e), underscore (\u003ccode\u003e_\u003c/code\u003e), and dash (\u003ccode\u003e-\u003c/code\u003e).\u003c/p\u003e \u003cp\u003eOnce you have set a developer provider name, you cannot change it. Please take care in setting this parameter.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users. This name acts as a\n-- placeholder that allows your backend and the Cognito service to communicate\n-- about the developer provider. For the 'DeveloperProviderName', you can use\n-- letters as well as period ('.'), underscore ('_'), and dash ('-').\n--\n-- Once you have set a developer provider name, you cannot change it. Please\n-- take care in setting this parameter.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1121,7 +1121,7 @@
                         "name": "_cipIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1151,7 +1151,7 @@
                         "name": "_cipSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -1194,7 +1194,7 @@
             "pager": null,
             "name": "DeleteIdentityPool",
             "method": "post",
-            "documentation": "\u003cp\u003eDeletes a user pool. Once a pool is deleted, users will not be able to authenticate with the pool.\u003c/p\u003e",
+            "documentation": "-- | Deletes a user pool. Once a pool is deleted, users will not be able to\n-- authenticate with the pool.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1221,7 +1221,7 @@
                     "name": "_dip1IdentityPoolId",
                     "shape": "IdentityPoolId",
                     "locationName": "IdentityPoolId",
-                    "documentation": "An identity pool ID in the format REGION:GUID.",
+                    "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -1237,7 +1237,7 @@
                         "name": "_dip1IdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1262,7 +1262,7 @@
                         "name": "_dip1IdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1290,7 +1290,7 @@
                         "name": "_dip1IdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1321,7 +1321,7 @@
                         "name": "_diprIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1336,7 +1336,7 @@
                         "name": "_diprIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1351,7 +1351,7 @@
                         "name": "_diprAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -1366,7 +1366,7 @@
                         "name": "_diprSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -1381,7 +1381,7 @@
                         "name": "_diprDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1416,7 +1416,7 @@
                         "name": "_diprIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1431,7 +1431,7 @@
                         "name": "_diprIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1446,7 +1446,7 @@
                         "name": "_diprAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -1471,7 +1471,7 @@
                         "name": "_diprSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -1486,7 +1486,7 @@
                         "name": "_diprDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1518,7 +1518,7 @@
                         "name": "_diprAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -1533,7 +1533,7 @@
                         "name": "_diprDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1548,7 +1548,7 @@
                         "name": "_diprIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1563,7 +1563,7 @@
                         "name": "_diprIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1593,7 +1593,7 @@
                         "name": "_diprSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -1609,7 +1609,7 @@
             "pager": null,
             "name": "DescribeIdentityPool",
             "method": "post",
-            "documentation": "\u003cp\u003eGets details about a particular identity pool, including the pool name, ID description, creation date, and current number of users.\u003c/p\u003e",
+            "documentation": "-- | Gets details about a particular identity pool, including the pool name, ID\n-- description, creation date, and current number of users.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1636,7 +1636,7 @@
                     "name": "_dipIdentityPoolId",
                     "shape": "IdentityPoolId",
                     "locationName": "IdentityPoolId",
-                    "documentation": "An identity pool ID in the format REGION:GUID.",
+                    "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -1652,7 +1652,7 @@
                         "name": "_dipIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1677,7 +1677,7 @@
                         "name": "_dipIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1705,7 +1705,7 @@
                         "name": "_dipIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1738,7 +1738,7 @@
                     "name": "_girIdentityId",
                     "shape": "IdentityId",
                     "locationName": "IdentityId",
-                    "documentation": "A unique identifier in the format REGION:GUID.",
+                    "documentation": "-- | A unique identifier in the format REGION:GUID.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -1754,7 +1754,7 @@
                         "name": "_girIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1783,7 +1783,7 @@
                         "name": "_girIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1800,7 +1800,7 @@
                         "name": "_girIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1816,7 +1816,7 @@
             "pager": null,
             "name": "GetId",
             "method": "post",
-            "documentation": "\u003cp\u003eGenerates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit linked account.\u003c/p\u003e",
+            "documentation": "-- | Generates (or retrieves) a Cognito ID. Supplying multiple logins will create\n-- an implicit linked account.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1840,7 +1840,7 @@
                         "name": "_giAccountId",
                         "shape": "AccountId",
                         "locationName": "AccountId",
-                        "documentation": "A standard AWS account ID (9+ digits).",
+                        "documentation": "-- | A standard AWS account ID (9+ digits).",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1855,7 +1855,7 @@
                         "name": "_giIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1870,7 +1870,7 @@
                         "name": "_giLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens.\u003c/p\u003e \u003cp\u003eThe available provider names for \u003ccode\u003eLogins\u003c/code\u003e are as follows: \u003cul\u003e \u003cli\u003eFacebook: \u003ccode\u003egraph.facebook.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eGoogle: \u003ccode\u003eaccounts.google.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eAmazon: \u003ccode\u003ewww.amazon.com\u003c/code\u003e \u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.\n--\n-- The available provider names for 'Logins' are as follows:  Facebook: 'graph.facebook.com'  Google: 'accounts.google.com'  Amazon: 'www.amazon.com'\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -1895,7 +1895,7 @@
                         "name": "_giAccountId",
                         "shape": "AccountId",
                         "locationName": "AccountId",
-                        "documentation": "A standard AWS account ID (9+ digits).",
+                        "documentation": "-- | A standard AWS account ID (9+ digits).",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1910,7 +1910,7 @@
                         "name": "_giIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1937,7 +1937,7 @@
                         "name": "_giLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens.\u003c/p\u003e \u003cp\u003eThe available provider names for \u003ccode\u003eLogins\u003c/code\u003e are as follows: \u003cul\u003e \u003cli\u003eFacebook: \u003ccode\u003egraph.facebook.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eGoogle: \u003ccode\u003eaccounts.google.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eAmazon: \u003ccode\u003ewww.amazon.com\u003c/code\u003e \u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.\n--\n-- The available provider names for 'Logins' are as follows:  Facebook: 'graph.facebook.com'  Google: 'accounts.google.com'  Amazon: 'www.amazon.com'\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -1954,7 +1954,7 @@
                         "name": "_giAccountId",
                         "shape": "AccountId",
                         "locationName": "AccountId",
-                        "documentation": "A standard AWS account ID (9+ digits).",
+                        "documentation": "-- | A standard AWS account ID (9+ digits).",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1969,7 +1969,7 @@
                         "name": "_giIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1984,7 +1984,7 @@
                         "name": "_giLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens.\u003c/p\u003e \u003cp\u003eThe available provider names for \u003ccode\u003eLogins\u003c/code\u003e are as follows: \u003cul\u003e \u003cli\u003eFacebook: \u003ccode\u003egraph.facebook.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eGoogle: \u003ccode\u003eaccounts.google.com\u003c/code\u003e \u003c/li\u003e \u003cli\u003eAmazon: \u003ccode\u003ewww.amazon.com\u003c/code\u003e \u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.\n--\n-- The available provider names for 'Logins' are as follows:  Facebook: 'graph.facebook.com'  Google: 'accounts.google.com'  Amazon: 'www.amazon.com'\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -2016,7 +2016,7 @@
                         "name": "_goitrIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID. Note that the IdentityId\n-- returned may not match the one passed on input.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2031,7 +2031,7 @@
                         "name": "_goitrToken",
                         "shape": "OIDCToken",
                         "locationName": "Token",
-                        "documentation": "An OpenID token, valid for 15 minutes.",
+                        "documentation": "-- | An OpenID token, valid for 15 minutes.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2060,7 +2060,7 @@
                         "name": "_goitrIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID. Note that the IdentityId\n-- returned may not match the one passed on input.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2075,7 +2075,7 @@
                         "name": "_goitrToken",
                         "shape": "OIDCToken",
                         "locationName": "Token",
-                        "documentation": "An OpenID token, valid for 15 minutes.",
+                        "documentation": "-- | An OpenID token, valid for 15 minutes.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2092,7 +2092,7 @@
                         "name": "_goitrIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID. Note that the IdentityId\n-- returned may not match the one passed on input.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2107,7 +2107,7 @@
                         "name": "_goitrToken",
                         "shape": "OIDCToken",
                         "locationName": "Token",
-                        "documentation": "An OpenID token, valid for 15 minutes.",
+                        "documentation": "-- | An OpenID token, valid for 15 minutes.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2123,7 +2123,7 @@
             "pager": null,
             "name": "GetOpenIdToken",
             "method": "post",
-            "documentation": "\u003cp\u003eGets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by \u003ca\u003eGetId\u003c/a\u003e. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.\u003c/p\u003e \u003cp\u003eThe OpenId token is valid for 15 minutes.\u003c/p\u003e",
+            "documentation": "-- | Gets an OpenID token, using a known Cognito ID. This known Cognito ID is\n-- returned by 'GetId'. You can optionally add additional logins for the identity.\n-- Supplying multiple logins creates an implicit link.\n--\n-- The OpenId token is valid for 15 minutes.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2147,7 +2147,7 @@
                         "name": "_goitIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2162,7 +2162,7 @@
                         "name": "_goitLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -2187,7 +2187,7 @@
                         "name": "_goitIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2214,7 +2214,7 @@
                         "name": "_goitLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -2231,7 +2231,7 @@
                         "name": "_goitIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2246,7 +2246,7 @@
                         "name": "_goitLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -2278,7 +2278,7 @@
                         "name": "_goitfdirIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2293,7 +2293,7 @@
                         "name": "_goitfdirToken",
                         "shape": "OIDCToken",
                         "locationName": "Token",
-                        "documentation": "\u003cp\u003eAn OpenID token.\u003c/p\u003e",
+                        "documentation": "-- | An OpenID token.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2322,7 +2322,7 @@
                         "name": "_goitfdirIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2337,7 +2337,7 @@
                         "name": "_goitfdirToken",
                         "shape": "OIDCToken",
                         "locationName": "Token",
-                        "documentation": "\u003cp\u003eAn OpenID token.\u003c/p\u003e",
+                        "documentation": "-- | An OpenID token.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2354,7 +2354,7 @@
                         "name": "_goitfdirIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2369,7 +2369,7 @@
                         "name": "_goitfdirToken",
                         "shape": "OIDCToken",
                         "locationName": "Token",
-                        "documentation": "\u003cp\u003eAn OpenID token.\u003c/p\u003e",
+                        "documentation": "-- | An OpenID token.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2385,7 +2385,7 @@
             "pager": null,
             "name": "GetOpenIdTokenForDeveloperIdentity",
             "method": "post",
-            "documentation": "\u003cp\u003eRegisters (or retrieves) a Cognito \u003ccode\u003eIdentityId\u003c/code\u003e and an OpenID Connect token for a user authenticated by your backend authentication process. Supplying multiple logins will create an implicit linked account. You can only specify one developer provider as part of the \u003ccode\u003eLogins\u003c/code\u003e map, which is linked to the identity pool. The developer provider is the \"domain\" by which Cognito will refer to your users.\u003c/p\u003e \u003cp\u003eYou can use \u003ccode\u003eGetOpenIdTokenForDeveloperIdentity\u003c/code\u003e to create a new identity and to link new logins (that is, user credentials issued by a public provider or developer provider) to an existing identity. When you want to create a new identity, the \u003ccode\u003eIdentityId\u003c/code\u003e should be null. When you want to associate a new login with an existing authenticated/unauthenticated identity, you can do so by providing the existing \u003ccode\u003eIdentityId\u003c/code\u003e. This API will create the identity in the specified \u003ccode\u003eIdentityPoolId\u003c/code\u003e.\u003c/p\u003e",
+            "documentation": "-- | Registers (or retrieves) a Cognito 'IdentityId' and an OpenID Connect token for\n-- a user authenticated by your backend authentication process. Supplying\n-- multiple logins will create an implicit linked account. You can only specify\n-- one developer provider as part of the 'Logins' map, which is linked to the\n-- identity pool. The developer provider is the \"domain\" by which Cognito will\n-- refer to your users.\n--\n-- You can use 'GetOpenIdTokenForDeveloperIdentity' to create a new identity and\n-- to link new logins (that is, user credentials issued by a public provider or\n-- developer provider) to an existing identity. When you want to create a new\n-- identity, the 'IdentityId' should be null. When you want to associate a new\n-- login with an existing authenticated/unauthenticated identity, you can do so\n-- by providing the existing 'IdentityId'. This API will create the identity in\n-- the specified 'IdentityPoolId'.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2409,7 +2409,7 @@
                         "name": "_goitfdiIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eAn identity pool ID in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2424,7 +2424,7 @@
                         "name": "_goitfdiIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2439,7 +2439,7 @@
                         "name": "_goitfdiLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax \u003ccode\u003e\"developer_provider_name\": \"developer_user_identifier\"\u003c/code\u003e. The developer provider is the \"domain\" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.\u003c/p\u003e",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider\n-- tokens. Each name-value pair represents a user from a public provider or\n-- developer provider. If the user is from a developer provider, the name-value\n-- pair will follow the syntax '\"developer_provider_name\":\"developer_user_identifier\"'. The developer provider is the \"domain\" by which\n-- Cognito will refer to your users; you provided this domain while\n-- creating/updating the identity pool. The developer user identifier is an\n-- identifier from your backend that uniquely identifies a user. When you create\n-- an identity pool, you can specify the supported logins.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -2454,7 +2454,7 @@
                         "name": "_goitfdiTokenDuration",
                         "shape": "TokenDuration",
                         "locationName": "TokenDuration",
-                        "documentation": "\u003cp\u003eThe expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.\u003c/p\u003e",
+                        "documentation": "-- | The expiration time of the token, in seconds. You can specify a custom\n-- expiration time for the token so that you can cache it. If you don't provide\n-- an expiration time, the token is valid for 15 minutes. You can exchange the\n-- token with Amazon STS for temporary AWS credentials, which are valid for a\n-- maximum of one hour. The maximum token duration you can set is 24 hours. You\n-- should take care in setting the expiration time for a token, as there are\n-- significant security implications: an attacker could use a leaked token to\n-- access your AWS resources for the token's duration.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -2479,7 +2479,7 @@
                         "name": "_goitfdiIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eAn identity pool ID in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2506,7 +2506,7 @@
                         "name": "_goitfdiIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2521,7 +2521,7 @@
                         "name": "_goitfdiLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax \u003ccode\u003e\"developer_provider_name\": \"developer_user_identifier\"\u003c/code\u003e. The developer provider is the \"domain\" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.\u003c/p\u003e",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider\n-- tokens. Each name-value pair represents a user from a public provider or\n-- developer provider. If the user is from a developer provider, the name-value\n-- pair will follow the syntax '\"developer_provider_name\":\"developer_user_identifier\"'. The developer provider is the \"domain\" by which\n-- Cognito will refer to your users; you provided this domain while\n-- creating/updating the identity pool. The developer user identifier is an\n-- identifier from your backend that uniquely identifies a user. When you create\n-- an identity pool, you can specify the supported logins.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -2536,7 +2536,7 @@
                         "name": "_goitfdiTokenDuration",
                         "shape": "TokenDuration",
                         "locationName": "TokenDuration",
-                        "documentation": "\u003cp\u003eThe expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.\u003c/p\u003e",
+                        "documentation": "-- | The expiration time of the token, in seconds. You can specify a custom\n-- expiration time for the token so that you can cache it. If you don't provide\n-- an expiration time, the token is valid for 15 minutes. You can exchange the\n-- token with Amazon STS for temporary AWS credentials, which are valid for a\n-- maximum of one hour. The maximum token duration you can set is 24 hours. You\n-- should take care in setting the expiration time for a token, as there are\n-- significant security implications: an attacker could use a leaked token to\n-- access your AWS resources for the token's duration.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -2553,7 +2553,7 @@
                         "name": "_goitfdiIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2568,7 +2568,7 @@
                         "name": "_goitfdiIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eAn identity pool ID in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2583,7 +2583,7 @@
                         "name": "_goitfdiLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "\u003cp\u003eA set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax \u003ccode\u003e\"developer_provider_name\": \"developer_user_identifier\"\u003c/code\u003e. The developer provider is the \"domain\" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.\u003c/p\u003e",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider\n-- tokens. Each name-value pair represents a user from a public provider or\n-- developer provider. If the user is from a developer provider, the name-value\n-- pair will follow the syntax '\"developer_provider_name\":\"developer_user_identifier\"'. The developer provider is the \"domain\" by which\n-- Cognito will refer to your users; you provided this domain while\n-- creating/updating the identity pool. The developer user identifier is an\n-- identifier from your backend that uniquely identifies a user. When you create\n-- an identity pool, you can specify the supported logins.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -2598,7 +2598,7 @@
                         "name": "_goitfdiTokenDuration",
                         "shape": "TokenDuration",
                         "locationName": "TokenDuration",
-                        "documentation": "\u003cp\u003eThe expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.\u003c/p\u003e",
+                        "documentation": "-- | The expiration time of the token, in seconds. You can specify a custom\n-- expiration time for the token so that you can cache it. If you don't provide\n-- an expiration time, the token is valid for 15 minutes. You can exchange the\n-- token with Amazon STS for temporary AWS credentials, which are valid for a\n-- maximum of one hour. The maximum token duration you can set is 24 hours. You\n-- should take care in setting the expiration time for a token, as there are\n-- significant security implications: an attacker could use a leaked token to\n-- access your AWS resources for the token's duration.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -2629,7 +2629,7 @@
                         "name": "_lirIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2644,7 +2644,7 @@
                         "name": "_lirIdentities",
                         "shape": "IdentitiesList",
                         "locationName": "Identities",
-                        "documentation": "An object containing a set of identities and associated mappings.",
+                        "documentation": "-- | An object containing a set of identities and associated mappings.",
                         "typeExposed": "[IdentityDescription]",
                         "type": "List \"Identities\" IdentityDescription"
                     },
@@ -2659,7 +2659,7 @@
                         "name": "_lirNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token.",
+                        "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2688,7 +2688,7 @@
                         "name": "_lirIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2703,7 +2703,7 @@
                         "name": "_lirIdentities",
                         "shape": "IdentitiesList",
                         "locationName": "Identities",
-                        "documentation": "An object containing a set of identities and associated mappings.",
+                        "documentation": "-- | An object containing a set of identities and associated mappings.",
                         "typeExposed": "[IdentityDescription]",
                         "type": "List \"Identities\" IdentityDescription"
                     },
@@ -2718,7 +2718,7 @@
                         "name": "_lirNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token.",
+                        "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2735,7 +2735,7 @@
                         "name": "_lirIdentities",
                         "shape": "IdentitiesList",
                         "locationName": "Identities",
-                        "documentation": "An object containing a set of identities and associated mappings.",
+                        "documentation": "-- | An object containing a set of identities and associated mappings.",
                         "typeExposed": "[IdentityDescription]",
                         "type": "List \"Identities\" IdentityDescription"
                     },
@@ -2750,7 +2750,7 @@
                         "name": "_lirIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2765,7 +2765,7 @@
                         "name": "_lirNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token.",
+                        "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2781,7 +2781,7 @@
             "pager": null,
             "name": "ListIdentities",
             "method": "post",
-            "documentation": "\u003cp\u003eLists the identities in a pool.\u003c/p\u003e",
+            "documentation": "-- | Lists the identities in a pool.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2806,7 +2806,7 @@
                         "name": "_liIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2821,7 +2821,7 @@
                         "name": "_liMaxResults",
                         "shape": "QueryLimit",
                         "locationName": "MaxResults",
-                        "documentation": "The maximum number of identities to return.",
+                        "documentation": "-- | The maximum number of identities to return.",
                         "typeExposed": "Natural",
                         "type": "Nat"
                     },
@@ -2836,7 +2836,7 @@
                         "name": "_liNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token.",
+                        "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2861,7 +2861,7 @@
                         "name": "_liIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2876,7 +2876,7 @@
                         "name": "_liMaxResults",
                         "shape": "QueryLimit",
                         "locationName": "MaxResults",
-                        "documentation": "The maximum number of identities to return.",
+                        "documentation": "-- | The maximum number of identities to return.",
                         "typeExposed": "Natural",
                         "type": "Nat"
                     }
@@ -2903,7 +2903,7 @@
                         "name": "_liNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token.",
+                        "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2920,7 +2920,7 @@
                         "name": "_liIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2935,7 +2935,7 @@
                         "name": "_liMaxResults",
                         "shape": "QueryLimit",
                         "locationName": "MaxResults",
-                        "documentation": "The maximum number of identities to return.",
+                        "documentation": "-- | The maximum number of identities to return.",
                         "typeExposed": "Natural",
                         "type": "Nat"
                     },
@@ -2950,7 +2950,7 @@
                         "name": "_liNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token.",
+                        "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2981,7 +2981,7 @@
                         "name": "_liprIdentityPools",
                         "shape": "IdentityPoolsList",
                         "locationName": "IdentityPools",
-                        "documentation": "The identity pools returned by the ListIdentityPools action.",
+                        "documentation": "-- | The identity pools returned by the ListIdentityPools action.",
                         "typeExposed": "[IdentityPoolShortDescription]",
                         "type": "List \"IdentityPools\" IdentityPoolShortDescription"
                     },
@@ -2996,7 +2996,7 @@
                         "name": "_liprNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token.",
+                        "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3025,7 +3025,7 @@
                         "name": "_liprIdentityPools",
                         "shape": "IdentityPoolsList",
                         "locationName": "IdentityPools",
-                        "documentation": "The identity pools returned by the ListIdentityPools action.",
+                        "documentation": "-- | The identity pools returned by the ListIdentityPools action.",
                         "typeExposed": "[IdentityPoolShortDescription]",
                         "type": "List \"IdentityPools\" IdentityPoolShortDescription"
                     },
@@ -3040,7 +3040,7 @@
                         "name": "_liprNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token.",
+                        "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3057,7 +3057,7 @@
                         "name": "_liprIdentityPools",
                         "shape": "IdentityPoolsList",
                         "locationName": "IdentityPools",
-                        "documentation": "The identity pools returned by the ListIdentityPools action.",
+                        "documentation": "-- | The identity pools returned by the ListIdentityPools action.",
                         "typeExposed": "[IdentityPoolShortDescription]",
                         "type": "List \"IdentityPools\" IdentityPoolShortDescription"
                     },
@@ -3072,7 +3072,7 @@
                         "name": "_liprNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token.",
+                        "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3088,7 +3088,7 @@
             "pager": null,
             "name": "ListIdentityPools",
             "method": "post",
-            "documentation": "\u003cp\u003eLists all of the Cognito identity pools registered for your account.\u003c/p\u003e",
+            "documentation": "-- | Lists all of the Cognito identity pools registered for your account.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3113,7 +3113,7 @@
                         "name": "_lipMaxResults",
                         "shape": "QueryLimit",
                         "locationName": "MaxResults",
-                        "documentation": "The maximum number of identities to return.",
+                        "documentation": "-- | The maximum number of identities to return.",
                         "typeExposed": "Natural",
                         "type": "Nat"
                     },
@@ -3128,7 +3128,7 @@
                         "name": "_lipNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token.",
+                        "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3153,7 +3153,7 @@
                         "name": "_lipMaxResults",
                         "shape": "QueryLimit",
                         "locationName": "MaxResults",
-                        "documentation": "The maximum number of identities to return.",
+                        "documentation": "-- | The maximum number of identities to return.",
                         "typeExposed": "Natural",
                         "type": "Nat"
                     }
@@ -3180,7 +3180,7 @@
                         "name": "_lipNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token.",
+                        "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3197,7 +3197,7 @@
                         "name": "_lipMaxResults",
                         "shape": "QueryLimit",
                         "locationName": "MaxResults",
-                        "documentation": "The maximum number of identities to return.",
+                        "documentation": "-- | The maximum number of identities to return.",
                         "typeExposed": "Natural",
                         "type": "Nat"
                     },
@@ -3212,7 +3212,7 @@
                         "name": "_lipNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "A pagination token.",
+                        "documentation": "-- | A pagination token.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3244,7 +3244,7 @@
                         "name": "_ldirIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3259,7 +3259,7 @@
                         "name": "_ldirDeveloperUserIdentifierList",
                         "shape": "DeveloperUserIdentifierList",
                         "locationName": "DeveloperUserIdentifierList",
-                        "documentation": "\u003cp\u003eThis is the list of developer user identifiers associated with an identity ID. Cognito supports the association of multiple developer user identifiers with an identity ID.\u003c/p\u003e",
+                        "documentation": "-- | This is the list of developer user identifiers associated with an identity\n-- ID. Cognito supports the association of multiple developer user identifiers\n-- with an identity ID.\n--",
                         "typeExposed": "[Text]",
                         "type": "List \"DeveloperUserIdentifierList\" Text"
                     },
@@ -3274,7 +3274,7 @@
                         "name": "_ldirNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "\u003cp\u003eA pagination token. The first call you make will have \u003ccode\u003eNextToken\u003c/code\u003e set to null. After that the service will return \u003ccode\u003eNextToken\u003c/code\u003e values as needed. For example, let's say you make a request with \u003ccode\u003eMaxResults\u003c/code\u003e set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.\u003c/p\u003e",
+                        "documentation": "-- | A pagination token. The first call you make will have 'NextToken' set to null.\n-- After that the service will return 'NextToken' values as needed. For example,\n-- let's say you make a request with 'MaxResults' set to 10, and there are 20\n-- matches in the database. The service will return a pagination token as a part\n-- of the response. This token can be used to call the API again and get results\n-- starting from the 11th match.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3303,7 +3303,7 @@
                         "name": "_ldirIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3318,7 +3318,7 @@
                         "name": "_ldirDeveloperUserIdentifierList",
                         "shape": "DeveloperUserIdentifierList",
                         "locationName": "DeveloperUserIdentifierList",
-                        "documentation": "\u003cp\u003eThis is the list of developer user identifiers associated with an identity ID. Cognito supports the association of multiple developer user identifiers with an identity ID.\u003c/p\u003e",
+                        "documentation": "-- | This is the list of developer user identifiers associated with an identity\n-- ID. Cognito supports the association of multiple developer user identifiers\n-- with an identity ID.\n--",
                         "typeExposed": "[Text]",
                         "type": "List \"DeveloperUserIdentifierList\" Text"
                     },
@@ -3333,7 +3333,7 @@
                         "name": "_ldirNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "\u003cp\u003eA pagination token. The first call you make will have \u003ccode\u003eNextToken\u003c/code\u003e set to null. After that the service will return \u003ccode\u003eNextToken\u003c/code\u003e values as needed. For example, let's say you make a request with \u003ccode\u003eMaxResults\u003c/code\u003e set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.\u003c/p\u003e",
+                        "documentation": "-- | A pagination token. The first call you make will have 'NextToken' set to null.\n-- After that the service will return 'NextToken' values as needed. For example,\n-- let's say you make a request with 'MaxResults' set to 10, and there are 20\n-- matches in the database. The service will return a pagination token as a part\n-- of the response. This token can be used to call the API again and get results\n-- starting from the 11th match.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3350,7 +3350,7 @@
                         "name": "_ldirDeveloperUserIdentifierList",
                         "shape": "DeveloperUserIdentifierList",
                         "locationName": "DeveloperUserIdentifierList",
-                        "documentation": "\u003cp\u003eThis is the list of developer user identifiers associated with an identity ID. Cognito supports the association of multiple developer user identifiers with an identity ID.\u003c/p\u003e",
+                        "documentation": "-- | This is the list of developer user identifiers associated with an identity\n-- ID. Cognito supports the association of multiple developer user identifiers\n-- with an identity ID.\n--",
                         "typeExposed": "[Text]",
                         "type": "List \"DeveloperUserIdentifierList\" Text"
                     },
@@ -3365,7 +3365,7 @@
                         "name": "_ldirIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3380,7 +3380,7 @@
                         "name": "_ldirNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "\u003cp\u003eA pagination token. The first call you make will have \u003ccode\u003eNextToken\u003c/code\u003e set to null. After that the service will return \u003ccode\u003eNextToken\u003c/code\u003e values as needed. For example, let's say you make a request with \u003ccode\u003eMaxResults\u003c/code\u003e set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.\u003c/p\u003e",
+                        "documentation": "-- | A pagination token. The first call you make will have 'NextToken' set to null.\n-- After that the service will return 'NextToken' values as needed. For example,\n-- let's say you make a request with 'MaxResults' set to 10, and there are 20\n-- matches in the database. The service will return a pagination token as a part\n-- of the response. This token can be used to call the API again and get results\n-- starting from the 11th match.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3396,7 +3396,7 @@
             "pager": null,
             "name": "LookupDeveloperIdentity",
             "method": "post",
-            "documentation": "\u003cp\u003eRetrieves the \u003ccode\u003eIdentityID\u003c/code\u003e associated with a \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e or the list of \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003es associated with an \u003ccode\u003eIdentityId\u003c/code\u003e for an existing identity. Either \u003ccode\u003eIdentityID\u003c/code\u003e or \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e must not be null. If you supply only one of these values, the other value will be searched in the database and returned as a part of the response. If you supply both, \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e will be matched against \u003ccode\u003eIdentityID\u003c/code\u003e. If the values are verified against the database, the response returns both values and is the same as the request. Otherwise a \u003ccode\u003eResourceConflictException\u003c/code\u003e is thrown.\u003c/p\u003e",
+            "documentation": "-- | Retrieves the 'IdentityID' associated with a 'DeveloperUserIdentifier' or the\n-- list of 'DeveloperUserIdentifier's associated with an 'IdentityId' for an\n-- existing identity. Either 'IdentityID' or 'DeveloperUserIdentifier' must not be\n-- null. If you supply only one of these values, the other value will be\n-- searched in the database and returned as a part of the response. If you\n-- supply both, 'DeveloperUserIdentifier' will be matched against 'IdentityID'. If\n-- the values are verified against the database, the response returns both\n-- values and is the same as the request. Otherwise a 'ResourceConflictException'\n-- is thrown.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3421,7 +3421,7 @@
                         "name": "_ldiIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eAn identity pool ID in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3436,7 +3436,7 @@
                         "name": "_ldiIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3451,7 +3451,7 @@
                         "name": "_ldiDeveloperUserIdentifier",
                         "shape": "DeveloperUserIdentifier",
                         "locationName": "DeveloperUserIdentifier",
-                        "documentation": "\u003cp\u003eA unique ID used by your backend authentication process to identify a user. Typically, a developer identity provider would issue many developer user identifiers, in keeping with the number of users.\u003c/p\u003e",
+                        "documentation": "-- | A unique ID used by your backend authentication process to identify a user.\n-- Typically, a developer identity provider would issue many developer user\n-- identifiers, in keeping with the number of users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3466,7 +3466,7 @@
                         "name": "_ldiMaxResults",
                         "shape": "QueryLimit",
                         "locationName": "MaxResults",
-                        "documentation": "\u003cp\u003eThe maximum number of identities to return.\u003c/p\u003e",
+                        "documentation": "-- | The maximum number of identities to return.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -3481,7 +3481,7 @@
                         "name": "_ldiNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "\u003cp\u003eA pagination token. The first call you make will have \u003ccode\u003eNextToken\u003c/code\u003e set to null. After that the service will return \u003ccode\u003eNextToken\u003c/code\u003e values as needed. For example, let's say you make a request with \u003ccode\u003eMaxResults\u003c/code\u003e set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.\u003c/p\u003e",
+                        "documentation": "-- | A pagination token. The first call you make will have 'NextToken' set to null.\n-- After that the service will return 'NextToken' values as needed. For example,\n-- let's say you make a request with 'MaxResults' set to 10, and there are 20\n-- matches in the database. The service will return a pagination token as a part\n-- of the response. This token can be used to call the API again and get results\n-- starting from the 11th match.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3506,7 +3506,7 @@
                         "name": "_ldiIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eAn identity pool ID in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3533,7 +3533,7 @@
                         "name": "_ldiIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3548,7 +3548,7 @@
                         "name": "_ldiDeveloperUserIdentifier",
                         "shape": "DeveloperUserIdentifier",
                         "locationName": "DeveloperUserIdentifier",
-                        "documentation": "\u003cp\u003eA unique ID used by your backend authentication process to identify a user. Typically, a developer identity provider would issue many developer user identifiers, in keeping with the number of users.\u003c/p\u003e",
+                        "documentation": "-- | A unique ID used by your backend authentication process to identify a user.\n-- Typically, a developer identity provider would issue many developer user\n-- identifiers, in keeping with the number of users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3563,7 +3563,7 @@
                         "name": "_ldiMaxResults",
                         "shape": "QueryLimit",
                         "locationName": "MaxResults",
-                        "documentation": "\u003cp\u003eThe maximum number of identities to return.\u003c/p\u003e",
+                        "documentation": "-- | The maximum number of identities to return.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -3578,7 +3578,7 @@
                         "name": "_ldiNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "\u003cp\u003eA pagination token. The first call you make will have \u003ccode\u003eNextToken\u003c/code\u003e set to null. After that the service will return \u003ccode\u003eNextToken\u003c/code\u003e values as needed. For example, let's say you make a request with \u003ccode\u003eMaxResults\u003c/code\u003e set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.\u003c/p\u003e",
+                        "documentation": "-- | A pagination token. The first call you make will have 'NextToken' set to null.\n-- After that the service will return 'NextToken' values as needed. For example,\n-- let's say you make a request with 'MaxResults' set to 10, and there are 20\n-- matches in the database. The service will return a pagination token as a part\n-- of the response. This token can be used to call the API again and get results\n-- starting from the 11th match.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3595,7 +3595,7 @@
                         "name": "_ldiDeveloperUserIdentifier",
                         "shape": "DeveloperUserIdentifier",
                         "locationName": "DeveloperUserIdentifier",
-                        "documentation": "\u003cp\u003eA unique ID used by your backend authentication process to identify a user. Typically, a developer identity provider would issue many developer user identifiers, in keeping with the number of users.\u003c/p\u003e",
+                        "documentation": "-- | A unique ID used by your backend authentication process to identify a user.\n-- Typically, a developer identity provider would issue many developer user\n-- identifiers, in keeping with the number of users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3610,7 +3610,7 @@
                         "name": "_ldiIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3625,7 +3625,7 @@
                         "name": "_ldiIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eAn identity pool ID in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3640,7 +3640,7 @@
                         "name": "_ldiMaxResults",
                         "shape": "QueryLimit",
                         "locationName": "MaxResults",
-                        "documentation": "\u003cp\u003eThe maximum number of identities to return.\u003c/p\u003e",
+                        "documentation": "-- | The maximum number of identities to return.\n--",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -3655,7 +3655,7 @@
                         "name": "_ldiNextToken",
                         "shape": "PaginationKey",
                         "locationName": "NextToken",
-                        "documentation": "\u003cp\u003eA pagination token. The first call you make will have \u003ccode\u003eNextToken\u003c/code\u003e set to null. After that the service will return \u003ccode\u003eNextToken\u003c/code\u003e values as needed. For example, let's say you make a request with \u003ccode\u003eMaxResults\u003c/code\u003e set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match.\u003c/p\u003e",
+                        "documentation": "-- | A pagination token. The first call you make will have 'NextToken' set to null.\n-- After that the service will return 'NextToken' values as needed. For example,\n-- let's say you make a request with 'MaxResults' set to 10, and there are 20\n-- matches in the database. The service will return a pagination token as a part\n-- of the response. This token can be used to call the API again and get results\n-- starting from the 11th match.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3688,7 +3688,7 @@
                     "name": "_mdirIdentityId",
                     "shape": "IdentityId",
                     "locationName": "IdentityId",
-                    "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                    "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -3704,7 +3704,7 @@
                         "name": "_mdirIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3733,7 +3733,7 @@
                         "name": "_mdirIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3750,7 +3750,7 @@
                         "name": "_mdirIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3766,7 +3766,7 @@
             "pager": null,
             "name": "MergeDeveloperIdentities",
             "method": "post",
-            "documentation": "\u003cp\u003eMerges two users having different \u003ccode\u003eIdentityId\u003c/code\u003es, existing in the same identity pool, and identified by the same developer provider. You can use this action to request that discrete users be merged and identified as a single user in the Cognito environment. Cognito associates the given source user (\u003ccode\u003eSourceUserIdentifier\u003c/code\u003e) with the \u003ccode\u003eIdentityId\u003c/code\u003e of the \u003ccode\u003eDestinationUserIdentifier\u003c/code\u003e. Only developer-authenticated users can be merged. If the users to be merged are associated with the same public provider, but as two different users, an exception will be thrown.\u003c/p\u003e",
+            "documentation": "-- | Merges two users having different 'IdentityId's, existing in the same identity\n-- pool, and identified by the same developer provider. You can use this action\n-- to request that discrete users be merged and identified as a single user in\n-- the Cognito environment. Cognito associates the given source user ('SourceUserIdentifier') with the 'IdentityId' of the 'DestinationUserIdentifier'. Only\n-- developer-authenticated users can be merged. If the users to be merged are\n-- associated with the same public provider, but as two different users, an\n-- exception will be thrown.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3791,7 +3791,7 @@
                         "name": "_mdiSourceUserIdentifier",
                         "shape": "DeveloperUserIdentifier",
                         "locationName": "SourceUserIdentifier",
-                        "documentation": "\u003cp\u003eUser identifier for the source user. The value should be a \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | User identifier for the source user. The value should be a 'DeveloperUserIdentifier'.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3806,7 +3806,7 @@
                         "name": "_mdiDestinationUserIdentifier",
                         "shape": "DeveloperUserIdentifier",
                         "locationName": "DestinationUserIdentifier",
-                        "documentation": "\u003cp\u003eUser identifier for the destination user. The value should be a \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | User identifier for the destination user. The value should be a 'DeveloperUserIdentifier'.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3821,7 +3821,7 @@
                         "name": "_mdiDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users. This is a (pseudo) domain name that you provide while creating an identity pool. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the \u003ccode\u003eDeveloperProviderName\u003c/code\u003e, you can use letters as well as period (.), underscore (_), and dash (-).\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users. This is a (pseudo)\n-- domain name that you provide while creating an identity pool. This name acts\n-- as a placeholder that allows your backend and the Cognito service to\n-- communicate about the developer provider. For the 'DeveloperProviderName', you\n-- can use letters as well as period (.), underscore (_), and dash (-).\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3836,7 +3836,7 @@
                         "name": "_mdiIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eAn identity pool ID in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3861,7 +3861,7 @@
                         "name": "_mdiSourceUserIdentifier",
                         "shape": "DeveloperUserIdentifier",
                         "locationName": "SourceUserIdentifier",
-                        "documentation": "\u003cp\u003eUser identifier for the source user. The value should be a \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | User identifier for the source user. The value should be a 'DeveloperUserIdentifier'.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3876,7 +3876,7 @@
                         "name": "_mdiDestinationUserIdentifier",
                         "shape": "DeveloperUserIdentifier",
                         "locationName": "DestinationUserIdentifier",
-                        "documentation": "\u003cp\u003eUser identifier for the destination user. The value should be a \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | User identifier for the destination user. The value should be a 'DeveloperUserIdentifier'.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3891,7 +3891,7 @@
                         "name": "_mdiDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users. This is a (pseudo) domain name that you provide while creating an identity pool. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the \u003ccode\u003eDeveloperProviderName\u003c/code\u003e, you can use letters as well as period (.), underscore (_), and dash (-).\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users. This is a (pseudo)\n-- domain name that you provide while creating an identity pool. This name acts\n-- as a placeholder that allows your backend and the Cognito service to\n-- communicate about the developer provider. For the 'DeveloperProviderName', you\n-- can use letters as well as period (.), underscore (_), and dash (-).\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3906,7 +3906,7 @@
                         "name": "_mdiIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eAn identity pool ID in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3934,7 +3934,7 @@
                         "name": "_mdiDestinationUserIdentifier",
                         "shape": "DeveloperUserIdentifier",
                         "locationName": "DestinationUserIdentifier",
-                        "documentation": "\u003cp\u003eUser identifier for the destination user. The value should be a \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | User identifier for the destination user. The value should be a 'DeveloperUserIdentifier'.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3949,7 +3949,7 @@
                         "name": "_mdiDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users. This is a (pseudo) domain name that you provide while creating an identity pool. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the \u003ccode\u003eDeveloperProviderName\u003c/code\u003e, you can use letters as well as period (.), underscore (_), and dash (-).\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users. This is a (pseudo)\n-- domain name that you provide while creating an identity pool. This name acts\n-- as a placeholder that allows your backend and the Cognito service to\n-- communicate about the developer provider. For the 'DeveloperProviderName', you\n-- can use letters as well as period (.), underscore (_), and dash (-).\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3964,7 +3964,7 @@
                         "name": "_mdiIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eAn identity pool ID in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3979,7 +3979,7 @@
                         "name": "_mdiSourceUserIdentifier",
                         "shape": "DeveloperUserIdentifier",
                         "locationName": "SourceUserIdentifier",
-                        "documentation": "\u003cp\u003eUser identifier for the source user. The value should be a \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e.\u003c/p\u003e",
+                        "documentation": "-- | User identifier for the source user. The value should be a 'DeveloperUserIdentifier'.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4022,7 +4022,7 @@
             "pager": null,
             "name": "UnlinkDeveloperIdentity",
             "method": "post",
-            "documentation": "\u003cp\u003eUnlinks a \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.\u003c/p\u003e",
+            "documentation": "-- | Unlinks a 'DeveloperUserIdentifier' from an existing identity. Unlinked\n-- developer users will be considered new identities next time they are seen.\n-- If, for a given Cognito identity, you remove all federated identities as well\n-- as the developer user identifier, the Cognito identity becomes inaccessible.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4047,7 +4047,7 @@
                         "name": "_udiIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4062,7 +4062,7 @@
                         "name": "_udiIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eAn identity pool ID in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4077,7 +4077,7 @@
                         "name": "_udiDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4092,7 +4092,7 @@
                         "name": "_udiDeveloperUserIdentifier",
                         "shape": "DeveloperUserIdentifier",
                         "locationName": "DeveloperUserIdentifier",
-                        "documentation": "A unique ID used by your backend authentication process to identify a user.",
+                        "documentation": "-- | A unique ID used by your backend authentication process to identify a user.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4117,7 +4117,7 @@
                         "name": "_udiIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4132,7 +4132,7 @@
                         "name": "_udiIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eAn identity pool ID in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4147,7 +4147,7 @@
                         "name": "_udiDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4162,7 +4162,7 @@
                         "name": "_udiDeveloperUserIdentifier",
                         "shape": "DeveloperUserIdentifier",
                         "locationName": "DeveloperUserIdentifier",
-                        "documentation": "A unique ID used by your backend authentication process to identify a user.",
+                        "documentation": "-- | A unique ID used by your backend authentication process to identify a user.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4190,7 +4190,7 @@
                         "name": "_udiDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4205,7 +4205,7 @@
                         "name": "_udiDeveloperUserIdentifier",
                         "shape": "DeveloperUserIdentifier",
                         "locationName": "DeveloperUserIdentifier",
-                        "documentation": "A unique ID used by your backend authentication process to identify a user.",
+                        "documentation": "-- | A unique ID used by your backend authentication process to identify a user.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4220,7 +4220,7 @@
                         "name": "_udiIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "\u003cp\u003eA unique identifier in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4235,7 +4235,7 @@
                         "name": "_udiIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "\u003cp\u003eAn identity pool ID in the format REGION:GUID.\u003c/p\u003e",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4278,7 +4278,7 @@
             "pager": null,
             "name": "UnlinkIdentity",
             "method": "post",
-            "documentation": "\u003cp\u003eUnlinks a federated identity from an existing account. Unlinked logins will be considered new identities next time they are seen. Removing the last linked login will make this identity inaccessible.\u003c/p\u003e",
+            "documentation": "-- | Unlinks a federated identity from an existing account. Unlinked logins will\n-- be considered new identities next time they are seen. Removing the last\n-- linked login will make this identity inaccessible.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4302,7 +4302,7 @@
                         "name": "_uiIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4317,7 +4317,7 @@
                         "name": "_uiLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -4332,7 +4332,7 @@
                         "name": "_uiLoginsToRemove",
                         "shape": "LoginsList",
                         "locationName": "LoginsToRemove",
-                        "documentation": "Provider names to unlink from this identity.",
+                        "documentation": "-- | Provider names to unlink from this identity.",
                         "typeExposed": "[Text]",
                         "type": "List \"Logins\" Text"
                     }
@@ -4357,7 +4357,7 @@
                         "name": "_uiIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4384,7 +4384,7 @@
                         "name": "_uiLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -4399,7 +4399,7 @@
                         "name": "_uiLoginsToRemove",
                         "shape": "LoginsList",
                         "locationName": "LoginsToRemove",
-                        "documentation": "Provider names to unlink from this identity.",
+                        "documentation": "-- | Provider names to unlink from this identity.",
                         "typeExposed": "[Text]",
                         "type": "List \"Logins\" Text"
                     }
@@ -4416,7 +4416,7 @@
                         "name": "_uiIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "A unique identifier in the format REGION:GUID.",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4431,7 +4431,7 @@
                         "name": "_uiLogins",
                         "shape": "LoginsMap",
                         "locationName": "Logins",
-                        "documentation": "A set of optional name-value pairs that map provider names to provider tokens.",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -4446,7 +4446,7 @@
                         "name": "_uiLoginsToRemove",
                         "shape": "LoginsList",
                         "locationName": "LoginsToRemove",
-                        "documentation": "Provider names to unlink from this identity.",
+                        "documentation": "-- | Provider names to unlink from this identity.",
                         "typeExposed": "[Text]",
                         "type": "List \"Logins\" Text"
                     }
@@ -4477,7 +4477,7 @@
                         "name": "_uiprIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4492,7 +4492,7 @@
                         "name": "_uiprIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4507,7 +4507,7 @@
                         "name": "_uiprAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -4522,7 +4522,7 @@
                         "name": "_uiprSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -4537,7 +4537,7 @@
                         "name": "_uiprDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4572,7 +4572,7 @@
                         "name": "_uiprIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4587,7 +4587,7 @@
                         "name": "_uiprIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4602,7 +4602,7 @@
                         "name": "_uiprAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -4627,7 +4627,7 @@
                         "name": "_uiprSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -4642,7 +4642,7 @@
                         "name": "_uiprDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4674,7 +4674,7 @@
                         "name": "_uiprAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -4689,7 +4689,7 @@
                         "name": "_uiprDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4704,7 +4704,7 @@
                         "name": "_uiprIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4719,7 +4719,7 @@
                         "name": "_uiprIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4749,7 +4749,7 @@
                         "name": "_uiprSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }
@@ -4765,7 +4765,7 @@
             "pager": null,
             "name": "UpdateIdentityPool",
             "method": "post",
-            "documentation": "\u003cp\u003eUpdates a user pool.\u003c/p\u003e",
+            "documentation": "-- | Updates a user pool.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4789,7 +4789,7 @@
                         "name": "_uipIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4804,7 +4804,7 @@
                         "name": "_uipIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4819,7 +4819,7 @@
                         "name": "_uipAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -4834,7 +4834,7 @@
                         "name": "_uipSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -4849,7 +4849,7 @@
                         "name": "_uipDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4889,7 +4889,7 @@
                         "name": "_uipIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4904,7 +4904,7 @@
                         "name": "_uipIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4919,7 +4919,7 @@
                         "name": "_uipAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -4946,7 +4946,7 @@
                         "name": "_uipSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -4961,7 +4961,7 @@
                         "name": "_uipDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4993,7 +4993,7 @@
                         "name": "_uipAllowUnauthenticatedIdentities",
                         "shape": "IdentityPoolUnauthenticated",
                         "locationName": "AllowUnauthenticatedIdentities",
-                        "documentation": "TRUE if the identity pool supports unauthenticated logins.",
+                        "documentation": "-- | TRUE if the identity pool supports unauthenticated logins.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -5008,7 +5008,7 @@
                         "name": "_uipDeveloperProviderName",
                         "shape": "DeveloperProviderName",
                         "locationName": "DeveloperProviderName",
-                        "documentation": "\u003cp\u003eThe \"domain\" by which Cognito will refer to your users.\u003c/p\u003e",
+                        "documentation": "-- | The \"domain\" by which Cognito will refer to your users.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5023,7 +5023,7 @@
                         "name": "_uipIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "An identity pool ID in the format REGION:GUID.",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5038,7 +5038,7 @@
                         "name": "_uipIdentityPoolName",
                         "shape": "IdentityPoolName",
                         "locationName": "IdentityPoolName",
-                        "documentation": "\u003cp\u003eA string that you provide.\u003c/p\u003e",
+                        "documentation": "-- | A string that you provide.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5068,7 +5068,7 @@
                         "name": "_uipSupportedLoginProviders",
                         "shape": "IdentityProviders",
                         "locationName": "SupportedLoginProviders",
-                        "documentation": "\u003cp\u003eOptional key:value pairs mapping provider names to provider app IDs.\u003c/p\u003e",
+                        "documentation": "-- | Optional key:value pairs mapping provider names to provider app IDs.\n--",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     }

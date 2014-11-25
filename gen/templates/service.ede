@@ -1,7 +1,7 @@
 {% include "_include/license.ede" %}
 
 {% if documentation %}
-{{ documentation | above(76, 0) }}
+{{ documentation }}
 {% endif %}
 module {{ namespace }}
 {% for imp in imports %}

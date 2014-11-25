@@ -89,29 +89,35 @@ describeAlarms = DescribeAlarms
     }
 
 -- | The action name prefix.
+--
 daActionPrefix :: Lens' DescribeAlarms (Maybe Text)
 daActionPrefix = lens _daActionPrefix (\s a -> s { _daActionPrefix = a })
 
--- | The alarm name prefix. 'AlarmNames' cannot be specified if this parameter
--- is specified.
+-- | The alarm name prefix. 'AlarmNames' cannot be specified if this parameter is
+-- specified.
+--
 daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
 daAlarmNamePrefix =
     lens _daAlarmNamePrefix (\s a -> s { _daAlarmNamePrefix = a })
 
 -- | A list of alarm names to retrieve information for.
+--
 daAlarmNames :: Lens' DescribeAlarms [Text]
 daAlarmNames = lens _daAlarmNames (\s a -> s { _daAlarmNames = a }) . _List
 
 -- | The maximum number of alarm descriptions to retrieve.
+--
 daMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
 daMaxRecords = lens _daMaxRecords (\s a -> s { _daMaxRecords = a }) . mapping _Nat
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
+--
 daNextToken :: Lens' DescribeAlarms (Maybe Text)
 daNextToken = lens _daNextToken (\s a -> s { _daNextToken = a })
 
 -- | The state value to be used in matching alarms.
+--
 daStateValue :: Lens' DescribeAlarms (Maybe StateValue)
 daStateValue = lens _daStateValue (\s a -> s { _daStateValue = a })
 
@@ -135,10 +141,12 @@ describeAlarmsResponse = DescribeAlarmsResponse
     }
 
 -- | A list of information for the specified alarms.
+--
 darMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
 darMetricAlarms = lens _darMetricAlarms (\s a -> s { _darMetricAlarms = a }) . _List
 
 -- | A string that marks the start of the next batch of returned results.
+--
 darNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 darNextToken = lens _darNextToken (\s a -> s { _darNextToken = a })
 

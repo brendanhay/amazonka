@@ -20,9 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns a description of the specified resource in the specified stack. For
--- deleted stacks, DescribeStackResource returns resource information for up
--- to 90 days after the stack has been deleted.
+-- | Returns a description of the specified resource in the specified stack.
+--
+-- For deleted stacks, DescribeStackResource returns resource information for
+-- up to 90 days after the stack has been deleted.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html>
 module Network.AWS.CloudFormation.DescribeStackResource
@@ -69,16 +70,21 @@ describeStackResource p1 p2 = DescribeStackResource
     , _dsr1LogicalResourceId = p2
     }
 
--- | The logical name of the resource as specified in the template. Default:
--- There is no default value.
+-- | The logical name of the resource as specified in the template.
+--
+-- Default: There is no default value.
+--
 dsr1LogicalResourceId :: Lens' DescribeStackResource Text
 dsr1LogicalResourceId =
     lens _dsr1LogicalResourceId (\s a -> s { _dsr1LogicalResourceId = a })
 
--- | The name or the unique identifier associated with the stack, which are
--- not always interchangeable: Running stacks: You can specify either the
--- stack's name or its unique stack ID. Deleted stacks: You must specify the
--- unique stack ID. Default: There is no default value.
+-- | The name or the unique identifier associated with the stack, which are not
+-- always interchangeable:
+--
+-- Running stacks: You can specify either the stack's name or its unique stack
+-- ID. Deleted stacks: You must specify the unique stack ID.  Default: There is
+-- no default value.
+--
 dsr1StackName :: Lens' DescribeStackResource Text
 dsr1StackName = lens _dsr1StackName (\s a -> s { _dsr1StackName = a })
 
@@ -97,8 +103,9 @@ describeStackResourceResponse = DescribeStackResourceResponse
     { _dsrrStackResourceDetail = Nothing
     }
 
--- | A 'StackResourceDetail' structure containing the description of the
--- specified resource in the specified stack.
+-- | A 'StackResourceDetail' structure containing the description of the specified
+-- resource in the specified stack.
+--
 dsrrStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
 dsrrStackResourceDetail =
     lens _dsrrStackResourceDetail (\s a -> s { _dsrrStackResourceDetail = a })

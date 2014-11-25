@@ -64,6 +64,7 @@ deleteDomain p1 = DeleteDomain
     }
 
 -- | The name of the domain you want to permanently delete.
+--
 ddDomainName :: Lens' DeleteDomain Text
 ddDomainName = lens _ddDomainName (\s a -> s { _ddDomainName = a })
 

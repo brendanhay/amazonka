@@ -309,38 +309,41 @@ pipelineOutputConfig = PipelineOutputConfig
     }
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save the
--- transcoded files. Specify this value when all of the following are true:
--- You want to save transcoded files, thumbnails (if any), and playlists (if
--- any) together in one bucket. You do not want to specify the users or
--- groups who have access to the transcoded files, thumbnails, and
--- playlists. You do not want to specify the permissions that Elastic
--- Transcoder grants to the files. You want to associate the transcoded
--- files and thumbnails with the Amazon S3 Standard storage class. If you
--- want to save transcoded files and playlists in one bucket and thumbnails
--- in another bucket, specify which users can access the transcoded files or
--- the permissions the users have, or change the Amazon S3 storage class,
--- omit OutputBucket and specify values for 'ContentConfig' and
--- 'ThumbnailConfig' instead.
+-- transcoded files. Specify this value when all of the following are true:  You
+-- want to save transcoded files, thumbnails (if any), and playlists (if any)
+-- together in one bucket. You do not want to specify the users or groups who
+-- have access to the transcoded files, thumbnails, and playlists. You do not
+-- want to specify the permissions that Elastic Transcoder grants to the files.
+-- You want to associate the transcoded files and thumbnails with the Amazon S3
+-- Standard storage class.  If you want to save transcoded files and playlists
+-- in one bucket and thumbnails in another bucket, specify which users can
+-- access the transcoded files or the permissions the users have, or change the
+-- Amazon S3 storage class, omit OutputBucket and specify values for 'ContentConfig' and 'ThumbnailConfig' instead.
+--
 pocBucket :: Lens' PipelineOutputConfig (Maybe Text)
 pocBucket = lens _pocBucket (\s a -> s { _pocBucket = a })
 
--- | Optional. The 'Permissions' object specifies which users and/or
--- predefined Amazon S3 groups you want to have access to transcoded files
--- and playlists, and the type of access you want them to have. You can
--- grant permissions to a maximum of 30 users and/or predefined Amazon S3
--- groups. If you include 'Permissions', Elastic Transcoder grants only the
--- permissions that you specify. It does not grant full permissions to the
--- owner of the role specified by 'Role'. If you want that user to have full
--- control, you must explicitly grant full control to the user. If you omit
--- 'Permissions', Elastic Transcoder grants full control over the transcoded
--- files and playlists to the owner of the role specified by 'Role', and
--- grants no other permissions to any other user or group.
+-- | Optional. The 'Permissions' object specifies which users and/or predefined
+-- Amazon S3 groups you want to have access to transcoded files and playlists,
+-- and the type of access you want them to have. You can grant permissions to a
+-- maximum of 30 users and/or predefined Amazon S3 groups.
+--
+-- If you include 'Permissions', Elastic Transcoder grants only the permissions
+-- that you specify. It does not grant full permissions to the owner of the role
+-- specified by 'Role'. If you want that user to have full control, you must
+-- explicitly grant full control to the user.
+--
+-- If you omit 'Permissions', Elastic Transcoder grants full control over the
+-- transcoded files and playlists to the owner of the role specified by 'Role',
+-- and grants no other permissions to any other user or group.
+--
 pocPermissions :: Lens' PipelineOutputConfig [Permission]
 pocPermissions = lens _pocPermissions (\s a -> s { _pocPermissions = a }) . _List
 
--- | The Amazon S3 storage class, 'Standard' or 'ReducedRedundancy', that you
--- want Elastic Transcoder to assign to the video files and playlists that
--- it stores in your Amazon S3 bucket.
+-- | The Amazon S3 storage class, 'Standard' or 'ReducedRedundancy', that you want
+-- Elastic Transcoder to assign to the video files and playlists that it stores
+-- in your Amazon S3 bucket.
+--
 pocStorageClass :: Lens' PipelineOutputConfig (Maybe Text)
 pocStorageClass = lens _pocStorageClass (\s a -> s { _pocStorageClass = a })
 
@@ -380,46 +383,59 @@ createJobPlaylist = CreateJobPlaylist
     , _cjpOutputKeys = mempty
     }
 
--- | The format of the output playlist. Valid formats include 'HLSv3',
--- 'HLSv4', and 'Smooth'.
+-- | The format of the output playlist. Valid formats include 'HLSv3', 'HLSv4', and 'Smooth'.
+--
 cjpFormat :: Lens' CreateJobPlaylist (Maybe Text)
 cjpFormat = lens _cjpFormat (\s a -> s { _cjpFormat = a })
 
--- | The name that you want Elastic Transcoder to assign to the master
--- playlist, for example, nyc-vacation.m3u8. If the name includes a '/'
--- character, the section of the name before the last '/' must be identical
--- for all 'Name' objects. If you create more than one master playlist, the
--- values of all 'Name' objects must be unique. Note: Elastic Transcoder
--- automatically appends the relevant file extension to the file name
--- ('.m3u8' for 'HLSv3' and 'HLSv4' playlists, and '.ism' and '.ismc' for
--- 'Smooth' playlists). If you include a file extension in 'Name', the file
--- name will have two extensions.
+-- | The name that you want Elastic Transcoder to assign to the master playlist,
+-- for example, nyc-vacation.m3u8. If the name includes a '/' character, the
+-- section of the name before the last '/' must be identical for all 'Name' objects.
+-- If you create more than one master playlist, the values of all 'Name' objects
+-- must be unique.
+--
+-- Note: Elastic Transcoder automatically appends the relevant file extension
+-- to the file name ('.m3u8' for 'HLSv3' and 'HLSv4' playlists, and '.ism' and '.ismc' for 'Smooth' playlists). If you include a file extension in 'Name', the file name
+-- will have two extensions.
+--
 cjpName :: Lens' CreateJobPlaylist (Maybe Text)
 cjpName = lens _cjpName (\s a -> s { _cjpName = a })
 
--- | For each output in this job that you want to include in a master
--- playlist, the value of the 'Outputs:Key' object. If your output is not
--- 'HLS' or does not have a segment duration set, the name of the output
--- file is a concatenation of 'OutputKeyPrefix' and 'Outputs:Key':
--- OutputKeyPrefix'Outputs:Key' If your output is 'HLSv3' and has a segment
--- duration set, or is not included in a playlist, Elastic Transcoder
--- creates an output playlist file with a file extension of '.m3u8', and a
--- series of '.ts' files that include a five-digit sequential counter
--- beginning with 00000: OutputKeyPrefix'Outputs:Key'.m3u8
--- OutputKeyPrefix'Outputs:Key'00000.ts If your output is 'HLSv4', has a
--- segment duration set, and is included in an 'HLSv4' playlist, Elastic
--- Transcoder creates an output playlist file with a file extension of
--- '_v4.m3u8'. If the output is video, Elastic Transcoder also creates an
--- output file with an extension of '_iframe.m3u8':
+-- | For each output in this job that you want to include in a master playlist,
+-- the value of the 'Outputs:Key' object.
+--
+-- If your output is not 'HLS' or does not have a segment duration set, the
+-- name of the output file is a concatenation of 'OutputKeyPrefix' and 'Outputs:Key':
+--
+-- OutputKeyPrefix'Outputs:Key'
+--
+-- If your output is 'HLSv3' and has a segment duration set, or is not included
+-- in a playlist, Elastic Transcoder creates an output playlist file with a file
+-- extension of '.m3u8', and a series of '.ts' files that include a five-digit
+-- sequential counter beginning with 00000:
+--
+-- OutputKeyPrefix'Outputs:Key'.m3u8
+--
+-- OutputKeyPrefix'Outputs:Key'00000.ts
+--
+-- If your output is 'HLSv4', has a segment duration set, and is included in an 'HLSv4' playlist, Elastic Transcoder creates an output playlist file with a
+-- file extension of '_v4.m3u8'. If the output is video, Elastic Transcoder also
+-- creates an output file with an extension of '_iframe.m3u8':
+--
 -- OutputKeyPrefix'Outputs:Key'_v4.m3u8
--- OutputKeyPrefix'Outputs:Key'_iframe.m3u8 OutputKeyPrefix'Outputs:Key'.ts
+--
+-- OutputKeyPrefix'Outputs:Key'_iframe.m3u8
+--
+-- OutputKeyPrefix'Outputs:Key'.ts
+--
 -- Elastic Transcoder automatically appends the relevant file extension to
--- the file name. If you include a file extension in Output Key, the file
--- name will have two extensions. If you include more than one output in a
--- playlist, any segment duration settings, clip settings, or caption
--- settings must be the same for all outputs in the playlist. For 'Smooth'
--- playlists, the 'Audio:Profile', 'Video:Profile', and 'Video:FrameRate' to
--- 'Video:KeyframesMaxDist' ratio must be the same for all outputs.
+-- the file name. If you include a file extension in Output Key, the file name
+-- will have two extensions.
+--
+-- If you include more than one output in a playlist, any segment duration
+-- settings, clip settings, or caption settings must be the same for all outputs
+-- in the playlist. For 'Smooth' playlists, the 'Audio:Profile', 'Video:Profile', and 'Video:FrameRate' to 'Video:KeyframesMaxDist' ratio must be the same for all outputs.
+--
 cjpOutputKeys :: Lens' CreateJobPlaylist [Text]
 cjpOutputKeys = lens _cjpOutputKeys (\s a -> s { _cjpOutputKeys = a }) . _List
 
@@ -459,29 +475,38 @@ captions = Captions
     , _cCaptionFormats = mempty
     }
 
--- | The array of file formats for the output captions. If you leave this
--- value blank, Elastic Transcoder returns an error.
+-- | The array of file formats for the output captions. If you leave this value
+-- blank, Elastic Transcoder returns an error.
+--
 cCaptionFormats :: Lens' Captions [CaptionFormat]
 cCaptionFormats = lens _cCaptionFormats (\s a -> s { _cCaptionFormats = a }) . _List
 
 -- | Source files for the input sidecar captions used during the transcoding
 -- process. To omit all sidecar captions, leave 'CaptionSources' blank.
+--
 cCaptionSources :: Lens' Captions [CaptionSource]
 cCaptionSources = lens _cCaptionSources (\s a -> s { _cCaptionSources = a }) . _List
 
 -- | A policy that determines how Elastic Transcoder handles the existence of
--- multiple captions. MergeOverride: Elastic Transcoder transcodes both
--- embedded and sidecar captions into outputs. If captions for a language
--- are embedded in the input file and also appear in a sidecar file, Elastic
--- Transcoder uses the sidecar captions and ignores the embedded captions
--- for that language. MergeRetain: Elastic Transcoder transcodes both
--- embedded and sidecar captions into outputs. If captions for a language
--- are embedded in the input file and also appear in a sidecar file, Elastic
--- Transcoder uses the embedded captions and ignores the sidecar captions
--- for that language. If CaptionSources is empty, Elastic Transcoder omits
--- all sidecar captions from the output files. Override: Elastic Transcoder
--- transcodes only the sidecar captions that you specify in
--- 'CaptionSources'. 'MergePolicy' cannot be null.
+-- multiple captions.
+--
+-- MergeOverride: Elastic Transcoder transcodes both embedded and sidecar
+-- captions into outputs. If captions for a language are embedded in the input
+-- file and also appear in a sidecar file, Elastic Transcoder uses the sidecar
+-- captions and ignores the embedded captions for that language.
+--
+-- MergeRetain: Elastic Transcoder transcodes both embedded and sidecar
+-- captions into outputs. If captions for a language are embedded in the input
+-- file and also appear in a sidecar file, Elastic Transcoder uses the embedded
+-- captions and ignores the sidecar captions for that language. If CaptionSources
+-- is empty, Elastic Transcoder omits all sidecar captions from the output
+-- files.
+--
+-- Override: Elastic Transcoder transcodes only the sidecar captions that you
+-- specify in 'CaptionSources'.
+--
+-- 'MergePolicy' cannot be null.
+--
 cMergePolicy :: Lens' Captions (Maybe Text)
 cMergePolicy = lens _cMergePolicy (\s a -> s { _cMergePolicy = a })
 
@@ -513,16 +538,18 @@ audioCodecOptions = AudioCodecOptions
     { _acoProfile = Nothing
     }
 
--- | You can only choose an audio profile when you specify AAC for the value
--- of Audio:Codec. Specify the AAC profile for the output file. Elastic
--- Transcoder supports the following profiles: 'auto': If you specify
--- 'auto', Elastic Transcoder will select the profile based on the bit rate
--- selected for the output file. 'AAC-LC': The most common AAC profile. Use
--- for bitrates larger than 64 kbps. 'HE-AAC': Not supported on some older
--- players and devices. Use for bitrates between 40 and 80 kbps. 'HE-AACv2':
--- Not supported on some players and devices. Use for bitrates less than 48
--- kbps. All outputs in a 'Smooth' playlist must have the same value for
--- 'Profile'.
+-- | You can only choose an audio profile when you specify AAC for the value of
+-- Audio:Codec.
+--
+-- Specify the AAC profile for the output file. Elastic Transcoder supports the
+-- following profiles:
+--
+-- 'auto': If you specify 'auto', Elastic Transcoder will select the profile
+-- based on the bit rate selected for the output file.  'AAC-LC': The most common
+-- AAC profile. Use for bitrates larger than 64 kbps.  'HE-AAC': Not supported on
+-- some older players and devices. Use for bitrates between 40 and 80 kbps.  'HE-AACv2': Not supported on some players and devices. Use for bitrates less than 48
+-- kbps.  All outputs in a 'Smooth' playlist must have the same value for 'Profile'.
+--
 acoProfile :: Lens' AudioCodecOptions (Maybe Text)
 acoProfile = lens _acoProfile (\s a -> s { _acoProfile = a })
 
@@ -607,168 +634,198 @@ jobOutput = JobOutput
     }
 
 -- | The album art to be associated with the output file, if any.
+--
 joAlbumArt :: Lens' JobOutput (Maybe JobAlbumArt)
 joAlbumArt = lens _joAlbumArt (\s a -> s { _joAlbumArt = a })
 
 -- | You can configure Elastic Transcoder to transcode captions, or subtitles,
--- from one format to another. All captions must be in UTF-8. Elastic
--- Transcoder supports two types of captions: Embedded: Embedded captions
--- are included in the same file as the audio and video. Elastic Transcoder
--- supports only one embedded caption per language, to a maximum of 300
--- embedded captions per file. Valid input values include: 'CEA-608
--- (EIA-608', first non-empty channel only), 'CEA-708 (EIA-708', first
--- non-empty channel only), and 'mov-text' Valid outputs include: 'mov-text'
+-- from one format to another. All captions must be in UTF-8. Elastic Transcoder
+-- supports two types of captions:
+--
+-- Embedded: Embedded captions are included in the same file as the audio and
+-- video. Elastic Transcoder supports only one embedded caption per language, to
+-- a maximum of 300 embedded captions per file.
+--
+-- Valid input values include: 'CEA-608 (EIA-608', first non-empty channel only), 'CEA-708 (EIA-708', first non-empty channel only), and 'mov-text'
+--
+-- Valid outputs include: 'mov-text'
+--
 -- Elastic Transcoder supports a maximum of one embedded format per output.
+--
 -- Sidecar: Sidecar captions are kept in a separate metadata file from the
--- audio and video data. Sidecar captions require a player that is capable
--- of understanding the relationship between the video file and the sidecar
--- file. Elastic Transcoder supports only one sidecar caption per language,
--- to a maximum of 20 sidecar captions per file. Valid input values include:
--- 'dfxp' (first div element only), 'ebu-tt', 'scc', 'smpt', 'srt', 'ttml'
--- (first div element only), and 'webvtt' Valid outputs include: 'dfxp'
--- (first div element only), 'scc', 'srt', and 'webvtt'. If you want ttml or
--- smpte-tt compatible captions, specify dfxp as your output format. Elastic
--- Transcoder does not support OCR (Optical Character Recognition), does not
--- accept pictures as a valid input for captions, and is not available for
--- audio-only transcoding. Elastic Transcoder does not preserve text
--- formatting (for example, italics) during the transcoding process. To
--- remove captions or leave the captions empty, set 'Captions' to null. To
--- pass through existing captions unchanged, set the 'MergePolicy' to
--- 'MergeRetain', and pass in a null 'CaptionSources' array. For more
--- information on embedded files, see the Subtitles Wikipedia page. For more
--- information on sidecar files, see the Extensible Metadata Platform and
--- Sidecar file Wikipedia pages.
+-- audio and video data. Sidecar captions require a player that is capable of
+-- understanding the relationship between the video file and the sidecar file.
+-- Elastic Transcoder supports only one sidecar caption per language, to a
+-- maximum of 20 sidecar captions per file.
+--
+-- Valid input values include: 'dfxp' (first div element only), 'ebu-tt', 'scc', 'smpt',
+-- 'srt', 'ttml' (first div element only), and 'webvtt'
+--
+-- Valid outputs include: 'dfxp' (first div element only), 'scc', 'srt', and 'webvtt'.
+--
+-- If you want ttml or smpte-tt compatible captions, specify dfxp as your
+-- output format.
+--
+-- Elastic Transcoder does not support OCR (Optical Character Recognition),
+-- does not accept pictures as a valid input for captions, and is not available
+-- for audio-only transcoding. Elastic Transcoder does not preserve text
+-- formatting (for example, italics) during the transcoding process.
+--
+-- To remove captions or leave the captions empty, set 'Captions' to null. To
+-- pass through existing captions unchanged, set the 'MergePolicy' to 'MergeRetain',
+-- and pass in a null 'CaptionSources' array.
+--
+-- For more information on embedded files, see the Subtitles Wikipedia page.
+--
+-- For more information on sidecar files, see the Extensible Metadata Platform
+-- and Sidecar file Wikipedia pages.
+--
 joCaptions :: Lens' JobOutput (Maybe Captions)
 joCaptions = lens _joCaptions (\s a -> s { _joCaptions = a })
 
--- | You can create an output file that contains an excerpt from the input
--- file. This excerpt, called a clip, can come from the beginning, middle,
--- or end of the file. The Composition object contains settings for the
--- clips that make up an output file. For the current release, you can only
--- specify settings for a single clip per output file. The Composition
--- object cannot be null.
+-- | You can create an output file that contains an excerpt from the input file.
+-- This excerpt, called a clip, can come from the beginning, middle, or end of
+-- the file. The Composition object contains settings for the clips that make up
+-- an output file. For the current release, you can only specify settings for a
+-- single clip per output file. The Composition object cannot be null.
+--
 joComposition :: Lens' JobOutput [Clip]
 joComposition = lens _joComposition (\s a -> s { _joComposition = a }) . _List
 
 -- | Duration of the output file, in seconds.
+--
 joDuration :: Lens' JobOutput (Maybe Integer)
 joDuration = lens _joDuration (\s a -> s { _joDuration = a })
 
 -- | Height of the output file, in pixels.
+--
 joHeight :: Lens' JobOutput (Maybe Int)
 joHeight = lens _joHeight (\s a -> s { _joHeight = a })
 
--- | A sequential counter, starting with 1, that identifies an output among
--- the outputs from the current job. In the Output syntax, this value is
--- always 1.
+-- | A sequential counter, starting with 1, that identifies an output among the
+-- outputs from the current job. In the Output syntax, this value is always 1.
+--
 joId :: Lens' JobOutput (Maybe Text)
 joId = lens _joId (\s a -> s { _joId = a })
 
--- | The name to assign to the transcoded file. Elastic Transcoder saves the
--- file in the Amazon S3 bucket specified by the 'OutputBucket' object in
--- the pipeline that is specified by the pipeline ID.
+-- | The name to assign to the transcoded file. Elastic Transcoder saves the file
+-- in the Amazon S3 bucket specified by the 'OutputBucket' object in the pipeline
+-- that is specified by the pipeline ID.
+--
 joKey :: Lens' JobOutput (Maybe Text)
 joKey = lens _joKey (\s a -> s { _joKey = a })
 
--- | The value of the 'Id' object for the preset that you want to use for this
--- job. The preset determines the audio, video, and thumbnail settings that
--- Elastic Transcoder uses for transcoding. To use a preset that you
--- created, specify the preset ID that Elastic Transcoder returned in the
--- response when you created the preset. You can also use the Elastic
--- Transcoder system presets, which you can get with 'ListPresets'.
+-- | The value of the 'Id' object for the preset that you want to use for this job.
+-- The preset determines the audio, video, and thumbnail settings that Elastic
+-- Transcoder uses for transcoding. To use a preset that you created, specify
+-- the preset ID that Elastic Transcoder returned in the response when you
+-- created the preset. You can also use the Elastic Transcoder system presets,
+-- which you can get with 'ListPresets'.
+--
 joPresetId :: Lens' JobOutput (Maybe Text)
 joPresetId = lens _joPresetId (\s a -> s { _joPresetId = a })
 
 -- | The number of degrees clockwise by which you want Elastic Transcoder to
--- rotate the output relative to the input. Enter one of the following
--- values: 'auto', '0', '90', '180', '270' The value 'auto' generally works
--- only if the file that you're transcoding contains rotation metadata.
+-- rotate the output relative to the input. Enter one of the following values:
+--
+-- 'auto', '0', '90', '180', '270'
+--
+-- The value 'auto' generally works only if the file that you're transcoding
+-- contains rotation metadata.
+--
 joRotate :: Lens' JobOutput (Maybe Text)
 joRotate = lens _joRotate (\s a -> s { _joRotate = a })
 
--- | (Outputs in Fragmented MP4 or MPEG-TS format only.If you specify a preset
--- in 'PresetId' for which the value of 'Container' is 'fmp4' (Fragmented
--- MP4) or 'ts' (MPEG-TS), 'SegmentDuration' is the target maximum duration
--- of each segment in seconds. For 'HLSv3' format playlists, each media
--- segment is stored in a separate '.ts' file. For 'HLSv4' and 'Smooth'
--- playlists, all media segments for an output are stored in a single file.
--- Each segment is approximately the length of the 'SegmentDuration', though
--- individual segments might be shorter or longer. The range of valid values
--- is 1 to 60 seconds. If the duration of the video is not evenly divisible
--- by 'SegmentDuration', the duration of the last segment is the remainder
--- of total length/SegmentDuration. Elastic Transcoder creates an
--- output-specific playlist for each output 'HLS' output that you specify in
--- OutputKeys. To add an output to the master playlist for this job, include
--- it in the 'OutputKeys' of the associated playlist.
+-- | (Outputs in Fragmented MP4 or MPEG-TS format only.If you specify a preset in 'PresetId' for which the value of 'Container' is 'fmp4' (Fragmented MP4) or 'ts' (MPEG-TS), 'SegmentDuration' is the target maximum duration of each segment in seconds. For 'HLSv3' format
+-- playlists, each media segment is stored in a separate '.ts' file. For 'HLSv4' and 'Smooth' playlists, all media segments for an output are stored in a single
+-- file. Each segment is approximately the length of the 'SegmentDuration', though
+-- individual segments might be shorter or longer.
+--
+-- The range of valid values is 1 to 60 seconds. If the duration of the video
+-- is not evenly divisible by 'SegmentDuration', the duration of the last segment
+-- is the remainder of total length/SegmentDuration.
+--
+-- Elastic Transcoder creates an output-specific playlist for each output 'HLS'
+-- output that you specify in OutputKeys. To add an output to the master
+-- playlist for this job, include it in the 'OutputKeys' of the associated
+-- playlist.
+--
 joSegmentDuration :: Lens' JobOutput (Maybe Text)
 joSegmentDuration =
     lens _joSegmentDuration (\s a -> s { _joSegmentDuration = a })
 
--- | The status of one output in a job. If you specified only one output for
--- the job, 'Outputs:Status' is always the same as 'Job:Status'. If you
--- specified more than one output: 'Job:Status' and 'Outputs:Status' for all
--- of the outputs is Submitted until Elastic Transcoder starts to process
--- the first output. When Elastic Transcoder starts to process the first
--- output, 'Outputs:Status' for that output and 'Job:Status' both change to
--- Progressing. For each output, the value of 'Outputs:Status' remains
--- Submitted until Elastic Transcoder starts to process the output.
--- Job:Status remains Progressing until all of the outputs reach a terminal
--- status, either Complete or Error. When all of the outputs reach a
--- terminal status, 'Job:Status' changes to Complete only if
--- 'Outputs:Status' for all of the outputs is 'Complete'. If
--- 'Outputs:Status' for one or more outputs is 'Error', the terminal status
--- for 'Job:Status' is also 'Error'. The value of 'Status' is one of the
--- following: 'Submitted', 'Progressing', 'Complete', 'Canceled', or
--- 'Error'.
+-- | The status of one output in a job. If you specified only one output for the
+-- job, 'Outputs:Status' is always the same as 'Job:Status'. If you specified more
+-- than one output:   'Job:Status' and 'Outputs:Status' for all of the outputs is
+-- Submitted until Elastic Transcoder starts to process the first output. When
+-- Elastic Transcoder starts to process the first output, 'Outputs:Status' for
+-- that output and 'Job:Status' both change to Progressing. For each output, the
+-- value of 'Outputs:Status' remains Submitted until Elastic Transcoder starts to
+-- process the output. Job:Status remains Progressing until all of the outputs
+-- reach a terminal status, either Complete or Error. When all of the outputs
+-- reach a terminal status, 'Job:Status' changes to Complete only if 'Outputs:Status'
+-- for all of the outputs is 'Complete'. If 'Outputs:Status' for one or more
+-- outputs is 'Error', the terminal status for 'Job:Status' is also 'Error'.  The
+-- value of 'Status' is one of the following: 'Submitted', 'Progressing', 'Complete', 'Canceled', or 'Error'.
+--
 joStatus :: Lens' JobOutput (Maybe Text)
 joStatus = lens _joStatus (\s a -> s { _joStatus = a })
 
 -- | Information that further explains 'Status'.
+--
 joStatusDetail :: Lens' JobOutput (Maybe Text)
 joStatusDetail = lens _joStatusDetail (\s a -> s { _joStatusDetail = a })
 
--- | Whether you want Elastic Transcoder to create thumbnails for your videos
--- and, if so, how you want Elastic Transcoder to name the files. If you
--- don't want Elastic Transcoder to create thumbnails, specify "". If you do
--- want Elastic Transcoder to create thumbnails, specify the information
--- that you want to include in the file name for each thumbnail. You can
--- specify the following values in any sequence: '{count}' (Required): If
--- you want to create thumbnails, you must include '{count}' in the
--- 'ThumbnailPattern' object. Wherever you specify '{count}', Elastic
+-- | Whether you want Elastic Transcoder to create thumbnails for your videos and,
+-- if so, how you want Elastic Transcoder to name the files.
+--
+-- If you don't want Elastic Transcoder to create thumbnails, specify "".
+--
+-- If you do want Elastic Transcoder to create thumbnails, specify the
+-- information that you want to include in the file name for each thumbnail. You
+-- can specify the following values in any sequence:
+--
+-- '{count}' (Required): If you want to create thumbnails, you must include '{count}' in the 'ThumbnailPattern' object. Wherever you specify '{count}', Elastic
 -- Transcoder adds a five-digit sequence number (beginning with 00001) to
--- thumbnail file names. The number indicates where a given thumbnail
--- appears in the sequence of thumbnails for a transcoded file. If you
--- specify a literal value and/or '{resolution}' but you omit '{count}',
--- Elastic Transcoder returns a validation error and does not create the
--- job. Literal values (Optional): You can specify literal values anywhere
--- in the 'ThumbnailPattern' object. For example, you can include them as a
--- file name prefix or as a delimiter between '{resolution}' and '{count}'.
+-- thumbnail file names. The number indicates where a given thumbnail appears in
+-- the sequence of thumbnails for a transcoded file.
+--
+-- If you specify a literal value and/or '{resolution}' but you omit '{count}',
+-- Elastic Transcoder returns a validation error and does not create the job.
+-- Literal values (Optional): You can specify literal values anywhere in the 'ThumbnailPattern' object. For example, you can include them as a file name prefix or as a
+-- delimiter between '{resolution}' and '{count}'.
+--
 -- '{resolution}' (Optional): If you want Elastic Transcoder to include the
--- resolution in the file name, include '{resolution}' in the
--- 'ThumbnailPattern' object. When creating thumbnails, Elastic Transcoder
--- automatically saves the files in the format (.jpg or .png) that appears
--- in the preset that you specified in the 'PresetID' value of
--- 'CreateJobOutput'. Elastic Transcoder also appends the applicable file
--- name extension.
+-- resolution in the file name, include '{resolution}' in the 'ThumbnailPattern'
+-- object.
+--
+-- When creating thumbnails, Elastic Transcoder automatically saves the files
+-- in the format (.jpg or .png) that appears in the preset that you specified in
+-- the 'PresetID' value of 'CreateJobOutput'. Elastic Transcoder also appends the
+-- applicable file name extension.
+--
 joThumbnailPattern :: Lens' JobOutput (Maybe Text)
 joThumbnailPattern =
     lens _joThumbnailPattern (\s a -> s { _joThumbnailPattern = a })
 
--- | Information about the watermarks that you want Elastic Transcoder to add
--- to the video during transcoding. You can specify up to four watermarks
--- for each output. Settings for each watermark must be defined in the
--- preset that you specify in 'Preset' for the current output. Watermarks
--- are added to the output video in the sequence in which you list them in
--- the job output—the first watermark in the list is added to the output
--- video first, the second watermark in the list is added next, and so on.
--- As a result, if the settings in a preset cause Elastic Transcoder to
--- place all watermarks in the same location, the second watermark that you
--- add will cover the first one, the third one will cover the second, and
--- the fourth one will cover the third.
+-- | Information about the watermarks that you want Elastic Transcoder to add to
+-- the video during transcoding. You can specify up to four watermarks for each
+-- output. Settings for each watermark must be defined in the preset that you
+-- specify in 'Preset' for the current output.
+--
+-- Watermarks are added to the output video in the sequence in which you list
+-- them in the job output—the first watermark in the list is added to the output
+-- video first, the second watermark in the list is added next, and so on. As a
+-- result, if the settings in a preset cause Elastic Transcoder to place all
+-- watermarks in the same location, the second watermark that you add will cover
+-- the first one, the third one will cover the second, and the fourth one will
+-- cover the third.
+--
 joWatermarks :: Lens' JobOutput [JobWatermark]
 joWatermarks = lens _joWatermarks (\s a -> s { _joWatermarks = a }) . _List
 
 -- | Specifies the width of the output file in pixels.
+--
 joWidth :: Lens' JobOutput (Maybe Int)
 joWidth = lens _joWidth (\s a -> s { _joWidth = a })
 
@@ -857,63 +914,70 @@ job = Job'
     }
 
 -- | The Amazon Resource Name (ARN) for the job.
+--
 jArn :: Lens' Job' (Maybe Text)
 jArn = lens _jArn (\s a -> s { _jArn = a })
 
 -- | The identifier that Elastic Transcoder assigned to the job. You use this
 -- value to get settings for the job or to delete the job.
+--
 jId :: Lens' Job' (Maybe Text)
 jId = lens _jId (\s a -> s { _jId = a })
 
 -- | A section of the request or response body that provides information about
 -- the file that is being transcoded.
+--
 jInput :: Lens' Job' (Maybe JobInput)
 jInput = lens _jInput (\s a -> s { _jInput = a })
 
--- | If you specified one output for a job, information about that output. If
--- you specified multiple outputs for a job, the Output object lists
--- information about the first output. This duplicates the information that
--- is listed for the first output in the Outputs object. Outputs recommended
--- instead. A section of the request or response body that provides
--- information about the transcoded (target) file.
+-- | If you specified one output for a job, information about that output. If you
+-- specified multiple outputs for a job, the Output object lists information
+-- about the first output. This duplicates the information that is listed for
+-- the first output in the Outputs object.
+--
+-- Outputs recommended instead. A section of the request or response body that
+-- provides information about the transcoded (target) file.
+--
 jOutput :: Lens' Job' (Maybe JobOutput)
 jOutput = lens _jOutput (\s a -> s { _jOutput = a })
 
--- | The value, if any, that you want Elastic Transcoder to prepend to the
--- names of all files that this job creates, including output files,
--- thumbnails, and playlists. We recommend that you add a / or some other
--- delimiter to the end of the 'OutputKeyPrefix'.
+-- | The value, if any, that you want Elastic Transcoder to prepend to the names
+-- of all files that this job creates, including output files, thumbnails, and
+-- playlists. We recommend that you add a / or some other delimiter to the end
+-- of the 'OutputKeyPrefix'.
+--
 jOutputKeyPrefix :: Lens' Job' (Maybe Text)
 jOutputKeyPrefix = lens _jOutputKeyPrefix (\s a -> s { _jOutputKeyPrefix = a })
 
--- | Information about the output files. We recommend that you use the
--- 'Outputs' syntax for all jobs, even when you want Elastic Transcoder to
--- transcode a file into only one format. Do not use both the 'Outputs' and
--- 'Output' syntaxes in the same request. You can create a maximum of 30
--- outputs per job. If you specify more than one output for a job, Elastic
--- Transcoder creates the files for each output in the order in which you
--- specify them in the job.
+-- | Information about the output files. We recommend that you use the 'Outputs'
+-- syntax for all jobs, even when you want Elastic Transcoder to transcode a
+-- file into only one format. Do not use both the 'Outputs' and 'Output' syntaxes in
+-- the same request. You can create a maximum of 30 outputs per job.
+--
+-- If you specify more than one output for a job, Elastic Transcoder creates
+-- the files for each output in the order in which you specify them in the job.
+--
 jOutputs :: Lens' Job' [JobOutput]
 jOutputs = lens _jOutputs (\s a -> s { _jOutputs = a }) . _List
 
 -- | The 'Id' of the pipeline that you want Elastic Transcoder to use for
--- transcoding. The pipeline determines several settings, including the
--- Amazon S3 bucket from which Elastic Transcoder gets the files to
--- transcode and the bucket into which Elastic Transcoder puts the
--- transcoded files.
+-- transcoding. The pipeline determines several settings, including the Amazon
+-- S3 bucket from which Elastic Transcoder gets the files to transcode and the
+-- bucket into which Elastic Transcoder puts the transcoded files.
+--
 jPipelineId :: Lens' Job' (Maybe Text)
 jPipelineId = lens _jPipelineId (\s a -> s { _jPipelineId = a })
 
--- | Outputs in Fragmented MP4 or MPEG-TS format only.If you specify a preset
--- in 'PresetId' for which the value of 'Container' is fmp4 (Fragmented MP4)
--- or ts (MPEG-TS), 'Playlists' contains information about the master
--- playlists that you want Elastic Transcoder to create. The maximum number
--- of master playlists in a job is 30.
+-- | Outputs in Fragmented MP4 or MPEG-TS format only.If you specify a preset in 'PresetId' for which the value of 'Container' is fmp4 (Fragmented MP4) or ts (MPEG-TS), 'Playlists' contains information about the master playlists that you want Elastic
+-- Transcoder to create.
+--
+-- The maximum number of master playlists in a job is 30.
+--
 jPlaylists :: Lens' Job' [Playlist]
 jPlaylists = lens _jPlaylists (\s a -> s { _jPlaylists = a }) . _List
 
--- | The status of the job: 'Submitted', 'Progressing', 'Complete',
--- 'Canceled', or 'Error'.
+-- | The status of the job: 'Submitted', 'Progressing', 'Complete', 'Canceled', or 'Error'.
+--
 jStatus :: Lens' Job' (Maybe Text)
 jStatus = lens _jStatus (\s a -> s { _jStatus = a })
 
@@ -971,26 +1035,35 @@ captionSource = CaptionSource
 
 -- | The name of the sidecar caption file that you want Elastic Transcoder to
 -- include in the output file.
+--
 csKey :: Lens' CaptionSource (Maybe Text)
 csKey = lens _csKey (\s a -> s { _csKey = a })
 
 -- | The label of the caption shown in the player when choosing a language. We
--- recommend that you put the caption language name here, in the language of
--- the captions.
+-- recommend that you put the caption language name here, in the language of the
+-- captions.
+--
 csLabel :: Lens' CaptionSource (Maybe Text)
 csLabel = lens _csLabel (\s a -> s { _csLabel = a })
 
--- | A string that specifies the language of the caption. Specify this as one
--- of: 2-character ISO 639-1 code 3-character ISO 639-2 code For more
--- information on ISO language codes and language names, see the List of ISO
--- 639-1 codes.
+-- | A string that specifies the language of the caption. Specify this as one of:
+--
+-- 2-character ISO 639-1 code
+--
+-- 3-character ISO 639-2 code
+--
+-- For more information on ISO language codes and language names, see the List
+-- of ISO 639-1 codes.
+--
 csLanguage :: Lens' CaptionSource (Maybe Text)
 csLanguage = lens _csLanguage (\s a -> s { _csLanguage = a })
 
 -- | For clip generation or captions that do not start at the same time as the
--- associated video file, the 'TimeOffset' tells Elastic Transcoder how much
--- of the video to encode before including captions. Specify the TimeOffset
--- in the form [+-]SS.sss or [+-]HH:mm:SS.ss.
+-- associated video file, the 'TimeOffset' tells Elastic Transcoder how much of
+-- the video to encode before including captions.
+--
+-- Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.
+--
 csTimeOffset :: Lens' CaptionSource (Maybe Text)
 csTimeOffset = lens _csTimeOffset (\s a -> s { _csTimeOffset = a })
 
@@ -1045,59 +1118,65 @@ artwork = Artwork
     }
 
 -- | The format of album art, if any. Valid formats are '.jpg' and '.png'.
+--
 aAlbumArtFormat :: Lens' Artwork (Maybe Text)
 aAlbumArtFormat = lens _aAlbumArtFormat (\s a -> s { _aAlbumArtFormat = a })
 
--- | The name of the file to be used as album art. To determine which Amazon
--- S3 bucket contains the specified file, Elastic Transcoder checks the
--- pipeline specified by 'PipelineId'; the 'InputBucket' object in that
--- pipeline identifies the bucket. If the file name includes a prefix, for
--- example, 'cooking/pie.jpg', include the prefix in the key. If the file
--- isn't in the specified bucket, Elastic Transcoder returns an error.
+-- | The name of the file to be used as album art. To determine which Amazon S3
+-- bucket contains the specified file, Elastic Transcoder checks the pipeline
+-- specified by 'PipelineId'; the 'InputBucket' object in that pipeline identifies
+-- the bucket.
+--
+-- If the file name includes a prefix, for example, 'cooking/pie.jpg', include
+-- the prefix in the key. If the file isn't in the specified bucket, Elastic
+-- Transcoder returns an error.
+--
 aInputKey :: Lens' Artwork (Maybe Text)
 aInputKey = lens _aInputKey (\s a -> s { _aInputKey = a })
 
--- | The maximum height of the output album art in pixels. If you specify
--- 'auto', Elastic Transcoder uses 600 as the default value. If you specify
--- a numeric value, enter an even integer between 32 and 3072, inclusive.
+-- | The maximum height of the output album art in pixels. If you specify 'auto',
+-- Elastic Transcoder uses 600 as the default value. If you specify a numeric
+-- value, enter an even integer between 32 and 3072, inclusive.
+--
 aMaxHeight :: Lens' Artwork (Maybe Text)
 aMaxHeight = lens _aMaxHeight (\s a -> s { _aMaxHeight = a })
 
--- | The maximum width of the output album art in pixels. If you specify
--- 'auto', Elastic Transcoder uses 600 as the default value. If you specify
--- a numeric value, enter an even integer between 32 and 4096, inclusive.
+-- | The maximum width of the output album art in pixels. If you specify 'auto',
+-- Elastic Transcoder uses 600 as the default value. If you specify a numeric
+-- value, enter an even integer between 32 and 4096, inclusive.
+--
 aMaxWidth :: Lens' Artwork (Maybe Text)
 aMaxWidth = lens _aMaxWidth (\s a -> s { _aMaxWidth = a })
 
--- | When you set 'PaddingPolicy' to 'Pad', Elastic Transcoder may add white
--- bars to the top and bottom and/or left and right sides of the output
--- album art to make the total size of the output art match the values that
--- you specified for 'MaxWidth' and 'MaxHeight'.
+-- | When you set 'PaddingPolicy' to 'Pad', Elastic Transcoder may add white bars to
+-- the top and bottom and/or left and right sides of the output album art to
+-- make the total size of the output art match the values that you specified for 'MaxWidth' and 'MaxHeight'.
+--
 aPaddingPolicy :: Lens' Artwork (Maybe Text)
 aPaddingPolicy = lens _aPaddingPolicy (\s a -> s { _aPaddingPolicy = a })
 
--- | Specify one of the following values to control scaling of the output
--- album art: 'Fit:' Elastic Transcoder scales the output art so it matches
--- the value that you specified in either 'MaxWidth' or 'MaxHeight' without
--- exceeding the other value. 'Fill:' Elastic Transcoder scales the output
--- art so it matches the value that you specified in either 'MaxWidth' or
--- 'MaxHeight' and matches or exceeds the other value. Elastic Transcoder
--- centers the output art and then crops it in the dimension (if any) that
--- exceeds the maximum value. 'Stretch:' Elastic Transcoder stretches the
--- output art to match the values that you specified for 'MaxWidth' and
--- 'MaxHeight'. If the relative proportions of the input art and the output
--- art are different, the output art will be distorted. 'Keep:' Elastic
--- Transcoder does not scale the output art. If either dimension of the
--- input art exceeds the values that you specified for 'MaxWidth' and
--- 'MaxHeight', Elastic Transcoder crops the output art. 'ShrinkToFit:'
--- Elastic Transcoder scales the output art down so that its dimensions
--- match the values that you specified for at least one of 'MaxWidth' and
--- 'MaxHeight' without exceeding either value. If you specify this option,
--- Elastic Transcoder does not scale the art up. 'ShrinkToFill' Elastic
--- Transcoder scales the output art down so that its dimensions match the
--- values that you specified for at least one of 'MaxWidth' and 'MaxHeight'
--- without dropping below either value. If you specify this option, Elastic
--- Transcoder does not scale the art up.
+-- | Specify one of the following values to control scaling of the output album
+-- art:
+--
+-- 'Fit:' Elastic Transcoder scales the output art so it matches the value
+-- that you specified in either 'MaxWidth' or 'MaxHeight' without exceeding the
+-- other value.  'Fill:' Elastic Transcoder scales the output art so it matches
+-- the value that you specified in either 'MaxWidth' or 'MaxHeight' and matches or
+-- exceeds the other value. Elastic Transcoder centers the output art and then
+-- crops it in the dimension (if any) that exceeds the maximum value.   'Stretch:'
+-- Elastic Transcoder stretches the output art to match the values that you
+-- specified for 'MaxWidth' and 'MaxHeight'. If the relative proportions of the
+-- input art and the output art are different, the output art will be distorted.
+-- 'Keep:' Elastic Transcoder does not scale the output art. If either dimension
+-- of the input art exceeds the values that you specified for 'MaxWidth' and 'MaxHeight', Elastic Transcoder crops the output art.  'ShrinkToFit:' Elastic Transcoder
+-- scales the output art down so that its dimensions match the values that you
+-- specified for at least one of 'MaxWidth' and 'MaxHeight' without exceeding either
+-- value. If you specify this option, Elastic Transcoder does not scale the art
+-- up.  'ShrinkToFill' Elastic Transcoder scales the output art down so that its
+-- dimensions match the values that you specified for at least one of 'MaxWidth'
+-- and 'MaxHeight' without dropping below either value. If you specify this
+-- option, Elastic Transcoder does not scale the art up.
+--
 aSizingPolicy :: Lens' Artwork (Maybe Text)
 aSizingPolicy = lens _aSizingPolicy (\s a -> s { _aSizingPolicy = a })
 
@@ -1140,19 +1219,21 @@ timeSpan = TimeSpan
     }
 
 -- | The duration of the clip. The format can be either HH:mm:ss.SSS (maximum
--- value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS
--- (maximum value: 86399.999). If you don't specify a value, Elastic
--- Transcoder creates an output file from StartTime to the end of the file.
--- If you specify a value longer than the duration of the input file,
--- Elastic Transcoder transcodes the file and returns a warning message.
+-- value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum
+-- value: 86399.999). If you don't specify a value, Elastic Transcoder creates
+-- an output file from StartTime to the end of the file.
+--
+-- If you specify a value longer than the duration of the input file, Elastic
+-- Transcoder transcodes the file and returns a warning message.
+--
 tsDuration :: Lens' TimeSpan (Maybe Text)
 tsDuration = lens _tsDuration (\s a -> s { _tsDuration = a })
 
--- | The place in the input file where you want a clip to start. The format
--- can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is
--- thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you
--- don't specify a value, Elastic Transcoder starts at the beginning of the
--- input file.
+-- | The place in the input file where you want a clip to start. The format can be
+-- either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a
+-- second) or sssss.SSS (maximum value: 86399.999). If you don't specify a
+-- value, Elastic Transcoder starts at the beginning of the input file.
+--
 tsStartTime :: Lens' TimeSpan (Maybe Text)
 tsStartTime = lens _tsStartTime (\s a -> s { _tsStartTime = a })
 
@@ -1214,122 +1295,144 @@ createJobOutput = CreateJobOutput
     , _cjoCaptions         = Nothing
     }
 
--- | Information about the album art that you want Elastic Transcoder to add
--- to the file during transcoding. You can specify up to twenty album
--- artworks for each output. Settings for each artwork must be defined in
--- the job for the current output.
+-- | Information about the album art that you want Elastic Transcoder to add to
+-- the file during transcoding. You can specify up to twenty album artworks for
+-- each output. Settings for each artwork must be defined in the job for the
+-- current output.
+--
 cjoAlbumArt :: Lens' CreateJobOutput (Maybe JobAlbumArt)
 cjoAlbumArt = lens _cjoAlbumArt (\s a -> s { _cjoAlbumArt = a })
 
 -- | You can configure Elastic Transcoder to transcode captions, or subtitles,
--- from one format to another. All captions must be in UTF-8. Elastic
--- Transcoder supports two types of captions: Embedded: Embedded captions
--- are included in the same file as the audio and video. Elastic Transcoder
--- supports only one embedded caption per language, to a maximum of 300
--- embedded captions per file. Valid input values include: 'CEA-608
--- (EIA-608', first non-empty channel only), 'CEA-708 (EIA-708', first
--- non-empty channel only), and 'mov-text' Valid outputs include: 'mov-text'
+-- from one format to another. All captions must be in UTF-8. Elastic Transcoder
+-- supports two types of captions:
+--
+-- Embedded: Embedded captions are included in the same file as the audio and
+-- video. Elastic Transcoder supports only one embedded caption per language, to
+-- a maximum of 300 embedded captions per file.
+--
+-- Valid input values include: 'CEA-608 (EIA-608', first non-empty channel only), 'CEA-708 (EIA-708', first non-empty channel only), and 'mov-text'
+--
+-- Valid outputs include: 'mov-text'
+--
 -- Elastic Transcoder supports a maximum of one embedded format per output.
+--
 -- Sidecar: Sidecar captions are kept in a separate metadata file from the
--- audio and video data. Sidecar captions require a player that is capable
--- of understanding the relationship between the video file and the sidecar
--- file. Elastic Transcoder supports only one sidecar caption per language,
--- to a maximum of 20 sidecar captions per file. Valid input values include:
--- 'dfxp' (first div element only), 'ebu-tt', 'scc', 'smpt', 'srt', 'ttml'
--- (first div element only), and 'webvtt' Valid outputs include: 'dfxp'
--- (first div element only), 'scc', 'srt', and 'webvtt'. If you want ttml or
--- smpte-tt compatible captions, specify dfxp as your output format. Elastic
--- Transcoder does not support OCR (Optical Character Recognition), does not
--- accept pictures as a valid input for captions, and is not available for
--- audio-only transcoding. Elastic Transcoder does not preserve text
--- formatting (for example, italics) during the transcoding process. To
--- remove captions or leave the captions empty, set 'Captions' to null. To
--- pass through existing captions unchanged, set the 'MergePolicy' to
--- 'MergeRetain', and pass in a null 'CaptionSources' array. For more
--- information on embedded files, see the Subtitles Wikipedia page. For more
--- information on sidecar files, see the Extensible Metadata Platform and
--- Sidecar file Wikipedia pages.
+-- audio and video data. Sidecar captions require a player that is capable of
+-- understanding the relationship between the video file and the sidecar file.
+-- Elastic Transcoder supports only one sidecar caption per language, to a
+-- maximum of 20 sidecar captions per file.
+--
+-- Valid input values include: 'dfxp' (first div element only), 'ebu-tt', 'scc', 'smpt',
+-- 'srt', 'ttml' (first div element only), and 'webvtt'
+--
+-- Valid outputs include: 'dfxp' (first div element only), 'scc', 'srt', and 'webvtt'.
+--
+-- If you want ttml or smpte-tt compatible captions, specify dfxp as your
+-- output format.
+--
+-- Elastic Transcoder does not support OCR (Optical Character Recognition),
+-- does not accept pictures as a valid input for captions, and is not available
+-- for audio-only transcoding. Elastic Transcoder does not preserve text
+-- formatting (for example, italics) during the transcoding process.
+--
+-- To remove captions or leave the captions empty, set 'Captions' to null. To
+-- pass through existing captions unchanged, set the 'MergePolicy' to 'MergeRetain',
+-- and pass in a null 'CaptionSources' array.
+--
+-- For more information on embedded files, see the Subtitles Wikipedia page.
+--
+-- For more information on sidecar files, see the Extensible Metadata Platform
+-- and Sidecar file Wikipedia pages.
+--
 cjoCaptions :: Lens' CreateJobOutput (Maybe Captions)
 cjoCaptions = lens _cjoCaptions (\s a -> s { _cjoCaptions = a })
 
--- | You can create an output file that contains an excerpt from the input
--- file. This excerpt, called a clip, can come from the beginning, middle,
--- or end of the file. The Composition object contains settings for the
--- clips that make up an output file. For the current release, you can only
--- specify settings for a single clip per output file. The Composition
--- object cannot be null.
+-- | You can create an output file that contains an excerpt from the input file.
+-- This excerpt, called a clip, can come from the beginning, middle, or end of
+-- the file. The Composition object contains settings for the clips that make up
+-- an output file. For the current release, you can only specify settings for a
+-- single clip per output file. The Composition object cannot be null.
+--
 cjoComposition :: Lens' CreateJobOutput [Clip]
 cjoComposition = lens _cjoComposition (\s a -> s { _cjoComposition = a }) . _List
 
--- | The name to assign to the transcoded file. Elastic Transcoder saves the
--- file in the Amazon S3 bucket specified by the 'OutputBucket' object in
--- the pipeline that is specified by the pipeline ID. If a file with the
--- specified name already exists in the output bucket, the job fails.
+-- | The name to assign to the transcoded file. Elastic Transcoder saves the file
+-- in the Amazon S3 bucket specified by the 'OutputBucket' object in the pipeline
+-- that is specified by the pipeline ID. If a file with the specified name
+-- already exists in the output bucket, the job fails.
+--
 cjoKey :: Lens' CreateJobOutput (Maybe Text)
 cjoKey = lens _cjoKey (\s a -> s { _cjoKey = a })
 
--- | The 'Id' of the preset to use for this job. The preset determines the
--- audio, video, and thumbnail settings that Elastic Transcoder uses for
--- transcoding.
+-- | The 'Id' of the preset to use for this job. The preset determines the audio,
+-- video, and thumbnail settings that Elastic Transcoder uses for transcoding.
+--
 cjoPresetId :: Lens' CreateJobOutput (Maybe Text)
 cjoPresetId = lens _cjoPresetId (\s a -> s { _cjoPresetId = a })
 
 -- | The number of degrees clockwise by which you want Elastic Transcoder to
--- rotate the output relative to the input. Enter one of the following
--- values: 'auto', '0', '90', '180', '270'. The value 'auto' generally works
--- only if the file that you're transcoding contains rotation metadata.
+-- rotate the output relative to the input. Enter one of the following values: 'auto', '0', '90', '180', '270'. The value 'auto' generally works only if the file that
+-- you're transcoding contains rotation metadata.
+--
 cjoRotate :: Lens' CreateJobOutput (Maybe Text)
 cjoRotate = lens _cjoRotate (\s a -> s { _cjoRotate = a })
 
--- | (Outputs in Fragmented MP4 or MPEG-TS format only.If you specify a preset
--- in 'PresetId' for which the value of 'Container' is 'fmp4' (Fragmented
--- MP4) or 'ts' (MPEG-TS), 'SegmentDuration' is the target maximum duration
--- of each segment in seconds. For 'HLSv3' format playlists, each media
--- segment is stored in a separate '.ts' file. For 'HLSv4' and 'Smooth'
--- playlists, all media segments for an output are stored in a single file.
--- Each segment is approximately the length of the 'SegmentDuration', though
--- individual segments might be shorter or longer. The range of valid values
--- is 1 to 60 seconds. If the duration of the video is not evenly divisible
--- by 'SegmentDuration', the duration of the last segment is the remainder
--- of total length/SegmentDuration. Elastic Transcoder creates an
--- output-specific playlist for each output 'HLS' output that you specify in
--- OutputKeys. To add an output to the master playlist for this job, include
--- it in the 'OutputKeys' of the associated playlist.
+-- | (Outputs in Fragmented MP4 or MPEG-TS format only.If you specify a preset in 'PresetId' for which the value of 'Container' is 'fmp4' (Fragmented MP4) or 'ts' (MPEG-TS), 'SegmentDuration' is the target maximum duration of each segment in seconds. For 'HLSv3' format
+-- playlists, each media segment is stored in a separate '.ts' file. For 'HLSv4' and 'Smooth' playlists, all media segments for an output are stored in a single
+-- file. Each segment is approximately the length of the 'SegmentDuration', though
+-- individual segments might be shorter or longer.
+--
+-- The range of valid values is 1 to 60 seconds. If the duration of the video
+-- is not evenly divisible by 'SegmentDuration', the duration of the last segment
+-- is the remainder of total length/SegmentDuration.
+--
+-- Elastic Transcoder creates an output-specific playlist for each output 'HLS'
+-- output that you specify in OutputKeys. To add an output to the master
+-- playlist for this job, include it in the 'OutputKeys' of the associated
+-- playlist.
+--
 cjoSegmentDuration :: Lens' CreateJobOutput (Maybe Text)
 cjoSegmentDuration =
     lens _cjoSegmentDuration (\s a -> s { _cjoSegmentDuration = a })
 
--- | Whether you want Elastic Transcoder to create thumbnails for your videos
--- and, if so, how you want Elastic Transcoder to name the files. If you
--- don't want Elastic Transcoder to create thumbnails, specify "". If you do
--- want Elastic Transcoder to create thumbnails, specify the information
--- that you want to include in the file name for each thumbnail. You can
--- specify the following values in any sequence: '{count}' (Required): If
--- you want to create thumbnails, you must include '{count}' in the
--- 'ThumbnailPattern' object. Wherever you specify '{count}', Elastic
+-- | Whether you want Elastic Transcoder to create thumbnails for your videos and,
+-- if so, how you want Elastic Transcoder to name the files.
+--
+-- If you don't want Elastic Transcoder to create thumbnails, specify "".
+--
+-- If you do want Elastic Transcoder to create thumbnails, specify the
+-- information that you want to include in the file name for each thumbnail. You
+-- can specify the following values in any sequence:
+--
+-- '{count}' (Required): If you want to create thumbnails, you must include '{count}' in the 'ThumbnailPattern' object. Wherever you specify '{count}', Elastic
 -- Transcoder adds a five-digit sequence number (beginning with 00001) to
--- thumbnail file names. The number indicates where a given thumbnail
--- appears in the sequence of thumbnails for a transcoded file. If you
--- specify a literal value and/or '{resolution}' but you omit '{count}',
--- Elastic Transcoder returns a validation error and does not create the
--- job. Literal values (Optional): You can specify literal values anywhere
--- in the 'ThumbnailPattern' object. For example, you can include them as a
--- file name prefix or as a delimiter between '{resolution}' and '{count}'.
+-- thumbnail file names. The number indicates where a given thumbnail appears in
+-- the sequence of thumbnails for a transcoded file.
+--
+-- If you specify a literal value and/or '{resolution}' but you omit '{count}',
+-- Elastic Transcoder returns a validation error and does not create the job.
+-- Literal values (Optional): You can specify literal values anywhere in the 'ThumbnailPattern' object. For example, you can include them as a file name prefix or as a
+-- delimiter between '{resolution}' and '{count}'.
+--
 -- '{resolution}' (Optional): If you want Elastic Transcoder to include the
--- resolution in the file name, include '{resolution}' in the
--- 'ThumbnailPattern' object. When creating thumbnails, Elastic Transcoder
--- automatically saves the files in the format (.jpg or .png) that appears
--- in the preset that you specified in the 'PresetID' value of
--- 'CreateJobOutput'. Elastic Transcoder also appends the applicable file
--- name extension.
+-- resolution in the file name, include '{resolution}' in the 'ThumbnailPattern'
+-- object.
+--
+-- When creating thumbnails, Elastic Transcoder automatically saves the files
+-- in the format (.jpg or .png) that appears in the preset that you specified in
+-- the 'PresetID' value of 'CreateJobOutput'. Elastic Transcoder also appends the
+-- applicable file name extension.
+--
 cjoThumbnailPattern :: Lens' CreateJobOutput (Maybe Text)
 cjoThumbnailPattern =
     lens _cjoThumbnailPattern (\s a -> s { _cjoThumbnailPattern = a })
 
--- | Information about the watermarks that you want Elastic Transcoder to add
--- to the video during transcoding. You can specify up to four watermarks
--- for each output. Settings for each watermark must be defined in the
--- preset for the current output.
+-- | Information about the watermarks that you want Elastic Transcoder to add to
+-- the video during transcoding. You can specify up to four watermarks for each
+-- output. Settings for each watermark must be defined in the preset for the
+-- current output.
+--
 cjoWatermarks :: Lens' CreateJobOutput [JobWatermark]
 cjoWatermarks = lens _cjoWatermarks (\s a -> s { _cjoWatermarks = a }) . _List
 
@@ -1391,31 +1494,45 @@ audioParameters = AudioParameters
 
 -- | The bit rate of the audio stream in the output file, in kilobits/second.
 -- Enter an integer between 64 and 320, inclusive.
+--
 apBitRate :: Lens' AudioParameters (Maybe Text)
 apBitRate = lens _apBitRate (\s a -> s { _apBitRate = a })
 
 -- | The number of audio channels in the output file. Valid values include:
--- 'auto', '0', '1', '2' If you specify 'auto', Elastic Transcoder
--- automatically detects the number of channels in the input file.
+--
+-- 'auto', '0', '1', '2'
+--
+-- If you specify 'auto', Elastic Transcoder automatically detects the number of
+-- channels in the input file.
+--
 apChannels :: Lens' AudioParameters (Maybe Text)
 apChannels = lens _apChannels (\s a -> s { _apChannels = a })
 
--- | The audio codec for the output file. Valid values include 'aac', 'mp3',
--- and 'vorbis'.
+-- | The audio codec for the output file. Valid values include 'aac', 'mp3', and 'vorbis'
+-- .
+--
 apCodec :: Lens' AudioParameters (Maybe Text)
 apCodec = lens _apCodec (\s a -> s { _apCodec = a })
 
--- | If you specified 'AAC' for 'Audio:Codec', this is the 'AAC' compression
--- profile to use. Valid values include: 'auto', 'AAC-LC', 'HE-AAC',
--- 'HE-AACv2' If you specify 'auto', Elastic Transcoder chooses a profile
--- based on the bit rate of the output file.
+-- | If you specified 'AAC' for 'Audio:Codec', this is the 'AAC' compression profile to
+-- use. Valid values include:
+--
+-- 'auto', 'AAC-LC', 'HE-AAC', 'HE-AACv2'
+--
+-- If you specify 'auto', Elastic Transcoder chooses a profile based on the bit
+-- rate of the output file.
+--
 apCodecOptions :: Lens' AudioParameters (Maybe AudioCodecOptions)
 apCodecOptions = lens _apCodecOptions (\s a -> s { _apCodecOptions = a })
 
 -- | The sample rate of the audio stream in the output file, in Hertz. Valid
--- values include: 'auto', '22050', '32000', '44100', '48000', '96000' If
--- you specify 'auto', Elastic Transcoder automatically detects the sample
+-- values include:
+--
+-- 'auto', '22050', '32000', '44100', '48000', '96000'
+--
+-- If you specify 'auto', Elastic Transcoder automatically detects the sample
 -- rate.
+--
 apSampleRate :: Lens' AudioParameters (Maybe Text)
 apSampleRate = lens _apSampleRate (\s a -> s { _apSampleRate = a })
 
@@ -1480,78 +1597,89 @@ thumbnails = Thumbnails
     }
 
 -- | To better control resolution and aspect ratio of thumbnails, we recommend
--- that you use the values 'MaxWidth', 'MaxHeight', 'SizingPolicy', and
--- 'PaddingPolicy' instead of 'Resolution' and 'AspectRatio'. The two groups
--- of settings are mutually exclusive. Do not use them together. The aspect
--- ratio of thumbnails. Valid values include: 'auto', '1:1', '4:3', '3:2',
--- '16:9' If you specify 'auto', Elastic Transcoder tries to preserve the
--- aspect ratio of the video in the output file.
+-- that you use the values 'MaxWidth', 'MaxHeight', 'SizingPolicy', and 'PaddingPolicy'
+-- instead of 'Resolution' and 'AspectRatio'. The two groups of settings are
+-- mutually exclusive. Do not use them together.
+--
+-- The aspect ratio of thumbnails. Valid values include:
+--
+-- 'auto', '1:1', '4:3', '3:2', '16:9'
+--
+-- If you specify 'auto', Elastic Transcoder tries to preserve the aspect ratio
+-- of the video in the output file.
+--
 tAspectRatio :: Lens' Thumbnails (Maybe Text)
 tAspectRatio = lens _tAspectRatio (\s a -> s { _tAspectRatio = a })
 
--- | The format of thumbnails, if any. Valid values are 'jpg' and 'png'. You
--- specify whether you want Elastic Transcoder to create thumbnails when you
--- create a job.
+-- | The format of thumbnails, if any. Valid values are 'jpg' and 'png'.
+--
+-- You specify whether you want Elastic Transcoder to create thumbnails when
+-- you create a job.
+--
 tFormat :: Lens' Thumbnails (Maybe Text)
 tFormat = lens _tFormat (\s a -> s { _tFormat = a })
 
 -- | The number of seconds between thumbnails. Specify an integer value.
+--
 tInterval :: Lens' Thumbnails (Maybe Text)
 tInterval = lens _tInterval (\s a -> s { _tInterval = a })
 
 -- | The maximum height of thumbnails in pixels. If you specify auto, Elastic
--- Transcoder uses 1080 (Full HD) as the default value. If you specify a
--- numeric value, enter an even integer between 32 and 3072.
+-- Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric
+-- value, enter an even integer between 32 and 3072.
+--
 tMaxHeight :: Lens' Thumbnails (Maybe Text)
 tMaxHeight = lens _tMaxHeight (\s a -> s { _tMaxHeight = a })
 
 -- | The maximum width of thumbnails in pixels. If you specify auto, Elastic
--- Transcoder uses 1920 (Full HD) as the default value. If you specify a
--- numeric value, enter an even integer between 32 and 4096.
+-- Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric
+-- value, enter an even integer between 32 and 4096.
+--
 tMaxWidth :: Lens' Thumbnails (Maybe Text)
 tMaxWidth = lens _tMaxWidth (\s a -> s { _tMaxWidth = a })
 
--- | When you set 'PaddingPolicy' to 'Pad', Elastic Transcoder may add black
--- bars to the top and bottom and/or left and right sides of thumbnails to
--- make the total size of the thumbnails match the values that you specified
--- for thumbnail 'MaxWidth' and 'MaxHeight' settings.
+-- | When you set 'PaddingPolicy' to 'Pad', Elastic Transcoder may add black bars to
+-- the top and bottom and/or left and right sides of thumbnails to make the
+-- total size of the thumbnails match the values that you specified for
+-- thumbnail 'MaxWidth' and 'MaxHeight' settings.
+--
 tPaddingPolicy :: Lens' Thumbnails (Maybe Text)
 tPaddingPolicy = lens _tPaddingPolicy (\s a -> s { _tPaddingPolicy = a })
 
 -- | To better control resolution and aspect ratio of thumbnails, we recommend
--- that you use the values 'MaxWidth', 'MaxHeight', 'SizingPolicy', and
--- 'PaddingPolicy' instead of 'Resolution' and 'AspectRatio'. The two groups
--- of settings are mutually exclusive. Do not use them together. The width
--- and height of thumbnail files in pixels. Specify a value in the format
--- '/width/ x '/height/ where both values are even integers. The values
--- cannot exceed the width and height that you specified in the
--- 'Video:Resolution' object.
+-- that you use the values 'MaxWidth', 'MaxHeight', 'SizingPolicy', and 'PaddingPolicy'
+-- instead of 'Resolution' and 'AspectRatio'. The two groups of settings are
+-- mutually exclusive. Do not use them together.
+--
+-- The width and height of thumbnail files in pixels. Specify a value in the
+-- format '/width/ x '/height/ where both values are even integers. The values cannot
+-- exceed the width and height that you specified in the 'Video:Resolution' object.
+--
 tResolution :: Lens' Thumbnails (Maybe Text)
 tResolution = lens _tResolution (\s a -> s { _tResolution = a })
 
 -- | Specify one of the following values to control scaling of thumbnails:
+--
 -- 'Fit': Elastic Transcoder scales thumbnails so they match the value that
--- you specified in thumbnail MaxWidth or MaxHeight settings without
--- exceeding the other value. 'Fill': Elastic Transcoder scales thumbnails
--- so they match the value that you specified in thumbnail 'MaxWidth' or
--- 'MaxHeight' settings and matches or exceeds the other value. Elastic
--- Transcoder centers the image in thumbnails and then crops in the
--- dimension (if any) that exceeds the maximum value. 'Stretch': Elastic
--- Transcoder stretches thumbnails to match the values that you specified
--- for thumbnail 'MaxWidth' and 'MaxHeight' settings. If the relative
--- proportions of the input video and thumbnails are different, the
--- thumbnails will be distorted. 'Keep': Elastic Transcoder does not scale
--- thumbnails. If either dimension of the input video exceeds the values
--- that you specified for thumbnail 'MaxWidth' and 'MaxHeight' settings,
--- Elastic Transcoder crops the thumbnails. 'ShrinkToFit': Elastic
--- Transcoder scales thumbnails down so that their dimensions match the
--- values that you specified for at least one of thumbnail 'MaxWidth' and
--- 'MaxHeight' without exceeding either value. If you specify this option,
--- Elastic Transcoder does not scale thumbnails up. 'ShrinkToFill': Elastic
--- Transcoder scales thumbnails down so that their dimensions match the
--- values that you specified for at least one of 'MaxWidth' and 'MaxHeight'
--- without dropping below either value. If you specify this option, Elastic
--- Transcoder does not scale thumbnails up.
+-- you specified in thumbnail MaxWidth or MaxHeight settings without exceeding
+-- the other value.   'Fill': Elastic Transcoder scales thumbnails so they match
+-- the value that you specified in thumbnail 'MaxWidth' or 'MaxHeight' settings and
+-- matches or exceeds the other value. Elastic Transcoder centers the image in
+-- thumbnails and then crops in the dimension (if any) that exceeds the maximum
+-- value.  'Stretch': Elastic Transcoder stretches thumbnails to match the values
+-- that you specified for thumbnail 'MaxWidth' and 'MaxHeight' settings. If the
+-- relative proportions of the input video and thumbnails are different, the
+-- thumbnails will be distorted.  'Keep': Elastic Transcoder does not scale
+-- thumbnails. If either dimension of the input video exceeds the values that
+-- you specified for thumbnail 'MaxWidth' and 'MaxHeight' settings, Elastic
+-- Transcoder crops the thumbnails.  'ShrinkToFit': Elastic Transcoder scales
+-- thumbnails down so that their dimensions match the values that you specified
+-- for at least one of thumbnail 'MaxWidth' and 'MaxHeight' without exceeding either
+-- value. If you specify this option, Elastic Transcoder does not scale
+-- thumbnails up.  'ShrinkToFill': Elastic Transcoder scales thumbnails down so
+-- that their dimensions match the values that you specified for at least one of 'MaxWidth' and 'MaxHeight' without dropping below either value. If you specify
+-- this option, Elastic Transcoder does not scale thumbnails up.
+--
 tSizingPolicy :: Lens' Thumbnails (Maybe Text)
 tSizingPolicy = lens _tSizingPolicy (\s a -> s { _tSizingPolicy = a })
 
@@ -1597,20 +1725,19 @@ jobAlbumArt = JobAlbumArt
     , _jaaArtwork     = mempty
     }
 
--- | The file to be used as album art. There can be multiple artworks
--- associated with an audio file, to a maximum of 20. Valid formats are
--- '.jpg' and '.png'.
+-- | The file to be used as album art. There can be multiple artworks associated
+-- with an audio file, to a maximum of 20. Valid formats are '.jpg' and '.png'
+--
 jaaArtwork :: Lens' JobAlbumArt [Artwork]
 jaaArtwork = lens _jaaArtwork (\s a -> s { _jaaArtwork = a }) . _List
 
--- | A policy that determines how Elastic Transcoder will handle the existence
--- of multiple album artwork files. 'Replace:' The specified album art will
--- replace any existing album art. 'Prepend:' The specified album art will
--- be placed in front of any existing album art. 'Append:' The specified
--- album art will be placed after any existing album art. 'Fallback:' If the
--- original input file contains artwork, Elastic Transcoder will use that
--- artwork for the output. If the original input does not contain artwork,
+-- | A policy that determines how Elastic Transcoder will handle the existence of
+-- multiple album artwork files.
+--
+-- 'Replace:' The specified album art will replace any existing album art.  'Prepend:' The specified album art will be placed in front of any existing album art.  'Append:' The specified album art will be placed after any existing album art.  'Fallback:' If the original input file contains artwork, Elastic Transcoder will use
+-- that artwork for the output. If the original input does not contain artwork,
 -- Elastic Transcoder will use the specified album art file.
+--
 jaaMergePolicy :: Lens' JobAlbumArt (Maybe Text)
 jaaMergePolicy = lens _jaaMergePolicy (\s a -> s { _jaaMergePolicy = a })
 
@@ -1644,20 +1771,23 @@ jobWatermark = JobWatermark
     , _jwInputKey          = Nothing
     }
 
--- | The name of the .png or .jpg file that you want to use for the watermark.
--- To determine which Amazon S3 bucket contains the specified file, Elastic
--- Transcoder checks the pipeline specified by 'Pipeline'; the 'Input
--- Bucket' object in that pipeline identifies the bucket. If the file name
--- includes a prefix, for example, logos/128x64.png, include the prefix in
--- the key. If the file isn't in the specified bucket, Elastic Transcoder
--- returns an error.
+-- | The name of the .png or .jpg file that you want to use for the watermark. To
+-- determine which Amazon S3 bucket contains the specified file, Elastic
+-- Transcoder checks the pipeline specified by 'Pipeline'; the 'Input Bucket' object
+-- in that pipeline identifies the bucket.
+--
+-- If the file name includes a prefix, for example, logos/128x64.png, include
+-- the prefix in the key. If the file isn't in the specified bucket, Elastic
+-- Transcoder returns an error.
+--
 jwInputKey :: Lens' JobWatermark (Maybe Text)
 jwInputKey = lens _jwInputKey (\s a -> s { _jwInputKey = a })
 
 -- | The ID of the watermark settings that Elastic Transcoder uses to add
--- watermarks to the video during transcoding. The settings are in the
--- preset specified by Preset for the current output. In that preset, the
--- value of Watermarks Id tells Elastic Transcoder which settings to use.
+-- watermarks to the video during transcoding. The settings are in the preset
+-- specified by Preset for the current output. In that preset, the value of
+-- Watermarks Id tells Elastic Transcoder which settings to use.
+--
 jwPresetWatermarkId :: Lens' JobWatermark (Maybe Text)
 jwPresetWatermarkId =
     lens _jwPresetWatermarkId (\s a -> s { _jwPresetWatermarkId = a })
@@ -1725,111 +1855,116 @@ pipeline = Pipeline
     }
 
 -- | The Amazon Resource Name (ARN) for the pipeline.
+--
 pArn :: Lens' Pipeline (Maybe Text)
 pArn = lens _pArn (\s a -> s { _pArn = a })
 
--- | Information about the Amazon S3 bucket in which you want Elastic
--- Transcoder to save transcoded files and playlists. Either you specify
--- both 'ContentConfig' and 'ThumbnailConfig', or you specify
--- 'OutputBucket'. Bucket: The Amazon S3 bucket in which you want Elastic
--- Transcoder to save transcoded files and playlists. Permissions: A list of
--- the users and/or predefined Amazon S3 groups you want to have access to
--- transcoded files and playlists, and the type of access that you want them
--- to have. GranteeType: The type of value that appears in the 'Grantee'
--- object: 'Canonical': Either the canonical user ID for an AWS account or
--- an origin access identity for an Amazon CloudFront distribution. 'Email':
--- The registered email address of an AWS account. 'Group': One of the
--- following predefined Amazon S3 groups: 'AllUsers', 'AuthenticatedUsers',
--- or 'LogDelivery'. 'Grantee': The AWS user or group that you want to have
--- access to transcoded files and playlists. 'Access': The permission that
--- you want to give to the AWS user that is listed in 'Grantee'. Valid
--- values include: 'READ': The grantee can read the objects and metadata for
--- objects that Elastic Transcoder adds to the Amazon S3 bucket. 'READ_ACP':
--- The grantee can read the object ACL for objects that Elastic Transcoder
--- adds to the Amazon S3 bucket. 'WRITE_ACP': The grantee can write the ACL
--- for the objects that Elastic Transcoder adds to the Amazon S3 bucket.
--- 'FULL_CONTROL': The grantee has 'READ', 'READ_ACP', and 'WRITE_ACP'
--- permissions for the objects that Elastic Transcoder adds to the Amazon S3
--- bucket. StorageClass: The Amazon S3 storage class, Standard or
--- ReducedRedundancy, that you want Elastic Transcoder to assign to the
--- video files and playlists that it stores in your Amazon S3 bucket.
+-- | Information about the Amazon S3 bucket in which you want Elastic Transcoder
+-- to save transcoded files and playlists. Either you specify both 'ContentConfig'
+-- and 'ThumbnailConfig', or you specify 'OutputBucket'.
+--
+-- Bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save
+-- transcoded files and playlists.  Permissions: A list of the users and/or
+-- predefined Amazon S3 groups you want to have access to transcoded files and
+-- playlists, and the type of access that you want them to have.  GranteeType:
+-- The type of value that appears in the 'Grantee' object:   'Canonical': Either the
+-- canonical user ID for an AWS account or an origin access identity for an
+-- Amazon CloudFront distribution.  'Email': The registered email address of an
+-- AWS account.  'Group': One of the following predefined Amazon S3 groups: 'AllUsers', 'AuthenticatedUsers', or 'LogDelivery'.    'Grantee': The AWS user or group that
+-- you want to have access to transcoded files and playlists.  'Access': The
+-- permission that you want to give to the AWS user that is listed in 'Grantee'.
+-- Valid values include:   'READ': The grantee can read the objects and metadata
+-- for objects that Elastic Transcoder adds to the Amazon S3 bucket.  'READ_ACP':
+-- The grantee can read the object ACL for objects that Elastic Transcoder adds
+-- to the Amazon S3 bucket.  'WRITE_ACP': The grantee can write the ACL for the
+-- objects that Elastic Transcoder adds to the Amazon S3 bucket.  'FULL_CONTROL':
+-- The grantee has 'READ', 'READ_ACP', and 'WRITE_ACP' permissions for the objects
+-- that Elastic Transcoder adds to the Amazon S3 bucket.      StorageClass: The
+-- Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic
+-- Transcoder to assign to the video files and playlists that it stores in your
+-- Amazon S3 bucket.
 pContentConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
 pContentConfig = lens _pContentConfig (\s a -> s { _pContentConfig = a })
 
--- | The identifier for the pipeline. You use this value to identify the
--- pipeline in which you want to perform a variety of operations, such as
--- creating a job or a preset.
+-- | The identifier for the pipeline. You use this value to identify the pipeline
+-- in which you want to perform a variety of operations, such as creating a job
+-- or a preset.
+--
 pId :: Lens' Pipeline (Maybe Text)
 pId = lens _pId (\s a -> s { _pId = a })
 
 -- | The Amazon S3 bucket from which Elastic Transcoder gets media files for
 -- transcoding and the graphics files, if any, that you want to use for
 -- watermarks.
+--
 pInputBucket :: Lens' Pipeline (Maybe Text)
 pInputBucket = lens _pInputBucket (\s a -> s { _pInputBucket = a })
 
--- | The name of the pipeline. We recommend that the name be unique within the
--- AWS account, but uniqueness is not enforced. Constraints: Maximum 40
--- characters.
+-- | The name of the pipeline. We recommend that the name be unique within the AWS
+-- account, but uniqueness is not enforced.
+--
+-- Constraints: Maximum 40 characters
+--
 pName :: Lens' Pipeline (Maybe Text)
 pName = lens _pName (\s a -> s { _pName = a })
 
--- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
--- to notify to report job status. To receive notifications, you must also
--- subscribe to the new topic in the Amazon SNS console. Progressing
--- (optional): The Amazon Simple Notification Service (Amazon SNS) topic
--- that you want to notify when Elastic Transcoder has started to process
--- the job. Completed (optional): The Amazon SNS topic that you want to
--- notify when Elastic Transcoder has finished processing the job. Warning
--- (optional): The Amazon SNS topic that you want to notify when Elastic
--- Transcoder encounters a warning condition. Error (optional): The Amazon
--- SNS topic that you want to notify when Elastic Transcoder encounters an
--- error condition.
+-- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to
+-- notify to report job status.
+--
+-- To receive notifications, you must also subscribe to the new topic in the
+-- Amazon SNS console.   Progressing (optional): The Amazon Simple Notification
+-- Service (Amazon SNS) topic that you want to notify when Elastic Transcoder
+-- has started to process the job.  Completed (optional): The Amazon SNS topic
+-- that you want to notify when Elastic Transcoder has finished processing the
+-- job.  Warning (optional): The Amazon SNS topic that you want to notify when
+-- Elastic Transcoder encounters a warning condition.  Error (optional): The
+-- Amazon SNS topic that you want to notify when Elastic Transcoder encounters
+-- an error condition.
 pNotifications :: Lens' Pipeline (Maybe Notifications)
 pNotifications = lens _pNotifications (\s a -> s { _pNotifications = a })
 
--- | The Amazon S3 bucket in which you want Elastic Transcoder to save
--- transcoded files, thumbnails, and playlists. Either you specify this
--- value, or you specify both 'ContentConfig' and 'ThumbnailConfig'.
+-- | The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
+-- files, thumbnails, and playlists. Either you specify this value, or you
+-- specify both 'ContentConfig' and 'ThumbnailConfig'.
+--
 pOutputBucket :: Lens' Pipeline (Maybe Text)
 pOutputBucket = lens _pOutputBucket (\s a -> s { _pOutputBucket = a })
 
--- | The IAM Amazon Resource Name (ARN) for the role that Elastic Transcoder
--- uses to transcode jobs for this pipeline.
+-- | The IAM Amazon Resource Name (ARN) for the role that Elastic Transcoder uses
+-- to transcode jobs for this pipeline.
+--
 pRole :: Lens' Pipeline (Maybe Text)
 pRole = lens _pRole (\s a -> s { _pRole = a })
 
--- | The current status of the pipeline: 'Active': The pipeline is processing
--- jobs. 'Paused': The pipeline is not currently processing jobs.
+-- | The current status of the pipeline:
+--
+-- 'Active': The pipeline is processing jobs.  'Paused': The pipeline is not
+-- currently processing jobs.
 pStatus :: Lens' Pipeline (Maybe Text)
 pStatus = lens _pStatus (\s a -> s { _pStatus = a })
 
--- | Information about the Amazon S3 bucket in which you want Elastic
--- Transcoder to save thumbnail files. Either you specify both
--- 'ContentConfig' and 'ThumbnailConfig', or you specify 'OutputBucket'.
--- 'Bucket': The Amazon S3 bucket in which you want Elastic Transcoder to
--- save thumbnail files. 'Permissions': A list of the users and/or
--- predefined Amazon S3 groups you want to have access to thumbnail files,
--- and the type of access that you want them to have. GranteeType: The type
--- of value that appears in the Grantee object: 'Canonical': Either the
--- canonical user ID for an AWS account or an origin access identity for an
--- Amazon CloudFront distribution. A canonical user ID is not the same as an
--- AWS account number. 'Email': The registered email address of an AWS
--- account. 'Group': One of the following predefined Amazon S3 groups:
--- 'AllUsers', 'AuthenticatedUsers', or 'LogDelivery'. 'Grantee': The AWS
--- user or group that you want to have access to thumbnail files. Access:
--- The permission that you want to give to the AWS user that is listed in
--- Grantee. Valid values include: 'READ': The grantee can read the
--- thumbnails and metadata for thumbnails that Elastic Transcoder adds to
--- the Amazon S3 bucket. 'READ_ACP': The grantee can read the object ACL for
--- thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.
--- 'WRITE_ACP': The grantee can write the ACL for the thumbnails that
--- Elastic Transcoder adds to the Amazon S3 bucket. 'FULL_CONTROL': The
--- grantee has READ, READ_ACP, and WRITE_ACP permissions for the thumbnails
--- that Elastic Transcoder adds to the Amazon S3 bucket. 'StorageClass': The
--- Amazon S3 storage class, 'Standard' or 'ReducedRedundancy', that you want
--- Elastic Transcoder to assign to the thumbnails that it stores in your
--- Amazon S3 bucket.
+-- | Information about the Amazon S3 bucket in which you want Elastic Transcoder
+-- to save thumbnail files. Either you specify both 'ContentConfig' and 'ThumbnailConfig', or you specify 'OutputBucket'.
+--
+-- 'Bucket': The Amazon S3 bucket in which you want Elastic Transcoder to save
+-- thumbnail files.   'Permissions': A list of the users and/or predefined Amazon
+-- S3 groups you want to have access to thumbnail files, and the type of access
+-- that you want them to have.  GranteeType: The type of value that appears in
+-- the Grantee object:   'Canonical': Either the canonical user ID for an AWS
+-- account or an origin access identity for an Amazon CloudFront distribution. A
+-- canonical user ID is not the same as an AWS account number.   'Email': The
+-- registered email address of an AWS account.  'Group': One of the following
+-- predefined Amazon S3 groups: 'AllUsers', 'AuthenticatedUsers', or 'LogDelivery'.    'Grantee': The AWS user or group that you want to have access to thumbnail
+-- files. Access: The permission that you want to give to the AWS user that is
+-- listed in Grantee. Valid values include:   'READ': The grantee can read the
+-- thumbnails and metadata for thumbnails that Elastic Transcoder adds to the
+-- Amazon S3 bucket.  'READ_ACP': The grantee can read the object ACL for
+-- thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.  'WRITE_ACP':
+-- The grantee can write the ACL for the thumbnails that Elastic Transcoder adds
+-- to the Amazon S3 bucket.  'FULL_CONTROL': The grantee has READ, READ_ACP, and
+-- WRITE_ACP permissions for the thumbnails that Elastic Transcoder adds to the
+-- Amazon S3 bucket.      'StorageClass': The Amazon S3 storage class, 'Standard' or 'ReducedRedundancy', that you want Elastic Transcoder to assign to the
+-- thumbnails that it stores in your Amazon S3 bucket.
 pThumbnailConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
 pThumbnailConfig = lens _pThumbnailConfig (\s a -> s { _pThumbnailConfig = a })
 
@@ -1908,44 +2043,52 @@ preset = Preset
     }
 
 -- | The Amazon Resource Name (ARN) for the preset.
+--
 p1Arn :: Lens' Preset (Maybe Text)
 p1Arn = lens _p1Arn (\s a -> s { _p1Arn = a })
 
 -- | A section of the response body that provides information about the audio
 -- preset values.
+--
 p1Audio :: Lens' Preset (Maybe AudioParameters)
 p1Audio = lens _p1Audio (\s a -> s { _p1Audio = a })
 
--- | The container type for the output file. Valid values include 'fmp4',
--- 'mp3', 'mp4', 'ogg', 'ts', and 'webm'.
+-- | The container type for the output file. Valid values include 'fmp4', 'mp3', 'mp4', 'ogg', 'ts', and 'webm'.
+--
 p1Container :: Lens' Preset (Maybe Text)
 p1Container = lens _p1Container (\s a -> s { _p1Container = a })
 
 -- | A description of the preset.
+--
 p1Description :: Lens' Preset (Maybe Text)
 p1Description = lens _p1Description (\s a -> s { _p1Description = a })
 
 -- | Identifier for the new preset. You use this value to get settings for the
 -- preset or to delete it.
+--
 p1Id :: Lens' Preset (Maybe Text)
 p1Id = lens _p1Id (\s a -> s { _p1Id = a })
 
 -- | The name of the preset.
+--
 p1Name :: Lens' Preset (Maybe Text)
 p1Name = lens _p1Name (\s a -> s { _p1Name = a })
 
--- | A section of the response body that provides information about the
--- thumbnail preset values, if any.
+-- | A section of the response body that provides information about the thumbnail
+-- preset values, if any.
+--
 p1Thumbnails :: Lens' Preset (Maybe Thumbnails)
 p1Thumbnails = lens _p1Thumbnails (\s a -> s { _p1Thumbnails = a })
 
--- | Whether the preset is a default preset provided by Elastic Transcoder
--- ('System') or a preset that you have defined ('Custom').
+-- | Whether the preset is a default preset provided by Elastic Transcoder ('System') or a preset that you have defined (
+-- 'Custom').
+--
 p1Type :: Lens' Preset (Maybe Text)
 p1Type = lens _p1Type (\s a -> s { _p1Type = a })
 
 -- | A section of the response body that provides information about the video
 -- preset values.
+--
 p1Video :: Lens' Preset (Maybe VideoParameters)
 p1Video = lens _p1Video (\s a -> s { _p1Video = a })
 
@@ -1994,28 +2137,45 @@ captionFormat = CaptionFormat
     }
 
 -- | The format you specify determines whether Elastic Transcoder generates an
--- embedded or sidecar caption for this output. Valid Embedded Caption
--- Formats: For MP3: None For MP4: mov-text For MPEG-TS: None For ogg: None
--- For webm: None Valid Sidecar Caption Formats: Elastic Transcoder supports
--- dfxp (first div element only), scc, srt, and webvtt. If you want ttml or
--- smpte-tt compatible captions, specify dfxp as your output format. For
--- FMP4: dfxp Non-FMP4 outputs: All sidecar types 'fmp4' captions have an
--- extension of '.ismt'.
+-- embedded or sidecar caption for this output.
+--
+-- Valid Embedded Caption Formats:
+--
+-- For MP3: None
+--
+-- For MP4: mov-text
+--
+-- For MPEG-TS: None
+--
+-- For ogg: None
+--
+-- For webm: None
+--
+-- Valid Sidecar Caption Formats: Elastic Transcoder supports dfxp (first
+-- div element only), scc, srt, and webvtt. If you want ttml or smpte-tt
+-- compatible captions, specify dfxp as your output format.
+--
+-- For FMP4: dfxp
+--
+-- Non-FMP4 outputs: All sidecar types
+--
+-- 'fmp4' captions have an extension of '.ismt'
+--
+--
 cfFormat :: Lens' CaptionFormat (Maybe Text)
 cfFormat = lens _cfFormat (\s a -> s { _cfFormat = a })
 
--- | The prefix for caption filenames, in the form /description/-'{language}',
--- where: /description/ is a description of the video. '{language}' is a
--- literal value that Elastic Transcoder replaces with the two- or
--- three-letter code for the language of the caption in the output file
--- names. If you don't include '{language}' in the file name pattern,
--- Elastic Transcoder automatically appends "'{language}'" to the value that
--- you specify for the description. In addition, Elastic Transcoder
--- automatically appends the count to the end of the segment files. For
--- example, suppose you're transcoding into srt format. When you enter
+-- | The prefix for caption filenames, in the form /description/-'{language}', where:
+--
+-- /description/ is a description of the video.  '{language}' is a literal value
+-- that Elastic Transcoder replaces with the two- or three-letter code for the
+-- language of the caption in the output file names.  If you don't include '{language}' in the file name pattern, Elastic Transcoder automatically appends "'{language}'" to the value that you specify for the description. In addition, Elastic
+-- Transcoder automatically appends the count to the end of the segment files.
+--
+-- For example, suppose you're transcoding into srt format. When you enter
 -- "Sydney-{language}-sunrise", and the language of the captions is English
--- (en), the name of the first caption file will be
--- Sydney-en-sunrise00000.srt.
+-- (en), the name of the first caption file will be Sydney-en-sunrise00000.srt.
+--
 cfPattern :: Lens' CaptionFormat (Maybe Text)
 cfPattern = lens _cfPattern (\s a -> s { _cfPattern = a })
 
@@ -2081,122 +2241,132 @@ presetWatermark = PresetWatermark
     , _pwTarget           = Nothing
     }
 
--- | The horizontal position of the watermark unless you specify a non-zero
--- value for 'HorizontalOffset': Left: The left edge of the watermark is
--- aligned with the left border of the video. Right: The right edge of the
--- watermark is aligned with the right border of the video. Center: The
--- watermark is centered between the left and right borders.
+-- | The horizontal position of the watermark unless you specify a non-zero value
+-- for 'HorizontalOffset':   Left: The left edge of the watermark is aligned with
+-- the left border of the video.  Right: The right edge of the watermark is
+-- aligned with the right border of the video.  Center: The watermark is
+-- centered between the left and right borders.
+--
 pwHorizontalAlign :: Lens' PresetWatermark (Maybe Text)
 pwHorizontalAlign =
     lens _pwHorizontalAlign (\s a -> s { _pwHorizontalAlign = a })
 
--- | The amount by which you want the horizontal position of the watermark to
--- be offset from the position specified by HorizontalAlign: number of
--- pixels (px): The minimum value is 0 pixels, and the maximum value is the
--- value of MaxWidth. integer percentage (%): The range of valid values is 0
--- to 100. For example, if you specify Left for 'HorizontalAlign' and 5px
--- for 'HorizontalOffset', the left side of the watermark appears 5 pixels
--- from the left border of the output video. 'HorizontalOffset' is only
--- valid when the value of 'HorizontalAlign' is 'Left' or 'Right'. If you
--- specify an offset that causes the watermark to extend beyond the left or
--- right border and Elastic Transcoder has not added black bars, the
+-- | The amount by which you want the horizontal position of the watermark to be
+-- offset from the position specified by HorizontalAlign:  number of pixels
+-- (px): The minimum value is 0 pixels, and the maximum value is the value of
+-- MaxWidth. integer percentage (%): The range of valid values is 0 to 100. For
+-- example, if you specify Left for 'HorizontalAlign' and 5px for 'HorizontalOffset', the left side of the watermark appears 5 pixels from the left border of the output video.
+--
+--
+-- 'HorizontalOffset' is only valid when the value of 'HorizontalAlign' is 'Left' or 'Right'. If you specify an offset that causes the watermark to extend beyond the
+-- left or right border and Elastic Transcoder has not added black bars, the
 -- watermark is cropped. If Elastic Transcoder has added black bars, the
--- watermark extends into the black bars. If the watermark extends beyond
--- the black bars, it is cropped. Use the value of 'Target' to specify
--- whether you want to include the black bars that are added by Elastic
--- Transcoder, if any, in the offset calculation.
+-- watermark extends into the black bars. If the watermark extends beyond the
+-- black bars, it is cropped.
+--
+-- Use the value of 'Target' to specify whether you want to include the black
+-- bars that are added by Elastic Transcoder, if any, in the offset calculation.
+--
 pwHorizontalOffset :: Lens' PresetWatermark (Maybe Text)
 pwHorizontalOffset =
     lens _pwHorizontalOffset (\s a -> s { _pwHorizontalOffset = a })
 
--- | A unique identifier for the settings for one watermark. The value of 'Id'
--- can be up to 40 characters long.
+-- | A unique identifier for the settings for one watermark. The value of 'Id' can
+-- be up to 40 characters long.
 pwId :: Lens' PresetWatermark (Maybe Text)
 pwId = lens _pwId (\s a -> s { _pwId = a })
 
--- | The maximum height of the watermark in one of the following formats:
--- number of pixels (px): The minimum value is 16 pixels, and the maximum
--- value is the value of 'MaxHeight'. integer percentage (%): The range of
--- valid values is 0 to 100. Use the value of 'Target' to specify whether
--- you want Elastic Transcoder to include the black bars that are added by
--- Elastic Transcoder, if any, in the calculation. If you specify the value
--- in pixels, it must be less than or equal to the value of 'MaxHeight'.
+-- | The maximum height of the watermark in one of the following formats:  number
+-- of pixels (px): The minimum value is 16 pixels, and the maximum value is the
+-- value of 'MaxHeight'. integer percentage (%): The range of valid values is 0 to
+-- 100. Use the value of 'Target' to specify whether you want Elastic Transcoder
+-- to include the black bars that are added by Elastic Transcoder, if any, in
+-- the calculation.  If you specify the value in pixels, it must be less than or
+-- equal to the value of 'MaxHeight'.
+--
 pwMaxHeight :: Lens' PresetWatermark (Maybe Text)
 pwMaxHeight = lens _pwMaxHeight (\s a -> s { _pwMaxHeight = a })
 
--- | The maximum width of the watermark in one of the following formats:
--- number of pixels (px): The minimum value is 16 pixels, and the maximum
--- value is the value of 'MaxWidth'. integer percentage (%): The range of
--- valid values is 0 to 100. Use the value of 'Target' to specify whether
--- you want Elastic Transcoder to include the black bars that are added by
--- Elastic Transcoder, if any, in the calculation. If you specify the value
--- in pixels, it must be less than or equal to the value of 'MaxWidth'.
+-- | The maximum width of the watermark in one of the following formats:  number
+-- of pixels (px): The minimum value is 16 pixels, and the maximum value is the
+-- value of 'MaxWidth'. integer percentage (%): The range of valid values is 0 to
+-- 100. Use the value of 'Target' to specify whether you want Elastic Transcoder
+-- to include the black bars that are added by Elastic Transcoder, if any, in
+-- the calculation. If you specify the value in pixels, it must be less than or
+-- equal to the value of 'MaxWidth'.
+--
 pwMaxWidth :: Lens' PresetWatermark (Maybe Text)
 pwMaxWidth = lens _pwMaxWidth (\s a -> s { _pwMaxWidth = a })
 
 -- | A percentage that indicates how much you want a watermark to obscure the
--- video in the location where it appears. Valid values are 0 (the watermark
--- is invisible) to 100 (the watermark completely obscures the video in the
--- specified location). The datatype of 'Opacity' is float. Elastic
--- Transcoder supports transparent .png graphics. If you use a transparent
--- .png, the transparent portion of the video appears as if you had
--- specified a value of 0 for 'Opacity'. The .jpg file format doesn't
--- support transparency.
+-- video in the location where it appears. Valid values are 0 (the watermark is
+-- invisible) to 100 (the watermark completely obscures the video in the
+-- specified location). The datatype of 'Opacity' is float.
+--
+-- Elastic Transcoder supports transparent .png graphics. If you use a
+-- transparent .png, the transparent portion of the video appears as if you had
+-- specified a value of 0 for 'Opacity'. The .jpg file format doesn't support
+-- transparency.
+--
 pwOpacity :: Lens' PresetWatermark (Maybe Text)
 pwOpacity = lens _pwOpacity (\s a -> s { _pwOpacity = a })
 
--- | A value that controls scaling of the watermark: Fit: Elastic Transcoder
--- scales the watermark so it matches the value that you specified in either
--- 'MaxWidth' or 'MaxHeight' without exceeding the other value. Stretch:
--- Elastic Transcoder stretches the watermark to match the values that you
--- specified for 'MaxWidth' and 'MaxHeight'. If the relative proportions of
--- the watermark and the values of 'MaxWidth' and 'MaxHeight' are different,
--- the watermark will be distorted. ShrinkToFit: Elastic Transcoder scales
--- the watermark down so that its dimensions match the values that you
--- specified for at least one of 'MaxWidth' and 'MaxHeight' without
--- exceeding either value. If you specify this option, Elastic Transcoder
--- does not scale the watermark up.
+-- | A value that controls scaling of the watermark:   Fit: Elastic Transcoder
+-- scales the watermark so it matches the value that you specified in either 'MaxWidth' or 'MaxHeight' without exceeding the other value.  Stretch: Elastic Transcoder
+-- stretches the watermark to match the values that you specified for 'MaxWidth'
+-- and 'MaxHeight'. If the relative proportions of the watermark and the values of 'MaxWidth' and 'MaxHeight' are different, the watermark will be distorted.  ShrinkToFit
+-- : Elastic Transcoder scales the watermark down so that its dimensions match
+-- the values that you specified for at least one of 'MaxWidth' and 'MaxHeight'
+-- without exceeding either value. If you specify this option, Elastic
+-- Transcoder does not scale the watermark up.
+--
 pwSizingPolicy :: Lens' PresetWatermark (Maybe Text)
 pwSizingPolicy = lens _pwSizingPolicy (\s a -> s { _pwSizingPolicy = a })
 
 -- | A value that determines how Elastic Transcoder interprets values that you
--- specified for 'HorizontalOffset', 'VerticalOffset', 'MaxWidth', and
--- 'MaxHeight': Content: 'HorizontalOffset' and 'VerticalOffset' values are
--- calculated based on the borders of the video excluding black bars added
--- by Elastic Transcoder, if any. In addition, 'MaxWidth' and 'MaxHeight',
--- if specified as a percentage, are calculated based on the borders of the
--- video excluding black bars added by Elastic Transcoder, if any. Frame:
--- 'HorizontalOffset' and 'VerticalOffset' values are calculated based on
--- the borders of the video including black bars added by Elastic
--- Transcoder, if any. In addition, 'MaxWidth' and 'MaxHeight', if specified
--- as a percentage, are calculated based on the borders of the video
+-- specified for 'HorizontalOffset', 'VerticalOffset', 'MaxWidth', and 'MaxHeight':   Content
+-- : 'HorizontalOffset' and 'VerticalOffset' values are calculated based on the
+-- borders of the video excluding black bars added by Elastic Transcoder, if
+-- any. In addition, 'MaxWidth' and 'MaxHeight', if specified as a percentage, are
+-- calculated based on the borders of the video excluding black bars added by
+-- Elastic Transcoder, if any.  Frame: 'HorizontalOffset' and 'VerticalOffset'
+-- values are calculated based on the borders of the video including black bars
+-- added by Elastic Transcoder, if any. In addition, 'MaxWidth' and 'MaxHeight', if
+-- specified as a percentage, are calculated based on the borders of the video
 -- including black bars added by Elastic Transcoder, if any.
+--
 pwTarget :: Lens' PresetWatermark (Maybe Text)
 pwTarget = lens _pwTarget (\s a -> s { _pwTarget = a })
 
--- | The vertical position of the watermark unless you specify a non-zero
--- value for 'VerticalOffset': Top: The top edge of the watermark is aligned
--- with the top border of the video. Bottom: The bottom edge of the
--- watermark is aligned with the bottom border of the video. Center: The
--- watermark is centered between the top and bottom borders.
+-- | The vertical position of the watermark unless you specify a non-zero value
+-- for 'VerticalOffset':   Top: The top edge of the watermark is aligned with the
+-- top border of the video.  Bottom: The bottom edge of the watermark is aligned
+-- with the bottom border of the video.  Center: The watermark is centered
+-- between the top and bottom borders.
+--
 pwVerticalAlign :: Lens' PresetWatermark (Maybe Text)
 pwVerticalAlign = lens _pwVerticalAlign (\s a -> s { _pwVerticalAlign = a })
 
--- | 'VerticalOffset' The amount by which you want the vertical position of
--- the watermark to be offset from the position specified by VerticalAlign:
--- number of pixels (px): The minimum value is 0 pixels, and the maximum
--- value is the value of 'MaxHeight'. integer percentage (%): The range of
--- valid values is 0 to 100. For example, if you specify 'Top' for
--- 'VerticalAlign' and '5px' for 'VerticalOffset', the top of the watermark
--- appears 5 pixels from the top border of the output video.
+-- | 'VerticalOffset' The amount by which you want the vertical position of the
+-- watermark to be offset from the position specified by VerticalAlign: number
+-- of pixels (px): The minimum value is 0 pixels, and the maximum value is the
+-- value of 'MaxHeight'. integer percentage (%): The range of valid values is 0 to
+-- 100.  For example, if you specify 'Top' for 'VerticalAlign' and '5px' for 'VerticalOffset', the top of the watermark appears 5 pixels from the top border of the output
+-- video.
+--
 -- 'VerticalOffset' is only valid when the value of VerticalAlign is Top or
--- Bottom. If you specify an offset that causes the watermark to extend
--- beyond the top or bottom border and Elastic Transcoder has not added
--- black bars, the watermark is cropped. If Elastic Transcoder has added
--- black bars, the watermark extends into the black bars. If the watermark
--- extends beyond the black bars, it is cropped. Use the value of 'Target'
--- to specify whether you want Elastic Transcoder to include the black bars
--- that are added by Elastic Transcoder, if any, in the offset calculation.
+-- Bottom.
+--
+-- If you specify an offset that causes the watermark to extend beyond the top
+-- or bottom border and Elastic Transcoder has not added black bars, the
+-- watermark is cropped. If Elastic Transcoder has added black bars, the
+-- watermark extends into the black bars. If the watermark extends beyond the
+-- black bars, it is cropped.
+--
+-- Use the value of 'Target' to specify whether you want Elastic Transcoder to
+-- include the black bars that are added by Elastic Transcoder, if any, in the
+-- offset calculation.
+--
 pwVerticalOffset :: Lens' PresetWatermark (Maybe Text)
 pwVerticalOffset = lens _pwVerticalOffset (\s a -> s { _pwVerticalOffset = a })
 
@@ -2251,31 +2421,32 @@ permission = Permission
     }
 
 -- | The permission that you want to give to the AWS user that is listed in
--- Grantee. Valid values include: 'READ': The grantee can read the
--- thumbnails and metadata for thumbnails that Elastic Transcoder adds to
--- the Amazon S3 bucket. 'READ_ACP': The grantee can read the object ACL for
--- thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.
--- 'WRITE_ACP': The grantee can write the ACL for the thumbnails that
--- Elastic Transcoder adds to the Amazon S3 bucket. 'FULL_CONTROL': The
--- grantee has READ, READ_ACP, and WRITE_ACP permissions for the thumbnails
--- that Elastic Transcoder adds to the Amazon S3 bucket.
+-- Grantee. Valid values include:   'READ': The grantee can read the thumbnails
+-- and metadata for thumbnails that Elastic Transcoder adds to the Amazon S3
+-- bucket.  'READ_ACP': The grantee can read the object ACL for thumbnails that
+-- Elastic Transcoder adds to the Amazon S3 bucket.  'WRITE_ACP': The grantee can
+-- write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon
+-- S3 bucket.  'FULL_CONTROL': The grantee has READ, READ_ACP, and WRITE_ACP
+-- permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3
+-- bucket.
+--
 pAccess :: Lens' Permission [Text]
 pAccess = lens _pAccess (\s a -> s { _pAccess = a }) . _List
 
--- | The AWS user or group that you want to have access to transcoded files
--- and playlists. To identify the user or group, you can specify the
--- canonical user ID for an AWS account, an origin access identity for a
--- CloudFront distribution, the registered email address of an AWS account,
--- or a predefined Amazon S3 group.
+-- | The AWS user or group that you want to have access to transcoded files and
+-- playlists. To identify the user or group, you can specify the canonical user
+-- ID for an AWS account, an origin access identity for a CloudFront
+-- distribution, the registered email address of an AWS account, or a predefined
+-- Amazon S3 group.
+--
 pGrantee :: Lens' Permission (Maybe Text)
 pGrantee = lens _pGrantee (\s a -> s { _pGrantee = a })
 
--- | The type of value that appears in the Grantee object: 'Canonical': Either
--- the canonical user ID for an AWS account or an origin access identity for
--- an Amazon CloudFront distribution. A canonical user ID is not the same as
--- an AWS account number. 'Email': The registered email address of an AWS
--- account. 'Group': One of the following predefined Amazon S3 groups:
--- 'AllUsers', 'AuthenticatedUsers', or 'LogDelivery'.
+-- | The type of value that appears in the Grantee object:   'Canonical': Either the
+-- canonical user ID for an AWS account or an origin access identity for an
+-- Amazon CloudFront distribution. A canonical user ID is not the same as an AWS
+-- account number.   'Email': The registered email address of an AWS account.  'Group': One of the following predefined Amazon S3 groups: 'AllUsers', 'AuthenticatedUsers', or 'LogDelivery'.
+--
 pGranteeType :: Lens' Permission (Maybe Text)
 pGranteeType = lens _pGranteeType (\s a -> s { _pGranteeType = a })
 
@@ -2363,212 +2534,253 @@ videoParameters = VideoParameters
     , _vpWatermarks         = mempty
     }
 
--- | To better control resolution and aspect ratio of output videos, we
--- recommend that you use the values 'MaxWidth', 'MaxHeight',
--- 'SizingPolicy', 'PaddingPolicy', and 'DisplayAspectRatio' instead of
--- 'Resolution' and 'AspectRatio'. The two groups of settings are mutually
--- exclusive. Do not use them together. The display aspect ratio of the
--- video in the output file. Valid values include: 'auto', '1:1', '4:3',
--- '3:2', '16:9' If you specify 'auto', Elastic Transcoder tries to preserve
--- the aspect ratio of the input file. If you specify an aspect ratio for
--- the output file that differs from aspect ratio of the input file, Elastic
--- Transcoder adds pillarboxing (black bars on the sides) or letterboxing
--- (black bars on the top and bottom) to maintain the aspect ratio of the
--- active region of the video.
+-- | To better control resolution and aspect ratio of output videos, we recommend
+-- that you use the values 'MaxWidth', 'MaxHeight', 'SizingPolicy', 'PaddingPolicy', and 'DisplayAspectRatio' instead of 'Resolution' and 'AspectRatio'. The two groups of
+-- settings are mutually exclusive. Do not use them together.
+--
+-- The display aspect ratio of the video in the output file. Valid values
+-- include:
+--
+-- 'auto', '1:1', '4:3', '3:2', '16:9'
+--
+-- If you specify 'auto', Elastic Transcoder tries to preserve the aspect ratio
+-- of the input file.
+--
+-- If you specify an aspect ratio for the output file that differs from aspect
+-- ratio of the input file, Elastic Transcoder adds pillarboxing (black bars on
+-- the sides) or letterboxing (black bars on the top and bottom) to maintain the
+-- aspect ratio of the active region of the video.
+--
 vpAspectRatio :: Lens' VideoParameters (Maybe Text)
 vpAspectRatio = lens _vpAspectRatio (\s a -> s { _vpAspectRatio = a })
 
 -- | The bit rate of the video stream in the output file, in kilobits/second.
--- Valid values depend on the values of 'Level' and 'Profile'. If you
--- specify 'auto', Elastic Transcoder uses the detected bit rate of the
--- input source. If you specify a value other than 'auto', we recommend that
--- you specify a value less than or equal to the maximum H.264-compliant
--- value listed for your level and profile: /Level - Maximum video bit rate
--- in kilobits/second (baseline and main Profile) : maximum video bit rate
--- in kilobits/second (high Profile)/ 1 - 64 : 80 1b - 128 : 160 1.1 - 192 :
--- 240 1.2 - 384 : 480 1.3 - 768 : 960 2 - 2000 : 2500 3 - 10000 : 12500 3.1
--- - 14000 : 17500 3.2 - 20000 : 25000 4 - 20000 : 25000 4.1 - 50000 :
--- 62500.
+-- Valid values depend on the values of 'Level' and 'Profile'. If you specify 'auto',
+-- Elastic Transcoder uses the detected bit rate of the input source. If you
+-- specify a value other than 'auto', we recommend that you specify a value less
+-- than or equal to the maximum H.264-compliant value listed for your level and
+-- profile:
+--
+-- /Level - Maximum video bit rate in kilobits/second (baseline and mainProfile) : maximum video bit rate in kilobits/second (high Profile)/
+--
+-- 1 - 64 : 80 1b - 128 : 160 1.1 - 192 : 240 1.2 - 384 : 480 1.3 - 768 : 960 2 - 2000 : 2500
+-- 3 - 10000 : 12500 3.1 - 14000 : 17500 3.2 - 20000 : 25000 4 - 20000 : 25000 4.1 - 50000 : 62500
+--
 vpBitRate :: Lens' VideoParameters (Maybe Text)
 vpBitRate = lens _vpBitRate (\s a -> s { _vpBitRate = a })
 
--- | The video codec for the output file. Valid values include 'H.264' and
--- 'vp8'. You can only specify 'vp8' when the container type is 'webm'.
+-- | The video codec for the output file. Valid values include 'H.264' and 'vp8'. You
+-- can only specify 'vp8' when the container type is 'webm'.
+--
 vpCodec :: Lens' VideoParameters (Maybe Text)
 vpCodec = lens _vpCodec (\s a -> s { _vpCodec = a })
 
--- | Profile The H.264 profile that you want to use for the output file.
--- Elastic Transcoder supports the following profiles: 'baseline': The
--- profile most commonly used for videoconferencing and for mobile
--- applications. 'main': The profile used for standard-definition digital TV
--- broadcasts. 'high': The profile used for high-definition digital TV
--- broadcasts and for Blu-ray discs. Level (H.264 Only) The H.264 level that
--- you want to use for the output file. Elastic Transcoder supports the
--- following levels: '1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3',
--- '3.1', '3.2', '4', '4.1' MaxReferenceFrames (H.264 Only) Applicable only
--- when the value of Video:Codec is H.264. The maximum number of previously
--- decoded frames to use as a reference for decoding future frames. Valid
--- values are integers 0 through 16, but we recommend that you not use a
--- value greater than the following: 'Min(Floor(Maximum decoded picture
--- buffer in macroblocks * 256 / (Width in pixels * Height in pixels)), 16)'
--- where /Width in pixels/ and /Height in pixels/ represent either MaxWidth
--- and MaxHeight, or Resolution. /Maximum decoded picture buffer in
--- macroblocks/ depends on the value of the 'Level' object. See the list
--- below. (A macroblock is a block of pixels measuring 16x16.) 1 - 396 1b -
--- 396 1.1 - 900 1.2 - 2376 1.3 - 2376 2 - 2376 2.1 - 4752 2.2 - 8100 3 -
--- 8100 3.1 - 18000 3.2 - 20480 4 - 32768 4.1 - 32768 MaxBitRate The maximum
--- number of bits per second in a video buffer; the size of the buffer is
--- specified by 'BufferSize'. Specify a value between 16 and 62,500. You can
--- reduce the bandwidth required to stream a video by reducing the maximum
--- bit rate, but this also reduces the quality of the video. BufferSize The
--- maximum number of bits in any x seconds of the output video. This window
--- is commonly 10 seconds, the standard segment duration when you're using
--- FMP4 or MPEG-TS for the container type of the output video. Specify an
--- integer greater than 0. If you specify 'MaxBitRate' and omit
--- 'BufferSize', Elastic Transcoder sets 'BufferSize' to 10 times the value
--- of 'MaxBitRate'.
+-- | Profile
+--
+-- The H.264 profile that you want to use for the output file. Elastic
+-- Transcoder supports the following profiles:
+--
+-- 'baseline': The profile most commonly used for videoconferencing and for
+-- mobile applications.  'main': The profile used for standard-definition digital
+-- TV broadcasts.  'high': The profile used for high-definition digital TV
+-- broadcasts and for Blu-ray discs.   Level (H.264 Only)
+--
+-- The H.264 level that you want to use for the output file. Elastic Transcoder
+-- supports the following levels:
+--
+-- '1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3', '3.1', '3.2', '4', '4.1'
+--
+-- MaxReferenceFrames (H.264 Only)
+--
+-- Applicable only when the value of Video:Codec is H.264. The maximum number
+-- of previously decoded frames to use as a reference for decoding future
+-- frames. Valid values are integers 0 through 16, but we recommend that you not
+-- use a value greater than the following:
+--
+-- 'Min(Floor(Maximum decoded picture buffer in macroblocks * 256 / (Width inpixels * Height in pixels)), 16)'
+--
+-- where /Width in pixels/ and /Height in pixels/ represent either MaxWidth and
+-- MaxHeight, or Resolution. /Maximum decoded picture buffer in macroblocks/
+-- depends on the value of the 'Level' object. See the list below. (A macroblock
+-- is a block of pixels measuring 16x16.)
+--
+-- 1 - 396 1b - 396 1.1 - 900 1.2 - 2376 1.3 - 2376 2 - 2376 2.1 - 4752 2.2 -
+-- 8100 3 - 8100 3.1 - 18000 3.2 - 20480 4 - 32768 4.1 - 32768   MaxBitRate
+--
+-- The maximum number of bits per second in a video buffer; the size of the
+-- buffer is specified by 'BufferSize'. Specify a value between 16 and 62,500. You
+-- can reduce the bandwidth required to stream a video by reducing the maximum
+-- bit rate, but this also reduces the quality of the video.
+--
+-- BufferSize
+--
+-- The maximum number of bits in any x seconds of the output video. This window
+-- is commonly 10 seconds, the standard segment duration when you're using FMP4
+-- or MPEG-TS for the container type of the output video. Specify an integer
+-- greater than 0. If you specify 'MaxBitRate' and omit 'BufferSize', Elastic
+-- Transcoder sets 'BufferSize' to 10 times the value of 'MaxBitRate'.
+--
 vpCodecOptions :: Lens' VideoParameters (HashMap Text Text)
 vpCodecOptions = lens _vpCodecOptions (\s a -> s { _vpCodecOptions = a }) . _Map
 
--- | The value that Elastic Transcoder adds to the metadata in the output
--- file.
+-- | The value that Elastic Transcoder adds to the metadata in the output file.
+--
 vpDisplayAspectRatio :: Lens' VideoParameters (Maybe Text)
 vpDisplayAspectRatio =
     lens _vpDisplayAspectRatio (\s a -> s { _vpDisplayAspectRatio = a })
 
--- | Whether to use a fixed value for 'FixedGOP'. Valid values are 'true' and
--- 'false': 'true': Elastic Transcoder uses the value of 'KeyframesMaxDist'
--- for the distance between key frames (the number of frames in a group of
--- pictures, or GOP). 'false': The distance between key frames can vary.
--- 'FixedGOP' must be set to 'true' for 'fmp4' containers.
+-- | Whether to use a fixed value for 'FixedGOP'. Valid values are 'true' and 'false':
+--
+-- 'true': Elastic Transcoder uses the value of 'KeyframesMaxDist' for the
+-- distance between key frames (the number of frames in a group of pictures, or
+-- GOP).  'false': The distance between key frames can vary.  'FixedGOP' must be set
+-- to 'true' for 'fmp4' containers.
+--
 vpFixedGOP :: Lens' VideoParameters (Maybe Text)
 vpFixedGOP = lens _vpFixedGOP (\s a -> s { _vpFixedGOP = a })
 
--- | The frames per second for the video stream in the output file. Valid
--- values include: 'auto', '10', '15', '23.97', '24', '25', '29.97', '30',
--- '60' If you specify 'auto', Elastic Transcoder uses the detected frame
--- rate of the input source. If you specify a frame rate, we recommend that
--- you perform the following calculation: 'Frame rate = maximum recommended
--- decoding speed in luma samples/second / (width in pixels * height in
--- pixels)' where: /width in pixels/ and /height in pixels/ represent the
--- Resolution of the output video. /maximum recommended decoding speed in
--- Luma samples/second/ is less than or equal to the maximum value listed in
--- the following table, based on the value that you specified for Level. The
--- maximum recommended decoding speed in Luma samples/second for each level
--- is described in the following list (/Level - Decoding speed/): 1 - 380160
--- 1b - 380160 1.1 - 76800 1.2 - 1536000 1.3 - 3041280 2 - 3041280 2.1 -
--- 5068800 2.2 - 5184000 3 - 10368000 3.1 - 27648000 3.2 - 55296000 4 -
--- 62914560 4.1 - 62914560.
+-- | The frames per second for the video stream in the output file. Valid values
+-- include:
+--
+-- 'auto', '10', '15', '23.97', '24', '25', '29.97', '30', '60'
+--
+-- If you specify 'auto', Elastic Transcoder uses the detected frame rate of the
+-- input source. If you specify a frame rate, we recommend that you perform the
+-- following calculation:
+--
+-- 'Frame rate = maximum recommended decoding speed in luma samples/second /(width in pixels * height in pixels)'
+--
+-- where:
+--
+-- /width in pixels/ and /height in pixels/ represent the Resolution of the
+-- output video.  /maximum recommended decoding speed in Luma samples/second/ is
+-- less than or equal to the maximum value listed in the following table, based
+-- on the value that you specified for Level.  The maximum recommended decoding
+-- speed in Luma samples/second for each level is described in the following
+-- list (/Level - Decoding speed/):
+--
+-- 1 - 380160 1b - 380160 1.1 - 76800 1.2 - 1536000 1.3 - 3041280 2 - 3041280 2.1 - 5068800
+-- 2.2 - 5184000 3 - 10368000 3.1 - 27648000 3.2 - 55296000 4 - 62914560 4.1 -
+-- 62914560
 vpFrameRate :: Lens' VideoParameters (Maybe Text)
 vpFrameRate = lens _vpFrameRate (\s a -> s { _vpFrameRate = a })
 
--- | The maximum number of frames between key frames. Key frames are fully
--- encoded frames; the frames between key frames are encoded based, in part,
--- on the content of the key frames. The value is an integer formatted as a
--- string; valid values are between 1 (every frame is a key frame) and
--- 100000, inclusive. A higher value results in higher compression but may
--- also discernibly decrease video quality. For 'Smooth' outputs, the
--- 'FrameRate' must have a constant ratio to the 'KeyframesMaxDist'. This
--- allows 'Smooth' playlists to switch between different quality levels
--- while the file is being played. For example, an input file can have a
--- 'FrameRate' of 30 with a 'KeyframesMaxDist' of 90. The output file then
--- needs to have a ratio of 1:3. Valid outputs would have 'FrameRate' of 30,
--- 25, and 10, and 'KeyframesMaxDist' of 90, 75, and 30, respectively.
--- Alternately, this can be achieved by setting 'FrameRate' to auto and
--- having the same values for 'MaxFrameRate' and 'KeyframesMaxDist'.
+-- | The maximum number of frames between key frames. Key frames are fully encoded
+-- frames; the frames between key frames are encoded based, in part, on the
+-- content of the key frames. The value is an integer formatted as a string;
+-- valid values are between 1 (every frame is a key frame) and 100000,
+-- inclusive. A higher value results in higher compression but may also
+-- discernibly decrease video quality.
+--
+-- For 'Smooth' outputs, the 'FrameRate' must have a constant ratio to the 'KeyframesMaxDist'. This allows 'Smooth' playlists to switch between different quality levels
+-- while the file is being played.
+--
+-- For example, an input file can have a 'FrameRate' of 30 with a 'KeyframesMaxDist'
+-- of 90. The output file then needs to have a ratio of 1:3. Valid outputs
+-- would have 'FrameRate' of 30, 25, and 10, and 'KeyframesMaxDist' of 90, 75, and
+-- 30, respectively.
+--
+-- Alternately, this can be achieved by setting 'FrameRate' to auto and having
+-- the same values for 'MaxFrameRate' and 'KeyframesMaxDist'.
+--
 vpKeyframesMaxDist :: Lens' VideoParameters (Maybe Text)
 vpKeyframesMaxDist =
     lens _vpKeyframesMaxDist (\s a -> s { _vpKeyframesMaxDist = a })
 
--- | If you specify 'auto' for 'FrameRate', Elastic Transcoder uses the frame
--- rate of the input video for the frame rate of the output video. Specify
--- the maximum frame rate that you want Elastic Transcoder to use when the
--- frame rate of the input video is greater than the desired maximum frame
--- rate of the output video. Valid values include: '10', '15', '23.97',
--- '24', '25', '29.97', '30', '60'.
+-- | If you specify 'auto' for 'FrameRate', Elastic Transcoder uses the frame rate of
+-- the input video for the frame rate of the output video. Specify the maximum
+-- frame rate that you want Elastic Transcoder to use when the frame rate of the
+-- input video is greater than the desired maximum frame rate of the output
+-- video. Valid values include: '10', '15', '23.97', '24', '25', '29.97', '30', '60'.
+--
 vpMaxFrameRate :: Lens' VideoParameters (Maybe Text)
 vpMaxFrameRate = lens _vpMaxFrameRate (\s a -> s { _vpMaxFrameRate = a })
 
 -- | The maximum height of the output video in pixels. If you specify 'auto',
--- Elastic Transcoder uses 1080 (Full HD) as the default value. If you
--- specify a numeric value, enter an even integer between 96 and 3072.
+-- Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a
+-- numeric value, enter an even integer between 96 and 3072.
+--
 vpMaxHeight :: Lens' VideoParameters (Maybe Text)
 vpMaxHeight = lens _vpMaxHeight (\s a -> s { _vpMaxHeight = a })
 
 -- | The maximum width of the output video in pixels. If you specify 'auto',
--- Elastic Transcoder uses 1920 (Full HD) as the default value. If you
--- specify a numeric value, enter an even integer between 128 and 4096.
+-- Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a
+-- numeric value, enter an even integer between 128 and 4096.
+--
 vpMaxWidth :: Lens' VideoParameters (Maybe Text)
 vpMaxWidth = lens _vpMaxWidth (\s a -> s { _vpMaxWidth = a })
 
--- | When you set 'PaddingPolicy' to 'Pad', Elastic Transcoder may add black
--- bars to the top and bottom and/or left and right sides of the output
--- video to make the total size of the output video match the values that
--- you specified for 'MaxWidth' and 'MaxHeight'.
+-- | When you set 'PaddingPolicy' to 'Pad', Elastic Transcoder may add black bars to
+-- the top and bottom and/or left and right sides of the output video to make
+-- the total size of the output video match the values that you specified for 'MaxWidth' and 'MaxHeight'.
+--
 vpPaddingPolicy :: Lens' VideoParameters (Maybe Text)
 vpPaddingPolicy = lens _vpPaddingPolicy (\s a -> s { _vpPaddingPolicy = a })
 
--- | To better control resolution and aspect ratio of output videos, we
--- recommend that you use the values 'MaxWidth', 'MaxHeight',
--- 'SizingPolicy', 'PaddingPolicy', and 'DisplayAspectRatio' instead of
--- 'Resolution' and 'AspectRatio'. The two groups of settings are mutually
--- exclusive. Do not use them together. The width and height of the video in
--- the output file, in pixels. Valid values are 'auto' and /width/ x
--- /height/: 'auto': Elastic Transcoder attempts to preserve the width and
--- height of the input file, subject to the following rules. '/width/ x
--- /height/: The width and height of the output video in pixels. Note the
--- following about specifying the width and height: The width must be an
--- even integer between 128 and 4096, inclusive. The height must be an even
--- integer between 96 and 3072, inclusive. If you specify a resolution that
--- is less than the resolution of the input file, Elastic Transcoder
--- rescales the output file to the lower resolution. If you specify a
+-- | To better control resolution and aspect ratio of output videos, we recommend
+-- that you use the values 'MaxWidth', 'MaxHeight', 'SizingPolicy', 'PaddingPolicy', and 'DisplayAspectRatio' instead of 'Resolution' and 'AspectRatio'. The two groups of
+-- settings are mutually exclusive. Do not use them together.
+--
+-- The width and height of the video in the output file, in pixels. Valid
+-- values are 'auto' and /width/ x /height/:
+--
+-- 'auto': Elastic Transcoder attempts to preserve the width and height of the
+-- input file, subject to the following rules.  '/width/ x /height/: The width and
+-- height of the output video in pixels.  Note the following about specifying
+-- the width and height:
+--
+-- The width must be an even integer between 128 and 4096, inclusive. The
+-- height must be an even integer between 96 and 3072, inclusive. If you specify
+-- a resolution that is less than the resolution of the input file, Elastic
+-- Transcoder rescales the output file to the lower resolution. If you specify a
 -- resolution that is greater than the resolution of the input file, Elastic
--- Transcoder rescales the output to the higher resolution. We recommend
--- that you specify a resolution for which the product of width and height
--- is less than or equal to the applicable value in the following list
--- (/List - Max width x height value/): 1 - 25344 1b - 25344 1.1 - 101376
--- 1.2 - 101376 1.3 - 101376 2 - 101376 2.1 - 202752 2.2 - 404720 3 - 404720
--- 3.1 - 921600 3.2 - 1310720 4 - 2097152 4.1 - 2097152.
+-- Transcoder rescales the output to the higher resolution. We recommend that
+-- you specify a resolution for which the product of width and height is less
+-- than or equal to the applicable value in the following list (/List - Max widthx height value/):  1 - 25344 1b - 25344 1.1 - 101376 1.2 - 101376 1.3 - 101376
+-- 2 - 101376 2.1 - 202752 2.2 - 404720 3 - 404720 3.1 - 921600 3.2 - 1310720 4
+-- - 2097152 4.1 - 2097152
 vpResolution :: Lens' VideoParameters (Maybe Text)
 vpResolution = lens _vpResolution (\s a -> s { _vpResolution = a })
 
--- | Specify one of the following values to control scaling of the output
--- video: 'Fit': Elastic Transcoder scales the output video so it matches
--- the value that you specified in either 'MaxWidth' or 'MaxHeight' without
--- exceeding the other value. 'Fill': Elastic Transcoder scales the output
--- video so it matches the value that you specified in either 'MaxWidth' or
--- 'MaxHeight' and matches or exceeds the other value. Elastic Transcoder
--- centers the output video and then crops it in the dimension (if any) that
--- exceeds the maximum value. 'Stretch': Elastic Transcoder stretches the
--- output video to match the values that you specified for 'MaxWidth' and
--- 'MaxHeight'. If the relative proportions of the input video and the
--- output video are different, the output video will be distorted. 'Keep':
--- Elastic Transcoder does not scale the output video. If either dimension
--- of the input video exceeds the values that you specified for 'MaxWidth'
--- and 'MaxHeight', Elastic Transcoder crops the output video.
--- 'ShrinkToFit': Elastic Transcoder scales the output video down so that
--- its dimensions match the values that you specified for at least one of
--- 'MaxWidth' and 'MaxHeight' without exceeding either value. If you specify
--- this option, Elastic Transcoder does not scale the video up.
--- 'ShrinkToFill': Elastic Transcoder scales the output video down so that
--- its dimensions match the values that you specified for at least one of
--- 'MaxWidth' and 'MaxHeight' without dropping below either value. If you
--- specify this option, Elastic Transcoder does not scale the video up.
+-- | Specify one of the following values to control scaling of the output video:
+--
+-- 'Fit': Elastic Transcoder scales the output video so it matches the value
+-- that you specified in either 'MaxWidth' or 'MaxHeight' without exceeding the
+-- other value.  'Fill': Elastic Transcoder scales the output video so it matches
+-- the value that you specified in either 'MaxWidth' or 'MaxHeight' and matches or
+-- exceeds the other value. Elastic Transcoder centers the output video and then
+-- crops it in the dimension (if any) that exceeds the maximum value.  'Stretch':
+-- Elastic Transcoder stretches the output video to match the values that you
+-- specified for 'MaxWidth' and 'MaxHeight'. If the relative proportions of the
+-- input video and the output video are different, the output video will be
+-- distorted.  'Keep': Elastic Transcoder does not scale the output video. If
+-- either dimension of the input video exceeds the values that you specified for 'MaxWidth' and 'MaxHeight', Elastic Transcoder crops the output video.  'ShrinkToFit': Elastic Transcoder scales the output video down so that its dimensions
+-- match the values that you specified for at least one of 'MaxWidth' and 'MaxHeight'
+-- without exceeding either value. If you specify this option, Elastic
+-- Transcoder does not scale the video up.  'ShrinkToFill': Elastic Transcoder
+-- scales the output video down so that its dimensions match the values that you
+-- specified for at least one of 'MaxWidth' and 'MaxHeight' without dropping below
+-- either value. If you specify this option, Elastic Transcoder does not scale
+-- the video up.
+--
 vpSizingPolicy :: Lens' VideoParameters (Maybe Text)
 vpSizingPolicy = lens _vpSizingPolicy (\s a -> s { _vpSizingPolicy = a })
 
 -- | Settings for the size, location, and opacity of graphics that you want
 -- Elastic Transcoder to overlay over videos that are transcoded using this
--- preset. You can specify settings for up to four watermarks. Watermarks
--- appear in the specified size and location, and with the specified opacity
--- for the duration of the transcoded video. Watermarks can be in .png or
--- .jpg format. If you want to display a watermark that is not rectangular,
--- use the .png format, which supports transparency. When you create a job
--- that uses this preset, you specify the .png or .jpg graphics that you
--- want Elastic Transcoder to include in the transcoded videos. You can
--- specify fewer graphics in the job than you specify watermark settings in
--- the preset, which allows you to use the same preset for up to four
--- watermarks that have different dimensions.
+-- preset. You can specify settings for up to four watermarks. Watermarks appear
+-- in the specified size and location, and with the specified opacity for the
+-- duration of the transcoded video.
+--
+-- Watermarks can be in .png or .jpg format. If you want to display a watermark
+-- that is not rectangular, use the .png format, which supports transparency.
+--
+-- When you create a job that uses this preset, you specify the .png or .jpg
+-- graphics that you want Elastic Transcoder to include in the transcoded
+-- videos. You can specify fewer graphics in the job than you specify watermark
+-- settings in the preset, which allows you to use the same preset for up to
+-- four watermarks that have different dimensions.
+--
 vpWatermarks :: Lens' VideoParameters [PresetWatermark]
 vpWatermarks = lens _vpWatermarks (\s a -> s { _vpWatermarks = a }) . _List
 
@@ -2640,54 +2852,69 @@ playlist = Playlist
     , _p2StatusDetail = Nothing
     }
 
--- | The format of the output playlist. Valid formats include 'HLSv3',
--- 'HLSv4', and 'Smooth'.
+-- | The format of the output playlist. Valid formats include 'HLSv3', 'HLSv4', and 'Smooth'.
+--
 p2Format :: Lens' Playlist (Maybe Text)
 p2Format = lens _p2Format (\s a -> s { _p2Format = a })
 
--- | The name that you want Elastic Transcoder to assign to the master
--- playlist, for example, nyc-vacation.m3u8. If the name includes a '/'
--- character, the section of the name before the last '/' must be identical
--- for all 'Name' objects. If you create more than one master playlist, the
--- values of all 'Name' objects must be unique. Note: Elastic Transcoder
--- automatically appends the relevant file extension to the file name
--- ('.m3u8' for 'HLSv3' and 'HLSv4' playlists, and '.ism' and '.ismc' for
--- 'Smooth' playlists). If you include a file extension in 'Name', the file
--- name will have two extensions.
+-- | The name that you want Elastic Transcoder to assign to the master playlist,
+-- for example, nyc-vacation.m3u8. If the name includes a '/' character, the
+-- section of the name before the last '/' must be identical for all 'Name' objects.
+-- If you create more than one master playlist, the values of all 'Name' objects
+-- must be unique.
+--
+-- Note: Elastic Transcoder automatically appends the relevant file extension
+-- to the file name ('.m3u8' for 'HLSv3' and 'HLSv4' playlists, and '.ism' and '.ismc' for 'Smooth' playlists). If you include a file extension in 'Name', the file name
+-- will have two extensions.
+--
 p2Name :: Lens' Playlist (Maybe Text)
 p2Name = lens _p2Name (\s a -> s { _p2Name = a })
 
--- | For each output in this job that you want to include in a master
--- playlist, the value of the Outputs:Key object. If your output is not
--- 'HLS' or does not have a segment duration set, the name of the output
--- file is a concatenation of 'OutputKeyPrefix' and 'Outputs:Key':
--- OutputKeyPrefix'Outputs:Key' If your output is 'HLSv3' and has a segment
--- duration set, or is not included in a playlist, Elastic Transcoder
--- creates an output playlist file with a file extension of '.m3u8', and a
--- series of '.ts' files that include a five-digit sequential counter
--- beginning with 00000: OutputKeyPrefix'Outputs:Key'.m3u8
--- OutputKeyPrefix'Outputs:Key'00000.ts If your output is 'HLSv4', has a
--- segment duration set, and is included in an 'HLSv4' playlist, Elastic
--- Transcoder creates an output playlist file with a file extension of
--- '_v4.m3u8'. If the output is video, Elastic Transcoder also creates an
--- output file with an extension of '_iframe.m3u8':
+-- | For each output in this job that you want to include in a master playlist,
+-- the value of the Outputs:Key object.
+--
+-- If your output is not 'HLS' or does not have a segment duration set, the
+-- name of the output file is a concatenation of 'OutputKeyPrefix' and 'Outputs:Key':
+--
+-- OutputKeyPrefix'Outputs:Key'
+--
+-- If your output is 'HLSv3' and has a segment duration set, or is not included
+-- in a playlist, Elastic Transcoder creates an output playlist file with a file
+-- extension of '.m3u8', and a series of '.ts' files that include a five-digit
+-- sequential counter beginning with 00000:
+--
+-- OutputKeyPrefix'Outputs:Key'.m3u8
+--
+-- OutputKeyPrefix'Outputs:Key'00000.ts
+--
+-- If your output is 'HLSv4', has a segment duration set, and is included in an 'HLSv4' playlist, Elastic Transcoder creates an output playlist file with a
+-- file extension of '_v4.m3u8'. If the output is video, Elastic Transcoder also
+-- creates an output file with an extension of '_iframe.m3u8':
+--
 -- OutputKeyPrefix'Outputs:Key'_v4.m3u8
--- OutputKeyPrefix'Outputs:Key'_iframe.m3u8 OutputKeyPrefix'Outputs:Key'.ts
+--
+-- OutputKeyPrefix'Outputs:Key'_iframe.m3u8
+--
+-- OutputKeyPrefix'Outputs:Key'.ts
+--
 -- Elastic Transcoder automatically appends the relevant file extension to
--- the file name. If you include a file extension in Output Key, the file
--- name will have two extensions. If you include more than one output in a
--- playlist, any segment duration settings, clip settings, or caption
--- settings must be the same for all outputs in the playlist. For 'Smooth'
--- playlists, the 'Audio:Profile', 'Video:Profile', and 'Video:FrameRate' to
--- 'Video:KeyframesMaxDist' ratio must be the same for all outputs.
+-- the file name. If you include a file extension in Output Key, the file name
+-- will have two extensions.
+--
+-- If you include more than one output in a playlist, any segment duration
+-- settings, clip settings, or caption settings must be the same for all outputs
+-- in the playlist. For 'Smooth' playlists, the 'Audio:Profile', 'Video:Profile', and 'Video:FrameRate' to 'Video:KeyframesMaxDist' ratio must be the same for all outputs.
+--
 p2OutputKeys :: Lens' Playlist [Text]
 p2OutputKeys = lens _p2OutputKeys (\s a -> s { _p2OutputKeys = a }) . _List
 
 -- | The status of the job with which the playlist is associated.
+--
 p2Status :: Lens' Playlist (Maybe Text)
 p2Status = lens _p2Status (\s a -> s { _p2Status = a })
 
 -- | Information that further explains the status.
+--
 p2StatusDetail :: Lens' Playlist (Maybe Text)
 p2StatusDetail = lens _p2StatusDetail (\s a -> s { _p2StatusDetail = a })
 
@@ -2737,21 +2964,25 @@ notifications = Notifications
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder has
 -- finished processing the job.
+--
 nCompleted :: Lens' Notifications (Maybe Text)
 nCompleted = lens _nCompleted (\s a -> s { _nCompleted = a })
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder
 -- encounters an error condition.
+--
 nError :: Lens' Notifications (Maybe Text)
 nError = lens _nError (\s a -> s { _nError = a })
 
--- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
--- to notify when Elastic Transcoder has started to process the job.
+-- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to
+-- notify when Elastic Transcoder has started to process the job.
+--
 nProgressing :: Lens' Notifications (Maybe Text)
 nProgressing = lens _nProgressing (\s a -> s { _nProgressing = a })
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder
 -- encounters a warning condition.
+--
 nWarning :: Lens' Notifications (Maybe Text)
 nWarning = lens _nWarning (\s a -> s { _nWarning = a })
 
@@ -2786,6 +3017,7 @@ clip = Clip
     }
 
 -- | Settings that determine when a clip begins and how long it lasts.
+--
 cTimeSpan :: Lens' Clip (Maybe TimeSpan)
 cTimeSpan = lens _cTimeSpan (\s a -> s { _cTimeSpan = a })
 
@@ -2834,53 +3066,69 @@ jobInput = JobInput
     }
 
 -- | The aspect ratio of the input file. If you want Elastic Transcoder to
--- automatically detect the aspect ratio of the input file, specify 'auto'.
--- If you want to specify the aspect ratio for the output file, enter one of
--- the following values: '1:1', '4:3', '3:2', '16:9' If you specify a value
--- other than 'auto', Elastic Transcoder disables automatic detection of the
--- aspect ratio.
+-- automatically detect the aspect ratio of the input file, specify 'auto'. If you
+-- want to specify the aspect ratio for the output file, enter one of the
+-- following values:
+--
+-- '1:1', '4:3', '3:2', '16:9'
+--
+-- If you specify a value other than 'auto', Elastic Transcoder disables
+-- automatic detection of the aspect ratio.
+--
 jiAspectRatio :: Lens' JobInput (Maybe Text)
 jiAspectRatio = lens _jiAspectRatio (\s a -> s { _jiAspectRatio = a })
 
 -- | The container type for the input file. If you want Elastic Transcoder to
--- automatically detect the container type of the input file, specify
--- 'auto'. If you want to specify the container type for the input file,
--- enter one of the following values: '3gp', 'aac', 'asf', 'avi', 'divx',
--- 'flv', 'm4a', 'mkv', 'mov', 'mp3', 'mp4', 'mpeg', 'mpeg-ps', 'mpeg-ts',
--- 'mxf', 'ogg', 'vob', 'wav', 'webm'.
+-- automatically detect the container type of the input file, specify 'auto'. If
+-- you want to specify the container type for the input file, enter one of the
+-- following values:
+--
+-- '3gp', 'aac', 'asf', 'avi', 'divx', 'flv', 'm4a', 'mkv', 'mov', 'mp3', 'mp4', 'mpeg', 'mpeg-ps', 'mpeg-ts', 'mxf', 'ogg', 'vob', 'wav', 'webm'
+--
 jiContainer :: Lens' JobInput (Maybe Text)
 jiContainer = lens _jiContainer (\s a -> s { _jiContainer = a })
 
 -- | The frame rate of the input file. If you want Elastic Transcoder to
--- automatically detect the frame rate of the input file, specify 'auto'. If
--- you want to specify the frame rate for the input file, enter one of the
--- following values: '10', '15', '23.97', '24', '25', '29.97', '30', '60' If
--- you specify a value other than 'auto', Elastic Transcoder disables
+-- automatically detect the frame rate of the input file, specify 'auto'. If you
+-- want to specify the frame rate for the input file, enter one of the following
+-- values:
+--
+-- '10', '15', '23.97', '24', '25', '29.97', '30', '60'
+--
+-- If you specify a value other than 'auto', Elastic Transcoder disables
 -- automatic detection of the frame rate.
+--
 jiFrameRate :: Lens' JobInput (Maybe Text)
 jiFrameRate = lens _jiFrameRate (\s a -> s { _jiFrameRate = a })
 
 -- | Whether the input file is interlaced. If you want Elastic Transcoder to
--- automatically detect whether the input file is interlaced, specify
--- 'auto'. If you want to specify whether the input file is interlaced,
--- enter one of the following values: 'true', 'false' If you specify a value
--- other than 'auto', Elastic Transcoder disables automatic detection of
--- interlacing.
+-- automatically detect whether the input file is interlaced, specify 'auto'. If
+-- you want to specify whether the input file is interlaced, enter one of the
+-- following values:
+--
+-- 'true', 'false'
+--
+-- If you specify a value other than 'auto', Elastic Transcoder disables
+-- automatic detection of interlacing.
+--
 jiInterlaced :: Lens' JobInput (Maybe Text)
 jiInterlaced = lens _jiInterlaced (\s a -> s { _jiInterlaced = a })
 
--- | The name of the file to transcode. Elsewhere in the body of the JSON
--- block is the the ID of the pipeline to use for processing the job. The
--- 'InputBucket' object in that pipeline tells Elastic Transcoder which
--- Amazon S3 bucket to get the file from. If the file name includes a
--- prefix, such as 'cooking/lasagna.mpg', include the prefix in the key. If
--- the file isn't in the specified bucket, Elastic Transcoder returns an
--- error.
+-- | The name of the file to transcode. Elsewhere in the body of the JSON block
+-- is the the ID of the pipeline to use for processing the job. The 'InputBucket'
+-- object in that pipeline tells Elastic Transcoder which Amazon S3 bucket to
+-- get the file from.
+--
+-- If the file name includes a prefix, such as 'cooking/lasagna.mpg', include the
+-- prefix in the key. If the file isn't in the specified bucket, Elastic
+-- Transcoder returns an error.
+--
 jiKey :: Lens' JobInput (Maybe Text)
 jiKey = lens _jiKey (\s a -> s { _jiKey = a })
 
--- | This value must be 'auto', which causes Elastic Transcoder to
--- automatically detect the resolution of the input file.
+-- | This value must be 'auto', which causes Elastic Transcoder to automatically
+-- detect the resolution of the input file.
+--
 jiResolution :: Lens' JobInput (Maybe Text)
 jiResolution = lens _jiResolution (\s a -> s { _jiResolution = a })
 

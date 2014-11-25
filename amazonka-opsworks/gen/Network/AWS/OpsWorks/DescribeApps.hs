@@ -20,12 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Requests a description of a specified set of apps. Required Permissions: To
--- use this action, an IAM user must have a Show, Deploy, or Manage
--- permissions level for the stack, or an attached policy that explicitly
--- grants permissions. For more information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Requests a description of a specified set of apps.
+--
+-- Required Permissions: To use this action, an IAM user must have a Show,
+-- Deploy, or Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeApps.html>
 module Network.AWS.OpsWorks.DescribeApps
@@ -70,14 +69,15 @@ describeApps = DescribeApps
     , _daAppIds  = mempty
     }
 
--- | An array of app IDs for the apps to be described. If you use this
--- parameter, 'DescribeApps' returns a description of the specified apps.
--- Otherwise, it returns a description of every app.
+-- | An array of app IDs for the apps to be described. If you use this parameter, 'DescribeApps' returns a description of the specified apps. Otherwise, it returns a
+-- description of every app.
+--
 daAppIds :: Lens' DescribeApps [Text]
 daAppIds = lens _daAppIds (\s a -> s { _daAppIds = a }) . _List
 
 -- | The app stack ID. If you use this parameter, 'DescribeApps' returns a
 -- description of the apps in the specified stack.
+--
 daStackId :: Lens' DescribeApps (Maybe Text)
 daStackId = lens _daStackId (\s a -> s { _daStackId = a })
 
@@ -103,6 +103,7 @@ describeAppsResponse = DescribeAppsResponse
     }
 
 -- | An array of 'App' objects that describe the specified apps.
+--
 darApps :: Lens' DescribeAppsResponse [App]
 darApps = lens _darApps (\s a -> s { _darApps = a }) . _List
 

@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Enables the specified MFA device and associates it with the specified user
--- name. When enabled, the MFA device is required for every subsequent login
--- by the user name associated with the device.
+-- name. When enabled, the MFA device is required for every subsequent login by
+-- the user name associated with the device.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html>
 module Network.AWS.IAM.EnableMFADevice
@@ -80,24 +80,28 @@ enableMFADevice p1 p2 p3 p4 = EnableMFADevice
     }
 
 -- | An authentication code emitted by the device.
+--
 emfadAuthenticationCode1 :: Lens' EnableMFADevice Text
 emfadAuthenticationCode1 =
     lens _emfadAuthenticationCode1
         (\s a -> s { _emfadAuthenticationCode1 = a })
 
 -- | A subsequent authentication code emitted by the device.
+--
 emfadAuthenticationCode2 :: Lens' EnableMFADevice Text
 emfadAuthenticationCode2 =
     lens _emfadAuthenticationCode2
         (\s a -> s { _emfadAuthenticationCode2 = a })
 
--- | The serial number that uniquely identifies the MFA device. For virtual
--- MFA devices, the serial number is the device ARN.
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA
+-- devices, the serial number is the device ARN.
+--
 emfadSerialNumber :: Lens' EnableMFADevice Text
 emfadSerialNumber =
     lens _emfadSerialNumber (\s a -> s { _emfadSerialNumber = a })
 
 -- | The name of the user for whom you want to enable the MFA device.
+--
 emfadUserName :: Lens' EnableMFADevice Text
 emfadUserName = lens _emfadUserName (\s a -> s { _emfadUserName = a })
 

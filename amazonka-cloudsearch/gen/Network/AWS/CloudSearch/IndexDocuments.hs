@@ -21,8 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Tells the search domain to start indexing its documents using the latest
--- indexing options. This operation must be invoked to activate options whose
--- 'OptionStatus' is 'RequiresIndexDocuments'.
+-- indexing options. This operation must be invoked to activate options whose 'OptionStatus' is 'RequiresIndexDocuments'.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_IndexDocuments.html>
 module Network.AWS.CloudSearch.IndexDocuments
@@ -88,6 +87,7 @@ indexDocumentsResponse = IndexDocumentsResponse
     }
 
 -- | The names of the fields that are currently being indexed.
+--
 idrFieldNames :: Lens' IndexDocumentsResponse [Text]
 idrFieldNames = lens _idrFieldNames (\s a -> s { _idrFieldNames = a }) . _List
 

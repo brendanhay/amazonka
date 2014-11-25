@@ -20,11 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This operation sets the transfer lock on the domain (specifically the
--- 'clientTransferProhibited' status) to prevent domain transfers. Successful
--- submission returns an operation ID that you can use to track the progress
--- and completion of the action. If the request is not completed successfully,
--- the domain registrant will be notified by email.
+-- | This operation sets the transfer lock on the domain (specifically the 'clientTransferProhibited' status) to prevent domain transfers. Successful submission returns an
+-- operation ID that you can use to track the progress and completion of the
+-- action. If the request is not completed successfully, the domain registrant
+-- will be notified by email.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-EnableDomainTransferLock.html>
 module Network.AWS.Route53Domains.EnableDomainTransferLock
@@ -65,10 +64,18 @@ enableDomainTransferLock p1 = EnableDomainTransferLock
     { _edtlDomainName = p1
     }
 
--- | The name of a domain. Type: String Default: None Constraints: The domain
--- name can contain only the letters a through z, the numbers 0 through 9,
--- and hyphen (-). Internationalized Domain Names are not supported.
--- Required: Yes.
+-- | The name of a domain.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: The domain name can contain only the letters a through z, the
+-- numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
+-- supported.
+--
+-- Required: Yes
+--
 edtlDomainName :: Lens' EnableDomainTransferLock Text
 edtlDomainName = lens _edtlDomainName (\s a -> s { _edtlDomainName = a })
 
@@ -88,9 +95,15 @@ enableDomainTransferLockResponse p1 = EnableDomainTransferLockResponse
     { _edtlrOperationId = p1
     }
 
--- | Identifier for tracking the progress of the request. To use this ID to
--- query the operation status, use GetOperationDetail. Type: String Default:
--- None Constraints: Maximum 255 characters.
+-- | Identifier for tracking the progress of the request. To use this ID to query
+-- the operation status, use GetOperationDetail.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters.
+--
 edtlrOperationId :: Lens' EnableDomainTransferLockResponse Text
 edtlrOperationId = lens _edtlrOperationId (\s a -> s { _edtlrOperationId = a })
 

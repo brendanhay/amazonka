@@ -69,14 +69,23 @@ checkDomainAvailability p1 = CheckDomainAvailability
     , _cdaIdnLangCode = Nothing
     }
 
--- | The name of a domain. Type: String Default: None Constraints: The domain
--- name can contain only the letters a through z, the numbers 0 through 9,
--- and hyphen (-). Internationalized Domain Names are not supported.
--- Required: Yes.
+-- | The name of a domain.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: The domain name can contain only the letters a through z, the
+-- numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
+-- supported.
+--
+-- Required: Yes
+--
 cdaDomainName :: Lens' CheckDomainAvailability Text
 cdaDomainName = lens _cdaDomainName (\s a -> s { _cdaDomainName = a })
 
 -- | Reserved for future use.
+--
 cdaIdnLangCode :: Lens' CheckDomainAvailability (Maybe Text)
 cdaIdnLangCode = lens _cdaIdnLangCode (\s a -> s { _cdaIdnLangCode = a })
 
@@ -96,14 +105,17 @@ checkDomainAvailabilityResponse p1 = CheckDomainAvailabilityResponse
     { _cdarAvailability = p1
     }
 
--- | Whether the domain name is available for registering. Type: String Valid
--- values: 'AVAILABLE' – The domain name is available. 'AVAILABLE_RESERVED'
--- – The domain name is reserved under specific conditions.
--- 'AVAILABLE_PREORDER' – The domain name is available and can be
--- preordered. 'UNAVAILABLE' – The domain name is not available.
--- 'UNAVAILABLE_PREMIUM' – The domain name is not available.
--- 'UNAVAILABLE_RESTRICTED' – The domain name is forbidden. 'RESERVED' – The
--- domain name has been reserved for another person or organization.
+-- | Whether the domain name is available for registering.
+--
+-- Type: String
+--
+-- Valid values:
+--
+-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain
+-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain
+-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is
+-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been
+-- reserved for another person or organization.
 cdarAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarAvailability = lens _cdarAvailability (\s a -> s { _cdarAvailability = a })
 

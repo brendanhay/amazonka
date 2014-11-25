@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes the specified attribute of the specified VPC. You can specify
--- only one attribute at a time.
+-- | Describes the specified attribute of the specified VPC. You can specify only
+-- one attribute at a time.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVpcAttribute.html>
 module Network.AWS.EC2.DescribeVpcAttribute
@@ -75,6 +75,7 @@ describeVpcAttribute p1 = DescribeVpcAttribute
     }
 
 -- | The VPC attribute.
+--
 dva1Attribute :: Lens' DescribeVpcAttribute (Maybe VpcAttributeName)
 dva1Attribute = lens _dva1Attribute (\s a -> s { _dva1Attribute = a })
 
@@ -82,6 +83,7 @@ dva1DryRun :: Lens' DescribeVpcAttribute (Maybe Bool)
 dva1DryRun = lens _dva1DryRun (\s a -> s { _dva1DryRun = a })
 
 -- | The ID of the VPC.
+--
 dva1VpcId :: Lens' DescribeVpcAttribute Text
 dva1VpcId = lens _dva1VpcId (\s a -> s { _dva1VpcId = a })
 
@@ -109,21 +111,22 @@ describeVpcAttributeResponse = DescribeVpcAttributeResponse
     }
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
--- this attribute is 'true', instances in the VPC get DNS hostnames;
--- otherwise, they do not.
+-- this attribute is 'true', instances in the VPC get DNS hostnames; otherwise,
+-- they do not.
+--
 dvarEnableDnsHostnames :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
 dvarEnableDnsHostnames =
     lens _dvarEnableDnsHostnames (\s a -> s { _dvarEnableDnsHostnames = a })
 
--- | Indicates whether DNS resolution is enabled for the VPC. If this
--- attribute is 'true', the Amazon DNS server resolves DNS hostnames for
--- your instances to their corresponding IP addresses; otherwise, it does
--- not.
+-- | Indicates whether DNS resolution is enabled for the VPC. If this attribute is 'true', the Amazon DNS server resolves DNS hostnames for your instances to
+-- their corresponding IP addresses; otherwise, it does not.
+--
 dvarEnableDnsSupport :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
 dvarEnableDnsSupport =
     lens _dvarEnableDnsSupport (\s a -> s { _dvarEnableDnsSupport = a })
 
 -- | The ID of the VPC.
+--
 dvarVpcId :: Lens' DescribeVpcAttributeResponse (Maybe Text)
 dvarVpcId = lens _dvarVpcId (\s a -> s { _dvarVpcId = a })
 

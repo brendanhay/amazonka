@@ -63,6 +63,7 @@ deleteTopic p1 = DeleteTopic
     }
 
 -- | The ARN of the topic you want to delete.
+--
 dtTopicArn :: Lens' DeleteTopic Text
 dtTopicArn = lens _dtTopicArn (\s a -> s { _dtTopicArn = a })
 

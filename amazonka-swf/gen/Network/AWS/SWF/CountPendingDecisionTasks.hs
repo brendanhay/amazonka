@@ -21,20 +21,23 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the estimated number of decision tasks in the specified task list.
--- The count returned is an approximation and is not guaranteed to be exact.
--- If you specify a task list that no decision task was ever scheduled in then
--- 0 will be returned. Access Control You can use IAM policies to control this
--- action's access to Amazon SWF resources as follows: Use a 'Resource'
--- element with the domain name to limit the action to only specified domains.
--- Use an 'Action' element to allow or deny permission to call this action.
--- Constrain the 'taskList.name' parameter by using a Condition element with
--- the 'swf:taskList.name' key to allow the action to access only certain task
--- lists. If the caller does not have sufficient permissions to invoke the
--- action, or the parameter values fall outside the specified constraints, the
--- action fails by throwing 'OperationNotPermitted'. For details and example
--- IAM policies, see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
--- Using IAM to Manage Access to Amazon SWF Workflows>.
+-- The count returned is an approximation and is not guaranteed to be exact. If
+-- you specify a task list that no decision task was ever scheduled in then 0
+-- will be returned.
+--
+-- Access Control
+--
+-- You can use IAM policies to control this action's access to Amazon SWF
+-- resources as follows:
+--
+-- Use a 'Resource' element with the domain name to limit the action to only
+-- specified domains. Use an 'Action' element to allow or deny permission to call
+-- this action. Constrain the 'taskList.name' parameter by using a Condition
+-- element with the 'swf:taskList.name' key to allow the action to access only
+-- certain task lists.  If the caller does not have sufficient permissions to
+-- invoke the action, or the parameter values fall outside the specified
+-- constraints, the action fails by throwing 'OperationNotPermitted'. For details
+-- and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWFWorkflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountPendingDecisionTasks.html>
 module Network.AWS.SWF.CountPendingDecisionTasks
@@ -83,10 +86,12 @@ countPendingDecisionTasks p1 p2 = CountPendingDecisionTasks
     }
 
 -- | The name of the domain that contains the task list.
+--
 cpdtDomain :: Lens' CountPendingDecisionTasks Text
 cpdtDomain = lens _cpdtDomain (\s a -> s { _cpdtDomain = a })
 
 -- | The name of the task list.
+--
 cpdtTaskList :: Lens' CountPendingDecisionTasks TaskList
 cpdtTaskList = lens _cpdtTaskList (\s a -> s { _cpdtTaskList = a })
 
@@ -111,11 +116,13 @@ countPendingDecisionTasksResponse p1 = CountPendingDecisionTasksResponse
     }
 
 -- | The number of tasks in the task list.
+--
 cpdtrCount :: Lens' CountPendingDecisionTasksResponse Natural
 cpdtrCount = lens _cpdtrCount (\s a -> s { _cpdtrCount = a }) . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
+--
 cpdtrTruncated :: Lens' CountPendingDecisionTasksResponse (Maybe Bool)
 cpdtrTruncated = lens _cpdtrTruncated (\s a -> s { _cpdtrTruncated = a })
 

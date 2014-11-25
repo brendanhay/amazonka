@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns the summaries of the results of the Trusted Advisor checks that
--- have the specified check IDs. Check IDs can be obtained by calling
--- 'DescribeTrustedAdvisorChecks'. The response contains an array of
--- 'TrustedAdvisorCheckSummary' objects.
+-- | Returns the summaries of the results of the Trusted Advisor checks that have
+-- the specified check IDs. Check IDs can be obtained by calling 'DescribeTrustedAdvisorChecks'.
+--
+-- The response contains an array of 'TrustedAdvisorCheckSummary' objects.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckSummaries.html>
 module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
@@ -70,6 +70,7 @@ describeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
     }
 
 -- | The IDs of the Trusted Advisor checks.
+--
 dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
 dtacsCheckIds = lens _dtacsCheckIds (\s a -> s { _dtacsCheckIds = a }) . _List
 
@@ -95,6 +96,7 @@ describeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummar
     }
 
 -- | The summary information for the requested Trusted Advisor checks.
+--
 dtacsrSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
 dtacsrSummaries = lens _dtacsrSummaries (\s a -> s { _dtacsrSummaries = a }) . _List
 

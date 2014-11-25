@@ -20,14 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes the modifications made to your Reserved Instances. If no
--- parameter is specified, information about all your Reserved Instances
--- modification requests is returned. If a modification ID is specified, only
--- information about the specific modification is returned. For more
--- information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html
--- Modifying Reserved Instances> in the Amazon Elastic Compute Cloud User
--- Guide.
+-- | Describes the modifications made to your Reserved Instances. If no parameter
+-- is specified, information about all your Reserved Instances modification
+-- requests is returned. If a modification ID is specified, only information
+-- about the specific modification is returned.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html Modifying Reserved Instances> in the Amazon Elastic
+-- Compute Cloud User Guide.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesModifications.html>
 module Network.AWS.EC2.DescribeReservedInstancesModifications
@@ -78,34 +77,51 @@ describeReservedInstancesModifications = DescribeReservedInstancesModifications
     , _drimFilters                          = mempty
     }
 
--- | One or more filters. 'client-token' - The idempotency token for the
--- modification request. 'create-date' - The time when the modification
--- request was created. 'effective-date' - The time when the modification
--- becomes effective. 'modification-result.reserved-instances-id' - The ID
--- for the Reserved Instances created as part of the modification request.
--- This ID is only available when the status of the modification is
--- 'fulfilled'. 'modification-result.target-configuration.availability-zone'
--- - The Availability Zone for the new Reserved Instances.
--- 'modification-result.target-configuration.instance-count ' - The number
--- of new Reserved Instances.
--- 'modification-result.target-configuration.instance-type' - The instance
--- type of the new Reserved Instances.
--- 'modification-result.target-configuration.platform' - The network
--- platform of the new Reserved Instances ('EC2-Classic' | 'EC2-VPC').
+-- | One or more filters.
+--
+-- 'client-token' - The idempotency token for the modification request.
+--
+-- 'create-date' - The time when the modification request was created.
+--
+-- 'effective-date' - The time when the modification becomes effective.
+--
+-- 'modification-result.reserved-instances-id' - The ID for the Reserved
+-- Instances created as part of the modification request. This ID is only
+-- available when the status of the modification is 'fulfilled'.
+--
+-- 'modification-result.target-configuration.availability-zone' - The
+-- Availability Zone for the new Reserved Instances.
+--
+-- 'modification-result.target-configuration.instance-count ' - The number of
+-- new Reserved Instances.
+--
+-- 'modification-result.target-configuration.instance-type' - The instance type
+-- of the new Reserved Instances.
+--
+-- 'modification-result.target-configuration.platform' - The network platform
+-- of the new Reserved Instances ('EC2-Classic' | 'EC2-VPC').
+--
 -- 'reserved-instances-id' - The ID of the Reserved Instances modified.
--- 'reserved-instances-modification-id' - The ID of the modification
--- request. 'status' - The status of the Reserved Instances modification
--- request ('processing' | 'fulfilled' | 'failed'). 'status-message' - The
--- reason for the status. 'update-date' - The time when the modification
--- request was last updated.
+--
+-- 'reserved-instances-modification-id' - The ID of the modification request.
+--
+-- 'status' - The status of the Reserved Instances modification request ('processing' | 'fulfilled' | 'failed').
+--
+-- 'status-message' - The reason for the status.
+--
+-- 'update-date' - The time when the modification request was last updated.
+--
+--
 drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
 drimFilters = lens _drimFilters (\s a -> s { _drimFilters = a }) . _List
 
 -- | The token for the next page of data.
+--
 drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
 drimNextToken = lens _drimNextToken (\s a -> s { _drimNextToken = a })
 
 -- | IDs for the submitted modification request.
+--
 drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
 drimReservedInstancesModificationIds =
     lens _drimReservedInstancesModificationIds
@@ -132,10 +148,12 @@ describeReservedInstancesModificationsResponse = DescribeReservedInstancesModifi
     }
 
 -- | The token for the next page of data.
+--
 drimrNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
 drimrNextToken = lens _drimrNextToken (\s a -> s { _drimrNextToken = a })
 
 -- | The Reserved Instance modification information.
+--
 drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
 drimrReservedInstancesModifications =
     lens _drimrReservedInstancesModifications

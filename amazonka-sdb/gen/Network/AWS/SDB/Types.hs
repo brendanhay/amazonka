@@ -127,11 +127,13 @@ attribute p1 p2 = Attribute
     }
 
 -- | 
+--
 aAlternateNameEncoding :: Lens' Attribute (Maybe Text)
 aAlternateNameEncoding =
     lens _aAlternateNameEncoding (\s a -> s { _aAlternateNameEncoding = a })
 
 -- | 
+--
 aAlternateValueEncoding :: Lens' Attribute (Maybe Text)
 aAlternateValueEncoding =
     lens _aAlternateValueEncoding (\s a -> s { _aAlternateValueEncoding = a })
@@ -258,20 +260,22 @@ updateCondition = UpdateCondition
     , _ucExists = Nothing
     }
 
--- | A value specifying whether or not the specified attribute must exist with
--- the specified value in order for the update condition to be satisfied.
--- Specify 'true' if the attribute must exist for the update condition to be
--- satisfied. Specify 'false' if the attribute should not exist in order for
--- the update condition to be satisfied.
+-- | A value specifying whether or not the specified attribute must exist with the
+-- specified value in order for the update condition to be satisfied. Specify 'true' if the attribute must exist for the update condition to be satisfied.
+-- Specify 'false' if the attribute should not exist in order for the update
+-- condition to be satisfied.
+--
 ucExists :: Lens' UpdateCondition (Maybe Bool)
 ucExists = lens _ucExists (\s a -> s { _ucExists = a })
 
 -- | The name of the attribute involved in the condition.
+--
 ucName :: Lens' UpdateCondition (Maybe Text)
 ucName = lens _ucName (\s a -> s { _ucName = a })
 
--- | The value of an attribute. This value can only be specified when the
--- 'Exists' parameter is equal to 'true'.
+-- | The value of an attribute. This value can only be specified when the 'Exists'
+-- parameter is equal to 'true'.
+--
 ucValue :: Lens' UpdateCondition (Maybe Text)
 ucValue = lens _ucValue (\s a -> s { _ucValue = a })
 
@@ -317,8 +321,8 @@ replaceableAttribute p1 p2 = ReplaceableAttribute
 raName :: Lens' ReplaceableAttribute Text
 raName = lens _raName (\s a -> s { _raName = a })
 
--- | A flag specifying whether or not to replace the attribute/value pair or
--- to add a new attribute/value pair. The default setting is 'false'.
+-- | A flag specifying whether or not to replace the attribute/value pair or to
+-- add a new attribute/value pair. The default setting is 'false'.
 raReplace :: Lens' ReplaceableAttribute (Maybe Bool)
 raReplace = lens _raReplace (\s a -> s { _raReplace = a })
 
@@ -364,6 +368,7 @@ item p1 = Item
     }
 
 -- | 
+--
 iAlternateNameEncoding :: Lens' Item (Maybe Text)
 iAlternateNameEncoding =
     lens _iAlternateNameEncoding (\s a -> s { _iAlternateNameEncoding = a })

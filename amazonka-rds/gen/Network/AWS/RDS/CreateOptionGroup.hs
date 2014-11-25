@@ -84,27 +84,34 @@ createOptionGroup p1 p2 p3 p4 = CreateOptionGroup
     , _cogTags                   = mempty
     }
 
--- | Specifies the name of the engine that this option group should be
--- associated with.
+-- | Specifies the name of the engine that this option group should be associated
+-- with.
+--
 cogEngineName :: Lens' CreateOptionGroup Text
 cogEngineName = lens _cogEngineName (\s a -> s { _cogEngineName = a })
 
--- | Specifies the major version of the engine that this option group should
--- be associated with.
+-- | Specifies the major version of the engine that this option group should be
+-- associated with.
+--
 cogMajorEngineVersion :: Lens' CreateOptionGroup Text
 cogMajorEngineVersion =
     lens _cogMajorEngineVersion (\s a -> s { _cogMajorEngineVersion = a })
 
 -- | The description of the option group.
+--
 cogOptionGroupDescription :: Lens' CreateOptionGroup Text
 cogOptionGroupDescription =
     lens _cogOptionGroupDescription
         (\s a -> s { _cogOptionGroupDescription = a })
 
--- | Specifies the name of the option group to be created. Constraints: Must
--- be 1 to 255 alphanumeric characters or hyphens First character must be a
--- letter Cannot end with a hyphen or contain two consecutive hyphens
--- Example: 'myoptiongroup'.
+-- | Specifies the name of the option group to be created.
+--
+-- Constraints:
+--
+-- Must be 1 to 255 alphanumeric characters or hyphens First character must be
+-- a letter Cannot end with a hyphen or contain two consecutive hyphens  Example:
+-- 'myoptiongroup'
+--
 cogOptionGroupName :: Lens' CreateOptionGroup Text
 cogOptionGroupName =
     lens _cogOptionGroupName (\s a -> s { _cogOptionGroupName = a })

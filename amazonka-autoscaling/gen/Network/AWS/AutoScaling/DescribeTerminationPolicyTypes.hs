@@ -71,9 +71,8 @@ describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
     { _dtptrTerminationPolicyTypes = mempty
     }
 
--- | The Termination policies supported by Auto Scaling. They are:
--- 'OldestInstance', 'OldestLaunchConfiguration', 'NewestInstance',
--- 'ClosestToNextInstanceHour', and 'Default'.
+-- | The Termination policies supported by Auto Scaling. They are: 'OldestInstance', 'OldestLaunchConfiguration', 'NewestInstance', 'ClosestToNextInstanceHour', and 'Default'.
+--
 dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
 dtptrTerminationPolicyTypes =
     lens _dtptrTerminationPolicyTypes

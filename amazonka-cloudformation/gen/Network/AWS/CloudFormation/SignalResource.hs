@@ -23,9 +23,9 @@
 -- | Sends a signal to the specified resource with a success or failure status.
 -- You can use the SignalResource API in conjunction with a creation policy or
 -- update policy. AWS CloudFormation doesn't proceed with a stack creation or
--- update until resources receive the required number of signals or the
--- timeout period is exceeded. The SignalResource API is useful in cases where
--- you want to send signals from anywhere other than an Amazon EC2 instance.
+-- update until resources receive the required number of signals or the timeout
+-- period is exceeded. The SignalResource API is useful in cases where you want
+-- to send signals from anywhere other than an Amazon EC2 instance.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SignalResource.html>
 module Network.AWS.CloudFormation.SignalResource
@@ -82,26 +82,30 @@ signalResource p1 p2 p3 p4 = SignalResource
     , _srStatus            = p4
     }
 
--- | The logical ID of the resource that you want to signal. The logical ID is
--- the name of the resource that given in the template.
+-- | The logical ID of the resource that you want to signal. The logical ID is the
+-- name of the resource that given in the template.
+--
 srLogicalResourceId :: Lens' SignalResource Text
 srLogicalResourceId =
     lens _srLogicalResourceId (\s a -> s { _srLogicalResourceId = a })
 
 -- | The stack name or ID that includes the resource that you want to signal.
+--
 srStackName :: Lens' SignalResource Text
 srStackName = lens _srStackName (\s a -> s { _srStackName = a })
 
 -- | The status of the signal, which is either success or failure. A failure
--- signal causes AWS CloudFormation to immediately fail the stack creation
--- or update.
+-- signal causes AWS CloudFormation to immediately fail the stack creation or
+-- update.
+--
 srStatus :: Lens' SignalResource ResourceSignalStatus
 srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 
 -- | A unique ID of the signal. When you signal Amazon EC2 instances or Auto
--- Scaling groups, specify the instance ID that you are signaling as the
--- unique ID. If you send multiple signals to a single resource (such as
--- signaling a wait condition), each signal requires a different unique ID.
+-- Scaling groups, specify the instance ID that you are signaling as the unique
+-- ID. If you send multiple signals to a single resource (such as signaling a
+-- wait condition), each signal requires a different unique ID.
+--
 srUniqueId :: Lens' SignalResource Text
 srUniqueId = lens _srUniqueId (\s a -> s { _srUniqueId = a })
 

@@ -23,10 +23,10 @@
 -- | Modifies the Availability Zone, instance count, instance type, or network
 -- platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved
 -- Instances to be modified must be identical, except for Availability Zone,
--- network platform, and instance type. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html
--- Modifying Reserved Instances> in the Amazon Elastic Compute Cloud User
--- Guide.
+-- network platform, and instance type.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html Modifying Reserved Instances> in the Amazon Elastic
+-- Compute Cloud User Guide.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyReservedInstances.html>
 module Network.AWS.EC2.ModifyReservedInstances
@@ -78,16 +78,19 @@ modifyReservedInstances = ModifyReservedInstances
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your
 -- modification request.
+--
 mriClientToken :: Lens' ModifyReservedInstances (Maybe Text)
 mriClientToken = lens _mriClientToken (\s a -> s { _mriClientToken = a })
 
 -- | The IDs of the Reserved Instances to modify.
+--
 mriReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
 mriReservedInstancesIds =
     lens _mriReservedInstancesIds (\s a -> s { _mriReservedInstancesIds = a })
         . _List
 
 -- | The configuration settings for the Reserved Instances to modify.
+--
 mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
 mriTargetConfigurations =
     lens _mriTargetConfigurations (\s a -> s { _mriTargetConfigurations = a })
@@ -109,6 +112,7 @@ modifyReservedInstancesResponse = ModifyReservedInstancesResponse
     }
 
 -- | The ID for the modification.
+--
 mrirReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
 mrirReservedInstancesModificationId =
     lens _mrirReservedInstancesModificationId

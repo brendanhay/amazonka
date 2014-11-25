@@ -20,35 +20,25 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Attaches an Amazon EBS volume to a running or stopped instance and exposes
--- it to the instance with the specified device name. Encrypted Amazon EBS
--- volumes may only be attached to instances that support Amazon EBS
--- encryption. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
--- Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/.
--- For a list of supported device names, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html
--- Attaching an Amazon EBS Volume to an Instance>. Any device names that
--- aren't reserved for instance store volumes can be used for Amazon EBS
--- volumes. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html
--- Amazon EC2 Instance Store> in the /Amazon Elastic Compute Cloud User
--- Guide/. If a volume has an AWS Marketplace product code: The volume can
--- only be attached as the root device of a stopped instance. You must be
--- subscribed to the AWS Marketplace code that is on the volume. The
--- configuration (instance type, operating system) of the instance must
+-- | Attaches an Amazon EBS volume to a running or stopped instance and exposes it
+-- to the instance with the specified device name.
+--
+-- Encrypted Amazon EBS volumes may only be attached to instances that support
+-- Amazon EBS encryption. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- For a list of supported device names, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching an Amazon EBS Volume toan Instance>. Any device names that aren't reserved for instance store volumes
+-- can be used for Amazon EBS volumes. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2Instance Store> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- If a volume has an AWS Marketplace product code:
+--
+-- The volume can only be attached as the root device of a stopped instance. You must be subscribed to the AWS Marketplace code that is on the volume.
+-- The configuration (instance type, operating system) of the instance must
 -- support that specific AWS Marketplace code. For example, you cannot take a
 -- volume from a Windows instance and attach it to a Linux instance. AWS
--- Marketplace product codes are copied from the volume to the instance. For
--- an overview of the AWS Marketplace, see
--- <https://aws.amazon.com/marketplace/help/200900000
--- https://aws.amazon.com/marketplace/help/200900000>. For more information
--- about how to use the AWS Marketplace, see
--- <https://aws.amazon.com/marketplace AWS Marketplace>. For more information
--- about Amazon EBS volumes, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html
--- Attaching Amazon EBS Volumes> in the /Amazon Elastic Compute Cloud User
--- Guide/.
+-- Marketplace product codes are copied from the volume to the instance.  For an
+-- overview of the AWS Marketplace, see <https://aws.amazon.com/marketplace/help/200900000 https://aws.amazon.com/marketplace/help/200900000>. For more information about how to use the AWS Marketplace, see <https://aws.amazon.com/marketplace AWSMarketplace>.
+--
+-- For more information about Amazon EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching Amazon EBSVolumes> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVolume.html>
 module Network.AWS.EC2.AttachVolume
@@ -111,8 +101,8 @@ attachVolume p1 p2 p3 = AttachVolume
     , _avDryRun     = Nothing
     }
 
--- | The device name to expose to the instance (for example, '/dev/sdh' or
--- 'xvdh').
+-- | The device name to expose to the instance (for example, '/dev/sdh' or 'xvdh').
+--
 avDevice :: Lens' AttachVolume Text
 avDevice = lens _avDevice (\s a -> s { _avDevice = a })
 
@@ -120,11 +110,13 @@ avDryRun :: Lens' AttachVolume (Maybe Bool)
 avDryRun = lens _avDryRun (\s a -> s { _avDryRun = a })
 
 -- | The ID of the instance.
+--
 avInstanceId :: Lens' AttachVolume Text
 avInstanceId = lens _avInstanceId (\s a -> s { _avInstanceId = a })
 
--- | The ID of the Amazon EBS volume. The volume and instance must be within
--- the same Availability Zone.
+-- | The ID of the Amazon EBS volume. The volume and instance must be within the
+-- same Availability Zone.
+--
 avVolumeId :: Lens' AttachVolume Text
 avVolumeId = lens _avVolumeId (\s a -> s { _avVolumeId = a })
 
@@ -164,28 +156,33 @@ attachVolumeResponse = AttachVolumeResponse
     }
 
 -- | The time stamp when the attachment initiated.
+--
 avrAttachTime :: Lens' AttachVolumeResponse (Maybe UTCTime)
 avrAttachTime = lens _avrAttachTime (\s a -> s { _avrAttachTime = a }) . mapping _Time
 
--- | Indicates whether the Amazon EBS volume is deleted on instance
--- termination.
+-- | Indicates whether the Amazon EBS volume is deleted on instance termination.
+--
 avrDeleteOnTermination :: Lens' AttachVolumeResponse (Maybe Bool)
 avrDeleteOnTermination =
     lens _avrDeleteOnTermination (\s a -> s { _avrDeleteOnTermination = a })
 
 -- | The device name.
+--
 avrDevice :: Lens' AttachVolumeResponse (Maybe Text)
 avrDevice = lens _avrDevice (\s a -> s { _avrDevice = a })
 
 -- | The ID of the instance.
+--
 avrInstanceId :: Lens' AttachVolumeResponse (Maybe Text)
 avrInstanceId = lens _avrInstanceId (\s a -> s { _avrInstanceId = a })
 
 -- | The attachment state of the volume.
+--
 avrState :: Lens' AttachVolumeResponse (Maybe VolumeAttachmentState)
 avrState = lens _avrState (\s a -> s { _avrState = a })
 
 -- | The ID of the volume.
+--
 avrVolumeId :: Lens' AttachVolumeResponse (Maybe Text)
 avrVolumeId = lens _avrVolumeId (\s a -> s { _avrVolumeId = a })
 

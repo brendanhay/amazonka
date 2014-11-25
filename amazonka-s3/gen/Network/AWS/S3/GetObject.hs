@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves objects from Amazon S3.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObject.html>
 module Network.AWS.S3.GetObject
     (
@@ -188,8 +187,8 @@ goIfModifiedSince =
 goIfNoneMatch :: Lens' GetObject (Maybe Text)
 goIfNoneMatch = lens _goIfNoneMatch (\s a -> s { _goIfNoneMatch = a })
 
--- | Return the object only if it has not been modified since the specified
--- time, otherwise return a 412 (precondition failed).
+-- | Return the object only if it has not been modified since the specified time,
+-- otherwise return a 412 (precondition failed).
 goIfUnmodifiedSince :: Lens' GetObject (Maybe UTCTime)
 goIfUnmodifiedSince =
     lens _goIfUnmodifiedSince (\s a -> s { _goIfUnmodifiedSince = a })
@@ -198,8 +197,8 @@ goIfUnmodifiedSince =
 goKey :: Lens' GetObject Text
 goKey = lens _goKey (\s a -> s { _goKey = a })
 
--- | Downloads the specified range bytes of an object. For more information
--- about the HTTP Range header, go to
+-- | Downloads the specified range bytes of an object. For more information about
+-- the HTTP Range header, go to
 -- http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
 goRange :: Lens' GetObject (Maybe Text)
 goRange = lens _goRange (\s a -> s { _goRange = a })
@@ -209,7 +208,7 @@ goResponseCacheControl :: Lens' GetObject (Maybe Text)
 goResponseCacheControl =
     lens _goResponseCacheControl (\s a -> s { _goResponseCacheControl = a })
 
--- | Sets the Content-Disposition header of the response.
+-- | Sets the Content-Disposition header of the response
 goResponseContentDisposition :: Lens' GetObject (Maybe Text)
 goResponseContentDisposition =
     lens _goResponseContentDisposition
@@ -238,8 +237,8 @@ goResponseExpires =
     lens _goResponseExpires (\s a -> s { _goResponseExpires = a })
         . mapping _Time
 
--- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256, aws:kms).
+-- | Specifies the algorithm to use to when encrypting the object (e.g., AES256,
+-- aws:kms).
 goSSECustomerAlgorithm :: Lens' GetObject (Maybe Text)
 goSSECustomerAlgorithm =
     lens _goSSECustomerAlgorithm (\s a -> s { _goSSECustomerAlgorithm = a })
@@ -252,9 +251,9 @@ goSSECustomerAlgorithm =
 goSSECustomerKey :: Lens' GetObject (Maybe Text)
 goSSECustomerKey = lens _goSSECustomerKey (\s a -> s { _goSSECustomerKey = a }) . mapping _Sensitive
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
+-- Amazon S3 uses this header for a message integrity check to ensure the
+-- encryption key was transmitted without error.
 goSSECustomerKeyMD5 :: Lens' GetObject (Maybe Text)
 goSSECustomerKeyMD5 =
     lens _goSSECustomerKeyMD5 (\s a -> s { _goSSECustomerKeyMD5 = a })
@@ -384,8 +383,8 @@ gorContentDisposition =
     lens _gorContentDisposition (\s a -> s { _gorContentDisposition = a })
 
 -- | Specifies what content encodings have been applied to the object and thus
--- what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
+-- what decoding mechanisms must be applied to obtain the media-type referenced
+-- by the Content-Type header field.
 gorContentEncoding :: Lens' GetObjectResponse (Maybe Text)
 gorContentEncoding =
     lens _gorContentEncoding (\s a -> s { _gorContentEncoding = a })
@@ -403,21 +402,20 @@ gorContentLength = lens _gorContentLength (\s a -> s { _gorContentLength = a })
 gorContentType :: Lens' GetObjectResponse (Maybe Text)
 gorContentType = lens _gorContentType (\s a -> s { _gorContentType = a })
 
--- | Specifies whether the object retrieved was (true) or was not (false) a
--- Delete Marker. If false, this response header does not appear in the
--- response.
+-- | Specifies whether the object retrieved was (true) or was not (false) a Delete
+-- Marker. If false, this response header does not appear in the response.
 gorDeleteMarker :: Lens' GetObjectResponse (Maybe Bool)
 gorDeleteMarker = lens _gorDeleteMarker (\s a -> s { _gorDeleteMarker = a })
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
--- version of a resource found at a URL.
+-- version of a resource found at a URL
 gorETag :: Lens' GetObjectResponse (Maybe Text)
 gorETag = lens _gorETag (\s a -> s { _gorETag = a })
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
--- response includes this header. It includes the expiry-date and rule-id
--- key value pairs providing object expiration information. The value of the
--- rule-id is URL encoded.
+-- response includes this header. It includes the expiry-date and rule-id key
+-- value pairs providing object expiration information. The value of the rule-id
+-- is URL encoded.
 gorExpiration :: Lens' GetObjectResponse (Maybe UTCTime)
 gorExpiration = lens _gorExpiration (\s a -> s { _gorExpiration = a }) . mapping _Time
 
@@ -425,7 +423,7 @@ gorExpiration = lens _gorExpiration (\s a -> s { _gorExpiration = a }) . mapping
 gorExpires :: Lens' GetObjectResponse (Maybe UTCTime)
 gorExpires = lens _gorExpires (\s a -> s { _gorExpires = a }) . mapping _Time
 
--- | Last modified date of the object.
+-- | Last modified date of the object
 gorLastModified :: Lens' GetObjectResponse (Maybe UTCTime)
 gorLastModified = lens _gorLastModified (\s a -> s { _gorLastModified = a }) . mapping _Time
 
@@ -434,21 +432,20 @@ gorMetadata :: Lens' GetObjectResponse (HashMap (CI Text) Text)
 gorMetadata = lens _gorMetadata (\s a -> s { _gorMetadata = a }) . _Map
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta
--- headers. This can happen if you create metadata using an API like SOAP
--- that supports more flexible metadata than the REST API. For example,
--- using SOAP, you can create metadata whose values are not legal HTTP
--- headers.
+-- headers. This can happen if you create metadata using an API like SOAP that
+-- supports more flexible metadata than the REST API. For example, using SOAP,
+-- you can create metadata whose values are not legal HTTP headers.
 gorMissingMeta :: Lens' GetObjectResponse (Maybe Int)
 gorMissingMeta = lens _gorMissingMeta (\s a -> s { _gorMissingMeta = a })
 
--- | Provides information about object restoration operation and expiration
--- time of the restored object copy.
+-- | Provides information about object restoration operation and expiration time
+-- of the restored object copy.
 gorRestore :: Lens' GetObjectResponse (Maybe Text)
 gorRestore = lens _gorRestore (\s a -> s { _gorRestore = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
+-- requested, the response will include this header confirming the encryption
+-- algorithm used.
 gorSSECustomerAlgorithm :: Lens' GetObjectResponse (Maybe Text)
 gorSSECustomerAlgorithm =
     lens _gorSSECustomerAlgorithm (\s a -> s { _gorSSECustomerAlgorithm = a })
@@ -474,9 +471,9 @@ gorServerSideEncryption =
 gorVersionId :: Lens' GetObjectResponse (Maybe Text)
 gorVersionId = lens _gorVersionId (\s a -> s { _gorVersionId = a })
 
--- | If the bucket is configured as a website, redirects requests for this
--- object to another object in the same bucket or to an external URL. Amazon
--- S3 stores the value of this header in the object metadata.
+-- | If the bucket is configured as a website, redirects requests for this object
+-- to another object in the same bucket or to an external URL. Amazon S3 stores
+-- the value of this header in the object metadata.
 gorWebsiteRedirectLocation :: Lens' GetObjectResponse (Maybe Text)
 gorWebsiteRedirectLocation =
     lens _gorWebsiteRedirectLocation

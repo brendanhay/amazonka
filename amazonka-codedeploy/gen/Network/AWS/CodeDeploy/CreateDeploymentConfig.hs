@@ -67,22 +67,28 @@ createDeploymentConfig p1 = CreateDeploymentConfig
     }
 
 -- | The name of the deployment configuration to create.
+--
 cdcDeploymentConfigName :: Lens' CreateDeploymentConfig Text
 cdcDeploymentConfigName =
     lens _cdcDeploymentConfigName (\s a -> s { _cdcDeploymentConfigName = a })
 
--- | The minimum number of healthy instances that should be available at any
--- time during the deployment. There are two parameters expected in the
--- input: type and value. The type parameter takes either of the following
--- values: HOST_COUNT: The value parameter represents the minimum number of
--- healthy instances, as an absolute value. FLEET_PERCENT: The value
--- parameter represents the minimum number of healthy instances, as a
--- percentage of the total number of instances in the deployment. If you
--- specify FLEET_PERCENT, then at the start of the deployment AWS CodeDeploy
--- converts the percentage to the equivalent number of instances and rounds
--- fractional instances up. The value parameter takes an integer. For
--- example, to set a minimum of 95% healthy instances, specify a type of
+-- | The minimum number of healthy instances that should be available at any time
+-- during the deployment. There are two parameters expected in the input: type
+-- and value.
+--
+-- The type parameter takes either of the following values:
+--
+-- HOST_COUNT: The value parameter represents the minimum number of healthy
+-- instances, as an absolute value. FLEET_PERCENT: The value parameter
+-- represents the minimum number of healthy instances, as a percentage of the
+-- total number of instances in the deployment. If you specify FLEET_PERCENT,
+-- then at the start of the deployment AWS CodeDeploy converts the percentage to
+-- the equivalent number of instances and rounds fractional instances up.  The
+-- value parameter takes an integer.
+--
+-- For example, to set a minimum of 95% healthy instances, specify a type of
 -- FLEET_PERCENT and a value of 95.
+--
 cdcMinimumHealthyHosts :: Lens' CreateDeploymentConfig (Maybe MinimumHealthyHosts)
 cdcMinimumHealthyHosts =
     lens _cdcMinimumHealthyHosts (\s a -> s { _cdcMinimumHealthyHosts = a })
@@ -103,6 +109,7 @@ createDeploymentConfigResponse = CreateDeploymentConfigResponse
     }
 
 -- | A unique deployment configuration ID.
+--
 cdcrDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
 cdcrDeploymentConfigId =
     lens _cdcrDeploymentConfigId (\s a -> s { _cdcrDeploymentConfigId = a })

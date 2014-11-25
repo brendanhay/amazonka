@@ -12,8 +12,8 @@
 -- AWS using portable storage devices for transport. AWS transfers your data
 -- directly onto and off of storage devices using Amazon’s high-speed internal
 -- network and bypassing the Internet. For significant data sets, AWS
--- Import/Export is often faster than Internet transfer and more cost
--- effective than upgrading your connectivity.
+-- Import/Export is often faster than Internet transfer and more cost effective
+-- than upgrading your connectivity.
 module Network.AWS.ImportExport
     ( module Network.AWS.ImportExport.CancelJob
     , module Network.AWS.ImportExport.CreateJob

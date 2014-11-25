@@ -11,9 +11,9 @@
 -- | Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse
 -- service that makes it simple and cost-effective to efficiently analyze all
 -- your data using your existing business intelligence tools. You can start
--- small for just $0.25 per hour with no commitments or upfront costs and
--- scale to a petabyte or more for $1,000 per terabyte per year, less than a
--- tenth of most other data warehousing solutions.
+-- small for just $0.25 per hour with no commitments or upfront costs and scale
+-- to a petabyte or more for $1,000 per terabyte per year, less than a tenth of
+-- most other data warehousing solutions.
 module Network.AWS.Redshift
     ( module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     , module Network.AWS.Redshift.AuthorizeSnapshotAccess

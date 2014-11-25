@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | List distributions.
---
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListDistributions.html>
 module Network.AWS.CloudFront.ListDistributions
     (
@@ -65,11 +64,11 @@ listDistributions = ListDistributions
     , _ldMaxItems = Nothing
     }
 
--- | Use this when paginating results to indicate where to begin in your list
--- of distributions. The results include distributions in the list that
--- occur after the marker. To get the next page of results, set the Marker
--- to the value of the NextMarker from the current page's response (which is
--- also the ID of the last distribution on that page).
+-- | Use this when paginating results to indicate where to begin in your list of
+-- distributions. The results include distributions in the list that occur after
+-- the marker. To get the next page of results, set the Marker to the value of
+-- the NextMarker from the current page's response (which is also the ID of the
+-- last distribution on that page).
 ldMarker :: Lens' ListDistributions (Maybe Text)
 ldMarker = lens _ldMarker (\s a -> s { _ldMarker = a })
 

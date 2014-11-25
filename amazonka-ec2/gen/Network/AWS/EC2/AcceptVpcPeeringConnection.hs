@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Accept a VPC peering connection request. To accept a request, the VPC
--- peering connection must be in the 'pending-acceptance' state, and you must
--- be the owner of the peer VPC. Use the 'DescribeVpcPeeringConnections'
--- request to view your outstanding VPC peering connection requests.
+-- | Accept a VPC peering connection request. To accept a request, the VPC peering
+-- connection must be in the 'pending-acceptance' state, and you must be the owner
+-- of the peer VPC. Use the 'DescribeVpcPeeringConnections' request to view your
+-- outstanding VPC peering connection requests.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AcceptVpcPeeringConnection.html>
 module Network.AWS.EC2.AcceptVpcPeeringConnection
@@ -72,6 +72,7 @@ avpcDryRun :: Lens' AcceptVpcPeeringConnection (Maybe Bool)
 avpcDryRun = lens _avpcDryRun (\s a -> s { _avpcDryRun = a })
 
 -- | The ID of the VPC peering connection.
+--
 avpcVpcPeeringConnectionId :: Lens' AcceptVpcPeeringConnection (Maybe Text)
 avpcVpcPeeringConnectionId =
     lens _avpcVpcPeeringConnectionId
@@ -93,6 +94,7 @@ acceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     }
 
 -- | Information about the VPC peering connection.
+--
 avpcrVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
 avpcrVpcPeeringConnection =
     lens _avpcrVpcPeeringConnection

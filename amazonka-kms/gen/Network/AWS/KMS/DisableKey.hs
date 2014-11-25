@@ -59,8 +59,9 @@ disableKey p1 = DisableKey
     { _dkKeyId = p1
     }
 
--- | Unique identifier of the customer master key to be disabled. This can be
--- an ARN, an alias, or a globally unique identifier.
+-- | Unique identifier of the customer master key to be disabled. This can be an
+-- ARN, an alias, or a globally unique identifier.
+--
 dkKeyId :: Lens' DisableKey Text
 dkKeyId = lens _dkKeyId (\s a -> s { _dkKeyId = a })
 

@@ -20,8 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The /ModifyCacheSubnetGroup/ operation modifies an existing cache subnet
--- group.
+-- | The /ModifyCacheSubnetGroup/ operation modifies an existing cache subnet group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheSubnetGroup.html>
 module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
@@ -73,20 +72,27 @@ modifyCacheSubnetGroup p1 = ModifyCacheSubnetGroup
     }
 
 -- | A description for the cache subnet group.
+--
 mcsgCacheSubnetGroupDescription :: Lens' ModifyCacheSubnetGroup (Maybe Text)
 mcsgCacheSubnetGroupDescription =
     lens _mcsgCacheSubnetGroupDescription
         (\s a -> s { _mcsgCacheSubnetGroupDescription = a })
 
 -- | The name for the cache subnet group. This value is stored as a lowercase
--- string. Constraints: Must contain no more than 255 alphanumeric
--- characters or hyphens. Example: 'mysubnetgroup'.
+-- string.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters or
+-- hyphens.
+--
+-- Example: 'mysubnetgroup'
+--
 mcsgCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup Text
 mcsgCacheSubnetGroupName =
     lens _mcsgCacheSubnetGroupName
         (\s a -> s { _mcsgCacheSubnetGroupName = a })
 
 -- | The EC2 subnet IDs for the cache subnet group.
+--
 mcsgSubnetIds :: Lens' ModifyCacheSubnetGroup [Text]
 mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a }) . _List
 

@@ -498,9 +498,8 @@ noncurrentVersionExpiration p1 = NoncurrentVersionExpiration
 
 -- | Specifies the number of days an object is noncurrent before Amazon S3 can
 -- perform the associated action. For information about the noncurrent days
--- calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon
--- S3 Calculates When an Object Became Noncurrent> in the Amazon Simple
--- Storage Service Developer Guide.
+-- calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
+-- in the Amazon Simple Storage Service Developer Guide.
 nveNoncurrentDays :: Lens' NoncurrentVersionExpiration Int
 nveNoncurrentDays =
     lens _nveNoncurrentDays (\s a -> s { _nveNoncurrentDays = a })
@@ -537,13 +536,13 @@ transition = Transition
     , _tStorageClass = Nothing
     }
 
--- | Indicates at what date the object is to be moved or deleted. Should be in
--- GMT ISO 8601 Format.
+-- | Indicates at what date the object is to be moved or deleted. Should be in GMT
+-- ISO 8601 Format.
 tDate :: Lens' Transition (Maybe UTCTime)
 tDate = lens _tDate (\s a -> s { _tDate = a }) . mapping _Time
 
--- | Indicates the lifetime, in days, of the objects that are subject to the
--- rule. The value must be a non-zero positive integer.
+-- | Indicates the lifetime, in days, of the objects that are subject to the rule.
+-- The value must be a non-zero positive integer.
 tDays :: Lens' Transition (Maybe Int)
 tDays = lens _tDays (\s a -> s { _tDays = a })
 
@@ -595,8 +594,8 @@ deleteMarkerEntry = DeleteMarkerEntry
     , _dmeLastModified = Nothing
     }
 
--- | Specifies whether the object is (true) or is not (false) the latest
--- version of an object.
+-- | Specifies whether the object is (true) or is not (false) the latest version
+-- of an object.
 dmeIsLatest :: Lens' DeleteMarkerEntry (Maybe Bool)
 dmeIsLatest = lens _dmeIsLatest (\s a -> s { _dmeIsLatest = a })
 
@@ -740,8 +739,8 @@ versioningConfiguration = VersioningConfiguration
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
--- configured with MFA delete. If the bucket has never been so configured,
--- this element is not returned.
+-- configured with MFA delete. If the bucket has never been so configured, this
+-- element is not returned.
 vcMFADelete :: Lens' VersioningConfiguration (Maybe MFADelete)
 vcMFADelete = lens _vcMFADelete (\s a -> s { _vcMFADelete = a })
 
@@ -885,8 +884,8 @@ redirectAllRequestsTo p1 = RedirectAllRequestsTo
 rartHostName :: Lens' RedirectAllRequestsTo Text
 rartHostName = lens _rartHostName (\s a -> s { _rartHostName = a })
 
--- | Protocol to use (http, https) when redirecting requests. The default is
--- the protocol that is used in the original request.
+-- | Protocol to use (http, https) when redirecting requests. The default is the
+-- protocol that is used in the original request.
 rartProtocol :: Lens' RedirectAllRequestsTo (Maybe Protocol)
 rartProtocol = lens _rartProtocol (\s a -> s { _rartProtocol = a })
 
@@ -924,14 +923,13 @@ routingRule p1 = RoutingRule
 -- | A container for describing a condition that must be met for the specified
 -- redirect to apply. For example, 1. If request is for pages in the /docs
 -- folder, redirect to the /documents folder. 2. If request results in HTTP
--- error 4xx, redirect request to another host where you might process the
--- error.
+-- error 4xx, redirect request to another host where you might process the error.
 rrCondition :: Lens' RoutingRule (Maybe Condition)
 rrCondition = lens _rrCondition (\s a -> s { _rrCondition = a })
 
 -- | Container for redirect information. You can redirect requests to another
--- host, to another page, or with another protocol. In the event of an
--- error, you can can specify a different error code to return.
+-- host, to another page, or with another protocol. In the event of an error,
+-- you can can specify a different error code to return.
 rrRedirect :: Lens' RoutingRule Redirect
 rrRedirect = lens _rrRedirect (\s a -> s { _rrRedirect = a })
 
@@ -1336,23 +1334,22 @@ corsrAllowedMethods =
     lens _corsrAllowedMethods (\s a -> s { _corsrAllowedMethods = a })
         . _List
 
--- | One or more origins you want customers to be able to access the bucket
--- from.
+-- | One or more origins you want customers to be able to access the bucket from.
 corsrAllowedOrigins :: Lens' CORSRule [Text]
 corsrAllowedOrigins =
     lens _corsrAllowedOrigins (\s a -> s { _corsrAllowedOrigins = a })
         . _List
 
 -- | One or more headers in the response that you want customers to be able to
--- access from their applications (for example, from a JavaScript
--- XMLHttpRequest object).
+-- access from their applications (for example, from a JavaScript XMLHttpRequest
+-- object).
 corsrExposeHeaders :: Lens' CORSRule [Text]
 corsrExposeHeaders =
     lens _corsrExposeHeaders (\s a -> s { _corsrExposeHeaders = a })
         . _List
 
--- | The time in seconds that your browser is to cache the preflight response
--- for the specified resource.
+-- | The time in seconds that your browser is to cache the preflight response for
+-- the specified resource.
 corsrMaxAgeSeconds :: Lens' CORSRule (Maybe Int)
 corsrMaxAgeSeconds =
     lens _corsrMaxAgeSeconds (\s a -> s { _corsrMaxAgeSeconds = a })
@@ -1452,9 +1449,8 @@ noncurrentVersionTransition p1 p2 = NoncurrentVersionTransition
 
 -- | Specifies the number of days an object is noncurrent before Amazon S3 can
 -- perform the associated action. For information about the noncurrent days
--- calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon
--- S3 Calculates When an Object Became Noncurrent> in the Amazon Simple
--- Storage Service Developer Guide.
+-- calculations, see </AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
+-- in the Amazon Simple Storage Service Developer Guide.
 nvtNoncurrentDays :: Lens' NoncurrentVersionTransition Int
 nvtNoncurrentDays =
     lens _nvtNoncurrentDays (\s a -> s { _nvtNoncurrentDays = a })
@@ -1497,8 +1493,8 @@ initiator = Initiator
 iDisplayName :: Lens' Initiator (Maybe Text)
 iDisplayName = lens _iDisplayName (\s a -> s { _iDisplayName = a })
 
--- | If the principal is an AWS account, it provides the Canonical User ID. If
--- the principal is an IAM User, it provides a user ARN value.
+-- | If the principal is an AWS account, it provides the Canonical User ID. If the
+-- principal is an IAM User, it provides a user ARN value.
 iID :: Lens' Initiator (Maybe Text)
 iID = lens _iID (\s a -> s { _iID = a })
 
@@ -1721,8 +1717,8 @@ rNoncurrentVersionTransition =
 rPrefix :: Lens' Rule Text
 rPrefix = lens _rPrefix (\s a -> s { _rPrefix = a })
 
--- | If 'Enabled', the rule is currently being applied. If 'Disabled', the
--- rule is not currently being applied.
+-- | If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is
+-- not currently being applied.
 rStatus :: Lens' Rule ExpirationStatus
 rStatus = lens _rStatus (\s a -> s { _rStatus = a })
 
@@ -2031,8 +2027,8 @@ objectVersion = ObjectVersion
 ovETag :: Lens' ObjectVersion (Maybe Text)
 ovETag = lens _ovETag (\s a -> s { _ovETag = a })
 
--- | Specifies whether the object is (true) or is not (false) the latest
--- version of an object.
+-- | Specifies whether the object is (true) or is not (false) the latest version
+-- of an object.
 ovIsLatest :: Lens' ObjectVersion (Maybe Bool)
 ovIsLatest = lens _ovIsLatest (\s a -> s { _ovIsLatest = a })
 
@@ -2218,24 +2214,24 @@ rHttpRedirectCode :: Lens' Redirect (Maybe Text)
 rHttpRedirectCode =
     lens _rHttpRedirectCode (\s a -> s { _rHttpRedirectCode = a })
 
--- | Protocol to use (http, https) when redirecting requests. The default is
--- the protocol that is used in the original request.
+-- | Protocol to use (http, https) when redirecting requests. The default is the
+-- protocol that is used in the original request.
 rProtocol :: Lens' Redirect (Maybe Protocol)
 rProtocol = lens _rProtocol (\s a -> s { _rProtocol = a })
 
 -- | The object key prefix to use in the redirect request. For example, to
 -- redirect requests for all pages with prefix docs/ (objects in the docs/
--- folder) to documents/, you can set a condition block with KeyPrefixEquals
--- set to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents.
--- Not required if one of the siblings is present. Can be present only if
+-- folder) to documents/, you can set a condition block with KeyPrefixEquals set
+-- to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents. Not
+-- required if one of the siblings is present. Can be present only if
 -- ReplaceKeyWith is not provided.
 rReplaceKeyPrefixWith :: Lens' Redirect (Maybe Text)
 rReplaceKeyPrefixWith =
     lens _rReplaceKeyPrefixWith (\s a -> s { _rReplaceKeyPrefixWith = a })
 
--- | The specific object key to use in the redirect request. For example,
--- redirect request to error.html. Not required if one of the sibling is
--- present. Can be present only if ReplaceKeyPrefixWith is not provided.
+-- | The specific object key to use in the redirect request. For example, redirect
+-- request to error.html. Not required if one of the sibling is present. Can be
+-- present only if ReplaceKeyPrefixWith is not provided.
 rReplaceKeyWith :: Lens' Redirect (Maybe Text)
 rReplaceKeyWith = lens _rReplaceKeyWith (\s a -> s { _rReplaceKeyWith = a })
 
@@ -2407,13 +2403,13 @@ lifecycleExpiration = LifecycleExpiration
     , _leDays = Nothing
     }
 
--- | Indicates at what date the object is to be moved or deleted. Should be in
--- GMT ISO 8601 Format.
+-- | Indicates at what date the object is to be moved or deleted. Should be in GMT
+-- ISO 8601 Format.
 leDate :: Lens' LifecycleExpiration (Maybe UTCTime)
 leDate = lens _leDate (\s a -> s { _leDate = a }) . mapping _Time
 
--- | Indicates the lifetime, in days, of the objects that are subject to the
--- rule. The value must be a non-zero positive integer.
+-- | Indicates the lifetime, in days, of the objects that are subject to the rule.
+-- The value must be a non-zero positive integer.
 leDays :: Lens' LifecycleExpiration (Maybe Int)
 leDays = lens _leDays (\s a -> s { _leDays = a })
 
@@ -2741,11 +2737,11 @@ condition = Condition
     , _cKeyPrefixEquals             = Nothing
     }
 
--- | The HTTP error code when the redirect is applied. In the event of an
--- error, if the error code equals this value, then the specified redirect
--- is applied. Required when parent element Condition is specified and
--- sibling KeyPrefixEquals is not specified. If both are specified, then
--- both must be true for the redirect to be applied.
+-- | The HTTP error code when the redirect is applied. In the event of an error,
+-- if the error code equals this value, then the specified redirect is applied.
+-- Required when parent element Condition is specified and sibling
+-- KeyPrefixEquals is not specified. If both are specified, then both must be
+-- true for the redirect to be applied.
 cHttpErrorCodeReturnedEquals :: Lens' Condition (Maybe Text)
 cHttpErrorCodeReturnedEquals =
     lens _cHttpErrorCodeReturnedEquals
@@ -2753,11 +2749,11 @@ cHttpErrorCodeReturnedEquals =
 
 -- | The object key name prefix when the redirect is applied. For example, to
 -- redirect requests for ExamplePage.html, the key prefix will be
--- ExamplePage.html. To redirect request for all pages with the prefix
--- docs/, the key prefix will be /docs, which identifies all objects in the
--- docs/ folder. Required when the parent element Condition is specified and
--- sibling HttpErrorCodeReturnedEquals is not specified. If both conditions
--- are specified, both must be true for the redirect to be applied.
+-- ExamplePage.html. To redirect request for all pages with the prefix docs/,
+-- the key prefix will be /docs, which identifies all objects in the docs/
+-- folder. Required when the parent element Condition is specified and sibling
+-- HttpErrorCodeReturnedEquals is not specified. If both conditions are
+-- specified, both must be true for the redirect to be applied.
 cKeyPrefixEquals :: Lens' Condition (Maybe Text)
 cKeyPrefixEquals = lens _cKeyPrefixEquals (\s a -> s { _cKeyPrefixEquals = a })
 
@@ -3021,7 +3017,7 @@ gEmailAddress = lens _gEmailAddress (\s a -> s { _gEmailAddress = a })
 gID :: Lens' Grantee (Maybe Text)
 gID = lens _gID (\s a -> s { _gID = a })
 
--- | Type of grantee.
+-- | Type of grantee
 gType :: Lens' Grantee Type
 gType = lens _gType (\s a -> s { _gType = a })
 
@@ -3096,20 +3092,20 @@ loggingEnabled = LoggingEnabled
     , _leTargetPrefix = Nothing
     }
 
--- | Specifies the bucket where you want Amazon S3 to store server access
--- logs. You can have your logs delivered to any bucket that you own,
--- including the same bucket that is being logged. You can also configure
--- multiple buckets to deliver their logs to the same target bucket. In this
--- case you should choose a different TargetPrefix for each source bucket so
--- that the delivered log files can be distinguished by key.
+-- | Specifies the bucket where you want Amazon S3 to store server access logs.
+-- You can have your logs delivered to any bucket that you own, including the
+-- same bucket that is being logged. You can also configure multiple buckets to
+-- deliver their logs to the same target bucket. In this case you should choose
+-- a different TargetPrefix for each source bucket so that the delivered log
+-- files can be distinguished by key.
 leTargetBucket :: Lens' LoggingEnabled (Maybe Text)
 leTargetBucket = lens _leTargetBucket (\s a -> s { _leTargetBucket = a })
 
 leTargetGrants :: Lens' LoggingEnabled [TargetGrant]
 leTargetGrants = lens _leTargetGrants (\s a -> s { _leTargetGrants = a }) . _List
 
--- | This element lets you specify a prefix for the keys that the log files
--- will be stored under.
+-- | This element lets you specify a prefix for the keys that the log files will
+-- be stored under.
 leTargetPrefix :: Lens' LoggingEnabled (Maybe Text)
 leTargetPrefix = lens _leTargetPrefix (\s a -> s { _leTargetPrefix = a })
 
@@ -3167,11 +3163,11 @@ indexDocument p1 = IndexDocument
     { _idSuffix = p1
     }
 
--- | A suffix that is appended to a request that is for a directory on the
--- website endpoint (e.g. if the suffix is index.html and you make a request
--- to samplebucket/images/ the data that is returned will be for the object
--- with the key name images/index.html) The suffix must not be empty and
--- must not include a slash character.
+-- | A suffix that is appended to a request that is for a directory on the website
+-- endpoint (e.g. if the suffix is index.html and you make a request to
+-- samplebucket/images/ the data that is returned will be for the object with
+-- the key name images/index.html) The suffix must not be empty and must not
+-- include a slash character.
 idSuffix :: Lens' IndexDocument Text
 idSuffix = lens _idSuffix (\s a -> s { _idSuffix = a })
 
@@ -3242,8 +3238,8 @@ delete' = Delete
 dObjects :: Lens' Delete [ObjectIdentifier]
 dObjects = lens _dObjects (\s a -> s { _dObjects = a }) . _List
 
--- | Element to enable quiet mode for the request. When you add this element,
--- you must set its value to true.
+-- | Element to enable quiet mode for the request. When you add this element, you
+-- must set its value to true.
 dQuiet :: Lens' Delete (Maybe Bool)
 dQuiet = lens _dQuiet (\s a -> s { _dQuiet = a })
 
@@ -3274,7 +3270,7 @@ restoreRequest p1 = RestoreRequest
     { _rDays = p1
     }
 
--- | Lifetime of the active copy in days.
+-- | Lifetime of the active copy in days
 rDays :: Lens' RestoreRequest Int
 rDays = lens _rDays (\s a -> s { _rDays = a })
 

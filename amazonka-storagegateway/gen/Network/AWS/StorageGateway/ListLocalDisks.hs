@@ -22,9 +22,10 @@
 
 -- | This operation returns a list of the local disks of a gateway. To specify
 -- which gateway to describe you use the Amazon Resource Name (ARN) of the
--- gateway in the body of the request. The request returns all disks,
--- specifying which are configured as working storage, stored volume or not
--- configured at all.
+-- gateway in the body of the request.
+--
+-- The request returns all disks, specifying which are configured as working
+-- storage, stored volume or not configured at all.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListLocalDisks.html>
 module Network.AWS.StorageGateway.ListLocalDisks

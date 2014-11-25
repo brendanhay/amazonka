@@ -23,11 +23,13 @@
 -- | Uploads an X.509 signing certificate and associates it with the specified
 -- user. Some AWS services use X.509 signing certificates to validate requests
 -- that are signed with a corresponding private key. When you upload the
--- certificate, its default status is 'Active'. If the 'UserName' field is not
--- specified, the user name is determined implicitly based on the AWS access
--- key ID used to sign the request. Because this action works for access keys
--- under the AWS account, you can use this action to manage root credentials
--- even if the AWS account has no associated users.
+-- certificate, its default status is 'Active'.
+--
+-- If the 'UserName' field is not specified, the user name is determined
+-- implicitly based on the AWS access key ID used to sign the request. Because
+-- this action works for access keys under the AWS account, you can use this
+-- action to manage root credentials even if the AWS account has no associated
+-- users.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSigningCertificate.html>
 module Network.AWS.IAM.UploadSigningCertificate
@@ -74,11 +76,13 @@ uploadSigningCertificate p1 = UploadSigningCertificate
     }
 
 -- | The contents of the signing certificate.
+--
 usc1CertificateBody :: Lens' UploadSigningCertificate Text
 usc1CertificateBody =
     lens _usc1CertificateBody (\s a -> s { _usc1CertificateBody = a })
 
 -- | The name of the user the signing certificate is for.
+--
 usc1UserName :: Lens' UploadSigningCertificate (Maybe Text)
 usc1UserName = lens _usc1UserName (\s a -> s { _usc1UserName = a })
 
@@ -99,6 +103,7 @@ uploadSigningCertificateResponse p1 = UploadSigningCertificateResponse
     }
 
 -- | Information about the certificate.
+--
 uscrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
 uscrCertificate = lens _uscrCertificate (\s a -> s { _uscrCertificate = a })
 

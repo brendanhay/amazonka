@@ -63,6 +63,7 @@ checkDNSAvailability p1 = CheckDNSAvailability
     }
 
 -- | The prefix used when this CNAME is reserved.
+--
 cdnsaCNAMEPrefix :: Lens' CheckDNSAvailability Text
 cdnsaCNAMEPrefix = lens _cdnsaCNAMEPrefix (\s a -> s { _cdnsaCNAMEPrefix = a })
 
@@ -85,14 +86,20 @@ checkDNSAvailabilityResponse = CheckDNSAvailabilityResponse
     , _cdnsarFullyQualifiedCNAME = Nothing
     }
 
--- | Indicates if the specified CNAME is available: 'true' : The CNAME is
--- available. 'true' : The CNAME is not available. 'true' : The CNAME is
--- available. 'false' : The CNAME is not available.
+-- | Indicates if the specified CNAME is available:
+--
+-- 'true' : The CNAME is available.
+--
+-- 'true' : The CNAME is not available.
+--
+-- 'true' : The CNAME is available.   'false' : The CNAME is not available.
+--
 cdnsarAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
 cdnsarAvailable = lens _cdnsarAvailable (\s a -> s { _cdnsarAvailable = a })
 
--- | The fully qualified CNAME to reserve when 'CreateEnvironment' is called
--- with the provided prefix.
+-- | The fully qualified CNAME to reserve when 'CreateEnvironment' is called with
+-- the provided prefix.
+--
 cdnsarFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
 cdnsarFullyQualifiedCNAME =
     lens _cdnsarFullyQualifiedCNAME

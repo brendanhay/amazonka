@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns metadata about all of the versions of objects in a bucket.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjectVersions.html>
 module Network.AWS.S3.ListObjectVersions
     (
@@ -117,8 +116,8 @@ lovEncodingType = lens _lovEncodingType (\s a -> s { _lovEncodingType = a })
 lovKeyMarker :: Lens' ListObjectVersions (Maybe Text)
 lovKeyMarker = lens _lovKeyMarker (\s a -> s { _lovKeyMarker = a })
 
--- | Sets the maximum number of keys returned in the response. The response
--- might contain fewer keys but will never contain more.
+-- | Sets the maximum number of keys returned in the response. The response might
+-- contain fewer keys but will never contain more.
 lovMaxKeys :: Lens' ListObjectVersions (Maybe Int)
 lovMaxKeys = lens _lovMaxKeys (\s a -> s { _lovMaxKeys = a })
 
@@ -211,11 +210,11 @@ lovrDelimiter = lens _lovrDelimiter (\s a -> s { _lovrDelimiter = a })
 lovrEncodingType :: Lens' ListObjectVersionsResponse (Maybe EncodingType)
 lovrEncodingType = lens _lovrEncodingType (\s a -> s { _lovrEncodingType = a })
 
--- | A flag that indicates whether or not Amazon S3 returned all of the
--- results that satisfied the search criteria. If your results were
--- truncated, you can make a follow-up paginated request using the
--- NextKeyMarker and NextVersionIdMarker response parameters as a starting
--- place in another request to return the rest of the results.
+-- | A flag that indicates whether or not Amazon S3 returned all of the results
+-- that satisfied the search criteria. If your results were truncated, you can
+-- make a follow-up paginated request using the NextKeyMarker and
+-- NextVersionIdMarker response parameters as a starting place in another
+-- request to return the rest of the results.
 lovrIsTruncated :: Lens' ListObjectVersionsResponse (Maybe Bool)
 lovrIsTruncated = lens _lovrIsTruncated (\s a -> s { _lovrIsTruncated = a })
 
@@ -229,8 +228,7 @@ lovrMaxKeys = lens _lovrMaxKeys (\s a -> s { _lovrMaxKeys = a })
 lovrName :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrName = lens _lovrName (\s a -> s { _lovrName = a })
 
--- | Use this value for the key marker request parameter in a subsequent
--- request.
+-- | Use this value for the key marker request parameter in a subsequent request.
 lovrNextKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrNextKeyMarker =
     lens _lovrNextKeyMarker (\s a -> s { _lovrNextKeyMarker = a })

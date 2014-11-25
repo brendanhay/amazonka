@@ -74,14 +74,14 @@ decrypt p1 = Decrypt
     }
 
 -- | Ciphertext including metadata.
+--
 dCiphertextBlob :: Lens' Decrypt Base64
 dCiphertextBlob = lens _dCiphertextBlob (\s a -> s { _dCiphertextBlob = a })
 
--- | The encryption context. If this was specified in the 'Encrypt' function,
--- it must be specified here or the decryption operation will fail. For more
--- information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html
--- Encryption Context>.
+-- | The encryption context. If this was specified in the 'Encrypt' function, it
+-- must be specified here or the decryption operation will fail. For more
+-- information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
+--
 dEncryptionContext :: Lens' Decrypt (HashMap Text Text)
 dEncryptionContext =
     lens _dEncryptionContext (\s a -> s { _dEncryptionContext = a })
@@ -89,6 +89,7 @@ dEncryptionContext =
 
 -- | A list of grant tokens that represent grants which can be used to provide
 -- long term permissions to perform decryption.
+--
 dGrantTokens :: Lens' Decrypt [Text]
 dGrantTokens = lens _dGrantTokens (\s a -> s { _dGrantTokens = a }) . _List
 
@@ -113,11 +114,13 @@ decryptResponse = DecryptResponse
 
 -- | Unique identifier created by the system for the key. This value is always
 -- returned as long as no errors are encountered during the operation.
+--
 drKeyId :: Lens' DecryptResponse (Maybe Text)
 drKeyId = lens _drKeyId (\s a -> s { _drKeyId = a })
 
 -- | Decrypted plaintext data. This value may not be returned if the customer
 -- master key is not available or if you didn't have permission to use it.
+--
 drPlaintext :: Lens' DecryptResponse (Maybe Base64)
 drPlaintext = lens _drPlaintext (\s a -> s { _drPlaintext = a })
 

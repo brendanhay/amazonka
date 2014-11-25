@@ -20,11 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This action creates a new health check. To create a new health check, send
--- a 'POST' request to the '2013-04-01/healthcheck' resource. The request body
--- must include an XML document with a 'CreateHealthCheckRequest' element. The
--- response returns the 'CreateHealthCheckResponse' element that contains
--- metadata about the health check.
+-- | This action creates a new health check.
+--
+-- To create a new health check, send a 'POST' request to the '2013-04-01/healthcheck' resource. The request body must include an XML document with a 'CreateHealthCheckRequest' element. The response returns the 'CreateHealthCheckResponse' element that
+-- contains metadata about the health check.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html>
 module Network.AWS.Route53.CreateHealthCheck
@@ -72,18 +71,20 @@ createHealthCheck p1 p2 = CreateHealthCheck
     , _chcHealthCheckConfig = p2
     }
 
--- | A unique string that identifies the request and that allows failed
--- 'CreateHealthCheck' requests to be retried without the risk of executing
--- the operation twice. You must use a unique 'CallerReference' string every
--- time you create a health check. 'CallerReference' can be any unique
--- string; you might choose to use a string that identifies your project.
+-- | A unique string that identifies the request and that allows failed 'CreateHealthCheck' requests to be retried without the risk of executing the operation twice.
+-- You must use a unique 'CallerReference' string every time you create a health
+-- check. 'CallerReference' can be any unique string; you might choose to use a
+-- string that identifies your project.
+--
 -- Valid characters are any Unicode code points that are legal in an XML 1.0
 -- document. The UTF-8 encoding of the value must be less than 128 bytes.
+--
 chcCallerReference :: Lens' CreateHealthCheck Text
 chcCallerReference =
     lens _chcCallerReference (\s a -> s { _chcCallerReference = a })
 
 -- | A complex type that contains health check configuration.
+--
 chcHealthCheckConfig :: Lens' CreateHealthCheck HealthCheckConfig
 chcHealthCheckConfig =
     lens _chcHealthCheckConfig (\s a -> s { _chcHealthCheckConfig = a })
@@ -109,12 +110,13 @@ createHealthCheckResponse p1 p2 = CreateHealthCheckResponse
     , _chcrLocation    = p2
     }
 
--- | A complex type that contains identifying information about the health
--- check.
+-- | A complex type that contains identifying information about the health check.
+--
 chcrHealthCheck :: Lens' CreateHealthCheckResponse HealthCheck
 chcrHealthCheck = lens _chcrHealthCheck (\s a -> s { _chcrHealthCheck = a })
 
 -- | The unique URL representing the new health check.
+--
 chcrLocation :: Lens' CreateHealthCheckResponse Text
 chcrLocation = lens _chcrLocation (\s a -> s { _chcrLocation = a })
 

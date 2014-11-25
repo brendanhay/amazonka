@@ -21,12 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets information about the search domains owned by this account. Can be
--- limited to specific domains. Shows all domains by default. To get the
--- number of searchable documents in a domain, use the console or submit a
--- 'matchall' request to your domain's search endpoint:
--- 'q=matchall&amp;q.parser=structured&amp;size=0'. For more information, see
--- Getting Information about a Search Domain in the /Amazon CloudSearch
--- Developer Guide/.
+-- limited to specific domains. Shows all domains by default. To get the number
+-- of searchable documents in a domain, use the console or submit a 'matchall'
+-- request to your domain's search endpoint: 'q=matchall&amp;q.parser=structured&amp;size=0'. For more information, see Getting Information about a Search Domain in the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeDomains.html>
 module Network.AWS.CloudSearch.DescribeDomains
@@ -73,6 +70,7 @@ describeDomains = DescribeDomains
     }
 
 -- | The names of the domains you want to include in the response.
+--
 ddDomainNames :: Lens' DescribeDomains [Text]
 ddDomainNames = lens _ddDomainNames (\s a -> s { _ddDomainNames = a }) . _List
 

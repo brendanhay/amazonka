@@ -20,9 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns descriptions of all resources of the specified stack. For deleted
--- stacks, ListStackResources returns resource information for up to 90 days
--- after the stack has been deleted.
+-- | Returns descriptions of all resources of the specified stack.
+--
+-- For deleted stacks, ListStackResources returns resource information for up
+-- to 90 days after the stack has been deleted.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackResources.html>
 module Network.AWS.CloudFormation.ListStackResources
@@ -70,14 +71,20 @@ listStackResources p1 = ListStackResources
     }
 
 -- | String that identifies the start of the next list of stack resource
--- summaries, if there is one. Default: There is no default value.
+-- summaries, if there is one.
+--
+-- Default: There is no default value.
+--
 lsrNextToken :: Lens' ListStackResources (Maybe Text)
 lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
 
--- | The name or the unique identifier associated with the stack, which are
--- not always interchangeable: Running stacks: You can specify either the
--- stack's name or its unique stack ID. Deleted stacks: You must specify the
--- unique stack ID. Default: There is no default value.
+-- | The name or the unique identifier associated with the stack, which are not
+-- always interchangeable:
+--
+-- Running stacks: You can specify either the stack's name or its unique stack
+-- ID. Deleted stacks: You must specify the unique stack ID.  Default: There is
+-- no default value.
+--
 lsrStackName :: Lens' ListStackResources Text
 lsrStackName = lens _lsrStackName (\s a -> s { _lsrStackName = a })
 
@@ -102,10 +109,12 @@ listStackResourcesResponse = ListStackResourcesResponse
 
 -- | String that identifies the start of the next list of stack resources, if
 -- there is one.
+--
 lsrrNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
 lsrrNextToken = lens _lsrrNextToken (\s a -> s { _lsrrNextToken = a })
 
 -- | A list of 'StackResourceSummary' structures.
+--
 lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]
 lsrrStackResourceSummaries =
     lens _lsrrStackResourceSummaries

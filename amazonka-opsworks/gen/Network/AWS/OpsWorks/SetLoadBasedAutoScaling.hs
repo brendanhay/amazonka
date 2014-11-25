@@ -20,15 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Specify the load-based auto scaling configuration for a specified layer.
--- For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html
--- Managing Load with Time-based and Load-based Instances>. Required
--- Permissions: To use this action, an IAM user must have a Manage permissions
--- level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Specify the load-based auto scaling configuration for a specified layer. For
+-- more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html Managing Load with Time-based and Load-based Instances>.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetLoadBasedAutoScaling.html>
 module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
@@ -82,23 +79,27 @@ setLoadBasedAutoScaling p1 = SetLoadBasedAutoScaling
     , _slbasDownScaling = Nothing
     }
 
--- | An 'AutoScalingThresholds' object with the downscaling threshold
--- configuration. If the load falls below these thresholds for a specified
--- amount of time, AWS OpsWorks stops a specified number of instances.
+-- | An 'AutoScalingThresholds' object with the downscaling threshold configuration.
+-- If the load falls below these thresholds for a specified amount of time, AWS
+-- OpsWorks stops a specified number of instances.
+--
 slbasDownScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
 slbasDownScaling = lens _slbasDownScaling (\s a -> s { _slbasDownScaling = a })
 
 -- | Enables load-based auto scaling for the layer.
+--
 slbasEnable :: Lens' SetLoadBasedAutoScaling (Maybe Bool)
 slbasEnable = lens _slbasEnable (\s a -> s { _slbasEnable = a })
 
 -- | The layer ID.
+--
 slbasLayerId :: Lens' SetLoadBasedAutoScaling Text
 slbasLayerId = lens _slbasLayerId (\s a -> s { _slbasLayerId = a })
 
--- | An 'AutoScalingThresholds' object with the upscaling threshold
--- configuration. If the load exceeds these thresholds for a specified
--- amount of time, AWS OpsWorks starts a specified number of instances.
+-- | An 'AutoScalingThresholds' object with the upscaling threshold configuration.
+-- If the load exceeds these thresholds for a specified amount of time, AWS
+-- OpsWorks starts a specified number of instances.
+--
 slbasUpScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
 slbasUpScaling = lens _slbasUpScaling (\s a -> s { _slbasUpScaling = a })
 

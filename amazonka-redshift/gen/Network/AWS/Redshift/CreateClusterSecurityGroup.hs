@@ -21,11 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new Amazon Redshift security group. You use security groups to
--- control access to non-VPC clusters. For information about managing security
--- groups, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html
--- Amazon Redshift Cluster Security Groups> in the /Amazon Redshift Cluster
--- Management Guide/.
+-- control access to non-VPC clusters.
+--
+-- For information about managing security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon RedshiftCluster Security Groups> in the /Amazon Redshift Cluster Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSecurityGroup.html>
 module Network.AWS.Redshift.CreateClusterSecurityGroup
@@ -78,20 +76,26 @@ createClusterSecurityGroup p1 p2 = CreateClusterSecurityGroup
     }
 
 -- | The name for the security group. Amazon Redshift stores the value as a
--- lowercase string. Constraints: Must contain no more than 255 alphanumeric
--- characters or hyphens. Must not be "Default". Must be unique for all
--- security groups that are created by your AWS account. Example:
--- 'examplesecuritygroup'.
+-- lowercase string.
+--
+-- Constraints:
+--
+-- Must contain no more than 255 alphanumeric characters or hyphens. Must not
+-- be "Default". Must be unique for all security groups that are created by your
+-- AWS account.  Example: 'examplesecuritygroup'
+--
 ccsg1ClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
 ccsg1ClusterSecurityGroupName =
     lens _ccsg1ClusterSecurityGroupName
         (\s a -> s { _ccsg1ClusterSecurityGroupName = a })
 
 -- | A description for the security group.
+--
 ccsg1Description :: Lens' CreateClusterSecurityGroup Text
 ccsg1Description = lens _ccsg1Description (\s a -> s { _ccsg1Description = a })
 
 -- | A list of tag instances.
+--
 ccsg1Tags :: Lens' CreateClusterSecurityGroup [Tag]
 ccsg1Tags = lens _ccsg1Tags (\s a -> s { _ccsg1Tags = a }) . _List
 

@@ -22,28 +22,31 @@
 
 -- | Creates a snapshot of an Amazon EBS volume and stores it in Amazon S3. You
 -- can use snapshots for backups, to make copies of Amazon EBS volumes, and to
--- save data before shutting down an instance. When a snapshot is created, any
--- AWS Marketplace product codes that are associated with the source volume
--- are propagated to the snapshot. You can take a snapshot of an attached
--- volume that is in use. However, snapshots only capture data that has been
--- written to your Amazon EBS volume at the time the snapshot command is
--- issued; this may exclude any data that has been cached by any applications
--- or the operating system. If you can pause any file systems on the volume
--- long enough to take a snapshot, your snapshot should be complete. However,
--- if you cannot pause all file writes to the volume, you should unmount the
--- volume from within the instance, issue the snapshot command, and then
--- remount the volume to ensure a consistent and complete snapshot. You may
--- remount and use your volume while the snapshot status is 'pending'. To
--- create a snapshot for Amazon EBS volumes that serve as root devices, you
--- should stop the instance before taking the snapshot. Snapshots that are
--- taken from encrypted volumes are automatically encrypted. Volumes that are
--- created from encrypted snapshots are also automatically encrypted. Your
--- encrypted volumes and any associated snapshots always remain protected. For
--- more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html Amazon
--- Elastic Block Store> and
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
--- Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/.
+-- save data before shutting down an instance.
+--
+-- When a snapshot is created, any AWS Marketplace product codes that are
+-- associated with the source volume are propagated to the snapshot.
+--
+-- You can take a snapshot of an attached volume that is in use. However,
+-- snapshots only capture data that has been written to your Amazon EBS volume
+-- at the time the snapshot command is issued; this may exclude any data that
+-- has been cached by any applications or the operating system. If you can pause
+-- any file systems on the volume long enough to take a snapshot, your snapshot
+-- should be complete. However, if you cannot pause all file writes to the
+-- volume, you should unmount the volume from within the instance, issue the
+-- snapshot command, and then remount the volume to ensure a consistent and
+-- complete snapshot. You may remount and use your volume while the snapshot
+-- status is 'pending'.
+--
+-- To create a snapshot for Amazon EBS volumes that serve as root devices, you
+-- should stop the instance before taking the snapshot.
+--
+-- Snapshots that are taken from encrypted volumes are automatically encrypted.
+-- Volumes that are created from encrypted snapshots are also automatically
+-- encrypted. Your encrypted volumes and any associated snapshots always remain
+-- protected.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html Amazon Elastic Block Store> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBSEncryption> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSnapshot.html>
 module Network.AWS.EC2.CreateSnapshot
@@ -105,6 +108,7 @@ createSnapshot p1 = CreateSnapshot
     }
 
 -- | A description for the snapshot.
+--
 cs2Description :: Lens' CreateSnapshot (Maybe Text)
 cs2Description = lens _cs2Description (\s a -> s { _cs2Description = a })
 
@@ -112,6 +116,7 @@ cs2DryRun :: Lens' CreateSnapshot (Maybe Bool)
 cs2DryRun = lens _cs2DryRun (\s a -> s { _cs2DryRun = a })
 
 -- | The ID of the Amazon EBS volume.
+--
 cs2VolumeId :: Lens' CreateSnapshot Text
 cs2VolumeId = lens _cs2VolumeId (\s a -> s { _cs2VolumeId = a })
 
@@ -171,47 +176,58 @@ createSnapshotResponse = CreateSnapshotResponse
     }
 
 -- | The description for the snapshot.
+--
 csr1Description :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1Description = lens _csr1Description (\s a -> s { _csr1Description = a })
 
 -- | Indicates whether the snapshot is encrypted.
+--
 csr1Encrypted :: Lens' CreateSnapshotResponse (Maybe Bool)
 csr1Encrypted = lens _csr1Encrypted (\s a -> s { _csr1Encrypted = a })
 
--- | The AWS account alias (for example, 'amazon', 'self') or AWS account ID
--- that owns the snapshot.
+-- | The AWS account alias (for example, 'amazon', 'self') or AWS account ID that owns
+-- the snapshot.
+--
 csr1OwnerAlias :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1OwnerAlias = lens _csr1OwnerAlias (\s a -> s { _csr1OwnerAlias = a })
 
 -- | The AWS account ID of the Amazon EBS snapshot owner.
+--
 csr1OwnerId :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1OwnerId = lens _csr1OwnerId (\s a -> s { _csr1OwnerId = a })
 
 -- | The progress of the snapshot, as a percentage.
+--
 csr1Progress :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1Progress = lens _csr1Progress (\s a -> s { _csr1Progress = a })
 
 -- | The ID of the snapshot.
+--
 csr1SnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1SnapshotId = lens _csr1SnapshotId (\s a -> s { _csr1SnapshotId = a })
 
 -- | The time stamp when the snapshot was initiated.
+--
 csr1StartTime :: Lens' CreateSnapshotResponse (Maybe UTCTime)
 csr1StartTime = lens _csr1StartTime (\s a -> s { _csr1StartTime = a }) . mapping _Time
 
 -- | The snapshot state.
+--
 csr1State :: Lens' CreateSnapshotResponse (Maybe SnapshotState)
 csr1State = lens _csr1State (\s a -> s { _csr1State = a })
 
 -- | Any tags assigned to the snapshot.
+--
 csr1Tags :: Lens' CreateSnapshotResponse [Tag]
 csr1Tags = lens _csr1Tags (\s a -> s { _csr1Tags = a }) . _List
 
 -- | The ID of the volume.
+--
 csr1VolumeId :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1VolumeId = lens _csr1VolumeId (\s a -> s { _csr1VolumeId = a })
 
 -- | The size of the volume, in GiB.
+--
 csr1VolumeSize :: Lens' CreateSnapshotResponse (Maybe Int)
 csr1VolumeSize = lens _csr1VolumeSize (\s a -> s { _csr1VolumeSize = a })
 

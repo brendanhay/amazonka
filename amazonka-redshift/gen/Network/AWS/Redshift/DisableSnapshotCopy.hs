@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Disables the automatic copying of snapshots from one region to another
--- region for a specified cluster.
+-- | Disables the automatic copying of snapshots from one region to another region
+-- for a specified cluster.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableSnapshotCopy.html>
 module Network.AWS.Redshift.DisableSnapshotCopy
@@ -62,10 +62,12 @@ disableSnapshotCopy p1 = DisableSnapshotCopy
     { _dscClusterIdentifier = p1
     }
 
--- | The unique identifier of the source cluster that you want to disable
--- copying of snapshots to a destination region. Constraints: Must be the
--- valid name of an existing cluster that has cross-region snapshot copy
--- enabled.
+-- | The unique identifier of the source cluster that you want to disable copying
+-- of snapshots to a destination region.
+--
+-- Constraints: Must be the valid name of an existing cluster that has
+-- cross-region snapshot copy enabled.
+--
 dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
 dscClusterIdentifier =
     lens _dscClusterIdentifier (\s a -> s { _dscClusterIdentifier = a })

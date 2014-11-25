@@ -22,11 +22,9 @@
 
 -- | Gets the suggesters configured for a domain. A suggester enables you to
 -- display possible matches before users finish typing their queries. Can be
--- limited to specific suggesters by name. By default, shows all suggesters
--- and includes any pending changes to the configuration. Set the 'Deployed'
--- option to 'true' to show the active configuration and exclude pending
--- changes. For more information, see Getting Search Suggestions in the
--- /Amazon CloudSearch Developer Guide/.
+-- limited to specific suggesters by name. By default, shows all suggesters and
+-- includes any pending changes to the configuration. Set the 'Deployed' option to 'true' to show the active configuration and exclude pending changes. For more
+-- information, see Getting Search Suggestions in the /Amazon CloudSearchDeveloper Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeSuggesters.html>
 module Network.AWS.CloudSearch.DescribeSuggesters
@@ -77,16 +75,19 @@ describeSuggesters p1 = DescribeSuggesters
     , _ds1Deployed       = Nothing
     }
 
--- | Whether to display the deployed configuration ('true') or include any
--- pending changes ('false'). Defaults to 'false'.
+-- | Whether to display the deployed configuration ('true') or include any pending
+-- changes ('false'). Defaults to 'false'.
+--
 ds1Deployed :: Lens' DescribeSuggesters (Maybe Bool)
 ds1Deployed = lens _ds1Deployed (\s a -> s { _ds1Deployed = a })
 
 -- | The name of the domain you want to describe.
+--
 ds1DomainName :: Lens' DescribeSuggesters Text
 ds1DomainName = lens _ds1DomainName (\s a -> s { _ds1DomainName = a })
 
 -- | The suggesters you want to describe.
+--
 ds1SuggesterNames :: Lens' DescribeSuggesters [Text]
 ds1SuggesterNames =
     lens _ds1SuggesterNames (\s a -> s { _ds1SuggesterNames = a })
@@ -114,6 +115,7 @@ describeSuggestersResponse = DescribeSuggestersResponse
     }
 
 -- | The suggesters configured for the domain specified in the request.
+--
 dsrSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
 dsrSuggesters = lens _dsrSuggesters (\s a -> s { _dsrSuggesters = a }) . _List
 

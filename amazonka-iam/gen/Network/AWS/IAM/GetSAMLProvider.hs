@@ -64,8 +64,8 @@ getSAMLProvider p1 = GetSAMLProvider
     { _gsamlpSAMLProviderArn = p1
     }
 
--- | The Amazon Resource Name (ARN) of the SAML provider to get information
--- about.
+-- | The Amazon Resource Name (ARN) of the SAML provider to get information about.
+--
 gsamlpSAMLProviderArn :: Lens' GetSAMLProvider Text
 gsamlpSAMLProviderArn =
     lens _gsamlpSAMLProviderArn (\s a -> s { _gsamlpSAMLProviderArn = a })
@@ -94,6 +94,7 @@ getSAMLProviderResponse = GetSAMLProviderResponse
     }
 
 -- | The date and time when the SAML provider was created.
+--
 gsamlprCreateDate :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
 gsamlprCreateDate =
     lens _gsamlprCreateDate (\s a -> s { _gsamlprCreateDate = a })
@@ -101,12 +102,14 @@ gsamlprCreateDate =
 
 -- | The XML metadata document that includes information about an identity
 -- provider.
+--
 gsamlprSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
 gsamlprSAMLMetadataDocument =
     lens _gsamlprSAMLMetadataDocument
         (\s a -> s { _gsamlprSAMLMetadataDocument = a })
 
 -- | The expiration date and time for the SAML provider.
+--
 gsamlprValidUntil :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
 gsamlprValidUntil =
     lens _gsamlprValidUntil (\s a -> s { _gsamlprValidUntil = a })

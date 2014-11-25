@@ -21,12 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Adds (or updates) a policy document associated with the specified user. For
--- information about policies, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html
--- Overview of Policies> in the /Using IAM/ guide. For information about
--- limits on the number of policies you can associate with a user, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html
--- Limitations on IAM Entities> in the /Using IAM/ guide.
+-- information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of Policies> in the /Using IAM/
+-- guide.
+--
+-- For information about limits on the number of policies you can associate
+-- with a user, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html>
 module Network.AWS.IAM.PutUserPolicy
@@ -78,15 +77,18 @@ putUserPolicy p1 p2 p3 = PutUserPolicy
     }
 
 -- | The policy document.
+--
 pupPolicyDocument :: Lens' PutUserPolicy Text
 pupPolicyDocument =
     lens _pupPolicyDocument (\s a -> s { _pupPolicyDocument = a })
 
 -- | The name of the policy document.
+--
 pupPolicyName :: Lens' PutUserPolicy Text
 pupPolicyName = lens _pupPolicyName (\s a -> s { _pupPolicyName = a })
 
 -- | The name of the user to associate the policy with.
+--
 pupUserName :: Lens' PutUserPolicy Text
 pupUserName = lens _pupUserName (\s a -> s { _pupUserName = a })
 

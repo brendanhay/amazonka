@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Acquires an Elastic IP address. An Elastic IP address is for use either in
--- the EC2-Classic platform or in a VPC. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
--- Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Acquires an Elastic IP address.
+--
+-- An Elastic IP address is for use either in the EC2-Classic platform or in a
+-- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateAddress.html>
 module Network.AWS.EC2.AllocateAddress
@@ -71,7 +71,9 @@ allocateAddress = AllocateAddress
     }
 
 -- | Set to 'vpc' to allocate the address for use with instances in a VPC.
+--
 -- Default: The address is for use with instances in EC2-Classic.
+--
 aaDomain :: Lens' AllocateAddress (Maybe DomainType)
 aaDomain = lens _aaDomain (\s a -> s { _aaDomain = a })
 
@@ -101,17 +103,20 @@ allocateAddressResponse = AllocateAddressResponse
     , _aarAllocationId = Nothing
     }
 
--- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
--- Elastic IP address for use with instances in a VPC.
+-- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic
+-- IP address for use with instances in a VPC.
+--
 aarAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
 aarAllocationId = lens _aarAllocationId (\s a -> s { _aarAllocationId = a })
 
 -- | Indicates whether this Elastic IP address is for use with instances in
 -- EC2-Classic ('standard') or instances in a VPC ('vpc').
+--
 aarDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
 aarDomain = lens _aarDomain (\s a -> s { _aarDomain = a })
 
 -- | The Elastic IP address.
+--
 aarPublicIp :: Lens' AllocateAddressResponse (Maybe Text)
 aarPublicIp = lens _aarPublicIp (\s a -> s { _aarPublicIp = a })
 

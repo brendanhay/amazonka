@@ -21,12 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves the specified policy document for the specified role. For more
--- information about roles, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html
--- Working with Roles>. The returned policy is URL-encoded according to RFC
--- 3986. For more information about RFC 3986, go to
--- <http://www.faqs.org/rfcs/rfc3986.html
--- http://www.faqs.org/rfcs/rfc3986.html>.
+-- information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
+--
+-- The returned policy is URL-encoded according to RFC 3986. For more
+-- information about RFC 3986, go to <http://www.faqs.org/rfcs/rfc3986.html http://www.faqs.org/rfcs/rfc3986.html>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html>
 module Network.AWS.IAM.GetRolePolicy
@@ -76,10 +74,12 @@ getRolePolicy p1 p2 = GetRolePolicy
     }
 
 -- | The name of the policy document to get.
+--
 grpPolicyName :: Lens' GetRolePolicy Text
 grpPolicyName = lens _grpPolicyName (\s a -> s { _grpPolicyName = a })
 
 -- | The name of the role associated with the policy.
+--
 grpRoleName :: Lens' GetRolePolicy Text
 grpRoleName = lens _grpRoleName (\s a -> s { _grpRoleName = a })
 
@@ -110,15 +110,18 @@ getRolePolicyResponse p1 p2 p3 = GetRolePolicyResponse
     }
 
 -- | The policy document.
+--
 grprPolicyDocument :: Lens' GetRolePolicyResponse Text
 grprPolicyDocument =
     lens _grprPolicyDocument (\s a -> s { _grprPolicyDocument = a })
 
 -- | The name of the policy.
+--
 grprPolicyName :: Lens' GetRolePolicyResponse Text
 grprPolicyName = lens _grprPolicyName (\s a -> s { _grprPolicyName = a })
 
 -- | The role the policy is associated with.
+--
 grprRoleName :: Lens' GetRolePolicyResponse Text
 grprRoleName = lens _grprRoleName (\s a -> s { _grprRoleName = a })
 

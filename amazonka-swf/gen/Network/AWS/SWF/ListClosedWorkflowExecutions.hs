@@ -21,22 +21,21 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns a list of closed workflow executions in the specified domain that
--- meet the filtering criteria. The results may be split into multiple pages.
--- To retrieve subsequent pages, make the call again using the nextPageToken
--- returned by the initial call. Access Control You can use IAM policies to
--- control this action's access to Amazon SWF resources as follows: Use a
--- 'Resource' element with the domain name to limit the action to only
--- specified domains. Use an 'Action' element to allow or deny permission to
--- call this action. Constrain the following parameters by using a 'Condition'
--- element with the appropriate keys. 'tagFilter.tag': String constraint. The
--- key is 'swf:tagFilter.tag'. 'typeFilter.name': String constraint. The key
--- is 'swf:typeFilter.name'. 'typeFilter.version': String constraint. The key
--- is 'swf:typeFilter.version'. If the caller does not have sufficient
--- permissions to invoke the action, or the parameter values fall outside the
--- specified constraints, the action fails by throwing
--- 'OperationNotPermitted'. For details and example IAM policies, see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
--- Using IAM to Manage Access to Amazon SWF Workflows>.
+-- meet the filtering criteria. The results may be split into multiple pages. To
+-- retrieve subsequent pages, make the call again using the nextPageToken
+-- returned by the initial call.
+--
+-- Access Control
+--
+-- You can use IAM policies to control this action's access to Amazon SWF
+-- resources as follows:
+--
+-- Use a 'Resource' element with the domain name to limit the action to only
+-- specified domains. Use an 'Action' element to allow or deny permission to call
+-- this action. Constrain the following parameters by using a 'Condition' element
+-- with the appropriate keys.   'tagFilter.tag': String constraint. The key is 'swf:tagFilter.tag'.  'typeFilter.name': String constraint. The key is 'swf:typeFilter.name'.  'typeFilter.version': String constraint. The key is 'swf:typeFilter.version'.    If the caller does
+-- not have sufficient permissions to invoke the action, or the parameter values
+-- fall outside the specified constraints, the action fails by throwing 'OperationNotPermitted'. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access toAmazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListClosedWorkflowExecutions.html>
 module Network.AWS.SWF.ListClosedWorkflowExecutions
@@ -126,66 +125,75 @@ listClosedWorkflowExecutions p1 = ListClosedWorkflowExecutions
 -- | If specified, only workflow executions that match this /close status/ are
 -- listed. For example, if TERMINATED is specified, then only TERMINATED
 -- workflow executions are listed.
+--
 lcweCloseStatusFilter :: Lens' ListClosedWorkflowExecutions (Maybe CloseStatusFilter)
 lcweCloseStatusFilter =
     lens _lcweCloseStatusFilter (\s a -> s { _lcweCloseStatusFilter = a })
 
--- | If specified, the workflow executions are included in the returned
--- results based on whether their close times are within the range specified
--- by this filter. Also, if this parameter is specified, the returned
--- results are ordered by their close times.
+-- | If specified, the workflow executions are included in the returned results
+-- based on whether their close times are within the range specified by this
+-- filter. Also, if this parameter is specified, the returned results are
+-- ordered by their close times.
+--
 lcweCloseTimeFilter :: Lens' ListClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
 lcweCloseTimeFilter =
     lens _lcweCloseTimeFilter (\s a -> s { _lcweCloseTimeFilter = a })
 
 -- | The name of the domain that contains the workflow executions to list.
+--
 lcweDomain :: Lens' ListClosedWorkflowExecutions Text
 lcweDomain = lens _lcweDomain (\s a -> s { _lcweDomain = a })
 
--- | If specified, only workflow executions matching the workflow id specified
--- in the filter are returned.
+-- | If specified, only workflow executions matching the workflow id specified in
+-- the filter are returned.
+--
 lcweExecutionFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowExecutionFilter)
 lcweExecutionFilter =
     lens _lcweExecutionFilter (\s a -> s { _lcweExecutionFilter = a })
 
--- | The maximum number of results returned in each page. The default is 100,
--- but the caller can override this value to a page size /smaller/ than the
--- default. You cannot specify a page size greater than 100. Note that the
--- number of executions may be less than the maxiumum page size, in which
--- case, the returned page will have fewer results than the maximumPageSize
--- specified.
+-- | The maximum number of results returned in each page. The default is 100, but
+-- the caller can override this value to a page size /smaller/ than the default.
+-- You cannot specify a page size greater than 100. Note that the number of
+-- executions may be less than the maxiumum page size, in which case, the
+-- returned page will have fewer results than the maximumPageSize specified.
+--
 lcweMaximumPageSize :: Lens' ListClosedWorkflowExecutions (Maybe Natural)
 lcweMaximumPageSize =
     lens _lcweMaximumPageSize (\s a -> s { _lcweMaximumPageSize = a })
         . mapping _Nat
 
 -- | If on a previous call to this method a 'NextPageToken' was returned, the
--- results are being paginated. To get the next page of results, repeat the
--- call with the returned token and all other arguments unchanged.
+-- results are being paginated. To get the next page of results, repeat the call
+-- with the returned token and all other arguments unchanged.
+--
 lcweNextPageToken :: Lens' ListClosedWorkflowExecutions (Maybe Text)
 lcweNextPageToken =
     lens _lcweNextPageToken (\s a -> s { _lcweNextPageToken = a })
 
 -- | When set to 'true', returns the results in reverse order. By default the
--- results are returned in descending order of the start or the close time
--- of the executions.
+-- results are returned in descending order of the start or the close time of
+-- the executions.
+--
 lcweReverseOrder :: Lens' ListClosedWorkflowExecutions (Maybe Bool)
 lcweReverseOrder = lens _lcweReverseOrder (\s a -> s { _lcweReverseOrder = a })
 
--- | If specified, the workflow executions are included in the returned
--- results based on whether their start times are within the range specified
--- by this filter. Also, if this parameter is specified, the returned
--- results are ordered by their start times.
+-- | If specified, the workflow executions are included in the returned results
+-- based on whether their start times are within the range specified by this
+-- filter. Also, if this parameter is specified, the returned results are
+-- ordered by their start times.
+--
 lcweStartTimeFilter :: Lens' ListClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
 lcweStartTimeFilter =
     lens _lcweStartTimeFilter (\s a -> s { _lcweStartTimeFilter = a })
 
 -- | If specified, only executions that have the matching tag are listed.
+--
 lcweTagFilter :: Lens' ListClosedWorkflowExecutions (Maybe TagFilter)
 lcweTagFilter = lens _lcweTagFilter (\s a -> s { _lcweTagFilter = a })
 
 -- | If specified, only executions of the type specified in the filter are
 -- returned.
+--
 lcweTypeFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowTypeFilter)
 lcweTypeFilter = lens _lcweTypeFilter (\s a -> s { _lcweTypeFilter = a })
 
@@ -209,14 +217,16 @@ listClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
     }
 
 -- | The list of workflow information structures.
+--
 lcwerExecutionInfos :: Lens' ListClosedWorkflowExecutionsResponse [WorkflowExecutionInfo]
 lcwerExecutionInfos =
     lens _lcwerExecutionInfos (\s a -> s { _lcwerExecutionInfos = a })
         . _List
 
--- | The token of the next page in the result. If set, the results have more
--- than one page. The next page can be retrieved by repeating the request
--- with this token and all other arguments unchanged.
+-- | The token of the next page in the result. If set, the results have more than
+-- one page. The next page can be retrieved by repeating the request with this
+-- token and all other arguments unchanged.
+--
 lcwerNextPageToken :: Lens' ListClosedWorkflowExecutionsResponse (Maybe Text)
 lcwerNextPageToken =
     lens _lcwerNextPageToken (\s a -> s { _lcwerNextPageToken = a })

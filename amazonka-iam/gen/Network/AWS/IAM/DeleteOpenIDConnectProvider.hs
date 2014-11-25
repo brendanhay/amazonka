@@ -20,12 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes an IAM OpenID Connect identity provider. Deleting an OIDC provider
--- does not update any roles that reference the provider as a principal in
--- their trust policies. Any attempt to assume a role that references a
--- provider that has been deleted will fail. This action is idempotent; it
--- does not fail or return an error if you call the action for a provider that
--- was already deleted.
+-- | Deletes an IAM OpenID Connect identity provider.
+--
+-- Deleting an OIDC provider does not update any roles that reference the
+-- provider as a principal in their trust policies. Any attempt to assume a role
+-- that references a provider that has been deleted will fail.
+--
+-- This action is idempotent; it does not fail or return an error if you call
+-- the action for a provider that was already deleted.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteOpenIDConnectProvider.html>
 module Network.AWS.IAM.DeleteOpenIDConnectProvider
@@ -64,9 +66,9 @@ deleteOpenIDConnectProvider p1 = DeleteOpenIDConnectProvider
     { _doidcpOpenIDConnectProviderArn = p1
     }
 
--- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider to
--- delete. You can get a list of OpenID Connect provider ARNs by using the
--- 'ListOpenIDConnectProviders' action.
+-- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider to delete.
+-- You can get a list of OpenID Connect provider ARNs by using the 'ListOpenIDConnectProviders' action.
+--
 doidcpOpenIDConnectProviderArn :: Lens' DeleteOpenIDConnectProvider Text
 doidcpOpenIDConnectProviderArn =
     lens _doidcpOpenIDConnectProviderArn

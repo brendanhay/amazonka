@@ -20,10 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Removes the null version (if there is one) of an object and inserts a
--- delete marker, which becomes the latest version of the object. If there
--- isn't a null version, Amazon S3 does not remove any objects.
---
+-- | Removes the null version (if there is one) of an object and inserts a delete
+-- marker, which becomes the latest version of the object. If there isn't a null
+-- version, Amazon S3 does not remove any objects.
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObject.html>
 module Network.AWS.S3.DeleteObject
     (
@@ -86,8 +85,8 @@ doBucket = lens _doBucket (\s a -> s { _doBucket = a })
 doKey :: Lens' DeleteObject Text
 doKey = lens _doKey (\s a -> s { _doKey = a })
 
--- | The concatenation of the authentication device's serial number, a space,
--- and the value that is displayed on your authentication device.
+-- | The concatenation of the authentication device's serial number, a space, and
+-- the value that is displayed on your authentication device.
 doMFA :: Lens' DeleteObject (Maybe Text)
 doMFA = lens _doMFA (\s a -> s { _doMFA = a })
 
@@ -119,8 +118,8 @@ deleteObjectResponse = DeleteObjectResponse
 dorDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
 dorDeleteMarker = lens _dorDeleteMarker (\s a -> s { _dorDeleteMarker = a })
 
--- | Returns the version ID of the delete marker created as a result of the
--- DELETE operation.
+-- | Returns the version ID of the delete marker created as a result of the DELETE
+-- operation.
 dorVersionId :: Lens' DeleteObjectResponse (Maybe Text)
 dorVersionId = lens _dorVersionId (\s a -> s { _dorVersionId = a })
 

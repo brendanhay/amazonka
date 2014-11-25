@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | List invalidation batches.
---
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListInvalidations.html>
 module Network.AWS.CloudFront.ListInvalidations
     (
@@ -75,13 +74,13 @@ listInvalidations p1 = ListInvalidations
 liDistributionId :: Lens' ListInvalidations Text
 liDistributionId = lens _liDistributionId (\s a -> s { _liDistributionId = a })
 
--- | Use this parameter when paginating results to indicate where to begin in
--- your list of invalidation batches. Because the results are returned in
--- decreasing order from most recent to oldest, the most recent results are
--- on the first page, the second page will contain earlier results, and so
--- on. To get the next page of results, set the Marker to the value of the
--- NextMarker from the current page's response. This value is the same as
--- the ID of the last invalidation batch on that page.
+-- | Use this parameter when paginating results to indicate where to begin in your
+-- list of invalidation batches. Because the results are returned in decreasing
+-- order from most recent to oldest, the most recent results are on the first
+-- page, the second page will contain earlier results, and so on. To get the
+-- next page of results, set the Marker to the value of the NextMarker from the
+-- current page's response. This value is the same as the ID of the last
+-- invalidation batch on that page.
 liMarker :: Lens' ListInvalidations (Maybe Text)
 liMarker = lens _liMarker (\s a -> s { _liMarker = a })
 

@@ -72,6 +72,7 @@ listSAMLProvidersResponse = ListSAMLProvidersResponse
     }
 
 -- | The list of SAML providers for this account.
+--
 lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
 lsamlprSAMLProviderList =
     lens _lsamlprSAMLProviderList (\s a -> s { _lsamlprSAMLProviderList = a })

@@ -73,18 +73,26 @@ createDBSnapshot p1 p2 = CreateDBSnapshot
     }
 
 -- | The DB instance identifier. This is the unique key that identifies a DB
--- instance. Constraints: Must contain from 1 to 63 alphanumeric characters
--- or hyphens First character must be a letter Cannot end with a hyphen or
--- contain two consecutive hyphens.
+-- instance.
+--
+-- Constraints:
+--
+-- Must contain from 1 to 63 alphanumeric characters or hyphens First
+-- character must be a letter Cannot end with a hyphen or contain two
+-- consecutive hyphens
 cdbs1DBInstanceIdentifier :: Lens' CreateDBSnapshot Text
 cdbs1DBInstanceIdentifier =
     lens _cdbs1DBInstanceIdentifier
         (\s a -> s { _cdbs1DBInstanceIdentifier = a })
 
--- | The identifier for the DB snapshot. Constraints: Cannot be null, empty,
--- or blank Must contain from 1 to 255 alphanumeric characters or hyphens
--- First character must be a letter Cannot end with a hyphen or contain two
--- consecutive hyphens Example: 'my-snapshot-id'.
+-- | The identifier for the DB snapshot.
+--
+-- Constraints:
+--
+-- Cannot be null, empty, or blank Must contain from 1 to 255 alphanumeric
+-- characters or hyphens First character must be a letter Cannot end with a
+-- hyphen or contain two consecutive hyphens  Example: 'my-snapshot-id'
+--
 cdbs1DBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
 cdbs1DBSnapshotIdentifier =
     lens _cdbs1DBSnapshotIdentifier

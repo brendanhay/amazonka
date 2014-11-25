@@ -20,11 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Gets the availability options configured for a domain. By default, shows
--- the configuration with any pending changes. Set the 'Deployed' option to
--- 'true' to show the active configuration and exclude pending changes. For
--- more information, see Configuring Availability Options in the /Amazon
--- CloudSearch Developer Guide/.
+-- | Gets the availability options configured for a domain. By default, shows the
+-- configuration with any pending changes. Set the 'Deployed' option to 'true' to
+-- show the active configuration and exclude pending changes. For more
+-- information, see Configuring Availability Options in the /Amazon CloudSearchDeveloper Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAvailabilityOptions.html>
 module Network.AWS.CloudSearch.DescribeAvailabilityOptions
@@ -70,12 +69,14 @@ describeAvailabilityOptions p1 = DescribeAvailabilityOptions
     , _daoDeployed   = Nothing
     }
 
--- | Whether to display the deployed configuration ('true') or include any
--- pending changes ('false'). Defaults to 'false'.
+-- | Whether to display the deployed configuration ('true') or include any pending
+-- changes ('false'). Defaults to 'false'.
+--
 daoDeployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
 daoDeployed = lens _daoDeployed (\s a -> s { _daoDeployed = a })
 
 -- | The name of the domain you want to describe.
+--
 daoDomainName :: Lens' DescribeAvailabilityOptions Text
 daoDomainName = lens _daoDomainName (\s a -> s { _daoDomainName = a })
 
@@ -96,6 +97,7 @@ describeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
 
 -- | The availability options configured for the domain. Indicates whether
 -- Multi-AZ is enabled for the domain.
+--
 daorAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 daorAvailabilityOptions =
     lens _daorAvailabilityOptions (\s a -> s { _daorAvailabilityOptions = a })

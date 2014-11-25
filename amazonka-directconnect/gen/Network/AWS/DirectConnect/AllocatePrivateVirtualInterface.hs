@@ -21,11 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Provisions a private virtual interface to be owned by a different customer.
--- The owner of a connection calls this function to provision a private
--- virtual interface which will be owned by another AWS customer. Virtual
--- interfaces created using this function must be confirmed by the virtual
--- interface owner by calling ConfirmPrivateVirtualInterface. Until this step
--- has been completed, the virtual interface will be in 'Confirming' state,
+--
+-- The owner of a connection calls this function to provision a private virtual
+-- interface which will be owned by another AWS customer.
+--
+-- Virtual interfaces created using this function must be confirmed by the
+-- virtual interface owner by calling ConfirmPrivateVirtualInterface. Until this
+-- step has been completed, the virtual interface will be in 'Confirming' state,
 -- and will not be available for handling traffic.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocatePrivateVirtualInterface.html>
@@ -94,19 +96,25 @@ allocatePrivateVirtualInterface p1 p2 p3 = AllocatePrivateVirtualInterface
     }
 
 -- | The connection ID on which the private virtual interface is provisioned.
--- Default: None.
+--
+-- Default: None
+--
 apviConnectionId :: Lens' AllocatePrivateVirtualInterface Text
 apviConnectionId = lens _apviConnectionId (\s a -> s { _apviConnectionId = a })
 
 -- | Detailed information for the private virtual interface to be provisioned.
--- Default: None.
+--
+-- Default: None
+--
 apviNewPrivateVirtualInterfaceAllocation :: Lens' AllocatePrivateVirtualInterface NewPrivateVirtualInterfaceAllocation
 apviNewPrivateVirtualInterfaceAllocation =
     lens _apviNewPrivateVirtualInterfaceAllocation
         (\s a -> s { _apviNewPrivateVirtualInterfaceAllocation = a })
 
--- | The AWS account that will own the new private virtual interface. Default:
--- None.
+-- | The AWS account that will own the new private virtual interface.
+--
+-- Default: None
+--
 apviOwnerAccount :: Lens' AllocatePrivateVirtualInterface Text
 apviOwnerAccount = lens _apviOwnerAccount (\s a -> s { _apviOwnerAccount = a })
 
@@ -200,6 +208,7 @@ apvirCustomerAddress =
     lens _apvirCustomerAddress (\s a -> s { _apvirCustomerAddress = a })
 
 -- | Information for generating the customer router configuration.
+--
 apvirCustomerRouterConfig :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 apvirCustomerRouterConfig =
     lens _apvirCustomerRouterConfig

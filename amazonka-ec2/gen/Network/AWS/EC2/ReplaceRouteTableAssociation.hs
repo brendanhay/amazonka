@@ -22,12 +22,12 @@
 
 -- | Changes the route table associated with a given subnet in a VPC. After the
 -- operation completes, the subnet uses the routes in the new route table it's
--- associated with. For more information about route tables, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html
--- Route Tables> in the /Amazon Virtual Private Cloud User Guide/. You can
--- also use ReplaceRouteTableAssociation to change which table is the main
--- route table in the VPC. You just specify the main route table's association
--- ID and the route table to be the new main route table.
+-- associated with. For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in
+-- the /Amazon Virtual Private Cloud User Guide/.
+--
+-- You can also use ReplaceRouteTableAssociation to change which table is the
+-- main route table in the VPC. You just specify the main route table's
+-- association ID and the route table to be the new main route table.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRouteTableAssociation.html>
 module Network.AWS.EC2.ReplaceRouteTableAssociation
@@ -80,6 +80,7 @@ replaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
     }
 
 -- | The association ID.
+--
 rrtaAssociationId :: Lens' ReplaceRouteTableAssociation Text
 rrtaAssociationId =
     lens _rrtaAssociationId (\s a -> s { _rrtaAssociationId = a })
@@ -88,6 +89,7 @@ rrtaDryRun :: Lens' ReplaceRouteTableAssociation (Maybe Bool)
 rrtaDryRun = lens _rrtaDryRun (\s a -> s { _rrtaDryRun = a })
 
 -- | The ID of the new route table to associate with the subnet.
+--
 rrtaRouteTableId :: Lens' ReplaceRouteTableAssociation Text
 rrtaRouteTableId = lens _rrtaRouteTableId (\s a -> s { _rrtaRouteTableId = a })
 
@@ -107,6 +109,7 @@ replaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     }
 
 -- | The ID of the new association.
+--
 rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
 rrtarNewAssociationId =
     lens _rrtarNewAssociationId (\s a -> s { _rrtarNewAssociationId = a })

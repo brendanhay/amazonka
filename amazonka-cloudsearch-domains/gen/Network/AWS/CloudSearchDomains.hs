@@ -8,7 +8,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Pending.
+-- | Pending
 module Network.AWS.CloudSearchDomains
     ( module Network.AWS.CloudSearchDomains.Search
     , module Network.AWS.CloudSearchDomains.Suggest

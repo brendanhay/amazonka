@@ -8,11 +8,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon CloudSearch is a fully-managed service in the AWS Cloud that makes
--- it simple and cost-effective to set up, manage, and scale a search solution
--- for your website or application. Amazon CloudSearch supports 34 languages
--- and popular search features such as highlighting, autocomplete, and
--- geospatial search.
+-- | Amazon CloudSearch is a fully-managed service in the AWS Cloud that makes it
+-- simple and cost-effective to set up, manage, and scale a search solution for
+-- your website or application. Amazon CloudSearch supports 34 languages and
+-- popular search features such as highlighting, autocomplete, and geospatial
+-- search.
 module Network.AWS.CloudSearch
     ( module Network.AWS.CloudSearch.BuildSuggesters
     , module Network.AWS.CloudSearch.CreateDomain

@@ -70,12 +70,14 @@ getApplicationRevision p1 p2 = GetApplicationRevision
     }
 
 -- | The name of the application that corresponds to the revision.
+--
 garApplicationName :: Lens' GetApplicationRevision Text
 garApplicationName =
     lens _garApplicationName (\s a -> s { _garApplicationName = a })
 
--- | Information about the application revision to get, including the
--- revision's type and its location.
+-- | Information about the application revision to get, including the revision's
+-- type and its location.
+--
 garRevision :: Lens' GetApplicationRevision RevisionLocation
 garRevision = lens _garRevision (\s a -> s { _garRevision = a })
 
@@ -103,16 +105,19 @@ getApplicationRevisionResponse = GetApplicationRevisionResponse
     }
 
 -- | The name of the application that corresponds to the revision.
+--
 garrApplicationName :: Lens' GetApplicationRevisionResponse (Maybe Text)
 garrApplicationName =
     lens _garrApplicationName (\s a -> s { _garrApplicationName = a })
 
--- | Additional information about the revision, including the revision's type
--- and its location.
+-- | Additional information about the revision, including the revision's type and
+-- its location.
+--
 garrRevision :: Lens' GetApplicationRevisionResponse (Maybe RevisionLocation)
 garrRevision = lens _garrRevision (\s a -> s { _garrRevision = a })
 
 -- | General information about the revision.
+--
 garrRevisionInfo :: Lens' GetApplicationRevisionResponse (Maybe GenericRevisionInfo)
 garrRevisionInfo = lens _garrRevisionInfo (\s a -> s { _garrRevisionInfo = a })
 

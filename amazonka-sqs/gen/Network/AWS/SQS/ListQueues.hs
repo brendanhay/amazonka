@@ -63,8 +63,9 @@ listQueues = ListQueues
     { _lqQueueNamePrefix = Nothing
     }
 
--- | A string to use for filtering the list results. Only those queues whose
--- name begins with the specified string are returned.
+-- | A string to use for filtering the list results. Only those queues whose name
+-- begins with the specified string are returned.
+--
 lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
 lqQueueNamePrefix =
     lens _lqQueueNamePrefix (\s a -> s { _lqQueueNamePrefix = a })
@@ -85,6 +86,7 @@ listQueuesResponse = ListQueuesResponse
     }
 
 -- | A list of queue URLs, up to 1000 entries.
+--
 lqrQueueUrls :: Lens' ListQueuesResponse [Text]
 lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a }) . _List
 

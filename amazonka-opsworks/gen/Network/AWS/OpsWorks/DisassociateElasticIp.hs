@@ -21,14 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Disassociates an Elastic IP address from its instance. The address remains
--- registered with the stack. For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html
--- Resource Management>. Required Permissions: To use this action, an IAM user
--- must have a Manage permissions level for the stack, or an attached policy
--- that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- registered with the stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+--
+-- Required Permissions: To use this action, an IAM user must have a Manage
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DisassociateElasticIp.html>
 module Network.AWS.OpsWorks.DisassociateElasticIp
@@ -68,6 +65,7 @@ disassociateElasticIp p1 = DisassociateElasticIp
     }
 
 -- | The Elastic IP address.
+--
 deiElasticIp :: Lens' DisassociateElasticIp Text
 deiElasticIp = lens _deiElasticIp (\s a -> s { _deiElasticIp = a })
 

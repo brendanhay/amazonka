@@ -21,6 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new configuration recorder to record the resource configurations.
+--
 -- You can use this action to change the role ('roleARN') of an existing
 -- recorder. To change the role, call the action on the existing configuration
 -- recorder and specify a role.
@@ -62,8 +63,9 @@ putConfigurationRecorder p1 = PutConfigurationRecorder
     { _pcrConfigurationRecorder = p1
     }
 
--- | The configuration recorder object that records each configuration change
--- made to the resources.
+-- | The configuration recorder object that records each configuration change made
+-- to the resources.
+--
 pcrConfigurationRecorder :: Lens' PutConfigurationRecorder ConfigurationRecorder
 pcrConfigurationRecorder =
     lens _pcrConfigurationRecorder

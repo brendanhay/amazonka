@@ -21,11 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a manual snapshot of the specified cluster. The cluster must be in
--- the 'available' state. For more information about working with snapshots,
--- go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html
--- Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management
--- Guide/.
+-- the 'available' state.
+--
+-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon RedshiftSnapshots> in the /Amazon Redshift Cluster Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSnapshot.html>
 module Network.AWS.Redshift.CreateClusterSnapshot
@@ -78,21 +76,26 @@ createClusterSnapshot p1 p2 = CreateClusterSnapshot
     }
 
 -- | The cluster identifier for which you want a snapshot.
+--
 ccsClusterIdentifier :: Lens' CreateClusterSnapshot Text
 ccsClusterIdentifier =
     lens _ccsClusterIdentifier (\s a -> s { _ccsClusterIdentifier = a })
 
 -- | A unique identifier for the snapshot that you are requesting. This
 -- identifier must be unique for all snapshots within the AWS account.
--- Constraints: Cannot be null, empty, or blank Must contain from 1 to 255
--- alphanumeric characters or hyphens First character must be a letter
--- Cannot end with a hyphen or contain two consecutive hyphens Example:
--- 'my-snapshot-id'.
+--
+-- Constraints:
+--
+-- Cannot be null, empty, or blank Must contain from 1 to 255 alphanumeric
+-- characters or hyphens First character must be a letter Cannot end with a
+-- hyphen or contain two consecutive hyphens  Example: 'my-snapshot-id'
+--
 ccsSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
 ccsSnapshotIdentifier =
     lens _ccsSnapshotIdentifier (\s a -> s { _ccsSnapshotIdentifier = a })
 
 -- | A list of tag instances.
+--
 ccsTags :: Lens' CreateClusterSnapshot [Tag]
 ccsTags = lens _ccsTags (\s a -> s { _ccsTags = a }) . _List
 

@@ -23,7 +23,6 @@
 -- | Deletes the bucket. All objects (including all object versions and Delete
 -- Markers) in the bucket must be deleted before the bucket itself can be
 -- deleted.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucket.html>
 module Network.AWS.S3.DeleteBucket
     (

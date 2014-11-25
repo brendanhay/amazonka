@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Sets the permissions on a bucket using access control lists (ACL).
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketAcl.html>
 module Network.AWS.S3.PutBucketAcl
     (
@@ -113,8 +112,8 @@ pbaBucket = lens _pbaBucket (\s a -> s { _pbaBucket = a })
 pbaContentMD5 :: Lens' PutBucketAcl (Maybe Text)
 pbaContentMD5 = lens _pbaContentMD5 (\s a -> s { _pbaContentMD5 = a })
 
--- | Allows grantee the read, write, read ACP, and write ACP permissions on
--- the bucket.
+-- | Allows grantee the read, write, read ACP, and write ACP permissions on the
+-- bucket.
 pbaGrantFullControl :: Lens' PutBucketAcl (Maybe Text)
 pbaGrantFullControl =
     lens _pbaGrantFullControl (\s a -> s { _pbaGrantFullControl = a })

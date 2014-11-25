@@ -22,9 +22,9 @@
 
 -- | Provides the status of all clusters visible to this AWS account. Allows you
 -- to filter the list of clusters based on certain criteria; for example,
--- filtering by cluster creation date and time or by status. This call returns
--- a maximum of 50 clusters per call, but returns a marker to track the paging
--- of the cluster list across multiple ListClusters calls.
+-- filtering by cluster creation date and time or by status. This call returns a
+-- maximum of 50 clusters per call, but returns a marker to track the paging of
+-- the cluster list across multiple ListClusters calls.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListClusters.html>
 module Network.AWS.EMR.ListClusters
@@ -81,18 +81,22 @@ listClusters = ListClusters
     }
 
 -- | The cluster state filters to apply when listing clusters.
+--
 lcClusterStates :: Lens' ListClusters [ClusterState]
 lcClusterStates = lens _lcClusterStates (\s a -> s { _lcClusterStates = a }) . _List
 
 -- | The creation date and time beginning value filter for listing clusters .
+--
 lcCreatedAfter :: Lens' ListClusters (Maybe UTCTime)
 lcCreatedAfter = lens _lcCreatedAfter (\s a -> s { _lcCreatedAfter = a }) . mapping _Time
 
 -- | The creation date and time end value filter for listing clusters .
+--
 lcCreatedBefore :: Lens' ListClusters (Maybe UTCTime)
 lcCreatedBefore = lens _lcCreatedBefore (\s a -> s { _lcCreatedBefore = a }) . mapping _Time
 
 -- | The pagination token that indicates the next set of results to retrieve.
+--
 lcMarker :: Lens' ListClusters (Maybe Text)
 lcMarker = lens _lcMarker (\s a -> s { _lcMarker = a })
 
@@ -116,10 +120,12 @@ listClustersResponse = ListClustersResponse
     }
 
 -- | The list of clusters for the account based on the given filters.
+--
 lcrClusters :: Lens' ListClustersResponse [ClusterSummary]
 lcrClusters = lens _lcrClusters (\s a -> s { _lcrClusters = a }) . _List
 
 -- | The pagination token that indicates the next set of results to retrieve.
+--
 lcrMarker :: Lens' ListClustersResponse (Maybe Text)
 lcrMarker = lens _lcrMarker (\s a -> s { _lcrMarker = a })
 

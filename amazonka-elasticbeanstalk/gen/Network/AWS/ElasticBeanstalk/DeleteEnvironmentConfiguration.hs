@@ -21,12 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the draft configuration associated with the running environment.
+--
 -- Updating a running environment with any configuration changes creates a
--- draft configuration set. You can get the draft configuration using
--- 'DescribeConfigurationSettings' while the update is in progress or if the
--- update fails. The 'DeploymentStatus' for the draft configuration indicates
--- whether the deployment is in process or has failed. The draft configuration
--- remains in existence until it is deleted with this action.
+-- draft configuration set. You can get the draft configuration using 'DescribeConfigurationSettings' while the update is in progress or if the update fails. The 'DeploymentStatus'
+-- for the draft configuration indicates whether the deployment is in process or
+-- has failed. The draft configuration remains in existence until it is deleted
+-- with this action.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteEnvironmentConfiguration.html>
 module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
@@ -72,11 +72,13 @@ deleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfiguration
     }
 
 -- | The name of the application the environment is associated with.
+--
 decApplicationName :: Lens' DeleteEnvironmentConfiguration Text
 decApplicationName =
     lens _decApplicationName (\s a -> s { _decApplicationName = a })
 
 -- | The name of the environment to delete the draft configuration from.
+--
 decEnvironmentName :: Lens' DeleteEnvironmentConfiguration Text
 decEnvironmentName =
     lens _decEnvironmentName (\s a -> s { _decEnvironmentName = a })

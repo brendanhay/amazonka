@@ -71,6 +71,7 @@ listAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
     }
 
 -- | A list of available solution stacks and their 'SolutionStackDescription'.
+--
 lassrSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
 lassrSolutionStackDetails =
     lens _lassrSolutionStackDetails
@@ -78,6 +79,7 @@ lassrSolutionStackDetails =
             . _List
 
 -- | A list of available solution stacks.
+--
 lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
 lassrSolutionStacks =
     lens _lassrSolutionStacks (\s a -> s { _lassrSolutionStacks = a })

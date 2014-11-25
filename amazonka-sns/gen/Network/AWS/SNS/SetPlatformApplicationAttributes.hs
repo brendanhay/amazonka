@@ -20,10 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Sets the attributes of the platform application object for the supported
--- push notification services, such as APNS and GCM. For more information, see
--- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon
--- SNS Mobile Push Notifications>.
+-- | Sets the attributes of the platform application object for the supported push
+-- notification services, such as APNS and GCM. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications>.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html>
 module Network.AWS.SNS.SetPlatformApplicationAttributes
@@ -67,26 +65,25 @@ setPlatformApplicationAttributes p1 = SetPlatformApplicationAttributes
     , _spaaAttributes             = mempty
     }
 
--- | A map of the platform application attributes. Attributes in this map
--- include the following: 'PlatformCredential' -- The credential received
--- from the notification service. For APNS/APNS_SANDBOX, PlatformCredential
--- is "private key". For GCM, PlatformCredential is "API key". For ADM,
--- PlatformCredential is "client secret". 'PlatformPrincipal' -- The
--- principal received from the notification service. For APNS/APNS_SANDBOX,
--- PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not
--- applicable. For ADM, PlatformPrincipal is "client id".
--- 'EventEndpointCreated' -- Topic ARN to which EndpointCreated event
--- notifications should be sent. 'EventEndpointDeleted' -- Topic ARN to
--- which EndpointDeleted event notifications should be sent.
--- 'EventEndpointUpdated' -- Topic ARN to which EndpointUpdate event
--- notifications should be sent. 'EventDeliveryFailure' -- Topic ARN to
--- which DeliveryFailure event notifications should be sent upon Direct
--- Publish delivery failure (permanent) to one of the application's
+-- | A map of the platform application attributes. Attributes in this map include
+-- the following:
+--
+-- 'PlatformCredential' -- The credential received from the notification
+-- service. For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM,
+-- PlatformCredential is "API key". For ADM, PlatformCredential is "client
+-- secret".  'PlatformPrincipal' -- The principal received from the notification
+-- service. For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For
+-- GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is
+-- "client id".  'EventEndpointCreated' -- Topic ARN to which EndpointCreated
+-- event notifications should be sent.  'EventEndpointDeleted' -- Topic ARN to
+-- which EndpointDeleted event notifications should be sent.  'EventEndpointUpdated' -- Topic ARN to which EndpointUpdate event notifications should be sent.  'EventDeliveryFailure' -- Topic ARN to which DeliveryFailure event notifications should be sent
+-- upon Direct Publish delivery failure (permanent) to one of the application's
 -- endpoints.
 spaaAttributes :: Lens' SetPlatformApplicationAttributes (HashMap Text Text)
 spaaAttributes = lens _spaaAttributes (\s a -> s { _spaaAttributes = a }) . _EMap
 
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
+--
 spaaPlatformApplicationArn :: Lens' SetPlatformApplicationAttributes Text
 spaaPlatformApplicationArn =
     lens _spaaPlatformApplicationArn

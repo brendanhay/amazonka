@@ -22,10 +22,15 @@
 
 -- | Deletes multiple messages. This is a batch version of 'DeleteMessage'. The
 -- result of the delete action on each message is reported individually in the
--- response. Because the batch request can result in a combination of
--- successful and unsuccessful actions, you should check for batch errors even
--- when the call returns an HTTP status code of 200. '&Attribute.1=this'
--- '&Attribute.2=that'.
+-- response.
+--
+-- Because the batch request can result in a combination of successful and
+-- unsuccessful actions, you should check for batch errors even when the call
+-- returns an HTTP status code of 200.
+--
+-- '&Attribute.1=this'
+--
+-- '&Attribute.2=that'
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html>
 module Network.AWS.SQS.DeleteMessageBatch
@@ -73,10 +78,12 @@ deleteMessageBatch p1 = DeleteMessageBatch
     }
 
 -- | A list of receipt handles for the messages to be deleted.
+--
 dmbEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
 dmbEntries = lens _dmbEntries (\s a -> s { _dmbEntries = a }) . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
+--
 dmbQueueUrl :: Lens' DeleteMessageBatch Text
 dmbQueueUrl = lens _dmbQueueUrl (\s a -> s { _dmbQueueUrl = a })
 
@@ -100,10 +107,12 @@ deleteMessageBatchResponse = DeleteMessageBatchResponse
     }
 
 -- | A list of 'BatchResultErrorEntry' items.
+--
 dmbrFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
 dmbrFailed = lens _dmbrFailed (\s a -> s { _dmbrFailed = a }) . _List
 
 -- | A list of 'DeleteMessageBatchResultEntry' items.
+--
 dmbrSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
 dmbrSuccessful = lens _dmbrSuccessful (\s a -> s { _dmbrSuccessful = a }) . _List
 

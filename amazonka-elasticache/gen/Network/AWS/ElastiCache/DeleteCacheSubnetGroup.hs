@@ -59,8 +59,11 @@ deleteCacheSubnetGroup p1 = DeleteCacheSubnetGroup
     { _dcsg1CacheSubnetGroupName = p1
     }
 
--- | The name of the cache subnet group to delete. Constraints: Must contain
--- no more than 255 alphanumeric characters or hyphens.
+-- | The name of the cache subnet group to delete.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters or
+-- hyphens.
+--
 dcsg1CacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup Text
 dcsg1CacheSubnetGroupName =
     lens _dcsg1CacheSubnetGroupName

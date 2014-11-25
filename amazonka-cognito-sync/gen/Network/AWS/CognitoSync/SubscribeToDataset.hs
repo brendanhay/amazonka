@@ -79,20 +79,24 @@ subscribeToDataset p1 p2 p3 p4 = SubscribeToDataset
     }
 
 -- | The name of the dataset to subcribe to.
+--
 stdDatasetName :: Lens' SubscribeToDataset Text
 stdDatasetName = lens _stdDatasetName (\s a -> s { _stdDatasetName = a })
 
 -- | The unique ID generated for this device by Cognito.
+--
 stdDeviceId :: Lens' SubscribeToDataset Text
 stdDeviceId = lens _stdDeviceId (\s a -> s { _stdDeviceId = a })
 
 -- | Unique ID for this identity.
+--
 stdIdentityId :: Lens' SubscribeToDataset Text
 stdIdentityId = lens _stdIdentityId (\s a -> s { _stdIdentityId = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. The ID of the pool to which the identity belongs.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- The ID of the pool to which the identity belongs.
+--
 stdIdentityPoolId :: Lens' SubscribeToDataset Text
 stdIdentityPoolId =
     lens _stdIdentityPoolId (\s a -> s { _stdIdentityPoolId = a })

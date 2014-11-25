@@ -8,17 +8,17 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | AWS CloudFormation gives developers and systems administrators an easy way
--- to create and manage a collection of related AWS resources, provisioning
--- and updating them in an orderly and predictable fashion. You can use AWS
+-- | AWS CloudFormation gives developers and systems administrators an easy way to
+-- create and manage a collection of related AWS resources, provisioning and
+-- updating them in an orderly and predictable fashion. You can use AWS
 -- CloudFormation’s sample templates or create your own templates to describe
 -- the AWS resources, and any associated dependencies or runtime parameters,
--- required to run your application. You don’t need to figure out the order
--- for provisioning AWS services or the subtleties of making those
--- dependencies work. CloudFormation takes care of this for you. After the AWS
--- resources are deployed, you can modify and update them in a controlled and
--- predictable way, in effect applying version control to your AWS
--- infrastructure the same way you do with your software.
+-- required to run your application. You don’t need to figure out the order for
+-- provisioning AWS services or the subtleties of making those dependencies
+-- work. CloudFormation takes care of this for you. After the AWS resources are
+-- deployed, you can modify and update them in a controlled and predictable way,
+-- in effect applying version control to your AWS infrastructure the same way
+-- you do with your software.
 module Network.AWS.CloudFormation
     ( module Network.AWS.CloudFormation.CancelUpdateStack
     , module Network.AWS.CloudFormation.CreateStack

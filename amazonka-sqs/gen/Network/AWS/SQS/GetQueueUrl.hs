@@ -21,13 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the URL of an existing queue. This action provides a simple way to
--- retrieve the URL of an Amazon SQS queue. To access a queue that belongs to
--- another AWS account, use the 'QueueOwnerAWSAccountId' parameter to specify
--- the account ID of the queue's owner. The queue's owner must grant you
--- permission to access the queue. For more information about shared queue
--- access, see 'AddPermission' or go to
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html
--- Shared Queues> in the /Amazon SQS Developer Guide/.
+-- retrieve the URL of an Amazon SQS queue.
+--
+-- To access a queue that belongs to another AWS account, use the 'QueueOwnerAWSAccountId' parameter to specify the account ID of the queue's owner. The queue's owner
+-- must grant you permission to access the queue. For more information about
+-- shared queue access, see 'AddPermission' or go to <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues> in the /AmazonSQS Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.html>
 module Network.AWS.SQS.GetQueueUrl
@@ -75,10 +73,12 @@ getQueueUrl p1 = GetQueueUrl
 
 -- | The name of the queue whose URL must be fetched. Maximum 80 characters;
 -- alphanumeric characters, hyphens (-), and underscores (_) are allowed.
+--
 gquQueueName :: Lens' GetQueueUrl Text
 gquQueueName = lens _gquQueueName (\s a -> s { _gquQueueName = a })
 
 -- | The AWS account ID of the account that created the queue.
+--
 gquQueueOwnerAWSAccountId :: Lens' GetQueueUrl (Maybe Text)
 gquQueueOwnerAWSAccountId =
     lens _gquQueueOwnerAWSAccountId
@@ -100,6 +100,7 @@ getQueueUrlResponse = GetQueueUrlResponse
     }
 
 -- | The URL for the queue.
+--
 gqurQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)
 gqurQueueUrl = lens _gqurQueueUrl (\s a -> s { _gqurQueueUrl = a })
 

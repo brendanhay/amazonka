@@ -20,14 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes the number of layers and apps in a specified stack, and the
--- number of instances in each state, such as 'running_setup' or 'online'.
+-- | Describes the number of layers and apps in a specified stack, and the number
+-- of instances in each state, such as 'running_setup' or 'online'.
+--
 -- Required Permissions: To use this action, an IAM user must have a Show,
--- Deploy, or Manage permissions level for the stack, or an attached policy
--- that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- Deploy, or Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStackSummary.html>
 module Network.AWS.OpsWorks.DescribeStackSummary
@@ -69,6 +67,7 @@ describeStackSummary p1 = DescribeStackSummary
     }
 
 -- | The stack ID.
+--
 dssStackId :: Lens' DescribeStackSummary Text
 dssStackId = lens _dssStackId (\s a -> s { _dssStackId = a })
 
@@ -88,6 +87,7 @@ describeStackSummaryResponse = DescribeStackSummaryResponse
     }
 
 -- | A 'StackSummary' object that contains the results.
+--
 dssrStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrStackSummary = lens _dssrStackSummary (\s a -> s { _dssrStackSummary = a })
 

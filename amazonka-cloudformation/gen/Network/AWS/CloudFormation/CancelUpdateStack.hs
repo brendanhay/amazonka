@@ -20,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Cancels an update on the specified stack. If the call completes
--- successfully, the stack will roll back the update and revert to the
--- previous stack configuration. Only stacks that are in the
--- UPDATE_IN_PROGRESS state can be canceled.
+-- | Cancels an update on the specified stack. If the call completes successfully,
+-- the stack will roll back the update and revert to the previous stack
+-- configuration.
 --
+-- Only stacks that are in the UPDATE_IN_PROGRESS state can be canceled.
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>
 module Network.AWS.CloudFormation.CancelUpdateStack
     (
@@ -63,6 +63,7 @@ cancelUpdateStack p1 = CancelUpdateStack
     }
 
 -- | The name or the unique identifier associated with the stack.
+--
 cusStackName :: Lens' CancelUpdateStack Text
 cusStackName = lens _cusStackName (\s a -> s { _cusStackName = a })
 

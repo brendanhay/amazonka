@@ -20,25 +20,30 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates a subnet in an existing VPC. When you create each subnet, you
--- provide the VPC ID and the CIDR block you want for the subnet. After you
--- create a subnet, you can't change its CIDR block. The subnet's CIDR block
--- can be the same as the VPC's CIDR block (assuming you want only a single
--- subnet in the VPC), or a subset of the VPC's CIDR block. If you create more
--- than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The
--- smallest subnet (and VPC) you can create uses a /28 netmask (16 IP
--- addresses), and the largest uses a /16 netmask (65,536 IP addresses). AWS
--- reserves both the first four and the last IP address in each subnet's CIDR
--- block. They're not available for use. If you add more than one subnet to a
--- VPC, they're set up in a star topology with a logical router in the middle.
+-- | Creates a subnet in an existing VPC.
+--
+-- When you create each subnet, you provide the VPC ID and the CIDR block you
+-- want for the subnet. After you create a subnet, you can't change its CIDR
+-- block. The subnet's CIDR block can be the same as the VPC's CIDR block
+-- (assuming you want only a single subnet in the VPC), or a subset of the VPC's
+-- CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR
+-- blocks must not overlap. The smallest subnet (and VPC) you can create uses a
+-- /28 netmask (16 IP addresses), and the largest uses a /16 netmask (65,536 IP
+-- addresses).
+--
+-- AWS reserves both the first four and the last IP address in each subnet's
+-- CIDR block. They're not available for use.
+--
+-- If you add more than one subnet to a VPC, they're set up in a star topology
+-- with a logical router in the middle.
+--
 -- If you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP
--- address doesn't change if you stop and restart the instance (unlike a
--- similar instance launched outside a VPC, which gets a new IP address when
--- restarted). It's therefore possible to have a subnet with no running
--- instances (they're all stopped), but no remaining IP addresses available.
--- For more information about subnets, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html
--- Your VPC and Subnets> in the /Amazon Virtual Private Cloud User Guide/.
+-- address doesn't change if you stop and restart the instance (unlike a similar
+-- instance launched outside a VPC, which gets a new IP address when restarted).
+-- It's therefore possible to have a subnet with no running instances (they're
+-- all stopped), but no remaining IP addresses available.
+--
+-- For more information about subnets, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html Your VPC and Subnets> in the /AmazonVirtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSubnet.html>
 module Network.AWS.EC2.CreateSubnet
@@ -95,14 +100,16 @@ createSubnet p1 p2 = CreateSubnet
     , _cs1AvailabilityZone = Nothing
     }
 
--- | The Availability Zone for the subnet. Default: Amazon EC2 selects one for
--- you (recommended).
+-- | The Availability Zone for the subnet.
+--
+-- Default: Amazon EC2 selects one for you (recommended).
+--
 cs1AvailabilityZone :: Lens' CreateSubnet (Maybe Text)
 cs1AvailabilityZone =
     lens _cs1AvailabilityZone (\s a -> s { _cs1AvailabilityZone = a })
 
--- | The network range for the subnet, in CIDR notation. For example,
--- '10.0.0.0/24'.
+-- | The network range for the subnet, in CIDR notation. For example, '10.0.0.0/24'.
+--
 cs1CidrBlock :: Lens' CreateSubnet Text
 cs1CidrBlock = lens _cs1CidrBlock (\s a -> s { _cs1CidrBlock = a })
 
@@ -110,6 +117,7 @@ cs1DryRun :: Lens' CreateSubnet (Maybe Bool)
 cs1DryRun = lens _cs1DryRun (\s a -> s { _cs1DryRun = a })
 
 -- | The ID of the VPC.
+--
 cs1VpcId :: Lens' CreateSubnet Text
 cs1VpcId = lens _cs1VpcId (\s a -> s { _cs1VpcId = a })
 
@@ -129,6 +137,7 @@ createSubnetResponse = CreateSubnetResponse
     }
 
 -- | Information about the subnet.
+--
 csrSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
 csrSubnet = lens _csrSubnet (\s a -> s { _csrSubnet = a })
 

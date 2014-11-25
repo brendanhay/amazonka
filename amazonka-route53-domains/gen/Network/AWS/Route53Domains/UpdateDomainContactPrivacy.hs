@@ -23,13 +23,14 @@
 -- | This operation updates the specified domain contact's privacy setting. When
 -- the privacy option is enabled, personal information such as postal or email
 -- address is hidden from the results of a public WHOIS query. The privacy
--- services are provided by the AWS registrar, Gandi. For more information,
--- see the <http://www.gandi.net/domain/whois/?currency=USD&amp;lang=en Gandi
--- privacy features>. This operation only affects the privacy of the specified
--- contact type (registrant, administrator, or tech). Successful acceptance
--- returns an operation ID that you can use with GetOperationDetail to track
--- the progress and completion of the action. If the request is not completed
--- successfully, the domain registrant will be notified by email.
+-- services are provided by the AWS registrar, Gandi. For more information, see
+-- the <http://www.gandi.net/domain/whois/?currency=USD&amp;lang=en Gandi privacy features>.
+--
+-- This operation only affects the privacy of the specified contact type
+-- (registrant, administrator, or tech). Successful acceptance returns an
+-- operation ID that you can use with GetOperationDetail to track the progress
+-- and completion of the action. If the request is not completed successfully,
+-- the domain registrant will be notified by email.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainContactPrivacy.html>
 module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
@@ -85,35 +86,67 @@ updateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
     , _udcpTechPrivacy       = Nothing
     }
 
--- | Whether you want to conceal contact information from WHOIS queries. If
--- you specify true, WHOIS ("who is") queries will return contact
--- information for our registrar partner, Gandi, instead of the contact
--- information that you enter. Type: Boolean Default: None Valid values:
--- 'true' | 'false' Required: No.
+-- | Whether you want to conceal contact information from WHOIS queries. If you
+-- specify true, WHOIS ("who is") queries will return contact information for
+-- our registrar partner, Gandi, instead of the contact information that you
+-- enter.
+--
+-- Type: Boolean
+--
+-- Default: None
+--
+-- Valid values: 'true' | 'false'
+--
+-- Required: No
+--
 udcpAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpAdminPrivacy = lens _udcpAdminPrivacy (\s a -> s { _udcpAdminPrivacy = a })
 
--- | The name of a domain. Type: String Default: None Constraints: The domain
--- name can contain only the letters a through z, the numbers 0 through 9,
--- and hyphen (-). Internationalized Domain Names are not supported.
--- Required: Yes.
+-- | The name of a domain.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: The domain name can contain only the letters a through z, the
+-- numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
+-- supported.
+--
+-- Required: Yes
+--
 udcpDomainName :: Lens' UpdateDomainContactPrivacy Text
 udcpDomainName = lens _udcpDomainName (\s a -> s { _udcpDomainName = a })
 
--- | Whether you want to conceal contact information from WHOIS queries. If
--- you specify true, WHOIS ("who is") queries will return contact
--- information for our registrar partner, Gandi, instead of the contact
--- information that you enter. Type: Boolean Default: None Valid values:
--- 'true' | 'false' Required: No.
+-- | Whether you want to conceal contact information from WHOIS queries. If you
+-- specify true, WHOIS ("who is") queries will return contact information for
+-- our registrar partner, Gandi, instead of the contact information that you
+-- enter.
+--
+-- Type: Boolean
+--
+-- Default: None
+--
+-- Valid values: 'true' | 'false'
+--
+-- Required: No
+--
 udcpRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpRegistrantPrivacy =
     lens _udcpRegistrantPrivacy (\s a -> s { _udcpRegistrantPrivacy = a })
 
--- | Whether you want to conceal contact information from WHOIS queries. If
--- you specify true, WHOIS ("who is") queries will return contact
--- information for our registrar partner, Gandi, instead of the contact
--- information that you enter. Type: Boolean Default: None Valid values:
--- 'true' | 'false' Required: No.
+-- | Whether you want to conceal contact information from WHOIS queries. If you
+-- specify true, WHOIS ("who is") queries will return contact information for
+-- our registrar partner, Gandi, instead of the contact information that you
+-- enter.
+--
+-- Type: Boolean
+--
+-- Default: None
+--
+-- Valid values: 'true' | 'false'
+--
+-- Required: No
+--
 udcpTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpTechPrivacy = lens _udcpTechPrivacy (\s a -> s { _udcpTechPrivacy = a })
 
@@ -133,9 +166,15 @@ updateDomainContactPrivacyResponse p1 = UpdateDomainContactPrivacyResponse
     { _udcprOperationId = p1
     }
 
--- | Identifier for tracking the progress of the request. To use this ID to
--- query the operation status, use GetOperationDetail. Type: String Default:
--- None Constraints: Maximum 255 characters.
+-- | Identifier for tracking the progress of the request. To use this ID to query
+-- the operation status, use GetOperationDetail.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Constraints: Maximum 255 characters.
+--
 udcprOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
 udcprOperationId = lens _udcprOperationId (\s a -> s { _udcprOperationId = a })
 

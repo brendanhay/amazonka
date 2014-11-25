@@ -66,8 +66,9 @@ describeApplications = DescribeApplications
     { _daApplicationNames = mempty
     }
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to only include those with the specified names.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+-- only include those with the specified names.
+--
 daApplicationNames :: Lens' DescribeApplications [Text]
 daApplicationNames =
     lens _daApplicationNames (\s a -> s { _daApplicationNames = a })
@@ -95,6 +96,7 @@ describeApplicationsResponse = DescribeApplicationsResponse
     }
 
 -- | This parameter contains a list of 'ApplicationDescription'.
+--
 darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darApplications = lens _darApplications (\s a -> s { _darApplications = a }) . _List
 

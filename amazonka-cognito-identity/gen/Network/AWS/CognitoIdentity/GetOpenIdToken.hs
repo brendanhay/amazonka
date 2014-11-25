@@ -21,9 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets an OpenID token, using a known Cognito ID. This known Cognito ID is
--- returned by 'GetId'. You can optionally add additional logins for the
--- identity. Supplying multiple logins creates an implicit link. The OpenId
--- token is valid for 15 minutes.
+-- returned by 'GetId'. You can optionally add additional logins for the identity.
+-- Supplying multiple logins creates an implicit link.
+--
+-- The OpenId token is valid for 15 minutes.
 --
 -- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdToken.html>
 module Network.AWS.CognitoIdentity.GetOpenIdToken
@@ -74,8 +75,7 @@ getOpenIdToken p1 = GetOpenIdToken
 goitIdentityId :: Lens' GetOpenIdToken Text
 goitIdentityId = lens _goitIdentityId (\s a -> s { _goitIdentityId = a })
 
--- | A set of optional name-value pairs that map provider names to provider
--- tokens.
+-- | A set of optional name-value pairs that map provider names to provider tokens.
 goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
 goitLogins = lens _goitLogins (\s a -> s { _goitLogins = a }) . _Map
 

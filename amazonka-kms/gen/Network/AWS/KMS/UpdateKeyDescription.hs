@@ -20,9 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | 
---
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateKeyDescription.html>
+-- | <http://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateKeyDescription.html>
 module Network.AWS.KMS.UpdateKeyDescription
     (
     -- * Request

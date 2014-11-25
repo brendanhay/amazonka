@@ -21,11 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Detaches a specified Elastic Load Balancing instance from its layer.
+--
 -- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack, or an attached policy that explicitly
--- grants permissions. For more information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- permissions level for the stack, or an attached policy that explicitly grants
+-- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DetachElasticLoadBalancer.html>
 module Network.AWS.OpsWorks.DetachElasticLoadBalancer
@@ -71,13 +70,14 @@ detachElasticLoadBalancer p1 p2 = DetachElasticLoadBalancer
     }
 
 -- | The Elastic Load Balancing instance's name.
+--
 delbElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
 delbElasticLoadBalancerName =
     lens _delbElasticLoadBalancerName
         (\s a -> s { _delbElasticLoadBalancerName = a })
 
--- | The ID of the layer that the Elastic Load Balancing instance is attached
--- to.
+-- | The ID of the layer that the Elastic Load Balancing instance is attached to.
+--
 delbLayerId :: Lens' DetachElasticLoadBalancer Text
 delbLayerId = lens _delbLayerId (\s a -> s { _delbLayerId = a })
 

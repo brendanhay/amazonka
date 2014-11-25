@@ -67,9 +67,15 @@ getOperationDetail p1 = GetOperationDetail
     { _godOperationId = p1
     }
 
--- | The identifier for the operation for which you want to get the status.
--- Amazon Route 53 returned the identifier in the response to the original
--- request. Type: String Default: None Required: Yes.
+-- | The identifier for the operation for which you want to get the status. Amazon
+-- Route 53 returned the identifier in the response to the original request.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Required: Yes
+--
 godOperationId :: Lens' GetOperationDetail Text
 godOperationId = lens _godOperationId (\s a -> s { _godOperationId = a })
 
@@ -108,31 +114,45 @@ getOperationDetailResponse = GetOperationDetailResponse
     , _godrSubmittedDate = Nothing
     }
 
--- | The name of a domain. Type: String.
+-- | The name of a domain.
+--
+-- Type: String
+--
 godrDomainName :: Lens' GetOperationDetailResponse (Maybe Text)
 godrDomainName = lens _godrDomainName (\s a -> s { _godrDomainName = a })
 
--- | Detailed information on the status including possible errors. Type:
--- String.
+-- | Detailed information on the status including possible errors.
+--
+-- Type: String
+--
 godrMessage :: Lens' GetOperationDetailResponse (Maybe Text)
 godrMessage = lens _godrMessage (\s a -> s { _godrMessage = a })
 
--- | The identifier for the operation. Type: String.
+-- | The identifier for the operation.
+--
+-- Type: String
+--
 godrOperationId :: Lens' GetOperationDetailResponse (Maybe Text)
 godrOperationId = lens _godrOperationId (\s a -> s { _godrOperationId = a })
 
--- | The current status of the requested operation in the system. Type:
--- String.
+-- | The current status of the requested operation in the system.
+--
+-- Type: String
+--
 godrStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
 godrStatus = lens _godrStatus (\s a -> s { _godrStatus = a })
 
 -- | The date when the request was submitted.
+--
 godrSubmittedDate :: Lens' GetOperationDetailResponse (Maybe UTCTime)
 godrSubmittedDate =
     lens _godrSubmittedDate (\s a -> s { _godrSubmittedDate = a })
         . mapping _Time
 
--- | The type of operation that was requested. Type: String.
+-- | The type of operation that was requested.
+--
+-- Type: String
+--
 godrType :: Lens' GetOperationDetailResponse (Maybe OperationType)
 godrType = lens _godrType (\s a -> s { _godrType = a })
 

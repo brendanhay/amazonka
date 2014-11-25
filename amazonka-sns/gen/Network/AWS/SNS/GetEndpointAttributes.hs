@@ -21,9 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves the endpoint attributes for a device on one of the supported push
--- notification services, such as GCM and APNS. For more information, see
--- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon
--- SNS Mobile Push Notifications>.
+-- notification services, such as GCM and APNS. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications>.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html>
 module Network.AWS.SNS.GetEndpointAttributes
@@ -65,6 +63,7 @@ getEndpointAttributes p1 = GetEndpointAttributes
     }
 
 -- | EndpointArn for GetEndpointAttributes input.
+--
 geaEndpointArn :: Lens' GetEndpointAttributes Text
 geaEndpointArn = lens _geaEndpointArn (\s a -> s { _geaEndpointArn = a })
 
@@ -83,16 +82,17 @@ getEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes = mempty
     }
 
--- | Attributes include the following: 'CustomUserData' -- arbitrary user data
--- to associate with the endpoint. Amazon SNS does not use this data. The
--- data must be in UTF-8 format and less than 2KB. 'Enabled' -- flag that
--- enables/disables delivery to the endpoint. Amazon SNS will set this to
--- false when a notification service indicates to Amazon SNS that the
--- endpoint is invalid. Users can set it back to true, typically after
--- updating Token. 'Token' -- device token, also referred to as a
+-- | Attributes include the following:
+--
+-- 'CustomUserData' -- arbitrary user data to associate with the endpoint.
+-- Amazon SNS does not use this data. The data must be in UTF-8 format and less
+-- than 2KB.  'Enabled' -- flag that enables/disables delivery to the endpoint.
+-- Amazon SNS will set this to false when a notification service indicates to
+-- Amazon SNS that the endpoint is invalid. Users can set it back to true,
+-- typically after updating Token.  'Token' -- device token, also referred to as a
 -- registration id, for an app and mobile device. This is returned from the
--- notification service when an app and mobile device are registered with
--- the notification service.
+-- notification service when an app and mobile device are registered with the
+-- notification service.
 gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
 gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a }) . _EMap
 

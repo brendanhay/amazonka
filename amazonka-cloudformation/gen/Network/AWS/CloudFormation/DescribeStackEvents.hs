@@ -20,13 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns all stack related events for a specified stack. For more
--- information about a stack's event history, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html
--- Stacks> in the AWS CloudFormation User Guide. You can list events for
--- stacks that have failed to create or have been deleted by specifying the
--- unique stack identifier (stack ID).
+-- | Returns all stack related events for a specified stack. For more information
+-- about a stack's event history, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html Stacks> in the AWS CloudFormation User
+-- Guide.
 --
+-- You can list events for stacks that have failed to create or have been
+-- deleted by specifying the unique stack identifier (stack ID).
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackEvents.html>
 module Network.AWS.CloudFormation.DescribeStackEvents
     (
@@ -71,15 +70,20 @@ describeStackEvents = DescribeStackEvents
     , _dseNextToken = Nothing
     }
 
--- | String that identifies the start of the next list of events, if there is
--- one. Default: There is no default value.
+-- | String that identifies the start of the next list of events, if there is one.
+--
+-- Default: There is no default value.
+--
 dseNextToken :: Lens' DescribeStackEvents (Maybe Text)
 dseNextToken = lens _dseNextToken (\s a -> s { _dseNextToken = a })
 
--- | The name or the unique identifier associated with the stack, which are
--- not always interchangeable: Running stacks: You can specify either the
--- stack's name or its unique stack ID. Deleted stacks: You must specify the
--- unique stack ID. Default: There is no default value.
+-- | The name or the unique identifier associated with the stack, which are not
+-- always interchangeable:
+--
+-- Running stacks: You can specify either the stack's name or its unique stack
+-- ID. Deleted stacks: You must specify the unique stack ID.  Default: There is
+-- no default value.
+--
 dseStackName :: Lens' DescribeStackEvents (Maybe Text)
 dseStackName = lens _dseStackName (\s a -> s { _dseStackName = a })
 
@@ -102,12 +106,13 @@ describeStackEventsResponse = DescribeStackEventsResponse
     , _dserNextToken   = Nothing
     }
 
--- | String that identifies the start of the next list of events, if there is
--- one.
+-- | String that identifies the start of the next list of events, if there is one.
+--
 dserNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
 dserNextToken = lens _dserNextToken (\s a -> s { _dserNextToken = a })
 
 -- | A list of 'StackEvents' structures.
+--
 dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
 dserStackEvents = lens _dserStackEvents (\s a -> s { _dserStackEvents = a }) . _List
 

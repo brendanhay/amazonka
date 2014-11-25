@@ -20,15 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Removes the specified role from the specified instance profile. Make sure
--- you do not have any Amazon EC2 instances running with the role you are
--- about to remove from the instance profile. Removing a role from an instance
--- profile that is associated with a running instance will break any
--- applications running on the instance. For more information about roles, go
--- to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html
--- Working with Roles>. For more information about instance profiles, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html
--- About Instance Profiles>.
+-- | Removes the specified role from the specified instance profile.
+--
+-- Make sure you do not have any Amazon EC2 instances running with the role
+-- you are about to remove from the instance profile. Removing a role from an
+-- instance profile that is associated with a running instance will break any
+-- applications running on the instance.   For more information about roles, go
+-- to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>. For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.html>
 module Network.AWS.IAM.RemoveRoleFromInstanceProfile
@@ -74,12 +72,14 @@ removeRoleFromInstanceProfile p1 p2 = RemoveRoleFromInstanceProfile
     }
 
 -- | The name of the instance profile to update.
+--
 rrfipInstanceProfileName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipInstanceProfileName =
     lens _rrfipInstanceProfileName
         (\s a -> s { _rrfipInstanceProfileName = a })
 
 -- | The name of the role to remove.
+--
 rrfipRoleName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipRoleName = lens _rrfipRoleName (\s a -> s { _rrfipRoleName = a })
 

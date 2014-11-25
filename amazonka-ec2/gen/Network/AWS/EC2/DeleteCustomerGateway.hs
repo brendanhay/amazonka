@@ -66,6 +66,7 @@ deleteCustomerGateway p1 = DeleteCustomerGateway
     }
 
 -- | The ID of the customer gateway.
+--
 dcg1CustomerGatewayId :: Lens' DeleteCustomerGateway Text
 dcg1CustomerGatewayId =
     lens _dcg1CustomerGatewayId (\s a -> s { _dcg1CustomerGatewayId = a })

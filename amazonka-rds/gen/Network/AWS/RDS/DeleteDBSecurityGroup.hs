@@ -59,10 +59,12 @@ deleteDBSecurityGroup p1 = DeleteDBSecurityGroup
     { _ddbsgDBSecurityGroupName = p1
     }
 
--- | The name of the DB security group to delete. Constraints: Must be 1 to
--- 255 alphanumeric characters First character must be a letter Cannot end
--- with a hyphen or contain two consecutive hyphens Must not be "Default"
--- May not contain spaces.
+-- | The name of the DB security group to delete.
+--
+-- Constraints:
+--
+-- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
+-- Must not be "Default" May not contain spaces
 ddbsgDBSecurityGroupName :: Lens' DeleteDBSecurityGroup Text
 ddbsgDBSecurityGroupName =
     lens _ddbsgDBSecurityGroupName

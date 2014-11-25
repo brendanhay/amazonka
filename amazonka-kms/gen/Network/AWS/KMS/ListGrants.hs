@@ -75,20 +75,22 @@ listGrants p1 = ListGrants
 
 -- | Unique identifier of the key. This can be an ARN, an alias, or a globally
 -- unique identifier.
+--
 lgKeyId :: Lens' ListGrants Text
 lgKeyId = lens _lgKeyId (\s a -> s { _lgKeyId = a })
 
--- | Specify this parameter only when paginating results to indicate the
--- maximum number of grants you want listed in the response. If there are
--- additional grants beyond the maximum you specify, the 'Truncated'
--- response element will be set to 'true.'.
+-- | Specify this parameter only when paginating results to indicate the maximum
+-- number of grants you want listed in the response. If there are additional
+-- grants beyond the maximum you specify, the 'Truncated' response element will be
+-- set to 'true.'
+--
 lgLimit :: Lens' ListGrants (Maybe Natural)
 lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a }) . mapping _Nat
 
 -- | Use this parameter only when paginating results, and only in a subsequent
--- request after you've received a response where the results are truncated.
--- Set it to the value of the 'NextMarker' in the response you just
--- received.
+-- request after you've received a response where the results are truncated. Set
+-- it to the value of the 'NextMarker' in the response you just received.
+--
 lgMarker :: Lens' ListGrants (Maybe Text)
 lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 
@@ -116,18 +118,20 @@ listGrantsResponse = ListGrantsResponse
     }
 
 -- | A list of grants.
+--
 lgrGrants :: Lens' ListGrantsResponse [GrantListEntry]
 lgrGrants = lens _lgrGrants (\s a -> s { _lgrGrants = a }) . _List
 
--- | If 'Truncated' is true, this value is present and contains the value to
--- use for the 'Marker' request parameter in a subsequent pagination
--- request.
+-- | If 'Truncated' is true, this value is present and contains the value to use for
+-- the 'Marker' request parameter in a subsequent pagination request.
+--
 lgrNextMarker :: Lens' ListGrantsResponse (Maybe Text)
 lgrNextMarker = lens _lgrNextMarker (\s a -> s { _lgrNextMarker = a })
 
 -- | A flag that indicates whether there are more items in the list. If your
--- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more grants in the list.
+-- results were truncated, you can make a subsequent pagination request using
+-- the 'Marker' request parameter to retrieve more grants in the list.
+--
 lgrTruncated :: Lens' ListGrantsResponse (Maybe Bool)
 lgrTruncated = lens _lgrTruncated (\s a -> s { _lgrTruncated = a })
 

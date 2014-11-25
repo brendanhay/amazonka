@@ -23,10 +23,7 @@ import           Text.EDE.Filters
 
 genFilters :: HashMap Text Term
 genFilters = Map.fromList
-    [ "above"        @: wrapHaddock "| "
-    , "below"        @: wrapHaddock "^ "
-    , "description"  @: wrapDescription
-    , "highlight"    @: highlightType
+    [ "highlight"    @: highlightType
     , "parens"       @: parens
     , "wrapped"      @: wrapped
     , "concat"       @: (mappend :: Text -> Text -> Text)

@@ -63,6 +63,7 @@ stopDeployment p1 = StopDeployment
     }
 
 -- | The unique ID of a deployment.
+--
 sdDeploymentId :: Lens' StopDeployment Text
 sdDeploymentId = lens _sdDeploymentId (\s a -> s { _sdDeploymentId = a })
 
@@ -85,12 +86,15 @@ stopDeploymentResponse = StopDeploymentResponse
     , _sdrStatusMessage = Nothing
     }
 
--- | The status of the stop deployment operation: Pending: The stop operation
--- is pending. Succeeded: The stop operation succeeded.
+-- | The status of the stop deployment operation:
+--
+-- Pending: The stop operation is pending. Succeeded: The stop operation
+-- succeeded.
 sdrStatus :: Lens' StopDeploymentResponse (Maybe StopStatus)
 sdrStatus = lens _sdrStatus (\s a -> s { _sdrStatus = a })
 
 -- | An accompanying status message.
+--
 sdrStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
 sdrStatusMessage = lens _sdrStatusMessage (\s a -> s { _sdrStatusMessage = a })
 

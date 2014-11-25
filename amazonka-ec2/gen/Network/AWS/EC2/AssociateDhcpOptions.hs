@@ -21,15 +21,16 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Associates a set of DHCP options (that you've previously created) with the
--- specified VPC, or associates no DHCP options with the VPC. After you
--- associate the options with the VPC, any existing instances and all new
--- instances that you launch in that VPC use the options. You don't need to
+-- specified VPC, or associates no DHCP options with the VPC.
+--
+-- After you associate the options with the VPC, any existing instances and all
+-- new instances that you launch in that VPC use the options. You don't need to
 -- restart or relaunch the instances. They automatically pick up the changes
--- within a few hours, depending on how frequently the instance renews its
--- DHCP lease. You can explicitly renew the lease using the operating system
--- on the instance. For more information, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html
--- DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/.
+-- within a few hours, depending on how frequently the instance renews its DHCP
+-- lease. You can explicitly renew the lease using the operating system on the
+-- instance.
+--
+-- For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual PrivateCloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateDhcpOptions.html>
 module Network.AWS.EC2.AssociateDhcpOptions
@@ -79,8 +80,9 @@ associateDhcpOptions p1 p2 = AssociateDhcpOptions
     , _adoDryRun        = Nothing
     }
 
--- | The ID of the DHCP options set, or 'default' to associate no DHCP options
--- with the VPC.
+-- | The ID of the DHCP options set, or 'default' to associate no DHCP options with
+-- the VPC.
+--
 adoDhcpOptionsId :: Lens' AssociateDhcpOptions Text
 adoDhcpOptionsId = lens _adoDhcpOptionsId (\s a -> s { _adoDhcpOptionsId = a })
 
@@ -88,6 +90,7 @@ adoDryRun :: Lens' AssociateDhcpOptions (Maybe Bool)
 adoDryRun = lens _adoDryRun (\s a -> s { _adoDryRun = a })
 
 -- | The ID of the VPC.
+--
 adoVpcId :: Lens' AssociateDhcpOptions Text
 adoVpcId = lens _adoVpcId (\s a -> s { _adoVpcId = a })
 

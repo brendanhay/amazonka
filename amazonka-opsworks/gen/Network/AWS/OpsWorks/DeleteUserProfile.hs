@@ -20,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes a user profile. Required Permissions: To use this action, an IAM
--- user must have an attached policy that explicitly grants permissions. For
--- more information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Deletes a user profile.
+--
+-- Required Permissions: To use this action, an IAM user must have an attached
+-- policy that explicitly grants permissions. For more information on user
+-- permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteUserProfile.html>
 module Network.AWS.OpsWorks.DeleteUserProfile
@@ -64,6 +64,7 @@ deleteUserProfile p1 = DeleteUserProfile
     }
 
 -- | The user's IAM ARN.
+--
 dupIamUserArn :: Lens' DeleteUserProfile Text
 dupIamUserArn = lens _dupIamUserArn (\s a -> s { _dupIamUserArn = a })
 

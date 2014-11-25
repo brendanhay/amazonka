@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Resets permission settings for the specified snapshot. For more information
--- on modifying snapshot permissions, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html
--- Sharing Snapshots> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Resets permission settings for the specified snapshot.
+--
+-- For more information on modifying snapshot permissions, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetSnapshotAttribute.html>
 module Network.AWS.EC2.ResetSnapshotAttribute
@@ -73,8 +73,9 @@ resetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
     , _rsaDryRun     = Nothing
     }
 
--- | The attribute to reset (currently only the attribute for permission to
--- create volumes can be reset).
+-- | The attribute to reset (currently only the attribute for permission to create
+-- volumes can be reset).
+--
 rsaAttribute :: Lens' ResetSnapshotAttribute SnapshotAttributeName
 rsaAttribute = lens _rsaAttribute (\s a -> s { _rsaAttribute = a })
 
@@ -82,6 +83,7 @@ rsaDryRun :: Lens' ResetSnapshotAttribute (Maybe Bool)
 rsaDryRun = lens _rsaDryRun (\s a -> s { _rsaDryRun = a })
 
 -- | The ID of the snapshot.
+--
 rsaSnapshotId :: Lens' ResetSnapshotAttribute Text
 rsaSnapshotId = lens _rsaSnapshotId (\s a -> s { _rsaSnapshotId = a })
 

@@ -20,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Updates a specified user profile. Required Permissions: To use this action,
--- an IAM user must have an attached policy that explicitly grants
--- permissions. For more information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Updates a specified user profile.
+--
+-- Required Permissions: To use this action, an IAM user must have an attached
+-- policy that explicitly grants permissions. For more information on user
+-- permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateUserProfile.html>
 module Network.AWS.OpsWorks.UpdateUserProfile
@@ -78,27 +78,29 @@ updateUserProfile p1 = UpdateUserProfile
     , _uupAllowSelfManagement = Nothing
     }
 
--- | Whether users can specify their own SSH public key through the My
--- Settings page. For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html
--- Managing User Permissions>.
+-- | Whether users can specify their own SSH public key through the My Settings
+-- page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
+--
 uupAllowSelfManagement :: Lens' UpdateUserProfile (Maybe Bool)
 uupAllowSelfManagement =
     lens _uupAllowSelfManagement (\s a -> s { _uupAllowSelfManagement = a })
 
 -- | The user IAM ARN.
+--
 uupIamUserArn :: Lens' UpdateUserProfile Text
 uupIamUserArn = lens _uupIamUserArn (\s a -> s { _uupIamUserArn = a })
 
 -- | The user's new SSH public key.
+--
 uupSshPublicKey :: Lens' UpdateUserProfile (Maybe Text)
 uupSshPublicKey = lens _uupSshPublicKey (\s a -> s { _uupSshPublicKey = a })
 
--- | The user's SSH user name. The allowable characters are [a-z], [A-Z],
--- [0-9], '-', and '_'. If the specified name includes other punctuation
--- marks, AWS OpsWorks removes them. For example, 'my.name' will be changed
--- to 'myname'. If you do not specify an SSH user name, AWS OpsWorks
--- generates one from the IAM user name.
+-- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9],
+-- '-', and '_'. If the specified name includes other punctuation marks, AWS
+-- OpsWorks removes them. For example, 'my.name' will be changed to 'myname'. If you
+-- do not specify an SSH user name, AWS OpsWorks generates one from the IAM user
+-- name.
+--
 uupSshUsername :: Lens' UpdateUserProfile (Maybe Text)
 uupSshUsername = lens _uupSshUsername (\s a -> s { _uupSshUsername = a })
 

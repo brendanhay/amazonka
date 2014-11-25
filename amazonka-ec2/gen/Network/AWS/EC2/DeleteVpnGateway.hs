@@ -72,6 +72,7 @@ dvgDryRun :: Lens' DeleteVpnGateway (Maybe Bool)
 dvgDryRun = lens _dvgDryRun (\s a -> s { _dvgDryRun = a })
 
 -- | The ID of the virtual private gateway.
+--
 dvgVpnGatewayId :: Lens' DeleteVpnGateway Text
 dvgVpnGatewayId = lens _dvgVpnGatewayId (\s a -> s { _dvgVpnGatewayId = a })
 

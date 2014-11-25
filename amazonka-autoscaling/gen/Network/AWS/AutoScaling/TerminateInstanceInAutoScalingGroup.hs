@@ -21,9 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Terminates the specified instance and optionally adjusts the desired group
--- size. This call simply makes a termination request. The instances is not
--- terminated immediately.
+-- size.
 --
+-- This call simply makes a termination request. The instances is not
+-- terminated immediately.
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_TerminateInstanceInAutoScalingGroup.html>
 module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     (
@@ -70,11 +71,13 @@ terminateInstanceInAutoScalingGroup p1 p2 = TerminateInstanceInAutoScalingGroup
     }
 
 -- | The ID of the EC2 instance.
+--
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
 tiiasgInstanceId = lens _tiiasgInstanceId (\s a -> s { _tiiasgInstanceId = a })
 
 -- | If 'true', terminating this instance also decrements the size of the Auto
 -- Scaling group.
+--
 tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
 tiiasgShouldDecrementDesiredCapacity =
     lens _tiiasgShouldDecrementDesiredCapacity
@@ -96,6 +99,7 @@ terminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGrou
     }
 
 -- | A scaling activity.
+--
 tiiasgrActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
 tiiasgrActivity = lens _tiiasgrActivity (\s a -> s { _tiiasgrActivity = a })
 

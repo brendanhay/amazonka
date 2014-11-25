@@ -20,9 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Gets usage information for an identity, including number of datasets and
--- data usage.
---
+-- | Gets usage information for an identity, including number of datasets and data
+-- usage.
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityUsage.html>
 module Network.AWS.CognitoSync.DescribeIdentityUsage
     (
@@ -69,14 +68,14 @@ describeIdentityUsage p1 p2 = DescribeIdentityUsage
     }
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 diuIdentityId :: Lens' DescribeIdentityUsage Text
 diuIdentityId = lens _diuIdentityId (\s a -> s { _diuIdentityId = a })
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- GUID generation is unique within a region.
 diuIdentityPoolId :: Lens' DescribeIdentityUsage Text
 diuIdentityPoolId =
     lens _diuIdentityPoolId (\s a -> s { _diuIdentityPoolId = a })

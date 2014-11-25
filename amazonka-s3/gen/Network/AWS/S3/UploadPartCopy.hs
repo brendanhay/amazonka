@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Uploads a part by copying data from an existing object as data source.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/UploadPartCopy.html>
 module Network.AWS.S3.UploadPartCopy
     (
@@ -153,8 +152,8 @@ uploadPartCopy p1 p2 p3 p4 p5 = UploadPartCopy
 upcBucket :: Lens' UploadPartCopy Text
 upcBucket = lens _upcBucket (\s a -> s { _upcBucket = a })
 
--- | The name of the source bucket and key name of the source object,
--- separated by a slash (/). Must be URL-encoded.
+-- | The name of the source bucket and key name of the source object, separated by
+-- a slash (/). Must be URL-encoded.
 upcCopySource :: Lens' UploadPartCopy Text
 upcCopySource = lens _upcCopySource (\s a -> s { _upcCopySource = a })
 
@@ -170,8 +169,8 @@ upcCopySourceIfModifiedSince =
         (\s a -> s { _upcCopySourceIfModifiedSince = a })
             . mapping _Time
 
--- | Copies the object if its entity tag (ETag) is different than the
--- specified ETag.
+-- | Copies the object if its entity tag (ETag) is different than the specified
+-- ETag.
 upcCopySourceIfNoneMatch :: Lens' UploadPartCopy (Maybe Text)
 upcCopySourceIfNoneMatch =
     lens _upcCopySourceIfNoneMatch
@@ -184,11 +183,11 @@ upcCopySourceIfUnmodifiedSince =
         (\s a -> s { _upcCopySourceIfUnmodifiedSince = a })
             . mapping _Time
 
--- | The range of bytes to copy from the source object. The range value must
--- use the form bytes=first-last, where the first and last are the
--- zero-based byte offsets to copy. For example, bytes=0-9 indicates that
--- you want to copy the first ten bytes of the source. You can copy a range
--- only if the source object is greater than 5 GB.
+-- | The range of bytes to copy from the source object. The range value must use
+-- the form bytes=first-last, where the first and last are the zero-based byte
+-- offsets to copy. For example, bytes=0-9 indicates that you want to copy the
+-- first ten bytes of the source. You can copy a range only if the source object
+-- is greater than 5 GB.
 upcCopySourceRange :: Lens' UploadPartCopy (Maybe Text)
 upcCopySourceRange =
     lens _upcCopySourceRange (\s a -> s { _upcCopySourceRange = a })
@@ -201,17 +200,17 @@ upcCopySourceSSECustomerAlgorithm =
         (\s a -> s { _upcCopySourceSSECustomerAlgorithm = a })
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use to
--- decrypt the source object. The encryption key provided in this header
--- must be one that was used when the source object was created.
+-- decrypt the source object. The encryption key provided in this header must be
+-- one that was used when the source object was created.
 upcCopySourceSSECustomerKey :: Lens' UploadPartCopy (Maybe Text)
 upcCopySourceSSECustomerKey =
     lens _upcCopySourceSSECustomerKey
         (\s a -> s { _upcCopySourceSSECustomerKey = a })
             . mapping _Sensitive
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
+-- Amazon S3 uses this header for a message integrity check to ensure the
+-- encryption key was transmitted without error.
 upcCopySourceSSECustomerKeyMD5 :: Lens' UploadPartCopy (Maybe Text)
 upcCopySourceSSECustomerKeyMD5 =
     lens _upcCopySourceSSECustomerKeyMD5
@@ -231,8 +230,8 @@ upcKey = lens _upcKey (\s a -> s { _upcKey = a })
 upcPartNumber :: Lens' UploadPartCopy Int
 upcPartNumber = lens _upcPartNumber (\s a -> s { _upcPartNumber = a })
 
--- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256, aws:kms).
+-- | Specifies the algorithm to use to when encrypting the object (e.g., AES256,
+-- aws:kms).
 upcSSECustomerAlgorithm :: Lens' UploadPartCopy (Maybe Text)
 upcSSECustomerAlgorithm =
     lens _upcSSECustomerAlgorithm (\s a -> s { _upcSSECustomerAlgorithm = a })
@@ -241,17 +240,16 @@ upcSSECustomerAlgorithm =
 -- encrypting data. This value is used to store the object and then it is
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
--- x-amz-server-side​-encryption​-customer-algorithm header. This must be
--- the same encryption key specified in the initiate multipart upload
--- request.
+-- x-amz-server-side​-encryption​-customer-algorithm header. This must be the
+-- same encryption key specified in the initiate multipart upload request.
 upcSSECustomerKey :: Lens' UploadPartCopy (Maybe Text)
 upcSSECustomerKey =
     lens _upcSSECustomerKey (\s a -> s { _upcSSECustomerKey = a })
         . mapping _Sensitive
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
+-- Amazon S3 uses this header for a message integrity check to ensure the
+-- encryption key was transmitted without error.
 upcSSECustomerKeyMD5 :: Lens' UploadPartCopy (Maybe Text)
 upcSSECustomerKeyMD5 =
     lens _upcSSECustomerKeyMD5 (\s a -> s { _upcSSECustomerKeyMD5 = a })
@@ -306,8 +304,8 @@ upcrCopySourceVersionId =
     lens _upcrCopySourceVersionId (\s a -> s { _upcrCopySourceVersionId = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
+-- requested, the response will include this header confirming the encryption
+-- algorithm used.
 upcrSSECustomerAlgorithm :: Lens' UploadPartCopyResponse (Maybe Text)
 upcrSSECustomerAlgorithm =
     lens _upcrSSECustomerAlgorithm

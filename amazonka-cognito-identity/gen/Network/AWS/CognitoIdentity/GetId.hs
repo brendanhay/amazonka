@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Generates (or retrieves) a Cognito ID. Supplying multiple logins will
--- create an implicit linked account.
+-- | Generates (or retrieves) a Cognito ID. Supplying multiple logins will create
+-- an implicit linked account.
 --
 -- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html>
 module Network.AWS.CognitoIdentity.GetId
@@ -81,10 +81,10 @@ giAccountId = lens _giAccountId (\s a -> s { _giAccountId = a })
 giIdentityPoolId :: Lens' GetId Text
 giIdentityPoolId = lens _giIdentityPoolId (\s a -> s { _giIdentityPoolId = a })
 
--- | A set of optional name-value pairs that map provider names to provider
--- tokens. The available provider names for 'Logins' are as follows:
--- Facebook: 'graph.facebook.com' Google: 'accounts.google.com' Amazon:
--- 'www.amazon.com'.
+-- | A set of optional name-value pairs that map provider names to provider tokens.
+--
+-- The available provider names for 'Logins' are as follows:  Facebook: 'graph.facebook.com'  Google: 'accounts.google.com'  Amazon: 'www.amazon.com'
+--
 giLogins :: Lens' GetId (HashMap Text Text)
 giLogins = lens _giLogins (\s a -> s { _giLogins = a }) . _Map
 

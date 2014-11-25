@@ -21,12 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Provisions a public virtual interface to be owned by a different customer.
+--
 -- The owner of a connection calls this function to provision a public virtual
--- interface which will be owned by another AWS customer. Virtual interfaces
--- created using this function must be confirmed by the virtual interface
--- owner by calling ConfirmPublicVirtualInterface. Until this step has been
--- completed, the virtual interface will be in 'Confirming' state, and will
--- not be available for handling traffic.
+-- interface which will be owned by another AWS customer.
+--
+-- Virtual interfaces created using this function must be confirmed by the
+-- virtual interface owner by calling ConfirmPublicVirtualInterface. Until this
+-- step has been completed, the virtual interface will be in 'Confirming' state,
+-- and will not be available for handling traffic.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocatePublicVirtualInterface.html>
 module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
@@ -94,20 +96,26 @@ allocatePublicVirtualInterface p1 p2 p3 = AllocatePublicVirtualInterface
     }
 
 -- | The connection ID on which the public virtual interface is provisioned.
--- Default: None.
+--
+-- Default: None
+--
 apvi1ConnectionId :: Lens' AllocatePublicVirtualInterface Text
 apvi1ConnectionId =
     lens _apvi1ConnectionId (\s a -> s { _apvi1ConnectionId = a })
 
 -- | Detailed information for the public virtual interface to be provisioned.
--- Default: None.
+--
+-- Default: None
+--
 apvi1NewPublicVirtualInterfaceAllocation :: Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
 apvi1NewPublicVirtualInterfaceAllocation =
     lens _apvi1NewPublicVirtualInterfaceAllocation
         (\s a -> s { _apvi1NewPublicVirtualInterfaceAllocation = a })
 
--- | The AWS account that will own the new public virtual interface. Default:
--- None.
+-- | The AWS account that will own the new public virtual interface.
+--
+-- Default: None
+--
 apvi1OwnerAccount :: Lens' AllocatePublicVirtualInterface Text
 apvi1OwnerAccount =
     lens _apvi1OwnerAccount (\s a -> s { _apvi1OwnerAccount = a })
@@ -202,6 +210,7 @@ apvir1CustomerAddress =
     lens _apvir1CustomerAddress (\s a -> s { _apvir1CustomerAddress = a })
 
 -- | Information for generating the customer router configuration.
+--
 apvir1CustomerRouterConfig :: Lens' AllocatePublicVirtualInterfaceResponse (Maybe Text)
 apvir1CustomerRouterConfig =
     lens _apvir1CustomerRouterConfig

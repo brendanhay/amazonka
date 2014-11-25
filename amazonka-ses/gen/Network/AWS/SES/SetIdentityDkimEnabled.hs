@@ -20,18 +20,18 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Enables or disables Easy DKIM signing of email sent from an identity: If
--- Easy DKIM signing is enabled for a domain name identity (e.g.,
--- 'example.com'), then Amazon SES will DKIM-sign all email sent by addresses
--- under that domain name (e.g., 'user@example.com'). If Easy DKIM signing is
--- enabled for an email address, then Amazon SES will DKIM-sign all email sent
--- by that email address. For email addresses (e.g., 'user@example.com'), you
--- can only enable Easy DKIM signing if the corresponding domain (e.g.,
--- 'example.com') has been set up for Easy DKIM using the AWS Console or the
--- 'VerifyDomainDkim' action. This action is throttled at one request per
--- second. For more information about Easy DKIM signing, go to the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon
--- SES Developer Guide>.
+-- | Enables or disables Easy DKIM signing of email sent from an identity:
+--
+-- If Easy DKIM signing is enabled for a domain name identity (e.g., 'example.com'), then Amazon SES will DKIM-sign all email sent by addresses under that
+-- domain name (e.g., 'user@example.com'). If Easy DKIM signing is enabled for an
+-- email address, then Amazon SES will DKIM-sign all email sent by that email
+-- address.  For email addresses (e.g., 'user@example.com'), you can only enable
+-- Easy DKIM signing if the corresponding domain (e.g., 'example.com') has been
+-- set up for Easy DKIM using the AWS Console or the 'VerifyDomainDkim' action.
+--
+-- This action is throttled at one request per second.
+--
+-- For more information about Easy DKIM signing, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES DeveloperGuide>.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityDkimEnabled.html>
 module Network.AWS.SES.SetIdentityDkimEnabled
@@ -76,12 +76,14 @@ setIdentityDkimEnabled p1 p2 = SetIdentityDkimEnabled
     , _sideDkimEnabled = p2
     }
 
--- | Sets whether DKIM signing is enabled for an identity. Set to 'true' to
--- enable DKIM signing for this identity; 'false' to disable it.
+-- | Sets whether DKIM signing is enabled for an identity. Set to 'true' to enable
+-- DKIM signing for this identity; 'false' to disable it.
+--
 sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
 sideDkimEnabled = lens _sideDkimEnabled (\s a -> s { _sideDkimEnabled = a })
 
 -- | The identity for which DKIM signing should be enabled or disabled.
+--
 sideIdentity :: Lens' SetIdentityDkimEnabled Text
 sideIdentity = lens _sideIdentity (\s a -> s { _sideIdentity = a })
 

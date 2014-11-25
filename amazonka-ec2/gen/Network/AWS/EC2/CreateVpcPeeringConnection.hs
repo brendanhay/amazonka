@@ -20,15 +20,17 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Requests a VPC peering connection between two VPCs: a requester VPC that
--- you own and a peer VPC with which to create the connection. The peer VPC
--- can belong to another AWS account. The requester VPC and peer VPC cannot
--- have overlapping CIDR blocks. The owner of the peer VPC must accept the
--- peering request to activate the peering connection. The VPC peering
--- connection request expires after 7 days, after which it cannot be accepted
--- or rejected. A 'CreateVpcPeeringConnection' request between VPCs with
--- overlapping CIDR blocks results in the VPC peering connection having a
--- status of 'failed'.
+-- | Requests a VPC peering connection between two VPCs: a requester VPC that you
+-- own and a peer VPC with which to create the connection. The peer VPC can
+-- belong to another AWS account. The requester VPC and peer VPC cannot have
+-- overlapping CIDR blocks.
+--
+-- The owner of the peer VPC must accept the peering request to activate the
+-- peering connection. The VPC peering connection request expires after 7 days,
+-- after which it cannot be accepted or rejected.
+--
+-- A 'CreateVpcPeeringConnection' request between VPCs with overlapping CIDR
+-- blocks results in the VPC peering connection having a status of 'failed'.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpcPeeringConnection.html>
 module Network.AWS.EC2.CreateVpcPeeringConnection
@@ -86,16 +88,20 @@ createVpcPeeringConnection = CreateVpcPeeringConnection
 cvpcDryRun :: Lens' CreateVpcPeeringConnection (Maybe Bool)
 cvpcDryRun = lens _cvpcDryRun (\s a -> s { _cvpcDryRun = a })
 
--- | The AWS account ID of the owner of the peer VPC. Default: Your AWS
--- account ID.
+-- | The AWS account ID of the owner of the peer VPC.
+--
+-- Default: Your AWS account ID
+--
 cvpcPeerOwnerId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcPeerOwnerId = lens _cvpcPeerOwnerId (\s a -> s { _cvpcPeerOwnerId = a })
 
 -- | The ID of the VPC with which you are creating the VPC peering connection.
+--
 cvpcPeerVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcPeerVpcId = lens _cvpcPeerVpcId (\s a -> s { _cvpcPeerVpcId = a })
 
 -- | The ID of the requester VPC.
+--
 cvpcVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcVpcId = lens _cvpcVpcId (\s a -> s { _cvpcVpcId = a })
 
@@ -115,6 +121,7 @@ createVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     }
 
 -- | Information about the VPC peering connection.
+--
 cvpcrVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
 cvpcrVpcPeeringConnection =
     lens _cvpcrVpcPeeringConnection

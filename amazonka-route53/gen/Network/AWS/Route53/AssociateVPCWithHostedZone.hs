@@ -20,14 +20,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This action associates a VPC with an hosted zone. To associate a VPC with
--- an hosted zone, send a 'POST' request to the '2013-04-01/hostedzone//hosted
--- zone ID//associatevpc resource. The request body must include an XML
+-- | This action associates a VPC with an hosted zone.
+--
+-- To associate a VPC with an hosted zone, send a 'POST' request to the '2013-04-01/hostedzone//hosted zone ID//associatevpc resource. The request body must include an XML
 -- document with a 'AssociateVPCWithHostedZoneRequest' element. The response
--- returns the 'AssociateVPCWithHostedZoneResponse' element that contains
--- 'ChangeInfo' for you to track the progress of the
--- 'AssociateVPCWithHostedZoneRequest' you made. See 'GetChange' operation for
--- how to track the progress of your change.
+-- returns the 'AssociateVPCWithHostedZoneResponse' element that contains 'ChangeInfo' for you to track the progress of the 'AssociateVPCWithHostedZoneRequest' you
+-- made. See 'GetChange' operation for how to track the progress of your change.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html>
 module Network.AWS.Route53.AssociateVPCWithHostedZone
@@ -79,19 +77,22 @@ associateVPCWithHostedZone p1 p2 = AssociateVPCWithHostedZone
     , _avpcwhzComment      = Nothing
     }
 
--- | /Optional:/ Any comments you want to include about a
--- 'AssociateVPCWithHostedZoneRequest'.
+-- | /Optional:/ Any comments you want to include about a 'AssociateVPCWithHostedZoneRequest'.
+--
 avpcwhzComment :: Lens' AssociateVPCWithHostedZone (Maybe Text)
 avpcwhzComment = lens _avpcwhzComment (\s a -> s { _avpcwhzComment = a })
 
--- | The ID of the hosted zone you want to associate your VPC with. Note that
--- you cannot associate a VPC with a hosted zone that doesn't have an
+-- | The ID of the hosted zone you want to associate your VPC with.
+--
+-- Note that you cannot associate a VPC with a hosted zone that doesn't have an
 -- existing VPC association.
+--
 avpcwhzHostedZoneId :: Lens' AssociateVPCWithHostedZone Text
 avpcwhzHostedZoneId =
     lens _avpcwhzHostedZoneId (\s a -> s { _avpcwhzHostedZoneId = a })
 
 -- | The VPC that you want your hosted zone to be associated with.
+--
 avpcwhzVPC :: Lens' AssociateVPCWithHostedZone VPC
 avpcwhzVPC = lens _avpcwhzVPC (\s a -> s { _avpcwhzVPC = a })
 
@@ -113,6 +114,7 @@ associateVPCWithHostedZoneResponse p1 = AssociateVPCWithHostedZoneResponse
 
 -- | A complex type that contains the ID, the status, and the date and time of
 -- your 'AssociateVPCWithHostedZoneRequest'.
+--
 avpcwhzrChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
 avpcwhzrChangeInfo =
     lens _avpcwhzrChangeInfo (\s a -> s { _avpcwhzrChangeInfo = a })

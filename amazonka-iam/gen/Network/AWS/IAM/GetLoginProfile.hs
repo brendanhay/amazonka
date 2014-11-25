@@ -21,8 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves the user name and password-creation date for the specified user.
--- If the user has not been assigned a password, the action returns a 404
--- ('NoSuchEntity') error.
+-- If the user has not been assigned a password, the action returns a 404 ('NoSuchEntity') error.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetLoginProfile.html>
 module Network.AWS.IAM.GetLoginProfile
@@ -64,6 +63,7 @@ getLoginProfile p1 = GetLoginProfile
     }
 
 -- | The name of the user whose login profile you want to retrieve.
+--
 glpUserName :: Lens' GetLoginProfile Text
 glpUserName = lens _glpUserName (\s a -> s { _glpUserName = a })
 
@@ -84,6 +84,7 @@ getLoginProfileResponse p1 = GetLoginProfileResponse
     }
 
 -- | The user name and password create date for the user.
+--
 glprLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
 glprLoginProfile = lens _glprLoginProfile (\s a -> s { _glprLoginProfile = a })
 

@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new bucket.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/CreateBucket.html>
 module Network.AWS.S3.CreateBucket
     (
@@ -108,8 +107,8 @@ cbCreateBucketConfiguration =
     lens _cbCreateBucketConfiguration
         (\s a -> s { _cbCreateBucketConfiguration = a })
 
--- | Allows grantee the read, write, read ACP, and write ACP permissions on
--- the bucket.
+-- | Allows grantee the read, write, read ACP, and write ACP permissions on the
+-- bucket.
 cbGrantFullControl :: Lens' CreateBucket (Maybe Text)
 cbGrantFullControl =
     lens _cbGrantFullControl (\s a -> s { _cbGrantFullControl = a })

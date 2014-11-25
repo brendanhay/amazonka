@@ -61,8 +61,8 @@ getDeploymentConfig p1 = GetDeploymentConfig
     { _gdcDeploymentConfigName = p1
     }
 
--- | The name of an existing deployment configuration within the AWS user
--- account.
+-- | The name of an existing deployment configuration within the AWS user account.
+--
 gdcDeploymentConfigName :: Lens' GetDeploymentConfig Text
 gdcDeploymentConfigName =
     lens _gdcDeploymentConfigName (\s a -> s { _gdcDeploymentConfigName = a })
@@ -83,6 +83,7 @@ getDeploymentConfigResponse = GetDeploymentConfigResponse
     }
 
 -- | Information about the deployment configuration.
+--
 gdcrDeploymentConfigInfo :: Lens' GetDeploymentConfigResponse (Maybe DeploymentConfigInfo)
 gdcrDeploymentConfigInfo =
     lens _gdcrDeploymentConfigInfo

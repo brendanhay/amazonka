@@ -20,13 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The /DeleteReplicationGroup/ operation deletes an existing cluster. By
--- default, this operation deletes the entire cluster, including the primary
--- node group and all of the read replicas. You can optionally delete only the
--- read replicas, while retaining the primary node group. When you receive a
--- successful response from this operation, Amazon ElastiCache immediately
--- begins deleting the selected resources; you cannot cancel or revert this
--- operation.
+-- | The /DeleteReplicationGroup/ operation deletes an existing cluster. By default,
+-- this operation deletes the entire cluster, including the primary node group
+-- and all of the read replicas. You can optionally delete only the read
+-- replicas, while retaining the primary node group.
+--
+-- When you receive a successful response from this operation, Amazon
+-- ElastiCache immediately begins deleting the selected resources; you cannot
+-- cancel or revert this operation.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteReplicationGroup.html>
 module Network.AWS.ElastiCache.DeleteReplicationGroup
@@ -78,9 +79,10 @@ deleteReplicationGroup p1 = DeleteReplicationGroup
     }
 
 -- | The name of a final node group snapshot. ElastiCache creates the snapshot
--- from the primary node in the cluster, rather than one of the replicas;
--- this is to ensure that it captures the freshest data. After the final
--- snapshot is taken, the cluster is immediately deleted.
+-- from the primary node in the cluster, rather than one of the replicas; this
+-- is to ensure that it captures the freshest data. After the final snapshot is
+-- taken, the cluster is immediately deleted.
+--
 drgFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
 drgFinalSnapshotIdentifier =
     lens _drgFinalSnapshotIdentifier
@@ -88,12 +90,14 @@ drgFinalSnapshotIdentifier =
 
 -- | The identifier for the cluster to be deleted. This parameter is not case
 -- sensitive.
+--
 drgReplicationGroupId :: Lens' DeleteReplicationGroup Text
 drgReplicationGroupId =
     lens _drgReplicationGroupId (\s a -> s { _drgReplicationGroupId = a })
 
--- | If set to /true/, all of the read replicas will be deleted, but the
--- primary node will be retained.
+-- | If set to /true/, all of the read replicas will be deleted, but the primary
+-- node will be retained.
+--
 drgRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
 drgRetainPrimaryCluster =
     lens _drgRetainPrimaryCluster (\s a -> s { _drgRetainPrimaryCluster = a })

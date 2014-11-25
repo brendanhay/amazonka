@@ -21,10 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Disassociates an Elastic IP address from the instance or network interface
--- it's associated with. An Elastic IP address is for use in either the
--- EC2-Classic platform or in a VPC. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html
--- Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/.
+-- it's associated with.
+--
+-- An Elastic IP address is for use in either the EC2-Classic platform or in a
+-- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide/.
+--
 -- This is an idempotent operation. If you perform the operation more than
 -- once, Amazon EC2 doesn't return an error.
 --
@@ -75,6 +76,7 @@ disassociateAddress = DisassociateAddress
     }
 
 -- | [EC2-VPC] The association ID. Required for EC2-VPC.
+--
 da1AssociationId :: Lens' DisassociateAddress (Maybe Text)
 da1AssociationId = lens _da1AssociationId (\s a -> s { _da1AssociationId = a })
 
@@ -82,6 +84,7 @@ da1DryRun :: Lens' DisassociateAddress (Maybe Bool)
 da1DryRun = lens _da1DryRun (\s a -> s { _da1DryRun = a })
 
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+--
 da1PublicIp :: Lens' DisassociateAddress (Maybe Text)
 da1PublicIp = lens _da1PublicIp (\s a -> s { _da1PublicIp = a })
 

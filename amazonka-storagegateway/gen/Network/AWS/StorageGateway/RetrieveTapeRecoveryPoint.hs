@@ -20,10 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Retrieves the recovery point for the specified virtual tape. A recovery
--- point is a point in time view of a virtual tape at which all the data on
--- the tape is consistent. If your gateway crashes, virtual tapes that have
--- recovery points can be recovered to a new gateway.
+-- | Retrieves the recovery point for the specified virtual tape.
+--
+-- A recovery point is a point in time view of a virtual tape at which all the
+-- data on the tape is consistent. If your gateway crashes, virtual tapes that
+-- have recovery points can be recovered to a new gateway.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeRecoveryPoint.html>
 module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
@@ -75,6 +76,7 @@ rtrpGatewayARN = lens _rtrpGatewayARN (\s a -> s { _rtrpGatewayARN = a })
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which you want to
 -- retrieve the recovery point.
+--
 rtrpTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
 rtrpTapeARN = lens _rtrpTapeARN (\s a -> s { _rtrpTapeARN = a })
 
@@ -95,6 +97,7 @@ retrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which the recovery
 -- point was retrieved.
+--
 rtrprTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprTapeARN = lens _rtrprTapeARN (\s a -> s { _rtrprTapeARN = a })
 

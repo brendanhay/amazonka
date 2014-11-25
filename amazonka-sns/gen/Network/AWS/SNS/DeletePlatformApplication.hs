@@ -21,9 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a platform application object for one of the supported push
--- notification services, such as APNS and GCM. For more information, see
--- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon
--- SNS Mobile Push Notifications>.
+-- notification services, such as APNS and GCM. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications>.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_DeletePlatformApplication.html>
 module Network.AWS.SNS.DeletePlatformApplication
@@ -63,6 +61,7 @@ deletePlatformApplication p1 = DeletePlatformApplication
     }
 
 -- | PlatformApplicationArn of platform application object to delete.
+--
 dpaPlatformApplicationArn :: Lens' DeletePlatformApplication Text
 dpaPlatformApplicationArn =
     lens _dpaPlatformApplicationArn

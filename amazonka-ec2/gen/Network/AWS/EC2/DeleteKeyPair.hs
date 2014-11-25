@@ -68,6 +68,7 @@ dkpDryRun :: Lens' DeleteKeyPair (Maybe Bool)
 dkpDryRun = lens _dkpDryRun (\s a -> s { _dkpDryRun = a })
 
 -- | The name of the key pair.
+--
 dkpKeyName :: Lens' DeleteKeyPair Text
 dkpKeyName = lens _dkpKeyName (\s a -> s { _dkpKeyName = a })
 

@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Create a new distribution.
---
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateDistribution.html>
 module Network.AWS.CloudFront.CreateDistribution
     (
@@ -99,8 +98,8 @@ cdrDistribution = lens _cdrDistribution (\s a -> s { _cdrDistribution = a })
 cdrETag :: Lens' CreateDistributionResponse (Maybe Text)
 cdrETag = lens _cdrETag (\s a -> s { _cdrETag = a })
 
--- | The fully qualified URI of the new distribution resource just created.
--- For example:
+-- | The fully qualified URI of the new distribution resource just created. For
+-- example:
 -- https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
 cdrLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrLocation = lens _cdrLocation (\s a -> s { _cdrLocation = a })

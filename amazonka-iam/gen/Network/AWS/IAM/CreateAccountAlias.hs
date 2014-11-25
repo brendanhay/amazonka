@@ -21,9 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates an alias for your AWS account. For information about using an AWS
--- account alias, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an
--- Alias for Your AWS Account ID> in the /Using IAM/ guide.
+-- account alias, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID> in the /Using IAM/
+-- guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccountAlias.html>
 module Network.AWS.IAM.CreateAccountAlias
@@ -63,6 +62,7 @@ createAccountAlias p1 = CreateAccountAlias
     }
 
 -- | The name of the account alias to create.
+--
 caaAccountAlias :: Lens' CreateAccountAlias Text
 caaAccountAlias = lens _caaAccountAlias (\s a -> s { _caaAccountAlias = a })
 

@@ -21,13 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | This operation lists gateways owned by an AWS account in a region specified
--- in the request. The returned list is ordered by gateway Amazon Resource
--- Name (ARN). By default, the operation returns a maximum of 100 gateways.
--- This operation supports pagination that allows you to optionally reduce the
--- number of gateways returned in a response. If you have more gateways than
--- are returned in a response-that is, the response returns only a truncated
--- list of your gateways-the response contains a marker that you can specify
--- in your next request to fetch the next page of gateways.
+-- in the request. The returned list is ordered by gateway Amazon Resource Name
+-- (ARN).
+--
+-- By default, the operation returns a maximum of 100 gateways. This operation
+-- supports pagination that allows you to optionally reduce the number of
+-- gateways returned in a response.
+--
+-- If you have more gateways than are returned in a response-that is, the
+-- response returns only a truncated list of your gateways-the response contains
+-- a marker that you can specify in your next request to fetch the next page of
+-- gateways.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListGateways.html>
 module Network.AWS.StorageGateway.ListGateways
@@ -75,11 +79,13 @@ listGateways = ListGateways
 
 -- | Specifies that the list of gateways returned be limited to the specified
 -- number of items.
+--
 lgLimit :: Lens' ListGateways (Maybe Natural)
 lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a }) . mapping _Nat
 
--- | An opaque string that indicates the position at which to begin the
--- returned list of gateways.
+-- | An opaque string that indicates the position at which to begin the returned
+-- list of gateways.
+--
 lgMarker :: Lens' ListGateways (Maybe Text)
 lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 

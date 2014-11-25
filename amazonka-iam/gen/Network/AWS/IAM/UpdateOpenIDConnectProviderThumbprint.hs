@@ -20,13 +20,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Replaces the existing list of server certificate thumbprints with a new
--- list. The list that you pass with this action completely replaces the
--- existing list of thumbprints. (The lists are not merged.) Typically, you
--- need to update a thumbprint only when the identity provider's certificate
--- changes, which occurs rarely. However, if the provider's certificate /does/
--- change, any attempt to assume an IAM role that specifies the IAM provider
--- as a principal will fail until the certificate thumbprint is updated.
+-- | Replaces the existing list of server certificate thumbprints with a new list.
+--
+-- The list that you pass with this action completely replaces the existing
+-- list of thumbprints. (The lists are not merged.)
+--
+-- Typically, you need to update a thumbprint only when the identity provider's
+-- certificate changes, which occurs rarely. However, if the provider's
+-- certificate /does/ change, any attempt to assume an IAM role that specifies the
+-- IAM provider as a principal will fail until the certificate thumbprint is
+-- updated.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateOpenIDConnectProviderThumbprint.html>
 module Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
@@ -70,17 +73,19 @@ updateOpenIDConnectProviderThumbprint p1 = UpdateOpenIDConnectProviderThumbprint
     , _uoidcptThumbprintList           = mempty
     }
 
--- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
--- to update the thumbprint for. You can get a list of OIDC provider ARNs by
--- using the 'ListOpenIDConnectProviders' action.
+-- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider to
+-- update the thumbprint for. You can get a list of OIDC provider ARNs by using
+-- the 'ListOpenIDConnectProviders' action.
+--
 uoidcptOpenIDConnectProviderArn :: Lens' UpdateOpenIDConnectProviderThumbprint Text
 uoidcptOpenIDConnectProviderArn =
     lens _uoidcptOpenIDConnectProviderArn
         (\s a -> s { _uoidcptOpenIDConnectProviderArn = a })
 
--- | A list of certificate thumbprints that are associated with the specified
--- IAM OpenID Connect provider. For more information, see
--- 'CreateOpenIDConnectProvider'.
+-- | A list of certificate thumbprints that are associated with the specified IAM
+-- OpenID Connect provider. For more information, see 'CreateOpenIDConnectProvider'
+-- .
+--
 uoidcptThumbprintList :: Lens' UpdateOpenIDConnectProviderThumbprint [Text]
 uoidcptThumbprintList =
     lens _uoidcptThumbprintList (\s a -> s { _uoidcptThumbprintList = a })

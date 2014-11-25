@@ -22,9 +22,7 @@
 
 -- | Displays a list of event categories for all event source types, or for a
 -- specified source type. For a list of the event categories and source types,
--- go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html
--- Amazon Redshift Event Notifications>.
+-- go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html Amazon Redshift Event Notifications>.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventCategories.html>
 module Network.AWS.Redshift.DescribeEventCategories
@@ -64,9 +62,11 @@ describeEventCategories = DescribeEventCategories
     { _decSourceType = Nothing
     }
 
--- | The source type, such as cluster or parameter group, to which the
--- described event categories apply. Valid values: cluster, snapshot,
--- parameter group, and security group.
+-- | The source type, such as cluster or parameter group, to which the described
+-- event categories apply.
+--
+-- Valid values: cluster, snapshot, parameter group, and security group.
+--
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
 
@@ -92,6 +92,7 @@ describeEventCategoriesResponse = DescribeEventCategoriesResponse
     }
 
 -- | A list of event categories descriptions.
+--
 decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
 decrEventCategoriesMapList =
     lens _decrEventCategoriesMapList

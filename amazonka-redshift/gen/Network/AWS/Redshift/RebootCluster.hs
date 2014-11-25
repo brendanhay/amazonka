@@ -20,14 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Reboots a cluster. This action is taken as soon as possible. It results in
--- a momentary outage to the cluster, during which the cluster status is set
--- to 'rebooting'. A cluster event is created when the reboot is completed.
--- Any pending cluster modifications (see 'ModifyCluster') are applied at this
--- reboot. For more information about managing clusters, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html
--- Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management
--- Guide/.
+-- | Reboots a cluster. This action is taken as soon as possible. It results in a
+-- momentary outage to the cluster, during which the cluster status is set to 'rebooting'. A cluster event is created when the reboot is completed. Any pending
+-- cluster modifications (see 'ModifyCluster') are applied at this reboot. For
+-- more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in
+-- the /Amazon Redshift Cluster Management Guide/
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RebootCluster.html>
 module Network.AWS.Redshift.RebootCluster
@@ -69,6 +66,7 @@ rebootCluster p1 = RebootCluster
     }
 
 -- | The cluster identifier.
+--
 rcClusterIdentifier :: Lens' RebootCluster Text
 rcClusterIdentifier =
     lens _rcClusterIdentifier (\s a -> s { _rcClusterIdentifier = a })

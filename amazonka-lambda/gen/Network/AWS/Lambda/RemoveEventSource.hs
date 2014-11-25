@@ -20,9 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Removes an event source mapping. This means AWS Lambda will no longer
--- invoke the function for events in the associated source. This operation
--- requires permission for the 'lambda:RemoveEventSource' action.
+-- | Removes an event source mapping. This means AWS Lambda will no longer invoke
+-- the function for events in the associated source.
+--
+-- This operation requires permission for the 'lambda:RemoveEventSource' action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_RemoveEventSource.html>
 module Network.AWS.Lambda.RemoveEventSource
@@ -62,6 +63,7 @@ removeEventSource p1 = RemoveEventSource
     }
 
 -- | The event source mapping ID.
+--
 resUUID :: Lens' RemoveEventSource Text
 resUUID = lens _resUUID (\s a -> s { _resUUID = a })
 

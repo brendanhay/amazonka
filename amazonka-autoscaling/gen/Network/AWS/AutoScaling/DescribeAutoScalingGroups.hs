@@ -21,10 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Describes one or more Auto Scaling groups. If a list of names is not
--- provided, the call describes all Auto Scaling groups. You can specify a
--- maximum number of items to be returned with a single call. If there are
--- more items to return, the call returns a token. To get the next set of
--- items, repeat the call with the returned token in the 'NextToken'
+-- provided, the call describes all Auto Scaling groups.
+--
+-- You can specify a maximum number of items to be returned with a single call.
+-- If there are more items to return, the call returns a token. To get the next
+-- set of items, repeat the call with the returned token in the 'NextToken'
 -- parameter.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingGroups.html>
@@ -77,6 +78,7 @@ describeAutoScalingGroups = DescribeAutoScalingGroups
     }
 
 -- | The group names.
+--
 dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
 dasgAutoScalingGroupNames =
     lens _dasgAutoScalingGroupNames
@@ -84,11 +86,13 @@ dasgAutoScalingGroupNames =
             . _List
 
 -- | The maximum number of items to return with this call.
+--
 dasgMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Int)
 dasgMaxRecords = lens _dasgMaxRecords (\s a -> s { _dasgMaxRecords = a })
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.).
+-- | The token for the next set of items to return. (You received this token from
+-- a previous call.)
+--
 dasgNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
 dasgNextToken = lens _dasgNextToken (\s a -> s { _dasgNextToken = a })
 
@@ -112,6 +116,7 @@ describeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
     }
 
 -- | The groups.
+--
 dasgrAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
 dasgrAutoScalingGroups =
     lens _dasgrAutoScalingGroups (\s a -> s { _dasgrAutoScalingGroups = a })
@@ -119,6 +124,7 @@ dasgrAutoScalingGroups =
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
+--
 dasgrNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
 dasgrNextToken = lens _dasgrNextToken (\s a -> s { _dasgrNextToken = a })
 

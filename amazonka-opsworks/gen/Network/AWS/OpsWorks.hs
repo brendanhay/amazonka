@@ -9,9 +9,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | AWS OpsWorks provides a simple and flexible way to create and manage stacks
--- and applications. With AWS OpsWorks, you can provision AWS resources,
--- manage their configuration, deploy applications to those resources, and
--- monitor their health.
+-- and applications. With AWS OpsWorks, you can provision AWS resources, manage
+-- their configuration, deploy applications to those resources, and monitor
+-- their health.
 module Network.AWS.OpsWorks
     ( module Network.AWS.OpsWorks.AssignVolume
     , module Network.AWS.OpsWorks.AssociateElasticIp

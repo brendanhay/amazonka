@@ -88,10 +88,12 @@ reEncrypt p1 p2 = ReEncrypt
     }
 
 -- | Ciphertext of the data to re-encrypt.
+--
 reCiphertextBlob :: Lens' ReEncrypt Base64
 reCiphertextBlob = lens _reCiphertextBlob (\s a -> s { _reCiphertextBlob = a })
 
 -- | Encryption context to be used when the data is re-encrypted.
+--
 reDestinationEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
 reDestinationEncryptionContext =
     lens _reDestinationEncryptionContext
@@ -99,17 +101,19 @@ reDestinationEncryptionContext =
             . _Map
 
 -- | Key identifier of the key used to re-encrypt the data.
+--
 reDestinationKeyId :: Lens' ReEncrypt Text
 reDestinationKeyId =
     lens _reDestinationKeyId (\s a -> s { _reDestinationKeyId = a })
 
 -- | Grant tokens that identify the grants that have permissions for the
 -- encryption and decryption process.
+--
 reGrantTokens :: Lens' ReEncrypt [Text]
 reGrantTokens = lens _reGrantTokens (\s a -> s { _reGrantTokens = a }) . _List
 
--- | Encryption context used to encrypt and decrypt the data specified in the
--- 'CiphertextBlob' parameter.
+-- | Encryption context used to encrypt and decrypt the data specified in the 'CiphertextBlob' parameter.
+--
 reSourceEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
 reSourceEncryptionContext =
     lens _reSourceEncryptionContext
@@ -140,15 +144,18 @@ reEncryptResponse = ReEncryptResponse
     }
 
 -- | The re-encrypted data.
+--
 rerCiphertextBlob :: Lens' ReEncryptResponse (Maybe Base64)
 rerCiphertextBlob =
     lens _rerCiphertextBlob (\s a -> s { _rerCiphertextBlob = a })
 
 -- | Unique identifier of the key used to re-encrypt the data.
+--
 rerKeyId :: Lens' ReEncryptResponse (Maybe Text)
 rerKeyId = lens _rerKeyId (\s a -> s { _rerKeyId = a })
 
 -- | Unique identifier of the key used to originally encrypt the data.
+--
 rerSourceKeyId :: Lens' ReEncryptResponse (Maybe Text)
 rerSourceKeyId = lens _rerSourceKeyId (\s a -> s { _rerSourceKeyId = a })
 

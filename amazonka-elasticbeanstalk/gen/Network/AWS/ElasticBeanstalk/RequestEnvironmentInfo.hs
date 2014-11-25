@@ -21,11 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Initiates a request to compile the specified type of information of the
--- deployed environment. Setting the 'InfoType' to 'tail' compiles the last
--- lines from the application server log files of every Amazon EC2 instance in
--- your environment. Use 'RetrieveEnvironmentInfo' to access the compiled
--- information. Related Topics 'RetrieveEnvironmentInfo'.
+-- deployed environment.
 --
+-- Setting the 'InfoType' to 'tail' compiles the last lines from the application
+-- server log files of every Amazon EC2 instance in your environment. Use 'RetrieveEnvironmentInfo' to access the compiled information.
+--
+-- Related Topics
+--
+-- 'RetrieveEnvironmentInfo'
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RequestEnvironmentInfo.html>
 module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     (
@@ -73,24 +76,29 @@ requestEnvironmentInfo p1 = RequestEnvironmentInfo
     , _reiEnvironmentName = Nothing
     }
 
--- | The ID of the environment of the requested data. If no such environment
--- is found, 'RequestEnvironmentInfo' returns an 'InvalidParameterValue'
--- error. Condition: You must specify either this or an EnvironmentName, or
--- both. If you do not specify either, AWS Elastic Beanstalk returns
--- 'MissingRequiredParameter' error.
+-- | The ID of the environment of the requested data.
+--
+-- If no such environment is found, 'RequestEnvironmentInfo' returns an 'InvalidParameterValue' error.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+--
 reiEnvironmentId :: Lens' RequestEnvironmentInfo (Maybe Text)
 reiEnvironmentId = lens _reiEnvironmentId (\s a -> s { _reiEnvironmentId = a })
 
--- | The name of the environment of the requested data. If no such environment
--- is found, 'RequestEnvironmentInfo' returns an 'InvalidParameterValue'
--- error. Condition: You must specify either this or an EnvironmentId, or
--- both. If you do not specify either, AWS Elastic Beanstalk returns
--- 'MissingRequiredParameter' error.
+-- | The name of the environment of the requested data.
+--
+-- If no such environment is found, 'RequestEnvironmentInfo' returns an 'InvalidParameterValue' error.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+--
 reiEnvironmentName :: Lens' RequestEnvironmentInfo (Maybe Text)
 reiEnvironmentName =
     lens _reiEnvironmentName (\s a -> s { _reiEnvironmentName = a })
 
 -- | The type of information to request.
+--
 reiInfoType :: Lens' RequestEnvironmentInfo EnvironmentInfoType
 reiInfoType = lens _reiInfoType (\s a -> s { _reiInfoType = a })
 

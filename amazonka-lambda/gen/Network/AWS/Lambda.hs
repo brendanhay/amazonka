@@ -8,17 +8,17 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | AWS Lambda is a compute service that runs your code in response to events
--- and automatically manages the compute resources for you, making it easy to
--- build applications that respond quickly to new information. AWS Lambda
--- starts running your code within milliseconds of an event such as an image
--- upload, in-app activity, website click, or output from a connected device.
--- You can also use AWS Lambda to create new back-end services where compute
--- resources are automatically triggered based on custom requests. With AWS
--- Lambda you pay only for the requests served and the compute time required
--- to run your code. Billing is metered in increments of 100 milliseconds,
--- making it cost-effective and easy to scale automatically from a few
--- requests per day to thousands per second.
+-- | AWS Lambda is a compute service that runs your code in response to events and
+-- automatically manages the compute resources for you, making it easy to build
+-- applications that respond quickly to new information. AWS Lambda starts
+-- running your code within milliseconds of an event such as an image upload,
+-- in-app activity, website click, or output from a connected device. You can
+-- also use AWS Lambda to create new back-end services where compute resources
+-- are automatically triggered based on custom requests. With AWS Lambda you pay
+-- only for the requests served and the compute time required to run your code.
+-- Billing is metered in increments of 100 milliseconds, making it
+-- cost-effective and easy to scale automatically from a few requests per day to
+-- thousands per second.
 module Network.AWS.Lambda
     ( module Network.AWS.Lambda.AddEventSource
     , module Network.AWS.Lambda.DeleteFunction

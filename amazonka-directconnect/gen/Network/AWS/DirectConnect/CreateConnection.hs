@@ -21,14 +21,15 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new connection between the customer network and a specific AWS
--- Direct Connect location. A connection links your internal network to an AWS
--- Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet
--- fiber-optic cable. One end of the cable is connected to your router, the
--- other to an AWS Direct Connect router. An AWS Direct Connect location
--- provides access to Amazon Web Services in the region it is associated with.
--- You can establish connections with AWS Direct Connect locations in multiple
--- regions, but a connection in one region does not provide connectivity to
--- other regions.
+-- Direct Connect location.
+--
+-- A connection links your internal network to an AWS Direct Connect location
+-- over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end
+-- of the cable is connected to your router, the other to an AWS Direct Connect
+-- router. An AWS Direct Connect location provides access to Amazon Web Services
+-- in the region it is associated with. You can establish connections with AWS
+-- Direct Connect locations in multiple regions, but a connection in one region
+-- does not provide connectivity to other regions.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html>
 module Network.AWS.DirectConnect.CreateConnection
@@ -145,8 +146,12 @@ createConnectionResponse = CreateConnectionResponse
     , _ccrPartnerName     = Nothing
     }
 
--- | Bandwidth of the connection. Example: 1Gbps (for regular connections), or
--- 500Mbps (for hosted connections) Default: None.
+-- | Bandwidth of the connection.
+--
+-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
+--
+-- Default: None
+--
 ccrBandwidth :: Lens' CreateConnectionResponse (Maybe Text)
 ccrBandwidth = lens _ccrBandwidth (\s a -> s { _ccrBandwidth = a })
 

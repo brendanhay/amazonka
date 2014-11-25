@@ -20,9 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Verifies an email address. This action causes a confirmation email message
--- to be sent to the specified address. This action is throttled at one
--- request per second.
+-- | Verifies an email address. This action causes a confirmation email message to
+-- be sent to the specified address.
+--
+-- This action is throttled at one request per second.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailIdentity.html>
 module Network.AWS.SES.VerifyEmailIdentity
@@ -62,6 +63,7 @@ verifyEmailIdentity p1 = VerifyEmailIdentity
     }
 
 -- | The email address to be verified.
+--
 veiEmailAddress :: Lens' VerifyEmailIdentity Text
 veiEmailAddress = lens _veiEmailAddress (\s a -> s { _veiEmailAddress = a })
 

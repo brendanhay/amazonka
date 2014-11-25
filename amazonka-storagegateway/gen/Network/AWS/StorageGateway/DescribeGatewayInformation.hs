@@ -116,11 +116,13 @@ dgirGatewayARN :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirGatewayARN = lens _dgirGatewayARN (\s a -> s { _dgirGatewayARN = a })
 
 -- | The gateway ID.
+--
 dgirGatewayId :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirGatewayId = lens _dgirGatewayId (\s a -> s { _dgirGatewayId = a })
 
--- | A 'NetworkInterface' array that contains descriptions of the gateway
--- network interfaces.
+-- | A 'NetworkInterface' array that contains descriptions of the gateway network
+-- interfaces.
+--
 dgirGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse [NetworkInterface]
 dgirGatewayNetworkInterfaces =
     lens _dgirGatewayNetworkInterfaces
@@ -128,22 +130,25 @@ dgirGatewayNetworkInterfaces =
             . _List
 
 -- | One of the values that indicates the operating state of the gateway.
+--
 dgirGatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirGatewayState = lens _dgirGatewayState (\s a -> s { _dgirGatewayState = a })
 
--- | One of the values that indicates the time zone configured for the
--- gateway.
+-- | One of the values that indicates the time zone configured for the gateway.
+--
 dgirGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirGatewayTimezone =
     lens _dgirGatewayTimezone (\s a -> s { _dgirGatewayTimezone = a })
 
--- | TBD.
+-- | TBD
+--
 dgirGatewayType :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirGatewayType = lens _dgirGatewayType (\s a -> s { _dgirGatewayType = a })
 
--- | The date at which an update to the gateway is available. This date is in
--- the time zone of the gateway. If the gateway is not available for an
--- update this field is not returned in the response.
+-- | The date at which an update to the gateway is available. This date is in the
+-- time zone of the gateway. If the gateway is not available for an update this
+-- field is not returned in the response.
+--
 dgirNextUpdateAvailabilityDate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirNextUpdateAvailabilityDate =
     lens _dgirNextUpdateAvailabilityDate

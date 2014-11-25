@@ -13,10 +13,10 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    AWS Data Pipeline is a web service that you can use to automate the
-    movement and transformation of data. With AWS Data Pipeline, you can
-    define data-driven workflows, so that tasks can be dependent on the
-    successful completion of previous tasks.
+    AWS Data Pipeline is a web service that you can use to automate the movement
+    and transformation of data. With AWS Data Pipeline, you can define
+    data-driven workflows, so that tasks can be dependent on the successful
+    completion of previous tasks.
     .
     /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.html AWS API Reference>
     .

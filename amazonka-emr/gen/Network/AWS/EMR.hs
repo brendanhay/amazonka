@@ -8,11 +8,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy
--- to process large amounts of data efficiently. Amazon EMR uses Hadoop
--- processing combined with several AWS products to do such tasks as web
--- indexing, data mining, log file analysis, machine learning, scientific
--- simulation, and data warehousing.
+-- | Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to
+-- process large amounts of data efficiently. Amazon EMR uses Hadoop processing
+-- combined with several AWS products to do such tasks as web indexing, data
+-- mining, log file analysis, machine learning, scientific simulation, and data
+-- warehousing.
 module Network.AWS.EMR
     ( module Network.AWS.EMR.AddInstanceGroups
     , module Network.AWS.EMR.AddJobFlowSteps

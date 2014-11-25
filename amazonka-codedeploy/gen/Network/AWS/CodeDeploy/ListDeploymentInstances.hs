@@ -20,8 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Lists the Amazon EC2 instances for a deployment within the AWS user
--- account.
+-- | Lists the Amazon EC2 instances for a deployment within the AWS user account.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentInstances.html>
 module Network.AWS.CodeDeploy.ListDeploymentInstances
@@ -74,25 +73,28 @@ listDeploymentInstances p1 = ListDeploymentInstances
     }
 
 -- | The unique ID of a deployment.
+--
 ldiDeploymentId :: Lens' ListDeploymentInstances Text
 ldiDeploymentId = lens _ldiDeploymentId (\s a -> s { _ldiDeploymentId = a })
 
--- | A subset of instances to list, by status: Pending: Include in the
--- resulting list those instances with pending deployments. InProgress:
--- Include in the resulting list those instances with in-progress
--- deployments. Succeeded: Include in the resulting list those instances
--- with succeeded deployments. Failed: Include in the resulting list those
--- instances with failed deployments. Skipped: Include in the resulting list
--- those instances with skipped deployments. Unknown: Include in the
+-- | A subset of instances to list, by status:
+--
+-- Pending: Include in the resulting list those instances with pending
+-- deployments. InProgress: Include in the resulting list those instances with
+-- in-progress deployments. Succeeded: Include in the resulting list those
+-- instances with succeeded deployments. Failed: Include in the resulting list
+-- those instances with failed deployments. Skipped: Include in the resulting
+-- list those instances with skipped deployments. Unknown: Include in the
 -- resulting list those instances with deployments in an unknown state.
 ldiInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
 ldiInstanceStatusFilter =
     lens _ldiInstanceStatusFilter (\s a -> s { _ldiInstanceStatusFilter = a })
         . _List
 
--- | An identifier that was returned from the previous list deployment
--- instances call, which can be used to return the next set of deployment
--- instances in the list.
+-- | An identifier that was returned from the previous list deployment instances
+-- call, which can be used to return the next set of deployment instances in the
+-- list.
+--
 ldiNextToken :: Lens' ListDeploymentInstances (Maybe Text)
 ldiNextToken = lens _ldiNextToken (\s a -> s { _ldiNextToken = a })
 
@@ -116,6 +118,7 @@ listDeploymentInstancesResponse = ListDeploymentInstancesResponse
     }
 
 -- | A list of instance IDs.
+--
 ldirInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
 ldirInstancesList =
     lens _ldirInstancesList (\s a -> s { _ldirInstancesList = a })
@@ -123,8 +126,9 @@ ldirInstancesList =
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
--- deployment instances call to return the next set of deployment instances
--- in the list.
+-- deployment instances call to return the next set of deployment instances in
+-- the list.
+--
 ldirNextToken :: Lens' ListDeploymentInstancesResponse (Maybe Text)
 ldirNextToken = lens _ldirNextToken (\s a -> s { _ldirNextToken = a })
 

@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Removes an ''Expression' from the search domain. For more information, see
--- Configuring Expressions in the /Amazon CloudSearch Developer Guide/.
+-- | Removes an ''Expression' from the search domain. For more information, see Configuring Expressions
+-- in the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteExpression.html>
 module Network.AWS.CloudSearch.DeleteExpression
@@ -72,6 +72,7 @@ de2DomainName :: Lens' DeleteExpression Text
 de2DomainName = lens _de2DomainName (\s a -> s { _de2DomainName = a })
 
 -- | The name of the ''Expression' to delete.
+--
 de2ExpressionName :: Lens' DeleteExpression Text
 de2ExpressionName =
     lens _de2ExpressionName (\s a -> s { _de2ExpressionName = a })
@@ -93,6 +94,7 @@ deleteExpressionResponse p1 = DeleteExpressionResponse
     }
 
 -- | The status of the expression being deleted.
+--
 der1Expression :: Lens' DeleteExpressionResponse ExpressionStatus
 der1Expression = lens _der1Expression (\s a -> s { _der1Expression = a })
 

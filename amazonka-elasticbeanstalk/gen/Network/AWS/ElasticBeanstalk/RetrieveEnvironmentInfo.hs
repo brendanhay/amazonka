@@ -21,8 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Retrieves the compiled information from a 'RequestEnvironmentInfo' request.
--- Related Topics 'RequestEnvironmentInfo'.
 --
+-- Related Topics
+--
+-- 'RequestEnvironmentInfo'
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RetrieveEnvironmentInfo.html>
 module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     (
@@ -72,23 +74,30 @@ retrieveEnvironmentInfo p1 = RetrieveEnvironmentInfo
     , _rei1EnvironmentName = Nothing
     }
 
--- | The ID of the data's environment. If no such environment is found,
--- returns an 'InvalidParameterValue' error. Condition: You must specify
--- either this or an EnvironmentName, or both. If you do not specify either,
--- AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- | The ID of the data's environment.
+--
+-- If no such environment is found, returns an 'InvalidParameterValue' error.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+--
 rei1EnvironmentId :: Lens' RetrieveEnvironmentInfo (Maybe Text)
 rei1EnvironmentId =
     lens _rei1EnvironmentId (\s a -> s { _rei1EnvironmentId = a })
 
--- | The name of the data's environment. If no such environment is found,
--- returns an 'InvalidParameterValue' error. Condition: You must specify
--- either this or an EnvironmentId, or both. If you do not specify either,
--- AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- | The name of the data's environment.
+--
+-- If no such environment is found, returns an 'InvalidParameterValue' error.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+--
 rei1EnvironmentName :: Lens' RetrieveEnvironmentInfo (Maybe Text)
 rei1EnvironmentName =
     lens _rei1EnvironmentName (\s a -> s { _rei1EnvironmentName = a })
 
 -- | The type of information to retrieve.
+--
 rei1InfoType :: Lens' RetrieveEnvironmentInfo EnvironmentInfoType
 rei1InfoType = lens _rei1InfoType (\s a -> s { _rei1InfoType = a })
 
@@ -114,6 +123,7 @@ retrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
     }
 
 -- | The 'EnvironmentInfoDescription' of the environment.
+--
 reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
 reirEnvironmentInfo =
     lens _reirEnvironmentInfo (\s a -> s { _reirEnvironmentInfo = a })

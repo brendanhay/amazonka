@@ -23,8 +23,8 @@
 -- | Describes the configuration options that are used in a particular
 -- configuration template or environment, or that a specified solution stack
 -- defines. The description includes the values the options, their default
--- values, and an indication of the required action on a running environment
--- if an option value is changed.
+-- values, and an indication of the required action on a running environment if
+-- an option value is changed.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationOptions.html>
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
@@ -86,30 +86,35 @@ describeConfigurationOptions = DescribeConfigurationOptions
     }
 
 -- | The name of the application associated with the configuration template or
--- environment. Only needed if you want to describe the configuration
--- options associated with either the configuration template or environment.
+-- environment. Only needed if you want to describe the configuration options
+-- associated with either the configuration template or environment.
+--
 dcoApplicationName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoApplicationName =
     lens _dcoApplicationName (\s a -> s { _dcoApplicationName = a })
 
 -- | The name of the environment whose configuration options you want to
 -- describe.
+--
 dcoEnvironmentName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoEnvironmentName =
     lens _dcoEnvironmentName (\s a -> s { _dcoEnvironmentName = a })
 
 -- | If specified, restricts the descriptions to only the specified options.
+--
 dcoOptions :: Lens' DescribeConfigurationOptions [OptionSpecification]
 dcoOptions = lens _dcoOptions (\s a -> s { _dcoOptions = a }) . _List
 
 -- | The name of the solution stack whose configuration options you want to
 -- describe.
+--
 dcoSolutionStackName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoSolutionStackName =
     lens _dcoSolutionStackName (\s a -> s { _dcoSolutionStackName = a })
 
--- | The name of the configuration template whose configuration options you
--- want to describe.
+-- | The name of the configuration template whose configuration options you want
+-- to describe.
+--
 dcoTemplateName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoTemplateName = lens _dcoTemplateName (\s a -> s { _dcoTemplateName = a })
 
@@ -133,10 +138,12 @@ describeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
     }
 
 -- | A list of 'ConfigurationOptionDescription'.
+--
 dcorOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
 dcorOptions = lens _dcorOptions (\s a -> s { _dcorOptions = a }) . _List
 
 -- | The name of the solution stack these configuration options belong to.
+--
 dcorSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 dcorSolutionStackName =
     lens _dcorSolutionStackName (\s a -> s { _dcorSolutionStackName = a })

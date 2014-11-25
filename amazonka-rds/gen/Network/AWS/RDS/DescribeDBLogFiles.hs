@@ -93,44 +93,53 @@ describeDBLogFiles p1 = DescribeDBLogFiles
     }
 
 -- | The customer-assigned name of the DB instance that contains the log files
--- you want to list. Constraints: Must contain from 1 to 63 alphanumeric
--- characters or hyphens First character must be a letter Cannot end with a
--- hyphen or contain two consecutive hyphens.
+-- you want to list.
+--
+-- Constraints:
+--
+-- Must contain from 1 to 63 alphanumeric characters or hyphens First
+-- character must be a letter Cannot end with a hyphen or contain two
+-- consecutive hyphens
 ddblfDBInstanceIdentifier :: Lens' DescribeDBLogFiles Text
 ddblfDBInstanceIdentifier =
     lens _ddblfDBInstanceIdentifier
         (\s a -> s { _ddblfDBInstanceIdentifier = a })
 
--- | Filters the available log files for files written since the specified
--- date, in POSIX timestamp format.
+-- | Filters the available log files for files written since the specified date,
+-- in POSIX timestamp format.
+--
 ddblfFileLastWritten :: Lens' DescribeDBLogFiles (Maybe Integer)
 ddblfFileLastWritten =
     lens _ddblfFileLastWritten (\s a -> s { _ddblfFileLastWritten = a })
 
 -- | Filters the available log files for files larger than the specified size.
+--
 ddblfFileSize :: Lens' DescribeDBLogFiles (Maybe Integer)
 ddblfFileSize = lens _ddblfFileSize (\s a -> s { _ddblfFileSize = a })
 
 -- | Filters the available log files for log file names that contain the
 -- specified string.
+--
 ddblfFilenameContains :: Lens' DescribeDBLogFiles (Maybe Text)
 ddblfFilenameContains =
     lens _ddblfFilenameContains (\s a -> s { _ddblfFilenameContains = a })
 
 -- | This parameter is not currently supported.
+--
 ddblfFilters :: Lens' DescribeDBLogFiles [Filter]
 ddblfFilters = lens _ddblfFilters (\s a -> s { _ddblfFilters = a }) . _List
 
--- | The pagination token provided in the previous request. If this parameter
--- is specified the response includes only records beyond the marker, up to
+-- | The pagination token provided in the previous request. If this parameter is
+-- specified the response includes only records beyond the marker, up to
 -- MaxRecords.
+--
 ddblfMarker :: Lens' DescribeDBLogFiles (Maybe Text)
 ddblfMarker = lens _ddblfMarker (\s a -> s { _ddblfMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
--- exist than the specified MaxRecords value, a pagination token called a
--- marker is included in the response so that the remaining results can be
--- retrieved.
+-- exist than the specified MaxRecords value, a pagination token called a marker
+-- is included in the response so that the remaining results can be retrieved.
+--
 ddblfMaxRecords :: Lens' DescribeDBLogFiles (Maybe Int)
 ddblfMaxRecords = lens _ddblfMaxRecords (\s a -> s { _ddblfMaxRecords = a })
 
@@ -154,6 +163,7 @@ describeDBLogFilesResponse = DescribeDBLogFilesResponse
     }
 
 -- | The DB log files returned.
+--
 ddblfrDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]
 ddblfrDescribeDBLogFiles =
     lens _ddblfrDescribeDBLogFiles
@@ -162,6 +172,7 @@ ddblfrDescribeDBLogFiles =
 
 -- | A pagination token that can be used in a subsequent DescribeDBLogFiles
 -- request.
+--
 ddblfrMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddblfrMarker = lens _ddblfrMarker (\s a -> s { _ddblfrMarker = a })
 

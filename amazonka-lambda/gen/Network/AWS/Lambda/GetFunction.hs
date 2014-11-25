@@ -20,12 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns the configuration information of the Lambda function and a
--- presigned URL link to the .zip file you uploaded with 'UploadFunction' so
--- you can download the .zip file. Note that the URL is valid for up to 10
--- minutes. The configuration information is the same information you provided
--- as parameters when uploading the function. This operation requires
--- permission for the 'lambda:GetFunction' action.
+-- | Returns the configuration information of the Lambda function and a presigned
+-- URL link to the .zip file you uploaded with 'UploadFunction' so you can
+-- download the .zip file. Note that the URL is valid for up to 10 minutes. The
+-- configuration information is the same information you provided as parameters
+-- when uploading the function.
+--
+-- This operation requires permission for the 'lambda:GetFunction' action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunction.html>
 module Network.AWS.Lambda.GetFunction
@@ -68,6 +69,7 @@ getFunction p1 = GetFunction
     }
 
 -- | The Lambda function name.
+--
 gfFunctionName :: Lens' GetFunction Text
 gfFunctionName = lens _gfFunctionName (\s a -> s { _gfFunctionName = a })
 

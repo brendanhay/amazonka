@@ -73,26 +73,31 @@ describeEventSubscriptions = DescribeEventSubscriptions
     , _des1Marker           = Nothing
     }
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a 'DescribeEventSubscriptions'
--- request exceed the value specified in 'MaxRecords', AWS returns a value
--- in the 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
+-- | An optional parameter that specifies the starting point to return a set of
+-- response records. When the results of a 'DescribeEventSubscriptions' request
+-- exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker'
+-- field of the response. You can retrieve the next set of response records by
+-- providing the returned marker value in the 'Marker' parameter and retrying the
+-- request.
+--
 des1Marker :: Lens' DescribeEventSubscriptions (Maybe Text)
 des1Marker = lens _des1Marker (\s a -> s { _des1Marker = a })
 
--- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified 'MaxRecords'
--- value, a value is returned in a 'marker' field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value. Default: '100' Constraints: minimum 20, maximum
--- 100.
+-- | The maximum number of response records to return in each call. If the number
+-- of remaining response records exceeds the specified 'MaxRecords' value, a value
+-- is returned in a 'marker' field of the response. You can retrieve the next set
+-- of records by retrying the command with the returned marker value.
+--
+-- Default: '100'
+--
+-- Constraints: minimum 20, maximum 100.
+--
 des1MaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
 des1MaxRecords = lens _des1MaxRecords (\s a -> s { _des1MaxRecords = a })
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- described.
+--
 des1SubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
 des1SubscriptionName =
     lens _des1SubscriptionName (\s a -> s { _des1SubscriptionName = a })
@@ -117,6 +122,7 @@ describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     }
 
 -- | A list of event subscriptions.
+--
 desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
 desrEventSubscriptionsList =
     lens _desrEventSubscriptionsList
@@ -124,11 +130,11 @@ desrEventSubscriptionsList =
             . _List
 
 -- | A value that indicates the starting point for the next set of response
--- records in a subsequent request. If a value is returned in a response,
--- you can retrieve the next set of records by providing this returned
--- marker value in the 'Marker' parameter and retrying the command. If the
--- 'Marker' field is empty, all response records have been retrieved for the
--- request.
+-- records in a subsequent request. If a value is returned in a response, you
+-- can retrieve the next set of records by providing this returned marker value
+-- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
+-- empty, all response records have been retrieved for the request.
+--
 desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrMarker = lens _desrMarker (\s a -> s { _desrMarker = a })
 

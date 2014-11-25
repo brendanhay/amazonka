@@ -20,11 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This operation returns information about a job, including where the job is
--- in the processing pipeline, the status of the results, and the signature
--- value associated with the job. You can only return information about jobs
--- you own.
---
+-- | This operation returns information about a job, including where the job is in
+-- the processing pipeline, the status of the results, and the signature value
+-- associated with the job. You can only return information about jobs you own.
 -- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetStatus.html>
 module Network.AWS.ImportExport.GetStatus
     (

@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Return the notification configuration of a bucket.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketNotification.html>
 module Network.AWS.S3.GetBucketNotification
     (

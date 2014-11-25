@@ -68,13 +68,15 @@ setIdentityPoolConfiguration p1 = SetIdentityPoolConfiguration
     }
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. This is the ID of the pool to modify.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- This is the ID of the pool to modify.
+--
 sipcIdentityPoolId :: Lens' SetIdentityPoolConfiguration Text
 sipcIdentityPoolId =
     lens _sipcIdentityPoolId (\s a -> s { _sipcIdentityPoolId = a })
 
 -- | Configuration options to be applied to the identity pool.
+--
 sipcPushSync :: Lens' SetIdentityPoolConfiguration (Maybe PushSync)
 sipcPushSync = lens _sipcPushSync (\s a -> s { _sipcPushSync = a })
 
@@ -98,13 +100,14 @@ setIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse
     }
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+--
 sipcrIdentityPoolId :: Lens' SetIdentityPoolConfigurationResponse (Maybe Text)
 sipcrIdentityPoolId =
     lens _sipcrIdentityPoolId (\s a -> s { _sipcrIdentityPoolId = a })
 
 -- | Configuration options applied to the identity pool.
+--
 sipcrPushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
 sipcrPushSync = lens _sipcrPushSync (\s a -> s { _sipcrPushSync = a })
 

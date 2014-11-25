@@ -20,18 +20,20 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Detaches an Amazon EBS volume from an instance. Make sure to unmount any
--- file systems on the device within your operating system before detaching
--- the volume. Failure to do so results in the volume being stuck in a busy
--- state while detaching. If an Amazon EBS volume is the root device of an
--- instance, it can't be detached while the instance is running. To detach the
--- root volume, stop the instance first. If the root volume is detached from
--- an instance with an AWS Marketplace product code, then the AWS Marketplace
--- product codes from that volume are no longer associated with the instance.
--- For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html
--- Detaching an Amazon EBS Volume> in the /Amazon Elastic Compute Cloud User
--- Guide/.
+-- | Detaches an Amazon EBS volume from an instance. Make sure to unmount any file
+-- systems on the device within your operating system before detaching the
+-- volume. Failure to do so results in the volume being stuck in a busy state
+-- while detaching.
+--
+-- If an Amazon EBS volume is the root device of an instance, it can't be
+-- detached while the instance is running. To detach the root volume, stop the
+-- instance first.
+--
+-- If the root volume is detached from an instance with an AWS Marketplace
+-- product code, then the AWS Marketplace product codes from that volume are no
+-- longer associated with the instance.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html Detaching an Amazon EBS Volume> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVolume.html>
 module Network.AWS.EC2.DetachVolume
@@ -98,27 +100,31 @@ detachVolume p1 = DetachVolume
     }
 
 -- | The device name.
+--
 dvDevice :: Lens' DetachVolume (Maybe Text)
 dvDevice = lens _dvDevice (\s a -> s { _dvDevice = a })
 
 dvDryRun :: Lens' DetachVolume (Maybe Bool)
 dvDryRun = lens _dvDryRun (\s a -> s { _dvDryRun = a })
 
--- | Forces detachment if the previous detachment attempt did not occur
--- cleanly (for example, logging into an instance, unmounting the volume,
--- and detaching normally). This option can lead to data loss or a corrupted
--- file system. Use this option only as a last resort to detach a volume
--- from a failed instance. The instance won't have an opportunity to flush
--- file system caches or file system metadata. If you use this option, you
--- must perform file system check and repair procedures.
+-- | Forces detachment if the previous detachment attempt did not occur cleanly
+-- (for example, logging into an instance, unmounting the volume, and detaching
+-- normally). This option can lead to data loss or a corrupted file system. Use
+-- this option only as a last resort to detach a volume from a failed instance.
+-- The instance won't have an opportunity to flush file system caches or file
+-- system metadata. If you use this option, you must perform file system check
+-- and repair procedures.
+--
 dvForce :: Lens' DetachVolume (Maybe Bool)
 dvForce = lens _dvForce (\s a -> s { _dvForce = a })
 
 -- | The ID of the instance.
+--
 dvInstanceId :: Lens' DetachVolume (Maybe Text)
 dvInstanceId = lens _dvInstanceId (\s a -> s { _dvInstanceId = a })
 
 -- | The ID of the volume.
+--
 dvVolumeId :: Lens' DetachVolume Text
 dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
 
@@ -158,28 +164,33 @@ detachVolumeResponse = DetachVolumeResponse
     }
 
 -- | The time stamp when the attachment initiated.
+--
 dvrAttachTime :: Lens' DetachVolumeResponse (Maybe UTCTime)
 dvrAttachTime = lens _dvrAttachTime (\s a -> s { _dvrAttachTime = a }) . mapping _Time
 
--- | Indicates whether the Amazon EBS volume is deleted on instance
--- termination.
+-- | Indicates whether the Amazon EBS volume is deleted on instance termination.
+--
 dvrDeleteOnTermination :: Lens' DetachVolumeResponse (Maybe Bool)
 dvrDeleteOnTermination =
     lens _dvrDeleteOnTermination (\s a -> s { _dvrDeleteOnTermination = a })
 
 -- | The device name.
+--
 dvrDevice :: Lens' DetachVolumeResponse (Maybe Text)
 dvrDevice = lens _dvrDevice (\s a -> s { _dvrDevice = a })
 
 -- | The ID of the instance.
+--
 dvrInstanceId :: Lens' DetachVolumeResponse (Maybe Text)
 dvrInstanceId = lens _dvrInstanceId (\s a -> s { _dvrInstanceId = a })
 
 -- | The attachment state of the volume.
+--
 dvrState :: Lens' DetachVolumeResponse (Maybe VolumeAttachmentState)
 dvrState = lens _dvrState (\s a -> s { _dvrState = a })
 
 -- | The ID of the volume.
+--
 dvrVolumeId :: Lens' DetachVolumeResponse (Maybe Text)
 dvrVolumeId = lens _dvrVolumeId (\s a -> s { _dvrVolumeId = a })
 

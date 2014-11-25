@@ -79,9 +79,8 @@ encrypt p1 p2 = Encrypt
     }
 
 -- | Name:value pair that specifies the encryption context to be used for
--- authenticated encryption. For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/crypto_authen.html
--- Authenticated Encryption>.
+-- authenticated encryption. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/crypto_authen.html Authenticated Encryption>.
+--
 eEncryptionContext :: Lens' Encrypt (HashMap Text Text)
 eEncryptionContext =
     lens _eEncryptionContext (\s a -> s { _eEncryptionContext = a })
@@ -89,15 +88,18 @@ eEncryptionContext =
 
 -- | A list of grant tokens that represent grants which can be used to provide
 -- long term permissions to perform encryption.
+--
 eGrantTokens :: Lens' Encrypt [Text]
 eGrantTokens = lens _eGrantTokens (\s a -> s { _eGrantTokens = a }) . _List
 
--- | Unique identifier of the customer master. This can be an ARN, an alias,
--- or the Key ID.
+-- | Unique identifier of the customer master. This can be an ARN, an alias, or
+-- the Key ID.
+--
 eKeyId :: Lens' Encrypt Text
 eKeyId = lens _eKeyId (\s a -> s { _eKeyId = a })
 
 -- | Data to be encrypted.
+--
 ePlaintext :: Lens' Encrypt Base64
 ePlaintext = lens _ePlaintext (\s a -> s { _ePlaintext = a })
 
@@ -121,10 +123,12 @@ encryptResponse = EncryptResponse
     }
 
 -- | The encrypted plaintext.
+--
 erCiphertextBlob :: Lens' EncryptResponse (Maybe Base64)
 erCiphertextBlob = lens _erCiphertextBlob (\s a -> s { _erCiphertextBlob = a })
 
 -- | The ID of the key used during encryption.
+--
 erKeyId :: Lens' EncryptResponse (Maybe Text)
 erKeyId = lens _erKeyId (\s a -> s { _erKeyId = a })
 

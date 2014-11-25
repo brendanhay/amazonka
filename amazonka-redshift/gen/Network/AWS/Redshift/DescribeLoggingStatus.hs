@@ -67,8 +67,10 @@ describeLoggingStatus p1 = DescribeLoggingStatus
     { _dlsClusterIdentifier = p1
     }
 
--- | The identifier of the cluster to get the logging status from. Example:
--- 'examplecluster'.
+-- | The identifier of the cluster to get the logging status from.
+--
+-- Example: 'examplecluster'
+--
 dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
 dlsClusterIdentifier =
     lens _dlsClusterIdentifier (\s a -> s { _dlsClusterIdentifier = a })
@@ -109,21 +111,25 @@ describeLoggingStatusResponse = DescribeLoggingStatusResponse
     }
 
 -- | The name of the S3 bucket where the log files are stored.
+--
 dlsrBucketName :: Lens' DescribeLoggingStatusResponse (Maybe Text)
 dlsrBucketName = lens _dlsrBucketName (\s a -> s { _dlsrBucketName = a })
 
 -- | The message indicating that logs failed to be delivered.
+--
 dlsrLastFailureMessage :: Lens' DescribeLoggingStatusResponse (Maybe Text)
 dlsrLastFailureMessage =
     lens _dlsrLastFailureMessage (\s a -> s { _dlsrLastFailureMessage = a })
 
 -- | The last time when logs failed to be delivered.
+--
 dlsrLastFailureTime :: Lens' DescribeLoggingStatusResponse (Maybe UTCTime)
 dlsrLastFailureTime =
     lens _dlsrLastFailureTime (\s a -> s { _dlsrLastFailureTime = a })
         . mapping _Time
 
 -- | The last time when logs were delivered.
+--
 dlsrLastSuccessfulDeliveryTime :: Lens' DescribeLoggingStatusResponse (Maybe UTCTime)
 dlsrLastSuccessfulDeliveryTime =
     lens _dlsrLastSuccessfulDeliveryTime
@@ -131,11 +137,13 @@ dlsrLastSuccessfulDeliveryTime =
             . mapping _Time
 
 -- | 'true' if logging is on, 'false' if logging is off.
+--
 dlsrLoggingEnabled :: Lens' DescribeLoggingStatusResponse (Maybe Bool)
 dlsrLoggingEnabled =
     lens _dlsrLoggingEnabled (\s a -> s { _dlsrLoggingEnabled = a })
 
 -- | The prefix applied to the log file names.
+--
 dlsrS3KeyPrefix :: Lens' DescribeLoggingStatusResponse (Maybe Text)
 dlsrS3KeyPrefix = lens _dlsrS3KeyPrefix (\s a -> s { _dlsrS3KeyPrefix = a })
 

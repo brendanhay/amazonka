@@ -72,17 +72,20 @@ setLoadBalancerPoliciesOfListener p1 p2 = SetLoadBalancerPoliciesOfListener
     }
 
 -- | The name of the load balancer.
+--
 slbpolLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
 slbpolLoadBalancerName =
     lens _slbpolLoadBalancerName (\s a -> s { _slbpolLoadBalancerName = a })
 
 -- | The external port of the load balancer to associate the policy.
+--
 slbpolLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Int
 slbpolLoadBalancerPort =
     lens _slbpolLoadBalancerPort (\s a -> s { _slbpolLoadBalancerPort = a })
 
--- | List of policies to be associated with the listener. If the list is
--- empty, the current policy is removed from the listener.
+-- | List of policies to be associated with the listener. If the list is empty,
+-- the current policy is removed from the listener.
+--
 slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
 slbpolPolicyNames =
     lens _slbpolPolicyNames (\s a -> s { _slbpolPolicyNames = a })

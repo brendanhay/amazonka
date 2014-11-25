@@ -21,14 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Changes the status of the specified access key from Active to Inactive, or
--- vice versa. This action can be used to disable a user's key as part of a
--- key rotation work flow. If the 'UserName' field is not specified, the
--- UserName is determined implicitly based on the AWS access key ID used to
--- sign the request. Because this action works for access keys under the AWS
--- account, you can use this action to manage root credentials even if the AWS
--- account has no associated users. For information about rotating keys, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html
--- Managing Keys and Certificates> in the /Using IAM/ guide.
+-- vice versa. This action can be used to disable a user's key as part of a key
+-- rotation work flow.
+--
+-- If the 'UserName' field is not specified, the UserName is determined
+-- implicitly based on the AWS access key ID used to sign the request. Because
+-- this action works for access keys under the AWS account, you can use this
+-- action to manage root credentials even if the AWS account has no associated
+-- users.
+--
+-- For information about rotating keys, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html Managing Keys and Certificates> in
+-- the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccessKey.html>
 module Network.AWS.IAM.UpdateAccessKey
@@ -79,16 +82,19 @@ updateAccessKey p1 p2 = UpdateAccessKey
     }
 
 -- | The access key ID of the secret access key you want to update.
+--
 uakAccessKeyId :: Lens' UpdateAccessKey Text
 uakAccessKeyId = lens _uakAccessKeyId (\s a -> s { _uakAccessKeyId = a })
 
--- | The status you want to assign to the secret access key. 'Active' means
--- the key can be used for API calls to AWS, while 'Inactive' means the key
--- cannot be used.
+-- | The status you want to assign to the secret access key. 'Active' means the key
+-- can be used for API calls to AWS, while 'Inactive' means the key cannot be
+-- used.
+--
 uakStatus :: Lens' UpdateAccessKey StatusType
 uakStatus = lens _uakStatus (\s a -> s { _uakStatus = a })
 
 -- | The name of the user whose key you want to update.
+--
 uakUserName :: Lens' UpdateAccessKey (Maybe Text)
 uakUserName = lens _uakUserName (\s a -> s { _uakUserName = a })
 

@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | The /ResetCacheParameterGroup/ operation modifies the parameters of a cache
--- parameter group to the engine or system default value. You can reset
--- specific parameters by submitting a list of parameter names. To reset the
--- entire cache parameter group, specify the /ResetAllParameters/ and
--- /CacheParameterGroupName/ parameters.
+-- parameter group to the engine or system default value. You can reset specific
+-- parameters by submitting a list of parameter names. To reset the entire cache
+-- parameter group, specify the /ResetAllParameters/ and /CacheParameterGroupName/
+-- parameters.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ResetCacheParameterGroup.html>
 module Network.AWS.ElastiCache.ResetCacheParameterGroup
@@ -76,22 +76,25 @@ resetCacheParameterGroup p1 = ResetCacheParameterGroup
     }
 
 -- | The name of the cache parameter group to reset.
+--
 rcpgCacheParameterGroupName :: Lens' ResetCacheParameterGroup Text
 rcpgCacheParameterGroupName =
     lens _rcpgCacheParameterGroupName
         (\s a -> s { _rcpgCacheParameterGroupName = a })
 
--- | An array of parameter names to be reset. If you are not resetting the
--- entire cache parameter group, you must specify at least one parameter
--- name.
+-- | An array of parameter names to be reset. If you are not resetting the entire
+-- cache parameter group, you must specify at least one parameter name.
+--
 rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
 rcpgParameterNameValues =
     lens _rcpgParameterNameValues (\s a -> s { _rcpgParameterNameValues = a })
         . _List
 
--- | If /true/, all parameters in the cache parameter group will be reset to
--- default values. If /false/, no such action occurs. Valid values: 'true' |
--- 'false'.
+-- | If /true/, all parameters in the cache parameter group will be reset to default
+-- values. If /false/, no such action occurs.
+--
+-- Valid values: 'true' | 'false'
+--
 rcpgResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
 rcpgResetAllParameters =
     lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })
@@ -112,6 +115,7 @@ resetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
     }
 
 -- | The name of the cache parameter group.
+--
 rcpgrCacheParameterGroupName :: Lens' ResetCacheParameterGroupResponse (Maybe Text)
 rcpgrCacheParameterGroupName =
     lens _rcpgrCacheParameterGroupName

@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Retrieves settings for the trail associated with the current region for
--- your account.
+-- | Retrieves settings for the trail associated with the current region for your
+-- account.
 --
 -- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DescribeTrails.html>
 module Network.AWS.CloudTrail.DescribeTrails
@@ -68,6 +68,7 @@ describeTrails = DescribeTrails
     }
 
 -- | The trail returned.
+--
 dtTrailNameList :: Lens' DescribeTrails [Text]
 dtTrailNameList = lens _dtTrailNameList (\s a -> s { _dtTrailNameList = a }) . _List
 
@@ -93,6 +94,7 @@ describeTrailsResponse = DescribeTrailsResponse
     }
 
 -- | The list of trails.
+--
 dtrTrailList :: Lens' DescribeTrailsResponse [Trail]
 dtrTrailList = lens _dtrTrailList (\s a -> s { _dtrTrailList = a }) . _List
 

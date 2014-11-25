@@ -20,13 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Detaches a virtual private gateway from a VPC. You do this if you're
--- planning to turn off the VPC and not use it anymore. You can confirm a
--- virtual private gateway has been completely detached from a VPC by
--- describing the virtual private gateway (any attachments to the virtual
--- private gateway are also described). You must wait for the attachment's
--- state to switch to 'detached' before you can delete the VPC or attach a
--- different VPC to the virtual private gateway.
+-- | Detaches a virtual private gateway from a VPC. You do this if you're planning
+-- to turn off the VPC and not use it anymore. You can confirm a virtual private
+-- gateway has been completely detached from a VPC by describing the virtual
+-- private gateway (any attachments to the virtual private gateway are also
+-- described).
+--
+-- You must wait for the attachment's state to switch to 'detached' before you
+-- can delete the VPC or attach a different VPC to the virtual private gateway.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVpnGateway.html>
 module Network.AWS.EC2.DetachVpnGateway
@@ -80,10 +81,12 @@ dvg1DryRun :: Lens' DetachVpnGateway (Maybe Bool)
 dvg1DryRun = lens _dvg1DryRun (\s a -> s { _dvg1DryRun = a })
 
 -- | The ID of the VPC.
+--
 dvg1VpcId :: Lens' DetachVpnGateway Text
 dvg1VpcId = lens _dvg1VpcId (\s a -> s { _dvg1VpcId = a })
 
 -- | The ID of the virtual private gateway.
+--
 dvg1VpnGatewayId :: Lens' DetachVpnGateway Text
 dvg1VpnGatewayId = lens _dvg1VpnGatewayId (\s a -> s { _dvg1VpnGatewayId = a })
 

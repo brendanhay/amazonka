@@ -149,14 +149,17 @@ destination = Destination
     }
 
 -- | The BCC: field(s) of the message.
+--
 dBccAddresses :: Lens' Destination [Text]
 dBccAddresses = lens _dBccAddresses (\s a -> s { _dBccAddresses = a }) . _List
 
 -- | The CC: field(s) of the message.
+--
 dCcAddresses :: Lens' Destination [Text]
 dCcAddresses = lens _dCcAddresses (\s a -> s { _dCcAddresses = a }) . _List
 
 -- | The To: field(s) of the message.
+--
 dToAddresses :: Lens' Destination [Text]
 dToAddresses = lens _dToAddresses (\s a -> s { _dToAddresses = a }) . _List
 
@@ -200,25 +203,27 @@ identityDkimAttributes p1 p2 = IdentityDkimAttributes
 
 -- | True if DKIM signing is enabled for email sent from the identity; false
 -- otherwise.
+--
 idaDkimEnabled :: Lens' IdentityDkimAttributes Bool
 idaDkimEnabled = lens _idaDkimEnabled (\s a -> s { _idaDkimEnabled = a })
 
--- | A set of character strings that represent the domain's identity. Using
--- these tokens, you will need to create DNS CNAME records that point to
--- DKIM public keys hosted by Amazon SES. Amazon Web Services will
--- eventually detect that you have updated your DNS records; this detection
--- process may take up to 72 hours. Upon successful detection, Amazon SES
--- will be able to DKIM-sign email originating from that domain. (This only
--- applies to domain identities, not email address identities.) For more
--- information about creating DNS records using DKIM tokens, go to the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html
--- Amazon SES Developer Guide>.
+-- | A set of character strings that represent the domain's identity. Using these
+-- tokens, you will need to create DNS CNAME records that point to DKIM public
+-- keys hosted by Amazon SES. Amazon Web Services will eventually detect that
+-- you have updated your DNS records; this detection process may take up to 72
+-- hours. Upon successful detection, Amazon SES will be able to DKIM-sign email
+-- originating from that domain. (This only applies to domain identities, not
+-- email address identities.)
+--
+-- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
+--
 idaDkimTokens :: Lens' IdentityDkimAttributes [Text]
 idaDkimTokens = lens _idaDkimTokens (\s a -> s { _idaDkimTokens = a }) . _List
 
--- | Describes whether Amazon SES has successfully verified the DKIM DNS
--- records (tokens) published in the domain name's DNS. (This only applies
--- to domain identities, not email address identities.).
+-- | Describes whether Amazon SES has successfully verified the DKIM DNS records
+-- (tokens) published in the domain name's DNS. (This only applies to domain
+-- identities, not email address identities.)
+--
 idaDkimVerificationStatus :: Lens' IdentityDkimAttributes VerificationStatus
 idaDkimVerificationStatus =
     lens _idaDkimVerificationStatus
@@ -256,14 +261,16 @@ body = Body
     , _bHtml = Nothing
     }
 
--- | The content of the message, in HTML format. Use this for email clients
--- that can process HTML. You can include clickable links, formatted text,
--- and much more in an HTML message.
+-- | The content of the message, in HTML format. Use this for email clients that
+-- can process HTML. You can include clickable links, formatted text, and much
+-- more in an HTML message.
+--
 bHtml :: Lens' Body (Maybe Content)
 bHtml = lens _bHtml (\s a -> s { _bHtml = a })
 
 -- | The content of the message, in text format. Use this for text-based email
 -- clients, or clients on high-latency networks (such as mobile devices).
+--
 bText :: Lens' Body (Maybe Content)
 bText = lens _bText (\s a -> s { _bText = a })
 
@@ -298,14 +305,16 @@ identityVerificationAttributes p1 = IdentityVerificationAttributes
     , _ivaVerificationToken  = Nothing
     }
 
--- | The verification status of the identity: "Pending", "Success", "Failed",
--- or "TemporaryFailure".
+-- | The verification status of the identity: "Pending", "Success", "Failed", or
+-- "TemporaryFailure".
+--
 ivaVerificationStatus :: Lens' IdentityVerificationAttributes VerificationStatus
 ivaVerificationStatus =
     lens _ivaVerificationStatus (\s a -> s { _ivaVerificationStatus = a })
 
 -- | The verification token for a domain identity. Null for email address
 -- identities.
+--
 ivaVerificationToken :: Lens' IdentityVerificationAttributes (Maybe Text)
 ivaVerificationToken =
     lens _ivaVerificationToken (\s a -> s { _ivaVerificationToken = a })
@@ -353,23 +362,28 @@ sendDataPoint = SendDataPoint
     }
 
 -- | Number of emails that have bounced.
+--
 sdpBounces :: Lens' SendDataPoint (Maybe Integer)
 sdpBounces = lens _sdpBounces (\s a -> s { _sdpBounces = a })
 
 -- | Number of unwanted emails that were rejected by recipients.
+--
 sdpComplaints :: Lens' SendDataPoint (Maybe Integer)
 sdpComplaints = lens _sdpComplaints (\s a -> s { _sdpComplaints = a })
 
 -- | Number of emails that have been enqueued for sending.
+--
 sdpDeliveryAttempts :: Lens' SendDataPoint (Maybe Integer)
 sdpDeliveryAttempts =
     lens _sdpDeliveryAttempts (\s a -> s { _sdpDeliveryAttempts = a })
 
 -- | Number of emails rejected by Amazon SES.
+--
 sdpRejects :: Lens' SendDataPoint (Maybe Integer)
 sdpRejects = lens _sdpRejects (\s a -> s { _sdpRejects = a })
 
 -- | Time of the data point.
+--
 sdpTimestamp :: Lens' SendDataPoint (Maybe UTCTime)
 sdpTimestamp = lens _sdpTimestamp (\s a -> s { _sdpTimestamp = a }) . mapping _Time
 
@@ -437,10 +451,12 @@ content p1 = Content
     }
 
 -- | The character set of the content.
+--
 cCharset :: Lens' Content (Maybe Text)
 cCharset = lens _cCharset (\s a -> s { _cCharset = a })
 
 -- | The textual data of the content.
+--
 cData :: Lens' Content Text
 cData = lens _cData (\s a -> s { _cData = a })
 
@@ -486,27 +502,31 @@ identityNotificationAttributes p1 p2 p3 p4 = IdentityNotificationAttributes
     , _inaForwardingEnabled = p4
     }
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
--- will publish bounce notifications.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will
+-- publish bounce notifications.
+--
 inaBounceTopic :: Lens' IdentityNotificationAttributes Text
 inaBounceTopic = lens _inaBounceTopic (\s a -> s { _inaBounceTopic = a })
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
--- will publish complaint notifications.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will
+-- publish complaint notifications.
+--
 inaComplaintTopic :: Lens' IdentityNotificationAttributes Text
 inaComplaintTopic =
     lens _inaComplaintTopic (\s a -> s { _inaComplaintTopic = a })
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
--- will publish delivery notifications.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will
+-- publish delivery notifications.
+--
 inaDeliveryTopic :: Lens' IdentityNotificationAttributes Text
 inaDeliveryTopic = lens _inaDeliveryTopic (\s a -> s { _inaDeliveryTopic = a })
 
--- | Describes whether Amazon SES will forward bounce and complaint
--- notifications as email. 'true' indicates that Amazon SES will forward
--- bounce and complaint notifications as email, while 'false' indicates that
--- bounce and complaint notifications will be published only to the
--- specified bounce and complaint Amazon SNS topics.
+-- | Describes whether Amazon SES will forward bounce and complaint notifications
+-- as email. 'true' indicates that Amazon SES will forward bounce and complaint
+-- notifications as email, while 'false' indicates that bounce and complaint
+-- notifications will be published only to the specified bounce and complaint
+-- Amazon SNS topics.
+--
 inaForwardingEnabled :: Lens' IdentityNotificationAttributes Bool
 inaForwardingEnabled =
     lens _inaForwardingEnabled (\s a -> s { _inaForwardingEnabled = a })
@@ -542,13 +562,14 @@ rawMessage p1 = RawMessage
     { _rmData = p1
     }
 
--- | The raw data of the message. The client must ensure that the message
--- format complies with Internet email standards regarding email header
--- fields, MIME types, MIME encoding, and base64 encoding (if necessary).
--- The To:, CC:, and BCC: headers in the raw message can contain a group
--- list. For more information, go to the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html
--- Amazon SES Developer Guide>.
+-- | The raw data of the message. The client must ensure that the message format
+-- complies with Internet email standards regarding email header fields, MIME
+-- types, MIME encoding, and base64 encoding (if necessary).
+--
+-- The To:, CC:, and BCC: headers in the raw message can contain a group list.
+--
+-- For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide>.
+--
 rmData :: Lens' RawMessage Base64
 rmData = lens _rmData (\s a -> s { _rmData = a })
 
@@ -647,11 +668,13 @@ message p1 p2 = Message
     }
 
 -- | The message body.
+--
 mBody :: Lens' Message Body
 mBody = lens _mBody (\s a -> s { _mBody = a })
 
--- | The subject of the message: A short summary of the content, which will
--- appear in the recipient's inbox.
+-- | The subject of the message: A short summary of the content, which will appear
+-- in the recipient's inbox.
+--
 mSubject :: Lens' Message Content
 mSubject = lens _mSubject (\s a -> s { _mSubject = a })
 

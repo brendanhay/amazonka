@@ -20,11 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates an import instance task using metadata from the specified disk
--- image. After importing the image, you then upload it using the
--- ec2-import-volume command in the EC2 command line tools. For more
--- information, see Using the Command Line Tools to Import Your Virtual
--- Machine to Amazon EC2 in the Amazon Elastic Compute Cloud User Guide.
+-- | Creates an import instance task using metadata from the specified disk image.
+-- After importing the image, you then upload it using the ec2-import-volume
+-- command in the EC2 command line tools. For more information, see Using the
+-- Command Line Tools to Import Your Virtual Machine to Amazon EC2 in the Amazon
+-- Elastic Compute Cloud User Guide.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportInstance.html>
 module Network.AWS.EC2.ImportInstance
@@ -86,6 +86,7 @@ importInstance p1 = ImportInstance
     }
 
 -- | A description for the instance being imported.
+--
 iiDescription :: Lens' ImportInstance (Maybe Text)
 iiDescription = lens _iiDescription (\s a -> s { _iiDescription = a })
 
@@ -96,11 +97,13 @@ iiDryRun :: Lens' ImportInstance (Maybe Bool)
 iiDryRun = lens _iiDryRun (\s a -> s { _iiDryRun = a })
 
 -- | 
+--
 iiLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
 iiLaunchSpecification =
     lens _iiLaunchSpecification (\s a -> s { _iiLaunchSpecification = a })
 
 -- | The instance operating system.
+--
 iiPlatform :: Lens' ImportInstance PlatformValues
 iiPlatform = lens _iiPlatform (\s a -> s { _iiPlatform = a })
 

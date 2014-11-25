@@ -20,12 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This action updates an existing health check. To update a health check,
--- send a 'POST' request to the '2013-04-01/healthcheck//health check ID/
--- resource. The request body must include an XML document with an
--- 'UpdateHealthCheckRequest' element. The response returns an
--- 'UpdateHealthCheckResponse' element, which contains metadata about the
--- health check.
+-- | This action updates an existing health check.
+--
+-- To update a health check, send a 'POST' request to the '2013-04-01/healthcheck//health check ID/ resource. The request body must include an XML document with
+-- an 'UpdateHealthCheckRequest' element. The response returns an 'UpdateHealthCheckResponse' element, which contains metadata about the health check.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html>
 module Network.AWS.Route53.UpdateHealthCheck
@@ -101,61 +99,76 @@ updateHealthCheck p1 = UpdateHealthCheck
     , _uhcFailureThreshold         = Nothing
     }
 
--- | The number of consecutive health checks that an endpoint must pass or
--- fail for Route 53 to change the current status of the endpoint from
--- unhealthy to healthy or vice versa. Valid values are integers between 1
--- and 10. For more information, see "How Amazon Route 53 Determines Whether
--- an Endpoint Is Healthy" in the Amazon Route 53 Developer Guide. Specify
--- this value only if you want to change it.
+-- | The number of consecutive health checks that an endpoint must pass or fail
+-- for Route 53 to change the current status of the endpoint from unhealthy to
+-- healthy or vice versa.
+--
+-- Valid values are integers between 1 and 10. For more information, see "How
+-- Amazon Route 53 Determines Whether an Endpoint Is Healthy" in the Amazon
+-- Route 53 Developer Guide.
+--
+-- Specify this value only if you want to change it.
+--
 uhcFailureThreshold :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcFailureThreshold =
     lens _uhcFailureThreshold (\s a -> s { _uhcFailureThreshold = a })
         . mapping _Nat
 
--- | Fully qualified domain name of the instance to be health checked. Specify
--- this value only if you want to change it.
+-- | Fully qualified domain name of the instance to be health checked.
+--
+-- Specify this value only if you want to change it.
+--
 uhcFullyQualifiedDomainName :: Lens' UpdateHealthCheck (Maybe Text)
 uhcFullyQualifiedDomainName =
     lens _uhcFullyQualifiedDomainName
         (\s a -> s { _uhcFullyQualifiedDomainName = a })
 
 -- | The ID of the health check to update.
+--
 uhcHealthCheckId :: Lens' UpdateHealthCheck Text
 uhcHealthCheckId = lens _uhcHealthCheckId (\s a -> s { _uhcHealthCheckId = a })
 
 -- | Optional. When you specify a health check version, Route 53 compares this
 -- value with the current value in the health check, which prevents you from
--- updating the health check when the versions don't match. Using
--- 'HealthCheckVersion' lets you prevent overwriting another change to the
--- health check.
+-- updating the health check when the versions don't match. Using 'HealthCheckVersion' lets you prevent overwriting another change to the health check.
+--
 uhcHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcHealthCheckVersion =
     lens _uhcHealthCheckVersion (\s a -> s { _uhcHealthCheckVersion = a })
         . mapping _Nat
 
--- | The IP address of the resource that you want to check. Specify this value
--- only if you want to change it.
+-- | The IP address of the resource that you want to check.
+--
+-- Specify this value only if you want to change it.
+--
 uhcIPAddress :: Lens' UpdateHealthCheck (Maybe Text)
 uhcIPAddress = lens _uhcIPAddress (\s a -> s { _uhcIPAddress = a })
 
--- | The port on which you want Route 53 to open a connection to perform
--- health checks. Specify this value only if you want to change it.
+-- | The port on which you want Route 53 to open a connection to perform health
+-- checks.
+--
+-- Specify this value only if you want to change it.
+--
 uhcPort :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcPort = lens _uhcPort (\s a -> s { _uhcPort = a }) . mapping _Nat
 
 -- | The path that you want Amazon Route 53 to request when performing health
--- checks. The path can be any value for which your endpoint will return an
--- HTTP status code of 2xx or 3xx when the endpoint is healthy, for example
--- the file /docs/route53-health-check.html. Specify this value only if you
--- want to change it.
+-- checks. The path can be any value for which your endpoint will return an HTTP
+-- status code of 2xx or 3xx when the endpoint is healthy, for example the file
+-- /docs/route53-health-check.html.
+--
+-- Specify this value only if you want to change it.
+--
 uhcResourcePath :: Lens' UpdateHealthCheck (Maybe Text)
 uhcResourcePath = lens _uhcResourcePath (\s a -> s { _uhcResourcePath = a })
 
--- | If the value of 'Type' is 'HTTP_STR_MATCH' or 'HTTP_STR_MATCH', the
--- string that you want Route 53 to search for in the response body from the
--- specified resource. If the string appears in the response body, Route 53
--- considers the resource healthy. Specify this value only if you want to
--- change it.
+-- | If the value of 'Type' is 'HTTP_STR_MATCH' or 'HTTP_STR_MATCH', the string that you
+-- want Route 53 to search for in the response body from the specified resource.
+-- If the string appears in the response body, Route 53 considers the resource
+-- healthy.
+--
+-- Specify this value only if you want to change it.
+--
 uhcSearchString :: Lens' UpdateHealthCheck (Maybe Text)
 uhcSearchString = lens _uhcSearchString (\s a -> s { _uhcSearchString = a })
 

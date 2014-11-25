@@ -71,20 +71,23 @@ deleteApplicationVersion p1 p2 = DeleteApplicationVersion
     }
 
 -- | The name of the application to delete releases from.
+--
 davApplicationName :: Lens' DeleteApplicationVersion Text
 davApplicationName =
     lens _davApplicationName (\s a -> s { _davApplicationName = a })
 
 -- | Indicates whether to delete the associated source bundle from Amazon S3:
--- 'true': An attempt is made to delete the associated Amazon S3 source
--- bundle specified at time of creation. 'false': No action is taken on the
--- Amazon S3 source bundle specified at time of creation. Valid Values:
--- 'true' | 'false'.
+--
+-- 'true': An attempt is made to delete the associated Amazon S3 source bundle
+-- specified at time of creation.   'false': No action is taken on the Amazon S3
+-- source bundle specified at time of creation.    Valid Values: 'true' | 'false'
+--
 davDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
 davDeleteSourceBundle =
     lens _davDeleteSourceBundle (\s a -> s { _davDeleteSourceBundle = a })
 
 -- | The label of the version to delete.
+--
 davVersionLabel :: Lens' DeleteApplicationVersion Text
 davVersionLabel = lens _davVersionLabel (\s a -> s { _davVersionLabel = a })
 

@@ -62,6 +62,7 @@ getSubscriptionAttributes p1 = GetSubscriptionAttributes
     }
 
 -- | The ARN of the subscription whose properties you want to get.
+--
 gsaSubscriptionArn :: Lens' GetSubscriptionAttributes Text
 gsaSubscriptionArn =
     lens _gsaSubscriptionArn (\s a -> s { _gsaSubscriptionArn = a })
@@ -81,15 +82,15 @@ getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes = mempty
     }
 
--- | A map of the subscription's attributes. Attributes in this map include
--- the following: 'SubscriptionArn' -- the subscription's ARN 'TopicArn' --
--- the topic ARN that the subscription is associated with 'Owner' -- the AWS
--- account ID of the subscription's owner 'ConfirmationWasAuthenticated' --
--- true if the subscription confirmation request was authenticated
--- 'DeliveryPolicy' -- the JSON serialization of the subscription's delivery
--- policy 'EffectiveDeliveryPolicy' -- the JSON serialization of the
--- effective delivery policy that takes into account the topic delivery
--- policy and account system defaults.
+-- | A map of the subscription's attributes. Attributes in this map include the
+-- following:
+--
+-- 'SubscriptionArn' -- the subscription's ARN  'TopicArn' -- the topic ARN that
+-- the subscription is associated with  'Owner' -- the AWS account ID of the
+-- subscription's owner  'ConfirmationWasAuthenticated' -- true if the
+-- subscription confirmation request was authenticated  'DeliveryPolicy' -- the
+-- JSON serialization of the subscription's delivery policy  'EffectiveDeliveryPolicy' -- the JSON serialization of the effective delivery policy that takes into
+-- account the topic delivery policy and account system defaults
 gsarAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
 gsarAttributes = lens _gsarAttributes (\s a -> s { _gsarAttributes = a }) . _EMap
 

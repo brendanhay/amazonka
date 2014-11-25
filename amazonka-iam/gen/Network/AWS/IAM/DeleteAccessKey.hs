@@ -20,10 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes the access key associated with the specified user. If you do not
--- specify a user name, IAM determines the user name implicitly based on the
--- AWS access key ID signing the request. Because this action works for access
--- keys under the AWS account, you can use this action to manage root
+-- | Deletes the access key associated with the specified user.
+--
+-- If you do not specify a user name, IAM determines the user name implicitly
+-- based on the AWS access key ID signing the request. Because this action works
+-- for access keys under the AWS account, you can use this action to manage root
 -- credentials even if the AWS account has no associated users.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccessKey.html>
@@ -70,10 +71,12 @@ deleteAccessKey p1 = DeleteAccessKey
 
 -- | The access key ID for the access key ID and secret access key you want to
 -- delete.
+--
 dakAccessKeyId :: Lens' DeleteAccessKey Text
 dakAccessKeyId = lens _dakAccessKeyId (\s a -> s { _dakAccessKeyId = a })
 
 -- | The name of the user whose key you want to delete.
+--
 dakUserName :: Lens' DeleteAccessKey (Maybe Text)
 dakUserName = lens _dakUserName (\s a -> s { _dakUserName = a })
 

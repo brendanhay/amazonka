@@ -20,10 +20,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates a new user for your AWS account. For information about limitations
--- on the number of users you can create, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html
--- Limitations on IAM Entities> in the /Using IAM/ guide.
+-- | Creates a new user for your AWS account.
+--
+-- For information about limitations on the number of users you can create,
+-- see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html>
 module Network.AWS.IAM.CreateUser
@@ -69,14 +69,16 @@ createUser p1 = CreateUser
     , _cuPath     = Nothing
     }
 
--- | The path for the user name. For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
--- IAM Identifiers> in the /Using IAM/ guide. This parameter is optional. If
--- it is not included, it defaults to a slash (/).
+-- | The path for the user name. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAMIdentifiers> in the /Using IAM/ guide.
+--
+-- This parameter is optional. If it is not included, it defaults to a slash
+-- (/).
+--
 cuPath :: Lens' CreateUser (Maybe Text)
 cuPath = lens _cuPath (\s a -> s { _cuPath = a })
 
 -- | The name of the user to create.
+--
 cuUserName :: Lens' CreateUser Text
 cuUserName = lens _cuUserName (\s a -> s { _cuUserName = a })
 
@@ -96,6 +98,7 @@ createUserResponse = CreateUserResponse
     }
 
 -- | Information about the user.
+--
 curUser :: Lens' CreateUserResponse (Maybe User)
 curUser = lens _curUser (\s a -> s { _curUser = a })
 

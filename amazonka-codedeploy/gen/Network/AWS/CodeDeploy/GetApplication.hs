@@ -63,6 +63,7 @@ getApplication p1 = GetApplication
 
 -- | The name of an existing AWS CodeDeploy application within the AWS user
 -- account.
+--
 gaApplicationName :: Lens' GetApplication Text
 gaApplicationName =
     lens _gaApplicationName (\s a -> s { _gaApplicationName = a })
@@ -83,6 +84,7 @@ getApplicationResponse = GetApplicationResponse
     }
 
 -- | Information about the application.
+--
 garApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
 garApplication = lens _garApplication (\s a -> s { _garApplication = a })
 

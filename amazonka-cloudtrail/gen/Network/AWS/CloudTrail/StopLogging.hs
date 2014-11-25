@@ -22,8 +22,8 @@
 
 -- | Suspends the recording of AWS API calls and log file delivery for the
 -- specified trail. Under most circumstances, there is no need to use this
--- action. You can update a trail without stopping it first. This action is
--- the only way to stop recording.
+-- action. You can update a trail without stopping it first. This action is the
+-- only way to stop recording.
 --
 -- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html>
 module Network.AWS.CloudTrail.StopLogging
@@ -62,8 +62,9 @@ stopLogging p1 = StopLogging
     { _slName = p1
     }
 
--- | Communicates to CloudTrail the name of the trail for which to stop
--- logging AWS API calls.
+-- | Communicates to CloudTrail the name of the trail for which to stop logging
+-- AWS API calls.
+--
 slName :: Lens' StopLogging Text
 slName = lens _slName (\s a -> s { _slName = a })
 

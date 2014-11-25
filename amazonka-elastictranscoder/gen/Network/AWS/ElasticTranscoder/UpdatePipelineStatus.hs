@@ -20,13 +20,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The UpdatePipelineStatus operation pauses or reactivates a pipeline, so
--- that the pipeline stops or restarts the processing of jobs. Changing the
--- pipeline status is useful if you want to cancel one or more jobs. You can't
--- cancel jobs after Elastic Transcoder has started processing them; if you
--- pause the pipeline to which you submitted the jobs, you have more time to
--- get the job IDs for the jobs that you want to cancel, and to send a
--- 'CancelJob' request.
+-- | The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that
+-- the pipeline stops or restarts the processing of jobs.
+--
+-- Changing the pipeline status is useful if you want to cancel one or more
+-- jobs. You can't cancel jobs after Elastic Transcoder has started processing
+-- them; if you pause the pipeline to which you submitted the jobs, you have
+-- more time to get the job IDs for the jobs that you want to cancel, and to
+-- send a 'CancelJob' request.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineStatus.html>
 module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
@@ -74,11 +75,14 @@ updatePipelineStatus p1 p2 = UpdatePipelineStatus
     }
 
 -- | The identifier of the pipeline to update.
+--
 upsId :: Lens' UpdatePipelineStatus Text
 upsId = lens _upsId (\s a -> s { _upsId = a })
 
--- | The desired status of the pipeline: 'Active': The pipeline is processing
--- jobs. 'Paused': The pipeline is not currently processing jobs.
+-- | The desired status of the pipeline:
+--
+-- 'Active': The pipeline is processing jobs.  'Paused': The pipeline is not
+-- currently processing jobs.
 upsStatus :: Lens' UpdatePipelineStatus Text
 upsStatus = lens _upsStatus (\s a -> s { _upsStatus = a })
 
@@ -97,8 +101,8 @@ updatePipelineStatusResponse = UpdatePipelineStatusResponse
     { _upsrPipeline = Nothing
     }
 
--- | A section of the response body that provides information about the
--- pipeline.
+-- | A section of the response body that provides information about the pipeline.
+--
 upsrPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
 upsrPipeline = lens _upsrPipeline (\s a -> s { _upsrPipeline = a })
 

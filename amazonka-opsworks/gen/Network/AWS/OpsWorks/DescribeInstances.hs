@@ -20,12 +20,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Requests a description of a set of instances. Required Permissions: To use
--- this action, an IAM user must have a Show, Deploy, or Manage permissions
--- level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
--- Managing User Permissions>.
+-- | Requests a description of a set of instances.
+--
+-- Required Permissions: To use this action, an IAM user must have a Show,
+-- Deploy, or Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeInstances.html>
 module Network.AWS.OpsWorks.DescribeInstances
@@ -75,19 +74,21 @@ describeInstances = DescribeInstances
     , _diInstanceIds = mempty
     }
 
--- | An array of instance IDs to be described. If you use this parameter,
--- 'DescribeInstances' returns a description of the specified instances.
--- Otherwise, it returns a description of every instance.
+-- | An array of instance IDs to be described. If you use this parameter, 'DescribeInstances' returns a description of the specified instances. Otherwise, it returns a
+-- description of every instance.
+--
 diInstanceIds :: Lens' DescribeInstances [Text]
 diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a }) . _List
 
--- | A layer ID. If you use this parameter, 'DescribeInstances' returns
--- descriptions of the instances associated with the specified layer.
+-- | A layer ID. If you use this parameter, 'DescribeInstances' returns descriptions
+-- of the instances associated with the specified layer.
+--
 diLayerId :: Lens' DescribeInstances (Maybe Text)
 diLayerId = lens _diLayerId (\s a -> s { _diLayerId = a })
 
--- | A stack ID. If you use this parameter, 'DescribeInstances' returns
--- descriptions of the instances associated with the specified stack.
+-- | A stack ID. If you use this parameter, 'DescribeInstances' returns descriptions
+-- of the instances associated with the specified stack.
+--
 diStackId :: Lens' DescribeInstances (Maybe Text)
 diStackId = lens _diStackId (\s a -> s { _diStackId = a })
 
@@ -113,6 +114,7 @@ describeInstancesResponse = DescribeInstancesResponse
     }
 
 -- | An array of 'Instance' objects that describe the instances.
+--
 dirInstances :: Lens' DescribeInstancesResponse [Instance]
 dirInstances = lens _dirInstances (\s a -> s { _dirInstances = a }) . _List
 

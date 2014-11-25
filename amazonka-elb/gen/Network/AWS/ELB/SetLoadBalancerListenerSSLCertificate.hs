@@ -22,11 +22,9 @@
 
 -- | Sets the certificate that terminates the specified listener's SSL
 -- connections. The specified certificate replaces any prior certificate that
--- was used on the same load balancer and port. For more information on
--- updating your SSL certificate, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html
--- Updating an SSL Certificate for a Load Balancer> in the /Elastic Load
--- Balancing Developer Guide/.
+-- was used on the same load balancer and port.
+--
+-- For more information on updating your SSL certificate, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html Updating an SSLCertificate for a Load Balancer> in the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerListenerSSLCertificate.html>
 module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
@@ -78,22 +76,23 @@ setLoadBalancerListenerSSLCertificate p1 p2 p3 = SetLoadBalancerListenerSSLCerti
     }
 
 -- | The name of the load balancer.
+--
 slblsslcLoadBalancerName :: Lens' SetLoadBalancerListenerSSLCertificate Text
 slblsslcLoadBalancerName =
     lens _slblsslcLoadBalancerName
         (\s a -> s { _slblsslcLoadBalancerName = a })
 
 -- | The port that uses the specified SSL certificate.
+--
 slblsslcLoadBalancerPort :: Lens' SetLoadBalancerListenerSSLCertificate Int
 slblsslcLoadBalancerPort =
     lens _slblsslcLoadBalancerPort
         (\s a -> s { _slblsslcLoadBalancerPort = a })
 
 -- | The Amazon Resource Number (ARN) of the SSL certificate chain to use. For
--- more information on SSL certificates, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
--- Managing Server Certificates> in the /AWS Identity and Access Management
--- User Guide/.
+-- more information on SSL certificates, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html  Managing Server Certificates> in
+-- the /AWS Identity and Access Management User Guide/.
+--
 slblsslcSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificate Text
 slblsslcSSLCertificateId =
     lens _slblsslcSSLCertificateId

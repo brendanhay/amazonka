@@ -20,8 +20,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Deletes the specified user. The user must not belong to any groups, have
--- any keys or signing certificates, or have any attached policies.
+-- | Deletes the specified user. The user must not belong to any groups, have any
+-- keys or signing certificates, or have any attached policies.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUser.html>
 module Network.AWS.IAM.DeleteUser
@@ -61,6 +61,7 @@ deleteUser p1 = DeleteUser
     }
 
 -- | The name of the user to delete.
+--
 duUserName :: Lens' DeleteUser Text
 duUserName = lens _duUserName (\s a -> s { _duUserName = a })
 

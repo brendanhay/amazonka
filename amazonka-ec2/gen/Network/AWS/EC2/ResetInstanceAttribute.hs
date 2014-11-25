@@ -20,15 +20,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Resets an attribute of an instance to its default value. To reset the
--- 'kernel' or 'ramdisk', the instance must be in a stopped state. To reset
--- the 'SourceDestCheck', the instance can be either running or stopped. The
--- 'SourceDestCheck' attribute controls whether source/destination checking is
--- enabled. The default value is 'true', which means checking is enabled. This
--- value must be 'false' for a NAT instance to perform NAT. For more
--- information, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html
--- NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
+-- | Resets an attribute of an instance to its default value. To reset the 'kernel'
+-- or 'ramdisk', the instance must be in a stopped state. To reset the 'SourceDestCheck', the instance can be either running or stopped.
+--
+-- The 'SourceDestCheck' attribute controls whether source/destination checking
+-- is enabled. The default value is 'true', which means checking is enabled. This
+-- value must be 'false' for a NAT instance to perform NAT. For more information,
+-- see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetInstanceAttribute.html>
 module Network.AWS.EC2.ResetInstanceAttribute
@@ -79,6 +77,7 @@ resetInstanceAttribute p1 p2 = ResetInstanceAttribute
     }
 
 -- | The attribute to reset.
+--
 riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
 riaAttribute = lens _riaAttribute (\s a -> s { _riaAttribute = a })
 
@@ -86,6 +85,7 @@ riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
 riaDryRun = lens _riaDryRun (\s a -> s { _riaDryRun = a })
 
 -- | The ID of the instance.
+--
 riaInstanceId :: Lens' ResetInstanceAttribute Text
 riaInstanceId = lens _riaInstanceId (\s a -> s { _riaInstanceId = a })
 

@@ -20,16 +20,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Creates a VPC with the specified CIDR block. The smallest VPC you can
--- create uses a /28 netmask (16 IP addresses), and the largest uses a /16
--- netmask (65,536 IP addresses). To help you decide how big to make your VPC,
--- see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html
--- Your VPC and Subnets> in the /Amazon Virtual Private Cloud User Guide/. By
--- default, each instance you launch in the VPC has the default DHCP options,
--- which includes only a default DNS server that we provide
--- (AmazonProvidedDNS). For more information about DHCP options, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html
--- DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/.
+-- | Creates a VPC with the specified CIDR block.
+--
+-- The smallest VPC you can create uses a /28 netmask (16 IP addresses), and
+-- the largest uses a /16 netmask (65,536 IP addresses). To help you decide how
+-- big to make your VPC, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html Your VPC and Subnets> in the /Amazon Virtual PrivateCloud User Guide/.
+--
+-- By default, each instance you launch in the VPC has the default DHCP
+-- options, which includes only a default DNS server that we provide
+-- (AmazonProvidedDNS). For more information about DHCP options, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCPOptions Sets> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpc.html>
 module Network.AWS.EC2.CreateVpc
@@ -80,20 +79,20 @@ createVpc p1 = CreateVpc
     , _cvInstanceTenancy = Nothing
     }
 
--- | The network range for the VPC, in CIDR notation. For example,
--- '10.0.0.0/16'.
+-- | The network range for the VPC, in CIDR notation. For example, '10.0.0.0/16'.
+--
 cvCidrBlock :: Lens' CreateVpc Text
 cvCidrBlock = lens _cvCidrBlock (\s a -> s { _cvCidrBlock = a })
 
 cvDryRun :: Lens' CreateVpc (Maybe Bool)
 cvDryRun = lens _cvDryRun (\s a -> s { _cvDryRun = a })
 
--- | The supported tenancy options for instances launched into the VPC. A
--- value of 'default' means that instances can be launched with any tenancy;
--- a value of 'dedicated' means all instances launched into the VPC are
--- launched as dedicated tenancy instances regardless of the tenancy
--- assigned to the instance at launch. Dedicated tenancy instances run on
--- single-tenant hardware. Default: 'default'.
+-- | The supported tenancy options for instances launched into the VPC. A value of 'default' means that instances can be launched with any tenancy; a value of 'dedicated' means all instances launched into the VPC are launched as dedicated tenancy
+-- instances regardless of the tenancy assigned to the instance at launch.
+-- Dedicated tenancy instances run on single-tenant hardware.
+--
+-- Default: 'default'
+--
 cvInstanceTenancy :: Lens' CreateVpc (Maybe Tenancy)
 cvInstanceTenancy =
     lens _cvInstanceTenancy (\s a -> s { _cvInstanceTenancy = a })
@@ -114,6 +113,7 @@ createVpcResponse = CreateVpcResponse
     }
 
 -- | Information about the VPC.
+--
 cvrVpc :: Lens' CreateVpcResponse (Maybe Vpc)
 cvrVpc = lens _cvrVpc (\s a -> s { _cvrVpc = a })
 

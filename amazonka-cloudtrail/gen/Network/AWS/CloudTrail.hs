@@ -11,8 +11,8 @@
 -- | CloudTrail is a web service that records AWS API calls for your AWS account
 -- and delivers log files to an Amazon S3 bucket. The recorded information
 -- includes the identity of the user, the start time of the AWS API call, the
--- source IP address, the request parameters, and the response elements
--- returned by the service.
+-- source IP address, the request parameters, and the response elements returned
+-- by the service.
 module Network.AWS.CloudTrail
     ( module Network.AWS.CloudTrail.CreateTrail
     , module Network.AWS.CloudTrail.DeleteTrail

@@ -67,6 +67,7 @@ disableAlarmActions = DisableAlarmActions
     }
 
 -- | The names of the alarms to disable actions for.
+--
 daaAlarmNames :: Lens' DisableAlarmActions [Text]
 daaAlarmNames = lens _daaAlarmNames (\s a -> s { _daaAlarmNames = a }) . _List
 

@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The /DescribeCacheSubnetGroups/ operation returns a list of cache subnet
--- group descriptions. If a subnet group name is specified, the list will
--- contain only the description of that group.
+-- | The /DescribeCacheSubnetGroups/ operation returns a list of cache subnet group
+-- descriptions. If a subnet group name is specified, the list will contain only
+-- the description of that group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSubnetGroups.html>
 module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
@@ -74,22 +74,28 @@ describeCacheSubnetGroups = DescribeCacheSubnetGroups
     }
 
 -- | The name of the cache subnet group to return details for.
+--
 dcsgCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsgCacheSubnetGroupName =
     lens _dcsgCacheSubnetGroupName
         (\s a -> s { _dcsgCacheSubnetGroupName = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by /MaxRecords/.
+-- pagination of results from this operation. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+--
 dcsgMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified 'MaxRecords' value, a marker is included in the
--- response so that the remaining results can be retrieved. Default: 100
+-- response so that the remaining results can be retrieved.
+--
+-- Default: 100
+--
 -- Constraints: minimum 20; maximum 100.
+--
 dcsgMaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Int)
 dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
 
@@ -114,12 +120,14 @@ describeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
 
 -- | A list of cache subnet groups. Each element in the list contains detailed
 -- information about one group.
+--
 dcsgrCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
 dcsgrCacheSubnetGroups =
     lens _dcsgrCacheSubnetGroups (\s a -> s { _dcsgrCacheSubnetGroups = a })
         . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
+--
 dcsgrMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
 dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 

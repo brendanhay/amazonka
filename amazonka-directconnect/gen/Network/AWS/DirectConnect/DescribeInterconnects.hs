@@ -20,8 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Returns a list of interconnects owned by the AWS account. If an
--- interconnect ID is provided, it will only return this particular
+-- | Returns a list of interconnects owned by the AWS account.
+--
+-- If an interconnect ID is provided, it will only return this particular
 -- interconnect.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeInterconnects.html>
@@ -87,6 +88,7 @@ describeInterconnectsResponse = DescribeInterconnectsResponse
     }
 
 -- | A list of interconnects.
+--
 dirInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
 dirInterconnects = lens _dirInterconnects (\s a -> s { _dirInterconnects = a }) . _List
 

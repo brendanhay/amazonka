@@ -378,23 +378,26 @@ nodeSnapshot = NodeSnapshot
     , _nsSnapshotCreateTime  = Nothing
     }
 
--- | The date and time when the cache node was created in the source cache
--- cluster.
+-- | The date and time when the cache node was created in the source cache cluster.
+--
 nsCacheNodeCreateTime :: Lens' NodeSnapshot (Maybe UTCTime)
 nsCacheNodeCreateTime =
     lens _nsCacheNodeCreateTime (\s a -> s { _nsCacheNodeCreateTime = a })
         . mapping _Time
 
 -- | The cache node identifier for the node in the source cache cluster.
+--
 nsCacheNodeId :: Lens' NodeSnapshot (Maybe Text)
 nsCacheNodeId = lens _nsCacheNodeId (\s a -> s { _nsCacheNodeId = a })
 
 -- | The size of the cache on the source cache node.
+--
 nsCacheSize :: Lens' NodeSnapshot (Maybe Text)
 nsCacheSize = lens _nsCacheSize (\s a -> s { _nsCacheSize = a })
 
 -- | The date and time when the source node's metadata and cache data set was
 -- obtained for the snapshot.
+--
 nsSnapshotCreateTime :: Lens' NodeSnapshot (Maybe UTCTime)
 nsSnapshotCreateTime =
     lens _nsSnapshotCreateTime (\s a -> s { _nsSnapshotCreateTime = a })
@@ -508,70 +511,81 @@ snapshot = Snapshot
 
 -- | For the source cache cluster, indicates whether minor version patches are
 -- applied automatically ('true') or not ('false').
+--
 sAutoMinorVersionUpgrade :: Lens' Snapshot (Maybe Bool)
 sAutoMinorVersionUpgrade =
     lens _sAutoMinorVersionUpgrade
         (\s a -> s { _sAutoMinorVersionUpgrade = a })
 
 -- | The date and time when the source cache cluster was created.
+--
 sCacheClusterCreateTime :: Lens' Snapshot (Maybe UTCTime)
 sCacheClusterCreateTime =
     lens _sCacheClusterCreateTime (\s a -> s { _sCacheClusterCreateTime = a })
         . mapping _Time
 
 -- | The user-supplied identifier of the source cache cluster.
+--
 sCacheClusterId :: Lens' Snapshot (Maybe Text)
 sCacheClusterId = lens _sCacheClusterId (\s a -> s { _sCacheClusterId = a })
 
--- | The name of the compute and memory capacity node type for the source
--- cache cluster.
+-- | The name of the compute and memory capacity node type for the source cache
+-- cluster.
+--
 sCacheNodeType :: Lens' Snapshot (Maybe Text)
 sCacheNodeType = lens _sCacheNodeType (\s a -> s { _sCacheNodeType = a })
 
--- | The cache parameter group that is associated with the source cache
--- cluster.
+-- | The cache parameter group that is associated with the source cache cluster.
+--
 sCacheParameterGroupName :: Lens' Snapshot (Maybe Text)
 sCacheParameterGroupName =
     lens _sCacheParameterGroupName
         (\s a -> s { _sCacheParameterGroupName = a })
 
--- | The name of the cache subnet group associated with the source cache
--- cluster.
+-- | The name of the cache subnet group associated with the source cache cluster.
+--
 sCacheSubnetGroupName :: Lens' Snapshot (Maybe Text)
 sCacheSubnetGroupName =
     lens _sCacheSubnetGroupName (\s a -> s { _sCacheSubnetGroupName = a })
 
--- | The name of the cache engine (/memcached/ or /redis/) used by the source
--- cache cluster.
+-- | The name of the cache engine (/memcached/ or /redis/) used by the source cache
+-- cluster.
+--
 sEngine :: Lens' Snapshot (Maybe Text)
 sEngine = lens _sEngine (\s a -> s { _sEngine = a })
 
 -- | The version of the cache engine version that is used by the source cache
 -- cluster.
+--
 sEngineVersion :: Lens' Snapshot (Maybe Text)
 sEngineVersion = lens _sEngineVersion (\s a -> s { _sEngineVersion = a })
 
 -- | A list of the cache nodes in the source cache cluster.
+--
 sNodeSnapshots :: Lens' Snapshot [NodeSnapshot]
 sNodeSnapshots = lens _sNodeSnapshots (\s a -> s { _sNodeSnapshots = a }) . _List
 
 -- | The number of cache nodes in the source cache cluster.
+--
 sNumCacheNodes :: Lens' Snapshot (Maybe Int)
 sNumCacheNodes = lens _sNumCacheNodes (\s a -> s { _sNumCacheNodes = a })
 
 -- | The port number used by each cache nodes in the source cache cluster.
+--
 sPort :: Lens' Snapshot (Maybe Int)
 sPort = lens _sPort (\s a -> s { _sPort = a })
 
 -- | The name of the Availability Zone in which the source cache cluster is
 -- located.
+--
 sPreferredAvailabilityZone :: Lens' Snapshot (Maybe Text)
 sPreferredAvailabilityZone =
     lens _sPreferredAvailabilityZone
         (\s a -> s { _sPreferredAvailabilityZone = a })
 
--- | The time range (in UTC) during which weekly system maintenance can occur
--- on the source cache cluster.
+-- | The time range (in UTC) during which weekly system maintenance can occur on
+-- the source cache cluster.
+--
 sPreferredMaintenanceWindow :: Lens' Snapshot (Maybe Text)
 sPreferredMaintenanceWindow =
     lens _sPreferredMaintenanceWindow
@@ -579,42 +593,51 @@ sPreferredMaintenanceWindow =
 
 -- | The name of a snapshot. For an automatic snapshot, the name is
 -- system-generated; for a manual snapshot, this is the user-provided name.
+--
 sSnapshotName :: Lens' Snapshot (Maybe Text)
 sSnapshotName = lens _sSnapshotName (\s a -> s { _sSnapshotName = a })
 
 -- | For an automatic snapshot, the number of days for which ElastiCache will
--- retain the snapshot before deleting it. For manual snapshots, this field
--- reflects the /SnapshotRetentionLimit/ for the source cache cluster when
--- the snapshot was created. This field is otherwise ignored: Manual
--- snapshots do not expire, and can only be deleted using the
--- /DeleteSnapshot/ action. ImportantIf the value of SnapshotRetentionLimit
--- is set to zero (0), backups are turned off.
+-- retain the snapshot before deleting it.
+--
+-- For manual snapshots, this field reflects the /SnapshotRetentionLimit/ for the
+-- source cache cluster when the snapshot was created. This field is otherwise
+-- ignored: Manual snapshots do not expire, and can only be deleted using the /DeleteSnapshot/ action.
+--
+-- Important
+-- If the value of SnapshotRetentionLimit is set to zero (0), backups
+-- are turned off.
+--
 sSnapshotRetentionLimit :: Lens' Snapshot (Maybe Int)
 sSnapshotRetentionLimit =
     lens _sSnapshotRetentionLimit (\s a -> s { _sSnapshotRetentionLimit = a })
 
--- | Indicates whether the snapshot is from an automatic backup ('automated')
--- or was created manually ('manual').
+-- | Indicates whether the snapshot is from an automatic backup ('automated') or was
+-- created manually ('manual').
+--
 sSnapshotSource :: Lens' Snapshot (Maybe Text)
 sSnapshotSource = lens _sSnapshotSource (\s a -> s { _sSnapshotSource = a })
 
--- | The status of the snapshot. Valid values: 'creating' | 'available' |
--- 'restoring' | 'copying' | 'deleting'.
+-- | The status of the snapshot. Valid values: 'creating' | 'available' | 'restoring' | 'copying' | 'deleting'.
+--
 sSnapshotStatus :: Lens' Snapshot (Maybe Text)
 sSnapshotStatus = lens _sSnapshotStatus (\s a -> s { _sSnapshotStatus = a })
 
--- | The daily time range during which ElastiCache takes daily snapshots of
--- the source cache cluster.
+-- | The daily time range during which ElastiCache takes daily snapshots of the
+-- source cache cluster.
+--
 sSnapshotWindow :: Lens' Snapshot (Maybe Text)
 sSnapshotWindow = lens _sSnapshotWindow (\s a -> s { _sSnapshotWindow = a })
 
--- | The Amazon Resource Name (ARN) for the topic used by the source cache
--- cluster for publishing notifications.
+-- | The Amazon Resource Name (ARN) for the topic used by the source cache cluster
+-- for publishing notifications.
+--
 sTopicArn :: Lens' Snapshot (Maybe Text)
 sTopicArn = lens _sTopicArn (\s a -> s { _sTopicArn = a })
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group for the source cache cluster.
+--
 sVpcId :: Lens' Snapshot (Maybe Text)
 sVpcId = lens _sVpcId (\s a -> s { _sVpcId = a })
 
@@ -693,22 +716,26 @@ event = Event
     }
 
 -- | The date and time when the event occurred.
+--
 eDate :: Lens' Event (Maybe UTCTime)
 eDate = lens _eDate (\s a -> s { _eDate = a }) . mapping _Time
 
 -- | The text of the event.
+--
 eMessage :: Lens' Event (Maybe Text)
 eMessage = lens _eMessage (\s a -> s { _eMessage = a })
 
 -- | The identifier for the source of the event. For example, if the event
--- occurred at the cache cluster level, the identifier would be the name of
--- the cache cluster.
+-- occurred at the cache cluster level, the identifier would be the name of the
+-- cache cluster.
+--
 eSourceIdentifier :: Lens' Event (Maybe Text)
 eSourceIdentifier =
     lens _eSourceIdentifier (\s a -> s { _eSourceIdentifier = a })
 
--- | Specifies the origin of this event - a cache cluster, a parameter group,
--- a security group, etc.
+-- | Specifies the origin of this event - a cache cluster, a parameter group, a
+-- security group, etc.
+--
 eSourceType :: Lens' Event (Maybe SourceType)
 eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
 
@@ -754,13 +781,14 @@ nodeGroup = NodeGroup
     , _ngNodeGroupMembers = mempty
     }
 
--- | The identifier for the node group. A replication group contains only one
--- node group; therefore, the node group ID is 0001.
+-- | The identifier for the node group. A replication group contains only one node
+-- group; therefore, the node group ID is 0001.
+--
 ngNodeGroupId :: Lens' NodeGroup (Maybe Text)
 ngNodeGroupId = lens _ngNodeGroupId (\s a -> s { _ngNodeGroupId = a })
 
--- | A list containing information about individual nodes within the node
--- group.
+-- | A list containing information about individual nodes within the node group.
+--
 ngNodeGroupMembers :: Lens' NodeGroup [NodeGroupMember]
 ngNodeGroupMembers =
     lens _ngNodeGroupMembers (\s a -> s { _ngNodeGroupMembers = a })
@@ -770,8 +798,8 @@ ngPrimaryEndpoint :: Lens' NodeGroup (Maybe Endpoint)
 ngPrimaryEndpoint =
     lens _ngPrimaryEndpoint (\s a -> s { _ngPrimaryEndpoint = a })
 
--- | The current state of this replication group - /creating/, /available/,
--- etc.
+-- | The current state of this replication group - /creating/, /available/, etc.
+--
 ngStatus :: Lens' NodeGroup (Maybe Text)
 ngStatus = lens _ngStatus (\s a -> s { _ngStatus = a })
 
@@ -810,11 +838,13 @@ cacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
     }
 
 -- | The cache node type for which this value applies.
+--
 cntsvCacheNodeType :: Lens' CacheNodeTypeSpecificValue (Maybe Text)
 cntsvCacheNodeType =
     lens _cntsvCacheNodeType (\s a -> s { _cntsvCacheNodeType = a })
 
 -- | The value for the cache node type.
+--
 cntsvValue :: Lens' CacheNodeTypeSpecificValue (Maybe Text)
 cntsvValue = lens _cntsvValue (\s a -> s { _cntsvValue = a })
 
@@ -875,10 +905,12 @@ notificationConfiguration = NotificationConfiguration
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the topic.
+--
 ncTopicArn :: Lens' NotificationConfiguration (Maybe Text)
 ncTopicArn = lens _ncTopicArn (\s a -> s { _ncTopicArn = a })
 
 -- | The current state of the topic.
+--
 ncTopicStatus :: Lens' NotificationConfiguration (Maybe Text)
 ncTopicStatus = lens _ncTopicStatus (\s a -> s { _ncTopicStatus = a })
 
@@ -913,14 +945,14 @@ replicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues
     }
 
 -- | Indicates the status of automatic failover for this replication group.
+--
 rgpmvAutomaticFailoverStatus :: Lens' ReplicationGroupPendingModifiedValues (Maybe PendingAutomaticFailoverStatus)
 rgpmvAutomaticFailoverStatus =
     lens _rgpmvAutomaticFailoverStatus
         (\s a -> s { _rgpmvAutomaticFailoverStatus = a })
 
--- | The primary cluster ID which will be applied immediately (if
--- '--apply-immediately' was specified), or during the next maintenance
--- window.
+-- | The primary cluster ID which will be applied immediately (if '--apply-immediately' was specified), or during the next maintenance window.
+--
 rgpmvPrimaryClusterId :: Lens' ReplicationGroupPendingModifiedValues (Maybe Text)
 rgpmvPrimaryClusterId =
     lens _rgpmvPrimaryClusterId (\s a -> s { _rgpmvPrimaryClusterId = a })
@@ -960,18 +992,21 @@ ec2SecurityGroup = EC2SecurityGroup
     }
 
 -- | The name of the Amazon EC2 security group.
+--
 ecsgEC2SecurityGroupName :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgEC2SecurityGroupName =
     lens _ecsgEC2SecurityGroupName
         (\s a -> s { _ecsgEC2SecurityGroupName = a })
 
 -- | The AWS account ID of the Amazon EC2 security group owner.
+--
 ecsgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgEC2SecurityGroupOwnerId =
     lens _ecsgEC2SecurityGroupOwnerId
         (\s a -> s { _ecsgEC2SecurityGroupOwnerId = a })
 
 -- | The status of the Amazon EC2 security group.
+--
 ecsgStatus :: Lens' EC2SecurityGroup (Maybe Text)
 ecsgStatus = lens _ecsgStatus (\s a -> s { _ecsgStatus = a })
 
@@ -1008,10 +1043,12 @@ parameterNameValue = ParameterNameValue
     }
 
 -- | The name of the parameter.
+--
 pnvParameterName :: Lens' ParameterNameValue (Maybe Text)
 pnvParameterName = lens _pnvParameterName (\s a -> s { _pnvParameterName = a })
 
 -- | The value of the parameter.
+--
 pnvParameterValue :: Lens' ParameterNameValue (Maybe Text)
 pnvParameterValue =
     lens _pnvParameterValue (\s a -> s { _pnvParameterValue = a })
@@ -1087,22 +1124,26 @@ cacheSubnetGroup = CacheSubnetGroup
     }
 
 -- | The description of the cache subnet group.
+--
 csgCacheSubnetGroupDescription :: Lens' CacheSubnetGroup (Maybe Text)
 csgCacheSubnetGroupDescription =
     lens _csgCacheSubnetGroupDescription
         (\s a -> s { _csgCacheSubnetGroupDescription = a })
 
 -- | The name of the cache subnet group.
+--
 csgCacheSubnetGroupName :: Lens' CacheSubnetGroup (Maybe Text)
 csgCacheSubnetGroupName =
     lens _csgCacheSubnetGroupName (\s a -> s { _csgCacheSubnetGroupName = a })
 
 -- | A list of subnets associated with the cache subnet group.
+--
 csgSubnets :: Lens' CacheSubnetGroup [Subnet]
 csgSubnets = lens _csgSubnets (\s a -> s { _csgSubnets = a }) . _List
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group.
+--
 csgVpcId :: Lens' CacheSubnetGroup (Maybe Text)
 csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
 
@@ -1181,57 +1222,69 @@ reservedCacheNode = ReservedCacheNode
     }
 
 -- | The number of cache nodes that have been reserved.
+--
 rcnCacheNodeCount :: Lens' ReservedCacheNode (Maybe Int)
 rcnCacheNodeCount =
     lens _rcnCacheNodeCount (\s a -> s { _rcnCacheNodeCount = a })
 
 -- | The cache node type for the reserved cache nodes.
+--
 rcnCacheNodeType :: Lens' ReservedCacheNode (Maybe Text)
 rcnCacheNodeType = lens _rcnCacheNodeType (\s a -> s { _rcnCacheNodeType = a })
 
 -- | The duration of the reservation in seconds.
+--
 rcnDuration :: Lens' ReservedCacheNode (Maybe Int)
 rcnDuration = lens _rcnDuration (\s a -> s { _rcnDuration = a })
 
 -- | The fixed price charged for this reserved cache node.
+--
 rcnFixedPrice :: Lens' ReservedCacheNode (Maybe Double)
 rcnFixedPrice = lens _rcnFixedPrice (\s a -> s { _rcnFixedPrice = a })
 
 -- | The offering type of this reserved cache node.
+--
 rcnOfferingType :: Lens' ReservedCacheNode (Maybe Text)
 rcnOfferingType = lens _rcnOfferingType (\s a -> s { _rcnOfferingType = a })
 
 -- | The description of the reserved cache node.
+--
 rcnProductDescription :: Lens' ReservedCacheNode (Maybe Text)
 rcnProductDescription =
     lens _rcnProductDescription (\s a -> s { _rcnProductDescription = a })
 
 -- | The recurring price charged to run this reserved cache node.
+--
 rcnRecurringCharges :: Lens' ReservedCacheNode [RecurringCharge]
 rcnRecurringCharges =
     lens _rcnRecurringCharges (\s a -> s { _rcnRecurringCharges = a })
         . _List
 
 -- | The unique identifier for the reservation.
+--
 rcnReservedCacheNodeId :: Lens' ReservedCacheNode (Maybe Text)
 rcnReservedCacheNodeId =
     lens _rcnReservedCacheNodeId (\s a -> s { _rcnReservedCacheNodeId = a })
 
 -- | The offering identifier.
+--
 rcnReservedCacheNodesOfferingId :: Lens' ReservedCacheNode (Maybe Text)
 rcnReservedCacheNodesOfferingId =
     lens _rcnReservedCacheNodesOfferingId
         (\s a -> s { _rcnReservedCacheNodesOfferingId = a })
 
 -- | The time the reservation started.
+--
 rcnStartTime :: Lens' ReservedCacheNode (Maybe UTCTime)
 rcnStartTime = lens _rcnStartTime (\s a -> s { _rcnStartTime = a }) . mapping _Time
 
 -- | The state of the reserved cache node.
+--
 rcnState :: Lens' ReservedCacheNode (Maybe Text)
 rcnState = lens _rcnState (\s a -> s { _rcnState = a })
 
 -- | The hourly price charged for this reserved cache node.
+--
 rcnUsagePrice :: Lens' ReservedCacheNode (Maybe Double)
 rcnUsagePrice = lens _rcnUsagePrice (\s a -> s { _rcnUsagePrice = a })
 
@@ -1285,12 +1338,14 @@ subnet = Subnet
     , _sSubnetAvailabilityZone = Nothing
     }
 
--- | The Availability Zone associated with the subnet.
+-- | The Availability Zone associated with the subnet
+--
 sSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
 sSubnetAvailabilityZone =
     lens _sSubnetAvailabilityZone (\s a -> s { _sSubnetAvailabilityZone = a })
 
--- | The unique identifier for the subnet.
+-- | The unique identifier for the subnet
+--
 sSubnetIdentifier :: Lens' Subnet (Maybe Text)
 sSubnetIdentifier =
     lens _sSubnetIdentifier (\s a -> s { _sSubnetIdentifier = a })
@@ -1326,6 +1381,7 @@ securityGroupMembership = SecurityGroupMembership
     }
 
 -- | The identifier of the cache security group.
+--
 sgmSecurityGroupId :: Lens' SecurityGroupMembership (Maybe Text)
 sgmSecurityGroupId =
     lens _sgmSecurityGroupId (\s a -> s { _sgmSecurityGroupId = a })
@@ -1333,6 +1389,7 @@ sgmSecurityGroupId =
 -- | The status of the cache security group membership. The status changes
 -- whenever a cache security group is modified, or when the cache security
 -- groups assigned to a cache cluster are modified.
+--
 sgmStatus :: Lens' SecurityGroupMembership (Maybe Text)
 sgmStatus = lens _sgmStatus (\s a -> s { _sgmStatus = a })
 
@@ -1446,14 +1503,16 @@ cacheCluster = CacheCluster
     , _ccSnapshotWindow             = Nothing
     }
 
--- | If 'true', then minor version patches are applied automatically; if
--- 'false', then automatic minor version patches are disabled.
+-- | If 'true', then minor version patches are applied automatically; if 'false', then
+-- automatic minor version patches are disabled.
+--
 ccAutoMinorVersionUpgrade :: Lens' CacheCluster (Maybe Bool)
 ccAutoMinorVersionUpgrade =
     lens _ccAutoMinorVersionUpgrade
         (\s a -> s { _ccAutoMinorVersionUpgrade = a })
 
 -- | The date and time when the cache cluster was created.
+--
 ccCacheClusterCreateTime :: Lens' CacheCluster (Maybe UTCTime)
 ccCacheClusterCreateTime =
     lens _ccCacheClusterCreateTime
@@ -1462,23 +1521,23 @@ ccCacheClusterCreateTime =
 
 -- | The user-supplied identifier of the cache cluster. This identifier is a
 -- unique key that identifies a cache cluster.
+--
 ccCacheClusterId :: Lens' CacheCluster (Maybe Text)
 ccCacheClusterId = lens _ccCacheClusterId (\s a -> s { _ccCacheClusterId = a })
 
--- | The current state of this cache cluster, one of the following values:
--- /available/, /creating/, /deleted/, /deleting/, /incompatible-network/,
--- /modifying/, /rebooting cache cluster nodes/, /restore-failed/, or
--- /snapshotting/.
+-- | The current state of this cache cluster, one of the following values: /available/, /creating/, /deleted/, /deleting/, /incompatible-network/, /modifying/, /rebootingcache cluster nodes/, /restore-failed/, or /snapshotting/.
+--
 ccCacheClusterStatus :: Lens' CacheCluster (Maybe Text)
 ccCacheClusterStatus =
     lens _ccCacheClusterStatus (\s a -> s { _ccCacheClusterStatus = a })
 
--- | The name of the compute and memory capacity node type for the cache
--- cluster.
+-- | The name of the compute and memory capacity node type for the cache cluster.
+--
 ccCacheNodeType :: Lens' CacheCluster (Maybe Text)
 ccCacheNodeType = lens _ccCacheNodeType (\s a -> s { _ccCacheNodeType = a })
 
 -- | A list of cache nodes that are members of the cache cluster.
+--
 ccCacheNodes :: Lens' CacheCluster [CacheNode]
 ccCacheNodes = lens _ccCacheNodes (\s a -> s { _ccCacheNodes = a }) . _List
 
@@ -1488,18 +1547,21 @@ ccCacheParameterGroup =
 
 -- | A list of cache security group elements, composed of name and status
 -- sub-elements.
+--
 ccCacheSecurityGroups :: Lens' CacheCluster [CacheSecurityGroupMembership]
 ccCacheSecurityGroups =
     lens _ccCacheSecurityGroups (\s a -> s { _ccCacheSecurityGroups = a })
         . _List
 
 -- | The name of the cache subnet group associated with the cache cluster.
+--
 ccCacheSubnetGroupName :: Lens' CacheCluster (Maybe Text)
 ccCacheSubnetGroupName =
     lens _ccCacheSubnetGroupName (\s a -> s { _ccCacheSubnetGroupName = a })
 
--- | The URL of the web page where you can download the latest ElastiCache
--- client library.
+-- | The URL of the web page where you can download the latest ElastiCache client
+-- library.
+--
 ccClientDownloadLandingPage :: Lens' CacheCluster (Maybe Text)
 ccClientDownloadLandingPage =
     lens _ccClientDownloadLandingPage
@@ -1509,13 +1571,14 @@ ccConfigurationEndpoint :: Lens' CacheCluster (Maybe Endpoint)
 ccConfigurationEndpoint =
     lens _ccConfigurationEndpoint (\s a -> s { _ccConfigurationEndpoint = a })
 
--- | The name of the cache engine (/memcached/ or /redis/) to be used for this
--- cache cluster.
+-- | The name of the cache engine (/memcached/ or /redis/) to be used for this cache
+-- cluster.
+--
 ccEngine :: Lens' CacheCluster (Maybe Text)
 ccEngine = lens _ccEngine (\s a -> s { _ccEngine = a })
 
--- | The version of the cache engine version that is used in this cache
--- cluster.
+-- | The version of the cache engine version that is used in this cache cluster.
+--
 ccEngineVersion :: Lens' CacheCluster (Maybe Text)
 ccEngineVersion = lens _ccEngineVersion (\s a -> s { _ccEngineVersion = a })
 
@@ -1525,6 +1588,7 @@ ccNotificationConfiguration =
         (\s a -> s { _ccNotificationConfiguration = a })
 
 -- | The number of cache nodes in the cache cluster.
+--
 ccNumCacheNodes :: Lens' CacheCluster (Maybe Int)
 ccNumCacheNodes = lens _ccNumCacheNodes (\s a -> s { _ccNumCacheNodes = a })
 
@@ -1532,42 +1596,52 @@ ccPendingModifiedValues :: Lens' CacheCluster (Maybe PendingModifiedValues)
 ccPendingModifiedValues =
     lens _ccPendingModifiedValues (\s a -> s { _ccPendingModifiedValues = a })
 
--- | The name of the Availability Zone in which the cache cluster is located
--- or "Multiple" if the cache nodes are located in different Availability
--- Zones.
+-- | The name of the Availability Zone in which the cache cluster is located or
+-- "Multiple" if the cache nodes are located in different Availability Zones.
+--
 ccPreferredAvailabilityZone :: Lens' CacheCluster (Maybe Text)
 ccPreferredAvailabilityZone =
     lens _ccPreferredAvailabilityZone
         (\s a -> s { _ccPreferredAvailabilityZone = a })
 
 -- | The time range (in UTC) during which weekly system maintenance can occur.
+--
 ccPreferredMaintenanceWindow :: Lens' CacheCluster (Maybe Text)
 ccPreferredMaintenanceWindow =
     lens _ccPreferredMaintenanceWindow
         (\s a -> s { _ccPreferredMaintenanceWindow = a })
 
--- | The replication group to which this cache cluster belongs. If this field
--- is empty, the cache cluster is not associated with any replication group.
+-- | The replication group to which this cache cluster belongs. If this field is
+-- empty, the cache cluster is not associated with any replication group.
+--
 ccReplicationGroupId :: Lens' CacheCluster (Maybe Text)
 ccReplicationGroupId =
     lens _ccReplicationGroupId (\s a -> s { _ccReplicationGroupId = a })
 
 -- | A list of VPC Security Groups associated with the cache cluster.
+--
 ccSecurityGroups :: Lens' CacheCluster [SecurityGroupMembership]
 ccSecurityGroups = lens _ccSecurityGroups (\s a -> s { _ccSecurityGroups = a }) . _List
 
--- | The number of days for which ElastiCache will retain automatic cache
--- cluster snapshots before deleting them. For example, if you set
--- /SnapshotRetentionLimit/ to 5, then a snapshot that was taken today will
--- be retained for 5 days before being deleted. ImportantIf the value of
--- SnapshotRetentionLimit is set to zero (0), backups are turned off.
+-- | The number of days for which ElastiCache will retain automatic cache cluster
+-- snapshots before deleting them. For example, if you set /SnapshotRetentionLimit/
+-- to 5, then a snapshot that was taken today will be retained for 5 days
+-- before being deleted.
+--
+-- Important
+-- If the value of SnapshotRetentionLimit is set to zero (0), backups
+-- are turned off.
+--
 ccSnapshotRetentionLimit :: Lens' CacheCluster (Maybe Int)
 ccSnapshotRetentionLimit =
     lens _ccSnapshotRetentionLimit
         (\s a -> s { _ccSnapshotRetentionLimit = a })
 
--- | The daily time range (in UTC) during which ElastiCache will begin taking
--- a daily snapshot of your cache cluster. Example: '05:00-09:00'.
+-- | The daily time range (in UTC) during which ElastiCache will begin taking a
+-- daily snapshot of your cache cluster.
+--
+-- Example: '05:00-09:00'
+--
 ccSnapshotWindow :: Lens' CacheCluster (Maybe Text)
 ccSnapshotWindow = lens _ccSnapshotWindow (\s a -> s { _ccSnapshotWindow = a })
 
@@ -1649,26 +1723,30 @@ engineDefaults = EngineDefaults
     , _edCacheNodeTypeSpecificParameters = mempty
     }
 
--- | A list of parameters specific to a particular cache node type. Each
--- element in the list contains detailed information about one parameter.
+-- | A list of parameters specific to a particular cache node type. Each element
+-- in the list contains detailed information about one parameter.
+--
 edCacheNodeTypeSpecificParameters :: Lens' EngineDefaults [CacheNodeTypeSpecificParameter]
 edCacheNodeTypeSpecificParameters =
     lens _edCacheNodeTypeSpecificParameters
         (\s a -> s { _edCacheNodeTypeSpecificParameters = a })
             . _List
 
--- | Specifies the name of the cache parameter group family to which the
--- engine default parameters apply.
+-- | Specifies the name of the cache parameter group family to which the engine
+-- default parameters apply.
+--
 edCacheParameterGroupFamily :: Lens' EngineDefaults (Maybe Text)
 edCacheParameterGroupFamily =
     lens _edCacheParameterGroupFamily
         (\s a -> s { _edCacheParameterGroupFamily = a })
 
 -- | Provides an identifier to allow retrieval of paginated results.
+--
 edMarker :: Lens' EngineDefaults (Maybe Text)
 edMarker = lens _edMarker (\s a -> s { _edMarker = a })
 
 -- | Contains a list of engine default parameters.
+--
 edParameters :: Lens' EngineDefaults [Parameter]
 edParameters = lens _edParameters (\s a -> s { _edParameters = a }) . _List
 
@@ -1710,9 +1788,9 @@ cacheParameterGroupStatus = CacheParameterGroupStatus
     , _cpgsCacheNodeIdsToReboot    = mempty
     }
 
--- | A list of the cache node IDs which need to be rebooted for parameter
--- changes to be applied. A node ID is a numeric identifier (0001, 0002,
--- etc.).
+-- | A list of the cache node IDs which need to be rebooted for parameter changes
+-- to be applied. A node ID is a numeric identifier (0001, 0002, etc.).
+--
 cpgsCacheNodeIdsToReboot :: Lens' CacheParameterGroupStatus [Text]
 cpgsCacheNodeIdsToReboot =
     lens _cpgsCacheNodeIdsToReboot
@@ -1720,12 +1798,14 @@ cpgsCacheNodeIdsToReboot =
             . _List
 
 -- | The name of the cache parameter group.
+--
 cpgsCacheParameterGroupName :: Lens' CacheParameterGroupStatus (Maybe Text)
 cpgsCacheParameterGroupName =
     lens _cpgsCacheParameterGroupName
         (\s a -> s { _cpgsCacheParameterGroupName = a })
 
 -- | The status of parameter updates.
+--
 cpgsParameterApplyStatus :: Lens' CacheParameterGroupStatus (Maybe Text)
 cpgsParameterApplyStatus =
     lens _cpgsParameterApplyStatus
@@ -1784,40 +1864,47 @@ cacheNode = CacheNode
     }
 
 -- | The date and time when the cache node was created.
+--
 cnCacheNodeCreateTime :: Lens' CacheNode (Maybe UTCTime)
 cnCacheNodeCreateTime =
     lens _cnCacheNodeCreateTime (\s a -> s { _cnCacheNodeCreateTime = a })
         . mapping _Time
 
 -- | The cache node identifier. A node ID is a numeric identifier (0001, 0002,
--- etc.). The combination of cluster ID and node ID uniquely identifies
--- every cache node used in a customer's AWS account.
+-- etc.). The combination of cluster ID and node ID uniquely identifies every
+-- cache node used in a customer's AWS account.
+--
 cnCacheNodeId :: Lens' CacheNode (Maybe Text)
 cnCacheNodeId = lens _cnCacheNodeId (\s a -> s { _cnCacheNodeId = a })
 
 -- | The current state of this cache node.
+--
 cnCacheNodeStatus :: Lens' CacheNode (Maybe Text)
 cnCacheNodeStatus =
     lens _cnCacheNodeStatus (\s a -> s { _cnCacheNodeStatus = a })
 
 -- | The Availability Zone where this node was created and now resides.
+--
 cnCustomerAvailabilityZone :: Lens' CacheNode (Maybe Text)
 cnCustomerAvailabilityZone =
     lens _cnCustomerAvailabilityZone
         (\s a -> s { _cnCustomerAvailabilityZone = a })
 
 -- | The hostname and IP address for connecting to this cache node.
+--
 cnEndpoint :: Lens' CacheNode (Maybe Endpoint)
 cnEndpoint = lens _cnEndpoint (\s a -> s { _cnEndpoint = a })
 
 -- | The status of the parameter group applied to this cache node.
+--
 cnParameterGroupStatus :: Lens' CacheNode (Maybe Text)
 cnParameterGroupStatus =
     lens _cnParameterGroupStatus (\s a -> s { _cnParameterGroupStatus = a })
 
--- | The ID of the primary node to which this read replica node is
--- synchronized. If this field is empty, then this node is not associated
--- with a primary cache cluster.
+-- | The ID of the primary node to which this read replica node is synchronized.
+-- If this field is empty, then this node is not associated with a primary cache
+-- cluster.
+--
 cnSourceCacheNodeId :: Lens' CacheNode (Maybe Text)
 cnSourceCacheNodeId =
     lens _cnSourceCacheNodeId (\s a -> s { _cnSourceCacheNodeId = a })
@@ -1863,14 +1950,16 @@ cacheSecurityGroupMembership = CacheSecurityGroupMembership
     }
 
 -- | The name of the cache security group.
+--
 csgmCacheSecurityGroupName :: Lens' CacheSecurityGroupMembership (Maybe Text)
 csgmCacheSecurityGroupName =
     lens _csgmCacheSecurityGroupName
         (\s a -> s { _csgmCacheSecurityGroupName = a })
 
--- | The membership status in the cache security group. The status changes
--- when a cache security group is modified, or when the cache security
--- groups assigned to a cache cluster are modified.
+-- | The membership status in the cache security group. The status changes when a
+-- cache security group is modified, or when the cache security groups assigned
+-- to a cache cluster are modified.
+--
 csgmStatus :: Lens' CacheSecurityGroupMembership (Maybe Text)
 csgmStatus = lens _csgmStatus (\s a -> s { _csgmStatus = a })
 
@@ -1901,6 +1990,7 @@ availabilityZone = AvailabilityZone
     }
 
 -- | The name of the Availability Zone.
+--
 azName :: Lens' AvailabilityZone (Maybe Text)
 azName = lens _azName (\s a -> s { _azName = a })
 
@@ -1945,20 +2035,24 @@ nodeGroupMember = NodeGroupMember
     }
 
 -- | The ID of the cache cluster to which the node belongs.
+--
 ngmCacheClusterId :: Lens' NodeGroupMember (Maybe Text)
 ngmCacheClusterId =
     lens _ngmCacheClusterId (\s a -> s { _ngmCacheClusterId = a })
 
 -- | The ID of the node within its cache cluster. A node ID is a numeric
 -- identifier (0001, 0002, etc.).
+--
 ngmCacheNodeId :: Lens' NodeGroupMember (Maybe Text)
 ngmCacheNodeId = lens _ngmCacheNodeId (\s a -> s { _ngmCacheNodeId = a })
 
 -- | The role that is currently assigned to the node - /primary/ or /replica/.
+--
 ngmCurrentRole :: Lens' NodeGroupMember (Maybe Text)
 ngmCurrentRole = lens _ngmCurrentRole (\s a -> s { _ngmCurrentRole = a })
 
 -- | The name of the Availability Zone in which the node is located.
+--
 ngmPreferredAvailabilityZone :: Lens' NodeGroupMember (Maybe Text)
 ngmPreferredAvailabilityZone =
     lens _ngmPreferredAvailabilityZone
@@ -2007,20 +2101,23 @@ cacheParameterGroup = CacheParameterGroup
     , _cpgDescription               = Nothing
     }
 
--- | The name of the cache parameter group family that this cache parameter
--- group is compatible with.
+-- | The name of the cache parameter group family that this cache parameter group
+-- is compatible with.
+--
 cpgCacheParameterGroupFamily :: Lens' CacheParameterGroup (Maybe Text)
 cpgCacheParameterGroupFamily =
     lens _cpgCacheParameterGroupFamily
         (\s a -> s { _cpgCacheParameterGroupFamily = a })
 
 -- | The name of the cache parameter group.
+--
 cpgCacheParameterGroupName :: Lens' CacheParameterGroup (Maybe Text)
 cpgCacheParameterGroupName =
     lens _cpgCacheParameterGroupName
         (\s a -> s { _cpgCacheParameterGroupName = a })
 
 -- | The description for this cache parameter group.
+--
 cpgDescription :: Lens' CacheParameterGroup (Maybe Text)
 cpgDescription = lens _cpgDescription (\s a -> s { _cpgDescription = a })
 
@@ -2097,23 +2194,27 @@ cacheSecurityGroup = CacheSecurityGroup
     }
 
 -- | The name of the cache security group.
+--
 csgCacheSecurityGroupName :: Lens' CacheSecurityGroup (Maybe Text)
 csgCacheSecurityGroupName =
     lens _csgCacheSecurityGroupName
         (\s a -> s { _csgCacheSecurityGroupName = a })
 
 -- | The description of the cache security group.
+--
 csgDescription :: Lens' CacheSecurityGroup (Maybe Text)
 csgDescription = lens _csgDescription (\s a -> s { _csgDescription = a })
 
 -- | A list of Amazon EC2 security groups that are associated with this cache
 -- security group.
+--
 csgEC2SecurityGroups :: Lens' CacheSecurityGroup [EC2SecurityGroup]
 csgEC2SecurityGroups =
     lens _csgEC2SecurityGroups (\s a -> s { _csgEC2SecurityGroups = a })
         . _List
 
 -- | The AWS account ID of the cache security group owner.
+--
 csgOwnerId :: Lens' CacheSecurityGroup (Maybe Text)
 csgOwnerId = lens _csgOwnerId (\s a -> s { _csgOwnerId = a })
 
@@ -2176,12 +2277,13 @@ cacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
     }
 
 -- | The valid range of values for the parameter.
+--
 cntspAllowedValues :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspAllowedValues =
     lens _cntspAllowedValues (\s a -> s { _cntspAllowedValues = a })
 
--- | A list of cache node types and their corresponding values for this
--- parameter.
+-- | A list of cache node types and their corresponding values for this parameter.
+--
 cntspCacheNodeTypeSpecificValues :: Lens' CacheNodeTypeSpecificParameter [CacheNodeTypeSpecificValue]
 cntspCacheNodeTypeSpecificValues =
     lens _cntspCacheNodeTypeSpecificValues
@@ -2189,32 +2291,38 @@ cntspCacheNodeTypeSpecificValues =
             . _List
 
 -- | The valid data type for the parameter.
+--
 cntspDataType :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspDataType = lens _cntspDataType (\s a -> s { _cntspDataType = a })
 
 -- | A description of the parameter.
+--
 cntspDescription :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspDescription = lens _cntspDescription (\s a -> s { _cntspDescription = a })
 
--- | Indicates whether ('true') or not ('false') the parameter can be
--- modified. Some parameters have security or operational implications that
--- prevent them from being changed.
+-- | Indicates whether ('true') or not ('false') the parameter can be modified. Some
+-- parameters have security or operational implications that prevent them from
+-- being changed.
+--
 cntspIsModifiable :: Lens' CacheNodeTypeSpecificParameter (Maybe Bool)
 cntspIsModifiable =
     lens _cntspIsModifiable (\s a -> s { _cntspIsModifiable = a })
 
 -- | The earliest cache engine version to which the parameter can apply.
+--
 cntspMinimumEngineVersion :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspMinimumEngineVersion =
     lens _cntspMinimumEngineVersion
         (\s a -> s { _cntspMinimumEngineVersion = a })
 
 -- | The name of the parameter.
+--
 cntspParameterName :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspParameterName =
     lens _cntspParameterName (\s a -> s { _cntspParameterName = a })
 
 -- | The source of the parameter value.
+--
 cntspSource :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspSource = lens _cntspSource (\s a -> s { _cntspSource = a })
 
@@ -2299,12 +2407,14 @@ cacheEngineVersion = CacheEngineVersion
     }
 
 -- | The description of the cache engine.
+--
 cevCacheEngineDescription :: Lens' CacheEngineVersion (Maybe Text)
 cevCacheEngineDescription =
     lens _cevCacheEngineDescription
         (\s a -> s { _cevCacheEngineDescription = a })
 
 -- | The description of the cache engine version.
+--
 cevCacheEngineVersionDescription :: Lens' CacheEngineVersion (Maybe Text)
 cevCacheEngineVersionDescription =
     lens _cevCacheEngineVersionDescription
@@ -2312,16 +2422,19 @@ cevCacheEngineVersionDescription =
 
 -- | The name of the cache parameter group family associated with this cache
 -- engine.
+--
 cevCacheParameterGroupFamily :: Lens' CacheEngineVersion (Maybe Text)
 cevCacheParameterGroupFamily =
     lens _cevCacheParameterGroupFamily
         (\s a -> s { _cevCacheParameterGroupFamily = a })
 
 -- | The name of the cache engine.
+--
 cevEngine :: Lens' CacheEngineVersion (Maybe Text)
 cevEngine = lens _cevEngine (\s a -> s { _cevEngine = a })
 
 -- | The version number of the cache engine.
+--
 cevEngineVersion :: Lens' CacheEngineVersion (Maybe Text)
 cevEngineVersion = lens _cevEngineVersion (\s a -> s { _cevEngineVersion = a })
 
@@ -2386,43 +2499,49 @@ replicationGroup = ReplicationGroup
     }
 
 -- | Indicates the status of automatic failover for this replication group.
+--
 rgAutomaticFailover :: Lens' ReplicationGroup (Maybe AutomaticFailoverStatus)
 rgAutomaticFailover =
     lens _rgAutomaticFailover (\s a -> s { _rgAutomaticFailover = a })
 
 -- | The description of the replication group.
+--
 rgDescription :: Lens' ReplicationGroup (Maybe Text)
 rgDescription = lens _rgDescription (\s a -> s { _rgDescription = a })
 
--- | The names of all the cache clusters that are part of this replication
--- group.
+-- | The names of all the cache clusters that are part of this replication group.
+--
 rgMemberClusters :: Lens' ReplicationGroup [Text]
 rgMemberClusters = lens _rgMemberClusters (\s a -> s { _rgMemberClusters = a }) . _List
 
 -- | A single element list with information about the nodes in the replication
 -- group.
+--
 rgNodeGroups :: Lens' ReplicationGroup [NodeGroup]
 rgNodeGroups = lens _rgNodeGroups (\s a -> s { _rgNodeGroups = a }) . _List
 
 -- | A group of settings to be applied to the replication group, either
 -- immediately or during the next maintenance window.
+--
 rgPendingModifiedValues :: Lens' ReplicationGroup (Maybe ReplicationGroupPendingModifiedValues)
 rgPendingModifiedValues =
     lens _rgPendingModifiedValues (\s a -> s { _rgPendingModifiedValues = a })
 
 -- | The identifier for the replication group.
+--
 rgReplicationGroupId :: Lens' ReplicationGroup (Maybe Text)
 rgReplicationGroupId =
     lens _rgReplicationGroupId (\s a -> s { _rgReplicationGroupId = a })
 
 -- | The cache cluster ID that is used as the daily snapshot source for the
 -- replication group.
+--
 rgSnapshottingClusterId :: Lens' ReplicationGroup (Maybe Text)
 rgSnapshottingClusterId =
     lens _rgSnapshottingClusterId (\s a -> s { _rgSnapshottingClusterId = a })
 
--- | The current state of this replication group - /creating/, /available/,
--- etc.
+-- | The current state of this replication group - /creating/, /available/, etc.
+--
 rgStatus :: Lens' ReplicationGroup (Maybe Text)
 rgStatus = lens _rgStatus (\s a -> s { _rgStatus = a })
 
@@ -2469,11 +2588,13 @@ recurringCharge = RecurringCharge
     }
 
 -- | The monetary amount of the recurring charge.
+--
 rcRecurringChargeAmount :: Lens' RecurringCharge (Maybe Double)
 rcRecurringChargeAmount =
     lens _rcRecurringChargeAmount (\s a -> s { _rcRecurringChargeAmount = a })
 
 -- | The frequency of the recurring charge.
+--
 rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
 rcRecurringChargeFrequency =
     lens _rcRecurringChargeFrequency
@@ -2534,40 +2655,48 @@ reservedCacheNodesOffering = ReservedCacheNodesOffering
     }
 
 -- | The cache node type for the reserved cache node.
+--
 rcnoCacheNodeType :: Lens' ReservedCacheNodesOffering (Maybe Text)
 rcnoCacheNodeType =
     lens _rcnoCacheNodeType (\s a -> s { _rcnoCacheNodeType = a })
 
 -- | The duration of the offering. in seconds.
+--
 rcnoDuration :: Lens' ReservedCacheNodesOffering (Maybe Int)
 rcnoDuration = lens _rcnoDuration (\s a -> s { _rcnoDuration = a })
 
 -- | The fixed price charged for this offering.
+--
 rcnoFixedPrice :: Lens' ReservedCacheNodesOffering (Maybe Double)
 rcnoFixedPrice = lens _rcnoFixedPrice (\s a -> s { _rcnoFixedPrice = a })
 
 -- | The offering type.
+--
 rcnoOfferingType :: Lens' ReservedCacheNodesOffering (Maybe Text)
 rcnoOfferingType = lens _rcnoOfferingType (\s a -> s { _rcnoOfferingType = a })
 
 -- | The cache engine used by the offering.
+--
 rcnoProductDescription :: Lens' ReservedCacheNodesOffering (Maybe Text)
 rcnoProductDescription =
     lens _rcnoProductDescription (\s a -> s { _rcnoProductDescription = a })
 
 -- | The recurring price charged to run this reserved cache node.
+--
 rcnoRecurringCharges :: Lens' ReservedCacheNodesOffering [RecurringCharge]
 rcnoRecurringCharges =
     lens _rcnoRecurringCharges (\s a -> s { _rcnoRecurringCharges = a })
         . _List
 
 -- | A unique identifier for the reserved cache node offering.
+--
 rcnoReservedCacheNodesOfferingId :: Lens' ReservedCacheNodesOffering (Maybe Text)
 rcnoReservedCacheNodesOfferingId =
     lens _rcnoReservedCacheNodesOfferingId
         (\s a -> s { _rcnoReservedCacheNodesOfferingId = a })
 
 -- | The hourly price charged for this offering.
+--
 rcnoUsagePrice :: Lens' ReservedCacheNodesOffering (Maybe Double)
 rcnoUsagePrice = lens _rcnoUsagePrice (\s a -> s { _rcnoUsagePrice = a })
 
@@ -2614,10 +2743,12 @@ endpoint = Endpoint
     }
 
 -- | The DNS hostname of the cache node.
+--
 eAddress :: Lens' Endpoint (Maybe Text)
 eAddress = lens _eAddress (\s a -> s { _eAddress = a })
 
 -- | The port number that the cache engine is listening on.
+--
 ePort :: Lens' Endpoint (Maybe Int)
 ePort = lens _ePort (\s a -> s { _ePort = a })
 
@@ -2655,18 +2786,21 @@ pendingModifiedValues = PendingModifiedValues
     , _pmvEngineVersion        = Nothing
     }
 
--- | A list of cache node IDs that are being removed (or will be removed) from
--- the cache cluster. A node ID is a numeric identifier (0001, 0002, etc.).
+-- | A list of cache node IDs that are being removed (or will be removed) from the
+-- cache cluster. A node ID is a numeric identifier (0001, 0002, etc.).
+--
 pmvCacheNodeIdsToRemove :: Lens' PendingModifiedValues [Text]
 pmvCacheNodeIdsToRemove =
     lens _pmvCacheNodeIdsToRemove (\s a -> s { _pmvCacheNodeIdsToRemove = a })
         . _List
 
 -- | The new cache engine version that the cache cluster will run.
+--
 pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
 pmvEngineVersion = lens _pmvEngineVersion (\s a -> s { _pmvEngineVersion = a })
 
 -- | The new number of cache nodes for the cache cluster.
+--
 pmvNumCacheNodes :: Lens' PendingModifiedValues (Maybe Int)
 pmvNumCacheNodes = lens _pmvNumCacheNodes (\s a -> s { _pmvNumCacheNodes = a })
 
@@ -2699,6 +2833,7 @@ cacheParameterGroupNameMessage = CacheParameterGroupNameMessage
     }
 
 -- | The name of the cache parameter group.
+--
 cpgnmCacheParameterGroupName :: Lens' CacheParameterGroupNameMessage (Maybe Text)
 cpgnmCacheParameterGroupName =
     lens _cpgnmCacheParameterGroupName
@@ -2757,37 +2892,45 @@ parameter = Parameter
     }
 
 -- | The valid range of values for the parameter.
+--
 pAllowedValues :: Lens' Parameter (Maybe Text)
 pAllowedValues = lens _pAllowedValues (\s a -> s { _pAllowedValues = a })
 
 -- | The valid data type for the parameter.
+--
 pDataType :: Lens' Parameter (Maybe Text)
 pDataType = lens _pDataType (\s a -> s { _pDataType = a })
 
 -- | A description of the parameter.
+--
 pDescription :: Lens' Parameter (Maybe Text)
 pDescription = lens _pDescription (\s a -> s { _pDescription = a })
 
--- | Indicates whether ('true') or not ('false') the parameter can be
--- modified. Some parameters have security or operational implications that
--- prevent them from being changed.
+-- | Indicates whether ('true') or not ('false') the parameter can be modified. Some
+-- parameters have security or operational implications that prevent them from
+-- being changed.
+--
 pIsModifiable :: Lens' Parameter (Maybe Bool)
 pIsModifiable = lens _pIsModifiable (\s a -> s { _pIsModifiable = a })
 
 -- | The earliest cache engine version to which the parameter can apply.
+--
 pMinimumEngineVersion :: Lens' Parameter (Maybe Text)
 pMinimumEngineVersion =
     lens _pMinimumEngineVersion (\s a -> s { _pMinimumEngineVersion = a })
 
 -- | The name of the parameter.
+--
 pParameterName :: Lens' Parameter (Maybe Text)
 pParameterName = lens _pParameterName (\s a -> s { _pParameterName = a })
 
 -- | The value of the parameter.
+--
 pParameterValue :: Lens' Parameter (Maybe Text)
 pParameterValue = lens _pParameterValue (\s a -> s { _pParameterValue = a })
 
 -- | The source of the parameter.
+--
 pSource :: Lens' Parameter (Maybe Text)
 pSource = lens _pSource (\s a -> s { _pSource = a })
 

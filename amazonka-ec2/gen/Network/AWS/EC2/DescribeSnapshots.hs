@@ -20,34 +20,37 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes one or more of the Amazon EBS snapshots available to you.
--- Available snapshots include public snapshots available for any AWS account
--- to launch, private snapshots that you own, and private snapshots owned by
--- another AWS account but for which you've been given explicit create volume
--- permissions. The create volume permissions fall into the following
--- categories: /public/: The owner of the snapshot granted create volume
--- permissions for the snapshot to the 'all' group. All AWS accounts have
--- create volume permissions for these snapshots. /explicit/: The owner of the
--- snapshot granted create volume permissions to a specific AWS account.
--- /implicit/: An AWS account has implicit create volume permissions for all
--- snapshots it owns. The list of snapshots returned can be modified by
--- specifying snapshot IDs, snapshot owners, or AWS accounts with create
--- volume permissions. If no options are specified, Amazon EC2 returns all
--- snapshots for which you have create volume permissions. If you specify one
--- or more snapshot IDs, only snapshots that have the specified IDs are
--- returned. If you specify an invalid snapshot ID, an error is returned. If
--- you specify a snapshot ID for which you do not have access, it is not
--- included in the returned results. If you specify one or more snapshot
--- owners, only snapshots from the specified owners and for which you have
--- access are returned. The results can include the AWS account IDs of the
--- specified owners, 'amazon' for snapshots owned by Amazon, or 'self' for
--- snapshots that you own. If you specify a list of restorable users, only
--- snapshots with create snapshot permissions for those users are returned.
--- You can specify AWS account IDs (if you own the snapshots), 'self' for
--- snapshots for which you own or have explicit permissions, or 'all' for
--- public snapshots. For more information about Amazon EBS snapshots, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html
--- Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Describes one or more of the Amazon EBS snapshots available to you. Available
+-- snapshots include public snapshots available for any AWS account to launch,
+-- private snapshots that you own, and private snapshots owned by another AWS
+-- account but for which you've been given explicit create volume permissions.
+--
+-- The create volume permissions fall into the following categories:
+--
+-- /public/: The owner of the snapshot granted create volume permissions for
+-- the snapshot to the 'all' group. All AWS accounts have create volume
+-- permissions for these snapshots.  /explicit/: The owner of the snapshot granted
+-- create volume permissions to a specific AWS account.  /implicit/: An AWS
+-- account has implicit create volume permissions for all snapshots it owns.  The list of snapshots returned can be modified by specifying snapshot IDs, snapshot owners, or AWS accounts with create volume permissions. If no options are specified, Amazon EC2 returns all snapshots for which you have create volume permissions.
+--
+--
+-- If you specify one or more snapshot IDs, only snapshots that have the
+-- specified IDs are returned. If you specify an invalid snapshot ID, an error
+-- is returned. If you specify a snapshot ID for which you do not have access,
+-- it is not included in the returned results.
+--
+-- If you specify one or more snapshot owners, only snapshots from the
+-- specified owners and for which you have access are returned. The results can
+-- include the AWS account IDs of the specified owners, 'amazon' for snapshots
+-- owned by Amazon, or 'self' for snapshots that you own.
+--
+-- If you specify a list of restorable users, only snapshots with create
+-- snapshot permissions for those users are returned. You can specify AWS
+-- account IDs (if you own the snapshots), 'self' for snapshots for which you own
+-- or have explicit permissions, or 'all' for public snapshots.
+--
+-- For more information about Amazon EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in
+-- the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>
 module Network.AWS.EC2.DescribeSnapshots
@@ -110,40 +113,62 @@ describeSnapshots = DescribeSnapshots
 ds1DryRun :: Lens' DescribeSnapshots (Maybe Bool)
 ds1DryRun = lens _ds1DryRun (\s a -> s { _ds1DryRun = a })
 
--- | One or more filters. 'description' - A description of the snapshot.
--- 'owner-alias' - The AWS account alias (for example, 'amazon') that owns
--- the snapshot. 'owner-id' - The ID of the AWS account that owns the
--- snapshot. 'progress' - The progress of the snapshot, as a percentage (for
--- example, 80%). 'snapshot-id' - The snapshot ID. 'start-time' - The time
--- stamp when the snapshot was initiated. 'status' - The status of the
--- snapshot ('pending' | 'completed' | 'error'). 'tag':/key/=/value/ - The
--- key/value combination of a tag assigned to the resource. 'tag-key' - The
--- key of a tag assigned to the resource. This filter is independent of the
--- 'tag-value' filter. For example, if you use both the filter
+-- | One or more filters.
+--
+-- 'description' - A description of the snapshot.
+--
+-- 'owner-alias' - The AWS account alias (for example, 'amazon') that owns the
+-- snapshot.
+--
+-- 'owner-id' - The ID of the AWS account that owns the snapshot.
+--
+-- 'progress' - The progress of the snapshot, as a percentage (for example,
+-- 80%).
+--
+-- 'snapshot-id' - The snapshot ID.
+--
+-- 'start-time' - The time stamp when the snapshot was initiated.
+--
+-- 'status' - The status of the snapshot ('pending' | 'completed' | 'error').
+--
+-- 'tag':/key/=/value/ - The key/value combination of a tag assigned to the
+-- resource.
+--
+-- 'tag-key' - The key of a tag assigned to the resource. This filter is
+-- independent of the 'tag-value' filter. For example, if you use both the filter
 -- "tag-key=Purpose" and the filter "tag-value=X", you get any resources
--- assigned both the tag key Purpose (regardless of what the tag's value
--- is), and the tag value X (regardless of what the tag's key is). If you
--- want to list only resources where Purpose is X, see the
--- 'tag':/key/=/value/ filter. 'tag-value' - The value of a tag assigned to
--- the resource. This filter is independent of the 'tag-key' filter.
--- 'volume-id' - The ID of the volume the snapshot is for. 'volume-size' -
--- The size of the volume, in GiB.
+-- assigned both the tag key Purpose (regardless of what the tag's value is),
+-- and the tag value X (regardless of what the tag's key is). If you want to
+-- list only resources where Purpose is X, see the 'tag':/key/=/value/ filter.
+--
+-- 'tag-value' - The value of a tag assigned to the resource. This filter is
+-- independent of the 'tag-key' filter.
+--
+-- 'volume-id' - The ID of the volume the snapshot is for.
+--
+-- 'volume-size' - The size of the volume, in GiB.
+--
+--
 ds1Filters :: Lens' DescribeSnapshots [Filter]
 ds1Filters = lens _ds1Filters (\s a -> s { _ds1Filters = a }) . _List
 
--- | Returns the snapshots owned by the specified owner. Multiple owners can
--- be specified.
+-- | Returns the snapshots owned by the specified owner. Multiple owners can be
+-- specified.
+--
 ds1OwnerIds :: Lens' DescribeSnapshots [Text]
 ds1OwnerIds = lens _ds1OwnerIds (\s a -> s { _ds1OwnerIds = a }) . _List
 
 -- | One or more AWS accounts IDs that can create volumes from the snapshot.
+--
 ds1RestorableByUserIds :: Lens' DescribeSnapshots [Text]
 ds1RestorableByUserIds =
     lens _ds1RestorableByUserIds (\s a -> s { _ds1RestorableByUserIds = a })
         . _List
 
--- | One or more snapshot IDs. Default: Describes snapshots for which you have
--- launch permissions.
+-- | One or more snapshot IDs.
+--
+-- Default: Describes snapshots for which you have launch permissions.
+--
 ds1SnapshotIds :: Lens' DescribeSnapshots [Text]
 ds1SnapshotIds = lens _ds1SnapshotIds (\s a -> s { _ds1SnapshotIds = a }) . _List
 

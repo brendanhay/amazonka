@@ -86,30 +86,35 @@ createTapes p1 p2 p3 p4 p5 = CreateTapes
     , _ctTapeBarcodePrefix = p5
     }
 
--- | A unique identifier that you use to retry a request. If you retry a
--- request, use the same 'ClientToken' you specified in the initial request.
+-- | A unique identifier that you use to retry a request. If you retry a request,
+-- use the same 'ClientToken' you specified in the initial request.
+--
 ctClientToken :: Lens' CreateTapes Text
 ctClientToken = lens _ctClientToken (\s a -> s { _ctClientToken = a })
 
--- | The unique Amazon Resource Name(ARN) that represents the gateway to
--- associate the virtual tapes with. Use the 'ListGateways' operation to
--- return a list of gateways for your account and region.
+-- | The unique Amazon Resource Name(ARN) that represents the gateway to associate
+-- the virtual tapes with. Use the 'ListGateways' operation to return a list of
+-- gateways for your account and region.
+--
 ctGatewayARN :: Lens' CreateTapes Text
 ctGatewayARN = lens _ctGatewayARN (\s a -> s { _ctGatewayARN = a })
 
 -- | The number of virtual tapes you want to create.
+--
 ctNumTapesToCreate :: Lens' CreateTapes Natural
 ctNumTapesToCreate =
     lens _ctNumTapesToCreate (\s a -> s { _ctNumTapesToCreate = a })
         . _Nat
 
--- | A prefix you append to the barcode of the virtual tape you are creating.
--- This makes a barcode unique.
+-- | A prefix you append to the barcode of the virtual tape you are creating. This
+-- makes a barcode unique.
+--
 ctTapeBarcodePrefix :: Lens' CreateTapes Text
 ctTapeBarcodePrefix =
     lens _ctTapeBarcodePrefix (\s a -> s { _ctTapeBarcodePrefix = a })
 
 -- | The size, in bytes, of the virtual tapes you want to create.
+--
 ctTapeSizeInBytes :: Lens' CreateTapes Natural
 ctTapeSizeInBytes =
     lens _ctTapeSizeInBytes (\s a -> s { _ctTapeSizeInBytes = a })
@@ -136,8 +141,9 @@ createTapesResponse = CreateTapesResponse
     { _ctrTapeARNs = mempty
     }
 
--- | A list of unique Amazon Resource Named (ARN) the represents the virtual
--- tapes that were created.
+-- | A list of unique Amazon Resource Named (ARN) the represents the virtual tapes
+-- that were created.
+--
 ctrTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrTapeARNs = lens _ctrTapeARNs (\s a -> s { _ctrTapeARNs = a }) . _List
 

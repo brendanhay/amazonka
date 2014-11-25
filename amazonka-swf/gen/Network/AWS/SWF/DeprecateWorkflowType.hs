@@ -24,19 +24,19 @@
 -- deprecated, you cannot create new executions of that type. Executions that
 -- were started before the type was deprecated will continue to run. A
 -- deprecated workflow type may still be used when calling visibility actions.
--- Access Control You can use IAM policies to control this action's access to
--- Amazon SWF resources as follows: Use a 'Resource' element with the domain
--- name to limit the action to only specified domains. Use an 'Action' element
--- to allow or deny permission to call this action. Constrain the following
--- parameters by using a 'Condition' element with the appropriate keys.
--- 'workflowType.name': String constraint. The key is 'swf:workflowType.name'.
--- 'workflowType.version': String constraint. The key is
--- 'swf:workflowType.version'. If the caller does not have sufficient
--- permissions to invoke the action, or the parameter values fall outside the
--- specified constraints, the action fails by throwing
--- 'OperationNotPermitted'. For details and example IAM policies, see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html
--- Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- Access Control
+--
+-- You can use IAM policies to control this action's access to Amazon SWF
+-- resources as follows:
+--
+-- Use a 'Resource' element with the domain name to limit the action to only
+-- specified domains. Use an 'Action' element to allow or deny permission to call
+-- this action. Constrain the following parameters by using a 'Condition' element
+-- with the appropriate keys.   'workflowType.name': String constraint. The key is 'swf:workflowType.name'.  'workflowType.version': String constraint. The key is 'swf:workflowType.version'.    If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the action
+-- fails by throwing 'OperationNotPermitted'. For details and example IAM
+-- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateWorkflowType.html>
 module Network.AWS.SWF.DeprecateWorkflowType
@@ -82,10 +82,12 @@ deprecateWorkflowType p1 p2 = DeprecateWorkflowType
     }
 
 -- | The name of the domain in which the workflow type is registered.
+--
 dwt1Domain :: Lens' DeprecateWorkflowType Text
 dwt1Domain = lens _dwt1Domain (\s a -> s { _dwt1Domain = a })
 
 -- | The workflow type to deprecate.
+--
 dwt1WorkflowType :: Lens' DeprecateWorkflowType WorkflowType
 dwt1WorkflowType = lens _dwt1WorkflowType (\s a -> s { _dwt1WorkflowType = a })
 

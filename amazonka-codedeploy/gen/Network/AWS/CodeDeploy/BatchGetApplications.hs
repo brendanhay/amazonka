@@ -68,6 +68,7 @@ batchGetApplications = BatchGetApplications
 
 -- | A list of application names, with multiple application names separated by
 -- spaces.
+--
 bgaApplicationNames :: Lens' BatchGetApplications [Text]
 bgaApplicationNames =
     lens _bgaApplicationNames (\s a -> s { _bgaApplicationNames = a })
@@ -95,6 +96,7 @@ batchGetApplicationsResponse = BatchGetApplicationsResponse
     }
 
 -- | Information about the applications.
+--
 bgarApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
 bgarApplicationsInfo =
     lens _bgarApplicationsInfo (\s a -> s { _bgarApplicationsInfo = a })

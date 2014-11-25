@@ -20,9 +20,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The /DescribeCacheSecurityGroups/ operation returns a list of cache
--- security group descriptions. If a cache security group name is specified,
--- the list will contain only the description of that group.
+-- | The /DescribeCacheSecurityGroups/ operation returns a list of cache security
+-- group descriptions. If a cache security group name is specified, the list
+-- will contain only the description of that group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSecurityGroups.html>
 module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
@@ -74,22 +74,28 @@ describeCacheSecurityGroups = DescribeCacheSecurityGroups
     }
 
 -- | The name of the cache security group to return details for.
+--
 dcsg1CacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsg1CacheSecurityGroupName =
     lens _dcsg1CacheSecurityGroupName
         (\s a -> s { _dcsg1CacheSecurityGroupName = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by /MaxRecords/.
+-- pagination of results from this operation. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+--
 dcsg1Marker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsg1Marker = lens _dcsg1Marker (\s a -> s { _dcsg1Marker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified 'MaxRecords' value, a marker is included in the
--- response so that the remaining results can be retrieved. Default: 100
+-- response so that the remaining results can be retrieved.
+--
+-- Default: 100
+--
 -- Constraints: minimum 20; maximum 100.
+--
 dcsg1MaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Int)
 dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
 
@@ -112,8 +118,9 @@ describeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
     , _dcsgr1CacheSecurityGroups = mempty
     }
 
--- | A list of cache security groups. Each element in the list contains
--- detailed information about one group.
+-- | A list of cache security groups. Each element in the list contains detailed
+-- information about one group.
+--
 dcsgr1CacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
 dcsgr1CacheSecurityGroups =
     lens _dcsgr1CacheSecurityGroups
@@ -121,6 +128,7 @@ dcsgr1CacheSecurityGroups =
             . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
+--
 dcsgr1Marker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
 dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
 

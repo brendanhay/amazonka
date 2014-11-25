@@ -21,11 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | You use this operation to change the parameters specified in the original
--- manifest file by supplying a new manifest file. The manifest file attached
--- to this request replaces the original manifest file. You can only use the
+-- manifest file by supplying a new manifest file. The manifest file attached to
+-- this request replaces the original manifest file. You can only use the
 -- operation after a CreateJob request but before the data transfer starts and
 -- you can only use it on jobs you own.
---
 -- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebUpdateJob.html>
 module Network.AWS.ImportExport.UpdateJob
     (

@@ -21,7 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists the parts that have been uploaded for a specific multipart upload.
---
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListParts.html>
 module Network.AWS.S3.ListParts
     (
@@ -103,8 +102,8 @@ lpKey = lens _lpKey (\s a -> s { _lpKey = a })
 lpMaxParts :: Lens' ListParts (Maybe Int)
 lpMaxParts = lens _lpMaxParts (\s a -> s { _lpMaxParts = a })
 
--- | Specifies the part after which listing should begin. Only parts with
--- higher part numbers will be listed.
+-- | Specifies the part after which listing should begin. Only parts with higher
+-- part numbers will be listed.
 lpPartNumberMarker :: Lens' ListParts (Maybe Int)
 lpPartNumberMarker =
     lens _lpPartNumberMarker (\s a -> s { _lpPartNumberMarker = a })
@@ -188,9 +187,9 @@ lprKey = lens _lprKey (\s a -> s { _lprKey = a })
 lprMaxParts :: Lens' ListPartsResponse (Maybe Int)
 lprMaxParts = lens _lprMaxParts (\s a -> s { _lprMaxParts = a })
 
--- | When a list is truncated, this element specifies the last part in the
--- list, as well as the value to use for the part-number-marker request
--- parameter in a subsequent request.
+-- | When a list is truncated, this element specifies the last part in the list,
+-- as well as the value to use for the part-number-marker request parameter in a
+-- subsequent request.
 lprNextPartNumberMarker :: Lens' ListPartsResponse (Maybe Int)
 lprNextPartNumberMarker =
     lens _lprNextPartNumberMarker (\s a -> s { _lprNextPartNumberMarker = a })

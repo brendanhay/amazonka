@@ -51,11 +51,11 @@ import           Data.Hashable
 import           Data.List
 import           Data.Monoid              hiding (Product)
 import           Data.SemVer
-import           Data.String
 import           Data.Text                (Text)
 import qualified Data.Text                as Text
 import           Data.Text.Manipulate
 import           GHC.Generics
+import           Gen.Documentation
 import           Gen.Filters
 import           Gen.IO
 import           Gen.JSON                 ()
@@ -123,11 +123,17 @@ constructor = reserved
     . breakWord
     . view nameOf
 
-newtype Doc = Doc Text
-    deriving (Eq, Ord, Show, ToJSON, IsString)
+newtype Description = Description Text
+    deriving (Eq, Ord, Show, ToJSON)
 
-documentation :: Maybe Text -> Doc
-documentation = Doc . fromMaybe ""
+description :: Text -> Description
+description = Description . wrapDescription
+
+newtype Above = Above Text
+    deriving (Eq, Ord, Show, ToJSON)
+
+above :: Text -> Above
+above = Above . wrapHaddock "| " 78 0
 
 rewrapped :: Pair -> Value -> Value
 rewrapped (k, v) = Object . \case
@@ -323,7 +329,7 @@ data Field = Field
     , _fLocationName  :: !Text
     , _fPayload       :: !Bool
     , _fStream        :: !Bool
-    , _fDocumentation :: Maybe Doc
+    , _fDocumentation :: Maybe Above
     } deriving (Eq, Show)
 
 instance Ord Field where
@@ -704,7 +710,7 @@ data Operation = Operation
     , _opProtocol         :: !Protocol
     , _opNamespace        :: !NS
     , _opImports          :: [NS]
-    , _opDocumentation    :: !Doc
+    , _opDocumentation    :: Maybe Above
     , _opDocumentationUrl :: Maybe Text
     , _opMethod           :: !Method
     , _opRequest          :: !Request
@@ -735,7 +741,7 @@ data Service = Service
     , _svNamespace      :: !NS
     , _svImports        :: [NS]
     , _svVersion        :: !Text
-    , _svDocumentation  :: !Doc
+    , _svDocumentation  :: !Above
     , _svProtocol       :: !Protocol
     , _svEndpoint       :: !Endpoint
     , _svEndpointPrefix :: !Text
@@ -758,7 +764,7 @@ data Cabal = Cabal
     , _cLibrary      :: !Library
     , _cVersion      :: !Version
     , _cProtocol     :: !Protocol
-    , _cDescription  :: !Doc
+    , _cDescription  :: !Description
     , _cExposed      :: [NS]
     , _cOther        :: [NS]
     } deriving (Eq, Show)

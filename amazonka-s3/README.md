@@ -17,7 +17,7 @@ The service aims to maximize benefits of scale and to pass those benefits on
 to developers.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-s3)
-and [AWS API Reference](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html).
 
 
 ## Contribute

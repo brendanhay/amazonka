@@ -15,7 +15,7 @@ source IP address, the request parameters, and the response elements returned
 by the service.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudtrail)
-and [AWS API Reference](http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html).
 
 
 ## Contribute

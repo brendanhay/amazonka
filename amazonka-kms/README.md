@@ -17,7 +17,7 @@ Service is also integrated with Amazon CloudTrail to provide you with logs of
 all key usage to help meet your regulatory and compliance needs.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-kms)
-and [AWS API Reference](http://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html).
 
 
 ## Contribute

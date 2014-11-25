@@ -16,7 +16,7 @@ Import/Export is often faster than Internet transfer and more cost effective
 than upgrading your connectivity.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-importexport)
-and [AWS API Reference](http://docs.aws.amazon.com/AWSImportExport/latest/DG/api-reference.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/AWSImportExport/latest/DG/api-reference.html).
 
 
 ## Contribute

@@ -15,7 +15,7 @@ database administration tasks, freeing you up to focus on your applications
 and business.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-rds)
-and [AWS API Reference](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html).
 
 
 ## Contribute

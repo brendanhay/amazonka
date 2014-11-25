@@ -19,7 +19,7 @@ no long-term contracts, providing developers and businesses flexibility to
 choose the level of support that meets their needs.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-support)
-and [AWS API Reference](http://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.html).
 
 
 ## Contribute

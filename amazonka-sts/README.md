@@ -13,7 +13,7 @@ request temporary, limited-privilege credentials for AWS Identity and Access
 Management (IAM) users or for users that you authenticate (federated users).
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-sts)
-and [AWS API Reference](http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html).
 
 
 ## Contribute

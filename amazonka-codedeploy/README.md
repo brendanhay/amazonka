@@ -17,7 +17,7 @@ and the service scales with your infrastructure so you can easily deploy to
 one EC2 instance or thousands.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-codedeploy)
-and [AWS API Reference](http://docs.aws.amazon.com/codedeploy/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/codedeploy/latest/APIReference/Welcome.html).
 
 
 ## Contribute

@@ -14,7 +14,7 @@ data-driven workflows, so that tasks can be dependent on the successful
 completion of previous tasks.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-datapipeline)
-and [AWS API Reference](http://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.html).
 
 
 ## Contribute

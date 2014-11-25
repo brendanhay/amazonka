@@ -19,7 +19,7 @@ about underlying complexities such as tracking their progress and maintaining
 their state.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-swf)
-and [AWS API Reference](http://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.html).
 
 
 ## Contribute

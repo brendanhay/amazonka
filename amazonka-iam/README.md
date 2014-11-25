@@ -14,7 +14,7 @@ create and manage AWS users and groups and use permissions to allow and deny
 their access to AWS resources.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-iam)
-and [AWS API Reference](http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html).
 
 
 ## Contribute

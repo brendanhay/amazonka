@@ -21,7 +21,7 @@ cost-effective and easy to scale automatically from a few requests per day to
 thousands per second.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-lambda)
-and [AWS API Reference](http://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html).
 
 
 ## Contribute

@@ -20,7 +20,7 @@ that uniquely identify their device and any information provided about
 third-party logins.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cognito-identity)
-and [AWS API Reference](http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html).
 
 
 ## Contribute

@@ -18,7 +18,7 @@ credentials. User data is persisted in a dataset that can store up to 1 MB of
 key-value pairs, and you can have up to 20 datasets per user identity.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cognito-sync)
-and [AWS API Reference](http://docs.aws.amazon.com/cognitosync/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/cognitosync/latest/APIReference/Welcome.html).
 
 
 ## Contribute

@@ -15,7 +15,7 @@ high-quality digital media files into formats that users can play back on
 mobile devices, tablets, web browsers, and connected televisions.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elastictranscoder)
-and [AWS API Reference](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html).
 
 
 ## Contribute

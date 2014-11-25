@@ -24,7 +24,7 @@ high availability, software maintenance, schema and index management, or
 performance tuning.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-sdb)
-and [AWS API Reference](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API.html).
 
 
 ## Contribute

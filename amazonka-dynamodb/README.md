@@ -17,7 +17,7 @@ servers to handle the request capacity specified by the customer and the
 amount of data stored, while maintaining consistent and fast performance.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-dynamodb)
-and [AWS API Reference](http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html).
 
 
 ## Contribute

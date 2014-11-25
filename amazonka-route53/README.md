@@ -16,7 +16,7 @@ You can also use Amazon Route 53 to route users to your infrastructure
 outside of AWS.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-route53)
-and [AWS API Reference](http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html).
 
 
 ## Contribute

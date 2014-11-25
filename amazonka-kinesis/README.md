@@ -14,7 +14,7 @@ records that can then be consumed in real time by multiple data-processing
 applications that can be run on Amazon EC2 instances.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-kinesis)
-and [AWS API Reference](http://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html).
 
 
 ## Contribute

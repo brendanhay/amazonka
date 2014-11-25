@@ -17,7 +17,7 @@ the administrative burden of operating and scaling a highly available
 messaging cluster, while paying a low price for only what you use.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-sqs)
-and [AWS API Reference](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html).
 
 
 ## Contribute

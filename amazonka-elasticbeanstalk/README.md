@@ -20,7 +20,7 @@ is no additional charge for Elastic Beanstalk - you pay only for the AWS
 resources needed to store and run your applications.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elasticbeanstalk)
-and [AWS API Reference](http://docs.aws.amazon.com/elasticbeanstalk/latest/api/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/elasticbeanstalk/latest/api/Welcome.html).
 
 
 ## Contribute

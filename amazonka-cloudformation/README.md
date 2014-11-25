@@ -21,7 +21,7 @@ in effect applying version control to your AWS infrastructure the same way
 you do with your software.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudformation)
-and [AWS API Reference](http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html).
 
 
 ## Contribute

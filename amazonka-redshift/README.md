@@ -16,7 +16,7 @@ to a petabyte or more for $1,000 per terabyte per year, less than a tenth of
 most other data warehousing solutions.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-redshift)
-and [AWS API Reference](http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html).
 
 
 ## Contribute

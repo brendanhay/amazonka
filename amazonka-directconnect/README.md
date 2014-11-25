@@ -16,7 +16,7 @@ interfaces directly to the AWS cloud and Amazon Virtual Private Cloud,
 bypassing Internet service providers in your network path.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-directconnect)
-and [AWS API Reference](http://docs.aws.amazon.com/directconnect/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/directconnect/latest/APIReference/Welcome.html).
 
 
 ## Contribute

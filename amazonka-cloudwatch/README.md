@@ -20,7 +20,7 @@ operational health. You can use these insights to react and keep your
 application running smoothly.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudwatch)
-and [AWS API Reference](http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html).
 
 
 ## Contribute

@@ -18,7 +18,7 @@ statistics and built-in notifications for bounces, complaints, and deliveries
 to help you fine-tune your email-sending strategy.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-ses)
-and [AWS API Reference](http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html).
 
 
 ## Contribute

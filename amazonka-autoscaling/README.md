@@ -18,7 +18,7 @@ weekly variability in usage. Auto Scaling is enabled by Amazon CloudWatch and
 available at no additional charge beyond Amazon CloudWatch fees.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-autoscaling)
-and [AWS API Reference](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/Welcome.html).
 
 
 ## Contribute

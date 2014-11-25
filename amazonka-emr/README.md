@@ -15,7 +15,7 @@ mining, log file analysis, machine learning, scientific simulation, and data
 warehousing.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-emr)
-and [AWS API Reference](http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html).
 
 
 ## Contribute

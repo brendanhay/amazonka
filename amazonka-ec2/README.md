@@ -22,7 +22,7 @@ tools to build failure resilient applications and isolate themselves from
 common failure scenarios.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-ec2)
-and [AWS API Reference](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html).
 
 
 ## Contribute

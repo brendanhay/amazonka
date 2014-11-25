@@ -20,7 +20,7 @@ To prevent messages from being lost, all messages published to Amazon SNS are
 stored redundantly across multiple availability zones.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-sns)
-and [AWS API Reference](http://docs.aws.amazon.com/sns/latest/api/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/sns/latest/api/Welcome.html).
 
 
 ## Contribute

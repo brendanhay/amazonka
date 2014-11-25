@@ -15,7 +15,7 @@ required amount of load balancing capacity needed to distribute application
 traffic.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elb)
-and [AWS API Reference](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/Welcome.html).
 
 
 ## Contribute

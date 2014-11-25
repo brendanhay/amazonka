@@ -15,7 +15,7 @@ popular search features such as highlighting, autocomplete, and geospatial
 search.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudsearch)
-and [AWS API Reference](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html).
 
 
 ## Contribute

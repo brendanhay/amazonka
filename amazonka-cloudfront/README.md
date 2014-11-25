@@ -21,7 +21,7 @@ location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server
 definitive version of your content.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudfront)
-and [AWS API Reference](http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/Welcome.html).
 
 
 ## Contribute

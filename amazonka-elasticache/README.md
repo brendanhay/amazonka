@@ -20,7 +20,7 @@ CloudWatch, Amazon ElastiCache provides enhanced visibility into key
 performance metrics associated with your Memcached or Redis nodes.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elasticache)
-and [AWS API Reference](http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html).
 
 
 ## Contribute

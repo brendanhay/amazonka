@@ -17,7 +17,7 @@ was configured at any point in time. These capabilities enable compliance
 auditing, security analysis, resource change tracking, and troubleshooting.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-config)
-and [AWS API Reference](http://docs.aws.amazon.com/config/latest/APIReference/Welcome.html).
+and the [AWS API Reference](http://docs.aws.amazon.com/config/latest/APIReference/Welcome.html).
 
 
 ## Contribute

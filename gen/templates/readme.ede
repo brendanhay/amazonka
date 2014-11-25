@@ -11,7 +11,7 @@
 {{ description }}
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/{{ library }})
-and [AWS API Reference]({{ url }}).
+and the [AWS API Reference]({{ url }}).
 
 
 ## Contribute

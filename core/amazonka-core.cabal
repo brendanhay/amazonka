@@ -1,5 +1,5 @@
 name:                  amazonka-core
-version:               0.0.2
+version:               0.0.3
 synopsis:              Core functionality, serialisation primitives, and data types for the Amazonka Amazon Web Services SDKs.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -36,6 +36,7 @@ library
         , Network.AWS.Error
         , Network.AWS.Pagination
         , Network.AWS.Prelude
+        , Network.AWS.Request.Internal
         , Network.AWS.Request.JSON
         , Network.AWS.Request.Query
         , Network.AWS.Request.RestJSON
@@ -64,7 +65,6 @@ library
         , Network.AWS.Data.Internal.Time
         , Network.AWS.Data.Internal.URI
         , Network.AWS.Data.Internal.XML
-        , Network.AWS.Request.Internal
 
     build-depends:
           aeson                >= 0.8    && < 0.9

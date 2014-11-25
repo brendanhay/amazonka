@@ -1,5 +1,5 @@
 name:                  amazonka-examples
-version:               0.0.2
+version:               0.0.3
 synopsis:              Amazonka examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -35,10 +35,10 @@ library
 
     build-depends:
         base         >= 4.7     && < 5
-      , amazonka     == 0.0.2.*
-      , amazonka-ec2 == 0.0.2.*
-      , amazonka-s3  == 0.0.2.*
-      , amazonka-sqs == 0.0.2.*
+      , amazonka     == 0.0.3.*
+      , amazonka-ec3 == 0.0.3.*
+      , amazonka-s3  == 0.0.3.*
+      , amazonka-sqs == 0.0.3.*
       , lens         >= 4.3     && < 5
       , text         >= 1.1
       , time         >= 1.4

@@ -63,7 +63,6 @@ getPlatformApplicationAttributes p1 = GetPlatformApplicationAttributes
     }
 
 -- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
---
 gpaaPlatformApplicationArn :: Lens' GetPlatformApplicationAttributes Text
 gpaaPlatformApplicationArn =
     lens _gpaaPlatformApplicationArn

@@ -99,7 +99,6 @@ describeClusters = DescribeClusters
 -- parameter is case sensitive.
 --
 -- The default is that all clusters defined for an account are returned.
---
 dcClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
 dcClusterIdentifier =
     lens _dcClusterIdentifier (\s a -> s { _dcClusterIdentifier = a })
@@ -112,7 +111,6 @@ dcClusterIdentifier =
 --
 -- Constraints: You can specify either the ClusterIdentifier parameter or the Marker
 -- parameter, but not both.
---
 dcMarker :: Lens' DescribeClusters (Maybe Text)
 dcMarker = lens _dcMarker (\s a -> s { _dcMarker = a })
 
@@ -124,7 +122,6 @@ dcMarker = lens _dcMarker (\s a -> s { _dcMarker = a })
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
---
 dcMaxRecords :: Lens' DescribeClusters (Maybe Int)
 dcMaxRecords = lens _dcMaxRecords (\s a -> s { _dcMaxRecords = a })
 
@@ -134,7 +131,6 @@ dcMaxRecords = lens _dcMaxRecords (\s a -> s { _dcMaxRecords = a })
 -- specify both of these tag keys in the request, Amazon Redshift returns a
 -- response with the clusters that have either or both of these tag keys
 -- associated with them.
---
 dcTagKeys :: Lens' DescribeClusters [Text]
 dcTagKeys = lens _dcTagKeys (\s a -> s { _dcTagKeys = a }) . _List
 
@@ -144,7 +140,6 @@ dcTagKeys = lens _dcTagKeys (\s a -> s { _dcTagKeys = a }) . _List
 -- you specify both of these tag values in the request, Amazon Redshift returns
 -- a response with the clusters that have either or both of these tag values
 -- associated with them.
---
 dcTagValues :: Lens' DescribeClusters [Text]
 dcTagValues = lens _dcTagValues (\s a -> s { _dcTagValues = a }) . _List
 
@@ -168,7 +163,6 @@ describeClustersResponse = DescribeClustersResponse
     }
 
 -- | A list of 'Cluster' objects, where each object describes one cluster.
---
 dcrClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrClusters = lens _dcrClusters (\s a -> s { _dcrClusters = a }) . _List
 
@@ -177,7 +171,6 @@ dcrClusters = lens _dcrClusters (\s a -> s { _dcrClusters = a }) . _List
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
 -- empty, all response records have been retrieved for the request.
---
 dcrMarker :: Lens' DescribeClustersResponse (Maybe Text)
 dcrMarker = lens _dcrMarker (\s a -> s { _dcrMarker = a })
 

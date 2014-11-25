@@ -96,14 +96,12 @@ createImage p1 p2 = CreateImage
     }
 
 -- | Information about one or more block device mappings.
---
 ci1BlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
 ci1BlockDeviceMappings =
     lens _ci1BlockDeviceMappings (\s a -> s { _ci1BlockDeviceMappings = a })
         . _List
 
 -- | A description for the new image.
---
 ci1Description :: Lens' CreateImage (Maybe Text)
 ci1Description = lens _ci1Description (\s a -> s { _ci1Description = a })
 
@@ -111,7 +109,6 @@ ci1DryRun :: Lens' CreateImage (Maybe Bool)
 ci1DryRun = lens _ci1DryRun (\s a -> s { _ci1DryRun = a })
 
 -- | The ID of the instance.
---
 ci1InstanceId :: Lens' CreateImage Text
 ci1InstanceId = lens _ci1InstanceId (\s a -> s { _ci1InstanceId = a })
 
@@ -120,7 +117,6 @@ ci1InstanceId = lens _ci1InstanceId (\s a -> s { _ci1InstanceId = a })
 -- Constraints: 3-128 alphanumeric characters, parentheses (()), square
 -- brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single
 -- quotes ('), at-signs (@), or underscores(_)
---
 ci1Name :: Lens' CreateImage Text
 ci1Name = lens _ci1Name (\s a -> s { _ci1Name = a })
 
@@ -129,7 +125,6 @@ ci1Name = lens _ci1Name (\s a -> s { _ci1Name = a })
 -- instance. When the parameter is set to 'true', Amazon EC2 doesn't shut down the
 -- instance before creating the image. When this option is used, file system
 -- integrity on the created image can't be guaranteed.
---
 ci1NoReboot :: Lens' CreateImage (Maybe Bool)
 ci1NoReboot = lens _ci1NoReboot (\s a -> s { _ci1NoReboot = a })
 
@@ -149,7 +144,6 @@ createImageResponse = CreateImageResponse
     }
 
 -- | The ID of the new AMI.
---
 cirImageId :: Lens' CreateImageResponse (Maybe Text)
 cirImageId = lens _cirImageId (\s a -> s { _cirImageId = a })
 

@@ -118,13 +118,11 @@ putRecord p1 p2 p3 = PutRecord
 -- | The data blob to put into the record, which is Base64-encoded when the blob
 -- is serialized. The maximum size of the data blob (the payload before
 -- Base64-encoding) is 50 kilobytes (KB)
---
 prData :: Lens' PutRecord Base64
 prData = lens _prData (\s a -> s { _prData = a })
 
 -- | The hash value used to explicitly determine the shard the data record is
 -- assigned to by overriding the partition key hash.
---
 prExplicitHashKey :: Lens' PutRecord (Maybe Text)
 prExplicitHashKey =
     lens _prExplicitHashKey (\s a -> s { _prExplicitHashKey = a })
@@ -137,7 +135,6 @@ prExplicitHashKey =
 -- to map associated data records to shards. As a result of this hashing
 -- mechanism, all data records with the same partition key will map to the same
 -- shard within the stream.
---
 prPartitionKey :: Lens' PutRecord Text
 prPartitionKey = lens _prPartitionKey (\s a -> s { _prPartitionKey = a })
 
@@ -145,14 +142,12 @@ prPartitionKey = lens _prPartitionKey (\s a -> s { _prPartitionKey = a })
 -- client and to the same partition key. Usage: set the 'SequenceNumberForOrdering'
 -- of record /n/ to the sequence number of record /n-1/ (as returned in the 'PutRecordResult' when putting record /n-1/). If this parameter is not set, records will be
 -- coarsely ordered based on arrival time.
---
 prSequenceNumberForOrdering :: Lens' PutRecord (Maybe Text)
 prSequenceNumberForOrdering =
     lens _prSequenceNumberForOrdering
         (\s a -> s { _prSequenceNumberForOrdering = a })
 
 -- | The name of the stream to put the data record into.
---
 prStreamName :: Lens' PutRecord Text
 prStreamName = lens _prStreamName (\s a -> s { _prStreamName = a })
 
@@ -181,13 +176,11 @@ putRecordResponse p1 p2 = PutRecordResponse
 -- sequence number for the record is unique across all records in the stream. A
 -- sequence number is the identifier associated with every record put into the
 -- stream.
---
 prrSequenceNumber :: Lens' PutRecordResponse Text
 prrSequenceNumber =
     lens _prrSequenceNumber (\s a -> s { _prrSequenceNumber = a })
 
 -- | The shard ID of the shard where the data record was placed.
---
 prrShardId :: Lens' PutRecordResponse Text
 prrShardId = lens _prrShardId (\s a -> s { _prrShardId = a })
 

@@ -116,12 +116,10 @@ drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
 drimFilters = lens _drimFilters (\s a -> s { _drimFilters = a }) . _List
 
 -- | The token for the next page of data.
---
 drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
 drimNextToken = lens _drimNextToken (\s a -> s { _drimNextToken = a })
 
 -- | IDs for the submitted modification request.
---
 drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
 drimReservedInstancesModificationIds =
     lens _drimReservedInstancesModificationIds
@@ -148,12 +146,10 @@ describeReservedInstancesModificationsResponse = DescribeReservedInstancesModifi
     }
 
 -- | The token for the next page of data.
---
 drimrNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
 drimrNextToken = lens _drimrNextToken (\s a -> s { _drimrNextToken = a })
 
 -- | The Reserved Instance modification information.
---
 drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
 drimrReservedInstancesModifications =
     lens _drimrReservedInstancesModifications

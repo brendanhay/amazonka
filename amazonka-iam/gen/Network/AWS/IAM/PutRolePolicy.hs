@@ -77,18 +77,15 @@ putRolePolicy p1 p2 p3 = PutRolePolicy
     }
 
 -- | The policy document.
---
 prpPolicyDocument :: Lens' PutRolePolicy Text
 prpPolicyDocument =
     lens _prpPolicyDocument (\s a -> s { _prpPolicyDocument = a })
 
 -- | The name of the policy document.
---
 prpPolicyName :: Lens' PutRolePolicy Text
 prpPolicyName = lens _prpPolicyName (\s a -> s { _prpPolicyName = a })
 
 -- | The name of the role to associate the policy with.
---
 prpRoleName :: Lens' PutRolePolicy Text
 prpRoleName = lens _prpRoleName (\s a -> s { _prpRoleName = a })
 

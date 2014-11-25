@@ -67,7 +67,6 @@ describeConnectionsOnInterconnect p1 = DescribeConnectionsOnInterconnect
 -- Example: dxcon-abc123
 --
 -- Default: None
---
 dcoiInterconnectId :: Lens' DescribeConnectionsOnInterconnect Text
 dcoiInterconnectId =
     lens _dcoiInterconnectId (\s a -> s { _dcoiInterconnectId = a })
@@ -94,7 +93,6 @@ describeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectRes
     }
 
 -- | A list of connections.
---
 dcoirConnections :: Lens' DescribeConnectionsOnInterconnectResponse [Connection]
 dcoirConnections = lens _dcoirConnections (\s a -> s { _dcoirConnections = a }) . _List
 

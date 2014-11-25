@@ -120,7 +120,6 @@ createEventSubscription p1 p2 = CreateEventSubscription
 
 -- | A Boolean value; set to 'true' to activate the subscription, set to 'false' to
 -- create the subscription but not active it.
---
 cesEnabled :: Lens' CreateEventSubscription (Maybe Bool)
 cesEnabled = lens _cesEnabled (\s a -> s { _cesEnabled = a })
 
@@ -128,7 +127,6 @@ cesEnabled = lens _cesEnabled (\s a -> s { _cesEnabled = a })
 -- notification subscription.
 --
 -- Values: Configuration, Management, Monitoring, Security
---
 cesEventCategories :: Lens' CreateEventSubscription [Text]
 cesEventCategories =
     lens _cesEventCategories (\s a -> s { _cesEventCategories = a })
@@ -138,14 +136,12 @@ cesEventCategories =
 -- notification subscription.
 --
 -- Values: ERROR, INFO
---
 cesSeverity :: Lens' CreateEventSubscription (Maybe Text)
 cesSeverity = lens _cesSeverity (\s a -> s { _cesSeverity = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the
 -- event notifications. The ARN is created by Amazon SNS when you create a topic
 -- and subscribe to it.
---
 cesSnsTopicArn :: Lens' CreateEventSubscription Text
 cesSnsTopicArn = lens _cesSnsTopicArn (\s a -> s { _cesSnsTopicArn = a })
 
@@ -158,7 +154,6 @@ cesSnsTopicArn = lens _cesSnsTopicArn (\s a -> s { _cesSnsTopicArn = a })
 -- Example: my-cluster-1, my-cluster-2
 --
 -- Example: my-snapshot-20131010
---
 cesSourceIds :: Lens' CreateEventSubscription [Text]
 cesSourceIds = lens _cesSourceIds (\s a -> s { _cesSourceIds = a }) . _List
 
@@ -170,7 +165,6 @@ cesSourceIds = lens _cesSourceIds (\s a -> s { _cesSourceIds = a }) . _List
 --
 -- Valid values: cluster, cluster-parameter-group, cluster-security-group, and
 -- cluster-snapshot.
---
 cesSourceType :: Lens' CreateEventSubscription (Maybe Text)
 cesSourceType = lens _cesSourceType (\s a -> s { _cesSourceType = a })
 
@@ -186,7 +180,6 @@ cesSubscriptionName =
     lens _cesSubscriptionName (\s a -> s { _cesSubscriptionName = a })
 
 -- | A list of tag instances.
---
 cesTags :: Lens' CreateEventSubscription [Tag]
 cesTags = lens _cesTags (\s a -> s { _cesTags = a }) . _List
 

@@ -96,7 +96,6 @@ createReservedInstancesListing p1 p2 p3 = CreateReservedInstancesListing
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of your
 -- listings. This helps avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> in the /Amazon Elastic Compute Cloud User Guide/.
---
 crilClientToken :: Lens' CreateReservedInstancesListing Text
 crilClientToken = lens _crilClientToken (\s a -> s { _crilClientToken = a })
 
@@ -104,21 +103,18 @@ crilClientToken = lens _crilClientToken (\s a -> s { _crilClientToken = a })
 -- listed in the Reserved Instance Marketplace. This number should be less than
 -- or equal to the instance count associated with the Reserved Instance ID
 -- specified in this call.
---
 crilInstanceCount :: Lens' CreateReservedInstancesListing Int
 crilInstanceCount =
     lens _crilInstanceCount (\s a -> s { _crilInstanceCount = a })
 
 -- | A list specifying the price of the Reserved Instance for each month remaining
 -- in the Reserved Instance term.
---
 crilPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
 crilPriceSchedules =
     lens _crilPriceSchedules (\s a -> s { _crilPriceSchedules = a })
         . _List
 
 -- | The ID of the active Reserved Instance.
---
 crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
 crilReservedInstancesId =
     lens _crilReservedInstancesId (\s a -> s { _crilReservedInstancesId = a })
@@ -145,7 +141,6 @@ createReservedInstancesListingResponse = CreateReservedInstancesListingResponse
     }
 
 -- | Information about the Reserved Instances listing.
---
 crilr1ReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
 crilr1ReservedInstancesListings =
     lens _crilr1ReservedInstancesListings

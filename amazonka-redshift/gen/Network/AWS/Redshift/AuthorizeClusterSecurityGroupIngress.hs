@@ -89,19 +89,16 @@ authorizeClusterSecurityGroupIngress p1 = AuthorizeClusterSecurityGroupIngress
     }
 
 -- | The IP range to be added the Amazon Redshift security group.
---
 acsgiCIDRIP :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
 acsgiCIDRIP = lens _acsgiCIDRIP (\s a -> s { _acsgiCIDRIP = a })
 
 -- | The name of the security group to which the ingress rule is added.
---
 acsgiClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress Text
 acsgiClusterSecurityGroupName =
     lens _acsgiClusterSecurityGroupName
         (\s a -> s { _acsgiClusterSecurityGroupName = a })
 
 -- | The EC2 security group to be added the Amazon Redshift security group.
---
 acsgiEC2SecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
 acsgiEC2SecurityGroupName =
     lens _acsgiEC2SecurityGroupName
@@ -110,7 +107,6 @@ acsgiEC2SecurityGroupName =
 -- | The AWS account number of the owner of the security group specified by the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an acceptable value.
 --
 -- Example: '111122223333'
---
 acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
 acsgiEC2SecurityGroupOwnerId =
     lens _acsgiEC2SecurityGroupOwnerId

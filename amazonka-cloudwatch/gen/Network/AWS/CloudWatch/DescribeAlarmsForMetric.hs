@@ -89,32 +89,26 @@ describeAlarmsForMetric p1 p2 = DescribeAlarmsForMetric
     }
 
 -- | The list of dimensions associated with the metric.
---
 dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
 dafmDimensions = lens _dafmDimensions (\s a -> s { _dafmDimensions = a }) . _List
 
 -- | The name of the metric.
---
 dafmMetricName :: Lens' DescribeAlarmsForMetric Text
 dafmMetricName = lens _dafmMetricName (\s a -> s { _dafmMetricName = a })
 
 -- | The namespace of the metric.
---
 dafmNamespace :: Lens' DescribeAlarmsForMetric Text
 dafmNamespace = lens _dafmNamespace (\s a -> s { _dafmNamespace = a })
 
 -- | The period in seconds over which the statistic is applied.
---
 dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
 dafmPeriod = lens _dafmPeriod (\s a -> s { _dafmPeriod = a }) . mapping _Nat
 
 -- | The statistic for the metric.
---
 dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
 dafmStatistic = lens _dafmStatistic (\s a -> s { _dafmStatistic = a })
 
 -- | The unit for the metric.
---
 dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe StandardUnit)
 dafmUnit = lens _dafmUnit (\s a -> s { _dafmUnit = a })
 
@@ -140,7 +134,6 @@ describeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     }
 
 -- | A list of information for each alarm with the specified metric.
---
 dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrMetricAlarms =
     lens _dafmrMetricAlarms (\s a -> s { _dafmrMetricAlarms = a })

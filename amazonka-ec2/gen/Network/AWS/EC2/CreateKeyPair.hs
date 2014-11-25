@@ -84,7 +84,6 @@ ckpDryRun = lens _ckpDryRun (\s a -> s { _ckpDryRun = a })
 -- | A unique name for the key pair.
 --
 -- Constraints: Up to 255 ASCII characters
---
 ckpKeyName :: Lens' CreateKeyPair Text
 ckpKeyName = lens _ckpKeyName (\s a -> s { _ckpKeyName = a })
 
@@ -115,18 +114,15 @@ createKeyPairResponse p1 p2 p3 = CreateKeyPairResponse
     }
 
 -- | The SHA-1 digest of the DER encoded private key.
---
 ckprKeyFingerprint :: Lens' CreateKeyPairResponse Text
 ckprKeyFingerprint =
     lens _ckprKeyFingerprint (\s a -> s { _ckprKeyFingerprint = a })
 
 -- | An unencrypted PEM encoded RSA private key.
---
 ckprKeyMaterial :: Lens' CreateKeyPairResponse Text
 ckprKeyMaterial = lens _ckprKeyMaterial (\s a -> s { _ckprKeyMaterial = a })
 
 -- | The name of the key pair.
---
 ckprKeyName :: Lens' CreateKeyPairResponse Text
 ckprKeyName = lens _ckprKeyName (\s a -> s { _ckprKeyName = a })
 

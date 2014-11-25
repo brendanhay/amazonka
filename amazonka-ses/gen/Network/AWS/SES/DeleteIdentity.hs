@@ -63,7 +63,6 @@ deleteIdentity p1 = DeleteIdentity
     }
 
 -- | The identity to be removed from the list of identities for the AWS Account.
---
 diIdentity :: Lens' DeleteIdentity Text
 diIdentity = lens _diIdentity (\s a -> s { _diIdentity = a })
 

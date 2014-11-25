@@ -64,7 +64,6 @@ describeChapCredentials p1 = DescribeChapCredentials
     }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
---
 dccTargetARN :: Lens' DescribeChapCredentials Text
 dccTargetARN = lens _dccTargetARN (\s a -> s { _dccTargetARN = a })
 

@@ -74,7 +74,6 @@ describeCacheSecurityGroups = DescribeCacheSecurityGroups
     }
 
 -- | The name of the cache security group to return details for.
---
 dcsg1CacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsg1CacheSecurityGroupName =
     lens _dcsg1CacheSecurityGroupName
@@ -84,7 +83,6 @@ dcsg1CacheSecurityGroupName =
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
---
 dcsg1Marker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsg1Marker = lens _dcsg1Marker (\s a -> s { _dcsg1Marker = a })
 
@@ -95,7 +93,6 @@ dcsg1Marker = lens _dcsg1Marker (\s a -> s { _dcsg1Marker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
---
 dcsg1MaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Int)
 dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
 
@@ -120,7 +117,6 @@ describeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
 
 -- | A list of cache security groups. Each element in the list contains detailed
 -- information about one group.
---
 dcsgr1CacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
 dcsgr1CacheSecurityGroups =
     lens _dcsgr1CacheSecurityGroups
@@ -128,7 +124,6 @@ dcsgr1CacheSecurityGroups =
             . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
---
 dcsgr1Marker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
 dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
 

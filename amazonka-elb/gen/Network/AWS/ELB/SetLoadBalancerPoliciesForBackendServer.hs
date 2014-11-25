@@ -84,21 +84,18 @@ setLoadBalancerPoliciesForBackendServer p1 p2 = SetLoadBalancerPoliciesForBacken
     }
 
 -- | The port number associated with the back-end server.
---
 slbpfbsInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer Int
 slbpfbsInstancePort =
     lens _slbpfbsInstancePort (\s a -> s { _slbpfbsInstancePort = a })
 
 -- | The mnemonic name associated with the load balancer. This name must be
 -- unique within the set of your load balancers.
---
 slbpfbsLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer Text
 slbpfbsLoadBalancerName =
     lens _slbpfbsLoadBalancerName (\s a -> s { _slbpfbsLoadBalancerName = a })
 
 -- | List of policy names to be set. If the list is empty, then all current
 -- polices are removed from the back-end server.
---
 slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
 slbpfbsPolicyNames =
     lens _slbpfbsPolicyNames (\s a -> s { _slbpfbsPolicyNames = a })

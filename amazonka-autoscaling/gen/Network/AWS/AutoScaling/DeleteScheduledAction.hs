@@ -65,13 +65,11 @@ deleteScheduledAction p1 = DeleteScheduledAction
     }
 
 -- | The name of the Auto Scaling group.
---
 dsaAutoScalingGroupName :: Lens' DeleteScheduledAction (Maybe Text)
 dsaAutoScalingGroupName =
     lens _dsaAutoScalingGroupName (\s a -> s { _dsaAutoScalingGroupName = a })
 
 -- | The name of the action to delete.
---
 dsaScheduledActionName :: Lens' DeleteScheduledAction Text
 dsaScheduledActionName =
     lens _dsaScheduledActionName (\s a -> s { _dsaScheduledActionName = a })

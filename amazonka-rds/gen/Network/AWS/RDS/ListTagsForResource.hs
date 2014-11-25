@@ -69,13 +69,11 @@ listTagsForResource p1 = ListTagsForResource
     }
 
 -- | This parameter is not currently supported.
---
 ltfrFilters :: Lens' ListTagsForResource [Filter]
 ltfrFilters = lens _ltfrFilters (\s a -> s { _ltfrFilters = a }) . _List
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon
 -- Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructingan RDS Amazon Resource Name (ARN)>.
---
 ltfrResourceName :: Lens' ListTagsForResource Text
 ltfrResourceName = lens _ltfrResourceName (\s a -> s { _ltfrResourceName = a })
 
@@ -101,7 +99,6 @@ listTagsForResourceResponse = ListTagsForResourceResponse
     }
 
 -- | List of tags returned by the ListTagsForResource operation.
---
 ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrTagList = lens _ltfrrTagList (\s a -> s { _ltfrrTagList = a }) . _List
 

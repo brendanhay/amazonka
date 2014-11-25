@@ -138,7 +138,6 @@ rwtDefaultChildPolicy =
 -- SWF, you cannot specify a value of "NONE" for 'defaultExecutionStartToCloseTimeout'; there is a one-year max limit on the time that a workflow execution can
 -- run. Exceeding this limit will always cause the workflow execution to time
 -- out.
---
 rwtDefaultExecutionStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
 rwtDefaultExecutionStartToCloseTimeout =
     lens _rwtDefaultExecutionStartToCloseTimeout
@@ -147,7 +146,6 @@ rwtDefaultExecutionStartToCloseTimeout =
 -- | If set, specifies the default task list to use for scheduling decision tasks
 -- for executions of this workflow type. This default is used only if a task
 -- list is not provided when starting the execution through the 'StartWorkflowExecution' Action or 'StartChildWorkflowExecution' 'Decision'.
---
 rwtDefaultTaskList :: Lens' RegisterWorkflowType (Maybe TaskList)
 rwtDefaultTaskList =
     lens _rwtDefaultTaskList (\s a -> s { _rwtDefaultTaskList = a })
@@ -159,19 +157,16 @@ rwtDefaultTaskList =
 -- The valid values are integers greater than or equal to '0'. An integer value
 -- can be used to specify the duration in seconds while 'NONE' can be used to
 -- specify unlimited duration.
---
 rwtDefaultTaskStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
 rwtDefaultTaskStartToCloseTimeout =
     lens _rwtDefaultTaskStartToCloseTimeout
         (\s a -> s { _rwtDefaultTaskStartToCloseTimeout = a })
 
 -- | Textual description of the workflow type.
---
 rwtDescription :: Lens' RegisterWorkflowType (Maybe Text)
 rwtDescription = lens _rwtDescription (\s a -> s { _rwtDescription = a })
 
 -- | The name of the domain in which to register the workflow type.
---
 rwtDomain :: Lens' RegisterWorkflowType Text
 rwtDomain = lens _rwtDomain (\s a -> s { _rwtDomain = a })
 
@@ -181,7 +176,6 @@ rwtDomain = lens _rwtDomain (\s a -> s { _rwtDomain = a })
 -- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string "arn".
---
 rwtName :: Lens' RegisterWorkflowType Text
 rwtName = lens _rwtName (\s a -> s { _rwtName = a })
 
@@ -191,7 +185,6 @@ rwtName = lens _rwtName (\s a -> s { _rwtName = a })
 -- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string "arn".
---
 rwtVersion :: Lens' RegisterWorkflowType Text
 rwtVersion = lens _rwtVersion (\s a -> s { _rwtVersion = a })
 

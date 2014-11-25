@@ -28,6 +28,7 @@
 -- functioning.
 --
 -- Once a gateway is disabled it cannot be enabled.
+--
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DisableGateway.html>
 module Network.AWS.StorageGateway.DisableGateway
     (
@@ -86,7 +87,6 @@ disableGatewayResponse = DisableGatewayResponse
     }
 
 -- | The unique Amazon Resource Name of the disabled gateway.
---
 dgr1GatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 dgr1GatewayARN = lens _dgr1GatewayARN (\s a -> s { _dgr1GatewayARN = a })
 

@@ -68,14 +68,12 @@ addRoleToInstanceProfile p1 p2 = AddRoleToInstanceProfile
     }
 
 -- | The name of the instance profile to update.
---
 artipInstanceProfileName :: Lens' AddRoleToInstanceProfile Text
 artipInstanceProfileName =
     lens _artipInstanceProfileName
         (\s a -> s { _artipInstanceProfileName = a })
 
 -- | The name of the role to add.
---
 artipRoleName :: Lens' AddRoleToInstanceProfile Text
 artipRoleName = lens _artipRoleName (\s a -> s { _artipRoleName = a })
 

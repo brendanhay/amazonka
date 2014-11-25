@@ -97,13 +97,11 @@ copySnapshot p1 p2 = CopySnapshot
     }
 
 -- | A description for the new Amazon EBS snapshot.
---
 csDescription :: Lens' CopySnapshot (Maybe Text)
 csDescription = lens _csDescription (\s a -> s { _csDescription = a })
 
 -- | The destination region of the snapshot copy operation. This parameter is
 -- required in the 'PresignedUrl'.
---
 csDestinationRegion :: Lens' CopySnapshot (Maybe Text)
 csDestinationRegion =
     lens _csDestinationRegion (\s a -> s { _csDestinationRegion = a })
@@ -120,17 +118,14 @@ csDryRun = lens _csDryRun (\s a -> s { _csDryRun = a })
 -- Because Amazon EBS snapshots are stored in Amazon S3, the signing algorithm
 -- for this parameter uses the same logic that is described in <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html AuthenticatingRequests by Using Query Parameters (AWS Signature Version 4)> in the /AmazonSimple Storage Service API Reference/. An invalid or improperly signed 'PresignedUrl' will cause the copy operation to fail asynchronously, and the snapshot will
 -- move to an 'error' state.
---
 csPresignedUrl :: Lens' CopySnapshot (Maybe Text)
 csPresignedUrl = lens _csPresignedUrl (\s a -> s { _csPresignedUrl = a })
 
 -- | The ID of the region that contains the snapshot to be copied.
---
 csSourceRegion :: Lens' CopySnapshot Text
 csSourceRegion = lens _csSourceRegion (\s a -> s { _csSourceRegion = a })
 
 -- | The ID of the Amazon EBS snapshot to copy.
---
 csSourceSnapshotId :: Lens' CopySnapshot Text
 csSourceSnapshotId =
     lens _csSourceSnapshotId (\s a -> s { _csSourceSnapshotId = a })
@@ -151,7 +146,6 @@ copySnapshotResponse = CopySnapshotResponse
     }
 
 -- | The ID of the new snapshot.
---
 csrSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
 

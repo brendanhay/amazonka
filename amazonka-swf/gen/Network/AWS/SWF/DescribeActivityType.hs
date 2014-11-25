@@ -84,12 +84,10 @@ describeActivityType p1 p2 = DescribeActivityType
     }
 
 -- | The activity type to describe.
---
 datActivityType :: Lens' DescribeActivityType ActivityType
 datActivityType = lens _datActivityType (\s a -> s { _datActivityType = a })
 
 -- | The name of the domain in which the activity type is registered.
---
 datDomain :: Lens' DescribeActivityType Text
 datDomain = lens _datDomain (\s a -> s { _datDomain = a })
 
@@ -115,7 +113,6 @@ describeActivityTypeResponse p1 p2 = DescribeActivityTypeResponse
     }
 
 -- | The configuration settings registered with the activity type.
---
 datrConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
 datrConfiguration =
     lens _datrConfiguration (\s a -> s { _datrConfiguration = a })

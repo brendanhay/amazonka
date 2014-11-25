@@ -76,7 +76,6 @@ describeReservedNodes = DescribeReservedNodes
 -- the value specified in 'MaxRecords', AWS returns a value in the 'Marker' field of
 -- the response. You can retrieve the next set of response records by providing
 -- the returned marker value in the 'Marker' parameter and retrying the request.
---
 drnMarker :: Lens' DescribeReservedNodes (Maybe Text)
 drnMarker = lens _drnMarker (\s a -> s { _drnMarker = a })
 
@@ -88,12 +87,10 @@ drnMarker = lens _drnMarker (\s a -> s { _drnMarker = a })
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
---
 drnMaxRecords :: Lens' DescribeReservedNodes (Maybe Int)
 drnMaxRecords = lens _drnMaxRecords (\s a -> s { _drnMaxRecords = a })
 
 -- | Identifier for the node reservation.
---
 drnReservedNodeId :: Lens' DescribeReservedNodes (Maybe Text)
 drnReservedNodeId =
     lens _drnReservedNodeId (\s a -> s { _drnReservedNodeId = a })
@@ -122,12 +119,10 @@ describeReservedNodesResponse = DescribeReservedNodesResponse
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
 -- empty, all response records have been retrieved for the request.
---
 drnrMarker :: Lens' DescribeReservedNodesResponse (Maybe Text)
 drnrMarker = lens _drnrMarker (\s a -> s { _drnrMarker = a })
 
 -- | The list of reserved nodes.
---
 drnrReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
 drnrReservedNodes =
     lens _drnrReservedNodes (\s a -> s { _drnrReservedNodes = a })

@@ -69,7 +69,6 @@ modifyCacheParameterGroup p1 = ModifyCacheParameterGroup
     }
 
 -- | The name of the cache parameter group to modify.
---
 mcpgCacheParameterGroupName :: Lens' ModifyCacheParameterGroup Text
 mcpgCacheParameterGroupName =
     lens _mcpgCacheParameterGroupName
@@ -78,7 +77,6 @@ mcpgCacheParameterGroupName =
 -- | An array of parameter names and values for the parameter update. You must
 -- supply at least one parameter name and value; subsequent arguments are
 -- optional. A maximum of 20 parameters may be modified per request.
---
 mcpgParameterNameValues :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
 mcpgParameterNameValues =
     lens _mcpgParameterNameValues (\s a -> s { _mcpgParameterNameValues = a })
@@ -100,7 +98,6 @@ modifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
     }
 
 -- | The name of the cache parameter group.
---
 mcpgrCacheParameterGroupName :: Lens' ModifyCacheParameterGroupResponse (Maybe Text)
 mcpgrCacheParameterGroupName =
     lens _mcpgrCacheParameterGroupName

@@ -81,7 +81,6 @@ unlinkDeveloperIdentity p1 p2 p3 p4 = UnlinkDeveloperIdentity
     }
 
 -- | The "domain" by which Cognito will refer to your users.
---
 udiDeveloperProviderName :: Lens' UnlinkDeveloperIdentity Text
 udiDeveloperProviderName =
     lens _udiDeveloperProviderName
@@ -94,12 +93,10 @@ udiDeveloperUserIdentifier =
         (\s a -> s { _udiDeveloperUserIdentifier = a })
 
 -- | A unique identifier in the format REGION:GUID.
---
 udiIdentityId :: Lens' UnlinkDeveloperIdentity Text
 udiIdentityId = lens _udiIdentityId (\s a -> s { _udiIdentityId = a })
 
 -- | An identity pool ID in the format REGION:GUID.
---
 udiIdentityPoolId :: Lens' UnlinkDeveloperIdentity Text
 udiIdentityPoolId =
     lens _udiIdentityPoolId (\s a -> s { _udiIdentityPoolId = a })

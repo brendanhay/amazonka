@@ -73,7 +73,6 @@ modifyDBSubnetGroup p1 = ModifyDBSubnetGroup
     }
 
 -- | The description for the DB subnet group.
---
 mdbsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
 mdbsgDBSubnetGroupDescription =
     lens _mdbsgDBSubnetGroupDescription
@@ -86,13 +85,11 @@ mdbsgDBSubnetGroupDescription =
 -- hyphens. Must not be "Default".
 --
 -- Example: 'mySubnetgroup'
---
 mdbsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
 mdbsgDBSubnetGroupName =
     lens _mdbsgDBSubnetGroupName (\s a -> s { _mdbsgDBSubnetGroupName = a })
 
 -- | The EC2 subnet IDs for the DB subnet group.
---
 mdbsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
 mdbsgSubnetIds = lens _mdbsgSubnetIds (\s a -> s { _mdbsgSubnetIds = a }) . _List
 

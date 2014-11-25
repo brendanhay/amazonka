@@ -91,7 +91,6 @@ prioDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
 prioDryRun = lens _prioDryRun (\s a -> s { _prioDryRun = a })
 
 -- | The number of Reserved Instances to purchase.
---
 prioInstanceCount :: Lens' PurchaseReservedInstancesOffering Int
 prioInstanceCount =
     lens _prioInstanceCount (\s a -> s { _prioInstanceCount = a })
@@ -99,12 +98,10 @@ prioInstanceCount =
 -- | Specified for Reserved Instance Marketplace offerings to limit the total
 -- order and ensure that the Reserved Instances are not purchased at unexpected
 -- prices.
---
 prioLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
 prioLimitPrice = lens _prioLimitPrice (\s a -> s { _prioLimitPrice = a })
 
 -- | The ID of the Reserved Instance offering to purchase.
---
 prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
 prioReservedInstancesOfferingId =
     lens _prioReservedInstancesOfferingId
@@ -126,7 +123,6 @@ purchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingRes
     }
 
 -- | The IDs of the purchased Reserved Instances.
---
 priorReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
 priorReservedInstancesId =
     lens _priorReservedInstancesId

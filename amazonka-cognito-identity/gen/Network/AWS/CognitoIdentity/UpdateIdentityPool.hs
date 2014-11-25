@@ -100,7 +100,6 @@ uipAllowUnauthenticatedIdentities =
         (\s a -> s { _uipAllowUnauthenticatedIdentities = a })
 
 -- | The "domain" by which Cognito will refer to your users.
---
 uipDeveloperProviderName :: Lens' UpdateIdentityPool (Maybe Text)
 uipDeveloperProviderName =
     lens _uipDeveloperProviderName
@@ -112,7 +111,6 @@ uipIdentityPoolId =
     lens _uipIdentityPoolId (\s a -> s { _uipIdentityPoolId = a })
 
 -- | A string that you provide.
---
 uipIdentityPoolName :: Lens' UpdateIdentityPool Text
 uipIdentityPoolName =
     lens _uipIdentityPoolName (\s a -> s { _uipIdentityPoolName = a })
@@ -124,7 +122,6 @@ uipOpenIdConnectProviderARNs =
             . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
---
 uipSupportedLoginProviders :: Lens' UpdateIdentityPool (HashMap Text Text)
 uipSupportedLoginProviders =
     lens _uipSupportedLoginProviders
@@ -176,7 +173,6 @@ uiprAllowUnauthenticatedIdentities =
         (\s a -> s { _uiprAllowUnauthenticatedIdentities = a })
 
 -- | The "domain" by which Cognito will refer to your users.
---
 uiprDeveloperProviderName :: Lens' UpdateIdentityPoolResponse (Maybe Text)
 uiprDeveloperProviderName =
     lens _uiprDeveloperProviderName
@@ -188,7 +184,6 @@ uiprIdentityPoolId =
     lens _uiprIdentityPoolId (\s a -> s { _uiprIdentityPoolId = a })
 
 -- | A string that you provide.
---
 uiprIdentityPoolName :: Lens' UpdateIdentityPoolResponse Text
 uiprIdentityPoolName =
     lens _uiprIdentityPoolName (\s a -> s { _uiprIdentityPoolName = a })
@@ -200,7 +195,6 @@ uiprOpenIdConnectProviderARNs =
             . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
---
 uiprSupportedLoginProviders :: Lens' UpdateIdentityPoolResponse (HashMap Text Text)
 uiprSupportedLoginProviders =
     lens _uiprSupportedLoginProviders

@@ -69,13 +69,11 @@ getDeploymentGroup p1 p2 = GetDeploymentGroup
 
 -- | The name of an existing AWS CodeDeploy application within the AWS user
 -- account.
---
 gdgApplicationName :: Lens' GetDeploymentGroup Text
 gdgApplicationName =
     lens _gdgApplicationName (\s a -> s { _gdgApplicationName = a })
 
 -- | The name of an existing deployment group for the specified application.
---
 gdgDeploymentGroupName :: Lens' GetDeploymentGroup Text
 gdgDeploymentGroupName =
     lens _gdgDeploymentGroupName (\s a -> s { _gdgDeploymentGroupName = a })
@@ -96,7 +94,6 @@ getDeploymentGroupResponse = GetDeploymentGroupResponse
     }
 
 -- | Information about the deployment group.
---
 gdgrDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGroupInfo)
 gdgrDeploymentGroupInfo =
     lens _gdgrDeploymentGroupInfo (\s a -> s { _gdgrDeploymentGroupInfo = a })

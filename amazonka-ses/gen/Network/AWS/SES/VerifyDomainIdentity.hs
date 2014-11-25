@@ -64,7 +64,6 @@ verifyDomainIdentity p1 = VerifyDomainIdentity
     }
 
 -- | The domain to be verified.
---
 vdiDomain :: Lens' VerifyDomainIdentity Text
 vdiDomain = lens _vdiDomain (\s a -> s { _vdiDomain = a })
 
@@ -86,7 +85,6 @@ verifyDomainIdentityResponse p1 = VerifyDomainIdentityResponse
 
 -- | A TXT record that must be placed in the DNS settings for the domain, in order
 -- to complete domain verification.
---
 vdirVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirVerificationToken =
     lens _vdirVerificationToken (\s a -> s { _vdirVerificationToken = a })

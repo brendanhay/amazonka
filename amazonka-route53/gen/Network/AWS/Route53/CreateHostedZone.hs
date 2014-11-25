@@ -111,20 +111,17 @@ createHostedZone p1 p2 = CreateHostedZone
 --
 -- Valid characters are any Unicode code points that are legal in an XML 1.0
 -- document. The UTF-8 encoding of the value must be less than 128 bytes.
---
 chzCallerReference :: Lens' CreateHostedZone Text
 chzCallerReference =
     lens _chzCallerReference (\s a -> s { _chzCallerReference = a })
 
 -- | The delegation set id of the reusable delgation set whose NS records you want
 -- to assign to the new hosted zone.
---
 chzDelegationSetId :: Lens' CreateHostedZone (Maybe Text)
 chzDelegationSetId =
     lens _chzDelegationSetId (\s a -> s { _chzDelegationSetId = a })
 
 -- | A complex type that contains an optional comment about your hosted zone.
---
 chzHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
 chzHostedZoneConfig =
     lens _chzHostedZoneConfig (\s a -> s { _chzHostedZoneConfig = a })
@@ -138,14 +135,12 @@ chzHostedZoneConfig =
 -- This is the name you have registered with your DNS registrar. You should ask
 -- your registrar to change the authoritative name servers for your domain to
 -- the set of 'NameServers' elements returned in 'DelegationSet'.
---
 chzName :: Lens' CreateHostedZone Text
 chzName = lens _chzName (\s a -> s { _chzName = a })
 
 -- | The VPC that you want your hosted zone to be associated with. By providing
 -- this parameter, your newly created hosted cannot be resolved anywhere other
 -- than the given VPC.
---
 chzVPC :: Lens' CreateHostedZone (Maybe VPC)
 chzVPC = lens _chzVPC (\s a -> s { _chzVPC = a })
 
@@ -187,23 +182,19 @@ createHostedZoneResponse p1 p2 p3 p4 = CreateHostedZoneResponse
 -- | A complex type that contains information about the request to create a hosted
 -- zone. This includes an ID that you use when you call the 'GetChange' action to
 -- get the current status of the change request.
---
 chzrChangeInfo :: Lens' CreateHostedZoneResponse ChangeInfo
 chzrChangeInfo = lens _chzrChangeInfo (\s a -> s { _chzrChangeInfo = a })
 
 -- | A complex type that contains name server information.
---
 chzrDelegationSet :: Lens' CreateHostedZoneResponse DelegationSet
 chzrDelegationSet =
     lens _chzrDelegationSet (\s a -> s { _chzrDelegationSet = a })
 
 -- | A complex type that contains identifying information about the hosted zone.
---
 chzrHostedZone :: Lens' CreateHostedZoneResponse HostedZone
 chzrHostedZone = lens _chzrHostedZone (\s a -> s { _chzrHostedZone = a })
 
 -- | The unique URL representing the new hosted zone.
---
 chzrLocation :: Lens' CreateHostedZoneResponse Text
 chzrLocation = lens _chzrLocation (\s a -> s { _chzrLocation = a })
 

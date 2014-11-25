@@ -60,7 +60,6 @@ deregisterRdsDbInstance p1 = DeregisterRdsDbInstance
     }
 
 -- | The Amazon RDS instance's ARN.
---
 drdiRdsDbInstanceArn :: Lens' DeregisterRdsDbInstance Text
 drdiRdsDbInstanceArn =
     lens _drdiRdsDbInstanceArn (\s a -> s { _drdiRdsDbInstanceArn = a })

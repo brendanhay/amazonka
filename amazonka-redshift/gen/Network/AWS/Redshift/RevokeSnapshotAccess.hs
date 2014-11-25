@@ -78,7 +78,6 @@ revokeSnapshotAccess p1 p2 = RevokeSnapshotAccess
 
 -- | The identifier of the AWS customer account that can no longer restore the
 -- specified snapshot.
---
 rsaAccountWithRestoreAccess :: Lens' RevokeSnapshotAccess Text
 rsaAccountWithRestoreAccess =
     lens _rsaAccountWithRestoreAccess
@@ -87,14 +86,12 @@ rsaAccountWithRestoreAccess =
 -- | The identifier of the cluster the snapshot was created from. This parameter
 -- is required if your IAM user has a policy containing a snapshot resource
 -- element that specifies anything other than * for the cluster name.
---
 rsaSnapshotClusterIdentifier :: Lens' RevokeSnapshotAccess (Maybe Text)
 rsaSnapshotClusterIdentifier =
     lens _rsaSnapshotClusterIdentifier
         (\s a -> s { _rsaSnapshotClusterIdentifier = a })
 
 -- | The identifier of the snapshot that the account can no longer access.
---
 rsaSnapshotIdentifier :: Lens' RevokeSnapshotAccess Text
 rsaSnapshotIdentifier =
     lens _rsaSnapshotIdentifier (\s a -> s { _rsaSnapshotIdentifier = a })

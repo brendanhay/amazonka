@@ -99,12 +99,10 @@ createQueue p1 = CreateQueue
 -- default for this attribute is 0.   'VisibilityTimeout' - The visibility timeout
 -- for the queue. An integer from 0 to 43200 (12 hours). The default for this
 -- attribute is 30. For more information about visibility timeout, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout> in the /Amazon SQS Developer Guide/.
---
 cqAttributes :: Lens' CreateQueue (HashMap Text Text)
 cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a }) . _EMap
 
 -- | The name for the queue to be created.
---
 cqQueueName :: Lens' CreateQueue Text
 cqQueueName = lens _cqQueueName (\s a -> s { _cqQueueName = a })
 
@@ -124,7 +122,6 @@ createQueueResponse = CreateQueueResponse
     }
 
 -- | The URL for the created Amazon SQS queue.
---
 cqrQueueUrl :: Lens' CreateQueueResponse (Maybe Text)
 cqrQueueUrl = lens _cqrQueueUrl (\s a -> s { _cqrQueueUrl = a })
 

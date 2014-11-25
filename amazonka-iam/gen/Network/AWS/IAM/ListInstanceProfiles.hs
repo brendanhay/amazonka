@@ -79,7 +79,6 @@ listInstanceProfiles = ListInstanceProfiles
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated. Set
 -- it to the value of the 'Marker' element in the response you just received.
---
 lipMarker :: Lens' ListInstanceProfiles (Maybe Text)
 lipMarker = lens _lipMarker (\s a -> s { _lipMarker = a })
 
@@ -88,7 +87,6 @@ lipMarker = lens _lipMarker (\s a -> s { _lipMarker = a })
 -- instance profiles beyond the maximum you specify, the 'IsTruncated' response
 -- element is 'true'. This parameter is optional. If you do not include it, it
 -- defaults to 100.
---
 lipMaxItems :: Lens' ListInstanceProfiles (Maybe Natural)
 lipMaxItems = lens _lipMaxItems (\s a -> s { _lipMaxItems = a }) . mapping _Nat
 
@@ -96,7 +94,6 @@ lipMaxItems = lens _lipMaxItems (\s a -> s { _lipMaxItems = a }) . mapping _Nat
 --
 -- This parameter is optional. If it is not included, it defaults to a slash
 -- (/), listing all instance profiles.
---
 lipPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
 lipPathPrefix = lens _lipPathPrefix (\s a -> s { _lipPathPrefix = a })
 
@@ -124,7 +121,6 @@ listInstanceProfilesResponse = ListInstanceProfilesResponse
     }
 
 -- | A list of instance profiles.
---
 liprInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
 liprInstanceProfiles =
     lens _liprInstanceProfiles (\s a -> s { _liprInstanceProfiles = a })
@@ -134,13 +130,11 @@ liprInstanceProfiles =
 -- your results were truncated, you can make a subsequent pagination request
 -- using the 'Marker' request parameter to retrieve more instance profiles in the
 -- list.
---
 liprIsTruncated :: Lens' ListInstanceProfilesResponse (Maybe Bool)
 liprIsTruncated = lens _liprIsTruncated (\s a -> s { _liprIsTruncated = a })
 
 -- | If 'IsTruncated' is 'true', this element is present and contains the value to
 -- use for the 'Marker' parameter in a subsequent pagination request.
---
 liprMarker :: Lens' ListInstanceProfilesResponse (Maybe Text)
 liprMarker = lens _liprMarker (\s a -> s { _liprMarker = a })
 

@@ -88,7 +88,6 @@ tiDryRun :: Lens' TerminateInstances (Maybe Bool)
 tiDryRun = lens _tiDryRun (\s a -> s { _tiDryRun = a })
 
 -- | One or more instance IDs.
---
 tiInstanceIds :: Lens' TerminateInstances [Text]
 tiInstanceIds = lens _tiInstanceIds (\s a -> s { _tiInstanceIds = a }) . _List
 
@@ -114,7 +113,6 @@ terminateInstancesResponse = TerminateInstancesResponse
     }
 
 -- | Information about one or more terminated instances.
---
 tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
 tirTerminatingInstances =
     lens _tirTerminatingInstances (\s a -> s { _tirTerminatingInstances = a })

@@ -24,6 +24,7 @@
 --
 -- You should understand the implications of changing a server certificate's
 -- path or name. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html Managing Server Certificates> in the /Using IAM/ guide.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html>
 module Network.AWS.IAM.UpdateServerCertificate
     (
@@ -73,20 +74,17 @@ updateServerCertificate p1 = UpdateServerCertificate
 
 -- | The new path for the server certificate. Include this only if you are
 -- updating the server certificate's path.
---
 usc1NewPath :: Lens' UpdateServerCertificate (Maybe Text)
 usc1NewPath = lens _usc1NewPath (\s a -> s { _usc1NewPath = a })
 
 -- | The new name for the server certificate. Include this only if you are
 -- updating the server certificate's name.
---
 usc1NewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
 usc1NewServerCertificateName =
     lens _usc1NewServerCertificateName
         (\s a -> s { _usc1NewServerCertificateName = a })
 
 -- | The name of the server certificate that you want to update.
---
 usc1ServerCertificateName :: Lens' UpdateServerCertificate Text
 usc1ServerCertificateName =
     lens _usc1ServerCertificateName

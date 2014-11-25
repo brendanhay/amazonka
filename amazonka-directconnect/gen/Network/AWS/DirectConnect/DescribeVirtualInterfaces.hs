@@ -105,7 +105,6 @@ describeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
     }
 
 -- | A list of virtual interfaces.
---
 dvirVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
 dvirVirtualInterfaces =
     lens _dvirVirtualInterfaces (\s a -> s { _dvirVirtualInterfaces = a })

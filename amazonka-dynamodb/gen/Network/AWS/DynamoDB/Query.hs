@@ -188,7 +188,6 @@ query p1 p2 = Query
 -- If you query a global secondary index, you can only request attributes that
 -- are projected into the index. Global secondary index queries cannot fetch
 -- attributes from the parent table.
---
 qAttributesToGet :: Lens' Query (NonEmpty Text)
 qAttributesToGet = lens _qAttributesToGet (\s a -> s { _qAttributesToGet = a }) . _List1
 
@@ -209,7 +208,6 @@ qAttributesToGet = lens _qAttributesToGet (\s a -> s { _qAttributesToGet = a }) 
 -- If you omit /ConditionalOperator/, then 'AND' is the default.
 --
 -- The operation will succeed only if the entire map evaluates to true.
---
 qConditionalOperator :: Lens' Query (Maybe ConditionalOperator)
 qConditionalOperator =
     lens _qConditionalOperator (\s a -> s { _qConditionalOperator = a })
@@ -220,7 +218,6 @@ qConditionalOperator =
 -- Strongly consistent reads are not supported on global secondary indexes. If
 -- you query a global secondary index with /ConsistentRead/ set to 'true', you will
 -- receive an error message.
---
 qConsistentRead :: Lens' Query (Maybe Bool)
 qConsistentRead = lens _qConsistentRead (\s a -> s { _qConsistentRead = a })
 
@@ -229,7 +226,6 @@ qConsistentRead = lens _qConsistentRead (\s a -> s { _qConsistentRead = a })
 --
 -- The data type for /ExclusiveStartKey/ must be String, Number or Binary. No set
 -- data types are allowed.
---
 qExclusiveStartKey :: Lens' Query (HashMap Text AttributeValue)
 qExclusiveStartKey =
     lens _qExclusiveStartKey (\s a -> s { _qExclusiveStartKey = a })
@@ -292,14 +288,12 @@ qExpressionAttributeValues =
 --
 -- The condition you specify is applied to the items queried; any items that do
 -- not match the expression are not returned.
---
 qFilterExpression :: Lens' Query (Maybe Text)
 qFilterExpression =
     lens _qFilterExpression (\s a -> s { _qFilterExpression = a })
 
 -- | The name of an index to query. This index can be any local secondary index or
 -- global secondary index on the table.
---
 qIndexName :: Lens' Query (Maybe Text)
 qIndexName = lens _qIndexName (\s a -> s { _qIndexName = a })
 
@@ -398,7 +392,6 @@ qIndexName = lens _qIndexName (\s a -> s { _qIndexName = a })
 -- does not match. For example, '{"S":"6"}' does not compare to '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'
 --
 -- For usage examples of /AttributeValueList/ and /ComparisonOperator/, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters> in the /Amazon DynamoDB Developer Guide/.
---
 qKeyConditions :: Lens' Query (HashMap Text Condition)
 qKeyConditions = lens _qKeyConditions (\s a -> s { _qKeyConditions = a }) . _Map
 
@@ -411,7 +404,6 @@ qKeyConditions = lens _qKeyConditions (\s a -> s { _qKeyConditions = a }) . _Map
 -- it stops the operation and returns the matching values up to the limit, and a
 -- key in /LastEvaluatedKey/ to apply in a subsequent operation to continue the
 -- operation. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan> in the /Amazon DynamoDBDeveloper Guide/.
---
 qLimit :: Lens' Query (Maybe Natural)
 qLimit = lens _qLimit (\s a -> s { _qLimit = a }) . mapping _Nat
 
@@ -422,7 +414,6 @@ qLimit = lens _qLimit (\s a -> s { _qLimit = a }) . mapping _Nat
 -- If no attribute names are specified, then all attributes will be returned.
 -- If any of the requested attributes are not found, they will not appear in the
 -- result.
---
 qProjectionExpression :: Lens' Query (Maybe Text)
 qProjectionExpression =
     lens _qProjectionExpression (\s a -> s { _qProjectionExpression = a })
@@ -488,7 +479,6 @@ qReturnConsumedCapacity =
 --
 -- If /ScanIndexForward/ is not specified, the results are returned in ascending
 -- order.
---
 qScanIndexForward :: Lens' Query (Maybe Bool)
 qScanIndexForward =
     lens _qScanIndexForward (\s a -> s { _qScanIndexForward = a })
@@ -529,12 +519,10 @@ qScanIndexForward =
 -- index. You cannot use both /Select/ and /AttributesToGet/ together in a single
 -- request, unless the value for /Select/ is 'SPECIFIC_ATTRIBUTES'. (This usage is
 -- equivalent to specifying /AttributesToGet/ without any value for /Select/.)
---
 qSelect :: Lens' Query (Maybe Select)
 qSelect = lens _qSelect (\s a -> s { _qSelect = a })
 
 -- | The name of the table containing the requested items.
---
 qTableName :: Lens' Query Text
 qTableName = lens _qTableName (\s a -> s { _qTableName = a })
 
@@ -581,13 +569,11 @@ qrConsumedCapacity =
 --
 -- If you did not use a filter in the request, then /Count/ and /ScannedCount/ are
 -- the same.
---
 qrCount :: Lens' QueryResponse (Maybe Int)
 qrCount = lens _qrCount (\s a -> s { _qrCount = a })
 
 -- | An array of item attributes that match the query criteria. Each element in
 -- this array consists of an attribute name and the value for that attribute.
---
 qrItems :: Lens' QueryResponse [HashMap Text AttributeValue]
 qrItems = lens _qrItems (\s a -> s { _qrItems = a }) . _List
 
@@ -601,7 +587,6 @@ qrItems = lens _qrItems (\s a -> s { _qrItems = a }) . _List
 -- If /LastEvaluatedKey/ is not empty, it does not necessarily mean that there is
 -- more data in the result set. The only way to know when you have reached the
 -- end of the result set is when /LastEvaluatedKey/ is empty.
---
 qrLastEvaluatedKey :: Lens' QueryResponse (HashMap Text AttributeValue)
 qrLastEvaluatedKey =
     lens _qrLastEvaluatedKey (\s a -> s { _qrLastEvaluatedKey = a })
@@ -611,7 +596,6 @@ qrLastEvaluatedKey =
 -- operation. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count Count and ScannedCount> in the /AmazonDynamoDB Developer Guide/.
 --
 -- If you did not use a filter in the request, then /ScannedCount/ is the same as /Count/.
---
 qrScannedCount :: Lens' QueryResponse (Maybe Int)
 qrScannedCount = lens _qrScannedCount (\s a -> s { _qrScannedCount = a })
 

@@ -68,7 +68,6 @@ deleteTable p1 = DeleteTable
     }
 
 -- | The name of the table to delete.
---
 dtTableName :: Lens' DeleteTable Text
 dtTableName = lens _dtTableName (\s a -> s { _dtTableName = a })
 

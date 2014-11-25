@@ -84,18 +84,15 @@ describeTags = DescribeTags
 -- example, you can filter so that tags are returned according to Auto Scaling
 -- group, the key and value, or whether the new tag will be applied to instances
 -- launched after the tag is created (PropagateAtLaunch).
---
 dtFilters :: Lens' DescribeTags [Filter]
 dtFilters = lens _dtFilters (\s a -> s { _dtFilters = a }) . _List
 
 -- | The maximum number of items to return with this call.
---
 dtMaxRecords :: Lens' DescribeTags (Maybe Int)
 dtMaxRecords = lens _dtMaxRecords (\s a -> s { _dtMaxRecords = a })
 
 -- | The token for the next set of items to return. (You received this token from
 -- a previous call.)
---
 dtNextToken :: Lens' DescribeTags (Maybe Text)
 dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
 
@@ -120,12 +117,10 @@ describeTagsResponse = DescribeTagsResponse
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
 dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 
 -- | The tags.
---
 dtrTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a }) . _List
 

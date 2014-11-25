@@ -78,7 +78,6 @@ describeAutoScalingGroups = DescribeAutoScalingGroups
     }
 
 -- | The group names.
---
 dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
 dasgAutoScalingGroupNames =
     lens _dasgAutoScalingGroupNames
@@ -86,13 +85,11 @@ dasgAutoScalingGroupNames =
             . _List
 
 -- | The maximum number of items to return with this call.
---
 dasgMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Int)
 dasgMaxRecords = lens _dasgMaxRecords (\s a -> s { _dasgMaxRecords = a })
 
 -- | The token for the next set of items to return. (You received this token from
 -- a previous call.)
---
 dasgNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
 dasgNextToken = lens _dasgNextToken (\s a -> s { _dasgNextToken = a })
 
@@ -116,7 +113,6 @@ describeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
     }
 
 -- | The groups.
---
 dasgrAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
 dasgrAutoScalingGroups =
     lens _dasgrAutoScalingGroups (\s a -> s { _dasgrAutoScalingGroups = a })
@@ -124,7 +120,6 @@ dasgrAutoScalingGroups =
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
 dasgrNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
 dasgrNextToken = lens _dasgrNextToken (\s a -> s { _dasgrNextToken = a })
 

@@ -68,7 +68,6 @@ modifyInstanceGroups = ModifyInstanceGroups
     }
 
 -- | Instance groups to change.
---
 migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
 migInstanceGroups =
     lens _migInstanceGroups (\s a -> s { _migInstanceGroups = a })

@@ -65,7 +65,6 @@ deleteLayer p1 = DeleteLayer
     }
 
 -- | The layer ID.
---
 dlLayerId :: Lens' DeleteLayer Text
 dlLayerId = lens _dlLayerId (\s a -> s { _dlLayerId = a })
 

@@ -84,7 +84,6 @@ gpdDryRun :: Lens' GetPasswordData (Maybe Bool)
 gpdDryRun = lens _gpdDryRun (\s a -> s { _gpdDryRun = a })
 
 -- | The ID of the Windows instance.
---
 gpdInstanceId :: Lens' GetPasswordData Text
 gpdInstanceId = lens _gpdInstanceId (\s a -> s { _gpdInstanceId = a })
 
@@ -112,17 +111,14 @@ getPasswordDataResponse = GetPasswordDataResponse
     }
 
 -- | The ID of the Windows instance.
---
 gpdrInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)
 gpdrInstanceId = lens _gpdrInstanceId (\s a -> s { _gpdrInstanceId = a })
 
 -- | The password of the instance.
---
 gpdrPasswordData :: Lens' GetPasswordDataResponse (Maybe Text)
 gpdrPasswordData = lens _gpdrPasswordData (\s a -> s { _gpdrPasswordData = a })
 
 -- | The time the data was last updated.
---
 gpdrTimestamp :: Lens' GetPasswordDataResponse (Maybe UTCTime)
 gpdrTimestamp = lens _gpdrTimestamp (\s a -> s { _gpdrTimestamp = a }) . mapping _Time
 

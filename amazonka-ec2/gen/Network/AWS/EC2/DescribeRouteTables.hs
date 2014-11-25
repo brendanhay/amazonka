@@ -132,7 +132,6 @@ drt2Filters = lens _drt2Filters (\s a -> s { _drt2Filters = a }) . _List
 -- | One or more route table IDs.
 --
 -- Default: Describes all your route tables.
---
 drt2RouteTableIds :: Lens' DescribeRouteTables [Text]
 drt2RouteTableIds =
     lens _drt2RouteTableIds (\s a -> s { _drt2RouteTableIds = a })
@@ -160,7 +159,6 @@ describeRouteTablesResponse = DescribeRouteTablesResponse
     }
 
 -- | Information about one or more route tables.
---
 drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
 drtrRouteTables = lens _drtrRouteTables (\s a -> s { _drtrRouteTables = a }) . _List
 

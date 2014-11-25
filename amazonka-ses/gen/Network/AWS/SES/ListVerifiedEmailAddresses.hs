@@ -25,7 +25,6 @@
 -- The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012
 -- release of Domain Verification. The ListIdentities action is now preferred. This action is throttled at one request per second.
 --
---
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListVerifiedEmailAddresses.html>
 module Network.AWS.SES.ListVerifiedEmailAddresses
     (
@@ -76,7 +75,6 @@ listVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     }
 
 -- | A list of email addresses that have been verified.
---
 lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearVerifiedEmailAddresses =
     lens _lvearVerifiedEmailAddresses

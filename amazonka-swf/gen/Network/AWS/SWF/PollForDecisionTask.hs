@@ -124,14 +124,12 @@ pollForDecisionTask p1 p2 = PollForDecisionTask
     }
 
 -- | The name of the domain containing the task lists to poll.
---
 pfdtDomain :: Lens' PollForDecisionTask Text
 pfdtDomain = lens _pfdtDomain (\s a -> s { _pfdtDomain = a })
 
 -- | Identity of the decider making the request, which is recorded in the
 -- DecisionTaskStarted event in the workflow history. This enables diagnostic
 -- tracing when problems arise. The form of this identity is user defined.
---
 pfdtIdentity :: Lens' PollForDecisionTask (Maybe Text)
 pfdtIdentity = lens _pfdtIdentity (\s a -> s { _pfdtIdentity = a })
 
@@ -140,7 +138,6 @@ pfdtIdentity = lens _pfdtIdentity (\s a -> s { _pfdtIdentity = a })
 -- default. You cannot specify a page size greater than 100. Note that the
 -- number of events may be less than the maxiumum page size, in which case, the
 -- returned page will have fewer results than the maximumPageSize specified.
---
 pfdtMaximumPageSize :: Lens' PollForDecisionTask (Maybe Natural)
 pfdtMaximumPageSize =
     lens _pfdtMaximumPageSize (\s a -> s { _pfdtMaximumPageSize = a })
@@ -157,7 +154,6 @@ pfdtNextPageToken =
 
 -- | When set to 'true', returns the events in reverse order. By default the
 -- results are returned in ascending order of the 'eventTimestamp' of the events.
---
 pfdtReverseOrder :: Lens' PollForDecisionTask (Maybe Bool)
 pfdtReverseOrder = lens _pfdtReverseOrder (\s a -> s { _pfdtReverseOrder = a })
 
@@ -167,7 +163,6 @@ pfdtReverseOrder = lens _pfdtReverseOrder (\s a -> s { _pfdtReverseOrder = a })
 -- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string "arn".
---
 pfdtTaskList :: Lens' PollForDecisionTask TaskList
 pfdtTaskList = lens _pfdtTaskList (\s a -> s { _pfdtTaskList = a })
 
@@ -216,14 +211,12 @@ pollForDecisionTaskResponse p1 p2 p3 p4 = PollForDecisionTaskResponse
 
 -- | A paginated list of history events of the workflow execution. The decider
 -- uses this during the processing of the decision task.
---
 pfdtrEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
 pfdtrEvents = lens _pfdtrEvents (\s a -> s { _pfdtrEvents = a }) . _List
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
 -- unchanged.
---
 pfdtrNextPageToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
 pfdtrNextPageToken =
     lens _pfdtrNextPageToken (\s a -> s { _pfdtrNextPageToken = a })
@@ -232,14 +225,12 @@ pfdtrNextPageToken =
 -- this workflow execution that was processed by the decider. This can be used
 -- to determine the events in the history new since the last decision task
 -- received by the decider.
---
 pfdtrPreviousStartedEventId :: Lens' PollForDecisionTaskResponse (Maybe Integer)
 pfdtrPreviousStartedEventId =
     lens _pfdtrPreviousStartedEventId
         (\s a -> s { _pfdtrPreviousStartedEventId = a })
 
 -- | The id of the 'DecisionTaskStarted' event recorded in the history.
---
 pfdtrStartedEventId :: Lens' PollForDecisionTaskResponse Integer
 pfdtrStartedEventId =
     lens _pfdtrStartedEventId (\s a -> s { _pfdtrStartedEventId = a })
@@ -247,18 +238,15 @@ pfdtrStartedEventId =
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the system
 -- about the task.
---
 pfdtrTaskToken :: Lens' PollForDecisionTaskResponse Text
 pfdtrTaskToken = lens _pfdtrTaskToken (\s a -> s { _pfdtrTaskToken = a })
 
 -- | The workflow execution for which this decision task was created.
---
 pfdtrWorkflowExecution :: Lens' PollForDecisionTaskResponse WorkflowExecution
 pfdtrWorkflowExecution =
     lens _pfdtrWorkflowExecution (\s a -> s { _pfdtrWorkflowExecution = a })
 
 -- | The type of the workflow execution for which this decision task was created.
---
 pfdtrWorkflowType :: Lens' PollForDecisionTaskResponse WorkflowType
 pfdtrWorkflowType =
     lens _pfdtrWorkflowType (\s a -> s { _pfdtrWorkflowType = a })

@@ -35,6 +35,7 @@
 -- receiving a particular message more than once is not a problem.
 --
 --
+--
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessage.html>
 module Network.AWS.SQS.DeleteMessage
     (
@@ -79,12 +80,10 @@ deleteMessage p1 p2 = DeleteMessage
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
---
 dmQueueUrl :: Lens' DeleteMessage Text
 dmQueueUrl = lens _dmQueueUrl (\s a -> s { _dmQueueUrl = a })
 
 -- | The receipt handle associated with the message to delete.
---
 dmReceiptHandle :: Lens' DeleteMessage Text
 dmReceiptHandle = lens _dmReceiptHandle (\s a -> s { _dmReceiptHandle = a })
 

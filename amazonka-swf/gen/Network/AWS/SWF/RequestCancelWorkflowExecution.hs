@@ -88,17 +88,14 @@ requestCancelWorkflowExecution p1 p2 = RequestCancelWorkflowExecution
     }
 
 -- | The name of the domain containing the workflow execution to cancel.
---
 rcweDomain :: Lens' RequestCancelWorkflowExecution Text
 rcweDomain = lens _rcweDomain (\s a -> s { _rcweDomain = a })
 
 -- | The runId of the workflow execution to cancel.
---
 rcweRunId :: Lens' RequestCancelWorkflowExecution (Maybe Text)
 rcweRunId = lens _rcweRunId (\s a -> s { _rcweRunId = a })
 
 -- | The workflowId of the workflow execution to cancel.
---
 rcweWorkflowId :: Lens' RequestCancelWorkflowExecution Text
 rcweWorkflowId = lens _rcweWorkflowId (\s a -> s { _rcweWorkflowId = a })
 

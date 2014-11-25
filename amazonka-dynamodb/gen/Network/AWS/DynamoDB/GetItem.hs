@@ -113,7 +113,6 @@ getItem p1 p2 = GetItem
 -- Note that /AttributesToGet/ has no effect on provisioned throughput
 -- consumption. DynamoDB determines capacity units consumed based on item size,
 -- not on the amount of data that is returned to an application.
---
 giAttributesToGet :: Lens' GetItem (NonEmpty Text)
 giAttributesToGet =
     lens _giAttributesToGet (\s a -> s { _giAttributesToGet = a })
@@ -121,7 +120,6 @@ giAttributesToGet =
 
 -- | A value that if set to 'true', then the operation uses strongly consistent
 -- reads; otherwise, eventually consistent reads are used.
---
 giConsistentRead :: Lens' GetItem (Maybe Bool)
 giConsistentRead = lens _giConsistentRead (\s a -> s { _giConsistentRead = a })
 
@@ -163,7 +161,6 @@ giExpressionAttributeNames =
 -- with a hash type primary key, you only need to specify the hash attribute.
 -- For a hash-and-range type primary key, you must specify both the hash
 -- attribute and the range attribute.
---
 giKey :: Lens' GetItem (HashMap Text AttributeValue)
 giKey = lens _giKey (\s a -> s { _giKey = a }) . _Map
 
@@ -174,7 +171,6 @@ giKey = lens _giKey (\s a -> s { _giKey = a }) . _Map
 -- If no attribute names are specified, then all attributes will be returned.
 -- If any of the requested attributes are not found, they will not appear in the
 -- result.
---
 giProjectionExpression :: Lens' GetItem (Maybe Text)
 giProjectionExpression =
     lens _giProjectionExpression (\s a -> s { _giProjectionExpression = a })
@@ -185,7 +181,6 @@ giReturnConsumedCapacity =
         (\s a -> s { _giReturnConsumedCapacity = a })
 
 -- | The name of the table containing the requested item.
---
 giTableName :: Lens' GetItem Text
 giTableName = lens _giTableName (\s a -> s { _giTableName = a })
 
@@ -213,7 +208,6 @@ girConsumedCapacity =
     lens _girConsumedCapacity (\s a -> s { _girConsumedCapacity = a })
 
 -- | A map of attribute names to /AttributeValue/ objects, as specified by /AttributesToGet/.
---
 girItem :: Lens' GetItemResponse (HashMap Text AttributeValue)
 girItem = lens _girItem (\s a -> s { _girItem = a }) . _Map
 

@@ -76,19 +76,16 @@ listJobsByStatus p1 = ListJobsByStatus
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter 'true'. To list jobs in reverse chronological order, enter 'false'.
---
 ljbsAscending :: Lens' ListJobsByStatus (Maybe Text)
 ljbsAscending = lens _ljbsAscending (\s a -> s { _ljbsAscending = a })
 
 -- | When Elastic Transcoder returns more than one page of results, use 'pageToken'
 -- in subsequent 'GET' requests to get each successive page of results.
---
 ljbsPageToken :: Lens' ListJobsByStatus (Maybe Text)
 ljbsPageToken = lens _ljbsPageToken (\s a -> s { _ljbsPageToken = a })
 
 -- | To get information about all of the jobs associated with the current AWS
 -- account that have a given status, specify the following status: 'Submitted', 'Progressing', 'Complete', 'Canceled', or 'Error'.
---
 ljbsStatus :: Lens' ListJobsByStatus Text
 ljbsStatus = lens _ljbsStatus (\s a -> s { _ljbsStatus = a })
 
@@ -112,14 +109,12 @@ listJobsByStatusResponse = ListJobsByStatusResponse
     }
 
 -- | An array of 'Job' objects that have the specified status.
---
 ljbsrJobs :: Lens' ListJobsByStatusResponse [Job']
 ljbsrJobs = lens _ljbsrJobs (\s a -> s { _ljbsrJobs = a }) . _List
 
 -- | A value that you use to access the second and subsequent pages of results,
 -- if any. When the jobs in the specified pipeline fit on one page or when
 -- you've reached the last page of results, the value of 'NextPageToken' is 'null'.
---
 ljbsrNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
 ljbsrNextPageToken =
     lens _ljbsrNextPageToken (\s a -> s { _ljbsrNextPageToken = a })

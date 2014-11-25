@@ -79,20 +79,17 @@ disassociateVPCFromHostedZone p1 p2 = DisassociateVPCFromHostedZone
     }
 
 -- | /Optional:/ Any comments you want to include about a 'DisassociateVPCFromHostedZoneRequest'.
---
 dvpcfhzComment :: Lens' DisassociateVPCFromHostedZone (Maybe Text)
 dvpcfhzComment = lens _dvpcfhzComment (\s a -> s { _dvpcfhzComment = a })
 
 -- | The ID of the hosted zone you want to disassociate your VPC from.
 --
 -- Note that you cannot disassociate the last VPC from a hosted zone.
---
 dvpcfhzHostedZoneId :: Lens' DisassociateVPCFromHostedZone Text
 dvpcfhzHostedZoneId =
     lens _dvpcfhzHostedZoneId (\s a -> s { _dvpcfhzHostedZoneId = a })
 
 -- | The VPC that you want your hosted zone to be disassociated from.
---
 dvpcfhzVPC :: Lens' DisassociateVPCFromHostedZone VPC
 dvpcfhzVPC = lens _dvpcfhzVPC (\s a -> s { _dvpcfhzVPC = a })
 
@@ -114,7 +111,6 @@ disassociateVPCFromHostedZoneResponse p1 = DisassociateVPCFromHostedZoneResponse
 
 -- | A complex type that contains the ID, the status, and the date and time of
 -- your 'DisassociateVPCFromHostedZoneRequest'.
---
 dvpcfhzrChangeInfo :: Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
 dvpcfhzrChangeInfo =
     lens _dvpcfhzrChangeInfo (\s a -> s { _dvpcfhzrChangeInfo = a })

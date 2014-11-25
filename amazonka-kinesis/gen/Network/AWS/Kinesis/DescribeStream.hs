@@ -91,19 +91,16 @@ describeStream p1 = DescribeStream
     }
 
 -- | The shard ID of the shard to start with.
---
 ds1ExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
 ds1ExclusiveStartShardId =
     lens _ds1ExclusiveStartShardId
         (\s a -> s { _ds1ExclusiveStartShardId = a })
 
 -- | The maximum number of shards to return.
---
 ds1Limit :: Lens' DescribeStream (Maybe Natural)
 ds1Limit = lens _ds1Limit (\s a -> s { _ds1Limit = a }) . mapping _Nat
 
 -- | The name of the stream to describe.
---
 ds1StreamName :: Lens' DescribeStream Text
 ds1StreamName = lens _ds1StreamName (\s a -> s { _ds1StreamName = a })
 
@@ -125,7 +122,6 @@ describeStreamResponse p1 = DescribeStreamResponse
 
 -- | The current status of the stream, the stream ARN, an array of shard objects
 -- that comprise the stream, and states whether there are more shards available.
---
 dsrStreamDescription :: Lens' DescribeStreamResponse StreamDescription
 dsrStreamDescription =
     lens _dsrStreamDescription (\s a -> s { _dsrStreamDescription = a })

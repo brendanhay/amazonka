@@ -63,7 +63,6 @@ deleteLaunchConfiguration p1 = DeleteLaunchConfiguration
     }
 
 -- | The name of the launch configuration.
---
 dlcLaunchConfigurationName :: Lens' DeleteLaunchConfiguration Text
 dlcLaunchConfigurationName =
     lens _dlcLaunchConfigurationName

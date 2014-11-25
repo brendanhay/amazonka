@@ -24,6 +24,7 @@
 -- owner pays for downloads from the bucket. This configuration parameter
 -- enables the bucket owner (only) to specify that the person requesting the
 -- download will be charged for the download.
+--
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketRequestPayment.html>
 module Network.AWS.S3.PutBucketRequestPayment
     (

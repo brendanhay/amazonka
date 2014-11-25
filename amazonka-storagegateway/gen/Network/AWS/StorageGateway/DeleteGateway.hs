@@ -38,6 +38,7 @@
 -- Amazon EC2 console. For more information, see the <http://aws.amazon.com/storagegateway  AWS Storage Gateway DetailPage>.
 --
 --
+--
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteGateway.html>
 module Network.AWS.StorageGateway.DeleteGateway
     (

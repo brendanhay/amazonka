@@ -67,13 +67,11 @@ attachInstances p1 = AttachInstances
     }
 
 -- | The name of the group.
---
 aiAutoScalingGroupName :: Lens' AttachInstances Text
 aiAutoScalingGroupName =
     lens _aiAutoScalingGroupName (\s a -> s { _aiAutoScalingGroupName = a })
 
 -- | One or more EC2 instance IDs. You must specify at least one ID.
---
 aiInstanceIds :: Lens' AttachInstances [Text]
 aiInstanceIds = lens _aiInstanceIds (\s a -> s { _aiInstanceIds = a }) . _List
 

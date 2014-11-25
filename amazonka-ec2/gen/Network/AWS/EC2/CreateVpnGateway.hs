@@ -76,7 +76,6 @@ createVpnGateway p1 = CreateVpnGateway
     }
 
 -- | The Availability Zone for the virtual private gateway.
---
 cvgAvailabilityZone :: Lens' CreateVpnGateway (Maybe Text)
 cvgAvailabilityZone =
     lens _cvgAvailabilityZone (\s a -> s { _cvgAvailabilityZone = a })
@@ -85,7 +84,6 @@ cvgDryRun :: Lens' CreateVpnGateway (Maybe Bool)
 cvgDryRun = lens _cvgDryRun (\s a -> s { _cvgDryRun = a })
 
 -- | The type of VPN connection this virtual private gateway supports.
---
 cvgType :: Lens' CreateVpnGateway GatewayType
 cvgType = lens _cvgType (\s a -> s { _cvgType = a })
 
@@ -105,7 +103,6 @@ createVpnGatewayResponse = CreateVpnGatewayResponse
     }
 
 -- | Information about the virtual private gateway.
---
 cvgrVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)
 cvgrVpnGateway = lens _cvgrVpnGateway (\s a -> s { _cvgrVpnGateway = a })
 

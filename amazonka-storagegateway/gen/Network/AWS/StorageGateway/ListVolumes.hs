@@ -87,14 +87,12 @@ lvGatewayARN = lens _lvGatewayARN (\s a -> s { _lvGatewayARN = a })
 
 -- | Specifies that the list of volumes returned be limited to the specified
 -- number of items.
---
 lvLimit :: Lens' ListVolumes (Maybe Natural)
 lvLimit = lens _lvLimit (\s a -> s { _lvLimit = a }) . mapping _Nat
 
 -- | A string that indicates the position at which to begin the returned list of
 -- volumes. Obtain the marker from the response of a previous List iSCSI Volumes
 -- request.
---
 lvMarker :: Lens' ListVolumes (Maybe Text)
 lvMarker = lens _lvMarker (\s a -> s { _lvMarker = a })
 

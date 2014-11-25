@@ -30,6 +30,7 @@
 -- resource record sets, Route 53 will deny your request with a 'HealthCheckInUse'
 -- error. For information about disassociating the records from your health
 -- check, see 'ChangeResourceRecordSets'.
+--
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html>
 module Network.AWS.Route53.DeleteHealthCheck
     (
@@ -68,7 +69,6 @@ deleteHealthCheck p1 = DeleteHealthCheck
     }
 
 -- | The ID of the health check to delete.
---
 dhcHealthCheckId :: Lens' DeleteHealthCheck Text
 dhcHealthCheckId = lens _dhcHealthCheckId (\s a -> s { _dhcHealthCheckId = a })
 

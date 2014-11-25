@@ -60,7 +60,6 @@ deleteClusterSubnetGroup p1 = DeleteClusterSubnetGroup
     }
 
 -- | The name of the cluster subnet group name to be deleted.
---
 dcsgClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
 dcsgClusterSubnetGroupName =
     lens _dcsgClusterSubnetGroupName

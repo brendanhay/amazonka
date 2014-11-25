@@ -95,7 +95,6 @@ createJob p1 p2 = CreateJob
 
 -- | A section of the request body that provides information about the file that
 -- is being transcoded.
---
 cjInput :: Lens' CreateJob JobInput
 cjInput = lens _cjInput (\s a -> s { _cjInput = a })
 
@@ -105,14 +104,12 @@ cjOutput = lens _cjOutput (\s a -> s { _cjOutput = a })
 -- | The value, if any, that you want Elastic Transcoder to prepend to the names
 -- of all files that this job creates, including output files, thumbnails, and
 -- playlists.
---
 cjOutputKeyPrefix :: Lens' CreateJob (Maybe Text)
 cjOutputKeyPrefix =
     lens _cjOutputKeyPrefix (\s a -> s { _cjOutputKeyPrefix = a })
 
 -- | A section of the request body that provides information about the transcoded
 -- (target) files. We recommend that you use the 'Outputs' syntax instead of the 'Output' syntax.
---
 cjOutputs :: Lens' CreateJob [CreateJobOutput]
 cjOutputs = lens _cjOutputs (\s a -> s { _cjOutputs = a }) . _List
 
@@ -120,7 +117,6 @@ cjOutputs = lens _cjOutputs (\s a -> s { _cjOutputs = a }) . _List
 -- transcoding. The pipeline determines several settings, including the Amazon
 -- S3 bucket from which Elastic Transcoder gets the files to transcode and the
 -- bucket into which Elastic Transcoder puts the transcoded files.
---
 cjPipelineId :: Lens' CreateJob Text
 cjPipelineId = lens _cjPipelineId (\s a -> s { _cjPipelineId = a })
 
@@ -129,7 +125,6 @@ cjPipelineId = lens _cjPipelineId (\s a -> s { _cjPipelineId = a })
 -- master playlists that you want Elastic Transcoder to create.
 --
 -- The maximum number of master playlists in a job is 30.
---
 cjPlaylists :: Lens' CreateJob [CreateJobPlaylist]
 cjPlaylists = lens _cjPlaylists (\s a -> s { _cjPlaylists = a }) . _List
 
@@ -150,7 +145,6 @@ createJobResponse = CreateJobResponse
 
 -- | A section of the response body that provides information about the job that
 -- is created.
---
 cjrJob :: Lens' CreateJobResponse (Maybe Job')
 cjrJob = lens _cjrJob (\s a -> s { _cjrJob = a })
 

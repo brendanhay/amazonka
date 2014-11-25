@@ -60,7 +60,6 @@ deleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup
     }
 
 -- | The name of the cache security group to delete.
---
 dcsgCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
 dcsgCacheSecurityGroupName =
     lens _dcsgCacheSecurityGroupName

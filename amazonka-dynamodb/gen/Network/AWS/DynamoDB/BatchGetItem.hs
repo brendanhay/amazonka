@@ -182,7 +182,6 @@ bgirConsumedCapacity =
 -- | A map of table name to a list of items. Each object in /Responses/ consists of
 -- a table name, along with a map of attribute data consisting of the data type
 -- and attribute value.
---
 bgirResponses :: Lens' BatchGetItemResponse (HashMap Text [HashMap Text AttributeValue])
 bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a }) . _Map
 
@@ -205,7 +204,6 @@ bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a }) . _Map
 -- is used.
 --
 -- If there are no unprocessed keys remaining, the response contains an empty /UnprocessedKeys/ map.
---
 bgirUnprocessedKeys :: Lens' BatchGetItemResponse (HashMap Text KeysAndAttributes)
 bgirUnprocessedKeys =
     lens _bgirUnprocessedKeys (\s a -> s { _bgirUnprocessedKeys = a })

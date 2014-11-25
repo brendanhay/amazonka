@@ -87,7 +87,6 @@ updateTable p1 = UpdateTable
 
 -- | An array of one or more global secondary indexes on the table, together with
 -- provisioned throughput settings for each index.
---
 utGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
 utGlobalSecondaryIndexUpdates =
     lens _utGlobalSecondaryIndexUpdates
@@ -99,7 +98,6 @@ utProvisionedThroughput =
     lens _utProvisionedThroughput (\s a -> s { _utProvisionedThroughput = a })
 
 -- | The name of the table to be updated.
---
 utTableName :: Lens' UpdateTable Text
 utTableName = lens _utTableName (\s a -> s { _utTableName = a })
 

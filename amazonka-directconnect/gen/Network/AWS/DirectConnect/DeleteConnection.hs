@@ -129,7 +129,6 @@ deleteConnectionResponse = DeleteConnectionResponse
 -- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
 --
 -- Default: None
---
 dcrBandwidth :: Lens' DeleteConnectionResponse (Maybe Text)
 dcrBandwidth = lens _dcrBandwidth (\s a -> s { _dcrBandwidth = a })
 

@@ -114,7 +114,6 @@ createVolume p1 = CreateVolume
     }
 
 -- | The Availability Zone in which to create the volume. Use 'DescribeAvailabilityZones' to list the Availability Zones that are currently available to you.
---
 cv1AvailabilityZone :: Lens' CreateVolume Text
 cv1AvailabilityZone =
     lens _cv1AvailabilityZone (\s a -> s { _cv1AvailabilityZone = a })
@@ -123,13 +122,11 @@ cv1DryRun :: Lens' CreateVolume (Maybe Bool)
 cv1DryRun = lens _cv1DryRun (\s a -> s { _cv1DryRun = a })
 
 -- | Specifies whether the volume should be encrypted.
---
 cv1Encrypted :: Lens' CreateVolume (Maybe Bool)
 cv1Encrypted = lens _cv1Encrypted (\s a -> s { _cv1Encrypted = a })
 
 -- | Only valid for Provisioned IOPS (SSD) volumes. The number of I/O operations
 -- per second (IOPS) to provision for the volume.
---
 cv1Iops :: Lens' CreateVolume (Maybe Int)
 cv1Iops = lens _cv1Iops (\s a -> s { _cv1Iops = a })
 
@@ -140,12 +137,10 @@ cv1Iops = lens _cv1Iops (\s a -> s { _cv1Iops = a })
 --
 -- Default: If you're creating the volume from a snapshot and don't specify a
 -- volume size, the default is the snapshot size.
---
 cv1Size :: Lens' CreateVolume (Maybe Int)
 cv1Size = lens _cv1Size (\s a -> s { _cv1Size = a })
 
 -- | The snapshot from which to create the volume.
---
 cv1SnapshotId :: Lens' CreateVolume (Maybe Text)
 cv1SnapshotId = lens _cv1SnapshotId (\s a -> s { _cv1SnapshotId = a })
 
@@ -153,7 +148,6 @@ cv1SnapshotId = lens _cv1SnapshotId (\s a -> s { _cv1SnapshotId = a })
 -- Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic volumes.
 --
 -- Default: 'standard'
---
 cv1VolumeType :: Lens' CreateVolume (Maybe VolumeType)
 cv1VolumeType = lens _cv1VolumeType (\s a -> s { _cv1VolumeType = a })
 
@@ -216,18 +210,15 @@ cvrAttachments :: Lens' CreateVolumeResponse [VolumeAttachment]
 cvrAttachments = lens _cvrAttachments (\s a -> s { _cvrAttachments = a }) . _List
 
 -- | The Availability Zone for the volume.
---
 cvrAvailabilityZone :: Lens' CreateVolumeResponse (Maybe Text)
 cvrAvailabilityZone =
     lens _cvrAvailabilityZone (\s a -> s { _cvrAvailabilityZone = a })
 
 -- | The time stamp when volume creation was initiated.
---
 cvrCreateTime :: Lens' CreateVolumeResponse (Maybe UTCTime)
 cvrCreateTime = lens _cvrCreateTime (\s a -> s { _cvrCreateTime = a }) . mapping _Time
 
 -- | Indicates whether the volume is encrypted.
---
 cvrEncrypted :: Lens' CreateVolumeResponse (Maybe Bool)
 cvrEncrypted = lens _cvrEncrypted (\s a -> s { _cvrEncrypted = a })
 
@@ -243,38 +234,31 @@ cvrEncrypted = lens _cvrEncrypted (\s a -> s { _cvrEncrypted = a })
 --
 -- Condition: This parameter is required for requests to create 'io1' volumes; it
 -- is not used in requests to create 'standard' or 'gp2' volumes.
---
 cvrIops :: Lens' CreateVolumeResponse (Maybe Int)
 cvrIops = lens _cvrIops (\s a -> s { _cvrIops = a })
 
 -- | The size of the volume, in GiBs.
---
 cvrSize :: Lens' CreateVolumeResponse (Maybe Int)
 cvrSize = lens _cvrSize (\s a -> s { _cvrSize = a })
 
 -- | The snapshot from which the volume was created, if applicable.
---
 cvrSnapshotId :: Lens' CreateVolumeResponse (Maybe Text)
 cvrSnapshotId = lens _cvrSnapshotId (\s a -> s { _cvrSnapshotId = a })
 
 -- | The volume state.
---
 cvrState :: Lens' CreateVolumeResponse (Maybe VolumeState)
 cvrState = lens _cvrState (\s a -> s { _cvrState = a })
 
 -- | Any tags assigned to the volume.
---
 cvrTags :: Lens' CreateVolumeResponse [Tag]
 cvrTags = lens _cvrTags (\s a -> s { _cvrTags = a }) . _List
 
 -- | The ID of the volume.
---
 cvrVolumeId :: Lens' CreateVolumeResponse (Maybe Text)
 cvrVolumeId = lens _cvrVolumeId (\s a -> s { _cvrVolumeId = a })
 
 -- | The volume type. This can be 'gp2' for General Purpose (SSD) volumes, 'io1' for
 -- Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic volumes.
---
 cvrVolumeType :: Lens' CreateVolumeResponse (Maybe VolumeType)
 cvrVolumeType = lens _cvrVolumeType (\s a -> s { _cvrVolumeType = a })
 

@@ -82,25 +82,21 @@ listInstances p1 = ListInstances
     }
 
 -- | The identifier of the cluster for which to list the instances.
---
 liClusterId :: Lens' ListInstances Text
 liClusterId = lens _liClusterId (\s a -> s { _liClusterId = a })
 
 -- | The identifier of the instance group for which to list the instances.
---
 liInstanceGroupId :: Lens' ListInstances (Maybe Text)
 liInstanceGroupId =
     lens _liInstanceGroupId (\s a -> s { _liInstanceGroupId = a })
 
 -- | The type of instance group for which to list the instances.
---
 liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
 liInstanceGroupTypes =
     lens _liInstanceGroupTypes (\s a -> s { _liInstanceGroupTypes = a })
         . _List
 
 -- | The pagination token that indicates the next set of results to retrieve.
---
 liMarker :: Lens' ListInstances (Maybe Text)
 liMarker = lens _liMarker (\s a -> s { _liMarker = a })
 
@@ -124,12 +120,10 @@ listInstancesResponse = ListInstancesResponse
     }
 
 -- | The list of instances for the cluster and given filters.
---
 lirInstances :: Lens' ListInstancesResponse [Instance]
 lirInstances = lens _lirInstances (\s a -> s { _lirInstances = a }) . _List
 
 -- | The pagination token that indicates the next set of results to retrieve.
---
 lirMarker :: Lens' ListInstancesResponse (Maybe Text)
 lirMarker = lens _lirMarker (\s a -> s { _lirMarker = a })
 

@@ -81,20 +81,17 @@ describeDBSubnetGroups = DescribeDBSubnetGroups
     }
 
 -- | The name of the DB subnet group to return details for.
---
 ddbsgDBSubnetGroupName :: Lens' DescribeDBSubnetGroups (Maybe Text)
 ddbsgDBSubnetGroupName =
     lens _ddbsgDBSubnetGroupName (\s a -> s { _ddbsgDBSubnetGroupName = a })
 
 -- | This parameter is not currently supported.
---
 ddbsgFilters :: Lens' DescribeDBSubnetGroups [Filter]
 ddbsgFilters = lens _ddbsgFilters (\s a -> s { _ddbsgFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous DescribeDBSubnetGroups
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by 'MaxRecords'.
---
 ddbsgMarker :: Lens' DescribeDBSubnetGroups (Maybe Text)
 ddbsgMarker = lens _ddbsgMarker (\s a -> s { _ddbsgMarker = a })
 
@@ -105,7 +102,6 @@ ddbsgMarker = lens _ddbsgMarker (\s a -> s { _ddbsgMarker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
---
 ddbsgMaxRecords :: Lens' DescribeDBSubnetGroups (Maybe Int)
 ddbsgMaxRecords = lens _ddbsgMaxRecords (\s a -> s { _ddbsgMaxRecords = a })
 
@@ -129,7 +125,6 @@ describeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
     }
 
 -- | A list of 'DBSubnetGroup' instances.
---
 ddbsgrDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
 ddbsgrDBSubnetGroups =
     lens _ddbsgrDBSubnetGroups (\s a -> s { _ddbsgrDBSubnetGroups = a })
@@ -138,7 +133,6 @@ ddbsgrDBSubnetGroups =
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the marker,
 -- up to the value specified by 'MaxRecords'.
---
 ddbsgrMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 ddbsgrMarker = lens _ddbsgrMarker (\s a -> s { _ddbsgrMarker = a })
 

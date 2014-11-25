@@ -43,6 +43,7 @@
 -- request.
 --
 --
+--
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateAutoScalingGroup.html>
 module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     (
@@ -137,14 +138,12 @@ updateAutoScalingGroup p1 p2 = UpdateAutoScalingGroup
     }
 
 -- | The name of the Auto Scaling group.
---
 uasgAutoScalingGroupName :: Lens' UpdateAutoScalingGroup Text
 uasgAutoScalingGroupName =
     lens _uasgAutoScalingGroupName
         (\s a -> s { _uasgAutoScalingGroupName = a })
 
 -- | One or more Availability Zones for the group.
---
 uasgAvailabilityZones :: Lens' UpdateAutoScalingGroup (NonEmpty Text)
 uasgAvailabilityZones =
     lens _uasgAvailabilityZones (\s a -> s { _uasgAvailabilityZones = a })
@@ -152,7 +151,6 @@ uasgAvailabilityZones =
 
 -- | The amount of time, in seconds, after a scaling activity completes before
 -- another scaling activity can start. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html UnderstandingAuto Scaling Cooldowns>.
---
 uasgDefaultCooldown :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgDefaultCooldown =
     lens _uasgDefaultCooldown (\s a -> s { _uasgDefaultCooldown = a })
@@ -160,7 +158,6 @@ uasgDefaultCooldown =
 -- | The number of EC2 instances that should be running in the Auto Scaling group.
 -- This value must be greater than or equal to the minimum size of the group and
 -- less than or equal to the maximum size of the group.
---
 uasgDesiredCapacity :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgDesiredCapacity =
     lens _uasgDesiredCapacity (\s a -> s { _uasgDesiredCapacity = a })
@@ -169,7 +166,6 @@ uasgDesiredCapacity =
 -- health status of an instance. The grace period begins when the instance
 -- passes System Status and the Instance Status checks from Amazon EC2. For more
 -- information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html DescribeInstanceStatus>.
---
 uasgHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgHealthCheckGracePeriod =
     lens _uasgHealthCheckGracePeriod
@@ -178,31 +174,26 @@ uasgHealthCheckGracePeriod =
 -- | The type of health check for the instances in the Auto Scaling group. The
 -- health check type can either be 'EC2' for Amazon EC2 or 'ELB' for Elastic Load
 -- Balancing.
---
 uasgHealthCheckType :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgHealthCheckType =
     lens _uasgHealthCheckType (\s a -> s { _uasgHealthCheckType = a })
 
 -- | The name of the launch configuration.
---
 uasgLaunchConfigurationName :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgLaunchConfigurationName =
     lens _uasgLaunchConfigurationName
         (\s a -> s { _uasgLaunchConfigurationName = a })
 
 -- | The maximum size of the Auto Scaling group.
---
 uasgMaxSize :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgMaxSize = lens _uasgMaxSize (\s a -> s { _uasgMaxSize = a })
 
 -- | The minimum size of the Auto Scaling group.
---
 uasgMinSize :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgMinSize = lens _uasgMinSize (\s a -> s { _uasgMinSize = a })
 
 -- | The name of the placement group into which you'll launch your instances, if
 -- any. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.
---
 uasgPlacementGroup :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgPlacementGroup =
     lens _uasgPlacementGroup (\s a -> s { _uasgPlacementGroup = a })
@@ -212,7 +203,6 @@ uasgPlacementGroup =
 -- they are listed.
 --
 -- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your AutoScaling Group> in the /Auto Scaling Developer Guide/.
---
 uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
 uasgTerminationPolicies =
     lens _uasgTerminationPolicies (\s a -> s { _uasgTerminationPolicies = a })
@@ -226,7 +216,6 @@ uasgTerminationPolicies =
 -- .
 --
 -- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC> in the /Auto ScalingDeveloper Guide/.
---
 uasgVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgVPCZoneIdentifier =
     lens _uasgVPCZoneIdentifier (\s a -> s { _uasgVPCZoneIdentifier = a })

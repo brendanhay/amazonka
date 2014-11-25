@@ -98,13 +98,11 @@ describeEvents = DescribeEvents
     }
 
 -- | The number of minutes' worth of events to retrieve.
---
 deDuration :: Lens' DescribeEvents (Maybe Int)
 deDuration = lens _deDuration (\s a -> s { _deDuration = a })
 
 -- | The end of the time interval for which to retrieve events, specified in ISO
 -- 8601 format.
---
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a }) . mapping _Time
 
@@ -112,7 +110,6 @@ deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a }) . mapping _Time
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
---
 deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\s a -> s { _deMarker = a })
 
@@ -123,13 +120,11 @@ deMarker = lens _deMarker (\s a -> s { _deMarker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
---
 deMaxRecords :: Lens' DescribeEvents (Maybe Int)
 deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a })
 
 -- | The identifier of the event source for which events will be returned. If not
 -- specified, then all sources are included in the response.
---
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier =
     lens _deSourceIdentifier (\s a -> s { _deSourceIdentifier = a })
@@ -138,13 +133,11 @@ deSourceIdentifier =
 -- are returned.
 --
 -- Valid values are: 'cache-cluster' | 'cache-parameter-group' | 'cache-security-group' | 'cache-subnet-group'
---
 deSourceType :: Lens' DescribeEvents (Maybe SourceType)
 deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
 
 -- | The beginning of the time interval to retrieve events for, specified in ISO
 -- 8601 format.
---
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
 deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a }) . mapping _Time
 
@@ -169,12 +162,10 @@ describeEventsResponse = DescribeEventsResponse
 
 -- | A list of events. Each element in the list contains detailed information
 -- about one event.
---
 derEvents :: Lens' DescribeEventsResponse [Event]
 derEvents = lens _derEvents (\s a -> s { _derEvents = a }) . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
---
 derMarker :: Lens' DescribeEventsResponse (Maybe Text)
 derMarker = lens _derMarker (\s a -> s { _derMarker = a })
 

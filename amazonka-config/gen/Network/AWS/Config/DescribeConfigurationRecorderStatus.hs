@@ -71,7 +71,6 @@ describeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus
 -- | The name(s) of the configuration recorder. If the name is not specified, the
 -- action returns the current status of all the configuration recorders
 -- associated with the account.
---
 dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Text]
 dcrsConfigurationRecorderNames =
     lens _dcrsConfigurationRecorderNames
@@ -100,7 +99,6 @@ describeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatu
     }
 
 -- | A list that contains status of the specified recorders.
---
 dcrsrConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
 dcrsrConfigurationRecordersStatus =
     lens _dcrsrConfigurationRecordersStatus

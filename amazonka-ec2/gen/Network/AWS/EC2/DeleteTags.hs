@@ -76,14 +76,12 @@ dt1DryRun = lens _dt1DryRun (\s a -> s { _dt1DryRun = a })
 
 -- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more than
 -- one resource ID.
---
 dt1Resources :: Lens' DeleteTags [Text]
 dt1Resources = lens _dt1Resources (\s a -> s { _dt1Resources = a }) . _List
 
 -- | One or more tags to delete. If you omit the 'value' parameter, we delete the
 -- tag regardless of its value. If you specify this parameter with an empty
 -- string as the value, we delete the key only if its value is an empty string.
---
 dt1Tags :: Lens' DeleteTags [Tag]
 dt1Tags = lens _dt1Tags (\s a -> s { _dt1Tags = a }) . _List
 

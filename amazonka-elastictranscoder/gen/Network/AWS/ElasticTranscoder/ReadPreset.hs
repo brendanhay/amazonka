@@ -62,7 +62,6 @@ readPreset p1 = ReadPreset
     }
 
 -- | The identifier of the preset for which you want to get detailed information.
---
 rpId :: Lens' ReadPreset Text
 rpId = lens _rpId (\s a -> s { _rpId = a })
 
@@ -82,7 +81,6 @@ readPresetResponse = ReadPresetResponse
     }
 
 -- | A section of the response body that provides information about the preset.
---
 rprPreset :: Lens' ReadPresetResponse (Maybe Preset)
 rprPreset = lens _rprPreset (\s a -> s { _rprPreset = a })
 

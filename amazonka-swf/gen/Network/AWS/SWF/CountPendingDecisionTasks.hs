@@ -86,12 +86,10 @@ countPendingDecisionTasks p1 p2 = CountPendingDecisionTasks
     }
 
 -- | The name of the domain that contains the task list.
---
 cpdtDomain :: Lens' CountPendingDecisionTasks Text
 cpdtDomain = lens _cpdtDomain (\s a -> s { _cpdtDomain = a })
 
 -- | The name of the task list.
---
 cpdtTaskList :: Lens' CountPendingDecisionTasks TaskList
 cpdtTaskList = lens _cpdtTaskList (\s a -> s { _cpdtTaskList = a })
 
@@ -116,13 +114,11 @@ countPendingDecisionTasksResponse p1 = CountPendingDecisionTasksResponse
     }
 
 -- | The number of tasks in the task list.
---
 cpdtrCount :: Lens' CountPendingDecisionTasksResponse Natural
 cpdtrCount = lens _cpdtrCount (\s a -> s { _cpdtrCount = a }) . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
---
 cpdtrTruncated :: Lens' CountPendingDecisionTasksResponse (Maybe Bool)
 cpdtrTruncated = lens _cpdtrTruncated (\s a -> s { _cpdtrTruncated = a })
 

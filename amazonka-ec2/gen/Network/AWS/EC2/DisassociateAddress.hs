@@ -76,7 +76,6 @@ disassociateAddress = DisassociateAddress
     }
 
 -- | [EC2-VPC] The association ID. Required for EC2-VPC.
---
 da1AssociationId :: Lens' DisassociateAddress (Maybe Text)
 da1AssociationId = lens _da1AssociationId (\s a -> s { _da1AssociationId = a })
 
@@ -84,7 +83,6 @@ da1DryRun :: Lens' DisassociateAddress (Maybe Bool)
 da1DryRun = lens _da1DryRun (\s a -> s { _da1DryRun = a })
 
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
---
 da1PublicIp :: Lens' DisassociateAddress (Maybe Text)
 da1PublicIp = lens _da1PublicIp (\s a -> s { _da1PublicIp = a })
 

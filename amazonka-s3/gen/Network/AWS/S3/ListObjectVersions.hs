@@ -21,6 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns metadata about all of the versions of objects in a bucket.
+--
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjectVersions.html>
 module Network.AWS.S3.ListObjectVersions
     (

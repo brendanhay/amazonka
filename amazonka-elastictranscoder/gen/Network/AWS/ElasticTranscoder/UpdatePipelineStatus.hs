@@ -75,7 +75,6 @@ updatePipelineStatus p1 p2 = UpdatePipelineStatus
     }
 
 -- | The identifier of the pipeline to update.
---
 upsId :: Lens' UpdatePipelineStatus Text
 upsId = lens _upsId (\s a -> s { _upsId = a })
 
@@ -102,7 +101,6 @@ updatePipelineStatusResponse = UpdatePipelineStatusResponse
     }
 
 -- | A section of the response body that provides information about the pipeline.
---
 upsrPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
 upsrPipeline = lens _upsrPipeline (\s a -> s { _upsrPipeline = a })
 

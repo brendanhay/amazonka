@@ -76,7 +76,6 @@ cancelConversionTask p1 = CancelConversionTask
     }
 
 -- | The ID of the conversion task.
---
 cctConversionTaskId :: Lens' CancelConversionTask Text
 cctConversionTaskId =
     lens _cctConversionTaskId (\s a -> s { _cctConversionTaskId = a })

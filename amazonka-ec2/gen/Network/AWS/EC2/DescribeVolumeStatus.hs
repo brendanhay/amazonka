@@ -148,20 +148,17 @@ dvsFilters :: Lens' DescribeVolumeStatus [Filter]
 dvsFilters = lens _dvsFilters (\s a -> s { _dvsFilters = a }) . _List
 
 -- | The maximum number of paginated volume items per response.
---
 dvsMaxResults :: Lens' DescribeVolumeStatus (Maybe Int)
 dvsMaxResults = lens _dvsMaxResults (\s a -> s { _dvsMaxResults = a })
 
 -- | The next paginated set of results to return using the pagination token
 -- returned by a previous call.
---
 dvsNextToken :: Lens' DescribeVolumeStatus (Maybe Text)
 dvsNextToken = lens _dvsNextToken (\s a -> s { _dvsNextToken = a })
 
 -- | One or more volume IDs.
 --
 -- Default: Describes all your volumes.
---
 dvsVolumeIds :: Lens' DescribeVolumeStatus [Text]
 dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a }) . _List
 
@@ -185,12 +182,10 @@ describeVolumeStatusResponse = DescribeVolumeStatusResponse
     }
 
 -- | The next paginated set of results to return.
---
 dvsrNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
 dvsrNextToken = lens _dvsrNextToken (\s a -> s { _dvsrNextToken = a })
 
 -- | A list of volumes.
---
 dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
 dvsrVolumeStatuses =
     lens _dvsrVolumeStatuses (\s a -> s { _dvsrVolumeStatuses = a })

@@ -105,7 +105,6 @@ createStream p1 p2 = CreateStream
 -- Note: The default limit for an AWS account is 10 shards per stream. If you
 -- need to create a stream with more than 10 shards, <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support> to
 -- increase the limit on your account.
---
 csShardCount :: Lens' CreateStream Natural
 csShardCount = lens _csShardCount (\s a -> s { _csShardCount = a }) . _Nat
 
@@ -114,7 +113,6 @@ csShardCount = lens _csShardCount (\s a -> s { _csShardCount = a }) . _Nat
 -- That is, two streams in two different AWS accounts can have the same name,
 -- and two streams in the same AWS account, but in two different regions, can
 -- have the same name.
---
 csStreamName :: Lens' CreateStream Text
 csStreamName = lens _csStreamName (\s a -> s { _csStreamName = a })
 

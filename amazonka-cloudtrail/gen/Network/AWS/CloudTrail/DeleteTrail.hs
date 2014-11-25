@@ -60,7 +60,6 @@ deleteTrail p1 = DeleteTrail
     }
 
 -- | The name of a trail to be deleted.
---
 dtName :: Lens' DeleteTrail Text
 dtName = lens _dtName (\s a -> s { _dtName = a })
 

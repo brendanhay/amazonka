@@ -78,23 +78,19 @@ registerRdsDbInstance p1 p2 p3 p4 = RegisterRdsDbInstance
     }
 
 -- | The database password.
---
 rrdiDbPassword :: Lens' RegisterRdsDbInstance Text
 rrdiDbPassword = lens _rrdiDbPassword (\s a -> s { _rrdiDbPassword = a })
 
 -- | The database's master user name.
---
 rrdiDbUser :: Lens' RegisterRdsDbInstance Text
 rrdiDbUser = lens _rrdiDbUser (\s a -> s { _rrdiDbUser = a })
 
 -- | The Amazon RDS instance's ARN.
---
 rrdiRdsDbInstanceArn :: Lens' RegisterRdsDbInstance Text
 rrdiRdsDbInstanceArn =
     lens _rrdiRdsDbInstanceArn (\s a -> s { _rrdiRdsDbInstanceArn = a })
 
 -- | The stack ID.
---
 rrdiStackId :: Lens' RegisterRdsDbInstance Text
 rrdiStackId = lens _rrdiStackId (\s a -> s { _rrdiStackId = a })
 

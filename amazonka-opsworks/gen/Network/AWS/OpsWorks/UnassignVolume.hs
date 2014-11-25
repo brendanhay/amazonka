@@ -65,7 +65,6 @@ unassignVolume p1 = UnassignVolume
     }
 
 -- | The volume ID.
---
 uvVolumeId :: Lens' UnassignVolume Text
 uvVolumeId = lens _uvVolumeId (\s a -> s { _uvVolumeId = a })
 

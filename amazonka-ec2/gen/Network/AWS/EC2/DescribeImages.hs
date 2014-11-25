@@ -88,7 +88,6 @@ di2DryRun = lens _di2DryRun (\s a -> s { _di2DryRun = a })
 
 -- | Scopes the images by users with explicit launch permissions. Specify an AWS
 -- account ID, 'self' (the sender of the request), or 'all' (public AMIs).
---
 di2ExecutableUsers :: Lens' DescribeImages [Text]
 di2ExecutableUsers =
     lens _di2ExecutableUsers (\s a -> s { _di2ExecutableUsers = a })
@@ -175,14 +174,12 @@ di2Filters = lens _di2Filters (\s a -> s { _di2Filters = a }) . _List
 -- | One or more image IDs.
 --
 -- Default: Describes all images available to you.
---
 di2ImageIds :: Lens' DescribeImages [Text]
 di2ImageIds = lens _di2ImageIds (\s a -> s { _di2ImageIds = a }) . _List
 
 -- | Filters the images by the owner. Specify an AWS account ID, 'amazon' (owner is
 -- Amazon), 'aws-marketplace' (owner is AWS Marketplace), 'self' (owner is the
 -- sender of the request), or 'all' (all owners).
---
 di2Owners :: Lens' DescribeImages [Text]
 di2Owners = lens _di2Owners (\s a -> s { _di2Owners = a }) . _List
 
@@ -208,7 +205,6 @@ describeImagesResponse = DescribeImagesResponse
     }
 
 -- | Information about one or more images.
---
 dirImages :: Lens' DescribeImagesResponse [Image]
 dirImages = lens _dirImages (\s a -> s { _dirImages = a }) . _List
 

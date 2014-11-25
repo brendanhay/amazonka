@@ -43,6 +43,7 @@
 -- EC2-VPC, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html Deploy Elastic Load Balancing in Amazon VPC>.
 --
 --
+--
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancer.html>
 module Network.AWS.ELB.CreateLoadBalancer
     (
@@ -121,7 +122,6 @@ createLoadBalancer p1 p2 = CreateLoadBalancer
 --
 -- You can later add more Availability Zones after the creation of the load
 -- balancer by calling 'EnableAvailabilityZonesForLoadBalancer' action.
---
 clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
 clbAvailabilityZones =
     lens _clbAvailabilityZones (\s a -> s { _clbAvailabilityZones = a })
@@ -129,14 +129,12 @@ clbAvailabilityZones =
 
 -- | A list of the following tuples: Protocol, LoadBalancerPort,
 -- InstanceProtocol, InstancePort, and SSLCertificateId.
---
 clbListeners :: Lens' CreateLoadBalancer [Listener]
 clbListeners = lens _clbListeners (\s a -> s { _clbListeners = a }) . _List
 
 -- | The name associated with the load balancer. The name must be unique within
 -- your set of load balancers, must have a maximum of 32 characters, and must
 -- only contain alphanumeric characters or hyphens.
---
 clbLoadBalancerName :: Lens' CreateLoadBalancer Text
 clbLoadBalancerName =
     lens _clbLoadBalancerName (\s a -> s { _clbLoadBalancerName = a })
@@ -157,7 +155,6 @@ clbScheme :: Lens' CreateLoadBalancer (Maybe Text)
 clbScheme = lens _clbScheme (\s a -> s { _clbScheme = a })
 
 -- | The security groups to assign to your load balancer within your VPC.
---
 clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
 clbSecurityGroups =
     lens _clbSecurityGroups (\s a -> s { _clbSecurityGroups = a })
@@ -165,14 +162,12 @@ clbSecurityGroups =
 
 -- | A list of subnet IDs in your VPC to attach to your load balancer. Specify
 -- one subnet per Availability Zone.
---
 clbSubnets :: Lens' CreateLoadBalancer [Text]
 clbSubnets = lens _clbSubnets (\s a -> s { _clbSubnets = a }) . _List
 
 -- | A list of tags to assign to the load balancer.
 --
 -- For more information about setting tags for your load balancer, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging>.
---
 clbTags :: Lens' CreateLoadBalancer (NonEmpty Tag)
 clbTags = lens _clbTags (\s a -> s { _clbTags = a }) . _List1
 
@@ -192,7 +187,6 @@ createLoadBalancerResponse = CreateLoadBalancerResponse
     }
 
 -- | The DNS name for the load balancer.
---
 clbrDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
 clbrDNSName = lens _clbrDNSName (\s a -> s { _clbrDNSName = a })
 

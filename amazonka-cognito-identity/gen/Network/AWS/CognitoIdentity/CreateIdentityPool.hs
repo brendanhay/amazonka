@@ -90,7 +90,6 @@ createIdentityPool p1 p2 = CreateIdentityPool
     }
 
 -- | TRUE if the identity pool supports unauthenticated logins.
---
 cipAllowUnauthenticatedIdentities :: Lens' CreateIdentityPool Bool
 cipAllowUnauthenticatedIdentities =
     lens _cipAllowUnauthenticatedIdentities
@@ -103,14 +102,12 @@ cipAllowUnauthenticatedIdentities =
 --
 -- Once you have set a developer provider name, you cannot change it. Please
 -- take care in setting this parameter.
---
 cipDeveloperProviderName :: Lens' CreateIdentityPool (Maybe Text)
 cipDeveloperProviderName =
     lens _cipDeveloperProviderName
         (\s a -> s { _cipDeveloperProviderName = a })
 
 -- | A string that you provide.
---
 cipIdentityPoolName :: Lens' CreateIdentityPool Text
 cipIdentityPoolName =
     lens _cipIdentityPoolName (\s a -> s { _cipIdentityPoolName = a })
@@ -122,7 +119,6 @@ cipOpenIdConnectProviderARNs =
             . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
---
 cipSupportedLoginProviders :: Lens' CreateIdentityPool (HashMap Text Text)
 cipSupportedLoginProviders =
     lens _cipSupportedLoginProviders
@@ -174,7 +170,6 @@ ciprAllowUnauthenticatedIdentities =
         (\s a -> s { _ciprAllowUnauthenticatedIdentities = a })
 
 -- | The "domain" by which Cognito will refer to your users.
---
 ciprDeveloperProviderName :: Lens' CreateIdentityPoolResponse (Maybe Text)
 ciprDeveloperProviderName =
     lens _ciprDeveloperProviderName
@@ -186,7 +181,6 @@ ciprIdentityPoolId =
     lens _ciprIdentityPoolId (\s a -> s { _ciprIdentityPoolId = a })
 
 -- | A string that you provide.
---
 ciprIdentityPoolName :: Lens' CreateIdentityPoolResponse Text
 ciprIdentityPoolName =
     lens _ciprIdentityPoolName (\s a -> s { _ciprIdentityPoolName = a })
@@ -198,7 +192,6 @@ ciprOpenIdConnectProviderARNs =
             . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
---
 ciprSupportedLoginProviders :: Lens' CreateIdentityPoolResponse (HashMap Text Text)
 ciprSupportedLoginProviders =
     lens _ciprSupportedLoginProviders

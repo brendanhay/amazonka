@@ -21,6 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Get the configuration information about a streaming distribution.
+--
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetStreamingDistributionConfig.html>
 module Network.AWS.CloudFront.GetStreamingDistributionConfig
     (

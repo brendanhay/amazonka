@@ -73,7 +73,6 @@ dvpcDryRun :: Lens' DeleteVpcPeeringConnection (Maybe Bool)
 dvpcDryRun = lens _dvpcDryRun (\s a -> s { _dvpcDryRun = a })
 
 -- | The ID of the VPC peering connection.
---
 dvpcVpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection Text
 dvpcVpcPeeringConnectionId =
     lens _dvpcVpcPeeringConnectionId
@@ -95,7 +94,6 @@ deleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     }
 
 -- | Returns 'true' if the request succeeds; otherwise, it returns an error.
---
 dvpcrReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)
 dvpcrReturn = lens _dvpcrReturn (\s a -> s { _dvpcrReturn = a })
 

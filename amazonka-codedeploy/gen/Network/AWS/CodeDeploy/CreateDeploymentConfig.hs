@@ -67,7 +67,6 @@ createDeploymentConfig p1 = CreateDeploymentConfig
     }
 
 -- | The name of the deployment configuration to create.
---
 cdcDeploymentConfigName :: Lens' CreateDeploymentConfig Text
 cdcDeploymentConfigName =
     lens _cdcDeploymentConfigName (\s a -> s { _cdcDeploymentConfigName = a })
@@ -88,7 +87,6 @@ cdcDeploymentConfigName =
 --
 -- For example, to set a minimum of 95% healthy instances, specify a type of
 -- FLEET_PERCENT and a value of 95.
---
 cdcMinimumHealthyHosts :: Lens' CreateDeploymentConfig (Maybe MinimumHealthyHosts)
 cdcMinimumHealthyHosts =
     lens _cdcMinimumHealthyHosts (\s a -> s { _cdcMinimumHealthyHosts = a })
@@ -109,7 +107,6 @@ createDeploymentConfigResponse = CreateDeploymentConfigResponse
     }
 
 -- | A unique deployment configuration ID.
---
 cdcrDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
 cdcrDeploymentConfigId =
     lens _cdcrDeploymentConfigId (\s a -> s { _cdcrDeploymentConfigId = a })

@@ -91,17 +91,14 @@ cvpcDryRun = lens _cvpcDryRun (\s a -> s { _cvpcDryRun = a })
 -- | The AWS account ID of the owner of the peer VPC.
 --
 -- Default: Your AWS account ID
---
 cvpcPeerOwnerId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcPeerOwnerId = lens _cvpcPeerOwnerId (\s a -> s { _cvpcPeerOwnerId = a })
 
 -- | The ID of the VPC with which you are creating the VPC peering connection.
---
 cvpcPeerVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcPeerVpcId = lens _cvpcPeerVpcId (\s a -> s { _cvpcPeerVpcId = a })
 
 -- | The ID of the requester VPC.
---
 cvpcVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcVpcId = lens _cvpcVpcId (\s a -> s { _cvpcVpcId = a })
 
@@ -121,7 +118,6 @@ createVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     }
 
 -- | Information about the VPC peering connection.
---
 cvpcrVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
 cvpcrVpcPeeringConnection =
     lens _cvpcrVpcPeeringConnection

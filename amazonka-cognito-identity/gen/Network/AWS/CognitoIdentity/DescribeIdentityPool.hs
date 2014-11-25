@@ -117,7 +117,6 @@ diprAllowUnauthenticatedIdentities =
         (\s a -> s { _diprAllowUnauthenticatedIdentities = a })
 
 -- | The "domain" by which Cognito will refer to your users.
---
 diprDeveloperProviderName :: Lens' DescribeIdentityPoolResponse (Maybe Text)
 diprDeveloperProviderName =
     lens _diprDeveloperProviderName
@@ -129,7 +128,6 @@ diprIdentityPoolId =
     lens _diprIdentityPoolId (\s a -> s { _diprIdentityPoolId = a })
 
 -- | A string that you provide.
---
 diprIdentityPoolName :: Lens' DescribeIdentityPoolResponse Text
 diprIdentityPoolName =
     lens _diprIdentityPoolName (\s a -> s { _diprIdentityPoolName = a })
@@ -141,7 +139,6 @@ diprOpenIdConnectProviderARNs =
             . _List
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
---
 diprSupportedLoginProviders :: Lens' DescribeIdentityPoolResponse (HashMap Text Text)
 diprSupportedLoginProviders =
     lens _diprSupportedLoginProviders

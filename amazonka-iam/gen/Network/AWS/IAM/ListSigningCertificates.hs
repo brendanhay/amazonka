@@ -85,7 +85,6 @@ listSigningCertificates = ListSigningCertificates
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the 'Marker' element in the response you just received.
---
 lsc1Marker :: Lens' ListSigningCertificates (Maybe Text)
 lsc1Marker = lens _lsc1Marker (\s a -> s { _lsc1Marker = a })
 
@@ -93,12 +92,10 @@ lsc1Marker = lens _lsc1Marker (\s a -> s { _lsc1Marker = a })
 -- certificate IDs you want in the response. If there are additional certificate
 -- IDs beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
 -- This parameter is optional. If you do not include it, it defaults to 100.
---
 lsc1MaxItems :: Lens' ListSigningCertificates (Maybe Natural)
 lsc1MaxItems = lens _lsc1MaxItems (\s a -> s { _lsc1MaxItems = a }) . mapping _Nat
 
 -- | The name of the user.
---
 lsc1UserName :: Lens' ListSigningCertificates (Maybe Text)
 lsc1UserName = lens _lsc1UserName (\s a -> s { _lsc1UserName = a })
 
@@ -126,7 +123,6 @@ listSigningCertificatesResponse = ListSigningCertificatesResponse
     }
 
 -- | A list of the user's signing certificate information.
---
 lscr1Certificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
 lscr1Certificates =
     lens _lscr1Certificates (\s a -> s { _lscr1Certificates = a })
@@ -135,13 +131,11 @@ lscr1Certificates =
 -- | A flag that indicates whether there are more certificate IDs to list. If
 -- your results were truncated, you can make a subsequent pagination request
 -- using the 'Marker' request parameter to retrieve more certificates in the list.
---
 lscr1IsTruncated :: Lens' ListSigningCertificatesResponse (Maybe Bool)
 lscr1IsTruncated = lens _lscr1IsTruncated (\s a -> s { _lscr1IsTruncated = a })
 
 -- | If 'IsTruncated' is 'true', this element is present and contains the value to
 -- use for the 'Marker' parameter in a subsequent pagination request.
---
 lscr1Marker :: Lens' ListSigningCertificatesResponse (Maybe Text)
 lscr1Marker = lens _lscr1Marker (\s a -> s { _lscr1Marker = a })
 

@@ -106,8 +106,11 @@ formatTags n = map Text.strip . parse
     go x m    _                            = (x, m)
 
 splitTags :: Int -> [Tag Text] -> [Tag Text]
-splitTags n = reverse . fst . foldl' go ([], 0)
+splitTags n = strip . fst . foldl' go ([], 0)
   where
+    strip (TagOpen "br" _ : xs) = strip xs
+    strip xs                    = reverse xs
+
     go :: ([Tag Text], Int) -> Tag Text -> ([Tag Text], Int)
     go (xs, col) = \case
          TagOpen  "p" _      -> (xs, col)

@@ -71,7 +71,6 @@ getIdentityVerificationAttributes = GetIdentityVerificationAttributes
     }
 
 -- | A list of identities.
---
 givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
 givaIdentities = lens _givaIdentities (\s a -> s { _givaIdentities = a }) . _List
 
@@ -91,7 +90,6 @@ getIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesRes
     }
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
---
 givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (HashMap Text IdentityVerificationAttributes)
 givarVerificationAttributes =
     lens _givarVerificationAttributes

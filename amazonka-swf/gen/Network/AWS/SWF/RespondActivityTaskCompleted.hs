@@ -87,7 +87,6 @@ respondActivityTaskCompleted p1 = RespondActivityTaskCompleted
 
 -- | The result of the activity task. It is a free form string that is
 -- implementation specific.
---
 ratcResult :: Lens' RespondActivityTaskCompleted (Maybe Text)
 ratcResult = lens _ratcResult (\s a -> s { _ratcResult = a })
 

@@ -100,13 +100,11 @@ dtFilters = lens _dtFilters (\s a -> s { _dtFilters = a }) . _List
 -- | The maximum number of items to return for this call. The call also returns a
 -- token that you can specify in a subsequent call to get the next set of
 -- results. If the value is greater than 1000, we return only 1000 items.
---
 dtMaxResults :: Lens' DescribeTags (Maybe Int)
 dtMaxResults = lens _dtMaxResults (\s a -> s { _dtMaxResults = a })
 
 -- | The token for the next set of items to return. (You received this token from
 -- a prior call.)
---
 dtNextToken :: Lens' DescribeTags (Maybe Text)
 dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
 
@@ -131,12 +129,10 @@ describeTagsResponse = DescribeTagsResponse
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
 dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 
 -- | A list of tags.
---
 dtrTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a }) . _List
 

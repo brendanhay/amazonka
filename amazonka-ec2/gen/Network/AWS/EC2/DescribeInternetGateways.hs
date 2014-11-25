@@ -102,7 +102,6 @@ dig1Filters = lens _dig1Filters (\s a -> s { _dig1Filters = a }) . _List
 -- | One or more Internet gateway IDs.
 --
 -- Default: Describes all your Internet gateways.
---
 dig1InternetGatewayIds :: Lens' DescribeInternetGateways [Text]
 dig1InternetGatewayIds =
     lens _dig1InternetGatewayIds (\s a -> s { _dig1InternetGatewayIds = a })
@@ -130,7 +129,6 @@ describeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     }
 
 -- | Information about one or more Internet gateways.
---
 digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
 digrInternetGateways =
     lens _digrInternetGateways (\s a -> s { _digrInternetGateways = a })

@@ -107,7 +107,6 @@ describeTags = DescribeTags
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'marker' parameter and retrying the command. If the 'marker' field is
 -- empty, all response records have been retrieved for the request.
---
 dtMarker :: Lens' DescribeTags (Maybe Text)
 dtMarker = lens _dtMarker (\s a -> s { _dtMarker = a })
 
@@ -115,13 +114,11 @@ dtMarker = lens _dtMarker (\s a -> s { _dtMarker = a })
 -- of remaining response records exceeds the specified 'MaxRecords' value, a value
 -- is returned in a 'marker' field of the response. You can retrieve the next set
 -- of records by retrying the command with the returned 'marker' value.
---
 dtMaxRecords :: Lens' DescribeTags (Maybe Int)
 dtMaxRecords = lens _dtMaxRecords (\s a -> s { _dtMaxRecords = a })
 
 -- | The Amazon Resource Name (ARN) for which you want to describe the tag or
 -- tags. For example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
---
 dtResourceName :: Lens' DescribeTags (Maybe Text)
 dtResourceName = lens _dtResourceName (\s a -> s { _dtResourceName = a })
 
@@ -132,7 +129,6 @@ dtResourceName = lens _dtResourceName (\s a -> s { _dtResourceName = a })
 -- For more information about Amazon Redshift resource types and constructing
 -- ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the
 -- Amazon Redshift Cluster Management Guide.
---
 dtResourceType :: Lens' DescribeTags (Maybe Text)
 dtResourceType = lens _dtResourceType (\s a -> s { _dtResourceType = a })
 
@@ -142,7 +138,6 @@ dtResourceType = lens _dtResourceType (\s a -> s { _dtResourceType = a })
 -- both of these tag keys in the request, Amazon Redshift returns a response
 -- with all resources that have either or both of these tag keys associated with
 -- them.
---
 dtTagKeys :: Lens' DescribeTags [Text]
 dtTagKeys = lens _dtTagKeys (\s a -> s { _dtTagKeys = a }) . _List
 
@@ -152,7 +147,6 @@ dtTagKeys = lens _dtTagKeys (\s a -> s { _dtTagKeys = a }) . _List
 -- specify both of these tag values in the request, Amazon Redshift returns a
 -- response with all resources that have either or both of these tag values
 -- associated with them.
---
 dtTagValues :: Lens' DescribeTags [Text]
 dtTagValues = lens _dtTagValues (\s a -> s { _dtTagValues = a }) . _List
 
@@ -180,12 +174,10 @@ describeTagsResponse = DescribeTagsResponse
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
 -- empty, all response records have been retrieved for the request.
---
 dtrMarker :: Lens' DescribeTagsResponse (Maybe Text)
 dtrMarker = lens _dtrMarker (\s a -> s { _dtrMarker = a })
 
 -- | A list of tags with their associated resources.
---
 dtrTaggedResources :: Lens' DescribeTagsResponse [TaggedResource]
 dtrTaggedResources =
     lens _dtrTaggedResources (\s a -> s { _dtrTaggedResources = a })

@@ -64,7 +64,6 @@ startInstance p1 = StartInstance
     }
 
 -- | The instance ID.
---
 si1InstanceId :: Lens' StartInstance Text
 si1InstanceId = lens _si1InstanceId (\s a -> s { _si1InstanceId = a })
 

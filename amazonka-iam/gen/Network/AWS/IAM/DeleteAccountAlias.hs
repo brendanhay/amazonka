@@ -62,7 +62,6 @@ deleteAccountAlias p1 = DeleteAccountAlias
     }
 
 -- | The name of the account alias to delete.
---
 daaAccountAlias :: Lens' DeleteAccountAlias Text
 daaAccountAlias = lens _daaAccountAlias (\s a -> s { _daaAccountAlias = a })
 

@@ -68,7 +68,6 @@ getHostnameSuggestion p1 = GetHostnameSuggestion
     }
 
 -- | The layer ID.
---
 ghsLayerId :: Lens' GetHostnameSuggestion Text
 ghsLayerId = lens _ghsLayerId (\s a -> s { _ghsLayerId = a })
 
@@ -92,12 +91,10 @@ getHostnameSuggestionResponse = GetHostnameSuggestionResponse
     }
 
 -- | The generated host name.
---
 ghsrHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghsrHostname = lens _ghsrHostname (\s a -> s { _ghsrHostname = a })
 
 -- | The layer ID.
---
 ghsrLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghsrLayerId = lens _ghsrLayerId (\s a -> s { _ghsrLayerId = a })
 

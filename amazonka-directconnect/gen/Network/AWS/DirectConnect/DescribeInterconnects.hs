@@ -88,7 +88,6 @@ describeInterconnectsResponse = DescribeInterconnectsResponse
     }
 
 -- | A list of interconnects.
---
 dirInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
 dirInterconnects = lens _dirInterconnects (\s a -> s { _dirInterconnects = a }) . _List
 

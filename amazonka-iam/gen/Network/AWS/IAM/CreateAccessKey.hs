@@ -35,6 +35,7 @@
 -- example, in a text file) if you want to be able to access it again. If a
 -- secret key is lost, you can delete the access keys for the associated user
 -- and then create new keys.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html>
 module Network.AWS.IAM.CreateAccessKey
     (
@@ -74,7 +75,6 @@ createAccessKey = CreateAccessKey
     }
 
 -- | The user name that the new key will belong to.
---
 cakUserName :: Lens' CreateAccessKey (Maybe Text)
 cakUserName = lens _cakUserName (\s a -> s { _cakUserName = a })
 
@@ -95,7 +95,6 @@ createAccessKeyResponse p1 = CreateAccessKeyResponse
     }
 
 -- | Information about the access key.
---
 cakrAccessKey :: Lens' CreateAccessKeyResponse AccessKey
 cakrAccessKey = lens _cakrAccessKey (\s a -> s { _cakrAccessKey = a })
 

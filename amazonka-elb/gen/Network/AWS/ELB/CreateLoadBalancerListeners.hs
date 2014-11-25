@@ -70,12 +70,10 @@ createLoadBalancerListeners p1 = CreateLoadBalancerListeners
     }
 
 -- | A list of 'LoadBalancerPort', 'InstancePort', 'Protocol', 'InstanceProtocol', and 'SSLCertificateId' items.
---
 clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
 clblListeners = lens _clblListeners (\s a -> s { _clblListeners = a }) . _List
 
 -- | The name of the load balancer.
---
 clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
 clblLoadBalancerName =
     lens _clblLoadBalancerName (\s a -> s { _clblLoadBalancerName = a })

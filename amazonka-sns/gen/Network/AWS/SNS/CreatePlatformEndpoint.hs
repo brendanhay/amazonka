@@ -91,20 +91,17 @@ createPlatformEndpoint p1 p2 = CreatePlatformEndpoint
     }
 
 -- | For a list of attributes, see <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.
---
 cpeAttributes :: Lens' CreatePlatformEndpoint (HashMap Text Text)
 cpeAttributes = lens _cpeAttributes (\s a -> s { _cpeAttributes = a }) . _EMap
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not use
 -- this data. The data must be in UTF-8 format and less than 2KB.
---
 cpeCustomUserData :: Lens' CreatePlatformEndpoint (Maybe Text)
 cpeCustomUserData =
     lens _cpeCustomUserData (\s a -> s { _cpeCustomUserData = a })
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used to
 -- create a an endpoint.
---
 cpePlatformApplicationArn :: Lens' CreatePlatformEndpoint Text
 cpePlatformApplicationArn =
     lens _cpePlatformApplicationArn
@@ -115,7 +112,6 @@ cpePlatformApplicationArn =
 -- service is being used. For example, when using APNS as the notification
 -- service, you need the device token. Alternatively, when using GCM or ADM, the
 -- device token equivalent is called the registration ID.
---
 cpeToken :: Lens' CreatePlatformEndpoint Text
 cpeToken = lens _cpeToken (\s a -> s { _cpeToken = a })
 
@@ -135,7 +131,6 @@ createPlatformEndpointResponse = CreatePlatformEndpointResponse
     }
 
 -- | EndpointArn returned from CreateEndpoint action.
---
 cperEndpointArn :: Lens' CreatePlatformEndpointResponse (Maybe Text)
 cperEndpointArn = lens _cperEndpointArn (\s a -> s { _cperEndpointArn = a })
 

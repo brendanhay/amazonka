@@ -79,23 +79,19 @@ listMetrics = ListMetrics
     }
 
 -- | A list of dimensions to filter against.
---
 lmDimensions :: Lens' ListMetrics [DimensionFilter]
 lmDimensions = lens _lmDimensions (\s a -> s { _lmDimensions = a }) . _List
 
 -- | The name of the metric to filter against.
---
 lmMetricName :: Lens' ListMetrics (Maybe Text)
 lmMetricName = lens _lmMetricName (\s a -> s { _lmMetricName = a })
 
 -- | The namespace to filter against.
---
 lmNamespace :: Lens' ListMetrics (Maybe Text)
 lmNamespace = lens _lmNamespace (\s a -> s { _lmNamespace = a })
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
---
 lmNextToken :: Lens' ListMetrics (Maybe Text)
 lmNextToken = lens _lmNextToken (\s a -> s { _lmNextToken = a })
 
@@ -119,12 +115,10 @@ listMetricsResponse = ListMetricsResponse
     }
 
 -- | A list of metrics used to generate statistics for an AWS account.
---
 lmrMetrics :: Lens' ListMetricsResponse [Metric]
 lmrMetrics = lens _lmrMetrics (\s a -> s { _lmrMetrics = a }) . _List
 
 -- | A string that marks the start of the next batch of returned results.
---
 lmrNextToken :: Lens' ListMetricsResponse (Maybe Text)
 lmrNextToken = lens _lmrNextToken (\s a -> s { _lmrNextToken = a })
 

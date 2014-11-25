@@ -87,12 +87,10 @@ updateSnapshotSchedule p1 p2 p3 = UpdateSnapshotSchedule
     }
 
 -- | Optional description of the snapshot that overwrites the existing description.
---
 ussDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
 ussDescription = lens _ussDescription (\s a -> s { _ussDescription = a })
 
 -- | Frequency of snapshots. Specify the number of hours between snapshots.
---
 ussRecurrenceInHours :: Lens' UpdateSnapshotSchedule Natural
 ussRecurrenceInHours =
     lens _ussRecurrenceInHours (\s a -> s { _ussRecurrenceInHours = a })
@@ -101,13 +99,11 @@ ussRecurrenceInHours =
 -- | The hour of the day at which the snapshot schedule begins represented as /hh/,
 -- where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of
 -- the gateway.
---
 ussStartAt :: Lens' UpdateSnapshotSchedule Natural
 ussStartAt = lens _ussStartAt (\s a -> s { _ussStartAt = a }) . _Nat
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation
 -- to return a list of gateway volumes.
---
 ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
 ussVolumeARN = lens _ussVolumeARN (\s a -> s { _ussVolumeARN = a })
 

@@ -108,7 +108,6 @@ createSnapshot p1 = CreateSnapshot
     }
 
 -- | A description for the snapshot.
---
 cs2Description :: Lens' CreateSnapshot (Maybe Text)
 cs2Description = lens _cs2Description (\s a -> s { _cs2Description = a })
 
@@ -116,7 +115,6 @@ cs2DryRun :: Lens' CreateSnapshot (Maybe Bool)
 cs2DryRun = lens _cs2DryRun (\s a -> s { _cs2DryRun = a })
 
 -- | The ID of the Amazon EBS volume.
---
 cs2VolumeId :: Lens' CreateSnapshot Text
 cs2VolumeId = lens _cs2VolumeId (\s a -> s { _cs2VolumeId = a })
 
@@ -176,58 +174,47 @@ createSnapshotResponse = CreateSnapshotResponse
     }
 
 -- | The description for the snapshot.
---
 csr1Description :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1Description = lens _csr1Description (\s a -> s { _csr1Description = a })
 
 -- | Indicates whether the snapshot is encrypted.
---
 csr1Encrypted :: Lens' CreateSnapshotResponse (Maybe Bool)
 csr1Encrypted = lens _csr1Encrypted (\s a -> s { _csr1Encrypted = a })
 
 -- | The AWS account alias (for example, 'amazon', 'self') or AWS account ID that owns
 -- the snapshot.
---
 csr1OwnerAlias :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1OwnerAlias = lens _csr1OwnerAlias (\s a -> s { _csr1OwnerAlias = a })
 
 -- | The AWS account ID of the Amazon EBS snapshot owner.
---
 csr1OwnerId :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1OwnerId = lens _csr1OwnerId (\s a -> s { _csr1OwnerId = a })
 
 -- | The progress of the snapshot, as a percentage.
---
 csr1Progress :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1Progress = lens _csr1Progress (\s a -> s { _csr1Progress = a })
 
 -- | The ID of the snapshot.
---
 csr1SnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1SnapshotId = lens _csr1SnapshotId (\s a -> s { _csr1SnapshotId = a })
 
 -- | The time stamp when the snapshot was initiated.
---
 csr1StartTime :: Lens' CreateSnapshotResponse (Maybe UTCTime)
 csr1StartTime = lens _csr1StartTime (\s a -> s { _csr1StartTime = a }) . mapping _Time
 
 -- | The snapshot state.
---
 csr1State :: Lens' CreateSnapshotResponse (Maybe SnapshotState)
 csr1State = lens _csr1State (\s a -> s { _csr1State = a })
 
 -- | Any tags assigned to the snapshot.
---
 csr1Tags :: Lens' CreateSnapshotResponse [Tag]
 csr1Tags = lens _csr1Tags (\s a -> s { _csr1Tags = a }) . _List
 
 -- | The ID of the volume.
---
 csr1VolumeId :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1VolumeId = lens _csr1VolumeId (\s a -> s { _csr1VolumeId = a })
 
 -- | The size of the volume, in GiB.
---
 csr1VolumeSize :: Lens' CreateSnapshotResponse (Maybe Int)
 csr1VolumeSize = lens _csr1VolumeSize (\s a -> s { _csr1VolumeSize = a })
 

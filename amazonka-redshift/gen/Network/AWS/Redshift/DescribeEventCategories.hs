@@ -66,7 +66,6 @@ describeEventCategories = DescribeEventCategories
 -- event categories apply.
 --
 -- Valid values: cluster, snapshot, parameter group, and security group.
---
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
 
@@ -92,7 +91,6 @@ describeEventCategoriesResponse = DescribeEventCategoriesResponse
     }
 
 -- | A list of event categories descriptions.
---
 decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
 decrEventCategoriesMapList =
     lens _decrEventCategoriesMapList

@@ -83,7 +83,6 @@ asitsSourceIdentifier =
 
 -- | The name of the RDS event notification subscription you want to add a source
 -- identifier to.
---
 asitsSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
 asitsSubscriptionName =
     lens _asitsSubscriptionName (\s a -> s { _asitsSubscriptionName = a })

@@ -82,7 +82,6 @@ getIdentityDkimAttributes = GetIdentityDkimAttributes
     }
 
 -- | A list of one or more verified identities - email addresses, domains, or both.
---
 gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
 gidaIdentities = lens _gidaIdentities (\s a -> s { _gidaIdentities = a }) . _List
 
@@ -102,7 +101,6 @@ getIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     }
 
 -- | The DKIM attributes for an email address or a domain.
---
 gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
 gidarDkimAttributes =
     lens _gidarDkimAttributes (\s a -> s { _gidarDkimAttributes = a })

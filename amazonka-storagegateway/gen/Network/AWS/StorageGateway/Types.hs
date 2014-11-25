@@ -215,13 +215,11 @@ chapInfo = ChapInfo
     }
 
 -- | The iSCSI initiator that connects to the target.
---
 ciInitiatorName :: Lens' ChapInfo (Maybe Text)
 ciInitiatorName = lens _ciInitiatorName (\s a -> s { _ciInitiatorName = a })
 
 -- | The secret key that the initiator (e.g. Windows client) must provide to
 -- participate in mutual CHAP with the target.
---
 ciSecretToAuthenticateInitiator :: Lens' ChapInfo (Maybe Text)
 ciSecretToAuthenticateInitiator =
     lens _ciSecretToAuthenticateInitiator
@@ -229,7 +227,6 @@ ciSecretToAuthenticateInitiator =
 
 -- | The secret key that the target must provide to participate in mutual CHAP
 -- with the initiator (e.g. Windows client).
---
 ciSecretToAuthenticateTarget :: Lens' ChapInfo (Maybe Text)
 ciSecretToAuthenticateTarget =
     lens _ciSecretToAuthenticateTarget
@@ -239,7 +236,6 @@ ciSecretToAuthenticateTarget =
 --
 -- /Valid Values/: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
 -- (-).
---
 ciTargetARN :: Lens' ChapInfo (Maybe Text)
 ciTargetARN = lens _ciTargetARN (\s a -> s { _ciTargetARN = a })
 
@@ -290,32 +286,27 @@ volumeiSCSIAttributes = VolumeiSCSIAttributes
     }
 
 -- | Indicates whether mutual CHAP is enabled for the iSCSI target.
---
 vscsiaChapEnabled :: Lens' VolumeiSCSIAttributes (Maybe Bool)
 vscsiaChapEnabled =
     lens _vscsiaChapEnabled (\s a -> s { _vscsiaChapEnabled = a })
 
 -- | The logical disk number.
---
 vscsiaLunNumber :: Lens' VolumeiSCSIAttributes (Maybe Natural)
 vscsiaLunNumber = lens _vscsiaLunNumber (\s a -> s { _vscsiaLunNumber = a }) . mapping _Nat
 
 -- | The network interface identifier.
---
 vscsiaNetworkInterfaceId :: Lens' VolumeiSCSIAttributes (Maybe Text)
 vscsiaNetworkInterfaceId =
     lens _vscsiaNetworkInterfaceId
         (\s a -> s { _vscsiaNetworkInterfaceId = a })
 
 -- | The port used to communicate with iSCSI targets.
---
 vscsiaNetworkInterfacePort :: Lens' VolumeiSCSIAttributes (Maybe Int)
 vscsiaNetworkInterfacePort =
     lens _vscsiaNetworkInterfacePort
         (\s a -> s { _vscsiaNetworkInterfacePort = a })
 
 -- | The Amazon Resource Name (ARN) of the volume target.
---
 vscsiaTargetARN :: Lens' VolumeiSCSIAttributes (Maybe Text)
 vscsiaTargetARN = lens _vscsiaTargetARN (\s a -> s { _vscsiaTargetARN = a })
 
@@ -364,20 +355,17 @@ deviceiSCSIAttributes = DeviceiSCSIAttributes
     }
 
 -- | Indicates whether mutual CHAP is enabled for the iSCSI target.
---
 dscsiaChapEnabled :: Lens' DeviceiSCSIAttributes (Maybe Bool)
 dscsiaChapEnabled =
     lens _dscsiaChapEnabled (\s a -> s { _dscsiaChapEnabled = a })
 
 -- | The network interface identifier of the VTL device.
---
 dscsiaNetworkInterfaceId :: Lens' DeviceiSCSIAttributes (Maybe Text)
 dscsiaNetworkInterfaceId =
     lens _dscsiaNetworkInterfaceId
         (\s a -> s { _dscsiaNetworkInterfaceId = a })
 
 -- | The port used to communicate with iSCSI VTL device targets.
---
 dscsiaNetworkInterfacePort :: Lens' DeviceiSCSIAttributes (Maybe Int)
 dscsiaNetworkInterfacePort =
     lens _dscsiaNetworkInterfacePort
@@ -385,7 +373,6 @@ dscsiaNetworkInterfacePort =
 
 -- | Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI
 -- qualified name(iqn) of a tape drive or media changer target.
---
 dscsiaTargetARN :: Lens' DeviceiSCSIAttributes (Maybe Text)
 dscsiaTargetARN = lens _dscsiaTargetARN (\s a -> s { _dscsiaTargetARN = a })
 
@@ -424,12 +411,10 @@ error = Error'
     }
 
 -- | Additional information about the error.
---
 eErrorCode :: Lens' Error' (Maybe ErrorCode)
 eErrorCode = lens _eErrorCode (\s a -> s { _eErrorCode = a })
 
 -- | Human-readable text that provides detail about the error that occurred.
---
 eErrorDetails :: Lens' Error' (HashMap Text Text)
 eErrorDetails = lens _eErrorDetails (\s a -> s { _eErrorDetails = a }) . _Map
 
@@ -557,33 +542,27 @@ tape = Tape
 -- before archiving is complete.
 --
 -- Range: 0 (not started) to 100 (complete).
---
 tProgress :: Lens' Tape (Maybe Double)
 tProgress = lens _tProgress (\s a -> s { _tProgress = a })
 
 -- | The Amazon Resource Name (ARN) of the virtual tape.
---
 tTapeARN :: Lens' Tape (Maybe Text)
 tTapeARN = lens _tTapeARN (\s a -> s { _tTapeARN = a })
 
 -- | The barcode that identifies a specific virtual tape.
---
 tTapeBarcode :: Lens' Tape (Maybe Text)
 tTapeBarcode = lens _tTapeBarcode (\s a -> s { _tTapeBarcode = a })
 
 -- | The size, in bytes, of the virtual tape.
---
 tTapeSizeInBytes :: Lens' Tape (Maybe Natural)
 tTapeSizeInBytes = lens _tTapeSizeInBytes (\s a -> s { _tTapeSizeInBytes = a }) . mapping _Nat
 
 -- | The current state of the virtual tape.
---
 tTapeStatus :: Lens' Tape (Maybe Text)
 tTapeStatus = lens _tTapeStatus (\s a -> s { _tTapeStatus = a })
 
 -- | The virtual tape library (VTL) device that the virtual tape is associated
 -- with.
---
 tVTLDevice :: Lens' Tape (Maybe Text)
 tVTLDevice = lens _tVTLDevice (\s a -> s { _tVTLDevice = a })
 
@@ -630,17 +609,14 @@ networkInterface = NetworkInterface
     }
 
 -- | The Internet Protocol version 4 (IPv4) address of the interface.
---
 niIpv4Address :: Lens' NetworkInterface (Maybe Text)
 niIpv4Address = lens _niIpv4Address (\s a -> s { _niIpv4Address = a })
 
 -- | The Internet Protocol version 6 (IPv6) address of the interface. /Currentlynot supported/.
---
 niIpv6Address :: Lens' NetworkInterface (Maybe Text)
 niIpv6Address = lens _niIpv6Address (\s a -> s { _niIpv6Address = a })
 
 -- | The Media Access Control (MAC) address of the interface.
---
 niMacAddress :: Lens' NetworkInterface (Maybe Text)
 niMacAddress = lens _niMacAddress (\s a -> s { _niMacAddress = a })
 
@@ -689,7 +665,6 @@ vtldevice = VTLDevice
     }
 
 -- | A list of iSCSI information about a VTL device.
---
 vtldDeviceiSCSIAttributes :: Lens' VTLDevice (Maybe DeviceiSCSIAttributes)
 vtldDeviceiSCSIAttributes =
     lens _vtldDeviceiSCSIAttributes
@@ -697,7 +672,6 @@ vtldDeviceiSCSIAttributes =
 
 -- | Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or
 -- media changer).
---
 vtldVTLDeviceARN :: Lens' VTLDevice (Maybe Text)
 vtldVTLDeviceARN = lens _vtldVTLDeviceARN (\s a -> s { _vtldVTLDeviceARN = a })
 
@@ -759,7 +733,6 @@ tapeRecoveryPointInfo = TapeRecoveryPointInfo
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape.
---
 trpiTapeARN :: Lens' TapeRecoveryPointInfo (Maybe Text)
 trpiTapeARN = lens _trpiTapeARN (\s a -> s { _trpiTapeARN = a })
 
@@ -768,7 +741,6 @@ trpiTapeARN = lens _trpiTapeARN (\s a -> s { _trpiTapeARN = a })
 --
 -- The string format of the tape recovery point time is in the ISO8601 extended
 -- YYYY-MM-DD'T'HH:MM:SS'Z' format.
---
 trpiTapeRecoveryPointTime :: Lens' TapeRecoveryPointInfo (Maybe UTCTime)
 trpiTapeRecoveryPointTime =
     lens _trpiTapeRecoveryPointTime
@@ -776,7 +748,6 @@ trpiTapeRecoveryPointTime =
             . mapping _Time
 
 -- | The size, in bytes, of the virtual tapes to recover.
---
 trpiTapeSizeInBytes :: Lens' TapeRecoveryPointInfo (Maybe Natural)
 trpiTapeSizeInBytes =
     lens _trpiTapeSizeInBytes (\s a -> s { _trpiTapeSizeInBytes = a })
@@ -897,7 +868,6 @@ tapeArchive = TapeArchive
 --
 -- The string format of the completion time is in the ISO8601 extended
 -- YYYY-MM-DD'T'HH:MM:SS'Z' format.
---
 taCompletionTime :: Lens' TapeArchive (Maybe UTCTime)
 taCompletionTime = lens _taCompletionTime (\s a -> s { _taCompletionTime = a }) . mapping _Time
 
@@ -905,29 +875,24 @@ taCompletionTime = lens _taCompletionTime (\s a -> s { _taCompletionTime = a }) 
 -- being retrieved to.
 --
 -- The virtual tape is retrieved from the virtual tape shelf (VTS).
---
 taRetrievedTo :: Lens' TapeArchive (Maybe Text)
 taRetrievedTo = lens _taRetrievedTo (\s a -> s { _taRetrievedTo = a })
 
 -- | The Amazon Resource Name (ARN) of an archived virtual tape.
---
 taTapeARN :: Lens' TapeArchive (Maybe Text)
 taTapeARN = lens _taTapeARN (\s a -> s { _taTapeARN = a })
 
 -- | The barcode that identifies the archived virtual tape.
---
 taTapeBarcode :: Lens' TapeArchive (Maybe Text)
 taTapeBarcode = lens _taTapeBarcode (\s a -> s { _taTapeBarcode = a })
 
 -- | The size, in bytes, of the archived virtual tape.
---
 taTapeSizeInBytes :: Lens' TapeArchive (Maybe Natural)
 taTapeSizeInBytes =
     lens _taTapeSizeInBytes (\s a -> s { _taTapeSizeInBytes = a })
         . mapping _Nat
 
 -- | The current state of the archived virtual tape.
---
 taTapeStatus :: Lens' TapeArchive (Maybe Text)
 taTapeStatus = lens _taTapeStatus (\s a -> s { _taTapeStatus = a })
 

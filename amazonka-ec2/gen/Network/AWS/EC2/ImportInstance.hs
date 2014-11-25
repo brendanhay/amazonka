@@ -86,7 +86,6 @@ importInstance p1 = ImportInstance
     }
 
 -- | A description for the instance being imported.
---
 iiDescription :: Lens' ImportInstance (Maybe Text)
 iiDescription = lens _iiDescription (\s a -> s { _iiDescription = a })
 
@@ -96,14 +95,12 @@ iiDiskImages = lens _iiDiskImages (\s a -> s { _iiDiskImages = a }) . _List
 iiDryRun :: Lens' ImportInstance (Maybe Bool)
 iiDryRun = lens _iiDryRun (\s a -> s { _iiDryRun = a })
 
--- | 
---
+
 iiLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
 iiLaunchSpecification =
     lens _iiLaunchSpecification (\s a -> s { _iiLaunchSpecification = a })
 
 -- | The instance operating system.
---
 iiPlatform :: Lens' ImportInstance PlatformValues
 iiPlatform = lens _iiPlatform (\s a -> s { _iiPlatform = a })
 

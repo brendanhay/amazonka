@@ -95,7 +95,6 @@ describeClusterSubnetGroups = DescribeClusterSubnetGroups
     }
 
 -- | The name of the cluster subnet group for which information is requested.
---
 dcsg1ClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
 dcsg1ClusterSubnetGroupName =
     lens _dcsg1ClusterSubnetGroupName
@@ -107,7 +106,6 @@ dcsg1ClusterSubnetGroupName =
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the 'Marker' parameter and retrying the
 -- request.
---
 dcsg1Marker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
 dcsg1Marker = lens _dcsg1Marker (\s a -> s { _dcsg1Marker = a })
 
@@ -119,7 +117,6 @@ dcsg1Marker = lens _dcsg1Marker (\s a -> s { _dcsg1Marker = a })
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
---
 dcsg1MaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Int)
 dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
 
@@ -129,7 +126,6 @@ dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
 -- and 'environment'. If you specify both of these tag keys in the request, Amazon
 -- Redshift returns a response with the subnet groups that have either or both
 -- of these tag keys associated with them.
---
 dcsg1TagKeys :: Lens' DescribeClusterSubnetGroups [Text]
 dcsg1TagKeys = lens _dcsg1TagKeys (\s a -> s { _dcsg1TagKeys = a }) . _List
 
@@ -139,7 +135,6 @@ dcsg1TagKeys = lens _dcsg1TagKeys (\s a -> s { _dcsg1TagKeys = a }) . _List
 -- called 'admin' and 'test'. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with the subnet groups that have
 -- either or both of these tag values associated with them.
---
 dcsg1TagValues :: Lens' DescribeClusterSubnetGroups [Text]
 dcsg1TagValues = lens _dcsg1TagValues (\s a -> s { _dcsg1TagValues = a }) . _List
 
@@ -163,7 +158,6 @@ describeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
     }
 
 -- | A list of 'ClusterSubnetGroup' instances.
---
 dcsgrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
 dcsgrClusterSubnetGroups =
     lens _dcsgrClusterSubnetGroups
@@ -175,7 +169,6 @@ dcsgrClusterSubnetGroups =
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
 -- empty, all response records have been retrieved for the request.
---
 dcsgrMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
 dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 

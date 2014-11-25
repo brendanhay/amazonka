@@ -21,6 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Adds an object to a bucket.
+--
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutObject.html>
 module Network.AWS.S3.PutObject
     (

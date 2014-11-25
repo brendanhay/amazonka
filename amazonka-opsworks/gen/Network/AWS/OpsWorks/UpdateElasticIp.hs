@@ -69,12 +69,10 @@ updateElasticIp p1 = UpdateElasticIp
     }
 
 -- | The address.
---
 ueiElasticIp :: Lens' UpdateElasticIp Text
 ueiElasticIp = lens _ueiElasticIp (\s a -> s { _ueiElasticIp = a })
 
 -- | The new name.
---
 ueiName :: Lens' UpdateElasticIp (Maybe Text)
 ueiName = lens _ueiName (\s a -> s { _ueiName = a })
 

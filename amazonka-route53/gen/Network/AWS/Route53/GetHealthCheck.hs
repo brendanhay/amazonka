@@ -62,7 +62,6 @@ getHealthCheck p1 = GetHealthCheck
     }
 
 -- | The ID of the health check to retrieve.
---
 ghcHealthCheckId :: Lens' GetHealthCheck Text
 ghcHealthCheckId = lens _ghcHealthCheckId (\s a -> s { _ghcHealthCheckId = a })
 
@@ -83,7 +82,6 @@ getHealthCheckResponse p1 = GetHealthCheckResponse
     }
 
 -- | A complex type that contains the information about the specified health check.
---
 ghcrHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
 ghcrHealthCheck = lens _ghcrHealthCheck (\s a -> s { _ghcrHealthCheck = a })
 

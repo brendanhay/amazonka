@@ -100,7 +100,6 @@ detachVolume p1 = DetachVolume
     }
 
 -- | The device name.
---
 dvDevice :: Lens' DetachVolume (Maybe Text)
 dvDevice = lens _dvDevice (\s a -> s { _dvDevice = a })
 
@@ -114,17 +113,14 @@ dvDryRun = lens _dvDryRun (\s a -> s { _dvDryRun = a })
 -- The instance won't have an opportunity to flush file system caches or file
 -- system metadata. If you use this option, you must perform file system check
 -- and repair procedures.
---
 dvForce :: Lens' DetachVolume (Maybe Bool)
 dvForce = lens _dvForce (\s a -> s { _dvForce = a })
 
 -- | The ID of the instance.
---
 dvInstanceId :: Lens' DetachVolume (Maybe Text)
 dvInstanceId = lens _dvInstanceId (\s a -> s { _dvInstanceId = a })
 
 -- | The ID of the volume.
---
 dvVolumeId :: Lens' DetachVolume Text
 dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
 
@@ -164,33 +160,27 @@ detachVolumeResponse = DetachVolumeResponse
     }
 
 -- | The time stamp when the attachment initiated.
---
 dvrAttachTime :: Lens' DetachVolumeResponse (Maybe UTCTime)
 dvrAttachTime = lens _dvrAttachTime (\s a -> s { _dvrAttachTime = a }) . mapping _Time
 
 -- | Indicates whether the Amazon EBS volume is deleted on instance termination.
---
 dvrDeleteOnTermination :: Lens' DetachVolumeResponse (Maybe Bool)
 dvrDeleteOnTermination =
     lens _dvrDeleteOnTermination (\s a -> s { _dvrDeleteOnTermination = a })
 
 -- | The device name.
---
 dvrDevice :: Lens' DetachVolumeResponse (Maybe Text)
 dvrDevice = lens _dvrDevice (\s a -> s { _dvrDevice = a })
 
 -- | The ID of the instance.
---
 dvrInstanceId :: Lens' DetachVolumeResponse (Maybe Text)
 dvrInstanceId = lens _dvrInstanceId (\s a -> s { _dvrInstanceId = a })
 
 -- | The attachment state of the volume.
---
 dvrState :: Lens' DetachVolumeResponse (Maybe VolumeAttachmentState)
 dvrState = lens _dvrState (\s a -> s { _dvrState = a })
 
 -- | The ID of the volume.
---
 dvrVolumeId :: Lens' DetachVolumeResponse (Maybe Text)
 dvrVolumeId = lens _dvrVolumeId (\s a -> s { _dvrVolumeId = a })
 

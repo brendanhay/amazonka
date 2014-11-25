@@ -92,7 +92,6 @@ createOpenIDConnectProvider p1 = CreateOpenIDConnectProvider
 -- cannot register more than 100 client IDs with a single IAM OIDC provider.
 --
 -- There is no defined format for a client ID. The 'CreateOpenIDConnectProviderRequest' action accepts client IDs up to 255 characters long.
---
 coidcpClientIDList :: Lens' CreateOpenIDConnectProvider [Text]
 coidcpClientIDList =
     lens _coidcpClientIDList (\s a -> s { _coidcpClientIDList = a })
@@ -113,7 +112,6 @@ coidcpClientIDList =
 -- stores its keys at "https://keys.server.example.com/openid-connect", the
 -- thumbprint string would be the hex-encoded SHA-1 hash value of the
 -- certificate used by https://keys.server.example.com.
---
 coidcpThumbprintList :: Lens' CreateOpenIDConnectProvider [Text]
 coidcpThumbprintList =
     lens _coidcpThumbprintList (\s a -> s { _coidcpThumbprintList = a })
@@ -128,7 +126,6 @@ coidcpThumbprintList =
 -- You cannot register the same provider multiple times in a single AWS
 -- account. If you try to submit a URL that has already been used for an OpenID
 -- Connect provider in the AWS account, you will get an error.
---
 coidcpUrl :: Lens' CreateOpenIDConnectProvider Text
 coidcpUrl = lens _coidcpUrl (\s a -> s { _coidcpUrl = a })
 
@@ -149,7 +146,6 @@ createOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that was
 -- created. For more information, see 'OpenIDConnectProviderListEntry'.
---
 coidcprOpenIDConnectProviderArn :: Lens' CreateOpenIDConnectProviderResponse (Maybe Text)
 coidcprOpenIDConnectProviderArn =
     lens _coidcprOpenIDConnectProviderArn

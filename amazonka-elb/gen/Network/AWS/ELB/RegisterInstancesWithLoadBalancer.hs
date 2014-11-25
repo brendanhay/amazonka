@@ -91,13 +91,11 @@ registerInstancesWithLoadBalancer p1 = RegisterInstancesWithLoadBalancer
     }
 
 -- | A list of instance IDs that should be registered with the load balancer.
---
 riwlbInstances :: Lens' RegisterInstancesWithLoadBalancer [Instance]
 riwlbInstances = lens _riwlbInstances (\s a -> s { _riwlbInstances = a }) . _List
 
 -- | The name associated with the load balancer. The name must be unique within
 -- your set of load balancers.
---
 riwlbLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
 riwlbLoadBalancerName =
     lens _riwlbLoadBalancerName (\s a -> s { _riwlbLoadBalancerName = a })
@@ -124,7 +122,6 @@ registerInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerRes
     }
 
 -- | An updated list of instances for the load balancer.
---
 riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
 riwlbrInstances = lens _riwlbrInstances (\s a -> s { _riwlbrInstances = a }) . _List
 

@@ -80,12 +80,10 @@ checkDomainAvailability p1 = CheckDomainAvailability
 -- supported.
 --
 -- Required: Yes
---
 cdaDomainName :: Lens' CheckDomainAvailability Text
 cdaDomainName = lens _cdaDomainName (\s a -> s { _cdaDomainName = a })
 
 -- | Reserved for future use.
---
 cdaIdnLangCode :: Lens' CheckDomainAvailability (Maybe Text)
 cdaIdnLangCode = lens _cdaIdnLangCode (\s a -> s { _cdaIdnLangCode = a })
 

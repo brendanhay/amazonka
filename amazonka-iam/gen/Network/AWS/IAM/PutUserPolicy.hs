@@ -77,18 +77,15 @@ putUserPolicy p1 p2 p3 = PutUserPolicy
     }
 
 -- | The policy document.
---
 pupPolicyDocument :: Lens' PutUserPolicy Text
 pupPolicyDocument =
     lens _pupPolicyDocument (\s a -> s { _pupPolicyDocument = a })
 
 -- | The name of the policy document.
---
 pupPolicyName :: Lens' PutUserPolicy Text
 pupPolicyName = lens _pupPolicyName (\s a -> s { _pupPolicyName = a })
 
 -- | The name of the user to associate the policy with.
---
 pupUserName :: Lens' PutUserPolicy Text
 pupUserName = lens _pupUserName (\s a -> s { _pupUserName = a })
 

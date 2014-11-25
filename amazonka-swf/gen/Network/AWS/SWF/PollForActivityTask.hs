@@ -101,13 +101,11 @@ pollForActivityTask p1 p2 = PollForActivityTask
     }
 
 -- | The name of the domain that contains the task lists being polled.
---
 pfatDomain :: Lens' PollForActivityTask Text
 pfatDomain = lens _pfatDomain (\s a -> s { _pfatDomain = a })
 
 -- | Identity of the worker making the request, which is recorded in the 'ActivityTaskStarted' event in the workflow history. This enables diagnostic tracing when problems
 -- arise. The form of this identity is user defined.
---
 pfatIdentity :: Lens' PollForActivityTask (Maybe Text)
 pfatIdentity = lens _pfatIdentity (\s a -> s { _pfatIdentity = a })
 
@@ -117,7 +115,6 @@ pfatIdentity = lens _pfatIdentity (\s a -> s { _pfatIdentity = a })
 -- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string "arn".
---
 pfatTaskList :: Lens' PollForActivityTask TaskList
 pfatTaskList = lens _pfatTaskList (\s a -> s { _pfatTaskList = a })
 
@@ -162,12 +159,10 @@ pollForActivityTaskResponse p1 p2 p3 p4 p5 = PollForActivityTaskResponse
     }
 
 -- | The unique ID of the task.
---
 pfatrActivityId :: Lens' PollForActivityTaskResponse Text
 pfatrActivityId = lens _pfatrActivityId (\s a -> s { _pfatrActivityId = a })
 
 -- | The type of this activity task.
---
 pfatrActivityType :: Lens' PollForActivityTaskResponse ActivityType
 pfatrActivityType =
     lens _pfatrActivityType (\s a -> s { _pfatrActivityType = a })
@@ -175,12 +170,10 @@ pfatrActivityType =
 -- | The inputs provided when the activity task was scheduled. The form of the
 -- input is user defined and should be meaningful to the activity
 -- implementation.
---
 pfatrInput :: Lens' PollForActivityTaskResponse (Maybe Text)
 pfatrInput = lens _pfatrInput (\s a -> s { _pfatrInput = a })
 
 -- | The id of the 'ActivityTaskStarted' event recorded in the history.
---
 pfatrStartedEventId :: Lens' PollForActivityTaskResponse Integer
 pfatrStartedEventId =
     lens _pfatrStartedEventId (\s a -> s { _pfatrStartedEventId = a })
@@ -188,12 +181,10 @@ pfatrStartedEventId =
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the system
 -- about the task.
---
 pfatrTaskToken :: Lens' PollForActivityTaskResponse Text
 pfatrTaskToken = lens _pfatrTaskToken (\s a -> s { _pfatrTaskToken = a })
 
 -- | The workflow execution that started this activity task.
---
 pfatrWorkflowExecution :: Lens' PollForActivityTaskResponse WorkflowExecution
 pfatrWorkflowExecution =
     lens _pfatrWorkflowExecution (\s a -> s { _pfatrWorkflowExecution = a })

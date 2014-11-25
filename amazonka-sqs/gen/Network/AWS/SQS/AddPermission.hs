@@ -88,7 +88,6 @@ addPermission p1 p2 = AddPermission
 -- principal must have an AWS account, but does not need to be signed up for
 -- Amazon SQS. For information about locating the AWS account identification,
 -- see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html Your AWS Identifiers> in the /Amazon SQS Developer Guide/.
---
 apAWSAccountIds :: Lens' AddPermission [Text]
 apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a }) . _List
 
@@ -98,18 +97,15 @@ apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a }) . _
 --
 -- Specifying 'SendMessage', 'DeleteMessage', or 'ChangeMessageVisibility' for the 'ActionName.n' also grants permissions for the corresponding batch versions of those
 -- actions: 'SendMessageBatch', 'DeleteMessageBatch', and 'ChangeMessageVisibilityBatch'.
---
 apActions :: Lens' AddPermission [Text]
 apActions = lens _apActions (\s a -> s { _apActions = a }) . _List
 
 -- | The unique identification of the permission you're setting (e.g., 'AliceSendMessage'). Constraints: Maximum 80 characters; alphanumeric characters, hyphens (-),
 -- and underscores (_) are allowed.
---
 apLabel :: Lens' AddPermission Text
 apLabel = lens _apLabel (\s a -> s { _apLabel = a })
 
 -- | The URL of the Amazon SQS queue to take action on.
---
 apQueueUrl :: Lens' AddPermission Text
 apQueueUrl = lens _apQueueUrl (\s a -> s { _apQueueUrl = a })
 

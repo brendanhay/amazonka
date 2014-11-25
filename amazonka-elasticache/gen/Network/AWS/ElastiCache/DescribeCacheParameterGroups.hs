@@ -74,7 +74,6 @@ describeCacheParameterGroups = DescribeCacheParameterGroups
     }
 
 -- | The name of a specific cache parameter group to return details for.
---
 dcpgCacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpgCacheParameterGroupName =
     lens _dcpgCacheParameterGroupName
@@ -84,7 +83,6 @@ dcpgCacheParameterGroupName =
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
---
 dcpgMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpgMarker = lens _dcpgMarker (\s a -> s { _dcpgMarker = a })
 
@@ -95,7 +93,6 @@ dcpgMarker = lens _dcpgMarker (\s a -> s { _dcpgMarker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
---
 dcpgMaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Int)
 dcpgMaxRecords = lens _dcpgMaxRecords (\s a -> s { _dcpgMaxRecords = a })
 
@@ -120,7 +117,6 @@ describeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
 
 -- | A list of cache parameter groups. Each element in the list contains detailed
 -- information about one cache parameter group.
---
 dcpgrCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
 dcpgrCacheParameterGroups =
     lens _dcpgrCacheParameterGroups
@@ -128,7 +124,6 @@ dcpgrCacheParameterGroups =
             . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
---
 dcpgrMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
 dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 

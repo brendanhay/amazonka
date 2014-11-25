@@ -93,7 +93,6 @@ modifyEventSubscription p1 = ModifyEventSubscription
 
 -- | A Boolean value indicating if the subscription is enabled. 'true' indicates
 -- the subscription is enabled
---
 mesEnabled :: Lens' ModifyEventSubscription (Maybe Bool)
 mesEnabled = lens _mesEnabled (\s a -> s { _mesEnabled = a })
 
@@ -101,7 +100,6 @@ mesEnabled = lens _mesEnabled (\s a -> s { _mesEnabled = a })
 -- notification subscription.
 --
 -- Values: Configuration, Management, Monitoring, Security
---
 mesEventCategories :: Lens' ModifyEventSubscription [Text]
 mesEventCategories =
     lens _mesEventCategories (\s a -> s { _mesEventCategories = a })
@@ -111,13 +109,11 @@ mesEventCategories =
 -- notification subscription.
 --
 -- Values: ERROR, INFO
---
 mesSeverity :: Lens' ModifyEventSubscription (Maybe Text)
 mesSeverity = lens _mesSeverity (\s a -> s { _mesSeverity = a })
 
 -- | The Amazon Resource Name (ARN) of the SNS topic to be used by the event
 -- notification subscription.
---
 mesSnsTopicArn :: Lens' ModifyEventSubscription (Maybe Text)
 mesSnsTopicArn = lens _mesSnsTopicArn (\s a -> s { _mesSnsTopicArn = a })
 
@@ -130,7 +126,6 @@ mesSnsTopicArn = lens _mesSnsTopicArn (\s a -> s { _mesSnsTopicArn = a })
 -- Example: my-cluster-1, my-cluster-2
 --
 -- Example: my-snapshot-20131010
---
 mesSourceIds :: Lens' ModifyEventSubscription [Text]
 mesSourceIds = lens _mesSourceIds (\s a -> s { _mesSourceIds = a }) . _List
 
@@ -142,12 +137,10 @@ mesSourceIds = lens _mesSourceIds (\s a -> s { _mesSourceIds = a }) . _List
 --
 -- Valid values: cluster, cluster-parameter-group, cluster-security-group, and
 -- cluster-snapshot.
---
 mesSourceType :: Lens' ModifyEventSubscription (Maybe Text)
 mesSourceType = lens _mesSourceType (\s a -> s { _mesSourceType = a })
 
 -- | The name of the modified Amazon Redshift event notification subscription.
---
 mesSubscriptionName :: Lens' ModifyEventSubscription Text
 mesSubscriptionName =
     lens _mesSubscriptionName (\s a -> s { _mesSubscriptionName = a })

@@ -205,12 +205,10 @@ runInstances p1 p2 p3 = RunInstances
     }
 
 -- | Reserved.
---
 riAdditionalInfo :: Lens' RunInstances (Maybe Text)
 riAdditionalInfo = lens _riAdditionalInfo (\s a -> s { _riAdditionalInfo = a })
 
 -- | The block device mapping.
---
 riBlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
 riBlockDeviceMappings =
     lens _riBlockDeviceMappings (\s a -> s { _riBlockDeviceMappings = a })
@@ -220,7 +218,6 @@ riBlockDeviceMappings =
 -- the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Constraints: Maximum 64 ASCII characters
---
 riClientToken :: Lens' RunInstances (Maybe Text)
 riClientToken = lens _riClientToken (\s a -> s { _riClientToken = a })
 
@@ -231,7 +228,6 @@ riClientToken = lens _riClientToken (\s a -> s { _riClientToken = a })
 -- from the instance.
 --
 -- Default: 'false'
---
 riDisableApiTermination :: Lens' RunInstances (Maybe Bool)
 riDisableApiTermination =
     lens _riDisableApiTermination (\s a -> s { _riDisableApiTermination = a })
@@ -246,18 +242,15 @@ riDryRun = lens _riDryRun (\s a -> s { _riDryRun = a })
 -- an EBS-optimized instance.
 --
 -- Default: 'false'
---
 riEbsOptimized :: Lens' RunInstances (Maybe Bool)
 riEbsOptimized = lens _riEbsOptimized (\s a -> s { _riEbsOptimized = a })
 
 -- | The IAM instance profile.
---
 riIamInstanceProfile :: Lens' RunInstances (Maybe IamInstanceProfileSpecification)
 riIamInstanceProfile =
     lens _riIamInstanceProfile (\s a -> s { _riIamInstanceProfile = a })
 
 -- | The ID of the AMI, which you can get by calling 'DescribeImages'.
---
 riImageId :: Lens' RunInstances Text
 riImageId = lens _riImageId (\s a -> s { _riImageId = a })
 
@@ -265,7 +258,6 @@ riImageId = lens _riImageId (\s a -> s { _riImageId = a })
 -- from the instance (using the operating system command for system shutdown).
 --
 -- Default: 'stop'
---
 riInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe ShutdownBehavior)
 riInstanceInitiatedShutdownBehavior =
     lens _riInstanceInitiatedShutdownBehavior
@@ -274,7 +266,6 @@ riInstanceInitiatedShutdownBehavior =
 -- | The instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- Default: 'm1.small'
---
 riInstanceType :: Lens' RunInstances (Maybe InstanceType)
 riInstanceType = lens _riInstanceType (\s a -> s { _riInstanceType = a })
 
@@ -304,7 +295,6 @@ riKeyName = lens _riKeyName (\s a -> s { _riKeyName = a })
 -- specified instance type. For more information about the default limits, and
 -- how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in
 -- the Amazon EC2 General FAQ.
---
 riMaxCount :: Lens' RunInstances Int
 riMaxCount = lens _riMaxCount (\s a -> s { _riMaxCount = a })
 
@@ -316,24 +306,20 @@ riMaxCount = lens _riMaxCount (\s a -> s { _riMaxCount = a })
 -- specified instance type. For more information about the default limits, and
 -- how to request an increase, see <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2> in
 -- the Amazon EC2 General FAQ.
---
 riMinCount :: Lens' RunInstances Int
 riMinCount = lens _riMinCount (\s a -> s { _riMinCount = a })
 
 -- | The monitoring for the instance.
---
 riMonitoring :: Lens' RunInstances (Maybe RunInstancesMonitoringEnabled)
 riMonitoring = lens _riMonitoring (\s a -> s { _riMonitoring = a })
 
 -- | One or more network interfaces.
---
 riNetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
 riNetworkInterfaces =
     lens _riNetworkInterfaces (\s a -> s { _riNetworkInterfaces = a })
         . _List
 
 -- | The placement for the instance.
---
 riPlacement :: Lens' RunInstances (Maybe Placement)
 riPlacement = lens _riPlacement (\s a -> s { _riPlacement = a })
 
@@ -345,7 +331,6 @@ riPlacement = lens _riPlacement (\s a -> s { _riPlacement = a })
 -- and 'PrivateIpAddresses.n.PrivateIpAddress' is set to an IP address.
 --
 -- Default: We select an IP address from the IP address range of the subnet.
---
 riPrivateIpAddress :: Lens' RunInstances (Maybe Text)
 riPrivateIpAddress =
     lens _riPrivateIpAddress (\s a -> s { _riPrivateIpAddress = a })
@@ -362,7 +347,6 @@ riRamdiskId = lens _riRamdiskId (\s a -> s { _riRamdiskId = a })
 -- | One or more security group IDs. You can create a security group using 'CreateSecurityGroup'.
 --
 -- Default: Amazon EC2 uses the default security group.
---
 riSecurityGroupIds :: Lens' RunInstances [Text]
 riSecurityGroupIds =
     lens _riSecurityGroupIds (\s a -> s { _riSecurityGroupIds = a })
@@ -372,17 +356,14 @@ riSecurityGroupIds =
 -- VPC, you must use security group IDs instead.
 --
 -- Default: Amazon EC2 uses the default security group.
---
 riSecurityGroups :: Lens' RunInstances [Text]
 riSecurityGroups = lens _riSecurityGroups (\s a -> s { _riSecurityGroups = a }) . _List
 
 -- | [EC2-VPC] The ID of the subnet to launch the instance into.
---
 riSubnetId :: Lens' RunInstances (Maybe Text)
 riSubnetId = lens _riSubnetId (\s a -> s { _riSubnetId = a })
 
 -- | The Base64-encoded MIME user data for the instances.
---
 riUserData :: Lens' RunInstances (Maybe Text)
 riUserData = lens _riUserData (\s a -> s { _riUserData = a })
 
@@ -418,28 +399,23 @@ runInstancesResponse = RunInstancesResponse
     }
 
 -- | One or more security groups.
---
 rirGroups :: Lens' RunInstancesResponse [GroupIdentifier]
 rirGroups = lens _rirGroups (\s a -> s { _rirGroups = a }) . _List
 
 -- | One or more instances.
---
 rirInstances :: Lens' RunInstancesResponse [Instance]
 rirInstances = lens _rirInstances (\s a -> s { _rirInstances = a }) . _List
 
 -- | The ID of the AWS account that owns the reservation.
---
 rirOwnerId :: Lens' RunInstancesResponse (Maybe Text)
 rirOwnerId = lens _rirOwnerId (\s a -> s { _rirOwnerId = a })
 
 -- | The ID of the requester that launched the instances on your behalf (for
 -- example, AWS Management Console or Auto Scaling).
---
 rirRequesterId :: Lens' RunInstancesResponse (Maybe Text)
 rirRequesterId = lens _rirRequesterId (\s a -> s { _rirRequesterId = a })
 
 -- | The ID of the reservation.
---
 rirReservationId :: Lens' RunInstancesResponse (Maybe Text)
 rirReservationId = lens _rirReservationId (\s a -> s { _rirReservationId = a })
 

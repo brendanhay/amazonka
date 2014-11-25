@@ -70,7 +70,6 @@ createInstanceProfile p1 = CreateInstanceProfile
     }
 
 -- | The name of the instance profile to create.
---
 cipInstanceProfileName :: Lens' CreateInstanceProfile Text
 cipInstanceProfileName =
     lens _cipInstanceProfileName (\s a -> s { _cipInstanceProfileName = a })
@@ -79,7 +78,6 @@ cipInstanceProfileName =
 --
 -- This parameter is optional. If it is not included, it defaults to a slash
 -- (/).
---
 cipPath :: Lens' CreateInstanceProfile (Maybe Text)
 cipPath = lens _cipPath (\s a -> s { _cipPath = a })
 
@@ -100,7 +98,6 @@ createInstanceProfileResponse p1 = CreateInstanceProfileResponse
     }
 
 -- | Information about the instance profile.
---
 ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
 ciprInstanceProfile =
     lens _ciprInstanceProfile (\s a -> s { _ciprInstanceProfile = a })

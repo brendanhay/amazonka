@@ -64,7 +64,6 @@ describeCluster p1 = DescribeCluster
     }
 
 -- | The identifier of the cluster to describe.
---
 dcClusterId :: Lens' DescribeCluster Text
 dcClusterId = lens _dcClusterId (\s a -> s { _dcClusterId = a })
 
@@ -84,7 +83,6 @@ describeClusterResponse = DescribeClusterResponse
     }
 
 -- | This output contains the details for the requested cluster.
---
 dcrCluster :: Lens' DescribeClusterResponse (Maybe Cluster)
 dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
 

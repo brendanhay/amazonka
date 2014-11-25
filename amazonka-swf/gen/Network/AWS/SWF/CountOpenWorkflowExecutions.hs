@@ -97,32 +97,27 @@ countOpenWorkflowExecutions p1 p2 = CountOpenWorkflowExecutions
     }
 
 -- | The name of the domain containing the workflow executions to count.
---
 coweDomain :: Lens' CountOpenWorkflowExecutions Text
 coweDomain = lens _coweDomain (\s a -> s { _coweDomain = a })
 
 -- | If specified, only workflow executions matching the 'WorkflowId' in the filter
 -- are counted.
---
 coweExecutionFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
 coweExecutionFilter =
     lens _coweExecutionFilter (\s a -> s { _coweExecutionFilter = a })
 
 -- | Specifies the start time criteria that workflow executions must meet in
 -- order to be counted.
---
 coweStartTimeFilter :: Lens' CountOpenWorkflowExecutions ExecutionTimeFilter
 coweStartTimeFilter =
     lens _coweStartTimeFilter (\s a -> s { _coweStartTimeFilter = a })
 
 -- | If specified, only executions that have a tag that matches the filter are
 -- counted.
---
 coweTagFilter :: Lens' CountOpenWorkflowExecutions (Maybe TagFilter)
 coweTagFilter = lens _coweTagFilter (\s a -> s { _coweTagFilter = a })
 
 -- | Specifies the type of the workflow executions to be counted.
---
 coweTypeFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
 coweTypeFilter = lens _coweTypeFilter (\s a -> s { _coweTypeFilter = a })
 
@@ -147,13 +142,11 @@ countOpenWorkflowExecutionsResponse p1 = CountOpenWorkflowExecutionsResponse
     }
 
 -- | The number of workflow executions.
---
 cowerCount :: Lens' CountOpenWorkflowExecutionsResponse Natural
 cowerCount = lens _cowerCount (\s a -> s { _cowerCount = a }) . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
---
 cowerTruncated :: Lens' CountOpenWorkflowExecutionsResponse (Maybe Bool)
 cowerTruncated = lens _cowerTruncated (\s a -> s { _cowerTruncated = a })
 

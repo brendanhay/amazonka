@@ -89,7 +89,6 @@ gcoDryRun :: Lens' GetConsoleOutput (Maybe Bool)
 gcoDryRun = lens _gcoDryRun (\s a -> s { _gcoDryRun = a })
 
 -- | The ID of the instance.
---
 gcoInstanceId :: Lens' GetConsoleOutput Text
 gcoInstanceId = lens _gcoInstanceId (\s a -> s { _gcoInstanceId = a })
 
@@ -117,17 +116,14 @@ getConsoleOutputResponse = GetConsoleOutputResponse
     }
 
 -- | The ID of the instance.
---
 gcorInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorInstanceId = lens _gcorInstanceId (\s a -> s { _gcorInstanceId = a })
 
 -- | The console output, Base64 encoded.
---
 gcorOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorOutput = lens _gcorOutput (\s a -> s { _gcorOutput = a })
 
 -- | The time the output was last updated.
---
 gcorTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
 gcorTimestamp = lens _gcorTimestamp (\s a -> s { _gcorTimestamp = a }) . mapping _Time
 

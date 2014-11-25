@@ -106,7 +106,6 @@ addEventSource p1 p2 p3 = AddEventSource
 
 -- | The largest number of records that AWS Lambda will give to your function in a
 -- single event. The default is 100 records.
---
 aesBatchSize :: Lens' AddEventSource (Maybe Int)
 aesBatchSize = lens _aesBatchSize (\s a -> s { _aesBatchSize = a })
 
@@ -114,12 +113,10 @@ aesBatchSize = lens _aesBatchSize (\s a -> s { _aesBatchSize = a })
 -- source. Any record added to this stream causes AWS Lambda to invoke your
 -- Lambda function. AWS Lambda POSTs the Amazon Kinesis event, containing
 -- records, to your Lambda function as JSON.
---
 aesEventSource :: Lens' AddEventSource Text
 aesEventSource = lens _aesEventSource (\s a -> s { _aesEventSource = a })
 
 -- | The Lambda function to invoke when AWS Lambda detects an event on the stream.
---
 aesFunctionName :: Lens' AddEventSource Text
 aesFunctionName = lens _aesFunctionName (\s a -> s { _aesFunctionName = a })
 
@@ -127,13 +124,11 @@ aesFunctionName = lens _aesFunctionName (\s a -> s { _aesFunctionName = a })
 -- reading the event source. Currently, AWS Lambda supports only the 'InitialPositionInStream' key. The valid values are: "TRIM_HORIZON" and "LATEST". The default value is
 -- "TRIM_HORIZON". For more information, go to <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType> in the Amazon
 -- Kinesis Service API Reference.
---
 aesParameters :: Lens' AddEventSource (HashMap Text Text)
 aesParameters = lens _aesParameters (\s a -> s { _aesParameters = a }) . _Map
 
 -- | The ARN of the IAM role (invocation role) that AWS Lambda can assume to read
 -- from the stream and invoke the function.
---
 aesRole :: Lens' AddEventSource Text
 aesRole = lens _aesRole (\s a -> s { _aesRole = a })
 
@@ -186,53 +181,44 @@ addEventSourceResponse = AddEventSourceResponse
 
 -- | The largest number of records that AWS Lambda will POST in the invocation
 -- request to your function.
---
 aesrBatchSize :: Lens' AddEventSourceResponse (Maybe Int)
 aesrBatchSize = lens _aesrBatchSize (\s a -> s { _aesrBatchSize = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream that is the
 -- source of events.
---
 aesrEventSource :: Lens' AddEventSourceResponse (Maybe Text)
 aesrEventSource = lens _aesrEventSource (\s a -> s { _aesrEventSource = a })
 
 -- | The Lambda function to invoke when AWS Lambda detects an event on the stream.
---
 aesrFunctionName :: Lens' AddEventSourceResponse (Maybe Text)
 aesrFunctionName = lens _aesrFunctionName (\s a -> s { _aesrFunctionName = a })
 
 -- | Indicates whether the event source mapping is currently honored. Events are
 -- only processes if IsActive is true.
---
 aesrIsActive :: Lens' AddEventSourceResponse (Maybe Bool)
 aesrIsActive = lens _aesrIsActive (\s a -> s { _aesrIsActive = a })
 
 -- | The UTC time string indicating the last time the event mapping was updated.
---
 aesrLastModified :: Lens' AddEventSourceResponse (Maybe UTCTime)
 aesrLastModified = lens _aesrLastModified (\s a -> s { _aesrLastModified = a }) . mapping _Time
 
 -- | The map (key-value pairs) defining the configuration for AWS Lambda to use
 -- when reading the event source.
---
 aesrParameters :: Lens' AddEventSourceResponse (HashMap Text Text)
 aesrParameters = lens _aesrParameters (\s a -> s { _aesrParameters = a }) . _Map
 
 -- | The ARN of the IAM role (invocation role) that AWS Lambda can assume to read
 -- from the stream and invoke the function.
---
 aesrRole :: Lens' AddEventSourceResponse (Maybe Text)
 aesrRole = lens _aesrRole (\s a -> s { _aesrRole = a })
 
 -- | The description of the health of the event source mapping. Valid values are:
 -- "PENDING", "OK", and "PROBLEM:/message/". Initially this staus is "PENDING".
 -- When AWS Lambda begins processing events, it changes the status to "OK".
---
 aesrStatus :: Lens' AddEventSourceResponse (Maybe Text)
 aesrStatus = lens _aesrStatus (\s a -> s { _aesrStatus = a })
 
 -- | The AWS Lambda assigned opaque identifier for the mapping.
---
 aesrUUID :: Lens' AddEventSourceResponse (Maybe Text)
 aesrUUID = lens _aesrUUID (\s a -> s { _aesrUUID = a })
 

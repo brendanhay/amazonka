@@ -62,7 +62,6 @@ createAccountAlias p1 = CreateAccountAlias
     }
 
 -- | The name of the account alias to create.
---
 caaAccountAlias :: Lens' CreateAccountAlias Text
 caaAccountAlias = lens _caaAccountAlias (\s a -> s { _caaAccountAlias = a })
 

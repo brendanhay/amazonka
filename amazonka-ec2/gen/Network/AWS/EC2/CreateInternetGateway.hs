@@ -82,7 +82,6 @@ createInternetGatewayResponse = CreateInternetGatewayResponse
     }
 
 -- | Information about the Internet gateway.
---
 cigrInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
 cigrInternetGateway =
     lens _cigrInternetGateway (\s a -> s { _cigrInternetGateway = a })

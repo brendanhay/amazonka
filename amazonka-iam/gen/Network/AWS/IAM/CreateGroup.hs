@@ -69,7 +69,6 @@ createGroup p1 = CreateGroup
     }
 
 -- | The name of the group to create. Do not include the path in this value.
---
 cgGroupName :: Lens' CreateGroup Text
 cgGroupName = lens _cgGroupName (\s a -> s { _cgGroupName = a })
 
@@ -78,7 +77,6 @@ cgGroupName = lens _cgGroupName (\s a -> s { _cgGroupName = a })
 --
 -- This parameter is optional. If it is not included, it defaults to a slash
 -- (/).
---
 cgPath :: Lens' CreateGroup (Maybe Text)
 cgPath = lens _cgPath (\s a -> s { _cgPath = a })
 
@@ -99,7 +97,6 @@ createGroupResponse p1 = CreateGroupResponse
     }
 
 -- | Information about the group.
---
 cgrGroup :: Lens' CreateGroupResponse Group
 cgrGroup = lens _cgrGroup (\s a -> s { _cgrGroup = a })
 

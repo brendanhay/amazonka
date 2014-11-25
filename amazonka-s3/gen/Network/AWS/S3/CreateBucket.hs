@@ -21,6 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new bucket.
+--
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/CreateBucket.html>
 module Network.AWS.S3.CreateBucket
     (

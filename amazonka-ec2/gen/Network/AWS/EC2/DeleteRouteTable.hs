@@ -69,7 +69,6 @@ drt1DryRun :: Lens' DeleteRouteTable (Maybe Bool)
 drt1DryRun = lens _drt1DryRun (\s a -> s { _drt1DryRun = a })
 
 -- | The ID of the route table.
---
 drt1RouteTableId :: Lens' DeleteRouteTable Text
 drt1RouteTableId = lens _drt1RouteTableId (\s a -> s { _drt1RouteTableId = a })
 

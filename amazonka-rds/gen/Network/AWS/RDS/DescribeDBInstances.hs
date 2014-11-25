@@ -92,14 +92,12 @@ ddbi1DBInstanceIdentifier =
         (\s a -> s { _ddbi1DBInstanceIdentifier = a })
 
 -- | This parameter is not currently supported.
---
 ddbi1Filters :: Lens' DescribeDBInstances [Filter]
 ddbi1Filters = lens _ddbi1Filters (\s a -> s { _ddbi1Filters = a }) . _List
 
 -- | An optional pagination token provided by a previous DescribeDBInstances
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by 'MaxRecords' .
---
 ddbi1Marker :: Lens' DescribeDBInstances (Maybe Text)
 ddbi1Marker = lens _ddbi1Marker (\s a -> s { _ddbi1Marker = a })
 
@@ -110,7 +108,6 @@ ddbi1Marker = lens _ddbi1Marker (\s a -> s { _ddbi1Marker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
---
 ddbi1MaxRecords :: Lens' DescribeDBInstances (Maybe Int)
 ddbi1MaxRecords = lens _ddbi1MaxRecords (\s a -> s { _ddbi1MaxRecords = a })
 
@@ -134,14 +131,12 @@ describeDBInstancesResponse = DescribeDBInstancesResponse
     }
 
 -- | A list of 'DBInstance' instances.
---
 ddbirDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
 ddbirDBInstances = lens _ddbirDBInstances (\s a -> s { _ddbirDBInstances = a }) . _List
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the marker,
 -- up to the value specified by 'MaxRecords' .
---
 ddbirMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 ddbirMarker = lens _ddbirMarker (\s a -> s { _ddbirMarker = a })
 

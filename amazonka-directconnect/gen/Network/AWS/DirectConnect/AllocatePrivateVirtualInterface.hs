@@ -98,14 +98,12 @@ allocatePrivateVirtualInterface p1 p2 p3 = AllocatePrivateVirtualInterface
 -- | The connection ID on which the private virtual interface is provisioned.
 --
 -- Default: None
---
 apviConnectionId :: Lens' AllocatePrivateVirtualInterface Text
 apviConnectionId = lens _apviConnectionId (\s a -> s { _apviConnectionId = a })
 
 -- | Detailed information for the private virtual interface to be provisioned.
 --
 -- Default: None
---
 apviNewPrivateVirtualInterfaceAllocation :: Lens' AllocatePrivateVirtualInterface NewPrivateVirtualInterfaceAllocation
 apviNewPrivateVirtualInterfaceAllocation =
     lens _apviNewPrivateVirtualInterfaceAllocation
@@ -114,7 +112,6 @@ apviNewPrivateVirtualInterfaceAllocation =
 -- | The AWS account that will own the new private virtual interface.
 --
 -- Default: None
---
 apviOwnerAccount :: Lens' AllocatePrivateVirtualInterface Text
 apviOwnerAccount = lens _apviOwnerAccount (\s a -> s { _apviOwnerAccount = a })
 
@@ -208,7 +205,6 @@ apvirCustomerAddress =
     lens _apvirCustomerAddress (\s a -> s { _apvirCustomerAddress = a })
 
 -- | Information for generating the customer router configuration.
---
 apvirCustomerRouterConfig :: Lens' AllocatePrivateVirtualInterfaceResponse (Maybe Text)
 apvirCustomerRouterConfig =
     lens _apvirCustomerRouterConfig

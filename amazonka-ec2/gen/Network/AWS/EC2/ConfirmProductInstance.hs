@@ -79,12 +79,10 @@ cpiDryRun :: Lens' ConfirmProductInstance (Maybe Bool)
 cpiDryRun = lens _cpiDryRun (\s a -> s { _cpiDryRun = a })
 
 -- | The ID of the instance.
---
 cpiInstanceId :: Lens' ConfirmProductInstance Text
 cpiInstanceId = lens _cpiInstanceId (\s a -> s { _cpiInstanceId = a })
 
 -- | The product code. This must be a product code that you own.
---
 cpiProductCode :: Lens' ConfirmProductInstance Text
 cpiProductCode = lens _cpiProductCode (\s a -> s { _cpiProductCode = a })
 
@@ -105,7 +103,6 @@ confirmProductInstanceResponse = ConfirmProductInstanceResponse
 
 -- | The AWS account ID of the instance owner. This is only present if the product
 -- code is attached to the instance.
---
 cpirOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpirOwnerId = lens _cpirOwnerId (\s a -> s { _cpirOwnerId = a })
 

@@ -107,7 +107,6 @@ activateGateway p1 p2 p3 p4 = ActivateGateway
 -- other activation-related parameters, however, these are merely defaults --
 -- the arguments you pass to the 'ActivateGateway' API call determine the actual
 -- configuration of your gateway.
---
 agActivationKey :: Lens' ActivateGateway Text
 agActivationKey = lens _agActivationKey (\s a -> s { _agActivationKey = a })
 
@@ -122,14 +121,12 @@ agGatewayName = lens _agGatewayName (\s a -> s { _agGatewayName = a })
 -- /Valid Values/: "us-east-1", "us-west-1", "us-west-2", "eu-west-1",
 -- "eu-central-1", "ap-northeast-1", "ap-southeast-1", "ap-southeast-2",
 -- "sa-east-1"
---
 agGatewayRegion :: Lens' ActivateGateway Text
 agGatewayRegion = lens _agGatewayRegion (\s a -> s { _agGatewayRegion = a })
 
 -- | One of the values that indicates the time zone you want to set for the
 -- gateway. The time zone is used, for example, for scheduling snapshots and
 -- your gateway's maintenance schedule.
---
 agGatewayTimezone :: Lens' ActivateGateway Text
 agGatewayTimezone =
     lens _agGatewayTimezone (\s a -> s { _agGatewayTimezone = a })
@@ -137,7 +134,6 @@ agGatewayTimezone =
 -- | One of the values that defines the type of gateway to activate. The type
 -- specified is critical to all later functions of the gateway and cannot be
 -- changed after activation. The default value is 'STORED'.
---
 agGatewayType :: Lens' ActivateGateway (Maybe Text)
 agGatewayType = lens _agGatewayType (\s a -> s { _agGatewayType = a })
 
@@ -145,7 +141,6 @@ agGatewayType = lens _agGatewayType (\s a -> s { _agGatewayType = a })
 -- This field is optional.
 --
 -- /Valid Values/: "STK-L700"
---
 agMediumChangerType :: Lens' ActivateGateway (Maybe Text)
 agMediumChangerType =
     lens _agMediumChangerType (\s a -> s { _agMediumChangerType = a })
@@ -154,7 +149,6 @@ agMediumChangerType =
 -- field is optional.
 --
 -- /Valid Values/: "IBM-ULT3580-TD5"
---
 agTapeDriveType :: Lens' ActivateGateway (Maybe Text)
 agTapeDriveType = lens _agTapeDriveType (\s a -> s { _agTapeDriveType = a })
 

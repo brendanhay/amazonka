@@ -65,7 +65,6 @@ putConfigurationRecorder p1 = PutConfigurationRecorder
 
 -- | The configuration recorder object that records each configuration change made
 -- to the resources.
---
 pcrConfigurationRecorder :: Lens' PutConfigurationRecorder ConfigurationRecorder
 pcrConfigurationRecorder =
     lens _pcrConfigurationRecorder

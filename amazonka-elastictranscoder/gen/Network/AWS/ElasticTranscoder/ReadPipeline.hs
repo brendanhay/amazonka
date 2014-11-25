@@ -62,7 +62,6 @@ readPipeline p1 = ReadPipeline
     }
 
 -- | The identifier of the pipeline to read.
---
 rp1Id :: Lens' ReadPipeline Text
 rp1Id = lens _rp1Id (\s a -> s { _rp1Id = a })
 
@@ -82,7 +81,6 @@ readPipelineResponse = ReadPipelineResponse
     }
 
 -- | A section of the response body that provides information about the pipeline.
---
 rprPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
 rprPipeline = lens _rprPipeline (\s a -> s { _rprPipeline = a })
 

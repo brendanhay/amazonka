@@ -90,7 +90,6 @@ cpviConnectionId = lens _cpviConnectionId (\s a -> s { _cpviConnectionId = a })
 -- | Detailed information for the public virtual interface to be created.
 --
 -- Default: None
---
 cpviNewPublicVirtualInterface :: Lens' CreatePublicVirtualInterface NewPublicVirtualInterface
 cpviNewPublicVirtualInterface =
     lens _cpviNewPublicVirtualInterface
@@ -186,7 +185,6 @@ cpvirCustomerAddress =
     lens _cpvirCustomerAddress (\s a -> s { _cpvirCustomerAddress = a })
 
 -- | Information for generating the customer router configuration.
---
 cpvirCustomerRouterConfig :: Lens' CreatePublicVirtualInterfaceResponse (Maybe Text)
 cpvirCustomerRouterConfig =
     lens _cpvirCustomerRouterConfig

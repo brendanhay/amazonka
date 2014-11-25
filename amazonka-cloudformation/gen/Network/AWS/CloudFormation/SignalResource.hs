@@ -84,20 +84,17 @@ signalResource p1 p2 p3 p4 = SignalResource
 
 -- | The logical ID of the resource that you want to signal. The logical ID is the
 -- name of the resource that given in the template.
---
 srLogicalResourceId :: Lens' SignalResource Text
 srLogicalResourceId =
     lens _srLogicalResourceId (\s a -> s { _srLogicalResourceId = a })
 
 -- | The stack name or ID that includes the resource that you want to signal.
---
 srStackName :: Lens' SignalResource Text
 srStackName = lens _srStackName (\s a -> s { _srStackName = a })
 
 -- | The status of the signal, which is either success or failure. A failure
 -- signal causes AWS CloudFormation to immediately fail the stack creation or
 -- update.
---
 srStatus :: Lens' SignalResource ResourceSignalStatus
 srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 
@@ -105,7 +102,6 @@ srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 -- Scaling groups, specify the instance ID that you are signaling as the unique
 -- ID. If you send multiple signals to a single resource (such as signaling a
 -- wait condition), each signal requires a different unique ID.
---
 srUniqueId :: Lens' SignalResource Text
 srUniqueId = lens _srUniqueId (\s a -> s { _srUniqueId = a })
 

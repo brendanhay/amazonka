@@ -63,7 +63,6 @@ updateMyUserProfile = UpdateMyUserProfile
     }
 
 -- | The user's SSH public key.
---
 umupSshPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
 umupSshPublicKey = lens _umupSshPublicKey (\s a -> s { _umupSshPublicKey = a })
 

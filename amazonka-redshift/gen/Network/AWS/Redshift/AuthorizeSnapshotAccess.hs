@@ -77,7 +77,6 @@ authorizeSnapshotAccess p1 p2 = AuthorizeSnapshotAccess
 
 -- | The identifier of the AWS customer account authorized to restore the
 -- specified snapshot.
---
 asaAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess Text
 asaAccountWithRestoreAccess =
     lens _asaAccountWithRestoreAccess
@@ -86,14 +85,12 @@ asaAccountWithRestoreAccess =
 -- | The identifier of the cluster the snapshot was created from. This parameter
 -- is required if your IAM user has a policy containing a snapshot resource
 -- element that specifies anything other than * for the cluster name.
---
 asaSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
 asaSnapshotClusterIdentifier =
     lens _asaSnapshotClusterIdentifier
         (\s a -> s { _asaSnapshotClusterIdentifier = a })
 
 -- | The identifier of the snapshot the account is authorized to restore.
---
 asaSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
 asaSnapshotIdentifier =
     lens _asaSnapshotIdentifier (\s a -> s { _asaSnapshotIdentifier = a })

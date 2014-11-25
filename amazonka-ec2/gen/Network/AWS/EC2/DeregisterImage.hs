@@ -71,7 +71,6 @@ diDryRun :: Lens' DeregisterImage (Maybe Bool)
 diDryRun = lens _diDryRun (\s a -> s { _diDryRun = a })
 
 -- | The ID of the AMI.
---
 diImageId :: Lens' DeregisterImage Text
 diImageId = lens _diImageId (\s a -> s { _diImageId = a })
 

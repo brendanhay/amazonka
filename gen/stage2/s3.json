@@ -7703,7 +7703,7 @@
             "pager": null,
             "name": "AbortMultipartUpload",
             "method": "delete",
-            "documentation": "-- | Aborts a multipart upload.\n--\n-- To verify that all parts have been removed, so you don't get charged for the\n-- part storage, you should call the List Parts operation and ensure the parts\n-- list is empty.\n--",
+            "documentation": "-- | Aborts a multipart upload.\n--\n-- To verify that all parts have been removed, so you don't get charged for the\n-- part storage, you should call the List Parts operation and ensure the parts\n-- list is empty.",
             "documentationUrl": "http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadAbort.html",
             "request": {
                 "deriving": [
@@ -10577,7 +10577,7 @@
             "pager": null,
             "name": "CreateMultipartUpload",
             "method": "post",
-            "documentation": "-- | Initiates a multipart upload and returns an upload ID.\n--\n-- Note: After you initiate multipart upload and upload one or more parts, you\n-- must either complete or abort multipart upload in order to stop getting\n-- charged for storage of the uploaded parts. Only after you either complete or\n-- abort multipart upload, Amazon S3 frees up the parts storage and stops\n-- charging you for the parts storage.\n--",
+            "documentation": "-- | Initiates a multipart upload and returns an upload ID.\n--\n-- Note: After you initiate multipart upload and upload one or more parts, you\n-- must either complete or abort multipart upload in order to stop getting\n-- charged for storage of the uploaded parts. Only after you either complete or\n-- abort multipart upload, Amazon S3 frees up the parts storage and stops\n-- charging you for the parts storage.",
             "documentationUrl": "http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadInitiate.html",
             "request": {
                 "deriving": [
@@ -26496,7 +26496,7 @@
             "pager": null,
             "name": "UploadPart",
             "method": "put",
-            "documentation": "-- | Uploads a part in a multipart upload.\n--\n-- Note: After you initiate multipart upload and upload one or more parts, you\n-- must either complete or abort multipart upload in order to stop getting\n-- charged for storage of the uploaded parts. Only after you either complete or\n-- abort multipart upload, Amazon S3 frees up the parts storage and stops\n-- charging you for the parts storage.\n--",
+            "documentation": "-- | Uploads a part in a multipart upload.\n--\n-- Note: After you initiate multipart upload and upload one or more parts, you\n-- must either complete or abort multipart upload in order to stop getting\n-- charged for storage of the uploaded parts. Only after you either complete or\n-- abort multipart upload, Amazon S3 frees up the parts storage and stops\n-- charging you for the parts storage.",
             "documentationUrl": "http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadUploadPart.html",
             "request": {
                 "deriving": [

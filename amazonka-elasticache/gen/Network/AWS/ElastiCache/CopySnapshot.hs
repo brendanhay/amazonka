@@ -68,13 +68,11 @@ copySnapshot p1 p2 = CopySnapshot
     }
 
 -- | The name of an existing snapshot from which to copy.
---
 csSourceSnapshotName :: Lens' CopySnapshot Text
 csSourceSnapshotName =
     lens _csSourceSnapshotName (\s a -> s { _csSourceSnapshotName = a })
 
 -- | A name for the copied snapshot.
---
 csTargetSnapshotName :: Lens' CopySnapshot Text
 csTargetSnapshotName =
     lens _csTargetSnapshotName (\s a -> s { _csTargetSnapshotName = a })

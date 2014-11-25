@@ -88,19 +88,16 @@ createAppCookieStickinessPolicy p1 p2 p3 = CreateAppCookieStickinessPolicy
     }
 
 -- | Name of the application cookie used for stickiness.
---
 cacspCookieName :: Lens' CreateAppCookieStickinessPolicy Text
 cacspCookieName = lens _cacspCookieName (\s a -> s { _cacspCookieName = a })
 
 -- | The name of the load balancer.
---
 cacspLoadBalancerName :: Lens' CreateAppCookieStickinessPolicy Text
 cacspLoadBalancerName =
     lens _cacspLoadBalancerName (\s a -> s { _cacspLoadBalancerName = a })
 
 -- | The name of the policy being created. The name must be unique within the set
 -- of policies for this load balancer.
---
 cacspPolicyName :: Lens' CreateAppCookieStickinessPolicy Text
 cacspPolicyName = lens _cacspPolicyName (\s a -> s { _cacspPolicyName = a })
 

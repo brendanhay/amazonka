@@ -27,6 +27,7 @@
 -- Related Topics
 --
 -- 'DescribeConfigurationOptions'   'DescribeConfigurationSettings'   'ListAvailableSolutionStacks'
+--
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateConfigurationTemplate.html>
 module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     (
@@ -107,25 +108,21 @@ createConfigurationTemplate p1 p2 = CreateConfigurationTemplate
 
 -- | The name of the application to associate with this configuration template.
 -- If no application is found with this name, AWS Elastic Beanstalk returns an 'InvalidParameterValue' error.
---
 cctApplicationName :: Lens' CreateConfigurationTemplate Text
 cctApplicationName =
     lens _cctApplicationName (\s a -> s { _cctApplicationName = a })
 
 -- | Describes this configuration.
---
 cctDescription :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctDescription = lens _cctDescription (\s a -> s { _cctDescription = a })
 
 -- | The ID of the environment used with this configuration template.
---
 cctEnvironmentId :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctEnvironmentId = lens _cctEnvironmentId (\s a -> s { _cctEnvironmentId = a })
 
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration option
 -- to the requested value. The new value overrides the value obtained from the
 -- solution stack or the source configuration template.
---
 cctOptionSettings :: Lens' CreateConfigurationTemplate [ConfigurationOptionSetting]
 cctOptionSettings =
     lens _cctOptionSettings (\s a -> s { _cctOptionSettings = a })
@@ -146,7 +143,6 @@ cctOptionSettings =
 -- If a solution stack name is not specified and the source configuration
 -- parameter is specified, AWS Elastic Beanstalk uses the same solution stack as
 -- the source configuration template.
---
 cctSolutionStackName :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctSolutionStackName =
     lens _cctSolutionStackName (\s a -> s { _cctSolutionStackName = a })
@@ -164,7 +160,6 @@ cctSolutionStackName =
 -- configuration parameters are specified, the solution stack of the source
 -- configuration template must match the specified solution stack name or else
 -- AWS Elastic Beanstalk returns an 'InvalidParameterCombination' error.
---
 cctSourceConfiguration :: Lens' CreateConfigurationTemplate (Maybe SourceConfiguration)
 cctSourceConfiguration =
     lens _cctSourceConfiguration (\s a -> s { _cctSourceConfiguration = a })
@@ -175,7 +170,6 @@ cctSourceConfiguration =
 --
 -- Default: If a configuration template already exists with this name, AWS
 -- Elastic Beanstalk returns an 'InvalidParameterValue' error.
---
 cctTemplateName :: Lens' CreateConfigurationTemplate Text
 cctTemplateName = lens _cctTemplateName (\s a -> s { _cctTemplateName = a })
 
@@ -227,18 +221,15 @@ createConfigurationTemplateResponse = CreateConfigurationTemplateResponse
     }
 
 -- | The name of the application associated with this configuration set.
---
 cctrApplicationName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrApplicationName =
     lens _cctrApplicationName (\s a -> s { _cctrApplicationName = a })
 
 -- | The date (in UTC time) when this configuration set was created.
---
 cctrDateCreated :: Lens' CreateConfigurationTemplateResponse (Maybe UTCTime)
 cctrDateCreated = lens _cctrDateCreated (\s a -> s { _cctrDateCreated = a }) . mapping _Time
 
 -- | The date (in UTC time) when this configuration set was last modified.
---
 cctrDateUpdated :: Lens' CreateConfigurationTemplateResponse (Maybe UTCTime)
 cctrDateUpdated = lens _cctrDateUpdated (\s a -> s { _cctrDateUpdated = a }) . mapping _Time
 
@@ -265,33 +256,28 @@ cctrDeploymentStatus =
     lens _cctrDeploymentStatus (\s a -> s { _cctrDeploymentStatus = a })
 
 -- | Describes this configuration set.
---
 cctrDescription :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrDescription = lens _cctrDescription (\s a -> s { _cctrDescription = a })
 
 -- | If not 'null', the name of the environment for this configuration set.
---
 cctrEnvironmentName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrEnvironmentName =
     lens _cctrEnvironmentName (\s a -> s { _cctrEnvironmentName = a })
 
 -- | A list of the configuration options and their values in this configuration
 -- set.
---
 cctrOptionSettings :: Lens' CreateConfigurationTemplateResponse [ConfigurationOptionSetting]
 cctrOptionSettings =
     lens _cctrOptionSettings (\s a -> s { _cctrOptionSettings = a })
         . _List
 
 -- | The name of the solution stack this configuration set uses.
---
 cctrSolutionStackName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrSolutionStackName =
     lens _cctrSolutionStackName (\s a -> s { _cctrSolutionStackName = a })
 
 -- | If not 'null', the name of the configuration template for this configuration
 -- set.
---
 cctrTemplateName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrTemplateName = lens _cctrTemplateName (\s a -> s { _cctrTemplateName = a })
 

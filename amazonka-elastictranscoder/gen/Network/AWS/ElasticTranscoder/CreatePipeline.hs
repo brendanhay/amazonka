@@ -138,7 +138,6 @@ cp1ContentConfig = lens _cp1ContentConfig (\s a -> s { _cp1ContentConfig = a })
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to
 -- transcode.
---
 cp1InputBucket :: Lens' CreatePipeline Text
 cp1InputBucket = lens _cp1InputBucket (\s a -> s { _cp1InputBucket = a })
 
@@ -146,7 +145,6 @@ cp1InputBucket = lens _cp1InputBucket (\s a -> s { _cp1InputBucket = a })
 -- account, but uniqueness is not enforced.
 --
 -- Constraints: Maximum 40 characters.
---
 cp1Name :: Lens' CreatePipeline Text
 cp1Name = lens _cp1Name (\s a -> s { _cp1Name = a })
 
@@ -190,13 +188,11 @@ cp1Notifications = lens _cp1Notifications (\s a -> s { _cp1Notifications = a })
 -- thumbnails in another bucket, specify which users can access the transcoded
 -- files or the permissions the users have, or change the Amazon S3 storage
 -- class, omit 'OutputBucket' and specify values for 'ContentConfig' and 'ThumbnailConfig' instead.
---
 cp1OutputBucket :: Lens' CreatePipeline (Maybe Text)
 cp1OutputBucket = lens _cp1OutputBucket (\s a -> s { _cp1OutputBucket = a })
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to use to create the pipeline.
---
 cp1Role :: Lens' CreatePipeline Text
 cp1Role = lens _cp1Role (\s a -> s { _cp1Role = a })
 
@@ -259,7 +255,6 @@ createPipelineResponse = CreatePipelineResponse
 
 -- | A section of the response body that provides information about the pipeline
 -- that is created.
---
 cprPipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
 cprPipeline = lens _cprPipeline (\s a -> s { _cprPipeline = a })
 

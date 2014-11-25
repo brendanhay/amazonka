@@ -70,7 +70,6 @@ describeDomains = DescribeDomains
     }
 
 -- | The names of the domains you want to include in the response.
---
 ddDomainNames :: Lens' DescribeDomains [Text]
 ddDomainNames = lens _ddDomainNames (\s a -> s { _ddDomainNames = a }) . _List
 

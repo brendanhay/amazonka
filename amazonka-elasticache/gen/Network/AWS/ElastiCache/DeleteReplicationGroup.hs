@@ -82,7 +82,6 @@ deleteReplicationGroup p1 = DeleteReplicationGroup
 -- from the primary node in the cluster, rather than one of the replicas; this
 -- is to ensure that it captures the freshest data. After the final snapshot is
 -- taken, the cluster is immediately deleted.
---
 drgFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
 drgFinalSnapshotIdentifier =
     lens _drgFinalSnapshotIdentifier
@@ -90,14 +89,12 @@ drgFinalSnapshotIdentifier =
 
 -- | The identifier for the cluster to be deleted. This parameter is not case
 -- sensitive.
---
 drgReplicationGroupId :: Lens' DeleteReplicationGroup Text
 drgReplicationGroupId =
     lens _drgReplicationGroupId (\s a -> s { _drgReplicationGroupId = a })
 
 -- | If set to /true/, all of the read replicas will be deleted, but the primary
 -- node will be retained.
---
 drgRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
 drgRetainPrimaryCluster =
     lens _drgRetainPrimaryCluster (\s a -> s { _drgRetainPrimaryCluster = a })

@@ -72,12 +72,10 @@ getUserPolicy p1 p2 = GetUserPolicy
     }
 
 -- | The name of the policy document to get.
---
 gupPolicyName :: Lens' GetUserPolicy Text
 gupPolicyName = lens _gupPolicyName (\s a -> s { _gupPolicyName = a })
 
 -- | The name of the user who the policy is associated with.
---
 gupUserName :: Lens' GetUserPolicy Text
 gupUserName = lens _gupUserName (\s a -> s { _gupUserName = a })
 
@@ -108,18 +106,15 @@ getUserPolicyResponse p1 p2 p3 = GetUserPolicyResponse
     }
 
 -- | The policy document.
---
 guprPolicyDocument :: Lens' GetUserPolicyResponse Text
 guprPolicyDocument =
     lens _guprPolicyDocument (\s a -> s { _guprPolicyDocument = a })
 
 -- | The name of the policy.
---
 guprPolicyName :: Lens' GetUserPolicyResponse Text
 guprPolicyName = lens _guprPolicyName (\s a -> s { _guprPolicyName = a })
 
 -- | The user the policy is associated with.
---
 guprUserName :: Lens' GetUserPolicyResponse Text
 guprUserName = lens _guprUserName (\s a -> s { _guprUserName = a })
 

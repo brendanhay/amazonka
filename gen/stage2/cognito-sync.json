@@ -1437,7 +1437,7 @@
                         "name": "_psApplicationArns",
                         "shape": "ApplicationArnList",
                         "locationName": "ApplicationArns",
-                        "documentation": "-- | List of SNS platform application ARNs that could be used by clients.\n--",
+                        "documentation": "-- | List of SNS platform application ARNs that could be used by clients.",
                         "typeExposed": "[Text]",
                         "type": "List \"ApplicationArns\" Text"
                     },
@@ -1452,7 +1452,7 @@
                         "name": "_psRoleArn",
                         "shape": "AssumeRoleArn",
                         "locationName": "RoleArn",
-                        "documentation": "-- | A role configured to allow Cognito to call SNS on behalf of the developer.\n--",
+                        "documentation": "-- | A role configured to allow Cognito to call SNS on behalf of the developer.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1475,7 +1475,7 @@
                         "name": "_psApplicationArns",
                         "shape": "ApplicationArnList",
                         "locationName": "ApplicationArns",
-                        "documentation": "-- | List of SNS platform application ARNs that could be used by clients.\n--",
+                        "documentation": "-- | List of SNS platform application ARNs that could be used by clients.",
                         "typeExposed": "[Text]",
                         "type": "List \"ApplicationArns\" Text"
                     },
@@ -1490,7 +1490,7 @@
                         "name": "_psRoleArn",
                         "shape": "AssumeRoleArn",
                         "locationName": "RoleArn",
-                        "documentation": "-- | A role configured to allow Cognito to call SNS on behalf of the developer.\n--",
+                        "documentation": "-- | A role configured to allow Cognito to call SNS on behalf of the developer.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1507,7 +1507,7 @@
                         "name": "_psApplicationArns",
                         "shape": "ApplicationArnList",
                         "locationName": "ApplicationArns",
-                        "documentation": "-- | List of SNS platform application ARNs that could be used by clients.\n--",
+                        "documentation": "-- | List of SNS platform application ARNs that could be used by clients.",
                         "typeExposed": "[Text]",
                         "type": "List \"ApplicationArns\" Text"
                     },
@@ -1522,7 +1522,7 @@
                         "name": "_psRoleArn",
                         "shape": "AssumeRoleArn",
                         "locationName": "RoleArn",
-                        "documentation": "-- | A role configured to allow Cognito to call SNS on behalf of the developer.\n--",
+                        "documentation": "-- | A role configured to allow Cognito to call SNS on behalf of the developer.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2470,7 +2470,7 @@
                         "name": "_gipcrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2485,7 +2485,7 @@
                         "name": "_gipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options applied to the identity pool.\n--",
+                        "documentation": "-- | Configuration options applied to the identity pool.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -2514,7 +2514,7 @@
                         "name": "_gipcrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2529,7 +2529,7 @@
                         "name": "_gipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options applied to the identity pool.\n--",
+                        "documentation": "-- | Configuration options applied to the identity pool.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -2546,7 +2546,7 @@
                         "name": "_gipcrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2561,7 +2561,7 @@
                         "name": "_gipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options applied to the identity pool.\n--",
+                        "documentation": "-- | Configuration options applied to the identity pool.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -2577,7 +2577,7 @@
             "pager": null,
             "name": "GetIdentityPoolConfiguration",
             "method": "get",
-            "documentation": "-- | Gets the configuration settings of an identity pool.\n--",
+            "documentation": "-- | Gets the configuration settings of an identity pool.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2604,7 +2604,7 @@
                     "name": "_gipcIdentityPoolId",
                     "shape": "IdentityPoolId",
                     "locationName": "IdentityPoolId",
-                    "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool for which to return a configuration.\n--",
+                    "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool for which to return a configuration.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2637,7 +2637,7 @@
                         "name": "_gipcIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool for which to return a configuration.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool for which to return a configuration.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2665,7 +2665,7 @@
                         "name": "_gipcIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool for which to return a configuration.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool for which to return a configuration.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4133,7 +4133,7 @@
                     "name": "_rdrDeviceId",
                     "shape": "DeviceId",
                     "locationName": "DeviceId",
-                    "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
+                    "documentation": "-- | The unique ID generated for this device by Cognito.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -4149,7 +4149,7 @@
                         "name": "_rdrDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4178,7 +4178,7 @@
                         "name": "_rdrDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4195,7 +4195,7 @@
                         "name": "_rdrDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4211,7 +4211,7 @@
             "pager": null,
             "name": "RegisterDevice",
             "method": "post",
-            "documentation": "-- | Registers a device to receive push sync notifications.\n--",
+            "documentation": "-- | Registers a device to receive push sync notifications.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4235,7 +4235,7 @@
                         "name": "_rdPlatform",
                         "shape": "Platform",
                         "locationName": "Platform",
-                        "documentation": "-- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\n--",
+                        "documentation": "-- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).",
                         "typeExposed": "Platform",
                         "type": "Platform"
                     },
@@ -4250,7 +4250,7 @@
                         "name": "_rdToken",
                         "shape": "PushToken",
                         "locationName": "Token",
-                        "documentation": "-- | The push token.\n--",
+                        "documentation": "-- | The push token.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4291,7 +4291,7 @@
                         "name": "_rdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- Here, the ID of the pool that the identity belongs to.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- Here, the ID of the pool that the identity belongs to.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4306,7 +4306,7 @@
                         "name": "_rdIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "-- | The unique ID for this identity.\n--",
+                        "documentation": "-- | The unique ID for this identity.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4321,7 +4321,7 @@
                         "name": "_rdPlatform",
                         "shape": "Platform",
                         "locationName": "Platform",
-                        "documentation": "-- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\n--",
+                        "documentation": "-- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).",
                         "typeExposed": "Platform",
                         "type": "Platform"
                     },
@@ -4336,7 +4336,7 @@
                         "name": "_rdToken",
                         "shape": "PushToken",
                         "locationName": "Token",
-                        "documentation": "-- | The push token.\n--",
+                        "documentation": "-- | The push token.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4364,7 +4364,7 @@
                         "name": "_rdIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "-- | The unique ID for this identity.\n--",
+                        "documentation": "-- | The unique ID for this identity.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4379,7 +4379,7 @@
                         "name": "_rdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- Here, the ID of the pool that the identity belongs to.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- Here, the ID of the pool that the identity belongs to.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4394,7 +4394,7 @@
                         "name": "_rdPlatform",
                         "shape": "Platform",
                         "locationName": "Platform",
-                        "documentation": "-- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).\n--",
+                        "documentation": "-- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).",
                         "typeExposed": "Platform",
                         "type": "Platform"
                     },
@@ -4409,7 +4409,7 @@
                         "name": "_rdToken",
                         "shape": "PushToken",
                         "locationName": "Token",
-                        "documentation": "-- | The push token.\n--",
+                        "documentation": "-- | The push token.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4440,7 +4440,7 @@
                         "name": "_sipcrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4455,7 +4455,7 @@
                         "name": "_sipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options applied to the identity pool.\n--",
+                        "documentation": "-- | Configuration options applied to the identity pool.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -4484,7 +4484,7 @@
                         "name": "_sipcrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4499,7 +4499,7 @@
                         "name": "_sipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options applied to the identity pool.\n--",
+                        "documentation": "-- | Configuration options applied to the identity pool.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -4516,7 +4516,7 @@
                         "name": "_sipcrIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4531,7 +4531,7 @@
                         "name": "_sipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options applied to the identity pool.\n--",
+                        "documentation": "-- | Configuration options applied to the identity pool.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -4547,7 +4547,7 @@
             "pager": null,
             "name": "SetIdentityPoolConfiguration",
             "method": "post",
-            "documentation": "-- | Sets the necessary configuration for push sync.\n--",
+            "documentation": "-- | Sets the necessary configuration for push sync.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4571,7 +4571,7 @@
                         "name": "_sipcPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options to be applied to the identity pool.\n--",
+                        "documentation": "-- | Configuration options to be applied to the identity pool.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -4604,7 +4604,7 @@
                         "name": "_sipcIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool to modify.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool to modify.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4631,7 +4631,7 @@
                         "name": "_sipcPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options to be applied to the identity pool.\n--",
+                        "documentation": "-- | Configuration options to be applied to the identity pool.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -4648,7 +4648,7 @@
                         "name": "_sipcIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool to modify.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- This is the ID of the pool to modify.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4663,7 +4663,7 @@
                         "name": "_sipcPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options to be applied to the identity pool.\n--",
+                        "documentation": "-- | Configuration options to be applied to the identity pool.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -4706,7 +4706,7 @@
             "pager": null,
             "name": "SubscribeToDataset",
             "method": "post",
-            "documentation": "-- | Subscribes to receive notifications when a dataset is modified by another\n-- device.\n--",
+            "documentation": "-- | Subscribes to receive notifications when a dataset is modified by another\n-- device.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4768,7 +4768,7 @@
                         "name": "_stdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- The ID of the pool to which the identity belongs.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- The ID of the pool to which the identity belongs.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4783,7 +4783,7 @@
                         "name": "_stdIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "-- | Unique ID for this identity.\n--",
+                        "documentation": "-- | Unique ID for this identity.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4798,7 +4798,7 @@
                         "name": "_stdDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "-- | The name of the dataset to subcribe to.\n--",
+                        "documentation": "-- | The name of the dataset to subcribe to.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4813,7 +4813,7 @@
                         "name": "_stdDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4841,7 +4841,7 @@
                         "name": "_stdDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "-- | The name of the dataset to subcribe to.\n--",
+                        "documentation": "-- | The name of the dataset to subcribe to.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4856,7 +4856,7 @@
                         "name": "_stdDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4871,7 +4871,7 @@
                         "name": "_stdIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "-- | Unique ID for this identity.\n--",
+                        "documentation": "-- | Unique ID for this identity.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4886,7 +4886,7 @@
                         "name": "_stdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- The ID of the pool to which the identity belongs.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- The ID of the pool to which the identity belongs.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4929,7 +4929,7 @@
             "pager": null,
             "name": "UnsubscribeFromDataset",
             "method": "delete",
-            "documentation": "-- | Unsubscribe from receiving notifications when a dataset is modified by\n-- another device.\n--",
+            "documentation": "-- | Unsubscribe from receiving notifications when a dataset is modified by\n-- another device.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4991,7 +4991,7 @@
                         "name": "_ufdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- The ID of the pool to which this identity belongs.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- The ID of the pool to which this identity belongs.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5006,7 +5006,7 @@
                         "name": "_ufdIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "-- | Unique ID for this identity.\n--",
+                        "documentation": "-- | Unique ID for this identity.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5021,7 +5021,7 @@
                         "name": "_ufdDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "-- | The name of the dataset from which to unsubcribe.\n--",
+                        "documentation": "-- | The name of the dataset from which to unsubcribe.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5036,7 +5036,7 @@
                         "name": "_ufdDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5064,7 +5064,7 @@
                         "name": "_ufdDatasetName",
                         "shape": "DatasetName",
                         "locationName": "DatasetName",
-                        "documentation": "-- | The name of the dataset from which to unsubcribe.\n--",
+                        "documentation": "-- | The name of the dataset from which to unsubcribe.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5079,7 +5079,7 @@
                         "name": "_ufdDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5094,7 +5094,7 @@
                         "name": "_ufdIdentityId",
                         "shape": "IdentityId",
                         "locationName": "IdentityId",
-                        "documentation": "-- | Unique ID for this identity.\n--",
+                        "documentation": "-- | Unique ID for this identity.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5109,7 +5109,7 @@
                         "name": "_ufdIdentityPoolId",
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
-                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- The ID of the pool to which this identity belongs.\n--",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- The ID of the pool to which this identity belongs.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5244,7 +5244,7 @@
                         "name": "_urDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5397,7 +5397,7 @@
                         "name": "_urDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5474,7 +5474,7 @@
                         "name": "_urDeviceId",
                         "shape": "DeviceId",
                         "locationName": "DeviceId",
-                        "documentation": "-- | The unique ID generated for this device by Cognito.\n--",
+                        "documentation": "-- | The unique ID generated for this device by Cognito.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },

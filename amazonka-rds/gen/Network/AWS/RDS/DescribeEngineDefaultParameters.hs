@@ -78,20 +78,17 @@ describeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
     }
 
 -- | The name of the DB parameter group family.
---
 dedpDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
 dedpDBParameterGroupFamily =
     lens _dedpDBParameterGroupFamily
         (\s a -> s { _dedpDBParameterGroupFamily = a })
 
 -- | Not currently supported.
---
 dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
 dedpFilters = lens _dedpFilters (\s a -> s { _dedpFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous 'DescribeEngineDefaultParameters' request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by 'MaxRecords'.
---
 dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
 dedpMarker = lens _dedpMarker (\s a -> s { _dedpMarker = a })
 
@@ -102,7 +99,6 @@ dedpMarker = lens _dedpMarker (\s a -> s { _dedpMarker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
---
 dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
 dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
 

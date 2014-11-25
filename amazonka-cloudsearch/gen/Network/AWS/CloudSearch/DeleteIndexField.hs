@@ -73,7 +73,6 @@ dif1DomainName = lens _dif1DomainName (\s a -> s { _dif1DomainName = a })
 
 -- | The name of the index field your want to remove from the domain's indexing
 -- options.
---
 dif1IndexFieldName :: Lens' DeleteIndexField Text
 dif1IndexFieldName =
     lens _dif1IndexFieldName (\s a -> s { _dif1IndexFieldName = a })
@@ -95,7 +94,6 @@ deleteIndexFieldResponse p1 = DeleteIndexFieldResponse
     }
 
 -- | The status of the index field being deleted.
---
 difrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
 difrIndexField = lens _difrIndexField (\s a -> s { _difrIndexField = a })
 

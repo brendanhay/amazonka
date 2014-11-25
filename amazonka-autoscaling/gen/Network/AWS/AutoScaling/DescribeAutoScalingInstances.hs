@@ -80,18 +80,15 @@ describeAutoScalingInstances = DescribeAutoScalingInstances
 -- | One or more Auto Scaling instances to describe, up to 50 instances. If you
 -- omit this parameter, all Auto Scaling instances are described. If you specify
 -- an ID that does not exist, it is ignored with no error.
---
 dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
 dasiInstanceIds = lens _dasiInstanceIds (\s a -> s { _dasiInstanceIds = a }) . _List
 
 -- | The maximum number of items to return with this call.
---
 dasiMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Int)
 dasiMaxRecords = lens _dasiMaxRecords (\s a -> s { _dasiMaxRecords = a })
 
 -- | The token for the next set of items to return. (You received this token from
 -- a previous call.)
---
 dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
 dasiNextToken = lens _dasiNextToken (\s a -> s { _dasiNextToken = a })
 
@@ -115,7 +112,6 @@ describeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     }
 
 -- | The instances.
---
 dasirAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
 dasirAutoScalingInstances =
     lens _dasirAutoScalingInstances
@@ -124,7 +120,6 @@ dasirAutoScalingInstances =
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
 dasirNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
 dasirNextToken = lens _dasirNextToken (\s a -> s { _dasirNextToken = a })
 

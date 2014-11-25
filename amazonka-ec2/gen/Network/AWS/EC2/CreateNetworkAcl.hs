@@ -73,7 +73,6 @@ cnaDryRun :: Lens' CreateNetworkAcl (Maybe Bool)
 cnaDryRun = lens _cnaDryRun (\s a -> s { _cnaDryRun = a })
 
 -- | The ID of the VPC.
---
 cnaVpcId :: Lens' CreateNetworkAcl Text
 cnaVpcId = lens _cnaVpcId (\s a -> s { _cnaVpcId = a })
 
@@ -93,7 +92,6 @@ createNetworkAclResponse = CreateNetworkAclResponse
     }
 
 -- | Information about the network ACL.
---
 cnarNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)
 cnarNetworkAcl = lens _cnarNetworkAcl (\s a -> s { _cnarNetworkAcl = a })
 

@@ -89,17 +89,14 @@ suggest p1 p2 = Suggest
     }
 
 -- | Specifies the string for which you want to get suggestions.
---
 sQuery :: Lens' Suggest Text
 sQuery = lens _sQuery (\s a -> s { _sQuery = a })
 
 -- | Specifies the maximum number of suggestions to return.
---
 sSize :: Lens' Suggest (Maybe Integer)
 sSize = lens _sSize (\s a -> s { _sSize = a })
 
 -- | Specifies the name of the suggester to use to find suggested matches.
---
 sSuggester :: Lens' Suggest Text
 sSuggester = lens _sSuggester (\s a -> s { _sSuggester = a })
 
@@ -124,12 +121,10 @@ suggestResponse = SuggestResponse
 
 -- | The status of a 'SuggestRequest'. Contains the resource ID ('rid') and how long
 -- it took to process the request ('timems').
---
 srStatus :: Lens' SuggestResponse (Maybe SuggestStatus)
 srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 
 -- | Container for the matching search suggestion information.
---
 srSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
 srSuggest = lens _srSuggest (\s a -> s { _srSuggest = a })
 

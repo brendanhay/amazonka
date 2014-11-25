@@ -154,13 +154,11 @@ createStack p1 p2 p3 p4 = CreateStack
     }
 
 -- | One or more user-defined key/value pairs to be added to the stack attributes.
---
 csAttributes :: Lens' CreateStack (HashMap StackAttributesKeys Text)
 csAttributes = lens _csAttributes (\s a -> s { _csAttributes = a }) . _Map
 
 -- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf and the
 -- Berkshelf version on Chef 11.10 stacks. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create aNew Stack>.
---
 csChefConfiguration :: Lens' CreateStack (Maybe ChefConfiguration)
 csChefConfiguration =
     lens _csChefConfiguration (\s a -> s { _csChefConfiguration = a })
@@ -168,7 +166,6 @@ csChefConfiguration =
 -- | The configuration manager. When you clone a stack we recommend that you use
 -- the configuration manager to specify the Chef version, 0.9, 11.4, or 11.10.
 -- The default value is currently 11.4.
---
 csConfigurationManager :: Lens' CreateStack (Maybe StackConfigurationManager)
 csConfigurationManager =
     lens _csConfigurationManager (\s a -> s { _csConfigurationManager = a })
@@ -184,7 +181,6 @@ csCustomCookbooksSource =
 -- '"{\"key1\": \"value1\", \"key2\": \"value2\",...}"'
 --
 -- For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON>.
---
 csCustomJson :: Lens' CreateStack (Maybe Text)
 csCustomJson = lens _csCustomJson (\s a -> s { _csCustomJson = a })
 
@@ -192,7 +188,6 @@ csCustomJson = lens _csCustomJson (\s a -> s { _csCustomJson = a })
 -- For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>. If you also specify a value
 -- for 'DefaultSubnetId', the subnet must be in the same zone. For more
 -- information, see the 'VpcId' parameter description.
---
 csDefaultAvailabilityZone :: Lens' CreateStack (Maybe Text)
 csDefaultAvailabilityZone =
     lens _csDefaultAvailabilityZone
@@ -200,28 +195,24 @@ csDefaultAvailabilityZone =
 
 -- | The ARN of an IAM profile that is the default profile for all of the stack's
 -- EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
---
 csDefaultInstanceProfileArn :: Lens' CreateStack Text
 csDefaultInstanceProfileArn =
     lens _csDefaultInstanceProfileArn
         (\s a -> s { _csDefaultInstanceProfileArn = a })
 
 -- | The stack's default operating system, which must be set to 'Amazon Linux' or 'Ubuntu 12.04 LTS'. The default option is 'Amazon Linux'.
---
 csDefaultOs :: Lens' CreateStack (Maybe Text)
 csDefaultOs = lens _csDefaultOs (\s a -> s { _csDefaultOs = a })
 
 -- | The default root device type. This value is used by default for all instances
 -- in the stack, but you can override it when you create an instance. The
 -- default option is 'instance-store'. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for theRoot Device>.
---
 csDefaultRootDeviceType :: Lens' CreateStack (Maybe RootDeviceType)
 csDefaultRootDeviceType =
     lens _csDefaultRootDeviceType (\s a -> s { _csDefaultRootDeviceType = a })
 
 -- | A default SSH key for the stack instances. You can override this value when
 -- you create or update an instance.
---
 csDefaultSshKeyName :: Lens' CreateStack (Maybe Text)
 csDefaultSshKeyName =
     lens _csDefaultSshKeyName (\s a -> s { _csDefaultSshKeyName = a })
@@ -231,7 +222,6 @@ csDefaultSshKeyName =
 -- specify a value for 'DefaultAvailabilityZone', the subnet must be in that zone.
 -- For information on default values and when this parameter is required, see
 -- the 'VpcId' parameter description.
---
 csDefaultSubnetId :: Lens' CreateStack (Maybe Text)
 csDefaultSubnetId =
     lens _csDefaultSubnetId (\s a -> s { _csDefaultSubnetId = a })
@@ -243,18 +233,15 @@ csDefaultSubnetId =
 -- 'Baked_Goods' 'Clouds' 'European_Cities' 'Fruits' 'Greek_Deities' 'Legendary_Creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To
 -- obtain a generated host name, call 'GetHostNameSuggestion', which returns a
 -- host name based on the current theme.
---
 csHostnameTheme :: Lens' CreateStack (Maybe Text)
 csHostnameTheme = lens _csHostnameTheme (\s a -> s { _csHostnameTheme = a })
 
 -- | The stack name.
---
 csName :: Lens' CreateStack Text
 csName = lens _csName (\s a -> s { _csName = a })
 
 -- | The stack AWS region, such as "us-east-1". For more information about Amazon
 -- regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
---
 csRegion :: Lens' CreateStack Text
 csRegion = lens _csRegion (\s a -> s { _csRegion = a })
 
@@ -262,12 +249,10 @@ csRegion = lens _csRegion (\s a -> s { _csRegion = a })
 -- OpsWorks to work with AWS resources on your behalf. You must set this
 -- parameter to the Amazon Resource Name (ARN) for an existing IAM role. For
 -- more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
---
 csServiceRoleArn :: Lens' CreateStack Text
 csServiceRoleArn = lens _csServiceRoleArn (\s a -> s { _csServiceRoleArn = a })
 
 -- | Whether the stack uses custom cookbooks.
---
 csUseCustomCookbooks :: Lens' CreateStack (Maybe Bool)
 csUseCustomCookbooks =
     lens _csUseCustomCookbooks (\s a -> s { _csUseCustomCookbooks = a })
@@ -287,7 +272,6 @@ csUseCustomCookbooks =
 -- create. However, you can still manually associate a built-in security group
 -- with a layer on creation; custom security groups are required only for those
 -- layers that need custom settings.   For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a NewStack>.
---
 csUseOpsworksSecurityGroups :: Lens' CreateStack (Maybe Bool)
 csUseOpsworksSecurityGroups =
     lens _csUseOpsworksSecurityGroups
@@ -312,7 +296,6 @@ csUseOpsworksSecurityGroups =
 -- 'DefaultSubnetId'.  For more information on how to use AWS OpsWorks with a VPC,
 -- see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>. For more information on default VPC and EC2
 -- Classic, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
---
 csVpcId :: Lens' CreateStack (Maybe Text)
 csVpcId = lens _csVpcId (\s a -> s { _csVpcId = a })
 
@@ -333,7 +316,6 @@ createStackResponse = CreateStackResponse
 
 -- | The stack ID, which is an opaque string that you use to identify the stack
 -- when performing actions such as 'DescribeStacks'.
---
 csr1StackId :: Lens' CreateStackResponse (Maybe Text)
 csr1StackId = lens _csr1StackId (\s a -> s { _csr1StackId = a })
 

@@ -133,7 +133,6 @@ describeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     }
 
 -- | The Availability Zone in which the Reserved Instance can be used.
---
 drioAvailabilityZone :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
 drioAvailabilityZone =
     lens _drioAvailabilityZone (\s a -> s { _drioAvailabilityZone = a })
@@ -172,7 +171,6 @@ drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
 drioFilters = lens _drioFilters (\s a -> s { _drioFilters = a }) . _List
 
 -- | Include Marketplace offerings in the response.
---
 drioIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
 drioIncludeMarketplace =
     lens _drioIncludeMarketplace (\s a -> s { _drioIncludeMarketplace = a })
@@ -180,7 +178,6 @@ drioIncludeMarketplace =
 -- | The tenancy of the Reserved Instance offering. A Reserved Instance with 'dedicated' tenancy runs on single-tenant hardware and can only be launched within a VPC.
 --
 -- Default: 'default'
---
 drioInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
 drioInstanceTenancy =
     lens _drioInstanceTenancy (\s a -> s { _drioInstanceTenancy = a })
@@ -188,21 +185,18 @@ drioInstanceTenancy =
 -- | The instance type on which the Reserved Instance can be used. For more
 -- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/
 -- .
---
 drioInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
 drioInstanceType = lens _drioInstanceType (\s a -> s { _drioInstanceType = a })
 
 -- | The maximum duration (in seconds) to filter when searching for offerings.
 --
 -- Default: 94608000 (3 years)
---
 drioMaxDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 drioMaxDuration = lens _drioMaxDuration (\s a -> s { _drioMaxDuration = a })
 
 -- | The maximum number of instances to filter when searching for offerings.
 --
 -- Default: 20
---
 drioMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
 drioMaxInstanceCount =
     lens _drioMaxInstanceCount (\s a -> s { _drioMaxInstanceCount = a })
@@ -210,38 +204,32 @@ drioMaxInstanceCount =
 -- | The maximum number of offerings to return. The maximum is 100.
 --
 -- Default: 100
---
 drioMaxResults :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
 drioMaxResults = lens _drioMaxResults (\s a -> s { _drioMaxResults = a })
 
 -- | The minimum duration (in seconds) to filter when searching for offerings.
 --
 -- Default: 2592000 (1 month)
---
 drioMinDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 drioMinDuration = lens _drioMinDuration (\s a -> s { _drioMinDuration = a })
 
 -- | The token to use when requesting the next paginated set of offerings.
---
 drioNextToken :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
 drioNextToken = lens _drioNextToken (\s a -> s { _drioNextToken = a })
 
 -- | The Reserved Instance offering type. If you are using tools that predate the
 -- 2011-11-01 API version, you only have access to the 'Medium Utilization'
 -- Reserved Instance offering type.
---
 drioOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingTypeValues)
 drioOfferingType = lens _drioOfferingType (\s a -> s { _drioOfferingType = a })
 
 -- | The Reserved Instance description. Instances that include '(Amazon VPC)' in the
 -- description are for use with Amazon VPC.
---
 drioProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
 drioProductDescription =
     lens _drioProductDescription (\s a -> s { _drioProductDescription = a })
 
 -- | One or more Reserved Instances offering IDs.
---
 drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Text]
 drioReservedInstancesOfferingIds =
     lens _drioReservedInstancesOfferingIds
@@ -268,12 +256,10 @@ describeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsR
     }
 
 -- | The next paginated set of results to return.
---
 driorNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
 driorNextToken = lens _driorNextToken (\s a -> s { _driorNextToken = a })
 
 -- | A list of Reserved Instances offerings.
---
 driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
 driorReservedInstancesOfferings =
     lens _driorReservedInstancesOfferings

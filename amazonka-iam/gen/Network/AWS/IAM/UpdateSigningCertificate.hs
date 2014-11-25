@@ -81,19 +81,16 @@ updateSigningCertificate p1 p2 = UpdateSigningCertificate
     }
 
 -- | The ID of the signing certificate you want to update.
---
 uscCertificateId :: Lens' UpdateSigningCertificate Text
 uscCertificateId = lens _uscCertificateId (\s a -> s { _uscCertificateId = a })
 
 -- | The status you want to assign to the certificate. 'Active' means the
 -- certificate can be used for API calls to AWS, while 'Inactive' means the
 -- certificate cannot be used.
---
 uscStatus :: Lens' UpdateSigningCertificate StatusType
 uscStatus = lens _uscStatus (\s a -> s { _uscStatus = a })
 
 -- | The name of the user the signing certificate belongs to.
---
 uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
 uscUserName = lens _uscUserName (\s a -> s { _uscUserName = a })
 

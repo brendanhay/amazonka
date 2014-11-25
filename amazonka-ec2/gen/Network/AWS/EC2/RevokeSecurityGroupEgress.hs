@@ -111,7 +111,6 @@ revokeSecurityGroupEgress p1 = RevokeSecurityGroupEgress
 
 -- | The CIDR IP address range. You can't specify this parameter when specifying a
 -- source security group.
---
 rsgeCidrIp :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeCidrIp = lens _rsgeCidrIp (\s a -> s { _rsgeCidrIp = a })
 
@@ -120,18 +119,15 @@ rsgeDryRun = lens _rsgeDryRun (\s a -> s { _rsgeDryRun = a })
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use '-1' to specify all ICMP types.
---
 rsgeFromPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeFromPort = lens _rsgeFromPort (\s a -> s { _rsgeFromPort = a })
 
 -- | The ID of the security group.
---
 rsgeGroupId :: Lens' RevokeSecurityGroupEgress Text
 rsgeGroupId = lens _rsgeGroupId (\s a -> s { _rsgeGroupId = a })
 
 -- | A set of IP permissions. You can't specify a destination security group and a
 -- CIDR IP address range.
---
 rsgeIpPermissions :: Lens' RevokeSecurityGroupEgress [IpPermission]
 rsgeIpPermissions =
     lens _rsgeIpPermissions (\s a -> s { _rsgeIpPermissions = a })
@@ -139,13 +135,11 @@ rsgeIpPermissions =
 
 -- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>). Use '-1'
 -- to specify all.
---
 rsgeIpProtocol :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeIpProtocol = lens _rsgeIpProtocol (\s a -> s { _rsgeIpProtocol = a })
 
 -- | [EC2-Classic, default VPC] The name of the destination security group. You
 -- can't specify a destination security group and a CIDR IP address range.
---
 rsgeSourceSecurityGroupName :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeSourceSecurityGroupName =
     lens _rsgeSourceSecurityGroupName
@@ -153,7 +147,6 @@ rsgeSourceSecurityGroupName =
 
 -- | The ID of the destination security group. You can't specify a destination
 -- security group and a CIDR IP address range.
---
 rsgeSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeSourceSecurityGroupOwnerId =
     lens _rsgeSourceSecurityGroupOwnerId
@@ -161,7 +154,6 @@ rsgeSourceSecurityGroupOwnerId =
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code number.
 -- For the ICMP code number, use '-1' to specify all ICMP codes for the ICMP type.
---
 rsgeToPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeToPort = lens _rsgeToPort (\s a -> s { _rsgeToPort = a })
 

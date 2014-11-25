@@ -85,17 +85,14 @@ setPermission p1 p2 = SetPermission
     }
 
 -- | The user is allowed to use SSH to communicate with the instance.
---
 spAllowSsh :: Lens' SetPermission (Maybe Bool)
 spAllowSsh = lens _spAllowSsh (\s a -> s { _spAllowSsh = a })
 
 -- | The user is allowed to use sudo to elevate privileges.
---
 spAllowSudo :: Lens' SetPermission (Maybe Bool)
 spAllowSudo = lens _spAllowSudo (\s a -> s { _spAllowSudo = a })
 
 -- | The user's IAM ARN.
---
 spIamUserArn :: Lens' SetPermission Text
 spIamUserArn = lens _spIamUserArn (\s a -> s { _spIamUserArn = a })
 
@@ -104,12 +101,10 @@ spIamUserArn = lens _spIamUserArn (\s a -> s { _spIamUserArn = a })
 --
 -- 'deny' 'show' 'deploy' 'manage' 'iam_only'  For more information on the permissions
 -- associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
---
 spLevel :: Lens' SetPermission (Maybe Text)
 spLevel = lens _spLevel (\s a -> s { _spLevel = a })
 
 -- | The stack ID.
---
 spStackId :: Lens' SetPermission Text
 spStackId = lens _spStackId (\s a -> s { _spStackId = a })
 

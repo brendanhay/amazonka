@@ -62,7 +62,6 @@ getDeployment p1 = GetDeployment
     }
 
 -- | An existing deployment ID within the AWS user account.
---
 gdDeploymentId :: Lens' GetDeployment Text
 gdDeploymentId = lens _gdDeploymentId (\s a -> s { _gdDeploymentId = a })
 
@@ -82,7 +81,6 @@ getDeploymentResponse = GetDeploymentResponse
     }
 
 -- | Information about the deployment.
---
 gdrDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
 gdrDeploymentInfo =
     lens _gdrDeploymentInfo (\s a -> s { _gdrDeploymentInfo = a })

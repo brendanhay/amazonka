@@ -59,6 +59,7 @@
 -- For more information, see the following resources:
 --
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAML Federation> in /UsingTemporary Security Credentials/.   <http://docs.aws.amazon.com/IAM/latest/UserGuide/idp-managing-identityproviders.html SAML Providers> in /Using IAM/.   <http://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuringa Relying Party and Claims> in /Using IAM/.   <http://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml.html Creating a Role for SAML-BasedFederation> in /Using IAM/.
+--
 -- <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html>
 module Network.AWS.STS.AssumeRoleWithSAML
     (
@@ -132,7 +133,6 @@ assumeRoleWithSAML p1 p2 p3 = AssumeRoleWithSAML
 -- to 3600 seconds. An expiration can also be specified in the SAML
 -- authentication response's 'NotOnOrAfter' value. The actual expiration time is
 -- whichever value is shorter.
---
 arwsamlDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Natural)
 arwsamlDurationSeconds =
     lens _arwsamlDurationSeconds (\s a -> s { _arwsamlDurationSeconds = a })
@@ -148,19 +148,16 @@ arwsamlDurationSeconds =
 -- the access policy of the role that is being assumed. For more information,
 -- see <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithSAML> in /Using Temporary Security Credentials/
 -- .
---
 arwsamlPolicy :: Lens' AssumeRoleWithSAML (Maybe Text)
 arwsamlPolicy = lens _arwsamlPolicy (\s a -> s { _arwsamlPolicy = a })
 
 -- | The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the
 -- IdP.
---
 arwsamlPrincipalArn :: Lens' AssumeRoleWithSAML Text
 arwsamlPrincipalArn =
     lens _arwsamlPrincipalArn (\s a -> s { _arwsamlPrincipalArn = a })
 
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
---
 arwsamlRoleArn :: Lens' AssumeRoleWithSAML Text
 arwsamlRoleArn = lens _arwsamlRoleArn (\s a -> s { _arwsamlRoleArn = a })
 
@@ -168,7 +165,6 @@ arwsamlRoleArn = lens _arwsamlRoleArn (\s a -> s { _arwsamlRoleArn = a })
 --
 -- For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Adding Claims> in
 -- the /Using IAM/ guide.
---
 arwsamlSAMLAssertion :: Lens' AssumeRoleWithSAML Text
 arwsamlSAMLAssertion =
     lens _arwsamlSAMLAssertion (\s a -> s { _arwsamlSAMLAssertion = a })
@@ -222,7 +218,6 @@ arwsamlrAssumedRoleUser =
 
 -- | The value of the 'Recipient' attribute of the 'SubjectConfirmationData' element
 -- of the SAML assertion.
---
 arwsamlrAudience :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrAudience = lens _arwsamlrAudience (\s a -> s { _arwsamlrAudience = a })
 
@@ -231,7 +226,6 @@ arwsamlrCredentials =
     lens _arwsamlrCredentials (\s a -> s { _arwsamlrCredentials = a })
 
 -- | The value of the 'Issuer' element of the SAML assertion.
---
 arwsamlrIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrIssuer = lens _arwsamlrIssuer (\s a -> s { _arwsamlrIssuer = a })
 
@@ -243,7 +237,6 @@ arwsamlrIssuer = lens _arwsamlrIssuer (\s a -> s { _arwsamlrIssuer = a })
 -- The following pseudocode shows how the hash value is calculated:
 --
 -- 'BASE64 ( SHA1 ( "https://example.com/saml" + "123456789012" + "/MySAMLIdP") )'
---
 arwsamlrNameQualifier :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrNameQualifier =
     lens _arwsamlrNameQualifier (\s a -> s { _arwsamlrNameQualifier = a })
@@ -251,7 +244,6 @@ arwsamlrNameQualifier =
 -- | A percentage value that indicates the size of the policy in packed form. The
 -- service rejects any policy with a packed size greater than 100 percent, which
 -- means the policy exceeded the allowed space.
---
 arwsamlrPackedPolicySize :: Lens' AssumeRoleWithSAMLResponse (Maybe Natural)
 arwsamlrPackedPolicySize =
     lens _arwsamlrPackedPolicySize
@@ -259,7 +251,6 @@ arwsamlrPackedPolicySize =
             . mapping _Nat
 
 -- | The value of the 'NameID' element in the 'Subject' element of the SAML assertion.
---
 arwsamlrSubject :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrSubject = lens _arwsamlrSubject (\s a -> s { _arwsamlrSubject = a })
 
@@ -271,7 +262,6 @@ arwsamlrSubject = lens _arwsamlrSubject (\s a -> s { _arwsamlrSubject = a })
 -- 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient' is returned as 'transient'.
 -- If the format includes any other prefix, the format is returned with no
 -- modifications.
---
 arwsamlrSubjectType :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrSubjectType =
     lens _arwsamlrSubjectType (\s a -> s { _arwsamlrSubjectType = a })

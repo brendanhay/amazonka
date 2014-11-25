@@ -99,7 +99,6 @@ describeReservedCacheNodes = DescribeReservedCacheNodes
 
 -- | The cache node type filter value. Use this parameter to show only those
 -- reservations matching the specified cache node type.
---
 drcnCacheNodeType :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnCacheNodeType =
     lens _drcnCacheNodeType (\s a -> s { _drcnCacheNodeType = a })
@@ -108,7 +107,6 @@ drcnCacheNodeType =
 -- to show only reservations for this duration.
 --
 -- Valid Values: '1 | 3 | 31536000 | 94608000'
---
 drcnDuration :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnDuration = lens _drcnDuration (\s a -> s { _drcnDuration = a })
 
@@ -116,7 +114,6 @@ drcnDuration = lens _drcnDuration (\s a -> s { _drcnDuration = a })
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
---
 drcnMarker :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnMarker = lens _drcnMarker (\s a -> s { _drcnMarker = a })
 
@@ -127,7 +124,6 @@ drcnMarker = lens _drcnMarker (\s a -> s { _drcnMarker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
---
 drcnMaxRecords :: Lens' DescribeReservedCacheNodes (Maybe Int)
 drcnMaxRecords = lens _drcnMaxRecords (\s a -> s { _drcnMaxRecords = a })
 
@@ -135,27 +131,23 @@ drcnMaxRecords = lens _drcnMaxRecords (\s a -> s { _drcnMaxRecords = a })
 -- offerings matching the specified offering type.
 --
 -- Valid values: '"Light Utilization" | "Medium Utilization" | "HeavyUtilization"'
---
 drcnOfferingType :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnOfferingType = lens _drcnOfferingType (\s a -> s { _drcnOfferingType = a })
 
 -- | The product description filter value. Use this parameter to show only those
 -- reservations matching the specified product description.
---
 drcnProductDescription :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnProductDescription =
     lens _drcnProductDescription (\s a -> s { _drcnProductDescription = a })
 
 -- | The reserved cache node identifier filter value. Use this parameter to show
 -- only the reservation that matches the specified reservation ID.
---
 drcnReservedCacheNodeId :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnReservedCacheNodeId =
     lens _drcnReservedCacheNodeId (\s a -> s { _drcnReservedCacheNodeId = a })
 
 -- | The offering identifier filter value. Use this parameter to show only
 -- purchased reservations matching the specified offering identifier.
---
 drcnReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnReservedCacheNodesOfferingId =
     lens _drcnReservedCacheNodesOfferingId
@@ -181,13 +173,11 @@ describeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
---
 drcnrMarker :: Lens' DescribeReservedCacheNodesResponse (Maybe Text)
 drcnrMarker = lens _drcnrMarker (\s a -> s { _drcnrMarker = a })
 
 -- | A list of reserved cache nodes. Each element in the list contains detailed
 -- information about one node.
---
 drcnrReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCacheNode]
 drcnrReservedCacheNodes =
     lens _drcnrReservedCacheNodes (\s a -> s { _drcnrReservedCacheNodes = a })

@@ -72,7 +72,6 @@ getTrailStatus p1 = GetTrailStatus
     }
 
 -- | The name of the trail for which you are requesting the current status.
---
 gtsName :: Lens' GetTrailStatus Text
 gtsName = lens _gtsName (\s a -> s { _gtsName = a })
 
@@ -124,13 +123,11 @@ getTrailStatusResponse = GetTrailStatusResponse
     }
 
 -- | Whether the CloudTrail is currently logging AWS API calls.
---
 gtsrIsLogging :: Lens' GetTrailStatusResponse (Maybe Bool)
 gtsrIsLogging = lens _gtsrIsLogging (\s a -> s { _gtsrIsLogging = a })
 
 -- | Displays any CloudWatch Logs error that CloudTrail encountered when
 -- attempting to deliver logs to CloudWatch Logs.
---
 gtsrLatestCloudWatchLogsDeliveryError :: Lens' GetTrailStatusResponse (Maybe Text)
 gtsrLatestCloudWatchLogsDeliveryError =
     lens _gtsrLatestCloudWatchLogsDeliveryError
@@ -138,7 +135,6 @@ gtsrLatestCloudWatchLogsDeliveryError =
 
 -- | Displays the most recent date and time when CloudTrail delivered logs to
 -- CloudWatch Logs.
---
 gtsrLatestCloudWatchLogsDeliveryTime :: Lens' GetTrailStatusResponse (Maybe UTCTime)
 gtsrLatestCloudWatchLogsDeliveryTime =
     lens _gtsrLatestCloudWatchLogsDeliveryTime
@@ -148,14 +144,12 @@ gtsrLatestCloudWatchLogsDeliveryTime =
 -- | Displays any Amazon S3 error that CloudTrail encountered when attempting to
 -- deliver log files to the designated bucket. For more information see the
 -- topic <http://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses> in the Amazon S3 API Reference.
---
 gtsrLatestDeliveryError :: Lens' GetTrailStatusResponse (Maybe Text)
 gtsrLatestDeliveryError =
     lens _gtsrLatestDeliveryError (\s a -> s { _gtsrLatestDeliveryError = a })
 
 -- | Specifies the date and time that CloudTrail last delivered log files to an
 -- account's Amazon S3 bucket.
---
 gtsrLatestDeliveryTime :: Lens' GetTrailStatusResponse (Maybe UTCTime)
 gtsrLatestDeliveryTime =
     lens _gtsrLatestDeliveryTime (\s a -> s { _gtsrLatestDeliveryTime = a })
@@ -163,7 +157,6 @@ gtsrLatestDeliveryTime =
 
 -- | Displays any Amazon SNS error that CloudTrail encountered when attempting to
 -- send a notification. For more information about Amazon SNS errors, see the <http://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide>.
---
 gtsrLatestNotificationError :: Lens' GetTrailStatusResponse (Maybe Text)
 gtsrLatestNotificationError =
     lens _gtsrLatestNotificationError
@@ -171,7 +164,6 @@ gtsrLatestNotificationError =
 
 -- | Specifies the date and time of the most recent Amazon SNS notification that
 -- CloudTrail has written a new log file to an account's Amazon S3 bucket.
---
 gtsrLatestNotificationTime :: Lens' GetTrailStatusResponse (Maybe UTCTime)
 gtsrLatestNotificationTime =
     lens _gtsrLatestNotificationTime
@@ -180,7 +172,6 @@ gtsrLatestNotificationTime =
 
 -- | Specifies the most recent date and time when CloudTrail started recording API
 -- calls for an AWS account.
---
 gtsrStartLoggingTime :: Lens' GetTrailStatusResponse (Maybe UTCTime)
 gtsrStartLoggingTime =
     lens _gtsrStartLoggingTime (\s a -> s { _gtsrStartLoggingTime = a })
@@ -188,7 +179,6 @@ gtsrStartLoggingTime =
 
 -- | Specifies the most recent date and time when CloudTrail stopped recording API
 -- calls for an AWS account.
---
 gtsrStopLoggingTime :: Lens' GetTrailStatusResponse (Maybe UTCTime)
 gtsrStopLoggingTime =
     lens _gtsrStopLoggingTime (\s a -> s { _gtsrStopLoggingTime = a })

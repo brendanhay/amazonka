@@ -80,7 +80,6 @@ createVpc p1 = CreateVpc
     }
 
 -- | The network range for the VPC, in CIDR notation. For example, '10.0.0.0/16'.
---
 cvCidrBlock :: Lens' CreateVpc Text
 cvCidrBlock = lens _cvCidrBlock (\s a -> s { _cvCidrBlock = a })
 
@@ -92,7 +91,6 @@ cvDryRun = lens _cvDryRun (\s a -> s { _cvDryRun = a })
 -- Dedicated tenancy instances run on single-tenant hardware.
 --
 -- Default: 'default'
---
 cvInstanceTenancy :: Lens' CreateVpc (Maybe Tenancy)
 cvInstanceTenancy =
     lens _cvInstanceTenancy (\s a -> s { _cvInstanceTenancy = a })
@@ -113,7 +111,6 @@ createVpcResponse = CreateVpcResponse
     }
 
 -- | Information about the VPC.
---
 cvrVpc :: Lens' CreateVpcResponse (Maybe Vpc)
 cvrVpc = lens _cvrVpc (\s a -> s { _cvrVpc = a })
 

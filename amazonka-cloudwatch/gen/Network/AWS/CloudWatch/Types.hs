@@ -185,22 +185,18 @@ statisticSet p1 p2 p3 p4 = StatisticSet
     }
 
 -- | The maximum value of the sample set.
---
 ssMaximum :: Lens' StatisticSet Double
 ssMaximum = lens _ssMaximum (\s a -> s { _ssMaximum = a })
 
 -- | The minimum value of the sample set.
---
 ssMinimum :: Lens' StatisticSet Double
 ssMinimum = lens _ssMinimum (\s a -> s { _ssMinimum = a })
 
 -- | The number of samples used for the statistic set.
---
 ssSampleCount :: Lens' StatisticSet Double
 ssSampleCount = lens _ssSampleCount (\s a -> s { _ssSampleCount = a })
 
 -- | The sum of values for the sample set.
---
 ssSum :: Lens' StatisticSet Double
 ssSum = lens _ssSum (\s a -> s { _ssSum = a })
 
@@ -316,7 +312,6 @@ metricAlarm = MetricAlarm
 
 -- | Indicates whether actions should be executed during any changes to the
 -- alarm's state.
---
 maActionsEnabled :: Lens' MetricAlarm (Maybe Bool)
 maActionsEnabled = lens _maActionsEnabled (\s a -> s { _maActionsEnabled = a })
 
@@ -324,12 +319,10 @@ maActionsEnabled = lens _maActionsEnabled (\s a -> s { _maActionsEnabled = a })
 -- state from any other state. Each action is specified as an Amazon Resource
 -- Number (ARN). Currently the only actions supported are publishing to an
 -- Amazon SNS topic and triggering an Auto Scaling policy.
---
 maAlarmActions :: Lens' MetricAlarm [Text]
 maAlarmActions = lens _maAlarmActions (\s a -> s { _maAlarmActions = a }) . _List
 
 -- | The Amazon Resource Name (ARN) of the alarm.
---
 maAlarmArn :: Lens' MetricAlarm (Maybe Text)
 maAlarmArn = lens _maAlarmArn (\s a -> s { _maAlarmArn = a })
 
@@ -338,7 +331,6 @@ maAlarmArn = lens _maAlarmArn (\s a -> s { _maAlarmArn = a })
 -- which do not accommodate seasonal adjustments such as daylight savings time.
 -- For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps> in the /Amazon CloudWatch Developer Guide/
 -- .
---
 maAlarmConfigurationUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maAlarmConfigurationUpdatedTimestamp =
     lens _maAlarmConfigurationUpdatedTimestamp
@@ -346,30 +338,25 @@ maAlarmConfigurationUpdatedTimestamp =
             . mapping _Time
 
 -- | The description for the alarm.
---
 maAlarmDescription :: Lens' MetricAlarm (Maybe Text)
 maAlarmDescription =
     lens _maAlarmDescription (\s a -> s { _maAlarmDescription = a })
 
 -- | The name of the alarm.
---
 maAlarmName :: Lens' MetricAlarm (Maybe Text)
 maAlarmName = lens _maAlarmName (\s a -> s { _maAlarmName = a })
 
 -- | The arithmetic operation to use when comparing the specified 'Statistic' and 'Threshold'. The specified 'Statistic' value is used as the first operand.
---
 maComparisonOperator :: Lens' MetricAlarm (Maybe ComparisonOperator)
 maComparisonOperator =
     lens _maComparisonOperator (\s a -> s { _maComparisonOperator = a })
 
 -- | The list of dimensions associated with the alarm's associated metric.
---
 maDimensions :: Lens' MetricAlarm [Dimension]
 maDimensions = lens _maDimensions (\s a -> s { _maDimensions = a }) . _List
 
 -- | The number of periods over which data is compared to the specified
 -- threshold.
---
 maEvaluationPeriods :: Lens' MetricAlarm (Maybe Natural)
 maEvaluationPeriods =
     lens _maEvaluationPeriods (\s a -> s { _maEvaluationPeriods = a })
@@ -387,12 +374,10 @@ maInsufficientDataActions =
             . _List
 
 -- | The name of the alarm's metric.
---
 maMetricName :: Lens' MetricAlarm (Maybe Text)
 maMetricName = lens _maMetricName (\s a -> s { _maMetricName = a })
 
 -- | The namespace of alarm's associated metric.
---
 maNamespace :: Lens' MetricAlarm (Maybe Text)
 maNamespace = lens _maNamespace (\s a -> s { _maNamespace = a })
 
@@ -400,22 +385,18 @@ maNamespace = lens _maNamespace (\s a -> s { _maNamespace = a })
 -- from any other state. Each action is specified as an Amazon Resource Number
 -- (ARN). Currently the only actions supported are publishing to an Amazon SNS
 -- topic and triggering an Auto Scaling policy.
---
 maOKActions :: Lens' MetricAlarm [Text]
 maOKActions = lens _maOKActions (\s a -> s { _maOKActions = a }) . _List
 
 -- | The period in seconds over which the statistic is applied.
---
 maPeriod :: Lens' MetricAlarm (Maybe Natural)
 maPeriod = lens _maPeriod (\s a -> s { _maPeriod = a }) . mapping _Nat
 
 -- | A human-readable explanation for the alarm's state.
---
 maStateReason :: Lens' MetricAlarm (Maybe Text)
 maStateReason = lens _maStateReason (\s a -> s { _maStateReason = a })
 
 -- | An explanation for the alarm's state in machine-readable JSON format
---
 maStateReasonData :: Lens' MetricAlarm (Maybe Text)
 maStateReasonData =
     lens _maStateReasonData (\s a -> s { _maStateReasonData = a })
@@ -424,29 +405,24 @@ maStateReasonData =
 -- uses Coordinated Universal Time (UTC) when returning time stamps, which do
 -- not accommodate seasonal adjustments such as daylight savings time. For more
 -- information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps> in the /Amazon CloudWatch Developer Guide/.
---
 maStateUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maStateUpdatedTimestamp =
     lens _maStateUpdatedTimestamp (\s a -> s { _maStateUpdatedTimestamp = a })
         . mapping _Time
 
 -- | The state value for the alarm.
---
 maStateValue :: Lens' MetricAlarm (Maybe StateValue)
 maStateValue = lens _maStateValue (\s a -> s { _maStateValue = a })
 
 -- | The statistic to apply to the alarm's associated metric.
---
 maStatistic :: Lens' MetricAlarm (Maybe Statistic)
 maStatistic = lens _maStatistic (\s a -> s { _maStatistic = a })
 
 -- | The value against which the specified statistic is compared.
---
 maThreshold :: Lens' MetricAlarm (Maybe Double)
 maThreshold = lens _maThreshold (\s a -> s { _maThreshold = a })
 
 -- | The unit of the alarm's associated metric.
---
 maUnit :: Lens' MetricAlarm (Maybe StandardUnit)
 maUnit = lens _maUnit (\s a -> s { _maUnit = a })
 
@@ -567,17 +543,14 @@ metricDatum p1 = MetricDatum
 -- | A list of dimensions associated with the metric. Note, when using the
 -- Dimensions value in a query, you need to append .member.N to it (e.g.,
 -- Dimensions.member.N).
---
 mdDimensions :: Lens' MetricDatum [Dimension]
 mdDimensions = lens _mdDimensions (\s a -> s { _mdDimensions = a }) . _List
 
 -- | The name of the metric.
---
 mdMetricName :: Lens' MetricDatum Text
 mdMetricName = lens _mdMetricName (\s a -> s { _mdMetricName = a })
 
 -- | A set of statistical values describing the metric.
---
 mdStatisticValues :: Lens' MetricDatum (Maybe StatisticSet)
 mdStatisticValues =
     lens _mdStatisticValues (\s a -> s { _mdStatisticValues = a })
@@ -587,12 +560,10 @@ mdStatisticValues =
 -- Coordinated Universal Time (UTC) when returning time stamps, which do not
 -- accommodate seasonal adjustments such as daylight savings time. For more
 -- information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps> in the /Amazon CloudWatch Developer Guide/.
---
 mdTimestamp :: Lens' MetricDatum (Maybe UTCTime)
 mdTimestamp = lens _mdTimestamp (\s a -> s { _mdTimestamp = a }) . mapping _Time
 
 -- | The unit of the metric.
---
 mdUnit :: Lens' MetricDatum (Maybe StandardUnit)
 mdUnit = lens _mdUnit (\s a -> s { _mdUnit = a })
 
@@ -747,12 +718,10 @@ dimension p1 p2 = Dimension
     }
 
 -- | The name of the dimension.
---
 dName :: Lens' Dimension Text
 dName = lens _dName (\s a -> s { _dName = a })
 
 -- | The value representing the dimension measurement
---
 dValue :: Lens' Dimension Text
 dValue = lens _dValue (\s a -> s { _dValue = a })
 
@@ -831,23 +800,19 @@ alarmHistoryItem = AlarmHistoryItem
     }
 
 -- | The descriptive name for the alarm.
---
 ahiAlarmName :: Lens' AlarmHistoryItem (Maybe Text)
 ahiAlarmName = lens _ahiAlarmName (\s a -> s { _ahiAlarmName = a })
 
 -- | Machine-readable data about the alarm in JSON format.
---
 ahiHistoryData :: Lens' AlarmHistoryItem (Maybe Text)
 ahiHistoryData = lens _ahiHistoryData (\s a -> s { _ahiHistoryData = a })
 
 -- | The type of alarm history item.
---
 ahiHistoryItemType :: Lens' AlarmHistoryItem (Maybe HistoryItemType)
 ahiHistoryItemType =
     lens _ahiHistoryItemType (\s a -> s { _ahiHistoryItemType = a })
 
 -- | A human-readable summary of the alarm history.
---
 ahiHistorySummary :: Lens' AlarmHistoryItem (Maybe Text)
 ahiHistorySummary =
     lens _ahiHistorySummary (\s a -> s { _ahiHistorySummary = a })
@@ -856,7 +821,6 @@ ahiHistorySummary =
 -- Coordinated Universal Time (UTC) when returning time stamps, which do not
 -- accommodate seasonal adjustments such as daylight savings time. For more
 -- information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps> in the /Amazon CloudWatch Developer Guide/.
---
 ahiTimestamp :: Lens' AlarmHistoryItem (Maybe UTCTime)
 ahiTimestamp = lens _ahiTimestamp (\s a -> s { _ahiTimestamp = a }) . mapping _Time
 
@@ -901,17 +865,14 @@ metric = Metric
     }
 
 -- | A list of dimensions associated with the metric.
---
 mDimensions :: Lens' Metric [Dimension]
 mDimensions = lens _mDimensions (\s a -> s { _mDimensions = a }) . _List
 
 -- | The name of the metric.
---
 mMetricName :: Lens' Metric (Maybe Text)
 mMetricName = lens _mMetricName (\s a -> s { _mMetricName = a })
 
 -- | The namespace of the metric.
---
 mNamespace :: Lens' Metric (Maybe Text)
 mNamespace = lens _mNamespace (\s a -> s { _mNamespace = a })
 
@@ -997,40 +958,33 @@ datapoint = Datapoint
     }
 
 -- | The average of metric values that correspond to the datapoint.
---
 dAverage :: Lens' Datapoint (Maybe Double)
 dAverage = lens _dAverage (\s a -> s { _dAverage = a })
 
 -- | The maximum of the metric value used for the datapoint.
---
 dMaximum :: Lens' Datapoint (Maybe Double)
 dMaximum = lens _dMaximum (\s a -> s { _dMaximum = a })
 
 -- | The minimum metric value used for the datapoint.
---
 dMinimum :: Lens' Datapoint (Maybe Double)
 dMinimum = lens _dMinimum (\s a -> s { _dMinimum = a })
 
 -- | The number of metric values that contributed to the aggregate value of this
 -- datapoint.
---
 dSampleCount :: Lens' Datapoint (Maybe Double)
 dSampleCount = lens _dSampleCount (\s a -> s { _dSampleCount = a })
 
 -- | The sum of metric values used for the datapoint.
---
 dSum :: Lens' Datapoint (Maybe Double)
 dSum = lens _dSum (\s a -> s { _dSum = a })
 
 -- | The time stamp used for the datapoint. Amazon CloudWatch uses Coordinated
 -- Universal Time (UTC) when returning time stamps, which do not accommodate
 -- seasonal adjustments such as daylight savings time. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps> in the /Amazon CloudWatch Developer Guide/.
---
 dTimestamp :: Lens' Datapoint (Maybe UTCTime)
 dTimestamp = lens _dTimestamp (\s a -> s { _dTimestamp = a }) . mapping _Time
 
 -- | The standard unit used for the datapoint.
---
 dUnit :: Lens' Datapoint (Maybe StandardUnit)
 dUnit = lens _dUnit (\s a -> s { _dUnit = a })
 
@@ -1076,12 +1030,10 @@ dimensionFilter p1 = DimensionFilter
     }
 
 -- | The dimension name to be matched.
---
 dfName :: Lens' DimensionFilter Text
 dfName = lens _dfName (\s a -> s { _dfName = a })
 
 -- | The value of the dimension to be matched.
---
 dfValue :: Lens' DimensionFilter (Maybe Text)
 dfValue = lens _dfValue (\s a -> s { _dfValue = a })
 

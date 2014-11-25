@@ -77,18 +77,15 @@ putGroupPolicy p1 p2 p3 = PutGroupPolicy
     }
 
 -- | The name of the group to associate the policy with.
---
 pgpGroupName :: Lens' PutGroupPolicy Text
 pgpGroupName = lens _pgpGroupName (\s a -> s { _pgpGroupName = a })
 
 -- | The policy document.
---
 pgpPolicyDocument :: Lens' PutGroupPolicy Text
 pgpPolicyDocument =
     lens _pgpPolicyDocument (\s a -> s { _pgpPolicyDocument = a })
 
 -- | The name of the policy document.
---
 pgpPolicyName :: Lens' PutGroupPolicy Text
 pgpPolicyName = lens _pgpPolicyName (\s a -> s { _pgpPolicyName = a })
 

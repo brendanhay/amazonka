@@ -89,7 +89,6 @@ describeOrderableClusterOptions = DescribeOrderableClusterOptions
 --
 -- Constraints: Must be one of the version returned from 'DescribeClusterVersions'
 -- .
---
 docoClusterVersion :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docoClusterVersion =
     lens _docoClusterVersion (\s a -> s { _docoClusterVersion = a })
@@ -99,7 +98,6 @@ docoClusterVersion =
 -- request exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker' field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the 'Marker' parameter and retrying the
 -- request.
---
 docoMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docoMarker = lens _docoMarker (\s a -> s { _docoMarker = a })
 
@@ -111,13 +109,11 @@ docoMarker = lens _docoMarker (\s a -> s { _docoMarker = a })
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
---
 docoMaxRecords :: Lens' DescribeOrderableClusterOptions (Maybe Int)
 docoMaxRecords = lens _docoMaxRecords (\s a -> s { _docoMaxRecords = a })
 
 -- | The node type filter value. Specify this parameter to show only the
 -- available offerings matching the specified node type.
---
 docoNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docoNodeType = lens _docoNodeType (\s a -> s { _docoNodeType = a })
 
@@ -145,13 +141,11 @@ describeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRespons
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
 -- empty, all response records have been retrieved for the request.
---
 docorMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
 docorMarker = lens _docorMarker (\s a -> s { _docorMarker = a })
 
 -- | An 'OrderableClusterOption' structure containing information about orderable
 -- options for the Cluster.
---
 docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
 docorOrderableClusterOptions =
     lens _docorOrderableClusterOptions

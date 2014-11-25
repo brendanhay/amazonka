@@ -65,7 +65,6 @@ getInstanceProfile p1 = GetInstanceProfile
     }
 
 -- | The name of the instance profile to get information about.
---
 gipInstanceProfileName :: Lens' GetInstanceProfile Text
 gipInstanceProfileName =
     lens _gipInstanceProfileName (\s a -> s { _gipInstanceProfileName = a })
@@ -87,7 +86,6 @@ getInstanceProfileResponse p1 = GetInstanceProfileResponse
     }
 
 -- | Information about the instance profile.
---
 giprInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
 giprInstanceProfile =
     lens _giprInstanceProfile (\s a -> s { _giprInstanceProfile = a })

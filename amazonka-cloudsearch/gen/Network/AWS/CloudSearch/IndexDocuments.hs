@@ -87,7 +87,6 @@ indexDocumentsResponse = IndexDocumentsResponse
     }
 
 -- | The names of the fields that are currently being indexed.
---
 idrFieldNames :: Lens' IndexDocumentsResponse [Text]
 idrFieldNames = lens _idrFieldNames (\s a -> s { _idrFieldNames = a }) . _List
 

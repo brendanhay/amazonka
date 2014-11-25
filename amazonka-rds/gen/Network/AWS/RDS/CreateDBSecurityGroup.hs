@@ -74,7 +74,6 @@ createDBSecurityGroup p1 p2 = CreateDBSecurityGroup
     }
 
 -- | The description for the DB security group.
---
 cdbsgDBSecurityGroupDescription :: Lens' CreateDBSecurityGroup Text
 cdbsgDBSecurityGroupDescription =
     lens _cdbsgDBSecurityGroupDescription
@@ -87,7 +86,6 @@ cdbsgDBSecurityGroupDescription =
 --
 -- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
 -- Must not be "Default" May not contain spaces  Example: 'mysecuritygroup'
---
 cdbsgDBSecurityGroupName :: Lens' CreateDBSecurityGroup Text
 cdbsgDBSecurityGroupName =
     lens _cdbsgDBSecurityGroupName

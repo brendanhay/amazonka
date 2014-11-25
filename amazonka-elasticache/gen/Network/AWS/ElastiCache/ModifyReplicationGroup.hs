@@ -149,7 +149,6 @@ modifyReplicationGroup p1 = ModifyReplicationGroup
 -- Valid values: 'true' | 'false'
 --
 -- Default: 'false'
---
 mrgApplyImmediately :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgApplyImmediately =
     lens _mrgApplyImmediately (\s a -> s { _mrgApplyImmediately = a })
@@ -158,7 +157,6 @@ mrgApplyImmediately =
 -- of the clusters in the replication group during the maintenance window. A
 -- value of 'true' allows these upgrades to occur; 'false' disables automatic
 -- upgrades.
---
 mrgAutoMinorVersionUpgrade :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgAutoMinorVersionUpgrade =
     lens _mrgAutoMinorVersionUpgrade
@@ -168,7 +166,6 @@ mrgAutoMinorVersionUpgrade =
 -- if the existing primary encounters a failure.
 --
 -- Valid values: 'true' | 'false'
---
 mrgAutomaticFailoverEnabled :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgAutomaticFailoverEnabled =
     lens _mrgAutomaticFailoverEnabled
@@ -178,7 +175,6 @@ mrgAutomaticFailoverEnabled =
 -- replication group. This change is asynchronously applied as soon as possible
 -- for parameters when the /ApplyImmediately/ parameter is specified as /true/ for
 -- this request.
---
 mrgCacheParameterGroupName :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgCacheParameterGroupName =
     lens _mrgCacheParameterGroupName
@@ -192,7 +188,6 @@ mrgCacheParameterGroupName =
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must not
 -- be "Default".
---
 mrgCacheSecurityGroupNames :: Lens' ModifyReplicationGroup [Text]
 mrgCacheSecurityGroupNames =
     lens _mrgCacheSecurityGroupNames
@@ -201,13 +196,11 @@ mrgCacheSecurityGroupNames =
 
 -- | The upgraded version of the cache engine to be run on the cache clusters in
 -- the replication group.
---
 mrgEngineVersion :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgEngineVersion = lens _mrgEngineVersion (\s a -> s { _mrgEngineVersion = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications
 -- will be sent.
---
 mrgNotificationTopicArn :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgNotificationTopicArn =
     lens _mrgNotificationTopicArn (\s a -> s { _mrgNotificationTopicArn = a })
@@ -216,7 +209,6 @@ mrgNotificationTopicArn =
 -- Notifications are sent only if the status is /active/.
 --
 -- Valid values: 'active' | 'inactive'
---
 mrgNotificationTopicStatus :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgNotificationTopicStatus =
     lens _mrgNotificationTopicStatus
@@ -227,7 +219,6 @@ mrgNotificationTopicStatus =
 -- This change is made immediately. If you are moving this window to the current
 -- time, there must be at least 120 minutes between the current time and end of
 -- the window to ensure that pending changes are applied.
---
 mrgPreferredMaintenanceWindow :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgPreferredMaintenanceWindow =
     lens _mrgPreferredMaintenanceWindow
@@ -236,20 +227,17 @@ mrgPreferredMaintenanceWindow =
 -- | If this parameter is specified, ElastiCache will promote each of the cache
 -- clusters in the specified replication group to the primary role. The nodes of
 -- all other cache clusters in the replication group will be read replicas.
---
 mrgPrimaryClusterId :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgPrimaryClusterId =
     lens _mrgPrimaryClusterId (\s a -> s { _mrgPrimaryClusterId = a })
 
 -- | A description for the replication group. Maximum length is 255 characters.
---
 mrgReplicationGroupDescription :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgReplicationGroupDescription =
     lens _mrgReplicationGroupDescription
         (\s a -> s { _mrgReplicationGroupDescription = a })
 
 -- | The identifier of the replication group to modify.
---
 mrgReplicationGroupId :: Lens' ModifyReplicationGroup Text
 mrgReplicationGroupId =
     lens _mrgReplicationGroupId (\s a -> s { _mrgReplicationGroupId = a })
@@ -259,7 +247,6 @@ mrgReplicationGroupId =
 --
 -- This parameter can be used only with replication group containing cache
 -- clusters running in an Amazon Virtual Private Cloud (VPC).
---
 mrgSecurityGroupIds :: Lens' ModifyReplicationGroup [Text]
 mrgSecurityGroupIds =
     lens _mrgSecurityGroupIds (\s a -> s { _mrgSecurityGroupIds = a })
@@ -273,7 +260,6 @@ mrgSecurityGroupIds =
 -- Important
 -- If the value of SnapshotRetentionLimit is set to zero (0), backups
 -- are turned off.
---
 mrgSnapshotRetentionLimit :: Lens' ModifyReplicationGroup (Maybe Int)
 mrgSnapshotRetentionLimit =
     lens _mrgSnapshotRetentionLimit
@@ -286,14 +272,12 @@ mrgSnapshotRetentionLimit =
 --
 -- If you do not specify this parameter, then ElastiCache will automatically
 -- choose an appropriate time range.
---
 mrgSnapshotWindow :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgSnapshotWindow =
     lens _mrgSnapshotWindow (\s a -> s { _mrgSnapshotWindow = a })
 
 -- | The cache cluster ID that will be used as the daily snapshot source for the
 -- replication group.
---
 mrgSnapshottingClusterId :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgSnapshottingClusterId =
     lens _mrgSnapshottingClusterId

@@ -79,13 +79,11 @@ listGateways = ListGateways
 
 -- | Specifies that the list of gateways returned be limited to the specified
 -- number of items.
---
 lgLimit :: Lens' ListGateways (Maybe Natural)
 lgLimit = lens _lgLimit (\s a -> s { _lgLimit = a }) . mapping _Nat
 
 -- | An opaque string that indicates the position at which to begin the returned
 -- list of gateways.
---
 lgMarker :: Lens' ListGateways (Maybe Text)
 lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 

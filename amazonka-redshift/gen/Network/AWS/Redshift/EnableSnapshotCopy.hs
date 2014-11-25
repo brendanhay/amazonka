@@ -77,7 +77,6 @@ enableSnapshotCopy p1 p2 = EnableSnapshotCopy
 --
 -- Constraints: Must be the valid name of an existing cluster that does not
 -- already have cross-region snapshot copy enabled.
---
 escClusterIdentifier :: Lens' EnableSnapshotCopy Text
 escClusterIdentifier =
     lens _escClusterIdentifier (\s a -> s { _escClusterIdentifier = a })
@@ -85,7 +84,6 @@ escClusterIdentifier =
 -- | The destination region that you want to copy snapshots to.
 --
 -- Constraints: Must be the name of a valid region. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.
---
 escDestinationRegion :: Lens' EnableSnapshotCopy Text
 escDestinationRegion =
     lens _escDestinationRegion (\s a -> s { _escDestinationRegion = a })
@@ -96,7 +94,6 @@ escDestinationRegion =
 -- Default: 7.
 --
 -- Constraints: Must be at least 1 and no more than 35.
---
 escRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Int)
 escRetentionPeriod =
     lens _escRetentionPeriod (\s a -> s { _escRetentionPeriod = a })

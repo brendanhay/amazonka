@@ -64,7 +64,6 @@ deleteApp p1 = DeleteApp
     }
 
 -- | The app ID.
---
 daAppId :: Lens' DeleteApp Text
 daAppId = lens _daAppId (\s a -> s { _daAppId = a })
 

@@ -27,6 +27,7 @@
 -- the stack has been deleted.
 --
 -- If the template does not exist, a 'ValidationError' is returned.
+--
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplate.html>
 module Network.AWS.CloudFormation.GetTemplate
     (
@@ -72,7 +73,6 @@ getTemplate p1 = GetTemplate
 -- Running stacks: You can specify either the stack's name or its unique stack
 -- ID. Deleted stacks: You must specify the unique stack ID.  Default: There is
 -- no default value.
---
 gtStackName :: Lens' GetTemplate Text
 gtStackName = lens _gtStackName (\s a -> s { _gtStackName = a })
 
@@ -92,7 +92,6 @@ getTemplateResponse = GetTemplateResponse
     }
 
 -- | Structure containing the template body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html TemplateAnatomy> in the AWS CloudFormation User Guide.)
---
 gtrTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrTemplateBody = lens _gtrTemplateBody (\s a -> s { _gtrTemplateBody = a })
 

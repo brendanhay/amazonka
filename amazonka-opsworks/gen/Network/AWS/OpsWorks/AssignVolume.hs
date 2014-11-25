@@ -70,12 +70,10 @@ assignVolume p1 = AssignVolume
     }
 
 -- | The instance ID.
---
 avInstanceId :: Lens' AssignVolume (Maybe Text)
 avInstanceId = lens _avInstanceId (\s a -> s { _avInstanceId = a })
 
 -- | The volume ID.
---
 avVolumeId :: Lens' AssignVolume Text
 avVolumeId = lens _avVolumeId (\s a -> s { _avVolumeId = a })
 

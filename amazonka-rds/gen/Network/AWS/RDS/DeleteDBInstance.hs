@@ -112,7 +112,6 @@ ddbiFinalDBSnapshotIdentifier =
 -- Specify 'true' when deleting a read replica.
 --
 -- Default: 'false'
---
 ddbiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
 ddbiSkipFinalSnapshot =
     lens _ddbiSkipFinalSnapshot (\s a -> s { _ddbiSkipFinalSnapshot = a })

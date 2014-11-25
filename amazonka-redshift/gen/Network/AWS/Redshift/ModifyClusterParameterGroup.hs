@@ -70,7 +70,6 @@ modifyClusterParameterGroup p1 = ModifyClusterParameterGroup
     }
 
 -- | The name of the parameter group to be modified.
---
 mcpgParameterGroupName :: Lens' ModifyClusterParameterGroup Text
 mcpgParameterGroupName =
     lens _mcpgParameterGroupName (\s a -> s { _mcpgParameterGroupName = a })
@@ -84,7 +83,6 @@ mcpgParameterGroupName =
 --
 -- For the workload management (WLM) configuration, you must supply all the
 -- name-value pairs in the wlm_json_configuration parameter.
---
 mcpgParameters :: Lens' ModifyClusterParameterGroup [Parameter]
 mcpgParameters = lens _mcpgParameters (\s a -> s { _mcpgParameters = a }) . _List
 
@@ -108,7 +106,6 @@ modifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
     }
 
 -- | The name of the cluster parameter group.
---
 mcpgrParameterGroupName :: Lens' ModifyClusterParameterGroupResponse (Maybe Text)
 mcpgrParameterGroupName =
     lens _mcpgrParameterGroupName (\s a -> s { _mcpgrParameterGroupName = a })
@@ -116,7 +113,6 @@ mcpgrParameterGroupName =
 -- | The status of the parameter group. For example, if you made a change to a
 -- parameter group name-value pair, then the change could be pending a reboot of
 -- an associated cluster.
---
 mcpgrParameterGroupStatus :: Lens' ModifyClusterParameterGroupResponse (Maybe Text)
 mcpgrParameterGroupStatus =
     lens _mcpgrParameterGroupStatus

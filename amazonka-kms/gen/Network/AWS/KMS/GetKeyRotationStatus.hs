@@ -22,6 +22,7 @@
 
 -- | Retrieves a Boolean value that indicates whether key rotation is enabled for
 -- the specified key.
+--
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html>
 module Network.AWS.KMS.GetKeyRotationStatus
     (
@@ -63,7 +64,6 @@ getKeyRotationStatus p1 = GetKeyRotationStatus
 
 -- | Unique identifier of the key. This can be an ARN, an alias, or a globally
 -- unique identifier.
---
 gkrsKeyId :: Lens' GetKeyRotationStatus Text
 gkrsKeyId = lens _gkrsKeyId (\s a -> s { _gkrsKeyId = a })
 

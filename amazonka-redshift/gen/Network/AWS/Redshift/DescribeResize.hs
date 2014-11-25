@@ -84,7 +84,6 @@ describeResize p1 = DescribeResize
 --
 -- By default, resize operations for all clusters defined for an AWS account
 -- are returned.
---
 drClusterIdentifier :: Lens' DescribeResize Text
 drClusterIdentifier =
     lens _drClusterIdentifier (\s a -> s { _drClusterIdentifier = a })
@@ -151,7 +150,6 @@ describeResizeResponse = DescribeResizeResponse
 -- | The average rate of the resize operation over the last few minutes, measured
 -- in megabytes per second. After the resize operation completes, this value
 -- shows the average rate of the entire resize operation.
---
 drrAvgResizeRateInMegaBytesPerSecond :: Lens' DescribeResizeResponse (Maybe Double)
 drrAvgResizeRateInMegaBytesPerSecond =
     lens _drrAvgResizeRateInMegaBytesPerSecond
@@ -160,7 +158,6 @@ drrAvgResizeRateInMegaBytesPerSecond =
 -- | The amount of seconds that have elapsed since the resize operation began.
 -- After the resize operation completes, this value shows the total actual time,
 -- in seconds, for the resize operation.
---
 drrElapsedTimeInSeconds :: Lens' DescribeResizeResponse (Maybe Integer)
 drrElapsedTimeInSeconds =
     lens _drrElapsedTimeInSeconds (\s a -> s { _drrElapsedTimeInSeconds = a })
@@ -169,7 +166,6 @@ drrElapsedTimeInSeconds =
 -- complete. This value is calculated based on the average resize rate and the
 -- estimated amount of data remaining to be processed. Once the resize operation
 -- is complete, this value will be 0.
---
 drrEstimatedTimeToCompletionInSeconds :: Lens' DescribeResizeResponse (Maybe Integer)
 drrEstimatedTimeToCompletionInSeconds =
     lens _drrEstimatedTimeToCompletionInSeconds
@@ -178,7 +174,6 @@ drrEstimatedTimeToCompletionInSeconds =
 -- | The names of tables that have been completely imported .
 --
 -- Valid Values: List of table names.
---
 drrImportTablesCompleted :: Lens' DescribeResizeResponse [Text]
 drrImportTablesCompleted =
     lens _drrImportTablesCompleted
@@ -188,7 +183,6 @@ drrImportTablesCompleted =
 -- | The names of tables that are being currently imported.
 --
 -- Valid Values: List of table names.
---
 drrImportTablesInProgress :: Lens' DescribeResizeResponse [Text]
 drrImportTablesInProgress =
     lens _drrImportTablesInProgress
@@ -198,7 +192,6 @@ drrImportTablesInProgress =
 -- | The names of tables that have not been yet imported.
 --
 -- Valid Values: List of table names
---
 drrImportTablesNotStarted :: Lens' DescribeResizeResponse [Text]
 drrImportTablesNotStarted =
     lens _drrImportTablesNotStarted
@@ -211,7 +204,6 @@ drrImportTablesNotStarted =
 -- megabytes, on the cluster, which may be more or less than
 -- TotalResizeDataInMegaBytes (the estimated total amount of data before
 -- resize).
---
 drrProgressInMegaBytes :: Lens' DescribeResizeResponse (Maybe Integer)
 drrProgressInMegaBytes =
     lens _drrProgressInMegaBytes (\s a -> s { _drrProgressInMegaBytes = a })
@@ -219,35 +211,30 @@ drrProgressInMegaBytes =
 -- | The status of the resize operation.
 --
 -- Valid Values: 'NONE' | 'IN_PROGRESS' | 'FAILED' | 'SUCCEEDED'
---
 drrStatus :: Lens' DescribeResizeResponse (Maybe Text)
 drrStatus = lens _drrStatus (\s a -> s { _drrStatus = a })
 
 -- | The cluster type after the resize operation is complete.
 --
 -- Valid Values: 'multi-node' | 'single-node'
---
 drrTargetClusterType :: Lens' DescribeResizeResponse (Maybe Text)
 drrTargetClusterType =
     lens _drrTargetClusterType (\s a -> s { _drrTargetClusterType = a })
 
 -- | The node type that the cluster will have after the resize operation is
 -- complete.
---
 drrTargetNodeType :: Lens' DescribeResizeResponse (Maybe Text)
 drrTargetNodeType =
     lens _drrTargetNodeType (\s a -> s { _drrTargetNodeType = a })
 
 -- | The number of nodes that the cluster will have after the resize operation is
 -- complete.
---
 drrTargetNumberOfNodes :: Lens' DescribeResizeResponse (Maybe Int)
 drrTargetNumberOfNodes =
     lens _drrTargetNumberOfNodes (\s a -> s { _drrTargetNumberOfNodes = a })
 
 -- | The estimated total amount of data, in megabytes, on the cluster before the
 -- resize operation began.
---
 drrTotalResizeDataInMegaBytes :: Lens' DescribeResizeResponse (Maybe Integer)
 drrTotalResizeDataInMegaBytes =
     lens _drrTotalResizeDataInMegaBytes

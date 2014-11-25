@@ -65,7 +65,6 @@ deregisterElasticIp p1 = DeregisterElasticIp
     }
 
 -- | The Elastic IP address.
---
 dei1ElasticIp :: Lens' DeregisterElasticIp Text
 dei1ElasticIp = lens _dei1ElasticIp (\s a -> s { _dei1ElasticIp = a })
 

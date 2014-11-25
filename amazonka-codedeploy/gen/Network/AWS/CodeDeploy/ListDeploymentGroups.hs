@@ -71,7 +71,6 @@ listDeploymentGroups p1 = ListDeploymentGroups
 
 -- | The name of an existing AWS CodeDeploy application within the AWS user
 -- account.
---
 ldgApplicationName :: Lens' ListDeploymentGroups Text
 ldgApplicationName =
     lens _ldgApplicationName (\s a -> s { _ldgApplicationName = a })
@@ -79,7 +78,6 @@ ldgApplicationName =
 -- | An identifier that was returned from the previous list deployment groups
 -- call, which can be used to return the next set of deployment groups in the
 -- list.
---
 ldgNextToken :: Lens' ListDeploymentGroups (Maybe Text)
 ldgNextToken = lens _ldgNextToken (\s a -> s { _ldgNextToken = a })
 
@@ -107,13 +105,11 @@ listDeploymentGroupsResponse = ListDeploymentGroupsResponse
     }
 
 -- | The application name.
---
 ldgrApplicationName :: Lens' ListDeploymentGroupsResponse (Maybe Text)
 ldgrApplicationName =
     lens _ldgrApplicationName (\s a -> s { _ldgrApplicationName = a })
 
 -- | A list of corresponding deployment group names.
---
 ldgrDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
 ldgrDeploymentGroups =
     lens _ldgrDeploymentGroups (\s a -> s { _ldgrDeploymentGroups = a })
@@ -123,7 +119,6 @@ ldgrDeploymentGroups =
 -- identifier will also be returned, which can be used in a subsequent list
 -- deployment groups call to return the next set of deployment groups in the
 -- list.
---
 ldgrNextToken :: Lens' ListDeploymentGroupsResponse (Maybe Text)
 ldgrNextToken = lens _ldgrNextToken (\s a -> s { _ldgrNextToken = a })
 

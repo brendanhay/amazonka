@@ -86,12 +86,10 @@ countPendingActivityTasks p1 p2 = CountPendingActivityTasks
     }
 
 -- | The name of the domain that contains the task list.
---
 cpatDomain :: Lens' CountPendingActivityTasks Text
 cpatDomain = lens _cpatDomain (\s a -> s { _cpatDomain = a })
 
 -- | The name of the task list.
---
 cpatTaskList :: Lens' CountPendingActivityTasks TaskList
 cpatTaskList = lens _cpatTaskList (\s a -> s { _cpatTaskList = a })
 
@@ -116,13 +114,11 @@ countPendingActivityTasksResponse p1 = CountPendingActivityTasksResponse
     }
 
 -- | The number of tasks in the task list.
---
 cpatrCount :: Lens' CountPendingActivityTasksResponse Natural
 cpatrCount = lens _cpatrCount (\s a -> s { _cpatrCount = a }) . _Nat
 
 -- | If set to true, indicates that the actual count was more than the maximum
 -- supported by this API and the count returned is the truncated value.
---
 cpatrTruncated :: Lens' CountPendingActivityTasksResponse (Maybe Bool)
 cpatrTruncated = lens _cpatrTruncated (\s a -> s { _cpatrTruncated = a })
 

@@ -106,7 +106,6 @@ listActivityTypes p1 p2 = ListActivityTypes
     }
 
 -- | The name of the domain in which the activity types have been registered.
---
 latDomain :: Lens' ListActivityTypes Text
 latDomain = lens _latDomain (\s a -> s { _latDomain = a })
 
@@ -115,26 +114,22 @@ latDomain = lens _latDomain (\s a -> s { _latDomain = a })
 -- You cannot specify a page size greater than 100. Note that the number of
 -- types may be less than the maxiumum page size, in which case, the returned
 -- page will have fewer results than the maximumPageSize specified.
---
 latMaximumPageSize :: Lens' ListActivityTypes (Maybe Natural)
 latMaximumPageSize =
     lens _latMaximumPageSize (\s a -> s { _latMaximumPageSize = a })
         . mapping _Nat
 
 -- | If specified, only lists the activity types that have this name.
---
 latName :: Lens' ListActivityTypes (Maybe Text)
 latName = lens _latName (\s a -> s { _latName = a })
 
 -- | If on a previous call to this method a 'NextResultToken' was returned, the
 -- results have more than one page. To get the next page of results, repeat the
 -- call with the 'nextPageToken' and keep all other arguments unchanged.
---
 latNextPageToken :: Lens' ListActivityTypes (Maybe Text)
 latNextPageToken = lens _latNextPageToken (\s a -> s { _latNextPageToken = a })
 
 -- | Specifies the registration status of the activity types to list.
---
 latRegistrationStatus :: Lens' ListActivityTypes RegistrationStatus
 latRegistrationStatus =
     lens _latRegistrationStatus (\s a -> s { _latRegistrationStatus = a })
@@ -142,7 +137,6 @@ latRegistrationStatus =
 -- | When set to 'true', returns the results in reverse order. By default the
 -- results are returned in ascending alphabetical order of the 'name' of the
 -- activity types.
---
 latReverseOrder :: Lens' ListActivityTypes (Maybe Bool)
 latReverseOrder = lens _latReverseOrder (\s a -> s { _latReverseOrder = a })
 
@@ -168,13 +162,11 @@ listActivityTypesResponse = ListActivityTypesResponse
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
 -- unchanged.
---
 latrNextPageToken :: Lens' ListActivityTypesResponse (Maybe Text)
 latrNextPageToken =
     lens _latrNextPageToken (\s a -> s { _latrNextPageToken = a })
 
 -- | List of activity type information.
---
 latrTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
 latrTypeInfos = lens _latrTypeInfos (\s a -> s { _latrTypeInfos = a }) . _List
 

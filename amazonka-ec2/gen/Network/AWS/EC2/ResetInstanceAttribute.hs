@@ -77,7 +77,6 @@ resetInstanceAttribute p1 p2 = ResetInstanceAttribute
     }
 
 -- | The attribute to reset.
---
 riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
 riaAttribute = lens _riaAttribute (\s a -> s { _riaAttribute = a })
 
@@ -85,7 +84,6 @@ riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
 riaDryRun = lens _riaDryRun (\s a -> s { _riaDryRun = a })
 
 -- | The ID of the instance.
---
 riaInstanceId :: Lens' ResetInstanceAttribute Text
 riaInstanceId = lens _riaInstanceId (\s a -> s { _riaInstanceId = a })
 

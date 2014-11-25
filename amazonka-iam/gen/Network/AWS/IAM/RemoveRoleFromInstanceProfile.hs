@@ -72,14 +72,12 @@ removeRoleFromInstanceProfile p1 p2 = RemoveRoleFromInstanceProfile
     }
 
 -- | The name of the instance profile to update.
---
 rrfipInstanceProfileName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipInstanceProfileName =
     lens _rrfipInstanceProfileName
         (\s a -> s { _rrfipInstanceProfileName = a })
 
 -- | The name of the role to remove.
---
 rrfipRoleName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipRoleName = lens _rrfipRoleName (\s a -> s { _rrfipRoleName = a })
 

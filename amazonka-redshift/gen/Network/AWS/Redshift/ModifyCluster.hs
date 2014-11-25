@@ -145,7 +145,6 @@ modifyCluster p1 = ModifyCluster
 -- during the maintenance window.
 --
 -- Default: 'false'
---
 mcAllowVersionUpgrade :: Lens' ModifyCluster (Maybe Bool)
 mcAllowVersionUpgrade =
     lens _mcAllowVersionUpgrade (\s a -> s { _mcAllowVersionUpgrade = a })
@@ -162,7 +161,6 @@ mcAllowVersionUpgrade =
 -- Default: Uses existing setting.
 --
 -- Constraints: Must be a value from 0 to 35.
---
 mcAutomatedSnapshotRetentionPeriod :: Lens' ModifyCluster (Maybe Int)
 mcAutomatedSnapshotRetentionPeriod =
     lens _mcAutomatedSnapshotRetentionPeriod
@@ -171,7 +169,6 @@ mcAutomatedSnapshotRetentionPeriod =
 -- | The unique identifier of the cluster to be modified.
 --
 -- Example: 'examplecluster'
---
 mcClusterIdentifier :: Lens' ModifyCluster Text
 mcClusterIdentifier =
     lens _mcClusterIdentifier (\s a -> s { _mcClusterIdentifier = a })
@@ -183,7 +180,6 @@ mcClusterIdentifier =
 --
 -- Constraints: The cluster parameter group must be in the same parameter group
 -- family that matches the cluster version.
---
 mcClusterParameterGroupName :: Lens' ModifyCluster (Maybe Text)
 mcClusterParameterGroupName =
     lens _mcClusterParameterGroupName
@@ -213,7 +209,6 @@ mcClusterSecurityGroups =
 -- can use 'DescribeResize' to track the progress of the resize request.
 --
 -- Valid Values: ' multi-node | single-node '
---
 mcClusterType :: Lens' ModifyCluster (Maybe Text)
 mcClusterType = lens _mcClusterType (\s a -> s { _mcClusterType = a })
 
@@ -226,13 +221,11 @@ mcClusterType = lens _mcClusterType (\s a -> s { _mcClusterType = a })
 -- information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift ParameterGroups> in the /Amazon Redshift Cluster Management Guide/.
 --
 -- Example: '1.0'
---
 mcClusterVersion :: Lens' ModifyCluster (Maybe Text)
 mcClusterVersion = lens _mcClusterVersion (\s a -> s { _mcClusterVersion = a })
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift cluster
 -- uses to retrieve the data encryption keys stored in an HSM.
---
 mcHsmClientCertificateIdentifier :: Lens' ModifyCluster (Maybe Text)
 mcHsmClientCertificateIdentifier =
     lens _mcHsmClientCertificateIdentifier
@@ -240,7 +233,6 @@ mcHsmClientCertificateIdentifier =
 
 -- | Specifies the name of the HSM configuration that contains the information the
 -- Amazon Redshift cluster can use to retrieve and store keys in an HSM.
---
 mcHsmConfigurationIdentifier :: Lens' ModifyCluster (Maybe Text)
 mcHsmConfigurationIdentifier =
     lens _mcHsmConfigurationIdentifier
@@ -272,7 +264,6 @@ mcMasterUserPassword =
 -- characters must be lowercase. First character must be a letter. Cannot end
 -- with a hyphen or contain two consecutive hyphens. Must be unique for all
 -- clusters within an AWS account.  Example: 'examplecluster'
---
 mcNewClusterIdentifier :: Lens' ModifyCluster (Maybe Text)
 mcNewClusterIdentifier =
     lens _mcNewClusterIdentifier (\s a -> s { _mcNewClusterIdentifier = a })
@@ -288,7 +279,6 @@ mcNewClusterIdentifier =
 -- original access permissions for the cluster are restored. You can use 'DescribeResize' to track the progress of the resize request.
 --
 -- Valid Values: ' dw1.xlarge' | 'dw1.8xlarge' | 'dw2.large' | 'dw2.8xlarge'.
---
 mcNodeType :: Lens' ModifyCluster (Maybe Text)
 mcNodeType = lens _mcNodeType (\s a -> s { _mcNodeType = a })
 
@@ -303,7 +293,6 @@ mcNodeType = lens _mcNodeType (\s a -> s { _mcNodeType = a })
 -- original access permissions for the cluster are restored. You can use 'DescribeResize' to track the progress of the resize request.
 --
 -- Valid Values: Integer greater than '0'.
---
 mcNumberOfNodes :: Lens' ModifyCluster (Maybe Int)
 mcNumberOfNodes = lens _mcNumberOfNodes (\s a -> s { _mcNumberOfNodes = a })
 
@@ -323,7 +312,6 @@ mcNumberOfNodes = lens _mcNumberOfNodes (\s a -> s { _mcNumberOfNodes = a })
 -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 --
 -- Constraints: Must be at least 30 minutes.
---
 mcPreferredMaintenanceWindow :: Lens' ModifyCluster (Maybe Text)
 mcPreferredMaintenanceWindow =
     lens _mcPreferredMaintenanceWindow
@@ -331,7 +319,6 @@ mcPreferredMaintenanceWindow =
 
 -- | A list of virtual private cloud (VPC) security groups to be associated with
 -- the cluster.
---
 mcVpcSecurityGroupIds :: Lens' ModifyCluster [Text]
 mcVpcSecurityGroupIds =
     lens _mcVpcSecurityGroupIds (\s a -> s { _mcVpcSecurityGroupIds = a })

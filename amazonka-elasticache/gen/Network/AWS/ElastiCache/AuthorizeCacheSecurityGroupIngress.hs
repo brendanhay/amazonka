@@ -77,7 +77,6 @@ authorizeCacheSecurityGroupIngress p1 p2 p3 = AuthorizeCacheSecurityGroupIngress
     }
 
 -- | The cache security group which will allow network ingress.
---
 acsgiCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
 acsgiCacheSecurityGroupName =
     lens _acsgiCacheSecurityGroupName
@@ -85,7 +84,6 @@ acsgiCacheSecurityGroupName =
 
 -- | The Amazon EC2 security group to be authorized for ingress to the cache
 -- security group.
---
 acsgiEC2SecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
 acsgiEC2SecurityGroupName =
     lens _acsgiEC2SecurityGroupName
@@ -94,7 +92,6 @@ acsgiEC2SecurityGroupName =
 -- | The AWS account number of the Amazon EC2 security group owner. Note that this
 -- is not the same thing as an AWS access key ID - you must provide a valid AWS
 -- account number for this parameter.
---
 acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngress Text
 acsgiEC2SecurityGroupOwnerId =
     lens _acsgiEC2SecurityGroupOwnerId

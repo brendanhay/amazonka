@@ -70,12 +70,10 @@ deleteTape p1 p2 = DeleteTape
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to
 -- delete is associated with. Use the 'ListGateways' operation to return a list of
 -- gateways for your account and region.
---
 dt1GatewayARN :: Lens' DeleteTape Text
 dt1GatewayARN = lens _dt1GatewayARN (\s a -> s { _dt1GatewayARN = a })
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete.
---
 dt1TapeARN :: Lens' DeleteTape Text
 dt1TapeARN = lens _dt1TapeARN (\s a -> s { _dt1TapeARN = a })
 
@@ -95,7 +93,6 @@ deleteTapeResponse = DeleteTapeResponse
     }
 
 -- | The Amazon Resource Name (ARN) of the deleted virtual tape.
---
 dtrTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtrTapeARN = lens _dtrTapeARN (\s a -> s { _dtrTapeARN = a })
 

@@ -68,7 +68,6 @@ deleteDhcpOptions p1 = DeleteDhcpOptions
     }
 
 -- | The ID of the DHCP options set.
---
 ddo1DhcpOptionsId :: Lens' DeleteDhcpOptions Text
 ddo1DhcpOptionsId =
     lens _ddo1DhcpOptionsId (\s a -> s { _ddo1DhcpOptionsId = a })

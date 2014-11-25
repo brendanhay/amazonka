@@ -86,7 +86,6 @@ dr1Filters :: Lens' DescribeRegions [Filter]
 dr1Filters = lens _dr1Filters (\s a -> s { _dr1Filters = a }) . _List
 
 -- | The names of one or more regions.
---
 dr1RegionNames :: Lens' DescribeRegions [Text]
 dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a }) . _List
 
@@ -112,7 +111,6 @@ describeRegionsResponse = DescribeRegionsResponse
     }
 
 -- | Information about one or more regions.
---
 drrRegions :: Lens' DescribeRegionsResponse [Region]
 drrRegions = lens _drrRegions (\s a -> s { _drrRegions = a }) . _List
 

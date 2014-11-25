@@ -121,7 +121,6 @@ authorizeSecurityGroupEgress p1 = AuthorizeSecurityGroupEgress
 
 -- | The CIDR IP address range. You can't specify this parameter when specifying a
 -- source security group.
---
 asgeCidrIp :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeCidrIp = lens _asgeCidrIp (\s a -> s { _asgeCidrIp = a })
 
@@ -130,18 +129,15 @@ asgeDryRun = lens _asgeDryRun (\s a -> s { _asgeDryRun = a })
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use '-1' to specify all ICMP types.
---
 asgeFromPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
 asgeFromPort = lens _asgeFromPort (\s a -> s { _asgeFromPort = a })
 
 -- | The ID of the security group.
---
 asgeGroupId :: Lens' AuthorizeSecurityGroupEgress Text
 asgeGroupId = lens _asgeGroupId (\s a -> s { _asgeGroupId = a })
 
 -- | A set of IP permissions. You can't specify a destination security group and a
 -- CIDR IP address range.
---
 asgeIpPermissions :: Lens' AuthorizeSecurityGroupEgress [IpPermission]
 asgeIpPermissions =
     lens _asgeIpPermissions (\s a -> s { _asgeIpPermissions = a })
@@ -149,13 +145,11 @@ asgeIpPermissions =
 
 -- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>). Use '-1'
 -- to specify all.
---
 asgeIpProtocol :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeIpProtocol = lens _asgeIpProtocol (\s a -> s { _asgeIpProtocol = a })
 
 -- | [EC2-Classic, default VPC] The name of the destination security group. You
 -- can't specify a destination security group and a CIDR IP address range.
---
 asgeSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeSourceSecurityGroupName =
     lens _asgeSourceSecurityGroupName
@@ -163,7 +157,6 @@ asgeSourceSecurityGroupName =
 
 -- | The ID of the destination security group. You can't specify a destination
 -- security group and a CIDR IP address range.
---
 asgeSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeSourceSecurityGroupOwnerId =
     lens _asgeSourceSecurityGroupOwnerId
@@ -171,7 +164,6 @@ asgeSourceSecurityGroupOwnerId =
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code number.
 -- For the ICMP code number, use '-1' to specify all ICMP codes for the ICMP type.
---
 asgeToPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
 asgeToPort = lens _asgeToPort (\s a -> s { _asgeToPort = a })
 

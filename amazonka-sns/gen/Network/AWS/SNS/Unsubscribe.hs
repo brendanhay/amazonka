@@ -66,7 +66,6 @@ unsubscribe p1 = Unsubscribe
     }
 
 -- | The ARN of the subscription to be deleted.
---
 uSubscriptionArn :: Lens' Unsubscribe Text
 uSubscriptionArn = lens _uSubscriptionArn (\s a -> s { _uSubscriptionArn = a })
 

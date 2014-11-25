@@ -76,19 +76,16 @@ describeDeployments = DescribeDeployments
 
 -- | The app ID. If you include this parameter, 'DescribeDeployments' returns a
 -- description of the commands associated with the specified app.
---
 ddAppId :: Lens' DescribeDeployments (Maybe Text)
 ddAppId = lens _ddAppId (\s a -> s { _ddAppId = a })
 
 -- | An array of deployment IDs to be described. If you include this parameter, 'DescribeDeployments' returns a description of the specified deployments. Otherwise, it returns a
 -- description of every deployment.
---
 ddDeploymentIds :: Lens' DescribeDeployments [Text]
 ddDeploymentIds = lens _ddDeploymentIds (\s a -> s { _ddDeploymentIds = a }) . _List
 
 -- | The stack ID. If you include this parameter, 'DescribeDeployments' returns a
 -- description of the commands associated with the specified stack.
---
 ddStackId :: Lens' DescribeDeployments (Maybe Text)
 ddStackId = lens _ddStackId (\s a -> s { _ddStackId = a })
 
@@ -114,7 +111,6 @@ describeDeploymentsResponse = DescribeDeploymentsResponse
     }
 
 -- | An array of 'Deployment' objects that describe the deployments.
---
 ddrDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
 ddrDeployments = lens _ddrDeployments (\s a -> s { _ddrDeployments = a }) . _List
 

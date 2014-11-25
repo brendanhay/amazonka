@@ -88,13 +88,11 @@ changeResourceRecordSets p1 p2 = ChangeResourceRecordSets
     }
 
 -- | A complex type that contains an optional comment and the 'Changes' element.
---
 crrsChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
 crrsChangeBatch = lens _crrsChangeBatch (\s a -> s { _crrsChangeBatch = a })
 
 -- | The ID of the hosted zone that contains the resource record sets that you
 -- want to change.
---
 crrsHostedZoneId :: Lens' ChangeResourceRecordSets Text
 crrsHostedZoneId = lens _crrsHostedZoneId (\s a -> s { _crrsHostedZoneId = a })
 
@@ -119,7 +117,6 @@ changeResourceRecordSetsResponse p1 = ChangeResourceRecordSetsResponse
 --
 -- This element contains an ID that you use when performing a 'GetChange' action
 -- to get detailed information about the change.
---
 crrsrChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrChangeInfo = lens _crrsrChangeInfo (\s a -> s { _crrsrChangeInfo = a })
 

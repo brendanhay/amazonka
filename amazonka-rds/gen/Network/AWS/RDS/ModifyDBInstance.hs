@@ -218,7 +218,6 @@ modifyDBInstance p1 = ModifyDBInstance
 -- for the instance, including modifying the instance, rebooting the instance,
 -- deleting the instance, creating a read replica for the instance, and creating
 -- a DB snapshot of the instance.
---
 mdbiAllocatedStorage :: Lens' ModifyDBInstance (Maybe Int)
 mdbiAllocatedStorage =
     lens _mdbiAllocatedStorage (\s a -> s { _mdbiAllocatedStorage = a })
@@ -230,7 +229,6 @@ mdbiAllocatedStorage =
 -- Constraints: This parameter must be set to true when specifying a value for
 -- the EngineVersion parameter that is a different major version than the DB
 -- instance's current version.
---
 mdbiAllowMajorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
 mdbiAllowMajorVersionUpgrade =
     lens _mdbiAllowMajorVersionUpgrade
@@ -247,7 +245,6 @@ mdbiAllowMajorVersionUpgrade =
 -- changes will be applied.
 --
 -- Default: 'false'
---
 mdbiApplyImmediately :: Lens' ModifyDBInstance (Maybe Bool)
 mdbiApplyImmediately =
     lens _mdbiApplyImmediately (\s a -> s { _mdbiApplyImmediately = a })
@@ -259,7 +256,6 @@ mdbiApplyImmediately =
 -- parameter is set to 'true' during the maintenance window, and a newer minor
 -- version is available, and RDS has enabled auto patching for that engine
 -- version.
---
 mdbiAutoMinorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
 mdbiAutoMinorVersionUpgrade =
     lens _mdbiAutoMinorVersionUpgrade
@@ -298,7 +294,6 @@ mdbiBackupRetentionPeriod =
 -- Default: Uses existing setting
 --
 -- Valid Values: 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |db.m1.xlarge | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium |db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge |db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small |db.t2.medium'
---
 mdbiDBInstanceClass :: Lens' ModifyDBInstance (Maybe Text)
 mdbiDBInstanceClass =
     lens _mdbiDBInstanceClass (\s a -> s { _mdbiDBInstanceClass = a })
@@ -326,7 +321,6 @@ mdbiDBInstanceIdentifier =
 --
 -- Constraints: The DB parameter group must be in the same DB parameter group
 -- family as this DB instance.
---
 mdbiDBParameterGroupName :: Lens' ModifyDBInstance (Maybe Text)
 mdbiDBParameterGroupName =
     lens _mdbiDBParameterGroupName
@@ -356,7 +350,6 @@ mdbiDBSecurityGroups =
 -- be the default for that DB parameter group family.
 --
 -- Example: '5.1.42'
---
 mdbiEngineVersion :: Lens' ModifyDBInstance (Maybe Text)
 mdbiEngineVersion =
     lens _mdbiEngineVersion (\s a -> s { _mdbiEngineVersion = a })
@@ -394,7 +387,6 @@ mdbiEngineVersion =
 -- for the instance, including modifying the instance, rebooting the instance,
 -- deleting the instance, creating a read replica for the instance, and creating
 -- a DB snapshot of the instance.
---
 mdbiIops :: Lens' ModifyDBInstance (Maybe Int)
 mdbiIops = lens _mdbiIops (\s a -> s { _mdbiIops = a })
 
@@ -411,7 +403,6 @@ mdbiIops = lens _mdbiIops (\s a -> s { _mdbiIops = a })
 -- Constraints: Must be 8 to 41 alphanumeric characters (MySQL), 8 to 30
 -- alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL
 -- Server).
---
 mdbiMasterUserPassword :: Lens' ModifyDBInstance (Maybe Text)
 mdbiMasterUserPassword =
     lens _mdbiMasterUserPassword (\s a -> s { _mdbiMasterUserPassword = a })
@@ -422,7 +413,6 @@ mdbiMasterUserPassword =
 -- for this request.
 --
 -- Constraints: Cannot be specified if the DB instance is a read replica.
---
 mdbiMultiAZ :: Lens' ModifyDBInstance (Maybe Bool)
 mdbiMultiAZ = lens _mdbiMultiAZ (\s a -> s { _mdbiMultiAZ = a })
 
@@ -453,7 +443,6 @@ mdbiNewDBInstanceIdentifier =
 -- Permanent options, such as the TDE option for Oracle Advanced Security TDE,
 -- cannot be removed from an option group, and that option group cannot be
 -- removed from a DB instance once it is associated with a DB instance
---
 mdbiOptionGroupName :: Lens' ModifyDBInstance (Maybe Text)
 mdbiOptionGroupName =
     lens _mdbiOptionGroupName (\s a -> s { _mdbiOptionGroupName = a })
@@ -490,7 +479,6 @@ mdbiPreferredBackupWindow =
 -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 --
 -- Constraints: Must be at least 30 minutes
---
 mdbiPreferredMaintenanceWindow :: Lens' ModifyDBInstance (Maybe Text)
 mdbiPreferredMaintenanceWindow =
     lens _mdbiPreferredMaintenanceWindow
@@ -501,20 +489,17 @@ mdbiPreferredMaintenanceWindow =
 -- Valid values: 'standard | gp2 | io1'
 --
 -- If you specify 'io1', you must also include a value for the 'Iops' parameter.
---
 mdbiStorageType :: Lens' ModifyDBInstance (Maybe Text)
 mdbiStorageType = lens _mdbiStorageType (\s a -> s { _mdbiStorageType = a })
 
 -- | The ARN from the Key Store with which to associate the instance for TDE
 -- encryption.
---
 mdbiTdeCredentialArn :: Lens' ModifyDBInstance (Maybe Text)
 mdbiTdeCredentialArn =
     lens _mdbiTdeCredentialArn (\s a -> s { _mdbiTdeCredentialArn = a })
 
 -- | The password for the given ARN from the Key Store in order to access the
 -- device.
---
 mdbiTdeCredentialPassword :: Lens' ModifyDBInstance (Maybe Text)
 mdbiTdeCredentialPassword =
     lens _mdbiTdeCredentialPassword

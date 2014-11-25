@@ -65,7 +65,6 @@ listSubscriptions = ListSubscriptions
     }
 
 -- | Token returned by the previous 'ListSubscriptions' request.
---
 lsNextToken :: Lens' ListSubscriptions (Maybe Text)
 lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
 
@@ -90,12 +89,10 @@ listSubscriptionsResponse = ListSubscriptionsResponse
 
 -- | Token to pass along to the next 'ListSubscriptions' request. This element is
 -- returned if there are more subscriptions to retrieve.
---
 lsrNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
 lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
 
 -- | A list of subscriptions.
---
 lsrSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
 lsrSubscriptions = lens _lsrSubscriptions (\s a -> s { _lsrSubscriptions = a }) . _List
 

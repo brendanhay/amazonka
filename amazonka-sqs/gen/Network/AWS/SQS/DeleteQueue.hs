@@ -75,7 +75,6 @@ deleteQueue p1 = DeleteQueue
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
---
 dqQueueUrl :: Lens' DeleteQueue Text
 dqQueueUrl = lens _dqQueueUrl (\s a -> s { _dqQueueUrl = a })
 

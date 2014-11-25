@@ -126,14 +126,12 @@ attribute p1 p2 = Attribute
     , _aAlternateValueEncoding = Nothing
     }
 
--- | 
---
+
 aAlternateNameEncoding :: Lens' Attribute (Maybe Text)
 aAlternateNameEncoding =
     lens _aAlternateNameEncoding (\s a -> s { _aAlternateNameEncoding = a })
 
--- | 
---
+
 aAlternateValueEncoding :: Lens' Attribute (Maybe Text)
 aAlternateValueEncoding =
     lens _aAlternateValueEncoding (\s a -> s { _aAlternateValueEncoding = a })
@@ -264,18 +262,15 @@ updateCondition = UpdateCondition
 -- specified value in order for the update condition to be satisfied. Specify 'true' if the attribute must exist for the update condition to be satisfied.
 -- Specify 'false' if the attribute should not exist in order for the update
 -- condition to be satisfied.
---
 ucExists :: Lens' UpdateCondition (Maybe Bool)
 ucExists = lens _ucExists (\s a -> s { _ucExists = a })
 
 -- | The name of the attribute involved in the condition.
---
 ucName :: Lens' UpdateCondition (Maybe Text)
 ucName = lens _ucName (\s a -> s { _ucName = a })
 
 -- | The value of an attribute. This value can only be specified when the 'Exists'
 -- parameter is equal to 'true'.
---
 ucValue :: Lens' UpdateCondition (Maybe Text)
 ucValue = lens _ucValue (\s a -> s { _ucValue = a })
 
@@ -367,8 +362,7 @@ item p1 = Item
     , _iAttributes            = mempty
     }
 
--- | 
---
+
 iAlternateNameEncoding :: Lens' Item (Maybe Text)
 iAlternateNameEncoding =
     lens _iAlternateNameEncoding (\s a -> s { _iAlternateNameEncoding = a })

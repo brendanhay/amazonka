@@ -68,7 +68,6 @@ describeEventCategories = DescribeEventCategories
     }
 
 -- | This parameter is not currently supported.
---
 decFilters :: Lens' DescribeEventCategories [Filter]
 decFilters = lens _decFilters (\s a -> s { _decFilters = a }) . _List
 
@@ -76,7 +75,6 @@ decFilters = lens _decFilters (\s a -> s { _decFilters = a }) . _List
 --
 -- Valid values: db-instance | db-parameter-group | db-security-group |
 -- db-snapshot
---
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
 
@@ -102,7 +100,6 @@ describeEventCategoriesResponse = DescribeEventCategoriesResponse
     }
 
 -- | A list of EventCategoriesMap data types.
---
 decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
 decrEventCategoriesMapList =
     lens _decrEventCategoriesMapList

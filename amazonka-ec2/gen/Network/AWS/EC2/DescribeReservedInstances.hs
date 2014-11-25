@@ -129,7 +129,6 @@ driFilters = lens _driFilters (\s a -> s { _driFilters = a }) . _List
 -- | The Reserved Instance offering type. If you are using tools that predate the
 -- 2011-11-01 API version, you only have access to the 'Medium Utilization'
 -- Reserved Instance offering type.
---
 driOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
 driOfferingType = lens _driOfferingType (\s a -> s { _driOfferingType = a })
 
@@ -137,7 +136,6 @@ driOfferingType = lens _driOfferingType (\s a -> s { _driOfferingType = a })
 --
 -- Default: Describes all your Reserved Instances, or only those otherwise
 -- specified.
---
 driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
 driReservedInstancesIds =
     lens _driReservedInstancesIds (\s a -> s { _driReservedInstancesIds = a })
@@ -165,7 +163,6 @@ describeReservedInstancesResponse = DescribeReservedInstancesResponse
     }
 
 -- | A list of Reserved Instances.
---
 drirReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
 drirReservedInstances =
     lens _drirReservedInstances (\s a -> s { _drirReservedInstances = a })

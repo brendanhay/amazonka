@@ -83,7 +83,6 @@ copyDBSnapshot p1 p2 = CopyDBSnapshot
 -- copy, specify a valid DB snapshot ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html  Copying aDB Snapshot>.  Example: 'rds:mydb-2012-04-02-00-01'
 --
 -- Example: 'arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805'
---
 cdbsSourceDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
 cdbsSourceDBSnapshotIdentifier =
     lens _cdbsSourceDBSnapshotIdentifier
@@ -99,7 +98,6 @@ cdbsTags = lens _cdbsTags (\s a -> s { _cdbsTags = a }) . _List
 -- Cannot be null, empty, or blank Must contain from 1 to 255 alphanumeric
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens  Example: 'my-db-snapshot'
---
 cdbsTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
 cdbsTargetDBSnapshotIdentifier =
     lens _cdbsTargetDBSnapshotIdentifier

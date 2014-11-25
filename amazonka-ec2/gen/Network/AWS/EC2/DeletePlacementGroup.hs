@@ -70,7 +70,6 @@ dpgDryRun :: Lens' DeletePlacementGroup (Maybe Bool)
 dpgDryRun = lens _dpgDryRun (\s a -> s { _dpgDryRun = a })
 
 -- | The name of the placement group.
---
 dpgGroupName :: Lens' DeletePlacementGroup Text
 dpgGroupName = lens _dpgGroupName (\s a -> s { _dpgGroupName = a })
 

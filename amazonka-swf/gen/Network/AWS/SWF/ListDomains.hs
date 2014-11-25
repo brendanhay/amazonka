@@ -97,7 +97,6 @@ listDomains p1 = ListDomains
 -- You cannot specify a page size greater than 100. Note that the number of
 -- domains may be less than the maxiumum page size, in which case, the returned
 -- page will have fewer results than the maximumPageSize specified.
---
 ldMaximumPageSize :: Lens' ListDomains (Maybe Natural)
 ldMaximumPageSize =
     lens _ldMaximumPageSize (\s a -> s { _ldMaximumPageSize = a })
@@ -106,12 +105,10 @@ ldMaximumPageSize =
 -- | If on a previous call to this method a 'NextPageToken' was returned, the
 -- result has more than one page. To get the next page of results, repeat the
 -- call with the returned token and all other arguments unchanged.
---
 ldNextPageToken :: Lens' ListDomains (Maybe Text)
 ldNextPageToken = lens _ldNextPageToken (\s a -> s { _ldNextPageToken = a })
 
 -- | Specifies the registration status of the domains to list.
---
 ldRegistrationStatus :: Lens' ListDomains RegistrationStatus
 ldRegistrationStatus =
     lens _ldRegistrationStatus (\s a -> s { _ldRegistrationStatus = a })
@@ -119,7 +116,6 @@ ldRegistrationStatus =
 -- | When set to 'true', returns the results in reverse order. By default the
 -- results are returned in ascending alphabetical order of the 'name' of the
 -- domains.
---
 ldReverseOrder :: Lens' ListDomains (Maybe Bool)
 ldReverseOrder = lens _ldReverseOrder (\s a -> s { _ldReverseOrder = a })
 
@@ -143,14 +139,12 @@ listDomainsResponse = ListDomainsResponse
     }
 
 -- | A list of DomainInfo structures.
---
 ldrDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
 ldrDomainInfos = lens _ldrDomainInfos (\s a -> s { _ldrDomainInfos = a }) . _List
 
 -- | Returns a value if the results are paginated. To get the next page of
 -- results, repeat the request specifying this token and all other arguments
 -- unchanged.
---
 ldrNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextPageToken = lens _ldrNextPageToken (\s a -> s { _ldrNextPageToken = a })
 

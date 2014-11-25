@@ -69,7 +69,6 @@ describeConfigurationRecorders = DescribeConfigurationRecorders
     }
 
 -- | A list of configuration recorder names.
---
 dcrConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders [Text]
 dcrConfigurationRecorderNames =
     lens _dcrConfigurationRecorderNames
@@ -99,7 +98,6 @@ describeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse
 
 -- | A list that contains the descriptions of the specified configuration
 -- recorders.
---
 dcrrConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [ConfigurationRecorder]
 dcrrConfigurationRecorders =
     lens _dcrrConfigurationRecorders

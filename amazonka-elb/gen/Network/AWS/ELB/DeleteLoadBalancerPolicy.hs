@@ -67,13 +67,11 @@ deleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicy
     }
 
 -- | The mnemonic name associated with the load balancer.
---
 dlbp1LoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
 dlbp1LoadBalancerName =
     lens _dlbp1LoadBalancerName (\s a -> s { _dlbp1LoadBalancerName = a })
 
 -- | The mnemonic name for the policy being deleted.
---
 dlbp1PolicyName :: Lens' DeleteLoadBalancerPolicy Text
 dlbp1PolicyName = lens _dlbp1PolicyName (\s a -> s { _dlbp1PolicyName = a })
 

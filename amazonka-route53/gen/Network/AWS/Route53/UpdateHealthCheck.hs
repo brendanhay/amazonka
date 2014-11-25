@@ -108,7 +108,6 @@ updateHealthCheck p1 = UpdateHealthCheck
 -- Route 53 Developer Guide.
 --
 -- Specify this value only if you want to change it.
---
 uhcFailureThreshold :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcFailureThreshold =
     lens _uhcFailureThreshold (\s a -> s { _uhcFailureThreshold = a })
@@ -117,21 +116,18 @@ uhcFailureThreshold =
 -- | Fully qualified domain name of the instance to be health checked.
 --
 -- Specify this value only if you want to change it.
---
 uhcFullyQualifiedDomainName :: Lens' UpdateHealthCheck (Maybe Text)
 uhcFullyQualifiedDomainName =
     lens _uhcFullyQualifiedDomainName
         (\s a -> s { _uhcFullyQualifiedDomainName = a })
 
 -- | The ID of the health check to update.
---
 uhcHealthCheckId :: Lens' UpdateHealthCheck Text
 uhcHealthCheckId = lens _uhcHealthCheckId (\s a -> s { _uhcHealthCheckId = a })
 
 -- | Optional. When you specify a health check version, Route 53 compares this
 -- value with the current value in the health check, which prevents you from
 -- updating the health check when the versions don't match. Using 'HealthCheckVersion' lets you prevent overwriting another change to the health check.
---
 uhcHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcHealthCheckVersion =
     lens _uhcHealthCheckVersion (\s a -> s { _uhcHealthCheckVersion = a })
@@ -140,7 +136,6 @@ uhcHealthCheckVersion =
 -- | The IP address of the resource that you want to check.
 --
 -- Specify this value only if you want to change it.
---
 uhcIPAddress :: Lens' UpdateHealthCheck (Maybe Text)
 uhcIPAddress = lens _uhcIPAddress (\s a -> s { _uhcIPAddress = a })
 
@@ -148,7 +143,6 @@ uhcIPAddress = lens _uhcIPAddress (\s a -> s { _uhcIPAddress = a })
 -- checks.
 --
 -- Specify this value only if you want to change it.
---
 uhcPort :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcPort = lens _uhcPort (\s a -> s { _uhcPort = a }) . mapping _Nat
 
@@ -158,7 +152,6 @@ uhcPort = lens _uhcPort (\s a -> s { _uhcPort = a }) . mapping _Nat
 -- /docs/route53-health-check.html.
 --
 -- Specify this value only if you want to change it.
---
 uhcResourcePath :: Lens' UpdateHealthCheck (Maybe Text)
 uhcResourcePath = lens _uhcResourcePath (\s a -> s { _uhcResourcePath = a })
 
@@ -168,7 +161,6 @@ uhcResourcePath = lens _uhcResourcePath (\s a -> s { _uhcResourcePath = a })
 -- healthy.
 --
 -- Specify this value only if you want to change it.
---
 uhcSearchString :: Lens' UpdateHealthCheck (Maybe Text)
 uhcSearchString = lens _uhcSearchString (\s a -> s { _uhcSearchString = a })
 

@@ -75,14 +75,12 @@ enterStandby p1 p2 = EnterStandby
     }
 
 -- | The name of the Auto Scaling group.
---
 esAutoScalingGroupName :: Lens' EnterStandby Text
 esAutoScalingGroupName =
     lens _esAutoScalingGroupName (\s a -> s { _esAutoScalingGroupName = a })
 
 -- | One or more instances to move into 'Standby' mode. You must specify at least
 -- one instance ID.
---
 esInstanceIds :: Lens' EnterStandby [Text]
 esInstanceIds = lens _esInstanceIds (\s a -> s { _esInstanceIds = a }) . _List
 
@@ -90,7 +88,6 @@ esInstanceIds = lens _esInstanceIds (\s a -> s { _esInstanceIds = a }) . _List
 -- Auto Scaling group's desired capacity. If set, the desired capacity for the
 -- Auto Scaling group decrements by the number of instances moved to 'Standby'
 -- mode.
---
 esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
 esShouldDecrementDesiredCapacity =
     lens _esShouldDecrementDesiredCapacity
@@ -118,7 +115,6 @@ enterStandbyResponse = EnterStandbyResponse
     }
 
 -- | The activities related to moving instances into 'Standby' mode.
---
 esr1Activities :: Lens' EnterStandbyResponse [Activity]
 esr1Activities = lens _esr1Activities (\s a -> s { _esr1Activities = a }) . _List
 

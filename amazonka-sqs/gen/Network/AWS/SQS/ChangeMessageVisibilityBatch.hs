@@ -77,12 +77,10 @@ changeMessageVisibilityBatch p1 = ChangeMessageVisibilityBatch
 
 -- | A list of receipt handles of the messages for which the visibility timeout
 -- must be changed.
---
 cmvbEntries :: Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
 cmvbEntries = lens _cmvbEntries (\s a -> s { _cmvbEntries = a }) . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
---
 cmvbQueueUrl :: Lens' ChangeMessageVisibilityBatch Text
 cmvbQueueUrl = lens _cmvbQueueUrl (\s a -> s { _cmvbQueueUrl = a })
 
@@ -106,12 +104,10 @@ changeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
     }
 
 -- | A list of 'BatchResultErrorEntry' items.
---
 cmvbrFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
 cmvbrFailed = lens _cmvbrFailed (\s a -> s { _cmvbrFailed = a }) . _List
 
 -- | A list of 'ChangeMessageVisibilityBatchResultEntry' items.
---
 cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
 cmvbrSuccessful = lens _cmvbrSuccessful (\s a -> s { _cmvbrSuccessful = a }) . _List
 

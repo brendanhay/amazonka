@@ -24,6 +24,7 @@
 --
 -- You should understand the implications of changing a user's path or name.
 -- For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups> in the /Using IAM/ guide.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateUser.html>
 module Network.AWS.IAM.UpdateUser
     (
@@ -73,19 +74,16 @@ updateUser p1 = UpdateUser
 
 -- | New path for the user. Include this parameter only if you're changing the
 -- user's path.
---
 uuNewPath :: Lens' UpdateUser (Maybe Text)
 uuNewPath = lens _uuNewPath (\s a -> s { _uuNewPath = a })
 
 -- | New name for the user. Include this parameter only if you're changing the
 -- user's name.
---
 uuNewUserName :: Lens' UpdateUser (Maybe Text)
 uuNewUserName = lens _uuNewUserName (\s a -> s { _uuNewUserName = a })
 
 -- | Name of the user to update. If you're changing the name of the user, this is
 -- the original user name.
---
 uuUserName :: Lens' UpdateUser Text
 uuUserName = lens _uuUserName (\s a -> s { _uuUserName = a })
 

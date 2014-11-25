@@ -64,7 +64,6 @@ cancelExportTask p1 = CancelExportTask
 
 -- | The ID of the export task. This is the ID returned by 'CreateInstanceExportTask'
 -- .
---
 cetExportTaskId :: Lens' CancelExportTask Text
 cetExportTaskId = lens _cetExportTaskId (\s a -> s { _cetExportTaskId = a })
 

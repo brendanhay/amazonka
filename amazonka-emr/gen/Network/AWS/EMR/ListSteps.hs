@@ -73,17 +73,14 @@ listSteps p1 = ListSteps
     }
 
 -- | The identifier of the cluster for which to list the steps.
---
 lsClusterId :: Lens' ListSteps Text
 lsClusterId = lens _lsClusterId (\s a -> s { _lsClusterId = a })
 
 -- | The pagination token that indicates the next set of results to retrieve.
---
 lsMarker :: Lens' ListSteps (Maybe Text)
 lsMarker = lens _lsMarker (\s a -> s { _lsMarker = a })
 
 -- | The filter to limit the step list based on certain states.
---
 lsStepStates :: Lens' ListSteps [StepState]
 lsStepStates = lens _lsStepStates (\s a -> s { _lsStepStates = a }) . _List
 
@@ -107,12 +104,10 @@ listStepsResponse = ListStepsResponse
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.
---
 lsrMarker :: Lens' ListStepsResponse (Maybe Text)
 lsrMarker = lens _lsrMarker (\s a -> s { _lsrMarker = a })
 
 -- | The filtered list of steps for the cluster.
---
 lsrSteps :: Lens' ListStepsResponse [StepSummary]
 lsrSteps = lens _lsrSteps (\s a -> s { _lsrSteps = a }) . _List
 

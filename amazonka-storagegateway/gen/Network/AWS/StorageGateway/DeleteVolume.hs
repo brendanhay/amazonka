@@ -75,7 +75,6 @@ deleteVolume p1 = DeleteVolume
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation
 -- to return a list of gateway volumes.
---
 dvVolumeARN :: Lens' DeleteVolume Text
 dvVolumeARN = lens _dvVolumeARN (\s a -> s { _dvVolumeARN = a })
 
@@ -96,7 +95,6 @@ deleteVolumeResponse = DeleteVolumeResponse
 
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted. It is
 -- the same ARN you provided in the request.
---
 dvrVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
 dvrVolumeARN = lens _dvrVolumeARN (\s a -> s { _dvrVolumeARN = a })
 

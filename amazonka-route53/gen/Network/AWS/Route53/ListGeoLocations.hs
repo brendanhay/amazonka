@@ -91,7 +91,6 @@ listGeoLocations = ListGeoLocations
     }
 
 -- | The maximum number of geo locations you want in the response body.
---
 lglMaxItems :: Lens' ListGeoLocations (Maybe Text)
 lglMaxItems = lens _lglMaxItems (\s a -> s { _lglMaxItems = a })
 
@@ -102,7 +101,6 @@ lglMaxItems = lens _lglMaxItems (\s a -> s { _lglMaxItems = a })
 -- Valid values: 'AF' | 'AN' | 'AS' | 'EU' | 'OC' | 'NA' | 'SA'
 --
 -- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or 'SubdivisionCode' returns an 'InvalidInput' error.
---
 lglStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartContinentCode =
     lens _lglStartContinentCode (\s a -> s { _lglStartContinentCode = a })
@@ -112,7 +110,6 @@ lglStartContinentCode =
 --
 -- The default geo location uses a '*' for the country code. All other country
 -- codes follow the ISO 3166 two-character code.
---
 lglStartCountryCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartCountryCode =
     lens _lglStartCountryCode (\s a -> s { _lglStartCountryCode = a })
@@ -121,7 +118,6 @@ lglStartCountryCode =
 -- that you want the 'ListGeoLocations' request to list.
 --
 -- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns an 'InvalidInput' error.
---
 lglStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartSubdivisionCode =
     lens _lglStartSubdivisionCode (\s a -> s { _lglStartSubdivisionCode = a })
@@ -165,7 +161,6 @@ listGeoLocationsResponse p1 p2 = ListGeoLocationsResponse
 
 -- | A complex type that contains information about the geo locations that are
 -- returned by the request.
---
 lglrGeoLocationDetailsList :: Lens' ListGeoLocationsResponse [GeoLocationDetails]
 lglrGeoLocationDetailsList =
     lens _lglrGeoLocationDetailsList
@@ -177,20 +172,17 @@ lglrGeoLocationDetailsList =
 -- page of results by using the values included in the 'ListGeoLocationsResponse$NextContinentCode', 'ListGeoLocationsResponse$NextCountryCode' and 'ListGeoLocationsResponse$NextSubdivisionCode' elements.
 --
 -- Valid Values: 'true' | 'false'
---
 lglrIsTruncated :: Lens' ListGeoLocationsResponse Bool
 lglrIsTruncated = lens _lglrIsTruncated (\s a -> s { _lglrIsTruncated = a })
 
 -- | The maximum number of records you requested. The maximum value of 'MaxItems' is
 -- 100.
---
 lglrMaxItems :: Lens' ListGeoLocationsResponse Text
 lglrMaxItems = lens _lglrMaxItems (\s a -> s { _lglrMaxItems = a })
 
 -- | If the results were truncated, the continent code of the next geo location in
 -- the list. This element is present only if 'ListGeoLocationsResponse$IsTruncated'
 -- is true and the next geo location to list is a continent location.
---
 lglrNextContinentCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrNextContinentCode =
     lens _lglrNextContinentCode (\s a -> s { _lglrNextContinentCode = a })
@@ -198,14 +190,12 @@ lglrNextContinentCode =
 -- | If the results were truncated, the country code of the next geo location in
 -- the list. This element is present only if 'ListGeoLocationsResponse$IsTruncated'
 -- is true and the next geo location to list is not a continent location.
---
 lglrNextCountryCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrNextCountryCode =
     lens _lglrNextCountryCode (\s a -> s { _lglrNextCountryCode = a })
 
 -- | If the results were truncated, the subdivision code of the next geo location
 -- in the list. This element is present only if 'ListGeoLocationsResponse$IsTruncated' is true and the next geo location has a subdivision.
---
 lglrNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrNextSubdivisionCode =
     lens _lglrNextSubdivisionCode (\s a -> s { _lglrNextSubdivisionCode = a })

@@ -76,7 +76,6 @@ createCacheSubnetGroup p1 p2 = CreateCacheSubnetGroup
     }
 
 -- | A description for the cache subnet group.
---
 ccsgCacheSubnetGroupDescription :: Lens' CreateCacheSubnetGroup Text
 ccsgCacheSubnetGroupDescription =
     lens _ccsgCacheSubnetGroupDescription
@@ -88,14 +87,12 @@ ccsgCacheSubnetGroupDescription =
 -- hyphens.
 --
 -- Example: 'mysubnetgroup'
---
 ccsgCacheSubnetGroupName :: Lens' CreateCacheSubnetGroup Text
 ccsgCacheSubnetGroupName =
     lens _ccsgCacheSubnetGroupName
         (\s a -> s { _ccsgCacheSubnetGroupName = a })
 
 -- | A list of VPC subnet IDs for the cache subnet group.
---
 ccsgSubnetIds :: Lens' CreateCacheSubnetGroup [Text]
 ccsgSubnetIds = lens _ccsgSubnetIds (\s a -> s { _ccsgSubnetIds = a }) . _List
 

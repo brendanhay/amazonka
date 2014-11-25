@@ -64,7 +64,6 @@ deleteDeliveryChannel p1 = DeleteDeliveryChannel
     }
 
 -- | The name of the delivery channel to delete.
---
 ddcDeliveryChannelName :: Lens' DeleteDeliveryChannel Text
 ddcDeliveryChannelName =
     lens _ddcDeliveryChannelName (\s a -> s { _ddcDeliveryChannelName = a })

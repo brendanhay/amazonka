@@ -23,6 +23,7 @@
 -- | Removes the null version (if there is one) of an object and inserts a delete
 -- marker, which becomes the latest version of the object. If there isn't a null
 -- version, Amazon S3 does not remove any objects.
+--
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObject.html>
 module Network.AWS.S3.DeleteObject
     (

@@ -92,7 +92,6 @@ cdbs1DBInstanceIdentifier =
 -- Cannot be null, empty, or blank Must contain from 1 to 255 alphanumeric
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens  Example: 'my-snapshot-id'
---
 cdbs1DBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
 cdbs1DBSnapshotIdentifier =
     lens _cdbs1DBSnapshotIdentifier

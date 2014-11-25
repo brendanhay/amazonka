@@ -70,7 +70,6 @@ disassociateRouteTable p1 = DisassociateRouteTable
 
 -- | The association ID representing the current association between the route
 -- table and subnet.
---
 drtAssociationId :: Lens' DisassociateRouteTable Text
 drtAssociationId = lens _drtAssociationId (\s a -> s { _drtAssociationId = a })
 

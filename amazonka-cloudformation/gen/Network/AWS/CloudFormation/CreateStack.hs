@@ -128,7 +128,6 @@ createStack p1 = CreateStack
 -- stack template contains these resources, we recommend that you review any
 -- permissions associated with them. If you don't specify this parameter, this
 -- action returns an 'InsufficientCapabilities' error.
---
 csCapabilities :: Lens' CreateStack [Capability]
 csCapabilities = lens _csCapabilities (\s a -> s { _csCapabilities = a }) . _List
 
@@ -136,7 +135,6 @@ csCapabilities = lens _csCapabilities (\s a -> s { _csCapabilities = a }) . _Lis
 -- can specify either 'DisableRollback' or 'OnFailure', but not both.
 --
 -- Default: 'false'
---
 csDisableRollback :: Lens' CreateStack (Maybe Bool)
 csDisableRollback =
     lens _csDisableRollback (\s a -> s { _csDisableRollback = a })
@@ -144,7 +142,6 @@ csDisableRollback =
 -- | The Simple Notification Service (SNS) topic ARNs to publish stack related
 -- events. You can find your SNS topic ARNs using the <http://console.aws.amazon.com/sns SNS console> or your
 -- Command Line Interface (CLI).
---
 csNotificationARNs :: Lens' CreateStack [Text]
 csNotificationARNs =
     lens _csNotificationARNs (\s a -> s { _csNotificationARNs = a })
@@ -154,12 +151,10 @@ csNotificationARNs =
 -- one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either 'OnFailure' or 'DisableRollback', but not both.
 --
 -- Default: 'ROLLBACK'
---
 csOnFailure :: Lens' CreateStack (Maybe OnFailure)
 csOnFailure = lens _csOnFailure (\s a -> s { _csOnFailure = a })
 
 -- | A list of 'Parameter' structures that specify input parameters for the stack.
---
 csParameters :: Lens' CreateStack [Parameter]
 csParameters = lens _csParameters (\s a -> s { _csParameters = a }) . _List
 
@@ -174,7 +169,6 @@ csStackName = lens _csStackName (\s a -> s { _csStackName = a })
 -- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You
 -- can specify either the 'StackPolicyBody' or the 'StackPolicyURL' parameter, but
 -- not both.
---
 csStackPolicyBody :: Lens' CreateStack (Maybe Text)
 csStackPolicyBody =
     lens _csStackPolicyBody (\s a -> s { _csStackPolicyBody = a })
@@ -183,7 +177,6 @@ csStackPolicyBody =
 -- policy (max size: 16KB) located in an S3 bucket in the same region as the
 -- stack. You can specify either the 'StackPolicyBody' or the 'StackPolicyURL'
 -- parameter, but not both.
---
 csStackPolicyURL :: Lens' CreateStack (Maybe Text)
 csStackPolicyURL = lens _csStackPolicyURL (\s a -> s { _csStackPolicyURL = a })
 
@@ -191,7 +184,6 @@ csStackPolicyURL = lens _csStackPolicyURL (\s a -> s { _csStackPolicyURL = a })
 -- key/value pairs. Tags defined for the stack are propagated to EC2 resources
 -- that are created as part of the stack. A maximum number of 10 tags can be
 -- specified.
---
 csTags :: Lens' CreateStack [Tag]
 csTags = lens _csTags (\s a -> s { _csTags = a }) . _List
 
@@ -201,7 +193,6 @@ csTags = lens _csTags (\s a -> s { _csTags = a }) . _List
 --
 -- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'
 -- parameter, but not both.
---
 csTemplateBody :: Lens' CreateStack (Maybe Text)
 csTemplateBody = lens _csTemplateBody (\s a -> s { _csTemplateBody = a })
 
@@ -212,14 +203,12 @@ csTemplateBody = lens _csTemplateBody (\s a -> s { _csTemplateBody = a })
 --
 -- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'
 -- parameter, but not both.
---
 csTemplateURL :: Lens' CreateStack (Maybe Text)
 csTemplateURL = lens _csTemplateURL (\s a -> s { _csTemplateURL = a })
 
 -- | The amount of time that can pass before the stack status becomes
 -- CREATE_FAILED; if 'DisableRollback' is not set or is set to 'false', the stack
 -- will be rolled back.
---
 csTimeoutInMinutes :: Lens' CreateStack (Maybe Natural)
 csTimeoutInMinutes =
     lens _csTimeoutInMinutes (\s a -> s { _csTimeoutInMinutes = a })
@@ -241,7 +230,6 @@ createStackResponse = CreateStackResponse
     }
 
 -- | Unique identifier of the stack.
---
 csrStackId :: Lens' CreateStackResponse (Maybe Text)
 csrStackId = lens _csrStackId (\s a -> s { _csrStackId = a })
 

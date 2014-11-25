@@ -86,7 +86,6 @@ setTaskStatus p1 p2 = SetTaskStatus
 -- represents the error. This value is set on the physical attempt object. It is
 -- used to display error information to the user. It should not start with
 -- string "Service_" which is reserved by the system.
---
 stsErrorId :: Lens' SetTaskStatus (Maybe Text)
 stsErrorId = lens _stsErrorId (\s a -> s { _stsErrorId = a })
 
@@ -94,7 +93,6 @@ stsErrorId = lens _stsErrorId (\s a -> s { _stsErrorId = a })
 -- of the error. This value is set on the physical attempt object. It is used to
 -- display error information to the user. The web service does not parse this
 -- value.
---
 stsErrorMessage :: Lens' SetTaskStatus (Maybe Text)
 stsErrorMessage = lens _stsErrorMessage (\s a -> s { _stsErrorMessage = a })
 
@@ -102,19 +100,16 @@ stsErrorMessage = lens _stsErrorMessage (\s a -> s { _stsErrorMessage = a })
 -- associated with the error. This value is set on the physical attempt object.
 -- It is used to display error information to the user. The web service does not
 -- parse this value.
---
 stsErrorStackTrace :: Lens' SetTaskStatus (Maybe Text)
 stsErrorStackTrace =
     lens _stsErrorStackTrace (\s a -> s { _stsErrorStackTrace = a })
 
 -- | Identifies the task assigned to the task runner. This value is set in the 'TaskObject' that is returned by the 'PollForTask' action.
---
 stsTaskId :: Lens' SetTaskStatus Text
 stsTaskId = lens _stsTaskId (\s a -> s { _stsTaskId = a })
 
 -- | If 'FINISHED', the task successfully completed. If 'FAILED' the task ended
 -- unsuccessfully. The 'FALSE' value is used by preconditions.
---
 stsTaskStatus :: Lens' SetTaskStatus TaskStatus
 stsTaskStatus = lens _stsTaskStatus (\s a -> s { _stsTaskStatus = a })
 

@@ -64,7 +64,6 @@ deleteSnapshot p1 = DeleteSnapshot
     }
 
 -- | The name of the snapshot to be deleted.
---
 ds1SnapshotName :: Lens' DeleteSnapshot Text
 ds1SnapshotName = lens _ds1SnapshotName (\s a -> s { _ds1SnapshotName = a })
 

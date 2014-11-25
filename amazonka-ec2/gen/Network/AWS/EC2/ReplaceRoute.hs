@@ -96,7 +96,6 @@ replaceRoute p1 p2 = ReplaceRoute
 
 -- | The CIDR address block used for the destination match. The value you provide
 -- must match the CIDR of an existing route in the table.
---
 rrDestinationCidrBlock :: Lens' ReplaceRoute Text
 rrDestinationCidrBlock =
     lens _rrDestinationCidrBlock (\s a -> s { _rrDestinationCidrBlock = a })
@@ -105,28 +104,23 @@ rrDryRun :: Lens' ReplaceRoute (Maybe Bool)
 rrDryRun = lens _rrDryRun (\s a -> s { _rrDryRun = a })
 
 -- | The ID of an Internet gateway or virtual private gateway.
---
 rrGatewayId :: Lens' ReplaceRoute (Maybe Text)
 rrGatewayId = lens _rrGatewayId (\s a -> s { _rrGatewayId = a })
 
 -- | The ID of a NAT instance in your VPC.
---
 rrInstanceId :: Lens' ReplaceRoute (Maybe Text)
 rrInstanceId = lens _rrInstanceId (\s a -> s { _rrInstanceId = a })
 
 -- | The ID of a network interface.
---
 rrNetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
 rrNetworkInterfaceId =
     lens _rrNetworkInterfaceId (\s a -> s { _rrNetworkInterfaceId = a })
 
 -- | The ID of the route table.
---
 rrRouteTableId :: Lens' ReplaceRoute Text
 rrRouteTableId = lens _rrRouteTableId (\s a -> s { _rrRouteTableId = a })
 
 -- | The ID of a VPC peering connection.
---
 rrVpcPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
 rrVpcPeeringConnectionId =
     lens _rrVpcPeeringConnectionId

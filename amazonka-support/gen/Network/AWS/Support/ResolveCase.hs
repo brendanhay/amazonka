@@ -64,7 +64,6 @@ resolveCase = ResolveCase
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is an
 -- alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
---
 rcCaseId :: Lens' ResolveCase (Maybe Text)
 rcCaseId = lens _rcCaseId (\s a -> s { _rcCaseId = a })
 
@@ -88,13 +87,11 @@ resolveCaseResponse = ResolveCaseResponse
     }
 
 -- | The status of the case after the 'ResolveCase' request was processed.
---
 rcrFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrFinalCaseStatus =
     lens _rcrFinalCaseStatus (\s a -> s { _rcrFinalCaseStatus = a })
 
 -- | The status of the case when the 'ResolveCase' request was sent.
---
 rcrInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrInitialCaseStatus =
     lens _rcrInitialCaseStatus (\s a -> s { _rcrInitialCaseStatus = a })

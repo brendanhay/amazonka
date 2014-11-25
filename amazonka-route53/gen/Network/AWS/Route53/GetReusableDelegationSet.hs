@@ -63,7 +63,6 @@ getReusableDelegationSet p1 = GetReusableDelegationSet
 
 -- | The ID of the reusable delegation set for which you want to get a list of the
 -- name server.
---
 grdsId :: Lens' GetReusableDelegationSet Text
 grdsId = lens _grdsId (\s a -> s { _grdsId = a })
 
@@ -85,7 +84,6 @@ getReusableDelegationSetResponse p1 = GetReusableDelegationSetResponse
 
 -- | A complex type that contains the information about the nameservers for the
 -- specified delegation set ID.
---
 grdsrDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
 grdsrDelegationSet =
     lens _grdsrDelegationSet (\s a -> s { _grdsrDelegationSet = a })

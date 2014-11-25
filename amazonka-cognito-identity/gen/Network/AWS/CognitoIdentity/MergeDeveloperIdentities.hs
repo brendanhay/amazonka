@@ -86,7 +86,6 @@ mergeDeveloperIdentities p1 p2 p3 p4 = MergeDeveloperIdentities
     }
 
 -- | User identifier for the destination user. The value should be a 'DeveloperUserIdentifier'.
---
 mdiDestinationUserIdentifier :: Lens' MergeDeveloperIdentities Text
 mdiDestinationUserIdentifier =
     lens _mdiDestinationUserIdentifier
@@ -97,20 +96,17 @@ mdiDestinationUserIdentifier =
 -- as a placeholder that allows your backend and the Cognito service to
 -- communicate about the developer provider. For the 'DeveloperProviderName', you
 -- can use letters as well as period (.), underscore (_), and dash (-).
---
 mdiDeveloperProviderName :: Lens' MergeDeveloperIdentities Text
 mdiDeveloperProviderName =
     lens _mdiDeveloperProviderName
         (\s a -> s { _mdiDeveloperProviderName = a })
 
 -- | An identity pool ID in the format REGION:GUID.
---
 mdiIdentityPoolId :: Lens' MergeDeveloperIdentities Text
 mdiIdentityPoolId =
     lens _mdiIdentityPoolId (\s a -> s { _mdiIdentityPoolId = a })
 
 -- | User identifier for the source user. The value should be a 'DeveloperUserIdentifier'.
---
 mdiSourceUserIdentifier :: Lens' MergeDeveloperIdentities Text
 mdiSourceUserIdentifier =
     lens _mdiSourceUserIdentifier (\s a -> s { _mdiSourceUserIdentifier = a })
@@ -131,7 +127,6 @@ mergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse
     }
 
 -- | A unique identifier in the format REGION:GUID.
---
 mdirIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
 mdirIdentityId = lens _mdirIdentityId (\s a -> s { _mdirIdentityId = a })
 

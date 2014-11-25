@@ -96,7 +96,6 @@ udContentType :: Lens' UploadDocuments ContentType
 udContentType = lens _udContentType (\s a -> s { _udContentType = a })
 
 -- | A batch of documents formatted in JSON or HTML.
---
 udDocuments :: Lens' UploadDocuments Base64
 udDocuments = lens _udDocuments (\s a -> s { _udDocuments = a })
 
@@ -128,23 +127,19 @@ uploadDocumentsResponse = UploadDocumentsResponse
     }
 
 -- | The number of documents that were added to the search domain.
---
 udrAdds :: Lens' UploadDocumentsResponse (Maybe Integer)
 udrAdds = lens _udrAdds (\s a -> s { _udrAdds = a })
 
 -- | The number of documents that were deleted from the search domain.
---
 udrDeletes :: Lens' UploadDocumentsResponse (Maybe Integer)
 udrDeletes = lens _udrDeletes (\s a -> s { _udrDeletes = a })
 
 -- | The status of an 'UploadDocumentsRequest'.
---
 udrStatus :: Lens' UploadDocumentsResponse (Maybe Text)
 udrStatus = lens _udrStatus (\s a -> s { _udrStatus = a })
 
 -- | Any warnings returned by the document service about the documents being
 -- uploaded.
---
 udrWarnings :: Lens' UploadDocumentsResponse [DocumentServiceWarning]
 udrWarnings = lens _udrWarnings (\s a -> s { _udrWarnings = a }) . _List
 

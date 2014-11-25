@@ -33,6 +33,7 @@
 --
 -- By design, if the load balancer does not exist or has already been deleted,
 -- a call to 'DeleteLoadBalancer' action still succeeds.
+--
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancer.html>
 module Network.AWS.ELB.DeleteLoadBalancer
     (
@@ -71,7 +72,6 @@ deleteLoadBalancer p1 = DeleteLoadBalancer
     }
 
 -- | The name associated with the load balancer.
---
 dlbLoadBalancerName :: Lens' DeleteLoadBalancer Text
 dlbLoadBalancerName =
     lens _dlbLoadBalancerName (\s a -> s { _dlbLoadBalancerName = a })

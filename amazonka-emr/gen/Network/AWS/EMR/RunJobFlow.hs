@@ -142,7 +142,6 @@ runJobFlow p1 p2 = RunJobFlow
     }
 
 -- | A JSON string for selecting additional features.
---
 rjfAdditionalInfo :: Lens' RunJobFlow (Maybe Text)
 rjfAdditionalInfo =
     lens _rjfAdditionalInfo (\s a -> s { _rjfAdditionalInfo = a })
@@ -157,13 +156,11 @@ rjfAdditionalInfo =
 --
 -- For details about the AMI versions currently supported by Amazon Elastic
 -- MapReduce, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /AmazonElastic MapReduce Developer's Guide./
---
 rjfAmiVersion :: Lens' RunJobFlow (Maybe Text)
 rjfAmiVersion = lens _rjfAmiVersion (\s a -> s { _rjfAmiVersion = a })
 
 -- | A list of bootstrap actions that will be run before Hadoop is started on the
 -- cluster nodes.
---
 rjfBootstrapActions :: Lens' RunJobFlow [BootstrapActionConfig]
 rjfBootstrapActions =
     lens _rjfBootstrapActions (\s a -> s { _rjfBootstrapActions = a })
@@ -171,25 +168,21 @@ rjfBootstrapActions =
 
 -- | A specification of the number and type of Amazon EC2 instances on which to
 -- run the job flow.
---
 rjfInstances :: Lens' RunJobFlow JobFlowInstancesConfig
 rjfInstances = lens _rjfInstances (\s a -> s { _rjfInstances = a })
 
 -- | An IAM role for the job flow. The EC2 instances of the job flow assume this
 -- role. The default role is 'EMRJobflowDefault'. In order to use the default
 -- role, you must have already created it using the CLI.
---
 rjfJobFlowRole :: Lens' RunJobFlow (Maybe Text)
 rjfJobFlowRole = lens _rjfJobFlowRole (\s a -> s { _rjfJobFlowRole = a })
 
 -- | The location in Amazon S3 to write the log files of the job flow. If a value
 -- is not provided, logs are not created.
---
 rjfLogUri :: Lens' RunJobFlow (Maybe Text)
 rjfLogUri = lens _rjfLogUri (\s a -> s { _rjfLogUri = a })
 
 -- | The name of the job flow.
---
 rjfName :: Lens' RunJobFlow Text
 rjfName = lens _rjfName (\s a -> s { _rjfName = a })
 
@@ -209,12 +202,10 @@ rjfNewSupportedProducts =
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access AWS
 -- resources on your behalf.
---
 rjfServiceRole :: Lens' RunJobFlow (Maybe Text)
 rjfServiceRole = lens _rjfServiceRole (\s a -> s { _rjfServiceRole = a })
 
 -- | A list of steps to be executed by the job flow.
---
 rjfSteps :: Lens' RunJobFlow [StepConfig]
 rjfSteps = lens _rjfSteps (\s a -> s { _rjfSteps = a }) . _List
 
@@ -231,7 +222,6 @@ rjfSupportedProducts =
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances.
---
 rjfTags :: Lens' RunJobFlow [Tag]
 rjfTags = lens _rjfTags (\s a -> s { _rjfTags = a }) . _List
 
@@ -240,7 +230,6 @@ rjfTags = lens _rjfTags (\s a -> s { _rjfTags = a }) . _List
 -- that AWS account can view and (if they have the proper policy permissions
 -- set) manage the job flow. If it is set to 'false', only the IAM user that
 -- created the job flow can view and manage it.
---
 rjfVisibleToAllUsers :: Lens' RunJobFlow (Maybe Bool)
 rjfVisibleToAllUsers =
     lens _rjfVisibleToAllUsers (\s a -> s { _rjfVisibleToAllUsers = a })
@@ -261,7 +250,6 @@ runJobFlowResponse = RunJobFlowResponse
     }
 
 -- | An unique identifier for the job flow.
---
 rjfrJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
 rjfrJobFlowId = lens _rjfrJobFlowId (\s a -> s { _rjfrJobFlowId = a })
 

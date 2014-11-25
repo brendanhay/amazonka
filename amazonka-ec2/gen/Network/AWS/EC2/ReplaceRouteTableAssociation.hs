@@ -80,7 +80,6 @@ replaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
     }
 
 -- | The association ID.
---
 rrtaAssociationId :: Lens' ReplaceRouteTableAssociation Text
 rrtaAssociationId =
     lens _rrtaAssociationId (\s a -> s { _rrtaAssociationId = a })
@@ -89,7 +88,6 @@ rrtaDryRun :: Lens' ReplaceRouteTableAssociation (Maybe Bool)
 rrtaDryRun = lens _rrtaDryRun (\s a -> s { _rrtaDryRun = a })
 
 -- | The ID of the new route table to associate with the subnet.
---
 rrtaRouteTableId :: Lens' ReplaceRouteTableAssociation Text
 rrtaRouteTableId = lens _rrtaRouteTableId (\s a -> s { _rrtaRouteTableId = a })
 
@@ -109,7 +107,6 @@ replaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     }
 
 -- | The ID of the new association.
---
 rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
 rrtarNewAssociationId =
     lens _rrtarNewAssociationId (\s a -> s { _rrtarNewAssociationId = a })

@@ -27,6 +27,7 @@
 --
 -- Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a
 -- value greater than 100, Amazon Route 53 returns only the first 100.
+--
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html>
 module Network.AWS.Route53.ListHealthChecks
     (
@@ -77,12 +78,10 @@ listHealthChecks = ListHealthChecks
 -- | If the request returned more than one page of results, submit another request
 -- and specify the value of 'NextMarker' from the last response in the 'marker'
 -- parameter to get the next page of results.
---
 lhcMarker :: Lens' ListHealthChecks (Maybe Text)
 lhcMarker = lens _lhcMarker (\s a -> s { _lhcMarker = a })
 
 -- | Specify the maximum number of health checks to return per page of results.
---
 lhcMaxItems :: Lens' ListHealthChecks (Maybe Text)
 lhcMaxItems = lens _lhcMaxItems (\s a -> s { _lhcMaxItems = a })
 
@@ -122,7 +121,6 @@ listHealthChecksResponse p1 p2 p3 = ListHealthChecksResponse
 
 -- | A complex type that contains information about the health checks associated
 -- with the current AWS account.
---
 lhcrHealthChecks :: Lens' ListHealthChecksResponse [HealthCheck]
 lhcrHealthChecks = lens _lhcrHealthChecks (\s a -> s { _lhcrHealthChecks = a }) . _List
 
@@ -131,27 +129,23 @@ lhcrHealthChecks = lens _lhcrHealthChecks (\s a -> s { _lhcrHealthChecks = a }) 
 -- results by using the 'Marker' element.
 --
 -- Valid Values: 'true' | 'false'
---
 lhcrIsTruncated :: Lens' ListHealthChecksResponse Bool
 lhcrIsTruncated = lens _lhcrIsTruncated (\s a -> s { _lhcrIsTruncated = a })
 
 -- | If the request returned more than one page of results, submit another request
 -- and specify the value of 'NextMarker' from the last response in the 'marker'
 -- parameter to get the next page of results.
---
 lhcrMarker :: Lens' ListHealthChecksResponse Text
 lhcrMarker = lens _lhcrMarker (\s a -> s { _lhcrMarker = a })
 
 -- | The maximum number of health checks to be included in the response body. If
 -- the number of health checks associated with this AWS account exceeds 'MaxItems', the value of
 -- 'ListHealthChecksResponse$IsTruncated' in the response is 'true'. Call 'ListHealthChecks' again and specify the value of 'ListHealthChecksResponse$NextMarker' in the 'ListHostedZonesRequest$Marker' element to get the next page of results.
---
 lhcrMaxItems :: Lens' ListHealthChecksResponse Text
 lhcrMaxItems = lens _lhcrMaxItems (\s a -> s { _lhcrMaxItems = a })
 
 -- | Indicates where to continue listing health checks. If 'ListHealthChecksResponse$IsTruncated' is 'true', make another request to 'ListHealthChecks' and include the value of
 -- the 'NextMarker' element in the 'Marker' element to get the next page of results.
---
 lhcrNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
 lhcrNextMarker = lens _lhcrNextMarker (\s a -> s { _lhcrNextMarker = a })
 

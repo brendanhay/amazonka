@@ -130,19 +130,16 @@ updateStack p1 = UpdateStack
 -- stack template contains these resources, we recommend that you review any
 -- permissions associated with them. If you don't specify this parameter, this
 -- action returns an InsufficientCapabilities error.
---
 usCapabilities :: Lens' UpdateStack [Capability]
 usCapabilities = lens _usCapabilities (\s a -> s { _usCapabilities = a }) . _List
 
 -- | Update the ARNs for the Amazon SNS topics that are associated with the stack.
---
 usNotificationARNs :: Lens' UpdateStack [Text]
 usNotificationARNs =
     lens _usNotificationARNs (\s a -> s { _usNotificationARNs = a })
         . _List
 
 -- | A list of 'Parameter' structures that specify input parameters for the stack.
---
 usParameters :: Lens' UpdateStack [Parameter]
 usParameters = lens _usParameters (\s a -> s { _usParameters = a }) . _List
 
@@ -159,7 +156,6 @@ usStackName = lens _usStackName (\s a -> s { _usStackName = a })
 -- resource that you created during a stack update. If you do not specify a
 -- stack policy, the current policy that is associated with the stack is
 -- unchanged.
---
 usStackPolicyBody :: Lens' UpdateStack (Maybe Text)
 usStackPolicyBody =
     lens _usStackPolicyBody (\s a -> s { _usStackPolicyBody = a })
@@ -170,7 +166,6 @@ usStackPolicyBody =
 -- If you want to update protected resources, specify a temporary overriding
 -- stack policy during this update. If you do not specify a stack policy, the
 -- current policy that is associated with the stack will be used.
---
 usStackPolicyDuringUpdateBody :: Lens' UpdateStack (Maybe Text)
 usStackPolicyDuringUpdateBody =
     lens _usStackPolicyDuringUpdateBody
@@ -184,7 +179,6 @@ usStackPolicyDuringUpdateBody =
 -- If you want to update protected resources, specify a temporary overriding
 -- stack policy during this update. If you do not specify a stack policy, the
 -- current policy that is associated with the stack will be used.
---
 usStackPolicyDuringUpdateURL :: Lens' UpdateStack (Maybe Text)
 usStackPolicyDuringUpdateURL =
     lens _usStackPolicyDuringUpdateURL
@@ -199,7 +193,6 @@ usStackPolicyDuringUpdateURL =
 -- resource that you created during a stack update. If you do not specify a
 -- stack policy, the current policy that is associated with the stack is
 -- unchanged.
---
 usStackPolicyURL :: Lens' UpdateStack (Maybe Text)
 usStackPolicyURL = lens _usStackPolicyURL (\s a -> s { _usStackPolicyURL = a })
 
@@ -209,7 +202,6 @@ usStackPolicyURL = lens _usStackPolicyURL (\s a -> s { _usStackPolicyURL = a })
 --
 -- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'
 -- parameter, but not both.
---
 usTemplateBody :: Lens' UpdateStack (Maybe Text)
 usTemplateBody = lens _usTemplateBody (\s a -> s { _usTemplateBody = a })
 
@@ -219,13 +211,11 @@ usTemplateBody = lens _usTemplateBody (\s a -> s { _usTemplateBody = a })
 --
 -- Conditional: You must specify either the 'TemplateBody' or the 'TemplateURL'
 -- parameter, but not both.
---
 usTemplateURL :: Lens' UpdateStack (Maybe Text)
 usTemplateURL = lens _usTemplateURL (\s a -> s { _usTemplateURL = a })
 
 -- | Reuse the existing template that is associated with the stack that you are
 -- updating.
---
 usUsePreviousTemplate :: Lens' UpdateStack (Maybe Bool)
 usUsePreviousTemplate =
     lens _usUsePreviousTemplate (\s a -> s { _usUsePreviousTemplate = a })
@@ -246,7 +236,6 @@ updateStackResponse = UpdateStackResponse
     }
 
 -- | Unique identifier of the stack.
---
 usrStackId :: Lens' UpdateStackResponse (Maybe Text)
 usrStackId = lens _usrStackId (\s a -> s { _usrStackId = a })
 

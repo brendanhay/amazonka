@@ -24,6 +24,7 @@
 --
 -- You should understand the implications of changing a group's path or name.
 -- For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups> in the /Using IAM/ guide.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateGroup.html>
 module Network.AWS.IAM.UpdateGroup
     (
@@ -73,17 +74,14 @@ updateGroup p1 = UpdateGroup
 
 -- | Name of the group to update. If you're changing the name of the group, this
 -- is the original name.
---
 ugGroupName :: Lens' UpdateGroup Text
 ugGroupName = lens _ugGroupName (\s a -> s { _ugGroupName = a })
 
 -- | New name for the group. Only include this if changing the group's name.
---
 ugNewGroupName :: Lens' UpdateGroup (Maybe Text)
 ugNewGroupName = lens _ugNewGroupName (\s a -> s { _ugNewGroupName = a })
 
 -- | New path for the group. Only include this if changing the group's path.
---
 ugNewPath :: Lens' UpdateGroup (Maybe Text)
 ugNewPath = lens _ugNewPath (\s a -> s { _ugNewPath = a })
 

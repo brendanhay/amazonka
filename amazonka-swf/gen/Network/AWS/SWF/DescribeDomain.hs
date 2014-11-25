@@ -77,7 +77,6 @@ describeDomain p1 = DescribeDomain
     }
 
 -- | The name of the domain to describe.
---
 ddName :: Lens' DescribeDomain Text
 ddName = lens _ddName (\s a -> s { _ddName = a })
 

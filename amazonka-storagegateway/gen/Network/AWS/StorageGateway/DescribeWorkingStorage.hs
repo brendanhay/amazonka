@@ -104,7 +104,6 @@ describeWorkingStorageResponse = DescribeWorkingStorageResponse
 -- storage. Each local disk ID is specified as a string (minimum length of 1 and
 -- maximum length of 300). If no local disks are configured as working storage,
 -- then the DiskIds array is empty.
---
 dwsrDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
 dwsrDiskIds = lens _dwsrDiskIds (\s a -> s { _dwsrDiskIds = a }) . _List
 
@@ -113,7 +112,6 @@ dwsrGatewayARN = lens _dwsrGatewayARN (\s a -> s { _dwsrGatewayARN = a })
 
 -- | The total working storage in bytes allocated for the gateway. If no working
 -- storage is configured for the gateway, this field returns 0.
---
 dwsrWorkingStorageAllocatedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
 dwsrWorkingStorageAllocatedInBytes =
     lens _dwsrWorkingStorageAllocatedInBytes
@@ -121,7 +119,6 @@ dwsrWorkingStorageAllocatedInBytes =
 
 -- | The total working storage in bytes in use by the gateway. If no working
 -- storage is configured for the gateway, this field returns 0.
---
 dwsrWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
 dwsrWorkingStorageUsedInBytes =
     lens _dwsrWorkingStorageUsedInBytes

@@ -73,14 +73,12 @@ createPipeline p1 p2 = CreatePipeline
     }
 
 -- | The description of the new pipeline.
---
 cpDescription :: Lens' CreatePipeline (Maybe Text)
 cpDescription = lens _cpDescription (\s a -> s { _cpDescription = a })
 
 -- | The name of the new pipeline. You can use the same name for multiple
 -- pipelines associated with your AWS account, because AWS Data Pipeline assigns
 -- each new pipeline a unique pipeline identifier.
---
 cpName :: Lens' CreatePipeline Text
 cpName = lens _cpName (\s a -> s { _cpName = a })
 
@@ -95,7 +93,6 @@ cpName = lens _cpName (\s a -> s { _cpName = a })
 -- new pipeline will not be created. Instead, you'll receive the pipeline
 -- identifier from the previous attempt. The uniqueness of the name and unique
 -- identifier combination is scoped to the AWS account or IAM user credentials.
---
 cpUniqueId :: Lens' CreatePipeline Text
 cpUniqueId = lens _cpUniqueId (\s a -> s { _cpUniqueId = a })
 
@@ -117,7 +114,6 @@ createPipelineResponse p1 = CreatePipelineResponse
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. The ID is a
 -- string of the form: df-06372391ZG65EXAMPLE.
---
 cprPipelineId :: Lens' CreatePipelineResponse Text
 cprPipelineId = lens _cprPipelineId (\s a -> s { _cprPipelineId = a })
 

@@ -72,7 +72,6 @@ getChange p1 = GetChange
 -- | The ID of the change batch request. The value that you specify here is the
 -- value that 'ChangeResourceRecordSets' returned in the Id element when you
 -- submitted the request.
---
 gcId :: Lens' GetChange Text
 gcId = lens _gcId (\s a -> s { _gcId = a })
 
@@ -95,7 +94,6 @@ getChangeResponse p1 = GetChangeResponse
 -- | A complex type that contains information about the specified change batch,
 -- including the change batch ID, the status of the change, and the date and
 -- time of the request.
---
 gcrChangeInfo :: Lens' GetChangeResponse ChangeInfo
 gcrChangeInfo = lens _gcrChangeInfo (\s a -> s { _gcrChangeInfo = a })
 

@@ -81,25 +81,21 @@ describeVolumes = DescribeVolumes
 
 -- | The instance ID. If you use this parameter, 'DescribeVolumes' returns
 -- descriptions of the volumes associated with the specified instance.
---
 dvInstanceId :: Lens' DescribeVolumes (Maybe Text)
 dvInstanceId = lens _dvInstanceId (\s a -> s { _dvInstanceId = a })
 
 -- | The RAID array ID. If you use this parameter, 'DescribeVolumes' returns
 -- descriptions of the volumes associated with the specified RAID array.
---
 dvRaidArrayId :: Lens' DescribeVolumes (Maybe Text)
 dvRaidArrayId = lens _dvRaidArrayId (\s a -> s { _dvRaidArrayId = a })
 
 -- | A stack ID. The action describes the stack's registered Amazon EBS volumes.
---
 dvStackId :: Lens' DescribeVolumes (Maybe Text)
 dvStackId = lens _dvStackId (\s a -> s { _dvStackId = a })
 
 -- | Am array of volume IDs. If you use this parameter, 'DescribeVolumes' returns
 -- descriptions of the specified volumes. Otherwise, it returns a description of
 -- every volume.
---
 dvVolumeIds :: Lens' DescribeVolumes [Text]
 dvVolumeIds = lens _dvVolumeIds (\s a -> s { _dvVolumeIds = a }) . _List
 
@@ -125,7 +121,6 @@ describeVolumesResponse = DescribeVolumesResponse
     }
 
 -- | An array of volume IDs.
---
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a }) . _List
 

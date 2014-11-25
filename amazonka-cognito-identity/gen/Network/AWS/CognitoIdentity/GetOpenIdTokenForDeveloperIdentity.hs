@@ -91,13 +91,11 @@ getOpenIdTokenForDeveloperIdentity p1 = GetOpenIdTokenForDeveloperIdentity
     }
 
 -- | A unique identifier in the format REGION:GUID.
---
 goitfdiIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentity (Maybe Text)
 goitfdiIdentityId =
     lens _goitfdiIdentityId (\s a -> s { _goitfdiIdentityId = a })
 
 -- | An identity pool ID in the format REGION:GUID.
---
 goitfdiIdentityPoolId :: Lens' GetOpenIdTokenForDeveloperIdentity Text
 goitfdiIdentityPoolId =
     lens _goitfdiIdentityPoolId (\s a -> s { _goitfdiIdentityPoolId = a })
@@ -110,7 +108,6 @@ goitfdiIdentityPoolId =
 -- creating/updating the identity pool. The developer user identifier is an
 -- identifier from your backend that uniquely identifies a user. When you create
 -- an identity pool, you can specify the supported logins.
---
 goitfdiLogins :: Lens' GetOpenIdTokenForDeveloperIdentity (HashMap Text Text)
 goitfdiLogins = lens _goitfdiLogins (\s a -> s { _goitfdiLogins = a }) . _Map
 
@@ -122,7 +119,6 @@ goitfdiLogins = lens _goitfdiLogins (\s a -> s { _goitfdiLogins = a }) . _Map
 -- should take care in setting the expiration time for a token, as there are
 -- significant security implications: an attacker could use a leaked token to
 -- access your AWS resources for the token's duration.
---
 goitfdiTokenDuration :: Lens' GetOpenIdTokenForDeveloperIdentity (Maybe Natural)
 goitfdiTokenDuration =
     lens _goitfdiTokenDuration (\s a -> s { _goitfdiTokenDuration = a })
@@ -148,13 +144,11 @@ getOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityR
     }
 
 -- | A unique identifier in the format REGION:GUID.
---
 goitfdirIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
 goitfdirIdentityId =
     lens _goitfdirIdentityId (\s a -> s { _goitfdirIdentityId = a })
 
 -- | An OpenID token.
---
 goitfdirToken :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
 goitfdirToken = lens _goitfdirToken (\s a -> s { _goitfdirToken = a })
 

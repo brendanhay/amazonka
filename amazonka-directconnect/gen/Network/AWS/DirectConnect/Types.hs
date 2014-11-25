@@ -256,7 +256,6 @@ viCustomerAddress =
     lens _viCustomerAddress (\s a -> s { _viCustomerAddress = a })
 
 -- | Information for generating the customer router configuration.
---
 viCustomerRouterConfig :: Lens' VirtualInterface (Maybe Text)
 viCustomerRouterConfig =
     lens _viCustomerRouterConfig (\s a -> s { _viCustomerRouterConfig = a })
@@ -352,13 +351,11 @@ location = Location
     }
 
 -- | The code used to indicate the AWS Direct Connect location.
---
 lLocationCode :: Lens' Location (Maybe Text)
 lLocationCode = lens _lLocationCode (\s a -> s { _lLocationCode = a })
 
 -- | The name of the AWS Direct Connect location. The name includes the colocation
 -- partner name and the physical site of the lit building.
---
 lLocationName :: Lens' Location (Maybe Text)
 lLocationName = lens _lLocationName (\s a -> s { _lLocationName = a })
 
@@ -395,7 +392,6 @@ connections = Connections
     }
 
 -- | A list of connections.
---
 cConnections :: Lens' Connections [Connection]
 cConnections = lens _cConnections (\s a -> s { _cConnections = a }) . _List
 
@@ -583,7 +579,6 @@ connection = Connection
 -- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
 --
 -- Default: None
---
 cBandwidth :: Lens' Connection (Maybe Text)
 cBandwidth = lens _cBandwidth (\s a -> s { _cBandwidth = a })
 
@@ -1130,7 +1125,6 @@ routeFilterPrefix = RouteFilterPrefix
 -- commas.
 --
 -- Example: 10.10.10.0/24,10.10.11.0/24
---
 rfpCidr :: Lens' RouteFilterPrefix (Maybe Text)
 rfpCidr = lens _rfpCidr (\s a -> s { _rfpCidr = a })
 

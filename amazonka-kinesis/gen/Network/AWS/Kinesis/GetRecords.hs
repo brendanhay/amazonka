@@ -109,14 +109,12 @@ getRecords p1 = GetRecords
 
 -- | The maximum number of records to return. Specify a value of up to 10,000. If
 -- you specify a value that is greater than 10,000, 'GetRecords' throws 'InvalidArgumentException'.
---
 grLimit :: Lens' GetRecords (Maybe Natural)
 grLimit = lens _grLimit (\s a -> s { _grLimit = a }) . mapping _Nat
 
 -- | The position in the shard from which you want to start sequentially reading
 -- data records. A shard iterator specifies this position using the sequence
 -- number of a data record in the shard.
---
 grShardIterator :: Lens' GetRecords Text
 grShardIterator = lens _grShardIterator (\s a -> s { _grShardIterator = a })
 
@@ -142,7 +140,6 @@ getRecordsResponse = GetRecordsResponse
 -- | The next position in the shard from which to start sequentially reading data
 -- records. If set to 'null', the shard has been closed and the requested iterator
 -- will not return any more data.
---
 grrNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
 grrNextShardIterator =
     lens _grrNextShardIterator (\s a -> s { _grrNextShardIterator = a })

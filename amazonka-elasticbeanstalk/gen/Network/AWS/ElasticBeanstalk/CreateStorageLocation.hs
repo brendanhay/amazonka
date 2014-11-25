@@ -68,7 +68,6 @@ createStorageLocationResponse = CreateStorageLocationResponse
     }
 
 -- | The name of the Amazon S3 bucket created.
---
 cslrS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrS3Bucket = lens _cslrS3Bucket (\s a -> s { _cslrS3Bucket = a })
 

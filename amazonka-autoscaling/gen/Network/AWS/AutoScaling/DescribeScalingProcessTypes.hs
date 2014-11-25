@@ -72,7 +72,6 @@ describeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
     }
 
 -- | The names of the process types.
---
 dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
 dsptrProcesses = lens _dsptrProcesses (\s a -> s { _dsptrProcesses = a }) . _List
 

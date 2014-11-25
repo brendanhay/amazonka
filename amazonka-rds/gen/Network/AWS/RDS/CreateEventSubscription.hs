@@ -113,7 +113,6 @@ createEventSubscription p1 p2 = CreateEventSubscription
 
 -- | A Boolean value; set to true to activate the subscription, set to false to
 -- create the subscription but not active it.
---
 cesEnabled :: Lens' CreateEventSubscription (Maybe Bool)
 cesEnabled = lens _cesEnabled (\s a -> s { _cesEnabled = a })
 
@@ -121,7 +120,6 @@ cesEnabled = lens _cesEnabled (\s a -> s { _cesEnabled = a })
 -- You can see a list of the categories for a given SourceType in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
 -- topic in the Amazon RDS User Guide or by using the DescribeEventCategories
 -- action.
---
 cesEventCategories :: Lens' CreateEventSubscription [Text]
 cesEventCategories =
     lens _cesEventCategories (\s a -> s { _cesEventCategories = a })
@@ -130,7 +128,6 @@ cesEventCategories =
 -- | The Amazon Resource Name (ARN) of the SNS topic created for event
 -- notification. The ARN is created by Amazon SNS when you create a topic and
 -- subscribe to it.
---
 cesSnsTopicArn :: Lens' CreateEventSubscription Text
 cesSnsTopicArn = lens _cesSnsTopicArn (\s a -> s { _cesSnsTopicArn = a })
 
@@ -156,14 +153,12 @@ cesSourceIds = lens _cesSourceIds (\s a -> s { _cesSourceIds = a }) . _List
 --
 -- Valid values: db-instance | db-parameter-group | db-security-group |
 -- db-snapshot
---
 cesSourceType :: Lens' CreateEventSubscription (Maybe Text)
 cesSourceType = lens _cesSourceType (\s a -> s { _cesSourceType = a })
 
 -- | The name of the subscription.
 --
 -- Constraints: The name must be less than 255 characters.
---
 cesSubscriptionName :: Lens' CreateEventSubscription Text
 cesSubscriptionName =
     lens _cesSubscriptionName (\s a -> s { _cesSubscriptionName = a })

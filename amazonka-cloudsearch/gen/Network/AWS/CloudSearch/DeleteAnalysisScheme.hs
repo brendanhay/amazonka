@@ -69,7 +69,6 @@ deleteAnalysisScheme p1 p2 = DeleteAnalysisScheme
     }
 
 -- | The name of the analysis scheme you want to delete.
---
 dasAnalysisSchemeName :: Lens' DeleteAnalysisScheme Text
 dasAnalysisSchemeName =
     lens _dasAnalysisSchemeName (\s a -> s { _dasAnalysisSchemeName = a })
@@ -94,7 +93,6 @@ deleteAnalysisSchemeResponse p1 = DeleteAnalysisSchemeResponse
     }
 
 -- | The status of the analysis scheme being deleted.
---
 dasrAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
 dasrAnalysisScheme =
     lens _dasrAnalysisScheme (\s a -> s { _dasrAnalysisScheme = a })

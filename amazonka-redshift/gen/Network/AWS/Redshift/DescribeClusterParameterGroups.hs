@@ -102,7 +102,6 @@ describeClusterParameterGroups = DescribeClusterParameterGroups
 -- request exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker' field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the 'Marker' parameter and retrying the
 -- request.
---
 dcpgMarker :: Lens' DescribeClusterParameterGroups (Maybe Text)
 dcpgMarker = lens _dcpgMarker (\s a -> s { _dcpgMarker = a })
 
@@ -114,14 +113,12 @@ dcpgMarker = lens _dcpgMarker (\s a -> s { _dcpgMarker = a })
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
---
 dcpgMaxRecords :: Lens' DescribeClusterParameterGroups (Maybe Int)
 dcpgMaxRecords = lens _dcpgMaxRecords (\s a -> s { _dcpgMaxRecords = a })
 
 -- | The name of a specific parameter group for which to return details. By
 -- default, details about all parameter groups and the default parameter group
 -- are returned.
---
 dcpgParameterGroupName :: Lens' DescribeClusterParameterGroups (Maybe Text)
 dcpgParameterGroupName =
     lens _dcpgParameterGroupName (\s a -> s { _dcpgParameterGroupName = a })
@@ -132,7 +129,6 @@ dcpgParameterGroupName =
 -- and 'environment'. If you specify both of these tag keys in the request, Amazon
 -- Redshift returns a response with the parameter groups that have either or
 -- both of these tag keys associated with them.
---
 dcpgTagKeys :: Lens' DescribeClusterParameterGroups [Text]
 dcpgTagKeys = lens _dcpgTagKeys (\s a -> s { _dcpgTagKeys = a }) . _List
 
@@ -142,7 +138,6 @@ dcpgTagKeys = lens _dcpgTagKeys (\s a -> s { _dcpgTagKeys = a }) . _List
 -- values called 'admin' and 'test'. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with the parameter groups that
 -- have either or both of these tag values associated with them.
---
 dcpgTagValues :: Lens' DescribeClusterParameterGroups [Text]
 dcpgTagValues = lens _dcpgTagValues (\s a -> s { _dcpgTagValues = a }) . _List
 
@@ -170,13 +165,11 @@ describeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
 -- empty, all response records have been retrieved for the request.
---
 dcpgrMarker :: Lens' DescribeClusterParameterGroupsResponse (Maybe Text)
 dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 
 -- | A list of 'ClusterParameterGroup' instances. Each instance describes one
 -- cluster parameter group.
---
 dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
 dcpgrParameterGroups =
     lens _dcpgrParameterGroups (\s a -> s { _dcpgrParameterGroups = a })

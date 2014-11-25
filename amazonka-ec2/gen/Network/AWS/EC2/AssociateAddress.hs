@@ -106,7 +106,6 @@ associateAddress = AssociateAddress
     }
 
 -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
---
 aa1AllocationId :: Lens' AssociateAddress (Maybe Text)
 aa1AllocationId = lens _aa1AllocationId (\s a -> s { _aa1AllocationId = a })
 
@@ -115,7 +114,6 @@ aa1AllocationId = lens _aa1AllocationId (\s a -> s { _aa1AllocationId = a })
 -- or network interface. Otherwise, the operation fails.
 --
 -- Default: 'false'
---
 aa1AllowReassociation :: Lens' AssociateAddress (Maybe Bool)
 aa1AllowReassociation =
     lens _aa1AllowReassociation (\s a -> s { _aa1AllowReassociation = a })
@@ -127,13 +125,11 @@ aa1DryRun = lens _aa1DryRun (\s a -> s { _aa1DryRun = a })
 -- can specify either the instance ID or the network interface ID, but not both.
 -- The operation fails if you specify an instance ID unless exactly one network
 -- interface is attached.
---
 aa1InstanceId :: Lens' AssociateAddress (Maybe Text)
 aa1InstanceId = lens _aa1InstanceId (\s a -> s { _aa1InstanceId = a })
 
 -- | [EC2-VPC] The ID of the network interface. If the instance has more than one
 -- network interface, you must specify a network interface ID.
---
 aa1NetworkInterfaceId :: Lens' AssociateAddress (Maybe Text)
 aa1NetworkInterfaceId =
     lens _aa1NetworkInterfaceId (\s a -> s { _aa1NetworkInterfaceId = a })
@@ -141,13 +137,11 @@ aa1NetworkInterfaceId =
 -- | [EC2-VPC] The primary or secondary private IP address to associate with the
 -- Elastic IP address. If no private IP address is specified, the Elastic IP
 -- address is associated with the primary private IP address.
---
 aa1PrivateIpAddress :: Lens' AssociateAddress (Maybe Text)
 aa1PrivateIpAddress =
     lens _aa1PrivateIpAddress (\s a -> s { _aa1PrivateIpAddress = a })
 
 -- | The Elastic IP address. This is required for EC2-Classic.
---
 aa1PublicIp :: Lens' AssociateAddress (Maybe Text)
 aa1PublicIp = lens _aa1PublicIp (\s a -> s { _aa1PublicIp = a })
 
@@ -168,7 +162,6 @@ associateAddressResponse = AssociateAddressResponse
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP address
 -- with an instance.
---
 aarAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
 aarAssociationId = lens _aarAssociationId (\s a -> s { _aarAssociationId = a })
 

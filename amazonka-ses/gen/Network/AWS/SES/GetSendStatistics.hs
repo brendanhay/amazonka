@@ -77,7 +77,6 @@ getSendStatisticsResponse = GetSendStatisticsResponse
     }
 
 -- | A list of data points, each of which represents 15 minutes of activity.
---
 gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrSendDataPoints =
     lens _gssrSendDataPoints (\s a -> s { _gssrSendDataPoints = a })

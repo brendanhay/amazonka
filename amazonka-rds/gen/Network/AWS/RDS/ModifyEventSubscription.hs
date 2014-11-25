@@ -87,7 +87,6 @@ modifyEventSubscription p1 = ModifyEventSubscription
     }
 
 -- | A Boolean value; set to true to activate the subscription.
---
 mesEnabled :: Lens' ModifyEventSubscription (Maybe Bool)
 mesEnabled = lens _mesEnabled (\s a -> s { _mesEnabled = a })
 
@@ -95,7 +94,6 @@ mesEnabled = lens _mesEnabled (\s a -> s { _mesEnabled = a })
 -- You can see a list of the categories for a given SourceType in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
 -- topic in the Amazon RDS User Guide or by using the DescribeEventCategories
 -- action.
---
 mesEventCategories :: Lens' ModifyEventSubscription [Text]
 mesEventCategories =
     lens _mesEventCategories (\s a -> s { _mesEventCategories = a })
@@ -104,7 +102,6 @@ mesEventCategories =
 -- | The Amazon Resource Name (ARN) of the SNS topic created for event
 -- notification. The ARN is created by Amazon SNS when you create a topic and
 -- subscribe to it.
---
 mesSnsTopicArn :: Lens' ModifyEventSubscription (Maybe Text)
 mesSnsTopicArn = lens _mesSnsTopicArn (\s a -> s { _mesSnsTopicArn = a })
 
@@ -115,12 +112,10 @@ mesSnsTopicArn = lens _mesSnsTopicArn (\s a -> s { _mesSnsTopicArn = a })
 --
 -- Valid values: db-instance | db-parameter-group | db-security-group |
 -- db-snapshot
---
 mesSourceType :: Lens' ModifyEventSubscription (Maybe Text)
 mesSourceType = lens _mesSourceType (\s a -> s { _mesSourceType = a })
 
 -- | The name of the RDS event notification subscription.
---
 mesSubscriptionName :: Lens' ModifyEventSubscription Text
 mesSubscriptionName =
     lens _mesSubscriptionName (\s a -> s { _mesSubscriptionName = a })

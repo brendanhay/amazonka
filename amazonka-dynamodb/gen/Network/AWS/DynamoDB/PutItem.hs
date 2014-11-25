@@ -161,7 +161,6 @@ piConditionExpression =
 -- If you omit /ConditionalOperator/, then 'AND' is the default.
 --
 -- The operation will succeed only if the entire map evaluates to true.
---
 piConditionalOperator :: Lens' PutItem (Maybe ConditionalOperator)
 piConditionalOperator =
     lens _piConditionalOperator (\s a -> s { _piConditionalOperator = a })
@@ -344,7 +343,6 @@ piConditionalOperator =
 -- The /Value/ and /Exists/ parameters are incompatible with /AttributeValueList/
 -- and /ComparisonOperator/. Note that if you use both sets of parameters at once,
 -- DynamoDB will return a /ValidationException/ exception.
---
 piExpected :: Lens' PutItem (HashMap Text ExpectedAttributeValue)
 piExpected = lens _piExpected (\s a -> s { _piExpected = a }) . _Map
 
@@ -416,7 +414,6 @@ piExpressionAttributeValues =
 -- For more information about primary keys, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key> in the /AmazonDynamoDB Developer Guide/.
 --
 -- Each element in the /Item/ map is an /AttributeValue/ object.
---
 piItem :: Lens' PutItem (HashMap Text AttributeValue)
 piItem = lens _piItem (\s a -> s { _piItem = a }) . _Map
 
@@ -428,7 +425,6 @@ piReturnConsumedCapacity =
 -- | A value that if set to 'SIZE', the response includes statistics about item
 -- collections, if any, that were modified during the operation are returned in
 -- the response. If set to 'NONE' (the default), no statistics are returned.
---
 piReturnItemCollectionMetrics :: Lens' PutItem (Maybe ReturnItemCollectionMetrics)
 piReturnItemCollectionMetrics =
     lens _piReturnItemCollectionMetrics
@@ -449,7 +445,6 @@ piReturnValues :: Lens' PutItem (Maybe ReturnValue)
 piReturnValues = lens _piReturnValues (\s a -> s { _piReturnValues = a })
 
 -- | The name of the table to contain the item.
---
 piTableName :: Lens' PutItem Text
 piTableName = lens _piTableName (\s a -> s { _piTableName = a })
 
@@ -479,7 +474,6 @@ putItemResponse = PutItemResponse
 -- | The attribute values as they appeared before the /PutItem/ operation, but only
 -- if /ReturnValues/ is specified as 'ALL_OLD' in the request. Each element consists
 -- of an attribute name and an attribute value.
---
 pirAttributes :: Lens' PutItemResponse (HashMap Text AttributeValue)
 pirAttributes = lens _pirAttributes (\s a -> s { _pirAttributes = a }) . _Map
 

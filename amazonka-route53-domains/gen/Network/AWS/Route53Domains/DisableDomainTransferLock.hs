@@ -76,7 +76,6 @@ disableDomainTransferLock p1 = DisableDomainTransferLock
 -- supported.
 --
 -- Required: Yes
---
 ddtlDomainName :: Lens' DisableDomainTransferLock Text
 ddtlDomainName = lens _ddtlDomainName (\s a -> s { _ddtlDomainName = a })
 
@@ -104,7 +103,6 @@ disableDomainTransferLockResponse p1 = DisableDomainTransferLockResponse
 -- Default: None
 --
 -- Constraints: Maximum 255 characters.
---
 ddtlrOperationId :: Lens' DisableDomainTransferLockResponse Text
 ddtlrOperationId = lens _ddtlrOperationId (\s a -> s { _ddtlrOperationId = a })
 

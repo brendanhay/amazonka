@@ -72,7 +72,6 @@ getIdentityNotificationAttributes = GetIdentityNotificationAttributes
     }
 
 -- | A list of one or more identities.
---
 ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
 ginaIdentities = lens _ginaIdentities (\s a -> s { _ginaIdentities = a }) . _List
 
@@ -92,7 +91,6 @@ getIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesRes
     }
 
 -- | A map of Identity to IdentityNotificationAttributes.
---
 ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)
 ginarNotificationAttributes =
     lens _ginarNotificationAttributes

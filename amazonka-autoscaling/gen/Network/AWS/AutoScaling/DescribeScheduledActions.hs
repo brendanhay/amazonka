@@ -88,7 +88,6 @@ describeScheduledActions = DescribeScheduledActions
     }
 
 -- | The name of the group.
---
 dsa1AutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
 dsa1AutoScalingGroupName =
     lens _dsa1AutoScalingGroupName
@@ -96,18 +95,15 @@ dsa1AutoScalingGroupName =
 
 -- | The latest scheduled start time to return. If scheduled action names are
 -- provided, this parameter is ignored.
---
 dsa1EndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
 dsa1EndTime = lens _dsa1EndTime (\s a -> s { _dsa1EndTime = a }) . mapping _Time
 
 -- | The maximum number of items to return with this call.
---
 dsa1MaxRecords :: Lens' DescribeScheduledActions (Maybe Int)
 dsa1MaxRecords = lens _dsa1MaxRecords (\s a -> s { _dsa1MaxRecords = a })
 
 -- | The token for the next set of items to return. (You received this token from
 -- a previous call.)
---
 dsa1NextToken :: Lens' DescribeScheduledActions (Maybe Text)
 dsa1NextToken = lens _dsa1NextToken (\s a -> s { _dsa1NextToken = a })
 
@@ -118,7 +114,6 @@ dsa1NextToken = lens _dsa1NextToken (\s a -> s { _dsa1NextToken = a })
 -- You can describe up to a maximum of 50 instances with a single call. If
 -- there are more items to return, the call returns a token. To get the next set
 -- of items, repeat the call with the returned token in the 'NextToken' parameter.
---
 dsa1ScheduledActionNames :: Lens' DescribeScheduledActions [Text]
 dsa1ScheduledActionNames =
     lens _dsa1ScheduledActionNames
@@ -127,7 +122,6 @@ dsa1ScheduledActionNames =
 
 -- | The earliest scheduled start time to return. If scheduled action names are
 -- provided, this parameter is ignored.
---
 dsa1StartTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
 dsa1StartTime = lens _dsa1StartTime (\s a -> s { _dsa1StartTime = a }) . mapping _Time
 
@@ -152,12 +146,10 @@ describeScheduledActionsResponse = DescribeScheduledActionsResponse
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
 dsarNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
 dsarNextToken = lens _dsarNextToken (\s a -> s { _dsarNextToken = a })
 
 -- | The scheduled actions.
---
 dsarScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
 dsarScheduledUpdateGroupActions =
     lens _dsarScheduledUpdateGroupActions

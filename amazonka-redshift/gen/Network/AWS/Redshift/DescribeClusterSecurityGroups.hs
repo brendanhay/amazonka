@@ -100,7 +100,6 @@ describeClusterSecurityGroups = DescribeClusterSecurityGroups
 -- parameter, but not both.
 --
 -- Example: 'securitygroup1'
---
 dcsgClusterSecurityGroupName :: Lens' DescribeClusterSecurityGroups (Maybe Text)
 dcsgClusterSecurityGroupName =
     lens _dcsgClusterSecurityGroupName
@@ -115,7 +114,6 @@ dcsgClusterSecurityGroupName =
 --
 -- Constraints: You can specify either the ClusterSecurityGroupName parameter
 -- or the Marker parameter, but not both.
---
 dcsgMarker :: Lens' DescribeClusterSecurityGroups (Maybe Text)
 dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 
@@ -127,7 +125,6 @@ dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
---
 dcsgMaxRecords :: Lens' DescribeClusterSecurityGroups (Maybe Int)
 dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
 
@@ -137,7 +134,6 @@ dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
 -- and 'environment'. If you specify both of these tag keys in the request, Amazon
 -- Redshift returns a response with the security groups that have either or both
 -- of these tag keys associated with them.
---
 dcsgTagKeys :: Lens' DescribeClusterSecurityGroups [Text]
 dcsgTagKeys = lens _dcsgTagKeys (\s a -> s { _dcsgTagKeys = a }) . _List
 
@@ -147,7 +143,6 @@ dcsgTagKeys = lens _dcsgTagKeys (\s a -> s { _dcsgTagKeys = a }) . _List
 -- values called 'admin' and 'test'. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with the security groups that
 -- have either or both of these tag values associated with them.
---
 dcsgTagValues :: Lens' DescribeClusterSecurityGroups [Text]
 dcsgTagValues = lens _dcsgTagValues (\s a -> s { _dcsgTagValues = a }) . _List
 
@@ -171,7 +166,6 @@ describeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
     }
 
 -- | A list of 'ClusterSecurityGroup' instances.
---
 dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
 dcsgr1ClusterSecurityGroups =
     lens _dcsgr1ClusterSecurityGroups
@@ -183,7 +177,6 @@ dcsgr1ClusterSecurityGroups =
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
 -- empty, all response records have been retrieved for the request.
---
 dcsgr1Marker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
 dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
 

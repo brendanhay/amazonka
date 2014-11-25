@@ -71,12 +71,10 @@ describeAvailabilityOptions p1 = DescribeAvailabilityOptions
 
 -- | Whether to display the deployed configuration ('true') or include any pending
 -- changes ('false'). Defaults to 'false'.
---
 daoDeployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
 daoDeployed = lens _daoDeployed (\s a -> s { _daoDeployed = a })
 
 -- | The name of the domain you want to describe.
---
 daoDomainName :: Lens' DescribeAvailabilityOptions Text
 daoDomainName = lens _daoDomainName (\s a -> s { _daoDomainName = a })
 
@@ -97,7 +95,6 @@ describeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
 
 -- | The availability options configured for the domain. Indicates whether
 -- Multi-AZ is enabled for the domain.
---
 daorAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 daorAvailabilityOptions =
     lens _daorAvailabilityOptions (\s a -> s { _daorAvailabilityOptions = a })

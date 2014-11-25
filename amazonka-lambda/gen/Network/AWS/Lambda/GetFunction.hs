@@ -69,7 +69,6 @@ getFunction p1 = GetFunction
     }
 
 -- | The Lambda function name.
---
 gfFunctionName :: Lens' GetFunction Text
 gfFunctionName = lens _gfFunctionName (\s a -> s { _gfFunctionName = a })
 

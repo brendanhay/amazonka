@@ -75,14 +75,12 @@ enableMetricsCollection p1 p2 = EnableMetricsCollection
     }
 
 -- | The name or ARN of the Auto Scaling group.
---
 emcAutoScalingGroupName :: Lens' EnableMetricsCollection Text
 emcAutoScalingGroupName =
     lens _emcAutoScalingGroupName (\s a -> s { _emcAutoScalingGroupName = a })
 
 -- | The granularity to associate with the metrics to collect. Currently, the only
 -- valid value is "1Minute".
---
 emcGranularity :: Lens' EnableMetricsCollection Text
 emcGranularity = lens _emcGranularity (\s a -> s { _emcGranularity = a })
 

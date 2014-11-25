@@ -101,18 +101,15 @@ sendEmail p1 p2 p3 = SendEmail
     }
 
 -- | The destination for this email, composed of To:, CC:, and BCC: fields.
---
 seDestination :: Lens' SendEmail Destination
 seDestination = lens _seDestination (\s a -> s { _seDestination = a })
 
 -- | The message to be sent.
---
 seMessage :: Lens' SendEmail Message
 seMessage = lens _seMessage (\s a -> s { _seMessage = a })
 
 -- | The reply-to email address(es) for the message. If the recipient replies to
 -- the message, each reply-to address will receive the reply.
---
 seReplyToAddresses :: Lens' SendEmail [Text]
 seReplyToAddresses =
     lens _seReplyToAddresses (\s a -> s { _seReplyToAddresses = a })
@@ -122,7 +119,6 @@ seReplyToAddresses =
 -- feedback forwarding is enabled. If the message cannot be delivered to the
 -- recipient, then an error message will be returned from the recipient's ISP;
 -- this message will then be forwarded to the email address specified by the 'ReturnPath' parameter.
---
 seReturnPath :: Lens' SendEmail (Maybe Text)
 seReturnPath = lens _seReturnPath (\s a -> s { _seReturnPath = a })
 
@@ -132,7 +128,6 @@ seReturnPath = lens _seReturnPath (\s a -> s { _seReturnPath = a })
 -- other characters, then you must use MIME encoded-word syntax (RFC 2047)
 -- instead of a literal string. MIME encoded-word syntax uses the following
 -- form: '=?charset?encoding?encoded-text?='. For more information, see <http://tools.ietf.org/html/rfc2047 RFC 2047>.
---
 seSource :: Lens' SendEmail Text
 seSource = lens _seSource (\s a -> s { _seSource = a })
 
@@ -153,7 +148,6 @@ sendEmailResponse p1 = SendEmailResponse
     }
 
 -- | The unique message identifier returned from the 'SendEmail' action.
---
 serMessageId :: Lens' SendEmailResponse Text
 serMessageId = lens _serMessageId (\s a -> s { _serMessageId = a })
 

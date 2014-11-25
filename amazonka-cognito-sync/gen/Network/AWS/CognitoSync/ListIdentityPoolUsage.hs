@@ -21,6 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Gets a list of identity pools registered with Cognito.
+--
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListIdentityPoolUsage.html>
 module Network.AWS.CognitoSync.ListIdentityPoolUsage
     (

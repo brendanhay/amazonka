@@ -75,14 +75,12 @@ describeLoadBalancerPolicies = DescribeLoadBalancerPolicies
 -- specified, the operation returns the attributes of either all the sample
 -- policies pre-defined by Elastic Load Balancing or the specified sample
 -- polices.
---
 dlbpLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
 dlbpLoadBalancerName =
     lens _dlbpLoadBalancerName (\s a -> s { _dlbpLoadBalancerName = a })
 
 -- | The names of load balancer policies you've created or Elastic Load Balancing
 -- sample policy names.
---
 dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
 dlbpPolicyNames = lens _dlbpPolicyNames (\s a -> s { _dlbpPolicyNames = a }) . _List
 
@@ -108,7 +106,6 @@ describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
     }
 
 -- | A list of policy description structures.
---
 dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
 dlbprPolicyDescriptions =
     lens _dlbprPolicyDescriptions (\s a -> s { _dlbprPolicyDescriptions = a })

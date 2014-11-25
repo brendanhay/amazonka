@@ -89,7 +89,6 @@ copyDBParameterGroup p1 p2 p3 = CopyDBParameterGroup
 -- 'my-db-param-group'
 --
 -- Example: 'arn:aws:rds:us-west-2:123456789012:pg:special-parameters'
---
 cdbpgSourceDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
 cdbpgSourceDBParameterGroupIdentifier =
     lens _cdbpgSourceDBParameterGroupIdentifier
@@ -99,7 +98,6 @@ cdbpgTags :: Lens' CopyDBParameterGroup [Tag]
 cdbpgTags = lens _cdbpgTags (\s a -> s { _cdbpgTags = a }) . _List
 
 -- | The description for the copied DB Parameter Group.
---
 cdbpgTargetDBParameterGroupDescription :: Lens' CopyDBParameterGroup Text
 cdbpgTargetDBParameterGroupDescription =
     lens _cdbpgTargetDBParameterGroupDescription
@@ -112,7 +110,6 @@ cdbpgTargetDBParameterGroupDescription =
 -- Cannot be null, empty, or blank Must contain from 1 to 255 alphanumeric
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens  Example: 'my-db-parameter-group'
---
 cdbpgTargetDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
 cdbpgTargetDBParameterGroupIdentifier =
     lens _cdbpgTargetDBParameterGroupIdentifier

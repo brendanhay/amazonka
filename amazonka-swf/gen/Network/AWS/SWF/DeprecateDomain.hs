@@ -78,7 +78,6 @@ deprecateDomain p1 = DeprecateDomain
     }
 
 -- | The name of the domain to deprecate.
---
 dd1Name :: Lens' DeprecateDomain Text
 dd1Name = lens _dd1Name (\s a -> s { _dd1Name = a })
 

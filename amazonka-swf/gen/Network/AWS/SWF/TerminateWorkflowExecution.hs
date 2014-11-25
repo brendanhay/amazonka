@@ -116,27 +116,22 @@ tweChildPolicy :: Lens' TerminateWorkflowExecution (Maybe ChildPolicy)
 tweChildPolicy = lens _tweChildPolicy (\s a -> s { _tweChildPolicy = a })
 
 -- | Optional details for terminating the workflow execution.
---
 tweDetails :: Lens' TerminateWorkflowExecution (Maybe Text)
 tweDetails = lens _tweDetails (\s a -> s { _tweDetails = a })
 
 -- | The domain of the workflow execution to terminate.
---
 tweDomain :: Lens' TerminateWorkflowExecution Text
 tweDomain = lens _tweDomain (\s a -> s { _tweDomain = a })
 
 -- | An optional descriptive reason for terminating the workflow execution.
---
 tweReason :: Lens' TerminateWorkflowExecution (Maybe Text)
 tweReason = lens _tweReason (\s a -> s { _tweReason = a })
 
 -- | The runId of the workflow execution to terminate.
---
 tweRunId :: Lens' TerminateWorkflowExecution (Maybe Text)
 tweRunId = lens _tweRunId (\s a -> s { _tweRunId = a })
 
 -- | The workflowId of the workflow execution to terminate.
---
 tweWorkflowId :: Lens' TerminateWorkflowExecution Text
 tweWorkflowId = lens _tweWorkflowId (\s a -> s { _tweWorkflowId = a })
 

@@ -26,6 +26,7 @@
 --
 -- You must provide the same account credentials as those that were used to
 -- create the load balancer.
+--
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeInstanceHealth.html>
 module Network.AWS.ELB.DescribeInstanceHealth
     (
@@ -71,12 +72,10 @@ describeInstanceHealth p1 = DescribeInstanceHealth
     }
 
 -- | A list of instance IDs whose states are being queried.
---
 dihInstances :: Lens' DescribeInstanceHealth [Instance]
 dihInstances = lens _dihInstances (\s a -> s { _dihInstances = a }) . _List
 
 -- | The name of the load balancer.
---
 dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
 dihLoadBalancerName =
     lens _dihLoadBalancerName (\s a -> s { _dihLoadBalancerName = a })
@@ -103,7 +102,6 @@ describeInstanceHealthResponse = DescribeInstanceHealthResponse
     }
 
 -- | A list containing health information for the specified instances.
---
 dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrInstanceStates =
     lens _dihrInstanceStates (\s a -> s { _dihrInstanceStates = a })

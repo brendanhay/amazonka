@@ -88,7 +88,6 @@ startInstances = StartInstances
     }
 
 -- | Reserved.
---
 si1AdditionalInfo :: Lens' StartInstances (Maybe Text)
 si1AdditionalInfo =
     lens _si1AdditionalInfo (\s a -> s { _si1AdditionalInfo = a })
@@ -97,7 +96,6 @@ si1DryRun :: Lens' StartInstances (Maybe Bool)
 si1DryRun = lens _si1DryRun (\s a -> s { _si1DryRun = a })
 
 -- | One or more instance IDs.
---
 si1InstanceIds :: Lens' StartInstances [Text]
 si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a }) . _List
 
@@ -123,7 +121,6 @@ startInstancesResponse = StartInstancesResponse
     }
 
 -- | Information about one or more started instances.
---
 sirStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
 sirStartingInstances =
     lens _sirStartingInstances (\s a -> s { _sirStartingInstances = a })

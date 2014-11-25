@@ -73,12 +73,10 @@ generateCredentialReportResponse = GenerateCredentialReportResponse
     }
 
 -- | Information about the credential report.
---
 gcrrDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrDescription = lens _gcrrDescription (\s a -> s { _gcrrDescription = a })
 
 -- | Information about the state of a credential report.
---
 gcrrState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
 gcrrState = lens _gcrrState (\s a -> s { _gcrrState = a })
 

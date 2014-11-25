@@ -77,7 +77,6 @@ describePipelines = DescribePipelines
 -- | Identifiers of the pipelines to describe. You can pass as many as 25
 -- identifiers in a single call to 'DescribePipelines'. You can obtain pipeline
 -- identifiers by calling 'ListPipelines'.
---
 dpPipelineIds :: Lens' DescribePipelines [Text]
 dpPipelineIds = lens _dpPipelineIds (\s a -> s { _dpPipelineIds = a }) . _List
 
@@ -103,7 +102,6 @@ describePipelinesResponse = DescribePipelinesResponse
     }
 
 -- | An array of descriptions returned for the specified pipelines.
---
 dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
 dprPipelineDescriptionList =
     lens _dprPipelineDescriptionList

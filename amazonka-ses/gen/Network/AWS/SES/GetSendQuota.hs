@@ -79,18 +79,15 @@ getSendQuotaResponse = GetSendQuotaResponse
 
 -- | The maximum number of emails the user is allowed to send in a 24-hour
 -- interval.
---
 gsqrMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrMax24HourSend =
     lens _gsqrMax24HourSend (\s a -> s { _gsqrMax24HourSend = a })
 
 -- | The maximum number of emails the user is allowed to send per second.
---
 gsqrMaxSendRate :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrMaxSendRate = lens _gsqrMaxSendRate (\s a -> s { _gsqrMaxSendRate = a })
 
 -- | The number of emails sent during the previous 24 hours.
---
 gsqrSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrSentLast24Hours =
     lens _gsqrSentLast24Hours (\s a -> s { _gsqrSentLast24Hours = a })

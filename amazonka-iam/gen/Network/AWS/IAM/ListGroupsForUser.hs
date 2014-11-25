@@ -78,7 +78,6 @@ listGroupsForUser p1 = ListGroupsForUser
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the 'Marker' element in the response you just received.
---
 lgfuMarker :: Lens' ListGroupsForUser (Maybe Text)
 lgfuMarker = lens _lgfuMarker (\s a -> s { _lgfuMarker = a })
 
@@ -86,12 +85,10 @@ lgfuMarker = lens _lgfuMarker (\s a -> s { _lgfuMarker = a })
 -- groups you want in the response. If there are additional groups beyond the
 -- maximum you specify, the 'IsTruncated' response element is 'true'. This parameter
 -- is optional. If you do not include it, it defaults to 100.
---
 lgfuMaxItems :: Lens' ListGroupsForUser (Maybe Natural)
 lgfuMaxItems = lens _lgfuMaxItems (\s a -> s { _lgfuMaxItems = a }) . mapping _Nat
 
 -- | The name of the user to list groups for.
---
 lgfuUserName :: Lens' ListGroupsForUser Text
 lgfuUserName = lens _lgfuUserName (\s a -> s { _lgfuUserName = a })
 
@@ -119,20 +116,17 @@ listGroupsForUserResponse = ListGroupsForUserResponse
     }
 
 -- | A list of groups.
---
 lgfurGroups :: Lens' ListGroupsForUserResponse [Group]
 lgfurGroups = lens _lgfurGroups (\s a -> s { _lgfurGroups = a }) . _List
 
 -- | A flag that indicates whether there are more groups to list. If your results
 -- were truncated, you can make a subsequent pagination request using the 'Marker'
 -- request parameter to retrieve more groups in the list.
---
 lgfurIsTruncated :: Lens' ListGroupsForUserResponse (Maybe Bool)
 lgfurIsTruncated = lens _lgfurIsTruncated (\s a -> s { _lgfurIsTruncated = a })
 
 -- | If 'IsTruncated' is 'true', this element is present and contains the value to
 -- use for the 'Marker' parameter in a subsequent pagination request.
---
 lgfurMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
 lgfurMarker = lens _lgfurMarker (\s a -> s { _lgfurMarker = a })
 

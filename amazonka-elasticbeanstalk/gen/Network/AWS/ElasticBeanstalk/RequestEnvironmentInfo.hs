@@ -29,6 +29,7 @@
 -- Related Topics
 --
 -- 'RetrieveEnvironmentInfo'
+--
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RequestEnvironmentInfo.html>
 module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     (
@@ -82,7 +83,6 @@ requestEnvironmentInfo p1 = RequestEnvironmentInfo
 --
 -- Condition: You must specify either this or an EnvironmentName, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
---
 reiEnvironmentId :: Lens' RequestEnvironmentInfo (Maybe Text)
 reiEnvironmentId = lens _reiEnvironmentId (\s a -> s { _reiEnvironmentId = a })
 
@@ -92,13 +92,11 @@ reiEnvironmentId = lens _reiEnvironmentId (\s a -> s { _reiEnvironmentId = a })
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
---
 reiEnvironmentName :: Lens' RequestEnvironmentInfo (Maybe Text)
 reiEnvironmentName =
     lens _reiEnvironmentName (\s a -> s { _reiEnvironmentName = a })
 
 -- | The type of information to request.
---
 reiInfoType :: Lens' RequestEnvironmentInfo EnvironmentInfoType
 reiInfoType = lens _reiInfoType (\s a -> s { _reiInfoType = a })
 

@@ -73,7 +73,6 @@ describeNotificationConfigurations = DescribeNotificationConfigurations
     }
 
 -- | The name of the group.
---
 dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
 dncAutoScalingGroupNames =
     lens _dncAutoScalingGroupNames
@@ -81,13 +80,11 @@ dncAutoScalingGroupNames =
             . _List
 
 -- | The maximum number of items to return with this call.
---
 dncMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
 dncMaxRecords = lens _dncMaxRecords (\s a -> s { _dncMaxRecords = a })
 
 -- | The token for the next set of items to return. (You received this token from
 -- a previous call.)
---
 dncNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
 dncNextToken = lens _dncNextToken (\s a -> s { _dncNextToken = a })
 
@@ -112,12 +109,10 @@ describeNotificationConfigurationsResponse = DescribeNotificationConfigurationsR
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
 dncrNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
 dncrNextToken = lens _dncrNextToken (\s a -> s { _dncrNextToken = a })
 
 -- | The notification configurations.
---
 dncrNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
 dncrNotificationConfigurations =
     lens _dncrNotificationConfigurations

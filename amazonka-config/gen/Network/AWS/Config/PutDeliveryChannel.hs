@@ -69,7 +69,6 @@ putDeliveryChannel p1 = PutDeliveryChannel
 
 -- | The configuration delivery channel object that delivers the configuration
 -- information to an Amazon S3 bucket, and to an Amazon SNS topic.
---
 pdcDeliveryChannel :: Lens' PutDeliveryChannel DeliveryChannel
 pdcDeliveryChannel =
     lens _pdcDeliveryChannel (\s a -> s { _pdcDeliveryChannel = a })

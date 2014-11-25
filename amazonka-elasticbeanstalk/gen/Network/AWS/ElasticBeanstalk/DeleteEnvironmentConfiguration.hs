@@ -72,13 +72,11 @@ deleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfiguration
     }
 
 -- | The name of the application the environment is associated with.
---
 decApplicationName :: Lens' DeleteEnvironmentConfiguration Text
 decApplicationName =
     lens _decApplicationName (\s a -> s { _decApplicationName = a })
 
 -- | The name of the environment to delete the draft configuration from.
---
 decEnvironmentName :: Lens' DeleteEnvironmentConfiguration Text
 decEnvironmentName =
     lens _decEnvironmentName (\s a -> s { _decEnvironmentName = a })

@@ -67,12 +67,10 @@ enableVgwRoutePropagation p1 p2 = EnableVgwRoutePropagation
     }
 
 -- | The ID of the virtual private gateway.
---
 evrpGatewayId :: Lens' EnableVgwRoutePropagation Text
 evrpGatewayId = lens _evrpGatewayId (\s a -> s { _evrpGatewayId = a })
 
 -- | The ID of the route table.
---
 evrpRouteTableId :: Lens' EnableVgwRoutePropagation Text
 evrpRouteTableId = lens _evrpRouteTableId (\s a -> s { _evrpRouteTableId = a })
 

@@ -83,6 +83,7 @@
 -- The total request size exceeds 16 MB.
 --
 --
+--
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchWriteItem.html>
 module Network.AWS.DynamoDB.BatchWriteItem
     (
@@ -172,7 +173,6 @@ bwiReturnConsumedCapacity =
 -- | A value that if set to 'SIZE', the response includes statistics about item
 -- collections, if any, that were modified during the operation are returned in
 -- the response. If set to 'NONE' (the default), no statistics are returned.
---
 bwiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollectionMetrics)
 bwiReturnItemCollectionMetrics =
     lens _bwiReturnItemCollectionMetrics
@@ -270,7 +270,6 @@ bwirItemCollectionMetrics =
 --
 -- If there are no unprocessed items remaining, the response contains an
 -- empty /UnprocessedItems/ map.
---
 bwirUnprocessedItems :: Lens' BatchWriteItemResponse (HashMap Text (NonEmpty WriteRequest))
 bwirUnprocessedItems =
     lens _bwirUnprocessedItems (\s a -> s { _bwirUnprocessedItems = a })

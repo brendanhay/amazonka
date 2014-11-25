@@ -82,7 +82,6 @@ recordLifecycleActionHeartbeat p1 p2 p3 = RecordLifecycleActionHeartbeat
     }
 
 -- | The name of the Auto Scaling group for the hook.
---
 rlahAutoScalingGroupName :: Lens' RecordLifecycleActionHeartbeat Text
 rlahAutoScalingGroupName =
     lens _rlahAutoScalingGroupName
@@ -91,14 +90,12 @@ rlahAutoScalingGroupName =
 -- | A token that uniquely identifies a specific lifecycle action associated with
 -- an instance. Auto Scaling sends this token to the notification target you
 -- specified when you created the lifecycle hook.
---
 rlahLifecycleActionToken :: Lens' RecordLifecycleActionHeartbeat Text
 rlahLifecycleActionToken =
     lens _rlahLifecycleActionToken
         (\s a -> s { _rlahLifecycleActionToken = a })
 
 -- | The name of the lifecycle hook.
---
 rlahLifecycleHookName :: Lens' RecordLifecycleActionHeartbeat Text
 rlahLifecycleHookName =
     lens _rlahLifecycleHookName (\s a -> s { _rlahLifecycleHookName = a })

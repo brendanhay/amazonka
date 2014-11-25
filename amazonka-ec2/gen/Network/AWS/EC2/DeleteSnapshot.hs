@@ -81,7 +81,6 @@ ds3DryRun :: Lens' DeleteSnapshot (Maybe Bool)
 ds3DryRun = lens _ds3DryRun (\s a -> s { _ds3DryRun = a })
 
 -- | The ID of the Amazon EBS snapshot.
---
 ds3SnapshotId :: Lens' DeleteSnapshot Text
 ds3SnapshotId = lens _ds3SnapshotId (\s a -> s { _ds3SnapshotId = a })
 

@@ -105,7 +105,6 @@ createSecurityGroup p1 p2 = CreateSecurityGroup
 -- Constraints for EC2-Classic: ASCII characters
 --
 -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
---
 csgDescription :: Lens' CreateSecurityGroup Text
 csgDescription = lens _csgDescription (\s a -> s { _csgDescription = a })
 
@@ -119,12 +118,10 @@ csgDryRun = lens _csgDryRun (\s a -> s { _csgDryRun = a })
 -- Constraints for EC2-Classic: ASCII characters
 --
 -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
---
 csgGroupName :: Lens' CreateSecurityGroup Text
 csgGroupName = lens _csgGroupName (\s a -> s { _csgGroupName = a })
 
 -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
---
 csgVpcId :: Lens' CreateSecurityGroup (Maybe Text)
 csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
 
@@ -145,7 +142,6 @@ createSecurityGroupResponse p1 = CreateSecurityGroupResponse
     }
 
 -- | The ID of the security group.
---
 csgrGroupId :: Lens' CreateSecurityGroupResponse Text
 csgrGroupId = lens _csgrGroupId (\s a -> s { _csgrGroupId = a })
 

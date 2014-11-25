@@ -70,12 +70,10 @@ createSnapshot p1 p2 = CreateSnapshot
 
 -- | The identifier of an existing cache cluster. The snapshot will be created
 -- from this cache cluster.
---
 csCacheClusterId :: Lens' CreateSnapshot Text
 csCacheClusterId = lens _csCacheClusterId (\s a -> s { _csCacheClusterId = a })
 
 -- | A name for the snapshot being created.
---
 csSnapshotName :: Lens' CreateSnapshot Text
 csSnapshotName = lens _csSnapshotName (\s a -> s { _csSnapshotName = a })
 

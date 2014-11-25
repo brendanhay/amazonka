@@ -69,7 +69,6 @@ dnaDryRun :: Lens' DeleteNetworkAcl (Maybe Bool)
 dnaDryRun = lens _dnaDryRun (\s a -> s { _dnaDryRun = a })
 
 -- | The ID of the network ACL.
---
 dnaNetworkAclId :: Lens' DeleteNetworkAcl Text
 dnaNetworkAclId = lens _dnaNetworkAclId (\s a -> s { _dnaNetworkAclId = a })
 

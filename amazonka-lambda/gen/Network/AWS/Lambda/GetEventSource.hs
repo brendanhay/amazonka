@@ -72,7 +72,6 @@ getEventSource p1 = GetEventSource
     }
 
 -- | The AWS Lambda assigned ID of the event source mapping.
---
 gesUUID :: Lens' GetEventSource Text
 gesUUID = lens _gesUUID (\s a -> s { _gesUUID = a })
 
@@ -125,53 +124,44 @@ getEventSourceResponse = GetEventSourceResponse
 
 -- | The largest number of records that AWS Lambda will POST in the invocation
 -- request to your function.
---
 gesrBatchSize :: Lens' GetEventSourceResponse (Maybe Int)
 gesrBatchSize = lens _gesrBatchSize (\s a -> s { _gesrBatchSize = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream that is the
 -- source of events.
---
 gesrEventSource :: Lens' GetEventSourceResponse (Maybe Text)
 gesrEventSource = lens _gesrEventSource (\s a -> s { _gesrEventSource = a })
 
 -- | The Lambda function to invoke when AWS Lambda detects an event on the stream.
---
 gesrFunctionName :: Lens' GetEventSourceResponse (Maybe Text)
 gesrFunctionName = lens _gesrFunctionName (\s a -> s { _gesrFunctionName = a })
 
 -- | Indicates whether the event source mapping is currently honored. Events are
 -- only processes if IsActive is true.
---
 gesrIsActive :: Lens' GetEventSourceResponse (Maybe Bool)
 gesrIsActive = lens _gesrIsActive (\s a -> s { _gesrIsActive = a })
 
 -- | The UTC time string indicating the last time the event mapping was updated.
---
 gesrLastModified :: Lens' GetEventSourceResponse (Maybe UTCTime)
 gesrLastModified = lens _gesrLastModified (\s a -> s { _gesrLastModified = a }) . mapping _Time
 
 -- | The map (key-value pairs) defining the configuration for AWS Lambda to use
 -- when reading the event source.
---
 gesrParameters :: Lens' GetEventSourceResponse (HashMap Text Text)
 gesrParameters = lens _gesrParameters (\s a -> s { _gesrParameters = a }) . _Map
 
 -- | The ARN of the IAM role (invocation role) that AWS Lambda can assume to read
 -- from the stream and invoke the function.
---
 gesrRole :: Lens' GetEventSourceResponse (Maybe Text)
 gesrRole = lens _gesrRole (\s a -> s { _gesrRole = a })
 
 -- | The description of the health of the event source mapping. Valid values are:
 -- "PENDING", "OK", and "PROBLEM:/message/". Initially this staus is "PENDING".
 -- When AWS Lambda begins processing events, it changes the status to "OK".
---
 gesrStatus :: Lens' GetEventSourceResponse (Maybe Text)
 gesrStatus = lens _gesrStatus (\s a -> s { _gesrStatus = a })
 
 -- | The AWS Lambda assigned opaque identifier for the mapping.
---
 gesrUUID :: Lens' GetEventSourceResponse (Maybe Text)
 gesrUUID = lens _gesrUUID (\s a -> s { _gesrUUID = a })
 

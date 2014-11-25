@@ -92,7 +92,6 @@ describeClusterParameters p1 = DescribeClusterParameters
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the 'Marker' parameter and retrying the
 -- request.
---
 dcp1Marker :: Lens' DescribeClusterParameters (Maybe Text)
 dcp1Marker = lens _dcp1Marker (\s a -> s { _dcp1Marker = a })
 
@@ -104,12 +103,10 @@ dcp1Marker = lens _dcp1Marker (\s a -> s { _dcp1Marker = a })
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
---
 dcp1MaxRecords :: Lens' DescribeClusterParameters (Maybe Int)
 dcp1MaxRecords = lens _dcp1MaxRecords (\s a -> s { _dcp1MaxRecords = a })
 
 -- | The name of a cluster parameter group for which to return details.
---
 dcp1ParameterGroupName :: Lens' DescribeClusterParameters Text
 dcp1ParameterGroupName =
     lens _dcp1ParameterGroupName (\s a -> s { _dcp1ParameterGroupName = a })
@@ -121,7 +118,6 @@ dcp1ParameterGroupName =
 -- Default: All parameter types returned.
 --
 -- Valid Values: 'user' | 'engine-default'
---
 dcp1Source :: Lens' DescribeClusterParameters (Maybe Text)
 dcp1Source = lens _dcp1Source (\s a -> s { _dcp1Source = a })
 
@@ -149,13 +145,11 @@ describeClusterParametersResponse = DescribeClusterParametersResponse
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
 -- empty, all response records have been retrieved for the request.
---
 dcprMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
 dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
 
 -- | A list of 'Parameter' instances. Each instance lists the parameters of one
 -- cluster parameter group.
---
 dcprParameters :: Lens' DescribeClusterParametersResponse [Parameter]
 dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a }) . _List
 

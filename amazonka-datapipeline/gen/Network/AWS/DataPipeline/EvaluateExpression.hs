@@ -75,17 +75,14 @@ evaluateExpression p1 p2 p3 = EvaluateExpression
     }
 
 -- | The expression to evaluate.
---
 eeExpression :: Lens' EvaluateExpression Text
 eeExpression = lens _eeExpression (\s a -> s { _eeExpression = a })
 
 -- | The identifier of the object.
---
 eeObjectId :: Lens' EvaluateExpression Text
 eeObjectId = lens _eeObjectId (\s a -> s { _eeObjectId = a })
 
 -- | The identifier of the pipeline.
---
 eePipelineId :: Lens' EvaluateExpression Text
 eePipelineId = lens _eePipelineId (\s a -> s { _eePipelineId = a })
 
@@ -106,7 +103,6 @@ evaluateExpressionResponse p1 = EvaluateExpressionResponse
     }
 
 -- | The evaluated expression.
---
 eerEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
 eerEvaluatedExpression =
     lens _eerEvaluatedExpression (\s a -> s { _eerEvaluatedExpression = a })

@@ -94,7 +94,6 @@ describeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings
 
 -- | The cache node type filter value. Use this parameter to show only the
 -- available offerings matching the specified cache node type.
---
 drcnoCacheNodeType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoCacheNodeType =
     lens _drcnoCacheNodeType (\s a -> s { _drcnoCacheNodeType = a })
@@ -103,7 +102,6 @@ drcnoCacheNodeType =
 -- show only reservations for a given duration.
 --
 -- Valid Values: '1 | 3 | 31536000 | 94608000'
---
 drcnoDuration :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoDuration = lens _drcnoDuration (\s a -> s { _drcnoDuration = a })
 
@@ -111,7 +109,6 @@ drcnoDuration = lens _drcnoDuration (\s a -> s { _drcnoDuration = a })
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
---
 drcnoMarker :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoMarker = lens _drcnoMarker (\s a -> s { _drcnoMarker = a })
 
@@ -122,7 +119,6 @@ drcnoMarker = lens _drcnoMarker (\s a -> s { _drcnoMarker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
---
 drcnoMaxRecords :: Lens' DescribeReservedCacheNodesOfferings (Maybe Int)
 drcnoMaxRecords = lens _drcnoMaxRecords (\s a -> s { _drcnoMaxRecords = a })
 
@@ -130,14 +126,12 @@ drcnoMaxRecords = lens _drcnoMaxRecords (\s a -> s { _drcnoMaxRecords = a })
 -- offerings matching the specified offering type.
 --
 -- Valid Values: '"Light Utilization" | "Medium Utilization" | "HeavyUtilization"'
---
 drcnoOfferingType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoOfferingType =
     lens _drcnoOfferingType (\s a -> s { _drcnoOfferingType = a })
 
 -- | The product description filter value. Use this parameter to show only the
 -- available offerings matching the specified product description.
---
 drcnoProductDescription :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoProductDescription =
     lens _drcnoProductDescription (\s a -> s { _drcnoProductDescription = a })
@@ -146,7 +140,6 @@ drcnoProductDescription =
 -- available offering that matches the specified reservation identifier.
 --
 -- Example: '438012d3-4052-4cc7-b2e3-8d3372e0e706'
---
 drcnoReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoReservedCacheNodesOfferingId =
     lens _drcnoReservedCacheNodesOfferingId
@@ -172,13 +165,11 @@ describeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOffering
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
---
 drcnorMarker :: Lens' DescribeReservedCacheNodesOfferingsResponse (Maybe Text)
 drcnorMarker = lens _drcnorMarker (\s a -> s { _drcnorMarker = a })
 
 -- | A list of reserved cache node offerings. Each element in the list contains
 -- detailed information about one offering.
---
 drcnorReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsResponse [ReservedCacheNodesOffering]
 drcnorReservedCacheNodesOfferings =
     lens _drcnorReservedCacheNodesOfferings

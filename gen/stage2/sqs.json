@@ -89,7 +89,7 @@
                         "name": "_dmbreId",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | An identifier for this particular receipt handle. This is used to communicate\n-- the result. Note that the 'Id's of a batch request need to be unique within the\n-- request.\n--",
+                        "documentation": "-- | An identifier for this particular receipt handle. This is used to communicate\n-- the result. Note that the 'Id's of a batch request need to be unique within the\n-- request.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -104,7 +104,7 @@
                         "name": "_dmbreReceiptHandle",
                         "shape": "String",
                         "locationName": "ReceiptHandle",
-                        "documentation": "-- | A receipt handle.\n--",
+                        "documentation": "-- | A receipt handle.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -126,7 +126,7 @@
                         "name": "_dmbreId",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | An identifier for this particular receipt handle. This is used to communicate\n-- the result. Note that the 'Id's of a batch request need to be unique within the\n-- request.\n--",
+                        "documentation": "-- | An identifier for this particular receipt handle. This is used to communicate\n-- the result. Note that the 'Id's of a batch request need to be unique within the\n-- request.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -141,7 +141,7 @@
                         "name": "_dmbreReceiptHandle",
                         "shape": "String",
                         "locationName": "ReceiptHandle",
-                        "documentation": "-- | A receipt handle.\n--",
+                        "documentation": "-- | A receipt handle.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -168,7 +168,7 @@
                         "name": "_mavDataType",
                         "shape": "String",
                         "locationName": "DataType",
-                        "documentation": "-- | Amazon SQS supports the following logical data types: String, Number, and\n-- Binary. In addition, you can append your own custom labels. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes Message Attribute Data Types\u003e.\n--",
+                        "documentation": "-- | Amazon SQS supports the following logical data types: String, Number, and\n-- Binary. In addition, you can append your own custom labels. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes Message Attribute Data Types\u003e.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -189,7 +189,7 @@
                         "name": "_mavStringValue",
                         "shape": "String",
                         "locationName": "StringValue",
-                        "documentation": "-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see \u003chttp://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\u003e.\n--",
+                        "documentation": "-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see \u003chttp://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -204,7 +204,7 @@
                         "name": "_mavBinaryValue",
                         "shape": "Binary",
                         "locationName": "BinaryValue",
-                        "documentation": "-- | Binary type attributes can store any binary data, for example, compressed\n-- data, encrypted data, or images.\n--",
+                        "documentation": "-- | Binary type attributes can store any binary data, for example, compressed\n-- data, encrypted data, or images.",
                         "typeExposed": "Maybe Base64",
                         "type": "Maybe Base64"
                     },
@@ -219,7 +219,7 @@
                         "name": "_mavStringListValues",
                         "shape": "StringList",
                         "locationName": "StringListValue",
-                        "documentation": "-- | Not implemented. Reserved for future use.\n--",
+                        "documentation": "-- | Not implemented. Reserved for future use.",
                         "typeExposed": "[Text]",
                         "type": "List \"StringListValue\" Text"
                     },
@@ -234,7 +234,7 @@
                         "name": "_mavBinaryListValues",
                         "shape": "BinaryList",
                         "locationName": "BinaryListValue",
-                        "documentation": "-- | Not implemented. Reserved for future use.\n--",
+                        "documentation": "-- | Not implemented. Reserved for future use.",
                         "typeExposed": "[Base64]",
                         "type": "List \"BinaryListValue\" Base64"
                     }
@@ -251,7 +251,7 @@
                         "name": "_mavBinaryListValues",
                         "shape": "BinaryList",
                         "locationName": "BinaryListValue",
-                        "documentation": "-- | Not implemented. Reserved for future use.\n--",
+                        "documentation": "-- | Not implemented. Reserved for future use.",
                         "typeExposed": "[Base64]",
                         "type": "List \"BinaryListValue\" Base64"
                     },
@@ -266,7 +266,7 @@
                         "name": "_mavBinaryValue",
                         "shape": "Binary",
                         "locationName": "BinaryValue",
-                        "documentation": "-- | Binary type attributes can store any binary data, for example, compressed\n-- data, encrypted data, or images.\n--",
+                        "documentation": "-- | Binary type attributes can store any binary data, for example, compressed\n-- data, encrypted data, or images.",
                         "typeExposed": "Maybe Base64",
                         "type": "Maybe Base64"
                     },
@@ -281,7 +281,7 @@
                         "name": "_mavDataType",
                         "shape": "String",
                         "locationName": "DataType",
-                        "documentation": "-- | Amazon SQS supports the following logical data types: String, Number, and\n-- Binary. In addition, you can append your own custom labels. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes Message Attribute Data Types\u003e.\n--",
+                        "documentation": "-- | Amazon SQS supports the following logical data types: String, Number, and\n-- Binary. In addition, you can append your own custom labels. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes Message Attribute Data Types\u003e.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -296,7 +296,7 @@
                         "name": "_mavStringListValues",
                         "shape": "StringList",
                         "locationName": "StringListValue",
-                        "documentation": "-- | Not implemented. Reserved for future use.\n--",
+                        "documentation": "-- | Not implemented. Reserved for future use.",
                         "typeExposed": "[Text]",
                         "type": "List \"StringListValue\" Text"
                     },
@@ -311,7 +311,7 @@
                         "name": "_mavStringValue",
                         "shape": "String",
                         "locationName": "StringValue",
-                        "documentation": "-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see \u003chttp://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\u003e.\n--",
+                        "documentation": "-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see \u003chttp://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -339,7 +339,7 @@
                     "name": "_cmvbreId",
                     "shape": "String",
                     "locationName": "Id",
-                    "documentation": "-- | Represents a message whose visibility timeout has been changed successfully.\n--",
+                    "documentation": "-- | Represents a message whose visibility timeout has been changed successfully.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -357,7 +357,7 @@
                         "name": "_cmvbreId",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | Represents a message whose visibility timeout has been changed successfully.\n--",
+                        "documentation": "-- | Represents a message whose visibility timeout has been changed successfully.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -379,7 +379,7 @@
                         "name": "_cmvbreId",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | Represents a message whose visibility timeout has been changed successfully.\n--",
+                        "documentation": "-- | Represents a message whose visibility timeout has been changed successfully.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -407,7 +407,7 @@
                         "name": "_cmvbre1Id",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | An identifier for this particular receipt handle. This is used to communicate\n-- the result. Note that the 'Id's of a batch request need to be unique within the\n-- request.\n--",
+                        "documentation": "-- | An identifier for this particular receipt handle. This is used to communicate\n-- the result. Note that the 'Id's of a batch request need to be unique within the\n-- request.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -422,7 +422,7 @@
                         "name": "_cmvbre1ReceiptHandle",
                         "shape": "String",
                         "locationName": "ReceiptHandle",
-                        "documentation": "-- | A receipt handle.\n--",
+                        "documentation": "-- | A receipt handle.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -443,7 +443,7 @@
                         "name": "_cmvbre1VisibilityTimeout",
                         "shape": "Integer",
                         "locationName": "VisibilityTimeout",
-                        "documentation": "-- | The new value (in seconds) for the message's visibility timeout.\n--",
+                        "documentation": "-- | The new value (in seconds) for the message's visibility timeout.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     }
@@ -460,7 +460,7 @@
                         "name": "_cmvbre1Id",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | An identifier for this particular receipt handle. This is used to communicate\n-- the result. Note that the 'Id's of a batch request need to be unique within the\n-- request.\n--",
+                        "documentation": "-- | An identifier for this particular receipt handle. This is used to communicate\n-- the result. Note that the 'Id's of a batch request need to be unique within the\n-- request.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -475,7 +475,7 @@
                         "name": "_cmvbre1ReceiptHandle",
                         "shape": "String",
                         "locationName": "ReceiptHandle",
-                        "documentation": "-- | A receipt handle.\n--",
+                        "documentation": "-- | A receipt handle.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -490,7 +490,7 @@
                         "name": "_cmvbre1VisibilityTimeout",
                         "shape": "Integer",
                         "locationName": "VisibilityTimeout",
-                        "documentation": "-- | The new value (in seconds) for the message's visibility timeout.\n--",
+                        "documentation": "-- | The new value (in seconds) for the message's visibility timeout.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     }
@@ -518,7 +518,7 @@
                     "name": "_dmbre1Id",
                     "shape": "String",
                     "locationName": "Id",
-                    "documentation": "-- | Represents a successfully deleted message.\n--",
+                    "documentation": "-- | Represents a successfully deleted message.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -536,7 +536,7 @@
                         "name": "_dmbre1Id",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | Represents a successfully deleted message.\n--",
+                        "documentation": "-- | Represents a successfully deleted message.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -558,7 +558,7 @@
                         "name": "_dmbre1Id",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | Represents a successfully deleted message.\n--",
+                        "documentation": "-- | Represents a successfully deleted message.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -590,7 +590,7 @@
                         "name": "_mMessageId",
                         "shape": "String",
                         "locationName": "MessageId",
-                        "documentation": "-- | A unique identifier for the message. Message IDs are considered unique across\n-- all AWS accounts for an extended period of time.\n--",
+                        "documentation": "-- | A unique identifier for the message. Message IDs are considered unique across\n-- all AWS accounts for an extended period of time.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -605,7 +605,7 @@
                         "name": "_mReceiptHandle",
                         "shape": "String",
                         "locationName": "ReceiptHandle",
-                        "documentation": "-- | An identifier associated with the act of receiving the message. A new receipt\n-- handle is returned every time you receive a message. When deleting a message,\n-- you provide the last received receipt handle to delete the message.\n--",
+                        "documentation": "-- | An identifier associated with the act of receiving the message. A new receipt\n-- handle is returned every time you receive a message. When deleting a message,\n-- you provide the last received receipt handle to delete the message.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -620,7 +620,7 @@
                         "name": "_mMD5OfBody",
                         "shape": "String",
                         "locationName": "MD5OfBody",
-                        "documentation": "-- | An MD5 digest of the non-URL-encoded message body string.\n--",
+                        "documentation": "-- | An MD5 digest of the non-URL-encoded message body string.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -635,7 +635,7 @@
                         "name": "_mBody",
                         "shape": "String",
                         "locationName": "Body",
-                        "documentation": "-- | The message's contents (not URL-encoded).\n--",
+                        "documentation": "-- | The message's contents (not URL-encoded).",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -650,7 +650,7 @@
                         "name": "_mAttributes",
                         "shape": "AttributeMap",
                         "locationName": "Attribute",
-                        "documentation": "-- | 'SenderId', 'SentTimestamp', 'ApproximateReceiveCount', and/or 'ApproximateFirstReceiveTimestamp'. 'SentTimestamp' and 'ApproximateFirstReceiveTimestamp' are each returned as an\n-- integer representing the \u003chttp://en.wikipedia.org/wiki/Unix_time epoch time\u003e in milliseconds.\n--",
+                        "documentation": "-- | 'SenderId', 'SentTimestamp', 'ApproximateReceiveCount', and/or 'ApproximateFirstReceiveTimestamp'. 'SentTimestamp' and 'ApproximateFirstReceiveTimestamp' are each returned as an\n-- integer representing the \u003chttp://en.wikipedia.org/wiki/Unix_time epoch time\u003e in milliseconds.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"Attribute\" \"Name\" \"Value\" Text Text"
                     },
@@ -665,7 +665,7 @@
                         "name": "_mMD5OfMessageAttributes",
                         "shape": "String",
                         "locationName": "MD5OfMessageAttributes",
-                        "documentation": "-- | An MD5 digest of the non-URL-encoded message attribute string. This can be\n-- used to verify that Amazon SQS received the message correctly. Amazon SQS\n-- first URL decodes the message before creating the MD5 digest. For information\n-- about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.\n--",
+                        "documentation": "-- | An MD5 digest of the non-URL-encoded message attribute string. This can be\n-- used to verify that Amazon SQS received the message correctly. Amazon SQS\n-- first URL decodes the message before creating the MD5 digest. For information\n-- about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -680,7 +680,7 @@
                         "name": "_mMessageAttributes",
                         "shape": "MessageAttributeMap",
                         "locationName": "MessageAttribute",
-                        "documentation": "-- | Each message attribute consists of a Name, Type, and Value. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items\u003e.\n--",
+                        "documentation": "-- | Each message attribute consists of a Name, Type, and Value. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items\u003e.",
                         "typeExposed": "HashMap Text MessageAttributeValue",
                         "type": "EMap \"MessageAttribute\" \"Name\" \"Value\" Text MessageAttributeValue"
                     }
@@ -697,7 +697,7 @@
                         "name": "_mAttributes",
                         "shape": "AttributeMap",
                         "locationName": "Attribute",
-                        "documentation": "-- | 'SenderId', 'SentTimestamp', 'ApproximateReceiveCount', and/or 'ApproximateFirstReceiveTimestamp'. 'SentTimestamp' and 'ApproximateFirstReceiveTimestamp' are each returned as an\n-- integer representing the \u003chttp://en.wikipedia.org/wiki/Unix_time epoch time\u003e in milliseconds.\n--",
+                        "documentation": "-- | 'SenderId', 'SentTimestamp', 'ApproximateReceiveCount', and/or 'ApproximateFirstReceiveTimestamp'. 'SentTimestamp' and 'ApproximateFirstReceiveTimestamp' are each returned as an\n-- integer representing the \u003chttp://en.wikipedia.org/wiki/Unix_time epoch time\u003e in milliseconds.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"Attribute\" \"Name\" \"Value\" Text Text"
                     },
@@ -712,7 +712,7 @@
                         "name": "_mBody",
                         "shape": "String",
                         "locationName": "Body",
-                        "documentation": "-- | The message's contents (not URL-encoded).\n--",
+                        "documentation": "-- | The message's contents (not URL-encoded).",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -727,7 +727,7 @@
                         "name": "_mMD5OfBody",
                         "shape": "String",
                         "locationName": "MD5OfBody",
-                        "documentation": "-- | An MD5 digest of the non-URL-encoded message body string.\n--",
+                        "documentation": "-- | An MD5 digest of the non-URL-encoded message body string.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -742,7 +742,7 @@
                         "name": "_mMD5OfMessageAttributes",
                         "shape": "String",
                         "locationName": "MD5OfMessageAttributes",
-                        "documentation": "-- | An MD5 digest of the non-URL-encoded message attribute string. This can be\n-- used to verify that Amazon SQS received the message correctly. Amazon SQS\n-- first URL decodes the message before creating the MD5 digest. For information\n-- about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.\n--",
+                        "documentation": "-- | An MD5 digest of the non-URL-encoded message attribute string. This can be\n-- used to verify that Amazon SQS received the message correctly. Amazon SQS\n-- first URL decodes the message before creating the MD5 digest. For information\n-- about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -757,7 +757,7 @@
                         "name": "_mMessageAttributes",
                         "shape": "MessageAttributeMap",
                         "locationName": "MessageAttribute",
-                        "documentation": "-- | Each message attribute consists of a Name, Type, and Value. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items\u003e.\n--",
+                        "documentation": "-- | Each message attribute consists of a Name, Type, and Value. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items\u003e.",
                         "typeExposed": "HashMap Text MessageAttributeValue",
                         "type": "EMap \"MessageAttribute\" \"Name\" \"Value\" Text MessageAttributeValue"
                     },
@@ -772,7 +772,7 @@
                         "name": "_mMessageId",
                         "shape": "String",
                         "locationName": "MessageId",
-                        "documentation": "-- | A unique identifier for the message. Message IDs are considered unique across\n-- all AWS accounts for an extended period of time.\n--",
+                        "documentation": "-- | A unique identifier for the message. Message IDs are considered unique across\n-- all AWS accounts for an extended period of time.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -787,7 +787,7 @@
                         "name": "_mReceiptHandle",
                         "shape": "String",
                         "locationName": "ReceiptHandle",
-                        "documentation": "-- | An identifier associated with the act of receiving the message. A new receipt\n-- handle is returned every time you receive a message. When deleting a message,\n-- you provide the last received receipt handle to delete the message.\n--",
+                        "documentation": "-- | An identifier associated with the act of receiving the message. A new receipt\n-- handle is returned every time you receive a message. When deleting a message,\n-- you provide the last received receipt handle to delete the message.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -814,7 +814,7 @@
                         "name": "_smbreId",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | An identifier for the message in this batch. This is used to communicate the\n-- result. Note that the 'Id's of a batch request need to be unique within the\n-- request.\n--",
+                        "documentation": "-- | An identifier for the message in this batch. This is used to communicate the\n-- result. Note that the 'Id's of a batch request need to be unique within the\n-- request.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -829,7 +829,7 @@
                         "name": "_smbreMessageBody",
                         "shape": "String",
                         "locationName": "MessageBody",
-                        "documentation": "-- | Body of the message.\n--",
+                        "documentation": "-- | Body of the message.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -850,7 +850,7 @@
                         "name": "_smbreDelaySeconds",
                         "shape": "Integer",
                         "locationName": "DelaySeconds",
-                        "documentation": "-- | The number of seconds for which the message has to be delayed.\n--",
+                        "documentation": "-- | The number of seconds for which the message has to be delayed.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -865,7 +865,7 @@
                         "name": "_smbreMessageAttributes",
                         "shape": "MessageAttributeMap",
                         "locationName": "MessageAttribute",
-                        "documentation": "-- | Each message attribute consists of a Name, Type, and Value. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items\u003e.\n--",
+                        "documentation": "-- | Each message attribute consists of a Name, Type, and Value. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items\u003e.",
                         "typeExposed": "HashMap Text MessageAttributeValue",
                         "type": "EMap \"MessageAttribute\" \"Name\" \"Value\" Text MessageAttributeValue"
                     }
@@ -882,7 +882,7 @@
                         "name": "_smbreDelaySeconds",
                         "shape": "Integer",
                         "locationName": "DelaySeconds",
-                        "documentation": "-- | The number of seconds for which the message has to be delayed.\n--",
+                        "documentation": "-- | The number of seconds for which the message has to be delayed.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -897,7 +897,7 @@
                         "name": "_smbreId",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | An identifier for the message in this batch. This is used to communicate the\n-- result. Note that the 'Id's of a batch request need to be unique within the\n-- request.\n--",
+                        "documentation": "-- | An identifier for the message in this batch. This is used to communicate the\n-- result. Note that the 'Id's of a batch request need to be unique within the\n-- request.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -912,7 +912,7 @@
                         "name": "_smbreMessageAttributes",
                         "shape": "MessageAttributeMap",
                         "locationName": "MessageAttribute",
-                        "documentation": "-- | Each message attribute consists of a Name, Type, and Value. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items\u003e.\n--",
+                        "documentation": "-- | Each message attribute consists of a Name, Type, and Value. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items\u003e.",
                         "typeExposed": "HashMap Text MessageAttributeValue",
                         "type": "EMap \"MessageAttribute\" \"Name\" \"Value\" Text MessageAttributeValue"
                     },
@@ -927,7 +927,7 @@
                         "name": "_smbreMessageBody",
                         "shape": "String",
                         "locationName": "MessageBody",
-                        "documentation": "-- | Body of the message.\n--",
+                        "documentation": "-- | Body of the message.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -955,7 +955,7 @@
                         "name": "_smbre1Id",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | An identifier for the message in this batch.\n--",
+                        "documentation": "-- | An identifier for the message in this batch.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -970,7 +970,7 @@
                         "name": "_smbre1MessageId",
                         "shape": "String",
                         "locationName": "MessageId",
-                        "documentation": "-- | An identifier for the message.\n--",
+                        "documentation": "-- | An identifier for the message.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -985,7 +985,7 @@
                         "name": "_smbre1MD5OfMessageBody",
                         "shape": "String",
                         "locationName": "MD5OfMessageBody",
-                        "documentation": "-- | An MD5 digest of the non-URL-encoded message body string. This can be used to\n-- verify that Amazon SQS received the message correctly. Amazon SQS first URL\n-- decodes the message before creating the MD5 digest. For information about\n-- MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.\n--",
+                        "documentation": "-- | An MD5 digest of the non-URL-encoded message body string. This can be used to\n-- verify that Amazon SQS received the message correctly. Amazon SQS first URL\n-- decodes the message before creating the MD5 digest. For information about\n-- MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1006,7 +1006,7 @@
                         "name": "_smbre1MD5OfMessageAttributes",
                         "shape": "String",
                         "locationName": "MD5OfMessageAttributes",
-                        "documentation": "-- | An MD5 digest of the non-URL-encoded message attribute string. This can be\n-- used to verify that Amazon SQS received the message batch correctly. Amazon\n-- SQS first URL decodes the message before creating the MD5 digest. For\n-- information about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.\n--",
+                        "documentation": "-- | An MD5 digest of the non-URL-encoded message attribute string. This can be\n-- used to verify that Amazon SQS received the message batch correctly. Amazon\n-- SQS first URL decodes the message before creating the MD5 digest. For\n-- information about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1023,7 +1023,7 @@
                         "name": "_smbre1Id",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | An identifier for the message in this batch.\n--",
+                        "documentation": "-- | An identifier for the message in this batch.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1038,7 +1038,7 @@
                         "name": "_smbre1MD5OfMessageAttributes",
                         "shape": "String",
                         "locationName": "MD5OfMessageAttributes",
-                        "documentation": "-- | An MD5 digest of the non-URL-encoded message attribute string. This can be\n-- used to verify that Amazon SQS received the message batch correctly. Amazon\n-- SQS first URL decodes the message before creating the MD5 digest. For\n-- information about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.\n--",
+                        "documentation": "-- | An MD5 digest of the non-URL-encoded message attribute string. This can be\n-- used to verify that Amazon SQS received the message batch correctly. Amazon\n-- SQS first URL decodes the message before creating the MD5 digest. For\n-- information about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1053,7 +1053,7 @@
                         "name": "_smbre1MD5OfMessageBody",
                         "shape": "String",
                         "locationName": "MD5OfMessageBody",
-                        "documentation": "-- | An MD5 digest of the non-URL-encoded message body string. This can be used to\n-- verify that Amazon SQS received the message correctly. Amazon SQS first URL\n-- decodes the message before creating the MD5 digest. For information about\n-- MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.\n--",
+                        "documentation": "-- | An MD5 digest of the non-URL-encoded message body string. This can be used to\n-- verify that Amazon SQS received the message correctly. Amazon SQS first URL\n-- decodes the message before creating the MD5 digest. For information about\n-- MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1068,7 +1068,7 @@
                         "name": "_smbre1MessageId",
                         "shape": "String",
                         "locationName": "MessageId",
-                        "documentation": "-- | An identifier for the message.\n--",
+                        "documentation": "-- | An identifier for the message.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1096,7 +1096,7 @@
                         "name": "_breeId",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | The id of an entry in a batch request.\n--",
+                        "documentation": "-- | The id of an entry in a batch request.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1111,7 +1111,7 @@
                         "name": "_breeSenderFault",
                         "shape": "Boolean",
                         "locationName": "SenderFault",
-                        "documentation": "-- | Whether the error happened due to the sender's fault.\n--",
+                        "documentation": "-- | Whether the error happened due to the sender's fault.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -1126,7 +1126,7 @@
                         "name": "_breeCode",
                         "shape": "String",
                         "locationName": "Code",
-                        "documentation": "-- | An error code representing why the action failed on this entry.\n--",
+                        "documentation": "-- | An error code representing why the action failed on this entry.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1147,7 +1147,7 @@
                         "name": "_breeMessage",
                         "shape": "String",
                         "locationName": "Message",
-                        "documentation": "-- | A message explaining why the action failed on this entry.\n--",
+                        "documentation": "-- | A message explaining why the action failed on this entry.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1164,7 +1164,7 @@
                         "name": "_breeCode",
                         "shape": "String",
                         "locationName": "Code",
-                        "documentation": "-- | An error code representing why the action failed on this entry.\n--",
+                        "documentation": "-- | An error code representing why the action failed on this entry.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1179,7 +1179,7 @@
                         "name": "_breeId",
                         "shape": "String",
                         "locationName": "Id",
-                        "documentation": "-- | The id of an entry in a batch request.\n--",
+                        "documentation": "-- | The id of an entry in a batch request.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1194,7 +1194,7 @@
                         "name": "_breeMessage",
                         "shape": "String",
                         "locationName": "Message",
-                        "documentation": "-- | A message explaining why the action failed on this entry.\n--",
+                        "documentation": "-- | A message explaining why the action failed on this entry.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1209,7 +1209,7 @@
                         "name": "_breeSenderFault",
                         "shape": "Boolean",
                         "locationName": "SenderFault",
-                        "documentation": "-- | Whether the error happened due to the sender's fault.\n--",
+                        "documentation": "-- | Whether the error happened due to the sender's fault.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -1256,7 +1256,7 @@
             "pager": null,
             "name": "AddPermission",
             "method": "post",
-            "documentation": "-- | Adds a permission to a queue for a specific \u003chttp://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal\u003e. This allows for\n-- sharing access to the queue.\n--\n-- When you create a queue, you have full control access rights for the queue.\n-- Only you (as owner of the queue) can grant or deny permissions to the queue.\n-- For more information about these permissions, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues\u003e in the /AmazonSQS Developer Guide/.\n--\n-- '&Attribute.1=this'\n--\n-- '&Attribute.2=that'\n--",
+            "documentation": "-- | Adds a permission to a queue for a specific \u003chttp://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal\u003e. This allows for\n-- sharing access to the queue.\n--\n-- When you create a queue, you have full control access rights for the queue.\n-- Only you (as owner of the queue) can grant or deny permissions to the queue.\n-- For more information about these permissions, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues\u003e in the /AmazonSQS Developer Guide/.\n--\n-- '&Attribute.1=this'\n--\n-- '&Attribute.2=that'",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1290,7 +1290,7 @@
                         "name": "_apQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1305,7 +1305,7 @@
                         "name": "_apLabel",
                         "shape": "String",
                         "locationName": "Label",
-                        "documentation": "-- | The unique identification of the permission you're setting (e.g., 'AliceSendMessage'). Constraints: Maximum 80 characters; alphanumeric characters, hyphens (-),\n-- and underscores (_) are allowed.\n--",
+                        "documentation": "-- | The unique identification of the permission you're setting (e.g., 'AliceSendMessage'). Constraints: Maximum 80 characters; alphanumeric characters, hyphens (-),\n-- and underscores (_) are allowed.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1353,7 +1353,7 @@
                         "name": "_apAWSAccountIds",
                         "shape": "AWSAccountIdList",
                         "locationName": "AWSAccountIds",
-                        "documentation": "-- | The AWS account number of the \u003chttp://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal\u003e who will be given permission. The\n-- principal must have an AWS account, but does not need to be signed up for\n-- Amazon SQS. For information about locating the AWS account identification,\n-- see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html Your AWS Identifiers\u003e in the /Amazon SQS Developer Guide/.\n--",
+                        "documentation": "-- | The AWS account number of the \u003chttp://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal\u003e who will be given permission. The\n-- principal must have an AWS account, but does not need to be signed up for\n-- Amazon SQS. For information about locating the AWS account identification,\n-- see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html Your AWS Identifiers\u003e in the /Amazon SQS Developer Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"AWSAccountId\" Text"
                     },
@@ -1368,7 +1368,7 @@
                         "name": "_apActions",
                         "shape": "ActionNameList",
                         "locationName": "Actions",
-                        "documentation": "-- | The action the client wants to allow for the specified principal. The\n-- following are valid values: '* | SendMessage | ReceiveMessage | DeleteMessage| ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl'. For more\n-- information about these actions, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes Understanding Permissions\u003e in the /AmazonSQS Developer Guide/.\n--\n-- Specifying 'SendMessage', 'DeleteMessage', or 'ChangeMessageVisibility' for the 'ActionName.n' also grants permissions for the corresponding batch versions of those\n-- actions: 'SendMessageBatch', 'DeleteMessageBatch', and 'ChangeMessageVisibilityBatch'.\n--",
+                        "documentation": "-- | The action the client wants to allow for the specified principal. The\n-- following are valid values: '* | SendMessage | ReceiveMessage | DeleteMessage| ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl'. For more\n-- information about these actions, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes Understanding Permissions\u003e in the /AmazonSQS Developer Guide/.\n--\n-- Specifying 'SendMessage', 'DeleteMessage', or 'ChangeMessageVisibility' for the 'ActionName.n' also grants permissions for the corresponding batch versions of those\n-- actions: 'SendMessageBatch', 'DeleteMessageBatch', and 'ChangeMessageVisibilityBatch'.",
                         "typeExposed": "[Text]",
                         "type": "List \"ActionName\" Text"
                     }
@@ -1385,7 +1385,7 @@
                         "name": "_apAWSAccountIds",
                         "shape": "AWSAccountIdList",
                         "locationName": "AWSAccountIds",
-                        "documentation": "-- | The AWS account number of the \u003chttp://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal\u003e who will be given permission. The\n-- principal must have an AWS account, but does not need to be signed up for\n-- Amazon SQS. For information about locating the AWS account identification,\n-- see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html Your AWS Identifiers\u003e in the /Amazon SQS Developer Guide/.\n--",
+                        "documentation": "-- | The AWS account number of the \u003chttp://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal\u003e who will be given permission. The\n-- principal must have an AWS account, but does not need to be signed up for\n-- Amazon SQS. For information about locating the AWS account identification,\n-- see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html Your AWS Identifiers\u003e in the /Amazon SQS Developer Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"AWSAccountId\" Text"
                     },
@@ -1400,7 +1400,7 @@
                         "name": "_apActions",
                         "shape": "ActionNameList",
                         "locationName": "Actions",
-                        "documentation": "-- | The action the client wants to allow for the specified principal. The\n-- following are valid values: '* | SendMessage | ReceiveMessage | DeleteMessage| ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl'. For more\n-- information about these actions, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes Understanding Permissions\u003e in the /AmazonSQS Developer Guide/.\n--\n-- Specifying 'SendMessage', 'DeleteMessage', or 'ChangeMessageVisibility' for the 'ActionName.n' also grants permissions for the corresponding batch versions of those\n-- actions: 'SendMessageBatch', 'DeleteMessageBatch', and 'ChangeMessageVisibilityBatch'.\n--",
+                        "documentation": "-- | The action the client wants to allow for the specified principal. The\n-- following are valid values: '* | SendMessage | ReceiveMessage | DeleteMessage| ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl'. For more\n-- information about these actions, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes Understanding Permissions\u003e in the /AmazonSQS Developer Guide/.\n--\n-- Specifying 'SendMessage', 'DeleteMessage', or 'ChangeMessageVisibility' for the 'ActionName.n' also grants permissions for the corresponding batch versions of those\n-- actions: 'SendMessageBatch', 'DeleteMessageBatch', and 'ChangeMessageVisibilityBatch'.",
                         "typeExposed": "[Text]",
                         "type": "List \"ActionName\" Text"
                     },
@@ -1415,7 +1415,7 @@
                         "name": "_apLabel",
                         "shape": "String",
                         "locationName": "Label",
-                        "documentation": "-- | The unique identification of the permission you're setting (e.g., 'AliceSendMessage'). Constraints: Maximum 80 characters; alphanumeric characters, hyphens (-),\n-- and underscores (_) are allowed.\n--",
+                        "documentation": "-- | The unique identification of the permission you're setting (e.g., 'AliceSendMessage'). Constraints: Maximum 80 characters; alphanumeric characters, hyphens (-),\n-- and underscores (_) are allowed.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1430,7 +1430,7 @@
                         "name": "_apQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1507,7 +1507,7 @@
                         "name": "_cmvQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1522,7 +1522,7 @@
                         "name": "_cmvReceiptHandle",
                         "shape": "String",
                         "locationName": "ReceiptHandle",
-                        "documentation": "-- | The receipt handle associated with the message whose visibility timeout\n-- should be changed. This parameter is returned by the 'ReceiveMessage' action.\n--",
+                        "documentation": "-- | The receipt handle associated with the message whose visibility timeout\n-- should be changed. This parameter is returned by the 'ReceiveMessage' action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1537,7 +1537,7 @@
                         "name": "_cmvVisibilityTimeout",
                         "shape": "Integer",
                         "locationName": "VisibilityTimeout",
-                        "documentation": "-- | The new value (in seconds - from 0 to 43200 - maximum 12 hours) for the\n-- message's visibility timeout.\n--",
+                        "documentation": "-- | The new value (in seconds - from 0 to 43200 - maximum 12 hours) for the\n-- message's visibility timeout.",
                         "typeExposed": "Int",
                         "type": "Int"
                     }
@@ -1581,7 +1581,7 @@
                         "name": "_cmvQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1596,7 +1596,7 @@
                         "name": "_cmvReceiptHandle",
                         "shape": "String",
                         "locationName": "ReceiptHandle",
-                        "documentation": "-- | The receipt handle associated with the message whose visibility timeout\n-- should be changed. This parameter is returned by the 'ReceiveMessage' action.\n--",
+                        "documentation": "-- | The receipt handle associated with the message whose visibility timeout\n-- should be changed. This parameter is returned by the 'ReceiveMessage' action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1611,7 +1611,7 @@
                         "name": "_cmvVisibilityTimeout",
                         "shape": "Integer",
                         "locationName": "VisibilityTimeout",
-                        "documentation": "-- | The new value (in seconds - from 0 to 43200 - maximum 12 hours) for the\n-- message's visibility timeout.\n--",
+                        "documentation": "-- | The new value (in seconds - from 0 to 43200 - maximum 12 hours) for the\n-- message's visibility timeout.",
                         "typeExposed": "Int",
                         "type": "Int"
                     }
@@ -1655,7 +1655,7 @@
                         "name": "_cmvbrSuccessful",
                         "shape": "ChangeMessageVisibilityBatchResultEntryList",
                         "locationName": "Successful",
-                        "documentation": "-- | A list of 'ChangeMessageVisibilityBatchResultEntry' items.\n--",
+                        "documentation": "-- | A list of 'ChangeMessageVisibilityBatchResultEntry' items.",
                         "typeExposed": "[ChangeMessageVisibilityBatchResultEntry]",
                         "type": "List \"ChangeMessageVisibilityBatchResultEntry\" ChangeMessageVisibilityBatchResultEntry"
                     },
@@ -1670,7 +1670,7 @@
                         "name": "_cmvbrFailed",
                         "shape": "BatchResultErrorEntryList",
                         "locationName": "Failed",
-                        "documentation": "-- | A list of 'BatchResultErrorEntry' items.\n--",
+                        "documentation": "-- | A list of 'BatchResultErrorEntry' items.",
                         "typeExposed": "[BatchResultErrorEntry]",
                         "type": "List \"BatchResultErrorEntry\" BatchResultErrorEntry"
                     }
@@ -1687,7 +1687,7 @@
                         "name": "_cmvbrFailed",
                         "shape": "BatchResultErrorEntryList",
                         "locationName": "Failed",
-                        "documentation": "-- | A list of 'BatchResultErrorEntry' items.\n--",
+                        "documentation": "-- | A list of 'BatchResultErrorEntry' items.",
                         "typeExposed": "[BatchResultErrorEntry]",
                         "type": "List \"BatchResultErrorEntry\" BatchResultErrorEntry"
                     },
@@ -1702,7 +1702,7 @@
                         "name": "_cmvbrSuccessful",
                         "shape": "ChangeMessageVisibilityBatchResultEntryList",
                         "locationName": "Successful",
-                        "documentation": "-- | A list of 'ChangeMessageVisibilityBatchResultEntry' items.\n--",
+                        "documentation": "-- | A list of 'ChangeMessageVisibilityBatchResultEntry' items.",
                         "typeExposed": "[ChangeMessageVisibilityBatchResultEntry]",
                         "type": "List \"ChangeMessageVisibilityBatchResultEntry\" ChangeMessageVisibilityBatchResultEntry"
                     }
@@ -1718,7 +1718,7 @@
             "pager": null,
             "name": "ChangeMessageVisibilityBatch",
             "method": "post",
-            "documentation": "-- | Changes the visibility timeout of multiple messages. This is a batch version\n-- of 'ChangeMessageVisibility'. The result of the action on each message is\n-- reported individually in the response. You can send up to 10 'ChangeMessageVisibility' requests with each 'ChangeMessageVisibilityBatch' action.\n--\n-- Because the batch request can result in a combination of successful and\n-- unsuccessful actions, you should check for batch errors even when the call\n-- returns an HTTP status code of 200. '&Attribute.1=this'\n--\n-- '&Attribute.2=that'\n--",
+            "documentation": "-- | Changes the visibility timeout of multiple messages. This is a batch version\n-- of 'ChangeMessageVisibility'. The result of the action on each message is\n-- reported individually in the response. You can send up to 10 'ChangeMessageVisibility' requests with each 'ChangeMessageVisibilityBatch' action.\n--\n-- Because the batch request can result in a combination of successful and\n-- unsuccessful actions, you should check for batch errors even when the call\n-- returns an HTTP status code of 200. '&Attribute.1=this'\n--\n-- '&Attribute.2=that'",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1751,7 +1751,7 @@
                         "name": "_cmvbQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1789,7 +1789,7 @@
                         "name": "_cmvbEntries",
                         "shape": "ChangeMessageVisibilityBatchRequestEntryList",
                         "locationName": "Entries",
-                        "documentation": "-- | A list of receipt handles of the messages for which the visibility timeout\n-- must be changed.\n--",
+                        "documentation": "-- | A list of receipt handles of the messages for which the visibility timeout\n-- must be changed.",
                         "typeExposed": "[ChangeMessageVisibilityBatchRequestEntry]",
                         "type": "List \"ChangeMessageVisibilityBatchRequestEntry\" ChangeMessageVisibilityBatchRequestEntry"
                     }
@@ -1806,7 +1806,7 @@
                         "name": "_cmvbEntries",
                         "shape": "ChangeMessageVisibilityBatchRequestEntryList",
                         "locationName": "Entries",
-                        "documentation": "-- | A list of receipt handles of the messages for which the visibility timeout\n-- must be changed.\n--",
+                        "documentation": "-- | A list of receipt handles of the messages for which the visibility timeout\n-- must be changed.",
                         "typeExposed": "[ChangeMessageVisibilityBatchRequestEntry]",
                         "type": "List \"ChangeMessageVisibilityBatchRequestEntry\" ChangeMessageVisibilityBatchRequestEntry"
                     },
@@ -1821,7 +1821,7 @@
                         "name": "_cmvbQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1854,7 +1854,7 @@
                     "name": "_cqrQueueUrl",
                     "shape": "String",
                     "locationName": "QueueUrl",
-                    "documentation": "-- | The URL for the created Amazon SQS queue.\n--",
+                    "documentation": "-- | The URL for the created Amazon SQS queue.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -1883,7 +1883,7 @@
                         "name": "_cqrQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL for the created Amazon SQS queue.\n--",
+                        "documentation": "-- | The URL for the created Amazon SQS queue.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1900,7 +1900,7 @@
                         "name": "_cqrQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL for the created Amazon SQS queue.\n--",
+                        "documentation": "-- | The URL for the created Amazon SQS queue.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1916,7 +1916,7 @@
             "pager": null,
             "name": "CreateQueue",
             "method": "post",
-            "documentation": "-- | Creates a new queue, or returns the URL of an existing one. When you request 'CreateQueue', you provide a name for the queue. To successfully create a new queue, you\n-- must provide a name that is unique within the scope of your own queues.\n--\n-- You may pass one or more attributes in the request. If you do not provide a\n-- value for any attribute, the queue will have the default value for that\n-- attribute. Permitted attributes are the same that can be set using 'SetQueueAttributes'.\n--\n-- If you provide the name of an existing queue, along with the exact names and\n-- values of all the queue's attributes, 'CreateQueue' returns the queue URL for\n-- the existing queue. If the queue name, attribute names, or attribute values\n-- do not match an existing queue, 'CreateQueue' returns an error.\n--\n-- '&Attribute.1=this'\n--\n-- '&Attribute.2=that'\n--",
+            "documentation": "-- | Creates a new queue, or returns the URL of an existing one. When you request 'CreateQueue', you provide a name for the queue. To successfully create a new queue, you\n-- must provide a name that is unique within the scope of your own queues.\n--\n-- You may pass one or more attributes in the request. If you do not provide a\n-- value for any attribute, the queue will have the default value for that\n-- attribute. Permitted attributes are the same that can be set using 'SetQueueAttributes'.\n--\n-- If you provide the name of an existing queue, along with the exact names and\n-- values of all the queue's attributes, 'CreateQueue' returns the queue URL for\n-- the existing queue. If the queue name, attribute names, or attribute values\n-- do not match an existing queue, 'CreateQueue' returns an error.\n--\n-- '&Attribute.1=this'\n--\n-- '&Attribute.2=that'",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1949,7 +1949,7 @@
                         "name": "_cqQueueName",
                         "shape": "String",
                         "locationName": "QueueName",
-                        "documentation": "-- | The name for the queue to be created.\n--",
+                        "documentation": "-- | The name for the queue to be created.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1987,7 +1987,7 @@
                         "name": "_cqAttributes",
                         "shape": "AttributeMap",
                         "locationName": "Attribute",
-                        "documentation": "-- | A map of attributes with their corresponding values.\n--\n-- The following lists the names, descriptions, and values of the special\n-- request parameters the 'CreateQueue' action uses:\n--\n-- 'DelaySeconds' - The time in seconds that the delivery of all messages in\n-- the queue will be delayed. An integer from 0 to 900 (15 minutes). The default\n-- for this attribute is 0 (zero).  'MaximumMessageSize' - The limit of how many\n-- bytes a message can contain before Amazon SQS rejects it. An integer from\n-- 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this\n-- attribute is 262144 (256 KiB).  'MessageRetentionPeriod' - The number of\n-- seconds Amazon SQS retains a message. Integer representing seconds, from 60\n-- (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4\n-- days).  'Policy' - The queue's policy. A valid form-url-encoded policy. For\n-- more information about policy structure, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html Basic Policy Structure\u003e in the /Amazon SQS Developer Guide/. For more information about form-url-encoding, see \u003chttp://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1 http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\u003e.  'ReceiveMessageWaitTimeSeconds' - The time for which a 'ReceiveMessage' call\n-- will wait for a message to arrive. An integer from 0 to 20 (seconds). The\n-- default for this attribute is 0.   'VisibilityTimeout' - The visibility timeout\n-- for the queue. An integer from 0 to 43200 (12 hours). The default for this\n-- attribute is 30. For more information about visibility timeout, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout\u003e in the /Amazon SQS Developer Guide/.\n--",
+                        "documentation": "-- | A map of attributes with their corresponding values.\n--\n-- The following lists the names, descriptions, and values of the special\n-- request parameters the 'CreateQueue' action uses:\n--\n-- 'DelaySeconds' - The time in seconds that the delivery of all messages in\n-- the queue will be delayed. An integer from 0 to 900 (15 minutes). The default\n-- for this attribute is 0 (zero).  'MaximumMessageSize' - The limit of how many\n-- bytes a message can contain before Amazon SQS rejects it. An integer from\n-- 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this\n-- attribute is 262144 (256 KiB).  'MessageRetentionPeriod' - The number of\n-- seconds Amazon SQS retains a message. Integer representing seconds, from 60\n-- (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4\n-- days).  'Policy' - The queue's policy. A valid form-url-encoded policy. For\n-- more information about policy structure, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html Basic Policy Structure\u003e in the /Amazon SQS Developer Guide/. For more information about form-url-encoding, see \u003chttp://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1 http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\u003e.  'ReceiveMessageWaitTimeSeconds' - The time for which a 'ReceiveMessage' call\n-- will wait for a message to arrive. An integer from 0 to 20 (seconds). The\n-- default for this attribute is 0.   'VisibilityTimeout' - The visibility timeout\n-- for the queue. An integer from 0 to 43200 (12 hours). The default for this\n-- attribute is 30. For more information about visibility timeout, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout\u003e in the /Amazon SQS Developer Guide/.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"Attribute\" \"Name\" \"Value\" Text Text"
                     }
@@ -2004,7 +2004,7 @@
                         "name": "_cqAttributes",
                         "shape": "AttributeMap",
                         "locationName": "Attribute",
-                        "documentation": "-- | A map of attributes with their corresponding values.\n--\n-- The following lists the names, descriptions, and values of the special\n-- request parameters the 'CreateQueue' action uses:\n--\n-- 'DelaySeconds' - The time in seconds that the delivery of all messages in\n-- the queue will be delayed. An integer from 0 to 900 (15 minutes). The default\n-- for this attribute is 0 (zero).  'MaximumMessageSize' - The limit of how many\n-- bytes a message can contain before Amazon SQS rejects it. An integer from\n-- 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this\n-- attribute is 262144 (256 KiB).  'MessageRetentionPeriod' - The number of\n-- seconds Amazon SQS retains a message. Integer representing seconds, from 60\n-- (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4\n-- days).  'Policy' - The queue's policy. A valid form-url-encoded policy. For\n-- more information about policy structure, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html Basic Policy Structure\u003e in the /Amazon SQS Developer Guide/. For more information about form-url-encoding, see \u003chttp://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1 http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\u003e.  'ReceiveMessageWaitTimeSeconds' - The time for which a 'ReceiveMessage' call\n-- will wait for a message to arrive. An integer from 0 to 20 (seconds). The\n-- default for this attribute is 0.   'VisibilityTimeout' - The visibility timeout\n-- for the queue. An integer from 0 to 43200 (12 hours). The default for this\n-- attribute is 30. For more information about visibility timeout, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout\u003e in the /Amazon SQS Developer Guide/.\n--",
+                        "documentation": "-- | A map of attributes with their corresponding values.\n--\n-- The following lists the names, descriptions, and values of the special\n-- request parameters the 'CreateQueue' action uses:\n--\n-- 'DelaySeconds' - The time in seconds that the delivery of all messages in\n-- the queue will be delayed. An integer from 0 to 900 (15 minutes). The default\n-- for this attribute is 0 (zero).  'MaximumMessageSize' - The limit of how many\n-- bytes a message can contain before Amazon SQS rejects it. An integer from\n-- 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this\n-- attribute is 262144 (256 KiB).  'MessageRetentionPeriod' - The number of\n-- seconds Amazon SQS retains a message. Integer representing seconds, from 60\n-- (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4\n-- days).  'Policy' - The queue's policy. A valid form-url-encoded policy. For\n-- more information about policy structure, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html Basic Policy Structure\u003e in the /Amazon SQS Developer Guide/. For more information about form-url-encoding, see \u003chttp://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1 http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\u003e.  'ReceiveMessageWaitTimeSeconds' - The time for which a 'ReceiveMessage' call\n-- will wait for a message to arrive. An integer from 0 to 20 (seconds). The\n-- default for this attribute is 0.   'VisibilityTimeout' - The visibility timeout\n-- for the queue. An integer from 0 to 43200 (12 hours). The default for this\n-- attribute is 30. For more information about visibility timeout, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout\u003e in the /Amazon SQS Developer Guide/.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"Attribute\" \"Name\" \"Value\" Text Text"
                     },
@@ -2019,7 +2019,7 @@
                         "name": "_cqQueueName",
                         "shape": "String",
                         "locationName": "QueueName",
-                        "documentation": "-- | The name for the queue to be created.\n--",
+                        "documentation": "-- | The name for the queue to be created.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2096,7 +2096,7 @@
                         "name": "_dmQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2111,7 +2111,7 @@
                         "name": "_dmReceiptHandle",
                         "shape": "String",
                         "locationName": "ReceiptHandle",
-                        "documentation": "-- | The receipt handle associated with the message to delete.\n--",
+                        "documentation": "-- | The receipt handle associated with the message to delete.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2150,7 +2150,7 @@
                         "name": "_dmQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2165,7 +2165,7 @@
                         "name": "_dmReceiptHandle",
                         "shape": "String",
                         "locationName": "ReceiptHandle",
-                        "documentation": "-- | The receipt handle associated with the message to delete.\n--",
+                        "documentation": "-- | The receipt handle associated with the message to delete.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2209,7 +2209,7 @@
                         "name": "_dmbrSuccessful",
                         "shape": "DeleteMessageBatchResultEntryList",
                         "locationName": "Successful",
-                        "documentation": "-- | A list of 'DeleteMessageBatchResultEntry' items.\n--",
+                        "documentation": "-- | A list of 'DeleteMessageBatchResultEntry' items.",
                         "typeExposed": "[DeleteMessageBatchResultEntry]",
                         "type": "List \"DeleteMessageBatchResultEntry\" DeleteMessageBatchResultEntry"
                     },
@@ -2224,7 +2224,7 @@
                         "name": "_dmbrFailed",
                         "shape": "BatchResultErrorEntryList",
                         "locationName": "Failed",
-                        "documentation": "-- | A list of 'BatchResultErrorEntry' items.\n--",
+                        "documentation": "-- | A list of 'BatchResultErrorEntry' items.",
                         "typeExposed": "[BatchResultErrorEntry]",
                         "type": "List \"BatchResultErrorEntry\" BatchResultErrorEntry"
                     }
@@ -2241,7 +2241,7 @@
                         "name": "_dmbrFailed",
                         "shape": "BatchResultErrorEntryList",
                         "locationName": "Failed",
-                        "documentation": "-- | A list of 'BatchResultErrorEntry' items.\n--",
+                        "documentation": "-- | A list of 'BatchResultErrorEntry' items.",
                         "typeExposed": "[BatchResultErrorEntry]",
                         "type": "List \"BatchResultErrorEntry\" BatchResultErrorEntry"
                     },
@@ -2256,7 +2256,7 @@
                         "name": "_dmbrSuccessful",
                         "shape": "DeleteMessageBatchResultEntryList",
                         "locationName": "Successful",
-                        "documentation": "-- | A list of 'DeleteMessageBatchResultEntry' items.\n--",
+                        "documentation": "-- | A list of 'DeleteMessageBatchResultEntry' items.",
                         "typeExposed": "[DeleteMessageBatchResultEntry]",
                         "type": "List \"DeleteMessageBatchResultEntry\" DeleteMessageBatchResultEntry"
                     }
@@ -2272,7 +2272,7 @@
             "pager": null,
             "name": "DeleteMessageBatch",
             "method": "post",
-            "documentation": "-- | Deletes multiple messages. This is a batch version of 'DeleteMessage'. The\n-- result of the delete action on each message is reported individually in the\n-- response.\n--\n-- Because the batch request can result in a combination of successful and\n-- unsuccessful actions, you should check for batch errors even when the call\n-- returns an HTTP status code of 200.\n--\n-- '&Attribute.1=this'\n--\n-- '&Attribute.2=that'\n--",
+            "documentation": "-- | Deletes multiple messages. This is a batch version of 'DeleteMessage'. The\n-- result of the delete action on each message is reported individually in the\n-- response.\n--\n-- Because the batch request can result in a combination of successful and\n-- unsuccessful actions, you should check for batch errors even when the call\n-- returns an HTTP status code of 200.\n--\n-- '&Attribute.1=this'\n--\n-- '&Attribute.2=that'",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2305,7 +2305,7 @@
                         "name": "_dmbQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2343,7 +2343,7 @@
                         "name": "_dmbEntries",
                         "shape": "DeleteMessageBatchRequestEntryList",
                         "locationName": "Entries",
-                        "documentation": "-- | A list of receipt handles for the messages to be deleted.\n--",
+                        "documentation": "-- | A list of receipt handles for the messages to be deleted.",
                         "typeExposed": "[DeleteMessageBatchRequestEntry]",
                         "type": "List \"DeleteMessageBatchRequestEntry\" DeleteMessageBatchRequestEntry"
                     }
@@ -2360,7 +2360,7 @@
                         "name": "_dmbEntries",
                         "shape": "DeleteMessageBatchRequestEntryList",
                         "locationName": "Entries",
-                        "documentation": "-- | A list of receipt handles for the messages to be deleted.\n--",
+                        "documentation": "-- | A list of receipt handles for the messages to be deleted.",
                         "typeExposed": "[DeleteMessageBatchRequestEntry]",
                         "type": "List \"DeleteMessageBatchRequestEntry\" DeleteMessageBatchRequestEntry"
                     },
@@ -2375,7 +2375,7 @@
                         "name": "_dmbQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2418,7 +2418,7 @@
             "pager": null,
             "name": "DeleteQueue",
             "method": "post",
-            "documentation": "-- | Deletes the queue specified by the queue URL, regardless of whether the\n-- queue is empty. If the specified queue does not exist, Amazon SQS returns a\n-- successful response.\n--\n-- Use 'DeleteQueue' with care; once you delete your queue, any messages in the\n-- queue are no longer available.\n--\n-- When you delete a queue, the deletion process takes up to 60 seconds.\n-- Requests you send involving that queue during the 60 seconds might succeed.\n-- For example, a 'SendMessage' request might succeed, but after the 60 seconds,\n-- the queue and that message you sent no longer exist. Also, when you delete a\n-- queue, you must wait at least 60 seconds before creating a queue with the\n-- same name.\n--\n-- We reserve the right to delete queues that have had no activity for more\n-- than 30 days. For more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSConcepts.html How Amazon SQS Queues Work\u003e in the /Amazon SQS Developer Guide/.\n--",
+            "documentation": "-- | Deletes the queue specified by the queue URL, regardless of whether the\n-- queue is empty. If the specified queue does not exist, Amazon SQS returns a\n-- successful response.\n--\n-- Use 'DeleteQueue' with care; once you delete your queue, any messages in the\n-- queue are no longer available.\n--\n-- When you delete a queue, the deletion process takes up to 60 seconds.\n-- Requests you send involving that queue during the 60 seconds might succeed.\n-- For example, a 'SendMessage' request might succeed, but after the 60 seconds,\n-- the queue and that message you sent no longer exist. Also, when you delete a\n-- queue, you must wait at least 60 seconds before creating a queue with the\n-- same name.\n--\n-- We reserve the right to delete queues that have had no activity for more\n-- than 30 days. For more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSConcepts.html How Amazon SQS Queues Work\u003e in the /Amazon SQS Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2445,7 +2445,7 @@
                     "name": "_dqQueueUrl",
                     "shape": "String",
                     "locationName": "QueueUrl",
-                    "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                    "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2470,7 +2470,7 @@
                         "name": "_dqQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2504,7 +2504,7 @@
                         "name": "_dqQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2537,7 +2537,7 @@
                     "name": "_gqarAttributes",
                     "shape": "AttributeMap",
                     "locationName": "Attribute",
-                    "documentation": "-- | A map of attributes to the respective values.\n--",
+                    "documentation": "-- | A map of attributes to the respective values.",
                     "typeExposed": "HashMap Text Text",
                     "type": "EMap \"Attribute\" \"Name\" \"Value\" Text Text"
                 },
@@ -2566,7 +2566,7 @@
                         "name": "_gqarAttributes",
                         "shape": "AttributeMap",
                         "locationName": "Attribute",
-                        "documentation": "-- | A map of attributes to the respective values.\n--",
+                        "documentation": "-- | A map of attributes to the respective values.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"Attribute\" \"Name\" \"Value\" Text Text"
                     }
@@ -2583,7 +2583,7 @@
                         "name": "_gqarAttributes",
                         "shape": "AttributeMap",
                         "locationName": "Attribute",
-                        "documentation": "-- | A map of attributes to the respective values.\n--",
+                        "documentation": "-- | A map of attributes to the respective values.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"Attribute\" \"Name\" \"Value\" Text Text"
                     }
@@ -2599,7 +2599,7 @@
             "pager": null,
             "name": "GetQueueAttributes",
             "method": "post",
-            "documentation": "-- | Gets attributes for the specified queue. The following attributes are\n-- supported:   'All' - returns all values.  'ApproximateNumberOfMessages' - returns\n-- the approximate number of visible messages in a queue. For more information,\n-- see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html Resources Required to Process Messages\u003e in the /Amazon SQS Developer Guide/.\n-- 'ApproximateNumberOfMessagesNotVisible' - returns the approximate number of\n-- messages that are not timed-out and not deleted. For more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html Resources Required to Process Messages\u003e in the /Amazon SQS Developer Guide/.  'VisibilityTimeout' - returns the\n-- visibility timeout for the queue. For more information about visibility\n-- timeout, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout\u003e in the /Amazon SQS Developer Guide/.  'CreatedTimestamp' - returns the time when the queue was created (epoch time in seconds).  'LastModifiedTimestamp' - returns the time when the queue was last changed (epoch time in seconds).  'Policy' - returns the queue's policy.  'MaximumMessageSize' - returns the limit\n-- of how many bytes a message can contain before Amazon SQS rejects it.  'MessageRetentionPeriod' - returns the number of seconds Amazon SQS retains a message.  'QueueArn' -\n-- returns the queue's Amazon resource name (ARN).  'ApproximateNumberOfMessagesDelayed' - returns the approximate number of messages that are pending to be added to\n-- the queue.  'DelaySeconds' - returns the default delay on the queue in seconds.\n-- 'ReceiveMessageWaitTimeSeconds' - returns the time for which a ReceiveMessage\n-- call will wait for a message to arrive.  'RedrivePolicy' - returns the\n-- parameters for dead letter queue functionality of the source queue. For more\n-- information about RedrivePolicy and dead letter queues, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQSDead Letter Queues\u003e in the /Amazon SQS Developer Guide/.\n--\n-- '&Attribute.1=this'\n--\n-- '&Attribute.2=that'\n--",
+            "documentation": "-- | Gets attributes for the specified queue. The following attributes are\n-- supported:   'All' - returns all values.  'ApproximateNumberOfMessages' - returns\n-- the approximate number of visible messages in a queue. For more information,\n-- see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html Resources Required to Process Messages\u003e in the /Amazon SQS Developer Guide/.\n-- 'ApproximateNumberOfMessagesNotVisible' - returns the approximate number of\n-- messages that are not timed-out and not deleted. For more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html Resources Required to Process Messages\u003e in the /Amazon SQS Developer Guide/.  'VisibilityTimeout' - returns the\n-- visibility timeout for the queue. For more information about visibility\n-- timeout, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout\u003e in the /Amazon SQS Developer Guide/.  'CreatedTimestamp' - returns the time when the queue was created (epoch time in seconds).  'LastModifiedTimestamp' - returns the time when the queue was last changed (epoch time in seconds).  'Policy' - returns the queue's policy.  'MaximumMessageSize' - returns the limit\n-- of how many bytes a message can contain before Amazon SQS rejects it.  'MessageRetentionPeriod' - returns the number of seconds Amazon SQS retains a message.  'QueueArn' -\n-- returns the queue's Amazon resource name (ARN).  'ApproximateNumberOfMessagesDelayed' - returns the approximate number of messages that are pending to be added to\n-- the queue.  'DelaySeconds' - returns the default delay on the queue in seconds.\n-- 'ReceiveMessageWaitTimeSeconds' - returns the time for which a ReceiveMessage\n-- call will wait for a message to arrive.  'RedrivePolicy' - returns the\n-- parameters for dead letter queue functionality of the source queue. For more\n-- information about RedrivePolicy and dead letter queues, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQSDead Letter Queues\u003e in the /Amazon SQS Developer Guide/.\n--\n-- '&Attribute.1=this'\n--\n-- '&Attribute.2=that'",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2632,7 +2632,7 @@
                         "name": "_gqaQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2670,7 +2670,7 @@
                         "name": "_gqaAttributeNames",
                         "shape": "AttributeNameList",
                         "locationName": "AttributeNames",
-                        "documentation": "-- | A list of attributes to retrieve information for.\n--",
+                        "documentation": "-- | A list of attributes to retrieve information for.",
                         "typeExposed": "[Text]",
                         "type": "List \"AttributeName\" Text"
                     }
@@ -2687,7 +2687,7 @@
                         "name": "_gqaAttributeNames",
                         "shape": "AttributeNameList",
                         "locationName": "AttributeNames",
-                        "documentation": "-- | A list of attributes to retrieve information for.\n--",
+                        "documentation": "-- | A list of attributes to retrieve information for.",
                         "typeExposed": "[Text]",
                         "type": "List \"AttributeName\" Text"
                     },
@@ -2702,7 +2702,7 @@
                         "name": "_gqaQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2735,7 +2735,7 @@
                     "name": "_gqurQueueUrl",
                     "shape": "String",
                     "locationName": "QueueUrl",
-                    "documentation": "-- | The URL for the queue.\n--",
+                    "documentation": "-- | The URL for the queue.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -2764,7 +2764,7 @@
                         "name": "_gqurQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL for the queue.\n--",
+                        "documentation": "-- | The URL for the queue.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2781,7 +2781,7 @@
                         "name": "_gqurQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL for the queue.\n--",
+                        "documentation": "-- | The URL for the queue.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2797,7 +2797,7 @@
             "pager": null,
             "name": "GetQueueUrl",
             "method": "post",
-            "documentation": "-- | Returns the URL of an existing queue. This action provides a simple way to\n-- retrieve the URL of an Amazon SQS queue.\n--\n-- To access a queue that belongs to another AWS account, use the 'QueueOwnerAWSAccountId' parameter to specify the account ID of the queue's owner. The queue's owner\n-- must grant you permission to access the queue. For more information about\n-- shared queue access, see 'AddPermission' or go to \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues\u003e in the /AmazonSQS Developer Guide/.\n--",
+            "documentation": "-- | Returns the URL of an existing queue. This action provides a simple way to\n-- retrieve the URL of an Amazon SQS queue.\n--\n-- To access a queue that belongs to another AWS account, use the 'QueueOwnerAWSAccountId' parameter to specify the account ID of the queue's owner. The queue's owner\n-- must grant you permission to access the queue. For more information about\n-- shared queue access, see 'AddPermission' or go to \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues\u003e in the /AmazonSQS Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2831,7 +2831,7 @@
                         "name": "_gquQueueName",
                         "shape": "String",
                         "locationName": "QueueName",
-                        "documentation": "-- | The name of the queue whose URL must be fetched. Maximum 80 characters;\n-- alphanumeric characters, hyphens (-), and underscores (_) are allowed.\n--",
+                        "documentation": "-- | The name of the queue whose URL must be fetched. Maximum 80 characters;\n-- alphanumeric characters, hyphens (-), and underscores (_) are allowed.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2869,7 +2869,7 @@
                         "name": "_gquQueueOwnerAWSAccountId",
                         "shape": "String",
                         "locationName": "QueueOwnerAWSAccountId",
-                        "documentation": "-- | The AWS account ID of the account that created the queue.\n--",
+                        "documentation": "-- | The AWS account ID of the account that created the queue.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2886,7 +2886,7 @@
                         "name": "_gquQueueName",
                         "shape": "String",
                         "locationName": "QueueName",
-                        "documentation": "-- | The name of the queue whose URL must be fetched. Maximum 80 characters;\n-- alphanumeric characters, hyphens (-), and underscores (_) are allowed.\n--",
+                        "documentation": "-- | The name of the queue whose URL must be fetched. Maximum 80 characters;\n-- alphanumeric characters, hyphens (-), and underscores (_) are allowed.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2901,7 +2901,7 @@
                         "name": "_gquQueueOwnerAWSAccountId",
                         "shape": "String",
                         "locationName": "QueueOwnerAWSAccountId",
-                        "documentation": "-- | The AWS account ID of the account that created the queue.\n--",
+                        "documentation": "-- | The AWS account ID of the account that created the queue.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2997,7 +2997,7 @@
             "pager": null,
             "name": "ListDeadLetterSourceQueues",
             "method": "post",
-            "documentation": "-- | Returns a list of your queues that have the RedrivePolicy queue attribute\n-- configured with a dead letter queue.\n--\n-- For more information about using dead letter queues, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQSDead Letter Queues\u003e.\n--",
+            "documentation": "-- | Returns a list of your queues that have the RedrivePolicy queue attribute\n-- configured with a dead letter queue.\n--\n-- For more information about using dead letter queues, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQSDead Letter Queues\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3117,7 +3117,7 @@
                     "name": "_lqrQueueUrls",
                     "shape": "QueueUrlList",
                     "locationName": "QueueUrls",
-                    "documentation": "-- | A list of queue URLs, up to 1000 entries.\n--",
+                    "documentation": "-- | A list of queue URLs, up to 1000 entries.",
                     "typeExposed": "[Text]",
                     "type": "List \"QueueUrl\" Text"
                 },
@@ -3146,7 +3146,7 @@
                         "name": "_lqrQueueUrls",
                         "shape": "QueueUrlList",
                         "locationName": "QueueUrls",
-                        "documentation": "-- | A list of queue URLs, up to 1000 entries.\n--",
+                        "documentation": "-- | A list of queue URLs, up to 1000 entries.",
                         "typeExposed": "[Text]",
                         "type": "List \"QueueUrl\" Text"
                     }
@@ -3163,7 +3163,7 @@
                         "name": "_lqrQueueUrls",
                         "shape": "QueueUrlList",
                         "locationName": "QueueUrls",
-                        "documentation": "-- | A list of queue URLs, up to 1000 entries.\n--",
+                        "documentation": "-- | A list of queue URLs, up to 1000 entries.",
                         "typeExposed": "[Text]",
                         "type": "List \"QueueUrl\" Text"
                     }
@@ -3179,7 +3179,7 @@
             "pager": null,
             "name": "ListQueues",
             "method": "post",
-            "documentation": "-- | Returns a list of your queues. The maximum number of queues that can be\n-- returned is 1000. If you specify a value for the optional 'QueueNamePrefix'\n-- parameter, only queues with a name beginning with the specified value are\n-- returned.\n--",
+            "documentation": "-- | Returns a list of your queues. The maximum number of queues that can be\n-- returned is 1000. If you specify a value for the optional 'QueueNamePrefix'\n-- parameter, only queues with a name beginning with the specified value are\n-- returned.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3205,7 +3205,7 @@
                     "name": "_lqQueueNamePrefix",
                     "shape": "String",
                     "locationName": "QueueNamePrefix",
-                    "documentation": "-- | A string to use for filtering the list results. Only those queues whose name\n-- begins with the specified string are returned.\n--",
+                    "documentation": "-- | A string to use for filtering the list results. Only those queues whose name\n-- begins with the specified string are returned.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -3247,7 +3247,7 @@
                         "name": "_lqQueueNamePrefix",
                         "shape": "String",
                         "locationName": "QueueNamePrefix",
-                        "documentation": "-- | A string to use for filtering the list results. Only those queues whose name\n-- begins with the specified string are returned.\n--",
+                        "documentation": "-- | A string to use for filtering the list results. Only those queues whose name\n-- begins with the specified string are returned.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3264,7 +3264,7 @@
                         "name": "_lqQueueNamePrefix",
                         "shape": "String",
                         "locationName": "QueueNamePrefix",
-                        "documentation": "-- | A string to use for filtering the list results. Only those queues whose name\n-- begins with the specified string are returned.\n--",
+                        "documentation": "-- | A string to use for filtering the list results. Only those queues whose name\n-- begins with the specified string are returned.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3297,7 +3297,7 @@
                     "name": "_rmrMessages",
                     "shape": "MessageList",
                     "locationName": "Messages",
-                    "documentation": "-- | A list of messages.\n--",
+                    "documentation": "-- | A list of messages.",
                     "typeExposed": "[Message]",
                     "type": "List \"Message\" Message"
                 },
@@ -3326,7 +3326,7 @@
                         "name": "_rmrMessages",
                         "shape": "MessageList",
                         "locationName": "Messages",
-                        "documentation": "-- | A list of messages.\n--",
+                        "documentation": "-- | A list of messages.",
                         "typeExposed": "[Message]",
                         "type": "List \"Message\" Message"
                     }
@@ -3343,7 +3343,7 @@
                         "name": "_rmrMessages",
                         "shape": "MessageList",
                         "locationName": "Messages",
-                        "documentation": "-- | A list of messages.\n--",
+                        "documentation": "-- | A list of messages.",
                         "typeExposed": "[Message]",
                         "type": "List \"Message\" Message"
                     }
@@ -3359,7 +3359,7 @@
             "pager": null,
             "name": "ReceiveMessage",
             "method": "post",
-            "documentation": "-- | Retrieves one or more messages, with a maximum limit of 10 messages, from\n-- the specified queue. Long poll support is enabled by using the 'WaitTimeSeconds'\n-- parameter. For more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html Amazon SQS Long Poll\u003e in the /Amazon SQSDeveloper Guide/.\n--\n-- Short poll is the default behavior where a weighted random set of machines\n-- is sampled on a 'ReceiveMessage' call. This means only the messages on the\n-- sampled machines are returned. If the number of messages in the queue is\n-- small (less than 1000), it is likely you will get fewer messages than you\n-- requested per 'ReceiveMessage' call. If the number of messages in the queue is\n-- extremely small, you might not receive any messages in a particular 'ReceiveMessage' response; in which case you should repeat the request.\n--\n-- For each message returned, the response includes the following:\n--\n-- Message body\n--\n-- MD5 digest of the message body. For information about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.\n--\n-- Message ID you received when you sent the message to the queue.\n--\n-- Receipt handle.\n--\n-- Message attributes.\n--\n-- MD5 digest of the message attributes.\n--\n-- The receipt handle is the identifier you must provide when deleting the\n-- message. For more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html Queue and Message Identifiers\u003e in the /Amazon SQS Developer Guide/.\n--\n-- You can provide the 'VisibilityTimeout' parameter in your request, which will\n-- be applied to the messages that Amazon SQS returns in the response. If you do\n-- not include the parameter, the overall visibility timeout for the queue is\n-- used for the returned messages. For more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout\u003e\n-- in the /Amazon SQS Developer Guide/.\n--",
+            "documentation": "-- | Retrieves one or more messages, with a maximum limit of 10 messages, from\n-- the specified queue. Long poll support is enabled by using the 'WaitTimeSeconds'\n-- parameter. For more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html Amazon SQS Long Poll\u003e in the /Amazon SQSDeveloper Guide/.\n--\n-- Short poll is the default behavior where a weighted random set of machines\n-- is sampled on a 'ReceiveMessage' call. This means only the messages on the\n-- sampled machines are returned. If the number of messages in the queue is\n-- small (less than 1000), it is likely you will get fewer messages than you\n-- requested per 'ReceiveMessage' call. If the number of messages in the queue is\n-- extremely small, you might not receive any messages in a particular 'ReceiveMessage' response; in which case you should repeat the request.\n--\n-- For each message returned, the response includes the following:\n--\n-- Message body\n--\n-- MD5 digest of the message body. For information about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.\n--\n-- Message ID you received when you sent the message to the queue.\n--\n-- Receipt handle.\n--\n-- Message attributes.\n--\n-- MD5 digest of the message attributes.\n--\n-- The receipt handle is the identifier you must provide when deleting the\n-- message. For more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html Queue and Message Identifiers\u003e in the /Amazon SQS Developer Guide/.\n--\n-- You can provide the 'VisibilityTimeout' parameter in your request, which will\n-- be applied to the messages that Amazon SQS returns in the response. If you do\n-- not include the parameter, the overall visibility timeout for the queue is\n-- used for the returned messages. For more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout\u003e\n-- in the /Amazon SQS Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3392,7 +3392,7 @@
                         "name": "_rmQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3465,7 +3465,7 @@
                         "name": "_rmMessageAttributeNames",
                         "shape": "MessageAttributeNameList",
                         "locationName": "MessageAttributeNames",
-                        "documentation": "-- | The message attribute Name can contain the following characters: A-Z, a-z,\n-- 0-9, underscore(_), hyphen(-), and period (.). The message attribute name\n-- must not start or end with a period, and it should not have successive\n-- periods. The message attribute name is case sensitive and must be unique\n-- among all attribute names for the message. The message attribute name can be\n-- up to 256 characters long. Attribute names cannot start with \"AWS.\" or\n-- \"Amazon.\" because these prefixes are reserved for use by Amazon Web Services.\n--",
+                        "documentation": "-- | The message attribute Name can contain the following characters: A-Z, a-z,\n-- 0-9, underscore(_), hyphen(-), and period (.). The message attribute name\n-- must not start or end with a period, and it should not have successive\n-- periods. The message attribute name is case sensitive and must be unique\n-- among all attribute names for the message. The message attribute name can be\n-- up to 256 characters long. Attribute names cannot start with \"AWS.\" or\n-- \"Amazon.\" because these prefixes are reserved for use by Amazon Web Services.",
                         "typeExposed": "[Text]",
                         "type": "List \"MessageAttributeName\" Text"
                     },
@@ -3480,7 +3480,7 @@
                         "name": "_rmMaxNumberOfMessages",
                         "shape": "Integer",
                         "locationName": "MaxNumberOfMessages",
-                        "documentation": "-- | The maximum number of messages to return. Amazon SQS never returns more\n-- messages than this value but may return fewer. Values can be from 1 to 10.\n-- Default is 1.\n--\n-- All of the messages are not necessarily returned.\n--",
+                        "documentation": "-- | The maximum number of messages to return. Amazon SQS never returns more\n-- messages than this value but may return fewer. Values can be from 1 to 10.\n-- Default is 1.\n--\n-- All of the messages are not necessarily returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3495,7 +3495,7 @@
                         "name": "_rmVisibilityTimeout",
                         "shape": "Integer",
                         "locationName": "VisibilityTimeout",
-                        "documentation": "-- | The duration (in seconds) that the received messages are hidden from\n-- subsequent retrieve requests after being retrieved by a 'ReceiveMessage'\n-- request.\n--",
+                        "documentation": "-- | The duration (in seconds) that the received messages are hidden from\n-- subsequent retrieve requests after being retrieved by a 'ReceiveMessage'\n-- request.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3510,7 +3510,7 @@
                         "name": "_rmWaitTimeSeconds",
                         "shape": "Integer",
                         "locationName": "WaitTimeSeconds",
-                        "documentation": "-- | The duration (in seconds) for which the call will wait for a message to\n-- arrive in the queue before returning. If a message is available, the call\n-- will return sooner than WaitTimeSeconds.\n--",
+                        "documentation": "-- | The duration (in seconds) for which the call will wait for a message to\n-- arrive in the queue before returning. If a message is available, the call\n-- will return sooner than WaitTimeSeconds.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     }
@@ -3542,7 +3542,7 @@
                         "name": "_rmMaxNumberOfMessages",
                         "shape": "Integer",
                         "locationName": "MaxNumberOfMessages",
-                        "documentation": "-- | The maximum number of messages to return. Amazon SQS never returns more\n-- messages than this value but may return fewer. Values can be from 1 to 10.\n-- Default is 1.\n--\n-- All of the messages are not necessarily returned.\n--",
+                        "documentation": "-- | The maximum number of messages to return. Amazon SQS never returns more\n-- messages than this value but may return fewer. Values can be from 1 to 10.\n-- Default is 1.\n--\n-- All of the messages are not necessarily returned.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3557,7 +3557,7 @@
                         "name": "_rmMessageAttributeNames",
                         "shape": "MessageAttributeNameList",
                         "locationName": "MessageAttributeNames",
-                        "documentation": "-- | The message attribute Name can contain the following characters: A-Z, a-z,\n-- 0-9, underscore(_), hyphen(-), and period (.). The message attribute name\n-- must not start or end with a period, and it should not have successive\n-- periods. The message attribute name is case sensitive and must be unique\n-- among all attribute names for the message. The message attribute name can be\n-- up to 256 characters long. Attribute names cannot start with \"AWS.\" or\n-- \"Amazon.\" because these prefixes are reserved for use by Amazon Web Services.\n--",
+                        "documentation": "-- | The message attribute Name can contain the following characters: A-Z, a-z,\n-- 0-9, underscore(_), hyphen(-), and period (.). The message attribute name\n-- must not start or end with a period, and it should not have successive\n-- periods. The message attribute name is case sensitive and must be unique\n-- among all attribute names for the message. The message attribute name can be\n-- up to 256 characters long. Attribute names cannot start with \"AWS.\" or\n-- \"Amazon.\" because these prefixes are reserved for use by Amazon Web Services.",
                         "typeExposed": "[Text]",
                         "type": "List \"MessageAttributeName\" Text"
                     },
@@ -3572,7 +3572,7 @@
                         "name": "_rmQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3587,7 +3587,7 @@
                         "name": "_rmVisibilityTimeout",
                         "shape": "Integer",
                         "locationName": "VisibilityTimeout",
-                        "documentation": "-- | The duration (in seconds) that the received messages are hidden from\n-- subsequent retrieve requests after being retrieved by a 'ReceiveMessage'\n-- request.\n--",
+                        "documentation": "-- | The duration (in seconds) that the received messages are hidden from\n-- subsequent retrieve requests after being retrieved by a 'ReceiveMessage'\n-- request.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3602,7 +3602,7 @@
                         "name": "_rmWaitTimeSeconds",
                         "shape": "Integer",
                         "locationName": "WaitTimeSeconds",
-                        "documentation": "-- | The duration (in seconds) for which the call will wait for a message to\n-- arrive in the queue before returning. If a message is available, the call\n-- will return sooner than WaitTimeSeconds.\n--",
+                        "documentation": "-- | The duration (in seconds) for which the call will wait for a message to\n-- arrive in the queue before returning. If a message is available, the call\n-- will return sooner than WaitTimeSeconds.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     }
@@ -3645,7 +3645,7 @@
             "pager": null,
             "name": "RemovePermission",
             "method": "post",
-            "documentation": "-- | Revokes any permissions in the queue policy that matches the specified 'Label'\n-- parameter. Only the owner of the queue can remove permissions.\n--",
+            "documentation": "-- | Revokes any permissions in the queue policy that matches the specified 'Label'\n-- parameter. Only the owner of the queue can remove permissions.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3679,7 +3679,7 @@
                         "name": "_rpQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3694,7 +3694,7 @@
                         "name": "_rpLabel",
                         "shape": "String",
                         "locationName": "Label",
-                        "documentation": "-- | The identification of the permission to remove. This is the label added with\n-- the 'AddPermission' action.\n--",
+                        "documentation": "-- | The identification of the permission to remove. This is the label added with\n-- the 'AddPermission' action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3733,7 +3733,7 @@
                         "name": "_rpLabel",
                         "shape": "String",
                         "locationName": "Label",
-                        "documentation": "-- | The identification of the permission to remove. This is the label added with\n-- the 'AddPermission' action.\n--",
+                        "documentation": "-- | The identification of the permission to remove. This is the label added with\n-- the 'AddPermission' action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3748,7 +3748,7 @@
                         "name": "_rpQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3793,7 +3793,7 @@
                         "name": "_smrMD5OfMessageBody",
                         "shape": "String",
                         "locationName": "MD5OfMessageBody",
-                        "documentation": "-- | An MD5 digest of the non-URL-encoded message body string. This can be used to\n-- verify that Amazon SQS received the message correctly. Amazon SQS first URL\n-- decodes the message before creating the MD5 digest. For information about\n-- MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.\n--",
+                        "documentation": "-- | An MD5 digest of the non-URL-encoded message body string. This can be used to\n-- verify that Amazon SQS received the message correctly. Amazon SQS first URL\n-- decodes the message before creating the MD5 digest. For information about\n-- MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3808,7 +3808,7 @@
                         "name": "_smrMD5OfMessageAttributes",
                         "shape": "String",
                         "locationName": "MD5OfMessageAttributes",
-                        "documentation": "-- | An MD5 digest of the non-URL-encoded message attribute string. This can be\n-- used to verify that Amazon SQS received the message correctly. Amazon SQS\n-- first URL decodes the message before creating the MD5 digest. For information\n-- about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.\n--",
+                        "documentation": "-- | An MD5 digest of the non-URL-encoded message attribute string. This can be\n-- used to verify that Amazon SQS received the message correctly. Amazon SQS\n-- first URL decodes the message before creating the MD5 digest. For information\n-- about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3823,7 +3823,7 @@
                         "name": "_smrMessageId",
                         "shape": "String",
                         "locationName": "MessageId",
-                        "documentation": "-- | An element containing the message ID of the message sent to the queue. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html Queue and Message Identifiers\u003e in the /Amazon SQSDeveloper Guide/.\n--",
+                        "documentation": "-- | An element containing the message ID of the message sent to the queue. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html Queue and Message Identifiers\u003e in the /Amazon SQSDeveloper Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3840,7 +3840,7 @@
                         "name": "_smrMD5OfMessageAttributes",
                         "shape": "String",
                         "locationName": "MD5OfMessageAttributes",
-                        "documentation": "-- | An MD5 digest of the non-URL-encoded message attribute string. This can be\n-- used to verify that Amazon SQS received the message correctly. Amazon SQS\n-- first URL decodes the message before creating the MD5 digest. For information\n-- about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.\n--",
+                        "documentation": "-- | An MD5 digest of the non-URL-encoded message attribute string. This can be\n-- used to verify that Amazon SQS received the message correctly. Amazon SQS\n-- first URL decodes the message before creating the MD5 digest. For information\n-- about MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3855,7 +3855,7 @@
                         "name": "_smrMD5OfMessageBody",
                         "shape": "String",
                         "locationName": "MD5OfMessageBody",
-                        "documentation": "-- | An MD5 digest of the non-URL-encoded message body string. This can be used to\n-- verify that Amazon SQS received the message correctly. Amazon SQS first URL\n-- decodes the message before creating the MD5 digest. For information about\n-- MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.\n--",
+                        "documentation": "-- | An MD5 digest of the non-URL-encoded message body string. This can be used to\n-- verify that Amazon SQS received the message correctly. Amazon SQS first URL\n-- decodes the message before creating the MD5 digest. For information about\n-- MD5, go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3870,7 +3870,7 @@
                         "name": "_smrMessageId",
                         "shape": "String",
                         "locationName": "MessageId",
-                        "documentation": "-- | An element containing the message ID of the message sent to the queue. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html Queue and Message Identifiers\u003e in the /Amazon SQSDeveloper Guide/.\n--",
+                        "documentation": "-- | An element containing the message ID of the message sent to the queue. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html Queue and Message Identifiers\u003e in the /Amazon SQSDeveloper Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3919,7 +3919,7 @@
                         "name": "_smQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3934,7 +3934,7 @@
                         "name": "_smMessageBody",
                         "shape": "String",
                         "locationName": "MessageBody",
-                        "documentation": "-- | The message to send. String maximum 256 KB in size. For a list of allowed\n-- characters, see the preceding important note.\n--",
+                        "documentation": "-- | The message to send. String maximum 256 KB in size. For a list of allowed\n-- characters, see the preceding important note.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3982,7 +3982,7 @@
                         "name": "_smDelaySeconds",
                         "shape": "Integer",
                         "locationName": "DelaySeconds",
-                        "documentation": "-- | The number of seconds (0 to 900 - 15 minutes) to delay a specific message.\n-- Messages with a positive 'DelaySeconds' value become available for processing\n-- after the delay time is finished. If you don't specify a value, the default\n-- value for the queue applies.\n--",
+                        "documentation": "-- | The number of seconds (0 to 900 - 15 minutes) to delay a specific message.\n-- Messages with a positive 'DelaySeconds' value become available for processing\n-- after the delay time is finished. If you don't specify a value, the default\n-- value for the queue applies.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3997,7 +3997,7 @@
                         "name": "_smMessageAttributes",
                         "shape": "MessageAttributeMap",
                         "locationName": "MessageAttribute",
-                        "documentation": "-- | Each message attribute consists of a Name, Type, and Value. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items\u003e.\n--",
+                        "documentation": "-- | Each message attribute consists of a Name, Type, and Value. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items\u003e.",
                         "typeExposed": "HashMap Text MessageAttributeValue",
                         "type": "EMap \"MessageAttribute\" \"Name\" \"Value\" Text MessageAttributeValue"
                     }
@@ -4014,7 +4014,7 @@
                         "name": "_smDelaySeconds",
                         "shape": "Integer",
                         "locationName": "DelaySeconds",
-                        "documentation": "-- | The number of seconds (0 to 900 - 15 minutes) to delay a specific message.\n-- Messages with a positive 'DelaySeconds' value become available for processing\n-- after the delay time is finished. If you don't specify a value, the default\n-- value for the queue applies.\n--",
+                        "documentation": "-- | The number of seconds (0 to 900 - 15 minutes) to delay a specific message.\n-- Messages with a positive 'DelaySeconds' value become available for processing\n-- after the delay time is finished. If you don't specify a value, the default\n-- value for the queue applies.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -4029,7 +4029,7 @@
                         "name": "_smMessageAttributes",
                         "shape": "MessageAttributeMap",
                         "locationName": "MessageAttribute",
-                        "documentation": "-- | Each message attribute consists of a Name, Type, and Value. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items\u003e.\n--",
+                        "documentation": "-- | Each message attribute consists of a Name, Type, and Value. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items\u003e.",
                         "typeExposed": "HashMap Text MessageAttributeValue",
                         "type": "EMap \"MessageAttribute\" \"Name\" \"Value\" Text MessageAttributeValue"
                     },
@@ -4044,7 +4044,7 @@
                         "name": "_smMessageBody",
                         "shape": "String",
                         "locationName": "MessageBody",
-                        "documentation": "-- | The message to send. String maximum 256 KB in size. For a list of allowed\n-- characters, see the preceding important note.\n--",
+                        "documentation": "-- | The message to send. String maximum 256 KB in size. For a list of allowed\n-- characters, see the preceding important note.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4059,7 +4059,7 @@
                         "name": "_smQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4103,7 +4103,7 @@
                         "name": "_smbrSuccessful",
                         "shape": "SendMessageBatchResultEntryList",
                         "locationName": "Successful",
-                        "documentation": "-- | A list of 'SendMessageBatchResultEntry' items.\n--",
+                        "documentation": "-- | A list of 'SendMessageBatchResultEntry' items.",
                         "typeExposed": "[SendMessageBatchResultEntry]",
                         "type": "List \"SendMessageBatchResultEntry\" SendMessageBatchResultEntry"
                     },
@@ -4118,7 +4118,7 @@
                         "name": "_smbrFailed",
                         "shape": "BatchResultErrorEntryList",
                         "locationName": "Failed",
-                        "documentation": "-- | A list of 'BatchResultErrorEntry' items with the error detail about each\n-- message that could not be enqueued.\n--",
+                        "documentation": "-- | A list of 'BatchResultErrorEntry' items with the error detail about each\n-- message that could not be enqueued.",
                         "typeExposed": "[BatchResultErrorEntry]",
                         "type": "List \"BatchResultErrorEntry\" BatchResultErrorEntry"
                     }
@@ -4135,7 +4135,7 @@
                         "name": "_smbrFailed",
                         "shape": "BatchResultErrorEntryList",
                         "locationName": "Failed",
-                        "documentation": "-- | A list of 'BatchResultErrorEntry' items with the error detail about each\n-- message that could not be enqueued.\n--",
+                        "documentation": "-- | A list of 'BatchResultErrorEntry' items with the error detail about each\n-- message that could not be enqueued.",
                         "typeExposed": "[BatchResultErrorEntry]",
                         "type": "List \"BatchResultErrorEntry\" BatchResultErrorEntry"
                     },
@@ -4150,7 +4150,7 @@
                         "name": "_smbrSuccessful",
                         "shape": "SendMessageBatchResultEntryList",
                         "locationName": "Successful",
-                        "documentation": "-- | A list of 'SendMessageBatchResultEntry' items.\n--",
+                        "documentation": "-- | A list of 'SendMessageBatchResultEntry' items.",
                         "typeExposed": "[SendMessageBatchResultEntry]",
                         "type": "List \"SendMessageBatchResultEntry\" SendMessageBatchResultEntry"
                     }
@@ -4166,7 +4166,7 @@
             "pager": null,
             "name": "SendMessageBatch",
             "method": "post",
-            "documentation": "-- | Delivers up to ten messages to the specified queue. This is a batch version\n-- of 'SendMessage'. The result of the send action on each message is reported\n-- individually in the response. The maximum allowed individual message size is\n-- 256 KB (262,144 bytes).\n--\n-- The maximum total payload size (i.e., the sum of all a batch's individual\n-- message lengths) is also 256 KB (262,144 bytes).\n--\n-- If the 'DelaySeconds' parameter is not specified for an entry, the default for\n-- the queue is used.\n--\n-- The following list shows the characters (in Unicode) that are allowed in\n-- your message, according to the W3C XML specification. For more information,\n-- go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e. If you send any characters that\n-- are not included in the list, your request will be rejected. #x9 | #xA | #xD\n-- | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to #x10FFFF]\n--\n-- Because the batch request can result in a combination of successful and\n-- unsuccessful actions, you should check for batch errors even when the call\n-- returns an HTTP status code of 200.  '&Attribute.1=this'\n--\n-- '&Attribute.2=that'\n--",
+            "documentation": "-- | Delivers up to ten messages to the specified queue. This is a batch version\n-- of 'SendMessage'. The result of the send action on each message is reported\n-- individually in the response. The maximum allowed individual message size is\n-- 256 KB (262,144 bytes).\n--\n-- The maximum total payload size (i.e., the sum of all a batch's individual\n-- message lengths) is also 256 KB (262,144 bytes).\n--\n-- If the 'DelaySeconds' parameter is not specified for an entry, the default for\n-- the queue is used.\n--\n-- The following list shows the characters (in Unicode) that are allowed in\n-- your message, according to the W3C XML specification. For more information,\n-- go to \u003chttp://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html\u003e. If you send any characters that\n-- are not included in the list, your request will be rejected. #x9 | #xA | #xD\n-- | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to #x10FFFF]\n--\n-- Because the batch request can result in a combination of successful and\n-- unsuccessful actions, you should check for batch errors even when the call\n-- returns an HTTP status code of 200.  '&Attribute.1=this'\n--\n-- '&Attribute.2=that'",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4199,7 +4199,7 @@
                         "name": "_smbQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4237,7 +4237,7 @@
                         "name": "_smbEntries",
                         "shape": "SendMessageBatchRequestEntryList",
                         "locationName": "Entries",
-                        "documentation": "-- | A list of 'SendMessageBatchRequestEntry' items.\n--",
+                        "documentation": "-- | A list of 'SendMessageBatchRequestEntry' items.",
                         "typeExposed": "[SendMessageBatchRequestEntry]",
                         "type": "List \"SendMessageBatchRequestEntry\" SendMessageBatchRequestEntry"
                     }
@@ -4254,7 +4254,7 @@
                         "name": "_smbEntries",
                         "shape": "SendMessageBatchRequestEntryList",
                         "locationName": "Entries",
-                        "documentation": "-- | A list of 'SendMessageBatchRequestEntry' items.\n--",
+                        "documentation": "-- | A list of 'SendMessageBatchRequestEntry' items.",
                         "typeExposed": "[SendMessageBatchRequestEntry]",
                         "type": "List \"SendMessageBatchRequestEntry\" SendMessageBatchRequestEntry"
                     },
@@ -4269,7 +4269,7 @@
                         "name": "_smbQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4312,7 +4312,7 @@
             "pager": null,
             "name": "SetQueueAttributes",
             "method": "post",
-            "documentation": "-- | Sets the value of one or more queue attributes. When you change a queue's\n-- attributes, the change can take up to 60 seconds for most of the attributes\n-- to propagate throughout the SQS system. Changes made to the 'MessageRetentionPeriod' attribute can take up to 15 minutes.\n--",
+            "documentation": "-- | Sets the value of one or more queue attributes. When you change a queue's\n-- attributes, the change can take up to 60 seconds for most of the attributes\n-- to propagate throughout the SQS system. Changes made to the 'MessageRetentionPeriod' attribute can take up to 15 minutes.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4345,7 +4345,7 @@
                         "name": "_sqaQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4383,7 +4383,7 @@
                         "name": "_sqaAttributes",
                         "shape": "AttributeMap",
                         "locationName": "Attribute",
-                        "documentation": "-- | A map of attributes to set.\n--\n-- The following lists the names, descriptions, and values of the special\n-- request parameters the 'SetQueueAttributes' action uses:\n--\n-- 'DelaySeconds' - The time in seconds that the delivery of all messages in\n-- the queue will be delayed. An integer from 0 to 900 (15 minutes). The default\n-- for this attribute is 0 (zero).  'MaximumMessageSize' - The limit of how many\n-- bytes a message can contain before Amazon SQS rejects it. An integer from\n-- 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this\n-- attribute is 262144 (256 KiB).  'MessageRetentionPeriod' - The number of\n-- seconds Amazon SQS retains a message. Integer representing seconds, from 60\n-- (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4\n-- days).  'Policy' - The queue's policy. A valid form-url-encoded policy. For\n-- more information about policy structure, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html Basic Policy Structure\u003e in the /Amazon SQS Developer Guide/. For more information about form-url-encoding, see \u003chttp://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1 http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\u003e.  'ReceiveMessageWaitTimeSeconds' - The time for which a ReceiveMessage call\n-- will wait for a message to arrive. An integer from 0 to 20 (seconds). The\n-- default for this attribute is 0.   'VisibilityTimeout' - The visibility timeout\n-- for the queue. An integer from 0 to 43200 (12 hours). The default for this\n-- attribute is 30. For more information about visibility timeout, see\n-- Visibility Timeout in the /Amazon SQS Developer Guide/.  'RedrivePolicy' - The\n-- parameters for dead letter queue functionality of the source queue. For more\n-- information about RedrivePolicy and dead letter queues, see Using Amazon SQS\n-- Dead Letter Queues in the /Amazon SQS Developer Guide/.\n--",
+                        "documentation": "-- | A map of attributes to set.\n--\n-- The following lists the names, descriptions, and values of the special\n-- request parameters the 'SetQueueAttributes' action uses:\n--\n-- 'DelaySeconds' - The time in seconds that the delivery of all messages in\n-- the queue will be delayed. An integer from 0 to 900 (15 minutes). The default\n-- for this attribute is 0 (zero).  'MaximumMessageSize' - The limit of how many\n-- bytes a message can contain before Amazon SQS rejects it. An integer from\n-- 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this\n-- attribute is 262144 (256 KiB).  'MessageRetentionPeriod' - The number of\n-- seconds Amazon SQS retains a message. Integer representing seconds, from 60\n-- (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4\n-- days).  'Policy' - The queue's policy. A valid form-url-encoded policy. For\n-- more information about policy structure, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html Basic Policy Structure\u003e in the /Amazon SQS Developer Guide/. For more information about form-url-encoding, see \u003chttp://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1 http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\u003e.  'ReceiveMessageWaitTimeSeconds' - The time for which a ReceiveMessage call\n-- will wait for a message to arrive. An integer from 0 to 20 (seconds). The\n-- default for this attribute is 0.   'VisibilityTimeout' - The visibility timeout\n-- for the queue. An integer from 0 to 43200 (12 hours). The default for this\n-- attribute is 30. For more information about visibility timeout, see\n-- Visibility Timeout in the /Amazon SQS Developer Guide/.  'RedrivePolicy' - The\n-- parameters for dead letter queue functionality of the source queue. For more\n-- information about RedrivePolicy and dead letter queues, see Using Amazon SQS\n-- Dead Letter Queues in the /Amazon SQS Developer Guide/.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"Attribute\" \"Name\" \"Value\" Text Text"
                     }
@@ -4400,7 +4400,7 @@
                         "name": "_sqaAttributes",
                         "shape": "AttributeMap",
                         "locationName": "Attribute",
-                        "documentation": "-- | A map of attributes to set.\n--\n-- The following lists the names, descriptions, and values of the special\n-- request parameters the 'SetQueueAttributes' action uses:\n--\n-- 'DelaySeconds' - The time in seconds that the delivery of all messages in\n-- the queue will be delayed. An integer from 0 to 900 (15 minutes). The default\n-- for this attribute is 0 (zero).  'MaximumMessageSize' - The limit of how many\n-- bytes a message can contain before Amazon SQS rejects it. An integer from\n-- 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this\n-- attribute is 262144 (256 KiB).  'MessageRetentionPeriod' - The number of\n-- seconds Amazon SQS retains a message. Integer representing seconds, from 60\n-- (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4\n-- days).  'Policy' - The queue's policy. A valid form-url-encoded policy. For\n-- more information about policy structure, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html Basic Policy Structure\u003e in the /Amazon SQS Developer Guide/. For more information about form-url-encoding, see \u003chttp://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1 http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\u003e.  'ReceiveMessageWaitTimeSeconds' - The time for which a ReceiveMessage call\n-- will wait for a message to arrive. An integer from 0 to 20 (seconds). The\n-- default for this attribute is 0.   'VisibilityTimeout' - The visibility timeout\n-- for the queue. An integer from 0 to 43200 (12 hours). The default for this\n-- attribute is 30. For more information about visibility timeout, see\n-- Visibility Timeout in the /Amazon SQS Developer Guide/.  'RedrivePolicy' - The\n-- parameters for dead letter queue functionality of the source queue. For more\n-- information about RedrivePolicy and dead letter queues, see Using Amazon SQS\n-- Dead Letter Queues in the /Amazon SQS Developer Guide/.\n--",
+                        "documentation": "-- | A map of attributes to set.\n--\n-- The following lists the names, descriptions, and values of the special\n-- request parameters the 'SetQueueAttributes' action uses:\n--\n-- 'DelaySeconds' - The time in seconds that the delivery of all messages in\n-- the queue will be delayed. An integer from 0 to 900 (15 minutes). The default\n-- for this attribute is 0 (zero).  'MaximumMessageSize' - The limit of how many\n-- bytes a message can contain before Amazon SQS rejects it. An integer from\n-- 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this\n-- attribute is 262144 (256 KiB).  'MessageRetentionPeriod' - The number of\n-- seconds Amazon SQS retains a message. Integer representing seconds, from 60\n-- (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4\n-- days).  'Policy' - The queue's policy. A valid form-url-encoded policy. For\n-- more information about policy structure, see \u003chttp://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html Basic Policy Structure\u003e in the /Amazon SQS Developer Guide/. For more information about form-url-encoding, see \u003chttp://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1 http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1\u003e.  'ReceiveMessageWaitTimeSeconds' - The time for which a ReceiveMessage call\n-- will wait for a message to arrive. An integer from 0 to 20 (seconds). The\n-- default for this attribute is 0.   'VisibilityTimeout' - The visibility timeout\n-- for the queue. An integer from 0 to 43200 (12 hours). The default for this\n-- attribute is 30. For more information about visibility timeout, see\n-- Visibility Timeout in the /Amazon SQS Developer Guide/.  'RedrivePolicy' - The\n-- parameters for dead letter queue functionality of the source queue. For more\n-- information about RedrivePolicy and dead letter queues, see Using Amazon SQS\n-- Dead Letter Queues in the /Amazon SQS Developer Guide/.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"Attribute\" \"Name\" \"Value\" Text Text"
                     },
@@ -4415,7 +4415,7 @@
                         "name": "_sqaQueueUrl",
                         "shape": "String",
                         "locationName": "QueueUrl",
-                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.\n--",
+                        "documentation": "-- | The URL of the Amazon SQS queue to take action on.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }

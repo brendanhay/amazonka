@@ -64,7 +64,6 @@ deleteSAMLProvider p1 = DeleteSAMLProvider
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
---
 dsamlpSAMLProviderArn :: Lens' DeleteSAMLProvider Text
 dsamlpSAMLProviderArn =
     lens _dsamlpSAMLProviderArn (\s a -> s { _dsamlpSAMLProviderArn = a })

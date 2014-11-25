@@ -70,12 +70,10 @@ removeTags p1 = RemoveTags
 
 -- | The Amazon EMR resource identifier from which tags will be removed. This
 -- value must be a cluster identifier.
---
 rtResourceId :: Lens' RemoveTags Text
 rtResourceId = lens _rtResourceId (\s a -> s { _rtResourceId = a })
 
 -- | A list of tag keys to remove from a resource.
---
 rtTagKeys :: Lens' RemoveTags [Text]
 rtTagKeys = lens _rtTagKeys (\s a -> s { _rtTagKeys = a }) . _List
 

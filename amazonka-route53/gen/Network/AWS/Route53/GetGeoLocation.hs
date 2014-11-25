@@ -77,7 +77,6 @@ getGeoLocation = GetGeoLocation
 -- Valid values: 'AF' | 'AN' | 'AS' | 'EU' | 'OC' | 'NA' | 'SA'
 --
 -- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or 'SubdivisionCode' returns an 'InvalidInput' error.
---
 gglContinentCode :: Lens' GetGeoLocation (Maybe Text)
 gglContinentCode = lens _gglContinentCode (\s a -> s { _gglContinentCode = a })
 
@@ -87,7 +86,6 @@ gglContinentCode = lens _gglContinentCode (\s a -> s { _gglContinentCode = a })
 --
 -- The default geo location uses a '*' for the country code. All other country
 -- codes follow the ISO 3166 two-character code.
---
 gglCountryCode :: Lens' GetGeoLocation (Maybe Text)
 gglCountryCode = lens _gglCountryCode (\s a -> s { _gglCountryCode = a })
 
@@ -95,7 +93,6 @@ gglCountryCode = lens _gglCountryCode (\s a -> s { _gglCountryCode = a })
 -- subdivision code is only valid with the appropriate country code.
 --
 -- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns an 'InvalidInput' error.
---
 gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
 gglSubdivisionCode =
     lens _gglSubdivisionCode (\s a -> s { _gglSubdivisionCode = a })
@@ -117,7 +114,6 @@ getGeoLocationResponse p1 = GetGeoLocationResponse
     }
 
 -- | A complex type that contains the information about the specified geo location.
---
 gglrGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
 gglrGeoLocationDetails =
     lens _gglrGeoLocationDetails (\s a -> s { _gglrGeoLocationDetails = a })

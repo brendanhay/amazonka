@@ -75,7 +75,6 @@ deleteCacheCluster p1 = DeleteCacheCluster
 
 -- | The cache cluster identifier for the cluster to be deleted. This parameter is
 -- not case sensitive.
---
 dccCacheClusterId :: Lens' DeleteCacheCluster Text
 dccCacheClusterId =
     lens _dccCacheClusterId (\s a -> s { _dccCacheClusterId = a })
@@ -83,7 +82,6 @@ dccCacheClusterId =
 -- | The user-supplied name of a final cache cluster snapshot. This is the unique
 -- name that identifies the snapshot. ElastiCache creates the snapshot, and then
 -- deletes the cache cluster immediately afterward.
---
 dccFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
 dccFinalSnapshotIdentifier =
     lens _dccFinalSnapshotIdentifier

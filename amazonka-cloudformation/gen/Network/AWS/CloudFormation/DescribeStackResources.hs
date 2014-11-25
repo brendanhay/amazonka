@@ -35,6 +35,7 @@
 -- For more information about resources, the 'LogicalResourceId' and 'PhysicalResourceId', go to the <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide AWS CloudFormation User Guide>.
 --
 -- A 'ValidationError' is returned if you specify both 'StackName' and 'PhysicalResourceId' in the same request.
+--
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResources.html>
 module Network.AWS.CloudFormation.DescribeStackResources
     (
@@ -86,7 +87,6 @@ describeStackResources = DescribeStackResources
 -- | The logical name of the resource as specified in the template.
 --
 -- Default: There is no default value.
---
 dsrLogicalResourceId :: Lens' DescribeStackResources (Maybe Text)
 dsrLogicalResourceId =
     lens _dsrLogicalResourceId (\s a -> s { _dsrLogicalResourceId = a })
@@ -101,7 +101,6 @@ dsrLogicalResourceId =
 -- specify 'StackName'.
 --
 -- Default: There is no default value.
---
 dsrPhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
 dsrPhysicalResourceId =
     lens _dsrPhysicalResourceId (\s a -> s { _dsrPhysicalResourceId = a })
@@ -114,7 +113,6 @@ dsrPhysicalResourceId =
 -- no default value.
 --
 -- Required: Conditional. If you do not specify 'StackName', you must specify 'PhysicalResourceId'.
---
 dsrStackName :: Lens' DescribeStackResources (Maybe Text)
 dsrStackName = lens _dsrStackName (\s a -> s { _dsrStackName = a })
 
@@ -140,7 +138,6 @@ describeStackResourcesResponse = DescribeStackResourcesResponse
     }
 
 -- | A list of 'StackResource' structures.
---
 dsrrStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
 dsrrStackResources =
     lens _dsrrStackResources (\s a -> s { _dsrrStackResources = a })

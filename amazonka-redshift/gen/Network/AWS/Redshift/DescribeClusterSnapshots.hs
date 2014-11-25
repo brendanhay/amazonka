@@ -124,7 +124,6 @@ describeClusterSnapshots = DescribeClusterSnapshots
 
 -- | The identifier of the cluster for which information about snapshots is
 -- requested.
---
 dcs1ClusterIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcs1ClusterIdentifier =
     lens _dcs1ClusterIdentifier (\s a -> s { _dcs1ClusterIdentifier = a })
@@ -134,7 +133,6 @@ dcs1ClusterIdentifier =
 -- about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
 -- Example: '2012-07-16T18:00:00Z'
---
 dcs1EndTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
 dcs1EndTime = lens _dcs1EndTime (\s a -> s { _dcs1EndTime = a }) . mapping _Time
 
@@ -144,7 +142,6 @@ dcs1EndTime = lens _dcs1EndTime (\s a -> s { _dcs1EndTime = a }) . mapping _Time
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the 'Marker' parameter and retrying the
 -- request.
---
 dcs1Marker :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcs1Marker = lens _dcs1Marker (\s a -> s { _dcs1Marker = a })
 
@@ -156,7 +153,6 @@ dcs1Marker = lens _dcs1Marker (\s a -> s { _dcs1Marker = a })
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
---
 dcs1MaxRecords :: Lens' DescribeClusterSnapshots (Maybe Int)
 dcs1MaxRecords = lens _dcs1MaxRecords (\s a -> s { _dcs1MaxRecords = a })
 
@@ -164,12 +160,10 @@ dcs1MaxRecords = lens _dcs1MaxRecords (\s a -> s { _dcs1MaxRecords = a })
 -- to filter the results to snapshots owned by a particular account. To describe
 -- snapshots you own, either specify your AWS customer account, or do not
 -- specify the parameter.
---
 dcs1OwnerAccount :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcs1OwnerAccount = lens _dcs1OwnerAccount (\s a -> s { _dcs1OwnerAccount = a })
 
 -- | The snapshot identifier of the snapshot about which to return information.
---
 dcs1SnapshotIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcs1SnapshotIdentifier =
     lens _dcs1SnapshotIdentifier (\s a -> s { _dcs1SnapshotIdentifier = a })
@@ -178,7 +172,6 @@ dcs1SnapshotIdentifier =
 -- snapshots of all types are returned.
 --
 -- Valid Values: 'automated' | 'manual'
---
 dcs1SnapshotType :: Lens' DescribeClusterSnapshots (Maybe Text)
 dcs1SnapshotType = lens _dcs1SnapshotType (\s a -> s { _dcs1SnapshotType = a })
 
@@ -187,7 +180,6 @@ dcs1SnapshotType = lens _dcs1SnapshotType (\s a -> s { _dcs1SnapshotType = a })
 -- ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
 -- Example: '2012-07-16T18:00:00Z'
---
 dcs1StartTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
 dcs1StartTime = lens _dcs1StartTime (\s a -> s { _dcs1StartTime = a }) . mapping _Time
 
@@ -197,7 +189,6 @@ dcs1StartTime = lens _dcs1StartTime (\s a -> s { _dcs1StartTime = a }) . mapping
 -- you specify both of these tag keys in the request, Amazon Redshift returns a
 -- response with the snapshots that have either or both of these tag keys
 -- associated with them.
---
 dcs1TagKeys :: Lens' DescribeClusterSnapshots [Text]
 dcs1TagKeys = lens _dcs1TagKeys (\s a -> s { _dcs1TagKeys = a }) . _List
 
@@ -206,7 +197,6 @@ dcs1TagKeys = lens _dcs1TagKeys (\s a -> s { _dcs1TagKeys = a }) . _List
 -- example, suppose that you have snapshots that are tagged with values called 'admin' and 'test'. If you specify both of these tag values in the request, Amazon
 -- Redshift returns a response with the snapshots that have either or both of
 -- these tag values associated with them.
---
 dcs1TagValues :: Lens' DescribeClusterSnapshots [Text]
 dcs1TagValues = lens _dcs1TagValues (\s a -> s { _dcs1TagValues = a }) . _List
 
@@ -234,12 +224,10 @@ describeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
 -- empty, all response records have been retrieved for the request.
---
 dcsrMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
 dcsrMarker = lens _dcsrMarker (\s a -> s { _dcsrMarker = a })
 
 -- | A list of 'Snapshot' instances.
---
 dcsrSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
 dcsrSnapshots = lens _dcsrSnapshots (\s a -> s { _dcsrSnapshots = a }) . _List
 

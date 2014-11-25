@@ -125,7 +125,6 @@ uploadFunction p1 p2 p3 p4 p5 p6 = UploadFunction
 
 -- | A short, user-defined function description. Lambda does not use this value.
 -- Assign a meaningful description as you see fit.
---
 ufDescription :: Lens' UploadFunction (Maybe Text)
 ufDescription = lens _ufDescription (\s a -> s { _ufDescription = a })
 
@@ -133,19 +132,16 @@ ufDescription = lens _ufDescription (\s a -> s { _ufDescription = a })
 -- names appear in the console and are returned in the 'ListFunctions' API.
 -- Function names are used to specify functions to other AWS Lambda APIs, such
 -- as 'InvokeAsync'.
---
 ufFunctionName :: Lens' UploadFunction Text
 ufFunctionName = lens _ufFunctionName (\s a -> s { _ufFunctionName = a })
 
 -- | A .zip file containing your packaged source code. For more information about
 -- creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events.html AWS LambdaL How it Works> in the AWS Lambda
 -- Developer Guide.
---
 ufFunctionZip :: Lens' UploadFunction Base64
 ufFunctionZip = lens _ufFunctionZip (\s a -> s { _ufFunctionZip = a })
 
 -- | The function that Lambda calls to begin execution. For Node.js, it is the /module-name/./export/ value in your function.
---
 ufHandler :: Lens' UploadFunction Text
 ufHandler = lens _ufHandler (\s a -> s { _ufHandler = a })
 
@@ -154,33 +150,28 @@ ufHandler = lens _ufHandler (\s a -> s { _ufHandler = a })
 -- function use-case determines your CPU and memory requirements. For example,
 -- database operation might need less memory compared to image processing
 -- function. The default value is 128 MB. The value must be a multiple of 64 MB.
---
 ufMemorySize :: Lens' UploadFunction (Maybe Natural)
 ufMemorySize = lens _ufMemorySize (\s a -> s { _ufMemorySize = a }) . mapping _Nat
 
 -- | How the Lambda function will be invoked. Lambda supports only the "event"
 -- mode.
---
 ufMode :: Lens' UploadFunction Mode
 ufMode = lens _ufMode (\s a -> s { _ufMode = a })
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it
 -- executes your function to access any other Amazon Web Services (AWS)
 -- resources.
---
 ufRole :: Lens' UploadFunction Text
 ufRole = lens _ufRole (\s a -> s { _ufRole = a })
 
 -- | The runtime environment for the Lambda function you are uploading. Currently,
 -- Lambda supports only "nodejs" as the runtime.
---
 ufRuntime :: Lens' UploadFunction Runtime
 ufRuntime = lens _ufRuntime (\s a -> s { _ufRuntime = a })
 
 -- | The function execution time at which Lambda should terminate the function.
 -- Because the execution time has cost implications, we recommend you set this
 -- value based on your expected execution time. The default is 3 seconds.
---
 ufTimeout :: Lens' UploadFunction (Maybe Natural)
 ufTimeout = lens _ufTimeout (\s a -> s { _ufTimeout = a }) . mapping _Nat
 
@@ -244,69 +235,57 @@ uploadFunctionResponse = UploadFunctionResponse
     }
 
 -- | The size, in bytes, of the function .zip file you uploaded.
---
 ufrCodeSize :: Lens' UploadFunctionResponse (Maybe Integer)
 ufrCodeSize = lens _ufrCodeSize (\s a -> s { _ufrCodeSize = a })
 
 -- | A Lambda-assigned unique identifier for the current function code and related
 -- configuration.
---
 ufrConfigurationId :: Lens' UploadFunctionResponse (Maybe Text)
 ufrConfigurationId =
     lens _ufrConfigurationId (\s a -> s { _ufrConfigurationId = a })
 
 -- | The user-provided description.
---
 ufrDescription :: Lens' UploadFunctionResponse (Maybe Text)
 ufrDescription = lens _ufrDescription (\s a -> s { _ufrDescription = a })
 
 -- | The Amazon Resource Name (ARN) assigned to the function.
---
 ufrFunctionARN :: Lens' UploadFunctionResponse (Maybe Text)
 ufrFunctionARN = lens _ufrFunctionARN (\s a -> s { _ufrFunctionARN = a })
 
 -- | The name of the function.
---
 ufrFunctionName :: Lens' UploadFunctionResponse (Maybe Text)
 ufrFunctionName = lens _ufrFunctionName (\s a -> s { _ufrFunctionName = a })
 
 -- | The function Lambda calls to begin executing your function.
---
 ufrHandler :: Lens' UploadFunctionResponse (Maybe Text)
 ufrHandler = lens _ufrHandler (\s a -> s { _ufrHandler = a })
 
 -- | The timestamp of the last time you updated the function.
---
 ufrLastModified :: Lens' UploadFunctionResponse (Maybe UTCTime)
 ufrLastModified = lens _ufrLastModified (\s a -> s { _ufrLastModified = a }) . mapping _Time
 
 -- | The memory size, in MB, you configured for the function. Must be a multiple
 -- of 64 MB.
---
 ufrMemorySize :: Lens' UploadFunctionResponse (Maybe Natural)
 ufrMemorySize = lens _ufrMemorySize (\s a -> s { _ufrMemorySize = a }) . mapping _Nat
 
 -- | The type of the Lambda function you uploaded.
---
 ufrMode :: Lens' UploadFunctionResponse (Maybe Mode)
 ufrMode = lens _ufrMode (\s a -> s { _ufrMode = a })
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it
 -- executes your function to access any other Amazon Web Services (AWS)
 -- resources.
---
 ufrRole :: Lens' UploadFunctionResponse (Maybe Text)
 ufrRole = lens _ufrRole (\s a -> s { _ufrRole = a })
 
 -- | The runtime environment for the Lambda function.
---
 ufrRuntime :: Lens' UploadFunctionResponse (Maybe Runtime)
 ufrRuntime = lens _ufrRuntime (\s a -> s { _ufrRuntime = a })
 
 -- | The function execution time at which Lambda should terminate the function.
 -- Because the execution time has cost implications, we recommend you set this
 -- value based on your expected execution time. The default is 3 seconds.
---
 ufrTimeout :: Lens' UploadFunctionResponse (Maybe Natural)
 ufrTimeout = lens _ufrTimeout (\s a -> s { _ufrTimeout = a }) . mapping _Nat
 

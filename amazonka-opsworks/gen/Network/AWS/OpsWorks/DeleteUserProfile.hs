@@ -64,7 +64,6 @@ deleteUserProfile p1 = DeleteUserProfile
     }
 
 -- | The user's IAM ARN.
---
 dupIamUserArn :: Lens' DeleteUserProfile Text
 dupIamUserArn = lens _dupIamUserArn (\s a -> s { _dupIamUserArn = a })
 

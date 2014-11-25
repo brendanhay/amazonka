@@ -84,12 +84,10 @@ revokeClusterSecurityGroupIngress p1 = RevokeClusterSecurityGroupIngress
 -- Classless Inter-Domain Routing (CIDR) block of IP addresses. If 'CIDRIP' is
 -- specified, 'EC2SecurityGroupName' and 'EC2SecurityGroupOwnerId' cannot be
 -- provided.
---
 rcsgiCIDRIP :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
 rcsgiCIDRIP = lens _rcsgiCIDRIP (\s a -> s { _rcsgiCIDRIP = a })
 
 -- | The name of the security Group from which to revoke the ingress rule.
---
 rcsgiClusterSecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress Text
 rcsgiClusterSecurityGroupName =
     lens _rcsgiClusterSecurityGroupName
@@ -97,7 +95,6 @@ rcsgiClusterSecurityGroupName =
 
 -- | The name of the EC2 Security Group whose access is to be revoked. If 'EC2SecurityGroupName' is specified, 'EC2SecurityGroupOwnerId' must also be provided and 'CIDRIP'
 -- cannot be provided.
---
 rcsgiEC2SecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
 rcsgiEC2SecurityGroupName =
     lens _rcsgiEC2SecurityGroupName
@@ -107,7 +104,6 @@ rcsgiEC2SecurityGroupName =
 -- be provided.
 --
 -- Example: '111122223333'
---
 rcsgiEC2SecurityGroupOwnerId :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
 rcsgiEC2SecurityGroupOwnerId =
     lens _rcsgiEC2SecurityGroupOwnerId

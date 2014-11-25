@@ -74,12 +74,10 @@ registerVolume p1 = RegisterVolume
     }
 
 -- | The Amazon EBS volume ID.
---
 rvEc2VolumeId :: Lens' RegisterVolume (Maybe Text)
 rvEc2VolumeId = lens _rvEc2VolumeId (\s a -> s { _rvEc2VolumeId = a })
 
 -- | The stack ID.
---
 rvStackId :: Lens' RegisterVolume Text
 rvStackId = lens _rvStackId (\s a -> s { _rvStackId = a })
 
@@ -99,7 +97,6 @@ registerVolumeResponse = RegisterVolumeResponse
     }
 
 -- | The volume ID.
---
 rvrVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvrVolumeId = lens _rvrVolumeId (\s a -> s { _rvrVolumeId = a })
 

@@ -107,12 +107,10 @@ siDryRun = lens _siDryRun (\s a -> s { _siDryRun = a })
 -- recommended for Windows instances.
 --
 -- Default: 'false'
---
 siForce :: Lens' StopInstances (Maybe Bool)
 siForce = lens _siForce (\s a -> s { _siForce = a })
 
 -- | One or more instance IDs.
---
 siInstanceIds :: Lens' StopInstances [Text]
 siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a }) . _List
 
@@ -138,7 +136,6 @@ stopInstancesResponse = StopInstancesResponse
     }
 
 -- | Information about one or more stopped instances.
---
 sirStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
 sirStoppingInstances =
     lens _sirStoppingInstances (\s a -> s { _sirStoppingInstances = a })

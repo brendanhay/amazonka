@@ -76,18 +76,15 @@ describeIndexFields p1 = DescribeIndexFields
 
 -- | Whether to display the deployed configuration ('true') or include any pending
 -- changes ('false'). Defaults to 'false'.
---
 difDeployed :: Lens' DescribeIndexFields (Maybe Bool)
 difDeployed = lens _difDeployed (\s a -> s { _difDeployed = a })
 
 -- | The name of the domain you want to describe.
---
 difDomainName :: Lens' DescribeIndexFields Text
 difDomainName = lens _difDomainName (\s a -> s { _difDomainName = a })
 
 -- | A list of the index fields you want to describe. If not specified,
 -- information is returned for all configured index fields.
---
 difFieldNames :: Lens' DescribeIndexFields [Text]
 difFieldNames = lens _difFieldNames (\s a -> s { _difFieldNames = a }) . _List
 
@@ -113,7 +110,6 @@ describeIndexFieldsResponse = DescribeIndexFieldsResponse
     }
 
 -- | The index fields configured for the domain.
---
 difrIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
 difrIndexFields = lens _difrIndexFields (\s a -> s { _difrIndexFields = a }) . _List
 

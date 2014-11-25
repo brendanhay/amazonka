@@ -33,6 +33,7 @@
 -- can use the /Parameter Groups/ option of the <https://console.aws.amazon.com/rds/ Amazon RDS console> or the /DescribeDBParameters/ command to verify that your DB parameter group has been created or modified.
 --
 --
+--
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBParameterGroup.html>
 module Network.AWS.RDS.ModifyDBParameterGroup
     (
@@ -95,7 +96,6 @@ mdbpgDBParameterGroupName =
 -- be modified in a single request.
 --
 -- Valid Values (for the application method): 'immediate | pending-reboot'
---
 mdbpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
 mdbpgParameters = lens _mdbpgParameters (\s a -> s { _mdbpgParameters = a }) . _List
 
@@ -115,7 +115,6 @@ modifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
     }
 
 -- | The name of the DB parameter group.
---
 mdbpgrDBParameterGroupName :: Lens' ModifyDBParameterGroupResponse (Maybe Text)
 mdbpgrDBParameterGroupName =
     lens _mdbpgrDBParameterGroupName

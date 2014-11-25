@@ -76,7 +76,6 @@ describeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
     }
 
 -- | A list of virtual private gateways.
---
 dvgrVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
 dvgrVirtualGateways =
     lens _dvgrVirtualGateways (\s a -> s { _dvgrVirtualGateways = a })

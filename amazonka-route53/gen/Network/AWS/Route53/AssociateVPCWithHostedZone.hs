@@ -78,7 +78,6 @@ associateVPCWithHostedZone p1 p2 = AssociateVPCWithHostedZone
     }
 
 -- | /Optional:/ Any comments you want to include about a 'AssociateVPCWithHostedZoneRequest'.
---
 avpcwhzComment :: Lens' AssociateVPCWithHostedZone (Maybe Text)
 avpcwhzComment = lens _avpcwhzComment (\s a -> s { _avpcwhzComment = a })
 
@@ -86,13 +85,11 @@ avpcwhzComment = lens _avpcwhzComment (\s a -> s { _avpcwhzComment = a })
 --
 -- Note that you cannot associate a VPC with a hosted zone that doesn't have an
 -- existing VPC association.
---
 avpcwhzHostedZoneId :: Lens' AssociateVPCWithHostedZone Text
 avpcwhzHostedZoneId =
     lens _avpcwhzHostedZoneId (\s a -> s { _avpcwhzHostedZoneId = a })
 
 -- | The VPC that you want your hosted zone to be associated with.
---
 avpcwhzVPC :: Lens' AssociateVPCWithHostedZone VPC
 avpcwhzVPC = lens _avpcwhzVPC (\s a -> s { _avpcwhzVPC = a })
 
@@ -114,7 +111,6 @@ associateVPCWithHostedZoneResponse p1 = AssociateVPCWithHostedZoneResponse
 
 -- | A complex type that contains the ID, the status, and the date and time of
 -- your 'AssociateVPCWithHostedZoneRequest'.
---
 avpcwhzrChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
 avpcwhzrChangeInfo =
     lens _avpcwhzrChangeInfo (\s a -> s { _avpcwhzrChangeInfo = a })

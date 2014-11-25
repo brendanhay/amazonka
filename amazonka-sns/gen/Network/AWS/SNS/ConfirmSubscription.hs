@@ -79,19 +79,16 @@ confirmSubscription p1 p2 = ConfirmSubscription
 -- this parameter is 'true' and the request has an AWS signature, then only the
 -- topic owner and the subscription owner can unsubscribe the endpoint. The
 -- unsubscribe action requires AWS authentication.
---
 csAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
 csAuthenticateOnUnsubscribe =
     lens _csAuthenticateOnUnsubscribe
         (\s a -> s { _csAuthenticateOnUnsubscribe = a })
 
 -- | Short-lived token sent to an endpoint during the 'Subscribe' action.
---
 csToken :: Lens' ConfirmSubscription Text
 csToken = lens _csToken (\s a -> s { _csToken = a })
 
 -- | The ARN of the topic for which you wish to confirm a subscription.
---
 csTopicArn :: Lens' ConfirmSubscription Text
 csTopicArn = lens _csTopicArn (\s a -> s { _csTopicArn = a })
 
@@ -111,7 +108,6 @@ confirmSubscriptionResponse = ConfirmSubscriptionResponse
     }
 
 -- | The ARN of the created subscription.
---
 csrSubscriptionArn :: Lens' ConfirmSubscriptionResponse (Maybe Text)
 csrSubscriptionArn =
     lens _csrSubscriptionArn (\s a -> s { _csrSubscriptionArn = a })

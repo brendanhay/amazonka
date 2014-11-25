@@ -21,6 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the policy from the bucket.
+--
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketPolicy.html>
 module Network.AWS.S3.DeleteBucketPolicy
     (

@@ -73,12 +73,10 @@ createUser p1 = CreateUser
 --
 -- This parameter is optional. If it is not included, it defaults to a slash
 -- (/).
---
 cuPath :: Lens' CreateUser (Maybe Text)
 cuPath = lens _cuPath (\s a -> s { _cuPath = a })
 
 -- | The name of the user to create.
---
 cuUserName :: Lens' CreateUser Text
 cuUserName = lens _cuUserName (\s a -> s { _cuUserName = a })
 
@@ -98,7 +96,6 @@ createUserResponse = CreateUserResponse
     }
 
 -- | Information about the user.
---
 curUser :: Lens' CreateUserResponse (Maybe User)
 curUser = lens _curUser (\s a -> s { _curUser = a })
 

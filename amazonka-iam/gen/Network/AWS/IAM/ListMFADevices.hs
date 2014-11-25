@@ -80,7 +80,6 @@ listMFADevices = ListMFADevices
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the 'Marker' element in the response you just received.
---
 lmfadMarker :: Lens' ListMFADevices (Maybe Text)
 lmfadMarker = lens _lmfadMarker (\s a -> s { _lmfadMarker = a })
 
@@ -88,12 +87,10 @@ lmfadMarker = lens _lmfadMarker (\s a -> s { _lmfadMarker = a })
 -- devices you want in the response. If there are additional MFA devices beyond
 -- the maximum you specify, the 'IsTruncated' response element is 'true'. This
 -- parameter is optional. If you do not include it, it defaults to 100.
---
 lmfadMaxItems :: Lens' ListMFADevices (Maybe Natural)
 lmfadMaxItems = lens _lmfadMaxItems (\s a -> s { _lmfadMaxItems = a }) . mapping _Nat
 
 -- | The name of the user whose MFA devices you want to list.
---
 lmfadUserName :: Lens' ListMFADevices (Maybe Text)
 lmfadUserName = lens _lmfadUserName (\s a -> s { _lmfadUserName = a })
 
@@ -123,19 +120,16 @@ listMFADevicesResponse = ListMFADevicesResponse
 -- | A flag that indicates whether there are more MFA devices to list. If your
 -- results were truncated, you can make a subsequent pagination request using
 -- the 'Marker' request parameter to retrieve more MFA devices in the list.
---
 lmfadrIsTruncated :: Lens' ListMFADevicesResponse (Maybe Bool)
 lmfadrIsTruncated =
     lens _lmfadrIsTruncated (\s a -> s { _lmfadrIsTruncated = a })
 
 -- | A list of MFA devices.
---
 lmfadrMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
 lmfadrMFADevices = lens _lmfadrMFADevices (\s a -> s { _lmfadrMFADevices = a }) . _List
 
 -- | If 'IsTruncated' is 'true', this element is present and contains the value to
 -- use for the 'Marker' parameter in a subsequent pagination request.
---
 lmfadrMarker :: Lens' ListMFADevicesResponse (Maybe Text)
 lmfadrMarker = lens _lmfadrMarker (\s a -> s { _lmfadrMarker = a })
 

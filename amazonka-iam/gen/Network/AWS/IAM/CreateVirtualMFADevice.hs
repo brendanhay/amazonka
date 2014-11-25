@@ -31,6 +31,7 @@
 -- be treated like any other secret access information, such as your AWS access
 -- keys or your passwords. After you provision your virtual device, you should
 -- ensure that the information is destroyed following secure procedures.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html>
 module Network.AWS.IAM.CreateVirtualMFADevice
     (
@@ -79,13 +80,11 @@ createVirtualMFADevice p1 = CreateVirtualMFADevice
 --
 -- This parameter is optional. If it is not included, it defaults to a slash
 -- (/).
---
 cvmfadPath :: Lens' CreateVirtualMFADevice (Maybe Text)
 cvmfadPath = lens _cvmfadPath (\s a -> s { _cvmfadPath = a })
 
 -- | The name of the virtual MFA device. Use with path to uniquely identify a
 -- virtual MFA device.
---
 cvmfadVirtualMFADeviceName :: Lens' CreateVirtualMFADevice Text
 cvmfadVirtualMFADeviceName =
     lens _cvmfadVirtualMFADeviceName
@@ -108,7 +107,6 @@ createVirtualMFADeviceResponse p1 = CreateVirtualMFADeviceResponse
     }
 
 -- | A newly created virtual MFA device.
---
 cvmfadrVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
 cvmfadrVirtualMFADevice =
     lens _cvmfadrVirtualMFADevice (\s a -> s { _cvmfadrVirtualMFADevice = a })

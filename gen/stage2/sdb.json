@@ -113,7 +113,7 @@
                         "name": "_aAlternateNameEncoding",
                         "shape": "String",
                         "locationName": "AlternateNameEncoding",
-                        "documentation": "-- | \n--",
+                        "documentation": "",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -128,7 +128,7 @@
                         "name": "_aAlternateValueEncoding",
                         "shape": "String",
                         "locationName": "AlternateValueEncoding",
-                        "documentation": "-- | \n--",
+                        "documentation": "",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -145,7 +145,7 @@
                         "name": "_aAlternateNameEncoding",
                         "shape": "String",
                         "locationName": "AlternateNameEncoding",
-                        "documentation": "-- | \n--",
+                        "documentation": "",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -160,7 +160,7 @@
                         "name": "_aAlternateValueEncoding",
                         "shape": "String",
                         "locationName": "AlternateValueEncoding",
-                        "documentation": "-- | \n--",
+                        "documentation": "",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -383,7 +383,7 @@
                         "name": "_ucName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | The name of the attribute involved in the condition.\n--",
+                        "documentation": "-- | The name of the attribute involved in the condition.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -398,7 +398,7 @@
                         "name": "_ucValue",
                         "shape": "String",
                         "locationName": "Value",
-                        "documentation": "-- | The value of an attribute. This value can only be specified when the 'Exists'\n-- parameter is equal to 'true'.\n--",
+                        "documentation": "-- | The value of an attribute. This value can only be specified when the 'Exists'\n-- parameter is equal to 'true'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -413,7 +413,7 @@
                         "name": "_ucExists",
                         "shape": "Boolean",
                         "locationName": "Exists",
-                        "documentation": "-- | A value specifying whether or not the specified attribute must exist with the\n-- specified value in order for the update condition to be satisfied. Specify 'true' if the attribute must exist for the update condition to be satisfied.\n-- Specify 'false' if the attribute should not exist in order for the update\n-- condition to be satisfied.\n--",
+                        "documentation": "-- | A value specifying whether or not the specified attribute must exist with the\n-- specified value in order for the update condition to be satisfied. Specify 'true' if the attribute must exist for the update condition to be satisfied.\n-- Specify 'false' if the attribute should not exist in order for the update\n-- condition to be satisfied.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -430,7 +430,7 @@
                         "name": "_ucExists",
                         "shape": "Boolean",
                         "locationName": "Exists",
-                        "documentation": "-- | A value specifying whether or not the specified attribute must exist with the\n-- specified value in order for the update condition to be satisfied. Specify 'true' if the attribute must exist for the update condition to be satisfied.\n-- Specify 'false' if the attribute should not exist in order for the update\n-- condition to be satisfied.\n--",
+                        "documentation": "-- | A value specifying whether or not the specified attribute must exist with the\n-- specified value in order for the update condition to be satisfied. Specify 'true' if the attribute must exist for the update condition to be satisfied.\n-- Specify 'false' if the attribute should not exist in order for the update\n-- condition to be satisfied.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -445,7 +445,7 @@
                         "name": "_ucName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | The name of the attribute involved in the condition.\n--",
+                        "documentation": "-- | The name of the attribute involved in the condition.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -460,7 +460,7 @@
                         "name": "_ucValue",
                         "shape": "String",
                         "locationName": "Value",
-                        "documentation": "-- | The value of an attribute. This value can only be specified when the 'Exists'\n-- parameter is equal to 'true'.\n--",
+                        "documentation": "-- | The value of an attribute. This value can only be specified when the 'Exists'\n-- parameter is equal to 'true'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -619,7 +619,7 @@
                         "name": "_iAlternateNameEncoding",
                         "shape": "String",
                         "locationName": "AlternateNameEncoding",
-                        "documentation": "-- | \n--",
+                        "documentation": "",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -651,7 +651,7 @@
                         "name": "_iAlternateNameEncoding",
                         "shape": "String",
                         "locationName": "AlternateNameEncoding",
-                        "documentation": "-- | \n--",
+                        "documentation": "",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -730,7 +730,7 @@
             "pager": null,
             "name": "BatchDeleteAttributes",
             "method": "post",
-            "documentation": "-- | Performs multiple DeleteAttributes operations in a single call, which\n-- reduces round trips and latencies. This enables Amazon SimpleDB to optimize\n-- requests, which generally yields better throughput.\n--\n-- The following limitations are enforced for this operation:  1 MB request\n-- size 25 item limit per BatchDeleteAttributes operation\n--",
+            "documentation": "-- | Performs multiple DeleteAttributes operations in a single call, which\n-- reduces round trips and latencies. This enables Amazon SimpleDB to optimize\n-- requests, which generally yields better throughput.\n--\n-- The following limitations are enforced for this operation:  1 MB request\n-- size 25 item limit per BatchDeleteAttributes operation",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -876,7 +876,7 @@
             "pager": null,
             "name": "BatchPutAttributes",
             "method": "post",
-            "documentation": "-- | The 'BatchPutAttributes' operation creates or replaces attributes within one\n-- or more items. By using this operation, the client can perform multiple 'PutAttribute' operation with a single call. This helps yield savings in round trips and\n-- latencies, enabling Amazon SimpleDB to optimize requests and generally\n-- produce better throughput.\n--\n-- The client may specify the item name with the 'Item.X.ItemName' parameter.\n-- The client may specify new attributes using a combination of the 'Item.X.Attribute.Y.Name' and 'Item.X.Attribute.Y.Value' parameters. The client may specify the first\n-- attribute for the first item using the parameters 'Item.0.Attribute.0.Name' and 'Item.0.Attribute.0.Value', and for the second attribute for the first item by\n-- the parameters 'Item.0.Attribute.1.Name' and 'Item.0.Attribute.1.Value', and so\n-- on.\n--\n-- Attributes are uniquely identified within an item by their name/value\n-- combination. For example, a single item can have the attributes '{\"first_name\", \"first_value\" }' and '{ \"first_name\", \"second_value\" }'. However,\n-- it cannot have two attribute instances where both the 'Item.X.Attribute.Y.Name'\n-- and 'Item.X.Attribute.Y.Value' are the same.\n--\n-- Optionally, the requester can supply the 'Replace' parameter for each\n-- individual value. Setting this value to 'true' will cause the new attribute\n-- values to replace the existing attribute values. For example, if an item 'I'\n-- has the attributes '{ 'a', '1' }, { 'b', '2'}' and '{ 'b', '3' }' and the\n-- requester does a BatchPutAttributes of '{'I', 'b', '4' }' with the Replace\n-- parameter set to true, the final attributes of the item will be '{ 'a', '1' }'\n-- and '{ 'b', '4' }', replacing the previous values of the 'b' attribute with the\n-- new value.\n--\n-- This operation is vulnerable to exceeding the maximum URL size when making\n-- a REST request using the HTTP GET method. This operation does not support\n-- conditions using 'Expected.X.Name', 'Expected.X.Value', or 'Expected.X.Exists'.\n-- You can execute multiple 'BatchPutAttributes' operations and other operations\n-- in parallel. However, large numbers of concurrent 'BatchPutAttributes' calls\n-- can result in Service Unavailable (503) responses.\n--\n-- The following limitations are enforced for this operation:  256 attribute\n-- name-value pairs per item 1 MB request size 1 billion attributes per domain 10 GB of total user data storage per domain\n-- 25 item limit per 'BatchPutAttributes' operation\n--",
+            "documentation": "-- | The 'BatchPutAttributes' operation creates or replaces attributes within one\n-- or more items. By using this operation, the client can perform multiple 'PutAttribute' operation with a single call. This helps yield savings in round trips and\n-- latencies, enabling Amazon SimpleDB to optimize requests and generally\n-- produce better throughput.\n--\n-- The client may specify the item name with the 'Item.X.ItemName' parameter.\n-- The client may specify new attributes using a combination of the 'Item.X.Attribute.Y.Name' and 'Item.X.Attribute.Y.Value' parameters. The client may specify the first\n-- attribute for the first item using the parameters 'Item.0.Attribute.0.Name' and 'Item.0.Attribute.0.Value', and for the second attribute for the first item by\n-- the parameters 'Item.0.Attribute.1.Name' and 'Item.0.Attribute.1.Value', and so\n-- on.\n--\n-- Attributes are uniquely identified within an item by their name/value\n-- combination. For example, a single item can have the attributes '{\"first_name\", \"first_value\" }' and '{ \"first_name\", \"second_value\" }'. However,\n-- it cannot have two attribute instances where both the 'Item.X.Attribute.Y.Name'\n-- and 'Item.X.Attribute.Y.Value' are the same.\n--\n-- Optionally, the requester can supply the 'Replace' parameter for each\n-- individual value. Setting this value to 'true' will cause the new attribute\n-- values to replace the existing attribute values. For example, if an item 'I'\n-- has the attributes '{ 'a', '1' }, { 'b', '2'}' and '{ 'b', '3' }' and the\n-- requester does a BatchPutAttributes of '{'I', 'b', '4' }' with the Replace\n-- parameter set to true, the final attributes of the item will be '{ 'a', '1' }'\n-- and '{ 'b', '4' }', replacing the previous values of the 'b' attribute with the\n-- new value.\n--\n-- This operation is vulnerable to exceeding the maximum URL size when making\n-- a REST request using the HTTP GET method. This operation does not support\n-- conditions using 'Expected.X.Name', 'Expected.X.Value', or 'Expected.X.Exists'.\n-- You can execute multiple 'BatchPutAttributes' operations and other operations\n-- in parallel. However, large numbers of concurrent 'BatchPutAttributes' calls\n-- can result in Service Unavailable (503) responses.\n--\n-- The following limitations are enforced for this operation:  256 attribute\n-- name-value pairs per item 1 MB request size 1 billion attributes per domain 10 GB of total user data storage per domain\n-- 25 item limit per 'BatchPutAttributes' operation",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1022,7 +1022,7 @@
             "pager": null,
             "name": "CreateDomain",
             "method": "post",
-            "documentation": "-- | The 'CreateDomain' operation creates a new domain. The domain name should be\n-- unique among the domains associated with the Access Key ID provided in the\n-- request. The 'CreateDomain' operation may take 10 or more seconds to complete.\n--\n-- The client can create up to 100 domains per account.\n--\n-- If the client requires additional domains, go to \u003chttp://aws.amazon.com/contact-us/simpledb-limit-request/ http://aws.amazon.com/contact-us/simpledb-limit-request/\u003e.\n--",
+            "documentation": "-- | The 'CreateDomain' operation creates a new domain. The domain name should be\n-- unique among the domains associated with the Access Key ID provided in the\n-- request. The 'CreateDomain' operation may take 10 or more seconds to complete.\n--\n-- The client can create up to 100 domains per account.\n--\n-- If the client requires additional domains, go to \u003chttp://aws.amazon.com/contact-us/simpledb-limit-request/ http://aws.amazon.com/contact-us/simpledb-limit-request/\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1151,7 +1151,7 @@
             "pager": null,
             "name": "DeleteAttributes",
             "method": "post",
-            "documentation": "-- | Deletes one or more attributes associated with an item. If all attributes of\n-- the item are deleted, the item is deleted.\n--\n-- 'DeleteAttributes' is an idempotent operation; running it multiple times on\n-- the same item or attribute does not result in an error response.\n--\n-- Because Amazon SimpleDB makes multiple copies of item data and uses an\n-- eventual consistency update model, performing a 'GetAttributes' or 'Select'\n-- operation (read) immediately after a 'DeleteAttributes' or 'PutAttributes'\n-- operation (write) might not return updated item data.\n--",
+            "documentation": "-- | Deletes one or more attributes associated with an item. If all attributes of\n-- the item are deleted, the item is deleted.\n--\n-- 'DeleteAttributes' is an idempotent operation; running it multiple times on\n-- the same item or attribute does not result in an error response.\n--\n-- Because Amazon SimpleDB makes multiple copies of item data and uses an\n-- eventual consistency update model, performing a 'GetAttributes' or 'Select'\n-- operation (read) immediately after a 'DeleteAttributes' or 'PutAttributes'\n-- operation (write) might not return updated item data.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1367,7 +1367,7 @@
             "pager": null,
             "name": "DeleteDomain",
             "method": "post",
-            "documentation": "-- | The 'DeleteDomain' operation deletes a domain. Any items (and their\n-- attributes) in the domain are deleted as well. The 'DeleteDomain' operation\n-- might take 10 or more seconds to complete.\n--",
+            "documentation": "-- | The 'DeleteDomain' operation deletes a domain. Any items (and their\n-- attributes) in the domain are deleted as well. The 'DeleteDomain' operation\n-- might take 10 or more seconds to complete.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1711,7 +1711,7 @@
             "pager": null,
             "name": "DomainMetadata",
             "method": "post",
-            "documentation": "-- | Returns information about the domain, including when the domain was created,\n-- the number of items and attributes in the domain, and the size of the\n-- attribute names and values.\n--",
+            "documentation": "-- | Returns information about the domain, including when the domain was created,\n-- the number of items and attributes in the domain, and the size of the\n-- attribute names and values.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1892,7 +1892,7 @@
             "pager": null,
             "name": "GetAttributes",
             "method": "post",
-            "documentation": "-- | Returns all of the attributes associated with the specified item.\n-- Optionally, the attributes returned can be limited to one or more attributes\n-- by specifying an attribute name parameter.\n--\n-- If the item does not exist on the replica that was accessed for this\n-- operation, an empty set is returned. The system does not return an error as\n-- it cannot guarantee the item does not exist on other replicas.\n--",
+            "documentation": "-- | Returns all of the attributes associated with the specified item.\n-- Optionally, the attributes returned can be limited to one or more attributes\n-- by specifying an attribute name parameter.\n--\n-- If the item does not exist on the replica that was accessed for this\n-- operation, an empty set is returned. The system does not return an error as\n-- it cannot guarantee the item does not exist on other replicas.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2183,7 +2183,7 @@
             },
             "name": "ListDomains",
             "method": "post",
-            "documentation": "-- | The 'ListDomains' operation lists all domains associated with the Access Key\n-- ID. It returns domain names up to the limit set by \u003c#MaxNumberOfDomains MaxNumberOfDomains\u003e. A \u003c#NextToken NextToken\u003e is returned if there are more than 'MaxNumberOfDomains' domains. Calling 'ListDomains' successive times with the 'NextToken' provided by the operation returns up to 'MaxNumberOfDomains' more domain names with each successive operation call.\n--",
+            "documentation": "-- | The 'ListDomains' operation lists all domains associated with the Access Key\n-- ID. It returns domain names up to the limit set by \u003c#MaxNumberOfDomains MaxNumberOfDomains\u003e. A \u003c#NextToken NextToken\u003e is returned if there are more than 'MaxNumberOfDomains' domains. Calling 'ListDomains' successive times with the 'NextToken' provided by the operation returns up to 'MaxNumberOfDomains' more domain names with each successive operation call.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2329,7 +2329,7 @@
             "pager": null,
             "name": "PutAttributes",
             "method": "post",
-            "documentation": "-- | The PutAttributes operation creates or replaces attributes in an item. The\n-- client may specify new attributes using a combination of the 'Attribute.X.Name'\n-- and 'Attribute.X.Value' parameters. The client specifies the first attribute by\n-- the parameters 'Attribute.0.Name' and 'Attribute.0.Value', the second attribute\n-- by the parameters 'Attribute.1.Name' and 'Attribute.1.Value', and so on.\n--\n-- Attributes are uniquely identified in an item by their name/value\n-- combination. For example, a single item can have the attributes '{\"first_name\", \"first_value\" }' and '{ \"first_name\", second_value\" }'. However,\n-- it cannot have two attribute instances where both the 'Attribute.X.Name' and 'Attribute.X.Value' are the same.\n--\n-- Optionally, the requestor can supply the 'Replace' parameter for each\n-- individual attribute. Setting this value to 'true' causes the new attribute\n-- value to replace the existing attribute value(s). For example, if an item has\n-- the attributes '{ 'a', '1' }', '{ 'b', '2'}' and '{ 'b', '3' }' and the requestor\n-- calls 'PutAttributes' using the attributes '{ 'b', '4' }' with the 'Replace'\n-- parameter set to true, the final attributes of the item are changed to '{ 'a','1' }' and '{ 'b', '4' }', which replaces the previous values of the 'b'\n-- attribute with the new value.\n--\n-- You cannot specify an empty string as an attribute name.\n--\n-- Because Amazon SimpleDB makes multiple copies of client data and uses an\n-- eventual consistency update model, an immediate 'GetAttributes' or 'Select'\n-- operation (read) immediately after a 'PutAttributes' or 'DeleteAttributes'\n-- operation (write) might not return the updated data.\n--\n-- The following limitations are enforced for this operation:  256 total\n-- attribute name-value pairs per item One billion attributes per domain 10 GB\n-- of total user data storage per domain\n--",
+            "documentation": "-- | The PutAttributes operation creates or replaces attributes in an item. The\n-- client may specify new attributes using a combination of the 'Attribute.X.Name'\n-- and 'Attribute.X.Value' parameters. The client specifies the first attribute by\n-- the parameters 'Attribute.0.Name' and 'Attribute.0.Value', the second attribute\n-- by the parameters 'Attribute.1.Name' and 'Attribute.1.Value', and so on.\n--\n-- Attributes are uniquely identified in an item by their name/value\n-- combination. For example, a single item can have the attributes '{\"first_name\", \"first_value\" }' and '{ \"first_name\", second_value\" }'. However,\n-- it cannot have two attribute instances where both the 'Attribute.X.Name' and 'Attribute.X.Value' are the same.\n--\n-- Optionally, the requestor can supply the 'Replace' parameter for each\n-- individual attribute. Setting this value to 'true' causes the new attribute\n-- value to replace the existing attribute value(s). For example, if an item has\n-- the attributes '{ 'a', '1' }', '{ 'b', '2'}' and '{ 'b', '3' }' and the requestor\n-- calls 'PutAttributes' using the attributes '{ 'b', '4' }' with the 'Replace'\n-- parameter set to true, the final attributes of the item are changed to '{ 'a','1' }' and '{ 'b', '4' }', which replaces the previous values of the 'b'\n-- attribute with the new value.\n--\n-- You cannot specify an empty string as an attribute name.\n--\n-- Because Amazon SimpleDB makes multiple copies of client data and uses an\n-- eventual consistency update model, an immediate 'GetAttributes' or 'Select'\n-- operation (read) immediately after a 'PutAttributes' or 'DeleteAttributes'\n-- operation (write) might not return the updated data.\n--\n-- The following limitations are enforced for this operation:  256 total\n-- attribute name-value pairs per item One billion attributes per domain 10 GB\n-- of total user data storage per domain",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2618,7 +2618,7 @@
             },
             "name": "Select",
             "method": "post",
-            "documentation": "-- | The 'Select' operation returns a set of attributes for 'ItemNames' that match\n-- the select expression. 'Select' is similar to the standard SQL SELECT\n-- statement.\n--\n-- The total size of the response cannot exceed 1 MB in total size. Amazon\n-- SimpleDB automatically adjusts the number of items returned per page to\n-- enforce this limit. For example, if the client asks to retrieve 2500 items,\n-- but each individual item is 10 kB in size, the system returns 100 items and\n-- an appropriate 'NextToken' so the client can access the next page of results.\n--\n-- For information on how to construct select expressions, see Using Select to\n-- Create Amazon SimpleDB Queries in the Developer Guide.\n--",
+            "documentation": "-- | The 'Select' operation returns a set of attributes for 'ItemNames' that match\n-- the select expression. 'Select' is similar to the standard SQL SELECT\n-- statement.\n--\n-- The total size of the response cannot exceed 1 MB in total size. Amazon\n-- SimpleDB automatically adjusts the number of items returned per page to\n-- enforce this limit. For example, if the client asks to retrieve 2500 items,\n-- but each individual item is 10 kB in size, the system returns 100 items and\n-- an appropriate 'NextToken' so the client can access the next page of results.\n--\n-- For information on how to construct select expressions, see Using Select to\n-- Create Amazon SimpleDB Queries in the Developer Guide.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

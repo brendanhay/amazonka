@@ -70,7 +70,6 @@ setVisibleToAllUsers p1 = SetVisibleToAllUsers
     }
 
 -- | Identifiers of the job flows to receive the new visibility setting.
---
 svtauJobFlowIds :: Lens' SetVisibleToAllUsers [Text]
 svtauJobFlowIds = lens _svtauJobFlowIds (\s a -> s { _svtauJobFlowIds = a }) . _List
 
@@ -79,7 +78,6 @@ svtauJobFlowIds = lens _svtauJobFlowIds (\s a -> s { _svtauJobFlowIds = a }) . _
 -- users of that AWS account can view and, if they have the proper IAM policy
 -- permissions set, manage the job flows. If it is set to False, only the IAM
 -- user that created a job flow can view and manage it.
---
 svtauVisibleToAllUsers :: Lens' SetVisibleToAllUsers Bool
 svtauVisibleToAllUsers =
     lens _svtauVisibleToAllUsers (\s a -> s { _svtauVisibleToAllUsers = a })

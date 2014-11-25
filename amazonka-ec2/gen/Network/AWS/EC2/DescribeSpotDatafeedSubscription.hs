@@ -79,7 +79,6 @@ describeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionRespo
     }
 
 -- | The Spot Instance datafeed subscription.
---
 dsdsrSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 dsdsrSpotDatafeedSubscription =
     lens _dsdsrSpotDatafeedSubscription

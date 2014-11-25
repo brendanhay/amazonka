@@ -73,14 +73,12 @@ addTags p1 = AddTags
 
 -- | The name of the load balancer to tag. You can specify a maximum of one load
 -- balancer name.
---
 atLoadBalancerNames :: Lens' AddTags [Text]
 atLoadBalancerNames =
     lens _atLoadBalancerNames (\s a -> s { _atLoadBalancerNames = a })
         . _List
 
 -- | A list of tags for each load balancer.
---
 atTags :: Lens' AddTags (NonEmpty Tag)
 atTags = lens _atTags (\s a -> s { _atTags = a }) . _List1
 

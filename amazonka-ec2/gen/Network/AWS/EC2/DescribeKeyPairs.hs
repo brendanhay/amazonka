@@ -88,7 +88,6 @@ dkp1Filters = lens _dkp1Filters (\s a -> s { _dkp1Filters = a }) . _List
 -- | One or more key pair names.
 --
 -- Default: Describes all your key pairs.
---
 dkp1KeyNames :: Lens' DescribeKeyPairs [Text]
 dkp1KeyNames = lens _dkp1KeyNames (\s a -> s { _dkp1KeyNames = a }) . _List
 
@@ -114,7 +113,6 @@ describeKeyPairsResponse = DescribeKeyPairsResponse
     }
 
 -- | Information about one or more key pairs.
---
 dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
 dkprKeyPairs = lens _dkprKeyPairs (\s a -> s { _dkprKeyPairs = a }) . _List
 

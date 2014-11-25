@@ -75,7 +75,6 @@ getOperationDetail p1 = GetOperationDetail
 -- Default: None
 --
 -- Required: Yes
---
 godOperationId :: Lens' GetOperationDetail Text
 godOperationId = lens _godOperationId (\s a -> s { _godOperationId = a })
 
@@ -117,33 +116,28 @@ getOperationDetailResponse = GetOperationDetailResponse
 -- | The name of a domain.
 --
 -- Type: String
---
 godrDomainName :: Lens' GetOperationDetailResponse (Maybe Text)
 godrDomainName = lens _godrDomainName (\s a -> s { _godrDomainName = a })
 
 -- | Detailed information on the status including possible errors.
 --
 -- Type: String
---
 godrMessage :: Lens' GetOperationDetailResponse (Maybe Text)
 godrMessage = lens _godrMessage (\s a -> s { _godrMessage = a })
 
 -- | The identifier for the operation.
 --
 -- Type: String
---
 godrOperationId :: Lens' GetOperationDetailResponse (Maybe Text)
 godrOperationId = lens _godrOperationId (\s a -> s { _godrOperationId = a })
 
 -- | The current status of the requested operation in the system.
 --
 -- Type: String
---
 godrStatus :: Lens' GetOperationDetailResponse (Maybe OperationStatus)
 godrStatus = lens _godrStatus (\s a -> s { _godrStatus = a })
 
 -- | The date when the request was submitted.
---
 godrSubmittedDate :: Lens' GetOperationDetailResponse (Maybe UTCTime)
 godrSubmittedDate =
     lens _godrSubmittedDate (\s a -> s { _godrSubmittedDate = a })
@@ -152,7 +146,6 @@ godrSubmittedDate =
 -- | The type of operation that was requested.
 --
 -- Type: String
---
 godrType :: Lens' GetOperationDetailResponse (Maybe OperationType)
 godrType = lens _godrType (\s a -> s { _godrType = a })
 

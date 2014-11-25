@@ -72,7 +72,6 @@ resetImageAttribute p1 p2 = ResetImageAttribute
 
 -- | The attribute to reset (currently you can only reset the launch permission
 -- attribute).
---
 ria1Attribute :: Lens' ResetImageAttribute ResetImageAttributeName
 ria1Attribute = lens _ria1Attribute (\s a -> s { _ria1Attribute = a })
 
@@ -80,7 +79,6 @@ ria1DryRun :: Lens' ResetImageAttribute (Maybe Bool)
 ria1DryRun = lens _ria1DryRun (\s a -> s { _ria1DryRun = a })
 
 -- | The ID of the AMI.
---
 ria1ImageId :: Lens' ResetImageAttribute Text
 ria1ImageId = lens _ria1ImageId (\s a -> s { _ria1ImageId = a })
 

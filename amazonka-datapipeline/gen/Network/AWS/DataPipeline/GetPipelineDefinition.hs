@@ -67,7 +67,6 @@ getPipelineDefinition p1 = GetPipelineDefinition
     }
 
 -- | The identifier of the pipeline.
---
 gpdPipelineId :: Lens' GetPipelineDefinition Text
 gpdPipelineId = lens _gpdPipelineId (\s a -> s { _gpdPipelineId = a })
 
@@ -75,7 +74,6 @@ gpdPipelineId = lens _gpdPipelineId (\s a -> s { _gpdPipelineId = a })
 -- the values 'latest' (default) and 'active'. Where 'latest' indicates the last
 -- definition saved to the pipeline and 'active' indicates the last definition of
 -- the pipeline that was activated.
---
 gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
 gpdVersion = lens _gpdVersion (\s a -> s { _gpdVersion = a })
 
@@ -101,7 +99,6 @@ getPipelineDefinitionResponse = GetPipelineDefinitionResponse
     }
 
 -- | An array of objects defined in the pipeline.
---
 gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
 gpdrPipelineObjects =
     lens _gpdrPipelineObjects (\s a -> s { _gpdrPipelineObjects = a })

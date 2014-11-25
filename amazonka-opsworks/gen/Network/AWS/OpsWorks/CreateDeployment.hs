@@ -98,18 +98,15 @@ createDeployment p1 p2 = CreateDeployment
 
 -- | The app ID. This parameter is required for app deployments, but not for other
 -- deployment commands.
---
 cdAppId :: Lens' CreateDeployment (Maybe Text)
 cdAppId = lens _cdAppId (\s a -> s { _cdAppId = a })
 
 -- | A 'DeploymentCommand' object that specifies the deployment command and any
 -- associated arguments.
---
 cdCommand :: Lens' CreateDeployment DeploymentCommand
 cdCommand = lens _cdCommand (\s a -> s { _cdCommand = a })
 
 -- | A user-defined comment.
---
 cdComment :: Lens' CreateDeployment (Maybe Text)
 cdComment = lens _cdComment (\s a -> s { _cdComment = a })
 
@@ -120,17 +117,14 @@ cdComment = lens _cdComment (\s a -> s { _cdComment = a })
 -- '"{\"key1\": \"value1\", \"key2\": \"value2\",...}"'
 --
 -- For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON>.
---
 cdCustomJson :: Lens' CreateDeployment (Maybe Text)
 cdCustomJson = lens _cdCustomJson (\s a -> s { _cdCustomJson = a })
 
 -- | The instance IDs for the deployment targets.
---
 cdInstanceIds :: Lens' CreateDeployment [Text]
 cdInstanceIds = lens _cdInstanceIds (\s a -> s { _cdInstanceIds = a }) . _List
 
 -- | The stack ID.
---
 cdStackId :: Lens' CreateDeployment Text
 cdStackId = lens _cdStackId (\s a -> s { _cdStackId = a })
 
@@ -151,7 +145,6 @@ createDeploymentResponse = CreateDeploymentResponse
 
 -- | The deployment ID, which can be used with other requests to identify the
 -- deployment.
---
 cdrDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrDeploymentId = lens _cdrDeploymentId (\s a -> s { _cdrDeploymentId = a })
 

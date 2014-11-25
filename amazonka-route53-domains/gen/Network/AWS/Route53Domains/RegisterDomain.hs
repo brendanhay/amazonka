@@ -39,6 +39,7 @@
 -- request is not completed successfully, the domain registrant is notified by
 -- email. Charges your AWS account an amount based on the top-level domain. For
 -- more information, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
+--
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-RegisterDomain.html>
 module Network.AWS.Route53Domains.RegisterDomain
     (
@@ -134,7 +135,6 @@ registerDomain p1 p2 p3 p4 p5 = RegisterDomain
 -- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
---
 rdAdminContact :: Lens' RegisterDomain ContactDetail
 rdAdminContact = lens _rdAdminContact (\s a -> s { _rdAdminContact = a })
 
@@ -147,7 +147,6 @@ rdAdminContact = lens _rdAdminContact (\s a -> s { _rdAdminContact = a })
 -- Default: 'true'
 --
 -- Required: No
---
 rdAutoRenew :: Lens' RegisterDomain (Maybe Bool)
 rdAutoRenew = lens _rdAutoRenew (\s a -> s { _rdAutoRenew = a })
 
@@ -162,7 +161,6 @@ rdAutoRenew = lens _rdAutoRenew (\s a -> s { _rdAutoRenew = a })
 -- supported.
 --
 -- Required: Yes
---
 rdDomainName :: Lens' RegisterDomain Text
 rdDomainName = lens _rdDomainName (\s a -> s { _rdDomainName = a })
 
@@ -176,14 +174,12 @@ rdDomainName = lens _rdDomainName (\s a -> s { _rdDomainName = a })
 -- Valid values: Integer from 1 to 10
 --
 -- Required: Yes
---
 rdDurationInYears :: Lens' RegisterDomain Natural
 rdDurationInYears =
     lens _rdDurationInYears (\s a -> s { _rdDurationInYears = a })
         . _Nat
 
 -- | Reserved for future use.
---
 rdIdnLangCode :: Lens' RegisterDomain (Maybe Text)
 rdIdnLangCode = lens _rdIdnLangCode (\s a -> s { _rdIdnLangCode = a })
 
@@ -199,7 +195,6 @@ rdIdnLangCode = lens _rdIdnLangCode (\s a -> s { _rdIdnLangCode = a })
 -- Valid values: 'true' | 'false'
 --
 -- Required: No
---
 rdPrivacyProtectAdminContact :: Lens' RegisterDomain (Maybe Bool)
 rdPrivacyProtectAdminContact =
     lens _rdPrivacyProtectAdminContact
@@ -217,7 +212,6 @@ rdPrivacyProtectAdminContact =
 -- Valid values: 'true' | 'false'
 --
 -- Required: No
---
 rdPrivacyProtectRegistrantContact :: Lens' RegisterDomain (Maybe Bool)
 rdPrivacyProtectRegistrantContact =
     lens _rdPrivacyProtectRegistrantContact
@@ -235,7 +229,6 @@ rdPrivacyProtectRegistrantContact =
 -- Valid values: 'true' | 'false'
 --
 -- Required: No
---
 rdPrivacyProtectTechContact :: Lens' RegisterDomain (Maybe Bool)
 rdPrivacyProtectTechContact =
     lens _rdPrivacyProtectTechContact
@@ -248,7 +241,6 @@ rdPrivacyProtectTechContact =
 -- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
---
 rdRegistrantContact :: Lens' RegisterDomain ContactDetail
 rdRegistrantContact =
     lens _rdRegistrantContact (\s a -> s { _rdRegistrantContact = a })
@@ -260,7 +252,6 @@ rdRegistrantContact =
 -- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
---
 rdTechContact :: Lens' RegisterDomain ContactDetail
 rdTechContact = lens _rdTechContact (\s a -> s { _rdTechContact = a })
 
@@ -288,7 +279,6 @@ registerDomainResponse p1 = RegisterDomainResponse
 -- Default: None
 --
 -- Constraints: Maximum 255 characters.
---
 rdrOperationId :: Lens' RegisterDomainResponse Text
 rdrOperationId = lens _rdrOperationId (\s a -> s { _rdrOperationId = a })
 

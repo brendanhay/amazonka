@@ -79,7 +79,6 @@ uaoDomainName = lens _uaoDomainName (\s a -> s { _uaoDomainName = a })
 -- the Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option
 -- to downgrade the domain to a single Availability Zone by setting the Multi-AZ
 -- option to 'false'.
---
 uaoMultiAZ :: Lens' UpdateAvailabilityOptions Bool
 uaoMultiAZ = lens _uaoMultiAZ (\s a -> s { _uaoMultiAZ = a })
 
@@ -100,7 +99,6 @@ updateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
 
 -- | The newly-configured availability options. Indicates whether Multi-AZ is
 -- enabled for the domain.
---
 uaorAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 uaorAvailabilityOptions =
     lens _uaorAvailabilityOptions (\s a -> s { _uaorAvailabilityOptions = a })

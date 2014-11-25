@@ -82,7 +82,6 @@ associateDhcpOptions p1 p2 = AssociateDhcpOptions
 
 -- | The ID of the DHCP options set, or 'default' to associate no DHCP options with
 -- the VPC.
---
 adoDhcpOptionsId :: Lens' AssociateDhcpOptions Text
 adoDhcpOptionsId = lens _adoDhcpOptionsId (\s a -> s { _adoDhcpOptionsId = a })
 
@@ -90,7 +89,6 @@ adoDryRun :: Lens' AssociateDhcpOptions (Maybe Bool)
 adoDryRun = lens _adoDryRun (\s a -> s { _adoDryRun = a })
 
 -- | The ID of the VPC.
---
 adoVpcId :: Lens' AssociateDhcpOptions Text
 adoVpcId = lens _adoVpcId (\s a -> s { _adoVpcId = a })
 

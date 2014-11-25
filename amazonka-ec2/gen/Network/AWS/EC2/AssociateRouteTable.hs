@@ -82,12 +82,10 @@ artDryRun :: Lens' AssociateRouteTable (Maybe Bool)
 artDryRun = lens _artDryRun (\s a -> s { _artDryRun = a })
 
 -- | The ID of the route table.
---
 artRouteTableId :: Lens' AssociateRouteTable Text
 artRouteTableId = lens _artRouteTableId (\s a -> s { _artRouteTableId = a })
 
 -- | The ID of the subnet.
---
 artSubnetId :: Lens' AssociateRouteTable Text
 artSubnetId = lens _artSubnetId (\s a -> s { _artSubnetId = a })
 
@@ -107,7 +105,6 @@ associateRouteTableResponse = AssociateRouteTableResponse
     }
 
 -- | The route table association ID (needed to disassociate the route table).
---
 artrAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artrAssociationId =
     lens _artrAssociationId (\s a -> s { _artrAssociationId = a })

@@ -76,13 +76,11 @@ aigDryRun :: Lens' AttachInternetGateway (Maybe Bool)
 aigDryRun = lens _aigDryRun (\s a -> s { _aigDryRun = a })
 
 -- | The ID of the Internet gateway.
---
 aigInternetGatewayId :: Lens' AttachInternetGateway Text
 aigInternetGatewayId =
     lens _aigInternetGatewayId (\s a -> s { _aigInternetGatewayId = a })
 
 -- | The ID of the VPC.
---
 aigVpcId :: Lens' AttachInternetGateway Text
 aigVpcId = lens _aigVpcId (\s a -> s { _aigVpcId = a })
 

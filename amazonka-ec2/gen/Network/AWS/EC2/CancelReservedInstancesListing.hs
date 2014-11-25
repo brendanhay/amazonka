@@ -65,7 +65,6 @@ cancelReservedInstancesListing p1 = CancelReservedInstancesListing
     }
 
 -- | The ID of the Reserved Instance listing.
---
 crilReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
 crilReservedInstancesListingId =
     lens _crilReservedInstancesListingId
@@ -93,7 +92,6 @@ cancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     }
 
 -- | The Reserved Instance listing.
---
 crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
 crilrReservedInstancesListings =
     lens _crilrReservedInstancesListings

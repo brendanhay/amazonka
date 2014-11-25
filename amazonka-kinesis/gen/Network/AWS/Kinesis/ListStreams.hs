@@ -78,14 +78,12 @@ listStreams = ListStreams
     }
 
 -- | The name of the stream to start the list with.
---
 lsExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
 lsExclusiveStartStreamName =
     lens _lsExclusiveStartStreamName
         (\s a -> s { _lsExclusiveStartStreamName = a })
 
 -- | The maximum number of streams to list.
---
 lsLimit :: Lens' ListStreams (Maybe Natural)
 lsLimit = lens _lsLimit (\s a -> s { _lsLimit = a }) . mapping _Nat
 
@@ -110,13 +108,11 @@ listStreamsResponse p1 = ListStreamsResponse
     }
 
 -- | If set to 'true', there are more streams available to list.
---
 lsrHasMoreStreams :: Lens' ListStreamsResponse Bool
 lsrHasMoreStreams =
     lens _lsrHasMoreStreams (\s a -> s { _lsrHasMoreStreams = a })
 
 -- | The names of the streams that are associated with the AWS account making the 'ListStreams' request.
---
 lsrStreamNames :: Lens' ListStreamsResponse [Text]
 lsrStreamNames = lens _lsrStreamNames (\s a -> s { _lsrStreamNames = a }) . _List
 

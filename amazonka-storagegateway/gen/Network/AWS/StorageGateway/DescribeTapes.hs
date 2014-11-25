@@ -84,7 +84,6 @@ dtGatewayARN = lens _dtGatewayARN (\s a -> s { _dtGatewayARN = a })
 
 -- | Specifies that the number of virtual tapes described be limited to the
 -- specified number.
---
 dtLimit :: Lens' DescribeTapes (Maybe Natural)
 dtLimit = lens _dtLimit (\s a -> s { _dtLimit = a }) . mapping _Nat
 
@@ -92,7 +91,6 @@ dtLimit = lens _dtLimit (\s a -> s { _dtLimit = a }) . mapping _Nat
 -- indicates which page of results to retrieve.
 --
 -- If not specified, the first page of results is retrieved.
---
 dtMarker :: Lens' DescribeTapes (Maybe Text)
 dtMarker = lens _dtMarker (\s a -> s { _dtMarker = a })
 
@@ -100,7 +98,6 @@ dtMarker = lens _dtMarker (\s a -> s { _dtMarker = a })
 -- virtual tapes you want to describe. If this parameter is not specified, AWS
 -- Storage Gateway returns a description of all virtual tapes associated with
 -- the specified gateway.
---
 dtTapeARNs :: Lens' DescribeTapes [Text]
 dtTapeARNs = lens _dtTapeARNs (\s a -> s { _dtTapeARNs = a }) . _List
 
@@ -128,12 +125,10 @@ describeTapesResponse = DescribeTapesResponse
 --
 -- If a response does not contain a marker, then there are no more results to
 -- be retrieved.
---
 dtrMarker :: Lens' DescribeTapesResponse (Maybe Text)
 dtrMarker = lens _dtrMarker (\s a -> s { _dtrMarker = a })
 
 -- | An array of virtual tape descriptions.
---
 dtrTapes :: Lens' DescribeTapesResponse [Tape]
 dtrTapes = lens _dtrTapes (\s a -> s { _dtrTapes = a }) . _List
 

@@ -145,7 +145,6 @@ modifyCacheCluster p1 = ModifyCacheCluster
 -- Valid values: 'single-az' | 'cross-az'.
 --
 -- This option is only supported for Memcached cache clusters.
---
 mccAZMode :: Lens' ModifyCacheCluster (Maybe AZMode)
 mccAZMode = lens _mccAZMode (\s a -> s { _mccAZMode = a })
 
@@ -161,7 +160,6 @@ mccAZMode = lens _mccAZMode (\s a -> s { _mccAZMode = a })
 -- 'true' | 'false'
 --
 -- Default: 'false'
---
 mccApplyImmediately :: Lens' ModifyCacheCluster (Maybe Bool)
 mccApplyImmediately =
     lens _mccApplyImmediately (\s a -> s { _mccApplyImmediately = a })
@@ -172,14 +170,12 @@ mccApplyImmediately =
 -- Valid values: 'true' | 'false'
 --
 -- Default: 'true'
---
 mccAutoMinorVersionUpgrade :: Lens' ModifyCacheCluster (Maybe Bool)
 mccAutoMinorVersionUpgrade =
     lens _mccAutoMinorVersionUpgrade
         (\s a -> s { _mccAutoMinorVersionUpgrade = a })
 
 -- | The cache cluster identifier. This value is stored as a lowercase string.
---
 mccCacheClusterId :: Lens' ModifyCacheCluster Text
 mccCacheClusterId =
     lens _mccCacheClusterId (\s a -> s { _mccCacheClusterId = a })
@@ -194,7 +190,6 @@ mccCacheClusterId =
 -- For example: If you have 3 active cache nodes, 7 pending cache nodes, and
 -- the number of cache nodes in this 'ModifyCacheCluser' call is 5, you must list
 -- 2 (7 - 5) cache node IDs to remove.
---
 mccCacheNodeIdsToRemove :: Lens' ModifyCacheCluster [Text]
 mccCacheNodeIdsToRemove =
     lens _mccCacheNodeIdsToRemove (\s a -> s { _mccCacheNodeIdsToRemove = a })
@@ -202,7 +197,6 @@ mccCacheNodeIdsToRemove =
 
 -- | The name of the cache parameter group to apply to this cache cluster. This
 -- change is asynchronously applied as soon as possible for parameters when the /ApplyImmediately/ parameter is specified as /true/ for this request.
---
 mccCacheParameterGroupName :: Lens' ModifyCacheCluster (Maybe Text)
 mccCacheParameterGroupName =
     lens _mccCacheParameterGroupName
@@ -216,7 +210,6 @@ mccCacheParameterGroupName =
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must not
 -- be "Default".
---
 mccCacheSecurityGroupNames :: Lens' ModifyCacheCluster [Text]
 mccCacheSecurityGroupNames =
     lens _mccCacheSecurityGroupNames
@@ -224,7 +217,6 @@ mccCacheSecurityGroupNames =
             . _List
 
 -- | The upgraded version of the cache engine to be run on the cache nodes.
---
 mccEngineVersion :: Lens' ModifyCacheCluster (Maybe Text)
 mccEngineVersion = lens _mccEngineVersion (\s a -> s { _mccEngineVersion = a })
 
@@ -271,7 +263,6 @@ mccEngineVersion = lens _mccEngineVersion (\s a -> s { _mccEngineVersion = a })
 -- If the new create request is Apply
 -- Immediately - Yes, all creates are performed immediately. If the new create
 -- request is Apply Immediately - No, all creates are pending.   Example: 'NewAvailabilityZones.member.1=us-east-1a&NewAvailabilityZones.member.2=us-east-1b&NewAvailabilityZones.member.3=us-east-1d'
---
 mccNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
 mccNewAvailabilityZones =
     lens _mccNewAvailabilityZones (\s a -> s { _mccNewAvailabilityZones = a })
@@ -279,7 +270,6 @@ mccNewAvailabilityZones =
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications
 -- will be sent.
---
 mccNotificationTopicArn :: Lens' ModifyCacheCluster (Maybe Text)
 mccNotificationTopicArn =
     lens _mccNotificationTopicArn (\s a -> s { _mccNotificationTopicArn = a })
@@ -288,7 +278,6 @@ mccNotificationTopicArn =
 -- if the status is /active/.
 --
 -- Valid values: 'active' | 'inactive'
---
 mccNotificationTopicStatus :: Lens' ModifyCacheCluster (Maybe Text)
 mccNotificationTopicStatus =
     lens _mccNotificationTopicStatus
@@ -325,7 +314,6 @@ mccNotificationTopicStatus =
 -- explicitly cancel the pending request and retry the new request. To cancel
 -- pending actions to modify the number of cache nodes in a cluster, use the 'ModifyCacheCluster' request and set 'NumCacheNodes' equal to the number of cache nodes currently
 -- in the cache cluster.
---
 mccNumCacheNodes :: Lens' ModifyCacheCluster (Maybe Int)
 mccNumCacheNodes = lens _mccNumCacheNodes (\s a -> s { _mccNumCacheNodes = a })
 
@@ -334,7 +322,6 @@ mccNumCacheNodes = lens _mccNumCacheNodes (\s a -> s { _mccNumCacheNodes = a })
 -- immediately. If you are moving this window to the current time, there must be
 -- at least 120 minutes between the current time and end of the window to ensure
 -- that pending changes are applied.
---
 mccPreferredMaintenanceWindow :: Lens' ModifyCacheCluster (Maybe Text)
 mccPreferredMaintenanceWindow =
     lens _mccPreferredMaintenanceWindow
@@ -344,7 +331,6 @@ mccPreferredMaintenanceWindow =
 --
 -- This parameter can be used only with clusters that are created in an Amazon
 -- Virtual Private Cloud (VPC).
---
 mccSecurityGroupIds :: Lens' ModifyCacheCluster [Text]
 mccSecurityGroupIds =
     lens _mccSecurityGroupIds (\s a -> s { _mccSecurityGroupIds = a })
@@ -358,7 +344,6 @@ mccSecurityGroupIds =
 -- Important
 -- If the value of SnapshotRetentionLimit is set to zero (0), backups
 -- are turned off.
---
 mccSnapshotRetentionLimit :: Lens' ModifyCacheCluster (Maybe Int)
 mccSnapshotRetentionLimit =
     lens _mccSnapshotRetentionLimit
@@ -366,7 +351,6 @@ mccSnapshotRetentionLimit =
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking a
 -- daily snapshot of your cache cluster.
---
 mccSnapshotWindow :: Lens' ModifyCacheCluster (Maybe Text)
 mccSnapshotWindow =
     lens _mccSnapshotWindow (\s a -> s { _mccSnapshotWindow = a })

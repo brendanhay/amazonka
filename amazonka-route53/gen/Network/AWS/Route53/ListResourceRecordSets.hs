@@ -126,19 +126,16 @@ listResourceRecordSets p1 = ListResourceRecordSets
 
 -- | The ID of the hosted zone that contains the resource record sets that you
 -- want to get.
---
 lrrsHostedZoneId :: Lens' ListResourceRecordSets Text
 lrrsHostedZoneId = lens _lrrsHostedZoneId (\s a -> s { _lrrsHostedZoneId = a })
 
 -- | The maximum number of records you want in the response body.
---
 lrrsMaxItems :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsMaxItems = lens _lrrsMaxItems (\s a -> s { _lrrsMaxItems = a })
 
 -- | /Weighted resource record sets only:/ If results were truncated for a given DNS
 -- name and type, specify the value of 'ListResourceRecordSetsResponse$NextRecordIdentifier' from the previous response to get the next resource record set that has the
 -- current DNS name and type.
---
 lrrsStartRecordIdentifier :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordIdentifier =
     lens _lrrsStartRecordIdentifier
@@ -146,7 +143,6 @@ lrrsStartRecordIdentifier =
 
 -- | The first name in the lexicographic ordering of domain names that you want
 -- the 'ListResourceRecordSets' request to list.
---
 lrrsStartRecordName :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordName =
     lens _lrrsStartRecordName (\s a -> s { _lrrsStartRecordName = a })
@@ -163,7 +159,6 @@ lrrsStartRecordName =
 --
 -- Constraint: Specifying 'type' without specifying 'name' returns an 'InvalidInput'
 -- error.
---
 lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
 lrrsStartRecordType =
     lens _lrrsStartRecordType (\s a -> s { _lrrsStartRecordType = a })
@@ -210,20 +205,17 @@ listResourceRecordSetsResponse p1 p2 = ListResourceRecordSetsResponse
 -- the next page of results by using the 'ListResourceRecordSetsResponse$NextRecordName' element.
 --
 -- Valid Values: 'true' | 'false'
---
 lrrsrIsTruncated :: Lens' ListResourceRecordSetsResponse Bool
 lrrsrIsTruncated = lens _lrrsrIsTruncated (\s a -> s { _lrrsrIsTruncated = a })
 
 -- | The maximum number of records you requested. The maximum value of 'MaxItems' is
 -- 100.
---
 lrrsrMaxItems :: Lens' ListResourceRecordSetsResponse Text
 lrrsrMaxItems = lens _lrrsrMaxItems (\s a -> s { _lrrsrMaxItems = a })
 
 -- | /Weighted resource record sets only:/ If results were truncated for a given DNS
 -- name and type, the value of 'SetIdentifier' for the next resource record set
 -- that has the current DNS name and type.
---
 lrrsrNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrNextRecordIdentifier =
     lens _lrrsrNextRecordIdentifier
@@ -232,7 +224,6 @@ lrrsrNextRecordIdentifier =
 -- | If the results were truncated, the name of the next record in the list. This
 -- element is present only if 'ListResourceRecordSetsResponse$IsTruncated' is
 -- true.
---
 lrrsrNextRecordName :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrNextRecordName =
     lens _lrrsrNextRecordName (\s a -> s { _lrrsrNextRecordName = a })
@@ -240,14 +231,12 @@ lrrsrNextRecordName =
 -- | If the results were truncated, the type of the next record in the list. This
 -- element is present only if 'ListResourceRecordSetsResponse$IsTruncated' is
 -- true.
---
 lrrsrNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
 lrrsrNextRecordType =
     lens _lrrsrNextRecordType (\s a -> s { _lrrsrNextRecordType = a })
 
 -- | A complex type that contains information about the resource record sets that
 -- are returned by the request.
---
 lrrsrResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
 lrrsrResourceRecordSets =
     lens _lrrsrResourceRecordSets (\s a -> s { _lrrsrResourceRecordSets = a })

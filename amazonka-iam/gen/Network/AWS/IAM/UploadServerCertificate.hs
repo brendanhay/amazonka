@@ -88,14 +88,12 @@ uploadServerCertificate p1 p2 p3 = UploadServerCertificate
     }
 
 -- | The contents of the public key certificate in PEM-encoded format.
---
 uscCertificateBody :: Lens' UploadServerCertificate Text
 uscCertificateBody =
     lens _uscCertificateBody (\s a -> s { _uscCertificateBody = a })
 
 -- | The contents of the certificate chain. This is typically a concatenation of
 -- the PEM-encoded public key certificates of the chain.
---
 uscCertificateChain :: Lens' UploadServerCertificate (Maybe Text)
 uscCertificateChain =
     lens _uscCertificateChain (\s a -> s { _uscCertificateChain = a })
@@ -104,17 +102,14 @@ uscCertificateChain =
 --
 -- This parameter is optional. If it is not included, it defaults to a slash
 -- (/).
---
 uscPath :: Lens' UploadServerCertificate (Maybe Text)
 uscPath = lens _uscPath (\s a -> s { _uscPath = a })
 
 -- | The contents of the private key in PEM-encoded format.
---
 uscPrivateKey :: Lens' UploadServerCertificate Text
 uscPrivateKey = lens _uscPrivateKey (\s a -> s { _uscPrivateKey = a }) . _Sensitive
 
 -- | The name for the server certificate. Do not include the path in this value.
---
 uscServerCertificateName :: Lens' UploadServerCertificate Text
 uscServerCertificateName =
     lens _uscServerCertificateName
@@ -137,7 +132,6 @@ uploadServerCertificateResponse = UploadServerCertificateResponse
 
 -- | The meta information of the uploaded server certificate without its
 -- certificate body, certificate chain, and private key.
---
 uscrServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
 uscrServerCertificateMetadata =
     lens _uscrServerCertificateMetadata

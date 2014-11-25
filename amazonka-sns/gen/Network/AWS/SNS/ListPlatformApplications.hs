@@ -69,7 +69,6 @@ listPlatformApplications = ListPlatformApplications
 
 -- | NextToken string is used when calling ListPlatformApplications action to
 -- retrieve additional records that are available after the first page results.
---
 lpaNextToken :: Lens' ListPlatformApplications (Maybe Text)
 lpaNextToken = lens _lpaNextToken (\s a -> s { _lpaNextToken = a })
 
@@ -94,12 +93,10 @@ listPlatformApplicationsResponse = ListPlatformApplicationsResponse
 
 -- | NextToken string is returned when calling ListPlatformApplications action if
 -- additional records are available after the first page results.
---
 lparNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
 lparNextToken = lens _lparNextToken (\s a -> s { _lparNextToken = a })
 
 -- | Platform applications returned when calling ListPlatformApplications action.
---
 lparPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformApplication]
 lparPlatformApplications =
     lens _lparPlatformApplications

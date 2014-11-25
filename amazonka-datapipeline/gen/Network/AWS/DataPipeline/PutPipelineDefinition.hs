@@ -79,13 +79,11 @@ putPipelineDefinition p1 = PutPipelineDefinition
     }
 
 -- | The identifier of the pipeline to be configured.
---
 ppdPipelineId :: Lens' PutPipelineDefinition Text
 ppdPipelineId = lens _ppdPipelineId (\s a -> s { _ppdPipelineId = a })
 
 -- | The objects that define the pipeline. These will overwrite the existing
 -- pipeline definition.
---
 ppdPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
 ppdPipelineObjects =
     lens _ppdPipelineObjects (\s a -> s { _ppdPipelineObjects = a })
@@ -118,13 +116,11 @@ putPipelineDefinitionResponse p1 = PutPipelineDefinitionResponse
 -- | If 'True', there were validation errors. If errored is 'True', the pipeline
 -- definition is stored but cannot be activated until you correct the pipeline
 -- and call 'PutPipelineDefinition' to commit the corrected pipeline.
---
 ppdrErrored :: Lens' PutPipelineDefinitionResponse Bool
 ppdrErrored = lens _ppdrErrored (\s a -> s { _ppdrErrored = a })
 
 -- | A list of the validation errors that are associated with the objects defined
 -- in 'pipelineObjects'.
---
 ppdrValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
 ppdrValidationErrors =
     lens _ppdrValidationErrors (\s a -> s { _ppdrValidationErrors = a })
@@ -132,7 +128,6 @@ ppdrValidationErrors =
 
 -- | A list of the validation warnings that are associated with the objects
 -- defined in 'pipelineObjects'.
---
 ppdrValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
 ppdrValidationWarnings =
     lens _ppdrValidationWarnings (\s a -> s { _ppdrValidationWarnings = a })

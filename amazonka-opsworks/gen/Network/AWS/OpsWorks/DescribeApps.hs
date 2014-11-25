@@ -71,13 +71,11 @@ describeApps = DescribeApps
 
 -- | An array of app IDs for the apps to be described. If you use this parameter, 'DescribeApps' returns a description of the specified apps. Otherwise, it returns a
 -- description of every app.
---
 daAppIds :: Lens' DescribeApps [Text]
 daAppIds = lens _daAppIds (\s a -> s { _daAppIds = a }) . _List
 
 -- | The app stack ID. If you use this parameter, 'DescribeApps' returns a
 -- description of the apps in the specified stack.
---
 daStackId :: Lens' DescribeApps (Maybe Text)
 daStackId = lens _daStackId (\s a -> s { _daStackId = a })
 
@@ -103,7 +101,6 @@ describeAppsResponse = DescribeAppsResponse
     }
 
 -- | An array of 'App' objects that describe the specified apps.
---
 darApps :: Lens' DescribeAppsResponse [App]
 darApps = lens _darApps (\s a -> s { _darApps = a }) . _List
 

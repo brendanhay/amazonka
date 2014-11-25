@@ -88,7 +88,6 @@ createClusterParameterGroup p1 p2 p3 = CreateClusterParameterGroup
     }
 
 -- | A description of the parameter group.
---
 ccpgDescription :: Lens' CreateClusterParameterGroup Text
 ccpgDescription = lens _ccpgDescription (\s a -> s { _ccpgDescription = a })
 
@@ -100,7 +99,6 @@ ccpgDescription = lens _ccpgDescription (\s a -> s { _ccpgDescription = a })
 -- each Amazon Redshift engine version. The parameter group family names
 -- associated with the default parameter groups provide you the valid values.
 -- For example, a valid family name is "redshift-1.0".
---
 ccpgParameterGroupFamily :: Lens' CreateClusterParameterGroup Text
 ccpgParameterGroupFamily =
     lens _ccpgParameterGroupFamily
@@ -119,7 +117,6 @@ ccpgParameterGroupName =
     lens _ccpgParameterGroupName (\s a -> s { _ccpgParameterGroupName = a })
 
 -- | A list of tag instances.
---
 ccpgTags :: Lens' CreateClusterParameterGroup [Tag]
 ccpgTags = lens _ccpgTags (\s a -> s { _ccpgTags = a }) . _List
 

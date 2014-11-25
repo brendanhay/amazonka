@@ -62,7 +62,6 @@ stopConfigurationRecorder p1 = StopConfigurationRecorder
 
 -- | The name of the recorder object that records each configuration change made
 -- to the resources.
---
 scrConfigurationRecorderName :: Lens' StopConfigurationRecorder Text
 scrConfigurationRecorderName =
     lens _scrConfigurationRecorderName

@@ -74,7 +74,6 @@ rvpcDryRun :: Lens' RejectVpcPeeringConnection (Maybe Bool)
 rvpcDryRun = lens _rvpcDryRun (\s a -> s { _rvpcDryRun = a })
 
 -- | The ID of the VPC peering connection.
---
 rvpcVpcPeeringConnectionId :: Lens' RejectVpcPeeringConnection Text
 rvpcVpcPeeringConnectionId =
     lens _rvpcVpcPeeringConnectionId
@@ -96,7 +95,6 @@ rejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     }
 
 -- | Returns 'true' if the request succeeds; otherwise, it returns an error.
---
 rvpcrReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)
 rvpcrReturn = lens _rvpcrReturn (\s a -> s { _rvpcrReturn = a })
 

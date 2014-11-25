@@ -75,7 +75,6 @@ resetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
 
 -- | The attribute to reset (currently only the attribute for permission to create
 -- volumes can be reset).
---
 rsaAttribute :: Lens' ResetSnapshotAttribute SnapshotAttributeName
 rsaAttribute = lens _rsaAttribute (\s a -> s { _rsaAttribute = a })
 
@@ -83,7 +82,6 @@ rsaDryRun :: Lens' ResetSnapshotAttribute (Maybe Bool)
 rsaDryRun = lens _rsaDryRun (\s a -> s { _rsaDryRun = a })
 
 -- | The ID of the snapshot.
---
 rsaSnapshotId :: Lens' ResetSnapshotAttribute Text
 rsaSnapshotId = lens _rsaSnapshotId (\s a -> s { _rsaSnapshotId = a })
 

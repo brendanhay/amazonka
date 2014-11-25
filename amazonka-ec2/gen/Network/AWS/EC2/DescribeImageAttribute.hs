@@ -81,7 +81,6 @@ describeImageAttribute p1 p2 = DescribeImageAttribute
     }
 
 -- | The AMI attribute.
---
 dia1Attribute :: Lens' DescribeImageAttribute ImageAttributeName
 dia1Attribute = lens _dia1Attribute (\s a -> s { _dia1Attribute = a })
 
@@ -89,7 +88,6 @@ dia1DryRun :: Lens' DescribeImageAttribute (Maybe Bool)
 dia1DryRun = lens _dia1DryRun (\s a -> s { _dia1DryRun = a })
 
 -- | The ID of the AMI.
---
 dia1ImageId :: Lens' DescribeImageAttribute Text
 dia1ImageId = lens _dia1ImageId (\s a -> s { _dia1ImageId = a })
 
@@ -137,41 +135,34 @@ describeImageAttributeResponse = DescribeImageAttributeResponse
     }
 
 -- | One or more block device mapping entries.
---
 diarBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
 diarBlockDeviceMappings =
     lens _diarBlockDeviceMappings (\s a -> s { _diarBlockDeviceMappings = a })
         . _List
 
 -- | A description for the AMI.
---
 diarDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarDescription = lens _diarDescription (\s a -> s { _diarDescription = a })
 
 -- | The ID of the AMI.
---
 diarImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
 diarImageId = lens _diarImageId (\s a -> s { _diarImageId = a })
 
 -- | The kernel ID.
---
 diarKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarKernelId = lens _diarKernelId (\s a -> s { _diarKernelId = a })
 
 -- | One or more launch permissions.
---
 diarLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
 diarLaunchPermissions =
     lens _diarLaunchPermissions (\s a -> s { _diarLaunchPermissions = a })
         . _List
 
 -- | One or more product codes.
---
 diarProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
 diarProductCodes = lens _diarProductCodes (\s a -> s { _diarProductCodes = a }) . _List
 
 -- | The RAM disk ID.
---
 diarRamdiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarRamdiskId = lens _diarRamdiskId (\s a -> s { _diarRamdiskId = a })
 

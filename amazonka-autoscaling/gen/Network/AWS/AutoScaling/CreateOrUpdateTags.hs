@@ -85,7 +85,6 @@ createOrUpdateTags = CreateOrUpdateTags
 -- When you create a tag and a tag of the same name already exists, the
 -- operation overwrites the previous tag definition, but you will not get an
 -- error message.
---
 coutTags :: Lens' CreateOrUpdateTags [Tag]
 coutTags = lens _coutTags (\s a -> s { _coutTags = a }) . _List
 

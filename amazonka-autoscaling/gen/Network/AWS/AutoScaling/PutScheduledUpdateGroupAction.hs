@@ -31,6 +31,7 @@
 -- format in UTC/GMT only.
 --
 --
+--
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScheduledUpdateGroupAction.html>
 module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     (
@@ -110,30 +111,25 @@ putScheduledUpdateGroupAction p1 p2 = PutScheduledUpdateGroupAction
     }
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
---
 psugaAutoScalingGroupName :: Lens' PutScheduledUpdateGroupAction Text
 psugaAutoScalingGroupName =
     lens _psugaAutoScalingGroupName
         (\s a -> s { _psugaAutoScalingGroupName = a })
 
 -- | The number of Amazon EC2 instances that should be running in the group.
---
 psugaDesiredCapacity :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
 psugaDesiredCapacity =
     lens _psugaDesiredCapacity (\s a -> s { _psugaDesiredCapacity = a })
 
 -- | The time for this action to end.
---
 psugaEndTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaEndTime = lens _psugaEndTime (\s a -> s { _psugaEndTime = a }) . mapping _Time
 
 -- | The maximum size for the Auto Scaling group.
---
 psugaMaxSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
 psugaMaxSize = lens _psugaMaxSize (\s a -> s { _psugaMaxSize = a })
 
 -- | The minimum size for the new Auto Scaling group.
---
 psugaMinSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
 psugaMinSize = lens _psugaMinSize (\s a -> s { _psugaMinSize = a })
 
@@ -143,12 +139,10 @@ psugaMinSize = lens _psugaMinSize (\s a -> s { _psugaMinSize = a })
 --
 -- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they form the
 -- boundaries of when the recurring action will start and stop.
---
 psugaRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
 psugaRecurrence = lens _psugaRecurrence (\s a -> s { _psugaRecurrence = a })
 
 -- | The name of this scaling action.
---
 psugaScheduledActionName :: Lens' PutScheduledUpdateGroupAction Text
 psugaScheduledActionName =
     lens _psugaScheduledActionName
@@ -161,7 +155,6 @@ psugaScheduledActionName =
 --
 -- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they form the
 -- boundaries of when the recurring action will start and stop.
---
 psugaStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaStartTime = lens _psugaStartTime (\s a -> s { _psugaStartTime = a }) . mapping _Time
 
@@ -170,7 +163,6 @@ psugaStartTime = lens _psugaStartTime (\s a -> s { _psugaStartTime = a }) . mapp
 -- The time for this action to start. 'Time' is an alias for 'StartTime' and can be
 -- specified instead of 'StartTime', or vice versa. If both 'Time' and 'StartTime' are
 -- specified, their values should be identical. Otherwise, 'PutScheduledUpdateGroupAction' will return an error.
---
 psugaTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaTime = lens _psugaTime (\s a -> s { _psugaTime = a }) . mapping _Time
 

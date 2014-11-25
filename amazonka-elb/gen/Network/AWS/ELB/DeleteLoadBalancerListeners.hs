@@ -65,13 +65,11 @@ deleteLoadBalancerListeners p1 = DeleteLoadBalancerListeners
     }
 
 -- | The mnemonic name associated with the load balancer.
---
 dlblLoadBalancerName :: Lens' DeleteLoadBalancerListeners Text
 dlblLoadBalancerName =
     lens _dlblLoadBalancerName (\s a -> s { _dlblLoadBalancerName = a })
 
 -- | The client port number(s) of the load balancer listener(s) to be removed.
---
 dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
 dlblLoadBalancerPorts =
     lens _dlblLoadBalancerPorts (\s a -> s { _dlblLoadBalancerPorts = a })

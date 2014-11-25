@@ -106,7 +106,7 @@
                     "name": "_tTopicArn",
                     "shape": "topicARN",
                     "locationName": "TopicArn",
-                    "documentation": "-- | The topic's ARN.\n--",
+                    "documentation": "-- | The topic's ARN.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -129,7 +129,7 @@
                         "name": "_tTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The topic's ARN.\n--",
+                        "documentation": "-- | The topic's ARN.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -146,7 +146,7 @@
                         "name": "_tTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The topic's ARN.\n--",
+                        "documentation": "-- | The topic's ARN.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -173,7 +173,7 @@
                         "name": "_mavDataType",
                         "shape": "String",
                         "locationName": "DataType",
-                        "documentation": "-- | Amazon SNS supports the following logical data types: String, Number, and\n-- Binary. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types\u003e.\n--",
+                        "documentation": "-- | Amazon SNS supports the following logical data types: String, Number, and\n-- Binary. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types\u003e.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -194,7 +194,7 @@
                         "name": "_mavStringValue",
                         "shape": "String",
                         "locationName": "StringValue",
-                        "documentation": "-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see \u003chttp://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\u003e.\n--",
+                        "documentation": "-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see \u003chttp://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -209,7 +209,7 @@
                         "name": "_mavBinaryValue",
                         "shape": "Binary",
                         "locationName": "BinaryValue",
-                        "documentation": "-- | Binary type attributes can store any binary data, for example, compressed\n-- data, encrypted data, or images.\n--",
+                        "documentation": "-- | Binary type attributes can store any binary data, for example, compressed\n-- data, encrypted data, or images.",
                         "typeExposed": "Maybe Base64",
                         "type": "Maybe Base64"
                     }
@@ -226,7 +226,7 @@
                         "name": "_mavBinaryValue",
                         "shape": "Binary",
                         "locationName": "BinaryValue",
-                        "documentation": "-- | Binary type attributes can store any binary data, for example, compressed\n-- data, encrypted data, or images.\n--",
+                        "documentation": "-- | Binary type attributes can store any binary data, for example, compressed\n-- data, encrypted data, or images.",
                         "typeExposed": "Maybe Base64",
                         "type": "Maybe Base64"
                     },
@@ -241,7 +241,7 @@
                         "name": "_mavDataType",
                         "shape": "String",
                         "locationName": "DataType",
-                        "documentation": "-- | Amazon SNS supports the following logical data types: String, Number, and\n-- Binary. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types\u003e.\n--",
+                        "documentation": "-- | Amazon SNS supports the following logical data types: String, Number, and\n-- Binary. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types\u003e.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -256,7 +256,7 @@
                         "name": "_mavStringValue",
                         "shape": "String",
                         "locationName": "StringValue",
-                        "documentation": "-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see \u003chttp://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\u003e.\n--",
+                        "documentation": "-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see \u003chttp://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -288,7 +288,7 @@
                         "name": "_paPlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn for platform application object.\n--",
+                        "documentation": "-- | PlatformApplicationArn for platform application object.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -303,7 +303,7 @@
                         "name": "_paAttributes",
                         "shape": "MapStringToString",
                         "locationName": "Attributes",
-                        "documentation": "-- | Attributes for platform application object.\n--",
+                        "documentation": "-- | Attributes for platform application object.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     }
@@ -320,7 +320,7 @@
                         "name": "_paAttributes",
                         "shape": "MapStringToString",
                         "locationName": "Attributes",
-                        "documentation": "-- | Attributes for platform application object.\n--",
+                        "documentation": "-- | Attributes for platform application object.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     },
@@ -335,7 +335,7 @@
                         "name": "_paPlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn for platform application object.\n--",
+                        "documentation": "-- | PlatformApplicationArn for platform application object.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -368,7 +368,7 @@
                         "name": "_s1SubscriptionArn",
                         "shape": "subscriptionARN",
                         "locationName": "SubscriptionArn",
-                        "documentation": "-- | The subscription's ARN.\n--",
+                        "documentation": "-- | The subscription's ARN.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -383,7 +383,7 @@
                         "name": "_s1Owner",
                         "shape": "account",
                         "locationName": "Owner",
-                        "documentation": "-- | The subscription's owner.\n--",
+                        "documentation": "-- | The subscription's owner.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -398,7 +398,7 @@
                         "name": "_s1Protocol",
                         "shape": "protocol",
                         "locationName": "Protocol",
-                        "documentation": "-- | The subscription's protocol.\n--",
+                        "documentation": "-- | The subscription's protocol.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -413,7 +413,7 @@
                         "name": "_s1Endpoint",
                         "shape": "endpoint",
                         "locationName": "Endpoint",
-                        "documentation": "-- | The subscription's endpoint (format depends on the protocol).\n--",
+                        "documentation": "-- | The subscription's endpoint (format depends on the protocol).",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -428,7 +428,7 @@
                         "name": "_s1TopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the subscription's topic.\n--",
+                        "documentation": "-- | The ARN of the subscription's topic.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -445,7 +445,7 @@
                         "name": "_s1Endpoint",
                         "shape": "endpoint",
                         "locationName": "Endpoint",
-                        "documentation": "-- | The subscription's endpoint (format depends on the protocol).\n--",
+                        "documentation": "-- | The subscription's endpoint (format depends on the protocol).",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -460,7 +460,7 @@
                         "name": "_s1Owner",
                         "shape": "account",
                         "locationName": "Owner",
-                        "documentation": "-- | The subscription's owner.\n--",
+                        "documentation": "-- | The subscription's owner.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -475,7 +475,7 @@
                         "name": "_s1Protocol",
                         "shape": "protocol",
                         "locationName": "Protocol",
-                        "documentation": "-- | The subscription's protocol.\n--",
+                        "documentation": "-- | The subscription's protocol.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -490,7 +490,7 @@
                         "name": "_s1SubscriptionArn",
                         "shape": "subscriptionARN",
                         "locationName": "SubscriptionArn",
-                        "documentation": "-- | The subscription's ARN.\n--",
+                        "documentation": "-- | The subscription's ARN.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -505,7 +505,7 @@
                         "name": "_s1TopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the subscription's topic.\n--",
+                        "documentation": "-- | The ARN of the subscription's topic.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -537,7 +537,7 @@
                         "name": "_eEndpointArn",
                         "shape": "String",
                         "locationName": "EndpointArn",
-                        "documentation": "-- | EndpointArn for mobile app and device.\n--",
+                        "documentation": "-- | EndpointArn for mobile app and device.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -552,7 +552,7 @@
                         "name": "_eAttributes",
                         "shape": "MapStringToString",
                         "locationName": "Attributes",
-                        "documentation": "-- | Attributes for endpoint.\n--",
+                        "documentation": "-- | Attributes for endpoint.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     }
@@ -569,7 +569,7 @@
                         "name": "_eAttributes",
                         "shape": "MapStringToString",
                         "locationName": "Attributes",
-                        "documentation": "-- | Attributes for endpoint.\n--",
+                        "documentation": "-- | Attributes for endpoint.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     },
@@ -584,7 +584,7 @@
                         "name": "_eEndpointArn",
                         "shape": "String",
                         "locationName": "EndpointArn",
-                        "documentation": "-- | EndpointArn for mobile app and device.\n--",
+                        "documentation": "-- | EndpointArn for mobile app and device.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -633,7 +633,7 @@
             "pager": null,
             "name": "AddPermission",
             "method": "post",
-            "documentation": "-- | Adds a statement to a topic's access control policy, granting access for the\n-- specified AWS accounts to the specified actions.\n--",
+            "documentation": "-- | Adds a statement to a topic's access control policy, granting access for the\n-- specified AWS accounts to the specified actions.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -667,7 +667,7 @@
                         "name": "_apTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic whose access control policy you wish to modify.\n--",
+                        "documentation": "-- | The ARN of the topic whose access control policy you wish to modify.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -682,7 +682,7 @@
                         "name": "_apLabel",
                         "shape": "label",
                         "locationName": "Label",
-                        "documentation": "-- | A unique identifier for the new policy statement.\n--",
+                        "documentation": "-- | A unique identifier for the new policy statement.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -730,7 +730,7 @@
                         "name": "_apAWSAccountId",
                         "shape": "DelegatesList",
                         "locationName": "AWSAccountId",
-                        "documentation": "-- | The AWS account IDs of the users (principals) who will be given access to the\n-- specified actions. The users must have AWS accounts, but do not need to be\n-- signed up for this service.\n--",
+                        "documentation": "-- | The AWS account IDs of the users (principals) who will be given access to the\n-- specified actions. The users must have AWS accounts, but do not need to be\n-- signed up for this service.",
                         "typeExposed": "[Text]",
                         "type": "List \"AWSAccountId\" Text"
                     },
@@ -745,7 +745,7 @@
                         "name": "_apActionName",
                         "shape": "ActionsList",
                         "locationName": "ActionName",
-                        "documentation": "-- | The action you want to allow for the specified principal(s).\n--\n-- Valid values: any Amazon SNS action name.\n--",
+                        "documentation": "-- | The action you want to allow for the specified principal(s).\n--\n-- Valid values: any Amazon SNS action name.",
                         "typeExposed": "[Text]",
                         "type": "List \"ActionName\" Text"
                     }
@@ -762,7 +762,7 @@
                         "name": "_apAWSAccountId",
                         "shape": "DelegatesList",
                         "locationName": "AWSAccountId",
-                        "documentation": "-- | The AWS account IDs of the users (principals) who will be given access to the\n-- specified actions. The users must have AWS accounts, but do not need to be\n-- signed up for this service.\n--",
+                        "documentation": "-- | The AWS account IDs of the users (principals) who will be given access to the\n-- specified actions. The users must have AWS accounts, but do not need to be\n-- signed up for this service.",
                         "typeExposed": "[Text]",
                         "type": "List \"AWSAccountId\" Text"
                     },
@@ -777,7 +777,7 @@
                         "name": "_apActionName",
                         "shape": "ActionsList",
                         "locationName": "ActionName",
-                        "documentation": "-- | The action you want to allow for the specified principal(s).\n--\n-- Valid values: any Amazon SNS action name.\n--",
+                        "documentation": "-- | The action you want to allow for the specified principal(s).\n--\n-- Valid values: any Amazon SNS action name.",
                         "typeExposed": "[Text]",
                         "type": "List \"ActionName\" Text"
                     },
@@ -792,7 +792,7 @@
                         "name": "_apLabel",
                         "shape": "label",
                         "locationName": "Label",
-                        "documentation": "-- | A unique identifier for the new policy statement.\n--",
+                        "documentation": "-- | A unique identifier for the new policy statement.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -807,7 +807,7 @@
                         "name": "_apTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic whose access control policy you wish to modify.\n--",
+                        "documentation": "-- | The ARN of the topic whose access control policy you wish to modify.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -840,7 +840,7 @@
                     "name": "_csrSubscriptionArn",
                     "shape": "subscriptionARN",
                     "locationName": "SubscriptionArn",
-                    "documentation": "-- | The ARN of the created subscription.\n--",
+                    "documentation": "-- | The ARN of the created subscription.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -869,7 +869,7 @@
                         "name": "_csrSubscriptionArn",
                         "shape": "subscriptionARN",
                         "locationName": "SubscriptionArn",
-                        "documentation": "-- | The ARN of the created subscription.\n--",
+                        "documentation": "-- | The ARN of the created subscription.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -886,7 +886,7 @@
                         "name": "_csrSubscriptionArn",
                         "shape": "subscriptionARN",
                         "locationName": "SubscriptionArn",
-                        "documentation": "-- | The ARN of the created subscription.\n--",
+                        "documentation": "-- | The ARN of the created subscription.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -902,7 +902,7 @@
             "pager": null,
             "name": "ConfirmSubscription",
             "method": "post",
-            "documentation": "-- | Verifies an endpoint owner's intent to receive messages by validating the\n-- token sent to the endpoint by an earlier 'Subscribe' action. If the token is\n-- valid, the action creates a new subscription and returns its Amazon Resource\n-- Name (ARN). This call requires an AWS signature only when the 'AuthenticateOnUnsubscribe' flag is set to \"true\".\n--",
+            "documentation": "-- | Verifies an endpoint owner's intent to receive messages by validating the\n-- token sent to the endpoint by an earlier 'Subscribe' action. If the token is\n-- valid, the action creates a new subscription and returns its Amazon Resource\n-- Name (ARN). This call requires an AWS signature only when the 'AuthenticateOnUnsubscribe' flag is set to \"true\".",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -936,7 +936,7 @@
                         "name": "_csTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic for which you wish to confirm a subscription.\n--",
+                        "documentation": "-- | The ARN of the topic for which you wish to confirm a subscription.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -951,7 +951,7 @@
                         "name": "_csToken",
                         "shape": "token",
                         "locationName": "Token",
-                        "documentation": "-- | Short-lived token sent to an endpoint during the 'Subscribe' action.\n--",
+                        "documentation": "-- | Short-lived token sent to an endpoint during the 'Subscribe' action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -994,7 +994,7 @@
                         "name": "_csAuthenticateOnUnsubscribe",
                         "shape": "authenticateOnUnsubscribe",
                         "locationName": "AuthenticateOnUnsubscribe",
-                        "documentation": "-- | Disallows unauthenticated unsubscribes of the subscription. If the value of\n-- this parameter is 'true' and the request has an AWS signature, then only the\n-- topic owner and the subscription owner can unsubscribe the endpoint. The\n-- unsubscribe action requires AWS authentication.\n--",
+                        "documentation": "-- | Disallows unauthenticated unsubscribes of the subscription. If the value of\n-- this parameter is 'true' and the request has an AWS signature, then only the\n-- topic owner and the subscription owner can unsubscribe the endpoint. The\n-- unsubscribe action requires AWS authentication.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1011,7 +1011,7 @@
                         "name": "_csAuthenticateOnUnsubscribe",
                         "shape": "authenticateOnUnsubscribe",
                         "locationName": "AuthenticateOnUnsubscribe",
-                        "documentation": "-- | Disallows unauthenticated unsubscribes of the subscription. If the value of\n-- this parameter is 'true' and the request has an AWS signature, then only the\n-- topic owner and the subscription owner can unsubscribe the endpoint. The\n-- unsubscribe action requires AWS authentication.\n--",
+                        "documentation": "-- | Disallows unauthenticated unsubscribes of the subscription. If the value of\n-- this parameter is 'true' and the request has an AWS signature, then only the\n-- topic owner and the subscription owner can unsubscribe the endpoint. The\n-- unsubscribe action requires AWS authentication.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1026,7 +1026,7 @@
                         "name": "_csToken",
                         "shape": "token",
                         "locationName": "Token",
-                        "documentation": "-- | Short-lived token sent to an endpoint during the 'Subscribe' action.\n--",
+                        "documentation": "-- | Short-lived token sent to an endpoint during the 'Subscribe' action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1041,7 +1041,7 @@
                         "name": "_csTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic for which you wish to confirm a subscription.\n--",
+                        "documentation": "-- | The ARN of the topic for which you wish to confirm a subscription.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1074,7 +1074,7 @@
                     "name": "_cparPlatformApplicationArn",
                     "shape": "String",
                     "locationName": "PlatformApplicationArn",
-                    "documentation": "-- | PlatformApplicationArn is returned.\n--",
+                    "documentation": "-- | PlatformApplicationArn is returned.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -1103,7 +1103,7 @@
                         "name": "_cparPlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn is returned.\n--",
+                        "documentation": "-- | PlatformApplicationArn is returned.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1120,7 +1120,7 @@
                         "name": "_cparPlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn is returned.\n--",
+                        "documentation": "-- | PlatformApplicationArn is returned.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1136,7 +1136,7 @@
             "pager": null,
             "name": "CreatePlatformApplication",
             "method": "post",
-            "documentation": "-- | Creates a platform application object for one of the supported push\n-- notification services, such as APNS and GCM, to which devices and mobile apps\n-- may register. You must specify PlatformPrincipal and PlatformCredential\n-- attributes when using the 'CreatePlatformApplication' action. The\n-- PlatformPrincipal is received from the notification service. For\n-- APNS/APNS_SANDBOX, PlatformPrincipal is \"SSL certificate\". For GCM,\n-- PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is \"client\n-- id\". The PlatformCredential is also received from the notification service.\n-- For APNS/APNS_SANDBOX, PlatformCredential is \"private key\". For GCM,\n-- PlatformCredential is \"API key\". For ADM, PlatformCredential is \"client\n-- secret\". The PlatformApplicationArn that is returned when using 'CreatePlatformApplication' is then used as an attribute for the 'CreatePlatformEndpoint' action. For more\n-- information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.\n--",
+            "documentation": "-- | Creates a platform application object for one of the supported push\n-- notification services, such as APNS and GCM, to which devices and mobile apps\n-- may register. You must specify PlatformPrincipal and PlatformCredential\n-- attributes when using the 'CreatePlatformApplication' action. The\n-- PlatformPrincipal is received from the notification service. For\n-- APNS/APNS_SANDBOX, PlatformPrincipal is \"SSL certificate\". For GCM,\n-- PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is \"client\n-- id\". The PlatformCredential is also received from the notification service.\n-- For APNS/APNS_SANDBOX, PlatformCredential is \"private key\". For GCM,\n-- PlatformCredential is \"API key\". For ADM, PlatformCredential is \"client\n-- secret\". The PlatformApplicationArn that is returned when using 'CreatePlatformApplication' is then used as an attribute for the 'CreatePlatformEndpoint' action. For more\n-- information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1169,7 +1169,7 @@
                         "name": "_cpaName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Application names must be made up of only uppercase and lowercase ASCII\n-- letters, numbers, underscores, hyphens, and periods, and must be between 1\n-- and 256 characters long.\n--",
+                        "documentation": "-- | Application names must be made up of only uppercase and lowercase ASCII\n-- letters, numbers, underscores, hyphens, and periods, and must be between 1\n-- and 256 characters long.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1184,7 +1184,7 @@
                         "name": "_cpaPlatform",
                         "shape": "String",
                         "locationName": "Platform",
-                        "documentation": "-- | The following platforms are supported: ADM (Amazon Device Messaging), APNS\n-- (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud\n-- Messaging).\n--",
+                        "documentation": "-- | The following platforms are supported: ADM (Amazon Device Messaging), APNS\n-- (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud\n-- Messaging).",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1227,7 +1227,7 @@
                         "name": "_cpaAttributes",
                         "shape": "MapStringToString",
                         "locationName": "Attributes",
-                        "documentation": "-- | For a list of attributes, see \u003chttp://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes\u003e\n--",
+                        "documentation": "-- | For a list of attributes, see \u003chttp://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes\u003e",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     }
@@ -1244,7 +1244,7 @@
                         "name": "_cpaAttributes",
                         "shape": "MapStringToString",
                         "locationName": "Attributes",
-                        "documentation": "-- | For a list of attributes, see \u003chttp://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes\u003e\n--",
+                        "documentation": "-- | For a list of attributes, see \u003chttp://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes\u003e",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     },
@@ -1259,7 +1259,7 @@
                         "name": "_cpaName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Application names must be made up of only uppercase and lowercase ASCII\n-- letters, numbers, underscores, hyphens, and periods, and must be between 1\n-- and 256 characters long.\n--",
+                        "documentation": "-- | Application names must be made up of only uppercase and lowercase ASCII\n-- letters, numbers, underscores, hyphens, and periods, and must be between 1\n-- and 256 characters long.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1274,7 +1274,7 @@
                         "name": "_cpaPlatform",
                         "shape": "String",
                         "locationName": "Platform",
-                        "documentation": "-- | The following platforms are supported: ADM (Amazon Device Messaging), APNS\n-- (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud\n-- Messaging).\n--",
+                        "documentation": "-- | The following platforms are supported: ADM (Amazon Device Messaging), APNS\n-- (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud\n-- Messaging).",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1307,7 +1307,7 @@
                     "name": "_cperEndpointArn",
                     "shape": "String",
                     "locationName": "EndpointArn",
-                    "documentation": "-- | EndpointArn returned from CreateEndpoint action.\n--",
+                    "documentation": "-- | EndpointArn returned from CreateEndpoint action.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -1336,7 +1336,7 @@
                         "name": "_cperEndpointArn",
                         "shape": "String",
                         "locationName": "EndpointArn",
-                        "documentation": "-- | EndpointArn returned from CreateEndpoint action.\n--",
+                        "documentation": "-- | EndpointArn returned from CreateEndpoint action.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1353,7 +1353,7 @@
                         "name": "_cperEndpointArn",
                         "shape": "String",
                         "locationName": "EndpointArn",
-                        "documentation": "-- | EndpointArn returned from CreateEndpoint action.\n--",
+                        "documentation": "-- | EndpointArn returned from CreateEndpoint action.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1369,7 +1369,7 @@
             "pager": null,
             "name": "CreatePlatformEndpoint",
             "method": "post",
-            "documentation": "-- | Creates an endpoint for a device and mobile app on one of the supported push\n-- notification services, such as GCM and APNS. 'CreatePlatformEndpoint' requires\n-- the PlatformApplicationArn that is returned from 'CreatePlatformApplication'.\n-- The EndpointArn that is returned when using 'CreatePlatformEndpoint' can then\n-- be used by the 'Publish' action to send a message to a mobile app or by the 'Subscribe' action for subscription to a topic. The 'CreatePlatformEndpoint' action is\n-- idempotent, so if the requester already owns an endpoint with the same device\n-- token and attributes, that endpoint's ARN is returned without creating a new\n-- endpoint. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e\n-- .\n--\n-- When using 'CreatePlatformEndpoint' with Baidu, two attributes must be\n-- provided: ChannelId and UserId. The token field must also contain the\n-- ChannelId. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html Creating an Amazon SNS Endpoint for Baidu\u003e\n-- .\n--",
+            "documentation": "-- | Creates an endpoint for a device and mobile app on one of the supported push\n-- notification services, such as GCM and APNS. 'CreatePlatformEndpoint' requires\n-- the PlatformApplicationArn that is returned from 'CreatePlatformApplication'.\n-- The EndpointArn that is returned when using 'CreatePlatformEndpoint' can then\n-- be used by the 'Publish' action to send a message to a mobile app or by the 'Subscribe' action for subscription to a topic. The 'CreatePlatformEndpoint' action is\n-- idempotent, so if the requester already owns an endpoint with the same device\n-- token and attributes, that endpoint's ARN is returned without creating a new\n-- endpoint. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e\n-- .\n--\n-- When using 'CreatePlatformEndpoint' with Baidu, two attributes must be\n-- provided: ChannelId and UserId. The token field must also contain the\n-- ChannelId. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html Creating an Amazon SNS Endpoint for Baidu\u003e\n-- .",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1402,7 +1402,7 @@
                         "name": "_cpePlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn returned from CreatePlatformApplication is used to\n-- create a an endpoint.\n--",
+                        "documentation": "-- | PlatformApplicationArn returned from CreatePlatformApplication is used to\n-- create a an endpoint.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1417,7 +1417,7 @@
                         "name": "_cpeToken",
                         "shape": "String",
                         "locationName": "Token",
-                        "documentation": "-- | Unique identifier created by the notification service for an app on a device.\n-- The specific name for Token will vary, depending on which notification\n-- service is being used. For example, when using APNS as the notification\n-- service, you need the device token. Alternatively, when using GCM or ADM, the\n-- device token equivalent is called the registration ID.\n--",
+                        "documentation": "-- | Unique identifier created by the notification service for an app on a device.\n-- The specific name for Token will vary, depending on which notification\n-- service is being used. For example, when using APNS as the notification\n-- service, you need the device token. Alternatively, when using GCM or ADM, the\n-- device token equivalent is called the registration ID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1465,7 +1465,7 @@
                         "name": "_cpeCustomUserData",
                         "shape": "String",
                         "locationName": "CustomUserData",
-                        "documentation": "-- | Arbitrary user data to associate with the endpoint. Amazon SNS does not use\n-- this data. The data must be in UTF-8 format and less than 2KB.\n--",
+                        "documentation": "-- | Arbitrary user data to associate with the endpoint. Amazon SNS does not use\n-- this data. The data must be in UTF-8 format and less than 2KB.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1480,7 +1480,7 @@
                         "name": "_cpeAttributes",
                         "shape": "MapStringToString",
                         "locationName": "Attributes",
-                        "documentation": "-- | For a list of attributes, see \u003chttp://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes\u003e.\n--",
+                        "documentation": "-- | For a list of attributes, see \u003chttp://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes\u003e.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     }
@@ -1497,7 +1497,7 @@
                         "name": "_cpeAttributes",
                         "shape": "MapStringToString",
                         "locationName": "Attributes",
-                        "documentation": "-- | For a list of attributes, see \u003chttp://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes\u003e.\n--",
+                        "documentation": "-- | For a list of attributes, see \u003chttp://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes\u003e.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     },
@@ -1512,7 +1512,7 @@
                         "name": "_cpeCustomUserData",
                         "shape": "String",
                         "locationName": "CustomUserData",
-                        "documentation": "-- | Arbitrary user data to associate with the endpoint. Amazon SNS does not use\n-- this data. The data must be in UTF-8 format and less than 2KB.\n--",
+                        "documentation": "-- | Arbitrary user data to associate with the endpoint. Amazon SNS does not use\n-- this data. The data must be in UTF-8 format and less than 2KB.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1527,7 +1527,7 @@
                         "name": "_cpePlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn returned from CreatePlatformApplication is used to\n-- create a an endpoint.\n--",
+                        "documentation": "-- | PlatformApplicationArn returned from CreatePlatformApplication is used to\n-- create a an endpoint.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1542,7 +1542,7 @@
                         "name": "_cpeToken",
                         "shape": "String",
                         "locationName": "Token",
-                        "documentation": "-- | Unique identifier created by the notification service for an app on a device.\n-- The specific name for Token will vary, depending on which notification\n-- service is being used. For example, when using APNS as the notification\n-- service, you need the device token. Alternatively, when using GCM or ADM, the\n-- device token equivalent is called the registration ID.\n--",
+                        "documentation": "-- | Unique identifier created by the notification service for an app on a device.\n-- The specific name for Token will vary, depending on which notification\n-- service is being used. For example, when using APNS as the notification\n-- service, you need the device token. Alternatively, when using GCM or ADM, the\n-- device token equivalent is called the registration ID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1575,7 +1575,7 @@
                     "name": "_ctrTopicArn",
                     "shape": "topicARN",
                     "locationName": "TopicArn",
-                    "documentation": "-- | The Amazon Resource Name (ARN) assigned to the created topic.\n--",
+                    "documentation": "-- | The Amazon Resource Name (ARN) assigned to the created topic.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -1604,7 +1604,7 @@
                         "name": "_ctrTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The Amazon Resource Name (ARN) assigned to the created topic.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) assigned to the created topic.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1621,7 +1621,7 @@
                         "name": "_ctrTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The Amazon Resource Name (ARN) assigned to the created topic.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) assigned to the created topic.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1637,7 +1637,7 @@
             "pager": null,
             "name": "CreateTopic",
             "method": "post",
-            "documentation": "-- | Creates a topic to which notifications can be published. Users can create at\n-- most 3000 topics. For more information, see \u003chttp://aws.amazon.com/sns/ http://aws.amazon.com/sns\u003e. This\n-- action is idempotent, so if the requester already owns a topic with the\n-- specified name, that topic's ARN is returned without creating a new topic.\n--",
+            "documentation": "-- | Creates a topic to which notifications can be published. Users can create at\n-- most 3000 topics. For more information, see \u003chttp://aws.amazon.com/sns/ http://aws.amazon.com/sns\u003e. This\n-- action is idempotent, so if the requester already owns a topic with the\n-- specified name, that topic's ARN is returned without creating a new topic.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1664,7 +1664,7 @@
                     "name": "_ctName",
                     "shape": "topicName",
                     "locationName": "Name",
-                    "documentation": "-- | The name of the topic you want to create.\n--\n-- Constraints: Topic names must be made up of only uppercase and lowercase\n-- ASCII letters, numbers, underscores, and hyphens, and must be between 1 and\n-- 256 characters long.\n--",
+                    "documentation": "-- | The name of the topic you want to create.\n--\n-- Constraints: Topic names must be made up of only uppercase and lowercase\n-- ASCII letters, numbers, underscores, and hyphens, and must be between 1 and\n-- 256 characters long.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -1689,7 +1689,7 @@
                         "name": "_ctName",
                         "shape": "topicName",
                         "locationName": "Name",
-                        "documentation": "-- | The name of the topic you want to create.\n--\n-- Constraints: Topic names must be made up of only uppercase and lowercase\n-- ASCII letters, numbers, underscores, and hyphens, and must be between 1 and\n-- 256 characters long.\n--",
+                        "documentation": "-- | The name of the topic you want to create.\n--\n-- Constraints: Topic names must be made up of only uppercase and lowercase\n-- ASCII letters, numbers, underscores, and hyphens, and must be between 1 and\n-- 256 characters long.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1723,7 +1723,7 @@
                         "name": "_ctName",
                         "shape": "topicName",
                         "locationName": "Name",
-                        "documentation": "-- | The name of the topic you want to create.\n--\n-- Constraints: Topic names must be made up of only uppercase and lowercase\n-- ASCII letters, numbers, underscores, and hyphens, and must be between 1 and\n-- 256 characters long.\n--",
+                        "documentation": "-- | The name of the topic you want to create.\n--\n-- Constraints: Topic names must be made up of only uppercase and lowercase\n-- ASCII letters, numbers, underscores, and hyphens, and must be between 1 and\n-- 256 characters long.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1766,7 +1766,7 @@
             "pager": null,
             "name": "DeleteEndpoint",
             "method": "post",
-            "documentation": "-- | Deletes the endpoint from Amazon SNS. This action is idempotent. For more\n-- information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.\n--",
+            "documentation": "-- | Deletes the endpoint from Amazon SNS. This action is idempotent. For more\n-- information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1793,7 +1793,7 @@
                     "name": "_deEndpointArn",
                     "shape": "String",
                     "locationName": "EndpointArn",
-                    "documentation": "-- | EndpointArn of endpoint to delete.\n--",
+                    "documentation": "-- | EndpointArn of endpoint to delete.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -1818,7 +1818,7 @@
                         "name": "_deEndpointArn",
                         "shape": "String",
                         "locationName": "EndpointArn",
-                        "documentation": "-- | EndpointArn of endpoint to delete.\n--",
+                        "documentation": "-- | EndpointArn of endpoint to delete.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1852,7 +1852,7 @@
                         "name": "_deEndpointArn",
                         "shape": "String",
                         "locationName": "EndpointArn",
-                        "documentation": "-- | EndpointArn of endpoint to delete.\n--",
+                        "documentation": "-- | EndpointArn of endpoint to delete.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1895,7 +1895,7 @@
             "pager": null,
             "name": "DeletePlatformApplication",
             "method": "post",
-            "documentation": "-- | Deletes a platform application object for one of the supported push\n-- notification services, such as APNS and GCM. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications\u003e.\n--",
+            "documentation": "-- | Deletes a platform application object for one of the supported push\n-- notification services, such as APNS and GCM. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1922,7 +1922,7 @@
                     "name": "_dpaPlatformApplicationArn",
                     "shape": "String",
                     "locationName": "PlatformApplicationArn",
-                    "documentation": "-- | PlatformApplicationArn of platform application object to delete.\n--",
+                    "documentation": "-- | PlatformApplicationArn of platform application object to delete.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -1947,7 +1947,7 @@
                         "name": "_dpaPlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn of platform application object to delete.\n--",
+                        "documentation": "-- | PlatformApplicationArn of platform application object to delete.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1981,7 +1981,7 @@
                         "name": "_dpaPlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn of platform application object to delete.\n--",
+                        "documentation": "-- | PlatformApplicationArn of platform application object to delete.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2024,7 +2024,7 @@
             "pager": null,
             "name": "DeleteTopic",
             "method": "post",
-            "documentation": "-- | Deletes a topic and all its subscriptions. Deleting a topic might prevent\n-- some messages previously sent to the topic from being delivered to\n-- subscribers. This action is idempotent, so deleting a topic that does not\n-- exist does not result in an error.\n--",
+            "documentation": "-- | Deletes a topic and all its subscriptions. Deleting a topic might prevent\n-- some messages previously sent to the topic from being delivered to\n-- subscribers. This action is idempotent, so deleting a topic that does not\n-- exist does not result in an error.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2051,7 +2051,7 @@
                     "name": "_dtTopicArn",
                     "shape": "topicARN",
                     "locationName": "TopicArn",
-                    "documentation": "-- | The ARN of the topic you want to delete.\n--",
+                    "documentation": "-- | The ARN of the topic you want to delete.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2076,7 +2076,7 @@
                         "name": "_dtTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic you want to delete.\n--",
+                        "documentation": "-- | The ARN of the topic you want to delete.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2110,7 +2110,7 @@
                         "name": "_dtTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic you want to delete.\n--",
+                        "documentation": "-- | The ARN of the topic you want to delete.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2205,7 +2205,7 @@
             "pager": null,
             "name": "GetEndpointAttributes",
             "method": "post",
-            "documentation": "-- | Retrieves the endpoint attributes for a device on one of the supported push\n-- notification services, such as GCM and APNS. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications\u003e.\n--",
+            "documentation": "-- | Retrieves the endpoint attributes for a device on one of the supported push\n-- notification services, such as GCM and APNS. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2232,7 +2232,7 @@
                     "name": "_geaEndpointArn",
                     "shape": "String",
                     "locationName": "EndpointArn",
-                    "documentation": "-- | EndpointArn for GetEndpointAttributes input.\n--",
+                    "documentation": "-- | EndpointArn for GetEndpointAttributes input.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2257,7 +2257,7 @@
                         "name": "_geaEndpointArn",
                         "shape": "String",
                         "locationName": "EndpointArn",
-                        "documentation": "-- | EndpointArn for GetEndpointAttributes input.\n--",
+                        "documentation": "-- | EndpointArn for GetEndpointAttributes input.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2291,7 +2291,7 @@
                         "name": "_geaEndpointArn",
                         "shape": "String",
                         "locationName": "EndpointArn",
-                        "documentation": "-- | EndpointArn for GetEndpointAttributes input.\n--",
+                        "documentation": "-- | EndpointArn for GetEndpointAttributes input.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2386,7 +2386,7 @@
             "pager": null,
             "name": "GetPlatformApplicationAttributes",
             "method": "post",
-            "documentation": "-- | Retrieves the attributes of the platform application object for the supported\n-- push notification services, such as APNS and GCM. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.\n--",
+            "documentation": "-- | Retrieves the attributes of the platform application object for the supported\n-- push notification services, such as APNS and GCM. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2413,7 +2413,7 @@
                     "name": "_gpaaPlatformApplicationArn",
                     "shape": "String",
                     "locationName": "PlatformApplicationArn",
-                    "documentation": "-- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.\n--",
+                    "documentation": "-- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2438,7 +2438,7 @@
                         "name": "_gpaaPlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.\n--",
+                        "documentation": "-- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2472,7 +2472,7 @@
                         "name": "_gpaaPlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.\n--",
+                        "documentation": "-- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2567,7 +2567,7 @@
             "pager": null,
             "name": "GetSubscriptionAttributes",
             "method": "post",
-            "documentation": "-- | Returns all of the properties of a subscription.\n--",
+            "documentation": "-- | Returns all of the properties of a subscription.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2594,7 +2594,7 @@
                     "name": "_gsaSubscriptionArn",
                     "shape": "subscriptionARN",
                     "locationName": "SubscriptionArn",
-                    "documentation": "-- | The ARN of the subscription whose properties you want to get.\n--",
+                    "documentation": "-- | The ARN of the subscription whose properties you want to get.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2619,7 +2619,7 @@
                         "name": "_gsaSubscriptionArn",
                         "shape": "subscriptionARN",
                         "locationName": "SubscriptionArn",
-                        "documentation": "-- | The ARN of the subscription whose properties you want to get.\n--",
+                        "documentation": "-- | The ARN of the subscription whose properties you want to get.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2653,7 +2653,7 @@
                         "name": "_gsaSubscriptionArn",
                         "shape": "subscriptionARN",
                         "locationName": "SubscriptionArn",
-                        "documentation": "-- | The ARN of the subscription whose properties you want to get.\n--",
+                        "documentation": "-- | The ARN of the subscription whose properties you want to get.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2748,7 +2748,7 @@
             "pager": null,
             "name": "GetTopicAttributes",
             "method": "post",
-            "documentation": "-- | Returns all of the properties of a topic. Topic properties returned might\n-- differ based on the authorization of the user.\n--",
+            "documentation": "-- | Returns all of the properties of a topic. Topic properties returned might\n-- differ based on the authorization of the user.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2775,7 +2775,7 @@
                     "name": "_gtaTopicArn",
                     "shape": "topicARN",
                     "locationName": "TopicArn",
-                    "documentation": "-- | The ARN of the topic whose properties you want to get.\n--",
+                    "documentation": "-- | The ARN of the topic whose properties you want to get.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2800,7 +2800,7 @@
                         "name": "_gtaTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic whose properties you want to get.\n--",
+                        "documentation": "-- | The ARN of the topic whose properties you want to get.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2834,7 +2834,7 @@
                         "name": "_gtaTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic whose properties you want to get.\n--",
+                        "documentation": "-- | The ARN of the topic whose properties you want to get.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2878,7 +2878,7 @@
                         "name": "_lebparEndpoints",
                         "shape": "ListOfEndpoints",
                         "locationName": "Endpoints",
-                        "documentation": "-- | Endpoints returned for ListEndpointsByPlatformApplication action.\n--",
+                        "documentation": "-- | Endpoints returned for ListEndpointsByPlatformApplication action.",
                         "typeExposed": "[Endpoint]",
                         "type": "List \"Endpoints\" Endpoint"
                     },
@@ -2893,7 +2893,7 @@
                         "name": "_lebparNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "-- | NextToken string is returned when calling ListEndpointsByPlatformApplication\n-- action if additional records are available after the first page results.\n--",
+                        "documentation": "-- | NextToken string is returned when calling ListEndpointsByPlatformApplication\n-- action if additional records are available after the first page results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2910,7 +2910,7 @@
                         "name": "_lebparEndpoints",
                         "shape": "ListOfEndpoints",
                         "locationName": "Endpoints",
-                        "documentation": "-- | Endpoints returned for ListEndpointsByPlatformApplication action.\n--",
+                        "documentation": "-- | Endpoints returned for ListEndpointsByPlatformApplication action.",
                         "typeExposed": "[Endpoint]",
                         "type": "List \"Endpoints\" Endpoint"
                     },
@@ -2925,7 +2925,7 @@
                         "name": "_lebparNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "-- | NextToken string is returned when calling ListEndpointsByPlatformApplication\n-- action if additional records are available after the first page results.\n--",
+                        "documentation": "-- | NextToken string is returned when calling ListEndpointsByPlatformApplication\n-- action if additional records are available after the first page results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2950,7 +2950,7 @@
             },
             "name": "ListEndpointsByPlatformApplication",
             "method": "post",
-            "documentation": "-- | Lists the endpoints and endpoint attributes for devices in a supported push\n-- notification service, such as GCM and APNS. The results for 'ListEndpointsByPlatformApplication' are paginated and return a limited list of endpoints, up to 100. If\n-- additional records are available after the first page results, then a\n-- NextToken string will be returned. To receive the next page, you call 'ListEndpointsByPlatformApplication' again using the NextToken string received from the previous call. When there\n-- are no more records to return, NextToken will be null. For more information,\n-- see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.\n--",
+            "documentation": "-- | Lists the endpoints and endpoint attributes for devices in a supported push\n-- notification service, such as GCM and APNS. The results for 'ListEndpointsByPlatformApplication' are paginated and return a limited list of endpoints, up to 100. If\n-- additional records are available after the first page results, then a\n-- NextToken string will be returned. To receive the next page, you call 'ListEndpointsByPlatformApplication' again using the NextToken string received from the previous call. When there\n-- are no more records to return, NextToken will be null. For more information,\n-- see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2984,7 +2984,7 @@
                         "name": "_lebpaPlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.\n--",
+                        "documentation": "-- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3022,7 +3022,7 @@
                         "name": "_lebpaNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "-- | NextToken string is used when calling ListEndpointsByPlatformApplication\n-- action to retrieve additional records that are available after the first page\n-- results.\n--",
+                        "documentation": "-- | NextToken string is used when calling ListEndpointsByPlatformApplication\n-- action to retrieve additional records that are available after the first page\n-- results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3039,7 +3039,7 @@
                         "name": "_lebpaNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "-- | NextToken string is used when calling ListEndpointsByPlatformApplication\n-- action to retrieve additional records that are available after the first page\n-- results.\n--",
+                        "documentation": "-- | NextToken string is used when calling ListEndpointsByPlatformApplication\n-- action to retrieve additional records that are available after the first page\n-- results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3054,7 +3054,7 @@
                         "name": "_lebpaPlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.\n--",
+                        "documentation": "-- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3098,7 +3098,7 @@
                         "name": "_lparPlatformApplications",
                         "shape": "ListOfPlatformApplications",
                         "locationName": "PlatformApplications",
-                        "documentation": "-- | Platform applications returned when calling ListPlatformApplications action.\n--",
+                        "documentation": "-- | Platform applications returned when calling ListPlatformApplications action.",
                         "typeExposed": "[PlatformApplication]",
                         "type": "List \"PlatformApplications\" PlatformApplication"
                     },
@@ -3113,7 +3113,7 @@
                         "name": "_lparNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "-- | NextToken string is returned when calling ListPlatformApplications action if\n-- additional records are available after the first page results.\n--",
+                        "documentation": "-- | NextToken string is returned when calling ListPlatformApplications action if\n-- additional records are available after the first page results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3130,7 +3130,7 @@
                         "name": "_lparNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "-- | NextToken string is returned when calling ListPlatformApplications action if\n-- additional records are available after the first page results.\n--",
+                        "documentation": "-- | NextToken string is returned when calling ListPlatformApplications action if\n-- additional records are available after the first page results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3145,7 +3145,7 @@
                         "name": "_lparPlatformApplications",
                         "shape": "ListOfPlatformApplications",
                         "locationName": "PlatformApplications",
-                        "documentation": "-- | Platform applications returned when calling ListPlatformApplications action.\n--",
+                        "documentation": "-- | Platform applications returned when calling ListPlatformApplications action.",
                         "typeExposed": "[PlatformApplication]",
                         "type": "List \"PlatformApplications\" PlatformApplication"
                     }
@@ -3170,7 +3170,7 @@
             },
             "name": "ListPlatformApplications",
             "method": "post",
-            "documentation": "-- | Lists the platform application objects for the supported push notification\n-- services, such as APNS and GCM. The results for 'ListPlatformApplications' are\n-- paginated and return a limited list of applications, up to 100. If additional\n-- records are available after the first page results, then a NextToken string\n-- will be returned. To receive the next page, you call 'ListPlatformApplications'\n-- using the NextToken string received from the previous call. When there are no\n-- more records to return, NextToken will be null. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.\n--",
+            "documentation": "-- | Lists the platform application objects for the supported push notification\n-- services, such as APNS and GCM. The results for 'ListPlatformApplications' are\n-- paginated and return a limited list of applications, up to 100. If additional\n-- records are available after the first page results, then a NextToken string\n-- will be returned. To receive the next page, you call 'ListPlatformApplications'\n-- using the NextToken string received from the previous call. When there are no\n-- more records to return, NextToken will be null. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3196,7 +3196,7 @@
                     "name": "_lpaNextToken",
                     "shape": "String",
                     "locationName": "NextToken",
-                    "documentation": "-- | NextToken string is used when calling ListPlatformApplications action to\n-- retrieve additional records that are available after the first page results.\n--",
+                    "documentation": "-- | NextToken string is used when calling ListPlatformApplications action to\n-- retrieve additional records that are available after the first page results.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -3238,7 +3238,7 @@
                         "name": "_lpaNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "-- | NextToken string is used when calling ListPlatformApplications action to\n-- retrieve additional records that are available after the first page results.\n--",
+                        "documentation": "-- | NextToken string is used when calling ListPlatformApplications action to\n-- retrieve additional records that are available after the first page results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3255,7 +3255,7 @@
                         "name": "_lpaNextToken",
                         "shape": "String",
                         "locationName": "NextToken",
-                        "documentation": "-- | NextToken string is used when calling ListPlatformApplications action to\n-- retrieve additional records that are available after the first page results.\n--",
+                        "documentation": "-- | NextToken string is used when calling ListPlatformApplications action to\n-- retrieve additional records that are available after the first page results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3299,7 +3299,7 @@
                         "name": "_lsrSubscriptions",
                         "shape": "SubscriptionsList",
                         "locationName": "Subscriptions",
-                        "documentation": "-- | A list of subscriptions.\n--",
+                        "documentation": "-- | A list of subscriptions.",
                         "typeExposed": "[Subscription]",
                         "type": "List \"Subscriptions\" Subscription"
                     },
@@ -3314,7 +3314,7 @@
                         "name": "_lsrNextToken",
                         "shape": "nextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | Token to pass along to the next 'ListSubscriptions' request. This element is\n-- returned if there are more subscriptions to retrieve.\n--",
+                        "documentation": "-- | Token to pass along to the next 'ListSubscriptions' request. This element is\n-- returned if there are more subscriptions to retrieve.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3331,7 +3331,7 @@
                         "name": "_lsrNextToken",
                         "shape": "nextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | Token to pass along to the next 'ListSubscriptions' request. This element is\n-- returned if there are more subscriptions to retrieve.\n--",
+                        "documentation": "-- | Token to pass along to the next 'ListSubscriptions' request. This element is\n-- returned if there are more subscriptions to retrieve.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3346,7 +3346,7 @@
                         "name": "_lsrSubscriptions",
                         "shape": "SubscriptionsList",
                         "locationName": "Subscriptions",
-                        "documentation": "-- | A list of subscriptions.\n--",
+                        "documentation": "-- | A list of subscriptions.",
                         "typeExposed": "[Subscription]",
                         "type": "List \"Subscriptions\" Subscription"
                     }
@@ -3371,7 +3371,7 @@
             },
             "name": "ListSubscriptions",
             "method": "post",
-            "documentation": "-- | Returns a list of the requester's subscriptions. Each call returns a limited\n-- list of subscriptions, up to 100. If there are more subscriptions, a 'NextToken'\n-- is also returned. Use the 'NextToken' parameter in a new 'ListSubscriptions'\n-- call to get further results.\n--",
+            "documentation": "-- | Returns a list of the requester's subscriptions. Each call returns a limited\n-- list of subscriptions, up to 100. If there are more subscriptions, a 'NextToken'\n-- is also returned. Use the 'NextToken' parameter in a new 'ListSubscriptions'\n-- call to get further results.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3397,7 +3397,7 @@
                     "name": "_lsNextToken",
                     "shape": "nextToken",
                     "locationName": "NextToken",
-                    "documentation": "-- | Token returned by the previous 'ListSubscriptions' request.\n--",
+                    "documentation": "-- | Token returned by the previous 'ListSubscriptions' request.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -3439,7 +3439,7 @@
                         "name": "_lsNextToken",
                         "shape": "nextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | Token returned by the previous 'ListSubscriptions' request.\n--",
+                        "documentation": "-- | Token returned by the previous 'ListSubscriptions' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3456,7 +3456,7 @@
                         "name": "_lsNextToken",
                         "shape": "nextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | Token returned by the previous 'ListSubscriptions' request.\n--",
+                        "documentation": "-- | Token returned by the previous 'ListSubscriptions' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3500,7 +3500,7 @@
                         "name": "_lsbtrSubscriptions",
                         "shape": "SubscriptionsList",
                         "locationName": "Subscriptions",
-                        "documentation": "-- | A list of subscriptions.\n--",
+                        "documentation": "-- | A list of subscriptions.",
                         "typeExposed": "[Subscription]",
                         "type": "List \"Subscriptions\" Subscription"
                     },
@@ -3515,7 +3515,7 @@
                         "name": "_lsbtrNextToken",
                         "shape": "nextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | Token to pass along to the next 'ListSubscriptionsByTopic' request. This\n-- element is returned if there are more subscriptions to retrieve.\n--",
+                        "documentation": "-- | Token to pass along to the next 'ListSubscriptionsByTopic' request. This\n-- element is returned if there are more subscriptions to retrieve.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3532,7 +3532,7 @@
                         "name": "_lsbtrNextToken",
                         "shape": "nextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | Token to pass along to the next 'ListSubscriptionsByTopic' request. This\n-- element is returned if there are more subscriptions to retrieve.\n--",
+                        "documentation": "-- | Token to pass along to the next 'ListSubscriptionsByTopic' request. This\n-- element is returned if there are more subscriptions to retrieve.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3547,7 +3547,7 @@
                         "name": "_lsbtrSubscriptions",
                         "shape": "SubscriptionsList",
                         "locationName": "Subscriptions",
-                        "documentation": "-- | A list of subscriptions.\n--",
+                        "documentation": "-- | A list of subscriptions.",
                         "typeExposed": "[Subscription]",
                         "type": "List \"Subscriptions\" Subscription"
                     }
@@ -3572,7 +3572,7 @@
             },
             "name": "ListSubscriptionsByTopic",
             "method": "post",
-            "documentation": "-- | Returns a list of the subscriptions to a specific topic. Each call returns a\n-- limited list of subscriptions, up to 100. If there are more subscriptions, a 'NextToken' is also returned. Use the 'NextToken' parameter in a new 'ListSubscriptionsByTopic' call to get further results.\n--",
+            "documentation": "-- | Returns a list of the subscriptions to a specific topic. Each call returns a\n-- limited list of subscriptions, up to 100. If there are more subscriptions, a 'NextToken' is also returned. Use the 'NextToken' parameter in a new 'ListSubscriptionsByTopic' call to get further results.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3606,7 +3606,7 @@
                         "name": "_lsbtTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic for which you wish to find subscriptions.\n--",
+                        "documentation": "-- | The ARN of the topic for which you wish to find subscriptions.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3644,7 +3644,7 @@
                         "name": "_lsbtNextToken",
                         "shape": "nextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | Token returned by the previous 'ListSubscriptionsByTopic' request.\n--",
+                        "documentation": "-- | Token returned by the previous 'ListSubscriptionsByTopic' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3661,7 +3661,7 @@
                         "name": "_lsbtNextToken",
                         "shape": "nextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | Token returned by the previous 'ListSubscriptionsByTopic' request.\n--",
+                        "documentation": "-- | Token returned by the previous 'ListSubscriptionsByTopic' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3676,7 +3676,7 @@
                         "name": "_lsbtTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic for which you wish to find subscriptions.\n--",
+                        "documentation": "-- | The ARN of the topic for which you wish to find subscriptions.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3720,7 +3720,7 @@
                         "name": "_ltrTopics",
                         "shape": "TopicsList",
                         "locationName": "Topics",
-                        "documentation": "-- | A list of topic ARNs.\n--",
+                        "documentation": "-- | A list of topic ARNs.",
                         "typeExposed": "[Topic]",
                         "type": "List \"Topics\" Topic"
                     },
@@ -3735,7 +3735,7 @@
                         "name": "_ltrNextToken",
                         "shape": "nextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | Token to pass along to the next 'ListTopics' request. This element is returned\n-- if there are additional topics to retrieve.\n--",
+                        "documentation": "-- | Token to pass along to the next 'ListTopics' request. This element is returned\n-- if there are additional topics to retrieve.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3752,7 +3752,7 @@
                         "name": "_ltrNextToken",
                         "shape": "nextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | Token to pass along to the next 'ListTopics' request. This element is returned\n-- if there are additional topics to retrieve.\n--",
+                        "documentation": "-- | Token to pass along to the next 'ListTopics' request. This element is returned\n-- if there are additional topics to retrieve.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3767,7 +3767,7 @@
                         "name": "_ltrTopics",
                         "shape": "TopicsList",
                         "locationName": "Topics",
-                        "documentation": "-- | A list of topic ARNs.\n--",
+                        "documentation": "-- | A list of topic ARNs.",
                         "typeExposed": "[Topic]",
                         "type": "List \"Topics\" Topic"
                     }
@@ -3792,7 +3792,7 @@
             },
             "name": "ListTopics",
             "method": "post",
-            "documentation": "-- | Returns a list of the requester's topics. Each call returns a limited list of\n-- topics, up to 100. If there are more topics, a 'NextToken' is also returned.\n-- Use the 'NextToken' parameter in a new 'ListTopics' call to get further results.\n--",
+            "documentation": "-- | Returns a list of the requester's topics. Each call returns a limited list of\n-- topics, up to 100. If there are more topics, a 'NextToken' is also returned.\n-- Use the 'NextToken' parameter in a new 'ListTopics' call to get further results.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3818,7 +3818,7 @@
                     "name": "_ltNextToken",
                     "shape": "nextToken",
                     "locationName": "NextToken",
-                    "documentation": "-- | Token returned by the previous 'ListTopics' request.\n--",
+                    "documentation": "-- | Token returned by the previous 'ListTopics' request.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -3860,7 +3860,7 @@
                         "name": "_ltNextToken",
                         "shape": "nextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | Token returned by the previous 'ListTopics' request.\n--",
+                        "documentation": "-- | Token returned by the previous 'ListTopics' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3877,7 +3877,7 @@
                         "name": "_ltNextToken",
                         "shape": "nextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | Token returned by the previous 'ListTopics' request.\n--",
+                        "documentation": "-- | Token returned by the previous 'ListTopics' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3910,7 +3910,7 @@
                     "name": "_prMessageId",
                     "shape": "messageId",
                     "locationName": "MessageId",
-                    "documentation": "-- | Unique identifier assigned to the published message.\n--\n-- Length Constraint: Maximum 100 characters\n--",
+                    "documentation": "-- | Unique identifier assigned to the published message.\n--\n-- Length Constraint: Maximum 100 characters",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -3939,7 +3939,7 @@
                         "name": "_prMessageId",
                         "shape": "messageId",
                         "locationName": "MessageId",
-                        "documentation": "-- | Unique identifier assigned to the published message.\n--\n-- Length Constraint: Maximum 100 characters\n--",
+                        "documentation": "-- | Unique identifier assigned to the published message.\n--\n-- Length Constraint: Maximum 100 characters",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3956,7 +3956,7 @@
                         "name": "_prMessageId",
                         "shape": "messageId",
                         "locationName": "MessageId",
-                        "documentation": "-- | Unique identifier assigned to the published message.\n--\n-- Length Constraint: Maximum 100 characters\n--",
+                        "documentation": "-- | Unique identifier assigned to the published message.\n--\n-- Length Constraint: Maximum 100 characters",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3972,7 +3972,7 @@
             "pager": null,
             "name": "Publish",
             "method": "post",
-            "documentation": "-- | Sends a message to all of a topic's subscribed endpoints. When a 'messageId' is\n-- returned, the message has been saved and Amazon SNS will attempt to deliver\n-- it to the topic's subscribers shortly. The format of the outgoing message to\n-- each subscribed endpoint depends on the notification protocol selected.\n--\n-- To use the 'Publish' action for sending a message to a mobile endpoint, such\n-- as an app on a Kindle device or mobile phone, you must specify the\n-- EndpointArn. The EndpointArn is returned when making a call with the 'CreatePlatformEndpoint' action. The second example below shows a request and response for publishing\n-- to a mobile endpoint.\n--",
+            "documentation": "-- | Sends a message to all of a topic's subscribed endpoints. When a 'messageId' is\n-- returned, the message has been saved and Amazon SNS will attempt to deliver\n-- it to the topic's subscribers shortly. The format of the outgoing message to\n-- each subscribed endpoint depends on the notification protocol selected.\n--\n-- To use the 'Publish' action for sending a message to a mobile endpoint, such\n-- as an app on a Kindle device or mobile phone, you must specify the\n-- EndpointArn. The EndpointArn is returned when making a call with the 'CreatePlatformEndpoint' action. The second example below shows a request and response for publishing\n-- to a mobile endpoint.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4005,7 +4005,7 @@
                         "name": "_pMessage",
                         "shape": "message",
                         "locationName": "Message",
-                        "documentation": "-- | The message you want to send to the topic.\n--\n-- If you want to send the same message to all transport protocols, include the\n-- text of the message as a String value.\n--\n-- If you want to send different messages for each transport protocol, set the\n-- value of the 'MessageStructure' parameter to 'json' and use a JSON object for the 'Message' parameter. See the Examples section for the format of the JSON\n-- object.\n--\n-- Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size\n-- (262144 bytes, not 262144 characters).\n--\n-- JSON-specific constraints:  Keys in the JSON object that correspond to\n-- supported transport protocols must have simple JSON string values.  The\n-- values will be parsed (unescaped) before they are used in outgoing messages. Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).\n-- Values have a minimum length of 0 (the empty string, \"\", is allowed). Values\n-- have a maximum length bounded by the overall message size (so, including\n-- multiple protocols may limit message sizes). Non-string values will cause the\n-- key to be ignored. Keys that do not correspond to supported transport\n-- protocols are ignored. Duplicate keys are not allowed. Failure to parse or\n-- validate any key or value in the message will cause the 'Publish' call to\n-- return an error (no partial delivery).\n--",
+                        "documentation": "-- | The message you want to send to the topic.\n--\n-- If you want to send the same message to all transport protocols, include the\n-- text of the message as a String value.\n--\n-- If you want to send different messages for each transport protocol, set the\n-- value of the 'MessageStructure' parameter to 'json' and use a JSON object for the 'Message' parameter. See the Examples section for the format of the JSON\n-- object.\n--\n-- Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size\n-- (262144 bytes, not 262144 characters).\n--\n-- JSON-specific constraints:  Keys in the JSON object that correspond to\n-- supported transport protocols must have simple JSON string values.  The\n-- values will be parsed (unescaped) before they are used in outgoing messages. Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).\n-- Values have a minimum length of 0 (the empty string, \"\", is allowed). Values\n-- have a maximum length bounded by the overall message size (so, including\n-- multiple protocols may limit message sizes). Non-string values will cause the\n-- key to be ignored. Keys that do not correspond to supported transport\n-- protocols are ignored. Duplicate keys are not allowed. Failure to parse or\n-- validate any key or value in the message will cause the 'Publish' call to\n-- return an error (no partial delivery).",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4063,7 +4063,7 @@
                         "name": "_pTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The topic you want to publish to.\n--",
+                        "documentation": "-- | The topic you want to publish to.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4078,7 +4078,7 @@
                         "name": "_pTargetArn",
                         "shape": "String",
                         "locationName": "TargetArn",
-                        "documentation": "-- | Either TopicArn or EndpointArn, but not both.\n--",
+                        "documentation": "-- | Either TopicArn or EndpointArn, but not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4093,7 +4093,7 @@
                         "name": "_pSubject",
                         "shape": "subject",
                         "locationName": "Subject",
-                        "documentation": "-- | Optional parameter to be used as the \"Subject\" line when the message is\n-- delivered to email endpoints. This field will also be included, if present,\n-- in the standard JSON messages delivered to other endpoints.\n--\n-- Constraints: Subjects must be ASCII text that begins with a letter, number,\n-- or punctuation mark; must not include line breaks or control characters; and\n-- must be less than 100 characters long.\n--",
+                        "documentation": "-- | Optional parameter to be used as the \"Subject\" line when the message is\n-- delivered to email endpoints. This field will also be included, if present,\n-- in the standard JSON messages delivered to other endpoints.\n--\n-- Constraints: Subjects must be ASCII text that begins with a letter, number,\n-- or punctuation mark; must not include line breaks or control characters; and\n-- must be less than 100 characters long.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4108,7 +4108,7 @@
                         "name": "_pMessageStructure",
                         "shape": "messageStructure",
                         "locationName": "MessageStructure",
-                        "documentation": "-- | Set 'MessageStructure' to 'json' if you want to send a different message for each\n-- protocol. For example, using one publish action, you can send a short message\n-- to your SMS subscribers and a longer message to your email subscribers. If\n-- you set 'MessageStructure' to 'json', the value of the 'Message' parameter must:\n--\n-- be a syntactically valid JSON object; and contain at least a top-level JSON\n-- key of \"default\" with a value that is a string.   You can define other\n-- top-level keys that define the message you want to send to a specific\n-- transport protocol (e.g., \"http\").\n--\n-- For information about sending different messages for each protocol using the\n-- AWS Management Console, go to \u003chttp://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol Create Different Messages for Each Protocol\u003e in\n-- the /Amazon Simple Notification Service Getting Started Guide/.\n--\n-- Valid value: 'json'\n--",
+                        "documentation": "-- | Set 'MessageStructure' to 'json' if you want to send a different message for each\n-- protocol. For example, using one publish action, you can send a short message\n-- to your SMS subscribers and a longer message to your email subscribers. If\n-- you set 'MessageStructure' to 'json', the value of the 'Message' parameter must:\n--\n-- be a syntactically valid JSON object; and contain at least a top-level JSON\n-- key of \"default\" with a value that is a string.   You can define other\n-- top-level keys that define the message you want to send to a specific\n-- transport protocol (e.g., \"http\").\n--\n-- For information about sending different messages for each protocol using the\n-- AWS Management Console, go to \u003chttp://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol Create Different Messages for Each Protocol\u003e in\n-- the /Amazon Simple Notification Service Getting Started Guide/.\n--\n-- Valid value: 'json'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4123,7 +4123,7 @@
                         "name": "_pMessageAttributes",
                         "shape": "MessageAttributeMap",
                         "locationName": "MessageAttributes",
-                        "documentation": "-- | Message attributes for Publish action.\n--",
+                        "documentation": "-- | Message attributes for Publish action.",
                         "typeExposed": "HashMap Text MessageAttributeValue",
                         "type": "EMap \"entry\" \"Name\" \"Value\" Text MessageAttributeValue"
                     }
@@ -4140,7 +4140,7 @@
                         "name": "_pMessage",
                         "shape": "message",
                         "locationName": "Message",
-                        "documentation": "-- | The message you want to send to the topic.\n--\n-- If you want to send the same message to all transport protocols, include the\n-- text of the message as a String value.\n--\n-- If you want to send different messages for each transport protocol, set the\n-- value of the 'MessageStructure' parameter to 'json' and use a JSON object for the 'Message' parameter. See the Examples section for the format of the JSON\n-- object.\n--\n-- Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size\n-- (262144 bytes, not 262144 characters).\n--\n-- JSON-specific constraints:  Keys in the JSON object that correspond to\n-- supported transport protocols must have simple JSON string values.  The\n-- values will be parsed (unescaped) before they are used in outgoing messages. Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).\n-- Values have a minimum length of 0 (the empty string, \"\", is allowed). Values\n-- have a maximum length bounded by the overall message size (so, including\n-- multiple protocols may limit message sizes). Non-string values will cause the\n-- key to be ignored. Keys that do not correspond to supported transport\n-- protocols are ignored. Duplicate keys are not allowed. Failure to parse or\n-- validate any key or value in the message will cause the 'Publish' call to\n-- return an error (no partial delivery).\n--",
+                        "documentation": "-- | The message you want to send to the topic.\n--\n-- If you want to send the same message to all transport protocols, include the\n-- text of the message as a String value.\n--\n-- If you want to send different messages for each transport protocol, set the\n-- value of the 'MessageStructure' parameter to 'json' and use a JSON object for the 'Message' parameter. See the Examples section for the format of the JSON\n-- object.\n--\n-- Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size\n-- (262144 bytes, not 262144 characters).\n--\n-- JSON-specific constraints:  Keys in the JSON object that correspond to\n-- supported transport protocols must have simple JSON string values.  The\n-- values will be parsed (unescaped) before they are used in outgoing messages. Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).\n-- Values have a minimum length of 0 (the empty string, \"\", is allowed). Values\n-- have a maximum length bounded by the overall message size (so, including\n-- multiple protocols may limit message sizes). Non-string values will cause the\n-- key to be ignored. Keys that do not correspond to supported transport\n-- protocols are ignored. Duplicate keys are not allowed. Failure to parse or\n-- validate any key or value in the message will cause the 'Publish' call to\n-- return an error (no partial delivery).",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4155,7 +4155,7 @@
                         "name": "_pMessageAttributes",
                         "shape": "MessageAttributeMap",
                         "locationName": "MessageAttributes",
-                        "documentation": "-- | Message attributes for Publish action.\n--",
+                        "documentation": "-- | Message attributes for Publish action.",
                         "typeExposed": "HashMap Text MessageAttributeValue",
                         "type": "EMap \"entry\" \"Name\" \"Value\" Text MessageAttributeValue"
                     },
@@ -4170,7 +4170,7 @@
                         "name": "_pMessageStructure",
                         "shape": "messageStructure",
                         "locationName": "MessageStructure",
-                        "documentation": "-- | Set 'MessageStructure' to 'json' if you want to send a different message for each\n-- protocol. For example, using one publish action, you can send a short message\n-- to your SMS subscribers and a longer message to your email subscribers. If\n-- you set 'MessageStructure' to 'json', the value of the 'Message' parameter must:\n--\n-- be a syntactically valid JSON object; and contain at least a top-level JSON\n-- key of \"default\" with a value that is a string.   You can define other\n-- top-level keys that define the message you want to send to a specific\n-- transport protocol (e.g., \"http\").\n--\n-- For information about sending different messages for each protocol using the\n-- AWS Management Console, go to \u003chttp://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol Create Different Messages for Each Protocol\u003e in\n-- the /Amazon Simple Notification Service Getting Started Guide/.\n--\n-- Valid value: 'json'\n--",
+                        "documentation": "-- | Set 'MessageStructure' to 'json' if you want to send a different message for each\n-- protocol. For example, using one publish action, you can send a short message\n-- to your SMS subscribers and a longer message to your email subscribers. If\n-- you set 'MessageStructure' to 'json', the value of the 'Message' parameter must:\n--\n-- be a syntactically valid JSON object; and contain at least a top-level JSON\n-- key of \"default\" with a value that is a string.   You can define other\n-- top-level keys that define the message you want to send to a specific\n-- transport protocol (e.g., \"http\").\n--\n-- For information about sending different messages for each protocol using the\n-- AWS Management Console, go to \u003chttp://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol Create Different Messages for Each Protocol\u003e in\n-- the /Amazon Simple Notification Service Getting Started Guide/.\n--\n-- Valid value: 'json'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4185,7 +4185,7 @@
                         "name": "_pSubject",
                         "shape": "subject",
                         "locationName": "Subject",
-                        "documentation": "-- | Optional parameter to be used as the \"Subject\" line when the message is\n-- delivered to email endpoints. This field will also be included, if present,\n-- in the standard JSON messages delivered to other endpoints.\n--\n-- Constraints: Subjects must be ASCII text that begins with a letter, number,\n-- or punctuation mark; must not include line breaks or control characters; and\n-- must be less than 100 characters long.\n--",
+                        "documentation": "-- | Optional parameter to be used as the \"Subject\" line when the message is\n-- delivered to email endpoints. This field will also be included, if present,\n-- in the standard JSON messages delivered to other endpoints.\n--\n-- Constraints: Subjects must be ASCII text that begins with a letter, number,\n-- or punctuation mark; must not include line breaks or control characters; and\n-- must be less than 100 characters long.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4200,7 +4200,7 @@
                         "name": "_pTargetArn",
                         "shape": "String",
                         "locationName": "TargetArn",
-                        "documentation": "-- | Either TopicArn or EndpointArn, but not both.\n--",
+                        "documentation": "-- | Either TopicArn or EndpointArn, but not both.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4215,7 +4215,7 @@
                         "name": "_pTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The topic you want to publish to.\n--",
+                        "documentation": "-- | The topic you want to publish to.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4258,7 +4258,7 @@
             "pager": null,
             "name": "RemovePermission",
             "method": "post",
-            "documentation": "-- | Removes a statement from a topic's access control policy.\n--",
+            "documentation": "-- | Removes a statement from a topic's access control policy.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4292,7 +4292,7 @@
                         "name": "_rpTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic whose access control policy you wish to modify.\n--",
+                        "documentation": "-- | The ARN of the topic whose access control policy you wish to modify.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4307,7 +4307,7 @@
                         "name": "_rpLabel",
                         "shape": "label",
                         "locationName": "Label",
-                        "documentation": "-- | The unique label of the statement you want to remove.\n--",
+                        "documentation": "-- | The unique label of the statement you want to remove.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4346,7 +4346,7 @@
                         "name": "_rpLabel",
                         "shape": "label",
                         "locationName": "Label",
-                        "documentation": "-- | The unique label of the statement you want to remove.\n--",
+                        "documentation": "-- | The unique label of the statement you want to remove.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4361,7 +4361,7 @@
                         "name": "_rpTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic whose access control policy you wish to modify.\n--",
+                        "documentation": "-- | The ARN of the topic whose access control policy you wish to modify.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4404,7 +4404,7 @@
             "pager": null,
             "name": "SetEndpointAttributes",
             "method": "post",
-            "documentation": "-- | Sets the attributes for an endpoint for a device on one of the supported push\n-- notification services, such as GCM and APNS. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications\u003e.\n--",
+            "documentation": "-- | Sets the attributes for an endpoint for a device on one of the supported push\n-- notification services, such as GCM and APNS. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4437,7 +4437,7 @@
                         "name": "_seaEndpointArn",
                         "shape": "String",
                         "locationName": "EndpointArn",
-                        "documentation": "-- | EndpointArn used for SetEndpointAttributes action.\n--",
+                        "documentation": "-- | EndpointArn used for SetEndpointAttributes action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4507,7 +4507,7 @@
                         "name": "_seaEndpointArn",
                         "shape": "String",
                         "locationName": "EndpointArn",
-                        "documentation": "-- | EndpointArn used for SetEndpointAttributes action.\n--",
+                        "documentation": "-- | EndpointArn used for SetEndpointAttributes action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4550,7 +4550,7 @@
             "pager": null,
             "name": "SetPlatformApplicationAttributes",
             "method": "post",
-            "documentation": "-- | Sets the attributes of the platform application object for the supported push\n-- notification services, such as APNS and GCM. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications\u003e.\n--",
+            "documentation": "-- | Sets the attributes of the platform application object for the supported push\n-- notification services, such as APNS and GCM. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4583,7 +4583,7 @@
                         "name": "_spaaPlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn for SetPlatformApplicationAttributes action.\n--",
+                        "documentation": "-- | PlatformApplicationArn for SetPlatformApplicationAttributes action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4653,7 +4653,7 @@
                         "name": "_spaaPlatformApplicationArn",
                         "shape": "String",
                         "locationName": "PlatformApplicationArn",
-                        "documentation": "-- | PlatformApplicationArn for SetPlatformApplicationAttributes action.\n--",
+                        "documentation": "-- | PlatformApplicationArn for SetPlatformApplicationAttributes action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4696,7 +4696,7 @@
             "pager": null,
             "name": "SetSubscriptionAttributes",
             "method": "post",
-            "documentation": "-- | Allows a subscription owner to set an attribute of the topic to a new value.\n--",
+            "documentation": "-- | Allows a subscription owner to set an attribute of the topic to a new value.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4730,7 +4730,7 @@
                         "name": "_ssaSubscriptionArn",
                         "shape": "subscriptionARN",
                         "locationName": "SubscriptionArn",
-                        "documentation": "-- | The ARN of the subscription to modify.\n--",
+                        "documentation": "-- | The ARN of the subscription to modify.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4745,7 +4745,7 @@
                         "name": "_ssaAttributeName",
                         "shape": "attributeName",
                         "locationName": "AttributeName",
-                        "documentation": "-- | The name of the attribute you want to set. Only a subset of the subscriptions\n-- attributes are mutable.\n--\n-- Valid values: 'DeliveryPolicy' | 'RawMessageDelivery'\n--",
+                        "documentation": "-- | The name of the attribute you want to set. Only a subset of the subscriptions\n-- attributes are mutable.\n--\n-- Valid values: 'DeliveryPolicy' | 'RawMessageDelivery'",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4788,7 +4788,7 @@
                         "name": "_ssaAttributeValue",
                         "shape": "attributeValue",
                         "locationName": "AttributeValue",
-                        "documentation": "-- | The new value for the attribute in JSON format.\n--",
+                        "documentation": "-- | The new value for the attribute in JSON format.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4805,7 +4805,7 @@
                         "name": "_ssaAttributeName",
                         "shape": "attributeName",
                         "locationName": "AttributeName",
-                        "documentation": "-- | The name of the attribute you want to set. Only a subset of the subscriptions\n-- attributes are mutable.\n--\n-- Valid values: 'DeliveryPolicy' | 'RawMessageDelivery'\n--",
+                        "documentation": "-- | The name of the attribute you want to set. Only a subset of the subscriptions\n-- attributes are mutable.\n--\n-- Valid values: 'DeliveryPolicy' | 'RawMessageDelivery'",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4820,7 +4820,7 @@
                         "name": "_ssaAttributeValue",
                         "shape": "attributeValue",
                         "locationName": "AttributeValue",
-                        "documentation": "-- | The new value for the attribute in JSON format.\n--",
+                        "documentation": "-- | The new value for the attribute in JSON format.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4835,7 +4835,7 @@
                         "name": "_ssaSubscriptionArn",
                         "shape": "subscriptionARN",
                         "locationName": "SubscriptionArn",
-                        "documentation": "-- | The ARN of the subscription to modify.\n--",
+                        "documentation": "-- | The ARN of the subscription to modify.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4878,7 +4878,7 @@
             "pager": null,
             "name": "SetTopicAttributes",
             "method": "post",
-            "documentation": "-- | Allows a topic owner to set an attribute of the topic to a new value.\n--",
+            "documentation": "-- | Allows a topic owner to set an attribute of the topic to a new value.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4912,7 +4912,7 @@
                         "name": "_staTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic to modify.\n--",
+                        "documentation": "-- | The ARN of the topic to modify.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4927,7 +4927,7 @@
                         "name": "_staAttributeName",
                         "shape": "attributeName",
                         "locationName": "AttributeName",
-                        "documentation": "-- | The name of the attribute you want to set. Only a subset of the topic's\n-- attributes are mutable.\n--\n-- Valid values: 'Policy' | 'DisplayName' | 'DeliveryPolicy'\n--",
+                        "documentation": "-- | The name of the attribute you want to set. Only a subset of the topic's\n-- attributes are mutable.\n--\n-- Valid values: 'Policy' | 'DisplayName' | 'DeliveryPolicy'",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4970,7 +4970,7 @@
                         "name": "_staAttributeValue",
                         "shape": "attributeValue",
                         "locationName": "AttributeValue",
-                        "documentation": "-- | The new value for the attribute.\n--",
+                        "documentation": "-- | The new value for the attribute.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4987,7 +4987,7 @@
                         "name": "_staAttributeName",
                         "shape": "attributeName",
                         "locationName": "AttributeName",
-                        "documentation": "-- | The name of the attribute you want to set. Only a subset of the topic's\n-- attributes are mutable.\n--\n-- Valid values: 'Policy' | 'DisplayName' | 'DeliveryPolicy'\n--",
+                        "documentation": "-- | The name of the attribute you want to set. Only a subset of the topic's\n-- attributes are mutable.\n--\n-- Valid values: 'Policy' | 'DisplayName' | 'DeliveryPolicy'",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5002,7 +5002,7 @@
                         "name": "_staAttributeValue",
                         "shape": "attributeValue",
                         "locationName": "AttributeValue",
-                        "documentation": "-- | The new value for the attribute.\n--",
+                        "documentation": "-- | The new value for the attribute.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5017,7 +5017,7 @@
                         "name": "_staTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic to modify.\n--",
+                        "documentation": "-- | The ARN of the topic to modify.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5050,7 +5050,7 @@
                     "name": "_srSubscriptionArn",
                     "shape": "subscriptionARN",
                     "locationName": "SubscriptionArn",
-                    "documentation": "-- | The ARN of the subscription, if the service was able to create a subscription\n-- immediately (without requiring endpoint owner confirmation).\n--",
+                    "documentation": "-- | The ARN of the subscription, if the service was able to create a subscription\n-- immediately (without requiring endpoint owner confirmation).",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -5079,7 +5079,7 @@
                         "name": "_srSubscriptionArn",
                         "shape": "subscriptionARN",
                         "locationName": "SubscriptionArn",
-                        "documentation": "-- | The ARN of the subscription, if the service was able to create a subscription\n-- immediately (without requiring endpoint owner confirmation).\n--",
+                        "documentation": "-- | The ARN of the subscription, if the service was able to create a subscription\n-- immediately (without requiring endpoint owner confirmation).",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5096,7 +5096,7 @@
                         "name": "_srSubscriptionArn",
                         "shape": "subscriptionARN",
                         "locationName": "SubscriptionArn",
-                        "documentation": "-- | The ARN of the subscription, if the service was able to create a subscription\n-- immediately (without requiring endpoint owner confirmation).\n--",
+                        "documentation": "-- | The ARN of the subscription, if the service was able to create a subscription\n-- immediately (without requiring endpoint owner confirmation).",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5112,7 +5112,7 @@
             "pager": null,
             "name": "Subscribe",
             "method": "post",
-            "documentation": "-- | Prepares to subscribe an endpoint by sending the endpoint a confirmation\n-- message. To actually create a subscription, the endpoint owner must call the 'ConfirmSubscription' action with the token from the confirmation message. Confirmation tokens are\n-- valid for three days.\n--",
+            "documentation": "-- | Prepares to subscribe an endpoint by sending the endpoint a confirmation\n-- message. To actually create a subscription, the endpoint owner must call the 'ConfirmSubscription' action with the token from the confirmation message. Confirmation tokens are\n-- valid for three days.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5146,7 +5146,7 @@
                         "name": "_sTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic you want to subscribe to.\n--",
+                        "documentation": "-- | The ARN of the topic you want to subscribe to.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5251,7 +5251,7 @@
                         "name": "_sTopicArn",
                         "shape": "topicARN",
                         "locationName": "TopicArn",
-                        "documentation": "-- | The ARN of the topic you want to subscribe to.\n--",
+                        "documentation": "-- | The ARN of the topic you want to subscribe to.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5294,7 +5294,7 @@
             "pager": null,
             "name": "Unsubscribe",
             "method": "post",
-            "documentation": "-- | Deletes a subscription. If the subscription requires authentication for\n-- deletion, only the owner of the subscription or the topic's owner can\n-- unsubscribe, and an AWS signature is required. If the 'Unsubscribe' call does\n-- not require authentication and the requester is not the subscription owner, a\n-- final cancellation message is delivered to the endpoint, so that the endpoint\n-- owner can easily resubscribe to the topic if the 'Unsubscribe' request was\n-- unintended.\n--",
+            "documentation": "-- | Deletes a subscription. If the subscription requires authentication for\n-- deletion, only the owner of the subscription or the topic's owner can\n-- unsubscribe, and an AWS signature is required. If the 'Unsubscribe' call does\n-- not require authentication and the requester is not the subscription owner, a\n-- final cancellation message is delivered to the endpoint, so that the endpoint\n-- owner can easily resubscribe to the topic if the 'Unsubscribe' request was\n-- unintended.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5321,7 +5321,7 @@
                     "name": "_uSubscriptionArn",
                     "shape": "subscriptionARN",
                     "locationName": "SubscriptionArn",
-                    "documentation": "-- | The ARN of the subscription to be deleted.\n--",
+                    "documentation": "-- | The ARN of the subscription to be deleted.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -5346,7 +5346,7 @@
                         "name": "_uSubscriptionArn",
                         "shape": "subscriptionARN",
                         "locationName": "SubscriptionArn",
-                        "documentation": "-- | The ARN of the subscription to be deleted.\n--",
+                        "documentation": "-- | The ARN of the subscription to be deleted.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5380,7 +5380,7 @@
                         "name": "_uSubscriptionArn",
                         "shape": "subscriptionARN",
                         "locationName": "SubscriptionArn",
-                        "documentation": "-- | The ARN of the subscription to be deleted.\n--",
+                        "documentation": "-- | The ARN of the subscription to be deleted.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }

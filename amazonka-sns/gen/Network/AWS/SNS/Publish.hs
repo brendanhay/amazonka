@@ -116,12 +116,10 @@ publish p1 = Publish
 -- protocols are ignored. Duplicate keys are not allowed. Failure to parse or
 -- validate any key or value in the message will cause the 'Publish' call to
 -- return an error (no partial delivery).
---
 pMessage :: Lens' Publish Text
 pMessage = lens _pMessage (\s a -> s { _pMessage = a })
 
 -- | Message attributes for Publish action.
---
 pMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
 pMessageAttributes =
     lens _pMessageAttributes (\s a -> s { _pMessageAttributes = a })
@@ -142,7 +140,6 @@ pMessageAttributes =
 -- the /Amazon Simple Notification Service Getting Started Guide/.
 --
 -- Valid value: 'json'
---
 pMessageStructure :: Lens' Publish (Maybe Text)
 pMessageStructure =
     lens _pMessageStructure (\s a -> s { _pMessageStructure = a })
@@ -154,17 +151,14 @@ pMessageStructure =
 -- Constraints: Subjects must be ASCII text that begins with a letter, number,
 -- or punctuation mark; must not include line breaks or control characters; and
 -- must be less than 100 characters long.
---
 pSubject :: Lens' Publish (Maybe Text)
 pSubject = lens _pSubject (\s a -> s { _pSubject = a })
 
 -- | Either TopicArn or EndpointArn, but not both.
---
 pTargetArn :: Lens' Publish (Maybe Text)
 pTargetArn = lens _pTargetArn (\s a -> s { _pTargetArn = a })
 
 -- | The topic you want to publish to.
---
 pTopicArn :: Lens' Publish (Maybe Text)
 pTopicArn = lens _pTopicArn (\s a -> s { _pTopicArn = a })
 
@@ -186,7 +180,6 @@ publishResponse = PublishResponse
 -- | Unique identifier assigned to the published message.
 --
 -- Length Constraint: Maximum 100 characters
---
 prMessageId :: Lens' PublishResponse (Maybe Text)
 prMessageId = lens _prMessageId (\s a -> s { _prMessageId = a })
 

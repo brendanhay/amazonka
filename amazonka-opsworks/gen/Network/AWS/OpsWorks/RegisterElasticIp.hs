@@ -75,12 +75,10 @@ registerElasticIp p1 p2 = RegisterElasticIp
     }
 
 -- | The Elastic IP address.
---
 reiElasticIp :: Lens' RegisterElasticIp Text
 reiElasticIp = lens _reiElasticIp (\s a -> s { _reiElasticIp = a })
 
 -- | The stack ID.
---
 reiStackId :: Lens' RegisterElasticIp Text
 reiStackId = lens _reiStackId (\s a -> s { _reiStackId = a })
 
@@ -100,7 +98,6 @@ registerElasticIpResponse = RegisterElasticIpResponse
     }
 
 -- | The Elastic IP address.
---
 reirElasticIp :: Lens' RegisterElasticIpResponse (Maybe Text)
 reirElasticIp = lens _reirElasticIp (\s a -> s { _reirElasticIp = a })
 

@@ -120,7 +120,6 @@ dvpc1Filters = lens _dvpc1Filters (\s a -> s { _dvpc1Filters = a }) . _List
 -- | One or more VPC peering connection IDs.
 --
 -- Default: Describes all your VPC peering connections.
---
 dvpc1VpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections [Text]
 dvpc1VpcPeeringConnectionIds =
     lens _dvpc1VpcPeeringConnectionIds
@@ -149,7 +148,6 @@ describeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
     }
 
 -- | Information about the VPC peering connections.
---
 dvpcrVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPeeringConnection]
 dvpcrVpcPeeringConnections =
     lens _dvpcrVpcPeeringConnections

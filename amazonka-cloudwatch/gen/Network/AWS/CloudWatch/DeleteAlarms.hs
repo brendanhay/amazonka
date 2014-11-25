@@ -66,7 +66,6 @@ deleteAlarms = DeleteAlarms
     }
 
 -- | A list of alarms to be deleted.
---
 da1AlarmNames :: Lens' DeleteAlarms [Text]
 da1AlarmNames = lens _da1AlarmNames (\s a -> s { _da1AlarmNames = a }) . _List
 

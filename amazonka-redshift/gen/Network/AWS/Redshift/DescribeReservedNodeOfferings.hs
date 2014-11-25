@@ -83,7 +83,6 @@ describeReservedNodeOfferings = DescribeReservedNodeOfferings
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the 'Marker' parameter and retrying the
 -- request.
---
 drnoMarker :: Lens' DescribeReservedNodeOfferings (Maybe Text)
 drnoMarker = lens _drnoMarker (\s a -> s { _drnoMarker = a })
 
@@ -95,12 +94,10 @@ drnoMarker = lens _drnoMarker (\s a -> s { _drnoMarker = a })
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
---
 drnoMaxRecords :: Lens' DescribeReservedNodeOfferings (Maybe Int)
 drnoMaxRecords = lens _drnoMaxRecords (\s a -> s { _drnoMaxRecords = a })
 
 -- | The unique identifier for the offering.
---
 drnoReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferings (Maybe Text)
 drnoReservedNodeOfferingId =
     lens _drnoReservedNodeOfferingId
@@ -130,12 +127,10 @@ describeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
 -- empty, all response records have been retrieved for the request.
---
 drnorMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
 drnorMarker = lens _drnorMarker (\s a -> s { _drnorMarker = a })
 
 -- | A list of reserved node offerings.
---
 drnorReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
 drnorReservedNodeOfferings =
     lens _drnorReservedNodeOfferings

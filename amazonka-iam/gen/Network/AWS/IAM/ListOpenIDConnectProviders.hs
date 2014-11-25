@@ -72,7 +72,6 @@ listOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse
     }
 
 -- | The list of IAM OpenID Connect providers in the AWS account.
---
 loidcprOpenIDConnectProviderList :: Lens' ListOpenIDConnectProvidersResponse [OpenIDConnectProviderListEntry]
 loidcprOpenIDConnectProviderList =
     lens _loidcprOpenIDConnectProviderList

@@ -108,7 +108,6 @@ describeEvents = DescribeEvents
 -- | The number of minutes to retrieve events for.
 --
 -- Default: 60
---
 deDuration :: Lens' DescribeEvents (Maybe Int)
 deDuration = lens _deDuration (\s a -> s { _deDuration = a })
 
@@ -116,27 +115,23 @@ deDuration = lens _deDuration (\s a -> s { _deDuration = a })
 -- 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.>
 --
 -- Example: 2009-07-08T18:00Z
---
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a }) . mapping _Time
 
 -- | A list of event categories that trigger notifications for a event
 -- notification subscription.
---
 deEventCategories :: Lens' DescribeEvents [Text]
 deEventCategories =
     lens _deEventCategories (\s a -> s { _deEventCategories = a })
         . _List
 
 -- | This parameter is not currently supported.
---
 deFilters :: Lens' DescribeEvents [Filter]
 deFilters = lens _deFilters (\s a -> s { _deFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous DescribeEvents request.
 -- If this parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by 'MaxRecords'.
---
 deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\s a -> s { _deMarker = a })
 
@@ -147,7 +142,6 @@ deMarker = lens _deMarker (\s a -> s { _deMarker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
---
 deMaxRecords :: Lens' DescribeEvents (Maybe Int)
 deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a })
 
@@ -168,7 +162,6 @@ deSourceIdentifier =
 
 -- | The event source to retrieve events for. If no value is specified, all
 -- events are returned.
---
 deSourceType :: Lens' DescribeEvents (Maybe SourceType)
 deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
 
@@ -176,7 +169,6 @@ deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
 -- 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.>
 --
 -- Example: 2009-07-08T18:00Z
---
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
 deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a }) . mapping _Time
 
@@ -200,14 +192,12 @@ describeEventsResponse = DescribeEventsResponse
     }
 
 -- | A list of 'Event' instances.
---
 derEvents :: Lens' DescribeEventsResponse [Event]
 derEvents = lens _derEvents (\s a -> s { _derEvents = a }) . _List
 
 -- | An optional pagination token provided by a previous Events request. If this
 -- parameter is specified, the response includes only records beyond the marker,
 -- up to the value specified by 'MaxRecords' .
---
 derMarker :: Lens' DescribeEventsResponse (Maybe Text)
 derMarker = lens _derMarker (\s a -> s { _derMarker = a })
 

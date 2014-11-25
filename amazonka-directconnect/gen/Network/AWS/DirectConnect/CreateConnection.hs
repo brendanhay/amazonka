@@ -151,7 +151,6 @@ createConnectionResponse = CreateConnectionResponse
 -- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
 --
 -- Default: None
---
 ccrBandwidth :: Lens' CreateConnectionResponse (Maybe Text)
 ccrBandwidth = lens _ccrBandwidth (\s a -> s { _ccrBandwidth = a })
 

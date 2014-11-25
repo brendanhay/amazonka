@@ -61,7 +61,6 @@ deletePreset p1 = DeletePreset
     }
 
 -- | The identifier of the preset for which you want to get detailed information.
---
 dpId :: Lens' DeletePreset Text
 dpId = lens _dpId (\s a -> s { _dpId = a })
 

@@ -62,7 +62,6 @@ readJob p1 = ReadJob
     }
 
 -- | The identifier of the job for which you want to get detailed information.
---
 rjId :: Lens' ReadJob Text
 rjId = lens _rjId (\s a -> s { _rjId = a })
 
@@ -82,7 +81,6 @@ readJobResponse = ReadJobResponse
     }
 
 -- | A section of the response body that provides information about the job.
---
 rjrJob :: Lens' ReadJobResponse (Maybe Job')
 rjrJob = lens _rjrJob (\s a -> s { _rjrJob = a })
 

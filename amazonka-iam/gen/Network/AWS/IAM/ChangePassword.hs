@@ -71,12 +71,10 @@ changePassword p1 p2 = ChangePassword
 
 -- | The new password. The new password must conform to the AWS account's password
 -- policy, if one exists.
---
 cpNewPassword :: Lens' ChangePassword Text
 cpNewPassword = lens _cpNewPassword (\s a -> s { _cpNewPassword = a }) . _Sensitive
 
 -- | The IAM user's current password.
---
 cpOldPassword :: Lens' ChangePassword Text
 cpOldPassword = lens _cpOldPassword (\s a -> s { _cpOldPassword = a }) . _Sensitive
 

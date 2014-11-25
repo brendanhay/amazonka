@@ -96,37 +96,31 @@ createGrant p1 p2 = CreateGrant
 
 -- | Specifies the conditions under which the actions specified by the 'Operations'
 -- parameter are allowed.
---
 cgConstraints :: Lens' CreateGrant (Maybe GrantConstraints)
 cgConstraints = lens _cgConstraints (\s a -> s { _cgConstraints = a })
 
 -- | List of grant tokens.
---
 cgGrantTokens :: Lens' CreateGrant [Text]
 cgGrantTokens = lens _cgGrantTokens (\s a -> s { _cgGrantTokens = a }) . _List
 
 -- | Principal given permission by the grant to use the key identified by the 'keyId'
 -- parameter.
---
 cgGranteePrincipal :: Lens' CreateGrant Text
 cgGranteePrincipal =
     lens _cgGranteePrincipal (\s a -> s { _cgGranteePrincipal = a })
 
 -- | A unique key identifier for a customer master key. This value can be a
 -- globally unique identifier, an ARN, or an alias.
---
 cgKeyId :: Lens' CreateGrant Text
 cgKeyId = lens _cgKeyId (\s a -> s { _cgKeyId = a })
 
 -- | List of operations permitted by the grant. This can be any combination of one
 -- or more of the following values:  Decrypt Encrypt GenerateDataKey GenerateDataKeyWithoutPlaintext
 -- ReEncryptFrom ReEncryptTo CreateGrant
---
 cgOperations :: Lens' CreateGrant [GrantOperation]
 cgOperations = lens _cgOperations (\s a -> s { _cgOperations = a }) . _List
 
 -- | Principal given permission to retire the grant. For more information, see 'RetireGrant'.
---
 cgRetiringPrincipal :: Lens' CreateGrant (Maybe Text)
 cgRetiringPrincipal =
     lens _cgRetiringPrincipal (\s a -> s { _cgRetiringPrincipal = a })
@@ -151,14 +145,12 @@ createGrantResponse = CreateGrantResponse
     }
 
 -- | Unique grant identifier. You can use the /GrantId/ value to revoke a grant.
---
 cgrGrantId :: Lens' CreateGrantResponse (Maybe Text)
 cgrGrantId = lens _cgrGrantId (\s a -> s { _cgrGrantId = a })
 
 -- | The grant token. A grant token is a string that identifies a grant and which
 -- can be used to make a grant take effect immediately. A token contains all of
 -- the information necessary to create a grant.
---
 cgrGrantToken :: Lens' CreateGrantResponse (Maybe Text)
 cgrGrantToken = lens _cgrGrantToken (\s a -> s { _cgrGrantToken = a })
 

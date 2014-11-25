@@ -69,7 +69,6 @@ dig2DryRun :: Lens' DeleteInternetGateway (Maybe Bool)
 dig2DryRun = lens _dig2DryRun (\s a -> s { _dig2DryRun = a })
 
 -- | The ID of the Internet gateway.
---
 dig2InternetGatewayId :: Lens' DeleteInternetGateway Text
 dig2InternetGatewayId =
     lens _dig2InternetGatewayId (\s a -> s { _dig2InternetGatewayId = a })

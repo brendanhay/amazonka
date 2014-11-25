@@ -137,13 +137,11 @@ upContentConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
 upContentConfig = lens _upContentConfig (\s a -> s { _upContentConfig = a })
 
 -- | The ID of the pipeline that you want to update.
---
 upId :: Lens' UpdatePipeline Text
 upId = lens _upId (\s a -> s { _upId = a })
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to
 -- transcode and the graphics that you want to use as watermarks.
---
 upInputBucket :: Lens' UpdatePipeline (Maybe Text)
 upInputBucket = lens _upInputBucket (\s a -> s { _upInputBucket = a })
 
@@ -151,7 +149,6 @@ upInputBucket = lens _upInputBucket (\s a -> s { _upInputBucket = a })
 -- account, but uniqueness is not enforced.
 --
 -- Constraints: Maximum 40 characters
---
 upName :: Lens' UpdatePipeline (Maybe Text)
 upName = lens _upName (\s a -> s { _upName = a })
 
@@ -160,7 +157,6 @@ upNotifications = lens _upNotifications (\s a -> s { _upNotifications = a })
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to use to transcode jobs for this pipeline.
---
 upRole :: Lens' UpdatePipeline (Maybe Text)
 upRole = lens _upRole (\s a -> s { _upRole = a })
 

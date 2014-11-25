@@ -191,7 +191,6 @@ createCluster p1 p2 p3 p4 = CreateCluster
 -- window to the Amazon Redshift engine that is running on your cluster.
 --
 -- Default: 'true'
---
 ccAllowVersionUpgrade :: Lens' CreateCluster (Maybe Bool)
 ccAllowVersionUpgrade =
     lens _ccAllowVersionUpgrade (\s a -> s { _ccAllowVersionUpgrade = a })
@@ -204,7 +203,6 @@ ccAllowVersionUpgrade =
 -- Default: '1'
 --
 -- Constraints: Must be a value from 0 to 35.
---
 ccAutomatedSnapshotRetentionPeriod :: Lens' CreateCluster (Maybe Int)
 ccAutomatedSnapshotRetentionPeriod =
     lens _ccAutomatedSnapshotRetentionPeriod
@@ -222,7 +220,6 @@ ccAutomatedSnapshotRetentionPeriod =
 --
 -- Constraint: The specified Availability Zone must be in the same region as
 -- the current endpoint.
---
 ccAvailabilityZone :: Lens' CreateCluster (Maybe Text)
 ccAvailabilityZone =
     lens _ccAvailabilityZone (\s a -> s { _ccAvailabilityZone = a })
@@ -237,7 +234,6 @@ ccAvailabilityZone =
 -- characters must be lowercase. First character must be a letter. Cannot end
 -- with a hyphen or contain two consecutive hyphens. Must be unique for all
 -- clusters within an AWS account.  Example: 'myexamplecluster'
---
 ccClusterIdentifier :: Lens' CreateCluster Text
 ccClusterIdentifier =
     lens _ccClusterIdentifier (\s a -> s { _ccClusterIdentifier = a })
@@ -259,7 +255,6 @@ ccClusterParameterGroupName =
 -- | A list of security groups to be associated with this cluster.
 --
 -- Default: The default cluster security group for Amazon Redshift.
---
 ccClusterSecurityGroups :: Lens' CreateCluster [Text]
 ccClusterSecurityGroups =
     lens _ccClusterSecurityGroups (\s a -> s { _ccClusterSecurityGroups = a })
@@ -269,7 +264,6 @@ ccClusterSecurityGroups =
 --
 -- If this parameter is not provided the resulting cluster will be deployed
 -- outside virtual private cloud (VPC).
---
 ccClusterSubnetGroupName :: Lens' CreateCluster (Maybe Text)
 ccClusterSubnetGroupName =
     lens _ccClusterSubnetGroupName
@@ -282,7 +276,6 @@ ccClusterSubnetGroupName =
 -- Valid Values: 'multi-node' | 'single-node'
 --
 -- Default: 'multi-node'
---
 ccClusterType :: Lens' CreateCluster (Maybe Text)
 ccClusterType = lens _ccClusterType (\s a -> s { _ccClusterType = a })
 
@@ -294,7 +287,6 @@ ccClusterType = lens _ccClusterType (\s a -> s { _ccClusterType = a })
 -- Constraints: Only version 1.0 is currently available.
 --
 -- Example: '1.0'
---
 ccClusterVersion :: Lens' CreateCluster (Maybe Text)
 ccClusterVersion = lens _ccClusterVersion (\s a -> s { _ccClusterVersion = a })
 
@@ -321,20 +313,17 @@ ccDBName = lens _ccDBName (\s a -> s { _ccDBName = a })
 -- Constraints: The cluster must be provisioned in EC2-VPC and
 -- publicly-accessible through an Internet gateway. For more information about
 -- provisioning clusters in EC2-VPC, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch YourCluster> in the Amazon Redshift Cluster Management Guide.
---
 ccElasticIp :: Lens' CreateCluster (Maybe Text)
 ccElasticIp = lens _ccElasticIp (\s a -> s { _ccElasticIp = a })
 
 -- | If 'true', the data in the cluster is encrypted at rest.
 --
 -- Default: false
---
 ccEncrypted :: Lens' CreateCluster (Maybe Bool)
 ccEncrypted = lens _ccEncrypted (\s a -> s { _ccEncrypted = a })
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift cluster
 -- uses to retrieve the data encryption keys stored in an HSM.
---
 ccHsmClientCertificateIdentifier :: Lens' CreateCluster (Maybe Text)
 ccHsmClientCertificateIdentifier =
     lens _ccHsmClientCertificateIdentifier
@@ -342,7 +331,6 @@ ccHsmClientCertificateIdentifier =
 
 -- | Specifies the name of the HSM configuration that contains the information the
 -- Amazon Redshift cluster can use to retrieve and store keys in an HSM.
---
 ccHsmConfigurationIdentifier :: Lens' CreateCluster (Maybe Text)
 ccHsmConfigurationIdentifier =
     lens _ccHsmConfigurationIdentifier
@@ -350,7 +338,6 @@ ccHsmConfigurationIdentifier =
 
 -- | The AWS Key Management Service (KMS) key ID of the encryption key that you
 -- want to use to encrypt data in the cluster.
---
 ccKmsKeyId :: Lens' CreateCluster (Maybe Text)
 ccKmsKeyId = lens _ccKmsKeyId (\s a -> s { _ccKmsKeyId = a })
 
@@ -381,7 +368,6 @@ ccMasterUsername = lens _ccMasterUsername (\s a -> s { _ccMasterUsername = a })
 -- types, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes  Working with Clusters> in the /Amazon Redshift Cluster ManagementGuide/.
 --
 -- Valid Values: 'dw1.xlarge' | 'dw1.8xlarge' | 'dw2.large' | 'dw2.8xlarge'.
---
 ccNodeType :: Lens' CreateCluster Text
 ccNodeType = lens _ccNodeType (\s a -> s { _ccNodeType = a })
 
@@ -397,7 +383,6 @@ ccNodeType = lens _ccNodeType (\s a -> s { _ccNodeType = a })
 -- Default: '1'
 --
 -- Constraints: Value must be at least 1 and no more than 100.
---
 ccNumberOfNodes :: Lens' CreateCluster (Maybe Int)
 ccNumberOfNodes = lens _ccNumberOfNodes (\s a -> s { _ccNumberOfNodes = a })
 
@@ -410,7 +395,6 @@ ccNumberOfNodes = lens _ccNumberOfNodes (\s a -> s { _ccNumberOfNodes = a })
 -- Default: '5439'
 --
 -- Valid Values: '1150-65535'
---
 ccPort :: Lens' CreateCluster (Maybe Int)
 ccPort = lens _ccPort (\s a -> s { _ccPort = a })
 
@@ -427,20 +411,17 @@ ccPort = lens _ccPort (\s a -> s { _ccPort = a })
 -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 --
 -- Constraints: Minimum 30-minute window.
---
 ccPreferredMaintenanceWindow :: Lens' CreateCluster (Maybe Text)
 ccPreferredMaintenanceWindow =
     lens _ccPreferredMaintenanceWindow
         (\s a -> s { _ccPreferredMaintenanceWindow = a })
 
 -- | If 'true', the cluster can be accessed from a public network.
---
 ccPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
 ccPubliclyAccessible =
     lens _ccPubliclyAccessible (\s a -> s { _ccPubliclyAccessible = a })
 
 -- | A list of tag instances.
---
 ccTags :: Lens' CreateCluster [Tag]
 ccTags = lens _ccTags (\s a -> s { _ccTags = a }) . _List
 
@@ -448,7 +429,6 @@ ccTags = lens _ccTags (\s a -> s { _ccTags = a }) . _List
 -- the cluster.
 --
 -- Default: The default VPC security group is associated with the cluster.
---
 ccVpcSecurityGroupIds :: Lens' CreateCluster [Text]
 ccVpcSecurityGroupIds =
     lens _ccVpcSecurityGroupIds (\s a -> s { _ccVpcSecurityGroupIds = a })

@@ -62,7 +62,6 @@ getSubscriptionAttributes p1 = GetSubscriptionAttributes
     }
 
 -- | The ARN of the subscription whose properties you want to get.
---
 gsaSubscriptionArn :: Lens' GetSubscriptionAttributes Text
 gsaSubscriptionArn =
     lens _gsaSubscriptionArn (\s a -> s { _gsaSubscriptionArn = a })

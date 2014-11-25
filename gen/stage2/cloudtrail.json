@@ -69,7 +69,7 @@
                         "name": "_tName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Name of the trail set by calling 'CreateTrail'.\n--",
+                        "documentation": "-- | Name of the trail set by calling 'CreateTrail'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -84,7 +84,7 @@
                         "name": "_tS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail files.\n--",
+                        "documentation": "-- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -99,7 +99,7 @@
                         "name": "_tS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Value of the Amazon S3 prefix.\n--",
+                        "documentation": "-- | Value of the Amazon S3 prefix.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -114,7 +114,7 @@
                         "name": "_tSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the\n-- account owner when new CloudTrail log files have been delivered.\n--",
+                        "documentation": "-- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the\n-- account owner when new CloudTrail log files have been delivered.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -129,7 +129,7 @@
                         "name": "_tIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Set to True to include AWS API calls from AWS global services such as IAM.\n-- Otherwise, False.\n--",
+                        "documentation": "-- | Set to True to include AWS API calls from AWS global services such as IAM.\n-- Otherwise, False.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -144,7 +144,7 @@
                         "name": "_tCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies an Amazon Resource Name (ARN), a unique identifier that represents\n-- the log group to which CloudTrail logs will be delivered.\n--",
+                        "documentation": "-- | Specifies an Amazon Resource Name (ARN), a unique identifier that represents\n-- the log group to which CloudTrail logs will be delivered.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -159,7 +159,7 @@
                         "name": "_tCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -182,7 +182,7 @@
                         "name": "_tName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Name of the trail set by calling 'CreateTrail'.\n--",
+                        "documentation": "-- | Name of the trail set by calling 'CreateTrail'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -197,7 +197,7 @@
                         "name": "_tS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail files.\n--",
+                        "documentation": "-- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -212,7 +212,7 @@
                         "name": "_tS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Value of the Amazon S3 prefix.\n--",
+                        "documentation": "-- | Value of the Amazon S3 prefix.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -227,7 +227,7 @@
                         "name": "_tSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the\n-- account owner when new CloudTrail log files have been delivered.\n--",
+                        "documentation": "-- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the\n-- account owner when new CloudTrail log files have been delivered.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -242,7 +242,7 @@
                         "name": "_tIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Set to True to include AWS API calls from AWS global services such as IAM.\n-- Otherwise, False.\n--",
+                        "documentation": "-- | Set to True to include AWS API calls from AWS global services such as IAM.\n-- Otherwise, False.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -257,7 +257,7 @@
                         "name": "_tCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies an Amazon Resource Name (ARN), a unique identifier that represents\n-- the log group to which CloudTrail logs will be delivered.\n--",
+                        "documentation": "-- | Specifies an Amazon Resource Name (ARN), a unique identifier that represents\n-- the log group to which CloudTrail logs will be delivered.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -272,7 +272,7 @@
                         "name": "_tCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -289,7 +289,7 @@
                         "name": "_tCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies an Amazon Resource Name (ARN), a unique identifier that represents\n-- the log group to which CloudTrail logs will be delivered.\n--",
+                        "documentation": "-- | Specifies an Amazon Resource Name (ARN), a unique identifier that represents\n-- the log group to which CloudTrail logs will be delivered.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -304,7 +304,7 @@
                         "name": "_tCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -319,7 +319,7 @@
                         "name": "_tIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Set to True to include AWS API calls from AWS global services such as IAM.\n-- Otherwise, False.\n--",
+                        "documentation": "-- | Set to True to include AWS API calls from AWS global services such as IAM.\n-- Otherwise, False.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -334,7 +334,7 @@
                         "name": "_tName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Name of the trail set by calling 'CreateTrail'.\n--",
+                        "documentation": "-- | Name of the trail set by calling 'CreateTrail'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -349,7 +349,7 @@
                         "name": "_tS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail files.\n--",
+                        "documentation": "-- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -364,7 +364,7 @@
                         "name": "_tS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Value of the Amazon S3 prefix.\n--",
+                        "documentation": "-- | Value of the Amazon S3 prefix.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -379,7 +379,7 @@
                         "name": "_tSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the\n-- account owner when new CloudTrail log files have been delivered.\n--",
+                        "documentation": "-- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the\n-- account owner when new CloudTrail log files have been delivered.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -415,7 +415,7 @@
                         "name": "_ctrName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the name of the trail.\n--",
+                        "documentation": "-- | Specifies the name of the trail.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -430,7 +430,7 @@
                         "name": "_ctrS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -445,7 +445,7 @@
                         "name": "_ctrS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.\n--",
+                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -460,7 +460,7 @@
                         "name": "_ctrSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -475,7 +475,7 @@
                         "name": "_ctrIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.\n--",
+                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -490,7 +490,7 @@
                         "name": "_ctrCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail\n-- logs will be delivered.\n--",
+                        "documentation": "-- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail\n-- logs will be delivered.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -505,7 +505,7 @@
                         "name": "_ctrCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -534,7 +534,7 @@
                         "name": "_ctrName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the name of the trail.\n--",
+                        "documentation": "-- | Specifies the name of the trail.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -549,7 +549,7 @@
                         "name": "_ctrS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -564,7 +564,7 @@
                         "name": "_ctrS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.\n--",
+                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -579,7 +579,7 @@
                         "name": "_ctrSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -594,7 +594,7 @@
                         "name": "_ctrIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.\n--",
+                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -609,7 +609,7 @@
                         "name": "_ctrCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail\n-- logs will be delivered.\n--",
+                        "documentation": "-- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail\n-- logs will be delivered.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -624,7 +624,7 @@
                         "name": "_ctrCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -641,7 +641,7 @@
                         "name": "_ctrCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail\n-- logs will be delivered.\n--",
+                        "documentation": "-- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail\n-- logs will be delivered.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -656,7 +656,7 @@
                         "name": "_ctrCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -671,7 +671,7 @@
                         "name": "_ctrIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.\n--",
+                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -686,7 +686,7 @@
                         "name": "_ctrName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the name of the trail.\n--",
+                        "documentation": "-- | Specifies the name of the trail.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -701,7 +701,7 @@
                         "name": "_ctrS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -716,7 +716,7 @@
                         "name": "_ctrS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.\n--",
+                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -731,7 +731,7 @@
                         "name": "_ctrSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -747,7 +747,7 @@
             "pager": null,
             "name": "CreateTrail",
             "method": "post",
-            "documentation": "-- | From the command line, use 'create-subscription'.\n--\n-- Creates a trail that specifies the settings for delivery of log data to an\n-- Amazon S3 bucket.\n--",
+            "documentation": "-- | From the command line, use 'create-subscription'.\n--\n-- Creates a trail that specifies the settings for delivery of log data to an\n-- Amazon S3 bucket.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -772,7 +772,7 @@
                         "name": "_ctName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the name of the trail.\n--",
+                        "documentation": "-- | Specifies the name of the trail.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -787,7 +787,7 @@
                         "name": "_ctS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -802,7 +802,7 @@
                         "name": "_ctS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.\n--",
+                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -817,7 +817,7 @@
                         "name": "_ctSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -832,7 +832,7 @@
                         "name": "_ctIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.\n--",
+                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -847,7 +847,7 @@
                         "name": "_ctCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies a log group name using an Amazon Resource Name (ARN), a unique\n-- identifier that represents the log group to which CloudTrail logs will be\n-- delivered. Not required unless you specify CloudWatchLogsRoleArn.\n--",
+                        "documentation": "-- | Specifies a log group name using an Amazon Resource Name (ARN), a unique\n-- identifier that represents the log group to which CloudTrail logs will be\n-- delivered. Not required unless you specify CloudWatchLogsRoleArn.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -862,7 +862,7 @@
                         "name": "_ctCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -887,7 +887,7 @@
                         "name": "_ctName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the name of the trail.\n--",
+                        "documentation": "-- | Specifies the name of the trail.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -902,7 +902,7 @@
                         "name": "_ctS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -929,7 +929,7 @@
                         "name": "_ctS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.\n--",
+                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -944,7 +944,7 @@
                         "name": "_ctSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -959,7 +959,7 @@
                         "name": "_ctIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.\n--",
+                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -974,7 +974,7 @@
                         "name": "_ctCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies a log group name using an Amazon Resource Name (ARN), a unique\n-- identifier that represents the log group to which CloudTrail logs will be\n-- delivered. Not required unless you specify CloudWatchLogsRoleArn.\n--",
+                        "documentation": "-- | Specifies a log group name using an Amazon Resource Name (ARN), a unique\n-- identifier that represents the log group to which CloudTrail logs will be\n-- delivered. Not required unless you specify CloudWatchLogsRoleArn.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -989,7 +989,7 @@
                         "name": "_ctCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1006,7 +1006,7 @@
                         "name": "_ctCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies a log group name using an Amazon Resource Name (ARN), a unique\n-- identifier that represents the log group to which CloudTrail logs will be\n-- delivered. Not required unless you specify CloudWatchLogsRoleArn.\n--",
+                        "documentation": "-- | Specifies a log group name using an Amazon Resource Name (ARN), a unique\n-- identifier that represents the log group to which CloudTrail logs will be\n-- delivered. Not required unless you specify CloudWatchLogsRoleArn.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1021,7 +1021,7 @@
                         "name": "_ctCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1036,7 +1036,7 @@
                         "name": "_ctIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.\n--",
+                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -1051,7 +1051,7 @@
                         "name": "_ctName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the name of the trail.\n--",
+                        "documentation": "-- | Specifies the name of the trail.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1066,7 +1066,7 @@
                         "name": "_ctS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1081,7 +1081,7 @@
                         "name": "_ctS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.\n--",
+                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1096,7 +1096,7 @@
                         "name": "_ctSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1139,7 +1139,7 @@
             "pager": null,
             "name": "DeleteTrail",
             "method": "post",
-            "documentation": "-- | Deletes a trail.\n--",
+            "documentation": "-- | Deletes a trail.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1166,7 +1166,7 @@
                     "name": "_dtName",
                     "shape": "String",
                     "locationName": "Name",
-                    "documentation": "-- | The name of a trail to be deleted.\n--",
+                    "documentation": "-- | The name of a trail to be deleted.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -1182,7 +1182,7 @@
                         "name": "_dtName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | The name of a trail to be deleted.\n--",
+                        "documentation": "-- | The name of a trail to be deleted.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1207,7 +1207,7 @@
                         "name": "_dtName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | The name of a trail to be deleted.\n--",
+                        "documentation": "-- | The name of a trail to be deleted.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1235,7 +1235,7 @@
                         "name": "_dtName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | The name of a trail to be deleted.\n--",
+                        "documentation": "-- | The name of a trail to be deleted.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1268,7 +1268,7 @@
                     "name": "_dtrTrailList",
                     "shape": "TrailList",
                     "locationName": "trailList",
-                    "documentation": "-- | The list of trails.\n--",
+                    "documentation": "-- | The list of trails.",
                     "typeExposed": "[Trail]",
                     "type": "List \"trailList\" Trail"
                 },
@@ -1284,7 +1284,7 @@
                         "name": "_dtrTrailList",
                         "shape": "TrailList",
                         "locationName": "trailList",
-                        "documentation": "-- | The list of trails.\n--",
+                        "documentation": "-- | The list of trails.",
                         "typeExposed": "[Trail]",
                         "type": "List \"trailList\" Trail"
                     }
@@ -1313,7 +1313,7 @@
                         "name": "_dtrTrailList",
                         "shape": "TrailList",
                         "locationName": "trailList",
-                        "documentation": "-- | The list of trails.\n--",
+                        "documentation": "-- | The list of trails.",
                         "typeExposed": "[Trail]",
                         "type": "List \"trailList\" Trail"
                     }
@@ -1330,7 +1330,7 @@
                         "name": "_dtrTrailList",
                         "shape": "TrailList",
                         "locationName": "trailList",
-                        "documentation": "-- | The list of trails.\n--",
+                        "documentation": "-- | The list of trails.",
                         "typeExposed": "[Trail]",
                         "type": "List \"trailList\" Trail"
                     }
@@ -1346,7 +1346,7 @@
             "pager": null,
             "name": "DescribeTrails",
             "method": "post",
-            "documentation": "-- | Retrieves settings for the trail associated with the current region for your\n-- account.\n--",
+            "documentation": "-- | Retrieves settings for the trail associated with the current region for your\n-- account.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1373,7 +1373,7 @@
                     "name": "_dtTrailNameList",
                     "shape": "TrailNameList",
                     "locationName": "trailNameList",
-                    "documentation": "-- | The trail returned.\n--",
+                    "documentation": "-- | The trail returned.",
                     "typeExposed": "[Text]",
                     "type": "List \"trailNameList\" Text"
                 },
@@ -1389,7 +1389,7 @@
                         "name": "_dtTrailNameList",
                         "shape": "TrailNameList",
                         "locationName": "trailNameList",
-                        "documentation": "-- | The trail returned.\n--",
+                        "documentation": "-- | The trail returned.",
                         "typeExposed": "[Text]",
                         "type": "List \"trailNameList\" Text"
                     }
@@ -1425,7 +1425,7 @@
                         "name": "_dtTrailNameList",
                         "shape": "TrailNameList",
                         "locationName": "trailNameList",
-                        "documentation": "-- | The trail returned.\n--",
+                        "documentation": "-- | The trail returned.",
                         "typeExposed": "[Text]",
                         "type": "List \"trailNameList\" Text"
                     }
@@ -1442,7 +1442,7 @@
                         "name": "_dtTrailNameList",
                         "shape": "TrailNameList",
                         "locationName": "trailNameList",
-                        "documentation": "-- | The trail returned.\n--",
+                        "documentation": "-- | The trail returned.",
                         "typeExposed": "[Text]",
                         "type": "List \"trailNameList\" Text"
                     }
@@ -1474,7 +1474,7 @@
                         "name": "_gtsrIsLogging",
                         "shape": "Boolean",
                         "locationName": "IsLogging",
-                        "documentation": "-- | Whether the CloudTrail is currently logging AWS API calls.\n--",
+                        "documentation": "-- | Whether the CloudTrail is currently logging AWS API calls.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -1489,7 +1489,7 @@
                         "name": "_gtsrLatestDeliveryError",
                         "shape": "String",
                         "locationName": "LatestDeliveryError",
-                        "documentation": "-- | Displays any Amazon S3 error that CloudTrail encountered when attempting to\n-- deliver log files to the designated bucket. For more information see the\n-- topic \u003chttp://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses\u003e in the Amazon S3 API Reference.\n--",
+                        "documentation": "-- | Displays any Amazon S3 error that CloudTrail encountered when attempting to\n-- deliver log files to the designated bucket. For more information see the\n-- topic \u003chttp://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses\u003e in the Amazon S3 API Reference.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1504,7 +1504,7 @@
                         "name": "_gtsrLatestNotificationError",
                         "shape": "String",
                         "locationName": "LatestNotificationError",
-                        "documentation": "-- | Displays any Amazon SNS error that CloudTrail encountered when attempting to\n-- send a notification. For more information about Amazon SNS errors, see the \u003chttp://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide\u003e.\n--",
+                        "documentation": "-- | Displays any Amazon SNS error that CloudTrail encountered when attempting to\n-- send a notification. For more information about Amazon SNS errors, see the \u003chttp://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1519,7 +1519,7 @@
                         "name": "_gtsrLatestDeliveryTime",
                         "shape": "Date",
                         "locationName": "LatestDeliveryTime",
-                        "documentation": "-- | Specifies the date and time that CloudTrail last delivered log files to an\n-- account's Amazon S3 bucket.\n--",
+                        "documentation": "-- | Specifies the date and time that CloudTrail last delivered log files to an\n-- account's Amazon S3 bucket.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1534,7 +1534,7 @@
                         "name": "_gtsrLatestNotificationTime",
                         "shape": "Date",
                         "locationName": "LatestNotificationTime",
-                        "documentation": "-- | Specifies the date and time of the most recent Amazon SNS notification that\n-- CloudTrail has written a new log file to an account's Amazon S3 bucket.\n--",
+                        "documentation": "-- | Specifies the date and time of the most recent Amazon SNS notification that\n-- CloudTrail has written a new log file to an account's Amazon S3 bucket.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1549,7 +1549,7 @@
                         "name": "_gtsrStartLoggingTime",
                         "shape": "Date",
                         "locationName": "StartLoggingTime",
-                        "documentation": "-- | Specifies the most recent date and time when CloudTrail started recording API\n-- calls for an AWS account.\n--",
+                        "documentation": "-- | Specifies the most recent date and time when CloudTrail started recording API\n-- calls for an AWS account.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1564,7 +1564,7 @@
                         "name": "_gtsrStopLoggingTime",
                         "shape": "Date",
                         "locationName": "StopLoggingTime",
-                        "documentation": "-- | Specifies the most recent date and time when CloudTrail stopped recording API\n-- calls for an AWS account.\n--",
+                        "documentation": "-- | Specifies the most recent date and time when CloudTrail stopped recording API\n-- calls for an AWS account.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1579,7 +1579,7 @@
                         "name": "_gtsrLatestCloudWatchLogsDeliveryError",
                         "shape": "String",
                         "locationName": "LatestCloudWatchLogsDeliveryError",
-                        "documentation": "-- | Displays any CloudWatch Logs error that CloudTrail encountered when\n-- attempting to deliver logs to CloudWatch Logs.\n--",
+                        "documentation": "-- | Displays any CloudWatch Logs error that CloudTrail encountered when\n-- attempting to deliver logs to CloudWatch Logs.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1594,7 +1594,7 @@
                         "name": "_gtsrLatestCloudWatchLogsDeliveryTime",
                         "shape": "Date",
                         "locationName": "LatestCloudWatchLogsDeliveryTime",
-                        "documentation": "-- | Displays the most recent date and time when CloudTrail delivered logs to\n-- CloudWatch Logs.\n--",
+                        "documentation": "-- | Displays the most recent date and time when CloudTrail delivered logs to\n-- CloudWatch Logs.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -1623,7 +1623,7 @@
                         "name": "_gtsrIsLogging",
                         "shape": "Boolean",
                         "locationName": "IsLogging",
-                        "documentation": "-- | Whether the CloudTrail is currently logging AWS API calls.\n--",
+                        "documentation": "-- | Whether the CloudTrail is currently logging AWS API calls.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -1638,7 +1638,7 @@
                         "name": "_gtsrLatestDeliveryError",
                         "shape": "String",
                         "locationName": "LatestDeliveryError",
-                        "documentation": "-- | Displays any Amazon S3 error that CloudTrail encountered when attempting to\n-- deliver log files to the designated bucket. For more information see the\n-- topic \u003chttp://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses\u003e in the Amazon S3 API Reference.\n--",
+                        "documentation": "-- | Displays any Amazon S3 error that CloudTrail encountered when attempting to\n-- deliver log files to the designated bucket. For more information see the\n-- topic \u003chttp://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses\u003e in the Amazon S3 API Reference.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1653,7 +1653,7 @@
                         "name": "_gtsrLatestNotificationError",
                         "shape": "String",
                         "locationName": "LatestNotificationError",
-                        "documentation": "-- | Displays any Amazon SNS error that CloudTrail encountered when attempting to\n-- send a notification. For more information about Amazon SNS errors, see the \u003chttp://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide\u003e.\n--",
+                        "documentation": "-- | Displays any Amazon SNS error that CloudTrail encountered when attempting to\n-- send a notification. For more information about Amazon SNS errors, see the \u003chttp://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1668,7 +1668,7 @@
                         "name": "_gtsrLatestDeliveryTime",
                         "shape": "Date",
                         "locationName": "LatestDeliveryTime",
-                        "documentation": "-- | Specifies the date and time that CloudTrail last delivered log files to an\n-- account's Amazon S3 bucket.\n--",
+                        "documentation": "-- | Specifies the date and time that CloudTrail last delivered log files to an\n-- account's Amazon S3 bucket.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1683,7 +1683,7 @@
                         "name": "_gtsrLatestNotificationTime",
                         "shape": "Date",
                         "locationName": "LatestNotificationTime",
-                        "documentation": "-- | Specifies the date and time of the most recent Amazon SNS notification that\n-- CloudTrail has written a new log file to an account's Amazon S3 bucket.\n--",
+                        "documentation": "-- | Specifies the date and time of the most recent Amazon SNS notification that\n-- CloudTrail has written a new log file to an account's Amazon S3 bucket.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1698,7 +1698,7 @@
                         "name": "_gtsrStartLoggingTime",
                         "shape": "Date",
                         "locationName": "StartLoggingTime",
-                        "documentation": "-- | Specifies the most recent date and time when CloudTrail started recording API\n-- calls for an AWS account.\n--",
+                        "documentation": "-- | Specifies the most recent date and time when CloudTrail started recording API\n-- calls for an AWS account.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1713,7 +1713,7 @@
                         "name": "_gtsrStopLoggingTime",
                         "shape": "Date",
                         "locationName": "StopLoggingTime",
-                        "documentation": "-- | Specifies the most recent date and time when CloudTrail stopped recording API\n-- calls for an AWS account.\n--",
+                        "documentation": "-- | Specifies the most recent date and time when CloudTrail stopped recording API\n-- calls for an AWS account.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1728,7 +1728,7 @@
                         "name": "_gtsrLatestCloudWatchLogsDeliveryError",
                         "shape": "String",
                         "locationName": "LatestCloudWatchLogsDeliveryError",
-                        "documentation": "-- | Displays any CloudWatch Logs error that CloudTrail encountered when\n-- attempting to deliver logs to CloudWatch Logs.\n--",
+                        "documentation": "-- | Displays any CloudWatch Logs error that CloudTrail encountered when\n-- attempting to deliver logs to CloudWatch Logs.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1743,7 +1743,7 @@
                         "name": "_gtsrLatestCloudWatchLogsDeliveryTime",
                         "shape": "Date",
                         "locationName": "LatestCloudWatchLogsDeliveryTime",
-                        "documentation": "-- | Displays the most recent date and time when CloudTrail delivered logs to\n-- CloudWatch Logs.\n--",
+                        "documentation": "-- | Displays the most recent date and time when CloudTrail delivered logs to\n-- CloudWatch Logs.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -1760,7 +1760,7 @@
                         "name": "_gtsrIsLogging",
                         "shape": "Boolean",
                         "locationName": "IsLogging",
-                        "documentation": "-- | Whether the CloudTrail is currently logging AWS API calls.\n--",
+                        "documentation": "-- | Whether the CloudTrail is currently logging AWS API calls.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -1775,7 +1775,7 @@
                         "name": "_gtsrLatestCloudWatchLogsDeliveryError",
                         "shape": "String",
                         "locationName": "LatestCloudWatchLogsDeliveryError",
-                        "documentation": "-- | Displays any CloudWatch Logs error that CloudTrail encountered when\n-- attempting to deliver logs to CloudWatch Logs.\n--",
+                        "documentation": "-- | Displays any CloudWatch Logs error that CloudTrail encountered when\n-- attempting to deliver logs to CloudWatch Logs.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1790,7 +1790,7 @@
                         "name": "_gtsrLatestCloudWatchLogsDeliveryTime",
                         "shape": "Date",
                         "locationName": "LatestCloudWatchLogsDeliveryTime",
-                        "documentation": "-- | Displays the most recent date and time when CloudTrail delivered logs to\n-- CloudWatch Logs.\n--",
+                        "documentation": "-- | Displays the most recent date and time when CloudTrail delivered logs to\n-- CloudWatch Logs.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1805,7 +1805,7 @@
                         "name": "_gtsrLatestDeliveryError",
                         "shape": "String",
                         "locationName": "LatestDeliveryError",
-                        "documentation": "-- | Displays any Amazon S3 error that CloudTrail encountered when attempting to\n-- deliver log files to the designated bucket. For more information see the\n-- topic \u003chttp://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses\u003e in the Amazon S3 API Reference.\n--",
+                        "documentation": "-- | Displays any Amazon S3 error that CloudTrail encountered when attempting to\n-- deliver log files to the designated bucket. For more information see the\n-- topic \u003chttp://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses\u003e in the Amazon S3 API Reference.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1820,7 +1820,7 @@
                         "name": "_gtsrLatestDeliveryTime",
                         "shape": "Date",
                         "locationName": "LatestDeliveryTime",
-                        "documentation": "-- | Specifies the date and time that CloudTrail last delivered log files to an\n-- account's Amazon S3 bucket.\n--",
+                        "documentation": "-- | Specifies the date and time that CloudTrail last delivered log files to an\n-- account's Amazon S3 bucket.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1835,7 +1835,7 @@
                         "name": "_gtsrLatestNotificationError",
                         "shape": "String",
                         "locationName": "LatestNotificationError",
-                        "documentation": "-- | Displays any Amazon SNS error that CloudTrail encountered when attempting to\n-- send a notification. For more information about Amazon SNS errors, see the \u003chttp://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide\u003e.\n--",
+                        "documentation": "-- | Displays any Amazon SNS error that CloudTrail encountered when attempting to\n-- send a notification. For more information about Amazon SNS errors, see the \u003chttp://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1850,7 +1850,7 @@
                         "name": "_gtsrLatestNotificationTime",
                         "shape": "Date",
                         "locationName": "LatestNotificationTime",
-                        "documentation": "-- | Specifies the date and time of the most recent Amazon SNS notification that\n-- CloudTrail has written a new log file to an account's Amazon S3 bucket.\n--",
+                        "documentation": "-- | Specifies the date and time of the most recent Amazon SNS notification that\n-- CloudTrail has written a new log file to an account's Amazon S3 bucket.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1865,7 +1865,7 @@
                         "name": "_gtsrStartLoggingTime",
                         "shape": "Date",
                         "locationName": "StartLoggingTime",
-                        "documentation": "-- | Specifies the most recent date and time when CloudTrail started recording API\n-- calls for an AWS account.\n--",
+                        "documentation": "-- | Specifies the most recent date and time when CloudTrail started recording API\n-- calls for an AWS account.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1880,7 +1880,7 @@
                         "name": "_gtsrStopLoggingTime",
                         "shape": "Date",
                         "locationName": "StopLoggingTime",
-                        "documentation": "-- | Specifies the most recent date and time when CloudTrail stopped recording API\n-- calls for an AWS account.\n--",
+                        "documentation": "-- | Specifies the most recent date and time when CloudTrail stopped recording API\n-- calls for an AWS account.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -1896,7 +1896,7 @@
             "pager": null,
             "name": "GetTrailStatus",
             "method": "post",
-            "documentation": "-- | Returns a JSON-formatted list of information about the specified trail.\n-- Fields include information on delivery errors, Amazon SNS and Amazon S3\n-- errors, and start and stop logging times for each trail.\n--",
+            "documentation": "-- | Returns a JSON-formatted list of information about the specified trail.\n-- Fields include information on delivery errors, Amazon SNS and Amazon S3\n-- errors, and start and stop logging times for each trail.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1923,7 +1923,7 @@
                     "name": "_gtsName",
                     "shape": "String",
                     "locationName": "Name",
-                    "documentation": "-- | The name of the trail for which you are requesting the current status.\n--",
+                    "documentation": "-- | The name of the trail for which you are requesting the current status.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -1939,7 +1939,7 @@
                         "name": "_gtsName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | The name of the trail for which you are requesting the current status.\n--",
+                        "documentation": "-- | The name of the trail for which you are requesting the current status.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1964,7 +1964,7 @@
                         "name": "_gtsName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | The name of the trail for which you are requesting the current status.\n--",
+                        "documentation": "-- | The name of the trail for which you are requesting the current status.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1992,7 +1992,7 @@
                         "name": "_gtsName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | The name of the trail for which you are requesting the current status.\n--",
+                        "documentation": "-- | The name of the trail for which you are requesting the current status.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2035,7 +2035,7 @@
             "pager": null,
             "name": "StartLogging",
             "method": "post",
-            "documentation": "-- | Starts the recording of AWS API calls and log file delivery for a trail.\n--",
+            "documentation": "-- | Starts the recording of AWS API calls and log file delivery for a trail.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2062,7 +2062,7 @@
                     "name": "_sl1Name",
                     "shape": "String",
                     "locationName": "Name",
-                    "documentation": "-- | The name of the trail for which CloudTrail logs AWS API calls.\n--",
+                    "documentation": "-- | The name of the trail for which CloudTrail logs AWS API calls.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2078,7 +2078,7 @@
                         "name": "_sl1Name",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | The name of the trail for which CloudTrail logs AWS API calls.\n--",
+                        "documentation": "-- | The name of the trail for which CloudTrail logs AWS API calls.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2103,7 +2103,7 @@
                         "name": "_sl1Name",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | The name of the trail for which CloudTrail logs AWS API calls.\n--",
+                        "documentation": "-- | The name of the trail for which CloudTrail logs AWS API calls.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2131,7 +2131,7 @@
                         "name": "_sl1Name",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | The name of the trail for which CloudTrail logs AWS API calls.\n--",
+                        "documentation": "-- | The name of the trail for which CloudTrail logs AWS API calls.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2174,7 +2174,7 @@
             "pager": null,
             "name": "StopLogging",
             "method": "post",
-            "documentation": "-- | Suspends the recording of AWS API calls and log file delivery for the\n-- specified trail. Under most circumstances, there is no need to use this\n-- action. You can update a trail without stopping it first. This action is the\n-- only way to stop recording.\n--",
+            "documentation": "-- | Suspends the recording of AWS API calls and log file delivery for the\n-- specified trail. Under most circumstances, there is no need to use this\n-- action. You can update a trail without stopping it first. This action is the\n-- only way to stop recording.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2201,7 +2201,7 @@
                     "name": "_slName",
                     "shape": "String",
                     "locationName": "Name",
-                    "documentation": "-- | Communicates to CloudTrail the name of the trail for which to stop logging\n-- AWS API calls.\n--",
+                    "documentation": "-- | Communicates to CloudTrail the name of the trail for which to stop logging\n-- AWS API calls.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2217,7 +2217,7 @@
                         "name": "_slName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Communicates to CloudTrail the name of the trail for which to stop logging\n-- AWS API calls.\n--",
+                        "documentation": "-- | Communicates to CloudTrail the name of the trail for which to stop logging\n-- AWS API calls.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2242,7 +2242,7 @@
                         "name": "_slName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Communicates to CloudTrail the name of the trail for which to stop logging\n-- AWS API calls.\n--",
+                        "documentation": "-- | Communicates to CloudTrail the name of the trail for which to stop logging\n-- AWS API calls.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2270,7 +2270,7 @@
                         "name": "_slName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Communicates to CloudTrail the name of the trail for which to stop logging\n-- AWS API calls.\n--",
+                        "documentation": "-- | Communicates to CloudTrail the name of the trail for which to stop logging\n-- AWS API calls.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2302,7 +2302,7 @@
                         "name": "_utrName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the name of the trail.\n--",
+                        "documentation": "-- | Specifies the name of the trail.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2317,7 +2317,7 @@
                         "name": "_utrS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2332,7 +2332,7 @@
                         "name": "_utrS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.\n--",
+                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2347,7 +2347,7 @@
                         "name": "_utrSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2362,7 +2362,7 @@
                         "name": "_utrIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.\n--",
+                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -2377,7 +2377,7 @@
                         "name": "_utrCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail\n-- logs will be delivered.\n--",
+                        "documentation": "-- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail\n-- logs will be delivered.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2392,7 +2392,7 @@
                         "name": "_utrCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2421,7 +2421,7 @@
                         "name": "_utrName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the name of the trail.\n--",
+                        "documentation": "-- | Specifies the name of the trail.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2436,7 +2436,7 @@
                         "name": "_utrS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2451,7 +2451,7 @@
                         "name": "_utrS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.\n--",
+                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2466,7 +2466,7 @@
                         "name": "_utrSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2481,7 +2481,7 @@
                         "name": "_utrIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.\n--",
+                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -2496,7 +2496,7 @@
                         "name": "_utrCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail\n-- logs will be delivered.\n--",
+                        "documentation": "-- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail\n-- logs will be delivered.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2511,7 +2511,7 @@
                         "name": "_utrCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2528,7 +2528,7 @@
                         "name": "_utrCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail\n-- logs will be delivered.\n--",
+                        "documentation": "-- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail\n-- logs will be delivered.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2543,7 +2543,7 @@
                         "name": "_utrCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2558,7 +2558,7 @@
                         "name": "_utrIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.\n--",
+                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -2573,7 +2573,7 @@
                         "name": "_utrName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the name of the trail.\n--",
+                        "documentation": "-- | Specifies the name of the trail.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2588,7 +2588,7 @@
                         "name": "_utrS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2603,7 +2603,7 @@
                         "name": "_utrS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.\n--",
+                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2618,7 +2618,7 @@
                         "name": "_utrSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2634,7 +2634,7 @@
             "pager": null,
             "name": "UpdateTrail",
             "method": "post",
-            "documentation": "-- | From the command line, use 'update-subscription'.\n--\n-- Updates the settings that specify delivery of log files. Changes to a trail\n-- do not require stopping the CloudTrail service. Use this action to designate\n-- an existing bucket for log delivery. If the existing bucket has previously\n-- been a target for CloudTrail log files, an IAM policy exists for the bucket.\n--",
+            "documentation": "-- | From the command line, use 'update-subscription'.\n--\n-- Updates the settings that specify delivery of log files. Changes to a trail\n-- do not require stopping the CloudTrail service. Use this action to designate\n-- an existing bucket for log delivery. If the existing bucket has previously\n-- been a target for CloudTrail log files, an IAM policy exists for the bucket.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2659,7 +2659,7 @@
                         "name": "_utName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the name of the trail.\n--",
+                        "documentation": "-- | Specifies the name of the trail.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2674,7 +2674,7 @@
                         "name": "_utS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2689,7 +2689,7 @@
                         "name": "_utS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.\n--",
+                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2704,7 +2704,7 @@
                         "name": "_utSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2719,7 +2719,7 @@
                         "name": "_utIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.\n--",
+                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -2734,7 +2734,7 @@
                         "name": "_utCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies a log group name using an Amazon Resource Name (ARN), a unique\n-- identifier that represents the log group to which CloudTrail logs will be\n-- delivered. Not required unless you specify CloudWatchLogsRoleArn.\n--",
+                        "documentation": "-- | Specifies a log group name using an Amazon Resource Name (ARN), a unique\n-- identifier that represents the log group to which CloudTrail logs will be\n-- delivered. Not required unless you specify CloudWatchLogsRoleArn.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2749,7 +2749,7 @@
                         "name": "_utCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2774,7 +2774,7 @@
                         "name": "_utName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the name of the trail.\n--",
+                        "documentation": "-- | Specifies the name of the trail.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2801,7 +2801,7 @@
                         "name": "_utS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2816,7 +2816,7 @@
                         "name": "_utS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.\n--",
+                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2831,7 +2831,7 @@
                         "name": "_utSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2846,7 +2846,7 @@
                         "name": "_utIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.\n--",
+                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -2861,7 +2861,7 @@
                         "name": "_utCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies a log group name using an Amazon Resource Name (ARN), a unique\n-- identifier that represents the log group to which CloudTrail logs will be\n-- delivered. Not required unless you specify CloudWatchLogsRoleArn.\n--",
+                        "documentation": "-- | Specifies a log group name using an Amazon Resource Name (ARN), a unique\n-- identifier that represents the log group to which CloudTrail logs will be\n-- delivered. Not required unless you specify CloudWatchLogsRoleArn.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2876,7 +2876,7 @@
                         "name": "_utCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2893,7 +2893,7 @@
                         "name": "_utCloudWatchLogsLogGroupArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsLogGroupArn",
-                        "documentation": "-- | Specifies a log group name using an Amazon Resource Name (ARN), a unique\n-- identifier that represents the log group to which CloudTrail logs will be\n-- delivered. Not required unless you specify CloudWatchLogsRoleArn.\n--",
+                        "documentation": "-- | Specifies a log group name using an Amazon Resource Name (ARN), a unique\n-- identifier that represents the log group to which CloudTrail logs will be\n-- delivered. Not required unless you specify CloudWatchLogsRoleArn.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2908,7 +2908,7 @@
                         "name": "_utCloudWatchLogsRoleArn",
                         "shape": "String",
                         "locationName": "CloudWatchLogsRoleArn",
-                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.\n--",
+                        "documentation": "-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a\n-- user’s log group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2923,7 +2923,7 @@
                         "name": "_utIncludeGlobalServiceEvents",
                         "shape": "Boolean",
                         "locationName": "IncludeGlobalServiceEvents",
-                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.\n--",
+                        "documentation": "-- | Specifies whether the trail is publishing events from global services such as\n-- IAM to the log files.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -2938,7 +2938,7 @@
                         "name": "_utName",
                         "shape": "String",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the name of the trail.\n--",
+                        "documentation": "-- | Specifies the name of the trail.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2953,7 +2953,7 @@
                         "name": "_utS3BucketName",
                         "shape": "String",
                         "locationName": "S3BucketName",
-                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon S3 bucket designated for publishing log\n-- files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2968,7 +2968,7 @@
                         "name": "_utS3KeyPrefix",
                         "shape": "String",
                         "locationName": "S3KeyPrefix",
-                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.\n--",
+                        "documentation": "-- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you\n-- have designated for log file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2983,7 +2983,7 @@
                         "name": "_utSnsTopicName",
                         "shape": "String",
                         "locationName": "SnsTopicName",
-                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.\n--",
+                        "documentation": "-- | Specifies the name of the Amazon SNS topic defined for notification of log\n-- file delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }

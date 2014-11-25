@@ -72,13 +72,11 @@ configureHealthCheck p1 p2 = ConfigureHealthCheck
 
 -- | A structure containing the configuration information for the new
 -- healthcheck.
---
 chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
 chcHealthCheck = lens _chcHealthCheck (\s a -> s { _chcHealthCheck = a })
 
 -- | The mnemonic name associated with the load balancer. The name must be unique
 -- within the set of load balancers associated with your AWS account.
---
 chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
 chcLoadBalancerName =
     lens _chcLoadBalancerName (\s a -> s { _chcLoadBalancerName = a })
@@ -99,7 +97,6 @@ configureHealthCheckResponse = ConfigureHealthCheckResponse
     }
 
 -- | The updated healthcheck for the instances.
---
 chcrHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
 chcrHealthCheck = lens _chcrHealthCheck (\s a -> s { _chcrHealthCheck = a })
 

@@ -110,7 +110,6 @@ createRoute p1 p2 = CreateRoute
 
 -- | The CIDR address block used for the destination match. Routing decisions are
 -- based on the most specific match.
---
 crDestinationCidrBlock :: Lens' CreateRoute Text
 crDestinationCidrBlock =
     lens _crDestinationCidrBlock (\s a -> s { _crDestinationCidrBlock = a })
@@ -119,29 +118,24 @@ crDryRun :: Lens' CreateRoute (Maybe Bool)
 crDryRun = lens _crDryRun (\s a -> s { _crDryRun = a })
 
 -- | The ID of an Internet gateway or virtual private gateway attached to your VPC.
---
 crGatewayId :: Lens' CreateRoute (Maybe Text)
 crGatewayId = lens _crGatewayId (\s a -> s { _crGatewayId = a })
 
 -- | The ID of a NAT instance in your VPC. The operation fails if you specify an
 -- instance ID unless exactly one network interface is attached.
---
 crInstanceId :: Lens' CreateRoute (Maybe Text)
 crInstanceId = lens _crInstanceId (\s a -> s { _crInstanceId = a })
 
 -- | The ID of a network interface.
---
 crNetworkInterfaceId :: Lens' CreateRoute (Maybe Text)
 crNetworkInterfaceId =
     lens _crNetworkInterfaceId (\s a -> s { _crNetworkInterfaceId = a })
 
 -- | The ID of the route table for the route.
---
 crRouteTableId :: Lens' CreateRoute Text
 crRouteTableId = lens _crRouteTableId (\s a -> s { _crRouteTableId = a })
 
 -- | The ID of a VPC peering connection.
---
 crVpcPeeringConnectionId :: Lens' CreateRoute (Maybe Text)
 crVpcPeeringConnectionId =
     lens _crVpcPeeringConnectionId

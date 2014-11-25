@@ -67,13 +67,11 @@ updateAssumeRolePolicy p1 p2 = UpdateAssumeRolePolicy
     }
 
 -- | The policy that grants an entity permission to assume the role.
---
 uarpPolicyDocument :: Lens' UpdateAssumeRolePolicy Text
 uarpPolicyDocument =
     lens _uarpPolicyDocument (\s a -> s { _uarpPolicyDocument = a })
 
 -- | The name of the role to update.
---
 uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
 uarpRoleName = lens _uarpRoleName (\s a -> s { _uarpRoleName = a })
 

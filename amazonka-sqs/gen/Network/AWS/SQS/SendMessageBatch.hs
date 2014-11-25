@@ -89,12 +89,10 @@ sendMessageBatch p1 = SendMessageBatch
     }
 
 -- | A list of 'SendMessageBatchRequestEntry' items.
---
 smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
 smbEntries = lens _smbEntries (\s a -> s { _smbEntries = a }) . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
---
 smbQueueUrl :: Lens' SendMessageBatch Text
 smbQueueUrl = lens _smbQueueUrl (\s a -> s { _smbQueueUrl = a })
 
@@ -119,12 +117,10 @@ sendMessageBatchResponse = SendMessageBatchResponse
 
 -- | A list of 'BatchResultErrorEntry' items with the error detail about each
 -- message that could not be enqueued.
---
 smbrFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a }) . _List
 
 -- | A list of 'SendMessageBatchResultEntry' items.
---
 smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
 smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a }) . _List
 

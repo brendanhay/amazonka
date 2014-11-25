@@ -72,7 +72,6 @@ dv3DryRun :: Lens' DeleteVpc (Maybe Bool)
 dv3DryRun = lens _dv3DryRun (\s a -> s { _dv3DryRun = a })
 
 -- | The ID of the VPC.
---
 dv3VpcId :: Lens' DeleteVpc Text
 dv3VpcId = lens _dv3VpcId (\s a -> s { _dv3VpcId = a })
 

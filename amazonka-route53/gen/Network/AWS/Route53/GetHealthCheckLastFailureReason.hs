@@ -66,7 +66,6 @@ getHealthCheckLastFailureReason p1 = GetHealthCheckLastFailureReason
 
 -- | The ID of the health check for which you want to retrieve the reason for the
 -- most recent failure.
---
 ghclfrHealthCheckId :: Lens' GetHealthCheckLastFailureReason Text
 ghclfrHealthCheckId =
     lens _ghclfrHealthCheckId (\s a -> s { _ghclfrHealthCheckId = a })
@@ -94,7 +93,6 @@ getHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonRespons
 
 -- | A list that contains one 'HealthCheckObservation' element for each Route 53
 -- health checker.
---
 ghclfrrHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse [HealthCheckObservation]
 ghclfrrHealthCheckObservations =
     lens _ghclfrrHealthCheckObservations

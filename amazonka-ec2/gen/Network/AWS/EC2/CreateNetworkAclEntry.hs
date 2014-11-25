@@ -120,7 +120,6 @@ createNetworkAclEntry p1 p2 p3 p4 p5 p6 = CreateNetworkAclEntry
     }
 
 -- | The network range to allow or deny, in CIDR notation (for example '172.16.0.0/24').
---
 cnaeCidrBlock :: Lens' CreateNetworkAclEntry Text
 cnaeCidrBlock = lens _cnaeCidrBlock (\s a -> s { _cnaeCidrBlock = a })
 
@@ -129,33 +128,27 @@ cnaeDryRun = lens _cnaeDryRun (\s a -> s { _cnaeDryRun = a })
 
 -- | Indicates whether this is an egress rule (rule is applied to traffic leaving
 -- the subnet).
---
 cnaeEgress :: Lens' CreateNetworkAclEntry Bool
 cnaeEgress = lens _cnaeEgress (\s a -> s { _cnaeEgress = a })
 
 -- | ICMP protocol: The ICMP type and code. Required if specifying ICMP for the
 -- protocol.
---
 cnaeIcmpTypeCode :: Lens' CreateNetworkAclEntry (Maybe IcmpTypeCode)
 cnaeIcmpTypeCode = lens _cnaeIcmpTypeCode (\s a -> s { _cnaeIcmpTypeCode = a })
 
 -- | The ID of the network ACL.
---
 cnaeNetworkAclId :: Lens' CreateNetworkAclEntry Text
 cnaeNetworkAclId = lens _cnaeNetworkAclId (\s a -> s { _cnaeNetworkAclId = a })
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
---
 cnaePortRange :: Lens' CreateNetworkAclEntry (Maybe PortRange)
 cnaePortRange = lens _cnaePortRange (\s a -> s { _cnaePortRange = a })
 
 -- | The protocol. A value of -1 means all protocols.
---
 cnaeProtocol :: Lens' CreateNetworkAclEntry Text
 cnaeProtocol = lens _cnaeProtocol (\s a -> s { _cnaeProtocol = a })
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
---
 cnaeRuleAction :: Lens' CreateNetworkAclEntry RuleAction
 cnaeRuleAction = lens _cnaeRuleAction (\s a -> s { _cnaeRuleAction = a })
 
@@ -163,7 +156,6 @@ cnaeRuleAction = lens _cnaeRuleAction (\s a -> s { _cnaeRuleAction = a })
 -- in ascending order by rule number.
 --
 -- Constraints: Positive integer from 1 to 32766
---
 cnaeRuleNumber :: Lens' CreateNetworkAclEntry Int
 cnaeRuleNumber = lens _cnaeRuleNumber (\s a -> s { _cnaeRuleNumber = a })
 

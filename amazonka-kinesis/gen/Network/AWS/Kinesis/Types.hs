@@ -136,30 +136,25 @@ shard p1 p2 p3 = Shard
     }
 
 -- | The shard Id of the shard adjacent to the shard's parent.
---
 sAdjacentParentShardId :: Lens' Shard (Maybe Text)
 sAdjacentParentShardId =
     lens _sAdjacentParentShardId (\s a -> s { _sAdjacentParentShardId = a })
 
 -- | The range of possible hash key values for the shard, which is a set of
 -- ordered contiguous positive integers.
---
 sHashKeyRange :: Lens' Shard HashKeyRange
 sHashKeyRange = lens _sHashKeyRange (\s a -> s { _sHashKeyRange = a })
 
 -- | The shard Id of the shard's parent.
---
 sParentShardId :: Lens' Shard (Maybe Text)
 sParentShardId = lens _sParentShardId (\s a -> s { _sParentShardId = a })
 
 -- | The range of possible sequence numbers for the shard.
---
 sSequenceNumberRange :: Lens' Shard SequenceNumberRange
 sSequenceNumberRange =
     lens _sSequenceNumberRange (\s a -> s { _sSequenceNumberRange = a })
 
 -- | The unique identifier of the shard within the Amazon Kinesis stream.
---
 sShardId :: Lens' Shard Text
 sShardId = lens _sShardId (\s a -> s { _sShardId = a })
 
@@ -202,14 +197,12 @@ tag p1 = Tag
 
 -- | A unique identifier for the tag. Maximum length: 128 characters. Valid
 -- characters: Unicode letters, digits, white space, _ . / = + - % @
---
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
 -- | An optional string, typically used to describe or define the tag. Maximum
 -- length: 256 characters. Valid characters: Unicode letters, digits, white
 -- space, _ . / = + - % @
---
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
@@ -260,22 +253,18 @@ streamDescription p1 p2 p3 p4 = StreamDescription
     }
 
 -- | If set to 'true', more shards in the stream are available to describe.
---
 sdHasMoreShards :: Lens' StreamDescription Bool
 sdHasMoreShards = lens _sdHasMoreShards (\s a -> s { _sdHasMoreShards = a })
 
 -- | The shards that comprise the stream.
---
 sdShards :: Lens' StreamDescription [Shard]
 sdShards = lens _sdShards (\s a -> s { _sdShards = a }) . _List
 
 -- | The Amazon Resource Name (ARN) for the stream being described.
---
 sdStreamARN :: Lens' StreamDescription Text
 sdStreamARN = lens _sdStreamARN (\s a -> s { _sdStreamARN = a })
 
 -- | The name of the stream being described.
---
 sdStreamName :: Lens' StreamDescription Text
 sdStreamName = lens _sdStreamName (\s a -> s { _sdStreamName = a })
 
@@ -368,12 +357,10 @@ hashKeyRange p1 p2 = HashKeyRange
     }
 
 -- | The ending hash key of the hash key range.
---
 hkrEndingHashKey :: Lens' HashKeyRange Text
 hkrEndingHashKey = lens _hkrEndingHashKey (\s a -> s { _hkrEndingHashKey = a })
 
 -- | The starting hash key of the hash key range.
---
 hkrStartingHashKey :: Lens' HashKeyRange Text
 hkrStartingHashKey =
     lens _hkrStartingHashKey (\s a -> s { _hkrStartingHashKey = a })
@@ -419,17 +406,14 @@ record p1 p2 p3 = Record
 -- Amazon Kinesis service, which does not inspect, interpret, or change the data
 -- in the blob in any way. The maximum size of the data blob (the payload before
 -- Base64-encoding) is 50 kilobytes (KB)
---
 rData :: Lens' Record Base64
 rData = lens _rData (\s a -> s { _rData = a })
 
 -- | Identifies which shard in the stream the data record is assigned to.
---
 rPartitionKey :: Lens' Record Text
 rPartitionKey = lens _rPartitionKey (\s a -> s { _rPartitionKey = a })
 
 -- | The unique identifier for the record in the Amazon Kinesis stream.
---
 rSequenceNumber :: Lens' Record Text
 rSequenceNumber = lens _rSequenceNumber (\s a -> s { _rSequenceNumber = a })
 
@@ -468,13 +452,11 @@ sequenceNumberRange p1 = SequenceNumberRange
 
 -- | The ending sequence number for the range. Shards that are in the OPEN state
 -- have an ending sequence number of 'null'.
---
 snrEndingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
 snrEndingSequenceNumber =
     lens _snrEndingSequenceNumber (\s a -> s { _snrEndingSequenceNumber = a })
 
 -- | The starting sequence number for the range.
---
 snrStartingSequenceNumber :: Lens' SequenceNumberRange Text
 snrStartingSequenceNumber =
     lens _snrStartingSequenceNumber

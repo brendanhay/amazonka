@@ -68,12 +68,10 @@ getDeploymentInstance p1 p2 = GetDeploymentInstance
     }
 
 -- | The unique ID of a deployment.
---
 gdiDeploymentId :: Lens' GetDeploymentInstance Text
 gdiDeploymentId = lens _gdiDeploymentId (\s a -> s { _gdiDeploymentId = a })
 
 -- | The unique ID of an Amazon EC2 instance in the deployment's deployment group.
---
 gdiInstanceId :: Lens' GetDeploymentInstance Text
 gdiInstanceId = lens _gdiInstanceId (\s a -> s { _gdiInstanceId = a })
 
@@ -93,7 +91,6 @@ getDeploymentInstanceResponse = GetDeploymentInstanceResponse
     }
 
 -- | Information about the instance.
---
 gdirInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummary)
 gdirInstanceSummary =
     lens _gdirInstanceSummary (\s a -> s { _gdirInstanceSummary = a })

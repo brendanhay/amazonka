@@ -22,6 +22,7 @@
 
 -- | Gets usage information for an identity, including number of datasets and data
 -- usage.
+--
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityUsage.html>
 module Network.AWS.CognitoSync.DescribeIdentityUsage
     (

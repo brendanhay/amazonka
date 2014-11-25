@@ -30,6 +30,7 @@
 -- The source DB instance must have backup retention enabled.
 --
 --
+--
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html>
 module Network.AWS.RDS.CreateDBInstanceReadReplica
     (
@@ -129,7 +130,6 @@ createDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplica
 -- read replica during the maintenance window.
 --
 -- Default: Inherits from the source DB instance
---
 cdbirrAutoMinorVersionUpgrade :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
 cdbirrAutoMinorVersionUpgrade =
     lens _cdbirrAutoMinorVersionUpgrade
@@ -141,7 +141,6 @@ cdbirrAutoMinorVersionUpgrade =
 -- region.
 --
 -- Example: 'us-east-1d'
---
 cdbirrAvailabilityZone :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrAvailabilityZone =
     lens _cdbirrAvailabilityZone (\s a -> s { _cdbirrAvailabilityZone = a })
@@ -151,14 +150,12 @@ cdbirrAvailabilityZone =
 -- Valid Values: 'db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge |db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large |db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge |db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium'
 --
 -- Default: Inherits from the source DB instance.
---
 cdbirrDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrDBInstanceClass =
     lens _cdbirrDBInstanceClass (\s a -> s { _cdbirrDBInstanceClass = a })
 
 -- | The DB instance identifier of the read replica. This is the unique key that
 -- identifies a DB instance. This parameter is stored as a lowercase string.
---
 cdbirrDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdbirrDBInstanceIdentifier =
     lens _cdbirrDBInstanceIdentifier
@@ -183,13 +180,11 @@ cdbirrDBSubnetGroupName =
 
 -- | The amount of Provisioned IOPS (input/output operations per second) to be
 -- initially allocated for the DB instance.
---
 cdbirrIops :: Lens' CreateDBInstanceReadReplica (Maybe Int)
 cdbirrIops = lens _cdbirrIops (\s a -> s { _cdbirrIops = a })
 
 -- | The option group the DB instance will be associated with. If omitted, the
 -- default option group for the engine specified will be used.
---
 cdbirrOptionGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrOptionGroupName =
     lens _cdbirrOptionGroupName (\s a -> s { _cdbirrOptionGroupName = a })
@@ -199,7 +194,6 @@ cdbirrOptionGroupName =
 -- Default: Inherits from the source DB instance
 --
 -- Valid Values: '1150-65535'
---
 cdbirrPort :: Lens' CreateDBInstanceReadReplica (Maybe Int)
 cdbirrPort = lens _cdbirrPort (\s a -> s { _cdbirrPort = a })
 
@@ -216,7 +210,6 @@ cdbirrPort = lens _cdbirrPort (\s a -> s { _cdbirrPort = a })
 -- instance will be publicly accessible. If a specific DB subnet group has been
 -- specified as part of the request and the PubliclyAccessible value has not
 -- been set, the DB instance will be private.
---
 cdbirrPubliclyAccessible :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
 cdbirrPubliclyAccessible =
     lens _cdbirrPubliclyAccessible
@@ -244,7 +237,6 @@ cdbirrSourceDBInstanceIdentifier =
 -- Valid values: 'standard | gp2 | io1'
 --
 -- If you specify 'io1', you must also include a value for the 'Iops' parameter.
---
 cdbirrStorageType :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrStorageType =
     lens _cdbirrStorageType (\s a -> s { _cdbirrStorageType = a })

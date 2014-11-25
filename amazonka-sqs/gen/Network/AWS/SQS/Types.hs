@@ -147,12 +147,10 @@ deleteMessageBatchRequestEntry p1 p2 = DeleteMessageBatchRequestEntry
 -- | An identifier for this particular receipt handle. This is used to communicate
 -- the result. Note that the 'Id's of a batch request need to be unique within the
 -- request.
---
 dmbreId :: Lens' DeleteMessageBatchRequestEntry Text
 dmbreId = lens _dmbreId (\s a -> s { _dmbreId = a })
 
 -- | A receipt handle.
---
 dmbreReceiptHandle :: Lens' DeleteMessageBatchRequestEntry Text
 dmbreReceiptHandle =
     lens _dmbreReceiptHandle (\s a -> s { _dmbreReceiptHandle = a })
@@ -201,7 +199,6 @@ messageAttributeValue p1 = MessageAttributeValue
     }
 
 -- | Not implemented. Reserved for future use.
---
 mavBinaryListValues :: Lens' MessageAttributeValue [Base64]
 mavBinaryListValues =
     lens _mavBinaryListValues (\s a -> s { _mavBinaryListValues = a })
@@ -209,26 +206,22 @@ mavBinaryListValues =
 
 -- | Binary type attributes can store any binary data, for example, compressed
 -- data, encrypted data, or images.
---
 mavBinaryValue :: Lens' MessageAttributeValue (Maybe Base64)
 mavBinaryValue = lens _mavBinaryValue (\s a -> s { _mavBinaryValue = a })
 
 -- | Amazon SQS supports the following logical data types: String, Number, and
 -- Binary. In addition, you can append your own custom labels. For more
 -- information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes Message Attribute Data Types>.
---
 mavDataType :: Lens' MessageAttributeValue Text
 mavDataType = lens _mavDataType (\s a -> s { _mavDataType = a })
 
 -- | Not implemented. Reserved for future use.
---
 mavStringListValues :: Lens' MessageAttributeValue [Text]
 mavStringListValues =
     lens _mavStringListValues (\s a -> s { _mavStringListValues = a })
         . _List
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
---
 mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\s a -> s { _mavStringValue = a })
 
@@ -266,7 +259,6 @@ changeMessageVisibilityBatchResultEntry p1 = ChangeMessageVisibilityBatchResultE
     }
 
 -- | Represents a message whose visibility timeout has been changed successfully.
---
 cmvbreId :: Lens' ChangeMessageVisibilityBatchResultEntry Text
 cmvbreId = lens _cmvbreId (\s a -> s { _cmvbreId = a })
 
@@ -307,18 +299,15 @@ changeMessageVisibilityBatchRequestEntry p1 p2 = ChangeMessageVisibilityBatchReq
 -- | An identifier for this particular receipt handle. This is used to communicate
 -- the result. Note that the 'Id's of a batch request need to be unique within the
 -- request.
---
 cmvbre1Id :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
 cmvbre1Id = lens _cmvbre1Id (\s a -> s { _cmvbre1Id = a })
 
 -- | A receipt handle.
---
 cmvbre1ReceiptHandle :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
 cmvbre1ReceiptHandle =
     lens _cmvbre1ReceiptHandle (\s a -> s { _cmvbre1ReceiptHandle = a })
 
 -- | The new value (in seconds) for the message's visibility timeout.
---
 cmvbre1VisibilityTimeout :: Lens' ChangeMessageVisibilityBatchRequestEntry (Maybe Int)
 cmvbre1VisibilityTimeout =
     lens _cmvbre1VisibilityTimeout
@@ -354,7 +343,6 @@ deleteMessageBatchResultEntry p1 = DeleteMessageBatchResultEntry
     }
 
 -- | Represents a successfully deleted message.
---
 dmbre1Id :: Lens' DeleteMessageBatchResultEntry Text
 dmbre1Id = lens _dmbre1Id (\s a -> s { _dmbre1Id = a })
 
@@ -408,17 +396,14 @@ message = Message
 
 -- | 'SenderId', 'SentTimestamp', 'ApproximateReceiveCount', and/or 'ApproximateFirstReceiveTimestamp'. 'SentTimestamp' and 'ApproximateFirstReceiveTimestamp' are each returned as an
 -- integer representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in milliseconds.
---
 mAttributes :: Lens' Message (HashMap Text Text)
 mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a }) . _EMap
 
 -- | The message's contents (not URL-encoded).
---
 mBody :: Lens' Message (Maybe Text)
 mBody = lens _mBody (\s a -> s { _mBody = a })
 
 -- | An MD5 digest of the non-URL-encoded message body string.
---
 mMD5OfBody :: Lens' Message (Maybe Text)
 mMD5OfBody = lens _mMD5OfBody (\s a -> s { _mMD5OfBody = a })
 
@@ -426,14 +411,12 @@ mMD5OfBody = lens _mMD5OfBody (\s a -> s { _mMD5OfBody = a })
 -- used to verify that Amazon SQS received the message correctly. Amazon SQS
 -- first URL decodes the message before creating the MD5 digest. For information
 -- about MD5, go to <http://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html>.
---
 mMD5OfMessageAttributes :: Lens' Message (Maybe Text)
 mMD5OfMessageAttributes =
     lens _mMD5OfMessageAttributes (\s a -> s { _mMD5OfMessageAttributes = a })
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
---
 mMessageAttributes :: Lens' Message (HashMap Text MessageAttributeValue)
 mMessageAttributes =
     lens _mMessageAttributes (\s a -> s { _mMessageAttributes = a })
@@ -441,14 +424,12 @@ mMessageAttributes =
 
 -- | A unique identifier for the message. Message IDs are considered unique across
 -- all AWS accounts for an extended period of time.
---
 mMessageId :: Lens' Message (Maybe Text)
 mMessageId = lens _mMessageId (\s a -> s { _mMessageId = a })
 
 -- | An identifier associated with the act of receiving the message. A new receipt
 -- handle is returned every time you receive a message. When deleting a message,
 -- you provide the last received receipt handle to delete the message.
---
 mReceiptHandle :: Lens' Message (Maybe Text)
 mReceiptHandle = lens _mReceiptHandle (\s a -> s { _mReceiptHandle = a })
 
@@ -503,7 +484,6 @@ sendMessageBatchRequestEntry p1 p2 = SendMessageBatchRequestEntry
     }
 
 -- | The number of seconds for which the message has to be delayed.
---
 smbreDelaySeconds :: Lens' SendMessageBatchRequestEntry (Maybe Int)
 smbreDelaySeconds =
     lens _smbreDelaySeconds (\s a -> s { _smbreDelaySeconds = a })
@@ -511,20 +491,17 @@ smbreDelaySeconds =
 -- | An identifier for the message in this batch. This is used to communicate the
 -- result. Note that the 'Id's of a batch request need to be unique within the
 -- request.
---
 smbreId :: Lens' SendMessageBatchRequestEntry Text
 smbreId = lens _smbreId (\s a -> s { _smbreId = a })
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
---
 smbreMessageAttributes :: Lens' SendMessageBatchRequestEntry (HashMap Text MessageAttributeValue)
 smbreMessageAttributes =
     lens _smbreMessageAttributes (\s a -> s { _smbreMessageAttributes = a })
         . _EMap
 
 -- | Body of the message.
---
 smbreMessageBody :: Lens' SendMessageBatchRequestEntry Text
 smbreMessageBody = lens _smbreMessageBody (\s a -> s { _smbreMessageBody = a })
 
@@ -574,7 +551,6 @@ sendMessageBatchResultEntry p1 p2 p3 = SendMessageBatchResultEntry
     }
 
 -- | An identifier for the message in this batch.
---
 smbre1Id :: Lens' SendMessageBatchResultEntry Text
 smbre1Id = lens _smbre1Id (\s a -> s { _smbre1Id = a })
 
@@ -582,7 +558,6 @@ smbre1Id = lens _smbre1Id (\s a -> s { _smbre1Id = a })
 -- used to verify that Amazon SQS received the message batch correctly. Amazon
 -- SQS first URL decodes the message before creating the MD5 digest. For
 -- information about MD5, go to <http://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html>.
---
 smbre1MD5OfMessageAttributes :: Lens' SendMessageBatchResultEntry (Maybe Text)
 smbre1MD5OfMessageAttributes =
     lens _smbre1MD5OfMessageAttributes
@@ -592,13 +567,11 @@ smbre1MD5OfMessageAttributes =
 -- verify that Amazon SQS received the message correctly. Amazon SQS first URL
 -- decodes the message before creating the MD5 digest. For information about
 -- MD5, go to <http://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html>.
---
 smbre1MD5OfMessageBody :: Lens' SendMessageBatchResultEntry Text
 smbre1MD5OfMessageBody =
     lens _smbre1MD5OfMessageBody (\s a -> s { _smbre1MD5OfMessageBody = a })
 
 -- | An identifier for the message.
---
 smbre1MessageId :: Lens' SendMessageBatchResultEntry Text
 smbre1MessageId = lens _smbre1MessageId (\s a -> s { _smbre1MessageId = a })
 
@@ -648,22 +621,18 @@ batchResultErrorEntry p1 p2 p3 = BatchResultErrorEntry
     }
 
 -- | An error code representing why the action failed on this entry.
---
 breeCode :: Lens' BatchResultErrorEntry Text
 breeCode = lens _breeCode (\s a -> s { _breeCode = a })
 
 -- | The id of an entry in a batch request.
---
 breeId :: Lens' BatchResultErrorEntry Text
 breeId = lens _breeId (\s a -> s { _breeId = a })
 
 -- | A message explaining why the action failed on this entry.
---
 breeMessage :: Lens' BatchResultErrorEntry (Maybe Text)
 breeMessage = lens _breeMessage (\s a -> s { _breeMessage = a })
 
 -- | Whether the error happened due to the sender's fault.
---
 breeSenderFault :: Lens' BatchResultErrorEntry Bool
 breeSenderFault = lens _breeSenderFault (\s a -> s { _breeSenderFault = a })
 

@@ -89,7 +89,6 @@ updateDomainContact p1 = UpdateDomainContact
 -- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
---
 udcAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcAdminContact = lens _udcAdminContact (\s a -> s { _udcAdminContact = a })
 
@@ -104,7 +103,6 @@ udcAdminContact = lens _udcAdminContact (\s a -> s { _udcAdminContact = a })
 -- supported.
 --
 -- Required: Yes
---
 udcDomainName :: Lens' UpdateDomainContact Text
 udcDomainName = lens _udcDomainName (\s a -> s { _udcDomainName = a })
 
@@ -115,7 +113,6 @@ udcDomainName = lens _udcDomainName (\s a -> s { _udcDomainName = a })
 -- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
---
 udcRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcRegistrantContact =
     lens _udcRegistrantContact (\s a -> s { _udcRegistrantContact = a })
@@ -127,7 +124,6 @@ udcRegistrantContact =
 -- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
---
 udcTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcTechContact = lens _udcTechContact (\s a -> s { _udcTechContact = a })
 
@@ -155,7 +151,6 @@ updateDomainContactResponse p1 = UpdateDomainContactResponse
 -- Default: None
 --
 -- Constraints: Maximum 255 characters.
---
 udcrOperationId :: Lens' UpdateDomainContactResponse Text
 udcrOperationId = lens _udcrOperationId (\s a -> s { _udcrOperationId = a })
 

@@ -73,14 +73,12 @@ detachLoadBalancerFromSubnets p1 = DetachLoadBalancerFromSubnets
     }
 
 -- | The name associated with the load balancer to be detached.
---
 dlbfsLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets Text
 dlbfsLoadBalancerName =
     lens _dlbfsLoadBalancerName (\s a -> s { _dlbfsLoadBalancerName = a })
 
 -- | A list of subnet IDs to remove from the set of configured subnets for the
 -- load balancer.
---
 dlbfsSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
 dlbfsSubnets = lens _dlbfsSubnets (\s a -> s { _dlbfsSubnets = a }) . _List
 
@@ -106,7 +104,6 @@ detachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
     }
 
 -- | A list of subnet IDs the load balancer is now attached to.
---
 dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
 dlbfsrSubnets = lens _dlbfsrSubnets (\s a -> s { _dlbfsrSubnets = a }) . _List
 

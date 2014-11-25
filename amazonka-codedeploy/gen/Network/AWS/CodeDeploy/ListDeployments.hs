@@ -84,20 +84,17 @@ listDeployments = ListDeployments
 
 -- | The name of an existing AWS CodeDeploy application within the AWS user
 -- account.
---
 ldApplicationName :: Lens' ListDeployments (Maybe Text)
 ldApplicationName =
     lens _ldApplicationName (\s a -> s { _ldApplicationName = a })
 
 -- | A deployment creation start- and end-time range for returning a subset of the
 -- list of deployments.
---
 ldCreateTimeRange :: Lens' ListDeployments (Maybe TimeRange)
 ldCreateTimeRange =
     lens _ldCreateTimeRange (\s a -> s { _ldCreateTimeRange = a })
 
 -- | The name of an existing deployment group for the specified application.
---
 ldDeploymentGroupName :: Lens' ListDeployments (Maybe Text)
 ldDeploymentGroupName =
     lens _ldDeploymentGroupName (\s a -> s { _ldDeploymentGroupName = a })
@@ -114,7 +111,6 @@ ldIncludeOnlyStatuses =
 
 -- | An identifier that was returned from the previous list deployments call,
 -- which can be used to return the next set of deployments in the list.
---
 ldNextToken :: Lens' ListDeployments (Maybe Text)
 ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
 
@@ -138,14 +134,12 @@ listDeploymentsResponse = ListDeploymentsResponse
     }
 
 -- | A list of deployment IDs.
---
 ldrDeployments :: Lens' ListDeploymentsResponse [Text]
 ldrDeployments = lens _ldrDeployments (\s a -> s { _ldrDeployments = a }) . _List
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
 -- deployments call to return the next set of deployments in the list.
---
 ldrNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
 

@@ -74,17 +74,14 @@ updateVolume p1 = UpdateVolume
     }
 
 -- | The new mount point.
---
 uv1MountPoint :: Lens' UpdateVolume (Maybe Text)
 uv1MountPoint = lens _uv1MountPoint (\s a -> s { _uv1MountPoint = a })
 
 -- | The new name.
---
 uv1Name :: Lens' UpdateVolume (Maybe Text)
 uv1Name = lens _uv1Name (\s a -> s { _uv1Name = a })
 
 -- | The volume ID.
---
 uv1VolumeId :: Lens' UpdateVolume Text
 uv1VolumeId = lens _uv1VolumeId (\s a -> s { _uv1VolumeId = a })
 

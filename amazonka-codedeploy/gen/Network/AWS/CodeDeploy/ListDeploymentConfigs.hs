@@ -64,7 +64,6 @@ listDeploymentConfigs = ListDeploymentConfigs
 -- | An identifier that was returned from the previous list deployment
 -- configurations call, which can be used to return the next set of deployment
 -- configurations in the list.
---
 ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
 ldcNextToken = lens _ldcNextToken (\s a -> s { _ldcNextToken = a })
 
@@ -89,7 +88,6 @@ listDeploymentConfigsResponse = ListDeploymentConfigsResponse
 
 -- | A list of deployment configurations, including the built-in configurations
 -- such as CodeDeployDefault.OneAtATime.
---
 ldcrDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
 ldcrDeploymentConfigsList =
     lens _ldcrDeploymentConfigsList
@@ -100,7 +98,6 @@ ldcrDeploymentConfigsList =
 -- identifier will also be returned, which can be used in a subsequent list
 -- deployment configurations call to return the next set of deployment
 -- configurations in the list.
---
 ldcrNextToken :: Lens' ListDeploymentConfigsResponse (Maybe Text)
 ldcrNextToken = lens _ldcrNextToken (\s a -> s { _ldcrNextToken = a })
 

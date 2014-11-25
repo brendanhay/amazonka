@@ -79,7 +79,6 @@ createRole p1 p2 = CreateRole
     }
 
 -- | The policy that grants an entity permission to assume the role.
---
 crAssumeRolePolicyDocument :: Lens' CreateRole Text
 crAssumeRolePolicyDocument =
     lens _crAssumeRolePolicyDocument
@@ -90,12 +89,10 @@ crAssumeRolePolicyDocument =
 --
 -- This parameter is optional. If it is not included, it defaults to a slash
 -- (/).
---
 crPath :: Lens' CreateRole (Maybe Text)
 crPath = lens _crPath (\s a -> s { _crPath = a })
 
 -- | The name of the role to create.
---
 crRoleName :: Lens' CreateRole Text
 crRoleName = lens _crRoleName (\s a -> s { _crRoleName = a })
 
@@ -116,7 +113,6 @@ createRoleResponse p1 = CreateRoleResponse
     }
 
 -- | Information about the role.
---
 crrRole :: Lens' CreateRoleResponse Role
 crrRole = lens _crrRole (\s a -> s { _crrRole = a })
 

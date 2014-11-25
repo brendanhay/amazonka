@@ -98,28 +98,23 @@ signalWorkflowExecution p1 p2 p3 = SignalWorkflowExecution
     }
 
 -- | The name of the domain containing the workflow execution to signal.
---
 sweDomain :: Lens' SignalWorkflowExecution Text
 sweDomain = lens _sweDomain (\s a -> s { _sweDomain = a })
 
 -- | Data to attach to the 'WorkflowExecutionSignaled' event in the target workflow
 -- execution's history.
---
 sweInput :: Lens' SignalWorkflowExecution (Maybe Text)
 sweInput = lens _sweInput (\s a -> s { _sweInput = a })
 
 -- | The runId of the workflow execution to signal.
---
 sweRunId :: Lens' SignalWorkflowExecution (Maybe Text)
 sweRunId = lens _sweRunId (\s a -> s { _sweRunId = a })
 
 -- | The name of the signal. This name must be meaningful to the target workflow.
---
 sweSignalName :: Lens' SignalWorkflowExecution Text
 sweSignalName = lens _sweSignalName (\s a -> s { _sweSignalName = a })
 
 -- | The workflowId of the workflow execution to signal.
---
 sweWorkflowId :: Lens' SignalWorkflowExecution Text
 sweWorkflowId = lens _sweWorkflowId (\s a -> s { _sweWorkflowId = a })
 

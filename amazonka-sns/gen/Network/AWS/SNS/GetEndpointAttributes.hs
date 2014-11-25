@@ -63,7 +63,6 @@ getEndpointAttributes p1 = GetEndpointAttributes
     }
 
 -- | EndpointArn for GetEndpointAttributes input.
---
 geaEndpointArn :: Lens' GetEndpointAttributes Text
 geaEndpointArn = lens _geaEndpointArn (\s a -> s { _geaEndpointArn = a })
 

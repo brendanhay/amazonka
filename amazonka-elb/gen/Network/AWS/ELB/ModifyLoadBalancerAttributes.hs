@@ -29,6 +29,7 @@
 -- For more information, see the following:
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#request-routing Cross-Zone Load Balancing> <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining> <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html Access Logs> <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#idle-timeout Idle ConnectionTimeout>
+--
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ModifyLoadBalancerAttributes.html>
 module Network.AWS.ELB.ModifyLoadBalancerAttributes
     (
@@ -76,14 +77,12 @@ modifyLoadBalancerAttributes p1 p2 = ModifyLoadBalancerAttributes
     }
 
 -- | Attributes of the load balancer.
---
 mlbaLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
 mlbaLoadBalancerAttributes =
     lens _mlbaLoadBalancerAttributes
         (\s a -> s { _mlbaLoadBalancerAttributes = a })
 
 -- | The name of the load balancer.
---
 mlbaLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
 mlbaLoadBalancerName =
     lens _mlbaLoadBalancerName (\s a -> s { _mlbaLoadBalancerName = a })
@@ -113,7 +112,6 @@ mlbarLoadBalancerAttributes =
         (\s a -> s { _mlbarLoadBalancerAttributes = a })
 
 -- | The name of the load balancer.
---
 mlbarLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
 mlbarLoadBalancerName =
     lens _mlbarLoadBalancerName (\s a -> s { _mlbarLoadBalancerName = a })

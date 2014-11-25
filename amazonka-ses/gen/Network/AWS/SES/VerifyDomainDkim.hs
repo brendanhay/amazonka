@@ -74,7 +74,6 @@ verifyDomainDkim p1 = VerifyDomainDkim
     }
 
 -- | The name of the domain to be verified for Easy DKIM signing.
---
 vddDomain :: Lens' VerifyDomainDkim Text
 vddDomain = lens _vddDomain (\s a -> s { _vddDomain = a })
 
@@ -109,7 +108,6 @@ verifyDomainDkimResponse = VerifyDomainDkimResponse
 -- DKIM-sign emails originating from that domain.
 --
 -- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
---
 vddrDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
 vddrDkimTokens = lens _vddrDkimTokens (\s a -> s { _vddrDkimTokens = a }) . _List
 

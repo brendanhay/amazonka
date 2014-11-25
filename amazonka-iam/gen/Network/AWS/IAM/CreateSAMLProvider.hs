@@ -84,7 +84,6 @@ createSAMLProvider p1 p2 = CreateSAMLProvider
     }
 
 -- | The name of the provider to create.
---
 csamlpName :: Lens' CreateSAMLProvider Text
 csamlpName = lens _csamlpName (\s a -> s { _csamlpName = a })
 
@@ -96,7 +95,6 @@ csamlpName = lens _csamlpName (\s a -> s { _csamlpName = a })
 -- organization's IdP.
 --
 -- For more information, see <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAMLFederation> in the /Using Temporary Security Credentials/ guide.
---
 csamlpSAMLMetadataDocument :: Lens' CreateSAMLProvider Text
 csamlpSAMLMetadataDocument =
     lens _csamlpSAMLMetadataDocument
@@ -118,7 +116,6 @@ createSAMLProviderResponse = CreateSAMLProviderResponse
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
---
 csamlprSAMLProviderArn :: Lens' CreateSAMLProviderResponse (Maybe Text)
 csamlprSAMLProviderArn =
     lens _csamlprSAMLProviderArn (\s a -> s { _csamlprSAMLProviderArn = a })

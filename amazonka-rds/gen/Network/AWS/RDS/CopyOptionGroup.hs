@@ -88,7 +88,6 @@ copyOptionGroup p1 p2 p3 = CopyOptionGroup
 -- specify a valid Option group ARN.  Example: 'my-option-group'
 --
 -- Example: 'arn:aws:rds:us-west-2:123456789012:og:special-options'
---
 cog1SourceOptionGroupIdentifier :: Lens' CopyOptionGroup Text
 cog1SourceOptionGroupIdentifier =
     lens _cog1SourceOptionGroupIdentifier
@@ -98,7 +97,6 @@ cog1Tags :: Lens' CopyOptionGroup [Tag]
 cog1Tags = lens _cog1Tags (\s a -> s { _cog1Tags = a }) . _List
 
 -- | The description for the copied Option Group.
---
 cog1TargetOptionGroupDescription :: Lens' CopyOptionGroup Text
 cog1TargetOptionGroupDescription =
     lens _cog1TargetOptionGroupDescription
@@ -111,7 +109,6 @@ cog1TargetOptionGroupDescription =
 -- Cannot be null, empty, or blank Must contain from 1 to 255 alphanumeric
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens  Example: 'my-option-group'
---
 cog1TargetOptionGroupIdentifier :: Lens' CopyOptionGroup Text
 cog1TargetOptionGroupIdentifier =
     lens _cog1TargetOptionGroupIdentifier

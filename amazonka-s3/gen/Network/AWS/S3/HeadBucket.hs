@@ -22,6 +22,7 @@
 
 -- | This operation is useful to determine if a bucket exists and you have
 -- permission to access it.
+--
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/HeadBucket.html>
 module Network.AWS.S3.HeadBucket
     (

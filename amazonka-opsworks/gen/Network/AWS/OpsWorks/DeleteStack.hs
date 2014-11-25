@@ -65,7 +65,6 @@ deleteStack p1 = DeleteStack
     }
 
 -- | The stack ID.
---
 dsStackId :: Lens' DeleteStack Text
 dsStackId = lens _dsStackId (\s a -> s { _dsStackId = a })
 

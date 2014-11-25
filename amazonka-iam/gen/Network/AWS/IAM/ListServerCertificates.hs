@@ -78,7 +78,6 @@ listServerCertificates = ListServerCertificates
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you've received a response where the results are truncated. Set it to
 -- the value of the 'Marker' element in the response you just received.
---
 lscMarker :: Lens' ListServerCertificates (Maybe Text)
 lscMarker = lens _lscMarker (\s a -> s { _lscMarker = a })
 
@@ -87,7 +86,6 @@ lscMarker = lens _lscMarker (\s a -> s { _lscMarker = a })
 -- certificates beyond the maximum you specify, the 'IsTruncated' response element
 -- will be set to 'true'. This parameter is optional. If you do not include it, it
 -- defaults to 100.
---
 lscMaxItems :: Lens' ListServerCertificates (Maybe Natural)
 lscMaxItems = lens _lscMaxItems (\s a -> s { _lscMaxItems = a }) . mapping _Nat
 
@@ -96,7 +94,6 @@ lscMaxItems = lens _lscMaxItems (\s a -> s { _lscMaxItems = a }) . mapping _Nat
 --
 -- This parameter is optional. If it is not included, it defaults to a slash
 -- (/), listing all server certificates.
---
 lscPathPrefix :: Lens' ListServerCertificates (Maybe Text)
 lscPathPrefix = lens _lscPathPrefix (\s a -> s { _lscPathPrefix = a })
 
@@ -127,18 +124,15 @@ listServerCertificatesResponse = ListServerCertificatesResponse
 -- your results were truncated, you can make a subsequent pagination request
 -- using the 'Marker' request parameter to retrieve more server certificates in
 -- the list.
---
 lscrIsTruncated :: Lens' ListServerCertificatesResponse (Maybe Bool)
 lscrIsTruncated = lens _lscrIsTruncated (\s a -> s { _lscrIsTruncated = a })
 
 -- | If 'IsTruncated' is 'true', this element is present and contains the value to
 -- use for the 'Marker' parameter in a subsequent pagination request.
---
 lscrMarker :: Lens' ListServerCertificatesResponse (Maybe Text)
 lscrMarker = lens _lscrMarker (\s a -> s { _lscrMarker = a })
 
 -- | A list of server certificates.
---
 lscrServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [ServerCertificateMetadata]
 lscrServerCertificateMetadataList =
     lens _lscrServerCertificateMetadataList

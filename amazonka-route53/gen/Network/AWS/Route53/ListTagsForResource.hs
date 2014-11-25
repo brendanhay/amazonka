@@ -66,12 +66,10 @@ listTagsForResource p1 p2 = ListTagsForResource
     }
 
 -- | The ID of the resource for which you want to retrieve tags.
---
 ltfrResourceId :: Lens' ListTagsForResource Text
 ltfrResourceId = lens _ltfrResourceId (\s a -> s { _ltfrResourceId = a })
 
 -- | The type of the resource. The resource type for health checks is 'healthcheck'.
---
 ltfrResourceType :: Lens' ListTagsForResource TagResourceType
 ltfrResourceType = lens _ltfrResourceType (\s a -> s { _ltfrResourceType = a })
 
@@ -92,7 +90,6 @@ listTagsForResourceResponse p1 = ListTagsForResourceResponse
     }
 
 -- | A 'ResourceTagSet' containing tags associated with the specified resource.
---
 ltfrrResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
 ltfrrResourceTagSet =
     lens _ltfrrResourceTagSet (\s a -> s { _ltfrrResourceTagSet = a })

@@ -149,21 +149,18 @@ domainSummary p1 = DomainSummary
 -- Type: Boolean
 --
 -- Valid values: 'True' | 'False'
---
 dsAutoRenew :: Lens' DomainSummary (Maybe Bool)
 dsAutoRenew = lens _dsAutoRenew (\s a -> s { _dsAutoRenew = a })
 
 -- | The name of a domain.
 --
 -- Type: String
---
 dsDomainName :: Lens' DomainSummary Text
 dsDomainName = lens _dsDomainName (\s a -> s { _dsDomainName = a })
 
 -- | Expiration date of the domain in Coordinated Universal Time (UTC).
 --
 -- Type: Long
---
 dsExpiry :: Lens' DomainSummary (Maybe UTCTime)
 dsExpiry = lens _dsExpiry (\s a -> s { _dsExpiry = a }) . mapping _Time
 
@@ -173,7 +170,6 @@ dsExpiry = lens _dsExpiry (\s a -> s { _dsExpiry = a }) . mapping _Time
 -- Type: Boolean
 --
 -- Valid values: 'True' | 'False'
---
 dsTransferLock :: Lens' DomainSummary (Maybe Bool)
 dsTransferLock = lens _dsTransferLock (\s a -> s { _dsTransferLock = a })
 
@@ -296,7 +292,6 @@ nameserver p1 = Nameserver
 -- Constraints: The list can contain only one IPv4 and one IPv6 address.
 --
 -- Parent: 'Nameservers'
---
 nGlueIps :: Lens' Nameserver [Text]
 nGlueIps = lens _nGlueIps (\s a -> s { _nGlueIps = a }) . _List
 
@@ -307,7 +302,6 @@ nGlueIps = lens _nGlueIps (\s a -> s { _nGlueIps = a }) . _List
 -- Constraint: Maximum 255 characterss
 --
 -- Parent: 'Nameservers'
---
 nName :: Lens' Nameserver Text
 nName = lens _nName (\s a -> s { _nName = a })
 
@@ -1191,7 +1185,6 @@ extraParam p1 p2 = ExtraParam
 -- Parent: 'ExtraParams'
 --
 -- Required: Yes
---
 epName :: Lens' ExtraParam ExtraParamName
 epName = lens _epName (\s a -> s { _epName = a })
 
@@ -1207,7 +1200,6 @@ epName = lens _epName (\s a -> s { _epName = a })
 -- Parent: 'ExtraParams'
 --
 -- Required: Yes
---
 epValue :: Lens' ExtraParam Text
 epValue = lens _epValue (\s a -> s { _epValue = a })
 
@@ -1338,7 +1330,6 @@ contactDetail = ContactDetail
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
---
 cdAddressLine1 :: Lens' ContactDetail (Maybe Text)
 cdAddressLine1 = lens _cdAddressLine1 (\s a -> s { _cdAddressLine1 = a })
 
@@ -1353,7 +1344,6 @@ cdAddressLine1 = lens _cdAddressLine1 (\s a -> s { _cdAddressLine1 = a })
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: No
---
 cdAddressLine2 :: Lens' ContactDetail (Maybe Text)
 cdAddressLine2 = lens _cdAddressLine2 (\s a -> s { _cdAddressLine2 = a })
 
@@ -1368,7 +1358,6 @@ cdAddressLine2 = lens _cdAddressLine2 (\s a -> s { _cdAddressLine2 = a })
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
---
 cdCity :: Lens' ContactDetail (Maybe Text)
 cdCity = lens _cdCity (\s a -> s { _cdCity = a })
 
@@ -1387,7 +1376,6 @@ cdCity = lens _cdCity (\s a -> s { _cdCity = a })
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
---
 cdContactType :: Lens' ContactDetail (Maybe ContactType)
 cdContactType = lens _cdContactType (\s a -> s { _cdContactType = a })
 
@@ -1402,7 +1390,6 @@ cdContactType = lens _cdContactType (\s a -> s { _cdContactType = a })
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
---
 cdCountryCode :: Lens' ContactDetail (Maybe CountryCode)
 cdCountryCode = lens _cdCountryCode (\s a -> s { _cdCountryCode = a })
 
@@ -1417,7 +1404,6 @@ cdCountryCode = lens _cdCountryCode (\s a -> s { _cdCountryCode = a })
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
---
 cdEmail :: Lens' ContactDetail (Maybe Text)
 cdEmail = lens _cdEmail (\s a -> s { _cdEmail = a })
 
@@ -1433,7 +1419,6 @@ cdEmail = lens _cdEmail (\s a -> s { _cdEmail = a })
 -- Children: 'Name', 'Value'
 --
 -- Required: No
---
 cdExtraParams :: Lens' ContactDetail [ExtraParam]
 cdExtraParams = lens _cdExtraParams (\s a -> s { _cdExtraParams = a }) . _List
 
@@ -1450,7 +1435,6 @@ cdExtraParams = lens _cdExtraParams (\s a -> s { _cdExtraParams = a }) . _List
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: No
---
 cdFax :: Lens' ContactDetail (Maybe Text)
 cdFax = lens _cdFax (\s a -> s { _cdFax = a })
 
@@ -1465,7 +1449,6 @@ cdFax = lens _cdFax (\s a -> s { _cdFax = a })
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
---
 cdFirstName :: Lens' ContactDetail (Maybe Text)
 cdFirstName = lens _cdFirstName (\s a -> s { _cdFirstName = a })
 
@@ -1480,7 +1463,6 @@ cdFirstName = lens _cdFirstName (\s a -> s { _cdFirstName = a })
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
---
 cdLastName :: Lens' ContactDetail (Maybe Text)
 cdLastName = lens _cdLastName (\s a -> s { _cdLastName = a })
 
@@ -1495,7 +1477,6 @@ cdLastName = lens _cdLastName (\s a -> s { _cdLastName = a })
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: No
---
 cdOrganizationName :: Lens' ContactDetail (Maybe Text)
 cdOrganizationName =
     lens _cdOrganizationName (\s a -> s { _cdOrganizationName = a })
@@ -1513,7 +1494,6 @@ cdOrganizationName =
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
---
 cdPhoneNumber :: Lens' ContactDetail (Maybe Text)
 cdPhoneNumber = lens _cdPhoneNumber (\s a -> s { _cdPhoneNumber = a })
 
@@ -1528,7 +1508,6 @@ cdPhoneNumber = lens _cdPhoneNumber (\s a -> s { _cdPhoneNumber = a })
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: No
---
 cdState :: Lens' ContactDetail (Maybe Text)
 cdState = lens _cdState (\s a -> s { _cdState = a })
 
@@ -1543,7 +1522,6 @@ cdState = lens _cdState (\s a -> s { _cdState = a })
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: No
---
 cdZipCode :: Lens' ContactDetail (Maybe Text)
 cdZipCode = lens _cdZipCode (\s a -> s { _cdZipCode = a })
 
@@ -1616,19 +1594,16 @@ operationSummary p1 p2 p3 p4 = OperationSummary
 -- | Identifier returned to track the requested action.
 --
 -- Type: String
---
 osOperationId :: Lens' OperationSummary Text
 osOperationId = lens _osOperationId (\s a -> s { _osOperationId = a })
 
 -- | The current status of the requested operation in the system.
 --
 -- Type: String
---
 osStatus :: Lens' OperationSummary OperationStatus
 osStatus = lens _osStatus (\s a -> s { _osStatus = a })
 
 -- | The date when the request was submitted.
---
 osSubmittedDate :: Lens' OperationSummary UTCTime
 osSubmittedDate = lens _osSubmittedDate (\s a -> s { _osSubmittedDate = a }) . _Time
 
@@ -1637,7 +1612,6 @@ osSubmittedDate = lens _osSubmittedDate (\s a -> s { _osSubmittedDate = a }) . _
 -- Type: String
 --
 -- Valid values: 'REGISTER_DOMAIN' | 'DELETE_DOMAIN' | 'TRANSFER_IN_DOMAIN' | 'UPDATE_DOMAIN_CONTACT' | 'UPDATE_NAMESERVER' | 'CHANGE_PRIVACY_PROTECTION' | 'DOMAIN_LOCK'
---
 osType :: Lens' OperationSummary OperationType
 osType = lens _osType (\s a -> s { _osType = a })
 

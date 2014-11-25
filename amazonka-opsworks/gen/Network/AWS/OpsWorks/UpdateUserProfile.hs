@@ -80,18 +80,15 @@ updateUserProfile p1 = UpdateUserProfile
 
 -- | Whether users can specify their own SSH public key through the My Settings
 -- page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
---
 uupAllowSelfManagement :: Lens' UpdateUserProfile (Maybe Bool)
 uupAllowSelfManagement =
     lens _uupAllowSelfManagement (\s a -> s { _uupAllowSelfManagement = a })
 
 -- | The user IAM ARN.
---
 uupIamUserArn :: Lens' UpdateUserProfile Text
 uupIamUserArn = lens _uupIamUserArn (\s a -> s { _uupIamUserArn = a })
 
 -- | The user's new SSH public key.
---
 uupSshPublicKey :: Lens' UpdateUserProfile (Maybe Text)
 uupSshPublicKey = lens _uupSshPublicKey (\s a -> s { _uupSshPublicKey = a })
 
@@ -100,7 +97,6 @@ uupSshPublicKey = lens _uupSshPublicKey (\s a -> s { _uupSshPublicKey = a })
 -- OpsWorks removes them. For example, 'my.name' will be changed to 'myname'. If you
 -- do not specify an SSH user name, AWS OpsWorks generates one from the IAM user
 -- name.
---
 uupSshUsername :: Lens' UpdateUserProfile (Maybe Text)
 uupSshUsername = lens _uupSshUsername (\s a -> s { _uupSshUsername = a })
 

@@ -72,7 +72,6 @@ avpcDryRun :: Lens' AcceptVpcPeeringConnection (Maybe Bool)
 avpcDryRun = lens _avpcDryRun (\s a -> s { _avpcDryRun = a })
 
 -- | The ID of the VPC peering connection.
---
 avpcVpcPeeringConnectionId :: Lens' AcceptVpcPeeringConnection (Maybe Text)
 avpcVpcPeeringConnectionId =
     lens _avpcVpcPeeringConnectionId
@@ -94,7 +93,6 @@ acceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     }
 
 -- | Information about the VPC peering connection.
---
 avpcrVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
 avpcrVpcPeeringConnection =
     lens _avpcrVpcPeeringConnection

@@ -60,7 +60,6 @@ deleteHsmClientCertificate p1 = DeleteHsmClientCertificate
     }
 
 -- | The identifier of the HSM client certificate to be deleted.
---
 dhcc1HsmClientCertificateIdentifier :: Lens' DeleteHsmClientCertificate Text
 dhcc1HsmClientCertificateIdentifier =
     lens _dhcc1HsmClientCertificateIdentifier

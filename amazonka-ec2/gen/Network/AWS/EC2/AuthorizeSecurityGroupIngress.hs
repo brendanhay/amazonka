@@ -124,7 +124,6 @@ authorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
 
 -- | The CIDR IP address range. You can't specify this parameter when specifying a
 -- source security group.
---
 asgiCidrIp :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiCidrIp = lens _asgiCidrIp (\s a -> s { _asgiCidrIp = a })
 
@@ -133,23 +132,19 @@ asgiDryRun = lens _asgiDryRun (\s a -> s { _asgiDryRun = a })
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use '-1' to specify all ICMP types.
---
 asgiFromPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
 asgiFromPort = lens _asgiFromPort (\s a -> s { _asgiFromPort = a })
 
 -- | The ID of the security group.
---
 asgiGroupId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiGroupId = lens _asgiGroupId (\s a -> s { _asgiGroupId = a })
 
 -- | [EC2-Classic, default VPC] The name of the security group.
---
 asgiGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiGroupName = lens _asgiGroupName (\s a -> s { _asgiGroupName = a })
 
 -- | A set of IP permissions. You can't specify a source security group and a CIDR
 -- IP address range.
---
 asgiIpPermissions :: Lens' AuthorizeSecurityGroupIngress [IpPermission]
 asgiIpPermissions =
     lens _asgiIpPermissions (\s a -> s { _asgiIpPermissions = a })
@@ -157,13 +152,11 @@ asgiIpPermissions =
 
 -- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>). Use '-1'
 -- to specify all.
---
 asgiIpProtocol :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiIpProtocol = lens _asgiIpProtocol (\s a -> s { _asgiIpProtocol = a })
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You can't
 -- specify a source security group and a CIDR IP address range.
---
 asgiSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiSourceSecurityGroupName =
     lens _asgiSourceSecurityGroupName
@@ -171,7 +164,6 @@ asgiSourceSecurityGroupName =
 
 -- | The ID of the source security group. You can't specify a source security
 -- group and a CIDR IP address range.
---
 asgiSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiSourceSecurityGroupOwnerId =
     lens _asgiSourceSecurityGroupOwnerId
@@ -179,7 +171,6 @@ asgiSourceSecurityGroupOwnerId =
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code number.
 -- For the ICMP code number, use '-1' to specify all ICMP codes for the ICMP type.
---
 asgiToPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
 asgiToPort = lens _asgiToPort (\s a -> s { _asgiToPort = a })
 

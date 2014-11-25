@@ -80,14 +80,12 @@ createCacheSecurityGroup p1 p2 = CreateCacheSecurityGroup
 -- be the word "Default".
 --
 -- Example: 'mysecuritygroup'
---
 ccsgCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup Text
 ccsgCacheSecurityGroupName =
     lens _ccsgCacheSecurityGroupName
         (\s a -> s { _ccsgCacheSecurityGroupName = a })
 
 -- | A description for the cache security group.
---
 ccsgDescription :: Lens' CreateCacheSecurityGroup Text
 ccsgDescription = lens _ccsgDescription (\s a -> s { _ccsgDescription = a })
 

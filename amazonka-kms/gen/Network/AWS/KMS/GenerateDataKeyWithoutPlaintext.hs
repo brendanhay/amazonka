@@ -85,7 +85,6 @@ generateDataKeyWithoutPlaintext p1 = GenerateDataKeyWithoutPlaintext
 
 -- | Name:value pair that contains additional data to be authenticated during the
 -- encryption and decryption processes.
---
 gdkwpEncryptionContext :: Lens' GenerateDataKeyWithoutPlaintext (HashMap Text Text)
 gdkwpEncryptionContext =
     lens _gdkwpEncryptionContext (\s a -> s { _gdkwpEncryptionContext = a })
@@ -93,25 +92,21 @@ gdkwpEncryptionContext =
 
 -- | A list of grant tokens that represent grants which can be used to provide
 -- long term permissions to generate a key.
---
 gdkwpGrantTokens :: Lens' GenerateDataKeyWithoutPlaintext [Text]
 gdkwpGrantTokens = lens _gdkwpGrantTokens (\s a -> s { _gdkwpGrantTokens = a }) . _List
 
 -- | Unique identifier of the key. This can be an ARN, an alias, or a globally
 -- unique identifier.
---
 gdkwpKeyId :: Lens' GenerateDataKeyWithoutPlaintext Text
 gdkwpKeyId = lens _gdkwpKeyId (\s a -> s { _gdkwpKeyId = a })
 
 -- | Value that identifies the encryption algorithm and key size. Currently this
 -- can be AES_128 or AES_256.
---
 gdkwpKeySpec :: Lens' GenerateDataKeyWithoutPlaintext (Maybe DataKeySpec)
 gdkwpKeySpec = lens _gdkwpKeySpec (\s a -> s { _gdkwpKeySpec = a })
 
 -- | Integer that contains the number of bytes to generate. Common values are 128,
 -- 256, 512, 1024 and so on.
---
 gdkwpNumberOfBytes :: Lens' GenerateDataKeyWithoutPlaintext (Maybe Natural)
 gdkwpNumberOfBytes =
     lens _gdkwpNumberOfBytes (\s a -> s { _gdkwpNumberOfBytes = a })
@@ -138,13 +133,11 @@ generateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextRespons
 
 -- | Ciphertext that contains the wrapped key. You must store the blob and
 -- encryption context so that the key can be used in a future operation.
---
 gdkwprCiphertextBlob :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe Base64)
 gdkwprCiphertextBlob =
     lens _gdkwprCiphertextBlob (\s a -> s { _gdkwprCiphertextBlob = a })
 
 -- | System generated unique identifier for the key.
---
 gdkwprKeyId :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe Text)
 gdkwprKeyId = lens _gdkwprKeyId (\s a -> s { _gdkwprKeyId = a })
 

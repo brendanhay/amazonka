@@ -81,7 +81,6 @@ createInstanceExportTask p1 = CreateInstanceExportTask
 
 -- | A description for the conversion task or the resource being exported. The
 -- maximum length is 255 bytes.
---
 cietDescription :: Lens' CreateInstanceExportTask (Maybe Text)
 cietDescription = lens _cietDescription (\s a -> s { _cietDescription = a })
 
@@ -90,12 +89,10 @@ cietExportToS3Task =
     lens _cietExportToS3Task (\s a -> s { _cietExportToS3Task = a })
 
 -- | The ID of the instance.
---
 cietInstanceId :: Lens' CreateInstanceExportTask Text
 cietInstanceId = lens _cietInstanceId (\s a -> s { _cietInstanceId = a })
 
 -- | The target virtualization environment.
---
 cietTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
 cietTargetEnvironment =
     lens _cietTargetEnvironment (\s a -> s { _cietTargetEnvironment = a })

@@ -86,6 +86,7 @@
 -- MFA devices produces.
 --
 --
+--
 -- <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html>
 module Network.AWS.STS.AssumeRole
     (
@@ -161,7 +162,6 @@ assumeRole p1 p2 = AssumeRole
 -- | The duration, in seconds, of the role session. The value can range from 900
 -- seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set
 -- to 3600 seconds.
---
 arDurationSeconds :: Lens' AssumeRole (Maybe Natural)
 arDurationSeconds =
     lens _arDurationSeconds (\s a -> s { _arDurationSeconds = a })
@@ -174,7 +174,6 @@ arDurationSeconds =
 -- must pass the customer's external ID. The external ID is useful in order to
 -- help third parties bind a role to the customer who created it. For more
 -- information about the external ID, see About the External ID in /UsingTemporary Security Credentials/.
---
 arExternalId :: Lens' AssumeRole (Maybe Text)
 arExternalId = lens _arExternalId (\s a -> s { _arExternalId = a })
 
@@ -187,18 +186,15 @@ arExternalId = lens _arExternalId (\s a -> s { _arExternalId = a })
 -- the passed policy to grant permissions that are in excess of those allowed by
 -- the access policy of the role that is being assumed. For more information,
 -- see <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRole> in /Using Temporary Security Credentials/.
---
 arPolicy :: Lens' AssumeRole (Maybe Text)
 arPolicy = lens _arPolicy (\s a -> s { _arPolicy = a })
 
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
---
 arRoleArn :: Lens' AssumeRole Text
 arRoleArn = lens _arRoleArn (\s a -> s { _arRoleArn = a })
 
 -- | An identifier for the assumed role session. The session name is included as
 -- part of the 'AssumedRoleUser'.
---
 arRoleSessionName :: Lens' AssumeRole Text
 arRoleSessionName =
     lens _arRoleSessionName (\s a -> s { _arRoleSessionName = a })
@@ -207,7 +203,6 @@ arRoleSessionName =
 -- who is making the 'AssumeRole' call. Specify this value if the trust policy of
 -- the role being assumed includes a condition that requires MFA authentication.
 -- The value is either the serial number for a hardware device (such as 'GAHT12345678') or an Amazon Resource Name (ARN) for a virtual device (such as 'arn:aws:iam::123456789012:mfa/user').
---
 arSerialNumber :: Lens' AssumeRole (Maybe Text)
 arSerialNumber = lens _arSerialNumber (\s a -> s { _arSerialNumber = a })
 
@@ -215,7 +210,6 @@ arSerialNumber = lens _arSerialNumber (\s a -> s { _arSerialNumber = a })
 -- assumed requires MFA (that is, if the policy includes a condition that tests
 -- for MFA). If the role being assumed requires MFA and if the 'TokenCode' value
 -- is missing or expired, the 'AssumeRole' call returns an "access denied" error.
---
 arTokenCode :: Lens' AssumeRole (Maybe Text)
 arTokenCode = lens _arTokenCode (\s a -> s { _arTokenCode = a })
 
@@ -247,21 +241,18 @@ assumeRoleResponse = AssumeRoleResponse
 -- For example, you can reference these credentials as a principal in a
 -- resource-based policy by using the ARN or assumed role ID. The ARN and ID
 -- include the 'RoleSessionName' that you specified when you called 'AssumeRole'.
---
 arrAssumedRoleUser :: Lens' AssumeRoleResponse (Maybe AssumedRoleUser)
 arrAssumedRoleUser =
     lens _arrAssumedRoleUser (\s a -> s { _arrAssumedRoleUser = a })
 
 -- | The temporary security credentials, which include an access key ID, a secret
 -- access key, and a security (or session) token.
---
 arrCredentials :: Lens' AssumeRoleResponse (Maybe Credentials)
 arrCredentials = lens _arrCredentials (\s a -> s { _arrCredentials = a })
 
 -- | A percentage value that indicates the size of the policy in packed form. The
 -- service rejects any policy with a packed size greater than 100 percent, which
 -- means the policy exceeded the allowed space.
---
 arrPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Natural)
 arrPackedPolicySize =
     lens _arrPackedPolicySize (\s a -> s { _arrPackedPolicySize = a })

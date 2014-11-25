@@ -73,7 +73,6 @@ describeStackResource p1 p2 = DescribeStackResource
 -- | The logical name of the resource as specified in the template.
 --
 -- Default: There is no default value.
---
 dsr1LogicalResourceId :: Lens' DescribeStackResource Text
 dsr1LogicalResourceId =
     lens _dsr1LogicalResourceId (\s a -> s { _dsr1LogicalResourceId = a })
@@ -84,7 +83,6 @@ dsr1LogicalResourceId =
 -- Running stacks: You can specify either the stack's name or its unique stack
 -- ID. Deleted stacks: You must specify the unique stack ID.  Default: There is
 -- no default value.
---
 dsr1StackName :: Lens' DescribeStackResource Text
 dsr1StackName = lens _dsr1StackName (\s a -> s { _dsr1StackName = a })
 
@@ -105,7 +103,6 @@ describeStackResourceResponse = DescribeStackResourceResponse
 
 -- | A 'StackResourceDetail' structure containing the description of the specified
 -- resource in the specified stack.
---
 dsrrStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
 dsrrStackResourceDetail =
     lens _dsrrStackResourceDetail (\s a -> s { _dsrrStackResourceDetail = a })

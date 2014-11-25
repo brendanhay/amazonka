@@ -269,29 +269,24 @@ genericRevisionInfo = GenericRevisionInfo
     }
 
 -- | A list of deployment groups that use this revision.
---
 griDeploymentGroups :: Lens' GenericRevisionInfo [Text]
 griDeploymentGroups =
     lens _griDeploymentGroups (\s a -> s { _griDeploymentGroups = a })
         . _List
 
 -- | A comment about the revision.
---
 griDescription :: Lens' GenericRevisionInfo (Maybe Text)
 griDescription = lens _griDescription (\s a -> s { _griDescription = a })
 
 -- | When the revision was first used by AWS CodeDeploy.
---
 griFirstUsedTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
 griFirstUsedTime = lens _griFirstUsedTime (\s a -> s { _griFirstUsedTime = a }) . mapping _Time
 
 -- | When the revision was last used by AWS CodeDeploy.
---
 griLastUsedTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
 griLastUsedTime = lens _griLastUsedTime (\s a -> s { _griLastUsedTime = a }) . mapping _Time
 
 -- | When the revision was registered with AWS CodeDeploy.
---
 griRegisterTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
 griRegisterTime = lens _griRegisterTime (\s a -> s { _griRegisterTime = a }) . mapping _Time
 
@@ -340,24 +335,20 @@ applicationInfo = ApplicationInfo
     }
 
 -- | The application ID.
---
 aiApplicationId :: Lens' ApplicationInfo (Maybe Text)
 aiApplicationId = lens _aiApplicationId (\s a -> s { _aiApplicationId = a })
 
 -- | The application name.
---
 aiApplicationName :: Lens' ApplicationInfo (Maybe Text)
 aiApplicationName =
     lens _aiApplicationName (\s a -> s { _aiApplicationName = a })
 
 -- | The time that the application was created.
---
 aiCreateTime :: Lens' ApplicationInfo (Maybe UTCTime)
 aiCreateTime = lens _aiCreateTime (\s a -> s { _aiCreateTime = a }) . mapping _Time
 
 -- | True if the user has authenticated with GitHub for the specified application;
 -- otherwise, false.
---
 aiLinkedToGitHub :: Lens' ApplicationInfo (Maybe Bool)
 aiLinkedToGitHub = lens _aiLinkedToGitHub (\s a -> s { _aiLinkedToGitHub = a })
 
@@ -511,22 +502,18 @@ instanceSummary = InstanceSummary
     }
 
 -- | The deployment ID.
---
 isDeploymentId :: Lens' InstanceSummary (Maybe Text)
 isDeploymentId = lens _isDeploymentId (\s a -> s { _isDeploymentId = a })
 
 -- | The instance ID.
---
 isInstanceId :: Lens' InstanceSummary (Maybe Text)
 isInstanceId = lens _isInstanceId (\s a -> s { _isInstanceId = a })
 
 -- | A timestamp indicating when the instance information was last updated.
---
 isLastUpdatedAt :: Lens' InstanceSummary (Maybe UTCTime)
 isLastUpdatedAt = lens _isLastUpdatedAt (\s a -> s { _isLastUpdatedAt = a }) . mapping _Time
 
 -- | A list of lifecycle events for this instance.
---
 isLifecycleEvents :: Lens' InstanceSummary [LifecycleEvent]
 isLifecycleEvents =
     lens _isLifecycleEvents (\s a -> s { _isLifecycleEvents = a })
@@ -579,12 +566,10 @@ autoScalingGroup = AutoScalingGroup
     }
 
 -- | An Auto Scaling lifecycle event hook name.
---
 asgHook :: Lens' AutoScalingGroup (Maybe Text)
 asgHook = lens _asgHook (\s a -> s { _asgHook = a })
 
 -- | The Auto Scaling group name.
---
 asgName :: Lens' AutoScalingGroup (Maybe Text)
 asgName = lens _asgName (\s a -> s { _asgName = a })
 
@@ -643,50 +628,42 @@ deploymentGroupInfo = DeploymentGroupInfo
     }
 
 -- | The application name.
---
 dgiApplicationName :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiApplicationName =
     lens _dgiApplicationName (\s a -> s { _dgiApplicationName = a })
 
 -- | A list of associated Auto Scaling groups.
---
 dgiAutoScalingGroups :: Lens' DeploymentGroupInfo [AutoScalingGroup]
 dgiAutoScalingGroups =
     lens _dgiAutoScalingGroups (\s a -> s { _dgiAutoScalingGroups = a })
         . _List
 
 -- | The deployment configuration name.
---
 dgiDeploymentConfigName :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiDeploymentConfigName =
     lens _dgiDeploymentConfigName (\s a -> s { _dgiDeploymentConfigName = a })
 
 -- | The deployment group ID.
---
 dgiDeploymentGroupId :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiDeploymentGroupId =
     lens _dgiDeploymentGroupId (\s a -> s { _dgiDeploymentGroupId = a })
 
 -- | The deployment group name.
---
 dgiDeploymentGroupName :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiDeploymentGroupName =
     lens _dgiDeploymentGroupName (\s a -> s { _dgiDeploymentGroupName = a })
 
 -- | The Amazon EC2 tags to filter on.
---
 dgiEc2TagFilters :: Lens' DeploymentGroupInfo [EC2TagFilter]
 dgiEc2TagFilters = lens _dgiEc2TagFilters (\s a -> s { _dgiEc2TagFilters = a }) . _List
 
 -- | A service role ARN.
---
 dgiServiceRoleArn :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiServiceRoleArn =
     lens _dgiServiceRoleArn (\s a -> s { _dgiServiceRoleArn = a })
 
 -- | Information about the deployment group's target revision, including the
 -- revision's type and its location.
---
 dgiTargetRevision :: Lens' DeploymentGroupInfo (Maybe RevisionLocation)
 dgiTargetRevision =
     lens _dgiTargetRevision (\s a -> s { _dgiTargetRevision = a })
@@ -784,7 +761,6 @@ mhhType :: Lens' MinimumHealthyHosts (Maybe MinimumHealthyHostsType)
 mhhType = lens _mhhType (\s a -> s { _mhhType = a })
 
 -- | The minimum healthy instances value.
---
 mhhValue :: Lens' MinimumHealthyHosts (Maybe Int)
 mhhValue = lens _mhhValue (\s a -> s { _mhhValue = a })
 
@@ -986,7 +962,6 @@ ec2TagFilter = EC2TagFilter
     }
 
 -- | The Amazon EC2 tag filter key.
---
 ectfKey :: Lens' EC2TagFilter (Maybe Text)
 ectfKey = lens _ectfKey (\s a -> s { _ectfKey = a })
 
@@ -997,7 +972,6 @@ ectfType :: Lens' EC2TagFilter (Maybe EC2TagFilterType)
 ectfType = lens _ectfType (\s a -> s { _ectfType = a })
 
 -- | The Amazon EC2 tag filter value.
---
 ectfValue :: Lens' EC2TagFilter (Maybe Text)
 ectfValue = lens _ectfValue (\s a -> s { _ectfValue = a })
 
@@ -1052,17 +1026,14 @@ dErrorCode :: Lens' Diagnostics (Maybe LifecycleErrorCode)
 dErrorCode = lens _dErrorCode (\s a -> s { _dErrorCode = a })
 
 -- | The last portion of the associated diagnostic log.
---
 dLogTail :: Lens' Diagnostics (Maybe Text)
 dLogTail = lens _dLogTail (\s a -> s { _dLogTail = a })
 
 -- | The message associated with the error.
---
 dMessage :: Lens' Diagnostics (Maybe Text)
 dMessage = lens _dMessage (\s a -> s { _dMessage = a })
 
 -- | The name of the script.
---
 dScriptName :: Lens' Diagnostics (Maybe Text)
 dScriptName = lens _dScriptName (\s a -> s { _dScriptName = a })
 
@@ -1151,7 +1122,6 @@ eiCode :: Lens' ErrorInformation (Maybe ErrorCode)
 eiCode = lens _eiCode (\s a -> s { _eiCode = a })
 
 -- | An accompanying error message.
---
 eiMessage :: Lens' ErrorInformation (Maybe Text)
 eiMessage = lens _eiMessage (\s a -> s { _eiMessage = a })
 
@@ -1263,18 +1233,15 @@ deploymentInfo = DeploymentInfo
     }
 
 -- | The application name.
---
 diApplicationName :: Lens' DeploymentInfo (Maybe Text)
 diApplicationName =
     lens _diApplicationName (\s a -> s { _diApplicationName = a })
 
 -- | A timestamp indicating when the deployment was completed.
---
 diCompleteTime :: Lens' DeploymentInfo (Maybe UTCTime)
 diCompleteTime = lens _diCompleteTime (\s a -> s { _diCompleteTime = a }) . mapping _Time
 
 -- | A timestamp indicating when the deployment was created.
---
 diCreateTime :: Lens' DeploymentInfo (Maybe UTCTime)
 diCreateTime = lens _diCreateTime (\s a -> s { _diCreateTime = a }) . mapping _Time
 
@@ -1286,35 +1253,29 @@ diCreator :: Lens' DeploymentInfo (Maybe DeploymentCreator)
 diCreator = lens _diCreator (\s a -> s { _diCreator = a })
 
 -- | The deployment configuration name.
---
 diDeploymentConfigName :: Lens' DeploymentInfo (Maybe Text)
 diDeploymentConfigName =
     lens _diDeploymentConfigName (\s a -> s { _diDeploymentConfigName = a })
 
 -- | The deployment group name.
---
 diDeploymentGroupName :: Lens' DeploymentInfo (Maybe Text)
 diDeploymentGroupName =
     lens _diDeploymentGroupName (\s a -> s { _diDeploymentGroupName = a })
 
 -- | The deployment ID.
---
 diDeploymentId :: Lens' DeploymentInfo (Maybe Text)
 diDeploymentId = lens _diDeploymentId (\s a -> s { _diDeploymentId = a })
 
 -- | A summary of the deployment status of the instances in the deployment.
---
 diDeploymentOverview :: Lens' DeploymentInfo (Maybe DeploymentOverview)
 diDeploymentOverview =
     lens _diDeploymentOverview (\s a -> s { _diDeploymentOverview = a })
 
 -- | A comment about the deployment.
---
 diDescription :: Lens' DeploymentInfo (Maybe Text)
 diDescription = lens _diDescription (\s a -> s { _diDescription = a })
 
 -- | Information about any error associated with this deployment.
---
 diErrorInformation :: Lens' DeploymentInfo (Maybe ErrorInformation)
 diErrorInformation =
     lens _diErrorInformation (\s a -> s { _diErrorInformation = a })
@@ -1328,7 +1289,6 @@ diErrorInformation =
 -- deployment lifecycle event to fail to a specific instance, the deployment
 -- will stop to that instance, and the deployment to that instance will be
 -- considered to have failed.
---
 diIgnoreApplicationStopFailures :: Lens' DeploymentInfo (Maybe Bool)
 diIgnoreApplicationStopFailures =
     lens _diIgnoreApplicationStopFailures
@@ -1336,7 +1296,6 @@ diIgnoreApplicationStopFailures =
 
 -- | Information about the location of application artifacts that are stored and
 -- the service to retrieve them from.
---
 diRevision :: Lens' DeploymentInfo (Maybe RevisionLocation)
 diRevision = lens _diRevision (\s a -> s { _diRevision = a })
 
@@ -1346,12 +1305,10 @@ diRevision = lens _diRevision (\s a -> s { _diRevision = a })
 -- Note that in some cases, the reported value of the start time may be later
 -- than the complete time. This is due to differences in the clock settings of
 -- various back-end servers that participate in the overall deployment process.
---
 diStartTime :: Lens' DeploymentInfo (Maybe UTCTime)
 diStartTime = lens _diStartTime (\s a -> s { _diStartTime = a }) . mapping _Time
 
 -- | The current state of the deployment as a whole.
---
 diStatus :: Lens' DeploymentInfo (Maybe DeploymentStatus)
 diStatus = lens _diStatus (\s a -> s { _diStatus = a })
 
@@ -1422,24 +1379,20 @@ lifecycleEvent = LifecycleEvent
     }
 
 -- | Diagnostic information about the deployment lifecycle event.
---
 leDiagnostics :: Lens' LifecycleEvent (Maybe Diagnostics)
 leDiagnostics = lens _leDiagnostics (\s a -> s { _leDiagnostics = a })
 
 -- | A timestamp indicating when the deployment lifecycle event ended.
---
 leEndTime :: Lens' LifecycleEvent (Maybe UTCTime)
 leEndTime = lens _leEndTime (\s a -> s { _leEndTime = a }) . mapping _Time
 
 -- | The deployment lifecycle event name, such as ApplicationStop, BeforeInstall,
 -- AfterInstall, ApplicationStart, or ValidateService.
---
 leLifecycleEventName :: Lens' LifecycleEvent (Maybe Text)
 leLifecycleEventName =
     lens _leLifecycleEventName (\s a -> s { _leLifecycleEventName = a })
 
 -- | A timestamp indicating when the deployment lifecycle event started.
---
 leStartTime :: Lens' LifecycleEvent (Maybe UTCTime)
 leStartTime = lens _leStartTime (\s a -> s { _leStartTime = a }) . mapping _Time
 
@@ -1502,27 +1455,22 @@ deploymentOverview = DeploymentOverview
     }
 
 -- | The number of instances that have failed in the deployment.
---
 doFailed :: Lens' DeploymentOverview (Maybe Integer)
 doFailed = lens _doFailed (\s a -> s { _doFailed = a })
 
 -- | The number of instances that are in progress in the deployment.
---
 doInProgress :: Lens' DeploymentOverview (Maybe Integer)
 doInProgress = lens _doInProgress (\s a -> s { _doInProgress = a })
 
 -- | The number of instances that are pending in the deployment.
---
 doPending :: Lens' DeploymentOverview (Maybe Integer)
 doPending = lens _doPending (\s a -> s { _doPending = a })
 
 -- | The number of instances that have been skipped in the deployment.
---
 doSkipped :: Lens' DeploymentOverview (Maybe Integer)
 doSkipped = lens _doSkipped (\s a -> s { _doSkipped = a })
 
 -- | The number of instances that have succeeded in the deployment.
---
 doSucceeded :: Lens' DeploymentOverview (Maybe Integer)
 doSucceeded = lens _doSucceeded (\s a -> s { _doSucceeded = a })
 
@@ -1627,24 +1575,20 @@ deploymentConfigInfo = DeploymentConfigInfo
     }
 
 -- | The time that the deployment configuration was created.
---
 dciCreateTime :: Lens' DeploymentConfigInfo (Maybe UTCTime)
 dciCreateTime = lens _dciCreateTime (\s a -> s { _dciCreateTime = a }) . mapping _Time
 
 -- | The deployment configuration ID.
---
 dciDeploymentConfigId :: Lens' DeploymentConfigInfo (Maybe Text)
 dciDeploymentConfigId =
     lens _dciDeploymentConfigId (\s a -> s { _dciDeploymentConfigId = a })
 
 -- | The deployment configuration name.
---
 dciDeploymentConfigName :: Lens' DeploymentConfigInfo (Maybe Text)
 dciDeploymentConfigName =
     lens _dciDeploymentConfigName (\s a -> s { _dciDeploymentConfigName = a })
 
 -- | Information about the number or percentage of minimum healthy instances.
---
 dciMinimumHealthyHosts :: Lens' DeploymentConfigInfo (Maybe MinimumHealthyHosts)
 dciMinimumHealthyHosts =
     lens _dciMinimumHealthyHosts (\s a -> s { _dciMinimumHealthyHosts = a })
@@ -1778,7 +1722,6 @@ s3Location = S3Location
     }
 
 -- | The name of the Amazon S3 bucket where the application revision is stored.
---
 slBucket :: Lens' S3Location (Maybe Text)
 slBucket = lens _slBucket (\s a -> s { _slBucket = a })
 
@@ -1794,13 +1737,11 @@ slBundleType = lens _slBundleType (\s a -> s { _slBundleType = a })
 --
 -- If the ETag is not specified as an input parameter, ETag validation of the
 -- object will be skipped.
---
 slETag :: Lens' S3Location (Maybe Text)
 slETag = lens _slETag (\s a -> s { _slETag = a })
 
 -- | The name of the Amazon S3 object that represents the bundled artifacts for
 -- the application revision.
---
 slKey :: Lens' S3Location (Maybe Text)
 slKey = lens _slKey (\s a -> s { _slKey = a })
 
@@ -1809,7 +1750,6 @@ slKey = lens _slKey (\s a -> s { _slKey = a })
 --
 -- If the version is not specified, the system will use the most recent version
 -- by default.
---
 slVersion :: Lens' S3Location (Maybe Text)
 slVersion = lens _slVersion (\s a -> s { _slVersion = a })
 
@@ -1880,7 +1820,6 @@ gitHubLocation = GitHubLocation
 
 -- | The SHA1 commit ID of the GitHub commit that references the that represents
 -- the bundled artifacts for the application revision.
---
 ghlCommitId :: Lens' GitHubLocation (Maybe Text)
 ghlCommitId = lens _ghlCommitId (\s a -> s { _ghlCommitId = a })
 
@@ -1888,7 +1827,6 @@ ghlCommitId = lens _ghlCommitId (\s a -> s { _ghlCommitId = a })
 -- that represents the bundled artifacts for the application revision.
 --
 -- Specified as account/repository.
---
 ghlRepository :: Lens' GitHubLocation (Maybe Text)
 ghlRepository = lens _ghlRepository (\s a -> s { _ghlRepository = a })
 

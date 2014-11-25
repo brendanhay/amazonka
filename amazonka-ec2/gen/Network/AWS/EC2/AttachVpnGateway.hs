@@ -76,12 +76,10 @@ avgDryRun :: Lens' AttachVpnGateway (Maybe Bool)
 avgDryRun = lens _avgDryRun (\s a -> s { _avgDryRun = a })
 
 -- | The ID of the VPC.
---
 avgVpcId :: Lens' AttachVpnGateway Text
 avgVpcId = lens _avgVpcId (\s a -> s { _avgVpcId = a })
 
 -- | The ID of the virtual private gateway.
---
 avgVpnGatewayId :: Lens' AttachVpnGateway Text
 avgVpnGatewayId = lens _avgVpnGatewayId (\s a -> s { _avgVpnGatewayId = a })
 
@@ -101,7 +99,6 @@ attachVpnGatewayResponse = AttachVpnGatewayResponse
     }
 
 -- | Information about the attachment.
---
 avgrVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)
 avgrVpcAttachment =
     lens _avgrVpcAttachment (\s a -> s { _avgrVpcAttachment = a })

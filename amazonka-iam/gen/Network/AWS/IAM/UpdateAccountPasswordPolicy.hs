@@ -104,7 +104,6 @@ updateAccountPasswordPolicy = UpdateAccountPasswordPolicy
 -- change their own passwords. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html Letting IAM UsersChange Their Own Passwords> in the /Using IAM/ guide.
 --
 -- Default value: false
---
 uappAllowUsersToChangePassword :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappAllowUsersToChangePassword =
     lens _uappAllowUsersToChangePassword
@@ -114,7 +113,6 @@ uappAllowUsersToChangePassword =
 -- expired.
 --
 -- Default value: false
---
 uappHardExpiry :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappHardExpiry = lens _uappHardExpiry (\s a -> s { _uappHardExpiry = a })
 
@@ -122,7 +120,6 @@ uappHardExpiry = lens _uappHardExpiry (\s a -> s { _uappHardExpiry = a })
 -- means IAM user passwords never expire.
 --
 -- Default value: 0
---
 uappMaxPasswordAge :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
 uappMaxPasswordAge =
     lens _uappMaxPasswordAge (\s a -> s { _uappMaxPasswordAge = a })
@@ -131,7 +128,6 @@ uappMaxPasswordAge =
 -- | The minimum number of characters allowed in an IAM user password.
 --
 -- Default value: 6
---
 uappMinimumPasswordLength :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
 uappMinimumPasswordLength =
     lens _uappMinimumPasswordLength
@@ -143,7 +139,6 @@ uappMinimumPasswordLength =
 -- reusing previous passwords.
 --
 -- Default value: 0
---
 uappPasswordReusePrevention :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
 uappPasswordReusePrevention =
     lens _uappPasswordReusePrevention
@@ -154,7 +149,6 @@ uappPasswordReusePrevention =
 -- character from the ISO basic Latin alphabet (a to z).
 --
 -- Default value: false
---
 uappRequireLowercaseCharacters :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireLowercaseCharacters =
     lens _uappRequireLowercaseCharacters
@@ -164,7 +158,6 @@ uappRequireLowercaseCharacters =
 -- character (0 to 9).
 --
 -- Default value: false
---
 uappRequireNumbers :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireNumbers =
     lens _uappRequireNumbers (\s a -> s { _uappRequireNumbers = a })
@@ -175,7 +168,6 @@ uappRequireNumbers =
 -- ! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | '
 --
 -- Default value: false
---
 uappRequireSymbols :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireSymbols =
     lens _uappRequireSymbols (\s a -> s { _uappRequireSymbols = a })
@@ -184,7 +176,6 @@ uappRequireSymbols =
 -- character from the ISO basic Latin alphabet (A to Z).
 --
 -- Default value: false
---
 uappRequireUppercaseCharacters :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireUppercaseCharacters =
     lens _uappRequireUppercaseCharacters

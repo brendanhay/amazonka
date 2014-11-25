@@ -102,7 +102,6 @@ attachVolume p1 p2 p3 = AttachVolume
     }
 
 -- | The device name to expose to the instance (for example, '/dev/sdh' or 'xvdh').
---
 avDevice :: Lens' AttachVolume Text
 avDevice = lens _avDevice (\s a -> s { _avDevice = a })
 
@@ -110,13 +109,11 @@ avDryRun :: Lens' AttachVolume (Maybe Bool)
 avDryRun = lens _avDryRun (\s a -> s { _avDryRun = a })
 
 -- | The ID of the instance.
---
 avInstanceId :: Lens' AttachVolume Text
 avInstanceId = lens _avInstanceId (\s a -> s { _avInstanceId = a })
 
 -- | The ID of the Amazon EBS volume. The volume and instance must be within the
 -- same Availability Zone.
---
 avVolumeId :: Lens' AttachVolume Text
 avVolumeId = lens _avVolumeId (\s a -> s { _avVolumeId = a })
 
@@ -156,33 +153,27 @@ attachVolumeResponse = AttachVolumeResponse
     }
 
 -- | The time stamp when the attachment initiated.
---
 avrAttachTime :: Lens' AttachVolumeResponse (Maybe UTCTime)
 avrAttachTime = lens _avrAttachTime (\s a -> s { _avrAttachTime = a }) . mapping _Time
 
 -- | Indicates whether the Amazon EBS volume is deleted on instance termination.
---
 avrDeleteOnTermination :: Lens' AttachVolumeResponse (Maybe Bool)
 avrDeleteOnTermination =
     lens _avrDeleteOnTermination (\s a -> s { _avrDeleteOnTermination = a })
 
 -- | The device name.
---
 avrDevice :: Lens' AttachVolumeResponse (Maybe Text)
 avrDevice = lens _avrDevice (\s a -> s { _avrDevice = a })
 
 -- | The ID of the instance.
---
 avrInstanceId :: Lens' AttachVolumeResponse (Maybe Text)
 avrInstanceId = lens _avrInstanceId (\s a -> s { _avrInstanceId = a })
 
 -- | The attachment state of the volume.
---
 avrState :: Lens' AttachVolumeResponse (Maybe VolumeAttachmentState)
 avrState = lens _avrState (\s a -> s { _avrState = a })
 
 -- | The ID of the volume.
---
 avrVolumeId :: Lens' AttachVolumeResponse (Maybe Text)
 avrVolumeId = lens _avrVolumeId (\s a -> s { _avrVolumeId = a })
 

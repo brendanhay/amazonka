@@ -171,7 +171,6 @@ createCacheCluster p1 = CreateCacheCluster
 --
 -- If the 'AZMode' and 'PreferredAvailabilityZones' are not specified, ElastiCache
 -- assumes 'single-az' mode.
---
 cccAZMode :: Lens' CreateCacheCluster (Maybe AZMode)
 cccAZMode = lens _cccAZMode (\s a -> s { _cccAZMode = a })
 
@@ -180,7 +179,6 @@ cccAZMode = lens _cccAZMode (\s a -> s { _cccAZMode = a })
 -- upgrades to occur; 'false' disables automatic upgrades.
 --
 -- Default: 'true'
---
 cccAutoMinorVersionUpgrade :: Lens' CreateCacheCluster (Maybe Bool)
 cccAutoMinorVersionUpgrade =
     lens _cccAutoMinorVersionUpgrade
@@ -209,14 +207,12 @@ cccCacheClusterId =
 -- Redis Append-only files (AOF) functionality is not supported for t1 or t2
 -- instances.  For a complete listing of cache node types and specifications,
 -- see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache NodeType-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parametersfor Redis>.
---
 cccCacheNodeType :: Lens' CreateCacheCluster (Maybe Text)
 cccCacheNodeType = lens _cccCacheNodeType (\s a -> s { _cccCacheNodeType = a })
 
 -- | The name of the parameter group to associate with this cache cluster. If this
 -- argument is omitted, the default parameter group for the specified engine is
 -- used.
---
 cccCacheParameterGroupName :: Lens' CreateCacheCluster (Maybe Text)
 cccCacheParameterGroupName =
     lens _cccCacheParameterGroupName
@@ -226,7 +222,6 @@ cccCacheParameterGroupName =
 --
 -- Use this parameter only when you are creating a cache cluster outside of an
 -- Amazon Virtual Private Cloud (VPC).
---
 cccCacheSecurityGroupNames :: Lens' CreateCacheCluster [Text]
 cccCacheSecurityGroupNames =
     lens _cccCacheSecurityGroupNames
@@ -237,7 +232,6 @@ cccCacheSecurityGroupNames =
 --
 -- Use this parameter only when you are creating a cache cluster in an Amazon
 -- Virtual Private Cloud (VPC).
---
 cccCacheSubnetGroupName :: Lens' CreateCacheCluster (Maybe Text)
 cccCacheSubnetGroupName =
     lens _cccCacheSubnetGroupName (\s a -> s { _cccCacheSubnetGroupName = a })
@@ -247,20 +241,17 @@ cccCacheSubnetGroupName =
 -- Valid values for this parameter are:
 --
 -- 'memcached' | 'redis'
---
 cccEngine :: Lens' CreateCacheCluster (Maybe Text)
 cccEngine = lens _cccEngine (\s a -> s { _cccEngine = a })
 
 -- | The version number of the cache engine to be used for this cache cluster. To
 -- view the supported cache engine versions, use the /DescribeCacheEngineVersions/
 -- operation.
---
 cccEngineVersion :: Lens' CreateCacheCluster (Maybe Text)
 cccEngineVersion = lens _cccEngineVersion (\s a -> s { _cccEngineVersion = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic to which notifications will be sent.
---
 cccNotificationTopicArn :: Lens' CreateCacheCluster (Maybe Text)
 cccNotificationTopicArn =
     lens _cccNotificationTopicArn (\s a -> s { _cccNotificationTopicArn = a })
@@ -272,12 +263,10 @@ cccNotificationTopicArn =
 --
 -- For Redis, only single-node cache cluster are supported at this time, so the
 -- value for this parameter must be 1.
---
 cccNumCacheNodes :: Lens' CreateCacheCluster (Maybe Int)
 cccNumCacheNodes = lens _cccNumCacheNodes (\s a -> s { _cccNumCacheNodes = a })
 
 -- | The port number on which each of the cache nodes will accept connections.
---
 cccPort :: Lens' CreateCacheCluster (Maybe Int)
 cccPort = lens _cccPort (\s a -> s { _cccPort = a })
 
@@ -288,7 +277,6 @@ cccPort = lens _cccPort (\s a -> s { _cccPort = a })
 -- Availability Zones, use 'PreferredAvailabilityZones'.
 --
 -- Default: System chosen Availability Zone.
---
 cccPreferredAvailabilityZone :: Lens' CreateCacheCluster (Maybe Text)
 cccPreferredAvailabilityZone =
     lens _cccPreferredAvailabilityZone
@@ -306,7 +294,6 @@ cccPreferredAvailabilityZone =
 -- Example: One Memcached node in each of three different Availability Zones: 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1b&PreferredAvailabilityZones.member.3=us-east-1d'
 --
 -- Example: All three Memcached nodes in one Availability Zone: 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1a&PreferredAvailabilityZones.member.3=us-east-1a'
---
 cccPreferredAvailabilityZones :: Lens' CreateCacheCluster [Text]
 cccPreferredAvailabilityZones =
     lens _cccPreferredAvailabilityZones
@@ -316,7 +303,6 @@ cccPreferredAvailabilityZones =
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 --
 -- Example: 'sun:05:00-sun:09:00'
---
 cccPreferredMaintenanceWindow :: Lens' CreateCacheCluster (Maybe Text)
 cccPreferredMaintenanceWindow =
     lens _cccPreferredMaintenanceWindow
@@ -333,7 +319,6 @@ cccPreferredMaintenanceWindow =
 -- availability zones.
 --
 -- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.
---
 cccReplicationGroupId :: Lens' CreateCacheCluster (Maybe Text)
 cccReplicationGroupId =
     lens _cccReplicationGroupId (\s a -> s { _cccReplicationGroupId = a })
@@ -342,7 +327,6 @@ cccReplicationGroupId =
 --
 -- Use this parameter only when you are creating a cache cluster in an Amazon
 -- Virtual Private Cloud (VPC).
---
 cccSecurityGroupIds :: Lens' CreateCacheCluster [Text]
 cccSecurityGroupIds =
     lens _cccSecurityGroupIds (\s a -> s { _cccSecurityGroupIds = a })
@@ -356,7 +340,6 @@ cccSecurityGroupIds =
 -- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.
 --
 -- Example of an Amazon S3 ARN: 'arn:aws:s3:::my_bucket/snapshot1.rdb'
---
 cccSnapshotArns :: Lens' CreateCacheCluster [Text]
 cccSnapshotArns = lens _cccSnapshotArns (\s a -> s { _cccSnapshotArns = a }) . _List
 
@@ -365,7 +348,6 @@ cccSnapshotArns = lens _cccSnapshotArns (\s a -> s { _cccSnapshotArns = a }) . _
 -- created.
 --
 -- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.
---
 cccSnapshotName :: Lens' CreateCacheCluster (Maybe Text)
 cccSnapshotName = lens _cccSnapshotName (\s a -> s { _cccSnapshotName = a })
 
@@ -377,7 +359,6 @@ cccSnapshotName = lens _cccSnapshotName (\s a -> s { _cccSnapshotName = a })
 -- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.
 --
 -- Default: 0 (i.e., automatic backups are disabled for this cache cluster).
---
 cccSnapshotRetentionLimit :: Lens' CreateCacheCluster (Maybe Int)
 cccSnapshotRetentionLimit =
     lens _cccSnapshotRetentionLimit
@@ -392,7 +373,6 @@ cccSnapshotRetentionLimit =
 -- choose an appropriate time range.
 --
 -- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.
---
 cccSnapshotWindow :: Lens' CreateCacheCluster (Maybe Text)
 cccSnapshotWindow =
     lens _cccSnapshotWindow (\s a -> s { _cccSnapshotWindow = a })

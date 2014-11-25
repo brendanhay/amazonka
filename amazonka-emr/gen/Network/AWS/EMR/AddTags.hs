@@ -68,7 +68,6 @@ addTags p1 = AddTags
 
 -- | The Amazon EMR resource identifier to which tags will be added. This value
 -- must be a cluster identifier.
---
 atResourceId :: Lens' AddTags Text
 atResourceId = lens _atResourceId (\s a -> s { _atResourceId = a })
 
@@ -76,7 +75,6 @@ atResourceId = lens _atResourceId (\s a -> s { _atResourceId = a })
 -- instances. Tags are user-defined key/value pairs that consist of a required
 -- key string with a maximum of 128 characters, and an optional value string
 -- with a maximum of 256 characters.
---
 atTags :: Lens' AddTags [Tag]
 atTags = lens _atTags (\s a -> s { _atTags = a }) . _List
 

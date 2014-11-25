@@ -75,7 +75,6 @@ reportTaskProgress p1 = ReportTaskProgress
 -- | Identifier of the task assigned to the task runner. This value is provided in
 -- the 'TaskObject' that the service returns with the response for the 'PollForTask'
 -- action.
---
 rtpTaskId :: Lens' ReportTaskProgress Text
 rtpTaskId = lens _rtpTaskId (\s a -> s { _rtpTaskId = a })
 
@@ -97,7 +96,6 @@ reportTaskProgressResponse p1 = ReportTaskProgressResponse
 
 -- | If 'True', the calling task runner should cancel processing of the task. The
 -- task runner does not need to call 'SetTaskStatus' for canceled tasks.
---
 rtprCanceled :: Lens' ReportTaskProgressResponse Bool
 rtprCanceled = lens _rtprCanceled (\s a -> s { _rtprCanceled = a })
 

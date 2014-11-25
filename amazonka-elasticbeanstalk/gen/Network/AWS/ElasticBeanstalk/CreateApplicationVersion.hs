@@ -83,7 +83,6 @@ createApplicationVersion p1 p2 = CreateApplicationVersion
     }
 
 -- | The name of the application. If no application is found with this name, and 'AutoCreateApplication' is 'false', returns an 'InvalidParameterValue' error.
---
 cavApplicationName :: Lens' CreateApplicationVersion Text
 cavApplicationName =
     lens _cavApplicationName (\s a -> s { _cavApplicationName = a })
@@ -103,14 +102,12 @@ cavApplicationName =
 -- Default: 'false'
 --
 -- Valid Values: 'true' | 'false'
---
 cavAutoCreateApplication :: Lens' CreateApplicationVersion (Maybe Bool)
 cavAutoCreateApplication =
     lens _cavAutoCreateApplication
         (\s a -> s { _cavAutoCreateApplication = a })
 
 -- | Describes this version.
---
 cavDescription :: Lens' CreateApplicationVersion (Maybe Text)
 cavDescription = lens _cavDescription (\s a -> s { _cavDescription = a })
 
@@ -125,7 +122,6 @@ cavDescription = lens _cavDescription (\s a -> s { _cavDescription = a })
 -- If only partially specified (for example, a bucket is provided but not the
 -- key) or if no data is found at the Amazon S3 location, AWS Elastic Beanstalk
 -- returns an 'InvalidParameterCombination' error.
---
 cavSourceBundle :: Lens' CreateApplicationVersion (Maybe S3Location)
 cavSourceBundle = lens _cavSourceBundle (\s a -> s { _cavSourceBundle = a })
 
@@ -134,7 +130,6 @@ cavSourceBundle = lens _cavSourceBundle (\s a -> s { _cavSourceBundle = a })
 -- Constraint: Must be unique per application. If an application version
 -- already exists with this label for the specified application, AWS Elastic
 -- Beanstalk returns an 'InvalidParameterValue' error.
---
 cavVersionLabel :: Lens' CreateApplicationVersion Text
 cavVersionLabel = lens _cavVersionLabel (\s a -> s { _cavVersionLabel = a })
 
@@ -154,7 +149,6 @@ createApplicationVersionResponse = CreateApplicationVersionResponse
     }
 
 -- | The 'ApplicationVersionDescription' of the application version.
---
 cavrApplicationVersion :: Lens' CreateApplicationVersionResponse (Maybe ApplicationVersionDescription)
 cavrApplicationVersion =
     lens _cavrApplicationVersion (\s a -> s { _cavrApplicationVersion = a })

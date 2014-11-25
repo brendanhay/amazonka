@@ -63,7 +63,6 @@ describeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributes
     }
 
 -- | The name of the load balancer.
---
 dlbaLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
 dlbaLoadBalancerName =
     lens _dlbaLoadBalancerName (\s a -> s { _dlbaLoadBalancerName = a })
@@ -84,7 +83,6 @@ describeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
     }
 
 -- | The load balancer attributes structure.
---
 dlbarLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 dlbarLoadBalancerAttributes =
     lens _dlbarLoadBalancerAttributes

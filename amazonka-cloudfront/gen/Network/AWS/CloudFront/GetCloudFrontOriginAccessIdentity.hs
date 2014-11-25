@@ -21,6 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Get the information about an origin access identity.
+--
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetCloudFrontOriginAccessIdentity.html>
 module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
     (

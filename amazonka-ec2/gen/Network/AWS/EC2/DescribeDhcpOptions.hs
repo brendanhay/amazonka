@@ -75,7 +75,6 @@ describeDhcpOptions = DescribeDhcpOptions
 -- | The IDs of one or more DHCP options sets.
 --
 -- Default: Describes all your DHCP options sets.
---
 ddoDhcpOptionsIds :: Lens' DescribeDhcpOptions [Text]
 ddoDhcpOptionsIds =
     lens _ddoDhcpOptionsIds (\s a -> s { _ddoDhcpOptionsIds = a })
@@ -131,7 +130,6 @@ describeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     }
 
 -- | Information about one or more DHCP options sets.
---
 ddorDhcpOptions :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]
 ddorDhcpOptions = lens _ddorDhcpOptions (\s a -> s { _ddorDhcpOptions = a }) . _List
 

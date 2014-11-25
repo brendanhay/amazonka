@@ -31,6 +31,7 @@
 -- zone contains other resource record sets, you must delete them before you can
 -- delete your hosted zone. If you try to delete a hosted zone that contains
 -- other resource record sets, Route 53 will deny your request with a 'HostedZoneNotEmpty' error. For information about deleting records from your hosted zone, see 'ChangeResourceRecordSets'.
+--
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html>
 module Network.AWS.Route53.DeleteHostedZone
     (
@@ -71,7 +72,6 @@ deleteHostedZone p1 = DeleteHostedZone
     }
 
 -- | The ID of the hosted zone you want to delete.
---
 dhzId :: Lens' DeleteHostedZone Text
 dhzId = lens _dhzId (\s a -> s { _dhzId = a })
 
@@ -93,7 +93,6 @@ deleteHostedZoneResponse p1 = DeleteHostedZoneResponse
 
 -- | A complex type that contains the ID, the status, and the date and time of
 -- your delete request.
---
 dhzrChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
 dhzrChangeInfo = lens _dhzrChangeInfo (\s a -> s { _dhzrChangeInfo = a })
 

@@ -79,7 +79,6 @@ deleteStream p1 = DeleteStream
     }
 
 -- | The name of the stream to delete.
---
 dsStreamName :: Lens' DeleteStream Text
 dsStreamName = lens _dsStreamName (\s a -> s { _dsStreamName = a })
 

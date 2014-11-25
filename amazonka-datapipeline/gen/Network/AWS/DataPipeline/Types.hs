@@ -155,17 +155,14 @@ pipelineObject p1 p2 = PipelineObject
     }
 
 -- | Key-value pairs that define the properties of the object.
---
 poFields :: Lens' PipelineObject [Field]
 poFields = lens _poFields (\s a -> s { _poFields = a }) . _List
 
 -- | Identifier of the object.
---
 poId :: Lens' PipelineObject Text
 poId = lens _poId (\s a -> s { _poId = a })
 
 -- | Name of the object.
---
 poName :: Lens' PipelineObject Text
 poName = lens _poName (\s a -> s { _poName = a })
 
@@ -207,17 +204,14 @@ field p1 = Field
     }
 
 -- | The field identifier.
---
 fKey :: Lens' Field Text
 fKey = lens _fKey (\s a -> s { _fKey = a })
 
 -- | The field value, expressed as the identifier of another object.
---
 fRefValue :: Lens' Field (Maybe Text)
 fRefValue = lens _fRefValue (\s a -> s { _fRefValue = a })
 
 -- | The field value, expressed as a String.
---
 fStringValue :: Lens' Field (Maybe Text)
 fStringValue = lens _fStringValue (\s a -> s { _fStringValue = a })
 
@@ -257,7 +251,6 @@ selector = Selector
 -- the "key" portion of the field definition in the pipeline definition syntax
 -- that is used by the AWS Data Pipeline API. If the field is not set on the
 -- object, the condition fails.
---
 sFieldName :: Lens' Selector (Maybe Text)
 sFieldName = lens _sFieldName (\s a -> s { _sFieldName = a })
 
@@ -311,12 +304,10 @@ operator = Operator
 -- alpha-numeric values, as symbols may be reserved by AWS Data Pipeline.
 -- User-defined fields that you add to a pipeline should prefix their name with
 -- the string "my".
---
 oType :: Lens' Operator (Maybe OperatorType)
 oType = lens _oType (\s a -> s { _oType = a })
 
 -- | The value that the actual field value will be compared with.
---
 oValues :: Lens' Operator [Text]
 oValues = lens _oValues (\s a -> s { _oValues = a }) . _List
 
@@ -360,24 +351,20 @@ taskObject = TaskObject
 
 -- | Identifier of the pipeline task attempt object. AWS Data Pipeline uses this
 -- value to track how many times a task is attempted.
---
 toAttemptId :: Lens' TaskObject (Maybe Text)
 toAttemptId = lens _toAttemptId (\s a -> s { _toAttemptId = a })
 
 -- | Connection information for the location where the task runner will publish
 -- the output of the task.
---
 toObjects :: Lens' TaskObject (HashMap Text PipelineObject)
 toObjects = lens _toObjects (\s a -> s { _toObjects = a }) . _Map
 
 -- | Identifier of the pipeline that provided the task.
---
 toPipelineId :: Lens' TaskObject (Maybe Text)
 toPipelineId = lens _toPipelineId (\s a -> s { _toPipelineId = a })
 
 -- | An internal identifier for the task. This ID is passed to the 'SetTaskStatus'
 -- and 'ReportTaskProgress' actions.
---
 toTaskId :: Lens' TaskObject (Maybe Text)
 toTaskId = lens _toTaskId (\s a -> s { _toTaskId = a })
 
@@ -416,12 +403,10 @@ validationError = ValidationError
     }
 
 -- | A description of the validation error.
---
 veErrors :: Lens' ValidationError [Text]
 veErrors = lens _veErrors (\s a -> s { _veErrors = a }) . _List
 
 -- | The identifier of the object that contains the validation error.
---
 veId :: Lens' ValidationError (Maybe Text)
 veId = lens _veId (\s a -> s { _veId = a })
 
@@ -466,24 +451,20 @@ pipelineDescription p1 p2 = PipelineDescription
     }
 
 -- | Description of the pipeline.
---
 pdDescription :: Lens' PipelineDescription (Maybe Text)
 pdDescription = lens _pdDescription (\s a -> s { _pdDescription = a })
 
 -- | A list of read-only fields that contain metadata about the pipeline: @userId,
 -- @accountId, and @pipelineState.
---
 pdFields :: Lens' PipelineDescription [Field]
 pdFields = lens _pdFields (\s a -> s { _pdFields = a }) . _List
 
 -- | Name of the pipeline.
---
 pdName :: Lens' PipelineDescription Text
 pdName = lens _pdName (\s a -> s { _pdName = a })
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is a
 -- string of the form 'df-297EG78HU43EEXAMPLE'.
---
 pdPipelineId :: Lens' PipelineDescription Text
 pdPipelineId = lens _pdPipelineId (\s a -> s { _pdPipelineId = a })
 
@@ -524,13 +505,11 @@ instanceIdentity = InstanceIdentity
 -- | A description of an Amazon EC2 instance that is generated when the instance
 -- is launched and exposed to the instance via the instance metadata service in
 -- the form of a JSON representation of an object.
---
 iiDocument :: Lens' InstanceIdentity (Maybe Text)
 iiDocument = lens _iiDocument (\s a -> s { _iiDocument = a })
 
 -- | A signature which can be used to verify the accuracy and authenticity of the
 -- information provided in the instance identity document.
---
 iiSignature :: Lens' InstanceIdentity (Maybe Text)
 iiSignature = lens _iiSignature (\s a -> s { _iiSignature = a })
 
@@ -568,7 +547,6 @@ query = Query
 
 -- | List of selectors that define the query. An object must satisfy all of the
 -- selectors to match the query.
---
 qSelectors :: Lens' Query [Selector]
 qSelectors = lens _qSelectors (\s a -> s { _qSelectors = a }) . _List
 
@@ -640,12 +618,10 @@ pipelineIdName = PipelineIdName
 
 -- | Identifier of the pipeline that was assigned by AWS Data Pipeline. This is a
 -- string of the form 'df-297EG78HU43EEXAMPLE'.
---
 pinId :: Lens' PipelineIdName (Maybe Text)
 pinId = lens _pinId (\s a -> s { _pinId = a })
 
 -- | Name of the pipeline.
---
 pinName :: Lens' PipelineIdName (Maybe Text)
 pinName = lens _pinName (\s a -> s { _pinName = a })
 
@@ -712,12 +688,10 @@ validationWarning = ValidationWarning
     }
 
 -- | The identifier of the object that contains the validation warning.
---
 vwId :: Lens' ValidationWarning (Maybe Text)
 vwId = lens _vwId (\s a -> s { _vwId = a })
 
 -- | A description of the validation warning.
---
 vwWarnings :: Lens' ValidationWarning [Text]
 vwWarnings = lens _vwWarnings (\s a -> s { _vwWarnings = a }) . _List
 

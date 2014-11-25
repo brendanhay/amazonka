@@ -94,7 +94,6 @@ dazFilters :: Lens' DescribeAvailabilityZones [Filter]
 dazFilters = lens _dazFilters (\s a -> s { _dazFilters = a }) . _List
 
 -- | The names of one or more Availability Zones.
---
 dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
 dazZoneNames = lens _dazZoneNames (\s a -> s { _dazZoneNames = a }) . _List
 
@@ -120,7 +119,6 @@ describeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     }
 
 -- | Information about one or more Availability Zones.
---
 dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
 dazrAvailabilityZones =
     lens _dazrAvailabilityZones (\s a -> s { _dazrAvailabilityZones = a })

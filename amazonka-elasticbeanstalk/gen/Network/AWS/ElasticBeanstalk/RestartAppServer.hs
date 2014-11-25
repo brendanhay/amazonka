@@ -68,7 +68,6 @@ restartAppServer = RestartAppServer
 --
 -- Condition: You must specify either this or an EnvironmentName, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
---
 rasEnvironmentId :: Lens' RestartAppServer (Maybe Text)
 rasEnvironmentId = lens _rasEnvironmentId (\s a -> s { _rasEnvironmentId = a })
 
@@ -76,7 +75,6 @@ rasEnvironmentId = lens _rasEnvironmentId (\s a -> s { _rasEnvironmentId = a })
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
---
 rasEnvironmentName :: Lens' RestartAppServer (Maybe Text)
 rasEnvironmentName =
     lens _rasEnvironmentName (\s a -> s { _rasEnvironmentName = a })

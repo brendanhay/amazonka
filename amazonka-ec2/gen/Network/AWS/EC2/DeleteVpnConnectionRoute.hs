@@ -69,14 +69,12 @@ deleteVpnConnectionRoute p1 p2 = DeleteVpnConnectionRoute
     }
 
 -- | The CIDR block associated with the local subnet of the customer network.
---
 dvcrDestinationCidrBlock :: Lens' DeleteVpnConnectionRoute Text
 dvcrDestinationCidrBlock =
     lens _dvcrDestinationCidrBlock
         (\s a -> s { _dvcrDestinationCidrBlock = a })
 
 -- | The ID of the VPN connection.
---
 dvcrVpnConnectionId :: Lens' DeleteVpnConnectionRoute Text
 dvcrVpnConnectionId =
     lens _dvcrVpnConnectionId (\s a -> s { _dvcrVpnConnectionId = a })

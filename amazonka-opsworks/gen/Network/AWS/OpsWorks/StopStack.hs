@@ -64,7 +64,6 @@ stopStack p1 = StopStack
     }
 
 -- | The stack ID.
---
 ss1StackId :: Lens' StopStack Text
 ss1StackId = lens _ss1StackId (\s a -> s { _ss1StackId = a })
 

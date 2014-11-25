@@ -77,7 +77,6 @@ describeVolumeAttribute p1 = DescribeVolumeAttribute
     }
 
 -- | The instance attribute.
---
 dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
 dvaAttribute = lens _dvaAttribute (\s a -> s { _dvaAttribute = a })
 
@@ -85,7 +84,6 @@ dvaDryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)
 dvaDryRun = lens _dvaDryRun (\s a -> s { _dvaDryRun = a })
 
 -- | The ID of the volume.
---
 dvaVolumeId :: Lens' DescribeVolumeAttribute Text
 dvaVolumeId = lens _dvaVolumeId (\s a -> s { _dvaVolumeId = a })
 
@@ -113,17 +111,14 @@ describeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     }
 
 -- | The state of 'autoEnableIO' attribute.
---
 dvarAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
 dvarAutoEnableIO = lens _dvarAutoEnableIO (\s a -> s { _dvarAutoEnableIO = a })
 
 -- | A list of product codes.
---
 dvarProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
 dvarProductCodes = lens _dvarProductCodes (\s a -> s { _dvarProductCodes = a }) . _List
 
 -- | The ID of the volume.
---
 dvarVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
 dvarVolumeId = lens _dvarVolumeId (\s a -> s { _dvarVolumeId = a })
 

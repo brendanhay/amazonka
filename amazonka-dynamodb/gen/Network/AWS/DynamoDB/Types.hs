@@ -280,12 +280,10 @@ writeRequest = WriteRequest
     }
 
 -- | A request to perform a /DeleteItem/ operation.
---
 wDeleteRequest :: Lens' WriteRequest (Maybe DeleteRequest)
 wDeleteRequest = lens _wDeleteRequest (\s a -> s { _wDeleteRequest = a })
 
 -- | A request to perform a /PutItem/ operation.
---
 wPutRequest :: Lens' WriteRequest (Maybe PutRequest)
 wPutRequest = lens _wPutRequest (\s a -> s { _wPutRequest = a })
 
@@ -332,14 +330,12 @@ provisionedThroughputDescription = ProvisionedThroughputDescription
     }
 
 -- | The date and time of the last provisioned throughput decrease for this table.
---
 ptdLastDecreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe UTCTime)
 ptdLastDecreaseDateTime =
     lens _ptdLastDecreaseDateTime (\s a -> s { _ptdLastDecreaseDateTime = a })
         . mapping _Time
 
 -- | The date and time of the last provisioned throughput increase for this table.
---
 ptdLastIncreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe UTCTime)
 ptdLastIncreaseDateTime =
     lens _ptdLastIncreaseDateTime (\s a -> s { _ptdLastIncreaseDateTime = a })
@@ -347,7 +343,6 @@ ptdLastIncreaseDateTime =
 
 -- | The number of provisioned throughput decreases for this table during this UTC
 -- calendar day. For current maximums on provisioned throughput decreases, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/.
---
 ptdNumberOfDecreasesToday :: Lens' ProvisionedThroughputDescription (Maybe Natural)
 ptdNumberOfDecreasesToday =
     lens _ptdNumberOfDecreasesToday
@@ -357,14 +352,12 @@ ptdNumberOfDecreasesToday =
 -- | The maximum number of strongly consistent reads consumed per second before
 -- DynamoDB returns a /ThrottlingException/. Eventually consistent reads require
 -- less effort than strongly consistent reads, so a setting of 50 /ReadCapacityUnits/ per second provides 100 eventually consistent /ReadCapacityUnits/ per second.
---
 ptdReadCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
 ptdReadCapacityUnits =
     lens _ptdReadCapacityUnits (\s a -> s { _ptdReadCapacityUnits = a })
         . mapping _Nat
 
 -- | The maximum number of writes consumed per second before DynamoDB returns a /ThrottlingException/.
---
 ptdWriteCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
 ptdWriteCapacityUnits =
     lens _ptdWriteCapacityUnits (\s a -> s { _ptdWriteCapacityUnits = a })
@@ -468,52 +461,42 @@ attributeValue = AttributeValue
     }
 
 -- | A Binary data type.
---
 avB :: Lens' AttributeValue (Maybe Base64)
 avB = lens _avB (\s a -> s { _avB = a })
 
 -- | A Boolean data type.
---
 avBOOL :: Lens' AttributeValue (Maybe Bool)
 avBOOL = lens _avBOOL (\s a -> s { _avBOOL = a })
 
 -- | A Binary Set data type.
---
 avBS :: Lens' AttributeValue [Base64]
 avBS = lens _avBS (\s a -> s { _avBS = a }) . _List
 
 -- | A List of attribute values.
---
 avL :: Lens' AttributeValue [AttributeValue]
 avL = lens _avL (\s a -> s { _avL = a }) . _List
 
 -- | A Map of attribute values.
---
 avM :: Lens' AttributeValue (HashMap Text AttributeValue)
 avM = lens _avM (\s a -> s { _avM = a }) . _Map
 
 -- | A Number data type.
---
 avN :: Lens' AttributeValue (Maybe Text)
 avN = lens _avN (\s a -> s { _avN = a })
 
 -- | A Number Set data type.
---
 avNS :: Lens' AttributeValue [Text]
 avNS = lens _avNS (\s a -> s { _avNS = a }) . _List
 
 -- | A Null data type.
---
 avNULL :: Lens' AttributeValue (Maybe Bool)
 avNULL = lens _avNULL (\s a -> s { _avNULL = a })
 
 -- | A String data type.
---
 avS :: Lens' AttributeValue (Maybe Text)
 avS = lens _avS (\s a -> s { _avS = a })
 
 -- | A String Set data type.
---
 avSS :: Lens' AttributeValue [Text]
 avSS = lens _avSS (\s a -> s { _avSS = a }) . _List
 
@@ -602,14 +585,12 @@ provisionedThroughput p1 p2 = ProvisionedThroughput
 
 -- | The maximum number of strongly consistent reads consumed per second before
 -- DynamoDB returns a /ThrottlingException/. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput SpecifyingRead and Write Requirements> in the /Amazon DynamoDB Developer Guide/.
---
 ptReadCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptReadCapacityUnits =
     lens _ptReadCapacityUnits (\s a -> s { _ptReadCapacityUnits = a })
         . _Nat
 
 -- | The maximum number of writes consumed per second before DynamoDB returns a /ThrottlingException/. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/.
---
 ptWriteCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptWriteCapacityUnits =
     lens _ptWriteCapacityUnits (\s a -> s { _ptWriteCapacityUnits = a })
@@ -761,7 +742,6 @@ tdAttributeDefinitions =
         . _List
 
 -- | The date and time when the table was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
---
 tdCreationDateTime :: Lens' TableDescription (Maybe UTCTime)
 tdCreationDateTime =
     lens _tdCreationDateTime (\s a -> s { _tdCreationDateTime = a })
@@ -820,7 +800,6 @@ tdCreationDateTime =
 --
 -- If the table is in the 'DELETING' state, no information about indexes will
 -- be returned.
---
 tdGlobalSecondaryIndexes :: Lens' TableDescription [GlobalSecondaryIndexDescription]
 tdGlobalSecondaryIndexes =
     lens _tdGlobalSecondaryIndexes
@@ -830,7 +809,6 @@ tdGlobalSecondaryIndexes =
 -- | The number of items in the specified table. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in this
 -- value.
---
 tdItemCount :: Lens' TableDescription (Maybe Integer)
 tdItemCount = lens _tdItemCount (\s a -> s { _tdItemCount = a })
 
@@ -841,7 +819,6 @@ tdItemCount = lens _tdItemCount (\s a -> s { _tdItemCount = a })
 -- /KeyType/ - The key type for the attribute. Can be either 'HASH' or 'RANGE'.
 --
 -- For more information about primary keys, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key> in the /AmazonDynamoDB Developer Guide/.
---
 tdKeySchema :: Lens' TableDescription (NonEmpty KeySchemaElement)
 tdKeySchema = lens _tdKeySchema (\s a -> s { _tdKeySchema = a }) . _List1
 
@@ -887,7 +864,6 @@ tdKeySchema = lens _tdKeySchema (\s a -> s { _tdKeySchema = a }) . _List1
 --
 -- If the table is in the 'DELETING' state, no information about indexes will
 -- be returned.
---
 tdLocalSecondaryIndexes :: Lens' TableDescription [LocalSecondaryIndexDescription]
 tdLocalSecondaryIndexes =
     lens _tdLocalSecondaryIndexes (\s a -> s { _tdLocalSecondaryIndexes = a })
@@ -895,20 +871,17 @@ tdLocalSecondaryIndexes =
 
 -- | The provisioned throughput settings for the table, consisting of read and
 -- write capacity units, along with data about increases and decreases.
---
 tdProvisionedThroughput :: Lens' TableDescription (Maybe ProvisionedThroughputDescription)
 tdProvisionedThroughput =
     lens _tdProvisionedThroughput (\s a -> s { _tdProvisionedThroughput = a })
 
 -- | The name of the table.
---
 tdTableName :: Lens' TableDescription (Maybe Text)
 tdTableName = lens _tdTableName (\s a -> s { _tdTableName = a })
 
 -- | The total size of the specified table, in bytes. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in this
 -- value.
---
 tdTableSizeBytes :: Lens' TableDescription (Maybe Integer)
 tdTableSizeBytes = lens _tdTableSizeBytes (\s a -> s { _tdTableSizeBytes = a })
 
@@ -992,7 +965,6 @@ keysAndAttributes p1 p2 = KeysAndAttributes
 -- | One or more attributes to retrieve from the table or index. If no attribute
 -- names are specified then all attributes will be returned. If any of the
 -- specified attributes are not found, they will not appear in the result.
---
 kaaAttributesToGet :: Lens' KeysAndAttributes (NonEmpty Text)
 kaaAttributesToGet =
     lens _kaaAttributesToGet (\s a -> s { _kaaAttributesToGet = a })
@@ -1000,7 +972,6 @@ kaaAttributesToGet =
 
 -- | The consistency of a read operation. If set to 'true', then a strongly
 -- consistent read is used; otherwise, an eventually consistent read is used.
---
 kaaConsistentRead :: Lens' KeysAndAttributes (Maybe Bool)
 kaaConsistentRead =
     lens _kaaConsistentRead (\s a -> s { _kaaConsistentRead = a })
@@ -1038,7 +1009,6 @@ kaaExpressionAttributeNames =
 
 -- | The primary key attribute values that define the items and the attributes
 -- associated with the items.
---
 kaaKeys :: Lens' KeysAndAttributes (NonEmpty (HashMap Text AttributeValue))
 kaaKeys = lens _kaaKeys (\s a -> s { _kaaKeys = a }) . _List1
 
@@ -1049,7 +1019,6 @@ kaaKeys = lens _kaaKeys (\s a -> s { _kaaKeys = a }) . _List1
 -- If no attribute names are specified, then all attributes will be returned.
 -- If any of the requested attributes are not found, they will not appear in the
 -- result.
---
 kaaProjectionExpression :: Lens' KeysAndAttributes (Maybe Text)
 kaaProjectionExpression =
     lens _kaaProjectionExpression (\s a -> s { _kaaProjectionExpression = a })
@@ -1260,7 +1229,6 @@ expectedAttributeValue = ExpectedAttributeValue
 --
 -- For information on specifying data types in JSON, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format> in
 -- the /Amazon DynamoDB Developer Guide/.
---
 eavAttributeValueList :: Lens' ExpectedAttributeValue [AttributeValue]
 eavAttributeValueList =
     lens _eavAttributeValueList (\s a -> s { _eavAttributeValueList = a })
@@ -1458,12 +1426,10 @@ attributeDefinition p1 p2 = AttributeDefinition
     }
 
 -- | A name for the attribute.
---
 adAttributeName :: Lens' AttributeDefinition Text
 adAttributeName = lens _adAttributeName (\s a -> s { _adAttributeName = a })
 
 -- | The data type for the attribute.
---
 adAttributeType :: Lens' AttributeDefinition ScalarAttributeType
 adAttributeType = lens _adAttributeType (\s a -> s { _adAttributeType = a })
 
@@ -1606,13 +1572,11 @@ localSecondaryIndex p1 p2 p3 = LocalSecondaryIndex
 
 -- | The name of the local secondary index. The name must be unique among all
 -- other indexes on this table.
---
 lsiIndexName :: Lens' LocalSecondaryIndex Text
 lsiIndexName = lens _lsiIndexName (\s a -> s { _lsiIndexName = a })
 
 -- | The complete key schema for the local secondary index, consisting of one or
 -- more pairs of attribute names and key types ('HASH' or 'RANGE').
---
 lsiKeySchema :: Lens' LocalSecondaryIndex (NonEmpty KeySchemaElement)
 lsiKeySchema = lens _lsiKeySchema (\s a -> s { _lsiKeySchema = a }) . _List1
 
@@ -1673,14 +1637,12 @@ globalSecondaryIndexDescription p1 = GlobalSecondaryIndexDescription
     }
 
 -- | The name of the global secondary index.
---
 gsidIndexName :: Lens' GlobalSecondaryIndexDescription (Maybe Text)
 gsidIndexName = lens _gsidIndexName (\s a -> s { _gsidIndexName = a })
 
 -- | The total size of the specified index, in bytes. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in this
 -- value.
---
 gsidIndexSizeBytes :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
 gsidIndexSizeBytes =
     lens _gsidIndexSizeBytes (\s a -> s { _gsidIndexSizeBytes = a })
@@ -1703,13 +1665,11 @@ gsidIndexStatus = lens _gsidIndexStatus (\s a -> s { _gsidIndexStatus = a })
 -- | The number of items in the specified index. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in this
 -- value.
---
 gsidItemCount :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
 gsidItemCount = lens _gsidItemCount (\s a -> s { _gsidItemCount = a })
 
 -- | The complete key schema for the global secondary index, consisting of one or
 -- more pairs of attribute names and key types ('HASH' or 'RANGE').
---
 gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (NonEmpty KeySchemaElement)
 gsidKeySchema = lens _gsidKeySchema (\s a -> s { _gsidKeySchema = a }) . _List1
 
@@ -1763,7 +1723,6 @@ itemCollectionMetrics = ItemCollectionMetrics
 
 -- | The hash key value of the item collection. This value is the same as the hash
 -- key of the item.
---
 icmItemCollectionKey :: Lens' ItemCollectionMetrics (HashMap Text AttributeValue)
 icmItemCollectionKey =
     lens _icmItemCollectionKey (\s a -> s { _icmItemCollectionKey = a })
@@ -1778,7 +1737,6 @@ icmItemCollectionKey =
 --
 -- The estimate is subject to change over time; therefore, do not rely on the
 -- precision or accuracy of the estimate.
---
 icmSizeEstimateRangeGB :: Lens' ItemCollectionMetrics [Double]
 icmSizeEstimateRangeGB =
     lens _icmSizeEstimateRangeGB (\s a -> s { _icmSizeEstimateRangeGB = a })
@@ -1811,7 +1769,6 @@ capacity = Capacity
     }
 
 -- | The total number of capacity units consumed on a table or an index.
---
 cCapacityUnits :: Lens' Capacity (Maybe Double)
 cCapacityUnits = lens _cCapacityUnits (\s a -> s { _cCapacityUnits = a })
 
@@ -1856,13 +1813,11 @@ consumedCapacity = ConsumedCapacity
     }
 
 -- | The total number of capacity units consumed by the operation.
---
 ccCapacityUnits :: Lens' ConsumedCapacity (Maybe Double)
 ccCapacityUnits = lens _ccCapacityUnits (\s a -> s { _ccCapacityUnits = a })
 
 -- | The amount of throughput consumed on each global index affected by the
 -- operation.
---
 ccGlobalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
 ccGlobalSecondaryIndexes =
     lens _ccGlobalSecondaryIndexes
@@ -1871,19 +1826,16 @@ ccGlobalSecondaryIndexes =
 
 -- | The amount of throughput consumed on each local index affected by the
 -- operation.
---
 ccLocalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
 ccLocalSecondaryIndexes =
     lens _ccLocalSecondaryIndexes (\s a -> s { _ccLocalSecondaryIndexes = a })
         . _Map
 
 -- | The amount of throughput consumed on the table affected by the operation.
---
 ccTable :: Lens' ConsumedCapacity (Maybe Capacity)
 ccTable = lens _ccTable (\s a -> s { _ccTable = a })
 
 -- | The name of the table that was affected by the operation.
---
 ccTableName :: Lens' ConsumedCapacity (Maybe Text)
 ccTableName = lens _ccTableName (\s a -> s { _ccTableName = a })
 
@@ -1937,13 +1889,11 @@ globalSecondaryIndex p1 p2 p3 p4 = GlobalSecondaryIndex
 
 -- | The name of the global secondary index. The name must be unique among all
 -- other indexes on this table.
---
 gsiIndexName :: Lens' GlobalSecondaryIndex Text
 gsiIndexName = lens _gsiIndexName (\s a -> s { _gsiIndexName = a })
 
 -- | The complete key schema for a global secondary index, which consists of one
 -- or more pairs of attribute names and key types ('HASH' or 'RANGE').
---
 gsiKeySchema :: Lens' GlobalSecondaryIndex (NonEmpty KeySchemaElement)
 gsiKeySchema = lens _gsiKeySchema (\s a -> s { _gsiKeySchema = a }) . _List1
 
@@ -2003,14 +1953,12 @@ localSecondaryIndexDescription p1 = LocalSecondaryIndexDescription
     }
 
 -- | Represents the name of the local secondary index.
---
 lsidIndexName :: Lens' LocalSecondaryIndexDescription (Maybe Text)
 lsidIndexName = lens _lsidIndexName (\s a -> s { _lsidIndexName = a })
 
 -- | The total size of the specified index, in bytes. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in this
 -- value.
---
 lsidIndexSizeBytes :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
 lsidIndexSizeBytes =
     lens _lsidIndexSizeBytes (\s a -> s { _lsidIndexSizeBytes = a })
@@ -2018,13 +1966,11 @@ lsidIndexSizeBytes =
 -- | The number of items in the specified index. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in this
 -- value.
---
 lsidItemCount :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
 lsidItemCount = lens _lsidItemCount (\s a -> s { _lsidItemCount = a })
 
 -- | The complete index key schema, which consists of one or more pairs of
 -- attribute names and key types ('HASH' or 'RANGE').
---
 lsidKeySchema :: Lens' LocalSecondaryIndexDescription (NonEmpty KeySchemaElement)
 lsidKeySchema = lens _lsidKeySchema (\s a -> s { _lsidKeySchema = a }) . _List1
 
@@ -2138,7 +2084,6 @@ projection p1 = Projection
 -- across all of the local secondary indexes, must not exceed 20. If you project
 -- the same attribute into two different indexes, this counts as two distinct
 -- attributes when determining the total.
---
 pNonKeyAttributes :: Lens' Projection (NonEmpty Text)
 pNonKeyAttributes =
     lens _pNonKeyAttributes (\s a -> s { _pNonKeyAttributes = a })
@@ -2225,13 +2170,11 @@ keySchemaElement p1 p2 = KeySchemaElement
     }
 
 -- | The name of a key attribute.
---
 kseAttributeName :: Lens' KeySchemaElement Text
 kseAttributeName = lens _kseAttributeName (\s a -> s { _kseAttributeName = a })
 
 -- | The attribute data, consisting of the data type and the attribute value
 -- itself.
---
 kseKeyType :: Lens' KeySchemaElement KeyType
 kseKeyType = lens _kseKeyType (\s a -> s { _kseKeyType = a })
 
@@ -2264,7 +2207,6 @@ deleteRequest = DeleteRequest
 -- | A map of attribute name to attribute values, representing the primary key of
 -- the item to delete. All of the table's primary key attributes must be
 -- specified, and their data types must match those of the table's key schema.
---
 dKey :: Lens' DeleteRequest (HashMap Text AttributeValue)
 dKey = lens _dKey (\s a -> s { _dKey = a }) . _Map
 
@@ -2299,7 +2241,6 @@ updateGlobalSecondaryIndexAction p1 p2 = UpdateGlobalSecondaryIndexAction
     }
 
 -- | The name of the global secondary index to be updated.
---
 ugsiaIndexName :: Lens' UpdateGlobalSecondaryIndexAction Text
 ugsiaIndexName = lens _ugsiaIndexName (\s a -> s { _ugsiaIndexName = a })
 
@@ -2339,7 +2280,6 @@ putRequest = PutRequest
 -- must be specified, and their data types must match those of the table's key
 -- schema. If any attributes are present in the item which are part of an index
 -- key schema for the table, their types must match the index key schema.
---
 pItem :: Lens' PutRequest (HashMap Text AttributeValue)
 pItem = lens _pItem (\s a -> s { _pItem = a }) . _Map
 
@@ -2383,7 +2323,6 @@ condition p1 = Condition
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned when it
 -- compares binary values, for example when evaluating query expressions.
---
 cAttributeValueList :: Lens' Condition [AttributeValue]
 cAttributeValueList =
     lens _cAttributeValueList (\s a -> s { _cAttributeValueList = a })
@@ -2509,7 +2448,6 @@ cAttributeValueList =
 -- does not match. For example, '{"S":"6"}' does not compare to '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'
 --
 -- For usage examples of /AttributeValueList/ and /ComparisonOperator/, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters> in the /Amazon DynamoDB Developer Guide/.
---
 cComparisonOperator :: Lens' Condition ComparisonOperator
 cComparisonOperator =
     lens _cComparisonOperator (\s a -> s { _cComparisonOperator = a })
@@ -2571,7 +2509,6 @@ globalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
 
 -- | The name of a global secondary index, along with the updated provisioned
 -- throughput settings that are to be applied to that index.
---
 gsiuUpdate :: Lens' GlobalSecondaryIndexUpdate (Maybe UpdateGlobalSecondaryIndexAction)
 gsiuUpdate = lens _gsiuUpdate (\s a -> s { _gsiuUpdate = a })
 

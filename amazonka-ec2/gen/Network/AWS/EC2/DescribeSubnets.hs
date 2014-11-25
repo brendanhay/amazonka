@@ -115,7 +115,6 @@ dsFilters = lens _dsFilters (\s a -> s { _dsFilters = a }) . _List
 -- | One or more subnet IDs.
 --
 -- Default: Describes all your subnets.
---
 dsSubnetIds :: Lens' DescribeSubnets [Text]
 dsSubnetIds = lens _dsSubnetIds (\s a -> s { _dsSubnetIds = a }) . _List
 
@@ -141,7 +140,6 @@ describeSubnetsResponse = DescribeSubnetsResponse
     }
 
 -- | Information about one or more subnets.
---
 dsrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
 dsrSubnets = lens _dsrSubnets (\s a -> s { _dsrSubnets = a }) . _List
 

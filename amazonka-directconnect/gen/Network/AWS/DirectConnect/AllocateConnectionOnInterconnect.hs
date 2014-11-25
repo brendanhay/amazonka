@@ -101,7 +101,6 @@ allocateConnectionOnInterconnect p1 p2 p3 p4 p5 = AllocateConnectionOnInterconne
 -- Example: "/500Mbps/"
 --
 -- Default: None
---
 acoiBandwidth :: Lens' AllocateConnectionOnInterconnect Text
 acoiBandwidth = lens _acoiBandwidth (\s a -> s { _acoiBandwidth = a })
 
@@ -110,7 +109,6 @@ acoiBandwidth = lens _acoiBandwidth (\s a -> s { _acoiBandwidth = a })
 -- Example: "/500M Connection to AWS/"
 --
 -- Default: None
---
 acoiConnectionName :: Lens' AllocateConnectionOnInterconnect Text
 acoiConnectionName =
     lens _acoiConnectionName (\s a -> s { _acoiConnectionName = a })
@@ -120,7 +118,6 @@ acoiConnectionName =
 -- Example: dxcon-456abc78
 --
 -- Default: None
---
 acoiInterconnectId :: Lens' AllocateConnectionOnInterconnect Text
 acoiInterconnectId =
     lens _acoiInterconnectId (\s a -> s { _acoiInterconnectId = a })
@@ -131,7 +128,6 @@ acoiInterconnectId =
 -- Example: 123443215678
 --
 -- Default: None
---
 acoiOwnerAccount :: Lens' AllocateConnectionOnInterconnect Text
 acoiOwnerAccount = lens _acoiOwnerAccount (\s a -> s { _acoiOwnerAccount = a })
 
@@ -140,7 +136,6 @@ acoiOwnerAccount = lens _acoiOwnerAccount (\s a -> s { _acoiOwnerAccount = a })
 -- Example: 101
 --
 -- Default: None
---
 acoiVlan :: Lens' AllocateConnectionOnInterconnect Int
 acoiVlan = lens _acoiVlan (\s a -> s { _acoiVlan = a })
 
@@ -196,7 +191,6 @@ allocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnectRespo
 -- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
 --
 -- Default: None
---
 acoirBandwidth :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
 acoirBandwidth = lens _acoirBandwidth (\s a -> s { _acoirBandwidth = a })
 

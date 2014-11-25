@@ -135,12 +135,10 @@ searchStatus = SearchStatus
     }
 
 -- | The encrypted resource ID for the request.
---
 ssRid :: Lens' SearchStatus (Maybe Text)
 ssRid = lens _ssRid (\s a -> s { _ssRid = a })
 
 -- | How long it took to process the request, in milliseconds.
---
 ssTimems :: Lens' SearchStatus (Maybe Integer)
 ssTimems = lens _ssTimems (\s a -> s { _ssTimems = a })
 
@@ -214,17 +212,14 @@ hit = Hit
     }
 
 -- | The fields returned from a document that matches the search request.
---
 hitFields :: Lens' Hit (HashMap Text [Text])
 hitFields = lens _hitFields (\s a -> s { _hitFields = a }) . _Map
 
 -- | The highlights returned from a document that matches the search request.
---
 hitHighlights :: Lens' Hit (HashMap Text Text)
 hitHighlights = lens _hitHighlights (\s a -> s { _hitHighlights = a }) . _Map
 
 -- | The document ID of a document that matches the search request.
---
 hitId :: Lens' Hit (Maybe Text)
 hitId = lens _hitId (\s a -> s { _hitId = a })
 
@@ -261,12 +256,10 @@ suggestStatus = SuggestStatus
     }
 
 -- | The encrypted resource ID for the request.
---
 ss1Rid :: Lens' SuggestStatus (Maybe Text)
 ss1Rid = lens _ss1Rid (\s a -> s { _ss1Rid = a })
 
 -- | How long it took to process the request, in milliseconds.
---
 ss1Timems :: Lens' SuggestStatus (Maybe Integer)
 ss1Timems = lens _ss1Timems (\s a -> s { _ss1Timems = a })
 
@@ -301,12 +294,10 @@ bucket = Bucket
     }
 
 -- | The number of hits that contain the facet value in the specified facet field.
---
 bCount :: Lens' Bucket (Maybe Integer)
 bCount = lens _bCount (\s a -> s { _bCount = a })
 
 -- | The facet value being counted.
---
 bValue :: Lens' Bucket (Maybe Text)
 bValue = lens _bValue (\s a -> s { _bValue = a })
 
@@ -345,17 +336,14 @@ suggestionMatch = SuggestionMatch
     }
 
 -- | The document ID of the suggested document.
---
 smId :: Lens' SuggestionMatch (Maybe Text)
 smId = lens _smId (\s a -> s { _smId = a })
 
 -- | The relevance score of a suggested match.
---
 smScore :: Lens' SuggestionMatch (Maybe Integer)
 smScore = lens _smScore (\s a -> s { _smScore = a })
 
 -- | The string that matches the query string specified in the 'SuggestRequest'.
---
 smSuggestion :: Lens' SuggestionMatch (Maybe Text)
 smSuggestion = lens _smSuggestion (\s a -> s { _smSuggestion = a })
 
@@ -394,7 +382,6 @@ bucketInfo = BucketInfo
     }
 
 -- | A list of the calculated facet values and counts.
---
 biBuckets :: Lens' BucketInfo [Bucket]
 biBuckets = lens _biBuckets (\s a -> s { _biBuckets = a }) . _List
 
@@ -423,7 +410,6 @@ documentServiceWarning = DocumentServiceWarning
     }
 
 -- | The description for a warning returned by the document service.
---
 dswMessage :: Lens' DocumentServiceWarning (Maybe Text)
 dswMessage = lens _dswMessage (\s a -> s { _dswMessage = a })
 
@@ -460,17 +446,14 @@ suggestModel = SuggestModel
     }
 
 -- | The number of documents that were found to match the query string.
---
 smFound :: Lens' SuggestModel (Maybe Integer)
 smFound = lens _smFound (\s a -> s { _smFound = a })
 
 -- | The query string specified in the suggest request.
---
 smQuery :: Lens' SuggestModel (Maybe Text)
 smQuery = lens _smQuery (\s a -> s { _smQuery = a })
 
 -- | The documents that match the query string.
---
 smSuggestions :: Lens' SuggestModel [SuggestionMatch]
 smSuggestions = lens _smSuggestions (\s a -> s { _smSuggestions = a }) . _List
 
@@ -516,22 +499,18 @@ hits = Hits
 
 -- | A cursor that can be used to retrieve the next set of matching documents when
 -- you want to page through a large result set.
---
 hCursor :: Lens' Hits (Maybe Text)
 hCursor = lens _hCursor (\s a -> s { _hCursor = a })
 
 -- | The total number of documents that match the search request.
---
 hFound :: Lens' Hits (Maybe Integer)
 hFound = lens _hFound (\s a -> s { _hFound = a })
 
 -- | A document that matches the search request.
---
 hHit :: Lens' Hits [Hit]
 hHit = lens _hHit (\s a -> s { _hHit = a }) . _List
 
 -- | The index of the first matching document.
---
 hStart :: Lens' Hits (Maybe Integer)
 hStart = lens _hStart (\s a -> s { _hStart = a })
 

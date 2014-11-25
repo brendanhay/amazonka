@@ -121,7 +121,6 @@ describeSpotPriceHistory = DescribeSpotPriceHistory
     }
 
 -- | The Availability Zone.
---
 dsphAvailabilityZone :: Lens' DescribeSpotPriceHistory (Maybe Text)
 dsphAvailabilityZone =
     lens _dsphAvailabilityZone (\s a -> s { _dsphAvailabilityZone = a })
@@ -130,7 +129,6 @@ dsphDryRun :: Lens' DescribeSpotPriceHistory (Maybe Bool)
 dsphDryRun = lens _dsphDryRun (\s a -> s { _dsphDryRun = a })
 
 -- | The end date and time of the Spot Price history data.
---
 dsphEndTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
 dsphEndTime = lens _dsphEndTime (\s a -> s { _dsphEndTime = a }) . mapping _Time
 
@@ -155,31 +153,26 @@ dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]
 dsphFilters = lens _dsphFilters (\s a -> s { _dsphFilters = a }) . _List
 
 -- | One or more instance types.
---
 dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
 dsphInstanceTypes =
     lens _dsphInstanceTypes (\s a -> s { _dsphInstanceTypes = a })
         . _List
 
 -- | The number of rows to return.
---
 dsphMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Int)
 dsphMaxResults = lens _dsphMaxResults (\s a -> s { _dsphMaxResults = a })
 
 -- | The next set of rows to return.
---
 dsphNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
 dsphNextToken = lens _dsphNextToken (\s a -> s { _dsphNextToken = a })
 
 -- | One or more basic product descriptions.
---
 dsphProductDescriptions :: Lens' DescribeSpotPriceHistory [Text]
 dsphProductDescriptions =
     lens _dsphProductDescriptions (\s a -> s { _dsphProductDescriptions = a })
         . _List
 
 -- | The start date and time of the Spot Price history data.
---
 dsphStartTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
 dsphStartTime = lens _dsphStartTime (\s a -> s { _dsphStartTime = a }) . mapping _Time
 
@@ -204,12 +197,10 @@ describeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
 
 -- | The string marking the next set of results. This is empty if there are no
 -- more results.
---
 dsphrNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
 dsphrNextToken = lens _dsphrNextToken (\s a -> s { _dsphrNextToken = a })
 
 -- | The historical Spot Prices.
---
 dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
 dsphrSpotPriceHistory =
     lens _dsphrSpotPriceHistory (\s a -> s { _dsphrSpotPriceHistory = a })

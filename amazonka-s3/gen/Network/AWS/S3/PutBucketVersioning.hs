@@ -22,6 +22,7 @@
 
 -- | Sets the versioning state of an existing bucket. To set the versioning state,
 -- you must be the bucket owner.
+--
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketVersioning.html>
 module Network.AWS.S3.PutBucketVersioning
     (

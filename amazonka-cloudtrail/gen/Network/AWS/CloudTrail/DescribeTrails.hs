@@ -68,7 +68,6 @@ describeTrails = DescribeTrails
     }
 
 -- | The trail returned.
---
 dtTrailNameList :: Lens' DescribeTrails [Text]
 dtTrailNameList = lens _dtTrailNameList (\s a -> s { _dtTrailNameList = a }) . _List
 
@@ -94,7 +93,6 @@ describeTrailsResponse = DescribeTrailsResponse
     }
 
 -- | The list of trails.
---
 dtrTrailList :: Lens' DescribeTrailsResponse [Trail]
 dtrTrailList = lens _dtrTrailList (\s a -> s { _dtrTrailList = a }) . _List
 

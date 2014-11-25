@@ -79,24 +79,20 @@ unsubscribeFromDataset p1 p2 p3 p4 = UnsubscribeFromDataset
     }
 
 -- | The name of the dataset from which to unsubcribe.
---
 ufdDatasetName :: Lens' UnsubscribeFromDataset Text
 ufdDatasetName = lens _ufdDatasetName (\s a -> s { _ufdDatasetName = a })
 
 -- | The unique ID generated for this device by Cognito.
---
 ufdDeviceId :: Lens' UnsubscribeFromDataset Text
 ufdDeviceId = lens _ufdDeviceId (\s a -> s { _ufdDeviceId = a })
 
 -- | Unique ID for this identity.
---
 ufdIdentityId :: Lens' UnsubscribeFromDataset Text
 ufdIdentityId = lens _ufdIdentityId (\s a -> s { _ufdIdentityId = a })
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
 -- The ID of the pool to which this identity belongs.
---
 ufdIdentityPoolId :: Lens' UnsubscribeFromDataset Text
 ufdIdentityPoolId =
     lens _ufdIdentityPoolId (\s a -> s { _ufdIdentityPoolId = a })

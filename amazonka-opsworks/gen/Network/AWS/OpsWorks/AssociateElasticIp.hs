@@ -71,12 +71,10 @@ associateElasticIp p1 = AssociateElasticIp
     }
 
 -- | The Elastic IP address.
---
 aeiElasticIp :: Lens' AssociateElasticIp Text
 aeiElasticIp = lens _aeiElasticIp (\s a -> s { _aeiElasticIp = a })
 
 -- | The instance ID.
---
 aeiInstanceId :: Lens' AssociateElasticIp (Maybe Text)
 aeiInstanceId = lens _aeiInstanceId (\s a -> s { _aeiInstanceId = a })
 

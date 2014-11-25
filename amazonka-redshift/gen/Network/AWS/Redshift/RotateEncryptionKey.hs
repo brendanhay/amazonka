@@ -65,7 +65,6 @@ rotateEncryptionKey p1 = RotateEncryptionKey
 -- keys for.
 --
 -- Constraints: Must be the name of valid cluster that has encryption enabled.
---
 rekClusterIdentifier :: Lens' RotateEncryptionKey Text
 rekClusterIdentifier =
     lens _rekClusterIdentifier (\s a -> s { _rekClusterIdentifier = a })

@@ -62,7 +62,6 @@ deleteCacheParameterGroup p1 = DeleteCacheParameterGroup
     }
 
 -- | The name of the cache parameter group to delete.
---
 dcpg1CacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
 dcpg1CacheParameterGroupName =
     lens _dcpg1CacheParameterGroupName

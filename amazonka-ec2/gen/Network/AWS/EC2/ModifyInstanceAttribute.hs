@@ -134,7 +134,6 @@ modifyInstanceAttribute p1 = ModifyInstanceAttribute
     }
 
 -- | The name of the attribute.
---
 mia1Attribute :: Lens' ModifyInstanceAttribute (Maybe InstanceAttributeName)
 mia1Attribute = lens _mia1Attribute (\s a -> s { _mia1Attribute = a })
 
@@ -145,7 +144,6 @@ mia1Attribute = lens _mia1Attribute (\s a -> s { _mia1Attribute = a })
 --
 -- To add instance store volumes to an Amazon EBS-backed instance, you must add
 -- them when you launch the instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating theBlock Device Mapping when Launching an Instance> in the /Amazon Elastic ComputeCloud User Guide/.
---
 mia1BlockDeviceMappings :: Lens' ModifyInstanceAttribute [InstanceBlockDeviceMappingSpecification]
 mia1BlockDeviceMappings =
     lens _mia1BlockDeviceMappings (\s a -> s { _mia1BlockDeviceMappings = a })
@@ -153,7 +151,6 @@ mia1BlockDeviceMappings =
 
 -- | If the value is 'true', you can't terminate the instance using the Amazon EC2
 -- console, CLI, or API; otherwise, you can.
---
 mia1DisableApiTermination :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mia1DisableApiTermination =
     lens _mia1DisableApiTermination
@@ -167,7 +164,6 @@ mia1DryRun = lens _mia1DryRun (\s a -> s { _mia1DryRun = a })
 -- stack to provide optimal EBS I/O performance. This optimization isn't
 -- available with all instance types. Additional usage charges apply when using
 -- an EBS Optimized instance.
---
 mia1EbsOptimized :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mia1EbsOptimized = lens _mia1EbsOptimized (\s a -> s { _mia1EbsOptimized = a })
 
@@ -177,44 +173,37 @@ mia1EbsOptimized = lens _mia1EbsOptimized (\s a -> s { _mia1EbsOptimized = a })
 --
 -- For example, if you want the instance to be in sg-1a1a1a1a and sg-9b9b9b9b,
 -- specify 'GroupId.1=sg-1a1a1a1a' and 'GroupId.2=sg-9b9b9b9b'.
---
 mia1Groups :: Lens' ModifyInstanceAttribute [Text]
 mia1Groups = lens _mia1Groups (\s a -> s { _mia1Groups = a }) . _List
 
 -- | The ID of the instance.
---
 mia1InstanceId :: Lens' ModifyInstanceAttribute Text
 mia1InstanceId = lens _mia1InstanceId (\s a -> s { _mia1InstanceId = a })
 
 -- | Specifies whether an instance stops or terminates when you initiate shutdown
 -- from the instance (using the operating system command for system shutdown).
---
 mia1InstanceInitiatedShutdownBehavior :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1InstanceInitiatedShutdownBehavior =
     lens _mia1InstanceInitiatedShutdownBehavior
         (\s a -> s { _mia1InstanceInitiatedShutdownBehavior = a })
 
 -- | Changes the instance type to the specified value. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types>. If the instance type is not valid, the error returned is 'InvalidInstanceAttributeValue'.
---
 mia1InstanceType :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1InstanceType = lens _mia1InstanceType (\s a -> s { _mia1InstanceType = a })
 
 -- | Changes the instance's kernel to the specified value. We recommend that you
 -- use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB>.
---
 mia1Kernel :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1Kernel = lens _mia1Kernel (\s a -> s { _mia1Kernel = a })
 
 -- | Changes the instance's RAM disk to the specified value. We recommend that you
 -- use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB>.
---
 mia1Ramdisk :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1Ramdisk = lens _mia1Ramdisk (\s a -> s { _mia1Ramdisk = a })
 
 -- | Specifies whether source/destination checking is enabled. A value of 'true'
 -- means that checking is enabled, and 'false' means checking is disabled. This
 -- value must be 'false' for a NAT instance to perform NAT.
---
 mia1SourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mia1SourceDestCheck =
     lens _mia1SourceDestCheck (\s a -> s { _mia1SourceDestCheck = a })
@@ -225,18 +214,15 @@ mia1SourceDestCheck =
 --
 -- This option is supported only for HVM instances. Specifying this option with
 -- a PV instance can make it unreachable.
---
 mia1SriovNetSupport :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mia1SriovNetSupport =
     lens _mia1SriovNetSupport (\s a -> s { _mia1SriovNetSupport = a })
 
 -- | Changes the instance's user data to the specified value.
---
 mia1UserData :: Lens' ModifyInstanceAttribute (Maybe BlobAttributeValue)
 mia1UserData = lens _mia1UserData (\s a -> s { _mia1UserData = a })
 
 -- | A new value for the attribute. Use only with the 'kernel', 'ramdisk', 'userData', 'disableApiTermination', or 'intanceInitiateShutdownBehavior' attribute.
---
 mia1Value :: Lens' ModifyInstanceAttribute (Maybe Text)
 mia1Value = lens _mia1Value (\s a -> s { _mia1Value = a })
 

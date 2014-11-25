@@ -67,13 +67,11 @@ describeLifecycleHooks p1 = DescribeLifecycleHooks
     }
 
 -- | The name of the group.
---
 dlhAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
 dlhAutoScalingGroupName =
     lens _dlhAutoScalingGroupName (\s a -> s { _dlhAutoScalingGroupName = a })
 
 -- | The names of one or more lifecycle hooks.
---
 dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
 dlhLifecycleHookNames =
     lens _dlhLifecycleHookNames (\s a -> s { _dlhLifecycleHookNames = a })
@@ -101,7 +99,6 @@ describeLifecycleHooksResponse = DescribeLifecycleHooksResponse
     }
 
 -- | The lifecycle hooks for the specified group.
---
 dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
 dlhrLifecycleHooks =
     lens _dlhrLifecycleHooks (\s a -> s { _dlhrLifecycleHooks = a })

@@ -84,18 +84,15 @@ describeOptionGroupOptions p1 = DescribeOptionGroupOptions
 
 -- | A required parameter. Options available for the given Engine name will be
 -- described.
---
 dogoEngineName :: Lens' DescribeOptionGroupOptions Text
 dogoEngineName = lens _dogoEngineName (\s a -> s { _dogoEngineName = a })
 
 -- | This parameter is not currently supported.
---
 dogoFilters :: Lens' DescribeOptionGroupOptions [Filter]
 dogoFilters = lens _dogoFilters (\s a -> s { _dogoFilters = a }) . _List
 
 -- | If specified, filters the results to include only options for the specified
 -- major engine version.
---
 dogoMajorEngineVersion :: Lens' DescribeOptionGroupOptions (Maybe Text)
 dogoMajorEngineVersion =
     lens _dogoMajorEngineVersion (\s a -> s { _dogoMajorEngineVersion = a })
@@ -103,7 +100,6 @@ dogoMajorEngineVersion =
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the marker,
 -- up to the value specified by 'MaxRecords'.
---
 dogoMarker :: Lens' DescribeOptionGroupOptions (Maybe Text)
 dogoMarker = lens _dogoMarker (\s a -> s { _dogoMarker = a })
 
@@ -114,7 +110,6 @@ dogoMarker = lens _dogoMarker (\s a -> s { _dogoMarker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
---
 dogoMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Int)
 dogoMaxRecords = lens _dogoMaxRecords (\s a -> s { _dogoMaxRecords = a })
 
@@ -140,7 +135,6 @@ describeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the marker,
 -- up to the value specified by 'MaxRecords'.
---
 dogorMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
 dogorMarker = lens _dogorMarker (\s a -> s { _dogorMarker = a })
 

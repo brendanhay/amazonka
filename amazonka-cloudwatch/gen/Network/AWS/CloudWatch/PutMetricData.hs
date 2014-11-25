@@ -78,12 +78,10 @@ putMetricData p1 = PutMetricData
     }
 
 -- | A list of data describing the metric.
---
 pmdMetricData :: Lens' PutMetricData [MetricDatum]
 pmdMetricData = lens _pmdMetricData (\s a -> s { _pmdMetricData = a }) . _List
 
 -- | The namespace for the metric data.
---
 pmdNamespace :: Lens' PutMetricData Text
 pmdNamespace = lens _pmdNamespace (\s a -> s { _pmdNamespace = a })
 

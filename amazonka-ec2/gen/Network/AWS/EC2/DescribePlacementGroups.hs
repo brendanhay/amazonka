@@ -90,7 +90,6 @@ dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a }) . _List
 --
 -- Default: Describes all your placement groups, or only those otherwise
 -- specified.
---
 dpg1GroupNames :: Lens' DescribePlacementGroups [Text]
 dpg1GroupNames = lens _dpg1GroupNames (\s a -> s { _dpg1GroupNames = a }) . _List
 
@@ -116,7 +115,6 @@ describePlacementGroupsResponse = DescribePlacementGroupsResponse
     }
 
 -- | One or more placement groups.
---
 dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrPlacementGroups =
     lens _dpgrPlacementGroups (\s a -> s { _dpgrPlacementGroups = a })

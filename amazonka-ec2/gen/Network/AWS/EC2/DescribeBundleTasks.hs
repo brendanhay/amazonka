@@ -73,7 +73,6 @@ describeBundleTasks = DescribeBundleTasks
 -- | One or more bundle task IDs.
 --
 -- Default: Describes all your bundle tasks.
---
 dbtBundleIds :: Lens' DescribeBundleTasks [Text]
 dbtBundleIds = lens _dbtBundleIds (\s a -> s { _dbtBundleIds = a }) . _List
 
@@ -130,7 +129,6 @@ describeBundleTasksResponse = DescribeBundleTasksResponse
     }
 
 -- | Information about one or more bundle tasks.
---
 dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
 dbtrBundleTasks = lens _dbtrBundleTasks (\s a -> s { _dbtrBundleTasks = a }) . _List
 

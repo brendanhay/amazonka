@@ -78,7 +78,6 @@ getFunctionConfiguration p1 = GetFunctionConfiguration
 
 -- | The name of the Lambda function for which you want to retrieve the
 -- configuration information.
---
 gfcFunctionName :: Lens' GetFunctionConfiguration Text
 gfcFunctionName = lens _gfcFunctionName (\s a -> s { _gfcFunctionName = a })
 
@@ -142,69 +141,57 @@ getFunctionConfigurationResponse = GetFunctionConfigurationResponse
     }
 
 -- | The size, in bytes, of the function .zip file you uploaded.
---
 gfcrCodeSize :: Lens' GetFunctionConfigurationResponse (Maybe Integer)
 gfcrCodeSize = lens _gfcrCodeSize (\s a -> s { _gfcrCodeSize = a })
 
 -- | A Lambda-assigned unique identifier for the current function code and related
 -- configuration.
---
 gfcrConfigurationId :: Lens' GetFunctionConfigurationResponse (Maybe Text)
 gfcrConfigurationId =
     lens _gfcrConfigurationId (\s a -> s { _gfcrConfigurationId = a })
 
 -- | The user-provided description.
---
 gfcrDescription :: Lens' GetFunctionConfigurationResponse (Maybe Text)
 gfcrDescription = lens _gfcrDescription (\s a -> s { _gfcrDescription = a })
 
 -- | The Amazon Resource Name (ARN) assigned to the function.
---
 gfcrFunctionARN :: Lens' GetFunctionConfigurationResponse (Maybe Text)
 gfcrFunctionARN = lens _gfcrFunctionARN (\s a -> s { _gfcrFunctionARN = a })
 
 -- | The name of the function.
---
 gfcrFunctionName :: Lens' GetFunctionConfigurationResponse (Maybe Text)
 gfcrFunctionName = lens _gfcrFunctionName (\s a -> s { _gfcrFunctionName = a })
 
 -- | The function Lambda calls to begin executing your function.
---
 gfcrHandler :: Lens' GetFunctionConfigurationResponse (Maybe Text)
 gfcrHandler = lens _gfcrHandler (\s a -> s { _gfcrHandler = a })
 
 -- | The timestamp of the last time you updated the function.
---
 gfcrLastModified :: Lens' GetFunctionConfigurationResponse (Maybe UTCTime)
 gfcrLastModified = lens _gfcrLastModified (\s a -> s { _gfcrLastModified = a }) . mapping _Time
 
 -- | The memory size, in MB, you configured for the function. Must be a multiple
 -- of 64 MB.
---
 gfcrMemorySize :: Lens' GetFunctionConfigurationResponse (Maybe Natural)
 gfcrMemorySize = lens _gfcrMemorySize (\s a -> s { _gfcrMemorySize = a }) . mapping _Nat
 
 -- | The type of the Lambda function you uploaded.
---
 gfcrMode :: Lens' GetFunctionConfigurationResponse (Maybe Mode)
 gfcrMode = lens _gfcrMode (\s a -> s { _gfcrMode = a })
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it
 -- executes your function to access any other Amazon Web Services (AWS)
 -- resources.
---
 gfcrRole :: Lens' GetFunctionConfigurationResponse (Maybe Text)
 gfcrRole = lens _gfcrRole (\s a -> s { _gfcrRole = a })
 
 -- | The runtime environment for the Lambda function.
---
 gfcrRuntime :: Lens' GetFunctionConfigurationResponse (Maybe Runtime)
 gfcrRuntime = lens _gfcrRuntime (\s a -> s { _gfcrRuntime = a })
 
 -- | The function execution time at which Lambda should terminate the function.
 -- Because the execution time has cost implications, we recommend you set this
 -- value based on your expected execution time. The default is 3 seconds.
---
 gfcrTimeout :: Lens' GetFunctionConfigurationResponse (Maybe Natural)
 gfcrTimeout = lens _gfcrTimeout (\s a -> s { _gfcrTimeout = a }) . mapping _Nat
 

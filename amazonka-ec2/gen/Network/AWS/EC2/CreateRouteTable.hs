@@ -73,7 +73,6 @@ crtDryRun :: Lens' CreateRouteTable (Maybe Bool)
 crtDryRun = lens _crtDryRun (\s a -> s { _crtDryRun = a })
 
 -- | The ID of the VPC.
---
 crtVpcId :: Lens' CreateRouteTable Text
 crtVpcId = lens _crtVpcId (\s a -> s { _crtVpcId = a })
 
@@ -93,7 +92,6 @@ createRouteTableResponse = CreateRouteTableResponse
     }
 
 -- | Information about the route table.
---
 crtrRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtrRouteTable = lens _crtrRouteTable (\s a -> s { _crtrRouteTable = a })
 

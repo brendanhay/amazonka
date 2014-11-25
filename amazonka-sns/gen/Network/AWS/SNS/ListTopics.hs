@@ -64,7 +64,6 @@ listTopics = ListTopics
     }
 
 -- | Token returned by the previous 'ListTopics' request.
---
 ltNextToken :: Lens' ListTopics (Maybe Text)
 ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
 
@@ -89,12 +88,10 @@ listTopicsResponse = ListTopicsResponse
 
 -- | Token to pass along to the next 'ListTopics' request. This element is returned
 -- if there are additional topics to retrieve.
---
 ltrNextToken :: Lens' ListTopicsResponse (Maybe Text)
 ltrNextToken = lens _ltrNextToken (\s a -> s { _ltrNextToken = a })
 
 -- | A list of topic ARNs.
---
 ltrTopics :: Lens' ListTopicsResponse [Topic]
 ltrTopics = lens _ltrTopics (\s a -> s { _ltrTopics = a }) . _List
 

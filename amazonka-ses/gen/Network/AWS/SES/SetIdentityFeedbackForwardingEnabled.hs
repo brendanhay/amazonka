@@ -79,14 +79,12 @@ setIdentityFeedbackForwardingEnabled p1 p2 = SetIdentityFeedbackForwardingEnable
 -- complaint notifications only through Amazon SNS. This value can only be set
 -- to 'false' when Amazon SNS topics are set for both 'Bounce' and 'Complaint'
 -- notification types.
---
 siffeForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled Bool
 siffeForwardingEnabled =
     lens _siffeForwardingEnabled (\s a -> s { _siffeForwardingEnabled = a })
 
 -- | The identity for which to set bounce and complaint notification forwarding.
 -- Examples: 'user@example.com', 'example.com'.
---
 siffeIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
 siffeIdentity = lens _siffeIdentity (\s a -> s { _siffeIdentity = a })
 

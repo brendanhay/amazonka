@@ -118,54 +118,44 @@ createApp p1 p2 p3 = CreateApp
     }
 
 -- | A 'Source' object that specifies the app repository.
---
 caAppSource :: Lens' CreateApp (Maybe Source)
 caAppSource = lens _caAppSource (\s a -> s { _caAppSource = a })
 
 -- | One or more user-defined key/value pairs to be added to the stack attributes.
---
 caAttributes :: Lens' CreateApp (HashMap AppAttributesKeys Text)
 caAttributes = lens _caAttributes (\s a -> s { _caAttributes = a }) . _Map
 
 -- | The app's data source.
---
 caDataSources :: Lens' CreateApp [DataSource]
 caDataSources = lens _caDataSources (\s a -> s { _caDataSources = a }) . _List
 
 -- | A description of the app.
---
 caDescription :: Lens' CreateApp (Maybe Text)
 caDescription = lens _caDescription (\s a -> s { _caDescription = a })
 
 -- | The app virtual host settings, with multiple domains separated by commas. For
 -- example: ''www.example.com, example.com''
---
 caDomains :: Lens' CreateApp [Text]
 caDomains = lens _caDomains (\s a -> s { _caDomains = a }) . _List
 
 -- | Whether to enable SSL for the app.
---
 caEnableSsl :: Lens' CreateApp (Maybe Bool)
 caEnableSsl = lens _caEnableSsl (\s a -> s { _caEnableSsl = a })
 
 -- | The app name.
---
 caName :: Lens' CreateApp Text
 caName = lens _caName (\s a -> s { _caName = a })
 
 -- | The app's short name.
---
 caShortname :: Lens' CreateApp (Maybe Text)
 caShortname = lens _caShortname (\s a -> s { _caShortname = a })
 
 -- | An 'SslConfiguration' object with the SSL configuration.
---
 caSslConfiguration :: Lens' CreateApp (Maybe SslConfiguration)
 caSslConfiguration =
     lens _caSslConfiguration (\s a -> s { _caSslConfiguration = a })
 
 -- | The stack ID.
---
 caStackId :: Lens' CreateApp Text
 caStackId = lens _caStackId (\s a -> s { _caStackId = a })
 
@@ -173,7 +163,6 @@ caStackId = lens _caStackId (\s a -> s { _caStackId = a })
 -- example, PHP applications are associated with a PHP layer. AWS OpsWorks
 -- deploys an application to those instances that are members of the
 -- corresponding layer.
---
 caType :: Lens' CreateApp AppType
 caType = lens _caType (\s a -> s { _caType = a })
 
@@ -193,7 +182,6 @@ createAppResponse = CreateAppResponse
     }
 
 -- | The app ID.
---
 carAppId :: Lens' CreateAppResponse (Maybe Text)
 carAppId = lens _carAppId (\s a -> s { _carAppId = a })
 

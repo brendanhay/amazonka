@@ -73,7 +73,6 @@ estimateTemplateCost = EstimateTemplateCost
     }
 
 -- | A list of 'Parameter' structures that specify input parameters.
---
 etcParameters :: Lens' EstimateTemplateCost [Parameter]
 etcParameters = lens _etcParameters (\s a -> s { _etcParameters = a }) . _List
 
@@ -83,7 +82,6 @@ etcParameters = lens _etcParameters (\s a -> s { _etcParameters = a }) . _List
 --
 -- Conditional: You must pass 'TemplateBody' or 'TemplateURL'. If both are passed,
 -- only 'TemplateBody' is used.
---
 etcTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateBody = lens _etcTemplateBody (\s a -> s { _etcTemplateBody = a })
 
@@ -93,7 +91,6 @@ etcTemplateBody = lens _etcTemplateBody (\s a -> s { _etcTemplateBody = a })
 --
 -- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,
 -- only 'TemplateBody' is used.
---
 etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateURL = lens _etcTemplateURL (\s a -> s { _etcTemplateURL = a })
 
@@ -114,7 +111,6 @@ estimateTemplateCostResponse = EstimateTemplateCostResponse
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes the
 -- resources required to run the template.
---
 etcrUrl :: Lens' EstimateTemplateCostResponse (Maybe Text)
 etcrUrl = lens _etcrUrl (\s a -> s { _etcrUrl = a })
 

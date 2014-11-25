@@ -79,7 +79,6 @@ describeDefaultClusterParameters p1 = DescribeDefaultClusterParameters
 -- request exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker' field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the 'Marker' parameter and retrying the
 -- request.
---
 ddcpMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
 ddcpMarker = lens _ddcpMarker (\s a -> s { _ddcpMarker = a })
 
@@ -91,12 +90,10 @@ ddcpMarker = lens _ddcpMarker (\s a -> s { _ddcpMarker = a })
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
---
 ddcpMaxRecords :: Lens' DescribeDefaultClusterParameters (Maybe Int)
 ddcpMaxRecords = lens _ddcpMaxRecords (\s a -> s { _ddcpMaxRecords = a })
 
 -- | The name of the cluster parameter group family.
---
 ddcpParameterGroupFamily :: Lens' DescribeDefaultClusterParameters Text
 ddcpParameterGroupFamily =
     lens _ddcpParameterGroupFamily

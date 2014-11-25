@@ -72,7 +72,6 @@ modifyCacheSubnetGroup p1 = ModifyCacheSubnetGroup
     }
 
 -- | A description for the cache subnet group.
---
 mcsgCacheSubnetGroupDescription :: Lens' ModifyCacheSubnetGroup (Maybe Text)
 mcsgCacheSubnetGroupDescription =
     lens _mcsgCacheSubnetGroupDescription
@@ -85,14 +84,12 @@ mcsgCacheSubnetGroupDescription =
 -- hyphens.
 --
 -- Example: 'mysubnetgroup'
---
 mcsgCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup Text
 mcsgCacheSubnetGroupName =
     lens _mcsgCacheSubnetGroupName
         (\s a -> s { _mcsgCacheSubnetGroupName = a })
 
 -- | The EC2 subnet IDs for the cache subnet group.
---
 mcsgSubnetIds :: Lens' ModifyCacheSubnetGroup [Text]
 mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a }) . _List
 

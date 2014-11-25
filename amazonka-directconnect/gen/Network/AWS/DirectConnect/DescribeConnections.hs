@@ -88,7 +88,6 @@ describeConnectionsResponse = DescribeConnectionsResponse
     }
 
 -- | A list of connections.
---
 dcrConnections :: Lens' DescribeConnectionsResponse [Connection]
 dcrConnections = lens _dcrConnections (\s a -> s { _dcrConnections = a }) . _List
 

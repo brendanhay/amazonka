@@ -73,7 +73,6 @@ updatePipelineNotifications p1 p2 = UpdatePipelineNotifications
 
 -- | The identifier of the pipeline for which you want to change notification
 -- settings.
---
 upnId :: Lens' UpdatePipelineNotifications Text
 upnId = lens _upnId (\s a -> s { _upnId = a })
 
@@ -112,7 +111,6 @@ updatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
     }
 
 -- | A section of the response body that provides information about the pipeline.
---
 upnrPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
 upnrPipeline = lens _upnrPipeline (\s a -> s { _upnrPipeline = a })
 

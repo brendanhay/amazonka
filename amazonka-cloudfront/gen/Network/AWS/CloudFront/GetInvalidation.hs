@@ -21,6 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Get the information about an invalidation.
+--
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetInvalidation.html>
 module Network.AWS.CloudFront.GetInvalidation
     (

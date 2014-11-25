@@ -82,18 +82,15 @@ createUserProfile p1 = CreateUserProfile
 
 -- | Whether users can specify their own SSH public key through the My Settings
 -- page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User's Public SSH Key>.
---
 cupAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
 cupAllowSelfManagement =
     lens _cupAllowSelfManagement (\s a -> s { _cupAllowSelfManagement = a })
 
 -- | The user's IAM ARN.
---
 cupIamUserArn :: Lens' CreateUserProfile Text
 cupIamUserArn = lens _cupIamUserArn (\s a -> s { _cupIamUserArn = a })
 
 -- | The user's public SSH key.
---
 cupSshPublicKey :: Lens' CreateUserProfile (Maybe Text)
 cupSshPublicKey = lens _cupSshPublicKey (\s a -> s { _cupSshPublicKey = a })
 
@@ -102,7 +99,6 @@ cupSshPublicKey = lens _cupSshPublicKey (\s a -> s { _cupSshPublicKey = a })
 -- OpsWorks removes them. For example, 'my.name' will be changed to 'myname'. If you
 -- do not specify an SSH user name, AWS OpsWorks generates one from the IAM user
 -- name.
---
 cupSshUsername :: Lens' CreateUserProfile (Maybe Text)
 cupSshUsername = lens _cupSshUsername (\s a -> s { _cupSshUsername = a })
 
@@ -122,7 +118,6 @@ createUserProfileResponse = CreateUserProfileResponse
     }
 
 -- | The user's IAM ARN.
---
 cuprIamUserArn :: Lens' CreateUserProfileResponse (Maybe Text)
 cuprIamUserArn = lens _cuprIamUserArn (\s a -> s { _cuprIamUserArn = a })
 

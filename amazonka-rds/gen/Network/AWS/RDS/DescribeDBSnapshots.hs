@@ -114,14 +114,12 @@ ddbsDBSnapshotIdentifier =
         (\s a -> s { _ddbsDBSnapshotIdentifier = a })
 
 -- | This parameter is not currently supported.
---
 ddbsFilters :: Lens' DescribeDBSnapshots [Filter]
 ddbsFilters = lens _ddbsFilters (\s a -> s { _ddbsFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous 'DescribeDBSnapshots'
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by 'MaxRecords'.
---
 ddbsMarker :: Lens' DescribeDBSnapshots (Maybe Text)
 ddbsMarker = lens _ddbsMarker (\s a -> s { _ddbsMarker = a })
 
@@ -132,14 +130,12 @@ ddbsMarker = lens _ddbsMarker (\s a -> s { _ddbsMarker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
---
 ddbsMaxRecords :: Lens' DescribeDBSnapshots (Maybe Int)
 ddbsMaxRecords = lens _ddbsMaxRecords (\s a -> s { _ddbsMaxRecords = a })
 
 -- | The type of snapshots that will be returned. Values can be "automated" or
 -- "manual." If not specified, the returned results will include all snapshots
 -- types.
---
 ddbsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
 ddbsSnapshotType = lens _ddbsSnapshotType (\s a -> s { _ddbsSnapshotType = a })
 
@@ -163,14 +159,12 @@ describeDBSnapshotsResponse = DescribeDBSnapshotsResponse
     }
 
 -- | A list of 'DBSnapshot' instances.
---
 ddbsrDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
 ddbsrDBSnapshots = lens _ddbsrDBSnapshots (\s a -> s { _ddbsrDBSnapshots = a }) . _List
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the marker,
 -- up to the value specified by 'MaxRecords'.
---
 ddbsrMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
 ddbsrMarker = lens _ddbsrMarker (\s a -> s { _ddbsrMarker = a })
 

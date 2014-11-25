@@ -82,7 +82,6 @@ listDomains = ListDomains
 -- request.
 --
 -- Required: No
---
 ldMarker :: Lens' ListDomains (Maybe Text)
 ldMarker = lens _ldMarker (\s a -> s { _ldMarker = a })
 
@@ -95,7 +94,6 @@ ldMarker = lens _ldMarker (\s a -> s { _ldMarker = a })
 -- Constraints: A numeral between 1 and 100.
 --
 -- Required: No
---
 ldMaxItems :: Lens' ListDomains (Maybe Int)
 ldMaxItems = lens _ldMaxItems (\s a -> s { _ldMaxItems = a })
 
@@ -123,7 +121,6 @@ listDomainsResponse = ListDomainsResponse
 -- Type: Complex type containing a list of domain summaries.
 --
 -- Children: 'AutoRenew', 'DomainName', 'Expiry', 'TransferLock'
---
 ldrDomains :: Lens' ListDomainsResponse [DomainSummary]
 ldrDomains = lens _ldrDomains (\s a -> s { _ldrDomains = a }) . _List
 
@@ -134,7 +131,6 @@ ldrDomains = lens _ldrDomains (\s a -> s { _ldrDomains = a }) . _List
 -- Type: String
 --
 -- Parent: 'Operations'
---
 ldrNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextPageMarker =
     lens _ldrNextPageMarker (\s a -> s { _ldrNextPageMarker = a })

@@ -149,7 +149,6 @@ search p1 = Search
 -- of the response.
 --
 -- For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html Paginating Results> in the /Amazon CloudSearchDeveloper Guide/.
---
 s1Cursor :: Lens' Search (Maybe Text)
 s1Cursor = lens _s1Cursor (\s a -> s { _s1Cursor = a })
 
@@ -158,7 +157,6 @@ s1Cursor = lens _s1Cursor (\s a -> s { _s1Cursor = a })
 -- fields.
 --
 -- For more information about defining and using expressions, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html ConfiguringExpressions> in the /Amazon CloudSearch Developer Guide/.
---
 s1Expr :: Lens' Search (Maybe Text)
 s1Expr = lens _s1Expr (\s a -> s { _s1Expr = a })
 
@@ -188,7 +186,6 @@ s1Expr = lens _s1Expr (\s a -> s { _s1Expr = a })
 -- returned in the results.
 --
 -- For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/faceting.html Getting and Using Facet Information> in the /AmazonCloudSearch Developer Guide/.
---
 s1Facet :: Lens' Search (Maybe Text)
 s1Facet = lens _s1Facet (\s a -> s { _s1Facet = a })
 
@@ -202,7 +199,6 @@ s1Facet = lens _s1Facet (\s a -> s { _s1Facet = a })
 --
 -- For more information about using filters, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/filtering-results.html Filtering Matching Documents>
 -- in the /Amazon CloudSearch Developer Guide/.
---
 s1FilterQuery :: Lens' Search (Maybe Text)
 s1FilterQuery = lens _s1FilterQuery (\s a -> s { _s1FilterQuery = a })
 
@@ -221,7 +217,6 @@ s1FilterQuery = lens _s1FilterQuery (\s a -> s { _s1FilterQuery = a })
 -- append to an occurrence of a search term. The default for HTML highlights is '&lt;/em&gt;'. The default for text highlights is '*'.   If no highlight options are
 -- specified for a field, the returned field text is treated as HTML and the
 -- first match is highlighted with emphasis tags: '&lt;em>search-term&lt;/em&gt;'.
---
 s1Highlight :: Lens' Search (Maybe Text)
 s1Highlight = lens _s1Highlight (\s a -> s { _s1Highlight = a })
 
@@ -236,7 +231,6 @@ s1Highlight = lens _s1Highlight (\s a -> s { _s1Highlight = a })
 -- search experience. For example, rather than displaying no results, you could
 -- display the partial results and a message indicating that the results might
 -- be incomplete due to a temporary system outage.
---
 s1Partial :: Lens' Search (Maybe Bool)
 s1Partial = lens _s1Partial (\s a -> s { _s1Partial = a })
 
@@ -247,7 +241,6 @@ s1Partial = lens _s1Partial (\s a -> s { _s1Partial = a })
 -- query parser, you must also specify the 'queryParser' parameter.
 --
 -- For more information about specifying search criteria, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html Searching YourData> in the /Amazon CloudSearch Developer Guide/.
---
 s1Query :: Lens' Search Text
 s1Query = lens _s1Query (\s a -> s { _s1Query = a })
 
@@ -346,12 +339,10 @@ s1QueryParser = lens _s1QueryParser (\s a -> s { _s1QueryParser = a })
 -- To return only the document IDs for the matching documents, specify '_no_fields'
 -- . To retrieve the relevance score calculated for each document, specify '_score'
 -- .
---
 s1Return :: Lens' Search (Maybe Text)
 s1Return = lens _s1Return (\s a -> s { _s1Return = a })
 
 -- | Specifies the maximum number of search hits to include in the response.
---
 s1Size :: Lens' Search (Maybe Integer)
 s1Size = lens _s1Size (\s a -> s { _s1Size = a })
 
@@ -364,7 +355,6 @@ s1Size = lens _s1Size (\s a -> s { _s1Size = a })
 -- and version ('_version desc').
 --
 -- For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/sorting-results.html Sorting Results> in the /Amazon CloudSearchDeveloper Guide/.
---
 s1Sort :: Lens' Search (Maybe Text)
 s1Sort = lens _s1Sort (\s a -> s { _s1Sort = a })
 
@@ -374,7 +364,6 @@ s1Sort = lens _s1Sort (\s a -> s { _s1Sort = a })
 -- exclusive.
 --
 -- For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html Paginating Results> in the /Amazon CloudSearchDeveloper Guide/.
---
 s1Start :: Lens' Search (Maybe Integer)
 s1Start = lens _s1Start (\s a -> s { _s1Start = a })
 
@@ -402,17 +391,14 @@ searchResponse = SearchResponse
     }
 
 -- | The requested facet information.
---
 sr1Facets :: Lens' SearchResponse (HashMap Text BucketInfo)
 sr1Facets = lens _sr1Facets (\s a -> s { _sr1Facets = a }) . _Map
 
 -- | The documents that match the search criteria.
---
 sr1Hits :: Lens' SearchResponse (Maybe Hits)
 sr1Hits = lens _sr1Hits (\s a -> s { _sr1Hits = a })
 
 -- | The status information returned for the search request.
---
 sr1Status :: Lens' SearchResponse (Maybe SearchStatus)
 sr1Status = lens _sr1Status (\s a -> s { _sr1Status = a })
 

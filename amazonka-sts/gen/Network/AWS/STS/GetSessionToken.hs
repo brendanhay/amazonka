@@ -102,7 +102,6 @@ getSessionToken = GetSessionToken
 -- default. Sessions for AWS account owners are restricted to a maximum of 3600
 -- seconds (one hour). If the duration is longer than one hour, the session for
 -- AWS account owners defaults to one hour.
---
 gstDurationSeconds :: Lens' GetSessionToken (Maybe Natural)
 gstDurationSeconds =
     lens _gstDurationSeconds (\s a -> s { _gstDurationSeconds = a })
@@ -114,7 +113,6 @@ gstDurationSeconds =
 -- serial number for a hardware device (such as 'GAHT12345678') or an Amazon
 -- Resource Name (ARN) for a virtual device (such as 'arn:aws:iam::123456789012:mfa/user'). You can find the device for an IAM user by going to the AWS Management
 -- Console and viewing the user's security credentials.
---
 gstSerialNumber :: Lens' GetSessionToken (Maybe Text)
 gstSerialNumber = lens _gstSerialNumber (\s a -> s { _gstSerialNumber = a })
 
@@ -124,7 +122,6 @@ gstSerialNumber = lens _gstSerialNumber (\s a -> s { _gstSerialNumber = a })
 -- requesting a set of temporary security credentials, the user will receive an
 -- "access denied" response when requesting resources that require MFA
 -- authentication.
---
 gstTokenCode :: Lens' GetSessionToken (Maybe Text)
 gstTokenCode = lens _gstTokenCode (\s a -> s { _gstTokenCode = a })
 
@@ -144,7 +141,6 @@ getSessionTokenResponse = GetSessionTokenResponse
     }
 
 -- | The session credentials for API authentication.
---
 gstrCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstrCredentials = lens _gstrCredentials (\s a -> s { _gstrCredentials = a })
 

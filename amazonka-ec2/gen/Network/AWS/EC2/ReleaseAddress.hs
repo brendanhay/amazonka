@@ -82,7 +82,6 @@ releaseAddress = ReleaseAddress
     }
 
 -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
---
 raAllocationId :: Lens' ReleaseAddress (Maybe Text)
 raAllocationId = lens _raAllocationId (\s a -> s { _raAllocationId = a })
 
@@ -90,7 +89,6 @@ raDryRun :: Lens' ReleaseAddress (Maybe Bool)
 raDryRun = lens _raDryRun (\s a -> s { _raDryRun = a })
 
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
---
 raPublicIp :: Lens' ReleaseAddress (Maybe Text)
 raPublicIp = lens _raPublicIp (\s a -> s { _raPublicIp = a })
 

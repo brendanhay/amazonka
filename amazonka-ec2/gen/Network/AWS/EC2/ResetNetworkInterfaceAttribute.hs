@@ -74,13 +74,11 @@ rniaDryRun :: Lens' ResetNetworkInterfaceAttribute (Maybe Bool)
 rniaDryRun = lens _rniaDryRun (\s a -> s { _rniaDryRun = a })
 
 -- | The ID of the network interface.
---
 rniaNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute Text
 rniaNetworkInterfaceId =
     lens _rniaNetworkInterfaceId (\s a -> s { _rniaNetworkInterfaceId = a })
 
 -- | The source/destination checking attribute. Resets the value to 'true'.
---
 rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
 rniaSourceDestCheck =
     lens _rniaSourceDestCheck (\s a -> s { _rniaSourceDestCheck = a })

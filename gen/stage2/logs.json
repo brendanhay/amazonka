@@ -1555,7 +1555,7 @@
             "pager": null,
             "name": "CreateLogGroup",
             "method": "post",
-            "documentation": "-- | Creates a new log group with the specified name. The name of the log group\n-- must be unique within a region for an AWS account. You can create up to 500\n-- log groups per account.\n--\n-- You must use the following guidelines when naming a log group:  Log group\n-- names can be between 1 and 512 characters long. Allowed characters are a-z,\n-- A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.'\n-- (period).\n--",
+            "documentation": "-- | Creates a new log group with the specified name. The name of the log group\n-- must be unique within a region for an AWS account. You can create up to 500\n-- log groups per account.\n--\n-- You must use the following guidelines when naming a log group:  Log group\n-- names can be between 1 and 512 characters long. Allowed characters are a-z,\n-- A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.'\n-- (period).",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1694,7 +1694,7 @@
             "pager": null,
             "name": "CreateLogStream",
             "method": "post",
-            "documentation": "-- | Creates a new log stream in the specified log group. The name of the log\n-- stream must be unique within the log group. There is no limit on the number\n-- of log streams that can exist in a log group.\n--\n-- You must use the following guidelines when naming a log stream:  Log stream\n-- names can be between 1 and 512 characters long. The ':' colon character is\n-- not allowed.\n--",
+            "documentation": "-- | Creates a new log stream in the specified log group. The name of the log\n-- stream must be unique within the log group. There is no limit on the number\n-- of log streams that can exist in a log group.\n--\n-- You must use the following guidelines when naming a log stream:  Log stream\n-- names can be between 1 and 512 characters long. The ':' colon character is\n-- not allowed.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1860,7 +1860,7 @@
             "pager": null,
             "name": "DeleteLogGroup",
             "method": "post",
-            "documentation": "-- | Deletes the log group with the specified name and permanently deletes all\n-- the archived log events associated with it.\n--",
+            "documentation": "-- | Deletes the log group with the specified name and permanently deletes all\n-- the archived log events associated with it.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1999,7 +1999,7 @@
             "pager": null,
             "name": "DeleteLogStream",
             "method": "post",
-            "documentation": "-- | Deletes a log stream and permanently deletes all the archived log events\n-- associated with it.\n--",
+            "documentation": "-- | Deletes a log stream and permanently deletes all the archived log events\n-- associated with it.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2165,7 +2165,7 @@
             "pager": null,
             "name": "DeleteMetricFilter",
             "method": "post",
-            "documentation": "-- | Deletes a metric filter associated with the specified log group.\n--",
+            "documentation": "-- | Deletes a metric filter associated with the specified log group.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2331,7 +2331,7 @@
             "pager": null,
             "name": "DeleteRetentionPolicy",
             "method": "post",
-            "documentation": "-- | Deletes the retention policy of the specified log group. Log events would\n-- not expire if they belong to log groups without a retention policy.\n--",
+            "documentation": "-- | Deletes the retention policy of the specified log group. Log events would\n-- not expire if they belong to log groups without a retention policy.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2565,7 +2565,7 @@
             "pager": null,
             "name": "DescribeLogGroups",
             "method": "post",
-            "documentation": "-- | Returns all the log groups that are associated with the AWS account making\n-- the request. The list returned in the response is ASCII-sorted by log group\n-- name.\n--\n-- By default, this operation returns up to 50 log groups. If there are more\n-- log groups to list, the response would contain a 'nextToken' value in the\n-- response body. You can also limit the number of log groups returned in the\n-- response by specifying the 'limit' parameter in the request.\n--",
+            "documentation": "-- | Returns all the log groups that are associated with the AWS account making\n-- the request. The list returned in the response is ASCII-sorted by log group\n-- name.\n--\n-- By default, this operation returns up to 50 log groups. If there are more\n-- log groups to list, the response would contain a 'nextToken' value in the\n-- response body. You can also limit the number of log groups returned in the\n-- response by specifying the 'limit' parameter in the request.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2605,7 +2605,7 @@
                         "name": "_dlgNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeLogGroups' request.\n--",
+                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeLogGroups' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2620,7 +2620,7 @@
                         "name": "_dlgLimit",
                         "shape": "DescribeLimit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.\n--",
+                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -2671,7 +2671,7 @@
                         "name": "_dlgNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeLogGroups' request.\n--",
+                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeLogGroups' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2686,7 +2686,7 @@
                         "name": "_dlgLimit",
                         "shape": "DescribeLimit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.\n--",
+                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -2703,7 +2703,7 @@
                         "name": "_dlgLimit",
                         "shape": "DescribeLimit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.\n--",
+                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -2733,7 +2733,7 @@
                         "name": "_dlgNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeLogGroups' request.\n--",
+                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeLogGroups' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2871,7 +2871,7 @@
             "pager": null,
             "name": "DescribeLogStreams",
             "method": "post",
-            "documentation": "-- | Returns all the log streams that are associated with the specified log\n-- group. The list returned in the response is ASCII-sorted by log stream name.\n--\n-- By default, this operation returns up to 50 log streams. If there are more\n-- log streams to list, the response would contain a 'nextToken' value in the\n-- response body. You can also limit the number of log streams returned in the\n-- response by specifying the 'limit' parameter in the request.\n--",
+            "documentation": "-- | Returns all the log streams that are associated with the specified log\n-- group. The list returned in the response is ASCII-sorted by log stream name.\n--\n-- By default, this operation returns up to 50 log streams. If there are more\n-- log streams to list, the response would contain a 'nextToken' value in the\n-- response body. You can also limit the number of log streams returned in the\n-- response by specifying the 'limit' parameter in the request.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2926,7 +2926,7 @@
                         "name": "_dls1NextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeLogStreams' request.\n--",
+                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeLogStreams' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2941,7 +2941,7 @@
                         "name": "_dls1Limit",
                         "shape": "DescribeLimit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.\n--",
+                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -3008,7 +3008,7 @@
                         "name": "_dls1NextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeLogStreams' request.\n--",
+                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeLogStreams' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3023,7 +3023,7 @@
                         "name": "_dls1Limit",
                         "shape": "DescribeLimit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.\n--",
+                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -3040,7 +3040,7 @@
                         "name": "_dls1Limit",
                         "shape": "DescribeLimit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.\n--",
+                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -3085,7 +3085,7 @@
                         "name": "_dls1NextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeLogStreams' request.\n--",
+                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeLogStreams' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3223,7 +3223,7 @@
             "pager": null,
             "name": "DescribeMetricFilters",
             "method": "post",
-            "documentation": "-- | Returns all the metrics filters associated with the specified log group. The\n-- list returned in the response is ASCII-sorted by filter name.\n--\n-- By default, this operation returns up to 50 metric filters. If there are\n-- more metric filters to list, the response would contain a 'nextToken' value in\n-- the response body. You can also limit the number of metric filters returned\n-- in the response by specifying the 'limit' parameter in the request.\n--",
+            "documentation": "-- | Returns all the metrics filters associated with the specified log group. The\n-- list returned in the response is ASCII-sorted by filter name.\n--\n-- By default, this operation returns up to 50 metric filters. If there are\n-- more metric filters to list, the response would contain a 'nextToken' value in\n-- the response body. You can also limit the number of metric filters returned\n-- in the response by specifying the 'limit' parameter in the request.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3278,7 +3278,7 @@
                         "name": "_dmfNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeMetricFilters' request.\n--",
+                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeMetricFilters' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3293,7 +3293,7 @@
                         "name": "_dmfLimit",
                         "shape": "DescribeLimit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.\n--",
+                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -3360,7 +3360,7 @@
                         "name": "_dmfNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeMetricFilters' request.\n--",
+                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeMetricFilters' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3375,7 +3375,7 @@
                         "name": "_dmfLimit",
                         "shape": "DescribeLimit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.\n--",
+                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -3407,7 +3407,7 @@
                         "name": "_dmfLimit",
                         "shape": "DescribeLimit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.\n--",
+                        "documentation": "-- | The maximum number of items returned in the response. If you don't specify a\n-- value, the request would return up to 50 items.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -3437,7 +3437,7 @@
                         "name": "_dmfNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeMetricFilters' request.\n--",
+                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeMetricFilters' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3620,7 +3620,7 @@
             "pager": null,
             "name": "GetLogEvents",
             "method": "post",
-            "documentation": "-- | Retrieves log events from the specified log stream. You can provide an\n-- optional time range to filter the results on the event 'timestamp'.\n--\n-- By default, this operation returns as much log events as can fit in a\n-- response size of 1MB, up to 10,000 log events. The response will always\n-- include a 'nextForwardToken' and a 'nextBackwardToken' in the response body. You\n-- can use any of these tokens in subsequent 'GetLogEvents' requests to paginate\n-- through events in either forward or backward direction. You can also limit\n-- the number of log events returned in the response by specifying the 'limit'\n-- parameter in the request.\n--",
+            "documentation": "-- | Retrieves log events from the specified log stream. You can provide an\n-- optional time range to filter the results on the event 'timestamp'.\n--\n-- By default, this operation returns as much log events as can fit in a\n-- response size of 1MB, up to 10,000 log events. The response will always\n-- include a 'nextForwardToken' and a 'nextBackwardToken' in the response body. You\n-- can use any of these tokens in subsequent 'GetLogEvents' requests to paginate\n-- through events in either forward or backward direction. You can also limit\n-- the number of log events returned in the response by specifying the 'limit'\n-- parameter in the request.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3705,7 +3705,7 @@
                         "name": "_gleNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the 'nextForwardToken' or 'nextBackwardToken'\n-- fields in the response of the previous 'GetLogEvents' request.\n--",
+                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the 'nextForwardToken' or 'nextBackwardToken'\n-- fields in the response of the previous 'GetLogEvents' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3720,7 +3720,7 @@
                         "name": "_gleLimit",
                         "shape": "EventsLimit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of log events returned in the response. If you don't\n-- specify a value, the request would return as much log events as can fit in a\n-- response size of 1MB, up to 10,000 log events.\n--",
+                        "documentation": "-- | The maximum number of log events returned in the response. If you don't\n-- specify a value, the request would return as much log events as can fit in a\n-- response size of 1MB, up to 10,000 log events.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -3832,7 +3832,7 @@
                         "name": "_gleNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the 'nextForwardToken' or 'nextBackwardToken'\n-- fields in the response of the previous 'GetLogEvents' request.\n--",
+                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the 'nextForwardToken' or 'nextBackwardToken'\n-- fields in the response of the previous 'GetLogEvents' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3847,7 +3847,7 @@
                         "name": "_gleLimit",
                         "shape": "EventsLimit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of log events returned in the response. If you don't\n-- specify a value, the request would return as much log events as can fit in a\n-- response size of 1MB, up to 10,000 log events.\n--",
+                        "documentation": "-- | The maximum number of log events returned in the response. If you don't\n-- specify a value, the request would return as much log events as can fit in a\n-- response size of 1MB, up to 10,000 log events.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -3894,7 +3894,7 @@
                         "name": "_gleLimit",
                         "shape": "EventsLimit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of log events returned in the response. If you don't\n-- specify a value, the request would return as much log events as can fit in a\n-- response size of 1MB, up to 10,000 log events.\n--",
+                        "documentation": "-- | The maximum number of log events returned in the response. If you don't\n-- specify a value, the request would return as much log events as can fit in a\n-- response size of 1MB, up to 10,000 log events.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -3939,7 +3939,7 @@
                         "name": "_gleNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the 'nextForwardToken' or 'nextBackwardToken'\n-- fields in the response of the previous 'GetLogEvents' request.\n--",
+                        "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the 'nextForwardToken' or 'nextBackwardToken'\n-- fields in the response of the previous 'GetLogEvents' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4080,7 +4080,7 @@
             "pager": null,
             "name": "PutLogEvents",
             "method": "post",
-            "documentation": "-- | Uploads a batch of log events to the specified log stream.\n--\n-- Every PutLogEvents request must include the 'sequenceToken' obtained from the\n-- response of the previous request. An upload in a newly created log stream\n-- does not require a 'sequenceToken'.\n--\n-- The batch of events must satisfy the following constraints:  The maximum\n-- batch size is 32,768 bytes, and this size is calculated as the sum of all\n-- event messages in UTF-8, plus 26 bytes for each log event. None of the log\n-- events in the batch can be more than 2 hours in the future. None of the log\n-- events in the batch can be older than 14 days or the retention period of the\n-- log group. The log events in the batch must be in chronological ordered by\n-- their 'timestamp'. The maximum number of log events in a batch is 1,000.\n--",
+            "documentation": "-- | Uploads a batch of log events to the specified log stream.\n--\n-- Every PutLogEvents request must include the 'sequenceToken' obtained from the\n-- response of the previous request. An upload in a newly created log stream\n-- does not require a 'sequenceToken'.\n--\n-- The batch of events must satisfy the following constraints:  The maximum\n-- batch size is 32,768 bytes, and this size is calculated as the sum of all\n-- event messages in UTF-8, plus 26 bytes for each log event. None of the log\n-- events in the batch can be more than 2 hours in the future. None of the log\n-- events in the batch can be older than 14 days or the retention period of the\n-- log group. The log events in the batch must be in chronological ordered by\n-- their 'timestamp'. The maximum number of log events in a batch is 1,000.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4149,7 +4149,7 @@
                         "name": "_pleSequenceToken",
                         "shape": "SequenceToken",
                         "locationName": "sequenceToken",
-                        "documentation": "-- | A string token that must be obtained from the response of the previous 'PutLogEvents' request.\n--",
+                        "documentation": "-- | A string token that must be obtained from the response of the previous 'PutLogEvents' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4231,7 +4231,7 @@
                         "name": "_pleSequenceToken",
                         "shape": "SequenceToken",
                         "locationName": "sequenceToken",
-                        "documentation": "-- | A string token that must be obtained from the response of the previous 'PutLogEvents' request.\n--",
+                        "documentation": "-- | A string token that must be obtained from the response of the previous 'PutLogEvents' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4293,7 +4293,7 @@
                         "name": "_pleSequenceToken",
                         "shape": "SequenceToken",
                         "locationName": "sequenceToken",
-                        "documentation": "-- | A string token that must be obtained from the response of the previous 'PutLogEvents' request.\n--",
+                        "documentation": "-- | A string token that must be obtained from the response of the previous 'PutLogEvents' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4336,7 +4336,7 @@
             "pager": null,
             "name": "PutMetricFilter",
             "method": "post",
-            "documentation": "-- | Creates or updates a metric filter and associates it with the specified log\n-- group. Metric filters allow you to configure rules to extract metric data\n-- from log events ingested through 'PutLogEvents' requests.\n--",
+            "documentation": "-- | Creates or updates a metric filter and associates it with the specified log\n-- group. Metric filters allow you to configure rules to extract metric data\n-- from log events ingested through 'PutLogEvents' requests.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4591,7 +4591,7 @@
             "pager": null,
             "name": "PutRetentionPolicy",
             "method": "post",
-            "documentation": "-- | Sets the retention of the specified log group. A retention policy allows you\n-- to configure the number of days you want to retain log events in the\n-- specified log group.\n--",
+            "documentation": "-- | Sets the retention of the specified log group. A retention policy allows you\n-- to configure the number of days you want to retain log events in the\n-- specified log group.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4825,7 +4825,7 @@
             "pager": null,
             "name": "TestMetricFilter",
             "method": "post",
-            "documentation": "-- | Tests the filter pattern of a metric filter against a sample of log event\n-- messages. You can use this operation to validate the correctness of a metric\n-- filter pattern.\n--",
+            "documentation": "-- | Tests the filter pattern of a metric filter against a sample of log event\n-- messages. You can use this operation to validate the correctness of a metric\n-- filter pattern.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

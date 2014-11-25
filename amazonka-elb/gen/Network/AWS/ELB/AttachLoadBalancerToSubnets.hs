@@ -73,14 +73,12 @@ attachLoadBalancerToSubnets p1 = AttachLoadBalancerToSubnets
 
 -- | The name associated with the load balancer. The name must be unique within
 -- the set of load balancers associated with your AWS account.
---
 albtsLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
 albtsLoadBalancerName =
     lens _albtsLoadBalancerName (\s a -> s { _albtsLoadBalancerName = a })
 
 -- | A list of subnet IDs to add for the load balancer. You can add only one
 -- subnet per Availability Zone.
---
 albtsSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
 albtsSubnets = lens _albtsSubnets (\s a -> s { _albtsSubnets = a }) . _List
 
@@ -106,7 +104,6 @@ attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     }
 
 -- | A list of subnet IDs attached to the load balancer.
---
 albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
 albtsrSubnets = lens _albtsrSubnets (\s a -> s { _albtsrSubnets = a }) . _List
 

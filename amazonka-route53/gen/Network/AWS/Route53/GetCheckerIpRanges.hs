@@ -75,7 +75,6 @@ getCheckerIpRangesResponse = GetCheckerIpRangesResponse
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.
---
 gcirrCheckerIpRanges :: Lens' GetCheckerIpRangesResponse [Text]
 gcirrCheckerIpRanges =
     lens _gcirrCheckerIpRanges (\s a -> s { _gcirrCheckerIpRanges = a })

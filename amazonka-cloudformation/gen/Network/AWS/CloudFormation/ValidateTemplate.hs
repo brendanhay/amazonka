@@ -74,7 +74,6 @@ validateTemplate = ValidateTemplate
 --
 -- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,
 -- only 'TemplateBody' is used.
---
 vtTemplateBody :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateBody = lens _vtTemplateBody (\s a -> s { _vtTemplateBody = a })
 
@@ -85,7 +84,6 @@ vtTemplateBody = lens _vtTemplateBody (\s a -> s { _vtTemplateBody = a })
 --
 -- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,
 -- only 'TemplateBody' is used.
---
 vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateURL = lens _vtTemplateURL (\s a -> s { _vtTemplateURL = a })
 
@@ -121,23 +119,19 @@ validateTemplateResponse = ValidateTemplateResponse
 -- resources, you must specify the CAPABILITY_IAM value for this parameter when
 -- you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise,
 -- those actions return an InsufficientCapabilities error.
---
 vtrCapabilities :: Lens' ValidateTemplateResponse [Capability]
 vtrCapabilities = lens _vtrCapabilities (\s a -> s { _vtrCapabilities = a }) . _List
 
 -- | The capabilities reason found within the template.
---
 vtrCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
 vtrCapabilitiesReason =
     lens _vtrCapabilitiesReason (\s a -> s { _vtrCapabilitiesReason = a })
 
 -- | The description found within the template.
---
 vtrDescription :: Lens' ValidateTemplateResponse (Maybe Text)
 vtrDescription = lens _vtrDescription (\s a -> s { _vtrDescription = a })
 
 -- | A list of 'TemplateParameter' structures.
---
 vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
 vtrParameters = lens _vtrParameters (\s a -> s { _vtrParameters = a }) . _List
 

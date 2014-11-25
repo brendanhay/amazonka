@@ -25,7 +25,6 @@
 -- The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012
 -- release of Domain Verification. The DeleteIdentity action is now preferred. This action is throttled at one request per second.
 --
---
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteVerifiedEmailAddress.html>
 module Network.AWS.SES.DeleteVerifiedEmailAddress
     (
@@ -64,7 +63,6 @@ deleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress
     }
 
 -- | An email address to be removed from the list of verified addresses.
---
 dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
 dveaEmailAddress = lens _dveaEmailAddress (\s a -> s { _dveaEmailAddress = a })
 

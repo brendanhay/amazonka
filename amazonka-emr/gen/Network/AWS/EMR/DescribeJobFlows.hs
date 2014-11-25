@@ -91,22 +91,18 @@ describeJobFlows = DescribeJobFlows
     }
 
 -- | Return only job flows created after this date and time.
---
 djfCreatedAfter :: Lens' DescribeJobFlows (Maybe UTCTime)
 djfCreatedAfter = lens _djfCreatedAfter (\s a -> s { _djfCreatedAfter = a }) . mapping _Time
 
 -- | Return only job flows created before this date and time.
---
 djfCreatedBefore :: Lens' DescribeJobFlows (Maybe UTCTime)
 djfCreatedBefore = lens _djfCreatedBefore (\s a -> s { _djfCreatedBefore = a }) . mapping _Time
 
 -- | Return only job flows whose job flow ID is contained in this list.
---
 djfJobFlowIds :: Lens' DescribeJobFlows [Text]
 djfJobFlowIds = lens _djfJobFlowIds (\s a -> s { _djfJobFlowIds = a }) . _List
 
 -- | Return only job flows whose state is contained in this list.
---
 djfJobFlowStates :: Lens' DescribeJobFlows [JobFlowExecutionState]
 djfJobFlowStates = lens _djfJobFlowStates (\s a -> s { _djfJobFlowStates = a }) . _List
 
@@ -132,7 +128,6 @@ describeJobFlowsResponse = DescribeJobFlowsResponse
     }
 
 -- | A list of job flows matching the parameters supplied.
---
 djfrJobFlows :: Lens' DescribeJobFlowsResponse [JobFlowDetail]
 djfrJobFlows = lens _djfrJobFlows (\s a -> s { _djfrJobFlows = a }) . _List
 

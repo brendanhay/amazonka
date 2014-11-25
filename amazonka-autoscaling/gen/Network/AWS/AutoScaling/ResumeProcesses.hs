@@ -68,7 +68,6 @@ resumeProcesses p1 = ResumeProcesses
     }
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
---
 rpAutoScalingGroupName :: Lens' ResumeProcesses Text
 rpAutoScalingGroupName =
     lens _rpAutoScalingGroupName (\s a -> s { _rpAutoScalingGroupName = a })

@@ -73,7 +73,6 @@ listDeploymentInstances p1 = ListDeploymentInstances
     }
 
 -- | The unique ID of a deployment.
---
 ldiDeploymentId :: Lens' ListDeploymentInstances Text
 ldiDeploymentId = lens _ldiDeploymentId (\s a -> s { _ldiDeploymentId = a })
 
@@ -94,7 +93,6 @@ ldiInstanceStatusFilter =
 -- | An identifier that was returned from the previous list deployment instances
 -- call, which can be used to return the next set of deployment instances in the
 -- list.
---
 ldiNextToken :: Lens' ListDeploymentInstances (Maybe Text)
 ldiNextToken = lens _ldiNextToken (\s a -> s { _ldiNextToken = a })
 
@@ -118,7 +116,6 @@ listDeploymentInstancesResponse = ListDeploymentInstancesResponse
     }
 
 -- | A list of instance IDs.
---
 ldirInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
 ldirInstancesList =
     lens _ldirInstancesList (\s a -> s { _ldirInstancesList = a })
@@ -128,7 +125,6 @@ ldirInstancesList =
 -- identifier will also be returned, which can be used in a subsequent list
 -- deployment instances call to return the next set of deployment instances in
 -- the list.
---
 ldirNextToken :: Lens' ListDeploymentInstancesResponse (Maybe Text)
 ldirNextToken = lens _ldirNextToken (\s a -> s { _ldirNextToken = a })
 

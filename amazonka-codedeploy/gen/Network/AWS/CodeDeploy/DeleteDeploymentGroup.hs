@@ -69,13 +69,11 @@ deleteDeploymentGroup p1 p2 = DeleteDeploymentGroup
 
 -- | The name of an existing AWS CodeDeploy application within the AWS user
 -- account.
---
 ddgApplicationName :: Lens' DeleteDeploymentGroup Text
 ddgApplicationName =
     lens _ddgApplicationName (\s a -> s { _ddgApplicationName = a })
 
 -- | The name of an existing deployment group for the specified application.
---
 ddgDeploymentGroupName :: Lens' DeleteDeploymentGroup Text
 ddgDeploymentGroupName =
     lens _ddgDeploymentGroupName (\s a -> s { _ddgDeploymentGroupName = a })
@@ -107,7 +105,6 @@ deleteDeploymentGroupResponse = DeleteDeploymentGroupResponse
 -- instances in the Auto Scaling. If the output does contain data, AWS
 -- CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the
 -- instances in the Auto Scaling group.
---
 ddgrHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
 ddgrHooksNotCleanedUp =
     lens _ddgrHooksNotCleanedUp (\s a -> s { _ddgrHooksNotCleanedUp = a })

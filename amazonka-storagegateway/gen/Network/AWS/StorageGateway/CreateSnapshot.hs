@@ -86,14 +86,12 @@ createSnapshot p1 p2 = CreateSnapshot
 -- | Textual description of the snapshot that appears in the Amazon EC2 console,
 -- Elastic Block Store snapshots panel in the Description field, and in the AWS
 -- Storage Gateway snapshot Details pane, Description field
---
 csSnapshotDescription :: Lens' CreateSnapshot Text
 csSnapshotDescription =
     lens _csSnapshotDescription (\s a -> s { _csSnapshotDescription = a })
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation
 -- to return a list of gateway volumes.
---
 csVolumeARN :: Lens' CreateSnapshot Text
 csVolumeARN = lens _csVolumeARN (\s a -> s { _csVolumeARN = a })
 
@@ -118,12 +116,10 @@ createSnapshotResponse = CreateSnapshotResponse
 
 -- | The snapshot ID that is used to refer to the snapshot in future operations
 -- such as describing snapshots (Amazon Elastic Compute Cloud API 'DescribeSnapshots') or creating a volume from a snapshot ('CreateStorediSCSIVolume').
---
 csrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
 
 -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was taken.
---
 csrVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
 csrVolumeARN = lens _csrVolumeARN (\s a -> s { _csrVolumeARN = a })
 

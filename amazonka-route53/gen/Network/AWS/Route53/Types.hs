@@ -306,7 +306,6 @@ resourceRecord p1 = ResourceRecord
     }
 
 -- | The value of the 'Value' element for the current resource record set.
---
 rrValue :: Lens' ResourceRecord Text
 rrValue = lens _rrValue (\s a -> s { _rrValue = a })
 
@@ -339,12 +338,10 @@ tag = Tag
     }
 
 -- | The key for a 'Tag'.
---
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
 -- | The value for a 'Tag'.
---
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
@@ -396,13 +393,11 @@ geoLocationDetails = GeoLocationDetails
 
 -- | The code for a continent geo location. Note: only continent locations have a
 -- continent code.
---
 gldContinentCode :: Lens' GeoLocationDetails (Maybe Text)
 gldContinentCode = lens _gldContinentCode (\s a -> s { _gldContinentCode = a })
 
 -- | The name of the continent. This element is only present if 'ContinentCode' is
 -- also present.
---
 gldContinentName :: Lens' GeoLocationDetails (Maybe Text)
 gldContinentName = lens _gldContinentName (\s a -> s { _gldContinentName = a })
 
@@ -412,26 +407,22 @@ gldContinentName = lens _gldContinentName (\s a -> s { _gldContinentName = a })
 --
 -- The default geo location uses a '*' for the country code. All other country
 -- codes follow the ISO 3166 two-character code.
---
 gldCountryCode :: Lens' GeoLocationDetails (Maybe Text)
 gldCountryCode = lens _gldCountryCode (\s a -> s { _gldCountryCode = a })
 
 -- | The name of the country. This element is only present if 'CountryCode' is also
 -- present.
---
 gldCountryName :: Lens' GeoLocationDetails (Maybe Text)
 gldCountryName = lens _gldCountryName (\s a -> s { _gldCountryName = a })
 
 -- | The code for a country's subdivision (e.g., a province of Canada). A
 -- subdivision code is only valid with the appropriate country code.
---
 gldSubdivisionCode :: Lens' GeoLocationDetails (Maybe Text)
 gldSubdivisionCode =
     lens _gldSubdivisionCode (\s a -> s { _gldSubdivisionCode = a })
 
 -- | The name of the subdivision. This element is only present if 'SubdivisionCode'
 -- is also present.
---
 gldSubdivisionName :: Lens' GeoLocationDetails (Maybe Text)
 gldSubdivisionName =
     lens _gldSubdivisionName (\s a -> s { _gldSubdivisionName = a })
@@ -487,13 +478,11 @@ healthCheck p1 p2 p3 p4 = HealthCheck
     }
 
 -- | A unique string that identifies the request to create the health check.
---
 hcCallerReference :: Lens' HealthCheck Text
 hcCallerReference =
     lens _hcCallerReference (\s a -> s { _hcCallerReference = a })
 
 -- | A complex type that contains the health check configuration.
---
 hcHealthCheckConfig :: Lens' HealthCheck HealthCheckConfig
 hcHealthCheckConfig =
     lens _hcHealthCheckConfig (\s a -> s { _hcHealthCheckConfig = a })
@@ -501,14 +490,12 @@ hcHealthCheckConfig =
 -- | The version of the health check. You can optionally pass this value in a call
 -- to 'UpdateHealthCheck' to prevent overwriting another change to the health
 -- check.
---
 hcHealthCheckVersion :: Lens' HealthCheck Natural
 hcHealthCheckVersion =
     lens _hcHealthCheckVersion (\s a -> s { _hcHealthCheckVersion = a })
         . _Nat
 
 -- | The ID of the specified health check.
---
 hcId :: Lens' HealthCheck Text
 hcId = lens _hcId (\s a -> s { _hcId = a })
 
@@ -741,28 +728,24 @@ healthCheckConfig p1 = HealthCheckConfig
 -- Valid values are integers between 1 and 10. For more information, see "How
 -- Amazon Route 53 Determines Whether an Endpoint Is Healthy" in the Amazon
 -- Route 53 Developer Guide.
---
 hccFailureThreshold :: Lens' HealthCheckConfig (Maybe Natural)
 hccFailureThreshold =
     lens _hccFailureThreshold (\s a -> s { _hccFailureThreshold = a })
         . mapping _Nat
 
 -- | Fully qualified domain name of the instance to be health checked.
---
 hccFullyQualifiedDomainName :: Lens' HealthCheckConfig (Maybe Text)
 hccFullyQualifiedDomainName =
     lens _hccFullyQualifiedDomainName
         (\s a -> s { _hccFullyQualifiedDomainName = a })
 
 -- | IP Address of the instance being checked.
---
 hccIPAddress :: Lens' HealthCheckConfig (Maybe Text)
 hccIPAddress = lens _hccIPAddress (\s a -> s { _hccIPAddress = a })
 
 -- | Port on which connection will be opened to the instance to health check. For
 -- HTTP and HTTP_STR_MATCH this defaults to 80 if the port is not specified. For
 -- HTTPS and HTTPS_STR_MATCH this defaults to 443 if the port is not specified.
---
 hccPort :: Lens' HealthCheckConfig (Maybe Natural)
 hccPort = lens _hccPort (\s a -> s { _hccPort = a }) . mapping _Nat
 
@@ -771,7 +754,6 @@ hccPort = lens _hccPort (\s a -> s { _hccPort = a }) . mapping _Nat
 --
 -- Each Route 53 health checker makes requests at this interval. Valid values
 -- are 10 and 30. The default value is 30.
---
 hccRequestInterval :: Lens' HealthCheckConfig (Maybe Natural)
 hccRequestInterval =
     lens _hccRequestInterval (\s a -> s { _hccRequestInterval = a })
@@ -780,19 +762,16 @@ hccRequestInterval =
 -- | Path to ping on the instance to check the health. Required for HTTP, HTTPS,
 -- HTTP_STR_MATCH, and HTTPS_STR_MATCH health checks, HTTP request is issued to
 -- the instance on the given port and path.
---
 hccResourcePath :: Lens' HealthCheckConfig (Maybe Text)
 hccResourcePath = lens _hccResourcePath (\s a -> s { _hccResourcePath = a })
 
 -- | A string to search for in the body of a health check response. Required for
 -- HTTP_STR_MATCH and HTTPS_STR_MATCH health checks.
---
 hccSearchString :: Lens' HealthCheckConfig (Maybe Text)
 hccSearchString = lens _hccSearchString (\s a -> s { _hccSearchString = a })
 
 -- | The type of health check to be performed. Currently supported types are TCP,
 -- HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
---
 hccType :: Lens' HealthCheckConfig HealthCheckType
 hccType = lens _hccType (\s a -> s { _hccType = a })
 
@@ -843,12 +822,10 @@ change p1 p2 = Change
 -- | The action to perform.
 --
 -- Valid values: 'CREATE' | 'DELETE' | 'UPSERT'
---
 cAction :: Lens' Change ChangeAction
 cAction = lens _cAction (\s a -> s { _cAction = a })
 
 -- | Information about the resource record set to create or delete.
---
 cResourceRecordSet :: Lens' Change ResourceRecordSet
 cResourceRecordSet =
     lens _cResourceRecordSet (\s a -> s { _cResourceRecordSet = a })
@@ -928,18 +905,15 @@ hostedZone p1 p2 p3 = HostedZone
     }
 
 -- | A unique string that identifies the request to create the hosted zone.
---
 hzCallerReference :: Lens' HostedZone Text
 hzCallerReference =
     lens _hzCallerReference (\s a -> s { _hzCallerReference = a })
 
 -- | A complex type that contains the 'Comment' element.
---
 hzConfig :: Lens' HostedZone (Maybe HostedZoneConfig)
 hzConfig = lens _hzConfig (\s a -> s { _hzConfig = a })
 
 -- | The ID of the specified hosted zone.
---
 hzId :: Lens' HostedZone Text
 hzId = lens _hzId (\s a -> s { _hzId = a })
 
@@ -952,12 +926,10 @@ hzId = lens _hzId (\s a -> s { _hzId = a })
 -- This is the name you have registered with your DNS registrar. You should ask
 -- your registrar to change the authoritative name servers for your domain to
 -- the set of 'NameServers' elements returned in 'DelegationSet'.
---
 hzName :: Lens' HostedZone Text
 hzName = lens _hzName (\s a -> s { _hzName = a })
 
 -- | Total number of resource record sets in the hosted zone.
---
 hzResourceRecordSetCount :: Lens' HostedZone (Maybe Integer)
 hzResourceRecordSetCount =
     lens _hzResourceRecordSetCount
@@ -1005,17 +977,14 @@ resourceTagSet p1 = ResourceTagSet
     }
 
 -- | The ID for the specified resource.
---
 rtsResourceId :: Lens' ResourceTagSet (Maybe Text)
 rtsResourceId = lens _rtsResourceId (\s a -> s { _rtsResourceId = a })
 
 -- | The type of the resource. The resource type for health checks is 'healthcheck'.
---
 rtsResourceType :: Lens' ResourceTagSet (Maybe TagResourceType)
 rtsResourceType = lens _rtsResourceType (\s a -> s { _rtsResourceType = a })
 
 -- | The tags associated with the specified resource.
---
 rtsTags :: Lens' ResourceTagSet (NonEmpty Tag)
 rtsTags = lens _rtsTags (\s a -> s { _rtsTags = a }) . _List1
 
@@ -1083,12 +1052,10 @@ changeBatch p1 = ChangeBatch
 
 -- | A complex type that contains one 'Change' element for each resource record set
 -- that you want to create or delete.
---
 cbChanges :: Lens' ChangeBatch (NonEmpty Change)
 cbChanges = lens _cbChanges (\s a -> s { _cbChanges = a }) . _List1
 
 -- | /Optional:/ Any comments you want to include about a change batch request.
---
 cbComment :: Lens' ChangeBatch (Maybe Text)
 cbComment = lens _cbComment (\s a -> s { _cbComment = a })
 
@@ -1126,12 +1093,10 @@ statusReport = StatusReport
 -- The 'Z' after the time indicates that the time is listed in Coordinated
 -- Universal Time (UTC), which is synonymous with Greenwich Mean Time in this
 -- context.
---
 srCheckedTime :: Lens' StatusReport (Maybe UTCTime)
 srCheckedTime = lens _srCheckedTime (\s a -> s { _srCheckedTime = a }) . mapping _Time
 
 -- | The observed health check status.
---
 srStatus :: Lens' StatusReport (Maybe Text)
 srStatus = lens _srStatus (\s a -> s { _srStatus = a })
 
@@ -1244,13 +1209,11 @@ hostedZoneConfig = HostedZoneConfig
 -- | An optional comment about your hosted zone. If you don't want to specify a
 -- comment, you can omit the 'HostedZoneConfig' and 'Comment' elements from the XML
 -- document.
---
 hzcComment :: Lens' HostedZoneConfig (Maybe Text)
 hzcComment = lens _hzcComment (\s a -> s { _hzcComment = a })
 
 -- | A value that indicates whether this is a private hosted zone. The value is
 -- returned in the response; do not specify it in the request.
---
 hzcPrivateZone :: Lens' HostedZoneConfig (Maybe Bool)
 hzcPrivateZone = lens _hzcPrivateZone (\s a -> s { _hzcPrivateZone = a })
 
@@ -1325,7 +1288,6 @@ resourceRecordSet p1 p2 p3 = ResourceRecordSet
 
 -- | /Alias resource record sets only:/ Information about the AWS resource to which
 -- you are redirecting traffic.
---
 rrsAliasTarget :: Lens' ResourceRecordSet (Maybe AliasTarget)
 rrsAliasTarget = lens _rrsAliasTarget (\s a -> s { _rrsAliasTarget = a })
 
@@ -1344,38 +1306,32 @@ rrsAliasTarget = lens _rrsAliasTarget (\s a -> s { _rrsAliasTarget = a })
 -- associated health check, or (2) there is no primary resource record set.
 --
 -- Valid values: 'PRIMARY' | 'SECONDARY'
---
 rrsFailover :: Lens' ResourceRecordSet (Maybe Failover)
 rrsFailover = lens _rrsFailover (\s a -> s { _rrsFailover = a })
 
 -- | /Geo location resource record sets only:/ Among resource record sets that have
 -- the same combination of DNS name and type, a value that specifies the geo
 -- location for the current resource record set.
---
 rrsGeoLocation :: Lens' ResourceRecordSet (Maybe GeoLocation)
 rrsGeoLocation = lens _rrsGeoLocation (\s a -> s { _rrsGeoLocation = a })
 
 -- | /Health Check resource record sets only, not required for alias resourcerecord sets:/ An identifier that is used to identify health check associated
 -- with the resource record set.
---
 rrsHealthCheckId :: Lens' ResourceRecordSet (Maybe Text)
 rrsHealthCheckId = lens _rrsHealthCheckId (\s a -> s { _rrsHealthCheckId = a })
 
 -- | The domain name of the current resource record set.
---
 rrsName :: Lens' ResourceRecordSet Text
 rrsName = lens _rrsName (\s a -> s { _rrsName = a })
 
 -- | /Latency-based resource record sets only:/ Among resource record sets that have
 -- the same combination of DNS name and type, a value that specifies the AWS
 -- region for the current resource record set.
---
 rrsRegion :: Lens' ResourceRecordSet (Maybe Region)
 rrsRegion = lens _rrsRegion (\s a -> s { _rrsRegion = a })
 
 -- | A complex type that contains the resource records for the current resource
 -- record set.
---
 rrsResourceRecords :: Lens' ResourceRecordSet (NonEmpty ResourceRecord)
 rrsResourceRecords =
     lens _rrsResourceRecords (\s a -> s { _rrsResourceRecords = a })
@@ -1384,17 +1340,14 @@ rrsResourceRecords =
 -- | /Weighted, Latency, Geo, and Failover resource record sets only:/ An identifier
 -- that differentiates among multiple resource record sets that have the same
 -- combination of DNS name and type.
---
 rrsSetIdentifier :: Lens' ResourceRecordSet (Maybe Text)
 rrsSetIdentifier = lens _rrsSetIdentifier (\s a -> s { _rrsSetIdentifier = a })
 
 -- | The cache time to live for the current resource record set.
---
 rrsTTL :: Lens' ResourceRecordSet (Maybe Natural)
 rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a }) . mapping _Nat
 
 -- | The type of the current resource record set.
---
 rrsType :: Lens' ResourceRecordSet RecordType
 rrsType = lens _rrsType (\s a -> s { _rrsType = a })
 
@@ -1402,7 +1355,6 @@ rrsType = lens _rrsType (\s a -> s { _rrsType = a })
 -- same combination of DNS name and type, a value that determines what portion
 -- of traffic for the current resource record set is routed to the associated
 -- location.
---
 rrsWeight :: Lens' ResourceRecordSet (Maybe Natural)
 rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a }) . mapping _Nat
 
@@ -1469,7 +1421,6 @@ dsId = lens _dsId (\s a -> s { _dsId = a })
 -- | A complex type that contains the authoritative name servers for the hosted
 -- zone. Use the method provided by your domain registrar to add an NS record to
 -- your domain for each 'NameServer' that is assigned to your hosted zone.
---
 dsNameServers :: Lens' DelegationSet (NonEmpty Text)
 dsNameServers = lens _dsNameServers (\s a -> s { _dsNameServers = a }) . _List1
 
@@ -1523,13 +1474,11 @@ changeInfo p1 p2 p3 = ChangeInfo
 --
 -- This element contains an ID that you use when performing a 'GetChange' action
 -- to get detailed information about the change.
---
 ciComment :: Lens' ChangeInfo (Maybe Text)
 ciComment = lens _ciComment (\s a -> s { _ciComment = a })
 
 -- | The ID of the request. Use this ID to track when the change has completed
 -- across all Amazon Route 53 DNS servers.
---
 ciId :: Lens' ChangeInfo Text
 ciId = lens _ciId (\s a -> s { _ciId = a })
 
@@ -1537,7 +1486,6 @@ ciId = lens _ciId (\s a -> s { _ciId = a })
 -- yet been applied to all Amazon Route 53 DNS servers.
 --
 -- Valid Values: 'PENDING' | 'INSYNC'
---
 ciStatus :: Lens' ChangeInfo ChangeStatus
 ciStatus = lens _ciStatus (\s a -> s { _ciStatus = a })
 
@@ -1546,7 +1494,6 @@ ciStatus = lens _ciStatus (\s a -> s { _ciStatus = a })
 -- The 'Z' after the time indicates that the time is listed in Coordinated
 -- Universal Time (UTC), which is synonymous with Greenwich Mean Time in this
 -- context.
---
 ciSubmittedAt :: Lens' ChangeInfo UTCTime
 ciSubmittedAt = lens _ciSubmittedAt (\s a -> s { _ciSubmittedAt = a }) . _Time
 
@@ -1594,7 +1541,6 @@ geoLocation = GeoLocation
 -- Valid values: 'AF' | 'AN' | 'AS' | 'EU' | 'OC' | 'NA' | 'SA'
 --
 -- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or 'SubdivisionCode' returns an 'InvalidInput' error.
---
 glContinentCode :: Lens' GeoLocation (Maybe Text)
 glContinentCode = lens _glContinentCode (\s a -> s { _glContinentCode = a })
 
@@ -1604,7 +1550,6 @@ glContinentCode = lens _glContinentCode (\s a -> s { _glContinentCode = a })
 --
 -- The default geo location uses a '*' for the country code. All other country
 -- codes follow the ISO 3166 two-character code.
---
 glCountryCode :: Lens' GeoLocation (Maybe Text)
 glCountryCode = lens _glCountryCode (\s a -> s { _glCountryCode = a })
 
@@ -1612,7 +1557,6 @@ glCountryCode = lens _glCountryCode (\s a -> s { _glCountryCode = a })
 -- subdivision code is only valid with the appropriate country code.
 --
 -- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns an 'InvalidInput' error.
---
 glSubdivisionCode :: Lens' GeoLocation (Maybe Text)
 glSubdivisionCode =
     lens _glSubdivisionCode (\s a -> s { _glSubdivisionCode = a })
@@ -1650,13 +1594,11 @@ healthCheckObservation = HealthCheckObservation
     }
 
 -- | The IP address of the Route 53 health checker that performed the health check.
---
 hcoIPAddress :: Lens' HealthCheckObservation (Maybe Text)
 hcoIPAddress = lens _hcoIPAddress (\s a -> s { _hcoIPAddress = a })
 
 -- | A complex type that contains information about the health check status for
 -- the current observation.
---
 hcoStatusReport :: Lens' HealthCheckObservation (Maybe StatusReport)
 hcoStatusReport = lens _hcoStatusReport (\s a -> s { _hcoStatusReport = a })
 

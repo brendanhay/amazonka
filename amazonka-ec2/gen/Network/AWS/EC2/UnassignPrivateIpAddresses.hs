@@ -65,7 +65,6 @@ unassignPrivateIpAddresses p1 = UnassignPrivateIpAddresses
     }
 
 -- | The ID of the network interface.
---
 upiaNetworkInterfaceId :: Lens' UnassignPrivateIpAddresses Text
 upiaNetworkInterfaceId =
     lens _upiaNetworkInterfaceId (\s a -> s { _upiaNetworkInterfaceId = a })
@@ -73,7 +72,6 @@ upiaNetworkInterfaceId =
 -- | The secondary private IP addresses to unassign from the network interface.
 -- You can specify this option multiple times to unassign more than one IP
 -- address.
---
 upiaPrivateIpAddresses :: Lens' UnassignPrivateIpAddresses [Text]
 upiaPrivateIpAddresses =
     lens _upiaPrivateIpAddresses (\s a -> s { _upiaPrivateIpAddresses = a })

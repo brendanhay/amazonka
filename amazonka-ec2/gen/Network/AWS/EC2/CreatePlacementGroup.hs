@@ -79,12 +79,10 @@ cpgDryRun = lens _cpgDryRun (\s a -> s { _cpgDryRun = a })
 -- | A name for the placement group.
 --
 -- Constraints: Up to 255 ASCII characters
---
 cpgGroupName :: Lens' CreatePlacementGroup Text
 cpgGroupName = lens _cpgGroupName (\s a -> s { _cpgGroupName = a })
 
 -- | The placement strategy.
---
 cpgStrategy :: Lens' CreatePlacementGroup PlacementStrategy
 cpgStrategy = lens _cpgStrategy (\s a -> s { _cpgStrategy = a })
 

@@ -98,7 +98,6 @@ updateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
 -- Valid values: 'true' | 'false'
 --
 -- Required: No
---
 udcpAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpAdminPrivacy = lens _udcpAdminPrivacy (\s a -> s { _udcpAdminPrivacy = a })
 
@@ -113,7 +112,6 @@ udcpAdminPrivacy = lens _udcpAdminPrivacy (\s a -> s { _udcpAdminPrivacy = a })
 -- supported.
 --
 -- Required: Yes
---
 udcpDomainName :: Lens' UpdateDomainContactPrivacy Text
 udcpDomainName = lens _udcpDomainName (\s a -> s { _udcpDomainName = a })
 
@@ -129,7 +127,6 @@ udcpDomainName = lens _udcpDomainName (\s a -> s { _udcpDomainName = a })
 -- Valid values: 'true' | 'false'
 --
 -- Required: No
---
 udcpRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpRegistrantPrivacy =
     lens _udcpRegistrantPrivacy (\s a -> s { _udcpRegistrantPrivacy = a })
@@ -146,7 +143,6 @@ udcpRegistrantPrivacy =
 -- Valid values: 'true' | 'false'
 --
 -- Required: No
---
 udcpTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
 udcpTechPrivacy = lens _udcpTechPrivacy (\s a -> s { _udcpTechPrivacy = a })
 
@@ -174,7 +170,6 @@ updateDomainContactPrivacyResponse p1 = UpdateDomainContactPrivacyResponse
 -- Default: None
 --
 -- Constraints: Maximum 255 characters.
---
 udcprOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
 udcprOperationId = lens _udcprOperationId (\s a -> s { _udcprOperationId = a })
 

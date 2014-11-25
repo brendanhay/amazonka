@@ -61,7 +61,6 @@ deleteVirtualMFADevice p1 = DeleteVirtualMFADevice
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA
 -- devices, the serial number is the same as the ARN.
---
 dvmfadSerialNumber :: Lens' DeleteVirtualMFADevice Text
 dvmfadSerialNumber =
     lens _dvmfadSerialNumber (\s a -> s { _dvmfadSerialNumber = a })

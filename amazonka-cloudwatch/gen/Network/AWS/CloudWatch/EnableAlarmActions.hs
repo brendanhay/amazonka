@@ -65,7 +65,6 @@ enableAlarmActions = EnableAlarmActions
     }
 
 -- | The names of the alarms to enable actions for.
---
 eaaAlarmNames :: Lens' EnableAlarmActions [Text]
 eaaAlarmNames = lens _eaaAlarmNames (\s a -> s { _eaaAlarmNames = a }) . _List
 

@@ -82,7 +82,6 @@ validateConfigurationSettings p1 = ValidateConfigurationSettings
 
 -- | The name of the application that the configuration template or environment
 -- belongs to.
---
 vcsApplicationName :: Lens' ValidateConfigurationSettings Text
 vcsApplicationName =
     lens _vcsApplicationName (\s a -> s { _vcsApplicationName = a })
@@ -90,13 +89,11 @@ vcsApplicationName =
 -- | The name of the environment to validate the settings against.
 --
 -- Condition: You cannot specify both this and a configuration template name.
---
 vcsEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsEnvironmentName =
     lens _vcsEnvironmentName (\s a -> s { _vcsEnvironmentName = a })
 
 -- | A list of the options and desired values to evaluate.
---
 vcsOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
 vcsOptionSettings =
     lens _vcsOptionSettings (\s a -> s { _vcsOptionSettings = a })
@@ -105,7 +102,6 @@ vcsOptionSettings =
 -- | The name of the configuration template to validate the settings against.
 --
 -- Condition: You cannot specify both this and an environment name.
---
 vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsTemplateName = lens _vcsTemplateName (\s a -> s { _vcsTemplateName = a })
 
@@ -131,7 +127,6 @@ validateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
     }
 
 -- | A list of 'ValidationMessage'.
---
 vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrMessages = lens _vcsrMessages (\s a -> s { _vcsrMessages = a }) . _List
 

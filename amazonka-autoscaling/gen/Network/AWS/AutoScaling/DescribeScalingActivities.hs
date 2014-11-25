@@ -89,25 +89,21 @@ describeScalingActivities = DescribeScalingActivities
 -- is provided, the results are limited to that group. The list of requested
 -- activities cannot contain more than 50 items. If unknown activities are
 -- requested, they are ignored with no error.
---
 dsa2ActivityIds :: Lens' DescribeScalingActivities [Text]
 dsa2ActivityIds = lens _dsa2ActivityIds (\s a -> s { _dsa2ActivityIds = a }) . _List
 
 -- | The name of the group.
---
 dsa2AutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
 dsa2AutoScalingGroupName =
     lens _dsa2AutoScalingGroupName
         (\s a -> s { _dsa2AutoScalingGroupName = a })
 
 -- | The maximum number of items to return with this call.
---
 dsa2MaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
 dsa2MaxRecords = lens _dsa2MaxRecords (\s a -> s { _dsa2MaxRecords = a })
 
 -- | The token for the next set of items to return. (You received this token from
 -- a previous call.)
---
 dsa2NextToken :: Lens' DescribeScalingActivities (Maybe Text)
 dsa2NextToken = lens _dsa2NextToken (\s a -> s { _dsa2NextToken = a })
 
@@ -131,13 +127,11 @@ describeScalingActivitiesResponse = DescribeScalingActivitiesResponse
     }
 
 -- | The scaling activities.
---
 dsar1Activities :: Lens' DescribeScalingActivitiesResponse [Activity]
 dsar1Activities = lens _dsar1Activities (\s a -> s { _dsar1Activities = a }) . _List
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
 dsar1NextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
 dsar1NextToken = lens _dsar1NextToken (\s a -> s { _dsar1NextToken = a })
 

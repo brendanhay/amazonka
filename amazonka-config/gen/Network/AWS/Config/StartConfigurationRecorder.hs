@@ -65,7 +65,6 @@ startConfigurationRecorder p1 = StartConfigurationRecorder
 
 -- | The name of the recorder object that records each configuration change made
 -- to the resources.
---
 scr1ConfigurationRecorderName :: Lens' StartConfigurationRecorder Text
 scr1ConfigurationRecorderName =
     lens _scr1ConfigurationRecorderName

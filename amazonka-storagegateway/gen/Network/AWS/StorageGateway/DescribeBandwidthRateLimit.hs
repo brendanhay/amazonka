@@ -98,7 +98,6 @@ describeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
 
 -- | The average download bandwidth rate limit in bits per second. This field does
 -- not appear in the response if the download rate limit is not set.
---
 dbrlrAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
 dbrlrAverageDownloadRateLimitInBitsPerSec =
     lens _dbrlrAverageDownloadRateLimitInBitsPerSec
@@ -107,7 +106,6 @@ dbrlrAverageDownloadRateLimitInBitsPerSec =
 
 -- | The average upload bandwidth rate limit in bits per second. This field does
 -- not appear in the response if the upload rate limit is not set.
---
 dbrlrAverageUploadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
 dbrlrAverageUploadRateLimitInBitsPerSec =
     lens _dbrlrAverageUploadRateLimitInBitsPerSec

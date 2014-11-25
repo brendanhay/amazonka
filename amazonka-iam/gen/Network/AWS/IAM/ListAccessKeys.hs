@@ -85,7 +85,6 @@ listAccessKeys = ListAccessKeys
 -- | Use this parameter only when paginating results, and only in a subsequent
 -- request after you've received a response where the results are truncated. Set
 -- it to the value of the 'Marker' element in the response you just received.
---
 lakMarker :: Lens' ListAccessKeys (Maybe Text)
 lakMarker = lens _lakMarker (\s a -> s { _lakMarker = a })
 
@@ -93,12 +92,10 @@ lakMarker = lens _lakMarker (\s a -> s { _lakMarker = a })
 -- number of keys you want in the response. If there are additional keys beyond
 -- the maximum you specify, the 'IsTruncated' response element is 'true'. This
 -- parameter is optional. If you do not include it, it defaults to 100.
---
 lakMaxItems :: Lens' ListAccessKeys (Maybe Natural)
 lakMaxItems = lens _lakMaxItems (\s a -> s { _lakMaxItems = a }) . mapping _Nat
 
 -- | The name of the user.
---
 lakUserName :: Lens' ListAccessKeys (Maybe Text)
 lakUserName = lens _lakUserName (\s a -> s { _lakUserName = a })
 
@@ -126,7 +123,6 @@ listAccessKeysResponse = ListAccessKeysResponse
     }
 
 -- | A list of access key metadata.
---
 lakrAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
 lakrAccessKeyMetadata =
     lens _lakrAccessKeyMetadata (\s a -> s { _lakrAccessKeyMetadata = a })
@@ -135,13 +131,11 @@ lakrAccessKeyMetadata =
 -- | A flag that indicates whether there are more keys to list. If your results
 -- were truncated, you can make a subsequent pagination request using the 'Marker'
 -- request parameter to retrieve more keys in the list.
---
 lakrIsTruncated :: Lens' ListAccessKeysResponse (Maybe Bool)
 lakrIsTruncated = lens _lakrIsTruncated (\s a -> s { _lakrIsTruncated = a })
 
 -- | If 'IsTruncated' is 'true', this element is present and contains the value to
 -- use for the 'Marker' parameter in a subsequent pagination request.
---
 lakrMarker :: Lens' ListAccessKeysResponse (Maybe Text)
 lakrMarker = lens _lakrMarker (\s a -> s { _lakrMarker = a })
 

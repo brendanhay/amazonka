@@ -135,7 +135,6 @@ rmAttributeNames = lens _rmAttributeNames (\s a -> s { _rmAttributeNames = a }) 
 -- Default is 1.
 --
 -- All of the messages are not necessarily returned.
---
 rmMaxNumberOfMessages :: Lens' ReceiveMessage (Maybe Int)
 rmMaxNumberOfMessages =
     lens _rmMaxNumberOfMessages (\s a -> s { _rmMaxNumberOfMessages = a })
@@ -147,21 +146,18 @@ rmMaxNumberOfMessages =
 -- among all attribute names for the message. The message attribute name can be
 -- up to 256 characters long. Attribute names cannot start with "AWS." or
 -- "Amazon." because these prefixes are reserved for use by Amazon Web Services.
---
 rmMessageAttributeNames :: Lens' ReceiveMessage [Text]
 rmMessageAttributeNames =
     lens _rmMessageAttributeNames (\s a -> s { _rmMessageAttributeNames = a })
         . _List
 
 -- | The URL of the Amazon SQS queue to take action on.
---
 rmQueueUrl :: Lens' ReceiveMessage Text
 rmQueueUrl = lens _rmQueueUrl (\s a -> s { _rmQueueUrl = a })
 
 -- | The duration (in seconds) that the received messages are hidden from
 -- subsequent retrieve requests after being retrieved by a 'ReceiveMessage'
 -- request.
---
 rmVisibilityTimeout :: Lens' ReceiveMessage (Maybe Int)
 rmVisibilityTimeout =
     lens _rmVisibilityTimeout (\s a -> s { _rmVisibilityTimeout = a })
@@ -169,7 +165,6 @@ rmVisibilityTimeout =
 -- | The duration (in seconds) for which the call will wait for a message to
 -- arrive in the queue before returning. If a message is available, the call
 -- will return sooner than WaitTimeSeconds.
---
 rmWaitTimeSeconds :: Lens' ReceiveMessage (Maybe Int)
 rmWaitTimeSeconds =
     lens _rmWaitTimeSeconds (\s a -> s { _rmWaitTimeSeconds = a })
@@ -190,7 +185,6 @@ receiveMessageResponse = ReceiveMessageResponse
     }
 
 -- | A list of messages.
---
 rmrMessages :: Lens' ReceiveMessageResponse [Message]
 rmrMessages = lens _rmrMessages (\s a -> s { _rmrMessages = a }) . _List
 

@@ -34,6 +34,7 @@
 -- #x10FFFF]
 --
 --
+--
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html>
 module Network.AWS.SQS.SendMessage
     (
@@ -95,13 +96,11 @@ sendMessage p1 p2 = SendMessage
 -- Messages with a positive 'DelaySeconds' value become available for processing
 -- after the delay time is finished. If you don't specify a value, the default
 -- value for the queue applies.
---
 smDelaySeconds :: Lens' SendMessage (Maybe Int)
 smDelaySeconds = lens _smDelaySeconds (\s a -> s { _smDelaySeconds = a })
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
---
 smMessageAttributes :: Lens' SendMessage (HashMap Text MessageAttributeValue)
 smMessageAttributes =
     lens _smMessageAttributes (\s a -> s { _smMessageAttributes = a })
@@ -109,12 +108,10 @@ smMessageAttributes =
 
 -- | The message to send. String maximum 256 KB in size. For a list of allowed
 -- characters, see the preceding important note.
---
 smMessageBody :: Lens' SendMessage Text
 smMessageBody = lens _smMessageBody (\s a -> s { _smMessageBody = a })
 
 -- | The URL of the Amazon SQS queue to take action on.
---
 smQueueUrl :: Lens' SendMessage Text
 smQueueUrl = lens _smQueueUrl (\s a -> s { _smQueueUrl = a })
 
@@ -145,7 +142,6 @@ sendMessageResponse = SendMessageResponse
 -- used to verify that Amazon SQS received the message correctly. Amazon SQS
 -- first URL decodes the message before creating the MD5 digest. For information
 -- about MD5, go to <http://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html>.
---
 smrMD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe Text)
 smrMD5OfMessageAttributes =
     lens _smrMD5OfMessageAttributes
@@ -155,14 +151,12 @@ smrMD5OfMessageAttributes =
 -- verify that Amazon SQS received the message correctly. Amazon SQS first URL
 -- decodes the message before creating the MD5 digest. For information about
 -- MD5, go to <http://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html>.
---
 smrMD5OfMessageBody :: Lens' SendMessageResponse (Maybe Text)
 smrMD5OfMessageBody =
     lens _smrMD5OfMessageBody (\s a -> s { _smrMD5OfMessageBody = a })
 
 -- | An element containing the message ID of the message sent to the queue. For
 -- more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html Queue and Message Identifiers> in the /Amazon SQSDeveloper Guide/.
---
 smrMessageId :: Lens' SendMessageResponse (Maybe Text)
 smrMessageId = lens _smrMessageId (\s a -> s { _smrMessageId = a })
 

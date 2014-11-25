@@ -90,7 +90,6 @@ getTemplateSummary = GetTemplateSummary
 --
 -- Conditional: You must specify only one of the following parameters: 'StackName'
 -- , 'TemplateBody', or 'TemplateURL'.
---
 gtsStackName :: Lens' GetTemplateSummary (Maybe Text)
 gtsStackName = lens _gtsStackName (\s a -> s { _gtsStackName = a })
 
@@ -99,7 +98,6 @@ gtsStackName = lens _gtsStackName (\s a -> s { _gtsStackName = a })
 --
 -- Conditional: You must specify only one of the following parameters: 'StackName'
 -- , 'TemplateBody', or 'TemplateURL'.
---
 gtsTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateBody = lens _gtsTemplateBody (\s a -> s { _gtsTemplateBody = a })
 
@@ -110,7 +108,6 @@ gtsTemplateBody = lens _gtsTemplateBody (\s a -> s { _gtsTemplateBody = a })
 --
 -- Conditional: You must specify only one of the following parameters: 'StackName'
 -- , 'TemplateBody', or 'TemplateURL'.
---
 gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateURL = lens _gtsTemplateURL (\s a -> s { _gtsTemplateURL = a })
 
@@ -150,30 +147,25 @@ getTemplateSummaryResponse = GetTemplateSummaryResponse
 -- resources, you must specify the CAPABILITY_IAM value for this parameter when
 -- you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise,
 -- those actions return an InsufficientCapabilities error.
---
 gtsrCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
 gtsrCapabilities = lens _gtsrCapabilities (\s a -> s { _gtsrCapabilities = a }) . _List
 
 -- | The capabilities reason found within the template.
---
 gtsrCapabilitiesReason :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrCapabilitiesReason =
     lens _gtsrCapabilitiesReason (\s a -> s { _gtsrCapabilitiesReason = a })
 
 -- | The value that is defined in the 'Description' property of the template.
---
 gtsrDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrDescription = lens _gtsrDescription (\s a -> s { _gtsrDescription = a })
 
 -- | A list of parameter declarations that describe various properties for each
 -- parameter.
---
 gtsrParameters :: Lens' GetTemplateSummaryResponse [ParameterDeclaration]
 gtsrParameters = lens _gtsrParameters (\s a -> s { _gtsrParameters = a }) . _List
 
 -- | The AWS template format version, which identifies the capabilities of the
 -- template.
---
 gtsrVersion :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrVersion = lens _gtsrVersion (\s a -> s { _gtsrVersion = a })
 

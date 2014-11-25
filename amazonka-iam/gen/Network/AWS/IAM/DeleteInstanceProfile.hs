@@ -67,7 +67,6 @@ deleteInstanceProfile p1 = DeleteInstanceProfile
     }
 
 -- | The name of the instance profile to delete.
---
 dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
 dipInstanceProfileName =
     lens _dipInstanceProfileName (\s a -> s { _dipInstanceProfileName = a })

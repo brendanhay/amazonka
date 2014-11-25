@@ -39,6 +39,7 @@
 -- absence of an explicit allow. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccessPolicyLanguage_EvaluationLogic.html#policy-eval-denyallow Determining Whether aRequest is Allowed or Denied> in /Using IAM/.  The principal who made the
 -- request. The requested action. The requested resource. The values of
 -- condition keys in the context of the user's request.
+--
 -- <http://docs.aws.amazon.com/STS/latest/APIReference/API_DecodeAuthorizationMessage.html>
 module Network.AWS.STS.DecodeAuthorizationMessage
     (
@@ -79,7 +80,6 @@ decodeAuthorizationMessage p1 = DecodeAuthorizationMessage
     }
 
 -- | The encoded message that was returned with the response.
---
 damEncodedMessage :: Lens' DecodeAuthorizationMessage Text
 damEncodedMessage =
     lens _damEncodedMessage (\s a -> s { _damEncodedMessage = a })
@@ -100,7 +100,6 @@ decodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
     }
 
 -- | An XML document that contains the decoded message. For more information, see 'DecodeAuthorizationMessage'.
---
 damrDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
 damrDecodedMessage =
     lens _damrDecodedMessage (\s a -> s { _damrDecodedMessage = a })

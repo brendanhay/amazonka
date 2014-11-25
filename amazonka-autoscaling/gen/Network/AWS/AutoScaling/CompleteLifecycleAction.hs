@@ -88,13 +88,11 @@ completeLifecycleAction p1 p2 p3 p4 = CompleteLifecycleAction
     }
 
 -- | The name of the group for the lifecycle hook.
---
 claAutoScalingGroupName :: Lens' CompleteLifecycleAction Text
 claAutoScalingGroupName =
     lens _claAutoScalingGroupName (\s a -> s { _claAutoScalingGroupName = a })
 
 -- | The action for the group to take. This parameter can be either 'CONTINUE' or 'ABANDON'.
---
 claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
 claLifecycleActionResult =
     lens _claLifecycleActionResult
@@ -103,13 +101,11 @@ claLifecycleActionResult =
 -- | A universally unique identifier (UUID) that identifies a specific lifecycle
 -- action associated with an instance. Auto Scaling sends this token to the
 -- notification target you specified when you created the lifecycle hook.
---
 claLifecycleActionToken :: Lens' CompleteLifecycleAction Text
 claLifecycleActionToken =
     lens _claLifecycleActionToken (\s a -> s { _claLifecycleActionToken = a })
 
 -- | The name of the lifecycle hook.
---
 claLifecycleHookName :: Lens' CompleteLifecycleAction Text
 claLifecycleHookName =
     lens _claLifecycleHookName (\s a -> s { _claLifecycleHookName = a })

@@ -139,14 +139,12 @@ createInstance p1 p2 = CreateInstance
 -- | A custom AMI ID to be used to create the instance. The AMI should be based on
 -- one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu 12.04 LTS. For
 -- more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances.html Instances>
---
 ciAmiId :: Lens' CreateInstance (Maybe Text)
 ciAmiId = lens _ciAmiId (\s a -> s { _ciAmiId = a })
 
 -- | The instance architecture. The default option is 'x86_64'. Instance types do
 -- not necessarily support both architectures. For a list of the architectures
 -- that are supported by the different instance types, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families andTypes>.
---
 ciArchitecture :: Lens' CreateInstance (Maybe Architecture)
 ciArchitecture = lens _ciArchitecture (\s a -> s { _ciArchitecture = a })
 
@@ -164,18 +162,15 @@ ciAutoScalingType =
     lens _ciAutoScalingType (\s a -> s { _ciAutoScalingType = a })
 
 -- | The instance Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions andEndpoints>.
---
 ciAvailabilityZone :: Lens' CreateInstance (Maybe Text)
 ciAvailabilityZone =
     lens _ciAvailabilityZone (\s a -> s { _ciAvailabilityZone = a })
 
 -- | Whether to create an Amazon EBS-optimized instance.
---
 ciEbsOptimized :: Lens' CreateInstance (Maybe Bool)
 ciEbsOptimized = lens _ciEbsOptimized (\s a -> s { _ciEbsOptimized = a })
 
 -- | The instance host name.
---
 ciHostname :: Lens' CreateInstance (Maybe Text)
 ciHostname = lens _ciHostname (\s a -> s { _ciHostname = a })
 
@@ -183,7 +178,6 @@ ciHostname = lens _ciHostname (\s a -> s { _ciHostname = a })
 -- boots. The default value is 'true'. To control when updates are installed, set
 -- this value to 'false'. You must then update your instances manually by using 'CreateDeployment' to run the 'update_dependencies' stack command or manually running 'yum' (Amazon
 -- Linux) or 'apt-get' (Ubuntu) on the instances.
---
 ciInstallUpdatesOnBoot :: Lens' CreateInstance (Maybe Bool)
 ciInstallUpdatesOnBoot =
     lens _ciInstallUpdatesOnBoot (\s a -> s { _ciInstallUpdatesOnBoot = a })
@@ -191,12 +185,10 @@ ciInstallUpdatesOnBoot =
 -- | The instance type. AWS OpsWorks supports all instance types except Cluster
 -- Compute, Cluster GPU, and High Memory Cluster. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>. The parameter values that you use to specify the various types are in the
 -- API Name column of the Available Instance Types table.
---
 ciInstanceType :: Lens' CreateInstance Text
 ciInstanceType = lens _ciInstanceType (\s a -> s { _ciInstanceType = a })
 
 -- | An array that contains the instance layer IDs.
---
 ciLayerIds :: Lens' CreateInstance [Text]
 ciLayerIds = lens _ciLayerIds (\s a -> s { _ciLayerIds = a }) . _List
 
@@ -207,34 +199,28 @@ ciLayerIds = lens _ciLayerIds (\s a -> s { _ciLayerIds = a }) . _List
 -- custom AMI that you want to use. For more information on the standard
 -- operating systems, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems>For more information on how to use
 -- custom AMIs with OpsWorks, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
---
 ciOs :: Lens' CreateInstance (Maybe Text)
 ciOs = lens _ciOs (\s a -> s { _ciOs = a })
 
 -- | The instance root device type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the RootDevice>.
---
 ciRootDeviceType :: Lens' CreateInstance (Maybe RootDeviceType)
 ciRootDeviceType = lens _ciRootDeviceType (\s a -> s { _ciRootDeviceType = a })
 
 -- | The instance SSH key name.
---
 ciSshKeyName :: Lens' CreateInstance (Maybe Text)
 ciSshKeyName = lens _ciSshKeyName (\s a -> s { _ciSshKeyName = a })
 
 -- | The stack ID.
---
 ciStackId :: Lens' CreateInstance Text
 ciStackId = lens _ciStackId (\s a -> s { _ciStackId = a })
 
 -- | The ID of the instance's subnet. If the stack is running in a VPC, you can
 -- use this parameter to override the stack's default subnet ID value and direct
 -- AWS OpsWorks to launch the instance in a different subnet.
---
 ciSubnetId :: Lens' CreateInstance (Maybe Text)
 ciSubnetId = lens _ciSubnetId (\s a -> s { _ciSubnetId = a })
 
 -- | The instance's virtualization type, 'paravirtual' or 'hvm'.
---
 ciVirtualizationType :: Lens' CreateInstance (Maybe Text)
 ciVirtualizationType =
     lens _ciVirtualizationType (\s a -> s { _ciVirtualizationType = a })
@@ -255,7 +241,6 @@ createInstanceResponse = CreateInstanceResponse
     }
 
 -- | The instance ID.
---
 cirInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
 cirInstanceId = lens _cirInstanceId (\s a -> s { _cirInstanceId = a })
 

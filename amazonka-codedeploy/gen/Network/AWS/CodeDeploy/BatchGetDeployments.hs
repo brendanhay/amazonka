@@ -67,7 +67,6 @@ batchGetDeployments = BatchGetDeployments
     }
 
 -- | A list of deployment IDs, with multiple deployment IDs separated by spaces.
---
 bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
 bgdDeploymentIds = lens _bgdDeploymentIds (\s a -> s { _bgdDeploymentIds = a }) . _List
 
@@ -93,7 +92,6 @@ batchGetDeploymentsResponse = BatchGetDeploymentsResponse
     }
 
 -- | Information about the deployments.
---
 bgdrDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
 bgdrDeploymentsInfo =
     lens _bgdrDeploymentsInfo (\s a -> s { _bgdrDeploymentsInfo = a })

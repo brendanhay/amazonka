@@ -68,12 +68,10 @@ removeTagsFromStream p1 p2 = RemoveTagsFromStream
     }
 
 -- | The name of the stream.
---
 rtfsStreamName :: Lens' RemoveTagsFromStream Text
 rtfsStreamName = lens _rtfsStreamName (\s a -> s { _rtfsStreamName = a })
 
 -- | A list of tag keys. Each corresponding tag is removed from the stream.
---
 rtfsTagKeys :: Lens' RemoveTagsFromStream (NonEmpty Text)
 rtfsTagKeys = lens _rtfsTagKeys (\s a -> s { _rtfsTagKeys = a }) . _List1
 

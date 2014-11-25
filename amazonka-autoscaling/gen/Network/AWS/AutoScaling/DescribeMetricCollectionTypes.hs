@@ -27,6 +27,7 @@
 -- explicitly request it when calling 'EnableMetricsCollection'.
 --
 --
+--
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeMetricCollectionTypes.html>
 module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     (
@@ -76,7 +77,6 @@ describeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
     }
 
 -- | The granularities for the listed metrics.
---
 dmctrGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
 dmctrGranularities =
     lens _dmctrGranularities (\s a -> s { _dmctrGranularities = a })

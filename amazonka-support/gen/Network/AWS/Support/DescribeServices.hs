@@ -76,12 +76,10 @@ describeServices = DescribeServices
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
---
 dsLanguage :: Lens' DescribeServices (Maybe Text)
 dsLanguage = lens _dsLanguage (\s a -> s { _dsLanguage = a })
 
 -- | A JSON-formatted list of service codes available for AWS services.
---
 dsServiceCodeList :: Lens' DescribeServices [Text]
 dsServiceCodeList =
     lens _dsServiceCodeList (\s a -> s { _dsServiceCodeList = a })
@@ -109,7 +107,6 @@ describeServicesResponse = DescribeServicesResponse
     }
 
 -- | A JSON-formatted list of AWS services.
---
 dsrServices :: Lens' DescribeServicesResponse [SupportService]
 dsrServices = lens _dsrServices (\s a -> s { _dsrServices = a }) . _List
 

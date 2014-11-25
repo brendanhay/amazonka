@@ -85,13 +85,11 @@ assignPrivateIpAddresses p1 = AssignPrivateIpAddresses
 -- | Indicates whether to allow an IP address that is already assigned to another
 -- network interface or instance to be reassigned to the specified network
 -- interface.
---
 apiaAllowReassignment :: Lens' AssignPrivateIpAddresses (Maybe Bool)
 apiaAllowReassignment =
     lens _apiaAllowReassignment (\s a -> s { _apiaAllowReassignment = a })
 
 -- | The ID of the network interface.
---
 apiaNetworkInterfaceId :: Lens' AssignPrivateIpAddresses Text
 apiaNetworkInterfaceId =
     lens _apiaNetworkInterfaceId (\s a -> s { _apiaNetworkInterfaceId = a })
@@ -102,7 +100,6 @@ apiaNetworkInterfaceId =
 --
 -- If you don't specify an IP address, Amazon EC2 automatically selects an IP
 -- address within the subnet range.
---
 apiaPrivateIpAddresses :: Lens' AssignPrivateIpAddresses [Text]
 apiaPrivateIpAddresses =
     lens _apiaPrivateIpAddresses (\s a -> s { _apiaPrivateIpAddresses = a })
@@ -110,7 +107,6 @@ apiaPrivateIpAddresses =
 
 -- | The number of secondary IP addresses to assign to the network interface. You
 -- can't specify this parameter when also specifying private IP addresses.
---
 apiaSecondaryPrivateIpAddressCount :: Lens' AssignPrivateIpAddresses (Maybe Int)
 apiaSecondaryPrivateIpAddressCount =
     lens _apiaSecondaryPrivateIpAddressCount

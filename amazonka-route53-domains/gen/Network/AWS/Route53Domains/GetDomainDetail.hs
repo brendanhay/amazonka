@@ -93,7 +93,6 @@ getDomainDetail p1 = GetDomainDetail
 -- supported.
 --
 -- Required: Yes
---
 gddDomainName :: Lens' GetDomainDetail Text
 gddDomainName = lens _gddDomainName (\s a -> s { _gddDomainName = a })
 
@@ -202,7 +201,6 @@ getDomainDetailResponse p1 p2 p3 p4 = GetDomainDetailResponse
 -- abuse.
 --
 -- Type: String
---
 gddrAbuseContactEmail :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrAbuseContactEmail =
     lens _gddrAbuseContactEmail (\s a -> s { _gddrAbuseContactEmail = a })
@@ -210,7 +208,6 @@ gddrAbuseContactEmail =
 -- | Phone number for reporting abuse.
 --
 -- Type: String
---
 gddrAbuseContactPhone :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrAbuseContactPhone =
     lens _gddrAbuseContactPhone (\s a -> s { _gddrAbuseContactPhone = a })
@@ -220,7 +217,6 @@ gddrAbuseContactPhone =
 -- Type: Complex
 --
 -- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
---
 gddrAdminContact :: Lens' GetDomainDetailResponse ContactDetail
 gddrAdminContact = lens _gddrAdminContact (\s a -> s { _gddrAdminContact = a })
 
@@ -230,38 +226,32 @@ gddrAdminContact = lens _gddrAdminContact (\s a -> s { _gddrAdminContact = a })
 -- information that you enter.
 --
 -- Type: Boolean
---
 gddrAdminPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
 gddrAdminPrivacy = lens _gddrAdminPrivacy (\s a -> s { _gddrAdminPrivacy = a })
 
 -- | Specifies whether the domain registration is set to renew automatically.
 --
 -- Type: Boolean
---
 gddrAutoRenew :: Lens' GetDomainDetailResponse (Maybe Bool)
 gddrAutoRenew = lens _gddrAutoRenew (\s a -> s { _gddrAutoRenew = a })
 
 -- | The date when the domain was created as found in the response to a WHOIS
 -- query. The date format is Unix time.
---
 gddrCreationDate :: Lens' GetDomainDetailResponse (Maybe UTCTime)
 gddrCreationDate = lens _gddrCreationDate (\s a -> s { _gddrCreationDate = a }) . mapping _Time
 
 -- | Reserved for future use.
---
 gddrDnsSec :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrDnsSec = lens _gddrDnsSec (\s a -> s { _gddrDnsSec = a })
 
 -- | The name of a domain.
 --
 -- Type: String
---
 gddrDomainName :: Lens' GetDomainDetailResponse Text
 gddrDomainName = lens _gddrDomainName (\s a -> s { _gddrDomainName = a })
 
 -- | The date when the registration for the domain is set to expire. The date
 -- format is Unix time.
---
 gddrExpirationDate :: Lens' GetDomainDetailResponse (Maybe UTCTime)
 gddrExpirationDate =
     lens _gddrExpirationDate (\s a -> s { _gddrExpirationDate = a })
@@ -270,7 +260,6 @@ gddrExpirationDate =
 -- | The name of the domain.
 --
 -- Type: String
---
 gddrNameservers :: Lens' GetDomainDetailResponse [Nameserver]
 gddrNameservers = lens _gddrNameservers (\s a -> s { _gddrNameservers = a }) . _List
 
@@ -279,7 +268,6 @@ gddrNameservers = lens _gddrNameservers (\s a -> s { _gddrNameservers = a }) . _
 -- Type: Complex
 --
 -- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
---
 gddrRegistrantContact :: Lens' GetDomainDetailResponse ContactDetail
 gddrRegistrantContact =
     lens _gddrRegistrantContact (\s a -> s { _gddrRegistrantContact = a })
@@ -290,7 +278,6 @@ gddrRegistrantContact =
 -- contact information that you enter.
 --
 -- Type: Boolean
---
 gddrRegistrantPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
 gddrRegistrantPrivacy =
     lens _gddrRegistrantPrivacy (\s a -> s { _gddrRegistrantPrivacy = a })
@@ -299,7 +286,6 @@ gddrRegistrantPrivacy =
 -- Route 53 domains are registered by registrar Gandi. The value is '"GANDI SAS"'.
 --
 -- Type: String
---
 gddrRegistrarName :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrRegistrarName =
     lens _gddrRegistrarName (\s a -> s { _gddrRegistrarName = a })
@@ -307,12 +293,10 @@ gddrRegistrarName =
 -- | Web address of the registrar.
 --
 -- Type: String
---
 gddrRegistrarUrl :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrRegistrarUrl = lens _gddrRegistrarUrl (\s a -> s { _gddrRegistrarUrl = a })
 
 -- | Reserved for future use.
---
 gddrRegistryDomainId :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrRegistryDomainId =
     lens _gddrRegistryDomainId (\s a -> s { _gddrRegistryDomainId = a })
@@ -321,7 +305,6 @@ gddrRegistryDomainId =
 -- 53 domains will have '"Amazon"' as the reseller.
 --
 -- Type: String
---
 gddrReseller :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrReseller = lens _gddrReseller (\s a -> s { _gddrReseller = a })
 
@@ -341,7 +324,6 @@ gddrReseller = lens _gddrReseller (\s a -> s { _gddrReseller = a })
 -- the document.)
 --
 -- Type: Array of String
---
 gddrStatusList :: Lens' GetDomainDetailResponse [Text]
 gddrStatusList = lens _gddrStatusList (\s a -> s { _gddrStatusList = a }) . _List
 
@@ -350,7 +332,6 @@ gddrStatusList = lens _gddrStatusList (\s a -> s { _gddrStatusList = a }) . _Lis
 -- Type: Complex
 --
 -- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
---
 gddrTechContact :: Lens' GetDomainDetailResponse ContactDetail
 gddrTechContact = lens _gddrTechContact (\s a -> s { _gddrTechContact = a })
 
@@ -360,13 +341,11 @@ gddrTechContact = lens _gddrTechContact (\s a -> s { _gddrTechContact = a })
 -- information that you enter.
 --
 -- Type: Boolean
---
 gddrTechPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
 gddrTechPrivacy = lens _gddrTechPrivacy (\s a -> s { _gddrTechPrivacy = a })
 
 -- | The last updated date of the domain as found in the response to a WHOIS
 -- query. The date format is Unix time.
---
 gddrUpdatedDate :: Lens' GetDomainDetailResponse (Maybe UTCTime)
 gddrUpdatedDate = lens _gddrUpdatedDate (\s a -> s { _gddrUpdatedDate = a }) . mapping _Time
 
@@ -374,7 +353,6 @@ gddrUpdatedDate = lens _gddrUpdatedDate (\s a -> s { _gddrUpdatedDate = a }) . m
 -- for the domain.
 --
 -- Type: String
---
 gddrWhoIsServer :: Lens' GetDomainDetailResponse (Maybe Text)
 gddrWhoIsServer = lens _gddrWhoIsServer (\s a -> s { _gddrWhoIsServer = a })
 

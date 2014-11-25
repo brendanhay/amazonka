@@ -81,7 +81,6 @@ seaAttributes :: Lens' SetEndpointAttributes (HashMap Text Text)
 seaAttributes = lens _seaAttributes (\s a -> s { _seaAttributes = a }) . _EMap
 
 -- | EndpointArn used for SetEndpointAttributes action.
---
 seaEndpointArn :: Lens' SetEndpointAttributes Text
 seaEndpointArn = lens _seaEndpointArn (\s a -> s { _seaEndpointArn = a })
 

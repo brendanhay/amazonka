@@ -104,7 +104,6 @@ listWorkflowTypes p1 p2 = ListWorkflowTypes
     }
 
 -- | The name of the domain in which the workflow types have been registered.
---
 lwtDomain :: Lens' ListWorkflowTypes Text
 lwtDomain = lens _lwtDomain (\s a -> s { _lwtDomain = a })
 
@@ -113,26 +112,22 @@ lwtDomain = lens _lwtDomain (\s a -> s { _lwtDomain = a })
 -- You cannot specify a page size greater than 100. Note that the number of
 -- types may be less than the maxiumum page size, in which case, the returned
 -- page will have fewer results than the maximumPageSize specified.
---
 lwtMaximumPageSize :: Lens' ListWorkflowTypes (Maybe Natural)
 lwtMaximumPageSize =
     lens _lwtMaximumPageSize (\s a -> s { _lwtMaximumPageSize = a })
         . mapping _Nat
 
 -- | If specified, lists the workflow type with this name.
---
 lwtName :: Lens' ListWorkflowTypes (Maybe Text)
 lwtName = lens _lwtName (\s a -> s { _lwtName = a })
 
 -- | If on a previous call to this method a 'NextPageToken' was returned, the
 -- results are being paginated. To get the next page of results, repeat the call
 -- with the returned token and all other arguments unchanged.
---
 lwtNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
 lwtNextPageToken = lens _lwtNextPageToken (\s a -> s { _lwtNextPageToken = a })
 
 -- | Specifies the registration status of the workflow types to list.
---
 lwtRegistrationStatus :: Lens' ListWorkflowTypes RegistrationStatus
 lwtRegistrationStatus =
     lens _lwtRegistrationStatus (\s a -> s { _lwtRegistrationStatus = a })
@@ -140,7 +135,6 @@ lwtRegistrationStatus =
 -- | When set to 'true', returns the results in reverse order. By default the
 -- results are returned in ascending alphabetical order of the 'name' of the
 -- workflow types.
---
 lwtReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
 lwtReverseOrder = lens _lwtReverseOrder (\s a -> s { _lwtReverseOrder = a })
 
@@ -167,13 +161,11 @@ listWorkflowTypesResponse = ListWorkflowTypesResponse
 -- consists of more than one page. You can retrieve the next page by repeating
 -- the request (that returned the structure) with the this token and all other
 -- arguments unchanged.
---
 lwtrNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
 lwtrNextPageToken =
     lens _lwtrNextPageToken (\s a -> s { _lwtrNextPageToken = a })
 
 -- | The list of workflow type information.
---
 lwtrTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
 lwtrTypeInfos = lens _lwtrTypeInfos (\s a -> s { _lwtrTypeInfos = a }) . _List
 

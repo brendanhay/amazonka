@@ -74,18 +74,15 @@ setTopicAttributes p1 p2 = SetTopicAttributes
 -- attributes are mutable.
 --
 -- Valid values: 'Policy' | 'DisplayName' | 'DeliveryPolicy'
---
 staAttributeName :: Lens' SetTopicAttributes Text
 staAttributeName = lens _staAttributeName (\s a -> s { _staAttributeName = a })
 
 -- | The new value for the attribute.
---
 staAttributeValue :: Lens' SetTopicAttributes (Maybe Text)
 staAttributeValue =
     lens _staAttributeValue (\s a -> s { _staAttributeValue = a })
 
 -- | The ARN of the topic to modify.
---
 staTopicArn :: Lens' SetTopicAttributes Text
 staTopicArn = lens _staTopicArn (\s a -> s { _staTopicArn = a })
 

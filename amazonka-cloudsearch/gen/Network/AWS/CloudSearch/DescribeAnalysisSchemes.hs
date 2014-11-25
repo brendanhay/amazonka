@@ -76,7 +76,6 @@ describeAnalysisSchemes p1 = DescribeAnalysisSchemes
     }
 
 -- | The analysis schemes you want to describe.
---
 das1AnalysisSchemeNames :: Lens' DescribeAnalysisSchemes [Text]
 das1AnalysisSchemeNames =
     lens _das1AnalysisSchemeNames (\s a -> s { _das1AnalysisSchemeNames = a })
@@ -84,12 +83,10 @@ das1AnalysisSchemeNames =
 
 -- | Whether to display the deployed configuration ('true') or include any pending
 -- changes ('false'). Defaults to 'false'.
---
 das1Deployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
 das1Deployed = lens _das1Deployed (\s a -> s { _das1Deployed = a })
 
 -- | The name of the domain you want to describe.
---
 das1DomainName :: Lens' DescribeAnalysisSchemes Text
 das1DomainName = lens _das1DomainName (\s a -> s { _das1DomainName = a })
 
@@ -115,7 +112,6 @@ describeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
     }
 
 -- | The analysis scheme descriptions.
---
 dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
 dasrAnalysisSchemes =
     lens _dasrAnalysisSchemes (\s a -> s { _dasrAnalysisSchemes = a })

@@ -93,7 +93,6 @@ prrBackupRetentionPeriod =
 -- contain from 1 to 63 alphanumeric characters or hyphens First character must
 -- be a letter Cannot end with a hyphen or contain two consecutive hyphens  Example:
 -- mydbinstance
---
 prrDBInstanceIdentifier :: Lens' PromoteReadReplica Text
 prrDBInstanceIdentifier =
     lens _prrDBInstanceIdentifier (\s a -> s { _prrDBInstanceIdentifier = a })
@@ -108,7 +107,6 @@ prrDBInstanceIdentifier =
 -- Constraints: Must be in the format 'hh24:mi-hh24:mi'. Times should be
 -- Universal Time Coordinated (UTC). Must not conflict with the preferred
 -- maintenance window. Must be at least 30 minutes.
---
 prrPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
 prrPreferredBackupWindow =
     lens _prrPreferredBackupWindow

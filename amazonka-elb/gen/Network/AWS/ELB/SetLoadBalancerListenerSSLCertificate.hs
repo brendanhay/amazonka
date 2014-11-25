@@ -76,14 +76,12 @@ setLoadBalancerListenerSSLCertificate p1 p2 p3 = SetLoadBalancerListenerSSLCerti
     }
 
 -- | The name of the load balancer.
---
 slblsslcLoadBalancerName :: Lens' SetLoadBalancerListenerSSLCertificate Text
 slblsslcLoadBalancerName =
     lens _slblsslcLoadBalancerName
         (\s a -> s { _slblsslcLoadBalancerName = a })
 
 -- | The port that uses the specified SSL certificate.
---
 slblsslcLoadBalancerPort :: Lens' SetLoadBalancerListenerSSLCertificate Int
 slblsslcLoadBalancerPort =
     lens _slblsslcLoadBalancerPort
@@ -92,7 +90,6 @@ slblsslcLoadBalancerPort =
 -- | The Amazon Resource Number (ARN) of the SSL certificate chain to use. For
 -- more information on SSL certificates, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html  Managing Server Certificates> in
 -- the /AWS Identity and Access Management User Guide/.
---
 slblsslcSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificate Text
 slblsslcSSLCertificateId =
     lens _slblsslcSSLCertificateId

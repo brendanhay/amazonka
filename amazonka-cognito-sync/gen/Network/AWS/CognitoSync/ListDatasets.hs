@@ -24,6 +24,7 @@
 -- need to have access to the identity data. With Amazon Cognito Sync, each
 -- identity has access only to its own data. You should use Amazon Cognito
 -- Identity service to retrieve the credentials necessary to make this API call.
+--
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListDatasets.html>
 module Network.AWS.CognitoSync.ListDatasets
     (

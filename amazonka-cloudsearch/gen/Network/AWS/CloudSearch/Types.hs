@@ -390,7 +390,6 @@ dsARN = lens _dsARN (\s a -> s { _dsARN = a })
 -- initialize a domain when 'CreateDomain' is called. Newly created search domains
 -- are returned from 'DescribeDomains' with a false value for Created until domain
 -- creation is complete.
---
 dsCreated :: Lens' DomainStatus (Maybe Bool)
 dsCreated = lens _dsCreated (\s a -> s { _dsCreated = a })
 
@@ -398,12 +397,10 @@ dsCreated = lens _dsCreated (\s a -> s { _dsCreated = a })
 -- resources dedicated to the search domain when 'DeleteDomain' is called. Newly
 -- deleted search domains are returned from 'DescribeDomains' with a true value
 -- for IsDeleted for several minutes until resource cleanup is complete.
---
 dsDeleted :: Lens' DomainStatus (Maybe Bool)
 dsDeleted = lens _dsDeleted (\s a -> s { _dsDeleted = a })
 
 -- | The service endpoint for updating documents in a search domain.
---
 dsDocService :: Lens' DomainStatus (Maybe ServiceEndpoint)
 dsDocService = lens _dsDocService (\s a -> s { _dsDocService = a })
 
@@ -417,40 +414,34 @@ dsLimits :: Lens' DomainStatus (Maybe Limits)
 dsLimits = lens _dsLimits (\s a -> s { _dsLimits = a })
 
 -- | True if processing is being done to activate the current domain configuration.
---
 dsProcessing :: Lens' DomainStatus (Maybe Bool)
 dsProcessing = lens _dsProcessing (\s a -> s { _dsProcessing = a })
 
 -- | True if 'IndexDocuments' needs to be called to activate the current domain
 -- configuration.
---
 dsRequiresIndexDocuments :: Lens' DomainStatus Bool
 dsRequiresIndexDocuments =
     lens _dsRequiresIndexDocuments
         (\s a -> s { _dsRequiresIndexDocuments = a })
 
 -- | The number of search instances that are available to process search requests.
---
 dsSearchInstanceCount :: Lens' DomainStatus (Maybe Natural)
 dsSearchInstanceCount =
     lens _dsSearchInstanceCount (\s a -> s { _dsSearchInstanceCount = a })
         . mapping _Nat
 
 -- | The instance type that is being used to process search requests.
---
 dsSearchInstanceType :: Lens' DomainStatus (Maybe Text)
 dsSearchInstanceType =
     lens _dsSearchInstanceType (\s a -> s { _dsSearchInstanceType = a })
 
 -- | The number of partitions across which the search index is spread.
---
 dsSearchPartitionCount :: Lens' DomainStatus (Maybe Natural)
 dsSearchPartitionCount =
     lens _dsSearchPartitionCount (\s a -> s { _dsSearchPartitionCount = a })
         . mapping _Nat
 
 -- | The service endpoint for requesting search results from a search domain.
---
 dsSearchService :: Lens' DomainStatus (Maybe ServiceEndpoint)
 dsSearchService = lens _dsSearchService (\s a -> s { _dsSearchService = a })
 
@@ -516,7 +507,6 @@ documentSuggesterOptions p1 = DocumentSuggesterOptions
 -- With low, suggestions must differ from the specified string by no more than
 -- one character. With high, suggestions can differ by up to two characters. The
 -- default is none.
---
 dsoFuzzyMatching :: Lens' DocumentSuggesterOptions (Maybe SuggesterFuzzyMatching)
 dsoFuzzyMatching = lens _dsoFuzzyMatching (\s a -> s { _dsoFuzzyMatching = a })
 
@@ -527,13 +517,11 @@ dsoFuzzyMatching = lens _dsoFuzzyMatching (\s a -> s { _dsoFuzzyMatching = a })
 -- suggestions using a numeric field or existing expression, simply specify the
 -- name of the field or expression. If no expression is configured for the
 -- suggester, the suggestions are sorted with the closest matches listed first.
---
 dsoSortExpression :: Lens' DocumentSuggesterOptions (Maybe Text)
 dsoSortExpression =
     lens _dsoSortExpression (\s a -> s { _dsoSortExpression = a })
 
 -- | The name of the index field you want to use for suggestions.
---
 dsoSourceField :: Lens' DocumentSuggesterOptions Text
 dsoSourceField = lens _dsoSourceField (\s a -> s { _dsoSourceField = a })
 
@@ -586,22 +574,18 @@ daoDefaultValue :: Lens' DoubleArrayOptions (Maybe Double)
 daoDefaultValue = lens _daoDefaultValue (\s a -> s { _daoDefaultValue = a })
 
 -- | Whether facet information can be returned for the field.
---
 daoFacetEnabled :: Lens' DoubleArrayOptions (Maybe Bool)
 daoFacetEnabled = lens _daoFacetEnabled (\s a -> s { _daoFacetEnabled = a })
 
 -- | Whether the contents of the field can be returned in the search results.
---
 daoReturnEnabled :: Lens' DoubleArrayOptions (Maybe Bool)
 daoReturnEnabled = lens _daoReturnEnabled (\s a -> s { _daoReturnEnabled = a })
 
 -- | Whether the contents of the field are searchable.
---
 daoSearchEnabled :: Lens' DoubleArrayOptions (Maybe Bool)
 daoSearchEnabled = lens _daoSearchEnabled (\s a -> s { _daoSearchEnabled = a })
 
 -- | A list of source fields to map to the field.
---
 daoSourceFields :: Lens' DoubleArrayOptions (Maybe Text)
 daoSourceFields = lens _daoSourceFields (\s a -> s { _daoSourceFields = a })
 
@@ -705,7 +689,6 @@ ifDoubleOptions = lens _ifDoubleOptions (\s a -> s { _ifDoubleOptions = a })
 -- and can contain the following characters: a-z (lowercase), 0-9, and _
 -- (underscore). Uppercase letters and hyphens are not allowed. The name "score"
 -- is reserved and cannot be specified as field or expression name.
---
 ifIndexFieldName :: Lens' IndexField Text
 ifIndexFieldName = lens _ifIndexFieldName (\s a -> s { _ifIndexFieldName = a })
 
@@ -809,22 +792,18 @@ doDefaultValue :: Lens' DateOptions (Maybe Text)
 doDefaultValue = lens _doDefaultValue (\s a -> s { _doDefaultValue = a })
 
 -- | Whether facet information can be returned for the field.
---
 doFacetEnabled :: Lens' DateOptions (Maybe Bool)
 doFacetEnabled = lens _doFacetEnabled (\s a -> s { _doFacetEnabled = a })
 
 -- | Whether the contents of the field can be returned in the search results.
---
 doReturnEnabled :: Lens' DateOptions (Maybe Bool)
 doReturnEnabled = lens _doReturnEnabled (\s a -> s { _doReturnEnabled = a })
 
 -- | Whether the contents of the field are searchable.
---
 doSearchEnabled :: Lens' DateOptions (Maybe Bool)
 doSearchEnabled = lens _doSearchEnabled (\s a -> s { _doSearchEnabled = a })
 
 -- | Whether the field can be used to sort the search results.
---
 doSortEnabled :: Lens' DateOptions (Maybe Bool)
 doSortEnabled = lens _doSortEnabled (\s a -> s { _doSortEnabled = a })
 
@@ -914,7 +893,6 @@ textArrayOptions = TextArrayOptions
     }
 
 -- | The name of an analysis scheme for a 'text-array' field.
---
 taoAnalysisScheme :: Lens' TextArrayOptions (Maybe Text)
 taoAnalysisScheme =
     lens _taoAnalysisScheme (\s a -> s { _taoAnalysisScheme = a })
@@ -924,18 +902,15 @@ taoDefaultValue :: Lens' TextArrayOptions (Maybe Text)
 taoDefaultValue = lens _taoDefaultValue (\s a -> s { _taoDefaultValue = a })
 
 -- | Whether highlights can be returned for the field.
---
 taoHighlightEnabled :: Lens' TextArrayOptions (Maybe Bool)
 taoHighlightEnabled =
     lens _taoHighlightEnabled (\s a -> s { _taoHighlightEnabled = a })
 
 -- | Whether the contents of the field can be returned in the search results.
---
 taoReturnEnabled :: Lens' TextArrayOptions (Maybe Bool)
 taoReturnEnabled = lens _taoReturnEnabled (\s a -> s { _taoReturnEnabled = a })
 
 -- | A list of source fields to map to the field.
---
 taoSourceFields :: Lens' TextArrayOptions (Maybe Text)
 taoSourceFields = lens _taoSourceFields (\s a -> s { _taoSourceFields = a })
 
@@ -1063,21 +1038,18 @@ scalingParameters = ScalingParameters
     }
 
 -- | The instance type that you want to preconfigure for your domain. For example, 'search.m1.small'.
---
 spDesiredInstanceType :: Lens' ScalingParameters (Maybe PartitionInstanceType)
 spDesiredInstanceType =
     lens _spDesiredInstanceType (\s a -> s { _spDesiredInstanceType = a })
 
 -- | The number of partitions you want to preconfigure for your domain. Only valid
 -- when you select 'm2.2xlarge' as the desired instance type.
---
 spDesiredPartitionCount :: Lens' ScalingParameters (Maybe Natural)
 spDesiredPartitionCount =
     lens _spDesiredPartitionCount (\s a -> s { _spDesiredPartitionCount = a })
         . mapping _Nat
 
 -- | The number of replicas you want to preconfigure for each index partition.
---
 spDesiredReplicationCount :: Lens' ScalingParameters (Maybe Natural)
 spDesiredReplicationCount =
     lens _spDesiredReplicationCount
@@ -1131,7 +1103,6 @@ analysisOptions = AnalysisOptions
 -- | The level of algorithmic stemming to perform: 'none', 'minimal', 'light', or 'full'.
 -- The available levels vary depending on the language. For more information,
 -- see Language Specific Text Processing Settings in the /Amazon CloudSearchDeveloper Guide/
---
 aoAlgorithmicStemming :: Lens' AnalysisOptions (Maybe AlgorithmicStemming)
 aoAlgorithmicStemming =
     lens _aoAlgorithmicStemming (\s a -> s { _aoAlgorithmicStemming = a })
@@ -1140,7 +1111,6 @@ aoAlgorithmicStemming =
 -- of speech for Japanese Tokenizaiton. The Japanese tokenization dictionary
 -- enables you to override the default tokenization for selected terms. This is
 -- only valid for Japanese language fields.
---
 aoJapaneseTokenizationDictionary :: Lens' AnalysisOptions (Maybe Text)
 aoJapaneseTokenizationDictionary =
     lens _aoJapaneseTokenizationDictionary
@@ -1151,14 +1121,12 @@ aoJapaneseTokenizationDictionary =
 -- algorithmic stemming. This enables you to override the results of the
 -- algorithmic stemming to correct specific cases of overstemming or
 -- understemming. The maximum size of a stemming dictionary is 500 KB.
---
 aoStemmingDictionary :: Lens' AnalysisOptions (Maybe Text)
 aoStemmingDictionary =
     lens _aoStemmingDictionary (\s a -> s { _aoStemmingDictionary = a })
 
 -- | A JSON array of terms to ignore during indexing and searching. For example, '["a", "an", "the", "of"]'. The stopwords dictionary must explicitly list each word you want to ignore.
 -- Wildcards and regular expressions are not supported.
---
 aoStopwords :: Lens' AnalysisOptions (Maybe Text)
 aoStopwords = lens _aoStopwords (\s a -> s { _aoStopwords = a })
 
@@ -1170,7 +1138,6 @@ aoStopwords = lens _aoStopwords (\s a -> s { _aoStopwords = a })
 -- the aliases for that term. An alias is considered a synonym of the specified
 -- term, but the term is not considered a synonym of the alias. For more
 -- information about specifying synonyms, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms> in the /Amazon CloudSearchDeveloper Guide/.
---
 aoSynonyms :: Lens' AnalysisOptions (Maybe Text)
 aoSynonyms = lens _aoSynonyms (\s a -> s { _aoSynonyms = a })
 
@@ -1229,32 +1196,26 @@ doubleOptions = DoubleOptions
 -- | A value to use for the field if the field isn't specified for a document.
 -- This can be important if you are using the field in an expression and that
 -- field is not present in every document.
---
 do1DefaultValue :: Lens' DoubleOptions (Maybe Double)
 do1DefaultValue = lens _do1DefaultValue (\s a -> s { _do1DefaultValue = a })
 
 -- | Whether facet information can be returned for the field.
---
 do1FacetEnabled :: Lens' DoubleOptions (Maybe Bool)
 do1FacetEnabled = lens _do1FacetEnabled (\s a -> s { _do1FacetEnabled = a })
 
 -- | Whether the contents of the field can be returned in the search results.
---
 do1ReturnEnabled :: Lens' DoubleOptions (Maybe Bool)
 do1ReturnEnabled = lens _do1ReturnEnabled (\s a -> s { _do1ReturnEnabled = a })
 
 -- | Whether the contents of the field are searchable.
---
 do1SearchEnabled :: Lens' DoubleOptions (Maybe Bool)
 do1SearchEnabled = lens _do1SearchEnabled (\s a -> s { _do1SearchEnabled = a })
 
 -- | Whether the field can be used to sort the search results.
---
 do1SortEnabled :: Lens' DoubleOptions (Maybe Bool)
 do1SortEnabled = lens _do1SortEnabled (\s a -> s { _do1SortEnabled = a })
 
 -- | The name of the source field to map to the field.
---
 do1SourceField :: Lens' DoubleOptions (Maybe Text)
 do1SourceField = lens _do1SourceField (\s a -> s { _do1SourceField = a })
 
@@ -1313,7 +1274,6 @@ textOptions = TextOptions
     }
 
 -- | The name of an analysis scheme for a 'text' field.
---
 toAnalysisScheme :: Lens' TextOptions (Maybe Text)
 toAnalysisScheme = lens _toAnalysisScheme (\s a -> s { _toAnalysisScheme = a })
 
@@ -1322,18 +1282,15 @@ toDefaultValue :: Lens' TextOptions (Maybe Text)
 toDefaultValue = lens _toDefaultValue (\s a -> s { _toDefaultValue = a })
 
 -- | Whether highlights can be returned for the field.
---
 toHighlightEnabled :: Lens' TextOptions (Maybe Bool)
 toHighlightEnabled =
     lens _toHighlightEnabled (\s a -> s { _toHighlightEnabled = a })
 
 -- | Whether the contents of the field can be returned in the search results.
---
 toReturnEnabled :: Lens' TextOptions (Maybe Bool)
 toReturnEnabled = lens _toReturnEnabled (\s a -> s { _toReturnEnabled = a })
 
 -- | Whether the field can be used to sort the search results.
---
 toSortEnabled :: Lens' TextOptions (Maybe Bool)
 toSortEnabled = lens _toSortEnabled (\s a -> s { _toSortEnabled = a })
 
@@ -1381,7 +1338,6 @@ availabilityOptionsStatus p1 p2 = AvailabilityOptionsStatus
     }
 
 -- | The availability options configured for the domain.
---
 aosOptions :: Lens' AvailabilityOptionsStatus Bool
 aosOptions = lens _aosOptions (\s a -> s { _aosOptions = a })
 
@@ -1606,7 +1562,6 @@ expressionStatus p1 p2 = ExpressionStatus
 
 -- | The expression that is evaluated for sorting while processing a search
 -- request.
---
 esOptions :: Lens' ExpressionStatus Expression
 esOptions = lens _esOptions (\s a -> s { _esOptions = a })
 
@@ -1717,22 +1672,18 @@ lloDefaultValue :: Lens' LatLonOptions (Maybe Text)
 lloDefaultValue = lens _lloDefaultValue (\s a -> s { _lloDefaultValue = a })
 
 -- | Whether facet information can be returned for the field.
---
 lloFacetEnabled :: Lens' LatLonOptions (Maybe Bool)
 lloFacetEnabled = lens _lloFacetEnabled (\s a -> s { _lloFacetEnabled = a })
 
 -- | Whether the contents of the field can be returned in the search results.
---
 lloReturnEnabled :: Lens' LatLonOptions (Maybe Bool)
 lloReturnEnabled = lens _lloReturnEnabled (\s a -> s { _lloReturnEnabled = a })
 
 -- | Whether the contents of the field are searchable.
---
 lloSearchEnabled :: Lens' LatLonOptions (Maybe Bool)
 lloSearchEnabled = lens _lloSearchEnabled (\s a -> s { _lloSearchEnabled = a })
 
 -- | Whether the field can be used to sort the search results.
---
 lloSortEnabled :: Lens' LatLonOptions (Maybe Bool)
 lloSortEnabled = lens _lloSortEnabled (\s a -> s { _lloSortEnabled = a })
 
@@ -1831,12 +1782,10 @@ optionStatus p1 p2 p3 = OptionStatus
     }
 
 -- | A timestamp for when this option was created.
---
 osCreationDate :: Lens' OptionStatus UTCTime
 osCreationDate = lens _osCreationDate (\s a -> s { _osCreationDate = a }) . _Time
 
 -- | Indicates that the option will be deleted once processing is complete.
---
 osPendingDeletion :: Lens' OptionStatus (Maybe Bool)
 osPendingDeletion =
     lens _osPendingDeletion (\s a -> s { _osPendingDeletion = a })
@@ -1854,12 +1803,10 @@ osState :: Lens' OptionStatus OptionState
 osState = lens _osState (\s a -> s { _osState = a })
 
 -- | A timestamp for when this option was last updated.
---
 osUpdateDate :: Lens' OptionStatus UTCTime
 osUpdateDate = lens _osUpdateDate (\s a -> s { _osUpdateDate = a }) . _Time
 
 -- | A unique integer that indicates when this option was last updated.
---
 osUpdateVersion :: Lens' OptionStatus (Maybe Natural)
 osUpdateVersion = lens _osUpdateVersion (\s a -> s { _osUpdateVersion = a }) . mapping _Nat
 
@@ -1916,22 +1863,18 @@ laoDefaultValue :: Lens' LiteralArrayOptions (Maybe Text)
 laoDefaultValue = lens _laoDefaultValue (\s a -> s { _laoDefaultValue = a })
 
 -- | Whether facet information can be returned for the field.
---
 laoFacetEnabled :: Lens' LiteralArrayOptions (Maybe Bool)
 laoFacetEnabled = lens _laoFacetEnabled (\s a -> s { _laoFacetEnabled = a })
 
 -- | Whether the contents of the field can be returned in the search results.
---
 laoReturnEnabled :: Lens' LiteralArrayOptions (Maybe Bool)
 laoReturnEnabled = lens _laoReturnEnabled (\s a -> s { _laoReturnEnabled = a })
 
 -- | Whether the contents of the field are searchable.
---
 laoSearchEnabled :: Lens' LiteralArrayOptions (Maybe Bool)
 laoSearchEnabled = lens _laoSearchEnabled (\s a -> s { _laoSearchEnabled = a })
 
 -- | A list of source fields to map to the field.
---
 laoSourceFields :: Lens' LiteralArrayOptions (Maybe Text)
 laoSourceFields = lens _laoSourceFields (\s a -> s { _laoSourceFields = a })
 
@@ -1988,22 +1931,18 @@ iaoDefaultValue :: Lens' IntArrayOptions (Maybe Integer)
 iaoDefaultValue = lens _iaoDefaultValue (\s a -> s { _iaoDefaultValue = a })
 
 -- | Whether facet information can be returned for the field.
---
 iaoFacetEnabled :: Lens' IntArrayOptions (Maybe Bool)
 iaoFacetEnabled = lens _iaoFacetEnabled (\s a -> s { _iaoFacetEnabled = a })
 
 -- | Whether the contents of the field can be returned in the search results.
---
 iaoReturnEnabled :: Lens' IntArrayOptions (Maybe Bool)
 iaoReturnEnabled = lens _iaoReturnEnabled (\s a -> s { _iaoReturnEnabled = a })
 
 -- | Whether the contents of the field are searchable.
---
 iaoSearchEnabled :: Lens' IntArrayOptions (Maybe Bool)
 iaoSearchEnabled = lens _iaoSearchEnabled (\s a -> s { _iaoSearchEnabled = a })
 
 -- | A list of source fields to map to the field.
---
 iaoSourceFields :: Lens' IntArrayOptions (Maybe Text)
 iaoSourceFields = lens _iaoSourceFields (\s a -> s { _iaoSourceFields = a })
 
@@ -2127,24 +2066,20 @@ dao1DefaultValue :: Lens' DateArrayOptions (Maybe Text)
 dao1DefaultValue = lens _dao1DefaultValue (\s a -> s { _dao1DefaultValue = a })
 
 -- | Whether facet information can be returned for the field.
---
 dao1FacetEnabled :: Lens' DateArrayOptions (Maybe Bool)
 dao1FacetEnabled = lens _dao1FacetEnabled (\s a -> s { _dao1FacetEnabled = a })
 
 -- | Whether the contents of the field can be returned in the search results.
---
 dao1ReturnEnabled :: Lens' DateArrayOptions (Maybe Bool)
 dao1ReturnEnabled =
     lens _dao1ReturnEnabled (\s a -> s { _dao1ReturnEnabled = a })
 
 -- | Whether the contents of the field are searchable.
---
 dao1SearchEnabled :: Lens' DateArrayOptions (Maybe Bool)
 dao1SearchEnabled =
     lens _dao1SearchEnabled (\s a -> s { _dao1SearchEnabled = a })
 
 -- | A list of source fields to map to the field.
---
 dao1SourceFields :: Lens' DateArrayOptions (Maybe Text)
 dao1SourceFields = lens _dao1SourceFields (\s a -> s { _dao1SourceFields = a })
 
@@ -2404,27 +2339,22 @@ ioDefaultValue :: Lens' IntOptions (Maybe Integer)
 ioDefaultValue = lens _ioDefaultValue (\s a -> s { _ioDefaultValue = a })
 
 -- | Whether facet information can be returned for the field.
---
 ioFacetEnabled :: Lens' IntOptions (Maybe Bool)
 ioFacetEnabled = lens _ioFacetEnabled (\s a -> s { _ioFacetEnabled = a })
 
 -- | Whether the contents of the field can be returned in the search results.
---
 ioReturnEnabled :: Lens' IntOptions (Maybe Bool)
 ioReturnEnabled = lens _ioReturnEnabled (\s a -> s { _ioReturnEnabled = a })
 
 -- | Whether the contents of the field are searchable.
---
 ioSearchEnabled :: Lens' IntOptions (Maybe Bool)
 ioSearchEnabled = lens _ioSearchEnabled (\s a -> s { _ioSearchEnabled = a })
 
 -- | Whether the field can be used to sort the search results.
---
 ioSortEnabled :: Lens' IntOptions (Maybe Bool)
 ioSortEnabled = lens _ioSortEnabled (\s a -> s { _ioSortEnabled = a })
 
 -- | The name of the source field to map to the field.
---
 ioSourceField :: Lens' IntOptions (Maybe Text)
 ioSourceField = lens _ioSourceField (\s a -> s { _ioSourceField = a })
 
@@ -2487,22 +2417,18 @@ loDefaultValue :: Lens' LiteralOptions (Maybe Text)
 loDefaultValue = lens _loDefaultValue (\s a -> s { _loDefaultValue = a })
 
 -- | Whether facet information can be returned for the field.
---
 loFacetEnabled :: Lens' LiteralOptions (Maybe Bool)
 loFacetEnabled = lens _loFacetEnabled (\s a -> s { _loFacetEnabled = a })
 
 -- | Whether the contents of the field can be returned in the search results.
---
 loReturnEnabled :: Lens' LiteralOptions (Maybe Bool)
 loReturnEnabled = lens _loReturnEnabled (\s a -> s { _loReturnEnabled = a })
 
 -- | Whether the contents of the field are searchable.
---
 loSearchEnabled :: Lens' LiteralOptions (Maybe Bool)
 loSearchEnabled = lens _loSearchEnabled (\s a -> s { _loSearchEnabled = a })
 
 -- | Whether the field can be used to sort the search results.
---
 loSortEnabled :: Lens' LiteralOptions (Maybe Bool)
 loSortEnabled = lens _loSortEnabled (\s a -> s { _loSortEnabled = a })
 

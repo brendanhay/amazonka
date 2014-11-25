@@ -177,7 +177,6 @@ createReplicationGroup p1 p2 = CreateReplicationGroup
 -- upgrades to occur; 'false' disables automatic upgrades.
 --
 -- Default: 'true'
---
 crgAutoMinorVersionUpgrade :: Lens' CreateReplicationGroup (Maybe Bool)
 crgAutoMinorVersionUpgrade =
     lens _crgAutoMinorVersionUpgrade
@@ -190,7 +189,6 @@ crgAutoMinorVersionUpgrade =
 -- automatic failover is disabled for this replication group.
 --
 -- Default: false
---
 crgAutomaticFailoverEnabled :: Lens' CreateReplicationGroup (Maybe Bool)
 crgAutomaticFailoverEnabled =
     lens _crgAutomaticFailoverEnabled
@@ -208,21 +206,18 @@ crgAutomaticFailoverEnabled =
 -- Redis Append-only files (AOF) functionality is not supported for t1 or t2
 -- instances.  For a complete listing of cache node types and specifications,
 -- see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache NodeType-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parametersfor Redis>.
---
 crgCacheNodeType :: Lens' CreateReplicationGroup (Maybe Text)
 crgCacheNodeType = lens _crgCacheNodeType (\s a -> s { _crgCacheNodeType = a })
 
 -- | The name of the parameter group to associate with this replication group. If
 -- this argument is omitted, the default cache parameter group for the specified
 -- engine is used.
---
 crgCacheParameterGroupName :: Lens' CreateReplicationGroup (Maybe Text)
 crgCacheParameterGroupName =
     lens _crgCacheParameterGroupName
         (\s a -> s { _crgCacheParameterGroupName = a })
 
 -- | A list of cache security group names to associate with this replication group.
---
 crgCacheSecurityGroupNames :: Lens' CreateReplicationGroup [Text]
 crgCacheSecurityGroupNames =
     lens _crgCacheSecurityGroupNames
@@ -230,7 +225,6 @@ crgCacheSecurityGroupNames =
             . _List
 
 -- | The name of the cache subnet group to be used for the replication group.
---
 crgCacheSubnetGroupName :: Lens' CreateReplicationGroup (Maybe Text)
 crgCacheSubnetGroupName =
     lens _crgCacheSubnetGroupName (\s a -> s { _crgCacheSubnetGroupName = a })
@@ -239,19 +233,16 @@ crgCacheSubnetGroupName =
 -- replication group.
 --
 -- Default: redis
---
 crgEngine :: Lens' CreateReplicationGroup (Maybe Text)
 crgEngine = lens _crgEngine (\s a -> s { _crgEngine = a })
 
 -- | The version number of the cach engine to be used for the cache clusters in
 -- this replication group. To view the supported cache engine versions, use the /DescribeCacheEngineVersions/ operation.
---
 crgEngineVersion :: Lens' CreateReplicationGroup (Maybe Text)
 crgEngineVersion = lens _crgEngineVersion (\s a -> s { _crgEngineVersion = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic to which notifications will be sent.
---
 crgNotificationTopicArn :: Lens' CreateReplicationGroup (Maybe Text)
 crgNotificationTopicArn =
     lens _crgNotificationTopicArn (\s a -> s { _crgNotificationTopicArn = a })
@@ -264,14 +255,12 @@ crgNotificationTopicArn =
 -- The maximum permitted value for /NumCacheClusters/ is 6 (primary plus 5
 -- replicas). If you need to exceed this limit, please fill out the ElastiCache
 -- Limit Increase Request forrm at <http://aws.amazon.com/contact-us/elasticache-node-limit-request http://aws.amazon.com/contact-us/elasticache-node-limit-request>.
---
 crgNumCacheClusters :: Lens' CreateReplicationGroup (Maybe Int)
 crgNumCacheClusters =
     lens _crgNumCacheClusters (\s a -> s { _crgNumCacheClusters = a })
 
 -- | The port number on which each member of the replication group will accept
 -- connections.
---
 crgPort :: Lens' CreateReplicationGroup (Maybe Int)
 crgPort = lens _crgPort (\s a -> s { _crgPort = a })
 
@@ -285,7 +274,6 @@ crgPort = lens _crgPort (\s a -> s { _crgPort = a })
 -- PreferredAvailabilityZones.member.1=us-east-1a
 -- PreferredAvailabilityZones.member.2=us-east-1c
 -- PreferredAvailabilityZones.member.3=us-east-1d
---
 crgPreferredCacheClusterAZs :: Lens' CreateReplicationGroup [Text]
 crgPreferredCacheClusterAZs =
     lens _crgPreferredCacheClusterAZs
@@ -295,7 +283,6 @@ crgPreferredCacheClusterAZs =
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 --
 -- Example: 'sun:05:00-sun:09:00'
---
 crgPreferredMaintenanceWindow :: Lens' CreateReplicationGroup (Maybe Text)
 crgPreferredMaintenanceWindow =
     lens _crgPreferredMaintenanceWindow
@@ -305,13 +292,11 @@ crgPreferredMaintenanceWindow =
 -- replication group. This cache cluster must already exist and have a status of /available/.
 --
 -- This parameter is not required if /NumCacheClusters/ is specified.
---
 crgPrimaryClusterId :: Lens' CreateReplicationGroup (Maybe Text)
 crgPrimaryClusterId =
     lens _crgPrimaryClusterId (\s a -> s { _crgPrimaryClusterId = a })
 
 -- | A user-created description for the replication group.
---
 crgReplicationGroupDescription :: Lens' CreateReplicationGroup Text
 crgReplicationGroupDescription =
     lens _crgReplicationGroupDescription
@@ -333,7 +318,6 @@ crgReplicationGroupId =
 --
 -- Use this parameter only when you are creating a replication group in an
 -- Amazon Virtual Private Cloud (VPC).
---
 crgSecurityGroupIds :: Lens' CreateReplicationGroup [Text]
 crgSecurityGroupIds =
     lens _crgSecurityGroupIds (\s a -> s { _crgSecurityGroupIds = a })
@@ -347,7 +331,6 @@ crgSecurityGroupIds =
 -- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.
 --
 -- Example of an Amazon S3 ARN: 'arn:aws:s3:::my_bucket/snapshot1.rdb'
---
 crgSnapshotArns :: Lens' CreateReplicationGroup [Text]
 crgSnapshotArns = lens _crgSnapshotArns (\s a -> s { _crgSnapshotArns = a }) . _List
 
@@ -356,7 +339,6 @@ crgSnapshotArns = lens _crgSnapshotArns (\s a -> s { _crgSnapshotArns = a }) . _
 -- created.
 --
 -- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.
---
 crgSnapshotName :: Lens' CreateReplicationGroup (Maybe Text)
 crgSnapshotName = lens _crgSnapshotName (\s a -> s { _crgSnapshotName = a })
 
@@ -368,7 +350,6 @@ crgSnapshotName = lens _crgSnapshotName (\s a -> s { _crgSnapshotName = a })
 -- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.
 --
 -- Default: 0 (i.e., automatic backups are disabled for this cache cluster).
---
 crgSnapshotRetentionLimit :: Lens' CreateReplicationGroup (Maybe Int)
 crgSnapshotRetentionLimit =
     lens _crgSnapshotRetentionLimit
@@ -383,7 +364,6 @@ crgSnapshotRetentionLimit =
 -- choose an appropriate time range.
 --
 -- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.
---
 crgSnapshotWindow :: Lens' CreateReplicationGroup (Maybe Text)
 crgSnapshotWindow =
     lens _crgSnapshotWindow (\s a -> s { _crgSnapshotWindow = a })

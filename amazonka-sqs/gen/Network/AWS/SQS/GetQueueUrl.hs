@@ -73,12 +73,10 @@ getQueueUrl p1 = GetQueueUrl
 
 -- | The name of the queue whose URL must be fetched. Maximum 80 characters;
 -- alphanumeric characters, hyphens (-), and underscores (_) are allowed.
---
 gquQueueName :: Lens' GetQueueUrl Text
 gquQueueName = lens _gquQueueName (\s a -> s { _gquQueueName = a })
 
 -- | The AWS account ID of the account that created the queue.
---
 gquQueueOwnerAWSAccountId :: Lens' GetQueueUrl (Maybe Text)
 gquQueueOwnerAWSAccountId =
     lens _gquQueueOwnerAWSAccountId
@@ -100,7 +98,6 @@ getQueueUrlResponse = GetQueueUrlResponse
     }
 
 -- | The URL for the queue.
---
 gqurQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)
 gqurQueueUrl = lens _gqurQueueUrl (\s a -> s { _gqurQueueUrl = a })
 

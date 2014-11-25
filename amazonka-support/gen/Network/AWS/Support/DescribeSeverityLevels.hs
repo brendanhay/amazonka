@@ -65,7 +65,6 @@ describeSeverityLevels = DescribeSeverityLevels
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
---
 dslLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
 dslLanguage = lens _dslLanguage (\s a -> s { _dslLanguage = a })
 
@@ -92,7 +91,6 @@ describeSeverityLevelsResponse = DescribeSeverityLevelsResponse
 
 -- | The available severity levels for the support case. Available severity levels
 -- are defined by your service level agreement with AWS.
---
 dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrSeverityLevels =
     lens _dslrSeverityLevels (\s a -> s { _dslrSeverityLevels = a })

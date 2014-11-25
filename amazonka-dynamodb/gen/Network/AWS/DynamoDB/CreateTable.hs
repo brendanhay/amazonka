@@ -101,7 +101,6 @@ createTable p1 p2 p3 = CreateTable
     }
 
 -- | An array of attributes that describe the key schema for the table and indexes.
---
 ctAttributeDefinitions :: Lens' CreateTable [AttributeDefinition]
 ctAttributeDefinitions =
     lens _ctAttributeDefinitions (\s a -> s { _ctAttributeDefinitions = a })
@@ -163,7 +162,6 @@ ctGlobalSecondaryIndexes =
 -- specify exactly two elements, in this order: The first element must have a /KeyType/ of 'HASH', and the second element must have a /KeyType/ of 'RANGE'.
 --
 -- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Specifying the Primary Key> in the /Amazon DynamoDBDeveloper Guide/.
---
 ctKeySchema :: Lens' CreateTable (NonEmpty KeySchemaElement)
 ctKeySchema = lens _ctKeySchema (\s a -> s { _ctKeySchema = a }) . _List1
 
@@ -213,7 +211,6 @@ ctProvisionedThroughput =
     lens _ctProvisionedThroughput (\s a -> s { _ctProvisionedThroughput = a })
 
 -- | The name of the table to create.
---
 ctTableName :: Lens' CreateTable Text
 ctTableName = lens _ctTableName (\s a -> s { _ctTableName = a })
 

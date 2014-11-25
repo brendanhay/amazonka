@@ -25,6 +25,7 @@
 -- configuration.
 --
 -- Only stacks that are in the UPDATE_IN_PROGRESS state can be canceled.
+--
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html>
 module Network.AWS.CloudFormation.CancelUpdateStack
     (
@@ -63,7 +64,6 @@ cancelUpdateStack p1 = CancelUpdateStack
     }
 
 -- | The name or the unique identifier associated with the stack.
---
 cusStackName :: Lens' CancelUpdateStack Text
 cusStackName = lens _cusStackName (\s a -> s { _cusStackName = a })
 

@@ -105,13 +105,11 @@ drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
 drilFilters = lens _drilFilters (\s a -> s { _drilFilters = a }) . _List
 
 -- | One or more Reserved Instance IDs.
---
 drilReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
 drilReservedInstancesId =
     lens _drilReservedInstancesId (\s a -> s { _drilReservedInstancesId = a })
 
 -- | One or more Reserved Instance Listing IDs.
---
 drilReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
 drilReservedInstancesListingId =
     lens _drilReservedInstancesListingId
@@ -139,7 +137,6 @@ describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsRes
     }
 
 -- | Information about the Reserved Instance listing.
---
 drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
 drilrReservedInstancesListings =
     lens _drilrReservedInstancesListings

@@ -62,7 +62,6 @@ deleteFunction p1 = DeleteFunction
     }
 
 -- | The Lambda function to delete.
---
 dfFunctionName :: Lens' DeleteFunction Text
 dfFunctionName = lens _dfFunctionName (\s a -> s { _dfFunctionName = a })
 

@@ -100,7 +100,6 @@ describeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
 
 -- | An array of objects where each object contains metadata about one cached
 -- volume.
---
 dcscsivrCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolume]
 dcscsivrCachediSCSIVolumes =
     lens _dcscsivrCachediSCSIVolumes

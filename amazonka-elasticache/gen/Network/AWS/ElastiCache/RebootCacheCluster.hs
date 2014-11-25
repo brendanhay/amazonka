@@ -76,7 +76,6 @@ rebootCacheCluster p1 = RebootCacheCluster
     }
 
 -- | The cache cluster identifier. This parameter is stored as a lowercase string.
---
 rccCacheClusterId :: Lens' RebootCacheCluster Text
 rccCacheClusterId =
     lens _rccCacheClusterId (\s a -> s { _rccCacheClusterId = a })
@@ -84,7 +83,6 @@ rccCacheClusterId =
 -- | A list of cache node IDs to reboot. A node ID is a numeric identifier (0001,
 -- 0002, etc.). To reboot an entire cache cluster, specify all of the cache node
 -- IDs.
---
 rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
 rccCacheNodeIdsToReboot =
     lens _rccCacheNodeIdsToReboot (\s a -> s { _rccCacheNodeIdsToReboot = a })

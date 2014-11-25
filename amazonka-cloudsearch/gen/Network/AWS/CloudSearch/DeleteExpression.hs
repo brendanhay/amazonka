@@ -72,7 +72,6 @@ de2DomainName :: Lens' DeleteExpression Text
 de2DomainName = lens _de2DomainName (\s a -> s { _de2DomainName = a })
 
 -- | The name of the ''Expression' to delete.
---
 de2ExpressionName :: Lens' DeleteExpression Text
 de2ExpressionName =
     lens _de2ExpressionName (\s a -> s { _de2ExpressionName = a })
@@ -94,7 +93,6 @@ deleteExpressionResponse p1 = DeleteExpressionResponse
     }
 
 -- | The status of the expression being deleted.
---
 der1Expression :: Lens' DeleteExpressionResponse ExpressionStatus
 der1Expression = lens _der1Expression (\s a -> s { _der1Expression = a })
 

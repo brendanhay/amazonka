@@ -86,7 +86,6 @@ createDhcpOptions = CreateDhcpOptions
     }
 
 -- | A DHCP configuration option.
---
 cdoDhcpConfigurations :: Lens' CreateDhcpOptions [NewDhcpConfiguration]
 cdoDhcpConfigurations =
     lens _cdoDhcpConfigurations (\s a -> s { _cdoDhcpConfigurations = a })
@@ -111,7 +110,6 @@ createDhcpOptionsResponse = CreateDhcpOptionsResponse
     }
 
 -- | A set of DHCP options.
---
 cdorDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)
 cdorDhcpOptions = lens _cdorDhcpOptions (\s a -> s { _cdorDhcpOptions = a })
 

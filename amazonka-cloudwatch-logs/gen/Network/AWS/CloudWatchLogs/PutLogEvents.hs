@@ -100,7 +100,6 @@ pleLogStreamName :: Lens' PutLogEvents Text
 pleLogStreamName = lens _pleLogStreamName (\s a -> s { _pleLogStreamName = a })
 
 -- | A string token that must be obtained from the response of the previous 'PutLogEvents' request.
---
 pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
 pleSequenceToken = lens _pleSequenceToken (\s a -> s { _pleSequenceToken = a })
 

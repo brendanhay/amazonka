@@ -196,7 +196,6 @@ dsirFilters :: Lens' DescribeSpotInstanceRequests [Filter]
 dsirFilters = lens _dsirFilters (\s a -> s { _dsirFilters = a }) . _List
 
 -- | One or more Spot Instance request IDs.
---
 dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
 dsirSpotInstanceRequestIds =
     lens _dsirSpotInstanceRequestIds
@@ -225,7 +224,6 @@ describeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     }
 
 -- | One or more Spot Instance requests.
---
 dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
 dsirrSpotInstanceRequests =
     lens _dsirrSpotInstanceRequests

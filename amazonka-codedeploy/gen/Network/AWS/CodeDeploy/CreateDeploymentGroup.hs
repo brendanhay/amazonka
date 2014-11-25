@@ -89,13 +89,11 @@ createDeploymentGroup p1 p2 = CreateDeploymentGroup
 
 -- | The name of an existing AWS CodeDeploy application within the AWS user
 -- account.
---
 cdgApplicationName :: Lens' CreateDeploymentGroup Text
 cdgApplicationName =
     lens _cdgApplicationName (\s a -> s { _cdgApplicationName = a })
 
 -- | A list of associated Auto Scaling groups.
---
 cdgAutoScalingGroups :: Lens' CreateDeploymentGroup [Text]
 cdgAutoScalingGroups =
     lens _cdgAutoScalingGroups (\s a -> s { _cdgAutoScalingGroups = a })
@@ -130,25 +128,21 @@ cdgAutoScalingGroups =
 -- deployment configuration if a configuration isn't specified for either the
 -- deployment or the deployment group.  To create a custom deployment
 -- configuration, call the create deployment configuration operation.
---
 cdgDeploymentConfigName :: Lens' CreateDeploymentGroup (Maybe Text)
 cdgDeploymentConfigName =
     lens _cdgDeploymentConfigName (\s a -> s { _cdgDeploymentConfigName = a })
 
 -- | The name of an existing deployment group for the specified application.
---
 cdgDeploymentGroupName :: Lens' CreateDeploymentGroup Text
 cdgDeploymentGroupName =
     lens _cdgDeploymentGroupName (\s a -> s { _cdgDeploymentGroupName = a })
 
 -- | The Amazon EC2 tags to filter on.
---
 cdgEc2TagFilters :: Lens' CreateDeploymentGroup [EC2TagFilter]
 cdgEc2TagFilters = lens _cdgEc2TagFilters (\s a -> s { _cdgEc2TagFilters = a }) . _List
 
 -- | A service role ARN that allows AWS CodeDeploy to act on the user's behalf
 -- when interacting with AWS services.
---
 cdgServiceRoleArn :: Lens' CreateDeploymentGroup (Maybe Text)
 cdgServiceRoleArn =
     lens _cdgServiceRoleArn (\s a -> s { _cdgServiceRoleArn = a })
@@ -169,7 +163,6 @@ createDeploymentGroupResponse = CreateDeploymentGroupResponse
     }
 
 -- | A unique deployment group ID.
---
 cdgrDeploymentGroupId :: Lens' CreateDeploymentGroupResponse (Maybe Text)
 cdgrDeploymentGroupId =
     lens _cdgrDeploymentGroupId (\s a -> s { _cdgrDeploymentGroupId = a })

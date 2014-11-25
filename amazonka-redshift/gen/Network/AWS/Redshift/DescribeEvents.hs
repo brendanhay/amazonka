@@ -101,7 +101,6 @@ describeEvents = DescribeEvents
 -- returned.
 --
 -- Default: '60'
---
 deDuration :: Lens' DescribeEvents (Maybe Int)
 deDuration = lens _deDuration (\s a -> s { _deDuration = a })
 
@@ -109,7 +108,6 @@ deDuration = lens _deDuration (\s a -> s { _deDuration = a })
 -- 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.>
 --
 -- Example: '2009-07-08T18:00Z'
---
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a }) . mapping _Time
 
@@ -118,7 +116,6 @@ deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a }) . mapping _Time
 -- value specified in 'MaxRecords', AWS returns a value in the 'Marker' field of the
 -- response. You can retrieve the next set of response records by providing the
 -- returned marker value in the 'Marker' parameter and retrying the request.
---
 deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\s a -> s { _deMarker = a })
 
@@ -130,7 +127,6 @@ deMarker = lens _deMarker (\s a -> s { _deMarker = a })
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
---
 deMaxRecords :: Lens' DescribeEvents (Maybe Int)
 deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a })
 
@@ -165,7 +161,6 @@ deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
 -- 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.>
 --
 -- Example: '2009-07-08T18:00Z'
---
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
 deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a }) . mapping _Time
 
@@ -189,7 +184,6 @@ describeEventsResponse = DescribeEventsResponse
     }
 
 -- | A list of 'Event' instances.
---
 derEvents :: Lens' DescribeEventsResponse [Event]
 derEvents = lens _derEvents (\s a -> s { _derEvents = a }) . _List
 
@@ -198,7 +192,6 @@ derEvents = lens _derEvents (\s a -> s { _derEvents = a }) . _List
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
 -- empty, all response records have been retrieved for the request.
---
 derMarker :: Lens' DescribeEventsResponse (Maybe Text)
 derMarker = lens _derMarker (\s a -> s { _derMarker = a })
 

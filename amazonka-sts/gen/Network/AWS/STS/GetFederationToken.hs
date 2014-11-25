@@ -133,7 +133,6 @@ getFederationToken p1 = GetFederationToken
 -- seconds (one hour). If the specified duration is longer than one hour, the
 -- session obtained by using AWS account (root) credentials defaults to one
 -- hour.
---
 gftDurationSeconds :: Lens' GetFederationToken (Maybe Natural)
 gftDurationSeconds =
     lens _gftDurationSeconds (\s a -> s { _gftDurationSeconds = a })
@@ -143,7 +142,6 @@ gftDurationSeconds =
 -- temporary security credentials (such as 'Bob'). For example, you can reference
 -- the federated user name in a resource-based policy, such as in an Amazon S3
 -- bucket policy.
---
 gftName :: Lens' GetFederationToken Text
 gftName = lens _gftName (\s a -> s { _gftName = a })
 
@@ -162,7 +160,6 @@ gftName = lens _gftName (\s a -> s { _gftName = a })
 -- policy that specifically allows the federated user to access the resource.
 --
 -- For more information about how permissions work, see <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-get-federation-token.html Permissions forGetFederationToken> in /Using Temporary Security Credentials/.
---
 gftPolicy :: Lens' GetFederationToken (Maybe Text)
 gftPolicy = lens _gftPolicy (\s a -> s { _gftPolicy = a })
 
@@ -190,13 +187,11 @@ getFederationTokenResponse = GetFederationTokenResponse
     }
 
 -- | Credentials for the service API authentication.
---
 gftrCredentials :: Lens' GetFederationTokenResponse (Maybe Credentials)
 gftrCredentials = lens _gftrCredentials (\s a -> s { _gftrCredentials = a })
 
 -- | Identifiers for the federated user associated with the credentials (such as 'arn:aws:sts::123456789012:federated-user/Bob' or '123456789012:Bob'). You can use the federated user's ARN in your
 -- resource-based policies, such as an Amazon S3 bucket policy.
---
 gftrFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
 gftrFederatedUser =
     lens _gftrFederatedUser (\s a -> s { _gftrFederatedUser = a })
@@ -204,7 +199,6 @@ gftrFederatedUser =
 -- | A percentage value indicating the size of the policy in packed form. The
 -- service rejects policies for which the packed size is greater than 100
 -- percent of the allowed value.
---
 gftrPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Natural)
 gftrPackedPolicySize =
     lens _gftrPackedPolicySize (\s a -> s { _gftrPackedPolicySize = a })

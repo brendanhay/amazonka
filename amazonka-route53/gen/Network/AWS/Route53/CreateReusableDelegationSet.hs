@@ -80,14 +80,12 @@ createReusableDelegationSet p1 = CreateReusableDelegationSet
 --
 -- Valid characters are any Unicode code points that are legal in an XML 1.0
 -- document. The UTF-8 encoding of the value must be less than 128 bytes.
---
 crdsCallerReference :: Lens' CreateReusableDelegationSet Text
 crdsCallerReference =
     lens _crdsCallerReference (\s a -> s { _crdsCallerReference = a })
 
 -- | The ID of the hosted zone whose delegation set you want to mark as reusable.
 -- It is an optional parameter.
---
 crdsHostedZoneId :: Lens' CreateReusableDelegationSet (Maybe Text)
 crdsHostedZoneId = lens _crdsHostedZoneId (\s a -> s { _crdsHostedZoneId = a })
 
@@ -113,13 +111,11 @@ createReusableDelegationSetResponse p1 p2 = CreateReusableDelegationSetResponse
     }
 
 -- | A complex type that contains name server information.
---
 crdsrDelegationSet :: Lens' CreateReusableDelegationSetResponse DelegationSet
 crdsrDelegationSet =
     lens _crdsrDelegationSet (\s a -> s { _crdsrDelegationSet = a })
 
 -- | The unique URL representing the new reusbale delegation set.
---
 crdsrLocation :: Lens' CreateReusableDelegationSetResponse Text
 crdsrLocation = lens _crdsrLocation (\s a -> s { _crdsrLocation = a })
 

@@ -63,7 +63,6 @@ createApplication p1 = CreateApplication
 
 -- | The name of the application. This name must be unique within the AWS user
 -- account.
---
 caApplicationName :: Lens' CreateApplication Text
 caApplicationName =
     lens _caApplicationName (\s a -> s { _caApplicationName = a })
@@ -84,7 +83,6 @@ createApplicationResponse = CreateApplicationResponse
     }
 
 -- | A unique application ID.
---
 carApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
 carApplicationId = lens _carApplicationId (\s a -> s { _carApplicationId = a })
 

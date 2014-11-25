@@ -116,14 +116,12 @@ updateInstance p1 = UpdateInstance
 -- | A custom AMI ID to be used to create the instance. The AMI should be based on
 -- one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu 12.04 LTS. For
 -- more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances.html Instances>
---
 uiAmiId :: Lens' UpdateInstance (Maybe Text)
 uiAmiId = lens _uiAmiId (\s a -> s { _uiAmiId = a })
 
 -- | The instance architecture. Instance types do not necessarily support both
 -- architectures. For a list of the architectures that are supported by the
 -- different instance types, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
---
 uiArchitecture :: Lens' UpdateInstance (Maybe Architecture)
 uiArchitecture = lens _uiArchitecture (\s a -> s { _uiArchitecture = a })
 
@@ -138,12 +136,10 @@ uiAutoScalingType =
     lens _uiAutoScalingType (\s a -> s { _uiAutoScalingType = a })
 
 -- | Whether this is an Amazon EBS-optimized instance.
---
 uiEbsOptimized :: Lens' UpdateInstance (Maybe Bool)
 uiEbsOptimized = lens _uiEbsOptimized (\s a -> s { _uiEbsOptimized = a })
 
 -- | The instance host name.
---
 uiHostname :: Lens' UpdateInstance (Maybe Text)
 uiHostname = lens _uiHostname (\s a -> s { _uiHostname = a })
 
@@ -151,25 +147,21 @@ uiHostname = lens _uiHostname (\s a -> s { _uiHostname = a })
 -- boots. The default value is 'true'. To control when updates are installed, set
 -- this value to 'false'. You must then update your instances manually by using 'CreateDeployment' to run the 'update_dependencies' stack command or manually running 'yum' (Amazon
 -- Linux) or 'apt-get' (Ubuntu) on the instances.
---
 uiInstallUpdatesOnBoot :: Lens' UpdateInstance (Maybe Bool)
 uiInstallUpdatesOnBoot =
     lens _uiInstallUpdatesOnBoot (\s a -> s { _uiInstallUpdatesOnBoot = a })
 
 -- | The instance ID.
---
 uiInstanceId :: Lens' UpdateInstance Text
 uiInstanceId = lens _uiInstanceId (\s a -> s { _uiInstanceId = a })
 
 -- | The instance type. AWS OpsWorks supports all instance types except Cluster
 -- Compute, Cluster GPU, and High Memory Cluster. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>. The parameter values that you use to specify the various types are in the
 -- API Name column of the Available Instance Types table.
---
 uiInstanceType :: Lens' UpdateInstance (Maybe Text)
 uiInstanceType = lens _uiInstanceType (\s a -> s { _uiInstanceType = a })
 
 -- | The instance's layer IDs.
---
 uiLayerIds :: Lens' UpdateInstance [Text]
 uiLayerIds = lens _uiLayerIds (\s a -> s { _uiLayerIds = a }) . _List
 
@@ -180,12 +172,10 @@ uiLayerIds = lens _uiLayerIds (\s a -> s { _uiLayerIds = a }) . _List
 -- custom AMI that you want to use. For more information on the standard
 -- operating systems, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems>For more information on how to use
 -- custom AMIs with OpsWorks, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
---
 uiOs :: Lens' UpdateInstance (Maybe Text)
 uiOs = lens _uiOs (\s a -> s { _uiOs = a })
 
 -- | The instance SSH key name.
---
 uiSshKeyName :: Lens' UpdateInstance (Maybe Text)
 uiSshKeyName = lens _uiSshKeyName (\s a -> s { _uiSshKeyName = a })
 

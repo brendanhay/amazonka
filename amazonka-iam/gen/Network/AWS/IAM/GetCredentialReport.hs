@@ -78,19 +78,16 @@ getCredentialReportResponse = GetCredentialReportResponse
     }
 
 -- | Contains the credential report. The report is Base64-encoded.
---
 gcrrContent :: Lens' GetCredentialReportResponse (Maybe Base64)
 gcrrContent = lens _gcrrContent (\s a -> s { _gcrrContent = a })
 
 -- | The time and date when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601date-time format>.
---
 gcrrGeneratedTime :: Lens' GetCredentialReportResponse (Maybe UTCTime)
 gcrrGeneratedTime =
     lens _gcrrGeneratedTime (\s a -> s { _gcrrGeneratedTime = a })
         . mapping _Time
 
 -- | The format (MIME type) of the credential report.
---
 gcrrReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
 gcrrReportFormat = lens _gcrrReportFormat (\s a -> s { _gcrrReportFormat = a })
 

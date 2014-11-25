@@ -74,7 +74,6 @@ modifySnapshotCopyRetentionPeriod p1 p2 = ModifySnapshotCopyRetentionPeriod
 --
 -- Constraints: Must be the valid name of an existing cluster that has
 -- cross-region snapshot copy enabled.
---
 mscrpClusterIdentifier :: Lens' ModifySnapshotCopyRetentionPeriod Text
 mscrpClusterIdentifier =
     lens _mscrpClusterIdentifier (\s a -> s { _mscrpClusterIdentifier = a })
@@ -88,7 +87,6 @@ mscrpClusterIdentifier =
 -- outside of the new retention period.
 --
 -- Constraints: Must be at least 1 and no more than 35.
---
 mscrpRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriod Int
 mscrpRetentionPeriod =
     lens _mscrpRetentionPeriod (\s a -> s { _mscrpRetentionPeriod = a })

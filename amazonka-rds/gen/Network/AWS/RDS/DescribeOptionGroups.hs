@@ -88,19 +88,16 @@ describeOptionGroups = DescribeOptionGroups
 
 -- | Filters the list of option groups to only include groups associated with a
 -- specific database engine.
---
 dogEngineName :: Lens' DescribeOptionGroups (Maybe Text)
 dogEngineName = lens _dogEngineName (\s a -> s { _dogEngineName = a })
 
 -- | This parameter is not currently supported.
---
 dogFilters :: Lens' DescribeOptionGroups [Filter]
 dogFilters = lens _dogFilters (\s a -> s { _dogFilters = a }) . _List
 
 -- | Filters the list of option groups to only include groups associated with a
 -- specific database engine version. If specified, then EngineName must also be
 -- specified.
---
 dogMajorEngineVersion :: Lens' DescribeOptionGroups (Maybe Text)
 dogMajorEngineVersion =
     lens _dogMajorEngineVersion (\s a -> s { _dogMajorEngineVersion = a })
@@ -108,7 +105,6 @@ dogMajorEngineVersion =
 -- | An optional pagination token provided by a previous DescribeOptionGroups
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by 'MaxRecords'.
---
 dogMarker :: Lens' DescribeOptionGroups (Maybe Text)
 dogMarker = lens _dogMarker (\s a -> s { _dogMarker = a })
 
@@ -119,13 +115,11 @@ dogMarker = lens _dogMarker (\s a -> s { _dogMarker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
---
 dogMaxRecords :: Lens' DescribeOptionGroups (Maybe Int)
 dogMaxRecords = lens _dogMaxRecords (\s a -> s { _dogMaxRecords = a })
 
 -- | The name of the option group to describe. Cannot be supplied together with
 -- EngineName or MajorEngineVersion.
---
 dogOptionGroupName :: Lens' DescribeOptionGroups (Maybe Text)
 dogOptionGroupName =
     lens _dogOptionGroupName (\s a -> s { _dogOptionGroupName = a })
@@ -152,12 +146,10 @@ describeOptionGroupsResponse = DescribeOptionGroupsResponse
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the marker,
 -- up to the value specified by 'MaxRecords'.
---
 dogrMarker :: Lens' DescribeOptionGroupsResponse (Maybe Text)
 dogrMarker = lens _dogrMarker (\s a -> s { _dogrMarker = a })
 
 -- | List of option groups.
---
 dogrOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
 dogrOptionGroupsList =
     lens _dogrOptionGroupsList (\s a -> s { _dogrOptionGroupsList = a })

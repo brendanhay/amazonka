@@ -67,7 +67,6 @@ describeRdsDbInstances p1 = DescribeRdsDbInstances
     }
 
 -- | An array containing the ARNs of the instances to be described.
---
 drdiRdsDbInstanceArns :: Lens' DescribeRdsDbInstances [Text]
 drdiRdsDbInstanceArns =
     lens _drdiRdsDbInstanceArns (\s a -> s { _drdiRdsDbInstanceArns = a })
@@ -75,7 +74,6 @@ drdiRdsDbInstanceArns =
 
 -- | The stack ID that the instances are registered with. The operation returns
 -- descriptions of all registered Amazon RDS instances.
---
 drdiStackId :: Lens' DescribeRdsDbInstances Text
 drdiStackId = lens _drdiStackId (\s a -> s { _drdiStackId = a })
 
@@ -101,7 +99,6 @@ describeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
     }
 
 -- | An a array of 'RdsDbInstance' objects that describe the instances.
---
 drdirRdsDbInstances :: Lens' DescribeRdsDbInstancesResponse [RdsDbInstance]
 drdirRdsDbInstances =
     lens _drdirRdsDbInstances (\s a -> s { _drdirRdsDbInstances = a })

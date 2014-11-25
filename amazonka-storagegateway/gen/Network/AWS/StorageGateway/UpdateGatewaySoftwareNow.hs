@@ -28,6 +28,7 @@
 -- Initiators' timeouts. For more information about increasing iSCSI Initiator
 -- timeouts for Windows and Linux, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings Customizing Your Windows iSCSI Settings>
 -- and <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing Your Linux iSCSI Settings>, respectively.
+--
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewaySoftwareNow.html>
 module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     (

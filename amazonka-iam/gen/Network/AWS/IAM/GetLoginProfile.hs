@@ -63,7 +63,6 @@ getLoginProfile p1 = GetLoginProfile
     }
 
 -- | The name of the user whose login profile you want to retrieve.
---
 glpUserName :: Lens' GetLoginProfile Text
 glpUserName = lens _glpUserName (\s a -> s { _glpUserName = a })
 
@@ -84,7 +83,6 @@ getLoginProfileResponse p1 = GetLoginProfileResponse
     }
 
 -- | The user name and password create date for the user.
---
 glprLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
 glprLoginProfile = lens _glprLoginProfile (\s a -> s { _glprLoginProfile = a })
 

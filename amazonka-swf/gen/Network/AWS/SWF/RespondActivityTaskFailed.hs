@@ -87,12 +87,10 @@ respondActivityTaskFailed p1 = RespondActivityTaskFailed
     }
 
 -- | Optional detailed information about the failure.
---
 ratfDetails :: Lens' RespondActivityTaskFailed (Maybe Text)
 ratfDetails = lens _ratfDetails (\s a -> s { _ratfDetails = a })
 
 -- | Description of the error that may assist in diagnostics.
---
 ratfReason :: Lens' RespondActivityTaskFailed (Maybe Text)
 ratfReason = lens _ratfReason (\s a -> s { _ratfReason = a })
 

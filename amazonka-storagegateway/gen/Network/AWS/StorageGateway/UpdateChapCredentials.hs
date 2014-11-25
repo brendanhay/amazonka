@@ -28,6 +28,7 @@
 -- are closed and initiators must reconnect with the new credentials.
 --
 --
+--
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateChapCredentials.html>
 module Network.AWS.StorageGateway.UpdateChapCredentials
     (
@@ -86,13 +87,11 @@ updateChapCredentials p1 p2 p3 = UpdateChapCredentials
     }
 
 -- | The iSCSI initiator that connects to the target.
---
 uccInitiatorName :: Lens' UpdateChapCredentials Text
 uccInitiatorName = lens _uccInitiatorName (\s a -> s { _uccInitiatorName = a })
 
 -- | The secret key that the initiator (e.g. Windows client) must provide to
 -- participate in mutual CHAP with the target.
---
 uccSecretToAuthenticateInitiator :: Lens' UpdateChapCredentials Text
 uccSecretToAuthenticateInitiator =
     lens _uccSecretToAuthenticateInitiator
@@ -100,14 +99,12 @@ uccSecretToAuthenticateInitiator =
 
 -- | The secret key that the target must provide to participate in mutual CHAP
 -- with the initiator (e.g. Windows client).
---
 uccSecretToAuthenticateTarget :: Lens' UpdateChapCredentials (Maybe Text)
 uccSecretToAuthenticateTarget =
     lens _uccSecretToAuthenticateTarget
         (\s a -> s { _uccSecretToAuthenticateTarget = a })
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
---
 uccTargetARN :: Lens' UpdateChapCredentials Text
 uccTargetARN = lens _uccTargetARN (\s a -> s { _uccTargetARN = a })
 
@@ -132,14 +129,12 @@ updateChapCredentialsResponse = UpdateChapCredentialsResponse
 
 -- | The iSCSI initiator that connects to the target. This is the same initiator
 -- name specified in the request.
---
 uccrInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccrInitiatorName =
     lens _uccrInitiatorName (\s a -> s { _uccrInitiatorName = a })
 
 -- | The Amazon Resource Name (ARN) of the target. This is the same target
 -- specified in the request.
---
 uccrTargetARN :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccrTargetARN = lens _uccrTargetARN (\s a -> s { _uccrTargetARN = a })
 

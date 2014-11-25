@@ -64,7 +64,6 @@ getHealthCheckStatus p1 = GetHealthCheckStatus
 
 -- | The ID of the health check for which you want to retrieve the most recent
 -- status.
---
 ghcsHealthCheckId :: Lens' GetHealthCheckStatus Text
 ghcsHealthCheckId =
     lens _ghcsHealthCheckId (\s a -> s { _ghcsHealthCheckId = a })
@@ -92,7 +91,6 @@ getHealthCheckStatusResponse = GetHealthCheckStatusResponse
 
 -- | A list that contains one 'HealthCheckObservation' element for each Route 53
 -- health checker.
---
 ghcsrHealthCheckObservations :: Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
 ghcsrHealthCheckObservations =
     lens _ghcsrHealthCheckObservations

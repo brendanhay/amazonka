@@ -181,7 +181,6 @@ dni1Filters = lens _dni1Filters (\s a -> s { _dni1Filters = a }) . _List
 -- | One or more network interface IDs.
 --
 -- Default: Describes all your network interfaces.
---
 dni1NetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
 dni1NetworkInterfaceIds =
     lens _dni1NetworkInterfaceIds (\s a -> s { _dni1NetworkInterfaceIds = a })
@@ -209,7 +208,6 @@ describeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     }
 
 -- | Information about one or more network interfaces.
---
 dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
 dnirNetworkInterfaces =
     lens _dnirNetworkInterfaces (\s a -> s { _dnirNetworkInterfaces = a })

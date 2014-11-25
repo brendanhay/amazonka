@@ -85,7 +85,6 @@ describeLogStreams p1 = DescribeLogStreams
 
 -- | The maximum number of items returned in the response. If you don't specify a
 -- value, the request would return up to 50 items.
---
 dls1Limit :: Lens' DescribeLogStreams (Maybe Natural)
 dls1Limit = lens _dls1Limit (\s a -> s { _dls1Limit = a }) . mapping _Nat
 
@@ -98,7 +97,6 @@ dls1LogStreamNamePrefix =
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous 'DescribeLogStreams' request.
---
 dls1NextToken :: Lens' DescribeLogStreams (Maybe Text)
 dls1NextToken = lens _dls1NextToken (\s a -> s { _dls1NextToken = a })
 

@@ -65,7 +65,6 @@ deregisterVolume p1 = DeregisterVolume
     }
 
 -- | The volume ID.
---
 dvVolumeId :: Lens' DeregisterVolume Text
 dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
 

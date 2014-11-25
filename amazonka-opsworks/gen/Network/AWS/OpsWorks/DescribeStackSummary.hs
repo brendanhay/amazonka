@@ -67,7 +67,6 @@ describeStackSummary p1 = DescribeStackSummary
     }
 
 -- | The stack ID.
---
 dssStackId :: Lens' DescribeStackSummary Text
 dssStackId = lens _dssStackId (\s a -> s { _dssStackId = a })
 
@@ -87,7 +86,6 @@ describeStackSummaryResponse = DescribeStackSummaryResponse
     }
 
 -- | A 'StackSummary' object that contains the results.
---
 dssrStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrStackSummary = lens _dssrStackSummary (\s a -> s { _dssrStackSummary = a })
 

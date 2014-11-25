@@ -90,7 +90,6 @@ cpvi1ConnectionId =
 -- | Detailed information for the private virtual interface to be created.
 --
 -- Default: None
---
 cpvi1NewPrivateVirtualInterface :: Lens' CreatePrivateVirtualInterface NewPrivateVirtualInterface
 cpvi1NewPrivateVirtualInterface =
     lens _cpvi1NewPrivateVirtualInterface
@@ -186,7 +185,6 @@ cpvir2CustomerAddress =
     lens _cpvir2CustomerAddress (\s a -> s { _cpvir2CustomerAddress = a })
 
 -- | Information for generating the customer router configuration.
---
 cpvir2CustomerRouterConfig :: Lens' CreatePrivateVirtualInterfaceResponse (Maybe Text)
 cpvir2CustomerRouterConfig =
     lens _cpvir2CustomerRouterConfig

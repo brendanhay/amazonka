@@ -79,7 +79,6 @@ listOperations = ListOperations
 -- Default: None
 --
 -- Required: No
---
 loMarker :: Lens' ListOperations (Maybe Text)
 loMarker = lens _loMarker (\s a -> s { _loMarker = a })
 
@@ -92,7 +91,6 @@ loMarker = lens _loMarker (\s a -> s { _loMarker = a })
 -- Constraints: A value between 1 and 100.
 --
 -- Required: No
---
 loMaxItems :: Lens' ListOperations (Maybe Int)
 loMaxItems = lens _loMaxItems (\s a -> s { _loMaxItems = a })
 
@@ -122,7 +120,6 @@ listOperationsResponse = ListOperationsResponse
 -- Type: String
 --
 -- Parent: 'Operations'
---
 lorNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
 lorNextPageMarker =
     lens _lorNextPageMarker (\s a -> s { _lorNextPageMarker = a })
@@ -132,7 +129,6 @@ lorNextPageMarker =
 -- Type: Complex type containing a list of operation summaries
 --
 -- Children: 'OperationId', 'Status', 'SubmittedDate', 'Type'
---
 lorOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorOperations = lens _lorOperations (\s a -> s { _lorOperations = a }) . _List
 

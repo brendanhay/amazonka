@@ -75,7 +75,6 @@ purchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOffering
 -- | The number of cache node instances to reserve.
 --
 -- Default: '1'
---
 prcnoCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Int)
 prcnoCacheNodeCount =
     lens _prcnoCacheNodeCount (\s a -> s { _prcnoCacheNodeCount = a })
@@ -83,7 +82,6 @@ prcnoCacheNodeCount =
 -- | A customer-specified identifier to track this reservation.
 --
 -- Example: myreservationID
---
 prcnoReservedCacheNodeId :: Lens' PurchaseReservedCacheNodesOffering (Maybe Text)
 prcnoReservedCacheNodeId =
     lens _prcnoReservedCacheNodeId
@@ -92,7 +90,6 @@ prcnoReservedCacheNodeId =
 -- | The ID of the reserved cache node offering to purchase.
 --
 -- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
---
 prcnoReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOffering Text
 prcnoReservedCacheNodesOfferingId =
     lens _prcnoReservedCacheNodesOfferingId

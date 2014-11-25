@@ -71,7 +71,6 @@ listTables = ListTables
 -- | The first table name that this operation will evaluate. Use the value that
 -- was returned for /LastEvaluatedTableName/ in a previous operation, so that you
 -- can obtain the next page of results.
---
 ltExclusiveStartTableName :: Lens' ListTables (Maybe Text)
 ltExclusiveStartTableName =
     lens _ltExclusiveStartTableName
@@ -79,7 +78,6 @@ ltExclusiveStartTableName =
 
 -- | A maximum number of table names to return. If this parameter is not
 -- specified, the limit is 100.
---
 ltLimit :: Lens' ListTables (Maybe Natural)
 ltLimit = lens _ltLimit (\s a -> s { _ltLimit = a }) . mapping _Nat
 
@@ -108,7 +106,6 @@ listTablesResponse = ListTablesResponse
 --
 -- If you do not receive a /LastEvaluatedTableName/ value in the response, this
 -- means that there are no more table names to be retrieved.
---
 ltrLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
 ltrLastEvaluatedTableName =
     lens _ltrLastEvaluatedTableName
@@ -120,7 +117,6 @@ ltrLastEvaluatedTableName =
 -- If /LastEvaluatedTableName/ also appears in the output, you can use this value
 -- as the /ExclusiveStartTableName/ parameter in a subsequent /ListTables/ request
 -- and obtain the next page of results.
---
 ltrTableNames :: Lens' ListTablesResponse [Text]
 ltrTableNames = lens _ltrTableNames (\s a -> s { _ltrTableNames = a }) . _List
 

@@ -81,27 +81,23 @@ resyncMFADevice p1 p2 p3 p4 = ResyncMFADevice
     }
 
 -- | An authentication code emitted by the device.
---
 rmfadAuthenticationCode1 :: Lens' ResyncMFADevice Text
 rmfadAuthenticationCode1 =
     lens _rmfadAuthenticationCode1
         (\s a -> s { _rmfadAuthenticationCode1 = a })
 
 -- | A subsequent authentication code emitted by the device.
---
 rmfadAuthenticationCode2 :: Lens' ResyncMFADevice Text
 rmfadAuthenticationCode2 =
     lens _rmfadAuthenticationCode2
         (\s a -> s { _rmfadAuthenticationCode2 = a })
 
 -- | Serial number that uniquely identifies the MFA device.
---
 rmfadSerialNumber :: Lens' ResyncMFADevice Text
 rmfadSerialNumber =
     lens _rmfadSerialNumber (\s a -> s { _rmfadSerialNumber = a })
 
 -- | The name of the user whose MFA device you want to resynchronize.
---
 rmfadUserName :: Lens' ResyncMFADevice Text
 rmfadUserName = lens _rmfadUserName (\s a -> s { _rmfadUserName = a })
 

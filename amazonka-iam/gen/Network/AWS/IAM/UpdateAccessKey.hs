@@ -82,19 +82,16 @@ updateAccessKey p1 p2 = UpdateAccessKey
     }
 
 -- | The access key ID of the secret access key you want to update.
---
 uakAccessKeyId :: Lens' UpdateAccessKey Text
 uakAccessKeyId = lens _uakAccessKeyId (\s a -> s { _uakAccessKeyId = a })
 
 -- | The status you want to assign to the secret access key. 'Active' means the key
 -- can be used for API calls to AWS, while 'Inactive' means the key cannot be
 -- used.
---
 uakStatus :: Lens' UpdateAccessKey StatusType
 uakStatus = lens _uakStatus (\s a -> s { _uakStatus = a })
 
 -- | The name of the user whose key you want to update.
---
 uakUserName :: Lens' UpdateAccessKey (Maybe Text)
 uakUserName = lens _uakUserName (\s a -> s { _uakUserName = a })
 

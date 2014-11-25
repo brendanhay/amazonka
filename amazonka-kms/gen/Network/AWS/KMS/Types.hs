@@ -167,37 +167,30 @@ keyMetadata p1 = KeyMetadata
     }
 
 -- | Account ID number.
---
 kmAWSAccountId :: Lens' KeyMetadata (Maybe Text)
 kmAWSAccountId = lens _kmAWSAccountId (\s a -> s { _kmAWSAccountId = a })
 
 -- | Key ARN (Amazon Resource Name).
---
 kmArn :: Lens' KeyMetadata (Maybe Text)
 kmArn = lens _kmArn (\s a -> s { _kmArn = a })
 
 -- | Date the key was created.
---
 kmCreationDate :: Lens' KeyMetadata (Maybe UTCTime)
 kmCreationDate = lens _kmCreationDate (\s a -> s { _kmCreationDate = a }) . mapping _Time
 
 -- | The description of the key.
---
 kmDescription :: Lens' KeyMetadata (Maybe Text)
 kmDescription = lens _kmDescription (\s a -> s { _kmDescription = a })
 
 -- | Value that specifies whether the key is enabled.
---
 kmEnabled :: Lens' KeyMetadata (Maybe Bool)
 kmEnabled = lens _kmEnabled (\s a -> s { _kmEnabled = a })
 
 -- | Unique identifier for the key.
---
 kmKeyId :: Lens' KeyMetadata Text
 kmKeyId = lens _kmKeyId (\s a -> s { _kmKeyId = a })
 
 -- | A value that specifies what operation(s) the key can perform.
---
 kmKeyUsage :: Lens' KeyMetadata (Maybe KeyUsageType)
 kmKeyUsage = lens _kmKeyUsage (\s a -> s { _kmKeyUsage = a })
 
@@ -320,17 +313,14 @@ aliasListEntry = AliasListEntry
     }
 
 -- | String that contains the key ARN.
---
 aleAliasArn :: Lens' AliasListEntry (Maybe Text)
 aleAliasArn = lens _aleAliasArn (\s a -> s { _aleAliasArn = a })
 
 -- | String that contains the alias.
---
 aleAliasName :: Lens' AliasListEntry (Maybe Text)
 aleAliasName = lens _aleAliasName (\s a -> s { _aleAliasName = a })
 
 -- | String that contains the key identifier pointed to by the alias.
---
 aleTargetKeyId :: Lens' AliasListEntry (Maybe Text)
 aleTargetKeyId = lens _aleTargetKeyId (\s a -> s { _aleTargetKeyId = a })
 
@@ -384,23 +374,19 @@ grantListEntry = GrantListEntry
 
 -- | Specifies the conditions under which the actions specified by the 'Operations'
 -- parameter are allowed.
---
 gleConstraints :: Lens' GrantListEntry (Maybe GrantConstraints)
 gleConstraints = lens _gleConstraints (\s a -> s { _gleConstraints = a })
 
 -- | Unique grant identifier.
---
 gleGrantId :: Lens' GrantListEntry (Maybe Text)
 gleGrantId = lens _gleGrantId (\s a -> s { _gleGrantId = a })
 
 -- | The principal that receives the grant permission.
---
 gleGranteePrincipal :: Lens' GrantListEntry (Maybe Text)
 gleGranteePrincipal =
     lens _gleGranteePrincipal (\s a -> s { _gleGranteePrincipal = a })
 
 -- | The account under which the grant was issued.
---
 gleIssuingAccount :: Lens' GrantListEntry (Maybe Text)
 gleIssuingAccount =
     lens _gleIssuingAccount (\s a -> s { _gleIssuingAccount = a })
@@ -408,12 +394,10 @@ gleIssuingAccount =
 -- | List of operations permitted by the grant. This can be any combination of one
 -- or more of the following values:  Decrypt Encrypt GenerateDataKey GenerateDataKeyWithoutPlaintext
 -- ReEncryptFrom ReEncryptTo CreateGrant
---
 gleOperations :: Lens' GrantListEntry [GrantOperation]
 gleOperations = lens _gleOperations (\s a -> s { _gleOperations = a }) . _List
 
 -- | The principal that can retire the account.
---
 gleRetiringPrincipal :: Lens' GrantListEntry (Maybe Text)
 gleRetiringPrincipal =
     lens _gleRetiringPrincipal (\s a -> s { _gleRetiringPrincipal = a })
@@ -504,12 +488,10 @@ keyListEntry = KeyListEntry
     }
 
 -- | ARN of the key.
---
 kleKeyArn :: Lens' KeyListEntry (Maybe Text)
 kleKeyArn = lens _kleKeyArn (\s a -> s { _kleKeyArn = a })
 
 -- | Unique identifier of the key.
---
 kleKeyId :: Lens' KeyListEntry (Maybe Text)
 kleKeyId = lens _kleKeyId (\s a -> s { _kleKeyId = a })
 

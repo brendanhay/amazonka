@@ -84,7 +84,6 @@ updateDomainNameservers p1 = UpdateDomainNameservers
 -- supported.
 --
 -- Required: Yes
---
 udnDomainName :: Lens' UpdateDomainNameservers Text
 udnDomainName = lens _udnDomainName (\s a -> s { _udnDomainName = a })
 
@@ -95,7 +94,6 @@ udnDomainName = lens _udnDomainName (\s a -> s { _udnDomainName = a })
 -- Children: 'Name', 'GlueIps'
 --
 -- Required: Yes
---
 udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
 udnNameservers = lens _udnNameservers (\s a -> s { _udnNameservers = a }) . _List
 
@@ -123,7 +121,6 @@ updateDomainNameserversResponse p1 = UpdateDomainNameserversResponse
 -- Default: None
 --
 -- Constraints: Maximum 255 characters.
---
 udnrOperationId :: Lens' UpdateDomainNameserversResponse Text
 udnrOperationId = lens _udnrOperationId (\s a -> s { _udnrOperationId = a })
 

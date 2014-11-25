@@ -71,14 +71,12 @@ createVpnConnectionRoute p1 p2 = CreateVpnConnectionRoute
     }
 
 -- | The CIDR block associated with the local subnet of the customer network.
---
 cvcrDestinationCidrBlock :: Lens' CreateVpnConnectionRoute Text
 cvcrDestinationCidrBlock =
     lens _cvcrDestinationCidrBlock
         (\s a -> s { _cvcrDestinationCidrBlock = a })
 
 -- | The ID of the VPN connection.
---
 cvcrVpnConnectionId :: Lens' CreateVpnConnectionRoute Text
 cvcrVpnConnectionId =
     lens _cvcrVpnConnectionId (\s a -> s { _cvcrVpnConnectionId = a })

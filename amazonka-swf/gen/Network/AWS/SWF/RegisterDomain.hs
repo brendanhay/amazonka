@@ -86,7 +86,6 @@ registerDomain p1 p2 = RegisterDomain
     }
 
 -- | Textual description of the domain.
---
 rdDescription :: Lens' RegisterDomain (Maybe Text)
 rdDescription = lens _rdDescription (\s a -> s { _rdDescription = a })
 
@@ -96,7 +95,6 @@ rdDescription = lens _rdDescription (\s a -> s { _rdDescription = a })
 -- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string "arn".
---
 rdName :: Lens' RegisterDomain Text
 rdName = lens _rdName (\s a -> s { _rdName = a })
 
@@ -105,7 +103,6 @@ rdName = lens _rdName (\s a -> s { _rdName = a })
 -- After the retention period, the workflow execution will not be available in
 -- the results of visibility calls. If a duration of 'NONE' is specified, the
 -- records for workflow executions in this domain are not retained at all.
---
 rdWorkflowExecutionRetentionPeriodInDays :: Lens' RegisterDomain Text
 rdWorkflowExecutionRetentionPeriodInDays =
     lens _rdWorkflowExecutionRetentionPeriodInDays

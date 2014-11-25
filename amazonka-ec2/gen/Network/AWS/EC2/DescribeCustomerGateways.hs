@@ -75,7 +75,6 @@ describeCustomerGateways = DescribeCustomerGateways
 -- | One or more customer gateway IDs.
 --
 -- Default: Describes all your customer gateways.
---
 dcgCustomerGatewayIds :: Lens' DescribeCustomerGateways [Text]
 dcgCustomerGatewayIds =
     lens _dcgCustomerGatewayIds (\s a -> s { _dcgCustomerGatewayIds = a })
@@ -138,7 +137,6 @@ describeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     }
 
 -- | Information about one or more customer gateways.
---
 dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
 dcgrCustomerGateways =
     lens _dcgrCustomerGateways (\s a -> s { _dcgrCustomerGateways = a })

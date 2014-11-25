@@ -75,14 +75,12 @@ enableAvailabilityZonesForLoadBalancer p1 = EnableAvailabilityZonesForLoadBalanc
 
 -- | A list of new Availability Zones for the load balancer. Each Availability
 -- Zone must be in the same region as the load balancer.
---
 eazflbAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
 eazflbAvailabilityZones =
     lens _eazflbAvailabilityZones (\s a -> s { _eazflbAvailabilityZones = a })
         . _List
 
 -- | The name associated with the load balancer.
---
 eazflbLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer Text
 eazflbLoadBalancerName =
     lens _eazflbLoadBalancerName (\s a -> s { _eazflbLoadBalancerName = a })
@@ -109,7 +107,6 @@ enableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadB
     }
 
 -- | An updated list of Availability Zones for the load balancer.
---
 eazflbrAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
 eazflbrAvailabilityZones =
     lens _eazflbrAvailabilityZones

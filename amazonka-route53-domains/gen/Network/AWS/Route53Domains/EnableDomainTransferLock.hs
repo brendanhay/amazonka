@@ -75,7 +75,6 @@ enableDomainTransferLock p1 = EnableDomainTransferLock
 -- supported.
 --
 -- Required: Yes
---
 edtlDomainName :: Lens' EnableDomainTransferLock Text
 edtlDomainName = lens _edtlDomainName (\s a -> s { _edtlDomainName = a })
 
@@ -103,7 +102,6 @@ enableDomainTransferLockResponse p1 = EnableDomainTransferLockResponse
 -- Default: None
 --
 -- Constraints: Maximum 255 characters.
---
 edtlrOperationId :: Lens' EnableDomainTransferLockResponse Text
 edtlrOperationId = lens _edtlrOperationId (\s a -> s { _edtlrOperationId = a })
 

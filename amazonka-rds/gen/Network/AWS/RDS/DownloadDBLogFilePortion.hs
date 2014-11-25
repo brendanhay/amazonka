@@ -93,7 +93,6 @@ ddblfpDBInstanceIdentifier =
         (\s a -> s { _ddblfpDBInstanceIdentifier = a })
 
 -- | The name of the log file to be downloaded.
---
 ddblfpLogFileName :: Lens' DownloadDBLogFilePortion Text
 ddblfpLogFileName =
     lens _ddblfpLogFileName (\s a -> s { _ddblfpLogFileName = a })
@@ -101,7 +100,6 @@ ddblfpLogFileName =
 -- | The pagination token provided in the previous request or "0". If the Marker
 -- parameter is specified the response includes only records beyond the marker
 -- until the end of the file or up to NumberOfLines.
---
 ddblfpMarker :: Lens' DownloadDBLogFilePortion (Maybe Text)
 ddblfpMarker = lens _ddblfpMarker (\s a -> s { _ddblfpMarker = a })
 
@@ -123,7 +121,6 @@ ddblfpMarker = lens _ddblfpMarker (\s a -> s { _ddblfpMarker = a })
 -- for the Marker parameter in your first request. Include the Marker value
 -- returned in the response as the Marker value for the next request, continuing
 -- until the AdditionalDataPending response element returns false.
---
 --
 --
 ddblfpNumberOfLines :: Lens' DownloadDBLogFilePortion (Maybe Int)
@@ -154,21 +151,18 @@ downloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
     }
 
 -- | Boolean value that if true, indicates there is more data to be downloaded.
---
 ddblfprAdditionalDataPending :: Lens' DownloadDBLogFilePortionResponse (Maybe Bool)
 ddblfprAdditionalDataPending =
     lens _ddblfprAdditionalDataPending
         (\s a -> s { _ddblfprAdditionalDataPending = a })
 
 -- | Entries from the specified log file.
---
 ddblfprLogFileData :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 ddblfprLogFileData =
     lens _ddblfprLogFileData (\s a -> s { _ddblfprLogFileData = a })
 
 -- | A pagination token that can be used in a subsequent DownloadDBLogFilePortion
 -- request.
---
 ddblfprMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 ddblfprMarker = lens _ddblfprMarker (\s a -> s { _ddblfprMarker = a })
 

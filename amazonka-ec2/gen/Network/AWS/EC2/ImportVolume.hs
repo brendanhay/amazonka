@@ -87,13 +87,11 @@ importVolume p1 p2 p3 = ImportVolume
     }
 
 -- | The Availability Zone for the resulting Amazon EBS volume.
---
 ivAvailabilityZone :: Lens' ImportVolume Text
 ivAvailabilityZone =
     lens _ivAvailabilityZone (\s a -> s { _ivAvailabilityZone = a })
 
 -- | An optional description for the volume being imported.
---
 ivDescription :: Lens' ImportVolume (Maybe Text)
 ivDescription = lens _ivDescription (\s a -> s { _ivDescription = a })
 

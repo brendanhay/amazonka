@@ -123,7 +123,6 @@ dsg1Filters = lens _dsg1Filters (\s a -> s { _dsg1Filters = a }) . _List
 -- | One or more security group IDs. Required for nondefault VPCs.
 --
 -- Default: Describes all your security groups.
---
 dsg1GroupIds :: Lens' DescribeSecurityGroups [Text]
 dsg1GroupIds = lens _dsg1GroupIds (\s a -> s { _dsg1GroupIds = a }) . _List
 
@@ -131,7 +130,6 @@ dsg1GroupIds = lens _dsg1GroupIds (\s a -> s { _dsg1GroupIds = a }) . _List
 -- either the security group name or the security group ID.
 --
 -- Default: Describes all your security groups.
---
 dsg1GroupNames :: Lens' DescribeSecurityGroups [Text]
 dsg1GroupNames = lens _dsg1GroupNames (\s a -> s { _dsg1GroupNames = a }) . _List
 
@@ -157,7 +155,6 @@ describeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     }
 
 -- | Information about one or more security groups.
---
 dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrSecurityGroups =
     lens _dsgrSecurityGroups (\s a -> s { _dsgrSecurityGroups = a })

@@ -71,7 +71,6 @@ updateServiceAccessPolicies p1 p2 = UpdateServiceAccessPolicies
 
 -- | The access rules you want to configure. These rules replace any existing
 -- rules.
---
 usapAccessPolicies :: Lens' UpdateServiceAccessPolicies Text
 usapAccessPolicies =
     lens _usapAccessPolicies (\s a -> s { _usapAccessPolicies = a })
@@ -96,7 +95,6 @@ updateServiceAccessPoliciesResponse p1 = UpdateServiceAccessPoliciesResponse
     }
 
 -- | The access rules configured for the domain.
---
 usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
 usaprAccessPolicies =
     lens _usaprAccessPolicies (\s a -> s { _usaprAccessPolicies = a })

@@ -105,45 +105,38 @@ createHsmConfiguration p1 p2 p3 p4 p5 p6 = CreateHsmConfiguration
     }
 
 -- | A text description of the HSM configuration to be created.
---
 chcDescription :: Lens' CreateHsmConfiguration Text
 chcDescription = lens _chcDescription (\s a -> s { _chcDescription = a })
 
 -- | The identifier to be assigned to the new Amazon Redshift HSM configuration.
---
 chcHsmConfigurationIdentifier :: Lens' CreateHsmConfiguration Text
 chcHsmConfigurationIdentifier =
     lens _chcHsmConfigurationIdentifier
         (\s a -> s { _chcHsmConfigurationIdentifier = a })
 
 -- | The IP address that the Amazon Redshift cluster must use to access the HSM.
---
 chcHsmIpAddress :: Lens' CreateHsmConfiguration Text
 chcHsmIpAddress = lens _chcHsmIpAddress (\s a -> s { _chcHsmIpAddress = a })
 
 -- | The name of the partition in the HSM where the Amazon Redshift clusters will
 -- store their database encryption keys.
---
 chcHsmPartitionName :: Lens' CreateHsmConfiguration Text
 chcHsmPartitionName =
     lens _chcHsmPartitionName (\s a -> s { _chcHsmPartitionName = a })
 
 -- | The password required to access the HSM partition.
---
 chcHsmPartitionPassword :: Lens' CreateHsmConfiguration Text
 chcHsmPartitionPassword =
     lens _chcHsmPartitionPassword (\s a -> s { _chcHsmPartitionPassword = a })
 
 -- | The HSMs public certificate file. When using Cloud HSM, the file name is
 -- server.pem.
---
 chcHsmServerPublicCertificate :: Lens' CreateHsmConfiguration Text
 chcHsmServerPublicCertificate =
     lens _chcHsmServerPublicCertificate
         (\s a -> s { _chcHsmServerPublicCertificate = a })
 
 -- | A list of tag instances.
---
 chcTags :: Lens' CreateHsmConfiguration [Tag]
 chcTags = lens _chcTags (\s a -> s { _chcTags = a }) . _List
 

@@ -62,7 +62,6 @@ deleteEventSubscription p1 = DeleteEventSubscription
     }
 
 -- | The name of the RDS event notification subscription you want to delete.
---
 desSubscriptionName :: Lens' DeleteEventSubscription Text
 desSubscriptionName =
     lens _desSubscriptionName (\s a -> s { _desSubscriptionName = a })

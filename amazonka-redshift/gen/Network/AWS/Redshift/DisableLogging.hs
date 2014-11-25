@@ -70,7 +70,6 @@ disableLogging p1 = DisableLogging
 -- | The identifier of the cluster on which logging is to be stopped.
 --
 -- Example: 'examplecluster'
---
 dlClusterIdentifier :: Lens' DisableLogging Text
 dlClusterIdentifier =
     lens _dlClusterIdentifier (\s a -> s { _dlClusterIdentifier = a })
@@ -111,25 +110,21 @@ disableLoggingResponse = DisableLoggingResponse
     }
 
 -- | The name of the S3 bucket where the log files are stored.
---
 dlrBucketName :: Lens' DisableLoggingResponse (Maybe Text)
 dlrBucketName = lens _dlrBucketName (\s a -> s { _dlrBucketName = a })
 
 -- | The message indicating that logs failed to be delivered.
---
 dlrLastFailureMessage :: Lens' DisableLoggingResponse (Maybe Text)
 dlrLastFailureMessage =
     lens _dlrLastFailureMessage (\s a -> s { _dlrLastFailureMessage = a })
 
 -- | The last time when logs failed to be delivered.
---
 dlrLastFailureTime :: Lens' DisableLoggingResponse (Maybe UTCTime)
 dlrLastFailureTime =
     lens _dlrLastFailureTime (\s a -> s { _dlrLastFailureTime = a })
         . mapping _Time
 
 -- | The last time when logs were delivered.
---
 dlrLastSuccessfulDeliveryTime :: Lens' DisableLoggingResponse (Maybe UTCTime)
 dlrLastSuccessfulDeliveryTime =
     lens _dlrLastSuccessfulDeliveryTime
@@ -137,13 +132,11 @@ dlrLastSuccessfulDeliveryTime =
             . mapping _Time
 
 -- | 'true' if logging is on, 'false' if logging is off.
---
 dlrLoggingEnabled :: Lens' DisableLoggingResponse (Maybe Bool)
 dlrLoggingEnabled =
     lens _dlrLoggingEnabled (\s a -> s { _dlrLoggingEnabled = a })
 
 -- | The prefix applied to the log file names.
---
 dlrS3KeyPrefix :: Lens' DisableLoggingResponse (Maybe Text)
 dlrS3KeyPrefix = lens _dlrS3KeyPrefix (\s a -> s { _dlrS3KeyPrefix = a })
 

@@ -119,7 +119,6 @@ getAccountSummaryResponse = GetAccountSummaryResponse
 -- 'UsersQuota' - Maximum users allowed for the AWS account
 --
 --
---
 gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
 gasrSummaryMap = lens _gasrSummaryMap (\s a -> s { _gasrSummaryMap = a }) . _EMap
 

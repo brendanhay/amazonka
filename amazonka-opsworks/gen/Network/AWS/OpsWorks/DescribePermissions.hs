@@ -71,12 +71,10 @@ describePermissions = DescribePermissions
 
 -- | The user's IAM ARN. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>
 -- .
---
 dpIamUserArn :: Lens' DescribePermissions (Maybe Text)
 dpIamUserArn = lens _dpIamUserArn (\s a -> s { _dpIamUserArn = a })
 
 -- | The stack ID.
---
 dpStackId :: Lens' DescribePermissions (Maybe Text)
 dpStackId = lens _dpStackId (\s a -> s { _dpStackId = a })
 

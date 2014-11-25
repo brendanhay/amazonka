@@ -73,7 +73,6 @@ caGatewayARN = lens _caGatewayARN (\s a -> s { _caGatewayARN = a })
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
 -- archiving for.
---
 caTapeARN :: Lens' CancelArchival Text
 caTapeARN = lens _caTapeARN (\s a -> s { _caTapeARN = a })
 
@@ -94,7 +93,6 @@ cancelArchivalResponse = CancelArchivalResponse
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which archiving was
 -- canceled.
---
 carTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carTapeARN = lens _carTapeARN (\s a -> s { _carTapeARN = a })
 

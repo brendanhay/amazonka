@@ -72,7 +72,6 @@ applySecurityGroupsToLoadBalancer p1 = ApplySecurityGroupsToLoadBalancer
 
 -- | The name associated with the load balancer. The name must be unique within
 -- the set of load balancers associated with your AWS account.
---
 asgtlbLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer Text
 asgtlbLoadBalancerName =
     lens _asgtlbLoadBalancerName (\s a -> s { _asgtlbLoadBalancerName = a })
@@ -80,7 +79,6 @@ asgtlbLoadBalancerName =
 -- | A list of security group IDs to associate with your load balancer in VPC.
 -- The security group IDs must be provided as the ID and not the security group
 -- name (For example, sg-1234).
---
 asgtlbSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
 asgtlbSecurityGroups =
     lens _asgtlbSecurityGroups (\s a -> s { _asgtlbSecurityGroups = a })
@@ -108,7 +106,6 @@ applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerRes
     }
 
 -- | A list of security group IDs associated with your load balancer.
---
 asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrSecurityGroups =
     lens _asgtlbrSecurityGroups (\s a -> s { _asgtlbrSecurityGroups = a })

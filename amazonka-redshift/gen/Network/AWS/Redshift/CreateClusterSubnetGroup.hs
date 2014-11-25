@@ -89,25 +89,21 @@ createClusterSubnetGroup p1 p2 = CreateClusterSubnetGroup
 -- Must contain no more than 255 alphanumeric characters or hyphens. Must not
 -- be "Default". Must be unique for all subnet groups that are created by your
 -- AWS account.  Example: 'examplesubnetgroup'
---
 ccsgClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
 ccsgClusterSubnetGroupName =
     lens _ccsgClusterSubnetGroupName
         (\s a -> s { _ccsgClusterSubnetGroupName = a })
 
 -- | A description for the subnet group.
---
 ccsgDescription :: Lens' CreateClusterSubnetGroup Text
 ccsgDescription = lens _ccsgDescription (\s a -> s { _ccsgDescription = a })
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
---
 ccsgSubnetIds :: Lens' CreateClusterSubnetGroup [Text]
 ccsgSubnetIds = lens _ccsgSubnetIds (\s a -> s { _ccsgSubnetIds = a }) . _List
 
 -- | A list of tag instances.
---
 ccsgTags :: Lens' CreateClusterSubnetGroup [Tag]
 ccsgTags = lens _ccsgTags (\s a -> s { _ccsgTags = a }) . _List
 

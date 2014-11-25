@@ -89,34 +89,28 @@ describeAlarmHistory = DescribeAlarmHistory
     }
 
 -- | The name of the alarm.
---
 dahAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
 dahAlarmName = lens _dahAlarmName (\s a -> s { _dahAlarmName = a })
 
 -- | The ending date to retrieve alarm history.
---
 dahEndDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
 dahEndDate = lens _dahEndDate (\s a -> s { _dahEndDate = a }) . mapping _Time
 
 -- | The type of alarm histories to retrieve.
---
 dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
 dahHistoryItemType =
     lens _dahHistoryItemType (\s a -> s { _dahHistoryItemType = a })
 
 -- | The maximum number of alarm history records to retrieve.
---
 dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
 dahMaxRecords = lens _dahMaxRecords (\s a -> s { _dahMaxRecords = a }) . mapping _Nat
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
---
 dahNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
 dahNextToken = lens _dahNextToken (\s a -> s { _dahNextToken = a })
 
 -- | The starting date to retrieve alarm history.
---
 dahStartDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
 dahStartDate = lens _dahStartDate (\s a -> s { _dahStartDate = a }) . mapping _Time
 
@@ -140,14 +134,12 @@ describeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     }
 
 -- | A list of alarm histories in JSON format.
---
 dahrAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
 dahrAlarmHistoryItems =
     lens _dahrAlarmHistoryItems (\s a -> s { _dahrAlarmHistoryItems = a })
         . _List
 
 -- | A string that marks the start of the next batch of returned results.
---
 dahrNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrNextToken = lens _dahrNextToken (\s a -> s { _dahrNextToken = a })
 

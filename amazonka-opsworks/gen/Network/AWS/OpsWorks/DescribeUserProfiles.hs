@@ -71,7 +71,6 @@ describeUserProfiles = DescribeUserProfiles
     }
 
 -- | An array of IAM user ARNs that identify the users to be described.
---
 dupIamUserArns :: Lens' DescribeUserProfiles [Text]
 dupIamUserArns = lens _dupIamUserArns (\s a -> s { _dupIamUserArns = a }) . _List
 
@@ -97,7 +96,6 @@ describeUserProfilesResponse = DescribeUserProfilesResponse
     }
 
 -- | A 'Users' object that describes the specified users.
---
 duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
 duprUserProfiles = lens _duprUserProfiles (\s a -> s { _duprUserProfiles = a }) . _List
 

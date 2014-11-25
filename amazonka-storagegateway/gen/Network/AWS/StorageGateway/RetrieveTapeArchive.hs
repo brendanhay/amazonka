@@ -80,13 +80,11 @@ retrieveTapeArchive p1 p2 = RetrieveTapeArchive
 --
 -- You retrieve archived virtual tapes to only one gateway and the gateway must
 -- be a gateway-VTL.
---
 rtaGatewayARN :: Lens' RetrieveTapeArchive Text
 rtaGatewayARN = lens _rtaGatewayARN (\s a -> s { _rtaGatewayARN = a })
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from
 -- the virtual tape shelf (VTS).
---
 rtaTapeARN :: Lens' RetrieveTapeArchive Text
 rtaTapeARN = lens _rtaTapeARN (\s a -> s { _rtaTapeARN = a })
 
@@ -106,7 +104,6 @@ retrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
     }
 
 -- | The Amazon Resource Name (ARN) of the retrieved virtual tape.
---
 rtarTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
 rtarTapeARN = lens _rtarTapeARN (\s a -> s { _rtarTapeARN = a })
 

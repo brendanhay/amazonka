@@ -78,7 +78,6 @@ deleteClusterSnapshot p1 = DeleteClusterSnapshot
 -- resource element that specifies anything other than * for the cluster name.
 --
 -- Constraints: Must be the name of valid cluster.
---
 dcsSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
 dcsSnapshotClusterIdentifier =
     lens _dcsSnapshotClusterIdentifier
@@ -87,7 +86,6 @@ dcsSnapshotClusterIdentifier =
 -- | The unique identifier of the manual snapshot to be deleted.
 --
 -- Constraints: Must be the name of an existing snapshot that is in the 'available' state.
---
 dcsSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
 dcsSnapshotIdentifier =
     lens _dcsSnapshotIdentifier (\s a -> s { _dcsSnapshotIdentifier = a })

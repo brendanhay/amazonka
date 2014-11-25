@@ -72,12 +72,10 @@ invokeAsync p1 p2 = InvokeAsync
     }
 
 -- | The Lambda function name.
---
 iaFunctionName :: Lens' InvokeAsync Text
 iaFunctionName = lens _iaFunctionName (\s a -> s { _iaFunctionName = a })
 
 -- | JSON that you want to provide to your Lambda function as input.
---
 iaInvokeArgs :: Lens' InvokeAsync Base64
 iaInvokeArgs = lens _iaInvokeArgs (\s a -> s { _iaInvokeArgs = a })
 
@@ -98,7 +96,6 @@ invokeAsyncResponse p1 = InvokeAsyncResponse
     }
 
 -- | It will be 202 upon success.
---
 iarStatus :: Lens' InvokeAsyncResponse Int
 iarStatus = lens _iarStatus (\s a -> s { _iarStatus = a })
 

@@ -71,7 +71,6 @@ describeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
     }
 
 -- | An array of layer IDs.
---
 dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
 dlbasLayerIds = lens _dlbasLayerIds (\s a -> s { _dlbasLayerIds = a }) . _List
 
@@ -98,7 +97,6 @@ describeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
 
 -- | An array of 'LoadBasedAutoScalingConfiguration' objects that describe each
 -- layer's configuration.
---
 dlbasrLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
 dlbasrLoadBasedAutoScalingConfigurations =
     lens _dlbasrLoadBasedAutoScalingConfigurations

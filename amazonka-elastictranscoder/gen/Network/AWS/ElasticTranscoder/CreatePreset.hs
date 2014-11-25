@@ -102,33 +102,27 @@ createPreset p1 p2 = CreatePreset
     }
 
 -- | A section of the request body that specifies the audio parameters.
---
 cpAudio :: Lens' CreatePreset (Maybe AudioParameters)
 cpAudio = lens _cpAudio (\s a -> s { _cpAudio = a })
 
 -- | The container type for the output file. Valid values include 'fmp4', 'mp3', 'mp4', 'ogg', 'ts', and 'webm'.
---
 cpContainer :: Lens' CreatePreset Text
 cpContainer = lens _cpContainer (\s a -> s { _cpContainer = a })
 
 -- | A description of the preset.
---
 cpDescription :: Lens' CreatePreset (Maybe Text)
 cpDescription = lens _cpDescription (\s a -> s { _cpDescription = a })
 
 -- | The name of the preset. We recommend that the name be unique within the AWS
 -- account, but uniqueness is not enforced.
---
 cpName :: Lens' CreatePreset Text
 cpName = lens _cpName (\s a -> s { _cpName = a })
 
 -- | A section of the request body that specifies the thumbnail parameters, if any.
---
 cpThumbnails :: Lens' CreatePreset (Maybe Thumbnails)
 cpThumbnails = lens _cpThumbnails (\s a -> s { _cpThumbnails = a })
 
 -- | A section of the request body that specifies the video parameters.
---
 cpVideo :: Lens' CreatePreset (Maybe VideoParameters)
 cpVideo = lens _cpVideo (\s a -> s { _cpVideo = a })
 
@@ -153,7 +147,6 @@ createPresetResponse = CreatePresetResponse
 
 -- | A section of the response body that provides information about the preset
 -- that is created.
---
 cprPreset :: Lens' CreatePresetResponse (Maybe Preset)
 cprPreset = lens _cprPreset (\s a -> s { _cprPreset = a })
 
@@ -161,7 +154,6 @@ cprPreset = lens _cprPreset (\s a -> s { _cprPreset = a })
 -- but Elastic Transcoder created the preset, this message explains the reason
 -- the preset settings don't meet the standard. Elastic Transcoder created the
 -- preset because the settings might produce acceptable output.
---
 cprWarning :: Lens' CreatePresetResponse (Maybe Text)
 cprWarning = lens _cprWarning (\s a -> s { _cprWarning = a })
 

@@ -68,12 +68,10 @@ removeTagsFromResource p1 = RemoveTagsFromResource
 
 -- | The Amazon RDS resource the tags will be removed from. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
---
 rtfrResourceName :: Lens' RemoveTagsFromResource Text
 rtfrResourceName = lens _rtfrResourceName (\s a -> s { _rtfrResourceName = a })
 
 -- | The tag key (name) of the tag to be removed.
---
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
 rtfrTagKeys = lens _rtfrTagKeys (\s a -> s { _rtfrTagKeys = a }) . _List
 

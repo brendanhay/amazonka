@@ -70,7 +70,6 @@ describeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
     }
 
 -- | The IDs of the Trusted Advisor checks.
---
 dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
 dtacsCheckIds = lens _dtacsCheckIds (\s a -> s { _dtacsCheckIds = a }) . _List
 
@@ -96,7 +95,6 @@ describeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummar
     }
 
 -- | The summary information for the requested Trusted Advisor checks.
---
 dtacsrSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
 dtacsrSummaries = lens _dtacsrSummaries (\s a -> s { _dtacsrSummaries = a }) . _List
 

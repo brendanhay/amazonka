@@ -82,12 +82,10 @@ deprecateWorkflowType p1 p2 = DeprecateWorkflowType
     }
 
 -- | The name of the domain in which the workflow type is registered.
---
 dwt1Domain :: Lens' DeprecateWorkflowType Text
 dwt1Domain = lens _dwt1Domain (\s a -> s { _dwt1Domain = a })
 
 -- | The workflow type to deprecate.
---
 dwt1WorkflowType :: Lens' DeprecateWorkflowType WorkflowType
 dwt1WorkflowType = lens _dwt1WorkflowType (\s a -> s { _dwt1WorkflowType = a })
 

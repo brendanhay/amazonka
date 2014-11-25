@@ -95,7 +95,6 @@ recordActivityTaskHeartbeat p1 = RecordActivityTaskHeartbeat
     }
 
 -- | If specified, contains details about the progress of the task.
---
 rathDetails :: Lens' RecordActivityTaskHeartbeat (Maybe Text)
 rathDetails = lens _rathDetails (\s a -> s { _rathDetails = a })
 
@@ -125,7 +124,6 @@ recordActivityTaskHeartbeatResponse p1 = RecordActivityTaskHeartbeatResponse
     }
 
 -- | Set to 'true' if cancellation of the task is requested.
---
 rathrCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool
 rathrCancelRequested =
     lens _rathrCancelRequested (\s a -> s { _rathrCancelRequested = a })

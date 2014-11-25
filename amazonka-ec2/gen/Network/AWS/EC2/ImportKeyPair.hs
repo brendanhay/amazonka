@@ -83,13 +83,11 @@ ikpDryRun :: Lens' ImportKeyPair (Maybe Bool)
 ikpDryRun = lens _ikpDryRun (\s a -> s { _ikpDryRun = a })
 
 -- | A unique name for the key pair.
---
 ikpKeyName :: Lens' ImportKeyPair Text
 ikpKeyName = lens _ikpKeyName (\s a -> s { _ikpKeyName = a })
 
 -- | The public key. You must base64 encode the public key material before sending
 -- it to AWS.
---
 ikpPublicKeyMaterial :: Lens' ImportKeyPair Base64
 ikpPublicKeyMaterial =
     lens _ikpPublicKeyMaterial (\s a -> s { _ikpPublicKeyMaterial = a })
@@ -114,13 +112,11 @@ importKeyPairResponse = ImportKeyPairResponse
     }
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
---
 ikprKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
 ikprKeyFingerprint =
     lens _ikprKeyFingerprint (\s a -> s { _ikprKeyFingerprint = a })
 
 -- | The key pair name you provided.
---
 ikprKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
 ikprKeyName = lens _ikprKeyName (\s a -> s { _ikprKeyName = a })
 

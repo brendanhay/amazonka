@@ -65,7 +65,6 @@ listPipelines = ListPipelines
 
 -- | The starting point for the results to be returned. The first time you call 'ListPipelines', this value should be empty. As long as the action returns 'HasMoreResults' as 'True', you can call 'ListPipelines' again and pass the marker value from the
 -- response to retrieve the next set of results.
---
 lpMarker :: Lens' ListPipelines (Maybe Text)
 lpMarker = lens _lpMarker (\s a -> s { _lpMarker = a })
 
@@ -93,7 +92,6 @@ listPipelinesResponse = ListPipelinesResponse
     }
 
 -- | If 'True', there are more results that can be obtained by a subsequent call to 'ListPipelines'.
---
 lprHasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
 lprHasMoreResults =
     lens _lprHasMoreResults (\s a -> s { _lprHasMoreResults = a })
@@ -101,14 +99,12 @@ lprHasMoreResults =
 -- | If not null, indicates the starting point for the set of pipeline identifiers
 -- that the next call to 'ListPipelines' will retrieve. If null, there are no more
 -- pipeline identifiers.
---
 lprMarker :: Lens' ListPipelinesResponse (Maybe Text)
 lprMarker = lens _lprMarker (\s a -> s { _lprMarker = a })
 
 -- | A list of all the pipeline identifiers that your account has permission to
 -- access. If you require additional information about the pipelines, you can
 -- use these identifiers to call 'DescribePipelines' and 'GetPipelineDefinition'.
---
 lprPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
 lprPipelineIdList =
     lens _lprPipelineIdList (\s a -> s { _lprPipelineIdList = a })

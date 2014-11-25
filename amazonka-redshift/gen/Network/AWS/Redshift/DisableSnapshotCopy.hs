@@ -67,7 +67,6 @@ disableSnapshotCopy p1 = DisableSnapshotCopy
 --
 -- Constraints: Must be the valid name of an existing cluster that has
 -- cross-region snapshot copy enabled.
---
 dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
 dscClusterIdentifier =
     lens _dscClusterIdentifier (\s a -> s { _dscClusterIdentifier = a })

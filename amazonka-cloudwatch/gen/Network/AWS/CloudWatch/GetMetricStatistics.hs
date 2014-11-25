@@ -127,37 +127,31 @@ getMetricStatistics p1 p2 p3 p4 p5 p6 = GetMetricStatistics
     }
 
 -- | A list of dimensions describing qualities of the metric.
---
 gmsDimensions :: Lens' GetMetricStatistics [Dimension]
 gmsDimensions = lens _gmsDimensions (\s a -> s { _gmsDimensions = a }) . _List
 
 -- | The time stamp to use for determining the last datapoint to return. The
 -- value specified is exclusive; results will include datapoints up to the time
 -- stamp specified.
---
 gmsEndTime :: Lens' GetMetricStatistics UTCTime
 gmsEndTime = lens _gmsEndTime (\s a -> s { _gmsEndTime = a }) . _Time
 
 -- | The name of the metric, with or without spaces.
---
 gmsMetricName :: Lens' GetMetricStatistics Text
 gmsMetricName = lens _gmsMetricName (\s a -> s { _gmsMetricName = a })
 
 -- | The namespace of the metric, with or without spaces.
---
 gmsNamespace :: Lens' GetMetricStatistics Text
 gmsNamespace = lens _gmsNamespace (\s a -> s { _gmsNamespace = a })
 
 -- | The granularity, in seconds, of the returned datapoints. 'Period' must be at
 -- least 60 seconds and must be a multiple of 60. The default value is 60.
---
 gmsPeriod :: Lens' GetMetricStatistics Natural
 gmsPeriod = lens _gmsPeriod (\s a -> s { _gmsPeriod = a }) . _Nat
 
 -- | The time stamp to use for determining the first datapoint to return. The
 -- value specified is inclusive; results include datapoints with the time stamp
 -- specified.
---
 gmsStartTime :: Lens' GetMetricStatistics UTCTime
 gmsStartTime = lens _gmsStartTime (\s a -> s { _gmsStartTime = a }) . _Time
 
@@ -165,12 +159,10 @@ gmsStartTime = lens _gmsStartTime (\s a -> s { _gmsStartTime = a }) . _Time
 -- returned by GetMetricStatistics, go to <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/index.html?CHAP_TerminologyandKeyConcepts.html#Statistic Statistics> in the /Amazon CloudWatchDeveloper Guide/.
 --
 -- Valid Values: 'Average | Sum | SampleCount | Maximum | Minimum'
---
 gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Statistic)
 gmsStatistics = lens _gmsStatistics (\s a -> s { _gmsStatistics = a }) . _List1
 
 -- | The unit for the metric.
---
 gmsUnit :: Lens' GetMetricStatistics (Maybe StandardUnit)
 gmsUnit = lens _gmsUnit (\s a -> s { _gmsUnit = a })
 
@@ -194,12 +186,10 @@ getMetricStatisticsResponse = GetMetricStatisticsResponse
     }
 
 -- | The datapoints for the specified metric.
---
 gmsrDatapoints :: Lens' GetMetricStatisticsResponse [Datapoint]
 gmsrDatapoints = lens _gmsrDatapoints (\s a -> s { _gmsrDatapoints = a }) . _List
 
 -- | A label describing the specified metric.
---
 gmsrLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
 gmsrLabel = lens _gmsrLabel (\s a -> s { _gmsrLabel = a })
 

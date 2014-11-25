@@ -70,14 +70,12 @@ setTimeBasedAutoScaling p1 = SetTimeBasedAutoScaling
     }
 
 -- | An 'AutoScalingSchedule' with the instance schedule.
---
 stbasAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
 stbasAutoScalingSchedule =
     lens _stbasAutoScalingSchedule
         (\s a -> s { _stbasAutoScalingSchedule = a })
 
 -- | The instance ID.
---
 stbasInstanceId :: Lens' SetTimeBasedAutoScaling Text
 stbasInstanceId = lens _stbasInstanceId (\s a -> s { _stbasInstanceId = a })
 

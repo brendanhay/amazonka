@@ -75,7 +75,6 @@ ri2DryRun :: Lens' RebootInstances (Maybe Bool)
 ri2DryRun = lens _ri2DryRun (\s a -> s { _ri2DryRun = a })
 
 -- | One or more instance IDs.
---
 ri2InstanceIds :: Lens' RebootInstances [Text]
 ri2InstanceIds = lens _ri2InstanceIds (\s a -> s { _ri2InstanceIds = a }) . _List
 

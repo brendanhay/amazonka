@@ -74,18 +74,15 @@ setSubscriptionAttributes p1 p2 = SetSubscriptionAttributes
 -- attributes are mutable.
 --
 -- Valid values: 'DeliveryPolicy' | 'RawMessageDelivery'
---
 ssaAttributeName :: Lens' SetSubscriptionAttributes Text
 ssaAttributeName = lens _ssaAttributeName (\s a -> s { _ssaAttributeName = a })
 
 -- | The new value for the attribute in JSON format.
---
 ssaAttributeValue :: Lens' SetSubscriptionAttributes (Maybe Text)
 ssaAttributeValue =
     lens _ssaAttributeValue (\s a -> s { _ssaAttributeValue = a })
 
 -- | The ARN of the subscription to modify.
---
 ssaSubscriptionArn :: Lens' SetSubscriptionAttributes Text
 ssaSubscriptionArn =
     lens _ssaSubscriptionArn (\s a -> s { _ssaSubscriptionArn = a })

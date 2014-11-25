@@ -131,7 +131,6 @@ dna1Filters = lens _dna1Filters (\s a -> s { _dna1Filters = a }) . _List
 -- | One or more network ACL IDs.
 --
 -- Default: Describes all your network ACLs.
---
 dna1NetworkAclIds :: Lens' DescribeNetworkAcls [Text]
 dna1NetworkAclIds =
     lens _dna1NetworkAclIds (\s a -> s { _dna1NetworkAclIds = a })
@@ -159,7 +158,6 @@ describeNetworkAclsResponse = DescribeNetworkAclsResponse
     }
 
 -- | Information about one or more network ACLs.
---
 dnarNetworkAcls :: Lens' DescribeNetworkAclsResponse [NetworkAcl]
 dnarNetworkAcls = lens _dnarNetworkAcls (\s a -> s { _dnarNetworkAcls = a }) . _List
 

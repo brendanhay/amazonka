@@ -21,6 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Disables rotation of the specified key.
+--
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKeyRotation.html>
 module Network.AWS.KMS.DisableKeyRotation
     (
@@ -60,7 +61,6 @@ disableKeyRotation p1 = DisableKeyRotation
 
 -- | Unique identifier of the customer master key for which rotation is to be
 -- disabled. This can be an ARN, an alias, or a globally unique identifier.
---
 dkrKeyId :: Lens' DisableKeyRotation Text
 dkrKeyId = lens _dkrKeyId (\s a -> s { _dkrKeyId = a })
 

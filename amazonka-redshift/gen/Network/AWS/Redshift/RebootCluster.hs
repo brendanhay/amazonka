@@ -66,7 +66,6 @@ rebootCluster p1 = RebootCluster
     }
 
 -- | The cluster identifier.
---
 rcClusterIdentifier :: Lens' RebootCluster Text
 rcClusterIdentifier =
     lens _rcClusterIdentifier (\s a -> s { _rcClusterIdentifier = a })

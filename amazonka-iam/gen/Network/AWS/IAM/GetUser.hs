@@ -68,7 +68,6 @@ getUser = GetUser
 --
 -- This parameter is optional. If it is not included, it defaults to the user
 -- making the request.
---
 guUserName :: Lens' GetUser (Maybe Text)
 guUserName = lens _guUserName (\s a -> s { _guUserName = a })
 
@@ -89,7 +88,6 @@ getUserResponse p1 = GetUserResponse
     }
 
 -- | Information about the user.
---
 gurUser :: Lens' GetUserResponse User
 gurUser = lens _gurUser (\s a -> s { _gurUser = a })
 

@@ -99,7 +99,6 @@ describeCacheClusters = DescribeCacheClusters
 -- | The user-supplied cluster identifier. If this parameter is specified, only
 -- information about that specific cache cluster is returned. This parameter
 -- isn't case sensitive.
---
 dcc1CacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
 dcc1CacheClusterId =
     lens _dcc1CacheClusterId (\s a -> s { _dcc1CacheClusterId = a })
@@ -108,7 +107,6 @@ dcc1CacheClusterId =
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
---
 dcc1Marker :: Lens' DescribeCacheClusters (Maybe Text)
 dcc1Marker = lens _dcc1Marker (\s a -> s { _dcc1Marker = a })
 
@@ -119,13 +117,11 @@ dcc1Marker = lens _dcc1Marker (\s a -> s { _dcc1Marker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
---
 dcc1MaxRecords :: Lens' DescribeCacheClusters (Maybe Int)
 dcc1MaxRecords = lens _dcc1MaxRecords (\s a -> s { _dcc1MaxRecords = a })
 
 -- | An optional flag that can be included in the DescribeCacheCluster request to
 -- retrieve information about the individual cache nodes.
---
 dcc1ShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
 dcc1ShowCacheNodeInfo =
     lens _dcc1ShowCacheNodeInfo (\s a -> s { _dcc1ShowCacheNodeInfo = a })
@@ -151,14 +147,12 @@ describeCacheClustersResponse = DescribeCacheClustersResponse
 
 -- | A list of cache clusters. Each item in the list contains detailed information
 -- about one cache cluster.
---
 dccrCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
 dccrCacheClusters =
     lens _dccrCacheClusters (\s a -> s { _dccrCacheClusters = a })
         . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
---
 dccrMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
 dccrMarker = lens _dccrMarker (\s a -> s { _dccrMarker = a })
 

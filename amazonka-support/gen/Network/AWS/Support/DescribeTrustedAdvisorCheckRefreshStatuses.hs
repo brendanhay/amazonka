@@ -68,7 +68,6 @@ describeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshS
     }
 
 -- | The IDs of the Trusted Advisor checks.
---
 dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
 dtacrsCheckIds = lens _dtacrsCheckIds (\s a -> s { _dtacrsCheckIds = a }) . _List
 
@@ -94,7 +93,6 @@ describeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheck
     }
 
 -- | The refresh status of the specified Trusted Advisor checks.
---
 dtacrsrStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
 dtacrsrStatuses = lens _dtacrsrStatuses (\s a -> s { _dtacrsrStatuses = a }) . _List
 

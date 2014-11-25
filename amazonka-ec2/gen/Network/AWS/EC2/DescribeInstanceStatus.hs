@@ -182,7 +182,6 @@ disFilters = lens _disFilters (\s a -> s { _disFilters = a }) . _List
 -- the health status for running instances only.
 --
 -- Default: 'false'
---
 disIncludeAllInstances :: Lens' DescribeInstanceStatus (Maybe Bool)
 disIncludeAllInstances =
     lens _disIncludeAllInstances (\s a -> s { _disIncludeAllInstances = a })
@@ -192,7 +191,6 @@ disIncludeAllInstances =
 -- Default: Describes all your instances.
 --
 -- Constraints: Maximum 100 explicitly specified instance IDs.
---
 disInstanceIds :: Lens' DescribeInstanceStatus [Text]
 disInstanceIds = lens _disInstanceIds (\s a -> s { _disInstanceIds = a }) . _List
 
@@ -201,13 +199,11 @@ disInstanceIds = lens _disInstanceIds (\s a -> s { _disInstanceIds = a }) . _Lis
 -- of results. If the value is greater than 1000, we return only 1000 items.
 --
 -- Default: 1000
---
 disMaxResults :: Lens' DescribeInstanceStatus (Maybe Int)
 disMaxResults = lens _disMaxResults (\s a -> s { _disMaxResults = a })
 
 -- | The next paginated set of results to return. (You received this token from a
 -- prior call.)
---
 disNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
 disNextToken = lens _disNextToken (\s a -> s { _disNextToken = a })
 
@@ -231,14 +227,12 @@ describeInstanceStatusResponse = DescribeInstanceStatusResponse
     }
 
 -- | One or more instance status descriptions.
---
 disrInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
 disrInstanceStatuses =
     lens _disrInstanceStatuses (\s a -> s { _disrInstanceStatuses = a })
         . _List
 
 -- | The next paginated set of results to return.
---
 disrNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
 disrNextToken = lens _disrNextToken (\s a -> s { _disrNextToken = a })
 

@@ -80,7 +80,6 @@ describeLogGroups = DescribeLogGroups
 
 -- | The maximum number of items returned in the response. If you don't specify a
 -- value, the request would return up to 50 items.
---
 dlgLimit :: Lens' DescribeLogGroups (Maybe Natural)
 dlgLimit = lens _dlgLimit (\s a -> s { _dlgLimit = a }) . mapping _Nat
 
@@ -90,7 +89,6 @@ dlgLogGroupNamePrefix =
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous 'DescribeLogGroups' request.
---
 dlgNextToken :: Lens' DescribeLogGroups (Maybe Text)
 dlgNextToken = lens _dlgNextToken (\s a -> s { _dlgNextToken = a })
 

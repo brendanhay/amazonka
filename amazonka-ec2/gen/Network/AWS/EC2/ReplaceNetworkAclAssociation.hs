@@ -76,7 +76,6 @@ replaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
 
 -- | The ID of the current association between the original network ACL and the
 -- subnet.
---
 rnaaAssociationId :: Lens' ReplaceNetworkAclAssociation Text
 rnaaAssociationId =
     lens _rnaaAssociationId (\s a -> s { _rnaaAssociationId = a })
@@ -85,7 +84,6 @@ rnaaDryRun :: Lens' ReplaceNetworkAclAssociation (Maybe Bool)
 rnaaDryRun = lens _rnaaDryRun (\s a -> s { _rnaaDryRun = a })
 
 -- | The ID of the new network ACL to associate with the subnet.
---
 rnaaNetworkAclId :: Lens' ReplaceNetworkAclAssociation Text
 rnaaNetworkAclId = lens _rnaaNetworkAclId (\s a -> s { _rnaaNetworkAclId = a })
 
@@ -105,7 +103,6 @@ replaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     }
 
 -- | The ID of the new association.
---
 rnaarNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)
 rnaarNewAssociationId =
     lens _rnaarNewAssociationId (\s a -> s { _rnaarNewAssociationId = a })

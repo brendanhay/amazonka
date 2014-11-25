@@ -63,7 +63,6 @@ getTopicAttributes p1 = GetTopicAttributes
     }
 
 -- | The ARN of the topic whose properties you want to get.
---
 gtaTopicArn :: Lens' GetTopicAttributes Text
 gtaTopicArn = lens _gtaTopicArn (\s a -> s { _gtaTopicArn = a })
 

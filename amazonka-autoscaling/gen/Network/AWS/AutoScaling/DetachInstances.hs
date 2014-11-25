@@ -78,19 +78,16 @@ detachInstances p1 p2 = DetachInstances
     }
 
 -- | The name of the group.
---
 diAutoScalingGroupName :: Lens' DetachInstances Text
 diAutoScalingGroupName =
     lens _diAutoScalingGroupName (\s a -> s { _diAutoScalingGroupName = a })
 
 -- | One or more instance IDs.
---
 diInstanceIds :: Lens' DetachInstances [Text]
 diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a }) . _List
 
 -- | If 'True', the Auto Scaling group decrements the desired capacity value by the
 -- number of instances detached.
---
 diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
 diShouldDecrementDesiredCapacity =
     lens _diShouldDecrementDesiredCapacity
@@ -118,7 +115,6 @@ detachInstancesResponse = DetachInstancesResponse
     }
 
 -- | The activities related to detaching the instances from the Auto Scaling group.
---
 dirActivities :: Lens' DetachInstancesResponse [Activity]
 dirActivities = lens _dirActivities (\s a -> s { _dirActivities = a }) . _List
 

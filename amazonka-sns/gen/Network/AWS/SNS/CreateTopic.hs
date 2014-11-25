@@ -69,7 +69,6 @@ createTopic p1 = CreateTopic
 -- Constraints: Topic names must be made up of only uppercase and lowercase
 -- ASCII letters, numbers, underscores, and hyphens, and must be between 1 and
 -- 256 characters long.
---
 ctName :: Lens' CreateTopic Text
 ctName = lens _ctName (\s a -> s { _ctName = a })
 
@@ -89,7 +88,6 @@ createTopicResponse = CreateTopicResponse
     }
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
---
 ctrTopicArn :: Lens' CreateTopicResponse (Maybe Text)
 ctrTopicArn = lens _ctrTopicArn (\s a -> s { _ctrTopicArn = a })
 

@@ -64,7 +64,6 @@ stopLogging p1 = StopLogging
 
 -- | Communicates to CloudTrail the name of the trail for which to stop logging
 -- AWS API calls.
---
 slName :: Lens' StopLogging Text
 slName = lens _slName (\s a -> s { _slName = a })
 

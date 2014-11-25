@@ -22,6 +22,7 @@
 
 -- | This operation enables you to delete multiple objects from a bucket using a
 -- single HTTP request. You may specify up to 1000 keys.
+--
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObjects.html>
 module Network.AWS.S3.DeleteObjects
     (

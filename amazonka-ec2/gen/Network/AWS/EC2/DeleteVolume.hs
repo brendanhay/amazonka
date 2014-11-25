@@ -71,7 +71,6 @@ dv4DryRun :: Lens' DeleteVolume (Maybe Bool)
 dv4DryRun = lens _dv4DryRun (\s a -> s { _dv4DryRun = a })
 
 -- | The ID of the volume.
---
 dv4VolumeId :: Lens' DeleteVolume Text
 dv4VolumeId = lens _dv4VolumeId (\s a -> s { _dv4VolumeId = a })
 

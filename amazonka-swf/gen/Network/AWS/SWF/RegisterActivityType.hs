@@ -127,7 +127,6 @@ registerActivityType p1 p2 p3 = RegisterActivityType
 -- The valid values are integers greater than or equal to '0'. An integer value
 -- can be used to specify the duration in seconds while 'NONE' can be used to
 -- specify unlimited duration.
---
 ratDefaultTaskHeartbeatTimeout :: Lens' RegisterActivityType (Maybe Text)
 ratDefaultTaskHeartbeatTimeout =
     lens _ratDefaultTaskHeartbeatTimeout
@@ -136,7 +135,6 @@ ratDefaultTaskHeartbeatTimeout =
 -- | If set, specifies the default task list to use for scheduling tasks of this
 -- activity type. This default task list is used if a task list is not provided
 -- when a task is scheduled through the 'ScheduleActivityTask' 'Decision'.
---
 ratDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
 ratDefaultTaskList =
     lens _ratDefaultTaskList (\s a -> s { _ratDefaultTaskList = a })
@@ -148,7 +146,6 @@ ratDefaultTaskList =
 -- The valid values are integers greater than or equal to '0'. An integer value
 -- can be used to specify the duration in seconds while 'NONE' can be used to
 -- specify unlimited duration.
---
 ratDefaultTaskScheduleToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
 ratDefaultTaskScheduleToCloseTimeout =
     lens _ratDefaultTaskScheduleToCloseTimeout
@@ -161,7 +158,6 @@ ratDefaultTaskScheduleToCloseTimeout =
 -- The valid values are integers greater than or equal to '0'. An integer value
 -- can be used to specify the duration in seconds while 'NONE' can be used to
 -- specify unlimited duration.
---
 ratDefaultTaskScheduleToStartTimeout :: Lens' RegisterActivityType (Maybe Text)
 ratDefaultTaskScheduleToStartTimeout =
     lens _ratDefaultTaskScheduleToStartTimeout
@@ -174,19 +170,16 @@ ratDefaultTaskScheduleToStartTimeout =
 -- The valid values are integers greater than or equal to '0'. An integer value
 -- can be used to specify the duration in seconds while 'NONE' can be used to
 -- specify unlimited duration.
---
 ratDefaultTaskStartToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
 ratDefaultTaskStartToCloseTimeout =
     lens _ratDefaultTaskStartToCloseTimeout
         (\s a -> s { _ratDefaultTaskStartToCloseTimeout = a })
 
 -- | A textual description of the activity type.
---
 ratDescription :: Lens' RegisterActivityType (Maybe Text)
 ratDescription = lens _ratDescription (\s a -> s { _ratDescription = a })
 
 -- | The name of the domain in which this activity is to be registered.
---
 ratDomain :: Lens' RegisterActivityType Text
 ratDomain = lens _ratDomain (\s a -> s { _ratDomain = a })
 
@@ -196,7 +189,6 @@ ratDomain = lens _ratDomain (\s a -> s { _ratDomain = a })
 -- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string "arn".
---
 ratName :: Lens' RegisterActivityType Text
 ratName = lens _ratName (\s a -> s { _ratName = a })
 
@@ -206,7 +198,6 @@ ratName = lens _ratName (\s a -> s { _ratName = a })
 -- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
 -- string "arn".
---
 ratVersion :: Lens' RegisterActivityType Text
 ratVersion = lens _ratVersion (\s a -> s { _ratVersion = a })
 

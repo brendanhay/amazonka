@@ -64,7 +64,6 @@ deletePipeline p1 = DeletePipeline
     }
 
 -- | The identifier of the pipeline that you want to delete.
---
 dp1Id :: Lens' DeletePipeline Text
 dp1Id = lens _dp1Id (\s a -> s { _dp1Id = a })
 

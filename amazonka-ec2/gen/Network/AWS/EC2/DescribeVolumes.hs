@@ -150,7 +150,6 @@ dv2Filters = lens _dv2Filters (\s a -> s { _dv2Filters = a }) . _List
 -- 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are
 -- returned. If this parameter is not used, then 'DescribeVolumes' returns all
 -- results.
---
 dv2MaxResults :: Lens' DescribeVolumes (Maybe Int)
 dv2MaxResults = lens _dv2MaxResults (\s a -> s { _dv2MaxResults = a })
 
@@ -159,12 +158,10 @@ dv2MaxResults = lens _dv2MaxResults (\s a -> s { _dv2MaxResults = a })
 -- parameter. Pagination continues from the end of the previous results that
 -- returned the 'NextToken' value. This value is 'null' when there are no more
 -- results to return.
---
 dv2NextToken :: Lens' DescribeVolumes (Maybe Text)
 dv2NextToken = lens _dv2NextToken (\s a -> s { _dv2NextToken = a })
 
 -- | One or more volume IDs.
---
 dv2VolumeIds :: Lens' DescribeVolumes [Text]
 dv2VolumeIds = lens _dv2VolumeIds (\s a -> s { _dv2VolumeIds = a }) . _List
 
@@ -191,7 +188,6 @@ describeVolumesResponse = DescribeVolumesResponse
 -- results of a 'DescribeVolumes' request exceed 'MaxResults', this value can be
 -- used to retrieve the next page of results. This value is 'null' when there are
 -- no more results to return.
---
 dvrNextToken :: Lens' DescribeVolumesResponse (Maybe Text)
 dvrNextToken = lens _dvrNextToken (\s a -> s { _dvrNextToken = a })
 

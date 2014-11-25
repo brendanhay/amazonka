@@ -67,7 +67,6 @@ getRole p1 = GetRole
     }
 
 -- | The name of the role to get information about.
---
 grRoleName :: Lens' GetRole Text
 grRoleName = lens _grRoleName (\s a -> s { _grRoleName = a })
 
@@ -88,7 +87,6 @@ getRoleResponse p1 = GetRoleResponse
     }
 
 -- | Information about the role.
---
 grrRole :: Lens' GetRoleResponse Role
 grrRole = lens _grrRole (\s a -> s { _grrRole = a })
 

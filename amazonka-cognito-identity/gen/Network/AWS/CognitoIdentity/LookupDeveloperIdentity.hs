@@ -94,25 +94,21 @@ lookupDeveloperIdentity p1 = LookupDeveloperIdentity
 -- | A unique ID used by your backend authentication process to identify a user.
 -- Typically, a developer identity provider would issue many developer user
 -- identifiers, in keeping with the number of users.
---
 ldiDeveloperUserIdentifier :: Lens' LookupDeveloperIdentity (Maybe Text)
 ldiDeveloperUserIdentifier =
     lens _ldiDeveloperUserIdentifier
         (\s a -> s { _ldiDeveloperUserIdentifier = a })
 
 -- | A unique identifier in the format REGION:GUID.
---
 ldiIdentityId :: Lens' LookupDeveloperIdentity (Maybe Text)
 ldiIdentityId = lens _ldiIdentityId (\s a -> s { _ldiIdentityId = a })
 
 -- | An identity pool ID in the format REGION:GUID.
---
 ldiIdentityPoolId :: Lens' LookupDeveloperIdentity Text
 ldiIdentityPoolId =
     lens _ldiIdentityPoolId (\s a -> s { _ldiIdentityPoolId = a })
 
 -- | The maximum number of identities to return.
---
 ldiMaxResults :: Lens' LookupDeveloperIdentity (Maybe Natural)
 ldiMaxResults = lens _ldiMaxResults (\s a -> s { _ldiMaxResults = a }) . mapping _Nat
 
@@ -122,7 +118,6 @@ ldiMaxResults = lens _ldiMaxResults (\s a -> s { _ldiMaxResults = a }) . mapping
 -- matches in the database. The service will return a pagination token as a part
 -- of the response. This token can be used to call the API again and get results
 -- starting from the 11th match.
---
 ldiNextToken :: Lens' LookupDeveloperIdentity (Maybe Text)
 ldiNextToken = lens _ldiNextToken (\s a -> s { _ldiNextToken = a })
 
@@ -152,7 +147,6 @@ lookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse
 -- | This is the list of developer user identifiers associated with an identity
 -- ID. Cognito supports the association of multiple developer user identifiers
 -- with an identity ID.
---
 ldirDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse [Text]
 ldirDeveloperUserIdentifierList =
     lens _ldirDeveloperUserIdentifierList
@@ -160,7 +154,6 @@ ldirDeveloperUserIdentifierList =
             . _List
 
 -- | A unique identifier in the format REGION:GUID.
---
 ldirIdentityId :: Lens' LookupDeveloperIdentityResponse (Maybe Text)
 ldirIdentityId = lens _ldirIdentityId (\s a -> s { _ldirIdentityId = a })
 
@@ -170,7 +163,6 @@ ldirIdentityId = lens _ldirIdentityId (\s a -> s { _ldirIdentityId = a })
 -- matches in the database. The service will return a pagination token as a part
 -- of the response. This token can be used to call the API again and get results
 -- starting from the 11th match.
---
 ldirNextToken :: Lens' LookupDeveloperIdentityResponse (Maybe Text)
 ldirNextToken = lens _ldirNextToken (\s a -> s { _ldirNextToken = a })
 

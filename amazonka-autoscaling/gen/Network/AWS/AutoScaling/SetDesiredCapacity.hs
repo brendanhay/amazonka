@@ -71,13 +71,11 @@ setDesiredCapacity p1 p2 = SetDesiredCapacity
     }
 
 -- | The name of the Auto Scaling group.
---
 sdcAutoScalingGroupName :: Lens' SetDesiredCapacity Text
 sdcAutoScalingGroupName =
     lens _sdcAutoScalingGroupName (\s a -> s { _sdcAutoScalingGroupName = a })
 
 -- | The number of EC2 instances that should be running in the Auto Scaling group.
---
 sdcDesiredCapacity :: Lens' SetDesiredCapacity Int
 sdcDesiredCapacity =
     lens _sdcDesiredCapacity (\s a -> s { _sdcDesiredCapacity = a })
@@ -87,7 +85,6 @@ sdcDesiredCapacity =
 -- cool-down period associated with the Auto Scaling group to complete before
 -- initiating a scaling activity to set your Auto Scaling group to its new
 -- capacity.
---
 sdcHonorCooldown :: Lens' SetDesiredCapacity (Maybe Bool)
 sdcHonorCooldown = lens _sdcHonorCooldown (\s a -> s { _sdcHonorCooldown = a })
 

@@ -195,7 +195,6 @@ updateItem p1 = UpdateItem
 -- If you specify any attributes that are part of an index key, then the
 -- data types for those attributes must match those of the schema in the table's
 -- attribute definition.
---
 uiAttributeUpdates :: Lens' UpdateItem (HashMap Text AttributeValueUpdate)
 uiAttributeUpdates =
     lens _uiAttributeUpdates (\s a -> s { _uiAttributeUpdates = a })
@@ -234,7 +233,6 @@ uiConditionExpression =
 -- If you omit /ConditionalOperator/, then 'AND' is the default.
 --
 -- The operation will succeed only if the entire map evaluates to true.
---
 uiConditionalOperator :: Lens' UpdateItem (Maybe ConditionalOperator)
 uiConditionalOperator =
     lens _uiConditionalOperator (\s a -> s { _uiConditionalOperator = a })
@@ -417,7 +415,6 @@ uiConditionalOperator =
 -- The /Value/ and /Exists/ parameters are incompatible with /AttributeValueList/
 -- and /ComparisonOperator/. Note that if you use both sets of parameters at once,
 -- DynamoDB will return a /ValidationException/ exception.
---
 uiExpected :: Lens' UpdateItem (HashMap Text ExpectedAttributeValue)
 uiExpected = lens _uiExpected (\s a -> s { _uiExpected = a }) . _Map
 
@@ -480,7 +477,6 @@ uiExpressionAttributeValues =
 -- with a hash type primary key, you only need to specify the hash attribute.
 -- For a hash-and-range type primary key, you must specify both the hash
 -- attribute and the range attribute.
---
 uiKey :: Lens' UpdateItem (HashMap Text AttributeValue)
 uiKey = lens _uiKey (\s a -> s { _uiKey = a }) . _Map
 
@@ -492,7 +488,6 @@ uiReturnConsumedCapacity =
 -- | A value that if set to 'SIZE', the response includes statistics about item
 -- collections, if any, that were modified during the operation are returned in
 -- the response. If set to 'NONE' (the default), no statistics are returned.
---
 uiReturnItemCollectionMetrics :: Lens' UpdateItem (Maybe ReturnItemCollectionMetrics)
 uiReturnItemCollectionMetrics =
     lens _uiReturnItemCollectionMetrics
@@ -520,7 +515,6 @@ uiReturnValues :: Lens' UpdateItem (Maybe ReturnValue)
 uiReturnValues = lens _uiReturnValues (\s a -> s { _uiReturnValues = a })
 
 -- | The name of the table containing the item to update.
---
 uiTableName :: Lens' UpdateItem Text
 uiTableName = lens _uiTableName (\s a -> s { _uiTableName = a })
 
@@ -615,7 +609,6 @@ updateItemResponse = UpdateItemResponse
 
 -- | A map of attribute values as they appeared before the /UpdateItem/ operation.
 -- This map only appears if /ReturnValues/ was specified as something other than 'NONE' in the request. Each element represents one attribute.
---
 uirAttributes :: Lens' UpdateItemResponse (HashMap Text AttributeValue)
 uirAttributes = lens _uirAttributes (\s a -> s { _uirAttributes = a }) . _Map
 

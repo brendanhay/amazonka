@@ -327,20 +327,17 @@ di1Filters = lens _di1Filters (\s a -> s { _di1Filters = a }) . _List
 -- | One or more instance IDs.
 --
 -- Default: Describes all your instances.
---
 di1InstanceIds :: Lens' DescribeInstances [Text]
 di1InstanceIds = lens _di1InstanceIds (\s a -> s { _di1InstanceIds = a }) . _List
 
 -- | The maximum number of items to return for this call. The call also returns a
 -- token that you can specify in a subsequent call to get the next set of
 -- results. If the value is greater than 1000, we return only 1000 items.
---
 di1MaxResults :: Lens' DescribeInstances (Maybe Int)
 di1MaxResults = lens _di1MaxResults (\s a -> s { _di1MaxResults = a })
 
 -- | The token for the next set of items to return. (You received this token from
 -- a prior call.)
---
 di1NextToken :: Lens' DescribeInstances (Maybe Text)
 di1NextToken = lens _di1NextToken (\s a -> s { _di1NextToken = a })
 
@@ -365,12 +362,10 @@ describeInstancesResponse = DescribeInstancesResponse
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
 dirNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
 dirNextToken = lens _dirNextToken (\s a -> s { _dirNextToken = a })
 
 -- | One or more reservations.
---
 dirReservations :: Lens' DescribeInstancesResponse [Reservation]
 dirReservations = lens _dirReservations (\s a -> s { _dirReservations = a }) . _List
 

@@ -129,55 +129,46 @@ createCase p1 p2 = CreateCase
 
 -- | The ID of a set of one or more attachments for the case. Create the set by
 -- using 'AddAttachmentsToSet'.
---
 ccAttachmentSetId :: Lens' CreateCase (Maybe Text)
 ccAttachmentSetId =
     lens _ccAttachmentSetId (\s a -> s { _ccAttachmentSetId = a })
 
 -- | The category of problem for the AWS Support case.
---
 ccCategoryCode :: Lens' CreateCase (Maybe Text)
 ccCategoryCode = lens _ccCategoryCode (\s a -> s { _ccCategoryCode = a })
 
 -- | A list of email addresses that AWS Support copies on case correspondence.
---
 ccCcEmailAddresses :: Lens' CreateCase [Text]
 ccCcEmailAddresses =
     lens _ccCcEmailAddresses (\s a -> s { _ccCcEmailAddresses = a })
         . _List
 
 -- | The communication body text when you create an AWS Support case by calling 'CreateCase'.
---
 ccCommunicationBody :: Lens' CreateCase Text
 ccCommunicationBody =
     lens _ccCommunicationBody (\s a -> s { _ccCommunicationBody = a })
 
 -- | The type of issue for the case. You can specify either "customer-service" or
 -- "technical." If you do not indicate a value, the default is "technical."
---
 ccIssueType :: Lens' CreateCase (Maybe Text)
 ccIssueType = lens _ccIssueType (\s a -> s { _ccIssueType = a })
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English ("en") and Japanese ("ja"). Language
 -- parameters must be passed explicitly for operations that take them.
---
 ccLanguage :: Lens' CreateCase (Maybe Text)
 ccLanguage = lens _ccLanguage (\s a -> s { _ccLanguage = a })
 
 -- | The code for the AWS service returned by the call to 'DescribeServices'.
---
 ccServiceCode :: Lens' CreateCase (Maybe Text)
 ccServiceCode = lens _ccServiceCode (\s a -> s { _ccServiceCode = a })
 
 -- | The code for the severity level returned by the call to 'DescribeSeverityLevels'
 -- .
---
 ccSeverityCode :: Lens' CreateCase (Maybe Text)
 ccSeverityCode = lens _ccSeverityCode (\s a -> s { _ccSeverityCode = a })
 
 -- | The title of the AWS Support case.
---
 ccSubject :: Lens' CreateCase Text
 ccSubject = lens _ccSubject (\s a -> s { _ccSubject = a })
 
@@ -198,7 +189,6 @@ createCaseResponse = CreateCaseResponse
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is an
 -- alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
---
 ccrCaseId :: Lens' CreateCaseResponse (Maybe Text)
 ccrCaseId = lens _ccrCaseId (\s a -> s { _ccrCaseId = a })
 

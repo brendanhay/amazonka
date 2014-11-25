@@ -85,7 +85,6 @@ pollForTask p1 = PollForTask
     }
 
 -- | The public DNS name of the calling task runner.
---
 pftHostname :: Lens' PollForTask (Maybe Text)
 pftHostname = lens _pftHostname (\s a -> s { _pftHostname = a })
 
@@ -93,7 +92,6 @@ pftHostname = lens _pftHostname (\s a -> s { _pftHostname = a })
 -- runner. You can get this value by calling the URI, 'http://169.254.169.254/latest/meta-data/instance-id', from the EC2 instance. For more information, go to <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value proves that
 -- your task runner is running on an EC2 instance, and ensures the proper AWS
 -- Data Pipeline service charges are applied to your pipeline.
---
 pftInstanceIdentity :: Lens' PollForTask (Maybe InstanceIdentity)
 pftInstanceIdentity =
     lens _pftInstanceIdentity (\s a -> s { _pftInstanceIdentity = a })
@@ -103,7 +101,6 @@ pftInstanceIdentity =
 -- they are created. You can only specify a single value for 'workerGroup' in the
 -- call to 'PollForTask'. There are no wildcard values permitted in 'workerGroup',
 -- the string must be an exact, case-sensitive, match.
---
 pftWorkerGroup :: Lens' PollForTask Text
 pftWorkerGroup = lens _pftWorkerGroup (\s a -> s { _pftWorkerGroup = a })
 
@@ -128,7 +125,6 @@ pollForTaskResponse = PollForTaskResponse
 -- object is taskId, which contains an identifier for the task being assigned.
 -- The calling task runner uses taskId in subsequent calls to 'ReportTaskProgress'
 -- and 'SetTaskStatus'.
---
 pftrTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftrTaskObject = lens _pftrTaskObject (\s a -> s { _pftrTaskObject = a })
 

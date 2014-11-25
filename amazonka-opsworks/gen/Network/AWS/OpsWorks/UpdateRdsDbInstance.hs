@@ -70,17 +70,14 @@ updateRdsDbInstance p1 = UpdateRdsDbInstance
     }
 
 -- | The database password.
---
 urdiDbPassword :: Lens' UpdateRdsDbInstance (Maybe Text)
 urdiDbPassword = lens _urdiDbPassword (\s a -> s { _urdiDbPassword = a })
 
 -- | The master user name.
---
 urdiDbUser :: Lens' UpdateRdsDbInstance (Maybe Text)
 urdiDbUser = lens _urdiDbUser (\s a -> s { _urdiDbUser = a })
 
 -- | The Amazon RDS instance's ARN.
---
 urdiRdsDbInstanceArn :: Lens' UpdateRdsDbInstance Text
 urdiRdsDbInstanceArn =
     lens _urdiRdsDbInstanceArn (\s a -> s { _urdiRdsDbInstanceArn = a })

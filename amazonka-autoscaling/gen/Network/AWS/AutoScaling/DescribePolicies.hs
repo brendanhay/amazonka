@@ -82,19 +82,16 @@ describePolicies = DescribePolicies
     }
 
 -- | The name of the group.
---
 dp1AutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
 dp1AutoScalingGroupName =
     lens _dp1AutoScalingGroupName (\s a -> s { _dp1AutoScalingGroupName = a })
 
 -- | The maximum number of items to be returned with each call.
---
 dp1MaxRecords :: Lens' DescribePolicies (Maybe Int)
 dp1MaxRecords = lens _dp1MaxRecords (\s a -> s { _dp1MaxRecords = a })
 
 -- | The token for the next set of items to return. (You received this token from
 -- a previous call.)
---
 dp1NextToken :: Lens' DescribePolicies (Maybe Text)
 dp1NextToken = lens _dp1NextToken (\s a -> s { _dp1NextToken = a })
 
@@ -102,7 +99,6 @@ dp1NextToken = lens _dp1NextToken (\s a -> s { _dp1NextToken = a })
 -- list, all policy names are described. If an group name is provided, the
 -- results are limited to that group. This list is limited to 50 items. If you
 -- specify an unknown policy name, it is ignored with no error.
---
 dp1PolicyNames :: Lens' DescribePolicies [Text]
 dp1PolicyNames = lens _dp1PolicyNames (\s a -> s { _dp1PolicyNames = a }) . _List
 
@@ -127,12 +123,10 @@ describePoliciesResponse = DescribePoliciesResponse
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
 dprNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
 dprNextToken = lens _dprNextToken (\s a -> s { _dprNextToken = a })
 
 -- | The scaling policies.
---
 dprScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprScalingPolicies =
     lens _dprScalingPolicies (\s a -> s { _dprScalingPolicies = a })

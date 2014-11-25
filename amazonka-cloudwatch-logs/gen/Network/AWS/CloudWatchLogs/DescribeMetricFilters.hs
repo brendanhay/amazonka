@@ -89,7 +89,6 @@ dmfFilterNamePrefix =
 
 -- | The maximum number of items returned in the response. If you don't specify a
 -- value, the request would return up to 50 items.
---
 dmfLimit :: Lens' DescribeMetricFilters (Maybe Natural)
 dmfLimit = lens _dmfLimit (\s a -> s { _dmfLimit = a }) . mapping _Nat
 
@@ -98,7 +97,6 @@ dmfLogGroupName = lens _dmfLogGroupName (\s a -> s { _dmfLogGroupName = a })
 
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the response of the previous 'DescribeMetricFilters' request.
---
 dmfNextToken :: Lens' DescribeMetricFilters (Maybe Text)
 dmfNextToken = lens _dmfNextToken (\s a -> s { _dmfNextToken = a })
 

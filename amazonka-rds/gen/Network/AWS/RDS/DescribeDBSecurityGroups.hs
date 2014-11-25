@@ -79,21 +79,18 @@ describeDBSecurityGroups = DescribeDBSecurityGroups
     }
 
 -- | The name of the DB security group to return details for.
---
 ddbsg1DBSecurityGroupName :: Lens' DescribeDBSecurityGroups (Maybe Text)
 ddbsg1DBSecurityGroupName =
     lens _ddbsg1DBSecurityGroupName
         (\s a -> s { _ddbsg1DBSecurityGroupName = a })
 
 -- | This parameter is not currently supported.
---
 ddbsg1Filters :: Lens' DescribeDBSecurityGroups [Filter]
 ddbsg1Filters = lens _ddbsg1Filters (\s a -> s { _ddbsg1Filters = a }) . _List
 
 -- | An optional pagination token provided by a previous DescribeDBSecurityGroups
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by 'MaxRecords'.
---
 ddbsg1Marker :: Lens' DescribeDBSecurityGroups (Maybe Text)
 ddbsg1Marker = lens _ddbsg1Marker (\s a -> s { _ddbsg1Marker = a })
 
@@ -104,7 +101,6 @@ ddbsg1Marker = lens _ddbsg1Marker (\s a -> s { _ddbsg1Marker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
---
 ddbsg1MaxRecords :: Lens' DescribeDBSecurityGroups (Maybe Int)
 ddbsg1MaxRecords = lens _ddbsg1MaxRecords (\s a -> s { _ddbsg1MaxRecords = a })
 
@@ -128,7 +124,6 @@ describeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
     }
 
 -- | A list of 'DBSecurityGroup' instances.
---
 ddbsgr1DBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
 ddbsgr1DBSecurityGroups =
     lens _ddbsgr1DBSecurityGroups (\s a -> s { _ddbsgr1DBSecurityGroups = a })
@@ -137,7 +132,6 @@ ddbsgr1DBSecurityGroups =
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the marker,
 -- up to the value specified by 'MaxRecords'.
---
 ddbsgr1Marker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 ddbsgr1Marker = lens _ddbsgr1Marker (\s a -> s { _ddbsgr1Marker = a })
 

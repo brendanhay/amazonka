@@ -78,12 +78,10 @@ setIdentityDkimEnabled p1 p2 = SetIdentityDkimEnabled
 
 -- | Sets whether DKIM signing is enabled for an identity. Set to 'true' to enable
 -- DKIM signing for this identity; 'false' to disable it.
---
 sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
 sideDkimEnabled = lens _sideDkimEnabled (\s a -> s { _sideDkimEnabled = a })
 
 -- | The identity for which DKIM signing should be enabled or disabled.
---
 sideIdentity :: Lens' SetIdentityDkimEnabled Text
 sideIdentity = lens _sideIdentity (\s a -> s { _sideIdentity = a })
 

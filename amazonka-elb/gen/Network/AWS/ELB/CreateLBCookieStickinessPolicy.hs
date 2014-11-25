@@ -89,21 +89,18 @@ createLBCookieStickinessPolicy p1 p2 = CreateLBCookieStickinessPolicy
 -- | The time period in seconds after which the cookie should be considered
 -- stale. Not specifying this parameter indicates that the sticky session will
 -- last for the duration of the browser session.
---
 clbcspCookieExpirationPeriod :: Lens' CreateLBCookieStickinessPolicy (Maybe Integer)
 clbcspCookieExpirationPeriod =
     lens _clbcspCookieExpirationPeriod
         (\s a -> s { _clbcspCookieExpirationPeriod = a })
 
 -- | The name associated with the load balancer.
---
 clbcspLoadBalancerName :: Lens' CreateLBCookieStickinessPolicy Text
 clbcspLoadBalancerName =
     lens _clbcspLoadBalancerName (\s a -> s { _clbcspLoadBalancerName = a })
 
 -- | The name of the policy being created. The name must be unique within the set
 -- of policies for this load balancer.
---
 clbcspPolicyName :: Lens' CreateLBCookieStickinessPolicy Text
 clbcspPolicyName = lens _clbcspPolicyName (\s a -> s { _clbcspPolicyName = a })
 

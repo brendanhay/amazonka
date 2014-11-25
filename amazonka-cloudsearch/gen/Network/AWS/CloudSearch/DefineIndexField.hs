@@ -76,7 +76,6 @@ dif2DomainName :: Lens' DefineIndexField Text
 dif2DomainName = lens _dif2DomainName (\s a -> s { _dif2DomainName = a })
 
 -- | The index field and field options you want to configure.
---
 dif2IndexField :: Lens' DefineIndexField IndexField
 dif2IndexField = lens _dif2IndexField (\s a -> s { _dif2IndexField = a })
 

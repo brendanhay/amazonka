@@ -104,7 +104,6 @@ createTrail p1 p2 = CreateTrail
 -- | Specifies a log group name using an Amazon Resource Name (ARN), a unique
 -- identifier that represents the log group to which CloudTrail logs will be
 -- delivered. Not required unless you specify CloudWatchLogsRoleArn.
---
 ctCloudWatchLogsLogGroupArn :: Lens' CreateTrail (Maybe Text)
 ctCloudWatchLogsLogGroupArn =
     lens _ctCloudWatchLogsLogGroupArn
@@ -112,39 +111,33 @@ ctCloudWatchLogsLogGroupArn =
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a
 -- user’s log group.
---
 ctCloudWatchLogsRoleArn :: Lens' CreateTrail (Maybe Text)
 ctCloudWatchLogsRoleArn =
     lens _ctCloudWatchLogsRoleArn (\s a -> s { _ctCloudWatchLogsRoleArn = a })
 
 -- | Specifies whether the trail is publishing events from global services such as
 -- IAM to the log files.
---
 ctIncludeGlobalServiceEvents :: Lens' CreateTrail (Maybe Bool)
 ctIncludeGlobalServiceEvents =
     lens _ctIncludeGlobalServiceEvents
         (\s a -> s { _ctIncludeGlobalServiceEvents = a })
 
 -- | Specifies the name of the trail.
---
 ctName :: Lens' CreateTrail Text
 ctName = lens _ctName (\s a -> s { _ctName = a })
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
---
 ctS3BucketName :: Lens' CreateTrail Text
 ctS3BucketName = lens _ctS3BucketName (\s a -> s { _ctS3BucketName = a })
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you
 -- have designated for log file delivery.
---
 ctS3KeyPrefix :: Lens' CreateTrail (Maybe Text)
 ctS3KeyPrefix = lens _ctS3KeyPrefix (\s a -> s { _ctS3KeyPrefix = a })
 
 -- | Specifies the name of the Amazon SNS topic defined for notification of log
 -- file delivery.
---
 ctSnsTopicName :: Lens' CreateTrail (Maybe Text)
 ctSnsTopicName = lens _ctSnsTopicName (\s a -> s { _ctSnsTopicName = a })
 
@@ -189,7 +182,6 @@ createTrailResponse = CreateTrailResponse
 
 -- | Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail
 -- logs will be delivered.
---
 ctrCloudWatchLogsLogGroupArn :: Lens' CreateTrailResponse (Maybe Text)
 ctrCloudWatchLogsLogGroupArn =
     lens _ctrCloudWatchLogsLogGroupArn
@@ -197,7 +189,6 @@ ctrCloudWatchLogsLogGroupArn =
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a
 -- user’s log group.
---
 ctrCloudWatchLogsRoleArn :: Lens' CreateTrailResponse (Maybe Text)
 ctrCloudWatchLogsRoleArn =
     lens _ctrCloudWatchLogsRoleArn
@@ -205,32 +196,27 @@ ctrCloudWatchLogsRoleArn =
 
 -- | Specifies whether the trail is publishing events from global services such as
 -- IAM to the log files.
---
 ctrIncludeGlobalServiceEvents :: Lens' CreateTrailResponse (Maybe Bool)
 ctrIncludeGlobalServiceEvents =
     lens _ctrIncludeGlobalServiceEvents
         (\s a -> s { _ctrIncludeGlobalServiceEvents = a })
 
 -- | Specifies the name of the trail.
---
 ctrName :: Lens' CreateTrailResponse (Maybe Text)
 ctrName = lens _ctrName (\s a -> s { _ctrName = a })
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
---
 ctrS3BucketName :: Lens' CreateTrailResponse (Maybe Text)
 ctrS3BucketName = lens _ctrS3BucketName (\s a -> s { _ctrS3BucketName = a })
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket you
 -- have designated for log file delivery.
---
 ctrS3KeyPrefix :: Lens' CreateTrailResponse (Maybe Text)
 ctrS3KeyPrefix = lens _ctrS3KeyPrefix (\s a -> s { _ctrS3KeyPrefix = a })
 
 -- | Specifies the name of the Amazon SNS topic defined for notification of log
 -- file delivery.
---
 ctrSnsTopicName :: Lens' CreateTrailResponse (Maybe Text)
 ctrSnsTopicName = lens _ctrSnsTopicName (\s a -> s { _ctrSnsTopicName = a })
 

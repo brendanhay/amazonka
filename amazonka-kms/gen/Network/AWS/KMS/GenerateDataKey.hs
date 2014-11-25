@@ -87,7 +87,6 @@ generateDataKey p1 = GenerateDataKey
 -- | Name/value pair that contains additional data to be authenticated during the
 -- encryption and decryption processes that use the key. This value is logged by
 -- AWS CloudTrail to provide context around the data encrypted by the key.
---
 gdkEncryptionContext :: Lens' GenerateDataKey (HashMap Text Text)
 gdkEncryptionContext =
     lens _gdkEncryptionContext (\s a -> s { _gdkEncryptionContext = a })
@@ -95,25 +94,21 @@ gdkEncryptionContext =
 
 -- | A list of grant tokens that represent grants which can be used to provide
 -- long term permissions to generate a key.
---
 gdkGrantTokens :: Lens' GenerateDataKey [Text]
 gdkGrantTokens = lens _gdkGrantTokens (\s a -> s { _gdkGrantTokens = a }) . _List
 
 -- | Unique identifier of the key. This can be an ARN, an alias, or a globally
 -- unique identifier.
---
 gdkKeyId :: Lens' GenerateDataKey Text
 gdkKeyId = lens _gdkKeyId (\s a -> s { _gdkKeyId = a })
 
 -- | Value that identifies the encryption algorithm and key size to generate a
 -- data key for. Currently this can be AES_128 or AES_256.
---
 gdkKeySpec :: Lens' GenerateDataKey (Maybe DataKeySpec)
 gdkKeySpec = lens _gdkKeySpec (\s a -> s { _gdkKeySpec = a })
 
 -- | Integer that contains the number of bytes to generate. Common values are 128,
 -- 256, 512, 1024 and so on. 1024 is the current limit.
---
 gdkNumberOfBytes :: Lens' GenerateDataKey (Maybe Natural)
 gdkNumberOfBytes = lens _gdkNumberOfBytes (\s a -> s { _gdkNumberOfBytes = a }) . mapping _Nat
 
@@ -143,19 +138,16 @@ generateDataKeyResponse = GenerateDataKeyResponse
 -- | Ciphertext that contains the wrapped key. You must store the blob and
 -- encryption context so that the ciphertext can be decrypted. You must provide
 -- both the ciphertext blob and the encryption context.
---
 gdkrCiphertextBlob :: Lens' GenerateDataKeyResponse (Maybe Base64)
 gdkrCiphertextBlob =
     lens _gdkrCiphertextBlob (\s a -> s { _gdkrCiphertextBlob = a })
 
 -- | System generated unique identifier for the key.
---
 gdkrKeyId :: Lens' GenerateDataKeyResponse (Maybe Text)
 gdkrKeyId = lens _gdkrKeyId (\s a -> s { _gdkrKeyId = a })
 
 -- | Plaintext that contains the unwrapped key. Use this for encryption and
 -- decryption and then remove it from memory as soon as possible.
---
 gdkrPlaintext :: Lens' GenerateDataKeyResponse (Maybe Base64)
 gdkrPlaintext = lens _gdkrPlaintext (\s a -> s { _gdkrPlaintext = a })
 

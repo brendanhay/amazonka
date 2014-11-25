@@ -73,14 +73,12 @@ updateSAMLProvider p1 p2 = UpdateSAMLProvider
 -- (assertions) that are received from the IdP. You must generate the metadata
 -- document using the identity management software that is used as your
 -- organization's IdP.
---
 usamlpSAMLMetadataDocument :: Lens' UpdateSAMLProvider Text
 usamlpSAMLMetadataDocument =
     lens _usamlpSAMLMetadataDocument
         (\s a -> s { _usamlpSAMLMetadataDocument = a })
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to update.
---
 usamlpSAMLProviderArn :: Lens' UpdateSAMLProvider Text
 usamlpSAMLProviderArn =
     lens _usamlpSAMLProviderArn (\s a -> s { _usamlpSAMLProviderArn = a })
@@ -101,7 +99,6 @@ updateSAMLProviderResponse = UpdateSAMLProviderResponse
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider that was updated.
---
 usamlprSAMLProviderArn :: Lens' UpdateSAMLProviderResponse (Maybe Text)
 usamlprSAMLProviderArn =
     lens _usamlprSAMLProviderArn (\s a -> s { _usamlprSAMLProviderArn = a })

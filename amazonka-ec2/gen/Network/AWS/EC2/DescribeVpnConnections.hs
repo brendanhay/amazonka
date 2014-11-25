@@ -122,7 +122,6 @@ dvc1Filters = lens _dvc1Filters (\s a -> s { _dvc1Filters = a }) . _List
 -- | One or more VPN connection IDs.
 --
 -- Default: Describes your VPN connections.
---
 dvc1VpnConnectionIds :: Lens' DescribeVpnConnections [Text]
 dvc1VpnConnectionIds =
     lens _dvc1VpnConnectionIds (\s a -> s { _dvc1VpnConnectionIds = a })
@@ -150,7 +149,6 @@ describeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     }
 
 -- | Information about one or more VPN connections.
---
 dvcrVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]
 dvcrVpnConnections =
     lens _dvcrVpnConnections (\s a -> s { _dvcrVpnConnections = a })

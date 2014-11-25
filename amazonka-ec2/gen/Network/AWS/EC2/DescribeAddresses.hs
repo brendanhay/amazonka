@@ -81,7 +81,6 @@ describeAddresses = DescribeAddresses
 -- | [EC2-VPC] One or more allocation IDs.
 --
 -- Default: Describes all your Elastic IP addresses.
---
 daAllocationIds :: Lens' DescribeAddresses [Text]
 daAllocationIds = lens _daAllocationIds (\s a -> s { _daAllocationIds = a }) . _List
 
@@ -117,7 +116,6 @@ daFilters = lens _daFilters (\s a -> s { _daFilters = a }) . _List
 -- | [EC2-Classic] One or more Elastic IP addresses.
 --
 -- Default: Describes all your Elastic IP addresses.
---
 daPublicIps :: Lens' DescribeAddresses [Text]
 daPublicIps = lens _daPublicIps (\s a -> s { _daPublicIps = a }) . _List
 
@@ -143,7 +141,6 @@ describeAddressesResponse = DescribeAddressesResponse
     }
 
 -- | Information about one or more Elastic IP addresses.
---
 darAddresses :: Lens' DescribeAddressesResponse [Address]
 darAddresses = lens _darAddresses (\s a -> s { _darAddresses = a }) . _List
 

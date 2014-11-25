@@ -76,7 +76,6 @@ createClusterSnapshot p1 p2 = CreateClusterSnapshot
     }
 
 -- | The cluster identifier for which you want a snapshot.
---
 ccsClusterIdentifier :: Lens' CreateClusterSnapshot Text
 ccsClusterIdentifier =
     lens _ccsClusterIdentifier (\s a -> s { _ccsClusterIdentifier = a })
@@ -89,13 +88,11 @@ ccsClusterIdentifier =
 -- Cannot be null, empty, or blank Must contain from 1 to 255 alphanumeric
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens  Example: 'my-snapshot-id'
---
 ccsSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
 ccsSnapshotIdentifier =
     lens _ccsSnapshotIdentifier (\s a -> s { _ccsSnapshotIdentifier = a })
 
 -- | A list of tag instances.
---
 ccsTags :: Lens' CreateClusterSnapshot [Tag]
 ccsTags = lens _ccsTags (\s a -> s { _ccsTags = a }) . _List
 

@@ -98,7 +98,6 @@ sProtocol :: Lens' Subscribe Text
 sProtocol = lens _sProtocol (\s a -> s { _sProtocol = a })
 
 -- | The ARN of the topic you want to subscribe to.
---
 sTopicArn :: Lens' Subscribe Text
 sTopicArn = lens _sTopicArn (\s a -> s { _sTopicArn = a })
 
@@ -119,7 +118,6 @@ subscribeResponse = SubscribeResponse
 
 -- | The ARN of the subscription, if the service was able to create a subscription
 -- immediately (without requiring endpoint owner confirmation).
---
 srSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
 srSubscriptionArn =
     lens _srSubscriptionArn (\s a -> s { _srSubscriptionArn = a })

@@ -109,7 +109,6 @@ getShardIterator p1 p2 p3 = GetShardIterator
     }
 
 -- | The shard ID of the shard to get the iterator for.
---
 gsiShardId :: Lens' GetShardIterator Text
 gsiShardId = lens _gsiShardId (\s a -> s { _gsiShardId = a })
 
@@ -131,14 +130,12 @@ gsiShardIteratorType =
 
 -- | The sequence number of the data record in the shard from which to start
 -- reading from.
---
 gsiStartingSequenceNumber :: Lens' GetShardIterator (Maybe Text)
 gsiStartingSequenceNumber =
     lens _gsiStartingSequenceNumber
         (\s a -> s { _gsiStartingSequenceNumber = a })
 
 -- | The name of the stream.
---
 gsiStreamName :: Lens' GetShardIterator Text
 gsiStreamName = lens _gsiStreamName (\s a -> s { _gsiStreamName = a })
 
@@ -160,7 +157,6 @@ getShardIteratorResponse = GetShardIteratorResponse
 -- | The position in the shard from which to start reading data records
 -- sequentially. A shard iterator specifies this position using the sequence
 -- number of a data record in a shard.
---
 gsirShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirShardIterator =
     lens _gsirShardIterator (\s a -> s { _gsirShardIterator = a })

@@ -66,14 +66,12 @@ deleteNotificationConfiguration p1 p2 = DeleteNotificationConfiguration
     }
 
 -- | The name of the Auto Scaling group.
---
 dncAutoScalingGroupName :: Lens' DeleteNotificationConfiguration Text
 dncAutoScalingGroupName =
     lens _dncAutoScalingGroupName (\s a -> s { _dncAutoScalingGroupName = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
---
 dncTopicARN :: Lens' DeleteNotificationConfiguration Text
 dncTopicARN = lens _dncTopicARN (\s a -> s { _dncTopicARN = a })
 

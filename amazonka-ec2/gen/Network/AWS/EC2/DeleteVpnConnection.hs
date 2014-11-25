@@ -77,7 +77,6 @@ dvcDryRun :: Lens' DeleteVpnConnection (Maybe Bool)
 dvcDryRun = lens _dvcDryRun (\s a -> s { _dvcDryRun = a })
 
 -- | The ID of the VPN connection.
---
 dvcVpnConnectionId :: Lens' DeleteVpnConnection Text
 dvcVpnConnectionId =
     lens _dvcVpnConnectionId (\s a -> s { _dvcVpnConnectionId = a })

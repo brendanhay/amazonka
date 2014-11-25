@@ -81,12 +81,10 @@ deprecateActivityType p1 p2 = DeprecateActivityType
     }
 
 -- | The activity type to deprecate.
---
 dat1ActivityType :: Lens' DeprecateActivityType ActivityType
 dat1ActivityType = lens _dat1ActivityType (\s a -> s { _dat1ActivityType = a })
 
 -- | The name of the domain in which the activity type is registered.
---
 dat1Domain :: Lens' DeprecateActivityType Text
 dat1Domain = lens _dat1Domain (\s a -> s { _dat1Domain = a })
 

@@ -96,7 +96,6 @@ sendRawEmail p1 = SendRawEmail
 
 -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
 -- addresses.
---
 sreDestinations :: Lens' SendRawEmail [Text]
 sreDestinations = lens _sreDestinations (\s a -> s { _sreDestinations = a }) . _List
 
@@ -108,7 +107,6 @@ sreDestinations = lens _sreDestinations (\s a -> s { _sreDestinations = a }) . _
 -- must be formatted properly. MIME content types must be among those supported
 -- by Amazon SES. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide>.  Content must be base64-encoded, if MIME requires it.
 --
---
 sreRawMessage :: Lens' SendRawEmail RawMessage
 sreRawMessage = lens _sreRawMessage (\s a -> s { _sreRawMessage = a })
 
@@ -118,7 +116,6 @@ sreRawMessage = lens _sreRawMessage (\s a -> s { _sreRawMessage = a })
 -- other characters, then you must use MIME encoded-word syntax (RFC 2047)
 -- instead of a literal string. MIME encoded-word syntax uses the following
 -- form: '=?charset?encoding?encoded-text?='. For more information, see <http://tools.ietf.org/html/rfc2047 RFC 2047>.
---
 sreSource :: Lens' SendRawEmail (Maybe Text)
 sreSource = lens _sreSource (\s a -> s { _sreSource = a })
 
@@ -139,7 +136,6 @@ sendRawEmailResponse p1 = SendRawEmailResponse
     }
 
 -- | The unique message identifier returned from the 'SendRawEmail' action.
---
 srerMessageId :: Lens' SendRawEmailResponse Text
 srerMessageId = lens _srerMessageId (\s a -> s { _srerMessageId = a })
 

@@ -110,7 +110,6 @@ putLifecycleHook p1 p2 = PutLifecycleHook
 
 -- | The name of the Auto Scaling group to which you want to assign the lifecycle
 -- hook.
---
 plhAutoScalingGroupName :: Lens' PutLifecycleHook Text
 plhAutoScalingGroupName =
     lens _plhAutoScalingGroupName (\s a -> s { _plhAutoScalingGroupName = a })
@@ -119,7 +118,6 @@ plhAutoScalingGroupName =
 -- timeout elapses or if an unexpected failure occurs. The value for this
 -- parameter can be either 'CONTINUE' or 'ABANDON'. The default value for this
 -- parameter is 'ABANDON'.
---
 plhDefaultResult :: Lens' PutLifecycleHook (Maybe Text)
 plhDefaultResult = lens _plhDefaultResult (\s a -> s { _plhDefaultResult = a })
 
@@ -128,13 +126,11 @@ plhDefaultResult = lens _plhDefaultResult (\s a -> s { _plhDefaultResult = a })
 -- action defined in the 'DefaultResult' parameter. You can prevent the lifecycle
 -- hook from timing out by calling 'RecordLifecycleActionHeartbeat'. The default
 -- value for this parameter is 3600 seconds (1 hour).
---
 plhHeartbeatTimeout :: Lens' PutLifecycleHook (Maybe Int)
 plhHeartbeatTimeout =
     lens _plhHeartbeatTimeout (\s a -> s { _plhHeartbeatTimeout = a })
 
 -- | The name of the lifecycle hook.
---
 plhLifecycleHookName :: Lens' PutLifecycleHook Text
 plhLifecycleHookName =
     lens _plhLifecycleHookName (\s a -> s { _plhLifecycleHookName = a })
@@ -152,7 +148,6 @@ plhLifecycleTransition =
 
 -- | Contains additional information that you want to include any time Auto
 -- Scaling sends a message to the notification target.
---
 plhNotificationMetadata :: Lens' PutLifecycleHook (Maybe Text)
 plhNotificationMetadata =
     lens _plhNotificationMetadata (\s a -> s { _plhNotificationMetadata = a })
@@ -176,7 +171,6 @@ plhNotificationMetadata =
 --
 -- When you call this operation, a test message is sent to the notification
 -- target. This test message contains an additional key/value pair: 'Event:autoscaling:TEST_NOTIFICATION'.
---
 plhNotificationTargetARN :: Lens' PutLifecycleHook (Maybe Text)
 plhNotificationTargetARN =
     lens _plhNotificationTargetARN

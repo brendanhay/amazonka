@@ -73,7 +73,6 @@ retrieveDomainAuthCode p1 = RetrieveDomainAuthCode
 -- supported.
 --
 -- Required: Yes
---
 rdacDomainName :: Lens' RetrieveDomainAuthCode Text
 rdacDomainName = lens _rdacDomainName (\s a -> s { _rdacDomainName = a })
 
@@ -96,7 +95,6 @@ retrieveDomainAuthCodeResponse p1 = RetrieveDomainAuthCodeResponse
 -- | The authorization code for the domain.
 --
 -- Type: String
---
 rdacrAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
 rdacrAuthCode = lens _rdacrAuthCode (\s a -> s { _rdacrAuthCode = a }) . _Sensitive
 

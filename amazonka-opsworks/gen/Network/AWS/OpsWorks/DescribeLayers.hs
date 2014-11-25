@@ -72,12 +72,10 @@ describeLayers = DescribeLayers
 -- | An array of layer IDs that specify the layers to be described. If you omit
 -- this parameter, 'DescribeLayers' returns a description of every layer in the
 -- specified stack.
---
 dlLayerIds :: Lens' DescribeLayers [Text]
 dlLayerIds = lens _dlLayerIds (\s a -> s { _dlLayerIds = a }) . _List
 
 -- | The stack ID.
---
 dlStackId :: Lens' DescribeLayers (Maybe Text)
 dlStackId = lens _dlStackId (\s a -> s { _dlStackId = a })
 
@@ -103,7 +101,6 @@ describeLayersResponse = DescribeLayersResponse
     }
 
 -- | An array of 'Layer' objects that describe the layers.
---
 dlrLayers :: Lens' DescribeLayersResponse [Layer]
 dlrLayers = lens _dlrLayers (\s a -> s { _dlrLayers = a }) . _List
 

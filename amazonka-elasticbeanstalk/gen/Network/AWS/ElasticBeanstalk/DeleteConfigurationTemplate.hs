@@ -66,13 +66,11 @@ deleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplate
     }
 
 -- | The name of the application to delete the configuration template from.
---
 dctApplicationName :: Lens' DeleteConfigurationTemplate Text
 dctApplicationName =
     lens _dctApplicationName (\s a -> s { _dctApplicationName = a })
 
 -- | The name of the configuration template to delete.
---
 dctTemplateName :: Lens' DeleteConfigurationTemplate Text
 dctTemplateName = lens _dctTemplateName (\s a -> s { _dctTemplateName = a })
 

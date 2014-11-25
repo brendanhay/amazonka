@@ -67,7 +67,6 @@ stopInstance p1 = StopInstance
     }
 
 -- | The instance ID.
---
 siInstanceId :: Lens' StopInstance Text
 siInstanceId = lens _siInstanceId (\s a -> s { _siInstanceId = a })
 

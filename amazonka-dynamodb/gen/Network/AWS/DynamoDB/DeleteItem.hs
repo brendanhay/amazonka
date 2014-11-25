@@ -154,7 +154,6 @@ diConditionExpression =
 -- If you omit /ConditionalOperator/, then 'AND' is the default.
 --
 -- The operation will succeed only if the entire map evaluates to true.
---
 diConditionalOperator :: Lens' DeleteItem (Maybe ConditionalOperator)
 diConditionalOperator =
     lens _diConditionalOperator (\s a -> s { _diConditionalOperator = a })
@@ -337,7 +336,6 @@ diConditionalOperator =
 -- The /Value/ and /Exists/ parameters are incompatible with /AttributeValueList/
 -- and /ComparisonOperator/. Note that if you use both sets of parameters at once,
 -- DynamoDB will return a /ValidationException/ exception.
---
 diExpected :: Lens' DeleteItem (HashMap Text ExpectedAttributeValue)
 diExpected = lens _diExpected (\s a -> s { _diExpected = a }) . _Map
 
@@ -400,7 +398,6 @@ diExpressionAttributeValues =
 -- with a hash type primary key, you only need to specify the hash attribute.
 -- For a hash-and-range type primary key, you must specify both the hash
 -- attribute and the range attribute.
---
 diKey :: Lens' DeleteItem (HashMap Text AttributeValue)
 diKey = lens _diKey (\s a -> s { _diKey = a }) . _Map
 
@@ -412,7 +409,6 @@ diReturnConsumedCapacity =
 -- | A value that if set to 'SIZE', the response includes statistics about item
 -- collections, if any, that were modified during the operation are returned in
 -- the response. If set to 'NONE' (the default), no statistics are returned.
---
 diReturnItemCollectionMetrics :: Lens' DeleteItem (Maybe ReturnItemCollectionMetrics)
 diReturnItemCollectionMetrics =
     lens _diReturnItemCollectionMetrics
@@ -431,7 +427,6 @@ diReturnValues :: Lens' DeleteItem (Maybe ReturnValue)
 diReturnValues = lens _diReturnValues (\s a -> s { _diReturnValues = a })
 
 -- | The name of the table from which to delete the item.
---
 diTableName :: Lens' DeleteItem Text
 diTableName = lens _diTableName (\s a -> s { _diTableName = a })
 
@@ -461,7 +456,6 @@ deleteItemResponse = DeleteItemResponse
 -- | A map of attribute names to /AttributeValue/ objects, representing the item as
 -- it appeared before the /DeleteItem/ operation. This map appears in the response
 -- only if /ReturnValues/ was specified as 'ALL_OLD' in the request.
---
 dirAttributes :: Lens' DeleteItemResponse (HashMap Text AttributeValue)
 dirAttributes = lens _dirAttributes (\s a -> s { _dirAttributes = a }) . _Map
 

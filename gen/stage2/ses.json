@@ -98,7 +98,7 @@
                         "name": "_dToAddresses",
                         "shape": "AddressList",
                         "locationName": "ToAddresses",
-                        "documentation": "-- | The To: field(s) of the message.\n--",
+                        "documentation": "-- | The To: field(s) of the message.",
                         "typeExposed": "[Text]",
                         "type": "List \"ToAddresses\" Text"
                     },
@@ -113,7 +113,7 @@
                         "name": "_dCcAddresses",
                         "shape": "AddressList",
                         "locationName": "CcAddresses",
-                        "documentation": "-- | The CC: field(s) of the message.\n--",
+                        "documentation": "-- | The CC: field(s) of the message.",
                         "typeExposed": "[Text]",
                         "type": "List \"ToAddresses\" Text"
                     },
@@ -128,7 +128,7 @@
                         "name": "_dBccAddresses",
                         "shape": "AddressList",
                         "locationName": "BccAddresses",
-                        "documentation": "-- | The BCC: field(s) of the message.\n--",
+                        "documentation": "-- | The BCC: field(s) of the message.",
                         "typeExposed": "[Text]",
                         "type": "List \"ToAddresses\" Text"
                     }
@@ -145,7 +145,7 @@
                         "name": "_dBccAddresses",
                         "shape": "AddressList",
                         "locationName": "BccAddresses",
-                        "documentation": "-- | The BCC: field(s) of the message.\n--",
+                        "documentation": "-- | The BCC: field(s) of the message.",
                         "typeExposed": "[Text]",
                         "type": "List \"ToAddresses\" Text"
                     },
@@ -160,7 +160,7 @@
                         "name": "_dCcAddresses",
                         "shape": "AddressList",
                         "locationName": "CcAddresses",
-                        "documentation": "-- | The CC: field(s) of the message.\n--",
+                        "documentation": "-- | The CC: field(s) of the message.",
                         "typeExposed": "[Text]",
                         "type": "List \"ToAddresses\" Text"
                     },
@@ -175,7 +175,7 @@
                         "name": "_dToAddresses",
                         "shape": "AddressList",
                         "locationName": "ToAddresses",
-                        "documentation": "-- | The To: field(s) of the message.\n--",
+                        "documentation": "-- | The To: field(s) of the message.",
                         "typeExposed": "[Text]",
                         "type": "List \"ToAddresses\" Text"
                     }
@@ -202,7 +202,7 @@
                         "name": "_idaDkimEnabled",
                         "shape": "Enabled",
                         "locationName": "DkimEnabled",
-                        "documentation": "-- | True if DKIM signing is enabled for email sent from the identity; false\n-- otherwise.\n--",
+                        "documentation": "-- | True if DKIM signing is enabled for email sent from the identity; false\n-- otherwise.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -217,7 +217,7 @@
                         "name": "_idaDkimVerificationStatus",
                         "shape": "VerificationStatus",
                         "locationName": "DkimVerificationStatus",
-                        "documentation": "-- | Describes whether Amazon SES has successfully verified the DKIM DNS records\n-- (tokens) published in the domain name's DNS. (This only applies to domain\n-- identities, not email address identities.)\n--",
+                        "documentation": "-- | Describes whether Amazon SES has successfully verified the DKIM DNS records\n-- (tokens) published in the domain name's DNS. (This only applies to domain\n-- identities, not email address identities.)",
                         "typeExposed": "VerificationStatus",
                         "type": "VerificationStatus"
                     }
@@ -238,7 +238,7 @@
                         "name": "_idaDkimTokens",
                         "shape": "VerificationTokenList",
                         "locationName": "DkimTokens",
-                        "documentation": "-- | A set of character strings that represent the domain's identity. Using these\n-- tokens, you will need to create DNS CNAME records that point to DKIM public\n-- keys hosted by Amazon SES. Amazon Web Services will eventually detect that\n-- you have updated your DNS records; this detection process may take up to 72\n-- hours. Upon successful detection, Amazon SES will be able to DKIM-sign email\n-- originating from that domain. (This only applies to domain identities, not\n-- email address identities.)\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.\n--",
+                        "documentation": "-- | A set of character strings that represent the domain's identity. Using these\n-- tokens, you will need to create DNS CNAME records that point to DKIM public\n-- keys hosted by Amazon SES. Amazon Web Services will eventually detect that\n-- you have updated your DNS records; this detection process may take up to 72\n-- hours. Upon successful detection, Amazon SES will be able to DKIM-sign email\n-- originating from that domain. (This only applies to domain identities, not\n-- email address identities.)\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
                         "typeExposed": "[Text]",
                         "type": "List \"DkimTokens\" Text"
                     }
@@ -255,7 +255,7 @@
                         "name": "_idaDkimEnabled",
                         "shape": "Enabled",
                         "locationName": "DkimEnabled",
-                        "documentation": "-- | True if DKIM signing is enabled for email sent from the identity; false\n-- otherwise.\n--",
+                        "documentation": "-- | True if DKIM signing is enabled for email sent from the identity; false\n-- otherwise.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -270,7 +270,7 @@
                         "name": "_idaDkimTokens",
                         "shape": "VerificationTokenList",
                         "locationName": "DkimTokens",
-                        "documentation": "-- | A set of character strings that represent the domain's identity. Using these\n-- tokens, you will need to create DNS CNAME records that point to DKIM public\n-- keys hosted by Amazon SES. Amazon Web Services will eventually detect that\n-- you have updated your DNS records; this detection process may take up to 72\n-- hours. Upon successful detection, Amazon SES will be able to DKIM-sign email\n-- originating from that domain. (This only applies to domain identities, not\n-- email address identities.)\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.\n--",
+                        "documentation": "-- | A set of character strings that represent the domain's identity. Using these\n-- tokens, you will need to create DNS CNAME records that point to DKIM public\n-- keys hosted by Amazon SES. Amazon Web Services will eventually detect that\n-- you have updated your DNS records; this detection process may take up to 72\n-- hours. Upon successful detection, Amazon SES will be able to DKIM-sign email\n-- originating from that domain. (This only applies to domain identities, not\n-- email address identities.)\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
                         "typeExposed": "[Text]",
                         "type": "List \"DkimTokens\" Text"
                     },
@@ -285,7 +285,7 @@
                         "name": "_idaDkimVerificationStatus",
                         "shape": "VerificationStatus",
                         "locationName": "DkimVerificationStatus",
-                        "documentation": "-- | Describes whether Amazon SES has successfully verified the DKIM DNS records\n-- (tokens) published in the domain name's DNS. (This only applies to domain\n-- identities, not email address identities.)\n--",
+                        "documentation": "-- | Describes whether Amazon SES has successfully verified the DKIM DNS records\n-- (tokens) published in the domain name's DNS. (This only applies to domain\n-- identities, not email address identities.)",
                         "typeExposed": "VerificationStatus",
                         "type": "VerificationStatus"
                     }
@@ -317,7 +317,7 @@
                         "name": "_bText",
                         "shape": "Content",
                         "locationName": "Text",
-                        "documentation": "-- | The content of the message, in text format. Use this for text-based email\n-- clients, or clients on high-latency networks (such as mobile devices).\n--",
+                        "documentation": "-- | The content of the message, in text format. Use this for text-based email\n-- clients, or clients on high-latency networks (such as mobile devices).",
                         "typeExposed": "Maybe Content",
                         "type": "Maybe Content"
                     },
@@ -332,7 +332,7 @@
                         "name": "_bHtml",
                         "shape": "Content",
                         "locationName": "Html",
-                        "documentation": "-- | The content of the message, in HTML format. Use this for email clients that\n-- can process HTML. You can include clickable links, formatted text, and much\n-- more in an HTML message.\n--",
+                        "documentation": "-- | The content of the message, in HTML format. Use this for email clients that\n-- can process HTML. You can include clickable links, formatted text, and much\n-- more in an HTML message.",
                         "typeExposed": "Maybe Content",
                         "type": "Maybe Content"
                     }
@@ -349,7 +349,7 @@
                         "name": "_bHtml",
                         "shape": "Content",
                         "locationName": "Html",
-                        "documentation": "-- | The content of the message, in HTML format. Use this for email clients that\n-- can process HTML. You can include clickable links, formatted text, and much\n-- more in an HTML message.\n--",
+                        "documentation": "-- | The content of the message, in HTML format. Use this for email clients that\n-- can process HTML. You can include clickable links, formatted text, and much\n-- more in an HTML message.",
                         "typeExposed": "Maybe Content",
                         "type": "Maybe Content"
                     },
@@ -364,7 +364,7 @@
                         "name": "_bText",
                         "shape": "Content",
                         "locationName": "Text",
-                        "documentation": "-- | The content of the message, in text format. Use this for text-based email\n-- clients, or clients on high-latency networks (such as mobile devices).\n--",
+                        "documentation": "-- | The content of the message, in text format. Use this for text-based email\n-- clients, or clients on high-latency networks (such as mobile devices).",
                         "typeExposed": "Maybe Content",
                         "type": "Maybe Content"
                     }
@@ -391,7 +391,7 @@
                         "name": "_ivaVerificationStatus",
                         "shape": "VerificationStatus",
                         "locationName": "VerificationStatus",
-                        "documentation": "-- | The verification status of the identity: \"Pending\", \"Success\", \"Failed\", or\n-- \"TemporaryFailure\".\n--",
+                        "documentation": "-- | The verification status of the identity: \"Pending\", \"Success\", \"Failed\", or\n-- \"TemporaryFailure\".",
                         "typeExposed": "VerificationStatus",
                         "type": "VerificationStatus"
                     }
@@ -412,7 +412,7 @@
                         "name": "_ivaVerificationToken",
                         "shape": "VerificationToken",
                         "locationName": "VerificationToken",
-                        "documentation": "-- | The verification token for a domain identity. Null for email address\n-- identities.\n--",
+                        "documentation": "-- | The verification token for a domain identity. Null for email address\n-- identities.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -429,7 +429,7 @@
                         "name": "_ivaVerificationStatus",
                         "shape": "VerificationStatus",
                         "locationName": "VerificationStatus",
-                        "documentation": "-- | The verification status of the identity: \"Pending\", \"Success\", \"Failed\", or\n-- \"TemporaryFailure\".\n--",
+                        "documentation": "-- | The verification status of the identity: \"Pending\", \"Success\", \"Failed\", or\n-- \"TemporaryFailure\".",
                         "typeExposed": "VerificationStatus",
                         "type": "VerificationStatus"
                     },
@@ -444,7 +444,7 @@
                         "name": "_ivaVerificationToken",
                         "shape": "VerificationToken",
                         "locationName": "VerificationToken",
-                        "documentation": "-- | The verification token for a domain identity. Null for email address\n-- identities.\n--",
+                        "documentation": "-- | The verification token for a domain identity. Null for email address\n-- identities.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -477,7 +477,7 @@
                         "name": "_sdpTimestamp",
                         "shape": "Timestamp",
                         "locationName": "Timestamp",
-                        "documentation": "-- | Time of the data point.\n--",
+                        "documentation": "-- | Time of the data point.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -492,7 +492,7 @@
                         "name": "_sdpDeliveryAttempts",
                         "shape": "Counter",
                         "locationName": "DeliveryAttempts",
-                        "documentation": "-- | Number of emails that have been enqueued for sending.\n--",
+                        "documentation": "-- | Number of emails that have been enqueued for sending.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -507,7 +507,7 @@
                         "name": "_sdpBounces",
                         "shape": "Counter",
                         "locationName": "Bounces",
-                        "documentation": "-- | Number of emails that have bounced.\n--",
+                        "documentation": "-- | Number of emails that have bounced.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -522,7 +522,7 @@
                         "name": "_sdpComplaints",
                         "shape": "Counter",
                         "locationName": "Complaints",
-                        "documentation": "-- | Number of unwanted emails that were rejected by recipients.\n--",
+                        "documentation": "-- | Number of unwanted emails that were rejected by recipients.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -537,7 +537,7 @@
                         "name": "_sdpRejects",
                         "shape": "Counter",
                         "locationName": "Rejects",
-                        "documentation": "-- | Number of emails rejected by Amazon SES.\n--",
+                        "documentation": "-- | Number of emails rejected by Amazon SES.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     }
@@ -554,7 +554,7 @@
                         "name": "_sdpBounces",
                         "shape": "Counter",
                         "locationName": "Bounces",
-                        "documentation": "-- | Number of emails that have bounced.\n--",
+                        "documentation": "-- | Number of emails that have bounced.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -569,7 +569,7 @@
                         "name": "_sdpComplaints",
                         "shape": "Counter",
                         "locationName": "Complaints",
-                        "documentation": "-- | Number of unwanted emails that were rejected by recipients.\n--",
+                        "documentation": "-- | Number of unwanted emails that were rejected by recipients.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -584,7 +584,7 @@
                         "name": "_sdpDeliveryAttempts",
                         "shape": "Counter",
                         "locationName": "DeliveryAttempts",
-                        "documentation": "-- | Number of emails that have been enqueued for sending.\n--",
+                        "documentation": "-- | Number of emails that have been enqueued for sending.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -599,7 +599,7 @@
                         "name": "_sdpRejects",
                         "shape": "Counter",
                         "locationName": "Rejects",
-                        "documentation": "-- | Number of emails rejected by Amazon SES.\n--",
+                        "documentation": "-- | Number of emails rejected by Amazon SES.",
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
                     },
@@ -614,7 +614,7 @@
                         "name": "_sdpTimestamp",
                         "shape": "Timestamp",
                         "locationName": "Timestamp",
-                        "documentation": "-- | Time of the data point.\n--",
+                        "documentation": "-- | Time of the data point.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -659,7 +659,7 @@
                         "name": "_cData",
                         "shape": "MessageData",
                         "locationName": "Data",
-                        "documentation": "-- | The textual data of the content.\n--",
+                        "documentation": "-- | The textual data of the content.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -680,7 +680,7 @@
                         "name": "_cCharset",
                         "shape": "Charset",
                         "locationName": "Charset",
-                        "documentation": "-- | The character set of the content.\n--",
+                        "documentation": "-- | The character set of the content.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -697,7 +697,7 @@
                         "name": "_cCharset",
                         "shape": "Charset",
                         "locationName": "Charset",
-                        "documentation": "-- | The character set of the content.\n--",
+                        "documentation": "-- | The character set of the content.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -712,7 +712,7 @@
                         "name": "_cData",
                         "shape": "MessageData",
                         "locationName": "Data",
-                        "documentation": "-- | The textual data of the content.\n--",
+                        "documentation": "-- | The textual data of the content.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -740,7 +740,7 @@
                         "name": "_inaBounceTopic",
                         "shape": "NotificationTopic",
                         "locationName": "BounceTopic",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will\n-- publish bounce notifications.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will\n-- publish bounce notifications.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -755,7 +755,7 @@
                         "name": "_inaComplaintTopic",
                         "shape": "NotificationTopic",
                         "locationName": "ComplaintTopic",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will\n-- publish complaint notifications.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will\n-- publish complaint notifications.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -770,7 +770,7 @@
                         "name": "_inaDeliveryTopic",
                         "shape": "NotificationTopic",
                         "locationName": "DeliveryTopic",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will\n-- publish delivery notifications.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will\n-- publish delivery notifications.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -785,7 +785,7 @@
                         "name": "_inaForwardingEnabled",
                         "shape": "Enabled",
                         "locationName": "ForwardingEnabled",
-                        "documentation": "-- | Describes whether Amazon SES will forward bounce and complaint notifications\n-- as email. 'true' indicates that Amazon SES will forward bounce and complaint\n-- notifications as email, while 'false' indicates that bounce and complaint\n-- notifications will be published only to the specified bounce and complaint\n-- Amazon SNS topics.\n--",
+                        "documentation": "-- | Describes whether Amazon SES will forward bounce and complaint notifications\n-- as email. 'true' indicates that Amazon SES will forward bounce and complaint\n-- notifications as email, while 'false' indicates that bounce and complaint\n-- notifications will be published only to the specified bounce and complaint\n-- Amazon SNS topics.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -807,7 +807,7 @@
                         "name": "_inaBounceTopic",
                         "shape": "NotificationTopic",
                         "locationName": "BounceTopic",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will\n-- publish bounce notifications.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will\n-- publish bounce notifications.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -822,7 +822,7 @@
                         "name": "_inaComplaintTopic",
                         "shape": "NotificationTopic",
                         "locationName": "ComplaintTopic",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will\n-- publish complaint notifications.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will\n-- publish complaint notifications.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -837,7 +837,7 @@
                         "name": "_inaDeliveryTopic",
                         "shape": "NotificationTopic",
                         "locationName": "DeliveryTopic",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will\n-- publish delivery notifications.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will\n-- publish delivery notifications.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -852,7 +852,7 @@
                         "name": "_inaForwardingEnabled",
                         "shape": "Enabled",
                         "locationName": "ForwardingEnabled",
-                        "documentation": "-- | Describes whether Amazon SES will forward bounce and complaint notifications\n-- as email. 'true' indicates that Amazon SES will forward bounce and complaint\n-- notifications as email, while 'false' indicates that bounce and complaint\n-- notifications will be published only to the specified bounce and complaint\n-- Amazon SNS topics.\n--",
+                        "documentation": "-- | Describes whether Amazon SES will forward bounce and complaint notifications\n-- as email. 'true' indicates that Amazon SES will forward bounce and complaint\n-- notifications as email, while 'false' indicates that bounce and complaint\n-- notifications will be published only to the specified bounce and complaint\n-- Amazon SNS topics.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -877,7 +877,7 @@
                     "name": "_rmData",
                     "shape": "RawMessageData",
                     "locationName": "Data",
-                    "documentation": "-- | The raw data of the message. The client must ensure that the message format\n-- complies with Internet email standards regarding email header fields, MIME\n-- types, MIME encoding, and base64 encoding (if necessary).\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n--\n-- For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide\u003e.\n--",
+                    "documentation": "-- | The raw data of the message. The client must ensure that the message format\n-- complies with Internet email standards regarding email header fields, MIME\n-- types, MIME encoding, and base64 encoding (if necessary).\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n--\n-- For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide\u003e.",
                     "typeExposed": "Base64",
                     "type": "Base64"
                 },
@@ -895,7 +895,7 @@
                         "name": "_rmData",
                         "shape": "RawMessageData",
                         "locationName": "Data",
-                        "documentation": "-- | The raw data of the message. The client must ensure that the message format\n-- complies with Internet email standards regarding email header fields, MIME\n-- types, MIME encoding, and base64 encoding (if necessary).\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n--\n-- For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide\u003e.\n--",
+                        "documentation": "-- | The raw data of the message. The client must ensure that the message format\n-- complies with Internet email standards regarding email header fields, MIME\n-- types, MIME encoding, and base64 encoding (if necessary).\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n--\n-- For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide\u003e.",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     }
@@ -917,7 +917,7 @@
                         "name": "_rmData",
                         "shape": "RawMessageData",
                         "locationName": "Data",
-                        "documentation": "-- | The raw data of the message. The client must ensure that the message format\n-- complies with Internet email standards regarding email header fields, MIME\n-- types, MIME encoding, and base64 encoding (if necessary).\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n--\n-- For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide\u003e.\n--",
+                        "documentation": "-- | The raw data of the message. The client must ensure that the message format\n-- complies with Internet email standards regarding email header fields, MIME\n-- types, MIME encoding, and base64 encoding (if necessary).\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n--\n-- For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide\u003e.",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     }
@@ -982,7 +982,7 @@
                         "name": "_mSubject",
                         "shape": "Content",
                         "locationName": "Subject",
-                        "documentation": "-- | The subject of the message: A short summary of the content, which will appear\n-- in the recipient's inbox.\n--",
+                        "documentation": "-- | The subject of the message: A short summary of the content, which will appear\n-- in the recipient's inbox.",
                         "typeExposed": "Content",
                         "type": "Content"
                     },
@@ -997,7 +997,7 @@
                         "name": "_mBody",
                         "shape": "Body",
                         "locationName": "Body",
-                        "documentation": "-- | The message body.\n--",
+                        "documentation": "-- | The message body.",
                         "typeExposed": "Body",
                         "type": "Body"
                     }
@@ -1019,7 +1019,7 @@
                         "name": "_mBody",
                         "shape": "Body",
                         "locationName": "Body",
-                        "documentation": "-- | The message body.\n--",
+                        "documentation": "-- | The message body.",
                         "typeExposed": "Body",
                         "type": "Body"
                     },
@@ -1034,7 +1034,7 @@
                         "name": "_mSubject",
                         "shape": "Content",
                         "locationName": "Subject",
-                        "documentation": "-- | The subject of the message: A short summary of the content, which will appear\n-- in the recipient's inbox.\n--",
+                        "documentation": "-- | The subject of the message: A short summary of the content, which will appear\n-- in the recipient's inbox.",
                         "typeExposed": "Content",
                         "type": "Content"
                     }
@@ -1081,7 +1081,7 @@
             "pager": null,
             "name": "DeleteIdentity",
             "method": "post",
-            "documentation": "-- | Deletes the specified identity (email address or domain) from the list of\n-- verified identities.\n--\n-- This action is throttled at one request per second.\n--",
+            "documentation": "-- | Deletes the specified identity (email address or domain) from the list of\n-- verified identities.\n--\n-- This action is throttled at one request per second.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1108,7 +1108,7 @@
                     "name": "_diIdentity",
                     "shape": "Identity",
                     "locationName": "Identity",
-                    "documentation": "-- | The identity to be removed from the list of identities for the AWS Account.\n--",
+                    "documentation": "-- | The identity to be removed from the list of identities for the AWS Account.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -1133,7 +1133,7 @@
                         "name": "_diIdentity",
                         "shape": "Identity",
                         "locationName": "Identity",
-                        "documentation": "-- | The identity to be removed from the list of identities for the AWS Account.\n--",
+                        "documentation": "-- | The identity to be removed from the list of identities for the AWS Account.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1167,7 +1167,7 @@
                         "name": "_diIdentity",
                         "shape": "Identity",
                         "locationName": "Identity",
-                        "documentation": "-- | The identity to be removed from the list of identities for the AWS Account.\n--",
+                        "documentation": "-- | The identity to be removed from the list of identities for the AWS Account.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1210,7 +1210,7 @@
             "pager": null,
             "name": "DeleteVerifiedEmailAddress",
             "method": "post",
-            "documentation": "-- | Deletes the specified email address from the list of verified addresses.\n--\n-- The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012\n-- release of Domain Verification. The DeleteIdentity action is now preferred. This action is throttled at one request per second.\n--\n--",
+            "documentation": "-- | Deletes the specified email address from the list of verified addresses.\n--\n-- The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012\n-- release of Domain Verification. The DeleteIdentity action is now preferred. This action is throttled at one request per second.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1237,7 +1237,7 @@
                     "name": "_dveaEmailAddress",
                     "shape": "Address",
                     "locationName": "EmailAddress",
-                    "documentation": "-- | An email address to be removed from the list of verified addresses.\n--",
+                    "documentation": "-- | An email address to be removed from the list of verified addresses.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -1262,7 +1262,7 @@
                         "name": "_dveaEmailAddress",
                         "shape": "Address",
                         "locationName": "EmailAddress",
-                        "documentation": "-- | An email address to be removed from the list of verified addresses.\n--",
+                        "documentation": "-- | An email address to be removed from the list of verified addresses.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1296,7 +1296,7 @@
                         "name": "_dveaEmailAddress",
                         "shape": "Address",
                         "locationName": "EmailAddress",
-                        "documentation": "-- | An email address to be removed from the list of verified addresses.\n--",
+                        "documentation": "-- | An email address to be removed from the list of verified addresses.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1329,7 +1329,7 @@
                     "name": "_gidarDkimAttributes",
                     "shape": "DkimAttributes",
                     "locationName": "DkimAttributes",
-                    "documentation": "-- | The DKIM attributes for an email address or a domain.\n--",
+                    "documentation": "-- | The DKIM attributes for an email address or a domain.",
                     "typeExposed": "HashMap Text IdentityDkimAttributes",
                     "type": "EMap \"entry\" \"key\" \"value\" Text IdentityDkimAttributes"
                 },
@@ -1358,7 +1358,7 @@
                         "name": "_gidarDkimAttributes",
                         "shape": "DkimAttributes",
                         "locationName": "DkimAttributes",
-                        "documentation": "-- | The DKIM attributes for an email address or a domain.\n--",
+                        "documentation": "-- | The DKIM attributes for an email address or a domain.",
                         "typeExposed": "HashMap Text IdentityDkimAttributes",
                         "type": "EMap \"entry\" \"key\" \"value\" Text IdentityDkimAttributes"
                     }
@@ -1375,7 +1375,7 @@
                         "name": "_gidarDkimAttributes",
                         "shape": "DkimAttributes",
                         "locationName": "DkimAttributes",
-                        "documentation": "-- | The DKIM attributes for an email address or a domain.\n--",
+                        "documentation": "-- | The DKIM attributes for an email address or a domain.",
                         "typeExposed": "HashMap Text IdentityDkimAttributes",
                         "type": "EMap \"entry\" \"key\" \"value\" Text IdentityDkimAttributes"
                     }
@@ -1391,7 +1391,7 @@
             "pager": null,
             "name": "GetIdentityDkimAttributes",
             "method": "post",
-            "documentation": "-- | Returns the current status of Easy DKIM signing for an entity. For domain\n-- name identities, this action also returns the DKIM tokens that are required\n-- for Easy DKIM signing, and whether Amazon SES has successfully verified that\n-- these tokens have been published.\n--\n-- This action takes a list of identities as input and returns the following\n-- information for each:\n--\n-- Whether Easy DKIM signing is enabled or disabled. A set of DKIM tokens that\n-- represent the identity. If the identity is an email address, the tokens\n-- represent the domain of that address. Whether Amazon SES has successfully\n-- verified the DKIM tokens published in the domain's DNS. This information is\n-- only returned for domain name identities, not for email addresses.  This\n-- action is throttled at one request per second.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.\n--",
+            "documentation": "-- | Returns the current status of Easy DKIM signing for an entity. For domain\n-- name identities, this action also returns the DKIM tokens that are required\n-- for Easy DKIM signing, and whether Amazon SES has successfully verified that\n-- these tokens have been published.\n--\n-- This action takes a list of identities as input and returns the following\n-- information for each:\n--\n-- Whether Easy DKIM signing is enabled or disabled. A set of DKIM tokens that\n-- represent the identity. If the identity is an email address, the tokens\n-- represent the domain of that address. Whether Amazon SES has successfully\n-- verified the DKIM tokens published in the domain's DNS. This information is\n-- only returned for domain name identities, not for email addresses.  This\n-- action is throttled at one request per second.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1418,7 +1418,7 @@
                     "name": "_gidaIdentities",
                     "shape": "IdentityList",
                     "locationName": "Identities",
-                    "documentation": "-- | A list of one or more verified identities - email addresses, domains, or both.\n--",
+                    "documentation": "-- | A list of one or more verified identities - email addresses, domains, or both.",
                     "typeExposed": "[Text]",
                     "type": "List \"Identities\" Text"
                 },
@@ -1460,7 +1460,7 @@
                         "name": "_gidaIdentities",
                         "shape": "IdentityList",
                         "locationName": "Identities",
-                        "documentation": "-- | A list of one or more verified identities - email addresses, domains, or both.\n--",
+                        "documentation": "-- | A list of one or more verified identities - email addresses, domains, or both.",
                         "typeExposed": "[Text]",
                         "type": "List \"Identities\" Text"
                     }
@@ -1477,7 +1477,7 @@
                         "name": "_gidaIdentities",
                         "shape": "IdentityList",
                         "locationName": "Identities",
-                        "documentation": "-- | A list of one or more verified identities - email addresses, domains, or both.\n--",
+                        "documentation": "-- | A list of one or more verified identities - email addresses, domains, or both.",
                         "typeExposed": "[Text]",
                         "type": "List \"Identities\" Text"
                     }
@@ -1510,7 +1510,7 @@
                     "name": "_ginarNotificationAttributes",
                     "shape": "NotificationAttributes",
                     "locationName": "NotificationAttributes",
-                    "documentation": "-- | A map of Identity to IdentityNotificationAttributes.\n--",
+                    "documentation": "-- | A map of Identity to IdentityNotificationAttributes.",
                     "typeExposed": "HashMap Text IdentityNotificationAttributes",
                     "type": "EMap \"entry\" \"key\" \"value\" Text IdentityNotificationAttributes"
                 },
@@ -1539,7 +1539,7 @@
                         "name": "_ginarNotificationAttributes",
                         "shape": "NotificationAttributes",
                         "locationName": "NotificationAttributes",
-                        "documentation": "-- | A map of Identity to IdentityNotificationAttributes.\n--",
+                        "documentation": "-- | A map of Identity to IdentityNotificationAttributes.",
                         "typeExposed": "HashMap Text IdentityNotificationAttributes",
                         "type": "EMap \"entry\" \"key\" \"value\" Text IdentityNotificationAttributes"
                     }
@@ -1556,7 +1556,7 @@
                         "name": "_ginarNotificationAttributes",
                         "shape": "NotificationAttributes",
                         "locationName": "NotificationAttributes",
-                        "documentation": "-- | A map of Identity to IdentityNotificationAttributes.\n--",
+                        "documentation": "-- | A map of Identity to IdentityNotificationAttributes.",
                         "typeExposed": "HashMap Text IdentityNotificationAttributes",
                         "type": "EMap \"entry\" \"key\" \"value\" Text IdentityNotificationAttributes"
                     }
@@ -1572,7 +1572,7 @@
             "pager": null,
             "name": "GetIdentityNotificationAttributes",
             "method": "post",
-            "documentation": "-- | Given a list of verified identities (email addresses and/or domains), returns\n-- a structure describing identity notification attributes.\n--\n-- This action is throttled at one request per second.\n--\n-- For more information about using notifications with Amazon SES, see the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide\u003e.\n--",
+            "documentation": "-- | Given a list of verified identities (email addresses and/or domains), returns\n-- a structure describing identity notification attributes.\n--\n-- This action is throttled at one request per second.\n--\n-- For more information about using notifications with Amazon SES, see the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1599,7 +1599,7 @@
                     "name": "_ginaIdentities",
                     "shape": "IdentityList",
                     "locationName": "Identities",
-                    "documentation": "-- | A list of one or more identities.\n--",
+                    "documentation": "-- | A list of one or more identities.",
                     "typeExposed": "[Text]",
                     "type": "List \"Identities\" Text"
                 },
@@ -1641,7 +1641,7 @@
                         "name": "_ginaIdentities",
                         "shape": "IdentityList",
                         "locationName": "Identities",
-                        "documentation": "-- | A list of one or more identities.\n--",
+                        "documentation": "-- | A list of one or more identities.",
                         "typeExposed": "[Text]",
                         "type": "List \"Identities\" Text"
                     }
@@ -1658,7 +1658,7 @@
                         "name": "_ginaIdentities",
                         "shape": "IdentityList",
                         "locationName": "Identities",
-                        "documentation": "-- | A list of one or more identities.\n--",
+                        "documentation": "-- | A list of one or more identities.",
                         "typeExposed": "[Text]",
                         "type": "List \"Identities\" Text"
                     }
@@ -1691,7 +1691,7 @@
                     "name": "_givarVerificationAttributes",
                     "shape": "VerificationAttributes",
                     "locationName": "VerificationAttributes",
-                    "documentation": "-- | A map of Identities to IdentityVerificationAttributes objects.\n--",
+                    "documentation": "-- | A map of Identities to IdentityVerificationAttributes objects.",
                     "typeExposed": "HashMap Text IdentityVerificationAttributes",
                     "type": "EMap \"entry\" \"key\" \"value\" Text IdentityVerificationAttributes"
                 },
@@ -1720,7 +1720,7 @@
                         "name": "_givarVerificationAttributes",
                         "shape": "VerificationAttributes",
                         "locationName": "VerificationAttributes",
-                        "documentation": "-- | A map of Identities to IdentityVerificationAttributes objects.\n--",
+                        "documentation": "-- | A map of Identities to IdentityVerificationAttributes objects.",
                         "typeExposed": "HashMap Text IdentityVerificationAttributes",
                         "type": "EMap \"entry\" \"key\" \"value\" Text IdentityVerificationAttributes"
                     }
@@ -1737,7 +1737,7 @@
                         "name": "_givarVerificationAttributes",
                         "shape": "VerificationAttributes",
                         "locationName": "VerificationAttributes",
-                        "documentation": "-- | A map of Identities to IdentityVerificationAttributes objects.\n--",
+                        "documentation": "-- | A map of Identities to IdentityVerificationAttributes objects.",
                         "typeExposed": "HashMap Text IdentityVerificationAttributes",
                         "type": "EMap \"entry\" \"key\" \"value\" Text IdentityVerificationAttributes"
                     }
@@ -1753,7 +1753,7 @@
             "pager": null,
             "name": "GetIdentityVerificationAttributes",
             "method": "post",
-            "documentation": "-- | Given a list of identities (email addresses and/or domains), returns the\n-- verification status and (for domain identities) the verification token for\n-- each identity.\n--\n-- This action is throttled at one request per second.\n--",
+            "documentation": "-- | Given a list of identities (email addresses and/or domains), returns the\n-- verification status and (for domain identities) the verification token for\n-- each identity.\n--\n-- This action is throttled at one request per second.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1780,7 +1780,7 @@
                     "name": "_givaIdentities",
                     "shape": "IdentityList",
                     "locationName": "Identities",
-                    "documentation": "-- | A list of identities.\n--",
+                    "documentation": "-- | A list of identities.",
                     "typeExposed": "[Text]",
                     "type": "List \"Identities\" Text"
                 },
@@ -1822,7 +1822,7 @@
                         "name": "_givaIdentities",
                         "shape": "IdentityList",
                         "locationName": "Identities",
-                        "documentation": "-- | A list of identities.\n--",
+                        "documentation": "-- | A list of identities.",
                         "typeExposed": "[Text]",
                         "type": "List \"Identities\" Text"
                     }
@@ -1839,7 +1839,7 @@
                         "name": "_givaIdentities",
                         "shape": "IdentityList",
                         "locationName": "Identities",
-                        "documentation": "-- | A list of identities.\n--",
+                        "documentation": "-- | A list of identities.",
                         "typeExposed": "[Text]",
                         "type": "List \"Identities\" Text"
                     }
@@ -1884,7 +1884,7 @@
                         "name": "_gsqrMax24HourSend",
                         "shape": "Max24HourSend",
                         "locationName": "Max24HourSend",
-                        "documentation": "-- | The maximum number of emails the user is allowed to send in a 24-hour\n-- interval.\n--",
+                        "documentation": "-- | The maximum number of emails the user is allowed to send in a 24-hour\n-- interval.",
                         "typeExposed": "Maybe Double",
                         "type": "Maybe Double"
                     },
@@ -1899,7 +1899,7 @@
                         "name": "_gsqrMaxSendRate",
                         "shape": "MaxSendRate",
                         "locationName": "MaxSendRate",
-                        "documentation": "-- | The maximum number of emails the user is allowed to send per second.\n--",
+                        "documentation": "-- | The maximum number of emails the user is allowed to send per second.",
                         "typeExposed": "Maybe Double",
                         "type": "Maybe Double"
                     },
@@ -1914,7 +1914,7 @@
                         "name": "_gsqrSentLast24Hours",
                         "shape": "SentLast24Hours",
                         "locationName": "SentLast24Hours",
-                        "documentation": "-- | The number of emails sent during the previous 24 hours.\n--",
+                        "documentation": "-- | The number of emails sent during the previous 24 hours.",
                         "typeExposed": "Maybe Double",
                         "type": "Maybe Double"
                     }
@@ -1931,7 +1931,7 @@
                         "name": "_gsqrMax24HourSend",
                         "shape": "Max24HourSend",
                         "locationName": "Max24HourSend",
-                        "documentation": "-- | The maximum number of emails the user is allowed to send in a 24-hour\n-- interval.\n--",
+                        "documentation": "-- | The maximum number of emails the user is allowed to send in a 24-hour\n-- interval.",
                         "typeExposed": "Maybe Double",
                         "type": "Maybe Double"
                     },
@@ -1946,7 +1946,7 @@
                         "name": "_gsqrMaxSendRate",
                         "shape": "MaxSendRate",
                         "locationName": "MaxSendRate",
-                        "documentation": "-- | The maximum number of emails the user is allowed to send per second.\n--",
+                        "documentation": "-- | The maximum number of emails the user is allowed to send per second.",
                         "typeExposed": "Maybe Double",
                         "type": "Maybe Double"
                     },
@@ -1961,7 +1961,7 @@
                         "name": "_gsqrSentLast24Hours",
                         "shape": "SentLast24Hours",
                         "locationName": "SentLast24Hours",
-                        "documentation": "-- | The number of emails sent during the previous 24 hours.\n--",
+                        "documentation": "-- | The number of emails sent during the previous 24 hours.",
                         "typeExposed": "Maybe Double",
                         "type": "Maybe Double"
                     }
@@ -1977,7 +1977,7 @@
             "pager": null,
             "name": "GetSendQuota",
             "method": "post",
-            "documentation": "-- | Returns the user's current sending limits.\n--\n-- This action is throttled at one request per second.\n--",
+            "documentation": "-- | Returns the user's current sending limits.\n--\n-- This action is throttled at one request per second.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2037,7 +2037,7 @@
                     "name": "_gssrSendDataPoints",
                     "shape": "SendDataPointList",
                     "locationName": "SendDataPoints",
-                    "documentation": "-- | A list of data points, each of which represents 15 minutes of activity.\n--",
+                    "documentation": "-- | A list of data points, each of which represents 15 minutes of activity.",
                     "typeExposed": "[SendDataPoint]",
                     "type": "List \"SendDataPoints\" SendDataPoint"
                 },
@@ -2066,7 +2066,7 @@
                         "name": "_gssrSendDataPoints",
                         "shape": "SendDataPointList",
                         "locationName": "SendDataPoints",
-                        "documentation": "-- | A list of data points, each of which represents 15 minutes of activity.\n--",
+                        "documentation": "-- | A list of data points, each of which represents 15 minutes of activity.",
                         "typeExposed": "[SendDataPoint]",
                         "type": "List \"SendDataPoints\" SendDataPoint"
                     }
@@ -2083,7 +2083,7 @@
                         "name": "_gssrSendDataPoints",
                         "shape": "SendDataPointList",
                         "locationName": "SendDataPoints",
-                        "documentation": "-- | A list of data points, each of which represents 15 minutes of activity.\n--",
+                        "documentation": "-- | A list of data points, each of which represents 15 minutes of activity.",
                         "typeExposed": "[SendDataPoint]",
                         "type": "List \"SendDataPoints\" SendDataPoint"
                     }
@@ -2099,7 +2099,7 @@
             "pager": null,
             "name": "GetSendStatistics",
             "method": "post",
-            "documentation": "-- | Returns the user's sending statistics. The result is a list of data points,\n-- representing the last two weeks of sending activity.\n--\n-- Each data point in the list contains statistics for a 15-minute interval.\n--\n-- This action is throttled at one request per second.\n--",
+            "documentation": "-- | Returns the user's sending statistics. The result is a list of data points,\n-- representing the last two weeks of sending activity.\n--\n-- Each data point in the list contains statistics for a 15-minute interval.\n--\n-- This action is throttled at one request per second.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2171,7 +2171,7 @@
                         "name": "_lirIdentities",
                         "shape": "IdentityList",
                         "locationName": "Identities",
-                        "documentation": "-- | A list of identities.\n--",
+                        "documentation": "-- | A list of identities.",
                         "typeExposed": "[Text]",
                         "type": "List \"Identities\" Text"
                     },
@@ -2186,7 +2186,7 @@
                         "name": "_lirNextToken",
                         "shape": "NextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | The token used for pagination.\n--",
+                        "documentation": "-- | The token used for pagination.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2203,7 +2203,7 @@
                         "name": "_lirIdentities",
                         "shape": "IdentityList",
                         "locationName": "Identities",
-                        "documentation": "-- | A list of identities.\n--",
+                        "documentation": "-- | A list of identities.",
                         "typeExposed": "[Text]",
                         "type": "List \"Identities\" Text"
                     },
@@ -2218,7 +2218,7 @@
                         "name": "_lirNextToken",
                         "shape": "NextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | The token used for pagination.\n--",
+                        "documentation": "-- | The token used for pagination.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2243,7 +2243,7 @@
             },
             "name": "ListIdentities",
             "method": "post",
-            "documentation": "-- | Returns a list containing all of the identities (email addresses and domains)\n-- for a specific AWS Account, regardless of verification status.\n--\n-- This action is throttled at one request per second.\n--",
+            "documentation": "-- | Returns a list containing all of the identities (email addresses and domains)\n-- for a specific AWS Account, regardless of verification status.\n--\n-- This action is throttled at one request per second.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2303,7 +2303,7 @@
                         "name": "_liIdentityType",
                         "shape": "IdentityType",
                         "locationName": "IdentityType",
-                        "documentation": "-- | The type of the identities to list. Possible values are \"EmailAddress\" and\n-- \"Domain\". If this parameter is omitted, then all identities will be listed.\n--",
+                        "documentation": "-- | The type of the identities to list. Possible values are \"EmailAddress\" and\n-- \"Domain\". If this parameter is omitted, then all identities will be listed.",
                         "typeExposed": "Maybe IdentityType",
                         "type": "Maybe IdentityType"
                     },
@@ -2318,7 +2318,7 @@
                         "name": "_liNextToken",
                         "shape": "NextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | The token to use for pagination.\n--",
+                        "documentation": "-- | The token to use for pagination.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2333,7 +2333,7 @@
                         "name": "_liMaxItems",
                         "shape": "MaxItems",
                         "locationName": "MaxItems",
-                        "documentation": "-- | The maximum number of identities per page. Possible values are 1-100\n-- inclusive.\n--",
+                        "documentation": "-- | The maximum number of identities per page. Possible values are 1-100\n-- inclusive.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     }
@@ -2350,7 +2350,7 @@
                         "name": "_liIdentityType",
                         "shape": "IdentityType",
                         "locationName": "IdentityType",
-                        "documentation": "-- | The type of the identities to list. Possible values are \"EmailAddress\" and\n-- \"Domain\". If this parameter is omitted, then all identities will be listed.\n--",
+                        "documentation": "-- | The type of the identities to list. Possible values are \"EmailAddress\" and\n-- \"Domain\". If this parameter is omitted, then all identities will be listed.",
                         "typeExposed": "Maybe IdentityType",
                         "type": "Maybe IdentityType"
                     },
@@ -2365,7 +2365,7 @@
                         "name": "_liMaxItems",
                         "shape": "MaxItems",
                         "locationName": "MaxItems",
-                        "documentation": "-- | The maximum number of identities per page. Possible values are 1-100\n-- inclusive.\n--",
+                        "documentation": "-- | The maximum number of identities per page. Possible values are 1-100\n-- inclusive.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -2380,7 +2380,7 @@
                         "name": "_liNextToken",
                         "shape": "NextToken",
                         "locationName": "NextToken",
-                        "documentation": "-- | The token to use for pagination.\n--",
+                        "documentation": "-- | The token to use for pagination.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2414,7 +2414,7 @@
                     "name": "_lvearVerifiedEmailAddresses",
                     "shape": "AddressList",
                     "locationName": "VerifiedEmailAddresses",
-                    "documentation": "-- | A list of email addresses that have been verified.\n--",
+                    "documentation": "-- | A list of email addresses that have been verified.",
                     "typeExposed": "[Text]",
                     "type": "List \"ToAddresses\" Text"
                 },
@@ -2443,7 +2443,7 @@
                         "name": "_lvearVerifiedEmailAddresses",
                         "shape": "AddressList",
                         "locationName": "VerifiedEmailAddresses",
-                        "documentation": "-- | A list of email addresses that have been verified.\n--",
+                        "documentation": "-- | A list of email addresses that have been verified.",
                         "typeExposed": "[Text]",
                         "type": "List \"ToAddresses\" Text"
                     }
@@ -2460,7 +2460,7 @@
                         "name": "_lvearVerifiedEmailAddresses",
                         "shape": "AddressList",
                         "locationName": "VerifiedEmailAddresses",
-                        "documentation": "-- | A list of email addresses that have been verified.\n--",
+                        "documentation": "-- | A list of email addresses that have been verified.",
                         "typeExposed": "[Text]",
                         "type": "List \"ToAddresses\" Text"
                     }
@@ -2476,7 +2476,7 @@
             "pager": null,
             "name": "ListVerifiedEmailAddresses",
             "method": "post",
-            "documentation": "-- | Returns a list containing all of the email addresses that have been verified.\n--\n-- The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012\n-- release of Domain Verification. The ListIdentities action is now preferred. This action is throttled at one request per second.\n--\n--",
+            "documentation": "-- | Returns a list containing all of the email addresses that have been verified.\n--\n-- The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012\n-- release of Domain Verification. The ListIdentities action is now preferred. This action is throttled at one request per second.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2537,7 +2537,7 @@
                     "name": "_serMessageId",
                     "shape": "MessageId",
                     "locationName": "MessageId",
-                    "documentation": "-- | The unique message identifier returned from the 'SendEmail' action.\n--",
+                    "documentation": "-- | The unique message identifier returned from the 'SendEmail' action.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2557,7 +2557,7 @@
                         "name": "_serMessageId",
                         "shape": "MessageId",
                         "locationName": "MessageId",
-                        "documentation": "-- | The unique message identifier returned from the 'SendEmail' action.\n--",
+                        "documentation": "-- | The unique message identifier returned from the 'SendEmail' action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2583,7 +2583,7 @@
                         "name": "_serMessageId",
                         "shape": "MessageId",
                         "locationName": "MessageId",
-                        "documentation": "-- | The unique message identifier returned from the 'SendEmail' action.\n--",
+                        "documentation": "-- | The unique message identifier returned from the 'SendEmail' action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2599,7 +2599,7 @@
             "pager": null,
             "name": "SendEmail",
             "method": "post",
-            "documentation": "-- | Composes an email message based on input data, and then immediately queues\n-- the message for sending.\n--\n-- You can only send email from verified email addresses and domains. If you\n-- have not requested production access to Amazon SES, you must also verify\n-- every recipient email address except for the recipients provided by the\n-- Amazon SES mailbox simulator. For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SESDeveloper Guide\u003e.  The total size of the message cannot exceed 10 MB.\n--\n-- Amazon SES has a limit on the total number of recipients per message: The\n-- combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you\n-- need to send an email message to a larger audience, you can divide your\n-- recipient list into groups of 50 or fewer, and then call Amazon SES\n-- repeatedly to send the message to each group.\n--\n-- For every message that you send, the total number of recipients (To:, CC:\n-- and BCC:) is counted against your /sending quota/ - the maximum number of\n-- emails you can send in a 24-hour period. For information about your sending\n-- quota, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide\u003e.\n--",
+            "documentation": "-- | Composes an email message based on input data, and then immediately queues\n-- the message for sending.\n--\n-- You can only send email from verified email addresses and domains. If you\n-- have not requested production access to Amazon SES, you must also verify\n-- every recipient email address except for the recipients provided by the\n-- Amazon SES mailbox simulator. For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SESDeveloper Guide\u003e.  The total size of the message cannot exceed 10 MB.\n--\n-- Amazon SES has a limit on the total number of recipients per message: The\n-- combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you\n-- need to send an email message to a larger audience, you can divide your\n-- recipient list into groups of 50 or fewer, and then call Amazon SES\n-- repeatedly to send the message to each group.\n--\n-- For every message that you send, the total number of recipients (To:, CC:\n-- and BCC:) is counted against your /sending quota/ - the maximum number of\n-- emails you can send in a 24-hour period. For information about your sending\n-- quota, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2632,7 +2632,7 @@
                         "name": "_seSource",
                         "shape": "Address",
                         "locationName": "Source",
-                        "documentation": "-- | The identity's email address.\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see \u003chttp://tools.ietf.org/html/rfc2047 RFC 2047\u003e.\n--",
+                        "documentation": "-- | The identity's email address.\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see \u003chttp://tools.ietf.org/html/rfc2047 RFC 2047\u003e.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2647,7 +2647,7 @@
                         "name": "_seDestination",
                         "shape": "Destination",
                         "locationName": "Destination",
-                        "documentation": "-- | The destination for this email, composed of To:, CC:, and BCC: fields.\n--",
+                        "documentation": "-- | The destination for this email, composed of To:, CC:, and BCC: fields.",
                         "typeExposed": "Destination",
                         "type": "Destination"
                     },
@@ -2662,7 +2662,7 @@
                         "name": "_seMessage",
                         "shape": "Message",
                         "locationName": "Message",
-                        "documentation": "-- | The message to be sent.\n--",
+                        "documentation": "-- | The message to be sent.",
                         "typeExposed": "Message",
                         "type": "Message"
                     }
@@ -2715,7 +2715,7 @@
                         "name": "_seReplyToAddresses",
                         "shape": "AddressList",
                         "locationName": "ReplyToAddresses",
-                        "documentation": "-- | The reply-to email address(es) for the message. If the recipient replies to\n-- the message, each reply-to address will receive the reply.\n--",
+                        "documentation": "-- | The reply-to email address(es) for the message. If the recipient replies to\n-- the message, each reply-to address will receive the reply.",
                         "typeExposed": "[Text]",
                         "type": "List \"ToAddresses\" Text"
                     },
@@ -2730,7 +2730,7 @@
                         "name": "_seReturnPath",
                         "shape": "Address",
                         "locationName": "ReturnPath",
-                        "documentation": "-- | The email address to which bounces and complaints are to be forwarded when\n-- feedback forwarding is enabled. If the message cannot be delivered to the\n-- recipient, then an error message will be returned from the recipient's ISP;\n-- this message will then be forwarded to the email address specified by the 'ReturnPath' parameter.\n--",
+                        "documentation": "-- | The email address to which bounces and complaints are to be forwarded when\n-- feedback forwarding is enabled. If the message cannot be delivered to the\n-- recipient, then an error message will be returned from the recipient's ISP;\n-- this message will then be forwarded to the email address specified by the 'ReturnPath' parameter.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2747,7 +2747,7 @@
                         "name": "_seDestination",
                         "shape": "Destination",
                         "locationName": "Destination",
-                        "documentation": "-- | The destination for this email, composed of To:, CC:, and BCC: fields.\n--",
+                        "documentation": "-- | The destination for this email, composed of To:, CC:, and BCC: fields.",
                         "typeExposed": "Destination",
                         "type": "Destination"
                     },
@@ -2762,7 +2762,7 @@
                         "name": "_seMessage",
                         "shape": "Message",
                         "locationName": "Message",
-                        "documentation": "-- | The message to be sent.\n--",
+                        "documentation": "-- | The message to be sent.",
                         "typeExposed": "Message",
                         "type": "Message"
                     },
@@ -2777,7 +2777,7 @@
                         "name": "_seReplyToAddresses",
                         "shape": "AddressList",
                         "locationName": "ReplyToAddresses",
-                        "documentation": "-- | The reply-to email address(es) for the message. If the recipient replies to\n-- the message, each reply-to address will receive the reply.\n--",
+                        "documentation": "-- | The reply-to email address(es) for the message. If the recipient replies to\n-- the message, each reply-to address will receive the reply.",
                         "typeExposed": "[Text]",
                         "type": "List \"ToAddresses\" Text"
                     },
@@ -2792,7 +2792,7 @@
                         "name": "_seReturnPath",
                         "shape": "Address",
                         "locationName": "ReturnPath",
-                        "documentation": "-- | The email address to which bounces and complaints are to be forwarded when\n-- feedback forwarding is enabled. If the message cannot be delivered to the\n-- recipient, then an error message will be returned from the recipient's ISP;\n-- this message will then be forwarded to the email address specified by the 'ReturnPath' parameter.\n--",
+                        "documentation": "-- | The email address to which bounces and complaints are to be forwarded when\n-- feedback forwarding is enabled. If the message cannot be delivered to the\n-- recipient, then an error message will be returned from the recipient's ISP;\n-- this message will then be forwarded to the email address specified by the 'ReturnPath' parameter.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2807,7 +2807,7 @@
                         "name": "_seSource",
                         "shape": "Address",
                         "locationName": "Source",
-                        "documentation": "-- | The identity's email address.\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see \u003chttp://tools.ietf.org/html/rfc2047 RFC 2047\u003e.\n--",
+                        "documentation": "-- | The identity's email address.\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see \u003chttp://tools.ietf.org/html/rfc2047 RFC 2047\u003e.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2841,7 +2841,7 @@
                     "name": "_srerMessageId",
                     "shape": "MessageId",
                     "locationName": "MessageId",
-                    "documentation": "-- | The unique message identifier returned from the 'SendRawEmail' action.\n--",
+                    "documentation": "-- | The unique message identifier returned from the 'SendRawEmail' action.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2861,7 +2861,7 @@
                         "name": "_srerMessageId",
                         "shape": "MessageId",
                         "locationName": "MessageId",
-                        "documentation": "-- | The unique message identifier returned from the 'SendRawEmail' action.\n--",
+                        "documentation": "-- | The unique message identifier returned from the 'SendRawEmail' action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2887,7 +2887,7 @@
                         "name": "_srerMessageId",
                         "shape": "MessageId",
                         "locationName": "MessageId",
-                        "documentation": "-- | The unique message identifier returned from the 'SendRawEmail' action.\n--",
+                        "documentation": "-- | The unique message identifier returned from the 'SendRawEmail' action.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2903,7 +2903,7 @@
             "pager": null,
             "name": "SendRawEmail",
             "method": "post",
-            "documentation": "-- | Sends an email message, with header and content specified by the client. The 'SendRawEmail' action is useful for sending multipart MIME emails. The raw text of the\n-- message must comply with Internet email standards; otherwise, the message\n-- cannot be sent.\n--\n-- You can only send email from verified email addresses and domains. If you\n-- have not requested production access to Amazon SES, you must also verify\n-- every recipient email address except for the recipients provided by the\n-- Amazon SES mailbox simulator. For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SESDeveloper Guide\u003e.  The total size of the message cannot exceed 10 MB. This\n-- includes any attachments that are part of the message.\n--\n-- Amazon SES has a limit on the total number of recipients per message: The\n-- combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you\n-- need to send an email message to a larger audience, you can divide your\n-- recipient list into groups of 50 or fewer, and then call Amazon SES\n-- repeatedly to send the message to each group.\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n-- Note that each recipient in a group list counts towards the 50-recipient\n-- limit.\n--\n-- For every message that you send, the total number of recipients (To:, CC:\n-- and BCC:) is counted against your /sending quota/ - the maximum number of\n-- emails you can send in a 24-hour period. For information about your sending\n-- quota, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide\u003e.\n--",
+            "documentation": "-- | Sends an email message, with header and content specified by the client. The 'SendRawEmail' action is useful for sending multipart MIME emails. The raw text of the\n-- message must comply with Internet email standards; otherwise, the message\n-- cannot be sent.\n--\n-- You can only send email from verified email addresses and domains. If you\n-- have not requested production access to Amazon SES, you must also verify\n-- every recipient email address except for the recipients provided by the\n-- Amazon SES mailbox simulator. For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SESDeveloper Guide\u003e.  The total size of the message cannot exceed 10 MB. This\n-- includes any attachments that are part of the message.\n--\n-- Amazon SES has a limit on the total number of recipients per message: The\n-- combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you\n-- need to send an email message to a larger audience, you can divide your\n-- recipient list into groups of 50 or fewer, and then call Amazon SES\n-- repeatedly to send the message to each group.\n--\n-- The To:, CC:, and BCC: headers in the raw message can contain a group list.\n-- Note that each recipient in a group list counts towards the 50-recipient\n-- limit.\n--\n-- For every message that you send, the total number of recipients (To:, CC:\n-- and BCC:) is counted against your /sending quota/ - the maximum number of\n-- emails you can send in a 24-hour period. For information about your sending\n-- quota, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2936,7 +2936,7 @@
                         "name": "_sreRawMessage",
                         "shape": "RawMessage",
                         "locationName": "RawMessage",
-                        "documentation": "-- | The raw text of the message. The client is responsible for ensuring the\n-- following:\n--\n-- Message must contain a header and a body, separated by a blank line. All\n-- required header fields must be present. Each part of a multipart MIME message\n-- must be formatted properly. MIME content types must be among those supported\n-- by Amazon SES. For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide\u003e.  Content must be base64-encoded, if MIME requires it.\n--\n--",
+                        "documentation": "-- | The raw text of the message. The client is responsible for ensuring the\n-- following:\n--\n-- Message must contain a header and a body, separated by a blank line. All\n-- required header fields must be present. Each part of a multipart MIME message\n-- must be formatted properly. MIME content types must be among those supported\n-- by Amazon SES. For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide\u003e.  Content must be base64-encoded, if MIME requires it.\n--",
                         "typeExposed": "RawMessage",
                         "type": "RawMessage"
                     }
@@ -2979,7 +2979,7 @@
                         "name": "_sreSource",
                         "shape": "Address",
                         "locationName": "Source",
-                        "documentation": "-- | The identity's email address.\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see \u003chttp://tools.ietf.org/html/rfc2047 RFC 2047\u003e.\n--",
+                        "documentation": "-- | The identity's email address.\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see \u003chttp://tools.ietf.org/html/rfc2047 RFC 2047\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2994,7 +2994,7 @@
                         "name": "_sreDestinations",
                         "shape": "AddressList",
                         "locationName": "Destinations",
-                        "documentation": "-- | A list of destinations for the message, consisting of To:, CC:, and BCC:\n-- addresses.\n--",
+                        "documentation": "-- | A list of destinations for the message, consisting of To:, CC:, and BCC:\n-- addresses.",
                         "typeExposed": "[Text]",
                         "type": "List \"ToAddresses\" Text"
                     }
@@ -3011,7 +3011,7 @@
                         "name": "_sreDestinations",
                         "shape": "AddressList",
                         "locationName": "Destinations",
-                        "documentation": "-- | A list of destinations for the message, consisting of To:, CC:, and BCC:\n-- addresses.\n--",
+                        "documentation": "-- | A list of destinations for the message, consisting of To:, CC:, and BCC:\n-- addresses.",
                         "typeExposed": "[Text]",
                         "type": "List \"ToAddresses\" Text"
                     },
@@ -3026,7 +3026,7 @@
                         "name": "_sreRawMessage",
                         "shape": "RawMessage",
                         "locationName": "RawMessage",
-                        "documentation": "-- | The raw text of the message. The client is responsible for ensuring the\n-- following:\n--\n-- Message must contain a header and a body, separated by a blank line. All\n-- required header fields must be present. Each part of a multipart MIME message\n-- must be formatted properly. MIME content types must be among those supported\n-- by Amazon SES. For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide\u003e.  Content must be base64-encoded, if MIME requires it.\n--\n--",
+                        "documentation": "-- | The raw text of the message. The client is responsible for ensuring the\n-- following:\n--\n-- Message must contain a header and a body, separated by a blank line. All\n-- required header fields must be present. Each part of a multipart MIME message\n-- must be formatted properly. MIME content types must be among those supported\n-- by Amazon SES. For more information, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide\u003e.  Content must be base64-encoded, if MIME requires it.\n--",
                         "typeExposed": "RawMessage",
                         "type": "RawMessage"
                     },
@@ -3041,7 +3041,7 @@
                         "name": "_sreSource",
                         "shape": "Address",
                         "locationName": "Source",
-                        "documentation": "-- | The identity's email address.\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see \u003chttp://tools.ietf.org/html/rfc2047 RFC 2047\u003e.\n--",
+                        "documentation": "-- | The identity's email address.\n--\n-- By default, the string must be 7-bit ASCII. If the text must contain any\n-- other characters, then you must use MIME encoded-word syntax (RFC 2047)\n-- instead of a literal string. MIME encoded-word syntax uses the following\n-- form: '=?charset?encoding?encoded-text?='. For more information, see \u003chttp://tools.ietf.org/html/rfc2047 RFC 2047\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3084,7 +3084,7 @@
             "pager": null,
             "name": "SetIdentityDkimEnabled",
             "method": "post",
-            "documentation": "-- | Enables or disables Easy DKIM signing of email sent from an identity:\n--\n-- If Easy DKIM signing is enabled for a domain name identity (e.g., 'example.com'), then Amazon SES will DKIM-sign all email sent by addresses under that\n-- domain name (e.g., 'user@example.com'). If Easy DKIM signing is enabled for an\n-- email address, then Amazon SES will DKIM-sign all email sent by that email\n-- address.  For email addresses (e.g., 'user@example.com'), you can only enable\n-- Easy DKIM signing if the corresponding domain (e.g., 'example.com') has been\n-- set up for Easy DKIM using the AWS Console or the 'VerifyDomainDkim' action.\n--\n-- This action is throttled at one request per second.\n--\n-- For more information about Easy DKIM signing, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES DeveloperGuide\u003e.\n--",
+            "documentation": "-- | Enables or disables Easy DKIM signing of email sent from an identity:\n--\n-- If Easy DKIM signing is enabled for a domain name identity (e.g., 'example.com'), then Amazon SES will DKIM-sign all email sent by addresses under that\n-- domain name (e.g., 'user@example.com'). If Easy DKIM signing is enabled for an\n-- email address, then Amazon SES will DKIM-sign all email sent by that email\n-- address.  For email addresses (e.g., 'user@example.com'), you can only enable\n-- Easy DKIM signing if the corresponding domain (e.g., 'example.com') has been\n-- set up for Easy DKIM using the AWS Console or the 'VerifyDomainDkim' action.\n--\n-- This action is throttled at one request per second.\n--\n-- For more information about Easy DKIM signing, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES DeveloperGuide\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3118,7 +3118,7 @@
                         "name": "_sideIdentity",
                         "shape": "Identity",
                         "locationName": "Identity",
-                        "documentation": "-- | The identity for which DKIM signing should be enabled or disabled.\n--",
+                        "documentation": "-- | The identity for which DKIM signing should be enabled or disabled.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3133,7 +3133,7 @@
                         "name": "_sideDkimEnabled",
                         "shape": "Enabled",
                         "locationName": "DkimEnabled",
-                        "documentation": "-- | Sets whether DKIM signing is enabled for an identity. Set to 'true' to enable\n-- DKIM signing for this identity; 'false' to disable it.\n--",
+                        "documentation": "-- | Sets whether DKIM signing is enabled for an identity. Set to 'true' to enable\n-- DKIM signing for this identity; 'false' to disable it.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -3172,7 +3172,7 @@
                         "name": "_sideDkimEnabled",
                         "shape": "Enabled",
                         "locationName": "DkimEnabled",
-                        "documentation": "-- | Sets whether DKIM signing is enabled for an identity. Set to 'true' to enable\n-- DKIM signing for this identity; 'false' to disable it.\n--",
+                        "documentation": "-- | Sets whether DKIM signing is enabled for an identity. Set to 'true' to enable\n-- DKIM signing for this identity; 'false' to disable it.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -3187,7 +3187,7 @@
                         "name": "_sideIdentity",
                         "shape": "Identity",
                         "locationName": "Identity",
-                        "documentation": "-- | The identity for which DKIM signing should be enabled or disabled.\n--",
+                        "documentation": "-- | The identity for which DKIM signing should be enabled or disabled.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3230,7 +3230,7 @@
             "pager": null,
             "name": "SetIdentityFeedbackForwardingEnabled",
             "method": "post",
-            "documentation": "-- | Given an identity (email address or domain), enables or disables whether\n-- Amazon SES forwards bounce and complaint notifications as email. Feedback\n-- forwarding can only be disabled when Amazon Simple Notification Service\n-- (Amazon SNS) topics are specified for both bounces and complaints.\n--\n-- This action is throttled at one request per second.\n--\n-- For more information about using notifications with Amazon SES, see the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide\u003e.\n--",
+            "documentation": "-- | Given an identity (email address or domain), enables or disables whether\n-- Amazon SES forwards bounce and complaint notifications as email. Feedback\n-- forwarding can only be disabled when Amazon Simple Notification Service\n-- (Amazon SNS) topics are specified for both bounces and complaints.\n--\n-- This action is throttled at one request per second.\n--\n-- For more information about using notifications with Amazon SES, see the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3264,7 +3264,7 @@
                         "name": "_siffeIdentity",
                         "shape": "Identity",
                         "locationName": "Identity",
-                        "documentation": "-- | The identity for which to set bounce and complaint notification forwarding.\n-- Examples: 'user@example.com', 'example.com'.\n--",
+                        "documentation": "-- | The identity for which to set bounce and complaint notification forwarding.\n-- Examples: 'user@example.com', 'example.com'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3279,7 +3279,7 @@
                         "name": "_siffeForwardingEnabled",
                         "shape": "Enabled",
                         "locationName": "ForwardingEnabled",
-                        "documentation": "-- | Sets whether Amazon SES will forward bounce and complaint notifications as\n-- email. 'true' specifies that Amazon SES will forward bounce and complaint\n-- notifications as email, in addition to any Amazon SNS topic publishing\n-- otherwise specified. 'false' specifies that Amazon SES will publish bounce and\n-- complaint notifications only through Amazon SNS. This value can only be set\n-- to 'false' when Amazon SNS topics are set for both 'Bounce' and 'Complaint'\n-- notification types.\n--",
+                        "documentation": "-- | Sets whether Amazon SES will forward bounce and complaint notifications as\n-- email. 'true' specifies that Amazon SES will forward bounce and complaint\n-- notifications as email, in addition to any Amazon SNS topic publishing\n-- otherwise specified. 'false' specifies that Amazon SES will publish bounce and\n-- complaint notifications only through Amazon SNS. This value can only be set\n-- to 'false' when Amazon SNS topics are set for both 'Bounce' and 'Complaint'\n-- notification types.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -3318,7 +3318,7 @@
                         "name": "_siffeForwardingEnabled",
                         "shape": "Enabled",
                         "locationName": "ForwardingEnabled",
-                        "documentation": "-- | Sets whether Amazon SES will forward bounce and complaint notifications as\n-- email. 'true' specifies that Amazon SES will forward bounce and complaint\n-- notifications as email, in addition to any Amazon SNS topic publishing\n-- otherwise specified. 'false' specifies that Amazon SES will publish bounce and\n-- complaint notifications only through Amazon SNS. This value can only be set\n-- to 'false' when Amazon SNS topics are set for both 'Bounce' and 'Complaint'\n-- notification types.\n--",
+                        "documentation": "-- | Sets whether Amazon SES will forward bounce and complaint notifications as\n-- email. 'true' specifies that Amazon SES will forward bounce and complaint\n-- notifications as email, in addition to any Amazon SNS topic publishing\n-- otherwise specified. 'false' specifies that Amazon SES will publish bounce and\n-- complaint notifications only through Amazon SNS. This value can only be set\n-- to 'false' when Amazon SNS topics are set for both 'Bounce' and 'Complaint'\n-- notification types.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -3333,7 +3333,7 @@
                         "name": "_siffeIdentity",
                         "shape": "Identity",
                         "locationName": "Identity",
-                        "documentation": "-- | The identity for which to set bounce and complaint notification forwarding.\n-- Examples: 'user@example.com', 'example.com'.\n--",
+                        "documentation": "-- | The identity for which to set bounce and complaint notification forwarding.\n-- Examples: 'user@example.com', 'example.com'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3376,7 +3376,7 @@
             "pager": null,
             "name": "SetIdentityNotificationTopic",
             "method": "post",
-            "documentation": "-- | Given an identity (email address or domain), sets the Amazon Simple\n-- Notification Service (Amazon SNS) topic to which Amazon SES will publish\n-- bounce, complaint, and/or delivery notifications for emails sent with that\n-- identity as the 'Source'.\n--\n-- This action is throttled at one request per second.\n--\n-- For more information about feedback notification, see the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SESDeveloper Guide\u003e.\n--",
+            "documentation": "-- | Given an identity (email address or domain), sets the Amazon Simple\n-- Notification Service (Amazon SNS) topic to which Amazon SES will publish\n-- bounce, complaint, and/or delivery notifications for emails sent with that\n-- identity as the 'Source'.\n--\n-- This action is throttled at one request per second.\n--\n-- For more information about feedback notification, see the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SESDeveloper Guide\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3409,7 +3409,7 @@
                         "name": "_sintIdentity",
                         "shape": "Identity",
                         "locationName": "Identity",
-                        "documentation": "-- | The identity for which the Amazon SNS topic will be set. Examples: 'user@example.com', 'example.com'.\n--",
+                        "documentation": "-- | The identity for which the Amazon SNS topic will be set. Examples: 'user@example.com', 'example.com'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3424,7 +3424,7 @@
                         "name": "_sintNotificationType",
                         "shape": "NotificationType",
                         "locationName": "NotificationType",
-                        "documentation": "-- | The type of notifications that will be published to the specified Amazon SNS\n-- topic.\n--",
+                        "documentation": "-- | The type of notifications that will be published to the specified Amazon SNS\n-- topic.",
                         "typeExposed": "NotificationType",
                         "type": "NotificationType"
                     }
@@ -3467,7 +3467,7 @@
                         "name": "_sintSnsTopic",
                         "shape": "NotificationTopic",
                         "locationName": "SnsTopic",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is\n-- omitted from the request or a null value is passed, 'SnsTopic' is cleared and\n-- publishing is disabled.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is\n-- omitted from the request or a null value is passed, 'SnsTopic' is cleared and\n-- publishing is disabled.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3484,7 +3484,7 @@
                         "name": "_sintIdentity",
                         "shape": "Identity",
                         "locationName": "Identity",
-                        "documentation": "-- | The identity for which the Amazon SNS topic will be set. Examples: 'user@example.com', 'example.com'.\n--",
+                        "documentation": "-- | The identity for which the Amazon SNS topic will be set. Examples: 'user@example.com', 'example.com'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3499,7 +3499,7 @@
                         "name": "_sintNotificationType",
                         "shape": "NotificationType",
                         "locationName": "NotificationType",
-                        "documentation": "-- | The type of notifications that will be published to the specified Amazon SNS\n-- topic.\n--",
+                        "documentation": "-- | The type of notifications that will be published to the specified Amazon SNS\n-- topic.",
                         "typeExposed": "NotificationType",
                         "type": "NotificationType"
                     },
@@ -3514,7 +3514,7 @@
                         "name": "_sintSnsTopic",
                         "shape": "NotificationTopic",
                         "locationName": "SnsTopic",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is\n-- omitted from the request or a null value is passed, 'SnsTopic' is cleared and\n-- publishing is disabled.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is\n-- omitted from the request or a null value is passed, 'SnsTopic' is cleared and\n-- publishing is disabled.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3548,7 +3548,7 @@
                     "name": "_vddrDkimTokens",
                     "shape": "VerificationTokenList",
                     "locationName": "DkimTokens",
-                    "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.\n--",
+                    "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
                     "typeExposed": "[Text]",
                     "type": "List \"DkimTokens\" Text"
                 },
@@ -3577,7 +3577,7 @@
                         "name": "_vddrDkimTokens",
                         "shape": "VerificationTokenList",
                         "locationName": "DkimTokens",
-                        "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.\n--",
+                        "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
                         "typeExposed": "[Text]",
                         "type": "List \"DkimTokens\" Text"
                     }
@@ -3594,7 +3594,7 @@
                         "name": "_vddrDkimTokens",
                         "shape": "VerificationTokenList",
                         "locationName": "DkimTokens",
-                        "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.\n--",
+                        "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
                         "typeExposed": "[Text]",
                         "type": "List \"DkimTokens\" Text"
                     }
@@ -3610,7 +3610,7 @@
             "pager": null,
             "name": "VerifyDomainDkim",
             "method": "post",
-            "documentation": "-- | Returns a set of DKIM tokens for a domain. DKIM /tokens/ are character strings\n-- that represent your domain's identity. Using these tokens, you will need to\n-- create DNS CNAME records that point to DKIM public keys hosted by Amazon SES.\n-- Amazon Web Services will eventually detect that you have updated your DNS\n-- records; this detection process may take up to 72 hours. Upon successful\n-- detection, Amazon SES will be able to DKIM-sign email originating from that\n-- domain.\n--\n-- This action is throttled at one request per second.\n--\n-- To enable or disable Easy DKIM signing for a domain, use the 'SetIdentityDkimEnabled' action.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.\n--",
+            "documentation": "-- | Returns a set of DKIM tokens for a domain. DKIM /tokens/ are character strings\n-- that represent your domain's identity. Using these tokens, you will need to\n-- create DNS CNAME records that point to DKIM public keys hosted by Amazon SES.\n-- Amazon Web Services will eventually detect that you have updated your DNS\n-- records; this detection process may take up to 72 hours. Upon successful\n-- detection, Amazon SES will be able to DKIM-sign email originating from that\n-- domain.\n--\n-- This action is throttled at one request per second.\n--\n-- To enable or disable Easy DKIM signing for a domain, use the 'SetIdentityDkimEnabled' action.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3637,7 +3637,7 @@
                     "name": "_vddDomain",
                     "shape": "Domain",
                     "locationName": "Domain",
-                    "documentation": "-- | The name of the domain to be verified for Easy DKIM signing.\n--",
+                    "documentation": "-- | The name of the domain to be verified for Easy DKIM signing.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -3662,7 +3662,7 @@
                         "name": "_vddDomain",
                         "shape": "Domain",
                         "locationName": "Domain",
-                        "documentation": "-- | The name of the domain to be verified for Easy DKIM signing.\n--",
+                        "documentation": "-- | The name of the domain to be verified for Easy DKIM signing.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3696,7 +3696,7 @@
                         "name": "_vddDomain",
                         "shape": "Domain",
                         "locationName": "Domain",
-                        "documentation": "-- | The name of the domain to be verified for Easy DKIM signing.\n--",
+                        "documentation": "-- | The name of the domain to be verified for Easy DKIM signing.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3730,7 +3730,7 @@
                     "name": "_vdirVerificationToken",
                     "shape": "VerificationToken",
                     "locationName": "VerificationToken",
-                    "documentation": "-- | A TXT record that must be placed in the DNS settings for the domain, in order\n-- to complete domain verification.\n--",
+                    "documentation": "-- | A TXT record that must be placed in the DNS settings for the domain, in order\n-- to complete domain verification.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -3750,7 +3750,7 @@
                         "name": "_vdirVerificationToken",
                         "shape": "VerificationToken",
                         "locationName": "VerificationToken",
-                        "documentation": "-- | A TXT record that must be placed in the DNS settings for the domain, in order\n-- to complete domain verification.\n--",
+                        "documentation": "-- | A TXT record that must be placed in the DNS settings for the domain, in order\n-- to complete domain verification.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3776,7 +3776,7 @@
                         "name": "_vdirVerificationToken",
                         "shape": "VerificationToken",
                         "locationName": "VerificationToken",
-                        "documentation": "-- | A TXT record that must be placed in the DNS settings for the domain, in order\n-- to complete domain verification.\n--",
+                        "documentation": "-- | A TXT record that must be placed in the DNS settings for the domain, in order\n-- to complete domain verification.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3792,7 +3792,7 @@
             "pager": null,
             "name": "VerifyDomainIdentity",
             "method": "post",
-            "documentation": "-- | Verifies a domain.\n--\n-- This action is throttled at one request per second.\n--",
+            "documentation": "-- | Verifies a domain.\n--\n-- This action is throttled at one request per second.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3819,7 +3819,7 @@
                     "name": "_vdiDomain",
                     "shape": "Domain",
                     "locationName": "Domain",
-                    "documentation": "-- | The domain to be verified.\n--",
+                    "documentation": "-- | The domain to be verified.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -3844,7 +3844,7 @@
                         "name": "_vdiDomain",
                         "shape": "Domain",
                         "locationName": "Domain",
-                        "documentation": "-- | The domain to be verified.\n--",
+                        "documentation": "-- | The domain to be verified.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3878,7 +3878,7 @@
                         "name": "_vdiDomain",
                         "shape": "Domain",
                         "locationName": "Domain",
-                        "documentation": "-- | The domain to be verified.\n--",
+                        "documentation": "-- | The domain to be verified.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3921,7 +3921,7 @@
             "pager": null,
             "name": "VerifyEmailAddress",
             "method": "post",
-            "documentation": "-- | Verifies an email address. This action causes a confirmation email message to\n-- be sent to the specified address.\n--\n-- The VerifyEmailAddress action is deprecated as of the May 15, 2012 release\n-- of Domain Verification. The VerifyEmailIdentity action is now preferred. This\n-- action is throttled at one request per second.\n--",
+            "documentation": "-- | Verifies an email address. This action causes a confirmation email message to\n-- be sent to the specified address.\n--\n-- The VerifyEmailAddress action is deprecated as of the May 15, 2012 release\n-- of Domain Verification. The VerifyEmailIdentity action is now preferred. This\n-- action is throttled at one request per second.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3948,7 +3948,7 @@
                     "name": "_veaEmailAddress",
                     "shape": "Address",
                     "locationName": "EmailAddress",
-                    "documentation": "-- | The email address to be verified.\n--",
+                    "documentation": "-- | The email address to be verified.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -3973,7 +3973,7 @@
                         "name": "_veaEmailAddress",
                         "shape": "Address",
                         "locationName": "EmailAddress",
-                        "documentation": "-- | The email address to be verified.\n--",
+                        "documentation": "-- | The email address to be verified.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4007,7 +4007,7 @@
                         "name": "_veaEmailAddress",
                         "shape": "Address",
                         "locationName": "EmailAddress",
-                        "documentation": "-- | The email address to be verified.\n--",
+                        "documentation": "-- | The email address to be verified.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4050,7 +4050,7 @@
             "pager": null,
             "name": "VerifyEmailIdentity",
             "method": "post",
-            "documentation": "-- | Verifies an email address. This action causes a confirmation email message to\n-- be sent to the specified address.\n--\n-- This action is throttled at one request per second.\n--",
+            "documentation": "-- | Verifies an email address. This action causes a confirmation email message to\n-- be sent to the specified address.\n--\n-- This action is throttled at one request per second.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4077,7 +4077,7 @@
                     "name": "_veiEmailAddress",
                     "shape": "Address",
                     "locationName": "EmailAddress",
-                    "documentation": "-- | The email address to be verified.\n--",
+                    "documentation": "-- | The email address to be verified.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -4102,7 +4102,7 @@
                         "name": "_veiEmailAddress",
                         "shape": "Address",
                         "locationName": "EmailAddress",
-                        "documentation": "-- | The email address to be verified.\n--",
+                        "documentation": "-- | The email address to be verified.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4136,7 +4136,7 @@
                         "name": "_veiEmailAddress",
                         "shape": "Address",
                         "locationName": "EmailAddress",
-                        "documentation": "-- | The email address to be verified.\n--",
+                        "documentation": "-- | The email address to be verified.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }

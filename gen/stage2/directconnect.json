@@ -272,7 +272,7 @@
                         "name": "_viCustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -505,7 +505,7 @@
                         "name": "_viCustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -627,7 +627,7 @@
                         "name": "_viCustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -788,7 +788,7 @@
                         "name": "_lLocationCode",
                         "shape": "LocationCode",
                         "locationName": "locationCode",
-                        "documentation": "-- | The code used to indicate the AWS Direct Connect location.\n--",
+                        "documentation": "-- | The code used to indicate the AWS Direct Connect location.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -803,7 +803,7 @@
                         "name": "_lLocationName",
                         "shape": "LocationName",
                         "locationName": "locationName",
-                        "documentation": "-- | The name of the AWS Direct Connect location. The name includes the colocation\n-- partner name and the physical site of the lit building.\n--",
+                        "documentation": "-- | The name of the AWS Direct Connect location. The name includes the colocation\n-- partner name and the physical site of the lit building.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -826,7 +826,7 @@
                         "name": "_lLocationCode",
                         "shape": "LocationCode",
                         "locationName": "locationCode",
-                        "documentation": "-- | The code used to indicate the AWS Direct Connect location.\n--",
+                        "documentation": "-- | The code used to indicate the AWS Direct Connect location.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -841,7 +841,7 @@
                         "name": "_lLocationName",
                         "shape": "LocationName",
                         "locationName": "locationName",
-                        "documentation": "-- | The name of the AWS Direct Connect location. The name includes the colocation\n-- partner name and the physical site of the lit building.\n--",
+                        "documentation": "-- | The name of the AWS Direct Connect location. The name includes the colocation\n-- partner name and the physical site of the lit building.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -858,7 +858,7 @@
                         "name": "_lLocationCode",
                         "shape": "LocationCode",
                         "locationName": "locationCode",
-                        "documentation": "-- | The code used to indicate the AWS Direct Connect location.\n--",
+                        "documentation": "-- | The code used to indicate the AWS Direct Connect location.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -873,7 +873,7 @@
                         "name": "_lLocationName",
                         "shape": "LocationName",
                         "locationName": "locationName",
-                        "documentation": "-- | The name of the AWS Direct Connect location. The name includes the colocation\n-- partner name and the physical site of the lit building.\n--",
+                        "documentation": "-- | The name of the AWS Direct Connect location. The name includes the colocation\n-- partner name and the physical site of the lit building.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -900,7 +900,7 @@
                     "name": "_cConnections",
                     "shape": "ConnectionList",
                     "locationName": "connections",
-                    "documentation": "-- | A list of connections.\n--",
+                    "documentation": "-- | A list of connections.",
                     "typeExposed": "[Connection]",
                     "type": "List \"connections\" Connection"
                 },
@@ -916,7 +916,7 @@
                         "name": "_cConnections",
                         "shape": "ConnectionList",
                         "locationName": "connections",
-                        "documentation": "-- | A list of connections.\n--",
+                        "documentation": "-- | A list of connections.",
                         "typeExposed": "[Connection]",
                         "type": "List \"connections\" Connection"
                     }
@@ -939,7 +939,7 @@
                         "name": "_cConnections",
                         "shape": "ConnectionList",
                         "locationName": "connections",
-                        "documentation": "-- | A list of connections.\n--",
+                        "documentation": "-- | A list of connections.",
                         "typeExposed": "[Connection]",
                         "type": "List \"connections\" Connection"
                     }
@@ -956,7 +956,7 @@
                         "name": "_cConnections",
                         "shape": "ConnectionList",
                         "locationName": "connections",
-                        "documentation": "-- | A list of connections.\n--",
+                        "documentation": "-- | A list of connections.",
                         "typeExposed": "[Connection]",
                         "type": "List \"connections\" Connection"
                     }
@@ -1385,7 +1385,7 @@
                         "name": "_cBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1528,7 +1528,7 @@
                         "name": "_cBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1575,7 +1575,7 @@
                         "name": "_cBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3176,7 +3176,7 @@
                     "name": "_rfpCidr",
                     "shape": "CIDR",
                     "locationName": "cidr",
-                    "documentation": "-- | CIDR notation for the advertised route. Multiple routes are separated by\n-- commas.\n--\n-- Example: 10.10.10.0/24,10.10.11.0/24\n--",
+                    "documentation": "-- | CIDR notation for the advertised route. Multiple routes are separated by\n-- commas.\n--\n-- Example: 10.10.10.0/24,10.10.11.0/24",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -3192,7 +3192,7 @@
                         "name": "_rfpCidr",
                         "shape": "CIDR",
                         "locationName": "cidr",
-                        "documentation": "-- | CIDR notation for the advertised route. Multiple routes are separated by\n-- commas.\n--\n-- Example: 10.10.10.0/24,10.10.11.0/24\n--",
+                        "documentation": "-- | CIDR notation for the advertised route. Multiple routes are separated by\n-- commas.\n--\n-- Example: 10.10.10.0/24,10.10.11.0/24",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3215,7 +3215,7 @@
                         "name": "_rfpCidr",
                         "shape": "CIDR",
                         "locationName": "cidr",
-                        "documentation": "-- | CIDR notation for the advertised route. Multiple routes are separated by\n-- commas.\n--\n-- Example: 10.10.10.0/24,10.10.11.0/24\n--",
+                        "documentation": "-- | CIDR notation for the advertised route. Multiple routes are separated by\n-- commas.\n--\n-- Example: 10.10.10.0/24,10.10.11.0/24",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3232,7 +3232,7 @@
                         "name": "_rfpCidr",
                         "shape": "CIDR",
                         "locationName": "cidr",
-                        "documentation": "-- | CIDR notation for the advertised route. Multiple routes are separated by\n-- commas.\n--\n-- Example: 10.10.10.0/24,10.10.11.0/24\n--",
+                        "documentation": "-- | CIDR notation for the advertised route. Multiple routes are separated by\n-- commas.\n--\n-- Example: 10.10.10.0/24,10.10.11.0/24",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3366,7 +3366,7 @@
                         "name": "_acoirBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3515,7 +3515,7 @@
                         "name": "_acoirBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3562,7 +3562,7 @@
                         "name": "_acoirBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3698,7 +3698,7 @@
             "pager": null,
             "name": "AllocateConnectionOnInterconnect",
             "method": "post",
-            "documentation": "-- | Creates a hosted connection on an interconnect.\n--\n-- Allocates a VLAN number and a specified amount of bandwidth for use by a\n-- hosted connection on the given interconnect.\n--",
+            "documentation": "-- | Creates a hosted connection on an interconnect.\n--\n-- Allocates a VLAN number and a specified amount of bandwidth for use by a\n-- hosted connection on the given interconnect.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3723,7 +3723,7 @@
                         "name": "_acoiBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: \"/500Mbps/\"\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: \"/500Mbps/\"\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3738,7 +3738,7 @@
                         "name": "_acoiConnectionName",
                         "shape": "ConnectionName",
                         "locationName": "connectionName",
-                        "documentation": "-- | Name of the provisioned connection.\n--\n-- Example: \"/500M Connection to AWS/\"\n--\n-- Default: None\n--",
+                        "documentation": "-- | Name of the provisioned connection.\n--\n-- Example: \"/500M Connection to AWS/\"\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3753,7 +3753,7 @@
                         "name": "_acoiOwnerAccount",
                         "shape": "OwnerAccount",
                         "locationName": "ownerAccount",
-                        "documentation": "-- | Numeric account Id of the customer for whom the connection will be\n-- provisioned.\n--\n-- Example: 123443215678\n--\n-- Default: None\n--",
+                        "documentation": "-- | Numeric account Id of the customer for whom the connection will be\n-- provisioned.\n--\n-- Example: 123443215678\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3768,7 +3768,7 @@
                         "name": "_acoiInterconnectId",
                         "shape": "InterconnectId",
                         "locationName": "interconnectId",
-                        "documentation": "-- | ID of the interconnect on which the connection will be provisioned.\n--\n-- Example: dxcon-456abc78\n--\n-- Default: None\n--",
+                        "documentation": "-- | ID of the interconnect on which the connection will be provisioned.\n--\n-- Example: dxcon-456abc78\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3783,7 +3783,7 @@
                         "name": "_acoiVlan",
                         "shape": "VLAN",
                         "locationName": "vlan",
-                        "documentation": "-- | The dedicated VLAN provisioned to the connection.\n--\n-- Example: 101\n--\n-- Default: None\n--",
+                        "documentation": "-- | The dedicated VLAN provisioned to the connection.\n--\n-- Example: 101\n--\n-- Default: None",
                         "typeExposed": "Int",
                         "type": "Int"
                     }
@@ -3808,7 +3808,7 @@
                         "name": "_acoiBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: \"/500Mbps/\"\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: \"/500Mbps/\"\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3823,7 +3823,7 @@
                         "name": "_acoiConnectionName",
                         "shape": "ConnectionName",
                         "locationName": "connectionName",
-                        "documentation": "-- | Name of the provisioned connection.\n--\n-- Example: \"/500M Connection to AWS/\"\n--\n-- Default: None\n--",
+                        "documentation": "-- | Name of the provisioned connection.\n--\n-- Example: \"/500M Connection to AWS/\"\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3838,7 +3838,7 @@
                         "name": "_acoiOwnerAccount",
                         "shape": "OwnerAccount",
                         "locationName": "ownerAccount",
-                        "documentation": "-- | Numeric account Id of the customer for whom the connection will be\n-- provisioned.\n--\n-- Example: 123443215678\n--\n-- Default: None\n--",
+                        "documentation": "-- | Numeric account Id of the customer for whom the connection will be\n-- provisioned.\n--\n-- Example: 123443215678\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3853,7 +3853,7 @@
                         "name": "_acoiInterconnectId",
                         "shape": "InterconnectId",
                         "locationName": "interconnectId",
-                        "documentation": "-- | ID of the interconnect on which the connection will be provisioned.\n--\n-- Example: dxcon-456abc78\n--\n-- Default: None\n--",
+                        "documentation": "-- | ID of the interconnect on which the connection will be provisioned.\n--\n-- Example: dxcon-456abc78\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3868,7 +3868,7 @@
                         "name": "_acoiVlan",
                         "shape": "VLAN",
                         "locationName": "vlan",
-                        "documentation": "-- | The dedicated VLAN provisioned to the connection.\n--\n-- Example: 101\n--\n-- Default: None\n--",
+                        "documentation": "-- | The dedicated VLAN provisioned to the connection.\n--\n-- Example: 101\n--\n-- Default: None",
                         "typeExposed": "Int",
                         "type": "Int"
                     }
@@ -3896,7 +3896,7 @@
                         "name": "_acoiBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: \"/500Mbps/\"\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: \"/500Mbps/\"\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3911,7 +3911,7 @@
                         "name": "_acoiConnectionName",
                         "shape": "ConnectionName",
                         "locationName": "connectionName",
-                        "documentation": "-- | Name of the provisioned connection.\n--\n-- Example: \"/500M Connection to AWS/\"\n--\n-- Default: None\n--",
+                        "documentation": "-- | Name of the provisioned connection.\n--\n-- Example: \"/500M Connection to AWS/\"\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3926,7 +3926,7 @@
                         "name": "_acoiInterconnectId",
                         "shape": "InterconnectId",
                         "locationName": "interconnectId",
-                        "documentation": "-- | ID of the interconnect on which the connection will be provisioned.\n--\n-- Example: dxcon-456abc78\n--\n-- Default: None\n--",
+                        "documentation": "-- | ID of the interconnect on which the connection will be provisioned.\n--\n-- Example: dxcon-456abc78\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3941,7 +3941,7 @@
                         "name": "_acoiOwnerAccount",
                         "shape": "OwnerAccount",
                         "locationName": "ownerAccount",
-                        "documentation": "-- | Numeric account Id of the customer for whom the connection will be\n-- provisioned.\n--\n-- Example: 123443215678\n--\n-- Default: None\n--",
+                        "documentation": "-- | Numeric account Id of the customer for whom the connection will be\n-- provisioned.\n--\n-- Example: 123443215678\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3956,7 +3956,7 @@
                         "name": "_acoiVlan",
                         "shape": "VLAN",
                         "locationName": "vlan",
-                        "documentation": "-- | The dedicated VLAN provisioned to the connection.\n--\n-- Example: 101\n--\n-- Default: None\n--",
+                        "documentation": "-- | The dedicated VLAN provisioned to the connection.\n--\n-- Example: 101\n--\n-- Default: None",
                         "typeExposed": "Int",
                         "type": "Int"
                     }
@@ -4167,7 +4167,7 @@
                         "name": "_apvirCustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4406,7 +4406,7 @@
                         "name": "_apvirCustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4528,7 +4528,7 @@
                         "name": "_apvirCustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4679,7 +4679,7 @@
             "pager": null,
             "name": "AllocatePrivateVirtualInterface",
             "method": "post",
-            "documentation": "-- | Provisions a private virtual interface to be owned by a different customer.\n--\n-- The owner of a connection calls this function to provision a private virtual\n-- interface which will be owned by another AWS customer.\n--\n-- Virtual interfaces created using this function must be confirmed by the\n-- virtual interface owner by calling ConfirmPrivateVirtualInterface. Until this\n-- step has been completed, the virtual interface will be in 'Confirming' state,\n-- and will not be available for handling traffic.\n--",
+            "documentation": "-- | Provisions a private virtual interface to be owned by a different customer.\n--\n-- The owner of a connection calls this function to provision a private virtual\n-- interface which will be owned by another AWS customer.\n--\n-- Virtual interfaces created using this function must be confirmed by the\n-- virtual interface owner by calling ConfirmPrivateVirtualInterface. Until this\n-- step has been completed, the virtual interface will be in 'Confirming' state,\n-- and will not be available for handling traffic.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4703,7 +4703,7 @@
                         "name": "_apviConnectionId",
                         "shape": "ConnectionId",
                         "locationName": "connectionId",
-                        "documentation": "-- | The connection ID on which the private virtual interface is provisioned.\n--\n-- Default: None\n--",
+                        "documentation": "-- | The connection ID on which the private virtual interface is provisioned.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4718,7 +4718,7 @@
                         "name": "_apviOwnerAccount",
                         "shape": "OwnerAccount",
                         "locationName": "ownerAccount",
-                        "documentation": "-- | The AWS account that will own the new private virtual interface.\n--\n-- Default: None\n--",
+                        "documentation": "-- | The AWS account that will own the new private virtual interface.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4733,7 +4733,7 @@
                         "name": "_apviNewPrivateVirtualInterfaceAllocation",
                         "shape": "NewPrivateVirtualInterfaceAllocation",
                         "locationName": "newPrivateVirtualInterfaceAllocation",
-                        "documentation": "-- | Detailed information for the private virtual interface to be provisioned.\n--\n-- Default: None\n--",
+                        "documentation": "-- | Detailed information for the private virtual interface to be provisioned.\n--\n-- Default: None",
                         "typeExposed": "NewPrivateVirtualInterfaceAllocation",
                         "type": "NewPrivateVirtualInterfaceAllocation"
                     }
@@ -4758,7 +4758,7 @@
                         "name": "_apviConnectionId",
                         "shape": "ConnectionId",
                         "locationName": "connectionId",
-                        "documentation": "-- | The connection ID on which the private virtual interface is provisioned.\n--\n-- Default: None\n--",
+                        "documentation": "-- | The connection ID on which the private virtual interface is provisioned.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4773,7 +4773,7 @@
                         "name": "_apviOwnerAccount",
                         "shape": "OwnerAccount",
                         "locationName": "ownerAccount",
-                        "documentation": "-- | The AWS account that will own the new private virtual interface.\n--\n-- Default: None\n--",
+                        "documentation": "-- | The AWS account that will own the new private virtual interface.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4788,7 +4788,7 @@
                         "name": "_apviNewPrivateVirtualInterfaceAllocation",
                         "shape": "NewPrivateVirtualInterfaceAllocation",
                         "locationName": "newPrivateVirtualInterfaceAllocation",
-                        "documentation": "-- | Detailed information for the private virtual interface to be provisioned.\n--\n-- Default: None\n--",
+                        "documentation": "-- | Detailed information for the private virtual interface to be provisioned.\n--\n-- Default: None",
                         "typeExposed": "NewPrivateVirtualInterfaceAllocation",
                         "type": "NewPrivateVirtualInterfaceAllocation"
                     }
@@ -4816,7 +4816,7 @@
                         "name": "_apviConnectionId",
                         "shape": "ConnectionId",
                         "locationName": "connectionId",
-                        "documentation": "-- | The connection ID on which the private virtual interface is provisioned.\n--\n-- Default: None\n--",
+                        "documentation": "-- | The connection ID on which the private virtual interface is provisioned.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4831,7 +4831,7 @@
                         "name": "_apviNewPrivateVirtualInterfaceAllocation",
                         "shape": "NewPrivateVirtualInterfaceAllocation",
                         "locationName": "newPrivateVirtualInterfaceAllocation",
-                        "documentation": "-- | Detailed information for the private virtual interface to be provisioned.\n--\n-- Default: None\n--",
+                        "documentation": "-- | Detailed information for the private virtual interface to be provisioned.\n--\n-- Default: None",
                         "typeExposed": "NewPrivateVirtualInterfaceAllocation",
                         "type": "NewPrivateVirtualInterfaceAllocation"
                     },
@@ -4846,7 +4846,7 @@
                         "name": "_apviOwnerAccount",
                         "shape": "OwnerAccount",
                         "locationName": "ownerAccount",
-                        "documentation": "-- | The AWS account that will own the new private virtual interface.\n--\n-- Default: None\n--",
+                        "documentation": "-- | The AWS account that will own the new private virtual interface.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5057,7 +5057,7 @@
                         "name": "_apvir1CustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5296,7 +5296,7 @@
                         "name": "_apvir1CustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5418,7 +5418,7 @@
                         "name": "_apvir1CustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5569,7 +5569,7 @@
             "pager": null,
             "name": "AllocatePublicVirtualInterface",
             "method": "post",
-            "documentation": "-- | Provisions a public virtual interface to be owned by a different customer.\n--\n-- The owner of a connection calls this function to provision a public virtual\n-- interface which will be owned by another AWS customer.\n--\n-- Virtual interfaces created using this function must be confirmed by the\n-- virtual interface owner by calling ConfirmPublicVirtualInterface. Until this\n-- step has been completed, the virtual interface will be in 'Confirming' state,\n-- and will not be available for handling traffic.\n--",
+            "documentation": "-- | Provisions a public virtual interface to be owned by a different customer.\n--\n-- The owner of a connection calls this function to provision a public virtual\n-- interface which will be owned by another AWS customer.\n--\n-- Virtual interfaces created using this function must be confirmed by the\n-- virtual interface owner by calling ConfirmPublicVirtualInterface. Until this\n-- step has been completed, the virtual interface will be in 'Confirming' state,\n-- and will not be available for handling traffic.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5593,7 +5593,7 @@
                         "name": "_apvi1ConnectionId",
                         "shape": "ConnectionId",
                         "locationName": "connectionId",
-                        "documentation": "-- | The connection ID on which the public virtual interface is provisioned.\n--\n-- Default: None\n--",
+                        "documentation": "-- | The connection ID on which the public virtual interface is provisioned.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5608,7 +5608,7 @@
                         "name": "_apvi1OwnerAccount",
                         "shape": "OwnerAccount",
                         "locationName": "ownerAccount",
-                        "documentation": "-- | The AWS account that will own the new public virtual interface.\n--\n-- Default: None\n--",
+                        "documentation": "-- | The AWS account that will own the new public virtual interface.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5623,7 +5623,7 @@
                         "name": "_apvi1NewPublicVirtualInterfaceAllocation",
                         "shape": "NewPublicVirtualInterfaceAllocation",
                         "locationName": "newPublicVirtualInterfaceAllocation",
-                        "documentation": "-- | Detailed information for the public virtual interface to be provisioned.\n--\n-- Default: None\n--",
+                        "documentation": "-- | Detailed information for the public virtual interface to be provisioned.\n--\n-- Default: None",
                         "typeExposed": "NewPublicVirtualInterfaceAllocation",
                         "type": "NewPublicVirtualInterfaceAllocation"
                     }
@@ -5648,7 +5648,7 @@
                         "name": "_apvi1ConnectionId",
                         "shape": "ConnectionId",
                         "locationName": "connectionId",
-                        "documentation": "-- | The connection ID on which the public virtual interface is provisioned.\n--\n-- Default: None\n--",
+                        "documentation": "-- | The connection ID on which the public virtual interface is provisioned.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5663,7 +5663,7 @@
                         "name": "_apvi1OwnerAccount",
                         "shape": "OwnerAccount",
                         "locationName": "ownerAccount",
-                        "documentation": "-- | The AWS account that will own the new public virtual interface.\n--\n-- Default: None\n--",
+                        "documentation": "-- | The AWS account that will own the new public virtual interface.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5678,7 +5678,7 @@
                         "name": "_apvi1NewPublicVirtualInterfaceAllocation",
                         "shape": "NewPublicVirtualInterfaceAllocation",
                         "locationName": "newPublicVirtualInterfaceAllocation",
-                        "documentation": "-- | Detailed information for the public virtual interface to be provisioned.\n--\n-- Default: None\n--",
+                        "documentation": "-- | Detailed information for the public virtual interface to be provisioned.\n--\n-- Default: None",
                         "typeExposed": "NewPublicVirtualInterfaceAllocation",
                         "type": "NewPublicVirtualInterfaceAllocation"
                     }
@@ -5706,7 +5706,7 @@
                         "name": "_apvi1ConnectionId",
                         "shape": "ConnectionId",
                         "locationName": "connectionId",
-                        "documentation": "-- | The connection ID on which the public virtual interface is provisioned.\n--\n-- Default: None\n--",
+                        "documentation": "-- | The connection ID on which the public virtual interface is provisioned.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5721,7 +5721,7 @@
                         "name": "_apvi1NewPublicVirtualInterfaceAllocation",
                         "shape": "NewPublicVirtualInterfaceAllocation",
                         "locationName": "newPublicVirtualInterfaceAllocation",
-                        "documentation": "-- | Detailed information for the public virtual interface to be provisioned.\n--\n-- Default: None\n--",
+                        "documentation": "-- | Detailed information for the public virtual interface to be provisioned.\n--\n-- Default: None",
                         "typeExposed": "NewPublicVirtualInterfaceAllocation",
                         "type": "NewPublicVirtualInterfaceAllocation"
                     },
@@ -5736,7 +5736,7 @@
                         "name": "_apvi1OwnerAccount",
                         "shape": "OwnerAccount",
                         "locationName": "ownerAccount",
-                        "documentation": "-- | The AWS account that will own the new public virtual interface.\n--\n-- Default: None\n--",
+                        "documentation": "-- | The AWS account that will own the new public virtual interface.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5845,7 +5845,7 @@
             "pager": null,
             "name": "ConfirmConnection",
             "method": "post",
-            "documentation": "-- | Confirm the creation of a hosted connection on an interconnect.\n--\n-- Upon creation, the hosted connection is initially in the 'Ordering' state,\n-- and will remain in this state until the owner calls ConfirmConnection to\n-- confirm creation of the hosted connection.\n--",
+            "documentation": "-- | Confirm the creation of a hosted connection on an interconnect.\n--\n-- Upon creation, the hosted connection is initially in the 'Ordering' state,\n-- and will remain in this state until the owner calls ConfirmConnection to\n-- confirm creation of the hosted connection.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6050,7 +6050,7 @@
             "pager": null,
             "name": "ConfirmPrivateVirtualInterface",
             "method": "post",
-            "documentation": "-- | Accept ownership of a private virtual interface created by another customer.\n--\n-- After the virtual interface owner calls this function, the virtual interface\n-- will be created and attached to the given virtual private gateway, and will\n-- be available for handling traffic.\n--",
+            "documentation": "-- | Accept ownership of a private virtual interface created by another customer.\n--\n-- After the virtual interface owner calls this function, the virtual interface\n-- will be created and attached to the given virtual private gateway, and will\n-- be available for handling traffic.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6090,7 +6090,7 @@
                         "name": "_cpviVirtualGatewayId",
                         "shape": "VirtualGatewayId",
                         "locationName": "virtualGatewayId",
-                        "documentation": "-- | ID of the virtual private gateway that will be attached to the virtual\n-- interface.\n--\n-- A virtual private gateway can be managed via the Amazon Virtual Private\n-- Cloud (VPC) console or the \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway\u003e action.\n--\n-- Default: None\n--",
+                        "documentation": "-- | ID of the virtual private gateway that will be attached to the virtual\n-- interface.\n--\n-- A virtual private gateway can be managed via the Amazon Virtual Private\n-- Cloud (VPC) console or the \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway\u003e action.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -6130,7 +6130,7 @@
                         "name": "_cpviVirtualGatewayId",
                         "shape": "VirtualGatewayId",
                         "locationName": "virtualGatewayId",
-                        "documentation": "-- | ID of the virtual private gateway that will be attached to the virtual\n-- interface.\n--\n-- A virtual private gateway can be managed via the Amazon Virtual Private\n-- Cloud (VPC) console or the \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway\u003e action.\n--\n-- Default: None\n--",
+                        "documentation": "-- | ID of the virtual private gateway that will be attached to the virtual\n-- interface.\n--\n-- A virtual private gateway can be managed via the Amazon Virtual Private\n-- Cloud (VPC) console or the \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway\u003e action.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -6158,7 +6158,7 @@
                         "name": "_cpviVirtualGatewayId",
                         "shape": "VirtualGatewayId",
                         "locationName": "virtualGatewayId",
-                        "documentation": "-- | ID of the virtual private gateway that will be attached to the virtual\n-- interface.\n--\n-- A virtual private gateway can be managed via the Amazon Virtual Private\n-- Cloud (VPC) console or the \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway\u003e action.\n--\n-- Default: None\n--",
+                        "documentation": "-- | ID of the virtual private gateway that will be attached to the virtual\n-- interface.\n--\n-- A virtual private gateway can be managed via the Amazon Virtual Private\n-- Cloud (VPC) console or the \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway\u003e action.\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -6282,7 +6282,7 @@
             "pager": null,
             "name": "ConfirmPublicVirtualInterface",
             "method": "post",
-            "documentation": "-- | Accept ownership of a public virtual interface created by another customer.\n--\n-- After the virtual interface owner calls this function, the specified virtual\n-- interface will be created and made available for handling traffic.\n--",
+            "documentation": "-- | Accept ownership of a public virtual interface created by another customer.\n--\n-- After the virtual interface owner calls this function, the specified virtual\n-- interface will be created and made available for handling traffic.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6499,7 +6499,7 @@
                         "name": "_ccrBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6648,7 +6648,7 @@
                         "name": "_ccrBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6695,7 +6695,7 @@
                         "name": "_ccrBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6831,7 +6831,7 @@
             "pager": null,
             "name": "CreateConnection",
             "method": "post",
-            "documentation": "-- | Creates a new connection between the customer network and a specific AWS\n-- Direct Connect location.\n--\n-- A connection links your internal network to an AWS Direct Connect location\n-- over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end\n-- of the cable is connected to your router, the other to an AWS Direct Connect\n-- router. An AWS Direct Connect location provides access to Amazon Web Services\n-- in the region it is associated with. You can establish connections with AWS\n-- Direct Connect locations in multiple regions, but a connection in one region\n-- does not provide connectivity to other regions.\n--",
+            "documentation": "-- | Creates a new connection between the customer network and a specific AWS\n-- Direct Connect location.\n--\n-- A connection links your internal network to an AWS Direct Connect location\n-- over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end\n-- of the cable is connected to your router, the other to an AWS Direct Connect\n-- router. An AWS Direct Connect location provides access to Amazon Web Services\n-- in the region it is associated with. You can establish connections with AWS\n-- Direct Connect locations in multiple regions, but a connection in one region\n-- does not provide connectivity to other regions.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7317,7 +7317,7 @@
             "pager": null,
             "name": "CreateInterconnect",
             "method": "post",
-            "documentation": "-- | Creates a new interconnect between a AWS Direct Connect partner's network and\n-- a specific AWS Direct Connect location.\n--\n-- An interconnect is a connection which is capable of hosting other\n-- connections. The AWS Direct Connect partner can use an interconnect to\n-- provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not\n-- have their own connections. Like a standard connection, an interconnect links\n-- the AWS Direct Connect partner's network to an AWS Direct Connect location\n-- over a standard 1 Gbps or 10 Gbps Ethernet fiber-optic cable. One end is\n-- connected to the partner's router, the other to an AWS Direct Connect router.\n--\n-- For each end customer, the AWS Direct Connect partner provisions a\n-- connection on their interconnect by calling AllocateConnectionOnInterconnect.\n-- The end customer can then connect to AWS resources by creating a virtual\n-- interface on their connection, using the VLAN assigned to them by the AWS\n-- Direct Connect partner.\n--",
+            "documentation": "-- | Creates a new interconnect between a AWS Direct Connect partner's network and\n-- a specific AWS Direct Connect location.\n--\n-- An interconnect is a connection which is capable of hosting other\n-- connections. The AWS Direct Connect partner can use an interconnect to\n-- provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not\n-- have their own connections. Like a standard connection, an interconnect links\n-- the AWS Direct Connect partner's network to an AWS Direct Connect location\n-- over a standard 1 Gbps or 10 Gbps Ethernet fiber-optic cable. One end is\n-- connected to the partner's router, the other to an AWS Direct Connect router.\n--\n-- For each end customer, the AWS Direct Connect partner provisions a\n-- connection on their interconnect by calling AllocateConnectionOnInterconnect.\n-- The end customer can then connect to AWS resources by creating a virtual\n-- interface on their connection, using the VLAN assigned to them by the AWS\n-- Direct Connect partner.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7342,7 +7342,7 @@
                         "name": "_ciInterconnectName",
                         "shape": "InterconnectName",
                         "locationName": "interconnectName",
-                        "documentation": "-- | The name of the interconnect.\n--\n-- Example: \"/1G Interconnect to AWS/\"\n--\n-- Default: None\n--",
+                        "documentation": "-- | The name of the interconnect.\n--\n-- Example: \"/1G Interconnect to AWS/\"\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7357,7 +7357,7 @@
                         "name": "_ciBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | The port bandwidth\n--\n-- Example: 1Gbps\n--\n-- Default: None\n--\n-- Available values: 1Gbps,10Gbps\n--",
+                        "documentation": "-- | The port bandwidth\n--\n-- Example: 1Gbps\n--\n-- Default: None\n--\n-- Available values: 1Gbps,10Gbps",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7372,7 +7372,7 @@
                         "name": "_ciLocation",
                         "shape": "LocationCode",
                         "locationName": "location",
-                        "documentation": "-- | Where the interconnect is located\n--\n-- Example: EqSV5\n--\n-- Default: None\n--",
+                        "documentation": "-- | Where the interconnect is located\n--\n-- Example: EqSV5\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -7397,7 +7397,7 @@
                         "name": "_ciInterconnectName",
                         "shape": "InterconnectName",
                         "locationName": "interconnectName",
-                        "documentation": "-- | The name of the interconnect.\n--\n-- Example: \"/1G Interconnect to AWS/\"\n--\n-- Default: None\n--",
+                        "documentation": "-- | The name of the interconnect.\n--\n-- Example: \"/1G Interconnect to AWS/\"\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7412,7 +7412,7 @@
                         "name": "_ciBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | The port bandwidth\n--\n-- Example: 1Gbps\n--\n-- Default: None\n--\n-- Available values: 1Gbps,10Gbps\n--",
+                        "documentation": "-- | The port bandwidth\n--\n-- Example: 1Gbps\n--\n-- Default: None\n--\n-- Available values: 1Gbps,10Gbps",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7427,7 +7427,7 @@
                         "name": "_ciLocation",
                         "shape": "LocationCode",
                         "locationName": "location",
-                        "documentation": "-- | Where the interconnect is located\n--\n-- Example: EqSV5\n--\n-- Default: None\n--",
+                        "documentation": "-- | Where the interconnect is located\n--\n-- Example: EqSV5\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -7455,7 +7455,7 @@
                         "name": "_ciBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | The port bandwidth\n--\n-- Example: 1Gbps\n--\n-- Default: None\n--\n-- Available values: 1Gbps,10Gbps\n--",
+                        "documentation": "-- | The port bandwidth\n--\n-- Example: 1Gbps\n--\n-- Default: None\n--\n-- Available values: 1Gbps,10Gbps",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7470,7 +7470,7 @@
                         "name": "_ciInterconnectName",
                         "shape": "InterconnectName",
                         "locationName": "interconnectName",
-                        "documentation": "-- | The name of the interconnect.\n--\n-- Example: \"/1G Interconnect to AWS/\"\n--\n-- Default: None\n--",
+                        "documentation": "-- | The name of the interconnect.\n--\n-- Example: \"/1G Interconnect to AWS/\"\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7485,7 +7485,7 @@
                         "name": "_ciLocation",
                         "shape": "LocationCode",
                         "locationName": "location",
-                        "documentation": "-- | Where the interconnect is located\n--\n-- Example: EqSV5\n--\n-- Default: None\n--",
+                        "documentation": "-- | Where the interconnect is located\n--\n-- Example: EqSV5\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -7696,7 +7696,7 @@
                         "name": "_cpvir2CustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7935,7 +7935,7 @@
                         "name": "_cpvir2CustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -8057,7 +8057,7 @@
                         "name": "_cpvir2CustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -8208,7 +8208,7 @@
             "pager": null,
             "name": "CreatePrivateVirtualInterface",
             "method": "post",
-            "documentation": "-- | Creates a new private virtual interface. A virtual interface is the VLAN that\n-- transports AWS Direct Connect traffic. A private virtual interface supports\n-- sending traffic to a single virtual private cloud (VPC).\n--",
+            "documentation": "-- | Creates a new private virtual interface. A virtual interface is the VLAN that\n-- transports AWS Direct Connect traffic. A private virtual interface supports\n-- sending traffic to a single virtual private cloud (VPC).",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8247,7 +8247,7 @@
                         "name": "_cpvi1NewPrivateVirtualInterface",
                         "shape": "NewPrivateVirtualInterface",
                         "locationName": "newPrivateVirtualInterface",
-                        "documentation": "-- | Detailed information for the private virtual interface to be created.\n--\n-- Default: None\n--",
+                        "documentation": "-- | Detailed information for the private virtual interface to be created.\n--\n-- Default: None",
                         "typeExposed": "NewPrivateVirtualInterface",
                         "type": "NewPrivateVirtualInterface"
                     }
@@ -8287,7 +8287,7 @@
                         "name": "_cpvi1NewPrivateVirtualInterface",
                         "shape": "NewPrivateVirtualInterface",
                         "locationName": "newPrivateVirtualInterface",
-                        "documentation": "-- | Detailed information for the private virtual interface to be created.\n--\n-- Default: None\n--",
+                        "documentation": "-- | Detailed information for the private virtual interface to be created.\n--\n-- Default: None",
                         "typeExposed": "NewPrivateVirtualInterface",
                         "type": "NewPrivateVirtualInterface"
                     }
@@ -8330,7 +8330,7 @@
                         "name": "_cpvi1NewPrivateVirtualInterface",
                         "shape": "NewPrivateVirtualInterface",
                         "locationName": "newPrivateVirtualInterface",
-                        "documentation": "-- | Detailed information for the private virtual interface to be created.\n--\n-- Default: None\n--",
+                        "documentation": "-- | Detailed information for the private virtual interface to be created.\n--\n-- Default: None",
                         "typeExposed": "NewPrivateVirtualInterface",
                         "type": "NewPrivateVirtualInterface"
                     }
@@ -8541,7 +8541,7 @@
                         "name": "_cpvirCustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -8780,7 +8780,7 @@
                         "name": "_cpvirCustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -8902,7 +8902,7 @@
                         "name": "_cpvirCustomerRouterConfig",
                         "shape": "RouterConfig",
                         "locationName": "customerRouterConfig",
-                        "documentation": "-- | Information for generating the customer router configuration.\n--",
+                        "documentation": "-- | Information for generating the customer router configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -9053,7 +9053,7 @@
             "pager": null,
             "name": "CreatePublicVirtualInterface",
             "method": "post",
-            "documentation": "-- | Creates a new public virtual interface. A virtual interface is the VLAN that\n-- transports AWS Direct Connect traffic. A public virtual interface supports\n-- sending traffic to public services of AWS such as Amazon Simple Storage\n-- Service (Amazon S3).\n--",
+            "documentation": "-- | Creates a new public virtual interface. A virtual interface is the VLAN that\n-- transports AWS Direct Connect traffic. A public virtual interface supports\n-- sending traffic to public services of AWS such as Amazon Simple Storage\n-- Service (Amazon S3).",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -9092,7 +9092,7 @@
                         "name": "_cpviNewPublicVirtualInterface",
                         "shape": "NewPublicVirtualInterface",
                         "locationName": "newPublicVirtualInterface",
-                        "documentation": "-- | Detailed information for the public virtual interface to be created.\n--\n-- Default: None\n--",
+                        "documentation": "-- | Detailed information for the public virtual interface to be created.\n--\n-- Default: None",
                         "typeExposed": "NewPublicVirtualInterface",
                         "type": "NewPublicVirtualInterface"
                     }
@@ -9132,7 +9132,7 @@
                         "name": "_cpviNewPublicVirtualInterface",
                         "shape": "NewPublicVirtualInterface",
                         "locationName": "newPublicVirtualInterface",
-                        "documentation": "-- | Detailed information for the public virtual interface to be created.\n--\n-- Default: None\n--",
+                        "documentation": "-- | Detailed information for the public virtual interface to be created.\n--\n-- Default: None",
                         "typeExposed": "NewPublicVirtualInterface",
                         "type": "NewPublicVirtualInterface"
                     }
@@ -9175,7 +9175,7 @@
                         "name": "_cpviNewPublicVirtualInterface",
                         "shape": "NewPublicVirtualInterface",
                         "locationName": "newPublicVirtualInterface",
-                        "documentation": "-- | Detailed information for the public virtual interface to be created.\n--\n-- Default: None\n--",
+                        "documentation": "-- | Detailed information for the public virtual interface to be created.\n--\n-- Default: None",
                         "typeExposed": "NewPublicVirtualInterface",
                         "type": "NewPublicVirtualInterface"
                     }
@@ -9296,7 +9296,7 @@
                         "name": "_dcrBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -9445,7 +9445,7 @@
                         "name": "_dcrBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -9492,7 +9492,7 @@
                         "name": "_dcrBandwidth",
                         "shape": "Bandwidth",
                         "locationName": "bandwidth",
-                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None\n--",
+                        "documentation": "-- | Bandwidth of the connection.\n--\n-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)\n--\n-- Default: None",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -9628,7 +9628,7 @@
             "pager": null,
             "name": "DeleteConnection",
             "method": "post",
-            "documentation": "-- | Deletes the connection.\n--\n-- Deleting a connection only stops the AWS Direct Connect port hour and data\n-- transfer charges. You need to cancel separately with the providers any\n-- services or charges for cross-connects or network circuits that connect you\n-- to the AWS Direct Connect location.\n--",
+            "documentation": "-- | Deletes the connection.\n--\n-- Deleting a connection only stops the AWS Direct Connect port hour and data\n-- transfer charges. You need to cancel separately with the providers any\n-- services or charges for cross-connects or network circuits that connect you\n-- to the AWS Direct Connect location.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -9833,7 +9833,7 @@
             "pager": null,
             "name": "DeleteInterconnect",
             "method": "post",
-            "documentation": "-- | Deletes the specified interconnect.\n--",
+            "documentation": "-- | Deletes the specified interconnect.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10038,7 +10038,7 @@
             "pager": null,
             "name": "DeleteVirtualInterface",
             "method": "post",
-            "documentation": "-- | Deletes a virtual interface.\n--",
+            "documentation": "-- | Deletes a virtual interface.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10167,7 +10167,7 @@
                     "name": "_dcrConnections",
                     "shape": "ConnectionList",
                     "locationName": "connections",
-                    "documentation": "-- | A list of connections.\n--",
+                    "documentation": "-- | A list of connections.",
                     "typeExposed": "[Connection]",
                     "type": "List \"connections\" Connection"
                 },
@@ -10183,7 +10183,7 @@
                         "name": "_dcrConnections",
                         "shape": "ConnectionList",
                         "locationName": "connections",
-                        "documentation": "-- | A list of connections.\n--",
+                        "documentation": "-- | A list of connections.",
                         "typeExposed": "[Connection]",
                         "type": "List \"connections\" Connection"
                     }
@@ -10212,7 +10212,7 @@
                         "name": "_dcrConnections",
                         "shape": "ConnectionList",
                         "locationName": "connections",
-                        "documentation": "-- | A list of connections.\n--",
+                        "documentation": "-- | A list of connections.",
                         "typeExposed": "[Connection]",
                         "type": "List \"connections\" Connection"
                     }
@@ -10229,7 +10229,7 @@
                         "name": "_dcrConnections",
                         "shape": "ConnectionList",
                         "locationName": "connections",
-                        "documentation": "-- | A list of connections.\n--",
+                        "documentation": "-- | A list of connections.",
                         "typeExposed": "[Connection]",
                         "type": "List \"connections\" Connection"
                     }
@@ -10245,7 +10245,7 @@
             "pager": null,
             "name": "DescribeConnections",
             "method": "post",
-            "documentation": "-- | Displays all connections in this region.\n--\n-- If a connection ID is provided, the call returns only that particular\n-- connection.\n--",
+            "documentation": "-- | Displays all connections in this region.\n--\n-- If a connection ID is provided, the call returns only that particular\n-- connection.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10373,7 +10373,7 @@
                     "name": "_dcoirConnections",
                     "shape": "ConnectionList",
                     "locationName": "connections",
-                    "documentation": "-- | A list of connections.\n--",
+                    "documentation": "-- | A list of connections.",
                     "typeExposed": "[Connection]",
                     "type": "List \"connections\" Connection"
                 },
@@ -10389,7 +10389,7 @@
                         "name": "_dcoirConnections",
                         "shape": "ConnectionList",
                         "locationName": "connections",
-                        "documentation": "-- | A list of connections.\n--",
+                        "documentation": "-- | A list of connections.",
                         "typeExposed": "[Connection]",
                         "type": "List \"connections\" Connection"
                     }
@@ -10418,7 +10418,7 @@
                         "name": "_dcoirConnections",
                         "shape": "ConnectionList",
                         "locationName": "connections",
-                        "documentation": "-- | A list of connections.\n--",
+                        "documentation": "-- | A list of connections.",
                         "typeExposed": "[Connection]",
                         "type": "List \"connections\" Connection"
                     }
@@ -10435,7 +10435,7 @@
                         "name": "_dcoirConnections",
                         "shape": "ConnectionList",
                         "locationName": "connections",
-                        "documentation": "-- | A list of connections.\n--",
+                        "documentation": "-- | A list of connections.",
                         "typeExposed": "[Connection]",
                         "type": "List \"connections\" Connection"
                     }
@@ -10451,7 +10451,7 @@
             "pager": null,
             "name": "DescribeConnectionsOnInterconnect",
             "method": "post",
-            "documentation": "-- | Return a list of connections that have been provisioned on the given\n-- interconnect.\n--",
+            "documentation": "-- | Return a list of connections that have been provisioned on the given\n-- interconnect.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10478,7 +10478,7 @@
                     "name": "_dcoiInterconnectId",
                     "shape": "InterconnectId",
                     "locationName": "interconnectId",
-                    "documentation": "-- | ID of the interconnect on which a list of connection is provisioned.\n--\n-- Example: dxcon-abc123\n--\n-- Default: None\n--",
+                    "documentation": "-- | ID of the interconnect on which a list of connection is provisioned.\n--\n-- Example: dxcon-abc123\n--\n-- Default: None",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -10494,7 +10494,7 @@
                         "name": "_dcoiInterconnectId",
                         "shape": "InterconnectId",
                         "locationName": "interconnectId",
-                        "documentation": "-- | ID of the interconnect on which a list of connection is provisioned.\n--\n-- Example: dxcon-abc123\n--\n-- Default: None\n--",
+                        "documentation": "-- | ID of the interconnect on which a list of connection is provisioned.\n--\n-- Example: dxcon-abc123\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -10519,7 +10519,7 @@
                         "name": "_dcoiInterconnectId",
                         "shape": "InterconnectId",
                         "locationName": "interconnectId",
-                        "documentation": "-- | ID of the interconnect on which a list of connection is provisioned.\n--\n-- Example: dxcon-abc123\n--\n-- Default: None\n--",
+                        "documentation": "-- | ID of the interconnect on which a list of connection is provisioned.\n--\n-- Example: dxcon-abc123\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -10547,7 +10547,7 @@
                         "name": "_dcoiInterconnectId",
                         "shape": "InterconnectId",
                         "locationName": "interconnectId",
-                        "documentation": "-- | ID of the interconnect on which a list of connection is provisioned.\n--\n-- Example: dxcon-abc123\n--\n-- Default: None\n--",
+                        "documentation": "-- | ID of the interconnect on which a list of connection is provisioned.\n--\n-- Example: dxcon-abc123\n--\n-- Default: None",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -10580,7 +10580,7 @@
                     "name": "_dirInterconnects",
                     "shape": "InterconnectList",
                     "locationName": "interconnects",
-                    "documentation": "-- | A list of interconnects.\n--",
+                    "documentation": "-- | A list of interconnects.",
                     "typeExposed": "[Interconnect]",
                     "type": "List \"interconnects\" Interconnect"
                 },
@@ -10596,7 +10596,7 @@
                         "name": "_dirInterconnects",
                         "shape": "InterconnectList",
                         "locationName": "interconnects",
-                        "documentation": "-- | A list of interconnects.\n--",
+                        "documentation": "-- | A list of interconnects.",
                         "typeExposed": "[Interconnect]",
                         "type": "List \"interconnects\" Interconnect"
                     }
@@ -10625,7 +10625,7 @@
                         "name": "_dirInterconnects",
                         "shape": "InterconnectList",
                         "locationName": "interconnects",
-                        "documentation": "-- | A list of interconnects.\n--",
+                        "documentation": "-- | A list of interconnects.",
                         "typeExposed": "[Interconnect]",
                         "type": "List \"interconnects\" Interconnect"
                     }
@@ -10642,7 +10642,7 @@
                         "name": "_dirInterconnects",
                         "shape": "InterconnectList",
                         "locationName": "interconnects",
-                        "documentation": "-- | A list of interconnects.\n--",
+                        "documentation": "-- | A list of interconnects.",
                         "typeExposed": "[Interconnect]",
                         "type": "List \"interconnects\" Interconnect"
                     }
@@ -10658,7 +10658,7 @@
             "pager": null,
             "name": "DescribeInterconnects",
             "method": "post",
-            "documentation": "-- | Returns a list of interconnects owned by the AWS account.\n--\n-- If an interconnect ID is provided, it will only return this particular\n-- interconnect.\n--",
+            "documentation": "-- | Returns a list of interconnects owned by the AWS account.\n--\n-- If an interconnect ID is provided, it will only return this particular\n-- interconnect.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10864,7 +10864,7 @@
             "pager": null,
             "name": "DescribeLocations",
             "method": "post",
-            "documentation": "-- | Returns the list of AWS Direct Connect locations in the current AWS region.\n-- These are the locations that may be selected when calling CreateConnection or\n-- CreateInterconnect.\n--",
+            "documentation": "-- | Returns the list of AWS Direct Connect locations in the current AWS region.\n-- These are the locations that may be selected when calling CreateConnection or\n-- CreateInterconnect.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10924,7 +10924,7 @@
                     "name": "_dvgrVirtualGateways",
                     "shape": "VirtualGatewayList",
                     "locationName": "virtualGateways",
-                    "documentation": "-- | A list of virtual private gateways.\n--",
+                    "documentation": "-- | A list of virtual private gateways.",
                     "typeExposed": "[VirtualGateway]",
                     "type": "List \"virtualGateways\" VirtualGateway"
                 },
@@ -10940,7 +10940,7 @@
                         "name": "_dvgrVirtualGateways",
                         "shape": "VirtualGatewayList",
                         "locationName": "virtualGateways",
-                        "documentation": "-- | A list of virtual private gateways.\n--",
+                        "documentation": "-- | A list of virtual private gateways.",
                         "typeExposed": "[VirtualGateway]",
                         "type": "List \"virtualGateways\" VirtualGateway"
                     }
@@ -10969,7 +10969,7 @@
                         "name": "_dvgrVirtualGateways",
                         "shape": "VirtualGatewayList",
                         "locationName": "virtualGateways",
-                        "documentation": "-- | A list of virtual private gateways.\n--",
+                        "documentation": "-- | A list of virtual private gateways.",
                         "typeExposed": "[VirtualGateway]",
                         "type": "List \"virtualGateways\" VirtualGateway"
                     }
@@ -10986,7 +10986,7 @@
                         "name": "_dvgrVirtualGateways",
                         "shape": "VirtualGatewayList",
                         "locationName": "virtualGateways",
-                        "documentation": "-- | A list of virtual private gateways.\n--",
+                        "documentation": "-- | A list of virtual private gateways.",
                         "typeExposed": "[VirtualGateway]",
                         "type": "List \"virtualGateways\" VirtualGateway"
                     }
@@ -11002,7 +11002,7 @@
             "pager": null,
             "name": "DescribeVirtualGateways",
             "method": "post",
-            "documentation": "-- | Returns a list of virtual private gateways owned by the AWS account.\n--\n-- You can create one or more AWS Direct Connect private virtual interfaces\n-- linking to a virtual private gateway. A virtual private gateway can be\n-- managed via Amazon Virtual Private Cloud (VPC) console or the \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2CreateVpnGateway\u003e action.\n--",
+            "documentation": "-- | Returns a list of virtual private gateways owned by the AWS account.\n--\n-- You can create one or more AWS Direct Connect private virtual interfaces\n-- linking to a virtual private gateway. A virtual private gateway can be\n-- managed via Amazon Virtual Private Cloud (VPC) console or the \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2CreateVpnGateway\u003e action.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -11062,7 +11062,7 @@
                     "name": "_dvirVirtualInterfaces",
                     "shape": "VirtualInterfaceList",
                     "locationName": "virtualInterfaces",
-                    "documentation": "-- | A list of virtual interfaces.\n--",
+                    "documentation": "-- | A list of virtual interfaces.",
                     "typeExposed": "[VirtualInterface]",
                     "type": "List \"virtualInterfaces\" VirtualInterface"
                 },
@@ -11078,7 +11078,7 @@
                         "name": "_dvirVirtualInterfaces",
                         "shape": "VirtualInterfaceList",
                         "locationName": "virtualInterfaces",
-                        "documentation": "-- | A list of virtual interfaces.\n--",
+                        "documentation": "-- | A list of virtual interfaces.",
                         "typeExposed": "[VirtualInterface]",
                         "type": "List \"virtualInterfaces\" VirtualInterface"
                     }
@@ -11107,7 +11107,7 @@
                         "name": "_dvirVirtualInterfaces",
                         "shape": "VirtualInterfaceList",
                         "locationName": "virtualInterfaces",
-                        "documentation": "-- | A list of virtual interfaces.\n--",
+                        "documentation": "-- | A list of virtual interfaces.",
                         "typeExposed": "[VirtualInterface]",
                         "type": "List \"virtualInterfaces\" VirtualInterface"
                     }
@@ -11124,7 +11124,7 @@
                         "name": "_dvirVirtualInterfaces",
                         "shape": "VirtualInterfaceList",
                         "locationName": "virtualInterfaces",
-                        "documentation": "-- | A list of virtual interfaces.\n--",
+                        "documentation": "-- | A list of virtual interfaces.",
                         "typeExposed": "[VirtualInterface]",
                         "type": "List \"virtualInterfaces\" VirtualInterface"
                     }
@@ -11140,7 +11140,7 @@
             "pager": null,
             "name": "DescribeVirtualInterfaces",
             "method": "post",
-            "documentation": "-- | Displays all virtual interfaces for an AWS account. Virtual interfaces\n-- deleted fewer than 15 minutes before DescribeVirtualInterfaces is called are\n-- also returned. If a connection ID is included then only virtual interfaces\n-- associated with this connection will be returned. If a virtual interface ID\n-- is included then only a single virtual interface will be returned.\n--\n-- A virtual interface (VLAN) transmits the traffic between the AWS Direct\n-- Connect location and the customer.\n--\n-- If a connection ID is provided, only virtual interfaces provisioned on the\n-- specified connection will be returned. If a virtual interface ID is provided,\n-- only this particular virtual interface will be returned.\n--",
+            "documentation": "-- | Displays all virtual interfaces for an AWS account. Virtual interfaces\n-- deleted fewer than 15 minutes before DescribeVirtualInterfaces is called are\n-- also returned. If a connection ID is included then only virtual interfaces\n-- associated with this connection will be returned. If a virtual interface ID\n-- is included then only a single virtual interface will be returned.\n--\n-- A virtual interface (VLAN) transmits the traffic between the AWS Direct\n-- Connect location and the customer.\n--\n-- If a connection ID is provided, only virtual interfaces provisioned on the\n-- specified connection will be returned. If a virtual interface ID is provided,\n-- only this particular virtual interface will be returned.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

@@ -77,12 +77,10 @@ deregisterInstancesFromLoadBalancer p1 = DeregisterInstancesFromLoadBalancer
     }
 
 -- | A list of EC2 instance IDs consisting of all instances to be deregistered.
---
 diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
 diflbInstances = lens _diflbInstances (\s a -> s { _diflbInstances = a }) . _List
 
 -- | The name associated with the load balancer.
---
 diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
 diflbLoadBalancerName =
     lens _diflbLoadBalancerName (\s a -> s { _diflbLoadBalancerName = a })
@@ -109,7 +107,6 @@ deregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalance
     }
 
 -- | An updated list of remaining instances registered with the load balancer.
---
 diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
 diflbrInstances = lens _diflbrInstances (\s a -> s { _diflbrInstances = a }) . _List
 

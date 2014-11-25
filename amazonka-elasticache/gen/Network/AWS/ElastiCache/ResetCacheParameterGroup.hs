@@ -76,7 +76,6 @@ resetCacheParameterGroup p1 = ResetCacheParameterGroup
     }
 
 -- | The name of the cache parameter group to reset.
---
 rcpgCacheParameterGroupName :: Lens' ResetCacheParameterGroup Text
 rcpgCacheParameterGroupName =
     lens _rcpgCacheParameterGroupName
@@ -84,7 +83,6 @@ rcpgCacheParameterGroupName =
 
 -- | An array of parameter names to be reset. If you are not resetting the entire
 -- cache parameter group, you must specify at least one parameter name.
---
 rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
 rcpgParameterNameValues =
     lens _rcpgParameterNameValues (\s a -> s { _rcpgParameterNameValues = a })
@@ -94,7 +92,6 @@ rcpgParameterNameValues =
 -- values. If /false/, no such action occurs.
 --
 -- Valid values: 'true' | 'false'
---
 rcpgResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
 rcpgResetAllParameters =
     lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })
@@ -115,7 +112,6 @@ resetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
     }
 
 -- | The name of the cache parameter group.
---
 rcpgrCacheParameterGroupName :: Lens' ResetCacheParameterGroupResponse (Maybe Text)
 rcpgrCacheParameterGroupName =
     lens _rcpgrCacheParameterGroupName

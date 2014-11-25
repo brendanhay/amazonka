@@ -100,7 +100,6 @@ createInterconnect p1 p2 p3 = CreateInterconnect
 -- Default: None
 --
 -- Available values: 1Gbps,10Gbps
---
 ciBandwidth :: Lens' CreateInterconnect Text
 ciBandwidth = lens _ciBandwidth (\s a -> s { _ciBandwidth = a })
 
@@ -109,7 +108,6 @@ ciBandwidth = lens _ciBandwidth (\s a -> s { _ciBandwidth = a })
 -- Example: "/1G Interconnect to AWS/"
 --
 -- Default: None
---
 ciInterconnectName :: Lens' CreateInterconnect Text
 ciInterconnectName =
     lens _ciInterconnectName (\s a -> s { _ciInterconnectName = a })
@@ -119,7 +117,6 @@ ciInterconnectName =
 -- Example: EqSV5
 --
 -- Default: None
---
 ciLocation :: Lens' CreateInterconnect Text
 ciLocation = lens _ciLocation (\s a -> s { _ciLocation = a })
 

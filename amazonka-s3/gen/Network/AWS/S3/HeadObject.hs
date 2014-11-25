@@ -23,6 +23,7 @@
 -- | The HEAD operation retrieves metadata from an object without returning the
 -- object itself. This operation is useful if you're only interested in an
 -- object's metadata. To use HEAD, you must have READ access to the object.
+--
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/HeadObject.html>
 module Network.AWS.S3.HeadObject
     (

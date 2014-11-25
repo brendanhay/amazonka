@@ -84,7 +84,6 @@ giIdentityPoolId = lens _giIdentityPoolId (\s a -> s { _giIdentityPoolId = a })
 -- | A set of optional name-value pairs that map provider names to provider tokens.
 --
 -- The available provider names for 'Logins' are as follows:  Facebook: 'graph.facebook.com'  Google: 'accounts.google.com'  Amazon: 'www.amazon.com'
---
 giLogins :: Lens' GetId (HashMap Text Text)
 giLogins = lens _giLogins (\s a -> s { _giLogins = a }) . _Map
 

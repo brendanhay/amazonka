@@ -69,12 +69,10 @@ listSubscriptionsByTopic p1 = ListSubscriptionsByTopic
     }
 
 -- | Token returned by the previous 'ListSubscriptionsByTopic' request.
---
 lsbtNextToken :: Lens' ListSubscriptionsByTopic (Maybe Text)
 lsbtNextToken = lens _lsbtNextToken (\s a -> s { _lsbtNextToken = a })
 
 -- | The ARN of the topic for which you wish to find subscriptions.
---
 lsbtTopicArn :: Lens' ListSubscriptionsByTopic Text
 lsbtTopicArn = lens _lsbtTopicArn (\s a -> s { _lsbtTopicArn = a })
 
@@ -99,12 +97,10 @@ listSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
 
 -- | Token to pass along to the next 'ListSubscriptionsByTopic' request. This
 -- element is returned if there are more subscriptions to retrieve.
---
 lsbtrNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
 lsbtrNextToken = lens _lsbtrNextToken (\s a -> s { _lsbtrNextToken = a })
 
 -- | A list of subscriptions.
---
 lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
 lsbtrSubscriptions =
     lens _lsbtrSubscriptions (\s a -> s { _lsbtrSubscriptions = a })

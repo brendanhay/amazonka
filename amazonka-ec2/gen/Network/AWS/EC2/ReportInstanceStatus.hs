@@ -95,7 +95,6 @@ reportInstanceStatus p1 = ReportInstanceStatus
     }
 
 -- | Descriptive text about the health state of your instance.
---
 risDescription :: Lens' ReportInstanceStatus (Maybe Text)
 risDescription = lens _risDescription (\s a -> s { _risDescription = a })
 
@@ -103,12 +102,10 @@ risDryRun :: Lens' ReportInstanceStatus (Maybe Bool)
 risDryRun = lens _risDryRun (\s a -> s { _risDryRun = a })
 
 -- | The time at which the reported instance health state ended.
---
 risEndTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
 risEndTime = lens _risEndTime (\s a -> s { _risEndTime = a }) . mapping _Time
 
 -- | One or more instances.
---
 risInstances :: Lens' ReportInstanceStatus [Text]
 risInstances = lens _risInstances (\s a -> s { _risInstances = a }) . _List
 
@@ -140,12 +137,10 @@ risReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
 risReasonCodes = lens _risReasonCodes (\s a -> s { _risReasonCodes = a }) . _List
 
 -- | The time at which the reported instance health state began.
---
 risStartTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
 risStartTime = lens _risStartTime (\s a -> s { _risStartTime = a }) . mapping _Time
 
 -- | The status of all instances listed.
---
 risStatus :: Lens' ReportInstanceStatus ReportStatusType
 risStatus = lens _risStatus (\s a -> s { _risStatus = a })
 

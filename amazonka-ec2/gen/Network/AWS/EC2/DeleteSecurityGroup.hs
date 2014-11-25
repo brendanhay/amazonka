@@ -76,13 +76,11 @@ dsgDryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
 dsgDryRun = lens _dsgDryRun (\s a -> s { _dsgDryRun = a })
 
 -- | The ID of the security group. Required for a nondefault VPC.
---
 dsgGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
 dsgGroupId = lens _dsgGroupId (\s a -> s { _dsgGroupId = a })
 
 -- | [EC2-Classic, default VPC] The name of the security group. You can specify
 -- either the security group name or the security group ID.
---
 dsgGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
 dsgGroupName = lens _dsgGroupName (\s a -> s { _dsgGroupName = a })
 

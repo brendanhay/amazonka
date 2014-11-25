@@ -61,7 +61,6 @@ deletePlatformApplication p1 = DeletePlatformApplication
     }
 
 -- | PlatformApplicationArn of platform application object to delete.
---
 dpaPlatformApplicationArn :: Lens' DeletePlatformApplication Text
 dpaPlatformApplicationArn =
     lens _dpaPlatformApplicationArn

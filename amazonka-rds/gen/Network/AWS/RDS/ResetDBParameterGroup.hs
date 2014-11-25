@@ -100,7 +100,6 @@ rdbpgDBParameterGroupName =
 -- Oracle
 --
 -- Valid Values (for Apply method): 'pending-reboot'
---
 rdbpgParameters :: Lens' ResetDBParameterGroup [Parameter]
 rdbpgParameters = lens _rdbpgParameters (\s a -> s { _rdbpgParameters = a }) . _List
 
@@ -108,7 +107,6 @@ rdbpgParameters = lens _rdbpgParameters (\s a -> s { _rdbpgParameters = a }) . _
 -- parameter group to default values.
 --
 -- Default: 'true'
---
 rdbpgResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
 rdbpgResetAllParameters =
     lens _rdbpgResetAllParameters (\s a -> s { _rdbpgResetAllParameters = a })
@@ -129,7 +127,6 @@ resetDBParameterGroupResponse = ResetDBParameterGroupResponse
     }
 
 -- | The name of the DB parameter group.
---
 rdbpgrDBParameterGroupName :: Lens' ResetDBParameterGroupResponse (Maybe Text)
 rdbpgrDBParameterGroupName =
     lens _rdbpgrDBParameterGroupName

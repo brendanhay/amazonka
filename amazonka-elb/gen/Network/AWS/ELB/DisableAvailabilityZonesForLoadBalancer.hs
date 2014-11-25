@@ -88,7 +88,6 @@ dazflbAvailabilityZones =
         . _List
 
 -- | The name associated with the load balancer.
---
 dazflbLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
 dazflbLoadBalancerName =
     lens _dazflbLoadBalancerName (\s a -> s { _dazflbLoadBalancerName = a })
@@ -115,7 +114,6 @@ disableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoa
     }
 
 -- | A list of updated Availability Zones for the load balancer.
---
 dazflbrAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]
 dazflbrAvailabilityZones =
     lens _dazflbrAvailabilityZones

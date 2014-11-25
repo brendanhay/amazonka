@@ -103,13 +103,11 @@ createSubnet p1 p2 = CreateSubnet
 -- | The Availability Zone for the subnet.
 --
 -- Default: Amazon EC2 selects one for you (recommended).
---
 cs1AvailabilityZone :: Lens' CreateSubnet (Maybe Text)
 cs1AvailabilityZone =
     lens _cs1AvailabilityZone (\s a -> s { _cs1AvailabilityZone = a })
 
 -- | The network range for the subnet, in CIDR notation. For example, '10.0.0.0/24'.
---
 cs1CidrBlock :: Lens' CreateSubnet Text
 cs1CidrBlock = lens _cs1CidrBlock (\s a -> s { _cs1CidrBlock = a })
 
@@ -117,7 +115,6 @@ cs1DryRun :: Lens' CreateSubnet (Maybe Bool)
 cs1DryRun = lens _cs1DryRun (\s a -> s { _cs1DryRun = a })
 
 -- | The ID of the VPC.
---
 cs1VpcId :: Lens' CreateSubnet Text
 cs1VpcId = lens _cs1VpcId (\s a -> s { _cs1VpcId = a })
 
@@ -137,7 +134,6 @@ createSubnetResponse = CreateSubnetResponse
     }
 
 -- | Information about the subnet.
---
 csrSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
 csrSubnet = lens _csrSubnet (\s a -> s { _csrSubnet = a })
 

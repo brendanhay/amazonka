@@ -79,7 +79,6 @@ describeEventSubscriptions = DescribeEventSubscriptions
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the 'Marker' parameter and retrying the
 -- request.
---
 des1Marker :: Lens' DescribeEventSubscriptions (Maybe Text)
 des1Marker = lens _des1Marker (\s a -> s { _des1Marker = a })
 
@@ -91,13 +90,11 @@ des1Marker = lens _des1Marker (\s a -> s { _des1Marker = a })
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
---
 des1MaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
 des1MaxRecords = lens _des1MaxRecords (\s a -> s { _des1MaxRecords = a })
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- described.
---
 des1SubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
 des1SubscriptionName =
     lens _des1SubscriptionName (\s a -> s { _des1SubscriptionName = a })
@@ -122,7 +119,6 @@ describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     }
 
 -- | A list of event subscriptions.
---
 desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
 desrEventSubscriptionsList =
     lens _desrEventSubscriptionsList
@@ -134,7 +130,6 @@ desrEventSubscriptionsList =
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
 -- empty, all response records have been retrieved for the request.
---
 desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrMarker = lens _desrMarker (\s a -> s { _desrMarker = a })
 

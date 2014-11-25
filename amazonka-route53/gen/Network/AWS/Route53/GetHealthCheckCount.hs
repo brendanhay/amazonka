@@ -67,7 +67,6 @@ getHealthCheckCountResponse p1 = GetHealthCheckCountResponse
     }
 
 -- | The number of health checks associated with the current AWS account.
---
 ghccrHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
 ghccrHealthCheckCount =
     lens _ghccrHealthCheckCount (\s a -> s { _ghccrHealthCheckCount = a })

@@ -107,7 +107,6 @@ dv1Filters = lens _dv1Filters (\s a -> s { _dv1Filters = a }) . _List
 -- | One or more VPC IDs.
 --
 -- Default: Describes all your VPCs.
---
 dv1VpcIds :: Lens' DescribeVpcs [Text]
 dv1VpcIds = lens _dv1VpcIds (\s a -> s { _dv1VpcIds = a }) . _List
 
@@ -133,7 +132,6 @@ describeVpcsResponse = DescribeVpcsResponse
     }
 
 -- | Information about one or more VPCs.
---
 dvrVpcs :: Lens' DescribeVpcsResponse [Vpc]
 dvrVpcs = lens _dvrVpcs (\s a -> s { _dvrVpcs = a }) . _List
 

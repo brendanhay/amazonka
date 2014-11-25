@@ -76,7 +76,6 @@ rtrpGatewayARN = lens _rtrpGatewayARN (\s a -> s { _rtrpGatewayARN = a })
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which you want to
 -- retrieve the recovery point.
---
 rtrpTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
 rtrpTapeARN = lens _rtrpTapeARN (\s a -> s { _rtrpTapeARN = a })
 
@@ -97,7 +96,6 @@ retrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which the recovery
 -- point was retrieved.
---
 rtrprTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprTapeARN = lens _rtrprTapeARN (\s a -> s { _rtrprTapeARN = a })
 

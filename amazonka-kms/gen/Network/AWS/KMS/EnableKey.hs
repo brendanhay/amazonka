@@ -22,6 +22,7 @@
 
 -- | Marks a key as enabled, thereby permitting its use. You can have up to 25
 -- enabled keys at one time.
+--
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html>
 module Network.AWS.KMS.EnableKey
     (
@@ -61,7 +62,6 @@ enableKey p1 = EnableKey
 
 -- | Unique identifier of the customer master key to be enabled. This can be an
 -- ARN, an alias, or a globally unique identifier.
---
 ekKeyId :: Lens' EnableKey Text
 ekKeyId = lens _ekKeyId (\s a -> s { _ekKeyId = a })
 

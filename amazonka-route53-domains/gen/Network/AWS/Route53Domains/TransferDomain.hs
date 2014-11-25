@@ -148,7 +148,6 @@ transferDomain p1 p2 p3 p4 p5 = TransferDomain
 -- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
---
 tdAdminContact :: Lens' TransferDomain ContactDetail
 tdAdminContact = lens _tdAdminContact (\s a -> s { _tdAdminContact = a })
 
@@ -158,7 +157,6 @@ tdAdminContact = lens _tdAdminContact (\s a -> s { _tdAdminContact = a })
 -- Type: String
 --
 -- Required: Yes
---
 tdAuthCode :: Lens' TransferDomain (Maybe Text)
 tdAuthCode = lens _tdAuthCode (\s a -> s { _tdAuthCode = a }) . mapping _Sensitive
 
@@ -172,7 +170,6 @@ tdAuthCode = lens _tdAuthCode (\s a -> s { _tdAuthCode = a }) . mapping _Sensiti
 -- Default: true
 --
 -- Required: No
---
 tdAutoRenew :: Lens' TransferDomain (Maybe Bool)
 tdAutoRenew = lens _tdAutoRenew (\s a -> s { _tdAutoRenew = a })
 
@@ -187,7 +184,6 @@ tdAutoRenew = lens _tdAutoRenew (\s a -> s { _tdAutoRenew = a })
 -- supported.
 --
 -- Required: Yes
---
 tdDomainName :: Lens' TransferDomain Text
 tdDomainName = lens _tdDomainName (\s a -> s { _tdDomainName = a })
 
@@ -201,14 +197,12 @@ tdDomainName = lens _tdDomainName (\s a -> s { _tdDomainName = a })
 -- Valid values: Integer from 1 to 10
 --
 -- Required: Yes
---
 tdDurationInYears :: Lens' TransferDomain Natural
 tdDurationInYears =
     lens _tdDurationInYears (\s a -> s { _tdDurationInYears = a })
         . _Nat
 
 -- | Reserved for future use.
---
 tdIdnLangCode :: Lens' TransferDomain (Maybe Text)
 tdIdnLangCode = lens _tdIdnLangCode (\s a -> s { _tdIdnLangCode = a })
 
@@ -217,7 +211,6 @@ tdIdnLangCode = lens _tdIdnLangCode (\s a -> s { _tdIdnLangCode = a })
 -- Type: Complex
 --
 -- Children: 'GlueIps', 'Name'
---
 tdNameservers :: Lens' TransferDomain [Nameserver]
 tdNameservers = lens _tdNameservers (\s a -> s { _tdNameservers = a }) . _List
 
@@ -233,7 +226,6 @@ tdNameservers = lens _tdNameservers (\s a -> s { _tdNameservers = a }) . _List
 -- Valid values: 'true' | 'false'
 --
 -- Required: No
---
 tdPrivacyProtectAdminContact :: Lens' TransferDomain (Maybe Bool)
 tdPrivacyProtectAdminContact =
     lens _tdPrivacyProtectAdminContact
@@ -251,7 +243,6 @@ tdPrivacyProtectAdminContact =
 -- Valid values: 'true' | 'false'
 --
 -- Required: No
---
 tdPrivacyProtectRegistrantContact :: Lens' TransferDomain (Maybe Bool)
 tdPrivacyProtectRegistrantContact =
     lens _tdPrivacyProtectRegistrantContact
@@ -269,7 +260,6 @@ tdPrivacyProtectRegistrantContact =
 -- Valid values: 'true' | 'false'
 --
 -- Required: No
---
 tdPrivacyProtectTechContact :: Lens' TransferDomain (Maybe Bool)
 tdPrivacyProtectTechContact =
     lens _tdPrivacyProtectTechContact
@@ -282,7 +272,6 @@ tdPrivacyProtectTechContact =
 -- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
---
 tdRegistrantContact :: Lens' TransferDomain ContactDetail
 tdRegistrantContact =
     lens _tdRegistrantContact (\s a -> s { _tdRegistrantContact = a })
@@ -294,7 +283,6 @@ tdRegistrantContact =
 -- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
---
 tdTechContact :: Lens' TransferDomain ContactDetail
 tdTechContact = lens _tdTechContact (\s a -> s { _tdTechContact = a })
 
@@ -322,7 +310,6 @@ transferDomainResponse p1 = TransferDomainResponse
 -- Default: None
 --
 -- Constraints: Maximum 255 characters.
---
 tdrOperationId :: Lens' TransferDomainResponse Text
 tdrOperationId = lens _tdrOperationId (\s a -> s { _tdrOperationId = a })
 

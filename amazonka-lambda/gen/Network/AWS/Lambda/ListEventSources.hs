@@ -81,25 +81,21 @@ listEventSources = ListEventSources
     }
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream.
---
 lesEventSourceArn :: Lens' ListEventSources (Maybe Text)
 lesEventSourceArn =
     lens _lesEventSourceArn (\s a -> s { _lesEventSourceArn = a })
 
 -- | The name of the AWS Lambda function.
---
 lesFunctionName :: Lens' ListEventSources (Maybe Text)
 lesFunctionName = lens _lesFunctionName (\s a -> s { _lesFunctionName = a })
 
 -- | Optional string. An opaque pagination token returned from a previous 'ListEventSources' operation. If present, specifies to continue the list from where the
 -- returning call left off.
---
 lesMarker :: Lens' ListEventSources (Maybe Text)
 lesMarker = lens _lesMarker (\s a -> s { _lesMarker = a })
 
 -- | Optional integer. Specifies the maximum number of event sources to return in
 -- response. This value must be greater than 0.
---
 lesMaxItems :: Lens' ListEventSources (Maybe Natural)
 lesMaxItems = lens _lesMaxItems (\s a -> s { _lesMaxItems = a }) . mapping _Nat
 
@@ -123,12 +119,10 @@ listEventSourcesResponse = ListEventSourcesResponse
     }
 
 -- | An arrary of 'EventSourceConfiguration' objects.
---
 lesrEventSources :: Lens' ListEventSourcesResponse [EventSourceConfiguration]
 lesrEventSources = lens _lesrEventSources (\s a -> s { _lesrEventSources = a }) . _List
 
 -- | A string, present if there are more event source mappings.
---
 lesrNextMarker :: Lens' ListEventSourcesResponse (Maybe Text)
 lesrNextMarker = lens _lesrNextMarker (\s a -> s { _lesrNextMarker = a })
 

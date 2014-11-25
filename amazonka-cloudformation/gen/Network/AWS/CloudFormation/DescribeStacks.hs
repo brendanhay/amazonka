@@ -77,7 +77,6 @@ ds1NextToken = lens _ds1NextToken (\s a -> s { _ds1NextToken = a })
 -- Running stacks: You can specify either the stack's name or its unique stack
 -- ID. Deleted stacks: You must specify the unique stack ID.  Default: There is
 -- no default value.
---
 ds1StackName :: Lens' DescribeStacks (Maybe Text)
 ds1StackName = lens _ds1StackName (\s a -> s { _ds1StackName = a })
 
@@ -105,7 +104,6 @@ dsrNextToken :: Lens' DescribeStacksResponse (Maybe Text)
 dsrNextToken = lens _dsrNextToken (\s a -> s { _dsrNextToken = a })
 
 -- | A list of stack structures.
---
 dsrStacks :: Lens' DescribeStacksResponse [Stack]
 dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a }) . _List
 

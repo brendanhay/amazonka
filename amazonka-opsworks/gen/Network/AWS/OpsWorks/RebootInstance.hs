@@ -64,7 +64,6 @@ rebootInstance p1 = RebootInstance
     }
 
 -- | The instance ID.
---
 riInstanceId :: Lens' RebootInstance Text
 riInstanceId = lens _riInstanceId (\s a -> s { _riInstanceId = a })
 

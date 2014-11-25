@@ -109,7 +109,6 @@ gleEndTime = lens _gleEndTime (\s a -> s { _gleEndTime = a }) . mapping _Nat
 -- | The maximum number of log events returned in the response. If you don't
 -- specify a value, the request would return as much log events as can fit in a
 -- response size of 1MB, up to 10,000 log events.
---
 gleLimit :: Lens' GetLogEvents (Maybe Natural)
 gleLimit = lens _gleLimit (\s a -> s { _gleLimit = a }) . mapping _Nat
 
@@ -122,7 +121,6 @@ gleLogStreamName = lens _gleLogStreamName (\s a -> s { _gleLogStreamName = a })
 -- | A string token used for pagination that points to the next page of results.
 -- It must be a value obtained from the 'nextForwardToken' or 'nextBackwardToken'
 -- fields in the response of the previous 'GetLogEvents' request.
---
 gleNextToken :: Lens' GetLogEvents (Maybe Text)
 gleNextToken = lens _gleNextToken (\s a -> s { _gleNextToken = a })
 

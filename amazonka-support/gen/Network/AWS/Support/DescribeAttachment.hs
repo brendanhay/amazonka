@@ -65,7 +65,6 @@ describeAttachment p1 = DescribeAttachment
     }
 
 -- | The ID of the attachment to return. Attachment IDs are returned by the 'DescribeCommunications' operation.
---
 daAttachmentId :: Lens' DescribeAttachment Text
 daAttachmentId = lens _daAttachmentId (\s a -> s { _daAttachmentId = a })
 
@@ -85,7 +84,6 @@ describeAttachmentResponse = DescribeAttachmentResponse
     }
 
 -- | The attachment content and file name.
---
 darAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
 darAttachment = lens _darAttachment (\s a -> s { _darAttachment = a })
 

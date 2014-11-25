@@ -70,7 +70,6 @@ executePolicy p1 = ExecutePolicy
     }
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
---
 epAutoScalingGroupName :: Lens' ExecutePolicy (Maybe Text)
 epAutoScalingGroupName =
     lens _epAutoScalingGroupName (\s a -> s { _epAutoScalingGroupName = a })
@@ -84,12 +83,10 @@ epAutoScalingGroupName =
 -- cooldown period ends.
 --
 -- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns> in the /AutoScaling Developer Guide/.
---
 epHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
 epHonorCooldown = lens _epHonorCooldown (\s a -> s { _epHonorCooldown = a })
 
 -- | The name or ARN of the policy.
---
 epPolicyName :: Lens' ExecutePolicy Text
 epPolicyName = lens _epPolicyName (\s a -> s { _epPolicyName = a })
 

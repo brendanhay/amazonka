@@ -71,13 +71,11 @@ listFunctions = ListFunctions
     }
 
 -- | Optional string. An opaque pagination token returned from a previous 'ListFunctions' operation. If present, indicates where to continue the listing.
---
 lfMarker :: Lens' ListFunctions (Maybe Text)
 lfMarker = lens _lfMarker (\s a -> s { _lfMarker = a })
 
 -- | Optional integer. Specifies the maximum number of AWS Lambda functions to
 -- return in response. This parameter value must be greater than 0.
---
 lfMaxItems :: Lens' ListFunctions (Maybe Natural)
 lfMaxItems = lens _lfMaxItems (\s a -> s { _lfMaxItems = a }) . mapping _Nat
 
@@ -101,12 +99,10 @@ listFunctionsResponse = ListFunctionsResponse
     }
 
 -- | A list of Lambda functions.
---
 lfrFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
 lfrFunctions = lens _lfrFunctions (\s a -> s { _lfrFunctions = a }) . _List
 
 -- | A string, present if there are more functions.
---
 lfrNextMarker :: Lens' ListFunctionsResponse (Maybe Text)
 lfrNextMarker = lens _lfrNextMarker (\s a -> s { _lfrNextMarker = a })
 

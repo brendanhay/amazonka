@@ -33,6 +33,7 @@
 -- Related Topics
 --
 -- 'DeleteEnvironmentConfiguration'
+--
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationSettings.html>
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     (
@@ -83,7 +84,6 @@ describeConfigurationSettings p1 = DescribeConfigurationSettings
     }
 
 -- | The application for the environment or configuration template.
---
 dcsApplicationName :: Lens' DescribeConfigurationSettings Text
 dcsApplicationName =
     lens _dcsApplicationName (\s a -> s { _dcsApplicationName = a })
@@ -93,7 +93,6 @@ dcsApplicationName =
 -- Condition: You must specify either this or a TemplateName, but not both. If
 -- you specify both, AWS Elastic Beanstalk returns an 'InvalidParameterCombination'
 -- error. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
---
 dcsEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsEnvironmentName =
     lens _dcsEnvironmentName (\s a -> s { _dcsEnvironmentName = a })
@@ -102,7 +101,6 @@ dcsEnvironmentName =
 --
 -- Conditional: You must specify either this parameter or an EnvironmentName,
 -- but not both. If you specify both, AWS Elastic Beanstalk returns an 'InvalidParameterCombination' error. If you do not specify either, AWS Elastic Beanstalk returns a 'MissingRequiredParameter' error.
---
 dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsTemplateName = lens _dcsTemplateName (\s a -> s { _dcsTemplateName = a })
 
@@ -128,7 +126,6 @@ describeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
     }
 
 -- | A list of 'ConfigurationSettingsDescription'.
---
 dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
 dcsrConfigurationSettings =
     lens _dcsrConfigurationSettings

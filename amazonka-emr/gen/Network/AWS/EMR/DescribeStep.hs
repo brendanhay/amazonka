@@ -68,12 +68,10 @@ describeStep p1 p2 = DescribeStep
     }
 
 -- | The identifier of the cluster with steps to describe.
---
 dsClusterId :: Lens' DescribeStep Text
 dsClusterId = lens _dsClusterId (\s a -> s { _dsClusterId = a })
 
 -- | The identifier of the step to describe.
---
 dsStepId :: Lens' DescribeStep Text
 dsStepId = lens _dsStepId (\s a -> s { _dsStepId = a })
 
@@ -93,7 +91,6 @@ describeStepResponse = DescribeStepResponse
     }
 
 -- | The step details for the requested step identifier.
---
 dsrStep :: Lens' DescribeStepResponse (Maybe Step)
 dsrStep = lens _dsrStep (\s a -> s { _dsrStep = a })
 

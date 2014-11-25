@@ -41,6 +41,7 @@
 -- message. If you don't delete a message after it is received, the visibility
 -- timeout for the message the next time it is received reverts to the original
 -- timeout value, not the value you set with the 'ChangeMessageVisibility' action.
+--
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibility.html>
 module Network.AWS.SQS.ChangeMessageVisibility
     (
@@ -91,19 +92,16 @@ changeMessageVisibility p1 p2 p3 = ChangeMessageVisibility
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
---
 cmvQueueUrl :: Lens' ChangeMessageVisibility Text
 cmvQueueUrl = lens _cmvQueueUrl (\s a -> s { _cmvQueueUrl = a })
 
 -- | The receipt handle associated with the message whose visibility timeout
 -- should be changed. This parameter is returned by the 'ReceiveMessage' action.
---
 cmvReceiptHandle :: Lens' ChangeMessageVisibility Text
 cmvReceiptHandle = lens _cmvReceiptHandle (\s a -> s { _cmvReceiptHandle = a })
 
 -- | The new value (in seconds - from 0 to 43200 - maximum 12 hours) for the
 -- message's visibility timeout.
---
 cmvVisibilityTimeout :: Lens' ChangeMessageVisibility Int
 cmvVisibilityTimeout =
     lens _cmvVisibilityTimeout (\s a -> s { _cmvVisibilityTimeout = a })

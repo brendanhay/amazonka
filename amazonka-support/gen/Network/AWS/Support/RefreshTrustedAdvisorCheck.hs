@@ -30,6 +30,7 @@
 -- "success", or "abandoned".  MillisUntilNextRefreshable. The amount of time,
 -- in milliseconds, until the check is eligible for refresh.  CheckId. The
 -- unique identifier for the check.
+--
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_RefreshTrustedAdvisorCheck.html>
 module Network.AWS.Support.RefreshTrustedAdvisorCheck
     (
@@ -70,7 +71,6 @@ refreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
     }
 
 -- | The unique identifier for the Trusted Advisor check.
---
 rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
 rtacCheckId = lens _rtacCheckId (\s a -> s { _rtacCheckId = a })
 
@@ -92,7 +92,6 @@ refreshTrustedAdvisorCheckResponse p1 = RefreshTrustedAdvisorCheckResponse
 
 -- | The current refresh status for a check, including the amount of time until
 -- the check is eligible for refresh.
---
 rtacrStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
 rtacrStatus = lens _rtacrStatus (\s a -> s { _rtacrStatus = a })
 

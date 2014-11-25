@@ -74,8 +74,6 @@ listTagsForStream p1 = ListTagsForStream
 
 -- | The key to use as the starting point for the list of tags. If this parameter
 -- is set, 'ListTagsForStream' gets all tags that occur after 'ExclusiveStartTagKey'.
---
---
 ltfsExclusiveStartTagKey :: Lens' ListTagsForStream (Maybe Text)
 ltfsExclusiveStartTagKey =
     lens _ltfsExclusiveStartTagKey
@@ -84,12 +82,10 @@ ltfsExclusiveStartTagKey =
 -- | The number of tags to return. If this number is less than the total number of
 -- tags associated with the stream, 'HasMoreTags' is set to 'true'. To list
 -- additional tags, set 'ExclusiveStartTagKey' to the last key in the response.
---
 ltfsLimit :: Lens' ListTagsForStream (Maybe Natural)
 ltfsLimit = lens _ltfsLimit (\s a -> s { _ltfsLimit = a }) . mapping _Nat
 
 -- | The name of the stream.
---
 ltfsStreamName :: Lens' ListTagsForStream Text
 ltfsStreamName = lens _ltfsStreamName (\s a -> s { _ltfsStreamName = a })
 
@@ -114,12 +110,10 @@ listTagsForStreamResponse p1 = ListTagsForStreamResponse
     }
 
 -- | If set to 'true', more tags are available. To request additional tags, set 'ExclusiveStartTagKey' to the key of the last tag returned.
---
 ltfsrHasMoreTags :: Lens' ListTagsForStreamResponse Bool
 ltfsrHasMoreTags = lens _ltfsrHasMoreTags (\s a -> s { _ltfsrHasMoreTags = a })
 
 -- | A list of tags associated with 'StreamName', starting with the first tag after 'ExclusiveStartTagKey' and up to the specified 'Limit'.
---
 ltfsrTags :: Lens' ListTagsForStreamResponse [Tag]
 ltfsrTags = lens _ltfsrTags (\s a -> s { _ltfsrTags = a }) . _List
 

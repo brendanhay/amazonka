@@ -23,6 +23,7 @@
 -- | Retires a grant. You can retire a grant when you're done using it to clean
 -- up. You should revoke a grant when you intend to actively deny operations
 -- that depend on it.
+--
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html>
 module Network.AWS.KMS.RetireGrant
     (
@@ -61,7 +62,6 @@ retireGrant p1 = RetireGrant
     }
 
 -- | Token that identifies the grant to be retired.
---
 rgGrantToken :: Lens' RetireGrant Text
 rgGrantToken = lens _rgGrantToken (\s a -> s { _rgGrantToken = a })
 

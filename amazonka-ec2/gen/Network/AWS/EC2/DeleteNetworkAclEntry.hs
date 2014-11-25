@@ -81,17 +81,14 @@ dnaeDryRun :: Lens' DeleteNetworkAclEntry (Maybe Bool)
 dnaeDryRun = lens _dnaeDryRun (\s a -> s { _dnaeDryRun = a })
 
 -- | Indicates whether the rule is an egress rule.
---
 dnaeEgress :: Lens' DeleteNetworkAclEntry Bool
 dnaeEgress = lens _dnaeEgress (\s a -> s { _dnaeEgress = a })
 
 -- | The ID of the network ACL.
---
 dnaeNetworkAclId :: Lens' DeleteNetworkAclEntry Text
 dnaeNetworkAclId = lens _dnaeNetworkAclId (\s a -> s { _dnaeNetworkAclId = a })
 
 -- | The rule number of the entry to delete.
---
 dnaeRuleNumber :: Lens' DeleteNetworkAclEntry Int
 dnaeRuleNumber = lens _dnaeRuleNumber (\s a -> s { _dnaeRuleNumber = a })
 

@@ -81,7 +81,6 @@ updateBandwidthRateLimit p1 = UpdateBandwidthRateLimit
     }
 
 -- | The average download bandwidth rate limit in bits per second.
---
 ubrlAverageDownloadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
 ubrlAverageDownloadRateLimitInBitsPerSec =
     lens _ubrlAverageDownloadRateLimitInBitsPerSec
@@ -89,7 +88,6 @@ ubrlAverageDownloadRateLimitInBitsPerSec =
             . mapping _Nat
 
 -- | The average upload bandwidth rate limit in bits per second.
---
 ubrlAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
 ubrlAverageUploadRateLimitInBitsPerSec =
     lens _ubrlAverageUploadRateLimitInBitsPerSec

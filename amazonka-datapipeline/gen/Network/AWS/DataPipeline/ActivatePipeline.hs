@@ -65,7 +65,6 @@ activatePipeline p1 = ActivatePipeline
     }
 
 -- | The identifier of the pipeline to activate.
---
 apPipelineId :: Lens' ActivatePipeline Text
 apPipelineId = lens _apPipelineId (\s a -> s { _apPipelineId = a })
 

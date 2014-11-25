@@ -61,7 +61,6 @@ deleteEndpoint p1 = DeleteEndpoint
     }
 
 -- | EndpointArn of endpoint to delete.
---
 deEndpointArn :: Lens' DeleteEndpoint Text
 deEndpointArn = lens _deEndpointArn (\s a -> s { _deEndpointArn = a })
 

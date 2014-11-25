@@ -81,12 +81,10 @@ dvg1DryRun :: Lens' DetachVpnGateway (Maybe Bool)
 dvg1DryRun = lens _dvg1DryRun (\s a -> s { _dvg1DryRun = a })
 
 -- | The ID of the VPC.
---
 dvg1VpcId :: Lens' DetachVpnGateway Text
 dvg1VpcId = lens _dvg1VpcId (\s a -> s { _dvg1VpcId = a })
 
 -- | The ID of the virtual private gateway.
---
 dvg1VpnGatewayId :: Lens' DetachVpnGateway Text
 dvg1VpnGatewayId = lens _dvg1VpnGatewayId (\s a -> s { _dvg1VpnGatewayId = a })
 

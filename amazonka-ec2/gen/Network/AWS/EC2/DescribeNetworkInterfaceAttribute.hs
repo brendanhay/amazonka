@@ -77,7 +77,6 @@ describeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
     }
 
 -- | The attribute of the network interface.
---
 dniaAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
 dniaAttribute = lens _dniaAttribute (\s a -> s { _dniaAttribute = a })
 
@@ -85,7 +84,6 @@ dniaDryRun :: Lens' DescribeNetworkInterfaceAttribute (Maybe Bool)
 dniaDryRun = lens _dniaDryRun (\s a -> s { _dniaDryRun = a })
 
 -- | The ID of the network interface.
---
 dniaNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute Text
 dniaNetworkInterfaceId =
     lens _dniaNetworkInterfaceId (\s a -> s { _dniaNetworkInterfaceId = a })
@@ -122,28 +120,23 @@ describeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeRes
     }
 
 -- | The attachment (if any) of the network interface.
---
 dniarAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
 dniarAttachment = lens _dniarAttachment (\s a -> s { _dniarAttachment = a })
 
 -- | The description of the network interface.
---
 dniarDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
 dniarDescription = lens _dniarDescription (\s a -> s { _dniarDescription = a })
 
 -- | The security groups associated with the network interface.
---
 dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
 dniarGroups = lens _dniarGroups (\s a -> s { _dniarGroups = a }) . _List
 
 -- | The ID of the network interface.
---
 dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)
 dniarNetworkInterfaceId =
     lens _dniarNetworkInterfaceId (\s a -> s { _dniarNetworkInterfaceId = a })
 
 -- | Indicates whether source/destination checking is enabled.
---
 dniarSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
 dniarSourceDestCheck =
     lens _dniarSourceDestCheck (\s a -> s { _dniarSourceDestCheck = a })

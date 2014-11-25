@@ -74,7 +74,6 @@ suspendProcesses p1 = SuspendProcesses
     }
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
---
 spAutoScalingGroupName :: Lens' SuspendProcesses Text
 spAutoScalingGroupName =
     lens _spAutoScalingGroupName (\s a -> s { _spAutoScalingGroupName = a })

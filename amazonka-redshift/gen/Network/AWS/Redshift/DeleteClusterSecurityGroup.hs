@@ -64,7 +64,6 @@ deleteClusterSecurityGroup p1 = DeleteClusterSecurityGroup
     }
 
 -- | The name of the cluster security group to be deleted.
---
 dcsg1ClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup Text
 dcsg1ClusterSecurityGroupName =
     lens _dcsg1ClusterSecurityGroupName

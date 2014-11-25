@@ -87,7 +87,6 @@ respondActivityTaskCanceled p1 = RespondActivityTaskCanceled
     }
 
 -- | Optional information about the cancellation.
---
 ratc1Details :: Lens' RespondActivityTaskCanceled (Maybe Text)
 ratc1Details = lens _ratc1Details (\s a -> s { _ratc1Details = a })
 

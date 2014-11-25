@@ -22,6 +22,7 @@
 
 -- | Sets lifecycle configuration for your bucket. If a lifecycle configuration
 -- exists, it replaces it.
+--
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLifecycle.html>
 module Network.AWS.S3.PutBucketLifecycle
     (

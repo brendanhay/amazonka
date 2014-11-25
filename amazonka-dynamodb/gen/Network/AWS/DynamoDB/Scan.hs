@@ -159,7 +159,6 @@ scan p1 p2 = Scan
 -- Note that /AttributesToGet/ has no effect on provisioned throughput
 -- consumption. DynamoDB determines capacity units consumed based on item size,
 -- not on the amount of data that is returned to an application.
---
 sAttributesToGet :: Lens' Scan (NonEmpty Text)
 sAttributesToGet = lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a }) . _List1
 
@@ -180,7 +179,6 @@ sAttributesToGet = lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a }) 
 -- If you omit /ConditionalOperator/, then 'AND' is the default.
 --
 -- The operation will succeed only if the entire map evaluates to true.
---
 sConditionalOperator :: Lens' Scan (Maybe ConditionalOperator)
 sConditionalOperator =
     lens _sConditionalOperator (\s a -> s { _sConditionalOperator = a })
@@ -194,7 +192,6 @@ sConditionalOperator =
 -- In a parallel scan, a /Scan/ request that includes /ExclusiveStartKey/ must
 -- specify the same segment whose previous /Scan/ returned the corresponding value
 -- of /LastEvaluatedKey/.
---
 sExclusiveStartKey :: Lens' Scan (HashMap Text AttributeValue)
 sExclusiveStartKey =
     lens _sExclusiveStartKey (\s a -> s { _sExclusiveStartKey = a })
@@ -257,7 +254,6 @@ sExpressionAttributeValues =
 --
 -- The condition you specify is applied to the items scanned; any items that do
 -- not match the expression are not returned.
---
 sFilterExpression :: Lens' Scan (Maybe Text)
 sFilterExpression =
     lens _sFilterExpression (\s a -> s { _sFilterExpression = a })
@@ -271,7 +267,6 @@ sFilterExpression =
 -- it stops the operation and returns the matching values up to the limit, and a
 -- key in /LastEvaluatedKey/ to apply in a subsequent operation to continue the
 -- operation. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan> in the /Amazon DynamoDBDeveloper Guide/.
---
 sLimit :: Lens' Scan (Maybe Natural)
 sLimit = lens _sLimit (\s a -> s { _sLimit = a }) . mapping _Nat
 
@@ -282,7 +277,6 @@ sLimit = lens _sLimit (\s a -> s { _sLimit = a }) . mapping _Nat
 -- If no attribute names are specified, then all attributes will be returned.
 -- If any of the requested attributes are not found, they will not appear in the
 -- result.
---
 sProjectionExpression :: Lens' Scan (Maybe Text)
 sProjectionExpression =
     lens _sProjectionExpression (\s a -> s { _sProjectionExpression = a })
@@ -353,7 +347,6 @@ sScanFilter = lens _sScanFilter (\s a -> s { _sScanFilter = a }) . _Map
 -- value provided for /TotalSegments/.
 --
 -- If you specify /Segment/, you must also specify /TotalSegments/.
---
 sSegment :: Lens' Scan (Maybe Natural)
 sSegment = lens _sSegment (\s a -> s { _sSegment = a }) . mapping _Nat
 
@@ -371,12 +364,10 @@ sSegment = lens _sSegment (\s a -> s { _sSegment = a }) . mapping _Nat
 -- If neither /Select/ nor /AttributesToGet/ are specified, DynamoDB defaults to 'ALL_ATTRIBUTES'. You cannot use both /AttributesToGet/ and /Select/ together in a single
 -- request, unless the value for /Select/ is 'SPECIFIC_ATTRIBUTES'. (This usage is
 -- equivalent to specifying /AttributesToGet/ without any value for /Select/.)
---
 sSelect :: Lens' Scan (Maybe Select)
 sSelect = lens _sSelect (\s a -> s { _sSelect = a })
 
 -- | The name of the table containing the requested items.
---
 sTableName :: Lens' Scan Text
 sTableName = lens _sTableName (\s a -> s { _sTableName = a })
 
@@ -390,7 +381,6 @@ sTableName = lens _sTableName (\s a -> s { _sTableName = a })
 -- operation will be sequential rather than parallel.
 --
 -- If you specify /TotalSegments/, you must also specify /Segment/.
---
 sTotalSegments :: Lens' Scan (Maybe Natural)
 sTotalSegments = lens _sTotalSegments (\s a -> s { _sTotalSegments = a }) . mapping _Nat
 
@@ -436,13 +426,11 @@ srConsumedCapacity =
 -- matching items before the filter was applied.
 --
 -- If you did not use a filter in the request, then /Count/ is the same as /ScannedCount/.
---
 srCount :: Lens' ScanResponse (Maybe Int)
 srCount = lens _srCount (\s a -> s { _srCount = a })
 
 -- | An array of item attributes that match the scan criteria. Each element in
 -- this array consists of an attribute name and the value for that attribute.
---
 srItems :: Lens' ScanResponse [HashMap Text AttributeValue]
 srItems = lens _srItems (\s a -> s { _srItems = a }) . _List
 
@@ -456,7 +444,6 @@ srItems = lens _srItems (\s a -> s { _srItems = a }) . _List
 -- If /LastEvaluatedKey/ is not empty, it does not necessarily mean that there is
 -- more data in the result set. The only way to know when you have reached the
 -- end of the result set is when /LastEvaluatedKey/ is empty.
---
 srLastEvaluatedKey :: Lens' ScanResponse (HashMap Text AttributeValue)
 srLastEvaluatedKey =
     lens _srLastEvaluatedKey (\s a -> s { _srLastEvaluatedKey = a })
@@ -466,7 +453,6 @@ srLastEvaluatedKey =
 -- operation. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count Count and ScannedCount> in the /AmazonDynamoDB Developer Guide/.
 --
 -- If you did not use a filter in the request, then /ScannedCount/ is the same as /Count/.
---
 srScannedCount :: Lens' ScanResponse (Maybe Int)
 srScannedCount = lens _srScannedCount (\s a -> s { _srScannedCount = a })
 

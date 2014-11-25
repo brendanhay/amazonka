@@ -71,7 +71,6 @@ describeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling
     }
 
 -- | An array of instance IDs.
---
 dtbasInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
 dtbasInstanceIds = lens _dtbasInstanceIds (\s a -> s { _dtbasInstanceIds = a }) . _List
 
@@ -98,7 +97,6 @@ describeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
 
 -- | An array of 'TimeBasedAutoScalingConfiguration' objects that describe the
 -- configuration for the specified instances.
---
 dtbasrTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
 dtbasrTimeBasedAutoScalingConfigurations =
     lens _dtbasrTimeBasedAutoScalingConfigurations

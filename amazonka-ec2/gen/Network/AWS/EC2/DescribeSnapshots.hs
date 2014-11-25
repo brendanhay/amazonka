@@ -154,12 +154,10 @@ ds1Filters = lens _ds1Filters (\s a -> s { _ds1Filters = a }) . _List
 
 -- | Returns the snapshots owned by the specified owner. Multiple owners can be
 -- specified.
---
 ds1OwnerIds :: Lens' DescribeSnapshots [Text]
 ds1OwnerIds = lens _ds1OwnerIds (\s a -> s { _ds1OwnerIds = a }) . _List
 
 -- | One or more AWS accounts IDs that can create volumes from the snapshot.
---
 ds1RestorableByUserIds :: Lens' DescribeSnapshots [Text]
 ds1RestorableByUserIds =
     lens _ds1RestorableByUserIds (\s a -> s { _ds1RestorableByUserIds = a })
@@ -168,7 +166,6 @@ ds1RestorableByUserIds =
 -- | One or more snapshot IDs.
 --
 -- Default: Describes snapshots for which you have launch permissions.
---
 ds1SnapshotIds :: Lens' DescribeSnapshots [Text]
 ds1SnapshotIds = lens _ds1SnapshotIds (\s a -> s { _ds1SnapshotIds = a }) . _List
 

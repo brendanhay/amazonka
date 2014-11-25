@@ -78,7 +78,6 @@ confirmPrivateVirtualInterface p1 p2 = ConfirmPrivateVirtualInterface
 -- Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action.
 --
 -- Default: None
---
 cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface Text
 cpviVirtualGatewayId =
     lens _cpviVirtualGatewayId (\s a -> s { _cpviVirtualGatewayId = a })

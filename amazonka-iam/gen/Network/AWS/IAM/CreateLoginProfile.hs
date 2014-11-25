@@ -75,20 +75,17 @@ createLoginProfile p1 p2 = CreateLoginProfile
     }
 
 -- | The new password for the user.
---
 clpPassword :: Lens' CreateLoginProfile Text
 clpPassword = lens _clpPassword (\s a -> s { _clpPassword = a }) . _Sensitive
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
---
 clpPasswordResetRequired :: Lens' CreateLoginProfile (Maybe Bool)
 clpPasswordResetRequired =
     lens _clpPasswordResetRequired
         (\s a -> s { _clpPasswordResetRequired = a })
 
 -- | The name of the user to create a password for.
---
 clpUserName :: Lens' CreateLoginProfile Text
 clpUserName = lens _clpUserName (\s a -> s { _clpUserName = a })
 
@@ -109,7 +106,6 @@ createLoginProfileResponse p1 = CreateLoginProfileResponse
     }
 
 -- | The user name and password create date.
---
 clprLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
 clprLoginProfile = lens _clprLoginProfile (\s a -> s { _clprLoginProfile = a })
 

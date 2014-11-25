@@ -90,14 +90,12 @@ ddbpgDBParameterGroupName =
         (\s a -> s { _ddbpgDBParameterGroupName = a })
 
 -- | This parameter is not currently supported.
---
 ddbpgFilters :: Lens' DescribeDBParameterGroups [Filter]
 ddbpgFilters = lens _ddbpgFilters (\s a -> s { _ddbpgFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous 'DescribeDBParameterGroups'
 -- request. If this parameter is specified, the response includes only records
 -- beyond the marker, up to the value specified by 'MaxRecords'.
---
 ddbpgMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
 ddbpgMarker = lens _ddbpgMarker (\s a -> s { _ddbpgMarker = a })
 
@@ -108,7 +106,6 @@ ddbpgMarker = lens _ddbpgMarker (\s a -> s { _ddbpgMarker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
---
 ddbpgMaxRecords :: Lens' DescribeDBParameterGroups (Maybe Int)
 ddbpgMaxRecords = lens _ddbpgMaxRecords (\s a -> s { _ddbpgMaxRecords = a })
 
@@ -132,7 +129,6 @@ describeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
     }
 
 -- | A list of 'DBParameterGroup' instances.
---
 ddbpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
 ddbpgrDBParameterGroups =
     lens _ddbpgrDBParameterGroups (\s a -> s { _ddbpgrDBParameterGroups = a })
@@ -141,7 +137,6 @@ ddbpgrDBParameterGroups =
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the marker,
 -- up to the value specified by 'MaxRecords'.
---
 ddbpgrMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
 ddbpgrMarker = lens _ddbpgrMarker (\s a -> s { _ddbpgrMarker = a })
 

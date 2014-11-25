@@ -111,7 +111,6 @@ dvg2Filters = lens _dvg2Filters (\s a -> s { _dvg2Filters = a }) . _List
 -- | One or more virtual private gateway IDs.
 --
 -- Default: Describes all your virtual private gateways.
---
 dvg2VpnGatewayIds :: Lens' DescribeVpnGateways [Text]
 dvg2VpnGatewayIds =
     lens _dvg2VpnGatewayIds (\s a -> s { _dvg2VpnGatewayIds = a })
@@ -139,7 +138,6 @@ describeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     }
 
 -- | Information about one or more virtual private gateways.
---
 dvgrVpnGateways :: Lens' DescribeVpnGatewaysResponse [VpnGateway]
 dvgrVpnGateways = lens _dvgrVpnGateways (\s a -> s { _dvgrVpnGateways = a }) . _List
 

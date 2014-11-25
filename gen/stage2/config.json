@@ -76,7 +76,7 @@
                         "name": "_cediLastStatus",
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
-                        "documentation": "-- | Status of the last attempted delivery.\n--",
+                        "documentation": "-- | Status of the last attempted delivery.",
                         "typeExposed": "Maybe DeliveryStatus",
                         "type": "Maybe DeliveryStatus"
                     },
@@ -91,7 +91,7 @@
                         "name": "_cediLastErrorCode",
                         "shape": "String",
                         "locationName": "lastErrorCode",
-                        "documentation": "-- | The error code from the last attempted delivery.\n--",
+                        "documentation": "-- | The error code from the last attempted delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -106,7 +106,7 @@
                         "name": "_cediLastErrorMessage",
                         "shape": "String",
                         "locationName": "lastErrorMessage",
-                        "documentation": "-- | The error message from the last attempted delivery.\n--",
+                        "documentation": "-- | The error message from the last attempted delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -121,7 +121,7 @@
                         "name": "_cediLastAttemptTime",
                         "shape": "Date",
                         "locationName": "lastAttemptTime",
-                        "documentation": "-- | The time of the last attempted delivery.\n--",
+                        "documentation": "-- | The time of the last attempted delivery.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -136,7 +136,7 @@
                         "name": "_cediLastSuccessfulTime",
                         "shape": "Date",
                         "locationName": "lastSuccessfulTime",
-                        "documentation": "-- | The time of the last successful delivery.\n--",
+                        "documentation": "-- | The time of the last successful delivery.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -159,7 +159,7 @@
                         "name": "_cediLastStatus",
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
-                        "documentation": "-- | Status of the last attempted delivery.\n--",
+                        "documentation": "-- | Status of the last attempted delivery.",
                         "typeExposed": "Maybe DeliveryStatus",
                         "type": "Maybe DeliveryStatus"
                     },
@@ -174,7 +174,7 @@
                         "name": "_cediLastErrorCode",
                         "shape": "String",
                         "locationName": "lastErrorCode",
-                        "documentation": "-- | The error code from the last attempted delivery.\n--",
+                        "documentation": "-- | The error code from the last attempted delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -189,7 +189,7 @@
                         "name": "_cediLastErrorMessage",
                         "shape": "String",
                         "locationName": "lastErrorMessage",
-                        "documentation": "-- | The error message from the last attempted delivery.\n--",
+                        "documentation": "-- | The error message from the last attempted delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -204,7 +204,7 @@
                         "name": "_cediLastAttemptTime",
                         "shape": "Date",
                         "locationName": "lastAttemptTime",
-                        "documentation": "-- | The time of the last attempted delivery.\n--",
+                        "documentation": "-- | The time of the last attempted delivery.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -219,7 +219,7 @@
                         "name": "_cediLastSuccessfulTime",
                         "shape": "Date",
                         "locationName": "lastSuccessfulTime",
-                        "documentation": "-- | The time of the last successful delivery.\n--",
+                        "documentation": "-- | The time of the last successful delivery.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -236,7 +236,7 @@
                         "name": "_cediLastAttemptTime",
                         "shape": "Date",
                         "locationName": "lastAttemptTime",
-                        "documentation": "-- | The time of the last attempted delivery.\n--",
+                        "documentation": "-- | The time of the last attempted delivery.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -251,7 +251,7 @@
                         "name": "_cediLastErrorCode",
                         "shape": "String",
                         "locationName": "lastErrorCode",
-                        "documentation": "-- | The error code from the last attempted delivery.\n--",
+                        "documentation": "-- | The error code from the last attempted delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -266,7 +266,7 @@
                         "name": "_cediLastErrorMessage",
                         "shape": "String",
                         "locationName": "lastErrorMessage",
-                        "documentation": "-- | The error message from the last attempted delivery.\n--",
+                        "documentation": "-- | The error message from the last attempted delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -281,7 +281,7 @@
                         "name": "_cediLastStatus",
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
-                        "documentation": "-- | Status of the last attempted delivery.\n--",
+                        "documentation": "-- | Status of the last attempted delivery.",
                         "typeExposed": "Maybe DeliveryStatus",
                         "type": "Maybe DeliveryStatus"
                     },
@@ -296,7 +296,7 @@
                         "name": "_cediLastSuccessfulTime",
                         "shape": "Date",
                         "locationName": "lastSuccessfulTime",
-                        "documentation": "-- | The time of the last successful delivery.\n--",
+                        "documentation": "-- | The time of the last successful delivery.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -321,7 +321,7 @@
                         "name": "_csdiLastStatus",
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
-                        "documentation": "-- | Status of the last attempted delivery.\n--",
+                        "documentation": "-- | Status of the last attempted delivery.",
                         "typeExposed": "Maybe DeliveryStatus",
                         "type": "Maybe DeliveryStatus"
                     },
@@ -336,7 +336,7 @@
                         "name": "_csdiLastErrorCode",
                         "shape": "String",
                         "locationName": "lastErrorCode",
-                        "documentation": "-- | The error code from the last attempted delivery.\n--",
+                        "documentation": "-- | The error code from the last attempted delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -351,7 +351,7 @@
                         "name": "_csdiLastErrorMessage",
                         "shape": "String",
                         "locationName": "lastErrorMessage",
-                        "documentation": "-- | The error message from the last attempted delivery.\n--",
+                        "documentation": "-- | The error message from the last attempted delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -366,7 +366,7 @@
                         "name": "_csdiLastStatusChangeTime",
                         "shape": "Date",
                         "locationName": "lastStatusChangeTime",
-                        "documentation": "-- | The time from the last status change.\n--",
+                        "documentation": "-- | The time from the last status change.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -389,7 +389,7 @@
                         "name": "_csdiLastStatus",
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
-                        "documentation": "-- | Status of the last attempted delivery.\n--",
+                        "documentation": "-- | Status of the last attempted delivery.",
                         "typeExposed": "Maybe DeliveryStatus",
                         "type": "Maybe DeliveryStatus"
                     },
@@ -404,7 +404,7 @@
                         "name": "_csdiLastErrorCode",
                         "shape": "String",
                         "locationName": "lastErrorCode",
-                        "documentation": "-- | The error code from the last attempted delivery.\n--",
+                        "documentation": "-- | The error code from the last attempted delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -419,7 +419,7 @@
                         "name": "_csdiLastErrorMessage",
                         "shape": "String",
                         "locationName": "lastErrorMessage",
-                        "documentation": "-- | The error message from the last attempted delivery.\n--",
+                        "documentation": "-- | The error message from the last attempted delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -434,7 +434,7 @@
                         "name": "_csdiLastStatusChangeTime",
                         "shape": "Date",
                         "locationName": "lastStatusChangeTime",
-                        "documentation": "-- | The time from the last status change.\n--",
+                        "documentation": "-- | The time from the last status change.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -451,7 +451,7 @@
                         "name": "_csdiLastErrorCode",
                         "shape": "String",
                         "locationName": "lastErrorCode",
-                        "documentation": "-- | The error code from the last attempted delivery.\n--",
+                        "documentation": "-- | The error code from the last attempted delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -466,7 +466,7 @@
                         "name": "_csdiLastErrorMessage",
                         "shape": "String",
                         "locationName": "lastErrorMessage",
-                        "documentation": "-- | The error message from the last attempted delivery.\n--",
+                        "documentation": "-- | The error message from the last attempted delivery.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -481,7 +481,7 @@
                         "name": "_csdiLastStatus",
                         "shape": "DeliveryStatus",
                         "locationName": "lastStatus",
-                        "documentation": "-- | Status of the last attempted delivery.\n--",
+                        "documentation": "-- | Status of the last attempted delivery.",
                         "typeExposed": "Maybe DeliveryStatus",
                         "type": "Maybe DeliveryStatus"
                     },
@@ -496,7 +496,7 @@
                         "name": "_csdiLastStatusChangeTime",
                         "shape": "Date",
                         "locationName": "lastStatusChangeTime",
-                        "documentation": "-- | The time from the last status change.\n--",
+                        "documentation": "-- | The time from the last status change.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -521,7 +521,7 @@
                         "name": "_rResourceType",
                         "shape": "ResourceType",
                         "locationName": "resourceType",
-                        "documentation": "-- | The resource type of the related resource.\n--",
+                        "documentation": "-- | The resource type of the related resource.",
                         "typeExposed": "Maybe ResourceType",
                         "type": "Maybe ResourceType"
                     },
@@ -536,7 +536,7 @@
                         "name": "_rResourceId",
                         "shape": "ResourceId",
                         "locationName": "resourceId",
-                        "documentation": "-- | The resource ID of the related resource (for example, 'sg-xxxxxx'.\n--",
+                        "documentation": "-- | The resource ID of the related resource (for example, 'sg-xxxxxx'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -551,7 +551,7 @@
                         "name": "_rRelationshipName",
                         "shape": "RelationshipName",
                         "locationName": "relationshipName",
-                        "documentation": "-- | The name of the related resource.\n--",
+                        "documentation": "-- | The name of the related resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -574,7 +574,7 @@
                         "name": "_rResourceType",
                         "shape": "ResourceType",
                         "locationName": "resourceType",
-                        "documentation": "-- | The resource type of the related resource.\n--",
+                        "documentation": "-- | The resource type of the related resource.",
                         "typeExposed": "Maybe ResourceType",
                         "type": "Maybe ResourceType"
                     },
@@ -589,7 +589,7 @@
                         "name": "_rResourceId",
                         "shape": "ResourceId",
                         "locationName": "resourceId",
-                        "documentation": "-- | The resource ID of the related resource (for example, 'sg-xxxxxx'.\n--",
+                        "documentation": "-- | The resource ID of the related resource (for example, 'sg-xxxxxx'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -604,7 +604,7 @@
                         "name": "_rRelationshipName",
                         "shape": "RelationshipName",
                         "locationName": "relationshipName",
-                        "documentation": "-- | The name of the related resource.\n--",
+                        "documentation": "-- | The name of the related resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -621,7 +621,7 @@
                         "name": "_rRelationshipName",
                         "shape": "RelationshipName",
                         "locationName": "relationshipName",
-                        "documentation": "-- | The name of the related resource.\n--",
+                        "documentation": "-- | The name of the related resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -636,7 +636,7 @@
                         "name": "_rResourceId",
                         "shape": "ResourceId",
                         "locationName": "resourceId",
-                        "documentation": "-- | The resource ID of the related resource (for example, 'sg-xxxxxx'.\n--",
+                        "documentation": "-- | The resource ID of the related resource (for example, 'sg-xxxxxx'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -651,7 +651,7 @@
                         "name": "_rResourceType",
                         "shape": "ResourceType",
                         "locationName": "resourceType",
-                        "documentation": "-- | The resource type of the related resource.\n--",
+                        "documentation": "-- | The resource type of the related resource.",
                         "typeExposed": "Maybe ResourceType",
                         "type": "Maybe ResourceType"
                     }
@@ -677,7 +677,7 @@
                         "name": "_dcName",
                         "shape": "ChannelName",
                         "locationName": "name",
-                        "documentation": "-- | The name of the delivery channel. By default, AWS Config automatically\n-- assigns the name \"default\" when creating the delivery channel. You cannot\n-- change the assigned name.\n--",
+                        "documentation": "-- | The name of the delivery channel. By default, AWS Config automatically\n-- assigns the name \"default\" when creating the delivery channel. You cannot\n-- change the assigned name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -692,7 +692,7 @@
                         "name": "_dcS3BucketName",
                         "shape": "String",
                         "locationName": "s3BucketName",
-                        "documentation": "-- | The name of the Amazon S3 bucket used to store configuration history for the\n-- delivery channel.\n--",
+                        "documentation": "-- | The name of the Amazon S3 bucket used to store configuration history for the\n-- delivery channel.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -707,7 +707,7 @@
                         "name": "_dcS3KeyPrefix",
                         "shape": "String",
                         "locationName": "s3KeyPrefix",
-                        "documentation": "-- | The prefix for the specified Amazon S3 bucket.\n--",
+                        "documentation": "-- | The prefix for the specified Amazon S3 bucket.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -722,7 +722,7 @@
                         "name": "_dcSnsTopicARN",
                         "shape": "String",
                         "locationName": "snsTopicARN",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the IAM role used for accessing the Amazon\n-- S3 bucket and the Amazon SNS topic.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the IAM role used for accessing the Amazon\n-- S3 bucket and the Amazon SNS topic.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -745,7 +745,7 @@
                         "name": "_dcName",
                         "shape": "ChannelName",
                         "locationName": "name",
-                        "documentation": "-- | The name of the delivery channel. By default, AWS Config automatically\n-- assigns the name \"default\" when creating the delivery channel. You cannot\n-- change the assigned name.\n--",
+                        "documentation": "-- | The name of the delivery channel. By default, AWS Config automatically\n-- assigns the name \"default\" when creating the delivery channel. You cannot\n-- change the assigned name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -760,7 +760,7 @@
                         "name": "_dcS3BucketName",
                         "shape": "String",
                         "locationName": "s3BucketName",
-                        "documentation": "-- | The name of the Amazon S3 bucket used to store configuration history for the\n-- delivery channel.\n--",
+                        "documentation": "-- | The name of the Amazon S3 bucket used to store configuration history for the\n-- delivery channel.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -775,7 +775,7 @@
                         "name": "_dcS3KeyPrefix",
                         "shape": "String",
                         "locationName": "s3KeyPrefix",
-                        "documentation": "-- | The prefix for the specified Amazon S3 bucket.\n--",
+                        "documentation": "-- | The prefix for the specified Amazon S3 bucket.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -790,7 +790,7 @@
                         "name": "_dcSnsTopicARN",
                         "shape": "String",
                         "locationName": "snsTopicARN",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the IAM role used for accessing the Amazon\n-- S3 bucket and the Amazon SNS topic.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the IAM role used for accessing the Amazon\n-- S3 bucket and the Amazon SNS topic.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -807,7 +807,7 @@
                         "name": "_dcName",
                         "shape": "ChannelName",
                         "locationName": "name",
-                        "documentation": "-- | The name of the delivery channel. By default, AWS Config automatically\n-- assigns the name \"default\" when creating the delivery channel. You cannot\n-- change the assigned name.\n--",
+                        "documentation": "-- | The name of the delivery channel. By default, AWS Config automatically\n-- assigns the name \"default\" when creating the delivery channel. You cannot\n-- change the assigned name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -822,7 +822,7 @@
                         "name": "_dcS3BucketName",
                         "shape": "String",
                         "locationName": "s3BucketName",
-                        "documentation": "-- | The name of the Amazon S3 bucket used to store configuration history for the\n-- delivery channel.\n--",
+                        "documentation": "-- | The name of the Amazon S3 bucket used to store configuration history for the\n-- delivery channel.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -837,7 +837,7 @@
                         "name": "_dcS3KeyPrefix",
                         "shape": "String",
                         "locationName": "s3KeyPrefix",
-                        "documentation": "-- | The prefix for the specified Amazon S3 bucket.\n--",
+                        "documentation": "-- | The prefix for the specified Amazon S3 bucket.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -852,7 +852,7 @@
                         "name": "_dcSnsTopicARN",
                         "shape": "String",
                         "locationName": "snsTopicARN",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the IAM role used for accessing the Amazon\n-- S3 bucket and the Amazon SNS topic.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the IAM role used for accessing the Amazon\n-- S3 bucket and the Amazon SNS topic.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -923,7 +923,7 @@
                         "name": "_ciVersion",
                         "shape": "Version",
                         "locationName": "version",
-                        "documentation": "-- | The version number of the resource configuration.\n--",
+                        "documentation": "-- | The version number of the resource configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -938,7 +938,7 @@
                         "name": "_ciAccountId",
                         "shape": "AccountId",
                         "locationName": "accountId",
-                        "documentation": "-- | The 12 digit AWS account ID associated with the resource.\n--",
+                        "documentation": "-- | The 12 digit AWS account ID associated with the resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -953,7 +953,7 @@
                         "name": "_ciConfigurationItemCaptureTime",
                         "shape": "ConfigurationItemCaptureTime",
                         "locationName": "configurationItemCaptureTime",
-                        "documentation": "-- | The time when the configuration recording was initiated.\n--",
+                        "documentation": "-- | The time when the configuration recording was initiated.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -968,7 +968,7 @@
                         "name": "_ciConfigurationItemStatus",
                         "shape": "ConfigurationItemStatus",
                         "locationName": "configurationItemStatus",
-                        "documentation": "-- | The configuration item status.\n--",
+                        "documentation": "-- | The configuration item status.",
                         "typeExposed": "Maybe ConfigurationItemStatus",
                         "type": "Maybe ConfigurationItemStatus"
                     },
@@ -983,7 +983,7 @@
                         "name": "_ciConfigurationStateId",
                         "shape": "ConfigurationStateId",
                         "locationName": "configurationStateId",
-                        "documentation": "-- | An identifier that indicates the ordering of the configuration items of a\n-- resource.\n--",
+                        "documentation": "-- | An identifier that indicates the ordering of the configuration items of a\n-- resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -998,7 +998,7 @@
                         "name": "_ciConfigurationItemMD5Hash",
                         "shape": "ConfigurationItemMD5Hash",
                         "locationName": "configurationItemMD5Hash",
-                        "documentation": "-- | Unique MD5 hash that represents the configuration item's state.\n--\n-- You can use MD5 hash to compare the states of two or more configuration\n-- items that are associated with the same resource.\n--",
+                        "documentation": "-- | Unique MD5 hash that represents the configuration item's state.\n--\n-- You can use MD5 hash to compare the states of two or more configuration\n-- items that are associated with the same resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1013,7 +1013,7 @@
                         "name": "_ciArn",
                         "shape": "ARN",
                         "locationName": "arn",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the resource.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1028,7 +1028,7 @@
                         "name": "_ciResourceType",
                         "shape": "ResourceType",
                         "locationName": "resourceType",
-                        "documentation": "-- | The type of AWS resource.\n--",
+                        "documentation": "-- | The type of AWS resource.",
                         "typeExposed": "Maybe ResourceType",
                         "type": "Maybe ResourceType"
                     },
@@ -1043,7 +1043,7 @@
                         "name": "_ciResourceId",
                         "shape": "ResourceId",
                         "locationName": "resourceId",
-                        "documentation": "-- | The ID of the resource (for example., 'sg-xxxxxx').\n--",
+                        "documentation": "-- | The ID of the resource (for example., 'sg-xxxxxx').",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1058,7 +1058,7 @@
                         "name": "_ciAvailabilityZone",
                         "shape": "AvailabilityZone",
                         "locationName": "availabilityZone",
-                        "documentation": "-- | The Availability Zone associated with the resource.\n--",
+                        "documentation": "-- | The Availability Zone associated with the resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1073,7 +1073,7 @@
                         "name": "_ciResourceCreationTime",
                         "shape": "ResourceCreationTime",
                         "locationName": "resourceCreationTime",
-                        "documentation": "-- | The time stamp when the resource was created.\n--",
+                        "documentation": "-- | The time stamp when the resource was created.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1088,7 +1088,7 @@
                         "name": "_ciTags",
                         "shape": "Tags",
                         "locationName": "tags",
-                        "documentation": "-- | A mapping of key value tags associated with the resource.\n--",
+                        "documentation": "-- | A mapping of key value tags associated with the resource.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -1103,7 +1103,7 @@
                         "name": "_ciRelatedEvents",
                         "shape": "RelatedEventList",
                         "locationName": "relatedEvents",
-                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?\u003e.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.\n--",
+                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?\u003e.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
                         "typeExposed": "[Text]",
                         "type": "List \"relatedEvents\" Text"
                     },
@@ -1118,7 +1118,7 @@
                         "name": "_ciRelationships",
                         "shape": "RelationshipList",
                         "locationName": "relationships",
-                        "documentation": "-- | A list of related AWS resources.\n--",
+                        "documentation": "-- | A list of related AWS resources.",
                         "typeExposed": "[Relationship]",
                         "type": "List \"relationships\" Relationship"
                     },
@@ -1133,7 +1133,7 @@
                         "name": "_ciConfiguration",
                         "shape": "Configuration",
                         "locationName": "configuration",
-                        "documentation": "-- | The description of the resource configuration.\n--",
+                        "documentation": "-- | The description of the resource configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1156,7 +1156,7 @@
                         "name": "_ciVersion",
                         "shape": "Version",
                         "locationName": "version",
-                        "documentation": "-- | The version number of the resource configuration.\n--",
+                        "documentation": "-- | The version number of the resource configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1171,7 +1171,7 @@
                         "name": "_ciAccountId",
                         "shape": "AccountId",
                         "locationName": "accountId",
-                        "documentation": "-- | The 12 digit AWS account ID associated with the resource.\n--",
+                        "documentation": "-- | The 12 digit AWS account ID associated with the resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1186,7 +1186,7 @@
                         "name": "_ciConfigurationItemCaptureTime",
                         "shape": "ConfigurationItemCaptureTime",
                         "locationName": "configurationItemCaptureTime",
-                        "documentation": "-- | The time when the configuration recording was initiated.\n--",
+                        "documentation": "-- | The time when the configuration recording was initiated.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1201,7 +1201,7 @@
                         "name": "_ciConfigurationItemStatus",
                         "shape": "ConfigurationItemStatus",
                         "locationName": "configurationItemStatus",
-                        "documentation": "-- | The configuration item status.\n--",
+                        "documentation": "-- | The configuration item status.",
                         "typeExposed": "Maybe ConfigurationItemStatus",
                         "type": "Maybe ConfigurationItemStatus"
                     },
@@ -1216,7 +1216,7 @@
                         "name": "_ciConfigurationStateId",
                         "shape": "ConfigurationStateId",
                         "locationName": "configurationStateId",
-                        "documentation": "-- | An identifier that indicates the ordering of the configuration items of a\n-- resource.\n--",
+                        "documentation": "-- | An identifier that indicates the ordering of the configuration items of a\n-- resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1231,7 +1231,7 @@
                         "name": "_ciConfigurationItemMD5Hash",
                         "shape": "ConfigurationItemMD5Hash",
                         "locationName": "configurationItemMD5Hash",
-                        "documentation": "-- | Unique MD5 hash that represents the configuration item's state.\n--\n-- You can use MD5 hash to compare the states of two or more configuration\n-- items that are associated with the same resource.\n--",
+                        "documentation": "-- | Unique MD5 hash that represents the configuration item's state.\n--\n-- You can use MD5 hash to compare the states of two or more configuration\n-- items that are associated with the same resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1246,7 +1246,7 @@
                         "name": "_ciArn",
                         "shape": "ARN",
                         "locationName": "arn",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the resource.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1261,7 +1261,7 @@
                         "name": "_ciResourceType",
                         "shape": "ResourceType",
                         "locationName": "resourceType",
-                        "documentation": "-- | The type of AWS resource.\n--",
+                        "documentation": "-- | The type of AWS resource.",
                         "typeExposed": "Maybe ResourceType",
                         "type": "Maybe ResourceType"
                     },
@@ -1276,7 +1276,7 @@
                         "name": "_ciResourceId",
                         "shape": "ResourceId",
                         "locationName": "resourceId",
-                        "documentation": "-- | The ID of the resource (for example., 'sg-xxxxxx').\n--",
+                        "documentation": "-- | The ID of the resource (for example., 'sg-xxxxxx').",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1291,7 +1291,7 @@
                         "name": "_ciAvailabilityZone",
                         "shape": "AvailabilityZone",
                         "locationName": "availabilityZone",
-                        "documentation": "-- | The Availability Zone associated with the resource.\n--",
+                        "documentation": "-- | The Availability Zone associated with the resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1306,7 +1306,7 @@
                         "name": "_ciResourceCreationTime",
                         "shape": "ResourceCreationTime",
                         "locationName": "resourceCreationTime",
-                        "documentation": "-- | The time stamp when the resource was created.\n--",
+                        "documentation": "-- | The time stamp when the resource was created.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1321,7 +1321,7 @@
                         "name": "_ciTags",
                         "shape": "Tags",
                         "locationName": "tags",
-                        "documentation": "-- | A mapping of key value tags associated with the resource.\n--",
+                        "documentation": "-- | A mapping of key value tags associated with the resource.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -1336,7 +1336,7 @@
                         "name": "_ciRelatedEvents",
                         "shape": "RelatedEventList",
                         "locationName": "relatedEvents",
-                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?\u003e.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.\n--",
+                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?\u003e.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
                         "typeExposed": "[Text]",
                         "type": "List \"relatedEvents\" Text"
                     },
@@ -1351,7 +1351,7 @@
                         "name": "_ciRelationships",
                         "shape": "RelationshipList",
                         "locationName": "relationships",
-                        "documentation": "-- | A list of related AWS resources.\n--",
+                        "documentation": "-- | A list of related AWS resources.",
                         "typeExposed": "[Relationship]",
                         "type": "List \"relationships\" Relationship"
                     },
@@ -1366,7 +1366,7 @@
                         "name": "_ciConfiguration",
                         "shape": "Configuration",
                         "locationName": "configuration",
-                        "documentation": "-- | The description of the resource configuration.\n--",
+                        "documentation": "-- | The description of the resource configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1383,7 +1383,7 @@
                         "name": "_ciAccountId",
                         "shape": "AccountId",
                         "locationName": "accountId",
-                        "documentation": "-- | The 12 digit AWS account ID associated with the resource.\n--",
+                        "documentation": "-- | The 12 digit AWS account ID associated with the resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1398,7 +1398,7 @@
                         "name": "_ciArn",
                         "shape": "ARN",
                         "locationName": "arn",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the resource.\n--",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1413,7 +1413,7 @@
                         "name": "_ciAvailabilityZone",
                         "shape": "AvailabilityZone",
                         "locationName": "availabilityZone",
-                        "documentation": "-- | The Availability Zone associated with the resource.\n--",
+                        "documentation": "-- | The Availability Zone associated with the resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1428,7 +1428,7 @@
                         "name": "_ciConfiguration",
                         "shape": "Configuration",
                         "locationName": "configuration",
-                        "documentation": "-- | The description of the resource configuration.\n--",
+                        "documentation": "-- | The description of the resource configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1443,7 +1443,7 @@
                         "name": "_ciConfigurationItemCaptureTime",
                         "shape": "ConfigurationItemCaptureTime",
                         "locationName": "configurationItemCaptureTime",
-                        "documentation": "-- | The time when the configuration recording was initiated.\n--",
+                        "documentation": "-- | The time when the configuration recording was initiated.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1458,7 +1458,7 @@
                         "name": "_ciConfigurationItemMD5Hash",
                         "shape": "ConfigurationItemMD5Hash",
                         "locationName": "configurationItemMD5Hash",
-                        "documentation": "-- | Unique MD5 hash that represents the configuration item's state.\n--\n-- You can use MD5 hash to compare the states of two or more configuration\n-- items that are associated with the same resource.\n--",
+                        "documentation": "-- | Unique MD5 hash that represents the configuration item's state.\n--\n-- You can use MD5 hash to compare the states of two or more configuration\n-- items that are associated with the same resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1473,7 +1473,7 @@
                         "name": "_ciConfigurationItemStatus",
                         "shape": "ConfigurationItemStatus",
                         "locationName": "configurationItemStatus",
-                        "documentation": "-- | The configuration item status.\n--",
+                        "documentation": "-- | The configuration item status.",
                         "typeExposed": "Maybe ConfigurationItemStatus",
                         "type": "Maybe ConfigurationItemStatus"
                     },
@@ -1488,7 +1488,7 @@
                         "name": "_ciConfigurationStateId",
                         "shape": "ConfigurationStateId",
                         "locationName": "configurationStateId",
-                        "documentation": "-- | An identifier that indicates the ordering of the configuration items of a\n-- resource.\n--",
+                        "documentation": "-- | An identifier that indicates the ordering of the configuration items of a\n-- resource.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1503,7 +1503,7 @@
                         "name": "_ciRelatedEvents",
                         "shape": "RelatedEventList",
                         "locationName": "relatedEvents",
-                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?\u003e.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.\n--",
+                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?\u003e.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
                         "typeExposed": "[Text]",
                         "type": "List \"relatedEvents\" Text"
                     },
@@ -1518,7 +1518,7 @@
                         "name": "_ciRelationships",
                         "shape": "RelationshipList",
                         "locationName": "relationships",
-                        "documentation": "-- | A list of related AWS resources.\n--",
+                        "documentation": "-- | A list of related AWS resources.",
                         "typeExposed": "[Relationship]",
                         "type": "List \"relationships\" Relationship"
                     },
@@ -1533,7 +1533,7 @@
                         "name": "_ciResourceCreationTime",
                         "shape": "ResourceCreationTime",
                         "locationName": "resourceCreationTime",
-                        "documentation": "-- | The time stamp when the resource was created.\n--",
+                        "documentation": "-- | The time stamp when the resource was created.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1548,7 +1548,7 @@
                         "name": "_ciResourceId",
                         "shape": "ResourceId",
                         "locationName": "resourceId",
-                        "documentation": "-- | The ID of the resource (for example., 'sg-xxxxxx').\n--",
+                        "documentation": "-- | The ID of the resource (for example., 'sg-xxxxxx').",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1563,7 +1563,7 @@
                         "name": "_ciResourceType",
                         "shape": "ResourceType",
                         "locationName": "resourceType",
-                        "documentation": "-- | The type of AWS resource.\n--",
+                        "documentation": "-- | The type of AWS resource.",
                         "typeExposed": "Maybe ResourceType",
                         "type": "Maybe ResourceType"
                     },
@@ -1578,7 +1578,7 @@
                         "name": "_ciTags",
                         "shape": "Tags",
                         "locationName": "tags",
-                        "documentation": "-- | A mapping of key value tags associated with the resource.\n--",
+                        "documentation": "-- | A mapping of key value tags associated with the resource.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -1593,7 +1593,7 @@
                         "name": "_ciVersion",
                         "shape": "Version",
                         "locationName": "version",
-                        "documentation": "-- | The version number of the resource configuration.\n--",
+                        "documentation": "-- | The version number of the resource configuration.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1635,7 +1635,7 @@
                         "name": "_dcsName",
                         "shape": "String",
                         "locationName": "name",
-                        "documentation": "-- | The name of the delivery channel.\n--",
+                        "documentation": "-- | The name of the delivery channel.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1650,7 +1650,7 @@
                         "name": "_dcsConfigSnapshotDeliveryInfo",
                         "shape": "ConfigExportDeliveryInfo",
                         "locationName": "configSnapshotDeliveryInfo",
-                        "documentation": "-- | A list containing the status of the delivery of the snapshot to the specified\n-- Amazon S3 bucket.\n--",
+                        "documentation": "-- | A list containing the status of the delivery of the snapshot to the specified\n-- Amazon S3 bucket.",
                         "typeExposed": "Maybe ConfigExportDeliveryInfo",
                         "type": "Maybe ConfigExportDeliveryInfo"
                     },
@@ -1665,7 +1665,7 @@
                         "name": "_dcsConfigHistoryDeliveryInfo",
                         "shape": "ConfigExportDeliveryInfo",
                         "locationName": "configHistoryDeliveryInfo",
-                        "documentation": "-- | A list that contains the status of the delivery of the configuration history\n-- to the specified Amazon S3 bucket.\n--",
+                        "documentation": "-- | A list that contains the status of the delivery of the configuration history\n-- to the specified Amazon S3 bucket.",
                         "typeExposed": "Maybe ConfigExportDeliveryInfo",
                         "type": "Maybe ConfigExportDeliveryInfo"
                     },
@@ -1680,7 +1680,7 @@
                         "name": "_dcsConfigStreamDeliveryInfo",
                         "shape": "ConfigStreamDeliveryInfo",
                         "locationName": "configStreamDeliveryInfo",
-                        "documentation": "-- | A list containing the status of the delivery of the configuration stream\n-- notification to the specified Amazon SNS topic.\n--",
+                        "documentation": "-- | A list containing the status of the delivery of the configuration stream\n-- notification to the specified Amazon SNS topic.",
                         "typeExposed": "Maybe ConfigStreamDeliveryInfo",
                         "type": "Maybe ConfigStreamDeliveryInfo"
                     }
@@ -1703,7 +1703,7 @@
                         "name": "_dcsName",
                         "shape": "String",
                         "locationName": "name",
-                        "documentation": "-- | The name of the delivery channel.\n--",
+                        "documentation": "-- | The name of the delivery channel.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1718,7 +1718,7 @@
                         "name": "_dcsConfigSnapshotDeliveryInfo",
                         "shape": "ConfigExportDeliveryInfo",
                         "locationName": "configSnapshotDeliveryInfo",
-                        "documentation": "-- | A list containing the status of the delivery of the snapshot to the specified\n-- Amazon S3 bucket.\n--",
+                        "documentation": "-- | A list containing the status of the delivery of the snapshot to the specified\n-- Amazon S3 bucket.",
                         "typeExposed": "Maybe ConfigExportDeliveryInfo",
                         "type": "Maybe ConfigExportDeliveryInfo"
                     },
@@ -1733,7 +1733,7 @@
                         "name": "_dcsConfigHistoryDeliveryInfo",
                         "shape": "ConfigExportDeliveryInfo",
                         "locationName": "configHistoryDeliveryInfo",
-                        "documentation": "-- | A list that contains the status of the delivery of the configuration history\n-- to the specified Amazon S3 bucket.\n--",
+                        "documentation": "-- | A list that contains the status of the delivery of the configuration history\n-- to the specified Amazon S3 bucket.",
                         "typeExposed": "Maybe ConfigExportDeliveryInfo",
                         "type": "Maybe ConfigExportDeliveryInfo"
                     },
@@ -1748,7 +1748,7 @@
                         "name": "_dcsConfigStreamDeliveryInfo",
                         "shape": "ConfigStreamDeliveryInfo",
                         "locationName": "configStreamDeliveryInfo",
-                        "documentation": "-- | A list containing the status of the delivery of the configuration stream\n-- notification to the specified Amazon SNS topic.\n--",
+                        "documentation": "-- | A list containing the status of the delivery of the configuration stream\n-- notification to the specified Amazon SNS topic.",
                         "typeExposed": "Maybe ConfigStreamDeliveryInfo",
                         "type": "Maybe ConfigStreamDeliveryInfo"
                     }
@@ -1765,7 +1765,7 @@
                         "name": "_dcsConfigHistoryDeliveryInfo",
                         "shape": "ConfigExportDeliveryInfo",
                         "locationName": "configHistoryDeliveryInfo",
-                        "documentation": "-- | A list that contains the status of the delivery of the configuration history\n-- to the specified Amazon S3 bucket.\n--",
+                        "documentation": "-- | A list that contains the status of the delivery of the configuration history\n-- to the specified Amazon S3 bucket.",
                         "typeExposed": "Maybe ConfigExportDeliveryInfo",
                         "type": "Maybe ConfigExportDeliveryInfo"
                     },
@@ -1780,7 +1780,7 @@
                         "name": "_dcsConfigSnapshotDeliveryInfo",
                         "shape": "ConfigExportDeliveryInfo",
                         "locationName": "configSnapshotDeliveryInfo",
-                        "documentation": "-- | A list containing the status of the delivery of the snapshot to the specified\n-- Amazon S3 bucket.\n--",
+                        "documentation": "-- | A list containing the status of the delivery of the snapshot to the specified\n-- Amazon S3 bucket.",
                         "typeExposed": "Maybe ConfigExportDeliveryInfo",
                         "type": "Maybe ConfigExportDeliveryInfo"
                     },
@@ -1795,7 +1795,7 @@
                         "name": "_dcsConfigStreamDeliveryInfo",
                         "shape": "ConfigStreamDeliveryInfo",
                         "locationName": "configStreamDeliveryInfo",
-                        "documentation": "-- | A list containing the status of the delivery of the configuration stream\n-- notification to the specified Amazon SNS topic.\n--",
+                        "documentation": "-- | A list containing the status of the delivery of the configuration stream\n-- notification to the specified Amazon SNS topic.",
                         "typeExposed": "Maybe ConfigStreamDeliveryInfo",
                         "type": "Maybe ConfigStreamDeliveryInfo"
                     },
@@ -1810,7 +1810,7 @@
                         "name": "_dcsName",
                         "shape": "String",
                         "locationName": "name",
-                        "documentation": "-- | The name of the delivery channel.\n--",
+                        "documentation": "-- | The name of the delivery channel.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1835,7 +1835,7 @@
                         "name": "_crsName",
                         "shape": "String",
                         "locationName": "name",
-                        "documentation": "-- | The name of the configuration recorder.\n--",
+                        "documentation": "-- | The name of the configuration recorder.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1850,7 +1850,7 @@
                         "name": "_crsLastStartTime",
                         "shape": "Date",
                         "locationName": "lastStartTime",
-                        "documentation": "-- | The time the recorder was last started.\n--",
+                        "documentation": "-- | The time the recorder was last started.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1865,7 +1865,7 @@
                         "name": "_crsLastStopTime",
                         "shape": "Date",
                         "locationName": "lastStopTime",
-                        "documentation": "-- | The time the recorder was last stopped.\n--",
+                        "documentation": "-- | The time the recorder was last stopped.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1880,7 +1880,7 @@
                         "name": "_crsRecording",
                         "shape": "Boolean",
                         "locationName": "recording",
-                        "documentation": "-- | Specifies whether the recorder is currently recording or not.\n--",
+                        "documentation": "-- | Specifies whether the recorder is currently recording or not.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -1895,7 +1895,7 @@
                         "name": "_crsLastStatus",
                         "shape": "RecorderStatus",
                         "locationName": "lastStatus",
-                        "documentation": "-- | The last (previous) status of the recorder.\n--",
+                        "documentation": "-- | The last (previous) status of the recorder.",
                         "typeExposed": "Maybe RecorderStatus",
                         "type": "Maybe RecorderStatus"
                     },
@@ -1910,7 +1910,7 @@
                         "name": "_crsLastErrorCode",
                         "shape": "String",
                         "locationName": "lastErrorCode",
-                        "documentation": "-- | The error code indicating that the recording failed.\n--",
+                        "documentation": "-- | The error code indicating that the recording failed.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1925,7 +1925,7 @@
                         "name": "_crsLastErrorMessage",
                         "shape": "String",
                         "locationName": "lastErrorMessage",
-                        "documentation": "-- | The message indicating that the recording failed due to an error.\n--",
+                        "documentation": "-- | The message indicating that the recording failed due to an error.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1940,7 +1940,7 @@
                         "name": "_crsLastStatusChangeTime",
                         "shape": "Date",
                         "locationName": "lastStatusChangeTime",
-                        "documentation": "-- | The time when the status was last changed.\n--",
+                        "documentation": "-- | The time when the status was last changed.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -1963,7 +1963,7 @@
                         "name": "_crsName",
                         "shape": "String",
                         "locationName": "name",
-                        "documentation": "-- | The name of the configuration recorder.\n--",
+                        "documentation": "-- | The name of the configuration recorder.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1978,7 +1978,7 @@
                         "name": "_crsLastStartTime",
                         "shape": "Date",
                         "locationName": "lastStartTime",
-                        "documentation": "-- | The time the recorder was last started.\n--",
+                        "documentation": "-- | The time the recorder was last started.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -1993,7 +1993,7 @@
                         "name": "_crsLastStopTime",
                         "shape": "Date",
                         "locationName": "lastStopTime",
-                        "documentation": "-- | The time the recorder was last stopped.\n--",
+                        "documentation": "-- | The time the recorder was last stopped.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -2008,7 +2008,7 @@
                         "name": "_crsRecording",
                         "shape": "Boolean",
                         "locationName": "recording",
-                        "documentation": "-- | Specifies whether the recorder is currently recording or not.\n--",
+                        "documentation": "-- | Specifies whether the recorder is currently recording or not.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -2023,7 +2023,7 @@
                         "name": "_crsLastStatus",
                         "shape": "RecorderStatus",
                         "locationName": "lastStatus",
-                        "documentation": "-- | The last (previous) status of the recorder.\n--",
+                        "documentation": "-- | The last (previous) status of the recorder.",
                         "typeExposed": "Maybe RecorderStatus",
                         "type": "Maybe RecorderStatus"
                     },
@@ -2038,7 +2038,7 @@
                         "name": "_crsLastErrorCode",
                         "shape": "String",
                         "locationName": "lastErrorCode",
-                        "documentation": "-- | The error code indicating that the recording failed.\n--",
+                        "documentation": "-- | The error code indicating that the recording failed.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2053,7 +2053,7 @@
                         "name": "_crsLastErrorMessage",
                         "shape": "String",
                         "locationName": "lastErrorMessage",
-                        "documentation": "-- | The message indicating that the recording failed due to an error.\n--",
+                        "documentation": "-- | The message indicating that the recording failed due to an error.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2068,7 +2068,7 @@
                         "name": "_crsLastStatusChangeTime",
                         "shape": "Date",
                         "locationName": "lastStatusChangeTime",
-                        "documentation": "-- | The time when the status was last changed.\n--",
+                        "documentation": "-- | The time when the status was last changed.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     }
@@ -2085,7 +2085,7 @@
                         "name": "_crsLastErrorCode",
                         "shape": "String",
                         "locationName": "lastErrorCode",
-                        "documentation": "-- | The error code indicating that the recording failed.\n--",
+                        "documentation": "-- | The error code indicating that the recording failed.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2100,7 +2100,7 @@
                         "name": "_crsLastErrorMessage",
                         "shape": "String",
                         "locationName": "lastErrorMessage",
-                        "documentation": "-- | The message indicating that the recording failed due to an error.\n--",
+                        "documentation": "-- | The message indicating that the recording failed due to an error.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2115,7 +2115,7 @@
                         "name": "_crsLastStartTime",
                         "shape": "Date",
                         "locationName": "lastStartTime",
-                        "documentation": "-- | The time the recorder was last started.\n--",
+                        "documentation": "-- | The time the recorder was last started.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -2130,7 +2130,7 @@
                         "name": "_crsLastStatus",
                         "shape": "RecorderStatus",
                         "locationName": "lastStatus",
-                        "documentation": "-- | The last (previous) status of the recorder.\n--",
+                        "documentation": "-- | The last (previous) status of the recorder.",
                         "typeExposed": "Maybe RecorderStatus",
                         "type": "Maybe RecorderStatus"
                     },
@@ -2145,7 +2145,7 @@
                         "name": "_crsLastStatusChangeTime",
                         "shape": "Date",
                         "locationName": "lastStatusChangeTime",
-                        "documentation": "-- | The time when the status was last changed.\n--",
+                        "documentation": "-- | The time when the status was last changed.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -2160,7 +2160,7 @@
                         "name": "_crsLastStopTime",
                         "shape": "Date",
                         "locationName": "lastStopTime",
-                        "documentation": "-- | The time the recorder was last stopped.\n--",
+                        "documentation": "-- | The time the recorder was last stopped.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -2175,7 +2175,7 @@
                         "name": "_crsName",
                         "shape": "String",
                         "locationName": "name",
-                        "documentation": "-- | The name of the configuration recorder.\n--",
+                        "documentation": "-- | The name of the configuration recorder.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2190,7 +2190,7 @@
                         "name": "_crsRecording",
                         "shape": "Boolean",
                         "locationName": "recording",
-                        "documentation": "-- | Specifies whether the recorder is currently recording or not.\n--",
+                        "documentation": "-- | Specifies whether the recorder is currently recording or not.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -2235,7 +2235,7 @@
                         "name": "_crName",
                         "shape": "RecorderName",
                         "locationName": "name",
-                        "documentation": "-- | The name of the recorder. By default, AWS Config automatically assigns the\n-- name \"default\" when creating the configuration recorder. You cannot change\n-- the assigned name.\n--",
+                        "documentation": "-- | The name of the recorder. By default, AWS Config automatically assigns the\n-- name \"default\" when creating the configuration recorder. You cannot change\n-- the assigned name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2250,7 +2250,7 @@
                         "name": "_crRoleARN",
                         "shape": "String",
                         "locationName": "roleARN",
-                        "documentation": "-- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources\n-- associated with the account.\n--",
+                        "documentation": "-- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources\n-- associated with the account.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2273,7 +2273,7 @@
                         "name": "_crName",
                         "shape": "RecorderName",
                         "locationName": "name",
-                        "documentation": "-- | The name of the recorder. By default, AWS Config automatically assigns the\n-- name \"default\" when creating the configuration recorder. You cannot change\n-- the assigned name.\n--",
+                        "documentation": "-- | The name of the recorder. By default, AWS Config automatically assigns the\n-- name \"default\" when creating the configuration recorder. You cannot change\n-- the assigned name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2288,7 +2288,7 @@
                         "name": "_crRoleARN",
                         "shape": "String",
                         "locationName": "roleARN",
-                        "documentation": "-- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources\n-- associated with the account.\n--",
+                        "documentation": "-- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources\n-- associated with the account.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2305,7 +2305,7 @@
                         "name": "_crName",
                         "shape": "RecorderName",
                         "locationName": "name",
-                        "documentation": "-- | The name of the recorder. By default, AWS Config automatically assigns the\n-- name \"default\" when creating the configuration recorder. You cannot change\n-- the assigned name.\n--",
+                        "documentation": "-- | The name of the recorder. By default, AWS Config automatically assigns the\n-- name \"default\" when creating the configuration recorder. You cannot change\n-- the assigned name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2320,7 +2320,7 @@
                         "name": "_crRoleARN",
                         "shape": "String",
                         "locationName": "roleARN",
-                        "documentation": "-- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources\n-- associated with the account.\n--",
+                        "documentation": "-- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources\n-- associated with the account.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2385,7 +2385,7 @@
             "pager": null,
             "name": "DeleteDeliveryChannel",
             "method": "post",
-            "documentation": "-- | Deletes the specified delivery channel.\n--\n-- The delivery channel cannot be deleted if it is the only delivery channel\n-- and the configuration recorder is still running. To delete the delivery\n-- channel, stop the running configuration recorder using the 'StopConfigurationRecorder' action.\n--",
+            "documentation": "-- | Deletes the specified delivery channel.\n--\n-- The delivery channel cannot be deleted if it is the only delivery channel\n-- and the configuration recorder is still running. To delete the delivery\n-- channel, stop the running configuration recorder using the 'StopConfigurationRecorder' action.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2412,7 +2412,7 @@
                     "name": "_ddcDeliveryChannelName",
                     "shape": "ChannelName",
                     "locationName": "DeliveryChannelName",
-                    "documentation": "-- | The name of the delivery channel to delete.\n--",
+                    "documentation": "-- | The name of the delivery channel to delete.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2428,7 +2428,7 @@
                         "name": "_ddcDeliveryChannelName",
                         "shape": "ChannelName",
                         "locationName": "DeliveryChannelName",
-                        "documentation": "-- | The name of the delivery channel to delete.\n--",
+                        "documentation": "-- | The name of the delivery channel to delete.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2453,7 +2453,7 @@
                         "name": "_ddcDeliveryChannelName",
                         "shape": "ChannelName",
                         "locationName": "DeliveryChannelName",
-                        "documentation": "-- | The name of the delivery channel to delete.\n--",
+                        "documentation": "-- | The name of the delivery channel to delete.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2481,7 +2481,7 @@
                         "name": "_ddcDeliveryChannelName",
                         "shape": "ChannelName",
                         "locationName": "DeliveryChannelName",
-                        "documentation": "-- | The name of the delivery channel to delete.\n--",
+                        "documentation": "-- | The name of the delivery channel to delete.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2514,7 +2514,7 @@
                     "name": "_dcsrConfigSnapshotId",
                     "shape": "String",
                     "locationName": "configSnapshotId",
-                    "documentation": "-- | The ID of the snapshot that is being created.\n--",
+                    "documentation": "-- | The ID of the snapshot that is being created.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -2530,7 +2530,7 @@
                         "name": "_dcsrConfigSnapshotId",
                         "shape": "String",
                         "locationName": "configSnapshotId",
-                        "documentation": "-- | The ID of the snapshot that is being created.\n--",
+                        "documentation": "-- | The ID of the snapshot that is being created.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2559,7 +2559,7 @@
                         "name": "_dcsrConfigSnapshotId",
                         "shape": "String",
                         "locationName": "configSnapshotId",
-                        "documentation": "-- | The ID of the snapshot that is being created.\n--",
+                        "documentation": "-- | The ID of the snapshot that is being created.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2576,7 +2576,7 @@
                         "name": "_dcsrConfigSnapshotId",
                         "shape": "String",
                         "locationName": "configSnapshotId",
-                        "documentation": "-- | The ID of the snapshot that is being created.\n--",
+                        "documentation": "-- | The ID of the snapshot that is being created.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2619,7 +2619,7 @@
                     "name": "_dcsDeliveryChannelName",
                     "shape": "ChannelName",
                     "locationName": "deliveryChannelName",
-                    "documentation": "-- | The name of the delivery channel through which the snapshot is delivered.\n--",
+                    "documentation": "-- | The name of the delivery channel through which the snapshot is delivered.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2635,7 +2635,7 @@
                         "name": "_dcsDeliveryChannelName",
                         "shape": "ChannelName",
                         "locationName": "deliveryChannelName",
-                        "documentation": "-- | The name of the delivery channel through which the snapshot is delivered.\n--",
+                        "documentation": "-- | The name of the delivery channel through which the snapshot is delivered.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2660,7 +2660,7 @@
                         "name": "_dcsDeliveryChannelName",
                         "shape": "ChannelName",
                         "locationName": "deliveryChannelName",
-                        "documentation": "-- | The name of the delivery channel through which the snapshot is delivered.\n--",
+                        "documentation": "-- | The name of the delivery channel through which the snapshot is delivered.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2688,7 +2688,7 @@
                         "name": "_dcsDeliveryChannelName",
                         "shape": "ChannelName",
                         "locationName": "deliveryChannelName",
-                        "documentation": "-- | The name of the delivery channel through which the snapshot is delivered.\n--",
+                        "documentation": "-- | The name of the delivery channel through which the snapshot is delivered.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2721,7 +2721,7 @@
                     "name": "_dcrsrConfigurationRecordersStatus",
                     "shape": "ConfigurationRecorderStatusList",
                     "locationName": "ConfigurationRecordersStatus",
-                    "documentation": "-- | A list that contains status of the specified recorders.\n--",
+                    "documentation": "-- | A list that contains status of the specified recorders.",
                     "typeExposed": "[ConfigurationRecorderStatus]",
                     "type": "List \"ConfigurationRecordersStatus\" ConfigurationRecorderStatus"
                 },
@@ -2737,7 +2737,7 @@
                         "name": "_dcrsrConfigurationRecordersStatus",
                         "shape": "ConfigurationRecorderStatusList",
                         "locationName": "ConfigurationRecordersStatus",
-                        "documentation": "-- | A list that contains status of the specified recorders.\n--",
+                        "documentation": "-- | A list that contains status of the specified recorders.",
                         "typeExposed": "[ConfigurationRecorderStatus]",
                         "type": "List \"ConfigurationRecordersStatus\" ConfigurationRecorderStatus"
                     }
@@ -2766,7 +2766,7 @@
                         "name": "_dcrsrConfigurationRecordersStatus",
                         "shape": "ConfigurationRecorderStatusList",
                         "locationName": "ConfigurationRecordersStatus",
-                        "documentation": "-- | A list that contains status of the specified recorders.\n--",
+                        "documentation": "-- | A list that contains status of the specified recorders.",
                         "typeExposed": "[ConfigurationRecorderStatus]",
                         "type": "List \"ConfigurationRecordersStatus\" ConfigurationRecorderStatus"
                     }
@@ -2783,7 +2783,7 @@
                         "name": "_dcrsrConfigurationRecordersStatus",
                         "shape": "ConfigurationRecorderStatusList",
                         "locationName": "ConfigurationRecordersStatus",
-                        "documentation": "-- | A list that contains status of the specified recorders.\n--",
+                        "documentation": "-- | A list that contains status of the specified recorders.",
                         "typeExposed": "[ConfigurationRecorderStatus]",
                         "type": "List \"ConfigurationRecordersStatus\" ConfigurationRecorderStatus"
                     }
@@ -2799,7 +2799,7 @@
             "pager": null,
             "name": "DescribeConfigurationRecorderStatus",
             "method": "post",
-            "documentation": "-- | Returns the current status of the specified configuration recorder. If a\n-- configuration recorder is not specified, this action returns the status of\n-- all configuration recorder associated with the account.\n--",
+            "documentation": "-- | Returns the current status of the specified configuration recorder. If a\n-- configuration recorder is not specified, this action returns the status of\n-- all configuration recorder associated with the account.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2826,7 +2826,7 @@
                     "name": "_dcrsConfigurationRecorderNames",
                     "shape": "ConfigurationRecorderNameList",
                     "locationName": "ConfigurationRecorderNames",
-                    "documentation": "-- | The name(s) of the configuration recorder. If the name is not specified, the\n-- action returns the current status of all the configuration recorders\n-- associated with the account.\n--",
+                    "documentation": "-- | The name(s) of the configuration recorder. If the name is not specified, the\n-- action returns the current status of all the configuration recorders\n-- associated with the account.",
                     "typeExposed": "[Text]",
                     "type": "List \"ConfigurationRecorderNames\" Text"
                 },
@@ -2842,7 +2842,7 @@
                         "name": "_dcrsConfigurationRecorderNames",
                         "shape": "ConfigurationRecorderNameList",
                         "locationName": "ConfigurationRecorderNames",
-                        "documentation": "-- | The name(s) of the configuration recorder. If the name is not specified, the\n-- action returns the current status of all the configuration recorders\n-- associated with the account.\n--",
+                        "documentation": "-- | The name(s) of the configuration recorder. If the name is not specified, the\n-- action returns the current status of all the configuration recorders\n-- associated with the account.",
                         "typeExposed": "[Text]",
                         "type": "List \"ConfigurationRecorderNames\" Text"
                     }
@@ -2878,7 +2878,7 @@
                         "name": "_dcrsConfigurationRecorderNames",
                         "shape": "ConfigurationRecorderNameList",
                         "locationName": "ConfigurationRecorderNames",
-                        "documentation": "-- | The name(s) of the configuration recorder. If the name is not specified, the\n-- action returns the current status of all the configuration recorders\n-- associated with the account.\n--",
+                        "documentation": "-- | The name(s) of the configuration recorder. If the name is not specified, the\n-- action returns the current status of all the configuration recorders\n-- associated with the account.",
                         "typeExposed": "[Text]",
                         "type": "List \"ConfigurationRecorderNames\" Text"
                     }
@@ -2895,7 +2895,7 @@
                         "name": "_dcrsConfigurationRecorderNames",
                         "shape": "ConfigurationRecorderNameList",
                         "locationName": "ConfigurationRecorderNames",
-                        "documentation": "-- | The name(s) of the configuration recorder. If the name is not specified, the\n-- action returns the current status of all the configuration recorders\n-- associated with the account.\n--",
+                        "documentation": "-- | The name(s) of the configuration recorder. If the name is not specified, the\n-- action returns the current status of all the configuration recorders\n-- associated with the account.",
                         "typeExposed": "[Text]",
                         "type": "List \"ConfigurationRecorderNames\" Text"
                     }
@@ -2928,7 +2928,7 @@
                     "name": "_dcrrConfigurationRecorders",
                     "shape": "ConfigurationRecorderList",
                     "locationName": "ConfigurationRecorders",
-                    "documentation": "-- | A list that contains the descriptions of the specified configuration\n-- recorders.\n--",
+                    "documentation": "-- | A list that contains the descriptions of the specified configuration\n-- recorders.",
                     "typeExposed": "[ConfigurationRecorder]",
                     "type": "List \"ConfigurationRecorders\" ConfigurationRecorder"
                 },
@@ -2944,7 +2944,7 @@
                         "name": "_dcrrConfigurationRecorders",
                         "shape": "ConfigurationRecorderList",
                         "locationName": "ConfigurationRecorders",
-                        "documentation": "-- | A list that contains the descriptions of the specified configuration\n-- recorders.\n--",
+                        "documentation": "-- | A list that contains the descriptions of the specified configuration\n-- recorders.",
                         "typeExposed": "[ConfigurationRecorder]",
                         "type": "List \"ConfigurationRecorders\" ConfigurationRecorder"
                     }
@@ -2973,7 +2973,7 @@
                         "name": "_dcrrConfigurationRecorders",
                         "shape": "ConfigurationRecorderList",
                         "locationName": "ConfigurationRecorders",
-                        "documentation": "-- | A list that contains the descriptions of the specified configuration\n-- recorders.\n--",
+                        "documentation": "-- | A list that contains the descriptions of the specified configuration\n-- recorders.",
                         "typeExposed": "[ConfigurationRecorder]",
                         "type": "List \"ConfigurationRecorders\" ConfigurationRecorder"
                     }
@@ -2990,7 +2990,7 @@
                         "name": "_dcrrConfigurationRecorders",
                         "shape": "ConfigurationRecorderList",
                         "locationName": "ConfigurationRecorders",
-                        "documentation": "-- | A list that contains the descriptions of the specified configuration\n-- recorders.\n--",
+                        "documentation": "-- | A list that contains the descriptions of the specified configuration\n-- recorders.",
                         "typeExposed": "[ConfigurationRecorder]",
                         "type": "List \"ConfigurationRecorders\" ConfigurationRecorder"
                     }
@@ -3006,7 +3006,7 @@
             "pager": null,
             "name": "DescribeConfigurationRecorders",
             "method": "post",
-            "documentation": "-- | Returns the name of one or more specified configuration recorders. If the\n-- recorder name is not specified, this action returns the names of all the\n-- configuration recorders associated with the account.\n--",
+            "documentation": "-- | Returns the name of one or more specified configuration recorders. If the\n-- recorder name is not specified, this action returns the names of all the\n-- configuration recorders associated with the account.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3033,7 +3033,7 @@
                     "name": "_dcrConfigurationRecorderNames",
                     "shape": "ConfigurationRecorderNameList",
                     "locationName": "ConfigurationRecorderNames",
-                    "documentation": "-- | A list of configuration recorder names.\n--",
+                    "documentation": "-- | A list of configuration recorder names.",
                     "typeExposed": "[Text]",
                     "type": "List \"ConfigurationRecorderNames\" Text"
                 },
@@ -3049,7 +3049,7 @@
                         "name": "_dcrConfigurationRecorderNames",
                         "shape": "ConfigurationRecorderNameList",
                         "locationName": "ConfigurationRecorderNames",
-                        "documentation": "-- | A list of configuration recorder names.\n--",
+                        "documentation": "-- | A list of configuration recorder names.",
                         "typeExposed": "[Text]",
                         "type": "List \"ConfigurationRecorderNames\" Text"
                     }
@@ -3085,7 +3085,7 @@
                         "name": "_dcrConfigurationRecorderNames",
                         "shape": "ConfigurationRecorderNameList",
                         "locationName": "ConfigurationRecorderNames",
-                        "documentation": "-- | A list of configuration recorder names.\n--",
+                        "documentation": "-- | A list of configuration recorder names.",
                         "typeExposed": "[Text]",
                         "type": "List \"ConfigurationRecorderNames\" Text"
                     }
@@ -3102,7 +3102,7 @@
                         "name": "_dcrConfigurationRecorderNames",
                         "shape": "ConfigurationRecorderNameList",
                         "locationName": "ConfigurationRecorderNames",
-                        "documentation": "-- | A list of configuration recorder names.\n--",
+                        "documentation": "-- | A list of configuration recorder names.",
                         "typeExposed": "[Text]",
                         "type": "List \"ConfigurationRecorderNames\" Text"
                     }
@@ -3135,7 +3135,7 @@
                     "name": "_ddcsrDeliveryChannelsStatus",
                     "shape": "DeliveryChannelStatusList",
                     "locationName": "DeliveryChannelsStatus",
-                    "documentation": "-- | A list that contains the status of a specified delivery channel.\n--",
+                    "documentation": "-- | A list that contains the status of a specified delivery channel.",
                     "typeExposed": "[DeliveryChannelStatus]",
                     "type": "List \"DeliveryChannelsStatus\" DeliveryChannelStatus"
                 },
@@ -3151,7 +3151,7 @@
                         "name": "_ddcsrDeliveryChannelsStatus",
                         "shape": "DeliveryChannelStatusList",
                         "locationName": "DeliveryChannelsStatus",
-                        "documentation": "-- | A list that contains the status of a specified delivery channel.\n--",
+                        "documentation": "-- | A list that contains the status of a specified delivery channel.",
                         "typeExposed": "[DeliveryChannelStatus]",
                         "type": "List \"DeliveryChannelsStatus\" DeliveryChannelStatus"
                     }
@@ -3180,7 +3180,7 @@
                         "name": "_ddcsrDeliveryChannelsStatus",
                         "shape": "DeliveryChannelStatusList",
                         "locationName": "DeliveryChannelsStatus",
-                        "documentation": "-- | A list that contains the status of a specified delivery channel.\n--",
+                        "documentation": "-- | A list that contains the status of a specified delivery channel.",
                         "typeExposed": "[DeliveryChannelStatus]",
                         "type": "List \"DeliveryChannelsStatus\" DeliveryChannelStatus"
                     }
@@ -3197,7 +3197,7 @@
                         "name": "_ddcsrDeliveryChannelsStatus",
                         "shape": "DeliveryChannelStatusList",
                         "locationName": "DeliveryChannelsStatus",
-                        "documentation": "-- | A list that contains the status of a specified delivery channel.\n--",
+                        "documentation": "-- | A list that contains the status of a specified delivery channel.",
                         "typeExposed": "[DeliveryChannelStatus]",
                         "type": "List \"DeliveryChannelsStatus\" DeliveryChannelStatus"
                     }
@@ -3213,7 +3213,7 @@
             "pager": null,
             "name": "DescribeDeliveryChannelStatus",
             "method": "post",
-            "documentation": "-- | Returns the current status of the specified delivery channel. If a delivery\n-- channel is not specified, this action returns the current status of all\n-- delivery channels associated with the account.\n--",
+            "documentation": "-- | Returns the current status of the specified delivery channel. If a delivery\n-- channel is not specified, this action returns the current status of all\n-- delivery channels associated with the account.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3240,7 +3240,7 @@
                     "name": "_ddcsDeliveryChannelNames",
                     "shape": "DeliveryChannelNameList",
                     "locationName": "DeliveryChannelNames",
-                    "documentation": "-- | A list of delivery channel names.\n--",
+                    "documentation": "-- | A list of delivery channel names.",
                     "typeExposed": "[Text]",
                     "type": "List \"DeliveryChannelNames\" Text"
                 },
@@ -3256,7 +3256,7 @@
                         "name": "_ddcsDeliveryChannelNames",
                         "shape": "DeliveryChannelNameList",
                         "locationName": "DeliveryChannelNames",
-                        "documentation": "-- | A list of delivery channel names.\n--",
+                        "documentation": "-- | A list of delivery channel names.",
                         "typeExposed": "[Text]",
                         "type": "List \"DeliveryChannelNames\" Text"
                     }
@@ -3292,7 +3292,7 @@
                         "name": "_ddcsDeliveryChannelNames",
                         "shape": "DeliveryChannelNameList",
                         "locationName": "DeliveryChannelNames",
-                        "documentation": "-- | A list of delivery channel names.\n--",
+                        "documentation": "-- | A list of delivery channel names.",
                         "typeExposed": "[Text]",
                         "type": "List \"DeliveryChannelNames\" Text"
                     }
@@ -3309,7 +3309,7 @@
                         "name": "_ddcsDeliveryChannelNames",
                         "shape": "DeliveryChannelNameList",
                         "locationName": "DeliveryChannelNames",
-                        "documentation": "-- | A list of delivery channel names.\n--",
+                        "documentation": "-- | A list of delivery channel names.",
                         "typeExposed": "[Text]",
                         "type": "List \"DeliveryChannelNames\" Text"
                     }
@@ -3342,7 +3342,7 @@
                     "name": "_ddcrDeliveryChannels",
                     "shape": "DeliveryChannelList",
                     "locationName": "DeliveryChannels",
-                    "documentation": "-- | A list that contains the descriptions of the specified delivery channel.\n--",
+                    "documentation": "-- | A list that contains the descriptions of the specified delivery channel.",
                     "typeExposed": "[DeliveryChannel]",
                     "type": "List \"DeliveryChannels\" DeliveryChannel"
                 },
@@ -3358,7 +3358,7 @@
                         "name": "_ddcrDeliveryChannels",
                         "shape": "DeliveryChannelList",
                         "locationName": "DeliveryChannels",
-                        "documentation": "-- | A list that contains the descriptions of the specified delivery channel.\n--",
+                        "documentation": "-- | A list that contains the descriptions of the specified delivery channel.",
                         "typeExposed": "[DeliveryChannel]",
                         "type": "List \"DeliveryChannels\" DeliveryChannel"
                     }
@@ -3387,7 +3387,7 @@
                         "name": "_ddcrDeliveryChannels",
                         "shape": "DeliveryChannelList",
                         "locationName": "DeliveryChannels",
-                        "documentation": "-- | A list that contains the descriptions of the specified delivery channel.\n--",
+                        "documentation": "-- | A list that contains the descriptions of the specified delivery channel.",
                         "typeExposed": "[DeliveryChannel]",
                         "type": "List \"DeliveryChannels\" DeliveryChannel"
                     }
@@ -3404,7 +3404,7 @@
                         "name": "_ddcrDeliveryChannels",
                         "shape": "DeliveryChannelList",
                         "locationName": "DeliveryChannels",
-                        "documentation": "-- | A list that contains the descriptions of the specified delivery channel.\n--",
+                        "documentation": "-- | A list that contains the descriptions of the specified delivery channel.",
                         "typeExposed": "[DeliveryChannel]",
                         "type": "List \"DeliveryChannels\" DeliveryChannel"
                     }
@@ -3420,7 +3420,7 @@
             "pager": null,
             "name": "DescribeDeliveryChannels",
             "method": "post",
-            "documentation": "-- | Returns details about the specified delivery channel. If a delivery channel\n-- is not specified, this action returns the details of all delivery channels\n-- associated with the account.\n--",
+            "documentation": "-- | Returns details about the specified delivery channel. If a delivery channel\n-- is not specified, this action returns the details of all delivery channels\n-- associated with the account.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3447,7 +3447,7 @@
                     "name": "_ddcDeliveryChannelNames",
                     "shape": "DeliveryChannelNameList",
                     "locationName": "DeliveryChannelNames",
-                    "documentation": "-- | A list of delivery channel names.\n--",
+                    "documentation": "-- | A list of delivery channel names.",
                     "typeExposed": "[Text]",
                     "type": "List \"DeliveryChannelNames\" Text"
                 },
@@ -3463,7 +3463,7 @@
                         "name": "_ddcDeliveryChannelNames",
                         "shape": "DeliveryChannelNameList",
                         "locationName": "DeliveryChannelNames",
-                        "documentation": "-- | A list of delivery channel names.\n--",
+                        "documentation": "-- | A list of delivery channel names.",
                         "typeExposed": "[Text]",
                         "type": "List \"DeliveryChannelNames\" Text"
                     }
@@ -3499,7 +3499,7 @@
                         "name": "_ddcDeliveryChannelNames",
                         "shape": "DeliveryChannelNameList",
                         "locationName": "DeliveryChannelNames",
-                        "documentation": "-- | A list of delivery channel names.\n--",
+                        "documentation": "-- | A list of delivery channel names.",
                         "typeExposed": "[Text]",
                         "type": "List \"DeliveryChannelNames\" Text"
                     }
@@ -3516,7 +3516,7 @@
                         "name": "_ddcDeliveryChannelNames",
                         "shape": "DeliveryChannelNameList",
                         "locationName": "DeliveryChannelNames",
-                        "documentation": "-- | A list of delivery channel names.\n--",
+                        "documentation": "-- | A list of delivery channel names.",
                         "typeExposed": "[Text]",
                         "type": "List \"DeliveryChannelNames\" Text"
                     }
@@ -3547,7 +3547,7 @@
                         "name": "_grchrConfigurationItems",
                         "shape": "ConfigurationItemList",
                         "locationName": "configurationItems",
-                        "documentation": "-- | A list that contains the configuration history of one or more resources.\n--",
+                        "documentation": "-- | A list that contains the configuration history of one or more resources.",
                         "typeExposed": "[ConfigurationItem]",
                         "type": "List \"configurationItems\" ConfigurationItem"
                     },
@@ -3562,7 +3562,7 @@
                         "name": "_grchrNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A token used for pagination of results.\n--",
+                        "documentation": "-- | A token used for pagination of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3591,7 +3591,7 @@
                         "name": "_grchrConfigurationItems",
                         "shape": "ConfigurationItemList",
                         "locationName": "configurationItems",
-                        "documentation": "-- | A list that contains the configuration history of one or more resources.\n--",
+                        "documentation": "-- | A list that contains the configuration history of one or more resources.",
                         "typeExposed": "[ConfigurationItem]",
                         "type": "List \"configurationItems\" ConfigurationItem"
                     },
@@ -3606,7 +3606,7 @@
                         "name": "_grchrNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A token used for pagination of results.\n--",
+                        "documentation": "-- | A token used for pagination of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3623,7 +3623,7 @@
                         "name": "_grchrConfigurationItems",
                         "shape": "ConfigurationItemList",
                         "locationName": "configurationItems",
-                        "documentation": "-- | A list that contains the configuration history of one or more resources.\n--",
+                        "documentation": "-- | A list that contains the configuration history of one or more resources.",
                         "typeExposed": "[ConfigurationItem]",
                         "type": "List \"configurationItems\" ConfigurationItem"
                     },
@@ -3638,7 +3638,7 @@
                         "name": "_grchrNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | A token used for pagination of results.\n--",
+                        "documentation": "-- | A token used for pagination of results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3654,7 +3654,7 @@
             "pager": null,
             "name": "GetResourceConfigHistory",
             "method": "post",
-            "documentation": "-- | Returns a list of configuration items for the specified resource. The list\n-- contains details about each state of the resource during the specified time\n-- interval. You can specify a 'limit' on the number of results returned on the\n-- page. If a limit is specified, a 'nextToken' is returned as part of the result\n-- that you can use to continue this request.\n--",
+            "documentation": "-- | Returns a list of configuration items for the specified resource. The list\n-- contains details about each state of the resource during the specified time\n-- interval. You can specify a 'limit' on the number of results returned on the\n-- page. If a limit is specified, a 'nextToken' is returned as part of the result\n-- that you can use to continue this request.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3678,7 +3678,7 @@
                         "name": "_grchResourceType",
                         "shape": "ResourceType",
                         "locationName": "resourceType",
-                        "documentation": "-- | The resource type.\n--",
+                        "documentation": "-- | The resource type.",
                         "typeExposed": "ResourceType",
                         "type": "ResourceType"
                     },
@@ -3693,7 +3693,7 @@
                         "name": "_grchResourceId",
                         "shape": "ResourceId",
                         "locationName": "resourceId",
-                        "documentation": "-- | The ID of the resource (for example., 'sg-xxxxxx').\n--",
+                        "documentation": "-- | The ID of the resource (for example., 'sg-xxxxxx').",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3708,7 +3708,7 @@
                         "name": "_grchLaterTime",
                         "shape": "LaterTime",
                         "locationName": "laterTime",
-                        "documentation": "-- | The time stamp that indicates a later time. If not specified, current time is\n-- taken.\n--",
+                        "documentation": "-- | The time stamp that indicates a later time. If not specified, current time is\n-- taken.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -3723,7 +3723,7 @@
                         "name": "_grchEarlierTime",
                         "shape": "EarlierTime",
                         "locationName": "earlierTime",
-                        "documentation": "-- | The time stamp that indicates an earlier time. If not specified, the action\n-- returns paginated results that contain configuration items that start from\n-- when the first configuration item was recorded.\n--",
+                        "documentation": "-- | The time stamp that indicates an earlier time. If not specified, the action\n-- returns paginated results that contain configuration items that start from\n-- when the first configuration item was recorded.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -3738,7 +3738,7 @@
                         "name": "_grchChronologicalOrder",
                         "shape": "ChronologicalOrder",
                         "locationName": "chronologicalOrder",
-                        "documentation": "-- | The chronological order for configuration items listed. By default the\n-- results are listed in reverse chronological order.\n--",
+                        "documentation": "-- | The chronological order for configuration items listed. By default the\n-- results are listed in reverse chronological order.",
                         "typeExposed": "Maybe ChronologicalOrder",
                         "type": "Maybe ChronologicalOrder"
                     },
@@ -3753,7 +3753,7 @@
                         "name": "_grchLimit",
                         "shape": "Limit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of configuration items returned in each page. The default\n-- is 10. You cannot specify a limit greater than 100.\n--",
+                        "documentation": "-- | The maximum number of configuration items returned in each page. The default\n-- is 10. You cannot specify a limit greater than 100.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -3768,7 +3768,7 @@
                         "name": "_grchNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | An optional parameter used for pagination of the results.\n--",
+                        "documentation": "-- | An optional parameter used for pagination of the results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3793,7 +3793,7 @@
                         "name": "_grchResourceType",
                         "shape": "ResourceType",
                         "locationName": "resourceType",
-                        "documentation": "-- | The resource type.\n--",
+                        "documentation": "-- | The resource type.",
                         "typeExposed": "ResourceType",
                         "type": "ResourceType"
                     },
@@ -3808,7 +3808,7 @@
                         "name": "_grchResourceId",
                         "shape": "ResourceId",
                         "locationName": "resourceId",
-                        "documentation": "-- | The ID of the resource (for example., 'sg-xxxxxx').\n--",
+                        "documentation": "-- | The ID of the resource (for example., 'sg-xxxxxx').",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3835,7 +3835,7 @@
                         "name": "_grchLaterTime",
                         "shape": "LaterTime",
                         "locationName": "laterTime",
-                        "documentation": "-- | The time stamp that indicates a later time. If not specified, current time is\n-- taken.\n--",
+                        "documentation": "-- | The time stamp that indicates a later time. If not specified, current time is\n-- taken.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -3850,7 +3850,7 @@
                         "name": "_grchEarlierTime",
                         "shape": "EarlierTime",
                         "locationName": "earlierTime",
-                        "documentation": "-- | The time stamp that indicates an earlier time. If not specified, the action\n-- returns paginated results that contain configuration items that start from\n-- when the first configuration item was recorded.\n--",
+                        "documentation": "-- | The time stamp that indicates an earlier time. If not specified, the action\n-- returns paginated results that contain configuration items that start from\n-- when the first configuration item was recorded.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -3865,7 +3865,7 @@
                         "name": "_grchChronologicalOrder",
                         "shape": "ChronologicalOrder",
                         "locationName": "chronologicalOrder",
-                        "documentation": "-- | The chronological order for configuration items listed. By default the\n-- results are listed in reverse chronological order.\n--",
+                        "documentation": "-- | The chronological order for configuration items listed. By default the\n-- results are listed in reverse chronological order.",
                         "typeExposed": "Maybe ChronologicalOrder",
                         "type": "Maybe ChronologicalOrder"
                     },
@@ -3880,7 +3880,7 @@
                         "name": "_grchLimit",
                         "shape": "Limit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of configuration items returned in each page. The default\n-- is 10. You cannot specify a limit greater than 100.\n--",
+                        "documentation": "-- | The maximum number of configuration items returned in each page. The default\n-- is 10. You cannot specify a limit greater than 100.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -3895,7 +3895,7 @@
                         "name": "_grchNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | An optional parameter used for pagination of the results.\n--",
+                        "documentation": "-- | An optional parameter used for pagination of the results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3912,7 +3912,7 @@
                         "name": "_grchChronologicalOrder",
                         "shape": "ChronologicalOrder",
                         "locationName": "chronologicalOrder",
-                        "documentation": "-- | The chronological order for configuration items listed. By default the\n-- results are listed in reverse chronological order.\n--",
+                        "documentation": "-- | The chronological order for configuration items listed. By default the\n-- results are listed in reverse chronological order.",
                         "typeExposed": "Maybe ChronologicalOrder",
                         "type": "Maybe ChronologicalOrder"
                     },
@@ -3927,7 +3927,7 @@
                         "name": "_grchEarlierTime",
                         "shape": "EarlierTime",
                         "locationName": "earlierTime",
-                        "documentation": "-- | The time stamp that indicates an earlier time. If not specified, the action\n-- returns paginated results that contain configuration items that start from\n-- when the first configuration item was recorded.\n--",
+                        "documentation": "-- | The time stamp that indicates an earlier time. If not specified, the action\n-- returns paginated results that contain configuration items that start from\n-- when the first configuration item was recorded.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -3942,7 +3942,7 @@
                         "name": "_grchLaterTime",
                         "shape": "LaterTime",
                         "locationName": "laterTime",
-                        "documentation": "-- | The time stamp that indicates a later time. If not specified, current time is\n-- taken.\n--",
+                        "documentation": "-- | The time stamp that indicates a later time. If not specified, current time is\n-- taken.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe RFC822"
                     },
@@ -3957,7 +3957,7 @@
                         "name": "_grchLimit",
                         "shape": "Limit",
                         "locationName": "limit",
-                        "documentation": "-- | The maximum number of configuration items returned in each page. The default\n-- is 10. You cannot specify a limit greater than 100.\n--",
+                        "documentation": "-- | The maximum number of configuration items returned in each page. The default\n-- is 10. You cannot specify a limit greater than 100.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -3972,7 +3972,7 @@
                         "name": "_grchNextToken",
                         "shape": "NextToken",
                         "locationName": "nextToken",
-                        "documentation": "-- | An optional parameter used for pagination of the results.\n--",
+                        "documentation": "-- | An optional parameter used for pagination of the results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3987,7 +3987,7 @@
                         "name": "_grchResourceId",
                         "shape": "ResourceId",
                         "locationName": "resourceId",
-                        "documentation": "-- | The ID of the resource (for example., 'sg-xxxxxx').\n--",
+                        "documentation": "-- | The ID of the resource (for example., 'sg-xxxxxx').",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4002,7 +4002,7 @@
                         "name": "_grchResourceType",
                         "shape": "ResourceType",
                         "locationName": "resourceType",
-                        "documentation": "-- | The resource type.\n--",
+                        "documentation": "-- | The resource type.",
                         "typeExposed": "ResourceType",
                         "type": "ResourceType"
                     }
@@ -4045,7 +4045,7 @@
             "pager": null,
             "name": "PutConfigurationRecorder",
             "method": "post",
-            "documentation": "-- | Creates a new configuration recorder to record the resource configurations.\n--\n-- You can use this action to change the role ('roleARN') of an existing\n-- recorder. To change the role, call the action on the existing configuration\n-- recorder and specify a role.\n--",
+            "documentation": "-- | Creates a new configuration recorder to record the resource configurations.\n--\n-- You can use this action to change the role ('roleARN') of an existing\n-- recorder. To change the role, call the action on the existing configuration\n-- recorder and specify a role.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4069,7 +4069,7 @@
                     "name": "_pcrConfigurationRecorder",
                     "shape": "ConfigurationRecorder",
                     "locationName": "ConfigurationRecorder",
-                    "documentation": "-- | The configuration recorder object that records each configuration change made\n-- to the resources.\n--",
+                    "documentation": "-- | The configuration recorder object that records each configuration change made\n-- to the resources.",
                     "typeExposed": "ConfigurationRecorder",
                     "type": "ConfigurationRecorder"
                 },
@@ -4085,7 +4085,7 @@
                         "name": "_pcrConfigurationRecorder",
                         "shape": "ConfigurationRecorder",
                         "locationName": "ConfigurationRecorder",
-                        "documentation": "-- | The configuration recorder object that records each configuration change made\n-- to the resources.\n--",
+                        "documentation": "-- | The configuration recorder object that records each configuration change made\n-- to the resources.",
                         "typeExposed": "ConfigurationRecorder",
                         "type": "ConfigurationRecorder"
                     }
@@ -4110,7 +4110,7 @@
                         "name": "_pcrConfigurationRecorder",
                         "shape": "ConfigurationRecorder",
                         "locationName": "ConfigurationRecorder",
-                        "documentation": "-- | The configuration recorder object that records each configuration change made\n-- to the resources.\n--",
+                        "documentation": "-- | The configuration recorder object that records each configuration change made\n-- to the resources.",
                         "typeExposed": "ConfigurationRecorder",
                         "type": "ConfigurationRecorder"
                     }
@@ -4138,7 +4138,7 @@
                         "name": "_pcrConfigurationRecorder",
                         "shape": "ConfigurationRecorder",
                         "locationName": "ConfigurationRecorder",
-                        "documentation": "-- | The configuration recorder object that records each configuration change made\n-- to the resources.\n--",
+                        "documentation": "-- | The configuration recorder object that records each configuration change made\n-- to the resources.",
                         "typeExposed": "ConfigurationRecorder",
                         "type": "ConfigurationRecorder"
                     }
@@ -4181,7 +4181,7 @@
             "pager": null,
             "name": "PutDeliveryChannel",
             "method": "post",
-            "documentation": "-- | Creates a new delivery channel object to deliver the configuration\n-- information to an Amazon S3 bucket, and to an Amazon SNS topic.\n--\n-- You can use this action to change the Amazon S3 bucket or an Amazon SNS\n-- topic of the existing delivery channel. To change the Amazon S3 bucket or an\n-- Amazon SNS topic, call this action and specify the changed values for the S3\n-- bucket and the SNS topic. If you specify a different value for either the S3\n-- bucket or the SNS topic, this action will keep the existing value for the\n-- parameter that is not changed.\n--",
+            "documentation": "-- | Creates a new delivery channel object to deliver the configuration\n-- information to an Amazon S3 bucket, and to an Amazon SNS topic.\n--\n-- You can use this action to change the Amazon S3 bucket or an Amazon SNS\n-- topic of the existing delivery channel. To change the Amazon S3 bucket or an\n-- Amazon SNS topic, call this action and specify the changed values for the S3\n-- bucket and the SNS topic. If you specify a different value for either the S3\n-- bucket or the SNS topic, this action will keep the existing value for the\n-- parameter that is not changed.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4205,7 +4205,7 @@
                     "name": "_pdcDeliveryChannel",
                     "shape": "DeliveryChannel",
                     "locationName": "DeliveryChannel",
-                    "documentation": "-- | The configuration delivery channel object that delivers the configuration\n-- information to an Amazon S3 bucket, and to an Amazon SNS topic.\n--",
+                    "documentation": "-- | The configuration delivery channel object that delivers the configuration\n-- information to an Amazon S3 bucket, and to an Amazon SNS topic.",
                     "typeExposed": "DeliveryChannel",
                     "type": "DeliveryChannel"
                 },
@@ -4221,7 +4221,7 @@
                         "name": "_pdcDeliveryChannel",
                         "shape": "DeliveryChannel",
                         "locationName": "DeliveryChannel",
-                        "documentation": "-- | The configuration delivery channel object that delivers the configuration\n-- information to an Amazon S3 bucket, and to an Amazon SNS topic.\n--",
+                        "documentation": "-- | The configuration delivery channel object that delivers the configuration\n-- information to an Amazon S3 bucket, and to an Amazon SNS topic.",
                         "typeExposed": "DeliveryChannel",
                         "type": "DeliveryChannel"
                     }
@@ -4246,7 +4246,7 @@
                         "name": "_pdcDeliveryChannel",
                         "shape": "DeliveryChannel",
                         "locationName": "DeliveryChannel",
-                        "documentation": "-- | The configuration delivery channel object that delivers the configuration\n-- information to an Amazon S3 bucket, and to an Amazon SNS topic.\n--",
+                        "documentation": "-- | The configuration delivery channel object that delivers the configuration\n-- information to an Amazon S3 bucket, and to an Amazon SNS topic.",
                         "typeExposed": "DeliveryChannel",
                         "type": "DeliveryChannel"
                     }
@@ -4274,7 +4274,7 @@
                         "name": "_pdcDeliveryChannel",
                         "shape": "DeliveryChannel",
                         "locationName": "DeliveryChannel",
-                        "documentation": "-- | The configuration delivery channel object that delivers the configuration\n-- information to an Amazon S3 bucket, and to an Amazon SNS topic.\n--",
+                        "documentation": "-- | The configuration delivery channel object that delivers the configuration\n-- information to an Amazon S3 bucket, and to an Amazon SNS topic.",
                         "typeExposed": "DeliveryChannel",
                         "type": "DeliveryChannel"
                     }
@@ -4317,7 +4317,7 @@
             "pager": null,
             "name": "StartConfigurationRecorder",
             "method": "post",
-            "documentation": "-- | Starts recording configurations of all the resources associated with the\n-- account.\n--\n-- You must have created at least one delivery channel to successfully start\n-- the configuration recorder.\n--",
+            "documentation": "-- | Starts recording configurations of all the resources associated with the\n-- account.\n--\n-- You must have created at least one delivery channel to successfully start\n-- the configuration recorder.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4344,7 +4344,7 @@
                     "name": "_scr1ConfigurationRecorderName",
                     "shape": "RecorderName",
                     "locationName": "ConfigurationRecorderName",
-                    "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.\n--",
+                    "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -4360,7 +4360,7 @@
                         "name": "_scr1ConfigurationRecorderName",
                         "shape": "RecorderName",
                         "locationName": "ConfigurationRecorderName",
-                        "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.\n--",
+                        "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4385,7 +4385,7 @@
                         "name": "_scr1ConfigurationRecorderName",
                         "shape": "RecorderName",
                         "locationName": "ConfigurationRecorderName",
-                        "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.\n--",
+                        "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4413,7 +4413,7 @@
                         "name": "_scr1ConfigurationRecorderName",
                         "shape": "RecorderName",
                         "locationName": "ConfigurationRecorderName",
-                        "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.\n--",
+                        "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4456,7 +4456,7 @@
             "pager": null,
             "name": "StopConfigurationRecorder",
             "method": "post",
-            "documentation": "-- | Stops recording configurations of all the resources associated with the\n-- account.\n--",
+            "documentation": "-- | Stops recording configurations of all the resources associated with the\n-- account.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4483,7 +4483,7 @@
                     "name": "_scrConfigurationRecorderName",
                     "shape": "RecorderName",
                     "locationName": "ConfigurationRecorderName",
-                    "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.\n--",
+                    "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -4499,7 +4499,7 @@
                         "name": "_scrConfigurationRecorderName",
                         "shape": "RecorderName",
                         "locationName": "ConfigurationRecorderName",
-                        "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.\n--",
+                        "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4524,7 +4524,7 @@
                         "name": "_scrConfigurationRecorderName",
                         "shape": "RecorderName",
                         "locationName": "ConfigurationRecorderName",
-                        "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.\n--",
+                        "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4552,7 +4552,7 @@
                         "name": "_scrConfigurationRecorderName",
                         "shape": "RecorderName",
                         "locationName": "ConfigurationRecorderName",
-                        "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.\n--",
+                        "documentation": "-- | The name of the recorder object that records each configuration change made\n-- to the resources.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }

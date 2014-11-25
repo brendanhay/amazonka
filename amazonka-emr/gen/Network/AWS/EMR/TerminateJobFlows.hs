@@ -74,7 +74,6 @@ terminateJobFlows = TerminateJobFlows
     }
 
 -- | A list of job flows to be shutdown.
---
 tjfJobFlowIds :: Lens' TerminateJobFlows [Text]
 tjfJobFlowIds = lens _tjfJobFlowIds (\s a -> s { _tjfJobFlowIds = a }) . _List
 

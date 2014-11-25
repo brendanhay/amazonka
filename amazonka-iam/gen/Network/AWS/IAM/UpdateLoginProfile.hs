@@ -74,19 +74,16 @@ updateLoginProfile p1 = UpdateLoginProfile
     }
 
 -- | The new password for the specified user.
---
 ulpPassword :: Lens' UpdateLoginProfile (Maybe Text)
 ulpPassword = lens _ulpPassword (\s a -> s { _ulpPassword = a }) . mapping _Sensitive
 
 -- | Require the specified user to set a new password on next sign-in.
---
 ulpPasswordResetRequired :: Lens' UpdateLoginProfile (Maybe Bool)
 ulpPasswordResetRequired =
     lens _ulpPasswordResetRequired
         (\s a -> s { _ulpPasswordResetRequired = a })
 
 -- | The name of the user whose password you want to update.
---
 ulpUserName :: Lens' UpdateLoginProfile Text
 ulpUserName = lens _ulpUserName (\s a -> s { _ulpUserName = a })
 

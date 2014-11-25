@@ -40,6 +40,7 @@
 -- can use the /Parameter Groups/ option of the <https://console.aws.amazon.com/rds/ Amazon RDS console> or the /DescribeDBParameters/ command to verify that your DB parameter group has been created or modified.
 --
 --
+--
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBParameterGroup.html>
 module Network.AWS.RDS.CreateDBParameterGroup
     (
@@ -100,7 +101,6 @@ createDBParameterGroup p1 p2 p3 = CreateDBParameterGroup
 -- with one and only one DB parameter group family, and can be applied only to a
 -- DB instance running a database engine and engine version compatible with that
 -- DB parameter group family.
---
 cdbpg1DBParameterGroupFamily :: Lens' CreateDBParameterGroup Text
 cdbpg1DBParameterGroupFamily =
     lens _cdbpg1DBParameterGroupFamily
@@ -118,7 +118,6 @@ cdbpg1DBParameterGroupName =
         (\s a -> s { _cdbpg1DBParameterGroupName = a })
 
 -- | The description for the DB parameter group.
---
 cdbpg1Description :: Lens' CreateDBParameterGroup Text
 cdbpg1Description =
     lens _cdbpg1Description (\s a -> s { _cdbpg1Description = a })

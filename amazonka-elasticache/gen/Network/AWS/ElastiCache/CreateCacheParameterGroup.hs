@@ -79,21 +79,18 @@ createCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroup
 -- used with.
 --
 -- Valid values are: 'memcached1.4' | 'redis2.6' | 'redis2.8'
---
 ccpgCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup Text
 ccpgCacheParameterGroupFamily =
     lens _ccpgCacheParameterGroupFamily
         (\s a -> s { _ccpgCacheParameterGroupFamily = a })
 
 -- | A user-specified name for the cache parameter group.
---
 ccpgCacheParameterGroupName :: Lens' CreateCacheParameterGroup Text
 ccpgCacheParameterGroupName =
     lens _ccpgCacheParameterGroupName
         (\s a -> s { _ccpgCacheParameterGroupName = a })
 
 -- | A user-specified description for the cache parameter group.
---
 ccpgDescription :: Lens' CreateCacheParameterGroup Text
 ccpgDescription = lens _ccpgDescription (\s a -> s { _ccpgDescription = a })
 

@@ -63,7 +63,6 @@ verifyEmailIdentity p1 = VerifyEmailIdentity
     }
 
 -- | The email address to be verified.
---
 veiEmailAddress :: Lens' VerifyEmailIdentity Text
 veiEmailAddress = lens _veiEmailAddress (\s a -> s { _veiEmailAddress = a })
 

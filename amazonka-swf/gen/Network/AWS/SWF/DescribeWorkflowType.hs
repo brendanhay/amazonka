@@ -84,12 +84,10 @@ describeWorkflowType p1 p2 = DescribeWorkflowType
     }
 
 -- | The name of the domain in which this workflow type is registered.
---
 dwtDomain :: Lens' DescribeWorkflowType Text
 dwtDomain = lens _dwtDomain (\s a -> s { _dwtDomain = a })
 
 -- | The workflow type to describe.
---
 dwtWorkflowType :: Lens' DescribeWorkflowType WorkflowType
 dwtWorkflowType = lens _dwtWorkflowType (\s a -> s { _dwtWorkflowType = a })
 
@@ -115,7 +113,6 @@ describeWorkflowTypeResponse p1 p2 = DescribeWorkflowTypeResponse
     }
 
 -- | Configuration settings of the workflow type registered through 'RegisterWorkflowType'
---
 dwtrConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
 dwtrConfiguration =
     lens _dwtrConfiguration (\s a -> s { _dwtrConfiguration = a })

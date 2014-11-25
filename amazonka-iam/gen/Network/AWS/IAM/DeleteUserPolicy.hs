@@ -66,12 +66,10 @@ deleteUserPolicy p1 p2 = DeleteUserPolicy
     }
 
 -- | The name of the policy document to delete.
---
 dupPolicyName :: Lens' DeleteUserPolicy Text
 dupPolicyName = lens _dupPolicyName (\s a -> s { _dupPolicyName = a })
 
 -- | The name of the user the policy is associated with.
---
 dupUserName :: Lens' DeleteUserPolicy Text
 dupUserName = lens _dupUserName (\s a -> s { _dupUserName = a })
 

@@ -61,7 +61,6 @@ deleteUser p1 = DeleteUser
     }
 
 -- | The name of the user to delete.
---
 duUserName :: Lens' DeleteUser Text
 duUserName = lens _duUserName (\s a -> s { _duUserName = a })
 

@@ -69,7 +69,6 @@ evioDryRun :: Lens' EnableVolumeIO (Maybe Bool)
 evioDryRun = lens _evioDryRun (\s a -> s { _evioDryRun = a })
 
 -- | The ID of the volume.
---
 evioVolumeId :: Lens' EnableVolumeIO Text
 evioVolumeId = lens _evioVolumeId (\s a -> s { _evioVolumeId = a })
 

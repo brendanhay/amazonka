@@ -74,7 +74,6 @@ listStackResources p1 = ListStackResources
 -- summaries, if there is one.
 --
 -- Default: There is no default value.
---
 lsrNextToken :: Lens' ListStackResources (Maybe Text)
 lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
 
@@ -84,7 +83,6 @@ lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
 -- Running stacks: You can specify either the stack's name or its unique stack
 -- ID. Deleted stacks: You must specify the unique stack ID.  Default: There is
 -- no default value.
---
 lsrStackName :: Lens' ListStackResources Text
 lsrStackName = lens _lsrStackName (\s a -> s { _lsrStackName = a })
 
@@ -109,12 +107,10 @@ listStackResourcesResponse = ListStackResourcesResponse
 
 -- | String that identifies the start of the next list of stack resources, if
 -- there is one.
---
 lsrrNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
 lsrrNextToken = lens _lsrrNextToken (\s a -> s { _lsrrNextToken = a })
 
 -- | A list of 'StackResourceSummary' structures.
---
 lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]
 lsrrStackResourceSummaries =
     lens _lsrrStackResourceSummaries

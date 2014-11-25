@@ -30,6 +30,7 @@
 -- certificate from Elastic Load Balancing before using this command to delete
 -- the certificate. For more information, go to DeleteLoadBalancerListeners in
 -- the /Elastic Load Balancing API Reference/.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServerCertificate.html>
 module Network.AWS.IAM.DeleteServerCertificate
     (
@@ -68,7 +69,6 @@ deleteServerCertificate p1 = DeleteServerCertificate
     }
 
 -- | The name of the server certificate you want to delete.
---
 dscServerCertificateName :: Lens' DeleteServerCertificate Text
 dscServerCertificateName =
     lens _dscServerCertificateName

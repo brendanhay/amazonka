@@ -70,14 +70,12 @@ removeSourceIdentifierFromSubscription p1 p2 = RemoveSourceIdentifierFromSubscri
 
 -- | The source identifier to be removed from the subscription, such as the DB
 -- instance identifier for a DB instance or the name of a security group.
---
 rsifsSourceIdentifier :: Lens' RemoveSourceIdentifierFromSubscription Text
 rsifsSourceIdentifier =
     lens _rsifsSourceIdentifier (\s a -> s { _rsifsSourceIdentifier = a })
 
 -- | The name of the RDS event notification subscription you want to remove a
 -- source identifier from.
---
 rsifsSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscription Text
 rsifsSubscriptionName =
     lens _rsifsSubscriptionName (\s a -> s { _rsifsSubscriptionName = a })

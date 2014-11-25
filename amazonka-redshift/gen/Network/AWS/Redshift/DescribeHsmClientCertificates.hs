@@ -96,7 +96,6 @@ describeHsmClientCertificates = DescribeHsmClientCertificates
 -- | The identifier of a specific HSM client certificate for which you want
 -- information. If no identifier is specified, information is returned for all
 -- HSM client certificates owned by your AWS customer account.
---
 dhccHsmClientCertificateIdentifier :: Lens' DescribeHsmClientCertificates (Maybe Text)
 dhccHsmClientCertificateIdentifier =
     lens _dhccHsmClientCertificateIdentifier
@@ -108,7 +107,6 @@ dhccHsmClientCertificateIdentifier =
 -- field of the response. You can retrieve the next set of response records by
 -- providing the returned marker value in the 'Marker' parameter and retrying the
 -- request.
---
 dhccMarker :: Lens' DescribeHsmClientCertificates (Maybe Text)
 dhccMarker = lens _dhccMarker (\s a -> s { _dhccMarker = a })
 
@@ -120,7 +118,6 @@ dhccMarker = lens _dhccMarker (\s a -> s { _dhccMarker = a })
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
---
 dhccMaxRecords :: Lens' DescribeHsmClientCertificates (Maybe Int)
 dhccMaxRecords = lens _dhccMaxRecords (\s a -> s { _dhccMaxRecords = a })
 
@@ -130,7 +127,6 @@ dhccMaxRecords = lens _dhccMaxRecords (\s a -> s { _dhccMaxRecords = a })
 -- called 'owner' and 'environment'. If you specify both of these tag keys in the
 -- request, Amazon Redshift returns a response with the HSM client certificates
 -- that have either or both of these tag keys associated with them.
---
 dhccTagKeys :: Lens' DescribeHsmClientCertificates [Text]
 dhccTagKeys = lens _dhccTagKeys (\s a -> s { _dhccTagKeys = a }) . _List
 
@@ -140,7 +136,6 @@ dhccTagKeys = lens _dhccTagKeys (\s a -> s { _dhccTagKeys = a }) . _List
 -- values called 'admin' and 'test'. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with the HSM client certificates
 -- that have either or both of these tag values associated with them.
---
 dhccTagValues :: Lens' DescribeHsmClientCertificates [Text]
 dhccTagValues = lens _dhccTagValues (\s a -> s { _dhccTagValues = a }) . _List
 
@@ -166,7 +161,6 @@ describeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
 -- | A list of the identifiers for one or more HSM client certificates used by
 -- Amazon Redshift clusters to store and retrieve database encryption keys in an
 -- HSM.
---
 dhccrHsmClientCertificates :: Lens' DescribeHsmClientCertificatesResponse [HsmClientCertificate]
 dhccrHsmClientCertificates =
     lens _dhccrHsmClientCertificates
@@ -178,7 +172,6 @@ dhccrHsmClientCertificates =
 -- can retrieve the next set of records by providing this returned marker value
 -- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
 -- empty, all response records have been retrieved for the request.
---
 dhccrMarker :: Lens' DescribeHsmClientCertificatesResponse (Maybe Text)
 dhccrMarker = lens _dhccrMarker (\s a -> s { _dhccrMarker = a })
 

@@ -112,7 +112,6 @@ dc1FinalClusterSnapshotIdentifier =
 -- deleted.
 --
 -- The /FinalClusterSnapshotIdentifier/ parameter must be specified if /SkipFinalClusterSnapshot/ is 'false'. Default: 'false'
---
 dc1SkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
 dc1SkipFinalClusterSnapshot =
     lens _dc1SkipFinalClusterSnapshot

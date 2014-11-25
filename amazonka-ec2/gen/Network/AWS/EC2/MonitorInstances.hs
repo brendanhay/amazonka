@@ -70,7 +70,6 @@ miDryRun :: Lens' MonitorInstances (Maybe Bool)
 miDryRun = lens _miDryRun (\s a -> s { _miDryRun = a })
 
 -- | One or more instance IDs.
---
 miInstanceIds :: Lens' MonitorInstances [Text]
 miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a }) . _List
 
@@ -96,7 +95,6 @@ monitorInstancesResponse = MonitorInstancesResponse
     }
 
 -- | Monitoring information for one or more instances.
---
 mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirInstanceMonitorings =
     lens _mirInstanceMonitorings (\s a -> s { _mirInstanceMonitorings = a })

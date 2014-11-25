@@ -21,6 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Enables rotation of the specified customer master key.
+--
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKeyRotation.html>
 module Network.AWS.KMS.EnableKeyRotation
     (
@@ -60,7 +61,6 @@ enableKeyRotation p1 = EnableKeyRotation
 
 -- | Unique identifier of the customer master key for which rotation is to be
 -- enabled. This can be an ARN, an alias, or a globally unique identifier.
---
 ekrKeyId :: Lens' EnableKeyRotation Text
 ekrKeyId = lens _ekrKeyId (\s a -> s { _ekrKeyId = a })
 

@@ -76,13 +76,11 @@ uploadSigningCertificate p1 = UploadSigningCertificate
     }
 
 -- | The contents of the signing certificate.
---
 usc1CertificateBody :: Lens' UploadSigningCertificate Text
 usc1CertificateBody =
     lens _usc1CertificateBody (\s a -> s { _usc1CertificateBody = a })
 
 -- | The name of the user the signing certificate is for.
---
 usc1UserName :: Lens' UploadSigningCertificate (Maybe Text)
 usc1UserName = lens _usc1UserName (\s a -> s { _usc1UserName = a })
 
@@ -103,7 +101,6 @@ uploadSigningCertificateResponse p1 = UploadSigningCertificateResponse
     }
 
 -- | Information about the certificate.
---
 uscrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
 uscrCertificate = lens _uscrCertificate (\s a -> s { _uscrCertificate = a })
 

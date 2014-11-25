@@ -22,6 +22,7 @@
 
 -- | Gets usage details (for example, data storage) about a particular identity
 -- pool.
+--
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityPoolUsage.html>
 module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     (

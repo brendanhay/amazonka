@@ -63,7 +63,6 @@ removeEventSource p1 = RemoveEventSource
     }
 
 -- | The event source mapping ID.
---
 resUUID :: Lens' RemoveEventSource Text
 resUUID = lens _resUUID (\s a -> s { _resUUID = a })
 

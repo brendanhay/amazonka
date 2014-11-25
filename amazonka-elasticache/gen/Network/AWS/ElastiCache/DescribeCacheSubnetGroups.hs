@@ -74,7 +74,6 @@ describeCacheSubnetGroups = DescribeCacheSubnetGroups
     }
 
 -- | The name of the cache subnet group to return details for.
---
 dcsgCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsgCacheSubnetGroupName =
     lens _dcsgCacheSubnetGroupName
@@ -84,7 +83,6 @@ dcsgCacheSubnetGroupName =
 -- pagination of results from this operation. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
---
 dcsgMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 
@@ -95,7 +93,6 @@ dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
---
 dcsgMaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Int)
 dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
 
@@ -120,14 +117,12 @@ describeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
 
 -- | A list of cache subnet groups. Each element in the list contains detailed
 -- information about one group.
---
 dcsgrCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
 dcsgrCacheSubnetGroups =
     lens _dcsgrCacheSubnetGroups (\s a -> s { _dcsgrCacheSubnetGroups = a })
         . _List
 
 -- | Provides an identifier to allow retrieval of paginated results.
---
 dcsgrMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
 dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 

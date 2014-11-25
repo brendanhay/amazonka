@@ -75,19 +75,16 @@ setStatus p1 p2 = SetStatus
 
 -- | Identifies an array of objects. The corresponding objects can be either
 -- physical or components, but not a mix of both types.
---
 ssObjectIds :: Lens' SetStatus [Text]
 ssObjectIds = lens _ssObjectIds (\s a -> s { _ssObjectIds = a }) . _List
 
 -- | Identifies the pipeline that contains the objects.
---
 ssPipelineId :: Lens' SetStatus Text
 ssPipelineId = lens _ssPipelineId (\s a -> s { _ssPipelineId = a })
 
 -- | Specifies the status to be set on all the objects in 'objectIds'. For
 -- components, this can be either 'PAUSE' or 'RESUME'. For instances, this can be
 -- either 'CANCEL', 'RERUN', or 'MARK_FINISHED'.
---
 ssStatus :: Lens' SetStatus Text
 ssStatus = lens _ssStatus (\s a -> s { _ssStatus = a })
 

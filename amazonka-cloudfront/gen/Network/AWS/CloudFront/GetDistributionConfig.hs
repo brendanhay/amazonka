@@ -21,6 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Get the configuration information about a distribution.
+--
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistributionConfig.html>
 module Network.AWS.CloudFront.GetDistributionConfig
     (

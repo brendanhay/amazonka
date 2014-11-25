@@ -29,7 +29,6 @@
 -- deletion times"
 -- (http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times) on the website for our registrar partner, Gandi. Route 53 requires that you renew before the end of the renewal period that is listed on the Gandi website so we can complete processing before the deadline.
 --
---
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-EnableDomainAutoRenew.html>
 module Network.AWS.Route53Domains.EnableDomainAutoRenew
     (

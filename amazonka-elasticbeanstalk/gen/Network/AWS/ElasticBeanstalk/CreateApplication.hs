@@ -24,6 +24,7 @@
 -- no application versions.
 --
 --
+--
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplication.html>
 module Network.AWS.ElasticBeanstalk.CreateApplication
     (
@@ -72,13 +73,11 @@ createApplication p1 = CreateApplication
 --
 -- Constraint: This name must be unique within your account. If the specified
 -- name already exists, the action returns an 'InvalidParameterValue' error.
---
 caApplicationName :: Lens' CreateApplication Text
 caApplicationName =
     lens _caApplicationName (\s a -> s { _caApplicationName = a })
 
 -- | Describes the application.
---
 caDescription :: Lens' CreateApplication (Maybe Text)
 caDescription = lens _caDescription (\s a -> s { _caDescription = a })
 
@@ -98,7 +97,6 @@ createApplicationResponse = CreateApplicationResponse
     }
 
 -- | The 'ApplicationDescription' of the application.
---
 carApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
 carApplication = lens _carApplication (\s a -> s { _carApplication = a })
 

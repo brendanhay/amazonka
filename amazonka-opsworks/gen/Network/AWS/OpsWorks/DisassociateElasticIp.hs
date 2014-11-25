@@ -65,7 +65,6 @@ disassociateElasticIp p1 = DisassociateElasticIp
     }
 
 -- | The Elastic IP address.
---
 deiElasticIp :: Lens' DisassociateElasticIp Text
 deiElasticIp = lens _deiElasticIp (\s a -> s { _deiElasticIp = a })
 

@@ -128,7 +128,6 @@ requestSpotInstances p1 = RequestSpotInstances
 -- Availability Zone group.
 --
 -- Default: Instances are launched in any available Availability Zone.
---
 rsiAvailabilityZoneGroup :: Lens' RequestSpotInstances (Maybe Text)
 rsiAvailabilityZoneGroup =
     lens _rsiAvailabilityZoneGroup
@@ -140,7 +139,6 @@ rsiDryRun = lens _rsiDryRun (\s a -> s { _rsiDryRun = a })
 -- | The maximum number of Spot Instances to launch.
 --
 -- Default: 1
---
 rsiInstanceCount :: Lens' RequestSpotInstances (Maybe Int)
 rsiInstanceCount = lens _rsiInstanceCount (\s a -> s { _rsiInstanceCount = a })
 
@@ -148,7 +146,6 @@ rsiInstanceCount = lens _rsiInstanceCount (\s a -> s { _rsiInstanceCount = a })
 -- together and terminate together.
 --
 -- Default: Instances are launched and terminated individually
---
 rsiLaunchGroup :: Lens' RequestSpotInstances (Maybe Text)
 rsiLaunchGroup = lens _rsiLaunchGroup (\s a -> s { _rsiLaunchGroup = a })
 
@@ -158,14 +155,12 @@ rsiLaunchSpecification =
 
 -- | The maximum hourly price for any Spot Instance launched to fulfill the
 -- request.
---
 rsiSpotPrice :: Lens' RequestSpotInstances Text
 rsiSpotPrice = lens _rsiSpotPrice (\s a -> s { _rsiSpotPrice = a })
 
 -- | The Spot Instance request type.
 --
 -- Default: 'one-time'
---
 rsiType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
 rsiType = lens _rsiType (\s a -> s { _rsiType = a })
 
@@ -176,7 +171,6 @@ rsiType = lens _rsiType (\s a -> s { _rsiType = a })
 -- active until it expires or is canceled.
 --
 -- Default: The request is effective indefinitely.
---
 rsiValidFrom :: Lens' RequestSpotInstances (Maybe UTCTime)
 rsiValidFrom = lens _rsiValidFrom (\s a -> s { _rsiValidFrom = a }) . mapping _Time
 
@@ -186,7 +180,6 @@ rsiValidFrom = lens _rsiValidFrom (\s a -> s { _rsiValidFrom = a }) . mapping _T
 -- canceled or this date and time is reached.
 --
 -- Default: The request is effective indefinitely.
---
 rsiValidUntil :: Lens' RequestSpotInstances (Maybe UTCTime)
 rsiValidUntil = lens _rsiValidUntil (\s a -> s { _rsiValidUntil = a }) . mapping _Time
 
@@ -212,7 +205,6 @@ requestSpotInstancesResponse = RequestSpotInstancesResponse
     }
 
 -- | Information about the Spot Instance request.
---
 rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
 rsirSpotInstanceRequests =
     lens _rsirSpotInstanceRequests

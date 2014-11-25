@@ -75,12 +75,10 @@ purchaseReservedNodeOffering p1 = PurchaseReservedNodeOffering
 -- | The number of reserved nodes you want to purchase.
 --
 -- Default: '1'
---
 prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
 prnoNodeCount = lens _prnoNodeCount (\s a -> s { _prnoNodeCount = a })
 
 -- | The unique identifier of the reserved node offering you want to purchase.
---
 prnoReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
 prnoReservedNodeOfferingId =
     lens _prnoReservedNodeOfferingId

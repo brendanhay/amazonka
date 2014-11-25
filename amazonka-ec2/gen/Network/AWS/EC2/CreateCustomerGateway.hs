@@ -93,7 +93,6 @@ createCustomerGateway p1 p2 p3 = CreateCustomerGateway
 -- | For devices that support BGP, the customer gateway's BGP ASN.
 --
 -- Default: 65000
---
 ccgBgpAsn :: Lens' CreateCustomerGateway Int
 ccgBgpAsn = lens _ccgBgpAsn (\s a -> s { _ccgBgpAsn = a })
 
@@ -102,12 +101,10 @@ ccgDryRun = lens _ccgDryRun (\s a -> s { _ccgDryRun = a })
 
 -- | The Internet-routable IP address for the customer gateway's outside
 -- interface. The address must be static.
---
 ccgPublicIp :: Lens' CreateCustomerGateway Text
 ccgPublicIp = lens _ccgPublicIp (\s a -> s { _ccgPublicIp = a })
 
 -- | The type of VPN connection that this customer gateway supports ('ipsec.1').
---
 ccgType :: Lens' CreateCustomerGateway GatewayType
 ccgType = lens _ccgType (\s a -> s { _ccgType = a })
 
@@ -127,7 +124,6 @@ createCustomerGatewayResponse = CreateCustomerGatewayResponse
     }
 
 -- | Information about the customer gateway.
---
 ccgrCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
 ccgrCustomerGateway =
     lens _ccgrCustomerGateway (\s a -> s { _ccgrCustomerGateway = a })

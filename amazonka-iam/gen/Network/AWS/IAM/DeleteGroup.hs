@@ -61,7 +61,6 @@ deleteGroup p1 = DeleteGroup
     }
 
 -- | The name of the group to delete.
---
 dgGroupName :: Lens' DeleteGroup Text
 dgGroupName = lens _dgGroupName (\s a -> s { _dgGroupName = a })
 

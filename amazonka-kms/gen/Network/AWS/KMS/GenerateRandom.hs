@@ -62,7 +62,6 @@ generateRandom = GenerateRandom
 
 -- | Integer that contains the number of bytes to generate. Common values are 128,
 -- 256, 512, 1024 and so on. The current limit is 1024 bytes.
---
 grNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
 grNumberOfBytes = lens _grNumberOfBytes (\s a -> s { _grNumberOfBytes = a }) . mapping _Nat
 
@@ -82,7 +81,6 @@ generateRandomResponse = GenerateRandomResponse
     }
 
 -- | Plaintext that contains the unpredictable byte string.
---
 grrPlaintext :: Lens' GenerateRandomResponse (Maybe Base64)
 grrPlaintext = lens _grrPlaintext (\s a -> s { _grrPlaintext = a })
 

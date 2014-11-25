@@ -29,8 +29,11 @@ This repository is organised into the following directory structure:
 * [`script`](script): Scripts to manage the release and life-cycle of the service libraries.
 * [`share`](share): Makefile plumbing common to all service libraries
 
-You will typically add dependencies in your project's cabal file for `amazonka`
-and additionally the services you wish to use.
+
+## Usage
+
+You will typically add an `amazonka` dependency in your project's cabal file,
+and any additional services you wish to use.
 
 For example the `build-depends` section of a cabal file which utilises EC2 and
 S3 might look like:
@@ -42,9 +45,6 @@ build-depends:
     , amazonka-s3
     , base
 ```
-
-
-## Usage
 
 ### Transformer
 

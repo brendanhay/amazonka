@@ -123,7 +123,7 @@ timestamp :: Timestamp -> Text
 timestamp = Text.pack . show
 
 defaultTS :: Maybe Timestamp -> Timestamp
-defaultTS = fromMaybe RFC822
+defaultTS = fromMaybe ISO8601
 
 data Checksum
     = MD5

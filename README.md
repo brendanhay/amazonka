@@ -58,31 +58,26 @@ are not set, `amazonka` will attemp to retrieve IAM profile information from
 This allows you to seamlessly move between development environments (where you set the keys)
 and production EC2 instances which have an IAM role + profile assigned.
 
-Alternatively you can specify keys directly via `FromKeys`.
-
 ### Type Signatures
 
 Type families are used to associate requests with their respective error,
 signing algorithm, and response type.
 
 If you are not familiar with type families, the easiest way to translate
-ignatures or type errors is:
+signatures or type errors is:
 
-```
+```haskell
 type Response a = Either (ServiceError (Er (Sv a))) (Rs a)
 ```
 
-In a typical response the `Left` branch is a concrete `ServiceError` parameterised
-over the `Er` of the `Sv` of `a`, where `a` is the request you are sending.
-
-Translated, that is the error belonging to the service for which the request
-is being sent.
+Translated: the `Left` branch is the error type of the service
+to which the request is being sent, `a` being the request in the above alias.
 
 The `Right` branch is the successful response associated with `a`.
 
 For EC2's `DescribeInstances` operation the reduced type would be:
 
-```
+```haskell
 type Response DescribeInstances = Either (ServiceError EC2Error) DescribeInstancesResponse
 ```
 

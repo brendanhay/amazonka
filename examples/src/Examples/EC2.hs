@@ -17,21 +17,17 @@ import           Control.Lens
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.AWS
-import           Data.Monoid
-import           Data.Text               (Text)
 import qualified Data.Text               as Text
 import qualified Data.Text.IO            as Text
-import           Data.Time.Clock.POSIX
+import           Examples.Internal
 import           Network.AWS.EC2
-import           System.IO
 
-launch :: IO ()
-launch = do
-    hSetBuffering stdout LineBuffering
+launch :: Bool -> IO (Either Error RunInstancesResponse)
+launch dbg = do
+    env <- discoverEnv dbg
+    ts  <- getTimestamp
 
-    ts  <- Text.pack . show <$> getTimestamp
-    env <- getEnv NorthVirginia Discover
-    r   <- runAWST env $ do
+    runAWST env $ do
         say "Create KeyPair " ts
         k <- send (createKeyPair ts)
 
@@ -59,20 +55,15 @@ launch = do
             & riInstanceType     ?~ T2_Micro
             & riSecurityGroupIds .~ [g]
 
-        either (\e -> do
-                   say "Failed to Launch Instance " e
-                   say "Deleting SecurityGroup " g
-                   void . send $ deleteSecurityGroup & dsgGroupId ?~ g
-                   say "Deleting KeyPair " ts
-                   void . send $ deleteKeyPair ts
-                   throwAWSError e)
-               return
-               i
+        case i of
+            Right x -> return x
+            Left  e -> do
+                say "Failed to Launch Instance " e
 
-    print r
-  where
-    getTimestamp :: IO Integer
-    getTimestamp = truncate <$> getPOSIXTime
+                say "Deleting SecurityGroup " g
+                void . send $ deleteSecurityGroup & dsgGroupId ?~ g
 
-    say :: Show a => Text -> a -> AWS ()
-    say msg = liftIO . Text.putStrLn . mappend msg . Text.pack . show
+                say "Deleting KeyPair " ts
+                void . send $ deleteKeyPair ts
+
+                throwAWSError e

@@ -12,8 +12,26 @@ module Examples.Internal where
 
 import           Control.Applicative     ((<$>))
 import           Control.Lens            (set)
+import           Control.Monad.IO.Class
 import           Control.Monad.Trans.AWS
+import           Data.Monoid
+import           Data.Text               (Text)
+import qualified Data.Text               as Text
 import qualified Data.Text.IO            as Text
+import           Data.Time.Clock.POSIX
+import           System.IO
 
-discoverEnv :: IO Env
-discoverEnv = set envLogger (Debug Text.putStrLn) <$> getEnv Ireland Discover
+discoverEnv :: Bool -> IO Env
+discoverEnv False = getEnv Ireland Discover
+discoverEnv True  = set envLogger (Debug Text.putStrLn) <$> discoverEnv False
+
+say :: (MonadIO m, Show a) => Text -> a -> m ()
+say msg x = liftIO $ do
+    hSetBuffering stdout LineBuffering
+    Text.putStrLn . mappend msg . Text.pack $ show x
+
+getTimestamp :: IO Text
+getTimestamp = Text.pack . show <$> ts
+  where
+    ts :: IO Int
+    ts = truncate <$> getPOSIXTime

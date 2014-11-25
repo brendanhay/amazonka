@@ -12,12 +12,11 @@
 
 module Examples.S3 where
 
-import           Control.Monad.Trans.AWS (runAWST, send)
-import           Examples.Internal       (discoverEnv)
-import qualified Network.AWS.S3          as S3
+import Control.Monad.Trans.AWS
+import Examples.Internal
+import Network.AWS.S3
 
-listBuckets :: IO ()
-listBuckets = do
-    env <- discoverEnv
-    r   <- runAWST env $ send S3.listBuckets
-    print r
+integration :: Bool -> IO (Either Error ListBucketsResponse)
+integration dbg = do
+    env <- discoverEnv dbg
+    runAWST env $ send listBuckets

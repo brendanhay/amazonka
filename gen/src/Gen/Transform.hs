@@ -131,7 +131,9 @@ dataTypes o a s1 = res (runState run ds)
     ss = evalState share datas
 
     share = shared s1
-    datas = overriden overrides (shapes proto (s1 ^. s1Shapes))
+
+    datas = overriden overrides $
+        shapes proto (defaultTS (s1 ^. mTimestampFormat)) (s1 ^. s1Shapes)
 
     proto     = s1 ^. mProtocol
     url       = o ^. oOperationUrl
@@ -466,8 +468,9 @@ overriden = flip (Map.foldlWithKey' run)
 
     renamed m = nameOf %~ (\n -> fromMaybe n (Map.lookup (CI.mk n) m))
 
-shapes :: Protocol -> HashMap Text S1.Shape -> HashMap Text Data
-shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
+shapes :: Protocol -> Timestamp -> HashMap Text S1.Shape -> HashMap Text Data
+shapes proto time m =
+    evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
   where
     skip (Struct' x)
         | Just True <- x ^. scException = False
@@ -540,7 +543,7 @@ shapes proto m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempt
             Struct' _ -> pure (TType k)
             Double' _ -> pure (TPrim PDouble)
             Bool'   _ -> pure (TPrim PBool)
-            Time'   x -> pure (TPrim . PTime $ defaultTS (x ^. tsTimestampFormat))
+            Time'   x -> pure (TPrim . PTime $ fromMaybe time (x ^. tsTimestampFormat))
             Blob'   _ -> pure (TPrim PBlob)
 
             List'   x -> list x <$> ref fld (x ^. lstMember)

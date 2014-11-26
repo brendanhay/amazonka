@@ -70,9 +70,9 @@ data UploadPartCopy = UploadPartCopy
     { _upcBucket                         :: Text
     , _upcCopySource                     :: Text
     , _upcCopySourceIfMatch              :: Maybe Text
-    , _upcCopySourceIfModifiedSince      :: Maybe ISO8601
+    , _upcCopySourceIfModifiedSince      :: Maybe RFC822
     , _upcCopySourceIfNoneMatch          :: Maybe Text
-    , _upcCopySourceIfUnmodifiedSince    :: Maybe ISO8601
+    , _upcCopySourceIfUnmodifiedSince    :: Maybe RFC822
     , _upcCopySourceRange                :: Maybe Text
     , _upcCopySourceSSECustomerAlgorithm :: Maybe Text
     , _upcCopySourceSSECustomerKey       :: Maybe (Sensitive Text)

@@ -81,9 +81,9 @@ import qualified GHC.Exts
 data HeadObject = HeadObject
     { _hoBucket               :: Text
     , _hoIfMatch              :: Maybe Text
-    , _hoIfModifiedSince      :: Maybe ISO8601
+    , _hoIfModifiedSince      :: Maybe RFC822
     , _hoIfNoneMatch          :: Maybe Text
-    , _hoIfUnmodifiedSince    :: Maybe ISO8601
+    , _hoIfUnmodifiedSince    :: Maybe RFC822
     , _hoKey                  :: Text
     , _hoRange                :: Maybe Text
     , _hoSSECustomerAlgorithm :: Maybe Text
@@ -214,9 +214,9 @@ data HeadObjectResponse = HeadObjectResponse
     , _horContentType             :: Maybe Text
     , _horDeleteMarker            :: Maybe Bool
     , _horETag                    :: Maybe Text
-    , _horExpiration              :: Maybe ISO8601
-    , _horExpires                 :: Maybe ISO8601
-    , _horLastModified            :: Maybe ISO8601
+    , _horExpiration              :: Maybe RFC822
+    , _horExpires                 :: Maybe RFC822
+    , _horLastModified            :: Maybe RFC822
     , _horMetadata                :: Map (CI Text) Text
     , _horMissingMeta             :: Maybe Int
     , _horRestore                 :: Maybe Text

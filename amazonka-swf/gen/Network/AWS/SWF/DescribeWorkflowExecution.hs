@@ -96,7 +96,7 @@ dweExecution = lens _dweExecution (\s a -> s { _dweExecution = a })
 data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
     { _dwerExecutionConfiguration      :: WorkflowExecutionConfiguration
     , _dwerExecutionInfo               :: WorkflowExecutionInfo
-    , _dwerLatestActivityTaskTimestamp :: Maybe ISO8601
+    , _dwerLatestActivityTaskTimestamp :: Maybe POSIX
     , _dwerLatestExecutionContext      :: Maybe Text
     , _dwerOpenCounts                  :: WorkflowExecutionOpenCounts
     } deriving (Eq, Show)

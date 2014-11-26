@@ -85,7 +85,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmuContentEncoding         :: Maybe Text
     , _cmuContentLanguage         :: Maybe Text
     , _cmuContentType             :: Maybe Text
-    , _cmuExpires                 :: Maybe ISO8601
+    , _cmuExpires                 :: Maybe RFC822
     , _cmuGrantFullControl        :: Maybe Text
     , _cmuGrantRead               :: Maybe Text
     , _cmuGrantReadACP            :: Maybe Text

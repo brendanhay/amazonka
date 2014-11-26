@@ -654,7 +654,7 @@
                         "locationName": "oldestDate",
                         "documentation": "-- | Specifies the oldest start or close date and time to return.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -669,7 +669,7 @@
                         "locationName": "latestDate",
                         "documentation": "-- | Specifies the latest start or close date and time to return.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "payload": null,
@@ -687,7 +687,7 @@
                         "locationName": "oldestDate",
                         "documentation": "-- | Specifies the oldest start or close date and time to return.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     }
                 ],
                 "contentPad": 11,
@@ -708,7 +708,7 @@
                         "locationName": "latestDate",
                         "documentation": "-- | Specifies the latest start or close date and time to return.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "fields": [
@@ -725,7 +725,7 @@
                         "locationName": "latestDate",
                         "documentation": "-- | Specifies the latest start or close date and time to return.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -740,7 +740,7 @@
                         "locationName": "oldestDate",
                         "documentation": "-- | Specifies the oldest start or close date and time to return.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     }
                 ]
             },
@@ -2784,7 +2784,7 @@
                         "locationName": "creationDate",
                         "documentation": "-- | The date when this type was registered.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -2799,7 +2799,7 @@
                         "locationName": "deprecationDate",
                         "documentation": "-- | If the type is in deprecated state, then it is set to the date when the type\n-- was deprecated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "payload": null,
@@ -2847,7 +2847,7 @@
                         "locationName": "creationDate",
                         "documentation": "-- | The date when this type was registered.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     }
                 ],
                 "contentPad": 16,
@@ -2883,7 +2883,7 @@
                         "locationName": "deprecationDate",
                         "documentation": "-- | If the type is in deprecated state, then it is set to the date when the type\n-- was deprecated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "fields": [
@@ -2900,7 +2900,7 @@
                         "locationName": "creationDate",
                         "documentation": "-- | The date when this type was registered.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -2915,7 +2915,7 @@
                         "locationName": "deprecationDate",
                         "documentation": "-- | If the type is in deprecated state, then it is set to the date when the type\n-- was deprecated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -4848,7 +4848,7 @@
                         "locationName": "creationDate",
                         "documentation": "-- | The date and time this activity type was created through 'RegisterActivityType'\n-- .",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -4863,7 +4863,7 @@
                         "locationName": "deprecationDate",
                         "documentation": "-- | If DEPRECATED, the date and time 'DeprecateActivityType' was called.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "payload": null,
@@ -4911,7 +4911,7 @@
                         "locationName": "creationDate",
                         "documentation": "-- | The date and time this activity type was created through 'RegisterActivityType'\n-- .",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     }
                 ],
                 "contentPad": 16,
@@ -4947,7 +4947,7 @@
                         "locationName": "deprecationDate",
                         "documentation": "-- | If DEPRECATED, the date and time 'DeprecateActivityType' was called.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "fields": [
@@ -4979,7 +4979,7 @@
                         "locationName": "creationDate",
                         "documentation": "-- | The date and time this activity type was created through 'RegisterActivityType'\n-- .",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -4994,7 +4994,7 @@
                         "locationName": "deprecationDate",
                         "documentation": "-- | If DEPRECATED, the date and time 'DeprecateActivityType' was called.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -9702,7 +9702,7 @@
                         "locationName": "startTimestamp",
                         "documentation": "-- | The time when the execution was started.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -9717,7 +9717,7 @@
                         "locationName": "closeTimestamp",
                         "documentation": "-- | The time when the workflow execution was closed. Set only if the execution\n-- status is CLOSED.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -9840,7 +9840,7 @@
                         "locationName": "startTimestamp",
                         "documentation": "-- | The time when the execution was started.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -9876,7 +9876,7 @@
                         "locationName": "closeTimestamp",
                         "documentation": "-- | The time when the workflow execution was closed. Set only if the execution\n-- status is CLOSED.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -9983,7 +9983,7 @@
                         "locationName": "closeTimestamp",
                         "documentation": "-- | The time when the workflow execution was closed. Set only if the execution\n-- status is CLOSED.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -10043,7 +10043,7 @@
                         "locationName": "startTimestamp",
                         "documentation": "-- | The time when the execution was started.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -14043,7 +14043,7 @@
                         "locationName": "eventTimestamp",
                         "documentation": "-- | The date and time when the event occurred.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -14796,7 +14796,7 @@
                         "locationName": "eventTimestamp",
                         "documentation": "-- | The date and time when the event occurred.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -15884,7 +15884,7 @@
                         "locationName": "eventTimestamp",
                         "documentation": "-- | The date and time when the event occurred.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -20710,7 +20710,7 @@
                         "locationName": "latestActivityTaskTimestamp",
                         "documentation": "-- | The time when the last activity task was scheduled for this workflow\n-- execution. You can use this information to determine if the workflow has not\n-- made progress for an unusually long period of time and might require a\n-- corrective action.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -20800,7 +20800,7 @@
                         "locationName": "latestActivityTaskTimestamp",
                         "documentation": "-- | The time when the last activity task was scheduled for this workflow\n-- execution. You can use this information to determine if the workflow has not\n-- made progress for an unusually long period of time and might require a\n-- corrective action.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -20862,7 +20862,7 @@
                         "locationName": "latestActivityTaskTimestamp",
                         "documentation": "-- | The time when the last activity task was scheduled for this workflow\n-- execution. You can use this information to determine if the workflow has not\n-- made progress for an unusually long period of time and might require a\n-- corrective action.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,

@@ -70,12 +70,18 @@ instance Ord (Time (a :: Format)) where
         ts (Time         t) = (t, defaultTimeLocale)
         ts (LocaleTime l t) = (t, l)
 
-
 -- | This is a poorly behaved isomorphism, due to the fact 'LocaleTime' only
 -- exists for testing purposes, and we wish to compose using 'mapping'
 -- in actual usage.
+--
+-- /See:/ 'convert'.
 _Time :: Iso' (Time a) UTCTime
 _Time = iso (\case; Time a -> a; LocaleTime _ a -> a) Time
+
+-- | Safely convert between two 'Time's, unlike the '_Time' isomorphism.
+convert :: Time a -> Time b
+convert (Time         t) = Time t
+convert (LocaleTime l t) = LocaleTime l t
 
 type RFC822    = Time RFC822Format
 type ISO8601   = Time ISO8601Format
@@ -101,10 +107,6 @@ instance FromText RFC822 where
 instance FromText ISO8601 where
     parser = (convert :: RFC822 -> ISO8601) <$> parseFormattedTime
          <|> parseFormattedTime
-
-convert :: Time a -> Time b
-convert (Time         t) = Time t
-convert (LocaleTime l t) = LocaleTime l t
 
 instance FromText POSIX where
     parser = Time . posixSecondsToUTCTime . realToFrac

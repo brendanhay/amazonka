@@ -17,12 +17,12 @@ clean: $(addprefix clean-,$(DEPS)) clean-amazonka
 clean-%:
 	@make -C $* clean
 
-sdist: $(addprefix sdist-,$(DEPS)) sdist-amazonka sdist-core
+sdist: sdist-core sdist-amazonka $(addprefix sdist-,$(DEPS))
 
 sdist-%:
 	@make -C $* sdist
 
-upload: $(addprefix upload-,$(DEPS)) upload-amazonka upload-core
+upload: upload-core upload-amazonka $(addprefix upload-,$(DEPS))
 
 upload-%:
 	@make -C $* upload

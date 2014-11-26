@@ -27,3 +27,6 @@ add-sources:
 
 clean:
 	cabal clean
+
+repl:
+	cabal repl

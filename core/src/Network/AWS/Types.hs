@@ -307,8 +307,10 @@ debug :: MonadIO m => Logger -> Text -> m ()
 debug None      = const (return ())
 debug (Debug f) = liftIO . f
 
-data Endpoint = Endpoint ByteString ByteString
-    deriving (Eq, Show)
+data Endpoint = Endpoint
+    { _endpointHost  :: ByteString
+    , _endpointScope :: ByteString
+    } deriving (Eq, Show)
 
 -- | Determine the full host address and credential scope for a 'Service' within
 -- the specified 'Region'.
@@ -364,8 +366,8 @@ endpoint Service{..} r = go (CI.mk _svcPrefix)
     govcloud = "us-gov" `BS.isPrefixOf` reg
     china    = "cn-"    `BS.isPrefixOf` reg
 
-    region = flip Endpoint reg
-    global = flip Endpoint "us-east-1"
+    region h = Endpoint { _endpointHost = h, _endpointScope = reg }
+    global h = Endpoint { _endpointHost = h, _endpointScope = "us-east-1" }
 
     reg = toBS r
 

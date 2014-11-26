@@ -88,10 +88,10 @@ renderQuery :: Query -> ByteString
 renderQuery = intercalate . sort . enc Nothing
   where
     enc k (List xs)   = concatMap (enc k) xs
-    enc k (Pair (urlEncode False -> k') x)
+    enc k (Pair (urlEncode True -> k') x)
         | Just n <- k = enc (Just $ n <> "." <> k') x
         | otherwise   = enc (Just k') x
-    enc k (Value (Just (urlEncode False -> v)))
+    enc k (Value (Just (urlEncode True -> v)))
         | Just n <- k = [n <> vsep <> v]
         | otherwise   = [v]
     enc k _

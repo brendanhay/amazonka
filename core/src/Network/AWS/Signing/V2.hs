@@ -61,7 +61,7 @@ instance AWSSigner V2 where
 
         rq = clientRequest
             & method         .~ meth
-            & host           .~ host'
+            & host           .~ _endpointHost
             & path           .~ _rqPath
             & queryString    .~ toBS authorised
             & requestHeaders .~ headers
@@ -69,7 +69,7 @@ instance AWSSigner V2 where
 
         meth = toBS _rqMethod
 
-        Endpoint host' _ = endpoint svc r
+        Endpoint{..} = endpoint svc r
 
         authorised = pair "Signature" (urlEncode True signature) query
 
@@ -77,7 +77,7 @@ instance AWSSigner V2 where
             . hmacSHA256 (toBS _authSecret)
             $ BS.intercalate "\n"
                 [ meth
-                , host'
+                , _endpointHost
                 , _rqPath
                 , toBS query
                 ]

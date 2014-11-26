@@ -205,8 +205,7 @@ instance AWSService Route53 where
     type Er Route53 = RESTError
 
     service = Service
-        { _svcEndpoint     = global
-        , _svcAbbrev       = "Route53"
+        { _svcAbbrev       = "Route53"
         , _svcPrefix       = "route53"
         , _svcVersion      = "2013-04-01"
         , _svcTargetPrefix = Nothing

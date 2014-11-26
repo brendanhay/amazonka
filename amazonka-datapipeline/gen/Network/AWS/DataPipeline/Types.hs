@@ -119,8 +119,7 @@ instance AWSService DataPipeline where
     type Er DataPipeline = JSONError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "DataPipeline"
+        { _svcAbbrev       = "DataPipeline"
         , _svcPrefix       = "datapipeline"
         , _svcVersion      = "2012-10-29"
         , _svcTargetPrefix = Just "DataPipeline"

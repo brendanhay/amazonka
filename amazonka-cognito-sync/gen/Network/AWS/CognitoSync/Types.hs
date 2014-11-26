@@ -101,8 +101,7 @@ instance AWSService CognitoSync where
     type Er CognitoSync = JSONError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "CognitoSync"
+        { _svcAbbrev       = "CognitoSync"
         , _svcPrefix       = "cognito-sync"
         , _svcVersion      = "2014-06-30"
         , _svcTargetPrefix = Nothing

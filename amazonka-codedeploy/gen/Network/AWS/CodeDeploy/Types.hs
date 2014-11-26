@@ -227,8 +227,7 @@ instance AWSService CodeDeploy where
     type Er CodeDeploy = JSONError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "CodeDeploy"
+        { _svcAbbrev       = "CodeDeploy"
         , _svcPrefix       = "codedeploy"
         , _svcVersion      = "2014-10-06"
         , _svcTargetPrefix = Just "CodeDeploy_20141006"

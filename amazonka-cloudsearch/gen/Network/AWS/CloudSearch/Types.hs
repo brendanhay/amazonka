@@ -304,8 +304,7 @@ instance AWSService CloudSearch where
     type Er CloudSearch = RESTError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "CloudSearch"
+        { _svcAbbrev       = "CloudSearch"
         , _svcPrefix       = "cloudsearch"
         , _svcVersion      = "2013-01-01"
         , _svcTargetPrefix = Nothing

@@ -91,8 +91,7 @@ instance AWSService KMS where
     type Er KMS = JSONError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "KMS"
+        { _svcAbbrev       = "KMS"
         , _svcPrefix       = "kms"
         , _svcVersion      = "2014-11-01"
         , _svcTargetPrefix = Just "TrentService"

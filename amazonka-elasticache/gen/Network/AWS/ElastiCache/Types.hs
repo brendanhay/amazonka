@@ -338,8 +338,7 @@ instance AWSService ElastiCache where
     type Er ElastiCache = RESTError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "ElastiCache"
+        { _svcAbbrev       = "ElastiCache"
         , _svcPrefix       = "elasticache"
         , _svcVersion      = "2014-09-30"
         , _svcTargetPrefix = Nothing

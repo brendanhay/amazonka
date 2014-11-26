@@ -83,8 +83,7 @@ instance AWSService Lambda where
     type Er Lambda = JSONError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "Lambda"
+        { _svcAbbrev       = "Lambda"
         , _svcPrefix       = "lambda"
         , _svcVersion      = "2014-11-11"
         , _svcTargetPrefix = Nothing

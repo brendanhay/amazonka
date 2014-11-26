@@ -140,8 +140,7 @@ instance AWSService CloudWatch where
     type Er CloudWatch = RESTError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "CloudWatch"
+        { _svcAbbrev       = "CloudWatch"
         , _svcPrefix       = "monitoring"
         , _svcVersion      = "2010-08-01"
         , _svcTargetPrefix = Nothing

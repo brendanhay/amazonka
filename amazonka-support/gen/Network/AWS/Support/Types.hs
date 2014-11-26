@@ -168,8 +168,7 @@ instance AWSService Support where
     type Er Support = JSONError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "Support"
+        { _svcAbbrev       = "Support"
         , _svcPrefix       = "support"
         , _svcVersion      = "2013-04-15"
         , _svcTargetPrefix = Just "AWSSupport_20130415"

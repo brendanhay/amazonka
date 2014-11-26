@@ -158,8 +158,7 @@ instance AWSService DirectConnect where
     type Er DirectConnect = JSONError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "DirectConnect"
+        { _svcAbbrev       = "DirectConnect"
         , _svcPrefix       = "directconnect"
         , _svcVersion      = "2012-10-25"
         , _svcTargetPrefix = Just "OvertureService"

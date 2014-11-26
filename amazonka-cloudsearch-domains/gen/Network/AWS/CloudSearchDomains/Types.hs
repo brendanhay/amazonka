@@ -105,8 +105,7 @@ instance AWSService CloudSearchDomains where
     type Er CloudSearchDomains = JSONError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "CloudSearchDomains"
+        { _svcAbbrev       = "CloudSearchDomains"
         , _svcPrefix       = "cloudsearchdomain"
         , _svcVersion      = "2013-01-01"
         , _svcTargetPrefix = Nothing

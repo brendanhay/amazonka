@@ -134,8 +134,7 @@ instance AWSService Config where
     type Er Config = JSONError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "Config"
+        { _svcAbbrev       = "Config"
         , _svcPrefix       = "config"
         , _svcVersion      = "2014-11-12"
         , _svcTargetPrefix = Just "StarlingDoveService"

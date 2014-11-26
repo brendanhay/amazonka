@@ -84,8 +84,7 @@ instance AWSService SDB where
     type Er SDB = RESTError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "SDB"
+        { _svcAbbrev       = "SDB"
         , _svcPrefix       = "sdb"
         , _svcVersion      = "2009-04-15"
         , _svcTargetPrefix = Nothing

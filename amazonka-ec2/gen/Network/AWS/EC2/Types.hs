@@ -1408,8 +1408,7 @@ instance AWSService EC2 where
     type Er EC2 = EC2Error
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "EC2"
+        { _svcAbbrev       = "EC2"
         , _svcPrefix       = "ec2"
         , _svcVersion      = "2014-09-01"
         , _svcTargetPrefix = Nothing

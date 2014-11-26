@@ -275,8 +275,7 @@ instance AWSService ElasticTranscoder where
     type Er ElasticTranscoder = JSONError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "ElasticTranscoder"
+        { _svcAbbrev       = "ElasticTranscoder"
         , _svcPrefix       = "elastictranscoder"
         , _svcVersion      = "2012-09-25"
         , _svcTargetPrefix = Nothing

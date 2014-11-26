@@ -53,8 +53,7 @@ instance AWSService CloudTrail where
     type Er CloudTrail = JSONError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "CloudTrail"
+        { _svcAbbrev       = "CloudTrail"
         , _svcPrefix       = "cloudtrail"
         , _svcVersion      = "2013-11-01"
         , _svcTargetPrefix = Just "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101"

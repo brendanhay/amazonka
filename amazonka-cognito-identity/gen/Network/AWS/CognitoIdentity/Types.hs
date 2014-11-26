@@ -64,8 +64,7 @@ instance AWSService CognitoIdentity where
     type Er CognitoIdentity = JSONError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "CognitoIdentity"
+        { _svcAbbrev       = "CognitoIdentity"
         , _svcPrefix       = "cognito-identity"
         , _svcVersion      = "2014-06-30"
         , _svcTargetPrefix = Just "AWSCognitoIdentityService"

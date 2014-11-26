@@ -250,8 +250,7 @@ instance AWSService DynamoDB where
     type Er DynamoDB = JSONError
 
     service = Service
-        { _svcEndpoint     = regional
-        , _svcAbbrev       = "DynamoDB"
+        { _svcAbbrev       = "DynamoDB"
         , _svcPrefix       = "dynamodb"
         , _svcVersion      = "2012-08-10"
         , _svcTargetPrefix = Just "DynamoDB_20120810"

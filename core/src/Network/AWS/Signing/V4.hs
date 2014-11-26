@@ -136,7 +136,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
 
     rq = clientRequest
         & method         .~ meth
-        & host           .~ endpointHost
+        & host           .~ _endpointHost
         & path           .~ _rqPath
         & queryString    .~ toBS query
         & requestHeaders .~ headers
@@ -150,7 +150,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
     canonicalQuery = toBS (query & valuesOf %~ Just . fromMaybe "")
 
     headers = sortBy (comparing fst)
-        . hdr hHost endpointHost
+        . hdr hHost _endpointHost
         . hdr hAMZDate (toBS (LocaleTime l t :: AWSTime))
         $ _rqHeaders
 

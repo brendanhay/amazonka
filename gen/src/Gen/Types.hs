@@ -64,6 +64,9 @@ class ToFilePath a where
 instance ToFilePath FilePath where
     toFilePath = id
 
+instance ToFilePath Text where
+    toFilePath = Text.unpack
+
 data OrdMap a = OrdMap { ordMap :: [(Text, a)] }
     deriving (Eq, Show, Functor, Foldable, Traversable)
 
@@ -459,10 +462,12 @@ instance Ord Model where
     compare a b = comparing _mName a b <> comparing _mVersion a b
 
 data Templates = Templates
-    { _tCabal    :: Template
-    , _tService  :: Template
-    , _tReadme   :: Template
-    , _tProtocol :: Protocol -> (Template, Template)
+    { _tCabal      :: Template
+    , _tService    :: Template
+    , _tReadme     :: Template
+    , _tExCabal    :: Template
+    , _tExMakefile :: Template
+    , _tProtocol   :: Protocol -> (Template, Template)
     }
 
 dots :: FilePath -> Bool

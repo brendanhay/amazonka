@@ -803,9 +803,9 @@ store d m x =
 
 render :: FilePath -> Templates -> Stage2 -> Script FilePath
 render d Templates{..} Stage2{..} = do
-    createDir src
-
     svc <- toEnv _s2Service
+
+    createDir src
 
     renderFile "Render Service" _tService gen _s2Service svc
 
@@ -816,22 +816,32 @@ render d Templates{..} Stage2{..} = do
         =<< toEnv o
 
     renderFile "Render Cabal" _tCabal lib _s2Cabal
-        =<< toEnv _s2Cabal
+        =<< cabal
 
     renderFile "Render README" _tReadme lib "README.md"
-        =<< toEnv _s2Cabal
+        =<< cabal
+
+    createDir (ex </> "src")
+
+    renderFile "Example Cabal" _tExCabal ex
+        ("amazonka-" <> name <> "-examples.cabal")
+            =<< cabal
+
+    renderFile "Example Makefile" _tExMakefile ex "Makefile"
+        =<< cabal
 
     return lib
   where
     (typ, op) = _tProtocol (_svProtocol _s2Service)
 
-    src :: FilePath
+    name = toFilePath . Text.toLower . unAbbrev $ _svAbbrev _s2Service
+
+    cabal = toEnv _s2Cabal
+
+    ex, src, gen, lib :: FilePath
+    ex  = rel "examples"
     src = rel "src"
-
-    gen :: FilePath
     gen = rel "gen"
-
-    lib :: FilePath
     lib = rel ""
 
     rel :: ToFilePath a => a -> FilePath

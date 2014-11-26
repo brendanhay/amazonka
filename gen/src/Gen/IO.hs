@@ -49,6 +49,8 @@ loadTemplates d = do
         <$> load "cabal"
         <*> load "service"
         <*> load "readme"
+        <*> load "example-cabal"
+        <*> load "example-makefile"
 
     !x <- (,)
         <$> load "types-xml"

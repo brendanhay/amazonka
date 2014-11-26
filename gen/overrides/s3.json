@@ -20,6 +20,12 @@
                 "Name"
             ]
         },
+        "Bucket": {
+            "required": [
+                "CreatedDate",
+                "Name"
+            ]
+        },
         "Object": {
             "required": [
                 "ETag",

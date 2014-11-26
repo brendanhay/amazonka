@@ -1548,36 +1548,38 @@ instance ToXML ObjectIdentifier where
         ]
 
 data Bucket = Bucket
-    { _bCreationDate :: Maybe RFC822
-    , _bName         :: Maybe Text
+    { _bCreationDate :: RFC822
+    , _bName         :: Text
     } deriving (Eq, Ord, Show)
 
 -- | 'Bucket' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bCreationDate' @::@ 'Maybe' 'UTCTime'
+-- * 'bCreationDate' @::@ 'UTCTime'
 --
--- * 'bName' @::@ 'Maybe' 'Text'
+-- * 'bName' @::@ 'Text'
 --
-bucket :: Bucket
-bucket = Bucket
-    { _bName         = Nothing
-    , _bCreationDate = Nothing
+bucket :: Text -- ^ 'bName'
+       -> UTCTime -- ^ 'bCreationDate'
+       -> Bucket
+bucket p1 p2 = Bucket
+    { _bName         = p1
+    , _bCreationDate = withIso _Time (const id) p2
     }
 
 -- | Date the bucket was created.
-bCreationDate :: Lens' Bucket (Maybe UTCTime)
-bCreationDate = lens _bCreationDate (\s a -> s { _bCreationDate = a }) . mapping _Time
+bCreationDate :: Lens' Bucket UTCTime
+bCreationDate = lens _bCreationDate (\s a -> s { _bCreationDate = a }) . _Time
 
 -- | The name of the bucket.
-bName :: Lens' Bucket (Maybe Text)
+bName :: Lens' Bucket Text
 bName = lens _bName (\s a -> s { _bName = a })
 
 instance FromXML Bucket where
     parseXML x = Bucket
-        <$> x .@? "CreationDate"
-        <*> x .@? "Name"
+        <$> x .@  "CreationDate"
+        <*> x .@  "Name"
 
 instance ToXML Bucket where
     toXML Bucket{..} = nodes "Bucket"

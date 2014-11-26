@@ -22,7 +22,7 @@
         },
         "Bucket": {
             "required": [
-                "CreatedDate",
+                "CreationDate",
                 "Name"
             ]
         },

@@ -64,13 +64,13 @@ instance AWSSigner V3 where
 
         rq = clientRequest
             & method         .~ toBS _rqMethod
-            & host           .~ host'
+            & host           .~ _endpointHost
             & path           .~ _rqPath
             & queryString    .~ toBS _rqQuery
             & requestHeaders .~ headers
             & requestBody    .~ _bdyBody _rqBody
 
-        Endpoint host' _ = endpoint (serviceOf x) r
+        Endpoint{..} = endpoint (serviceOf x) r
 
         headers = sortBy (comparing fst)
             . hdr hAMZAuth authorisation

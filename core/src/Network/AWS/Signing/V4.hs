@@ -136,7 +136,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
 
     rq = clientRequest
         & method         .~ meth
-        & host           .~ host'
+        & host           .~ endpointHost
         & path           .~ _rqPath
         & queryString    .~ toBS query
         & requestHeaders .~ headers
@@ -145,12 +145,12 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
     meth  = toBS _rqMethod
     query = qry credentialScope signedHeaders _rqQuery
 
-    Endpoint host' scope = endpoint s r
+    Endpoint{..} = endpoint s r
 
     canonicalQuery = toBS (query & valuesOf %~ Just . fromMaybe "")
 
     headers = sortBy (comparing fst)
-        . hdr hHost host'
+        . hdr hHost endpointHost
         . hdr hAMZDate (toBS (LocaleTime l t :: AWSTime))
         $ _rqHeaders
 
@@ -182,17 +182,17 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
        , bodyHash _rqBody
        ]
 
-    requestScope =
+    scope =
         [ toBS (LocaleTime l t :: BasicTime)
-        , toBS scope
+        , toBS _endpointScope
         , toBS _svcPrefix
         , "aws4_request"
         ]
 
-    credentialScope = BS.intercalate "/" requestScope
+    credentialScope = BS.intercalate "/" scope
 
     signingKey = Fold.foldl1 hmacSHA256 $
-        maybe (toBS _authSecret) (<> toBS _authSecret) p : requestScope
+        maybe (toBS _authSecret) (<> toBS _authSecret) p : scope
 
     stringToSign = BS.intercalate "\n"
         [ algorithm

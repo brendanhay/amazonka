@@ -34,9 +34,9 @@ This repository is organised into the following directory structure:
 
 * [`amazonka`](amazonka): Monad transformer and send/receive/paginate/presign logic.
 * `amazonka-*`: Each of the individually supported Amazon Web Service libraries.
+* `amazonka-*/examples`: An example project for the parent service which can be loaded using `make install && make repl`.
 * [`core`](core): The `amazonka-core` library upon which each of the services depends.
 * [`gen`](gen): Code, templates, and assets for the `amazonka-gen` executable.
-* [`examples`](examples): An example project which can be loaded using `cabal repl`.
 * [`script`](script): Scripts to manage the release and life-cycle of the service libraries.
 * [`share`](share): Makefile plumbing common to all service libraries
 

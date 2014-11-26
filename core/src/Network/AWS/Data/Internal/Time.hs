@@ -91,10 +91,20 @@ instance TimeFormat ISO8601   where format = Tagged (iso8601DateFormat (Just "%X
 instance TimeFormat BasicTime where format = Tagged "%Y%m%d"
 instance TimeFormat AWSTime   where format = Tagged "%Y%m%dT%H%M%SZ"
 
-instance FromText RFC822    where parser = parseFormattedTime
-instance FromText ISO8601   where parser = parseFormattedTime
 instance FromText BasicTime where parser = parseFormattedTime
 instance FromText AWSTime   where parser = parseFormattedTime
+
+instance FromText RFC822 where
+    parser = (convert :: ISO8601 -> RFC822) <$> parseFormattedTime
+         <|> parseFormattedTime
+
+instance FromText ISO8601 where
+    parser = (convert :: RFC822 -> ISO8601) <$> parseFormattedTime
+         <|> parseFormattedTime
+
+convert :: Time a -> Time b
+convert (Time         t) = Time t
+convert (LocaleTime l t) = LocaleTime l t
 
 instance FromText POSIX where
     parser = Time . posixSecondsToUTCTime . realToFrac

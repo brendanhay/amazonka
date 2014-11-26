@@ -307,18 +307,6 @@ debug :: MonadIO m => Logger -> Text -> m ()
 debug None      = const (return ())
 debug (Debug f) = liftIO . f
 
--- newtype Host = Host ByteString
---     deriving (Eq, Show)
-
--- instance ToByteString Host where
---     toBS (Host h) = h
-
--- -- | The scope for a service's endpoint.
--- data Endpoint
---     = Global
---     | Regional
---       deriving (Eq)
-
 data Endpoint = Endpoint ByteString ByteString
     deriving (Eq, Show)
 
@@ -369,7 +357,6 @@ endpoint Service{..} r = go (CI.mk _svcPrefix)
         _   | china     -> region (_svcPrefix <> "." <> reg <> ".amazonaws.com.cn")
             | otherwise -> region (_svcPrefix <> "." <> reg <> ".amazonaws.com")
 
-
     virginia = r == NorthVirginia
 
     s3 = r `Set.member` except
@@ -377,8 +364,8 @@ endpoint Service{..} r = go (CI.mk _svcPrefix)
     govcloud = "us-gov" `BS.isPrefixOf` reg
     china    = "cn-"    `BS.isPrefixOf` reg
 
-    region = Endpoint reg
-    global = Endpoint "us-east-1"
+    region = flip Endpoint reg
+    global = flip Endpoint "us-east-1"
 
     reg = toBS r
 

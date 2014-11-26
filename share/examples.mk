@@ -7,7 +7,7 @@ $(error PARENT is not set)
 endif
 
 SHELL := /usr/bin/env bash
-DEPS  := core amazonka amazonka-$(PARENT)
+DEPS  := core amazonka $(PARENT)
 
 CABAL_SANDBOX_CONFIG := $(TOP)/cabal.sandbox.config
 

@@ -30,7 +30,7 @@ sendReceive :: IO (Either Error ())
 sendReceive = do
     hSetBuffering stdout LineBuffering
 
-    env  <- getEnv Ireland Discover
+    env  <- getEnv Ireland Discover <&> envLogger .~ Debug Text.putStrLn
     name <- Text.pack . show <$> getTimestamp
 
     runAWST env $ do

@@ -9,10 +9,6 @@ endif
 SHELL := /usr/bin/env bash
 DEPS  := core amazonka $(PARENT)
 
-CABAL_SANDBOX_CONFIG := $(TOP)/cabal.sandbox.config
-
-export CABAL_SANDBOX_CONFIG
-
 build:
 	cabal build
 
@@ -22,11 +18,15 @@ install: add-sources
  --disable-library-coverage \
  --only-dependencies
 
-add-sources:
+add-sources: cabal.sandbox.config
 	$(foreach dir,$(DEPS),cabal sandbox add-source $(realpath $(TOP)/$(dir));)
+
+cabal.sandbox.config:
+	cabal sandbox init
 
 clean:
 	cabal clean
+	rm -rf cabal.sandbox.config .cabal-sandbox
 
 repl:
 	cabal repl

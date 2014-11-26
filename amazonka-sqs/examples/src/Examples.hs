@@ -29,10 +29,8 @@ import           System.IO
 sendReceive :: IO (Either Error ())
 sendReceive = do
     hSetBuffering stdout LineBuffering
-
     env  <- getEnv Ireland Discover <&> envLogger .~ Debug Text.putStrLn
     name <- Text.pack . show <$> getTimestamp
-
     runAWST env $ do
         url <- setup name
         roundtrip url `finally` cleanup url

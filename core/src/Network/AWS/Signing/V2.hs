@@ -67,8 +67,9 @@ instance AWSSigner V2 where
             & requestHeaders .~ headers
             & requestBody    .~ _bdyBody _rqBody
 
-        meth  = toBS _rqMethod
-        host' = toBS (endpoint svc r)
+        meth = toBS _rqMethod
+
+        Endpoint host' _ = endpoint svc r
 
         authorised = pair "Signature" (urlEncode True signature) query
 

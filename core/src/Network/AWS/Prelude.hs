@@ -39,11 +39,6 @@ module Network.AWS.Prelude
     , Semigroup
     , Whole
 
-    -- * Endpoints
-    , global
-    , regional
-    , custom
-
     -- * Shared
     , Empty           (..)
     , Service         (..)

@@ -32,7 +32,6 @@ import           Data.ByteString              (ByteString)
 import qualified Data.ByteString.Base16       as Base16
 import qualified Data.ByteString.Char8        as BS
 import qualified Data.CaseInsensitive         as CI
-import           Data.Default.Class
 import qualified Data.Foldable                as Fold
 import           Data.Function
 import           Data.List                    (groupBy, intersperse, sortBy, sort)
@@ -144,11 +143,9 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
         & requestBody    .~ _bdyBody _rqBody
 
     meth  = toBS _rqMethod
-    host' = toBS (endpoint s r)
     query = qry credentialScope signedHeaders _rqQuery
 
-    region | isGlobal s = def
-           | otherwise  = r
+    Endpoint host' scope = endpoint s r
 
     canonicalQuery = toBS (query & valuesOf %~ Just . fromMaybe "")
 
@@ -185,17 +182,17 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
        , bodyHash _rqBody
        ]
 
-    scope =
+    requestScope =
         [ toBS (LocaleTime l t :: BasicTime)
-        , toBS region
+        , toBS scope
         , toBS _svcPrefix
         , "aws4_request"
         ]
 
-    credentialScope = BS.intercalate "/" scope
+    credentialScope = BS.intercalate "/" requestScope
 
     signingKey = Fold.foldl1 hmacSHA256 $
-        maybe (toBS _authSecret) (<> toBS _authSecret) p : scope
+        maybe (toBS _authSecret) (<> toBS _authSecret) p : requestScope
 
     stringToSign = BS.intercalate "\n"
         [ algorithm

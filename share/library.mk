@@ -13,13 +13,13 @@ export CABAL_SANDBOX_CONFIG
 build:
 	cabal build -j
 
-install: cabal.sandbox.config
+install: add-sources
 	cabal install -j \
  --disable-documentation \
  --disable-library-coverage \
  --only-dependencies
 
-cabal.sandbox.config:
+add-sources:
 	cabal sandbox add-source $(TOP)/core
 
 clean:

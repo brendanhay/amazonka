@@ -22,11 +22,8 @@ install: add-sources
  --disable-library-coverage \
  --only-dependencies
 
-add-sources: cabal.sandbox.config
-	$(foreach dir,$(DEPS),cabal sandbox add-source $(TOP)/$(dir);)
-
-cabal.sandbox.config:
-	cabal sandbox init
+add-sources:
+	$(foreach dir,$(DEPS),cabal sandbox add-source $(realpath $(TOP)/$(dir));)
 
 clean:
 	cabal clean

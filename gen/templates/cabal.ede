@@ -41,5 +41,5 @@ library
       {% endfor %}
 
     build-depends:
-          amazonka-core == 0.0.3.*
+          amazonka-core == 0.0.4.*
         , base          >= 4.7     && < 5

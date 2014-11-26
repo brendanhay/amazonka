@@ -70,7 +70,7 @@ instance AWSSigner V3 where
             & requestHeaders .~ headers
             & requestBody    .~ _bdyBody _rqBody
 
-        host' = toBS (endpoint (serviceOf x) r)
+        Endpoint host' _ = endpoint (serviceOf x) r
 
         headers = sortBy (comparing fst)
             . hdr hAMZAuth authorisation

@@ -46,12 +46,7 @@ module Network.AWS.Types
 
     -- * Endpoints
     , Endpoint      (..)
-    , Host          (..)
     , endpoint
-    , global
-    , regional
-    , custom
-    , isGlobal
 
     -- * Errors
     , ServiceError  (..)
@@ -110,9 +105,13 @@ import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
+import qualified Data.ByteString              as BS
+import qualified Data.CaseInsensitive         as CI
 import           Data.Char
 import           Data.Conduit
 import           Data.Default.Class
+import qualified Data.HashSet                 as Set
+import           Data.Hashable
 import           Data.IORef
 import           Data.Monoid
 import           Data.String
@@ -308,45 +307,97 @@ debug :: MonadIO m => Logger -> Text -> m ()
 debug None      = const (return ())
 debug (Debug f) = liftIO . f
 
-newtype Host = Host ByteString
+-- newtype Host = Host ByteString
+--     deriving (Eq, Show)
+
+-- instance ToByteString Host where
+--     toBS (Host h) = h
+
+-- -- | The scope for a service's endpoint.
+-- data Endpoint
+--     = Global
+--     | Regional
+--       deriving (Eq)
+
+data Endpoint = Endpoint ByteString ByteString
     deriving (Eq, Show)
 
-instance ToByteString Host where
-    toBS (Host h) = h
+-- | Determine the full host address and credential scope for a 'Service' within
+-- the specified 'Region'.
+endpoint :: Service a -> Region -> Endpoint
+endpoint Service{..} r = go (CI.mk _svcPrefix)
+  where
+    go = \case
+        "iam"
+            | china     -> region "iam.cn-north-1.amazonaws.com.cn"
+            | govcloud  -> region "iam.us-gov.amazonaws.com"
+            | otherwise -> global "iam.amazonaws.com"
 
--- | The scope for a service's endpoint.
-data Endpoint
-    = Global
-    | Regional
-    | Custom ByteString
-      deriving (Eq)
+        "sdb"
+            | virginia  -> region "sdb.amazonaws.com"
 
-instance IsString Endpoint where
-    fromString = Custom . fromString
+        "sts"
+            | china     -> region "sts.cn-north-1.amazonaws.com.cn"
+            | govcloud  -> region ("sts." <> reg <> ".amazonaws.com")
+            | otherwise -> global "sts.amazonaws.com"
 
--- | Determine the full host address for a 'Service within the given 'Region'.
-endpoint :: Service a -> Region -> Host
-endpoint Service{..} reg =
-    let suf = ".amazonaws.com"
-     in Host $ case _svcEndpoint of
-            Global   -> _svcPrefix <> suf
-            Regional -> _svcPrefix <> "." <> toBS reg <> suf
-            Custom x -> x
+        "s3"
+            | virginia  -> global "s3.amazonaws.com"
+            | china     -> region ("s3." <> reg <> ".amazonaws.com.cn")
+            | s3        -> region ("s3-" <> reg <> ".amazonaws.com")
 
-global, regional :: Endpoint
-global   = Global
-regional = Regional
+        "rds"
+            | virginia  -> global "rds.amazonaws.com"
 
-custom :: ByteString -> Endpoint
-custom = Custom
+        "route53"
+            | not china -> region "route53.amazonaws.com"
 
-isGlobal :: Service a -> Bool
-isGlobal = (== Global) . _svcEndpoint
+        "emr"
+            | virginia  -> global "elasticmapreduce.us-east-1.amazonaws.com"
+            | otherwise -> region (reg <> ".elasticmapreduce.amazonaws.com")
+
+        "sqs"
+            | virginia  -> global "queue.amazonaws.com"
+            | china     -> region (reg <> ".queue.amazonaws.com.cn")
+
+        "importexport"
+            | not china -> region "importexport.amazonaws.com"
+
+        "cloudfront"
+            | not china -> global "cloudfront.amazonaws.com"
+
+        _   | china     -> region (_svcPrefix <> "." <> reg <> ".amazonaws.com.cn")
+            | otherwise -> region (_svcPrefix <> "." <> reg <> ".amazonaws.com")
+
+
+    virginia = r == NorthVirginia
+
+    s3 = r `Set.member` except
+
+    govcloud = "us-gov" `BS.isPrefixOf` reg
+    china    = "cn-"    `BS.isPrefixOf` reg
+
+    region = Endpoint reg
+    global = Endpoint "us-east-1"
+
+    reg = toBS r
+
+    except = Set.fromList
+        [ GovCloud
+        , GovCloudFIPS
+        , Ireland
+        , NorthCalifornia
+        , NorthVirginia
+        , Oregon
+        , SaoPaulo
+        , Singapore
+        , Sydney
+        , Tokyo
+        ]
 
 -- | Attributes specific to an AWS service.
 data Service a = Service
     { _svcAbbrev       :: !Text
-    , _svcEndpoint     :: !Endpoint
     , _svcPrefix       :: ByteString
     , _svcVersion      :: ByteString
     , _svcTargetPrefix :: Maybe ByteString
@@ -390,6 +441,8 @@ data Region
     | GovCloudFIPS    -- ^ AWS GovCloud (FIPS 140-2) S3 Only / fips-us-gov-west-1
     | SaoPaulo        -- ^ South America / sa-east-1
       deriving (Eq, Ord, Read, Show, Generic)
+
+instance Hashable Region
 
 instance Default Region where
     def = NorthVirginia

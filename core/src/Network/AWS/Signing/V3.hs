@@ -74,7 +74,7 @@ instance AWSSigner V3 where
 
         headers = sortBy (comparing fst)
             . hdr hAMZAuth authorisation
-            . hdr hHost host'
+            . hdr hHost _endpointHost
             . hdr hDate (toBS (LocaleTime l t :: RFC822))
             $ _rqHeaders
                 ++ maybeToList ((hAMZToken,) . toBS <$> _authToken)

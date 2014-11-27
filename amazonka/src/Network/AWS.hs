@@ -47,18 +47,18 @@ module Network.AWS
     , module Network.AWS.Types
     ) where
 
-import Control.Lens
-import Control.Monad.Catch
-import Control.Monad.Except
-import Control.Monad.Trans.Resource
-import Data.Conduit
-import Data.Time
-import Network.AWS.Auth
-import Network.AWS.Data
-import Network.AWS.Internal.Log
-import Network.AWS.Signing.V4       (sign)
-import Network.AWS.Types
-import Network.HTTP.Conduit         hiding (Response)
+import           Control.Lens
+import           Control.Monad.Catch
+import           Control.Monad.Except
+import           Control.Monad.Trans.Resource
+import           Data.Conduit
+import           Data.Time
+import           Network.AWS.Auth
+import           Network.AWS.Data
+import           Network.AWS.Internal.Log
+import qualified Network.AWS.Signing.V4       as Sign
+import           Network.AWS.Types
+import           Network.HTTP.Conduit         hiding (Response)
 
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env
@@ -111,7 +111,7 @@ send Env{..} x@(request -> rq) = go `catch` er >>= response x
 
         t  <- liftIO getCurrentTime
 
-        Signed m s <- sign _envAuth _envRegion rq t
+        Signed m s <- Sign.sign _envAuth _envRegion rq t
         debug  _envLogger (build s)
         trace _envLogger (build m)
 

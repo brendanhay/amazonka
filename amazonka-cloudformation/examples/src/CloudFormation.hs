@@ -12,24 +12,17 @@
 
 module CloudFormation where
 
-import           Control.Applicative
-import           Control.Concurrent
-import           Control.Exception.Lifted
 import           Control.Lens
-import           Control.Monad
-import           Control.Monad.IO.Class
-import           Data.Monoid
-import qualified Data.Text                  as Text
+import           Control.Monad.Trans.AWS
 import qualified Data.Text.IO               as Text
-import           Data.Time.Clock.POSIX
-import           Network.AWS
 import           Network.AWS.CloudFormation
-import           Network.AWS.SQS
 import           System.IO
 
---example :: IO (Either Error ())
+example :: IO (Either Error CreateStackResponse)
 example = do
     lgr  <- newLogger Debug stdout
     env  <- getEnv Oregon Discover <&> envLogger .~ lgr
-    tmpl <- liftIO (Text.readFile "load-balanced-apache.json")
-    send env (createStack "amazonka-test-stack" & csTemplateBody ?~ tmpl)
+    tmpl <- Text.readFile "load-balanced-apache.json"
+    runAWST env . send $
+        createStack "amazonka-test-stack"
+            & csTemplateBody ?~ tmpl

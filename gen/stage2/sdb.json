@@ -241,7 +241,7 @@
                         "locationName": "Attributes",
                         "documentation": null,
                         "typeExposed": "[Attribute]",
-                        "type": "List \"Attribute\" Attribute"
+                        "type": "List \"member\" Attribute"
                     }
                 ],
                 "fields": [
@@ -258,7 +258,7 @@
                         "locationName": "Attributes",
                         "documentation": null,
                         "typeExposed": "[Attribute]",
-                        "type": "List \"Attribute\" Attribute"
+                        "type": "List \"member\" Attribute"
                     },
                     {
                         "location": "querystring",
@@ -321,7 +321,7 @@
                         "locationName": "Attributes",
                         "documentation": "-- | The list of attributes for a replaceable item.",
                         "typeExposed": "[ReplaceableAttribute]",
-                        "type": "List \"Attribute\" ReplaceableAttribute"
+                        "type": "List \"member\" ReplaceableAttribute"
                     }
                 ],
                 "fields": [
@@ -338,7 +338,7 @@
                         "locationName": "Attributes",
                         "documentation": "-- | The list of attributes for a replaceable item.",
                         "typeExposed": "[ReplaceableAttribute]",
-                        "type": "List \"Attribute\" ReplaceableAttribute"
+                        "type": "List \"member\" ReplaceableAttribute"
                     },
                     {
                         "location": "querystring",
@@ -637,7 +637,7 @@
                         "locationName": "Attributes",
                         "documentation": "-- | A list of attributes.",
                         "typeExposed": "[Attribute]",
-                        "type": "List \"Attribute\" Attribute"
+                        "type": "List \"member\" Attribute"
                     }
                 ],
                 "fields": [
@@ -669,7 +669,7 @@
                         "locationName": "Attributes",
                         "documentation": "-- | A list of attributes.",
                         "typeExposed": "[Attribute]",
-                        "type": "List \"Attribute\" Attribute"
+                        "type": "List \"member\" Attribute"
                     },
                     {
                         "location": "querystring",
@@ -804,7 +804,7 @@
                         "locationName": "Items",
                         "documentation": "-- | A list of items on which to perform the operation.",
                         "typeExposed": "[DeletableItem]",
-                        "type": "List \"Item\" DeletableItem"
+                        "type": "List \"member\" DeletableItem"
                     }
                 ],
                 "fields": [
@@ -836,7 +836,7 @@
                         "locationName": "Items",
                         "documentation": "-- | A list of items on which to perform the operation.",
                         "typeExposed": "[DeletableItem]",
-                        "type": "List \"Item\" DeletableItem"
+                        "type": "List \"member\" DeletableItem"
                     }
                 ]
             }
@@ -950,7 +950,7 @@
                         "locationName": "Items",
                         "documentation": "-- | A list of items on which to perform the operation.",
                         "typeExposed": "[ReplaceableItem]",
-                        "type": "List \"Item\" ReplaceableItem"
+                        "type": "List \"member\" ReplaceableItem"
                     }
                 ],
                 "fields": [
@@ -982,7 +982,7 @@
                         "locationName": "Items",
                         "documentation": "-- | A list of items on which to perform the operation.",
                         "typeExposed": "[ReplaceableItem]",
-                        "type": "List \"Item\" ReplaceableItem"
+                        "type": "List \"member\" ReplaceableItem"
                     }
                 ]
             }
@@ -1250,7 +1250,7 @@
                         "locationName": "Attributes",
                         "documentation": "-- | A list of Attributes. Similar to columns on a spreadsheet, attributes\n-- represent categories of data that can be assigned to items.",
                         "typeExposed": "[Attribute]",
-                        "type": "List \"Attribute\" Attribute"
+                        "type": "List \"member\" Attribute"
                     },
                     {
                         "location": "querystring",
@@ -1282,7 +1282,7 @@
                         "locationName": "Attributes",
                         "documentation": "-- | A list of Attributes. Similar to columns on a spreadsheet, attributes\n-- represent categories of data that can be assigned to items.",
                         "typeExposed": "[Attribute]",
-                        "type": "List \"Attribute\" Attribute"
+                        "type": "List \"member\" Attribute"
                     },
                     {
                         "location": "querystring",
@@ -1833,7 +1833,7 @@
                     "locationName": "Attributes",
                     "documentation": "-- | The list of attributes returned by the operation.",
                     "typeExposed": "[Attribute]",
-                    "type": "List \"Attribute\" Attribute"
+                    "type": "List \"member\" Attribute"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -1862,7 +1862,7 @@
                         "locationName": "Attributes",
                         "documentation": "-- | The list of attributes returned by the operation.",
                         "typeExposed": "[Attribute]",
-                        "type": "List \"Attribute\" Attribute"
+                        "type": "List \"member\" Attribute"
                     }
                 ],
                 "fields": [
@@ -1879,7 +1879,7 @@
                         "locationName": "Attributes",
                         "documentation": "-- | The list of attributes returned by the operation.",
                         "typeExposed": "[Attribute]",
-                        "type": "List \"Attribute\" Attribute"
+                        "type": "List \"member\" Attribute"
                     }
                 ]
             },
@@ -1992,7 +1992,7 @@
                         "locationName": "AttributeNames",
                         "documentation": "-- | The names of the attributes.",
                         "typeExposed": "[Text]",
-                        "type": "List \"AttributeName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2024,7 +2024,7 @@
                         "locationName": "AttributeNames",
                         "documentation": "-- | The names of the attributes.",
                         "typeExposed": "[Text]",
-                        "type": "List \"AttributeName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2114,7 +2114,7 @@
                         "locationName": "DomainNames",
                         "documentation": "-- | A list of domain names that match the expression.",
                         "typeExposed": "[Text]",
-                        "type": "List \"DomainName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2146,7 +2146,7 @@
                         "locationName": "DomainNames",
                         "documentation": "-- | A list of domain names that match the expression.",
                         "typeExposed": "[Text]",
-                        "type": "List \"DomainName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2428,7 +2428,7 @@
                         "locationName": "Attributes",
                         "documentation": "-- | The list of attributes.",
                         "typeExposed": "[ReplaceableAttribute]",
-                        "type": "List \"Attribute\" ReplaceableAttribute"
+                        "type": "List \"member\" ReplaceableAttribute"
                     },
                     {
                         "location": "querystring",
@@ -2460,7 +2460,7 @@
                         "locationName": "Attributes",
                         "documentation": "-- | The list of attributes.",
                         "typeExposed": "[ReplaceableAttribute]",
-                        "type": "List \"Attribute\" ReplaceableAttribute"
+                        "type": "List \"member\" ReplaceableAttribute"
                     },
                     {
                         "location": "querystring",
@@ -2549,7 +2549,7 @@
                         "locationName": "Items",
                         "documentation": "-- | A list of items that match the select expression.",
                         "typeExposed": "[Item]",
-                        "type": "List \"Item\" Item"
+                        "type": "List \"member\" Item"
                     },
                     {
                         "location": "querystring",
@@ -2581,7 +2581,7 @@
                         "locationName": "Items",
                         "documentation": "-- | A list of items that match the select expression.",
                         "typeExposed": "[Item]",
-                        "type": "List \"Item\" Item"
+                        "type": "List \"member\" Item"
                     },
                     {
                         "location": "querystring",

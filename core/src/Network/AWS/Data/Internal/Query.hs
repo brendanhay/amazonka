@@ -30,8 +30,7 @@ module Network.AWS.Data.Internal.Query
     , (=?)
     ) where
 
-import           Control.Applicative
-import           Control.Lens                         hiding (to, from)
+import           Control.Lens
 import           Data.ByteString                      (ByteString)
 import qualified Data.ByteString.Char8                as BS
 import           Data.Data
@@ -122,10 +121,6 @@ instance (ToByteString k, ToQuery v) => ToQuery (k, v) where
     toQuery (k, v) = Pair (toBS k) (toQuery v)
     {-# INLINE toQuery #-}
 
-instance (ToByteString k, ToByteString v) => ToQuery (k, Maybe v) where
-    toQuery (k, v) = Pair (toBS k) . Value $ toBS <$> v
-    {-# INLINE toQuery #-}
-
 instance ToQuery Char where
     toQuery = toQuery . BS.singleton
     {-# INLINE toQuery #-}
@@ -141,15 +136,15 @@ instance ToQuery Integer where toQuery = toQuery . toBS
 instance ToQuery Double  where toQuery = toQuery . toBS
 instance ToQuery Natural where toQuery = toQuery . toBS
 
-instance ToQuery a => ToQuery [a] where
-    toQuery = List . zipWith (\n v -> Pair (toBS n) (toQuery v)) idx
-      where
-        idx = [1..] :: [Integer]
-    {-# INLINE toQuery #-}
-
 instance ToQuery a => ToQuery (Maybe a) where
     toQuery (Just x) = toQuery x
     toQuery Nothing  = mempty
+    {-# INLINE toQuery #-}
+
+instance ToQuery a => ToQuery [a] where
+    toQuery = List . zipWith (\n v -> toBS n =? toQuery v) idx
+      where
+        idx = [1..] :: [Integer]
     {-# INLINE toQuery #-}
 
 instance ToQuery Bool where

@@ -570,7 +570,8 @@ shapes proto time m =
             | otherwise =
                 flat flatten (TMap (ann, key, val) k' v')
           where
-            ann | fromMaybe False flatten = ent
+            ann | proto == Query          = "entry"
+                | fromMaybe False flatten = ent
                 | otherwise               = "entry"
 
             ent = fromMaybe "entry" (r ^. refLocationName)

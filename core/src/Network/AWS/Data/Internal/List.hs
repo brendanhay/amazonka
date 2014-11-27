@@ -23,21 +23,23 @@
 
 module Network.AWS.Data.Internal.List where
 
-import           Control.Lens                      hiding (coerce, element)
+import           Control.Lens                         hiding (coerce, element)
 import           Control.Monad
 import           Data.Aeson
+import           Data.ByteString                      (ByteString)
 import           Data.Coerce
-import           Data.Foldable                     (Foldable)
-import           Data.List.NonEmpty                (NonEmpty(..))
+import           Data.Foldable                        (Foldable)
+import           Data.List.NonEmpty                   (NonEmpty(..))
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Proxy
-import           Data.Semigroup                    (Semigroup)
+import           Data.Semigroup                       (Semigroup)
 import           Data.String
-import qualified Data.Text                         as Text
-import qualified Data.Vector                       as Vector
+import qualified Data.Text                            as Text
+import qualified Data.Vector                          as Vector
 import           GHC.Exts
 import           GHC.TypeLits
+import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.XML
 import           Text.XML
@@ -75,11 +77,21 @@ toList1 (List (x:xs))
           = Right $ List1 (x :| xs)
 toList1 _ = Left  $ "Unexpected empty list, expected at least 1 element."
 
-instance ToQuery a => ToQuery (List e a) where
-    toQuery = toQuery . list
+toQueryList :: ToQuery a => ByteString -> [a] -> Query
+toQueryList n = mconcat . zipWith (\i v -> n =? (toBS i, v)) idx
+  where
+    idx = [1..] :: [Int]
+{-# INLINE toQueryList #-}
 
-instance ToQuery a => ToQuery (List1 e a) where
-    toQuery = toQuery . toList . list1
+instance (KnownSymbol e, ToQuery a) => ToQuery (List e a) where
+    toQuery = toQueryList n . toList . list
+      where
+        n = fromString $ symbolVal (Proxy :: Proxy e)
+
+instance (KnownSymbol e, ToQuery a) => ToQuery (List1 e a) where
+    toQuery = toQueryList n . toList . list1
+      where
+        n = fromString $ symbolVal (Proxy :: Proxy e)
 
 instance FromJSON a => FromJSON (List e a) where
     parseJSON = fmap List . parseJSON

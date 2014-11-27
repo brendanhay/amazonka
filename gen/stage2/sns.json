@@ -733,7 +733,7 @@
                         "locationName": "AWSAccountId",
                         "documentation": "-- | The AWS account IDs of the users (principals) who will be given access to the\n-- specified actions. The users must have AWS accounts, but do not need to be\n-- signed up for this service.",
                         "typeExposed": "[Text]",
-                        "type": "List \"AWSAccountId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -748,7 +748,7 @@
                         "locationName": "ActionName",
                         "documentation": "-- | The action you want to allow for the specified principal(s).\n--\n-- Valid values: any Amazon SNS action name.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ActionName\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -765,7 +765,7 @@
                         "locationName": "AWSAccountId",
                         "documentation": "-- | The AWS account IDs of the users (principals) who will be given access to the\n-- specified actions. The users must have AWS accounts, but do not need to be\n-- signed up for this service.",
                         "typeExposed": "[Text]",
-                        "type": "List \"AWSAccountId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -780,7 +780,7 @@
                         "locationName": "ActionName",
                         "documentation": "-- | The action you want to allow for the specified principal(s).\n--\n-- Valid values: any Amazon SNS action name.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ActionName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2881,7 +2881,7 @@
                         "locationName": "Endpoints",
                         "documentation": "-- | Endpoints returned for ListEndpointsByPlatformApplication action.",
                         "typeExposed": "[Endpoint]",
-                        "type": "List \"Endpoints\" Endpoint"
+                        "type": "List \"member\" Endpoint"
                     },
                     {
                         "location": "querystring",
@@ -2913,7 +2913,7 @@
                         "locationName": "Endpoints",
                         "documentation": "-- | Endpoints returned for ListEndpointsByPlatformApplication action.",
                         "typeExposed": "[Endpoint]",
-                        "type": "List \"Endpoints\" Endpoint"
+                        "type": "List \"member\" Endpoint"
                     },
                     {
                         "location": "querystring",
@@ -3101,7 +3101,7 @@
                         "locationName": "PlatformApplications",
                         "documentation": "-- | Platform applications returned when calling ListPlatformApplications action.",
                         "typeExposed": "[PlatformApplication]",
-                        "type": "List \"PlatformApplications\" PlatformApplication"
+                        "type": "List \"member\" PlatformApplication"
                     },
                     {
                         "location": "querystring",
@@ -3148,7 +3148,7 @@
                         "locationName": "PlatformApplications",
                         "documentation": "-- | Platform applications returned when calling ListPlatformApplications action.",
                         "typeExposed": "[PlatformApplication]",
-                        "type": "List \"PlatformApplications\" PlatformApplication"
+                        "type": "List \"member\" PlatformApplication"
                     }
                 ]
             },
@@ -3302,7 +3302,7 @@
                         "locationName": "Subscriptions",
                         "documentation": "-- | A list of subscriptions.",
                         "typeExposed": "[Subscription]",
-                        "type": "List \"Subscriptions\" Subscription"
+                        "type": "List \"member\" Subscription"
                     },
                     {
                         "location": "querystring",
@@ -3349,7 +3349,7 @@
                         "locationName": "Subscriptions",
                         "documentation": "-- | A list of subscriptions.",
                         "typeExposed": "[Subscription]",
-                        "type": "List \"Subscriptions\" Subscription"
+                        "type": "List \"member\" Subscription"
                     }
                 ]
             },
@@ -3503,7 +3503,7 @@
                         "locationName": "Subscriptions",
                         "documentation": "-- | A list of subscriptions.",
                         "typeExposed": "[Subscription]",
-                        "type": "List \"Subscriptions\" Subscription"
+                        "type": "List \"member\" Subscription"
                     },
                     {
                         "location": "querystring",
@@ -3550,7 +3550,7 @@
                         "locationName": "Subscriptions",
                         "documentation": "-- | A list of subscriptions.",
                         "typeExposed": "[Subscription]",
-                        "type": "List \"Subscriptions\" Subscription"
+                        "type": "List \"member\" Subscription"
                     }
                 ]
             },
@@ -3723,7 +3723,7 @@
                         "locationName": "Topics",
                         "documentation": "-- | A list of topic ARNs.",
                         "typeExposed": "[Topic]",
-                        "type": "List \"Topics\" Topic"
+                        "type": "List \"member\" Topic"
                     },
                     {
                         "location": "querystring",
@@ -3770,7 +3770,7 @@
                         "locationName": "Topics",
                         "documentation": "-- | A list of topic ARNs.",
                         "typeExposed": "[Topic]",
-                        "type": "List \"Topics\" Topic"
+                        "type": "List \"member\" Topic"
                     }
                 ]
             },

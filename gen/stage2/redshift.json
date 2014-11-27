@@ -431,7 +431,7 @@
                         "locationName": "AccountsWithRestoreAccess",
                         "documentation": "-- | A list of the AWS customer accounts authorized to restore the snapshot.\n-- Returns 'null' if no accounts are authorized. Visible only to the snapshot\n-- owner.",
                         "typeExposed": "[AccountWithRestoreAccess]",
-                        "type": "List \"AccountWithRestoreAccess\" AccountWithRestoreAccess"
+                        "type": "List \"member\" AccountWithRestoreAccess"
                     },
                     {
                         "location": "querystring",
@@ -566,7 +566,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the cluster snapshot.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -583,7 +583,7 @@
                         "locationName": "AccountsWithRestoreAccess",
                         "documentation": "-- | A list of the AWS customer accounts authorized to restore the snapshot.\n-- Returns 'null' if no accounts are authorized. Visible only to the snapshot\n-- owner.",
                         "typeExposed": "[AccountWithRestoreAccess]",
-                        "type": "List \"AccountWithRestoreAccess\" AccountWithRestoreAccess"
+                        "type": "List \"member\" AccountWithRestoreAccess"
                     },
                     {
                         "location": "querystring",
@@ -943,7 +943,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the cluster snapshot.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -1050,7 +1050,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the cluster parameter group.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -1112,7 +1112,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the cluster parameter group.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             },
@@ -1389,7 +1389,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | A list of the event categories.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1466,7 +1466,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | A list of the event categories.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1763,7 +1763,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the HSM client certificate.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -1810,7 +1810,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the HSM client certificate.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             },
@@ -1977,7 +1977,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "-- | A list of cluster security group that are associated with the cluster. Each\n-- security group is represented by an element that contains 'ClusterSecurityGroup.Name' and 'ClusterSecurityGroup.Status' subelements.\n--\n-- Cluster security groups are used when the cluster is not created in a VPC.\n-- Clusters that are created in a VPC use VPC security groups, which are listed\n-- by the VpcSecurityGroups parameter.",
                         "typeExposed": "[ClusterSecurityGroupMembership]",
-                        "type": "List \"ClusterSecurityGroup\" ClusterSecurityGroupMembership"
+                        "type": "List \"member\" ClusterSecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -1992,7 +1992,7 @@
                         "locationName": "VpcSecurityGroups",
                         "documentation": "-- | A list of Virtual Private Cloud (VPC) security groups that are associated\n-- with the cluster. This parameter is returned only if the cluster is in a VPC.",
                         "typeExposed": "[VpcSecurityGroupMembership]",
-                        "type": "List \"VpcSecurityGroup\" VpcSecurityGroupMembership"
+                        "type": "List \"member\" VpcSecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -2007,7 +2007,7 @@
                         "locationName": "ClusterParameterGroups",
                         "documentation": "-- | The list of cluster parameter groups that are associated with this cluster.",
                         "typeExposed": "[ClusterParameterGroupStatus]",
-                        "type": "List \"ClusterParameterGroup\" ClusterParameterGroupStatus"
+                        "type": "List \"member\" ClusterParameterGroupStatus"
                     },
                     {
                         "location": "querystring",
@@ -2232,7 +2232,7 @@
                         "locationName": "ClusterNodes",
                         "documentation": "-- | The nodes in a cluster.",
                         "typeExposed": "[ClusterNode]",
-                        "type": "List \"ClusterNodes\" ClusterNode"
+                        "type": "List \"member\" ClusterNode"
                     },
                     {
                         "location": "querystring",
@@ -2277,7 +2277,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the cluster.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -2384,7 +2384,7 @@
                         "locationName": "ClusterNodes",
                         "documentation": "-- | The nodes in a cluster.",
                         "typeExposed": "[ClusterNode]",
-                        "type": "List \"ClusterNodes\" ClusterNode"
+                        "type": "List \"member\" ClusterNode"
                     },
                     {
                         "location": "querystring",
@@ -2399,7 +2399,7 @@
                         "locationName": "ClusterParameterGroups",
                         "documentation": "-- | The list of cluster parameter groups that are associated with this cluster.",
                         "typeExposed": "[ClusterParameterGroupStatus]",
-                        "type": "List \"ClusterParameterGroup\" ClusterParameterGroupStatus"
+                        "type": "List \"member\" ClusterParameterGroupStatus"
                     },
                     {
                         "location": "querystring",
@@ -2444,7 +2444,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "-- | A list of cluster security group that are associated with the cluster. Each\n-- security group is represented by an element that contains 'ClusterSecurityGroup.Name' and 'ClusterSecurityGroup.Status' subelements.\n--\n-- Cluster security groups are used when the cluster is not created in a VPC.\n-- Clusters that are created in a VPC use VPC security groups, which are listed\n-- by the VpcSecurityGroups parameter.",
                         "typeExposed": "[ClusterSecurityGroupMembership]",
-                        "type": "List \"ClusterSecurityGroup\" ClusterSecurityGroupMembership"
+                        "type": "List \"member\" ClusterSecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -2729,7 +2729,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the cluster.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -2759,7 +2759,7 @@
                         "locationName": "VpcSecurityGroups",
                         "documentation": "-- | A list of Virtual Private Cloud (VPC) security groups that are associated\n-- with the cluster. This parameter is returned only if the cluster is in a VPC.",
                         "typeExposed": "[VpcSecurityGroupMembership]",
-                        "type": "List \"VpcSecurityGroup\" VpcSecurityGroupMembership"
+                        "type": "List \"member\" VpcSecurityGroupMembership"
                     }
                 ]
             },
@@ -2946,7 +2946,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the EC2 security group.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -3008,7 +3008,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the EC2 security group.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             },
@@ -3085,7 +3085,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "-- | A list of availability zones for the orderable cluster.",
                         "typeExposed": "[AvailabilityZone]",
-                        "type": "List \"AvailabilityZone\" AvailabilityZone"
+                        "type": "List \"member\" AvailabilityZone"
                     }
                 ],
                 "fields": [
@@ -3102,7 +3102,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "-- | A list of availability zones for the orderable cluster.",
                         "typeExposed": "[AvailabilityZone]",
-                        "type": "List \"AvailabilityZone\" AvailabilityZone"
+                        "type": "List \"member\" AvailabilityZone"
                     },
                     {
                         "location": "querystring",
@@ -3417,7 +3417,7 @@
                         "locationName": "EC2SecurityGroups",
                         "documentation": "-- | A list of EC2 security groups that are permitted to access clusters\n-- associated with this cluster security group.",
                         "typeExposed": "[EC2SecurityGroup]",
-                        "type": "List \"EC2SecurityGroup\" EC2SecurityGroup"
+                        "type": "List \"member\" EC2SecurityGroup"
                     },
                     {
                         "location": "querystring",
@@ -3432,7 +3432,7 @@
                         "locationName": "IPRanges",
                         "documentation": "-- | A list of IP ranges (CIDR blocks) that are permitted to access clusters\n-- associated with this cluster security group.",
                         "typeExposed": "[IPRange]",
-                        "type": "List \"IPRange\" IPRange"
+                        "type": "List \"member\" IPRange"
                     },
                     {
                         "location": "querystring",
@@ -3447,7 +3447,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the cluster security group.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -3494,7 +3494,7 @@
                         "locationName": "EC2SecurityGroups",
                         "documentation": "-- | A list of EC2 security groups that are permitted to access clusters\n-- associated with this cluster security group.",
                         "typeExposed": "[EC2SecurityGroup]",
-                        "type": "List \"EC2SecurityGroup\" EC2SecurityGroup"
+                        "type": "List \"member\" EC2SecurityGroup"
                     },
                     {
                         "location": "querystring",
@@ -3509,7 +3509,7 @@
                         "locationName": "IPRanges",
                         "documentation": "-- | A list of IP ranges (CIDR blocks) that are permitted to access clusters\n-- associated with this cluster security group.",
                         "typeExposed": "[IPRange]",
-                        "type": "List \"IPRange\" IPRange"
+                        "type": "List \"member\" IPRange"
                     },
                     {
                         "location": "querystring",
@@ -3524,7 +3524,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the cluster security group.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             },
@@ -3586,7 +3586,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | The list of cluster default parameters.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ],
                 "fields": [
@@ -3633,7 +3633,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | The list of cluster default parameters.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ]
             },
@@ -3725,7 +3725,7 @@
                         "locationName": "Subnets",
                         "documentation": "-- | A list of the VPC 'Subnet' elements.",
                         "typeExposed": "[Subnet]",
-                        "type": "List \"Subnet\" Subnet"
+                        "type": "List \"member\" Subnet"
                     },
                     {
                         "location": "querystring",
@@ -3740,7 +3740,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the cluster subnet group.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -3802,7 +3802,7 @@
                         "locationName": "Subnets",
                         "documentation": "-- | A list of the VPC 'Subnet' elements.",
                         "typeExposed": "[Subnet]",
-                        "type": "List \"Subnet\" Subnet"
+                        "type": "List \"member\" Subnet"
                     },
                     {
                         "location": "querystring",
@@ -3817,7 +3817,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the cluster subnet group.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -3880,7 +3880,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | The category of an Amazon Redshift event.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3927,7 +3927,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | The category of an Amazon Redshift event.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4189,7 +4189,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "-- | The charge to your account regardless of whether you are creating any\n-- clusters using the node offering. Recurring charges are only in effect for\n-- heavy-utilization reserved nodes.",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "List \"RecurringCharge\" RecurringCharge"
+                        "type": "List \"member\" RecurringCharge"
                     }
                 ],
                 "fields": [
@@ -4281,7 +4281,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "-- | The charge to your account regardless of whether you are creating any\n-- clusters using the node offering. Recurring charges are only in effect for\n-- heavy-utilization reserved nodes.",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "List \"RecurringCharge\" RecurringCharge"
+                        "type": "List \"member\" RecurringCharge"
                     },
                     {
                         "location": "querystring",
@@ -4508,7 +4508,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "-- | The recurring charges for the reserved node.",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "List \"RecurringCharge\" RecurringCharge"
+                        "type": "List \"member\" RecurringCharge"
                     }
                 ],
                 "fields": [
@@ -4615,7 +4615,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "-- | The recurring charges for the reserved node.",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "List \"RecurringCharge\" RecurringCharge"
+                        "type": "List \"member\" RecurringCharge"
                     },
                     {
                         "location": "querystring",
@@ -5146,7 +5146,7 @@
                         "locationName": "SourceIdsList",
                         "documentation": "-- | A list of the sources that publish events to the Amazon Redshift event\n-- notification subscription.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SourceId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5161,7 +5161,7 @@
                         "locationName": "EventCategoriesList",
                         "documentation": "-- | The list of Amazon Redshift event categories specified in the event\n-- notification subscription.\n--\n-- Values: Configuration, Management, Monitoring, Security",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5206,7 +5206,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the event subscription.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -5268,7 +5268,7 @@
                         "locationName": "EventCategoriesList",
                         "documentation": "-- | The list of Amazon Redshift event categories specified in the event\n-- notification subscription.\n--\n-- Values: Configuration, Management, Monitoring, Security",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5313,7 +5313,7 @@
                         "locationName": "SourceIdsList",
                         "documentation": "-- | A list of the sources that publish events to the Amazon Redshift event\n-- notification subscription.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SourceId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5373,7 +5373,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the event subscription.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             },
@@ -5975,7 +5975,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the IP range.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -6022,7 +6022,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the IP range.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             },
@@ -6178,7 +6178,7 @@
                         "locationName": "Events",
                         "documentation": "-- | The events in the event category.",
                         "typeExposed": "[EventInfoMap]",
-                        "type": "List \"EventInfoMap\" EventInfoMap"
+                        "type": "List \"member\" EventInfoMap"
                     }
                 ],
                 "fields": [
@@ -6195,7 +6195,7 @@
                         "locationName": "Events",
                         "documentation": "-- | The events in the event category.",
                         "typeExposed": "[EventInfoMap]",
-                        "type": "List \"EventInfoMap\" EventInfoMap"
+                        "type": "List \"member\" EventInfoMap"
                     },
                     {
                         "location": "querystring",
@@ -6302,7 +6302,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the HSM configuration.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -6379,7 +6379,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The list of tags for the HSM configuration.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             },
@@ -8047,7 +8047,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "-- | A list of security groups to be associated with this cluster.\n--\n-- Default: The default cluster security group for Amazon Redshift.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ClusterSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8062,7 +8062,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "-- | A list of Virtual Private Cloud (VPC) security groups to be associated with\n-- the cluster.\n--\n-- Default: The default VPC security group is associated with the cluster.",
                         "typeExposed": "[Text]",
-                        "type": "List \"VpcSecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8287,7 +8287,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -8394,7 +8394,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "-- | A list of security groups to be associated with this cluster.\n--\n-- Default: The default cluster security group for Amazon Redshift.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ClusterSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8649,7 +8649,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -8664,7 +8664,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "-- | A list of Virtual Private Cloud (VPC) security groups to be associated with\n-- the cluster.\n--\n-- Default: The default VPC security group is associated with the cluster.",
                         "typeExposed": "[Text]",
-                        "type": "List \"VpcSecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -8868,7 +8868,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -8930,7 +8930,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -9114,7 +9114,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -9161,7 +9161,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -9345,7 +9345,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -9392,7 +9392,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -9581,7 +9581,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "-- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a\n-- single request.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SubnetIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9596,7 +9596,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -9643,7 +9643,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "-- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a\n-- single request.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SubnetIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9658,7 +9658,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -9882,7 +9882,7 @@
                         "locationName": "SourceIds",
                         "documentation": "-- | A list of one or more identifiers of Amazon Redshift source objects. All of\n-- the objects must be of the same type as was specified in the source type\n-- parameter. The event subscription will return only events generated by the\n-- specified objects. If not specified, then events are returned for all objects\n-- within the source type specified.\n--\n-- Example: my-cluster-1, my-cluster-2\n--\n-- Example: my-snapshot-20131010",
                         "typeExposed": "[Text]",
-                        "type": "List \"SourceId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9897,7 +9897,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | Specifies the Amazon Redshift event categories to be published by the event\n-- notification subscription.\n--\n-- Values: Configuration, Management, Monitoring, Security",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9942,7 +9942,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -9974,7 +9974,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | Specifies the Amazon Redshift event categories to be published by the event\n-- notification subscription.\n--\n-- Values: Configuration, Management, Monitoring, Security",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -10019,7 +10019,7 @@
                         "locationName": "SourceIds",
                         "documentation": "-- | A list of one or more identifiers of Amazon Redshift source objects. All of\n-- the objects must be of the same type as was specified in the source type\n-- parameter. The event subscription will return only events generated by the\n-- specified objects. If not specified, then events are returned for all objects\n-- within the source type specified.\n--\n-- Example: my-cluster-1, my-cluster-2\n--\n-- Example: my-snapshot-20131010",
                         "typeExposed": "[Text]",
-                        "type": "List \"SourceId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -10064,7 +10064,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -10228,7 +10228,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -10260,7 +10260,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -10524,7 +10524,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -10631,7 +10631,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | A list of tag instances.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -10745,7 +10745,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | One or more name/value pairs to add as tags to the specified resource. Each\n-- tag name is passed in with the parameter 'tag-key' and the corresponding value\n-- is passed in with the parameter 'tag-value'. The 'tag-key' and 'tag-value'\n-- parameters are separated by a colon (:). Separate multiple tags with a space.\n-- For example, '--tags \"tag-key\"=\"owner\":\"tag-value\"=\"admin\"\"tag-key\"=\"environment\":\"tag-value\"=\"test\"\"tag-key\"=\"version\":\"tag-value\"=\"1.0\"'.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -10777,7 +10777,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | One or more name/value pairs to add as tags to the specified resource. Each\n-- tag name is passed in with the parameter 'tag-key' and the corresponding value\n-- is passed in with the parameter 'tag-value'. The 'tag-key' and 'tag-value'\n-- parameters are separated by a colon (:). Separate multiple tags with a space.\n-- For example, '--tags \"tag-key\"=\"owner\":\"tag-value\"=\"admin\"\"tag-key\"=\"environment\":\"tag-value\"=\"test\"\"tag-key\"=\"version\":\"tag-value\"=\"1.0\"'.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -12095,7 +12095,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | The tag key that you want to delete.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -12127,7 +12127,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | The tag key that you want to delete.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -12186,7 +12186,7 @@
                         "locationName": "ParameterGroups",
                         "documentation": "-- | A list of 'ClusterParameterGroup' instances. Each instance describes one\n-- cluster parameter group.",
                         "typeExposed": "[ClusterParameterGroup]",
-                        "type": "List \"ClusterParameterGroup\" ClusterParameterGroup"
+                        "type": "List \"member\" ClusterParameterGroup"
                     }
                 ],
                 "fields": [
@@ -12218,7 +12218,7 @@
                         "locationName": "ParameterGroups",
                         "documentation": "-- | A list of 'ClusterParameterGroup' instances. Each instance describes one\n-- cluster parameter group.",
                         "typeExposed": "[ClusterParameterGroup]",
-                        "type": "List \"ClusterParameterGroup\" ClusterParameterGroup"
+                        "type": "List \"member\" ClusterParameterGroup"
                     }
                 ]
             },
@@ -12359,7 +12359,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching cluster parameter\n-- groups that are associated with the specified key or keys. For example,\n-- suppose that you have parameter groups that are tagged with keys called 'owner'\n-- and 'environment'. If you specify both of these tag keys in the request, Amazon\n-- Redshift returns a response with the parameter groups that have either or\n-- both of these tag keys associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -12374,7 +12374,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching cluster\n-- parameter groups that are associated with the specified tag value or values.\n-- For example, suppose that you have parameter groups that are tagged with\n-- values called 'admin' and 'test'. If you specify both of these tag values in the\n-- request, Amazon Redshift returns a response with the parameter groups that\n-- have either or both of these tag values associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -12436,7 +12436,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching cluster parameter\n-- groups that are associated with the specified key or keys. For example,\n-- suppose that you have parameter groups that are tagged with keys called 'owner'\n-- and 'environment'. If you specify both of these tag keys in the request, Amazon\n-- Redshift returns a response with the parameter groups that have either or\n-- both of these tag keys associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -12451,7 +12451,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching cluster\n-- parameter groups that are associated with the specified tag value or values.\n-- For example, suppose that you have parameter groups that are tagged with\n-- values called 'admin' and 'test'. If you specify both of these tag values in the\n-- request, Amazon Redshift returns a response with the parameter groups that\n-- have either or both of these tag values associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -12495,7 +12495,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | A list of 'Parameter' instances. Each instance lists the parameters of one\n-- cluster parameter group.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -12542,7 +12542,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | A list of 'Parameter' instances. Each instance lists the parameters of one\n-- cluster parameter group.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ]
             },
@@ -12800,7 +12800,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "-- | A list of 'ClusterSecurityGroup' instances.",
                         "typeExposed": "[ClusterSecurityGroup]",
-                        "type": "List \"ClusterSecurityGroup\" ClusterSecurityGroup"
+                        "type": "List \"member\" ClusterSecurityGroup"
                     }
                 ],
                 "fields": [
@@ -12817,7 +12817,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "-- | A list of 'ClusterSecurityGroup' instances.",
                         "typeExposed": "[ClusterSecurityGroup]",
-                        "type": "List \"ClusterSecurityGroup\" ClusterSecurityGroup"
+                        "type": "List \"member\" ClusterSecurityGroup"
                     },
                     {
                         "location": "querystring",
@@ -12973,7 +12973,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching cluster security\n-- groups that are associated with the specified key or keys. For example,\n-- suppose that you have security groups that are tagged with keys called 'owner'\n-- and 'environment'. If you specify both of these tag keys in the request, Amazon\n-- Redshift returns a response with the security groups that have either or both\n-- of these tag keys associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -12988,7 +12988,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching cluster\n-- security groups that are associated with the specified tag value or values.\n-- For example, suppose that you have security groups that are tagged with\n-- values called 'admin' and 'test'. If you specify both of these tag values in the\n-- request, Amazon Redshift returns a response with the security groups that\n-- have either or both of these tag values associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -13050,7 +13050,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching cluster security\n-- groups that are associated with the specified key or keys. For example,\n-- suppose that you have security groups that are tagged with keys called 'owner'\n-- and 'environment'. If you specify both of these tag keys in the request, Amazon\n-- Redshift returns a response with the security groups that have either or both\n-- of these tag keys associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13065,7 +13065,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching cluster\n-- security groups that are associated with the specified tag value or values.\n-- For example, suppose that you have security groups that are tagged with\n-- values called 'admin' and 'test'. If you specify both of these tag values in the\n-- request, Amazon Redshift returns a response with the security groups that\n-- have either or both of these tag values associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -13124,7 +13124,7 @@
                         "locationName": "Snapshots",
                         "documentation": "-- | A list of 'Snapshot' instances.",
                         "typeExposed": "[Snapshot]",
-                        "type": "List \"Snapshot\" Snapshot"
+                        "type": "List \"member\" Snapshot"
                     }
                 ],
                 "fields": [
@@ -13156,7 +13156,7 @@
                         "locationName": "Snapshots",
                         "documentation": "-- | A list of 'Snapshot' instances.",
                         "typeExposed": "[Snapshot]",
-                        "type": "List \"Snapshot\" Snapshot"
+                        "type": "List \"member\" Snapshot"
                     }
                 ]
             },
@@ -13397,7 +13397,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching cluster snapshots\n-- that are associated with the specified key or keys. For example, suppose that\n-- you have snapshots that are tagged with keys called 'owner' and 'environment'. If\n-- you specify both of these tag keys in the request, Amazon Redshift returns a\n-- response with the snapshots that have either or both of these tag keys\n-- associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13412,7 +13412,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching cluster\n-- snapshots that are associated with the specified tag value or values. For\n-- example, suppose that you have snapshots that are tagged with values called 'admin' and 'test'. If you specify both of these tag values in the request, Amazon\n-- Redshift returns a response with the snapshots that have either or both of\n-- these tag values associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -13549,7 +13549,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching cluster snapshots\n-- that are associated with the specified key or keys. For example, suppose that\n-- you have snapshots that are tagged with keys called 'owner' and 'environment'. If\n-- you specify both of these tag keys in the request, Amazon Redshift returns a\n-- response with the snapshots that have either or both of these tag keys\n-- associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13564,7 +13564,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching cluster\n-- snapshots that are associated with the specified tag value or values. For\n-- example, suppose that you have snapshots that are tagged with values called 'admin' and 'test'. If you specify both of these tag values in the request, Amazon\n-- Redshift returns a response with the snapshots that have either or both of\n-- these tag values associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -13623,7 +13623,7 @@
                         "locationName": "ClusterSubnetGroups",
                         "documentation": "-- | A list of 'ClusterSubnetGroup' instances.",
                         "typeExposed": "[ClusterSubnetGroup]",
-                        "type": "List \"ClusterSubnetGroup\" ClusterSubnetGroup"
+                        "type": "List \"member\" ClusterSubnetGroup"
                     }
                 ],
                 "fields": [
@@ -13640,7 +13640,7 @@
                         "locationName": "ClusterSubnetGroups",
                         "documentation": "-- | A list of 'ClusterSubnetGroup' instances.",
                         "typeExposed": "[ClusterSubnetGroup]",
-                        "type": "List \"ClusterSubnetGroup\" ClusterSubnetGroup"
+                        "type": "List \"member\" ClusterSubnetGroup"
                     },
                     {
                         "location": "querystring",
@@ -13796,7 +13796,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching cluster subnet\n-- groups that are associated with the specified key or keys. For example,\n-- suppose that you have subnet groups that are tagged with keys called 'owner'\n-- and 'environment'. If you specify both of these tag keys in the request, Amazon\n-- Redshift returns a response with the subnet groups that have either or both\n-- of these tag keys associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13811,7 +13811,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching cluster\n-- subnet groups that are associated with the specified tag value or values. For\n-- example, suppose that you have subnet groups that are tagged with values\n-- called 'admin' and 'test'. If you specify both of these tag values in the\n-- request, Amazon Redshift returns a response with the subnet groups that have\n-- either or both of these tag values associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -13873,7 +13873,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching cluster subnet\n-- groups that are associated with the specified key or keys. For example,\n-- suppose that you have subnet groups that are tagged with keys called 'owner'\n-- and 'environment'. If you specify both of these tag keys in the request, Amazon\n-- Redshift returns a response with the subnet groups that have either or both\n-- of these tag keys associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13888,7 +13888,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching cluster\n-- subnet groups that are associated with the specified tag value or values. For\n-- example, suppose that you have subnet groups that are tagged with values\n-- called 'admin' and 'test'. If you specify both of these tag values in the\n-- request, Amazon Redshift returns a response with the subnet groups that have\n-- either or both of these tag values associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -13947,7 +13947,7 @@
                         "locationName": "ClusterVersions",
                         "documentation": "-- | A list of 'Version' elements.",
                         "typeExposed": "[ClusterVersion]",
-                        "type": "List \"ClusterVersion\" ClusterVersion"
+                        "type": "List \"member\" ClusterVersion"
                     }
                 ],
                 "fields": [
@@ -13964,7 +13964,7 @@
                         "locationName": "ClusterVersions",
                         "documentation": "-- | A list of 'Version' elements.",
                         "typeExposed": "[ClusterVersion]",
-                        "type": "List \"ClusterVersion\" ClusterVersion"
+                        "type": "List \"member\" ClusterVersion"
                     },
                     {
                         "location": "querystring",
@@ -14236,7 +14236,7 @@
                         "locationName": "Clusters",
                         "documentation": "-- | A list of 'Cluster' objects, where each object describes one cluster.",
                         "typeExposed": "[Cluster]",
-                        "type": "List \"Cluster\" Cluster"
+                        "type": "List \"member\" Cluster"
                     }
                 ],
                 "fields": [
@@ -14253,7 +14253,7 @@
                         "locationName": "Clusters",
                         "documentation": "-- | A list of 'Cluster' objects, where each object describes one cluster.",
                         "typeExposed": "[Cluster]",
-                        "type": "List \"Cluster\" Cluster"
+                        "type": "List \"member\" Cluster"
                     },
                     {
                         "location": "querystring",
@@ -14409,7 +14409,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching clusters that are\n-- associated with the specified key or keys. For example, suppose that you have\n-- clusters that are tagged with keys called 'owner' and 'environment'. If you\n-- specify both of these tag keys in the request, Amazon Redshift returns a\n-- response with the clusters that have either or both of these tag keys\n-- associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -14424,7 +14424,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching clusters that\n-- are associated with the specified tag value or values. For example, suppose\n-- that you have clusters that are tagged with values called 'admin' and 'test'. If\n-- you specify both of these tag values in the request, Amazon Redshift returns\n-- a response with the clusters that have either or both of these tag values\n-- associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -14486,7 +14486,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching clusters that are\n-- associated with the specified key or keys. For example, suppose that you have\n-- clusters that are tagged with keys called 'owner' and 'environment'. If you\n-- specify both of these tag keys in the request, Amazon Redshift returns a\n-- response with the clusters that have either or both of these tag keys\n-- associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -14501,7 +14501,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching clusters that\n-- are associated with the specified tag value or values. For example, suppose\n-- that you have clusters that are tagged with values called 'admin' and 'test'. If\n-- you specify both of these tag values in the request, Amazon Redshift returns\n-- a response with the clusters that have either or both of these tag values\n-- associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -14775,7 +14775,7 @@
                     "locationName": "EventCategoriesMapList",
                     "documentation": "-- | A list of event categories descriptions.",
                     "typeExposed": "[EventCategoriesMap]",
-                    "type": "List \"EventCategoriesMap\" EventCategoriesMap"
+                    "type": "List \"member\" EventCategoriesMap"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -14804,7 +14804,7 @@
                         "locationName": "EventCategoriesMapList",
                         "documentation": "-- | A list of event categories descriptions.",
                         "typeExposed": "[EventCategoriesMap]",
-                        "type": "List \"EventCategoriesMap\" EventCategoriesMap"
+                        "type": "List \"member\" EventCategoriesMap"
                     }
                 ],
                 "fields": [
@@ -14821,7 +14821,7 @@
                         "locationName": "EventCategoriesMapList",
                         "documentation": "-- | A list of event categories descriptions.",
                         "typeExposed": "[EventCategoriesMap]",
-                        "type": "List \"EventCategoriesMap\" EventCategoriesMap"
+                        "type": "List \"member\" EventCategoriesMap"
                     }
                 ]
             },
@@ -14981,7 +14981,7 @@
                         "locationName": "EventSubscriptionsList",
                         "documentation": "-- | A list of event subscriptions.",
                         "typeExposed": "[EventSubscription]",
-                        "type": "List \"EventSubscription\" EventSubscription"
+                        "type": "List \"member\" EventSubscription"
                     }
                 ],
                 "fields": [
@@ -14998,7 +14998,7 @@
                         "locationName": "EventSubscriptionsList",
                         "documentation": "-- | A list of event subscriptions.",
                         "typeExposed": "[EventSubscription]",
-                        "type": "List \"EventSubscription\" EventSubscription"
+                        "type": "List \"member\" EventSubscription"
                     },
                     {
                         "location": "querystring",
@@ -15235,7 +15235,7 @@
                         "locationName": "Events",
                         "documentation": "-- | A list of 'Event' instances.",
                         "typeExposed": "[Event]",
-                        "type": "List \"Event\" Event"
+                        "type": "List \"member\" Event"
                     }
                 ],
                 "fields": [
@@ -15252,7 +15252,7 @@
                         "locationName": "Events",
                         "documentation": "-- | A list of 'Event' instances.",
                         "typeExposed": "[Event]",
-                        "type": "List \"Event\" Event"
+                        "type": "List \"member\" Event"
                     },
                     {
                         "location": "querystring",
@@ -15628,7 +15628,7 @@
                         "locationName": "HsmClientCertificates",
                         "documentation": "-- | A list of the identifiers for one or more HSM client certificates used by\n-- Amazon Redshift clusters to store and retrieve database encryption keys in an\n-- HSM.",
                         "typeExposed": "[HsmClientCertificate]",
-                        "type": "List \"HsmClientCertificate\" HsmClientCertificate"
+                        "type": "List \"member\" HsmClientCertificate"
                     }
                 ],
                 "fields": [
@@ -15645,7 +15645,7 @@
                         "locationName": "HsmClientCertificates",
                         "documentation": "-- | A list of the identifiers for one or more HSM client certificates used by\n-- Amazon Redshift clusters to store and retrieve database encryption keys in an\n-- HSM.",
                         "typeExposed": "[HsmClientCertificate]",
-                        "type": "List \"HsmClientCertificate\" HsmClientCertificate"
+                        "type": "List \"member\" HsmClientCertificate"
                     },
                     {
                         "location": "querystring",
@@ -15801,7 +15801,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching HSM client\n-- certificates that are associated with the specified key or keys. For example,\n-- suppose that you have HSM client certificates that are tagged with keys\n-- called 'owner' and 'environment'. If you specify both of these tag keys in the\n-- request, Amazon Redshift returns a response with the HSM client certificates\n-- that have either or both of these tag keys associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -15816,7 +15816,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching HSM client\n-- certificates that are associated with the specified tag value or values. For\n-- example, suppose that you have HSM client certificates that are tagged with\n-- values called 'admin' and 'test'. If you specify both of these tag values in the\n-- request, Amazon Redshift returns a response with the HSM client certificates\n-- that have either or both of these tag values associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -15878,7 +15878,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching HSM client\n-- certificates that are associated with the specified key or keys. For example,\n-- suppose that you have HSM client certificates that are tagged with keys\n-- called 'owner' and 'environment'. If you specify both of these tag keys in the\n-- request, Amazon Redshift returns a response with the HSM client certificates\n-- that have either or both of these tag keys associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -15893,7 +15893,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching HSM client\n-- certificates that are associated with the specified tag value or values. For\n-- example, suppose that you have HSM client certificates that are tagged with\n-- values called 'admin' and 'test'. If you specify both of these tag values in the\n-- request, Amazon Redshift returns a response with the HSM client certificates\n-- that have either or both of these tag values associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -15952,7 +15952,7 @@
                         "locationName": "HsmConfigurations",
                         "documentation": "-- | A list of Amazon Redshift HSM configurations.",
                         "typeExposed": "[HsmConfiguration]",
-                        "type": "List \"HsmConfiguration\" HsmConfiguration"
+                        "type": "List \"member\" HsmConfiguration"
                     }
                 ],
                 "fields": [
@@ -15969,7 +15969,7 @@
                         "locationName": "HsmConfigurations",
                         "documentation": "-- | A list of Amazon Redshift HSM configurations.",
                         "typeExposed": "[HsmConfiguration]",
-                        "type": "List \"HsmConfiguration\" HsmConfiguration"
+                        "type": "List \"member\" HsmConfiguration"
                     },
                     {
                         "location": "querystring",
@@ -16125,7 +16125,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching HSM\n-- configurations that are associated with the specified key or keys. For\n-- example, suppose that you have HSM configurations that are tagged with keys\n-- called 'owner' and 'environment'. If you specify both of these tag keys in the\n-- request, Amazon Redshift returns a response with the HSM configurations that\n-- have either or both of these tag keys associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -16140,7 +16140,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching HSM\n-- configurations that are associated with the specified tag value or values.\n-- For example, suppose that you have HSM configurations that are tagged with\n-- values called 'admin' and 'test'. If you specify both of these tag values in the\n-- request, Amazon Redshift returns a response with the HSM configurations that\n-- have either or both of these tag values associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -16202,7 +16202,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching HSM\n-- configurations that are associated with the specified key or keys. For\n-- example, suppose that you have HSM configurations that are tagged with keys\n-- called 'owner' and 'environment'. If you specify both of these tag keys in the\n-- request, Amazon Redshift returns a response with the HSM configurations that\n-- have either or both of these tag keys associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -16217,7 +16217,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching HSM\n-- configurations that are associated with the specified tag value or values.\n-- For example, suppose that you have HSM configurations that are tagged with\n-- values called 'admin' and 'test'. If you specify both of these tag values in the\n-- request, Amazon Redshift returns a response with the HSM configurations that\n-- have either or both of these tag values associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -16575,7 +16575,7 @@
                         "locationName": "OrderableClusterOptions",
                         "documentation": "-- | An 'OrderableClusterOption' structure containing information about orderable\n-- options for the Cluster.",
                         "typeExposed": "[OrderableClusterOption]",
-                        "type": "List \"OrderableClusterOption\" OrderableClusterOption"
+                        "type": "List \"member\" OrderableClusterOption"
                     },
                     {
                         "location": "querystring",
@@ -16622,7 +16622,7 @@
                         "locationName": "OrderableClusterOptions",
                         "documentation": "-- | An 'OrderableClusterOption' structure containing information about orderable\n-- options for the Cluster.",
                         "typeExposed": "[OrderableClusterOption]",
-                        "type": "List \"OrderableClusterOption\" OrderableClusterOption"
+                        "type": "List \"member\" OrderableClusterOption"
                     }
                 ]
             },
@@ -16879,7 +16879,7 @@
                         "locationName": "ReservedNodeOfferings",
                         "documentation": "-- | A list of reserved node offerings.",
                         "typeExposed": "[ReservedNodeOffering]",
-                        "type": "List \"ReservedNodeOffering\" ReservedNodeOffering"
+                        "type": "List \"member\" ReservedNodeOffering"
                     }
                 ],
                 "fields": [
@@ -16911,7 +16911,7 @@
                         "locationName": "ReservedNodeOfferings",
                         "documentation": "-- | A list of reserved node offerings.",
                         "typeExposed": "[ReservedNodeOffering]",
-                        "type": "List \"ReservedNodeOffering\" ReservedNodeOffering"
+                        "type": "List \"member\" ReservedNodeOffering"
                     }
                 ]
             },
@@ -17133,7 +17133,7 @@
                         "locationName": "ReservedNodes",
                         "documentation": "-- | The list of reserved nodes.",
                         "typeExposed": "[ReservedNode]",
-                        "type": "List \"ReservedNode\" ReservedNode"
+                        "type": "List \"member\" ReservedNode"
                     }
                 ],
                 "fields": [
@@ -17165,7 +17165,7 @@
                         "locationName": "ReservedNodes",
                         "documentation": "-- | The list of reserved nodes.",
                         "typeExposed": "[ReservedNode]",
-                        "type": "List \"ReservedNode\" ReservedNode"
+                        "type": "List \"member\" ReservedNode"
                     }
                 ]
             },
@@ -17433,7 +17433,7 @@
                         "locationName": "ImportTablesCompleted",
                         "documentation": "-- | The names of tables that have been completely imported .\n--\n-- Valid Values: List of table names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ImportTablesCompleted\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -17448,7 +17448,7 @@
                         "locationName": "ImportTablesInProgress",
                         "documentation": "-- | The names of tables that are being currently imported.\n--\n-- Valid Values: List of table names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ImportTablesInProgress\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -17463,7 +17463,7 @@
                         "locationName": "ImportTablesNotStarted",
                         "documentation": "-- | The names of tables that have not been yet imported.\n--\n-- Valid Values: List of table names",
                         "typeExposed": "[Text]",
-                        "type": "List \"ImportTablesNotStarted\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -17600,7 +17600,7 @@
                         "locationName": "ImportTablesCompleted",
                         "documentation": "-- | The names of tables that have been completely imported .\n--\n-- Valid Values: List of table names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ImportTablesCompleted\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -17615,7 +17615,7 @@
                         "locationName": "ImportTablesInProgress",
                         "documentation": "-- | The names of tables that are being currently imported.\n--\n-- Valid Values: List of table names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ImportTablesInProgress\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -17630,7 +17630,7 @@
                         "locationName": "ImportTablesNotStarted",
                         "documentation": "-- | The names of tables that have not been yet imported.\n--\n-- Valid Values: List of table names",
                         "typeExposed": "[Text]",
-                        "type": "List \"ImportTablesNotStarted\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -17866,7 +17866,7 @@
                         "locationName": "TaggedResources",
                         "documentation": "-- | A list of tags with their associated resources.",
                         "typeExposed": "[TaggedResource]",
-                        "type": "List \"TaggedResource\" TaggedResource"
+                        "type": "List \"member\" TaggedResource"
                     },
                     {
                         "location": "querystring",
@@ -17913,7 +17913,7 @@
                         "locationName": "TaggedResources",
                         "documentation": "-- | A list of tags with their associated resources.",
                         "typeExposed": "[TaggedResource]",
-                        "type": "List \"TaggedResource\" TaggedResource"
+                        "type": "List \"member\" TaggedResource"
                     }
                 ]
             },
@@ -18065,7 +18065,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching resources that\n-- are associated with the specified key or keys. For example, suppose that you\n-- have resources tagged with keys called 'owner' and 'environment'. If you specify\n-- both of these tag keys in the request, Amazon Redshift returns a response\n-- with all resources that have either or both of these tag keys associated with\n-- them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -18080,7 +18080,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching resources\n-- that are associated with the specified value or values. For example, suppose\n-- that you have resources tagged with values called 'admin' and 'test'. If you\n-- specify both of these tag values in the request, Amazon Redshift returns a\n-- response with all resources that have either or both of these tag values\n-- associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -18157,7 +18157,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | A tag key or keys for which you want to return all matching resources that\n-- are associated with the specified key or keys. For example, suppose that you\n-- have resources tagged with keys called 'owner' and 'environment'. If you specify\n-- both of these tag keys in the request, Amazon Redshift returns a response\n-- with all resources that have either or both of these tag keys associated with\n-- them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKey\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -18172,7 +18172,7 @@
                         "locationName": "TagValues",
                         "documentation": "-- | A tag value or values for which you want to return all matching resources\n-- that are associated with the specified value or values. For example, suppose\n-- that you have resources tagged with values called 'admin' and 'test'. If you\n-- specify both of these tag values in the request, Amazon Redshift returns a\n-- response with all resources that have either or both of these tag values\n-- associated with them.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagValue\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -19539,7 +19539,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "-- | A list of cluster security groups to be authorized on this cluster. This\n-- change is asynchronously applied as soon as possible.\n--\n-- Security groups currently associated with the cluster, and not in the list\n-- of groups to apply, will be revoked from the cluster.\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters or hyphens First character must be\n-- a letter Cannot end with a hyphen or contain two consecutive hyphens",
                         "typeExposed": "[Text]",
-                        "type": "List \"ClusterSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -19554,7 +19554,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "-- | A list of virtual private cloud (VPC) security groups to be associated with\n-- the cluster.",
                         "typeExposed": "[Text]",
-                        "type": "List \"VpcSecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -19766,7 +19766,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "-- | A list of cluster security groups to be authorized on this cluster. This\n-- change is asynchronously applied as soon as possible.\n--\n-- Security groups currently associated with the cluster, and not in the list\n-- of groups to apply, will be revoked from the cluster.\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters or hyphens First character must be\n-- a letter Cannot end with a hyphen or contain two consecutive hyphens",
                         "typeExposed": "[Text]",
-                        "type": "List \"ClusterSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -19916,7 +19916,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "-- | A list of virtual private cloud (VPC) security groups to be associated with\n-- the cluster.",
                         "typeExposed": "[Text]",
-                        "type": "List \"VpcSecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -20095,7 +20095,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | An array of parameters to be modified. A maximum of 20 parameters can be\n-- modified in a single request.\n--\n-- For each parameter to be modified, you must supply at least the parameter\n-- name and parameter value; other name-value pairs of the parameter are\n-- optional.\n--\n-- For the workload management (WLM) configuration, you must supply all the\n-- name-value pairs in the wlm_json_configuration parameter.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ],
                 "fields": [
@@ -20127,7 +20127,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | An array of parameters to be modified. A maximum of 20 parameters can be\n-- modified in a single request.\n--\n-- For each parameter to be modified, you must supply at least the parameter\n-- name and parameter value; other name-value pairs of the parameter are\n-- optional.\n--\n-- For the workload management (WLM) configuration, you must supply all the\n-- name-value pairs in the wlm_json_configuration parameter.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ]
             }
@@ -20312,7 +20312,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "-- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a\n-- single request.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SubnetIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -20359,7 +20359,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "-- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a\n-- single request.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SubnetIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -20579,7 +20579,7 @@
                         "locationName": "SourceIds",
                         "documentation": "-- | A list of one or more identifiers of Amazon Redshift source objects. All of\n-- the objects must be of the same type as was specified in the source type\n-- parameter. The event subscription will return only events generated by the\n-- specified objects. If not specified, then events are returned for all objects\n-- within the source type specified.\n--\n-- Example: my-cluster-1, my-cluster-2\n--\n-- Example: my-snapshot-20131010",
                         "typeExposed": "[Text]",
-                        "type": "List \"SourceId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -20594,7 +20594,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | Specifies the Amazon Redshift event categories to be published by the event\n-- notification subscription.\n--\n-- Values: Configuration, Management, Monitoring, Security",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -20656,7 +20656,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | Specifies the Amazon Redshift event categories to be published by the event\n-- notification subscription.\n--\n-- Values: Configuration, Management, Monitoring, Security",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -20701,7 +20701,7 @@
                         "locationName": "SourceIds",
                         "documentation": "-- | A list of one or more identifiers of Amazon Redshift source objects. All of\n-- the objects must be of the same type as was specified in the source type\n-- parameter. The event subscription will return only events generated by the\n-- specified objects. If not specified, then events are returned for all objects\n-- within the source type specified.\n--\n-- Example: my-cluster-1, my-cluster-2\n--\n-- Example: my-snapshot-20131010",
                         "typeExposed": "[Text]",
-                        "type": "List \"SourceId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -21502,7 +21502,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | An array of names of parameters to be reset. If /ResetAllParameters/ option is\n-- not used, then at least one parameter name must be supplied.\n--\n-- Constraints: A maximum of 20 parameters can be reset in a single request.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ],
                 "fields": [
@@ -21534,7 +21534,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | An array of names of parameters to be reset. If /ResetAllParameters/ option is\n-- not used, then at least one parameter name must be supplied.\n--\n-- Constraints: A maximum of 20 parameters can be reset in a single request.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -21974,7 +21974,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "-- | A list of security groups to be associated with this cluster.\n--\n-- Default: The default cluster security group for Amazon Redshift.\n--\n-- Cluster security groups only apply to clusters outside of VPCs.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ClusterSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -21989,7 +21989,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "-- | A list of Virtual Private Cloud (VPC) security groups to be associated with\n-- the cluster.\n--\n-- Default: The default VPC security group is associated with the cluster.\n--\n-- VPC security groups only apply to clusters in VPCs.",
                         "typeExposed": "[Text]",
-                        "type": "List \"VpcSecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -22126,7 +22126,7 @@
                         "locationName": "ClusterSecurityGroups",
                         "documentation": "-- | A list of security groups to be associated with this cluster.\n--\n-- Default: The default cluster security group for Amazon Redshift.\n--\n-- Cluster security groups only apply to clusters outside of VPCs.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ClusterSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -22306,7 +22306,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "-- | A list of Virtual Private Cloud (VPC) security groups to be associated with\n-- the cluster.\n--\n-- Default: The default VPC security group is associated with the cluster.\n--\n-- VPC security groups only apply to clusters in VPCs.",
                         "typeExposed": "[Text]",
-                        "type": "List \"VpcSecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }

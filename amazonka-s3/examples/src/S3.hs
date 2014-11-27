@@ -1,4 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ExtendedDefaultRules       #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE ViewPatterns               #-}
+
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
 -- Module      : S3
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -16,18 +20,25 @@ import           Control.Applicative
 import           Control.Lens
 import           Control.Monad
 import           Control.Monad.Trans.AWS
+import           Data.ByteString.Builder (Builder)
 import           Data.Conduit
 import qualified Data.Conduit.List       as Conduit
+import           Data.Monoid
 import           Network.AWS.S3
 import           System.IO
+
+default (Builder)
 
 example :: IO (Either Error ())
 example = do
     lgr <- newLogger Info stdout
     env <- getEnv Ireland Discover <&> envLogger .~ lgr
     runAWST env $ do
+        logInfo "Listing Buckets ..."
         bs <- view lbrBuckets <$> send listBuckets
-        forM_ bs $ \b ->
-            paginate (listObjects (b ^. bName))
+        forM_ bs $ \(view bName -> b) -> do
+            logInfo $ "Listing Keys in " <> build b
+            paginate (listObjects b)
                 =$ Conduit.concatMap (view lorContents)
                 $$ Conduit.mapM_ (logInfo . view oKey)
+        logInfo "Completed."

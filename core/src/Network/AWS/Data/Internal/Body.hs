@@ -68,6 +68,9 @@ instance ToBuilder RqBody where
         , "    }"
         ]
 
+instance Show RqBody where
+    show = LBS8.unpack . Build.toLazyByteString . build . _bdyBody
+
 instance IsString RqBody where
     fromString = toBody . LBS8.pack
 

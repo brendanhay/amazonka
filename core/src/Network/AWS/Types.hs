@@ -112,7 +112,7 @@ import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           Data.Typeable
 import           GHC.Generics
-import           Network.AWS.Data             hiding ((.:), (.:?))
+import           Network.AWS.Data
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types.Header

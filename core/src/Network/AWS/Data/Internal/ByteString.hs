@@ -15,13 +15,9 @@
 
 module Network.AWS.Data.Internal.ByteString
     ( LazyByteString
-
     , ToByteString (..)
-    , showBS
-
     , ToBuilder    (..)
-    , buildBS
-
+    , showBS
     , stripBS
     ) where
 
@@ -157,6 +153,19 @@ instance ToBuilder Request where
         , "  request version   = " <> build (requestVersion  x)
         , "}"
         ]
+
+instance ToBuilder (Response a) where
+    build x = mconcat $ intersperse "\n"
+        [ "Client Response {"
+        , "  status code    = " <> build (statusCode      s)
+        , "  status message = " <> build (statusMessage   s)
+        , "  version        = " <> build (responseVersion x)
+        , "  headers        = " <> build (responseHeaders x)
+        , "  cookies        = " <> build (show (responseCookieJar x))
+        , "}"
+        ]
+      where
+        s = responseStatus x
 
 stripBS :: ByteString -> ByteString
 stripBS = BS.dropWhile isSpace . fst . BS.spanEnd isSpace

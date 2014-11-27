@@ -111,7 +111,7 @@ deserialise g f = receive $ \a hs bdy -> do
 {-# INLINE deserialise #-}
 
 receive :: forall m a. (MonadResource m, AWSService (Sv a))
-        => (Abbrev -> ResponseHeaders -> ResponseBody -> m (Response a)
+        => (Abbrev -> ResponseHeaders -> ResponseBody -> m (Response a))
         -> a
         -> Either HttpException ClientResponse
         -> m (Response a)

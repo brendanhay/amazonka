@@ -25,6 +25,7 @@ library
       , amazonka-storagegateway == 0.0.4.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
+      , conduit       >= 1.1     && < 1.3
       , lens          >= 4.3     && < 5
       , lifted-base
       , text          >= 1.1

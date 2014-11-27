@@ -326,7 +326,7 @@ shared s1 = do
     xs <- forM ops $ \o ->
         (++) <$> ins (o ^. oInput)
              <*> ins (o ^. oOutput)
-    return $! trace (show $ occur (freq (concat xs))) $ occur (freq (concat xs))
+    return $! occur (freq (concat xs))
   where
     ops = Map.elems (s1 ^. s1Operations)
 

@@ -14,6 +14,7 @@ module S3 where
 
 import Control.Lens
 import Control.Monad.Trans.AWS
+import Data.Conduit
 import Network.AWS.S3
 import System.IO
 
@@ -21,4 +22,5 @@ example :: IO (Either Error ListBucketsResponse)
 example = do
     lgr <- newLogger Debug stdout
     env <- getEnv Ireland Discover <&> envLogger .~ lgr
-    runAWST env $ send listBuckets
+    runAWST env $ do
+         paginate listBuckets $$ awaitForever logInfo

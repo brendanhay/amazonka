@@ -12,19 +12,10 @@
 
 module S3 where
 
-import           Control.Applicative
-import           Control.Concurrent
-import           Control.Exception.Lifted
-import           Control.Lens
-import           Control.Monad
-import           Control.Monad.IO.Class
-import           Control.Monad.Trans.AWS
-import           Data.Monoid
-import qualified Data.Text                as Text
-import qualified Data.Text.IO             as Text
-import           Data.Time.Clock.POSIX
-import           Network.AWS.S3
-import           System.IO
+import Control.Lens
+import Control.Monad.Trans.AWS
+import Network.AWS.S3
+import System.IO
 
 example :: IO (Either Error ListBucketsResponse)
 example = do

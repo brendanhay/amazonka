@@ -19,9 +19,9 @@ import           Control.Lens
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.AWS
+import qualified Data.ByteString.Builder  as Build
 import           Data.Monoid
 import qualified Data.Text                as Text
-import qualified Data.Text.IO             as Text
 import           Data.Time.Clock.POSIX
 import           Network.AWS.SQS
 import           System.IO
@@ -80,7 +80,7 @@ example = do
         putStrLn "Waiting 5 seconds..."
         threadDelay 5000000
 
-    say msg = liftIO . Text.putStrLn . mappend msg . Text.pack . show
+    say msg = logInfo . mappend msg . Build.utf8String . show
 
 getTimestamp :: IO Integer
 getTimestamp = truncate <$> getPOSIXTime

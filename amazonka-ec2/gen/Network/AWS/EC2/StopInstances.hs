@@ -120,12 +120,6 @@ newtype StopInstancesResponse = StopInstancesResponse
     { _sirStoppingInstances :: List "item" InstanceStateChange
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList StopInstancesResponse where
-    type Item StopInstancesResponse = InstanceStateChange
-
-    fromList = StopInstancesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _sirStoppingInstances
-
 -- | 'StopInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -150,7 +144,7 @@ instance ToQuery StopInstances where
     toQuery StopInstances{..} = mconcat
         [ "dryRun"     =? _siDryRun
         , "force"      =? _siForce
-        , "InstanceId" =? _siInstanceIds
+        , toQuery     _siInstanceIds
         ]
 
 instance ToHeaders StopInstances
@@ -164,4 +158,4 @@ instance AWSRequest StopInstances where
 
 instance FromXML StopInstancesResponse where
     parseXML x = StopInstancesResponse
-        <$> x .@  "instancesSet"
+        <$> parseXML x

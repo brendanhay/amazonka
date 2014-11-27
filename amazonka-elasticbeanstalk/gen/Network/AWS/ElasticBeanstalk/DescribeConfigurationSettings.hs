@@ -107,7 +107,7 @@ dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsTemplateName = lens _dcsTemplateName (\s a -> s { _dcsTemplateName = a })
 
 newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
-    { _dcsrConfigurationSettings :: List "ConfigurationSettings" ConfigurationSettingsDescription
+    { _dcsrConfigurationSettings :: List "member" ConfigurationSettingsDescription
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConfigurationSettingsResponse where

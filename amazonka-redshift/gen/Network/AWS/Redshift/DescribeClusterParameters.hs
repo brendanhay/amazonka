@@ -125,7 +125,7 @@ dcp1Source = lens _dcp1Source (\s a -> s { _dcp1Source = a })
 
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse
     { _dcprMarker     :: Maybe Text
-    , _dcprParameters :: List "Parameter" Parameter
+    , _dcprParameters :: List "member" Parameter
     } deriving (Eq, Show)
 
 -- | 'DescribeClusterParametersResponse' constructor.

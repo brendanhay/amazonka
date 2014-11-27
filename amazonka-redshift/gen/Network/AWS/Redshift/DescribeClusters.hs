@@ -70,8 +70,8 @@ data DescribeClusters = DescribeClusters
     { _dcClusterIdentifier :: Maybe Text
     , _dcMarker            :: Maybe Text
     , _dcMaxRecords        :: Maybe Int
-    , _dcTagKeys           :: List "TagKey" Text
-    , _dcTagValues         :: List "TagValue" Text
+    , _dcTagKeys           :: List "member" Text
+    , _dcTagValues         :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusters' constructor.
@@ -146,7 +146,7 @@ dcTagValues :: Lens' DescribeClusters [Text]
 dcTagValues = lens _dcTagValues (\s a -> s { _dcTagValues = a }) . _List
 
 data DescribeClustersResponse = DescribeClustersResponse
-    { _dcrClusters :: List "Cluster" Cluster
+    { _dcrClusters :: List "member" Cluster
     , _dcrMarker   :: Maybe Text
     } deriving (Eq, Show)
 

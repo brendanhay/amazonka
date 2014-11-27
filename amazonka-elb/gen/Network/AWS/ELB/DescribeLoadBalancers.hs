@@ -56,7 +56,7 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data DescribeLoadBalancers = DescribeLoadBalancers
-    { _dlbLoadBalancerNames :: List "LoadBalancerNames" Text
+    { _dlbLoadBalancerNames :: List "member" Text
     , _dlbMarker            :: Maybe Text
     , _dlbPageSize          :: Maybe Nat
     } deriving (Eq, Ord, Show)
@@ -95,7 +95,7 @@ dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
 dlbPageSize = lens _dlbPageSize (\s a -> s { _dlbPageSize = a }) . mapping _Nat
 
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
-    { _dlbrLoadBalancerDescriptions :: List "LoadBalancerDescriptions" LoadBalancerDescription
+    { _dlbrLoadBalancerDescriptions :: List "member" LoadBalancerDescription
     , _dlbrNextMarker               :: Maybe Text
     } deriving (Eq, Show)
 

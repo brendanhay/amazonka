@@ -51,7 +51,7 @@ import Network.AWS.CloudSearch.Types
 import qualified GHC.Exts
 
 newtype DescribeDomains = DescribeDomains
-    { _ddDomainNames :: List "DomainNames" Text
+    { _ddDomainNames :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDomains where
@@ -76,7 +76,7 @@ ddDomainNames :: Lens' DescribeDomains [Text]
 ddDomainNames = lens _ddDomainNames (\s a -> s { _ddDomainNames = a }) . _List
 
 newtype DescribeDomainsResponse = DescribeDomainsResponse
-    { _ddrDomainStatusList :: List "DomainStatusList" DomainStatus
+    { _ddrDomainStatusList :: List "member" DomainStatus
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDomainsResponse where

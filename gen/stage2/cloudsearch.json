@@ -4636,7 +4636,13 @@
         "imports": [],
         "shared": [
             "DomainStatus",
-            "AvailabilityOptionsStatus"
+            "AvailabilityOptionsStatus",
+            "IndexFieldStatus",
+            "ScalingParametersStatus",
+            "AnalysisSchemeStatus",
+            "ExpressionStatus",
+            "SuggesterStatus",
+            "AccessPoliciesStatus"
         ]
     },
     "operations": [
@@ -4669,7 +4675,7 @@
                     "locationName": "FieldNames",
                     "documentation": null,
                     "typeExposed": "[Text]",
-                    "type": "List \"SuggesterNames\" Text"
+                    "type": "List \"member\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -4698,7 +4704,7 @@
                         "locationName": "FieldNames",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "List \"SuggesterNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -4715,7 +4721,7 @@
                         "locationName": "FieldNames",
                         "documentation": null,
                         "typeExposed": "[Text]",
-                        "type": "List \"SuggesterNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -6772,7 +6778,7 @@
                     "locationName": "AnalysisSchemes",
                     "documentation": "-- | The analysis scheme descriptions.",
                     "typeExposed": "[AnalysisSchemeStatus]",
-                    "type": "List \"AnalysisSchemes\" AnalysisSchemeStatus"
+                    "type": "List \"member\" AnalysisSchemeStatus"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -6801,7 +6807,7 @@
                         "locationName": "AnalysisSchemes",
                         "documentation": "-- | The analysis scheme descriptions.",
                         "typeExposed": "[AnalysisSchemeStatus]",
-                        "type": "List \"AnalysisSchemes\" AnalysisSchemeStatus"
+                        "type": "List \"member\" AnalysisSchemeStatus"
                     }
                 ],
                 "fields": [
@@ -6818,7 +6824,7 @@
                         "locationName": "AnalysisSchemes",
                         "documentation": "-- | The analysis scheme descriptions.",
                         "typeExposed": "[AnalysisSchemeStatus]",
-                        "type": "List \"AnalysisSchemes\" AnalysisSchemeStatus"
+                        "type": "List \"member\" AnalysisSchemeStatus"
                     }
                 ]
             },
@@ -6911,7 +6917,7 @@
                         "locationName": "AnalysisSchemeNames",
                         "documentation": "-- | The analysis schemes you want to describe.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SuggesterNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6943,7 +6949,7 @@
                         "locationName": "AnalysisSchemeNames",
                         "documentation": "-- | The analysis schemes you want to describe.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SuggesterNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7203,7 +7209,7 @@
                     "locationName": "DomainStatusList",
                     "documentation": null,
                     "typeExposed": "[DomainStatus]",
-                    "type": "List \"DomainStatusList\" DomainStatus"
+                    "type": "List \"member\" DomainStatus"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7232,7 +7238,7 @@
                         "locationName": "DomainStatusList",
                         "documentation": null,
                         "typeExposed": "[DomainStatus]",
-                        "type": "List \"DomainStatusList\" DomainStatus"
+                        "type": "List \"member\" DomainStatus"
                     }
                 ],
                 "fields": [
@@ -7249,7 +7255,7 @@
                         "locationName": "DomainStatusList",
                         "documentation": null,
                         "typeExposed": "[DomainStatus]",
-                        "type": "List \"DomainStatusList\" DomainStatus"
+                        "type": "List \"member\" DomainStatus"
                     }
                 ]
             },
@@ -7292,7 +7298,7 @@
                     "locationName": "DomainNames",
                     "documentation": "-- | The names of the domains you want to include in the response.",
                     "typeExposed": "[Text]",
-                    "type": "List \"DomainNames\" Text"
+                    "type": "List \"member\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -7334,7 +7340,7 @@
                         "locationName": "DomainNames",
                         "documentation": "-- | The names of the domains you want to include in the response.",
                         "typeExposed": "[Text]",
-                        "type": "List \"DomainNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -7351,7 +7357,7 @@
                         "locationName": "DomainNames",
                         "documentation": "-- | The names of the domains you want to include in the response.",
                         "typeExposed": "[Text]",
-                        "type": "List \"DomainNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -7384,7 +7390,7 @@
                     "locationName": "Expressions",
                     "documentation": "-- | The expressions configured for the domain.",
                     "typeExposed": "[ExpressionStatus]",
-                    "type": "List \"Expressions\" ExpressionStatus"
+                    "type": "List \"member\" ExpressionStatus"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7413,7 +7419,7 @@
                         "locationName": "Expressions",
                         "documentation": "-- | The expressions configured for the domain.",
                         "typeExposed": "[ExpressionStatus]",
-                        "type": "List \"Expressions\" ExpressionStatus"
+                        "type": "List \"member\" ExpressionStatus"
                     }
                 ],
                 "fields": [
@@ -7430,7 +7436,7 @@
                         "locationName": "Expressions",
                         "documentation": "-- | The expressions configured for the domain.",
                         "typeExposed": "[ExpressionStatus]",
-                        "type": "List \"Expressions\" ExpressionStatus"
+                        "type": "List \"member\" ExpressionStatus"
                     }
                 ]
             },
@@ -7523,7 +7529,7 @@
                         "locationName": "ExpressionNames",
                         "documentation": "-- | Limits the ''DescribeExpressions' response to the specified expressions. If not\n-- specified, all expressions are shown.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SuggesterNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7585,7 +7591,7 @@
                         "locationName": "ExpressionNames",
                         "documentation": "-- | Limits the ''DescribeExpressions' response to the specified expressions. If not\n-- specified, all expressions are shown.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SuggesterNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -7618,7 +7624,7 @@
                     "locationName": "IndexFields",
                     "documentation": "-- | The index fields configured for the domain.",
                     "typeExposed": "[IndexFieldStatus]",
-                    "type": "List \"IndexFields\" IndexFieldStatus"
+                    "type": "List \"member\" IndexFieldStatus"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7647,7 +7653,7 @@
                         "locationName": "IndexFields",
                         "documentation": "-- | The index fields configured for the domain.",
                         "typeExposed": "[IndexFieldStatus]",
-                        "type": "List \"IndexFields\" IndexFieldStatus"
+                        "type": "List \"member\" IndexFieldStatus"
                     }
                 ],
                 "fields": [
@@ -7664,7 +7670,7 @@
                         "locationName": "IndexFields",
                         "documentation": "-- | The index fields configured for the domain.",
                         "typeExposed": "[IndexFieldStatus]",
-                        "type": "List \"IndexFields\" IndexFieldStatus"
+                        "type": "List \"member\" IndexFieldStatus"
                     }
                 ]
             },
@@ -7757,7 +7763,7 @@
                         "locationName": "FieldNames",
                         "documentation": "-- | A list of the index fields you want to describe. If not specified,\n-- information is returned for all configured index fields.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SuggesterNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7819,7 +7825,7 @@
                         "locationName": "FieldNames",
                         "documentation": "-- | A list of the index fields you want to describe. If not specified,\n-- information is returned for all configured index fields.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SuggesterNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -8228,7 +8234,7 @@
                     "locationName": "Suggesters",
                     "documentation": "-- | The suggesters configured for the domain specified in the request.",
                     "typeExposed": "[SuggesterStatus]",
-                    "type": "List \"Suggesters\" SuggesterStatus"
+                    "type": "List \"member\" SuggesterStatus"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8257,7 +8263,7 @@
                         "locationName": "Suggesters",
                         "documentation": "-- | The suggesters configured for the domain specified in the request.",
                         "typeExposed": "[SuggesterStatus]",
-                        "type": "List \"Suggesters\" SuggesterStatus"
+                        "type": "List \"member\" SuggesterStatus"
                     }
                 ],
                 "fields": [
@@ -8274,7 +8280,7 @@
                         "locationName": "Suggesters",
                         "documentation": "-- | The suggesters configured for the domain specified in the request.",
                         "typeExposed": "[SuggesterStatus]",
-                        "type": "List \"Suggesters\" SuggesterStatus"
+                        "type": "List \"member\" SuggesterStatus"
                     }
                 ]
             },
@@ -8367,7 +8373,7 @@
                         "locationName": "SuggesterNames",
                         "documentation": "-- | The suggesters you want to describe.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SuggesterNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8429,7 +8435,7 @@
                         "locationName": "SuggesterNames",
                         "documentation": "-- | The suggesters you want to describe.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SuggesterNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -8463,7 +8469,7 @@
                     "locationName": "FieldNames",
                     "documentation": "-- | The names of the fields that are currently being indexed.",
                     "typeExposed": "[Text]",
-                    "type": "List \"SuggesterNames\" Text"
+                    "type": "List \"member\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8492,7 +8498,7 @@
                         "locationName": "FieldNames",
                         "documentation": "-- | The names of the fields that are currently being indexed.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SuggesterNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -8509,7 +8515,7 @@
                         "locationName": "FieldNames",
                         "documentation": "-- | The names of the fields that are currently being indexed.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SuggesterNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },

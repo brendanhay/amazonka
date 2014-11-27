@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 data DescribeDBSecurityGroups = DescribeDBSecurityGroups
     { _ddbsg1DBSecurityGroupName :: Maybe Text
-    , _ddbsg1Filters             :: List "Filter" Filter
+    , _ddbsg1Filters             :: List "member" Filter
     , _ddbsg1Marker              :: Maybe Text
     , _ddbsg1MaxRecords          :: Maybe Int
     } deriving (Eq, Show)
@@ -107,7 +107,7 @@ ddbsg1MaxRecords :: Lens' DescribeDBSecurityGroups (Maybe Int)
 ddbsg1MaxRecords = lens _ddbsg1MaxRecords (\s a -> s { _ddbsg1MaxRecords = a })
 
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
-    { _ddbsgr1DBSecurityGroups :: List "DBSecurityGroup" DBSecurityGroup
+    { _ddbsgr1DBSecurityGroups :: List "member" DBSecurityGroup
     , _ddbsgr1Marker           :: Maybe Text
     } deriving (Eq, Show)
 

@@ -51,7 +51,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 newtype CreateOrUpdateTags = CreateOrUpdateTags
-    { _coutTags :: List "Tags" Tag
+    { _coutTags :: List "member" Tag
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList CreateOrUpdateTags where

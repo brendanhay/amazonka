@@ -63,7 +63,7 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup
     { _ccpgDescription          :: Text
     , _ccpgParameterGroupFamily :: Text
     , _ccpgParameterGroupName   :: Text
-    , _ccpgTags                 :: List "Tag" Tag
+    , _ccpgTags                 :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateClusterParameterGroup' constructor.

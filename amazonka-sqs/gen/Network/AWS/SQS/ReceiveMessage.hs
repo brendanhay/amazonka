@@ -85,9 +85,9 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data ReceiveMessage = ReceiveMessage
-    { _rmAttributeNames        :: List "AttributeName" Text
+    { _rmAttributeNames        :: List "member" Text
     , _rmMaxNumberOfMessages   :: Maybe Int
-    , _rmMessageAttributeNames :: List "MessageAttributeName" Text
+    , _rmMessageAttributeNames :: List "member" Text
     , _rmQueueUrl              :: Text
     , _rmVisibilityTimeout     :: Maybe Int
     , _rmWaitTimeSeconds       :: Maybe Int
@@ -172,7 +172,7 @@ rmWaitTimeSeconds =
     lens _rmWaitTimeSeconds (\s a -> s { _rmWaitTimeSeconds = a })
 
 newtype ReceiveMessageResponse = ReceiveMessageResponse
-    { _rmrMessages :: List "Message" Message
+    { _rmrMessages :: List "member" Message
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'ReceiveMessageResponse' constructor.

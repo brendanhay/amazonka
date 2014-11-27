@@ -52,7 +52,7 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners
-    { _clblListeners        :: List "Listeners" Listener
+    { _clblListeners        :: List "member" Listener
     , _clblLoadBalancerName :: Text
     } deriving (Eq, Show)
 

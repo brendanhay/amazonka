@@ -99,7 +99,7 @@ lrpRoleName = lens _lrpRoleName (\s a -> s { _lrpRoleName = a })
 data ListRolePoliciesResponse = ListRolePoliciesResponse
     { _lrprIsTruncated :: Maybe Bool
     , _lrprMarker      :: Maybe Text
-    , _lrprPolicyNames :: List "PolicyNames" Text
+    , _lrprPolicyNames :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'ListRolePoliciesResponse' constructor.

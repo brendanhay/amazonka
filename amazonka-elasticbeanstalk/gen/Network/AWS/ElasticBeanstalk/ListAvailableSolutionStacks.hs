@@ -54,8 +54,8 @@ listAvailableSolutionStacks :: ListAvailableSolutionStacks
 listAvailableSolutionStacks = ListAvailableSolutionStacks
 
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
-    { _lassrSolutionStackDetails :: List "SolutionStackDetails" SolutionStackDescription
-    , _lassrSolutionStacks       :: List "SolutionStacks" Text
+    { _lassrSolutionStackDetails :: List "member" SolutionStackDescription
+    , _lassrSolutionStacks       :: List "member" Text
     } deriving (Eq, Show)
 
 -- | 'ListAvailableSolutionStacksResponse' constructor.

@@ -97,12 +97,6 @@ newtype TerminateInstancesResponse = TerminateInstancesResponse
     { _tirTerminatingInstances :: List "item" InstanceStateChange
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList TerminateInstancesResponse where
-    type Item TerminateInstancesResponse = InstanceStateChange
-
-    fromList = TerminateInstancesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _tirTerminatingInstances
-
 -- | 'TerminateInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -126,7 +120,7 @@ instance ToPath TerminateInstances where
 instance ToQuery TerminateInstances where
     toQuery TerminateInstances{..} = mconcat
         [ "dryRun"     =? _tiDryRun
-        , "InstanceId" =? _tiInstanceIds
+        , toQuery     _tiInstanceIds
         ]
 
 instance ToHeaders TerminateInstances
@@ -140,4 +134,4 @@ instance AWSRequest TerminateInstances where
 
 instance FromXML TerminateInstancesResponse where
     parseXML x = TerminateInstancesResponse
-        <$> x .@  "instancesSet"
+        <$> parseXML x

@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 data ResetDBParameterGroup = ResetDBParameterGroup
     { _rdbpgDBParameterGroupName :: Text
-    , _rdbpgParameters           :: List "Parameter" Parameter
+    , _rdbpgParameters           :: List "member" Parameter
     , _rdbpgResetAllParameters   :: Maybe Bool
     } deriving (Eq, Show)
 

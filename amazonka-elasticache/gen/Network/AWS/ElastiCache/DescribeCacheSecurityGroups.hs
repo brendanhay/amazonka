@@ -99,7 +99,7 @@ dcsg1MaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Int)
 dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
 
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
-    { _dcsgr1CacheSecurityGroups :: List "CacheSecurityGroup" CacheSecurityGroup
+    { _dcsgr1CacheSecurityGroups :: List "member" CacheSecurityGroup
     , _dcsgr1Marker              :: Maybe Text
     } deriving (Eq, Show)
 

@@ -71,7 +71,7 @@ ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
 
 data ListTopicsResponse = ListTopicsResponse
     { _ltrNextToken :: Maybe Text
-    , _ltrTopics    :: List "Topics" Topic
+    , _ltrTopics    :: List "member" Topic
     } deriving (Eq, Show)
 
 -- | 'ListTopicsResponse' constructor.

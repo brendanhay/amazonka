@@ -193,7 +193,7 @@ instance ToQuery AuthorizeSecurityGroupIngress where
         , "FromPort"                   =? _asgiFromPort
         , "GroupId"                    =? _asgiGroupId
         , "GroupName"                  =? _asgiGroupName
-        , "IpPermissions"              =? _asgiIpPermissions
+        , toQuery                     _asgiIpPermissions
         , "IpProtocol"                 =? _asgiIpProtocol
         , "SourceSecurityGroupName"    =? _asgiSourceSecurityGroupName
         , "SourceSecurityGroupOwnerId" =? _asgiSourceSecurityGroupOwnerId

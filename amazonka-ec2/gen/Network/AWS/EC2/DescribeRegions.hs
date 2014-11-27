@@ -95,12 +95,6 @@ newtype DescribeRegionsResponse = DescribeRegionsResponse
     { _drrRegions :: List "item" Region
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeRegionsResponse where
-    type Item DescribeRegionsResponse = Region
-
-    fromList = DescribeRegionsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _drrRegions
-
 -- | 'DescribeRegionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -122,8 +116,8 @@ instance ToPath DescribeRegions where
 instance ToQuery DescribeRegions where
     toQuery DescribeRegions{..} = mconcat
         [ "dryRun"     =? _dr1DryRun
-        , "Filter"     =? _dr1Filters
-        , "RegionName" =? _dr1RegionNames
+        , toQuery     _dr1Filters
+        , toQuery     _dr1RegionNames
         ]
 
 instance ToHeaders DescribeRegions
@@ -137,4 +131,4 @@ instance AWSRequest DescribeRegions where
 
 instance FromXML DescribeRegionsResponse where
     parseXML x = DescribeRegionsResponse
-        <$> x .@  "regionInfo"
+        <$> parseXML x

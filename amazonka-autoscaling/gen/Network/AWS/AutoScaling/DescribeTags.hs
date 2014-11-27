@@ -60,7 +60,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeTags = DescribeTags
-    { _dtFilters    :: List "Filters" Filter
+    { _dtFilters    :: List "member" Filter
     , _dtMaxRecords :: Maybe Int
     , _dtNextToken  :: Maybe Text
     } deriving (Eq, Show)
@@ -100,7 +100,7 @@ dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
 
 data DescribeTagsResponse = DescribeTagsResponse
     { _dtrNextToken :: Maybe Text
-    , _dtrTags      :: List "Tags" TagDescription
+    , _dtrTags      :: List "member" TagDescription
     } deriving (Eq, Show)
 
 -- | 'DescribeTagsResponse' constructor.

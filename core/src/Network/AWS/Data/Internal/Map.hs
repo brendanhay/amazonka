@@ -123,7 +123,7 @@ instance ( KnownSymbol e
          , ToQuery k
          , ToQuery v
          ) => ToQuery (EMap e i j k v) where
-    toQuery m = toBS e =? (mconcat . zipWith go idx $ toList m)
+    toQuery m = e =? (mconcat . zipWith go idx $ toList m)
       where
         go n (k, v) = toBS n =? toQuery (i, k) <> toQuery (j, v)
 

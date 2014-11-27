@@ -80,12 +80,6 @@ newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daarAccountAttributes :: List "item" AccountAttribute
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeAccountAttributesResponse where
-    type Item DescribeAccountAttributesResponse = AccountAttribute
-
-    fromList = DescribeAccountAttributesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _daarAccountAttributes
-
 -- | 'DescribeAccountAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -108,7 +102,7 @@ instance ToPath DescribeAccountAttributes where
 
 instance ToQuery DescribeAccountAttributes where
     toQuery DescribeAccountAttributes{..} = mconcat
-        [ "attributeName" =? _daaAttributeNames
+        [ toQuery        _daaAttributeNames
         , "dryRun"        =? _daaDryRun
         ]
 
@@ -123,4 +117,4 @@ instance AWSRequest DescribeAccountAttributes where
 
 instance FromXML DescribeAccountAttributesResponse where
     parseXML x = DescribeAccountAttributesResponse
-        <$> x .@  "accountAttributeSet"
+        <$> parseXML x

@@ -307,20 +307,6 @@ typeDefault t
 class HasType a where
     typeOf :: Lens' a Type
 
-typesOf :: HasType a => Traversal' a Type
-typesOf = typeOf . go
-  where
-    go f = \case
-        TMaybe     x     -> TMaybe     <$> f x
-        TSensitive x     -> TSensitive <$> f x
-        TFlatten   x     -> TFlatten   <$> f x
-        TCase      x     -> TCase      <$> f x
-        TList      e x   -> TList    e <$> f x
-        TList1     e x   -> TList1   e <$> f x
-        TMap       e k v -> TMap     e <$> f k <*> f v
-        THashMap     k v -> THashMap   <$> f k <*> f v
-        t                -> pure t
-
 data Field = Field
     { _fName          :: !Text
     , _fShape         :: !Text

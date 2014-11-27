@@ -65,19 +65,19 @@ import qualified GHC.Exts
 
 data CreateAutoScalingGroup = CreateAutoScalingGroup
     { _casgAutoScalingGroupName    :: Text
-    , _casgAvailabilityZones       :: List1 "AvailabilityZones" Text
+    , _casgAvailabilityZones       :: List1 "member" Text
     , _casgDefaultCooldown         :: Maybe Int
     , _casgDesiredCapacity         :: Maybe Int
     , _casgHealthCheckGracePeriod  :: Maybe Int
     , _casgHealthCheckType         :: Maybe Text
     , _casgInstanceId              :: Maybe Text
     , _casgLaunchConfigurationName :: Maybe Text
-    , _casgLoadBalancerNames       :: List "LoadBalancerNames" Text
+    , _casgLoadBalancerNames       :: List "member" Text
     , _casgMaxSize                 :: Int
     , _casgMinSize                 :: Int
     , _casgPlacementGroup          :: Maybe Text
-    , _casgTags                    :: List "Tags" Tag
-    , _casgTerminationPolicies     :: List "TerminationPolicies" Text
+    , _casgTags                    :: List "member" Tag
+    , _casgTerminationPolicies     :: List "member" Text
     , _casgVPCZoneIdentifier       :: Maybe Text
     } deriving (Eq, Show)
 

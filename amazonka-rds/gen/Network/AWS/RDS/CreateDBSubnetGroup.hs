@@ -54,8 +54,8 @@ import qualified GHC.Exts
 data CreateDBSubnetGroup = CreateDBSubnetGroup
     { _cdbsg1DBSubnetGroupDescription :: Text
     , _cdbsg1DBSubnetGroupName        :: Text
-    , _cdbsg1SubnetIds                :: List "SubnetIdentifier" Text
-    , _cdbsg1Tags                     :: List "Tag" Tag
+    , _cdbsg1SubnetIds                :: List "member" Text
+    , _cdbsg1Tags                     :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateDBSubnetGroup' constructor.

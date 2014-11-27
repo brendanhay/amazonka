@@ -71,7 +71,7 @@ ldlsqQueueUrl :: Lens' ListDeadLetterSourceQueues Text
 ldlsqQueueUrl = lens _ldlsqQueueUrl (\s a -> s { _ldlsqQueueUrl = a })
 
 newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
-    { _ldlsqrQueueUrls :: List "QueueUrl" Text
+    { _ldlsqrQueueUrls :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 -- | 'ListDeadLetterSourceQueuesResponse' constructor.

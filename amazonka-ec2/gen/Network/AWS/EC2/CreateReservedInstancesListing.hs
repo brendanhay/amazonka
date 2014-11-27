@@ -125,12 +125,6 @@ newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingR
     { _crilr1ReservedInstancesListings :: List "item" ReservedInstancesListing
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList CreateReservedInstancesListingResponse where
-    type Item CreateReservedInstancesListingResponse = ReservedInstancesListing
-
-    fromList = CreateReservedInstancesListingResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _crilr1ReservedInstancesListings
-
 -- | 'CreateReservedInstancesListingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -156,7 +150,7 @@ instance ToQuery CreateReservedInstancesListing where
     toQuery CreateReservedInstancesListing{..} = mconcat
         [ "clientToken"         =? _crilClientToken
         , "instanceCount"       =? _crilInstanceCount
-        , "priceSchedules"      =? _crilPriceSchedules
+        , toQuery              _crilPriceSchedules
         , "reservedInstancesId" =? _crilReservedInstancesId
         ]
 
@@ -171,4 +165,4 @@ instance AWSRequest CreateReservedInstancesListing where
 
 instance FromXML CreateReservedInstancesListingResponse where
     parseXML x = CreateReservedInstancesListingResponse
-        <$> x .@  "reservedInstancesListingsSet"
+        <$> parseXML x

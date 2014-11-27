@@ -90,10 +90,10 @@ vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateURL = lens _vtTemplateURL (\s a -> s { _vtTemplateURL = a })
 
 data ValidateTemplateResponse = ValidateTemplateResponse
-    { _vtrCapabilities       :: List "Capabilities" Capability
+    { _vtrCapabilities       :: List "member" Capability
     , _vtrCapabilitiesReason :: Maybe Text
     , _vtrDescription        :: Maybe Text
-    , _vtrParameters         :: List "Parameters" TemplateParameter
+    , _vtrParameters         :: List "member" TemplateParameter
     } deriving (Eq, Show)
 
 -- | 'ValidateTemplateResponse' constructor.

@@ -54,7 +54,7 @@ import Network.AWS.CloudWatch.Types
 import qualified GHC.Exts
 
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric
-    { _dafmDimensions :: List "Dimensions" Dimension
+    { _dafmDimensions :: List "member" Dimension
     , _dafmMetricName :: Text
     , _dafmNamespace  :: Text
     , _dafmPeriod     :: Maybe Nat
@@ -115,7 +115,7 @@ dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe StandardUnit)
 dafmUnit = lens _dafmUnit (\s a -> s { _dafmUnit = a })
 
 newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
-    { _dafmrMetricAlarms :: List "MetricAlarms" MetricAlarm
+    { _dafmrMetricAlarms :: List "member" MetricAlarm
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAlarmsForMetricResponse where

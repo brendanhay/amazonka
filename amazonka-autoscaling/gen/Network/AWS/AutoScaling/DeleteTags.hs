@@ -46,7 +46,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 newtype DeleteTags = DeleteTags
-    { _dtTags :: List "Tags" Tag
+    { _dtTags :: List "member" Tag
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DeleteTags where

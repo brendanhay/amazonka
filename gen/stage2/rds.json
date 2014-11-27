@@ -232,7 +232,7 @@
                         "locationName": "Options",
                         "documentation": "-- | Indicates what options are available in the option group.",
                         "typeExposed": "[Option]",
-                        "type": "List \"Option\" Option"
+                        "type": "List \"member\" Option"
                     },
                     {
                         "location": "querystring",
@@ -354,7 +354,7 @@
                         "locationName": "Options",
                         "documentation": "-- | Indicates what options are available in the option group.",
                         "typeExposed": "[Option]",
-                        "type": "List \"Option\" Option"
+                        "type": "List \"member\" Option"
                     },
                     {
                         "location": "querystring",
@@ -526,7 +526,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | Specifies the category for the event.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -573,7 +573,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | Specifies the category for the event.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -710,7 +710,7 @@
                         "locationName": "EC2SecurityGroups",
                         "documentation": "-- | Contains a list of 'EC2SecurityGroup' elements.",
                         "typeExposed": "[EC2SecurityGroup]",
-                        "type": "List \"EC2SecurityGroup\" EC2SecurityGroup"
+                        "type": "List \"member\" EC2SecurityGroup"
                     },
                     {
                         "location": "querystring",
@@ -725,7 +725,7 @@
                         "locationName": "IPRanges",
                         "documentation": "-- | Contains a list of 'IPRange' elements.",
                         "typeExposed": "[IPRange]",
-                        "type": "List \"IPRange\" IPRange"
+                        "type": "List \"member\" IPRange"
                     }
                 ],
                 "fields": [
@@ -772,7 +772,7 @@
                         "locationName": "EC2SecurityGroups",
                         "documentation": "-- | Contains a list of 'EC2SecurityGroup' elements.",
                         "typeExposed": "[EC2SecurityGroup]",
-                        "type": "List \"EC2SecurityGroup\" EC2SecurityGroup"
+                        "type": "List \"member\" EC2SecurityGroup"
                     },
                     {
                         "location": "querystring",
@@ -787,7 +787,7 @@
                         "locationName": "IPRanges",
                         "documentation": "-- | Contains a list of 'IPRange' elements.",
                         "typeExposed": "[IPRange]",
-                        "type": "List \"IPRange\" IPRange"
+                        "type": "List \"member\" IPRange"
                     },
                     {
                         "location": "querystring",
@@ -1019,7 +1019,7 @@
                         "locationName": "SupportedCharacterSets",
                         "documentation": "-- | A list of the character sets supported by this engine for the 'CharacterSetName' parameter of the CreateDBInstance API.",
                         "typeExposed": "[CharacterSet]",
-                        "type": "List \"CharacterSet\" CharacterSet"
+                        "type": "List \"member\" CharacterSet"
                     }
                 ],
                 "fields": [
@@ -1126,7 +1126,7 @@
                         "locationName": "SupportedCharacterSets",
                         "documentation": "-- | A list of the character sets supported by this engine for the 'CharacterSetName' parameter of the CreateDBInstance API.",
                         "typeExposed": "[CharacterSet]",
-                        "type": "List \"CharacterSet\" CharacterSet"
+                        "type": "List \"member\" CharacterSet"
                     }
                 ]
             },
@@ -2262,7 +2262,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "-- | The recurring price charged to run this reserved DB instance.",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "List \"RecurringCharge\" RecurringCharge"
+                        "type": "List \"member\" RecurringCharge"
                     }
                 ],
                 "fields": [
@@ -2384,7 +2384,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "-- | The recurring price charged to run this reserved DB instance.",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "List \"RecurringCharge\" RecurringCharge"
+                        "type": "List \"member\" RecurringCharge"
                     },
                     {
                         "location": "querystring",
@@ -2847,7 +2847,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "-- | The recurring price charged to run this reserved DB instance.",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "List \"RecurringCharge\" RecurringCharge"
+                        "type": "List \"member\" RecurringCharge"
                     }
                 ],
                 "fields": [
@@ -2984,7 +2984,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "-- | The recurring price charged to run this reserved DB instance.",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "List \"RecurringCharge\" RecurringCharge"
+                        "type": "List \"member\" RecurringCharge"
                     },
                     {
                         "location": "querystring",
@@ -3121,7 +3121,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | Contains a list of engine default parameters.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ],
                 "fields": [
@@ -3168,7 +3168,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | Contains a list of engine default parameters.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ]
             },
@@ -3372,7 +3372,7 @@
                         "locationName": "OptionsDependedOn",
                         "documentation": "-- | List of all options that are prerequisites for this option.",
                         "typeExposed": "[Text]",
-                        "type": "List \"OptionName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3417,7 +3417,7 @@
                         "locationName": "OptionGroupOptionSettings",
                         "documentation": "-- | Specifies the option settings that are available (and the default value) for\n-- each option in an option group.",
                         "typeExposed": "[OptionGroupOptionSetting]",
-                        "type": "List \"OptionGroupOptionSetting\" OptionGroupOptionSetting"
+                        "type": "List \"member\" OptionGroupOptionSetting"
                     }
                 ],
                 "fields": [
@@ -3524,7 +3524,7 @@
                         "locationName": "OptionGroupOptionSettings",
                         "documentation": "-- | Specifies the option settings that are available (and the default value) for\n-- each option in an option group.",
                         "typeExposed": "[OptionGroupOptionSetting]",
-                        "type": "List \"OptionGroupOptionSetting\" OptionGroupOptionSetting"
+                        "type": "List \"member\" OptionGroupOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -3539,7 +3539,7 @@
                         "locationName": "OptionsDependedOn",
                         "documentation": "-- | List of all options that are prerequisites for this option.",
                         "typeExposed": "[Text]",
-                        "type": "List \"OptionName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3781,7 +3781,7 @@
                         "locationName": "DBSecurityGroups",
                         "documentation": "-- | Provides List of DB security group elements containing only 'DBSecurityGroup.Name' and 'DBSecurityGroup.Status' subelements.",
                         "typeExposed": "[DBSecurityGroupMembership]",
-                        "type": "List \"DBSecurityGroup\" DBSecurityGroupMembership"
+                        "type": "List \"member\" DBSecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -3796,7 +3796,7 @@
                         "locationName": "VpcSecurityGroups",
                         "documentation": "-- | Provides List of VPC security group elements that the DB instance belongs\n-- to.",
                         "typeExposed": "[VpcSecurityGroupMembership]",
-                        "type": "List \"VpcSecurityGroupMembership\" VpcSecurityGroupMembership"
+                        "type": "List \"member\" VpcSecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -3811,7 +3811,7 @@
                         "locationName": "DBParameterGroups",
                         "documentation": "-- | Provides the list of DB parameter groups applied to this DB instance.",
                         "typeExposed": "[DBParameterGroupStatus]",
-                        "type": "List \"DBParameterGroup\" DBParameterGroupStatus"
+                        "type": "List \"member\" DBParameterGroupStatus"
                     },
                     {
                         "location": "querystring",
@@ -3961,7 +3961,7 @@
                         "locationName": "ReadReplicaDBInstanceIdentifiers",
                         "documentation": "-- | Contains one or more identifiers of the read replicas associated with this\n-- DB instance.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ReadReplicaDBInstanceIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4006,7 +4006,7 @@
                         "locationName": "OptionGroupMemberships",
                         "documentation": "-- | Provides the list of option group memberships for this DB instance.",
                         "typeExposed": "[OptionGroupMembership]",
-                        "type": "List \"OptionGroupMembership\" OptionGroupMembership"
+                        "type": "List \"member\" OptionGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -4066,7 +4066,7 @@
                         "locationName": "StatusInfos",
                         "documentation": "-- | The status of a read replica. If the instance is not a read replica, this\n-- will be blank.",
                         "typeExposed": "[DBInstanceStatusInfo]",
-                        "type": "List \"DBInstanceStatusInfo\" DBInstanceStatusInfo"
+                        "type": "List \"member\" DBInstanceStatusInfo"
                     },
                     {
                         "location": "querystring",
@@ -4248,7 +4248,7 @@
                         "locationName": "DBParameterGroups",
                         "documentation": "-- | Provides the list of DB parameter groups applied to this DB instance.",
                         "typeExposed": "[DBParameterGroupStatus]",
-                        "type": "List \"DBParameterGroup\" DBParameterGroupStatus"
+                        "type": "List \"member\" DBParameterGroupStatus"
                     },
                     {
                         "location": "querystring",
@@ -4263,7 +4263,7 @@
                         "locationName": "DBSecurityGroups",
                         "documentation": "-- | Provides List of DB security group elements containing only 'DBSecurityGroup.Name' and 'DBSecurityGroup.Status' subelements.",
                         "typeExposed": "[DBSecurityGroupMembership]",
-                        "type": "List \"DBSecurityGroup\" DBSecurityGroupMembership"
+                        "type": "List \"member\" DBSecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -4428,7 +4428,7 @@
                         "locationName": "OptionGroupMemberships",
                         "documentation": "-- | Provides the list of option group memberships for this DB instance.",
                         "typeExposed": "[OptionGroupMembership]",
-                        "type": "List \"OptionGroupMembership\" OptionGroupMembership"
+                        "type": "List \"member\" OptionGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -4503,7 +4503,7 @@
                         "locationName": "ReadReplicaDBInstanceIdentifiers",
                         "documentation": "-- | Contains one or more identifiers of the read replicas associated with this\n-- DB instance.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ReadReplicaDBInstanceIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4548,7 +4548,7 @@
                         "locationName": "StatusInfos",
                         "documentation": "-- | The status of a read replica. If the instance is not a read replica, this\n-- will be blank.",
                         "typeExposed": "[DBInstanceStatusInfo]",
-                        "type": "List \"DBInstanceStatusInfo\" DBInstanceStatusInfo"
+                        "type": "List \"member\" DBInstanceStatusInfo"
                     },
                     {
                         "location": "querystring",
@@ -4593,7 +4593,7 @@
                         "locationName": "VpcSecurityGroups",
                         "documentation": "-- | Provides List of VPC security group elements that the DB instance belongs\n-- to.",
                         "typeExposed": "[VpcSecurityGroupMembership]",
-                        "type": "List \"VpcSecurityGroupMembership\" VpcSecurityGroupMembership"
+                        "type": "List \"member\" VpcSecurityGroupMembership"
                     }
                 ]
             },
@@ -4783,7 +4783,7 @@
                         "locationName": "SourceIdsList",
                         "documentation": "-- | A list of source IDs for the RDS event notification subscription.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SourceId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4798,7 +4798,7 @@
                         "locationName": "EventCategoriesList",
                         "documentation": "-- | A list of event categories for the RDS event notification subscription.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4875,7 +4875,7 @@
                         "locationName": "EventCategoriesList",
                         "documentation": "-- | A list of event categories for the RDS event notification subscription.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4905,7 +4905,7 @@
                         "locationName": "SourceIdsList",
                         "documentation": "-- | A list of source IDs for the RDS event notification subscription.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SourceId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5042,7 +5042,7 @@
                         "locationName": "Subnets",
                         "documentation": "-- | Contains a list of 'Subnet' elements.",
                         "typeExposed": "[Subnet]",
-                        "type": "List \"Subnet\" Subnet"
+                        "type": "List \"member\" Subnet"
                     }
                 ],
                 "fields": [
@@ -5104,7 +5104,7 @@
                         "locationName": "Subnets",
                         "documentation": "-- | Contains a list of 'Subnet' elements.",
                         "typeExposed": "[Subnet]",
-                        "type": "List \"Subnet\" Subnet"
+                        "type": "List \"member\" Subnet"
                     },
                     {
                         "location": "querystring",
@@ -5751,7 +5751,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "-- | A list of availability zones for the orderable DB instance.",
                         "typeExposed": "[AvailabilityZone]",
-                        "type": "List \"AvailabilityZone\" AvailabilityZone"
+                        "type": "List \"member\" AvailabilityZone"
                     },
                     {
                         "location": "querystring",
@@ -5843,7 +5843,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "-- | A list of availability zones for the orderable DB instance.",
                         "typeExposed": "[AvailabilityZone]",
-                        "type": "List \"AvailabilityZone\" AvailabilityZone"
+                        "type": "List \"member\" AvailabilityZone"
                     },
                     {
                         "location": "querystring",
@@ -6027,7 +6027,7 @@
                         "locationName": "Values",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Value\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -6059,7 +6059,7 @@
                         "locationName": "Values",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Value\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -6282,7 +6282,7 @@
                         "locationName": "DBSecurityGroupMemberships",
                         "documentation": "-- | A list of DBSecurityGroupMemebrship name strings used for this option.",
                         "typeExposed": "[Text]",
-                        "type": "List \"DBSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6297,7 +6297,7 @@
                         "locationName": "VpcSecurityGroupMemberships",
                         "documentation": "-- | A list of VpcSecurityGroupMemebrship name strings used for this option.",
                         "typeExposed": "[Text]",
-                        "type": "List \"VpcSecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6312,7 +6312,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | The option settings to include in an option group.",
                         "typeExposed": "[OptionSetting]",
-                        "type": "List \"OptionSetting\" OptionSetting"
+                        "type": "List \"member\" OptionSetting"
                     }
                 ],
                 "fields": [
@@ -6329,7 +6329,7 @@
                         "locationName": "DBSecurityGroupMemberships",
                         "documentation": "-- | A list of DBSecurityGroupMemebrship name strings used for this option.",
                         "typeExposed": "[Text]",
-                        "type": "List \"DBSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6359,7 +6359,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | The option settings to include in an option group.",
                         "typeExposed": "[OptionSetting]",
-                        "type": "List \"OptionSetting\" OptionSetting"
+                        "type": "List \"member\" OptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -6389,7 +6389,7 @@
                         "locationName": "VpcSecurityGroupMemberships",
                         "documentation": "-- | A list of VpcSecurityGroupMemebrship name strings used for this option.",
                         "typeExposed": "[Text]",
-                        "type": "List \"VpcSecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -6496,7 +6496,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | The option settings for this option.",
                         "typeExposed": "[OptionSetting]",
-                        "type": "List \"OptionSetting\" OptionSetting"
+                        "type": "List \"member\" OptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -6511,7 +6511,7 @@
                         "locationName": "DBSecurityGroupMemberships",
                         "documentation": "-- | If the option requires access to a port, then this DB security group allows\n-- access to the port.",
                         "typeExposed": "[DBSecurityGroupMembership]",
-                        "type": "List \"DBSecurityGroup\" DBSecurityGroupMembership"
+                        "type": "List \"member\" DBSecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -6526,7 +6526,7 @@
                         "locationName": "VpcSecurityGroupMemberships",
                         "documentation": "-- | If the option requires access to a port, then this VPC security group allows\n-- access to the port.",
                         "typeExposed": "[VpcSecurityGroupMembership]",
-                        "type": "List \"VpcSecurityGroupMembership\" VpcSecurityGroupMembership"
+                        "type": "List \"member\" VpcSecurityGroupMembership"
                     }
                 ],
                 "fields": [
@@ -6543,7 +6543,7 @@
                         "locationName": "DBSecurityGroupMemberships",
                         "documentation": "-- | If the option requires access to a port, then this DB security group allows\n-- access to the port.",
                         "typeExposed": "[DBSecurityGroupMembership]",
-                        "type": "List \"DBSecurityGroup\" DBSecurityGroupMembership"
+                        "type": "List \"member\" DBSecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -6588,7 +6588,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | The option settings for this option.",
                         "typeExposed": "[OptionSetting]",
-                        "type": "List \"OptionSetting\" OptionSetting"
+                        "type": "List \"member\" OptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -6648,7 +6648,7 @@
                         "locationName": "VpcSecurityGroupMemberships",
                         "documentation": "-- | If the option requires access to a port, then this VPC security group allows\n-- access to the port.",
                         "typeExposed": "[VpcSecurityGroupMembership]",
-                        "type": "List \"VpcSecurityGroupMembership\" VpcSecurityGroupMembership"
+                        "type": "List \"member\" VpcSecurityGroupMembership"
                     }
                 ]
             },
@@ -6856,7 +6856,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | The event categories for the specified source type",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -6873,7 +6873,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | The event categories for the specified source type",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8134,7 +8134,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The tags to be assigned to the Amazon RDS resource.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -8166,7 +8166,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The tags to be assigned to the Amazon RDS resource.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -8672,7 +8672,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -8704,7 +8704,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -8918,7 +8918,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -8950,7 +8950,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -9169,7 +9169,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -9201,7 +9201,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -9615,7 +9615,7 @@
                         "locationName": "DBSecurityGroups",
                         "documentation": "-- | A list of DB security groups to associate with this DB instance.\n--\n-- Default: The default DB security group for the database engine.",
                         "typeExposed": "[Text]",
-                        "type": "List \"DBSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9630,7 +9630,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "-- | A list of EC2 VPC security groups to associate with this DB instance.\n--\n-- Default: The default EC2 VPC security group for the DB subnet group's VPC.",
                         "typeExposed": "[Text]",
-                        "type": "List \"VpcSecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9870,7 +9870,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -10067,7 +10067,7 @@
                         "locationName": "DBSecurityGroups",
                         "documentation": "-- | A list of DB security groups to associate with this DB instance.\n--\n-- Default: The default DB security group for the database engine.",
                         "typeExposed": "[Text]",
-                        "type": "List \"DBSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -10292,7 +10292,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -10337,7 +10337,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "-- | A list of EC2 VPC security groups to associate with this DB instance.\n--\n-- Default: The default EC2 VPC security group for the DB subnet group's VPC.",
                         "typeExposed": "[Text]",
-                        "type": "List \"VpcSecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -10671,7 +10671,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -10883,7 +10883,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -11087,7 +11087,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -11149,7 +11149,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -11333,7 +11333,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -11380,7 +11380,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -11564,7 +11564,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -11611,7 +11611,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -11800,7 +11800,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "-- | The EC2 Subnet IDs for the DB subnet group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SubnetIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -11815,7 +11815,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -11862,7 +11862,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "-- | The EC2 Subnet IDs for the DB subnet group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SubnetIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -11877,7 +11877,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -12096,7 +12096,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | A list of event categories for a SourceType that you want to subscribe to.\n-- You can see a list of the categories for a given SourceType in the \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events\u003e\n-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -12111,7 +12111,7 @@
                         "locationName": "SourceIds",
                         "documentation": "-- | The list of identifiers of the event sources for which events will be\n-- returned. If not specified, then all sources are included in the response. An\n-- identifier must begin with a letter and must contain only ASCII letters,\n-- digits, and hyphens; it cannot end with a hyphen or contain two consecutive\n-- hyphens.\n--\n-- Constraints:\n--\n-- If SourceIds are supplied, SourceType must also be provided. If the source\n-- type is a DB instance, then a 'DBInstanceIdentifier' must be supplied. If the\n-- source type is a DB security group, a 'DBSecurityGroupName' must be supplied. If the source type is a DB parameter group, a\n-- 'DBParameterGroupName' must be supplied. If the source type is a DB snapshot, a 'DBSnapshotIdentifier' must be supplied.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SourceId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -12141,7 +12141,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -12173,7 +12173,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | A list of event categories for a SourceType that you want to subscribe to.\n-- You can see a list of the categories for a given SourceType in the \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events\u003e\n-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -12203,7 +12203,7 @@
                         "locationName": "SourceIds",
                         "documentation": "-- | The list of identifiers of the event sources for which events will be\n-- returned. If not specified, then all sources are included in the response. An\n-- identifier must begin with a letter and must contain only ASCII letters,\n-- digits, and hyphens; it cannot end with a hyphen or contain two consecutive\n-- hyphens.\n--\n-- Constraints:\n--\n-- If SourceIds are supplied, SourceType must also be provided. If the source\n-- type is a DB instance, then a 'DBInstanceIdentifier' must be supplied. If the\n-- source type is a DB security group, a 'DBSecurityGroupName' must be supplied. If the source type is a DB parameter group, a\n-- 'DBParameterGroupName' must be supplied. If the source type is a DB snapshot, a 'DBSnapshotIdentifier' must be supplied.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SourceId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -12248,7 +12248,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -12472,7 +12472,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -12549,7 +12549,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -13714,7 +13714,7 @@
                         "locationName": "DBEngineVersions",
                         "documentation": "-- | A list of 'DBEngineVersion' elements.",
                         "typeExposed": "[DBEngineVersion]",
-                        "type": "List \"DBEngineVersion\" DBEngineVersion"
+                        "type": "List \"member\" DBEngineVersion"
                     }
                 ],
                 "fields": [
@@ -13731,7 +13731,7 @@
                         "locationName": "DBEngineVersions",
                         "documentation": "-- | A list of 'DBEngineVersion' elements.",
                         "typeExposed": "[DBEngineVersion]",
-                        "type": "List \"DBEngineVersion\" DBEngineVersion"
+                        "type": "List \"member\" DBEngineVersion"
                     },
                     {
                         "location": "querystring",
@@ -13901,7 +13901,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | Not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -14038,7 +14038,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | Not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -14142,7 +14142,7 @@
                         "locationName": "DBInstances",
                         "documentation": "-- | A list of 'DBInstance' instances.",
                         "typeExposed": "[DBInstance]",
-                        "type": "List \"DBInstance\" DBInstance"
+                        "type": "List \"member\" DBInstance"
                     }
                 ],
                 "fields": [
@@ -14159,7 +14159,7 @@
                         "locationName": "DBInstances",
                         "documentation": "-- | A list of 'DBInstance' instances.",
                         "typeExposed": "[DBInstance]",
-                        "type": "List \"DBInstance\" DBInstance"
+                        "type": "List \"member\" DBInstance"
                     },
                     {
                         "location": "querystring",
@@ -14279,7 +14279,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -14341,7 +14341,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -14415,7 +14415,7 @@
                         "locationName": "DescribeDBLogFiles",
                         "documentation": "-- | The DB log files returned.",
                         "typeExposed": "[DescribeDBLogFilesDetails]",
-                        "type": "List \"DescribeDBLogFilesDetails\" DescribeDBLogFilesDetails"
+                        "type": "List \"member\" DescribeDBLogFilesDetails"
                     },
                     {
                         "location": "querystring",
@@ -14447,7 +14447,7 @@
                         "locationName": "DescribeDBLogFiles",
                         "documentation": "-- | The DB log files returned.",
                         "typeExposed": "[DescribeDBLogFilesDetails]",
-                        "type": "List \"DescribeDBLogFilesDetails\" DescribeDBLogFilesDetails"
+                        "type": "List \"member\" DescribeDBLogFilesDetails"
                     },
                     {
                         "location": "querystring",
@@ -14628,7 +14628,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -14735,7 +14735,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -14824,7 +14824,7 @@
                         "locationName": "DBParameterGroups",
                         "documentation": "-- | A list of 'DBParameterGroup' instances.",
                         "typeExposed": "[DBParameterGroup]",
-                        "type": "List \"DBParameterGroup\" DBParameterGroup"
+                        "type": "List \"member\" DBParameterGroup"
                     }
                 ],
                 "fields": [
@@ -14841,7 +14841,7 @@
                         "locationName": "DBParameterGroups",
                         "documentation": "-- | A list of 'DBParameterGroup' instances.",
                         "typeExposed": "[DBParameterGroup]",
-                        "type": "List \"DBParameterGroup\" DBParameterGroup"
+                        "type": "List \"member\" DBParameterGroup"
                     },
                     {
                         "location": "querystring",
@@ -14961,7 +14961,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -15023,7 +15023,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -15097,7 +15097,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | A list of 'Parameter' values.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -15144,7 +15144,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | A list of 'Parameter' values.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ]
             },
@@ -15270,7 +15270,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -15332,7 +15332,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -15436,7 +15436,7 @@
                         "locationName": "DBSecurityGroups",
                         "documentation": "-- | A list of 'DBSecurityGroup' instances.",
                         "typeExposed": "[DBSecurityGroup]",
-                        "type": "List \"DBSecurityGroup\" DBSecurityGroup"
+                        "type": "List \"member\" DBSecurityGroup"
                     }
                 ],
                 "fields": [
@@ -15453,7 +15453,7 @@
                         "locationName": "DBSecurityGroups",
                         "documentation": "-- | A list of 'DBSecurityGroup' instances.",
                         "typeExposed": "[DBSecurityGroup]",
-                        "type": "List \"DBSecurityGroup\" DBSecurityGroup"
+                        "type": "List \"member\" DBSecurityGroup"
                     },
                     {
                         "location": "querystring",
@@ -15573,7 +15573,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -15635,7 +15635,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -15724,7 +15724,7 @@
                         "locationName": "DBSnapshots",
                         "documentation": "-- | A list of 'DBSnapshot' instances.",
                         "typeExposed": "[DBSnapshot]",
-                        "type": "List \"DBSnapshot\" DBSnapshot"
+                        "type": "List \"member\" DBSnapshot"
                     }
                 ],
                 "fields": [
@@ -15741,7 +15741,7 @@
                         "locationName": "DBSnapshots",
                         "documentation": "-- | A list of 'DBSnapshot' instances.",
                         "typeExposed": "[DBSnapshot]",
-                        "type": "List \"DBSnapshot\" DBSnapshot"
+                        "type": "List \"member\" DBSnapshot"
                     },
                     {
                         "location": "querystring",
@@ -15901,7 +15901,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -15978,7 +15978,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -16082,7 +16082,7 @@
                         "locationName": "DBSubnetGroups",
                         "documentation": "-- | A list of 'DBSubnetGroup' instances.",
                         "typeExposed": "[DBSubnetGroup]",
-                        "type": "List \"DBSubnetGroup\" DBSubnetGroup"
+                        "type": "List \"member\" DBSubnetGroup"
                     }
                 ],
                 "fields": [
@@ -16099,7 +16099,7 @@
                         "locationName": "DBSubnetGroups",
                         "documentation": "-- | A list of 'DBSubnetGroup' instances.",
                         "typeExposed": "[DBSubnetGroup]",
-                        "type": "List \"DBSubnetGroup\" DBSubnetGroup"
+                        "type": "List \"member\" DBSubnetGroup"
                     },
                     {
                         "location": "querystring",
@@ -16219,7 +16219,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -16281,7 +16281,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -16494,7 +16494,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | Not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -16556,7 +16556,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | Not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -16619,7 +16619,7 @@
                     "locationName": "EventCategoriesMapList",
                     "documentation": "-- | A list of EventCategoriesMap data types.",
                     "typeExposed": "[EventCategoriesMap]",
-                    "type": "List \"EventCategoriesMap\" EventCategoriesMap"
+                    "type": "List \"member\" EventCategoriesMap"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -16648,7 +16648,7 @@
                         "locationName": "EventCategoriesMapList",
                         "documentation": "-- | A list of EventCategoriesMap data types.",
                         "typeExposed": "[EventCategoriesMap]",
-                        "type": "List \"EventCategoriesMap\" EventCategoriesMap"
+                        "type": "List \"member\" EventCategoriesMap"
                     }
                 ],
                 "fields": [
@@ -16665,7 +16665,7 @@
                         "locationName": "EventCategoriesMapList",
                         "documentation": "-- | A list of EventCategoriesMap data types.",
                         "typeExposed": "[EventCategoriesMap]",
-                        "type": "List \"EventCategoriesMap\" EventCategoriesMap"
+                        "type": "List \"member\" EventCategoriesMap"
                     }
                 ]
             },
@@ -16751,7 +16751,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     }
                 ],
                 "fields": [
@@ -16768,7 +16768,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -16842,7 +16842,7 @@
                         "locationName": "EventSubscriptionsList",
                         "documentation": "-- | A list of EventSubscriptions data types.",
                         "typeExposed": "[EventSubscription]",
-                        "type": "List \"EventSubscription\" EventSubscription"
+                        "type": "List \"member\" EventSubscription"
                     }
                 ],
                 "fields": [
@@ -16859,7 +16859,7 @@
                         "locationName": "EventSubscriptionsList",
                         "documentation": "-- | A list of EventSubscriptions data types.",
                         "typeExposed": "[EventSubscription]",
-                        "type": "List \"EventSubscription\" EventSubscription"
+                        "type": "List \"member\" EventSubscription"
                     },
                     {
                         "location": "querystring",
@@ -16979,7 +16979,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -17026,7 +17026,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -17130,7 +17130,7 @@
                         "locationName": "Events",
                         "documentation": "-- | A list of 'Event' instances.",
                         "typeExposed": "[Event]",
-                        "type": "List \"Event\" Event"
+                        "type": "List \"member\" Event"
                     }
                 ],
                 "fields": [
@@ -17147,7 +17147,7 @@
                         "locationName": "Events",
                         "documentation": "-- | A list of 'Event' instances.",
                         "typeExposed": "[Event]",
-                        "type": "List \"Event\" Event"
+                        "type": "List \"member\" Event"
                     },
                     {
                         "location": "querystring",
@@ -17352,7 +17352,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | A list of event categories that trigger notifications for a event\n-- notification subscription.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -17367,7 +17367,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -17444,7 +17444,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | A list of event categories that trigger notifications for a event\n-- notification subscription.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -17459,7 +17459,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -17578,7 +17578,7 @@
                         "locationName": "OptionGroupOptions",
                         "documentation": null,
                         "typeExposed": "[OptionGroupOption]",
-                        "type": "List \"OptionGroupOption\" OptionGroupOption"
+                        "type": "List \"member\" OptionGroupOption"
                     },
                     {
                         "location": "querystring",
@@ -17625,7 +17625,7 @@
                         "locationName": "OptionGroupOptions",
                         "documentation": null,
                         "typeExposed": "[OptionGroupOption]",
-                        "type": "List \"OptionGroupOption\" OptionGroupOption"
+                        "type": "List \"member\" OptionGroupOption"
                     }
                 ]
             },
@@ -17751,7 +17751,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -17813,7 +17813,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -17902,7 +17902,7 @@
                         "locationName": "OptionGroupsList",
                         "documentation": "-- | List of option groups.",
                         "typeExposed": "[OptionGroup]",
-                        "type": "List \"OptionGroup\" OptionGroup"
+                        "type": "List \"member\" OptionGroup"
                     },
                     {
                         "location": "querystring",
@@ -17949,7 +17949,7 @@
                         "locationName": "OptionGroupsList",
                         "documentation": "-- | List of option groups.",
                         "typeExposed": "[OptionGroup]",
-                        "type": "List \"OptionGroup\" OptionGroup"
+                        "type": "List \"member\" OptionGroup"
                     }
                 ]
             },
@@ -18064,7 +18064,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -18156,7 +18156,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -18260,7 +18260,7 @@
                         "locationName": "OrderableDBInstanceOptions",
                         "documentation": "-- | An 'OrderableDBInstanceOption' structure containing information about orderable\n-- options for the DB instance.",
                         "typeExposed": "[OrderableDBInstanceOption]",
-                        "type": "List \"OrderableDBInstanceOption\" OrderableDBInstanceOption"
+                        "type": "List \"member\" OrderableDBInstanceOption"
                     },
                     {
                         "location": "querystring",
@@ -18307,7 +18307,7 @@
                         "locationName": "OrderableDBInstanceOptions",
                         "documentation": "-- | An 'OrderableDBInstanceOption' structure containing information about orderable\n-- options for the DB instance.",
                         "typeExposed": "[OrderableDBInstanceOption]",
-                        "type": "List \"OrderableDBInstanceOption\" OrderableDBInstanceOption"
+                        "type": "List \"member\" OrderableDBInstanceOption"
                     }
                 ]
             },
@@ -18493,7 +18493,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -18585,7 +18585,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -18704,7 +18704,7 @@
                         "locationName": "ReservedDBInstances",
                         "documentation": "-- | A list of reserved DB instances.",
                         "typeExposed": "[ReservedDBInstance]",
-                        "type": "List \"ReservedDBInstance\" ReservedDBInstance"
+                        "type": "List \"member\" ReservedDBInstance"
                     }
                 ],
                 "fields": [
@@ -18736,7 +18736,7 @@
                         "locationName": "ReservedDBInstances",
                         "documentation": "-- | A list of reserved DB instances.",
                         "typeExposed": "[ReservedDBInstance]",
-                        "type": "List \"ReservedDBInstance\" ReservedDBInstance"
+                        "type": "List \"member\" ReservedDBInstance"
                     }
                 ]
             },
@@ -18961,7 +18961,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -19038,7 +19038,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -19202,7 +19202,7 @@
                         "locationName": "ReservedDBInstancesOfferings",
                         "documentation": "-- | A list of reserved DB instance offerings.",
                         "typeExposed": "[ReservedDBInstancesOffering]",
-                        "type": "List \"ReservedDBInstancesOffering\" ReservedDBInstancesOffering"
+                        "type": "List \"member\" ReservedDBInstancesOffering"
                     }
                 ],
                 "fields": [
@@ -19234,7 +19234,7 @@
                         "locationName": "ReservedDBInstancesOfferings",
                         "documentation": "-- | A list of reserved DB instance offerings.",
                         "typeExposed": "[ReservedDBInstancesOffering]",
-                        "type": "List \"ReservedDBInstancesOffering\" ReservedDBInstancesOffering"
+                        "type": "List \"member\" ReservedDBInstancesOffering"
                     }
                 ]
             },
@@ -19439,7 +19439,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -19516,7 +19516,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -19960,7 +19960,7 @@
                     "locationName": "TagList",
                     "documentation": "-- | List of tags returned by the ListTagsForResource operation.",
                     "typeExposed": "[Tag]",
-                    "type": "List \"Tag\" Tag"
+                    "type": "List \"member\" Tag"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -19989,7 +19989,7 @@
                         "locationName": "TagList",
                         "documentation": "-- | List of tags returned by the ListTagsForResource operation.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -20006,7 +20006,7 @@
                         "locationName": "TagList",
                         "documentation": "-- | List of tags returned by the ListTagsForResource operation.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             },
@@ -20093,7 +20093,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     }
                 ],
                 "fields": [
@@ -20110,7 +20110,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | This parameter is not currently supported.",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filter\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -20415,7 +20415,7 @@
                         "locationName": "DBSecurityGroups",
                         "documentation": "-- | A list of DB security groups to authorize on this DB instance. Changing this\n-- setting does not result in an outage and the change is asynchronously applied\n-- as soon as possible.\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens\n--",
                         "typeExposed": "[Text]",
-                        "type": "List \"DBSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -20430,7 +20430,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "-- | A list of EC2 VPC security groups to authorize on this DB instance. This\n-- change is asynchronously applied as soon as possible.\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens\n--",
                         "typeExposed": "[Text]",
-                        "type": "List \"VpcSecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -20807,7 +20807,7 @@
                         "locationName": "DBSecurityGroups",
                         "documentation": "-- | A list of DB security groups to authorize on this DB instance. Changing this\n-- setting does not result in an outage and the change is asynchronously applied\n-- as soon as possible.\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens\n--",
                         "typeExposed": "[Text]",
-                        "type": "List \"DBSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -20987,7 +20987,7 @@
                         "locationName": "VpcSecurityGroupIds",
                         "documentation": "-- | A list of EC2 VPC security groups to authorize on this DB instance. This\n-- change is asynchronously applied as soon as possible.\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens\n--",
                         "typeExposed": "[Text]",
-                        "type": "List \"VpcSecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -21153,7 +21153,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | An array of parameter names, values, and the apply method for the parameter\n-- update. At least one parameter name, value, and apply method must be\n-- supplied; subsequent arguments are optional. A maximum of 20 parameters may\n-- be modified in a single request.\n--\n-- Valid Values (for the application method): 'immediate | pending-reboot'",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ],
                 "fields": [
@@ -21185,7 +21185,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | An array of parameter names, values, and the apply method for the parameter\n-- update. At least one parameter name, value, and apply method must be\n-- supplied; subsequent arguments are optional. A maximum of 20 parameters may\n-- be modified in a single request.\n--\n-- Valid Values (for the application method): 'immediate | pending-reboot'",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ]
             }
@@ -21370,7 +21370,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "-- | The EC2 subnet IDs for the DB subnet group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SubnetIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -21417,7 +21417,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "-- | The EC2 subnet IDs for the DB subnet group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SubnetIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -21627,7 +21627,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | A list of event categories for a SourceType that you want to subscribe to.\n-- You can see a list of the categories for a given SourceType in the \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events\u003e\n-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -21674,7 +21674,7 @@
                         "locationName": "EventCategories",
                         "documentation": "-- | A list of event categories for a SourceType that you want to subscribe to.\n-- You can see a list of the categories for a given SourceType in the \u003chttp://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events\u003e\n-- topic in the Amazon RDS User Guide or by using the DescribeEventCategories\n-- action.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EventCategory\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -21893,7 +21893,7 @@
                         "locationName": "OptionsToInclude",
                         "documentation": "-- | Options in this list are added to the option group or, if already present,\n-- the specified configuration is used to update the existing configuration.",
                         "typeExposed": "[OptionConfiguration]",
-                        "type": "List \"OptionConfiguration\" OptionConfiguration"
+                        "type": "List \"member\" OptionConfiguration"
                     },
                     {
                         "location": "querystring",
@@ -21908,7 +21908,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "-- | Options in this list are removed from the option group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"OptionsToRemove\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -21970,7 +21970,7 @@
                         "locationName": "OptionsToInclude",
                         "documentation": "-- | Options in this list are added to the option group or, if already present,\n-- the specified configuration is used to update the existing configuration.",
                         "typeExposed": "[OptionConfiguration]",
-                        "type": "List \"OptionConfiguration\" OptionConfiguration"
+                        "type": "List \"member\" OptionConfiguration"
                     },
                     {
                         "location": "querystring",
@@ -21985,7 +21985,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "-- | Options in this list are removed from the option group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"OptionsToRemove\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -22421,7 +22421,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -22483,7 +22483,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -22991,7 +22991,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | The tag key (name) of the tag to be removed.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKeys\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -23023,7 +23023,7 @@
                         "locationName": "TagKeys",
                         "documentation": "-- | The tag key (name) of the tag to be removed.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TagKeys\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -23209,7 +23209,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | An array of parameter names, values, and the apply method for the parameter\n-- update. At least one parameter name, value, and apply method must be\n-- supplied; subsequent arguments are optional. A maximum of 20 parameters may\n-- be modified in a single request.\n--\n-- MySQL\n--\n-- Valid Values (for Apply method): 'immediate' | 'pending-reboot'\n--\n-- You can use the immediate value with dynamic parameters only. You can use\n-- the 'pending-reboot' value for both dynamic and static parameters, and changes\n-- are applied when DB instance reboots.\n--\n-- Oracle\n--\n-- Valid Values (for Apply method): 'pending-reboot'",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ],
                 "fields": [
@@ -23241,7 +23241,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | An array of parameter names, values, and the apply method for the parameter\n-- update. At least one parameter name, value, and apply method must be\n-- supplied; subsequent arguments are optional. A maximum of 20 parameters may\n-- be modified in a single request.\n--\n-- MySQL\n--\n-- Valid Values (for Apply method): 'immediate' | 'pending-reboot'\n--\n-- You can use the immediate value with dynamic parameters only. You can use\n-- the 'pending-reboot' value for both dynamic and static parameters, and changes\n-- are applied when DB instance reboots.\n--\n-- Oracle\n--\n-- Valid Values (for Apply method): 'pending-reboot'",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -23695,7 +23695,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -23982,7 +23982,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -24491,7 +24491,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -24778,7 +24778,7 @@
                         "locationName": "Tags",
                         "documentation": null,
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tag\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",

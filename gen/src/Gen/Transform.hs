@@ -19,6 +19,7 @@
 
 module Gen.Transform (transformS1ToS2) where
 
+import Debug.Trace
 import           Control.Applicative        ((<$>), (<*>), (<|>), pure)
 import           Control.Arrow              ((&&&))
 import           Control.Error
@@ -326,7 +327,7 @@ shared s1 = do
     xs <- forM ops $ \o ->
         (++) <$> ins (o ^. oInput)
              <*> ins (o ^. oOutput)
-    return $! occur (freq (concat xs))
+    return $! trace (show $ occur (freq (concat xs))) $ occur (freq (concat xs))
   where
     ops = Map.elems (s1 ^. s1Operations)
 
@@ -342,7 +343,11 @@ shared s1 = do
 
     nested :: Text -> Data -> [Text]
     nested _ Nullary{} = []
-    nested k d         = k : mapMaybe name (toListOf (dataFields . typesOf) d)
+    nested k d         = k : vs
+      where
+        vs = mapMaybe name
+           . concatMap (universeOn typeOf)
+           $ toListOf dataFields d
 
     name :: Type -> Maybe Text
     name (TType k) = Just k
@@ -570,7 +575,8 @@ shapes proto time m =
             | otherwise =
                 flat flatten (TMap (ann, key, val) k' v')
           where
-            ann | fromMaybe False flatten = ent
+            ann | proto == Query          = "entry"
+                | fromMaybe False flatten = ent
                 | otherwise               = "entry"
 
             ent = fromMaybe "entry" (r ^. refLocationName)
@@ -587,16 +593,20 @@ shapes proto time m =
             flatten = x ^. lstFlattened
                   <|> x ^. lstMember . refFlattened
 
-            ann = fromMaybe fld $
-                    x ^. lstMember . refLocationName
-                <|> r ^. refLocationName
+            ann | proto == Query = "member"
+                | otherwise      =
+                    fromMaybe fld $
+                            x ^. lstMember . refLocationName
+                        <|> r ^. refLocationName
 
     flat :: Maybe Bool -> Type -> Type
-    flat (Just True) = TFlatten
-    flat _           = id
+    flat _ | proto == Ec2 = TFlatten
+    flat (Just True)      = TFlatten
+    flat _                = id
 
     insert :: Text -> Type -> State (HashMap Text Type) Type
     insert k t = modify (Map.insert k t) >> return t
+
 
 errorType :: Protocol -> Abbrev -> Text
 errorType p a =

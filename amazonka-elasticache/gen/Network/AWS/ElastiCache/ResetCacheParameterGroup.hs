@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 data ResetCacheParameterGroup = ResetCacheParameterGroup
     { _rcpgCacheParameterGroupName :: Text
-    , _rcpgParameterNameValues     :: List "ParameterNameValue" ParameterNameValue
+    , _rcpgParameterNameValues     :: List "member" ParameterNameValue
     , _rcpgResetAllParameters      :: Maybe Bool
     } deriving (Eq, Show)
 

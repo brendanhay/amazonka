@@ -241,11 +241,11 @@ instance ToPath ModifyInstanceAttribute where
 instance ToQuery ModifyInstanceAttribute where
     toQuery ModifyInstanceAttribute{..} = mconcat
         [ "attribute"                         =? _mia1Attribute
-        , "blockDeviceMapping"                =? _mia1BlockDeviceMappings
+        , toQuery                            _mia1BlockDeviceMappings
         , "disableApiTermination"             =? _mia1DisableApiTermination
         , "dryRun"                            =? _mia1DryRun
         , "ebsOptimized"                      =? _mia1EbsOptimized
-        , "GroupId"                           =? _mia1Groups
+        , toQuery                            _mia1Groups
         , "instanceId"                        =? _mia1InstanceId
         , "instanceInitiatedShutdownBehavior" =? _mia1InstanceInitiatedShutdownBehavior
         , "instanceType"                      =? _mia1InstanceType

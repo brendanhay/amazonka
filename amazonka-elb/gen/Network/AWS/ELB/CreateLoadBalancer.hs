@@ -76,13 +76,13 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data CreateLoadBalancer = CreateLoadBalancer
-    { _clbAvailabilityZones :: List "AvailabilityZones" Text
-    , _clbListeners         :: List "Listeners" Listener
+    { _clbAvailabilityZones :: List "member" Text
+    , _clbListeners         :: List "member" Listener
     , _clbLoadBalancerName  :: Text
     , _clbScheme            :: Maybe Text
-    , _clbSecurityGroups    :: List "SecurityGroups" Text
-    , _clbSubnets           :: List "Subnets" Text
-    , _clbTags              :: List1 "Tags" Tag
+    , _clbSecurityGroups    :: List "member" Text
+    , _clbSubnets           :: List "member" Text
+    , _clbTags              :: List1 "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateLoadBalancer' constructor.

@@ -102,7 +102,7 @@ des1SubscriptionName =
     lens _des1SubscriptionName (\s a -> s { _des1SubscriptionName = a })
 
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
-    { _desrEventSubscriptionsList :: List "EventSubscription" EventSubscription
+    { _desrEventSubscriptionsList :: List "member" EventSubscription
     , _desrMarker                 :: Maybe Text
     } deriving (Eq, Show)
 

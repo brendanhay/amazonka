@@ -189,12 +189,6 @@ newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests :: List "item" SpotInstanceRequest
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList RequestSpotInstancesResponse where
-    type Item RequestSpotInstancesResponse = SpotInstanceRequest
-
-    fromList = RequestSpotInstancesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _rsirSpotInstanceRequests
-
 -- | 'RequestSpotInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -240,4 +234,4 @@ instance AWSRequest RequestSpotInstances where
 
 instance FromXML RequestSpotInstancesResponse where
     parseXML x = RequestSpotInstancesResponse
-        <$> x .@  "spotInstanceRequestSet"
+        <$> parseXML x

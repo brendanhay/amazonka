@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 data DescribeLifecycleHooks = DescribeLifecycleHooks
     { _dlhAutoScalingGroupName :: Text
-    , _dlhLifecycleHookNames   :: List "LifecycleHookNames" Text
+    , _dlhLifecycleHookNames   :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeLifecycleHooks' constructor.
@@ -80,7 +80,7 @@ dlhLifecycleHookNames =
         . _List
 
 newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
-    { _dlhrLifecycleHooks :: List "LifecycleHooks" LifecycleHook
+    { _dlhrLifecycleHooks :: List "member" LifecycleHook
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLifecycleHooksResponse where

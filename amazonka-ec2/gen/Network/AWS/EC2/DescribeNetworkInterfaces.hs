@@ -192,12 +192,6 @@ newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { _dnirNetworkInterfaces :: List "item" NetworkInterface
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeNetworkInterfacesResponse where
-    type Item DescribeNetworkInterfacesResponse = NetworkInterface
-
-    fromList = DescribeNetworkInterfacesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dnirNetworkInterfaces
-
 -- | 'DescribeNetworkInterfacesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -221,8 +215,8 @@ instance ToPath DescribeNetworkInterfaces where
 instance ToQuery DescribeNetworkInterfaces where
     toQuery DescribeNetworkInterfaces{..} = mconcat
         [ "dryRun"             =? _dni1DryRun
-        , "filter"             =? _dni1Filters
-        , "NetworkInterfaceId" =? _dni1NetworkInterfaceIds
+        , toQuery             _dni1Filters
+        , toQuery             _dni1NetworkInterfaceIds
         ]
 
 instance ToHeaders DescribeNetworkInterfaces
@@ -236,4 +230,4 @@ instance AWSRequest DescribeNetworkInterfaces where
 
 instance FromXML DescribeNetworkInterfacesResponse where
     parseXML x = DescribeNetworkInterfacesResponse
-        <$> x .@  "networkInterfaceSet"
+        <$> parseXML x

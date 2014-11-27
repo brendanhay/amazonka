@@ -1453,7 +1453,7 @@
                         "locationName": "Jobs",
                         "documentation": null,
                         "typeExposed": "[Job]",
-                        "type": "List \"Jobs\" Job"
+                        "type": "List \"member\" Job"
                     },
                     {
                         "location": "querystring",
@@ -1500,7 +1500,7 @@
                         "locationName": "Jobs",
                         "documentation": null,
                         "typeExposed": "[Job]",
-                        "type": "List \"Jobs\" Job"
+                        "type": "List \"member\" Job"
                     }
                 ]
             },

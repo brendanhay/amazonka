@@ -924,7 +924,7 @@
                         "locationName": "Roles",
                         "documentation": "-- | The role associated with the instance profile.",
                         "typeExposed": "[Role]",
-                        "type": "List \"Roles\" Role"
+                        "type": "List \"member\" Role"
                     }
                 ],
                 "fields": [
@@ -1016,7 +1016,7 @@
                         "locationName": "Roles",
                         "documentation": "-- | The role associated with the instance profile.",
                         "typeExposed": "[Role]",
-                        "type": "List \"Roles\" Role"
+                        "type": "List \"member\" Role"
                     }
                 ]
             },
@@ -2756,7 +2756,12 @@
             "Group",
             "InstanceProfile",
             "ServerCertificateMetadata",
-            "User"
+            "LoginProfile",
+            "User",
+            "statusType",
+            "Role",
+            "VirtualMFADevice",
+            "SigningCertificate"
         ]
     },
     "operations": [
@@ -4444,7 +4449,7 @@
                         "locationName": "ClientIDList",
                         "documentation": "-- | A list of client IDs (also known as audiences). When a mobile or web app\n-- registers with an OpenID Connect provider, they establish a value that\n-- identifies the application. (This is the value that's sent as the 'client_id'\n-- parameter on OAuth requests.)\n--\n-- You can register multiple client IDs with the same provider. For example,\n-- you might have multiple applications that use the same OIDC provider. You\n-- cannot register more than 100 client IDs with a single IAM OIDC provider.\n--\n-- There is no defined format for a client ID. The 'CreateOpenIDConnectProviderRequest' action accepts client IDs up to 255 characters long.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ClientIDList\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4459,7 +4464,7 @@
                         "locationName": "ThumbprintList",
                         "documentation": "-- | A list of server certificate thumbprints for the OpenID Connect (OIDC)\n-- identity provider's server certificate(s). Typically this list includes only\n-- one entry. However, IAM lets you have up to five thumbprints for an OIDC\n-- provider. This lets you maintain multiple thumbprints if the identity\n-- provider is rotating certificates.\n--\n-- The server certificate thumbprint is the hex-encoded SHA-1 hash value of the\n-- X.509 certificate used by the domain where the OpenID Connect provider makes\n-- its keys available. It is always a 40-character string.\n--\n-- You must provide at least one thumbprint when creating an IAM OIDC provider.\n-- For example, if the OIDC provider is 'server.example.com' and the provider\n-- stores its keys at \"https://keys.server.example.com/openid-connect\", the\n-- thumbprint string would be the hex-encoded SHA-1 hash value of the\n-- certificate used by https://keys.server.example.com.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ThumbprintList\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -4476,7 +4481,7 @@
                         "locationName": "ClientIDList",
                         "documentation": "-- | A list of client IDs (also known as audiences). When a mobile or web app\n-- registers with an OpenID Connect provider, they establish a value that\n-- identifies the application. (This is the value that's sent as the 'client_id'\n-- parameter on OAuth requests.)\n--\n-- You can register multiple client IDs with the same provider. For example,\n-- you might have multiple applications that use the same OIDC provider. You\n-- cannot register more than 100 client IDs with a single IAM OIDC provider.\n--\n-- There is no defined format for a client ID. The 'CreateOpenIDConnectProviderRequest' action accepts client IDs up to 255 characters long.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ClientIDList\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4491,7 +4496,7 @@
                         "locationName": "ThumbprintList",
                         "documentation": "-- | A list of server certificate thumbprints for the OpenID Connect (OIDC)\n-- identity provider's server certificate(s). Typically this list includes only\n-- one entry. However, IAM lets you have up to five thumbprints for an OIDC\n-- provider. This lets you maintain multiple thumbprints if the identity\n-- provider is rotating certificates.\n--\n-- The server certificate thumbprint is the hex-encoded SHA-1 hash value of the\n-- X.509 certificate used by the domain where the OpenID Connect provider makes\n-- its keys available. It is always a 40-character string.\n--\n-- You must provide at least one thumbprint when creating an IAM OIDC provider.\n-- For example, if the OIDC provider is 'server.example.com' and the provider\n-- stores its keys at \"https://keys.server.example.com/openid-connect\", the\n-- thumbprint string would be the hex-encoded SHA-1 hash value of the\n-- certificate used by https://keys.server.example.com.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ThumbprintList\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8384,7 +8389,7 @@
                         "locationName": "Users",
                         "documentation": "-- | A list of users in the group.",
                         "typeExposed": "[User]",
-                        "type": "List \"Users\" User"
+                        "type": "List \"member\" User"
                     },
                     {
                         "location": "querystring",
@@ -8476,7 +8481,7 @@
                         "locationName": "Users",
                         "documentation": "-- | A list of users in the group.",
                         "typeExposed": "[User]",
-                        "type": "List \"Users\" User"
+                        "type": "List \"member\" User"
                     }
                 ]
             },
@@ -9299,7 +9304,7 @@
                         "locationName": "ClientIDList",
                         "documentation": "-- | A list of client IDs (also known as audiences) that are associated with the\n-- specified IAM OpenID Connect provider. For more information, see 'CreateOpenIDConnectProvider'.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ClientIDList\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9314,7 +9319,7 @@
                         "locationName": "ThumbprintList",
                         "documentation": "-- | A list of certificate thumbprints that are associated with the specified IAM\n-- OpenID Connect provider. For more information, see 'CreateOpenIDConnectProvider'\n-- .",
                         "typeExposed": "[Text]",
-                        "type": "List \"ThumbprintList\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9346,7 +9351,7 @@
                         "locationName": "ClientIDList",
                         "documentation": "-- | A list of client IDs (also known as audiences) that are associated with the\n-- specified IAM OpenID Connect provider. For more information, see 'CreateOpenIDConnectProvider'.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ClientIDList\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9376,7 +9381,7 @@
                         "locationName": "ThumbprintList",
                         "documentation": "-- | A list of certificate thumbprints that are associated with the specified IAM\n-- OpenID Connect provider. For more information, see 'CreateOpenIDConnectProvider'\n-- .",
                         "typeExposed": "[Text]",
-                        "type": "List \"ThumbprintList\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -10779,7 +10784,7 @@
                         "locationName": "AccessKeyMetadata",
                         "documentation": "-- | A list of access key metadata.",
                         "typeExposed": "[AccessKeyMetadata]",
-                        "type": "List \"AccessKeyMetadata\" AccessKeyMetadata"
+                        "type": "List \"member\" AccessKeyMetadata"
                     },
                     {
                         "location": "querystring",
@@ -10826,7 +10831,7 @@
                         "locationName": "AccessKeyMetadata",
                         "documentation": "-- | A list of access key metadata.",
                         "typeExposed": "[AccessKeyMetadata]",
-                        "type": "List \"AccessKeyMetadata\" AccessKeyMetadata"
+                        "type": "List \"member\" AccessKeyMetadata"
                     },
                     {
                         "location": "querystring",
@@ -11064,7 +11069,7 @@
                         "locationName": "AccountAliases",
                         "documentation": "-- | A list of aliases associated with the account.",
                         "typeExposed": "[Text]",
-                        "type": "List \"AccountAliases\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -11111,7 +11116,7 @@
                         "locationName": "AccountAliases",
                         "documentation": "-- | A list of aliases associated with the account.",
                         "typeExposed": "[Text]",
-                        "type": "List \"AccountAliases\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -11314,7 +11319,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "-- | A list of policy names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"PolicyNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -11391,7 +11396,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "-- | A list of policy names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"PolicyNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -11599,7 +11604,7 @@
                         "locationName": "Groups",
                         "documentation": "-- | A list of groups.",
                         "typeExposed": "[Group]",
-                        "type": "List \"Groups\" Group"
+                        "type": "List \"member\" Group"
                     },
                     {
                         "location": "querystring",
@@ -11646,7 +11651,7 @@
                         "locationName": "Groups",
                         "documentation": "-- | A list of groups.",
                         "typeExposed": "[Group]",
-                        "type": "List \"Groups\" Group"
+                        "type": "List \"member\" Group"
                     },
                     {
                         "location": "querystring",
@@ -11883,7 +11888,7 @@
                         "locationName": "Groups",
                         "documentation": "-- | A list of groups.",
                         "typeExposed": "[Group]",
-                        "type": "List \"Groups\" Group"
+                        "type": "List \"member\" Group"
                     },
                     {
                         "location": "querystring",
@@ -11930,7 +11935,7 @@
                         "locationName": "Groups",
                         "documentation": "-- | A list of groups.",
                         "typeExposed": "[Group]",
-                        "type": "List \"Groups\" Group"
+                        "type": "List \"member\" Group"
                     },
                     {
                         "location": "querystring",
@@ -12168,7 +12173,7 @@
                         "locationName": "InstanceProfiles",
                         "documentation": "-- | A list of instance profiles.",
                         "typeExposed": "[InstanceProfile]",
-                        "type": "List \"InstanceProfiles\" InstanceProfile"
+                        "type": "List \"member\" InstanceProfile"
                     },
                     {
                         "location": "querystring",
@@ -12215,7 +12220,7 @@
                         "locationName": "InstanceProfiles",
                         "documentation": "-- | A list of instance profiles.",
                         "typeExposed": "[InstanceProfile]",
-                        "type": "List \"InstanceProfiles\" InstanceProfile"
+                        "type": "List \"member\" InstanceProfile"
                     },
                     {
                         "location": "querystring",
@@ -12452,7 +12457,7 @@
                         "locationName": "InstanceProfiles",
                         "documentation": "-- | A list of instance profiles.",
                         "typeExposed": "[InstanceProfile]",
-                        "type": "List \"InstanceProfiles\" InstanceProfile"
+                        "type": "List \"member\" InstanceProfile"
                     },
                     {
                         "location": "querystring",
@@ -12499,7 +12504,7 @@
                         "locationName": "InstanceProfiles",
                         "documentation": "-- | A list of instance profiles.",
                         "typeExposed": "[InstanceProfile]",
-                        "type": "List \"InstanceProfiles\" InstanceProfile"
+                        "type": "List \"member\" InstanceProfile"
                     },
                     {
                         "location": "querystring",
@@ -12737,7 +12742,7 @@
                         "locationName": "MFADevices",
                         "documentation": "-- | A list of MFA devices.",
                         "typeExposed": "[MFADevice]",
-                        "type": "List \"MFADevices\" MFADevice"
+                        "type": "List \"member\" MFADevice"
                     },
                     {
                         "location": "querystring",
@@ -12799,7 +12804,7 @@
                         "locationName": "MFADevices",
                         "documentation": "-- | A list of MFA devices.",
                         "typeExposed": "[MFADevice]",
-                        "type": "List \"MFADevices\" MFADevice"
+                        "type": "List \"member\" MFADevice"
                     },
                     {
                         "location": "querystring",
@@ -13010,7 +13015,7 @@
                     "locationName": "OpenIDConnectProviderList",
                     "documentation": "-- | The list of IAM OpenID Connect providers in the AWS account.",
                     "typeExposed": "[OpenIDConnectProviderListEntry]",
-                    "type": "List \"OpenIDConnectProviderList\" OpenIDConnectProviderListEntry"
+                    "type": "List \"member\" OpenIDConnectProviderListEntry"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -13039,7 +13044,7 @@
                         "locationName": "OpenIDConnectProviderList",
                         "documentation": "-- | The list of IAM OpenID Connect providers in the AWS account.",
                         "typeExposed": "[OpenIDConnectProviderListEntry]",
-                        "type": "List \"OpenIDConnectProviderList\" OpenIDConnectProviderListEntry"
+                        "type": "List \"member\" OpenIDConnectProviderListEntry"
                     }
                 ],
                 "fields": [
@@ -13056,7 +13061,7 @@
                         "locationName": "OpenIDConnectProviderList",
                         "documentation": "-- | The list of IAM OpenID Connect providers in the AWS account.",
                         "typeExposed": "[OpenIDConnectProviderListEntry]",
-                        "type": "List \"OpenIDConnectProviderList\" OpenIDConnectProviderListEntry"
+                        "type": "List \"member\" OpenIDConnectProviderListEntry"
                     }
                 ]
             },
@@ -13144,7 +13149,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "-- | A list of policy names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"PolicyNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13221,7 +13226,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "-- | A list of policy names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"PolicyNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -13429,7 +13434,7 @@
                         "locationName": "Roles",
                         "documentation": "-- | A list of roles.",
                         "typeExposed": "[Role]",
-                        "type": "List \"Roles\" Role"
+                        "type": "List \"member\" Role"
                     },
                     {
                         "location": "querystring",
@@ -13506,7 +13511,7 @@
                         "locationName": "Roles",
                         "documentation": "-- | A list of roles.",
                         "typeExposed": "[Role]",
-                        "type": "List \"Roles\" Role"
+                        "type": "List \"member\" Role"
                     }
                 ]
             },
@@ -13702,7 +13707,7 @@
                     "locationName": "SAMLProviderList",
                     "documentation": "-- | The list of SAML providers for this account.",
                     "typeExposed": "[SAMLProviderListEntry]",
-                    "type": "List \"SAMLProviderList\" SAMLProviderListEntry"
+                    "type": "List \"member\" SAMLProviderListEntry"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -13731,7 +13736,7 @@
                         "locationName": "SAMLProviderList",
                         "documentation": "-- | The list of SAML providers for this account.",
                         "typeExposed": "[SAMLProviderListEntry]",
-                        "type": "List \"SAMLProviderList\" SAMLProviderListEntry"
+                        "type": "List \"member\" SAMLProviderListEntry"
                     }
                 ],
                 "fields": [
@@ -13748,7 +13753,7 @@
                         "locationName": "SAMLProviderList",
                         "documentation": "-- | The list of SAML providers for this account.",
                         "typeExposed": "[SAMLProviderListEntry]",
-                        "type": "List \"SAMLProviderList\" SAMLProviderListEntry"
+                        "type": "List \"member\" SAMLProviderListEntry"
                     }
                 ]
             },
@@ -13835,7 +13840,7 @@
                         "locationName": "ServerCertificateMetadataList",
                         "documentation": "-- | A list of server certificates.",
                         "typeExposed": "[ServerCertificateMetadata]",
-                        "type": "List \"ServerCertificateMetadataList\" ServerCertificateMetadata"
+                        "type": "List \"member\" ServerCertificateMetadata"
                     },
                     {
                         "location": "querystring",
@@ -13912,7 +13917,7 @@
                         "locationName": "ServerCertificateMetadataList",
                         "documentation": "-- | A list of server certificates.",
                         "typeExposed": "[ServerCertificateMetadata]",
-                        "type": "List \"ServerCertificateMetadataList\" ServerCertificateMetadata"
+                        "type": "List \"member\" ServerCertificateMetadata"
                     }
                 ]
             },
@@ -14119,7 +14124,7 @@
                         "locationName": "Certificates",
                         "documentation": "-- | A list of the user's signing certificate information.",
                         "typeExposed": "[SigningCertificate]",
-                        "type": "List \"Certificates\" SigningCertificate"
+                        "type": "List \"member\" SigningCertificate"
                     },
                     {
                         "location": "querystring",
@@ -14166,7 +14171,7 @@
                         "locationName": "Certificates",
                         "documentation": "-- | A list of the user's signing certificate information.",
                         "typeExposed": "[SigningCertificate]",
-                        "type": "List \"Certificates\" SigningCertificate"
+                        "type": "List \"member\" SigningCertificate"
                     },
                     {
                         "location": "querystring",
@@ -14404,7 +14409,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "-- | A list of policy names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"PolicyNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -14481,7 +14486,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "-- | A list of policy names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"PolicyNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -14689,7 +14694,7 @@
                         "locationName": "Users",
                         "documentation": "-- | A list of users.",
                         "typeExposed": "[User]",
-                        "type": "List \"Users\" User"
+                        "type": "List \"member\" User"
                     },
                     {
                         "location": "querystring",
@@ -14766,7 +14771,7 @@
                         "locationName": "Users",
                         "documentation": "-- | A list of users.",
                         "typeExposed": "[User]",
-                        "type": "List \"Users\" User"
+                        "type": "List \"member\" User"
                     }
                 ]
             },
@@ -14973,7 +14978,7 @@
                         "locationName": "VirtualMFADevices",
                         "documentation": "-- | The list of virtual MFA devices in the current account that match the 'AssignmentStatus' value that was passed in the request.",
                         "typeExposed": "[VirtualMFADevice]",
-                        "type": "List \"VirtualMFADevices\" VirtualMFADevice"
+                        "type": "List \"member\" VirtualMFADevice"
                     },
                     {
                         "location": "querystring",
@@ -15050,7 +15055,7 @@
                         "locationName": "VirtualMFADevices",
                         "documentation": "-- | The list of virtual MFA devices in the current account that match the 'AssignmentStatus' value that was passed in the request.",
                         "typeExposed": "[VirtualMFADevice]",
-                        "type": "List \"VirtualMFADevices\" VirtualMFADevice"
+                        "type": "List \"member\" VirtualMFADevice"
                     }
                 ]
             },
@@ -17606,7 +17611,7 @@
                         "locationName": "ThumbprintList",
                         "documentation": "-- | A list of certificate thumbprints that are associated with the specified IAM\n-- OpenID Connect provider. For more information, see 'CreateOpenIDConnectProvider'\n-- .",
                         "typeExposed": "[Text]",
-                        "type": "List \"ThumbprintList\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -17638,7 +17643,7 @@
                         "locationName": "ThumbprintList",
                         "documentation": "-- | A list of certificate thumbprints that are associated with the specified IAM\n-- OpenID Connect provider. For more information, see 'CreateOpenIDConnectProvider'\n-- .",
                         "typeExposed": "[Text]",
-                        "type": "List \"ThumbprintList\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }

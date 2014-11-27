@@ -99,7 +99,7 @@ drnReservedNodeId =
 
 data DescribeReservedNodesResponse = DescribeReservedNodesResponse
     { _drnrMarker        :: Maybe Text
-    , _drnrReservedNodes :: List "ReservedNode" ReservedNode
+    , _drnrReservedNodes :: List "member" ReservedNode
     } deriving (Eq, Show)
 
 -- | 'DescribeReservedNodesResponse' constructor.

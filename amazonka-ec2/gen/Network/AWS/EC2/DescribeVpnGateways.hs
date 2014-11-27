@@ -122,12 +122,6 @@ newtype DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     { _dvgrVpnGateways :: List "item" VpnGateway
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeVpnGatewaysResponse where
-    type Item DescribeVpnGatewaysResponse = VpnGateway
-
-    fromList = DescribeVpnGatewaysResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dvgrVpnGateways
-
 -- | 'DescribeVpnGatewaysResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -149,8 +143,8 @@ instance ToPath DescribeVpnGateways where
 instance ToQuery DescribeVpnGateways where
     toQuery DescribeVpnGateways{..} = mconcat
         [ "dryRun"       =? _dvg2DryRun
-        , "Filter"       =? _dvg2Filters
-        , "VpnGatewayId" =? _dvg2VpnGatewayIds
+        , toQuery       _dvg2Filters
+        , toQuery       _dvg2VpnGatewayIds
         ]
 
 instance ToHeaders DescribeVpnGateways
@@ -164,4 +158,4 @@ instance AWSRequest DescribeVpnGateways where
 
 instance FromXML DescribeVpnGatewaysResponse where
     parseXML x = DescribeVpnGatewaysResponse
-        <$> x .@  "vpnGatewaySet"
+        <$> parseXML x

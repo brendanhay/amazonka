@@ -101,7 +101,7 @@
                         "locationName": "ToAddresses",
                         "documentation": "-- | The To: field(s) of the message.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ToAddresses\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -116,7 +116,7 @@
                         "locationName": "CcAddresses",
                         "documentation": "-- | The CC: field(s) of the message.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ToAddresses\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -131,7 +131,7 @@
                         "locationName": "BccAddresses",
                         "documentation": "-- | The BCC: field(s) of the message.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ToAddresses\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -148,7 +148,7 @@
                         "locationName": "BccAddresses",
                         "documentation": "-- | The BCC: field(s) of the message.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ToAddresses\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -163,7 +163,7 @@
                         "locationName": "CcAddresses",
                         "documentation": "-- | The CC: field(s) of the message.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ToAddresses\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -178,7 +178,7 @@
                         "locationName": "ToAddresses",
                         "documentation": "-- | The To: field(s) of the message.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ToAddresses\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -241,7 +241,7 @@
                         "locationName": "DkimTokens",
                         "documentation": "-- | A set of character strings that represent the domain's identity. Using these\n-- tokens, you will need to create DNS CNAME records that point to DKIM public\n-- keys hosted by Amazon SES. Amazon Web Services will eventually detect that\n-- you have updated your DNS records; this detection process may take up to 72\n-- hours. Upon successful detection, Amazon SES will be able to DKIM-sign email\n-- originating from that domain. (This only applies to domain identities, not\n-- email address identities.)\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
                         "typeExposed": "[Text]",
-                        "type": "List \"DkimTokens\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -273,7 +273,7 @@
                         "locationName": "DkimTokens",
                         "documentation": "-- | A set of character strings that represent the domain's identity. Using these\n-- tokens, you will need to create DNS CNAME records that point to DKIM public\n-- keys hosted by Amazon SES. Amazon Web Services will eventually detect that\n-- you have updated your DNS records; this detection process may take up to 72\n-- hours. Upon successful detection, Amazon SES will be able to DKIM-sign email\n-- originating from that domain. (This only applies to domain identities, not\n-- email address identities.)\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
                         "typeExposed": "[Text]",
-                        "type": "List \"DkimTokens\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1421,7 +1421,7 @@
                     "locationName": "Identities",
                     "documentation": "-- | A list of one or more verified identities - email addresses, domains, or both.",
                     "typeExposed": "[Text]",
-                    "type": "List \"Identities\" Text"
+                    "type": "List \"member\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -1463,7 +1463,7 @@
                         "locationName": "Identities",
                         "documentation": "-- | A list of one or more verified identities - email addresses, domains, or both.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Identities\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -1480,7 +1480,7 @@
                         "locationName": "Identities",
                         "documentation": "-- | A list of one or more verified identities - email addresses, domains, or both.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Identities\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -1602,7 +1602,7 @@
                     "locationName": "Identities",
                     "documentation": "-- | A list of one or more identities.",
                     "typeExposed": "[Text]",
-                    "type": "List \"Identities\" Text"
+                    "type": "List \"member\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -1644,7 +1644,7 @@
                         "locationName": "Identities",
                         "documentation": "-- | A list of one or more identities.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Identities\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -1661,7 +1661,7 @@
                         "locationName": "Identities",
                         "documentation": "-- | A list of one or more identities.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Identities\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -1783,7 +1783,7 @@
                     "locationName": "Identities",
                     "documentation": "-- | A list of identities.",
                     "typeExposed": "[Text]",
-                    "type": "List \"Identities\" Text"
+                    "type": "List \"member\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -1825,7 +1825,7 @@
                         "locationName": "Identities",
                         "documentation": "-- | A list of identities.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Identities\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -1842,7 +1842,7 @@
                         "locationName": "Identities",
                         "documentation": "-- | A list of identities.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Identities\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -2040,7 +2040,7 @@
                     "locationName": "SendDataPoints",
                     "documentation": "-- | A list of data points, each of which represents 15 minutes of activity.",
                     "typeExposed": "[SendDataPoint]",
-                    "type": "List \"SendDataPoints\" SendDataPoint"
+                    "type": "List \"member\" SendDataPoint"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -2069,7 +2069,7 @@
                         "locationName": "SendDataPoints",
                         "documentation": "-- | A list of data points, each of which represents 15 minutes of activity.",
                         "typeExposed": "[SendDataPoint]",
-                        "type": "List \"SendDataPoints\" SendDataPoint"
+                        "type": "List \"member\" SendDataPoint"
                     }
                 ],
                 "fields": [
@@ -2086,7 +2086,7 @@
                         "locationName": "SendDataPoints",
                         "documentation": "-- | A list of data points, each of which represents 15 minutes of activity.",
                         "typeExposed": "[SendDataPoint]",
-                        "type": "List \"SendDataPoints\" SendDataPoint"
+                        "type": "List \"member\" SendDataPoint"
                     }
                 ]
             },
@@ -2174,7 +2174,7 @@
                         "locationName": "Identities",
                         "documentation": "-- | A list of identities.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Identities\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2206,7 +2206,7 @@
                         "locationName": "Identities",
                         "documentation": "-- | A list of identities.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Identities\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2417,7 +2417,7 @@
                     "locationName": "VerifiedEmailAddresses",
                     "documentation": "-- | A list of email addresses that have been verified.",
                     "typeExposed": "[Text]",
-                    "type": "List \"ToAddresses\" Text"
+                    "type": "List \"member\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -2446,7 +2446,7 @@
                         "locationName": "VerifiedEmailAddresses",
                         "documentation": "-- | A list of email addresses that have been verified.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ToAddresses\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -2463,7 +2463,7 @@
                         "locationName": "VerifiedEmailAddresses",
                         "documentation": "-- | A list of email addresses that have been verified.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ToAddresses\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -2718,7 +2718,7 @@
                         "locationName": "ReplyToAddresses",
                         "documentation": "-- | The reply-to email address(es) for the message. If the recipient replies to\n-- the message, each reply-to address will receive the reply.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ToAddresses\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2780,7 +2780,7 @@
                         "locationName": "ReplyToAddresses",
                         "documentation": "-- | The reply-to email address(es) for the message. If the recipient replies to\n-- the message, each reply-to address will receive the reply.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ToAddresses\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2997,7 +2997,7 @@
                         "locationName": "Destinations",
                         "documentation": "-- | A list of destinations for the message, consisting of To:, CC:, and BCC:\n-- addresses.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ToAddresses\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -3014,7 +3014,7 @@
                         "locationName": "Destinations",
                         "documentation": "-- | A list of destinations for the message, consisting of To:, CC:, and BCC:\n-- addresses.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ToAddresses\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3551,7 +3551,7 @@
                     "locationName": "DkimTokens",
                     "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
                     "typeExposed": "[Text]",
-                    "type": "List \"DkimTokens\" Text"
+                    "type": "List \"member\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -3580,7 +3580,7 @@
                         "locationName": "DkimTokens",
                         "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
                         "typeExposed": "[Text]",
-                        "type": "List \"DkimTokens\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -3597,7 +3597,7 @@
                         "locationName": "DkimTokens",
                         "documentation": "-- | A set of character strings that represent the domain's identity. If the\n-- identity is an email address, the tokens represent the domain of that address.\n--\n-- Using these tokens, you will need to create DNS CNAME records that point to\n-- DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually\n-- detect that you have updated your DNS records; this detection process may\n-- take up to 72 hours. Upon successful detection, Amazon SES will be able to\n-- DKIM-sign emails originating from that domain.\n--\n-- For more information about creating DNS records using DKIM tokens, go to the \u003chttp://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide\u003e.",
                         "typeExposed": "[Text]",
-                        "type": "List \"DkimTokens\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },

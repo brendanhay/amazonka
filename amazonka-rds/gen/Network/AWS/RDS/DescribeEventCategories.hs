@@ -51,7 +51,7 @@ import Network.AWS.RDS.Types
 import qualified GHC.Exts
 
 data DescribeEventCategories = DescribeEventCategories
-    { _decFilters    :: List "Filter" Filter
+    { _decFilters    :: List "member" Filter
     , _decSourceType :: Maybe Text
     } deriving (Eq, Show)
 
@@ -81,7 +81,7 @@ decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
 
 newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
-    { _decrEventCategoriesMapList :: List "EventCategoriesMap" EventCategoriesMap
+    { _decrEventCategoriesMapList :: List "member" EventCategoriesMap
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeEventCategoriesResponse where

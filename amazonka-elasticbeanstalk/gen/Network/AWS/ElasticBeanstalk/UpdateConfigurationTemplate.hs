@@ -67,8 +67,8 @@ import qualified GHC.Exts
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate
     { _uctApplicationName :: Text
     , _uctDescription     :: Maybe Text
-    , _uctOptionSettings  :: List "OptionSettings" ConfigurationOptionSetting
-    , _uctOptionsToRemove :: List "OptionsToRemove" OptionSpecification
+    , _uctOptionSettings  :: List "member" ConfigurationOptionSetting
+    , _uctOptionsToRemove :: List "member" OptionSpecification
     , _uctTemplateName    :: Text
     } deriving (Eq, Show)
 
@@ -138,7 +138,7 @@ data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
     , _uctrDeploymentStatus  :: Maybe ConfigurationDeploymentStatus
     , _uctrDescription       :: Maybe Text
     , _uctrEnvironmentName   :: Maybe Text
-    , _uctrOptionSettings    :: List "OptionSettings" ConfigurationOptionSetting
+    , _uctrOptionSettings    :: List "member" ConfigurationOptionSetting
     , _uctrSolutionStackName :: Maybe Text
     , _uctrTemplateName      :: Maybe Text
     } deriving (Eq, Show)

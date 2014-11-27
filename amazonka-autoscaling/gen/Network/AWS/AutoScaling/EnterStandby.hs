@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 data EnterStandby = EnterStandby
     { _esAutoScalingGroupName           :: Text
-    , _esInstanceIds                    :: List "InstanceIds" Text
+    , _esInstanceIds                    :: List "member" Text
     , _esShouldDecrementDesiredCapacity :: Bool
     } deriving (Eq, Ord, Show)
 
@@ -96,7 +96,7 @@ esShouldDecrementDesiredCapacity =
         (\s a -> s { _esShouldDecrementDesiredCapacity = a })
 
 newtype EnterStandbyResponse = EnterStandbyResponse
-    { _esr1Activities :: List "Activities" Activity
+    { _esr1Activities :: List "member" Activity
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList EnterStandbyResponse where

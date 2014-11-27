@@ -66,7 +66,7 @@ import qualified GHC.Exts
 
 data CreateLaunchConfiguration = CreateLaunchConfiguration
     { _clcAssociatePublicIpAddress :: Maybe Bool
-    , _clcBlockDeviceMappings      :: List "BlockDeviceMappings" BlockDeviceMapping
+    , _clcBlockDeviceMappings      :: List "member" BlockDeviceMapping
     , _clcEbsOptimized             :: Maybe Bool
     , _clcIamInstanceProfile       :: Maybe Text
     , _clcImageId                  :: Maybe Text
@@ -78,7 +78,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
     , _clcLaunchConfigurationName  :: Text
     , _clcPlacementTenancy         :: Maybe Text
     , _clcRamdiskId                :: Maybe Text
-    , _clcSecurityGroups           :: List "SecurityGroups" Text
+    , _clcSecurityGroups           :: List "member" Text
     , _clcSpotPrice                :: Maybe Text
     , _clcUserData                 :: Maybe Text
     } deriving (Eq, Show)

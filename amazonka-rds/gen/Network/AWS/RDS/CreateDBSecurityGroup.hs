@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data CreateDBSecurityGroup = CreateDBSecurityGroup
     { _cdbsgDBSecurityGroupDescription :: Text
     , _cdbsgDBSecurityGroupName        :: Text
-    , _cdbsgTags                       :: List "Tag" Tag
+    , _cdbsgTags                       :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateDBSecurityGroup' constructor.

@@ -72,7 +72,7 @@ lqQueueNamePrefix =
     lens _lqQueueNamePrefix (\s a -> s { _lqQueueNamePrefix = a })
 
 newtype ListQueuesResponse = ListQueuesResponse
-    { _lqrQueueUrls :: List "QueueUrl" Text
+    { _lqrQueueUrls :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 -- | 'ListQueuesResponse' constructor.

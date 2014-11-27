@@ -114,10 +114,10 @@ gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateURL = lens _gtsTemplateURL (\s a -> s { _gtsTemplateURL = a })
 
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse
-    { _gtsrCapabilities       :: List "Capabilities" Capability
+    { _gtsrCapabilities       :: List "member" Capability
     , _gtsrCapabilitiesReason :: Maybe Text
     , _gtsrDescription        :: Maybe Text
-    , _gtsrParameters         :: List "Parameters" ParameterDeclaration
+    , _gtsrParameters         :: List "member" ParameterDeclaration
     , _gtsrVersion            :: Maybe Text
     } deriving (Eq, Show)
 

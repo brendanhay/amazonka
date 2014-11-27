@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 data RemoveTagsFromResource = RemoveTagsFromResource
     { _rtfrResourceName :: Text
-    , _rtfrTagKeys      :: List "TagKeys" Text
+    , _rtfrTagKeys      :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'RemoveTagsFromResource' constructor.

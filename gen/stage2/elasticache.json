@@ -557,7 +557,7 @@
                         "locationName": "NodeSnapshots",
                         "documentation": "-- | A list of the cache nodes in the source cache cluster.",
                         "typeExposed": "[NodeSnapshot]",
-                        "type": "List \"NodeSnapshot\" NodeSnapshot"
+                        "type": "List \"member\" NodeSnapshot"
                     }
                 ],
                 "fields": [
@@ -694,7 +694,7 @@
                         "locationName": "NodeSnapshots",
                         "documentation": "-- | A list of the cache nodes in the source cache cluster.",
                         "typeExposed": "[NodeSnapshot]",
-                        "type": "List \"NodeSnapshot\" NodeSnapshot"
+                        "type": "List \"member\" NodeSnapshot"
                     },
                     {
                         "location": "querystring",
@@ -1075,7 +1075,7 @@
                         "locationName": "NodeGroupMembers",
                         "documentation": "-- | A list containing information about individual nodes within the node group.",
                         "typeExposed": "[NodeGroupMember]",
-                        "type": "List \"NodeGroupMember\" NodeGroupMember"
+                        "type": "List \"member\" NodeGroupMember"
                     }
                 ],
                 "fields": [
@@ -1107,7 +1107,7 @@
                         "locationName": "NodeGroupMembers",
                         "documentation": "-- | A list containing information about individual nodes within the node group.",
                         "typeExposed": "[NodeGroupMember]",
-                        "type": "List \"NodeGroupMember\" NodeGroupMember"
+                        "type": "List \"member\" NodeGroupMember"
                     },
                     {
                         "location": "querystring",
@@ -1679,7 +1679,7 @@
                         "locationName": "Subnets",
                         "documentation": "-- | A list of subnets associated with the cache subnet group.",
                         "typeExposed": "[Subnet]",
-                        "type": "List \"Subnet\" Subnet"
+                        "type": "List \"member\" Subnet"
                     }
                 ],
                 "fields": [
@@ -1726,7 +1726,7 @@
                         "locationName": "Subnets",
                         "documentation": "-- | A list of subnets associated with the cache subnet group.",
                         "typeExposed": "[Subnet]",
-                        "type": "List \"Subnet\" Subnet"
+                        "type": "List \"member\" Subnet"
                     },
                     {
                         "location": "querystring",
@@ -1938,7 +1938,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "-- | The recurring price charged to run this reserved cache node.",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "List \"RecurringCharge\" RecurringCharge"
+                        "type": "List \"member\" RecurringCharge"
                     }
                 ],
                 "fields": [
@@ -2045,7 +2045,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "-- | The recurring price charged to run this reserved cache node.",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "List \"RecurringCharge\" RecurringCharge"
+                        "type": "List \"member\" RecurringCharge"
                     },
                     {
                         "location": "querystring",
@@ -2506,7 +2506,7 @@
                         "locationName": "CacheSecurityGroups",
                         "documentation": "-- | A list of cache security group elements, composed of name and status\n-- sub-elements.",
                         "typeExposed": "[CacheSecurityGroupMembership]",
-                        "type": "List \"CacheSecurityGroup\" CacheSecurityGroupMembership"
+                        "type": "List \"member\" CacheSecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -2551,7 +2551,7 @@
                         "locationName": "CacheNodes",
                         "documentation": "-- | A list of cache nodes that are members of the cache cluster.",
                         "typeExposed": "[CacheNode]",
-                        "type": "List \"CacheNode\" CacheNode"
+                        "type": "List \"member\" CacheNode"
                     },
                     {
                         "location": "querystring",
@@ -2581,7 +2581,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "-- | A list of VPC Security Groups associated with the cache cluster.",
                         "typeExposed": "[SecurityGroupMembership]",
-                        "type": "List \"SecurityGroups\" SecurityGroupMembership"
+                        "type": "List \"member\" SecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -2718,7 +2718,7 @@
                         "locationName": "CacheNodes",
                         "documentation": "-- | A list of cache nodes that are members of the cache cluster.",
                         "typeExposed": "[CacheNode]",
-                        "type": "List \"CacheNode\" CacheNode"
+                        "type": "List \"member\" CacheNode"
                     },
                     {
                         "location": "querystring",
@@ -2748,7 +2748,7 @@
                         "locationName": "CacheSecurityGroups",
                         "documentation": "-- | A list of cache security group elements, composed of name and status\n-- sub-elements.",
                         "typeExposed": "[CacheSecurityGroupMembership]",
-                        "type": "List \"CacheSecurityGroup\" CacheSecurityGroupMembership"
+                        "type": "List \"member\" CacheSecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -2928,7 +2928,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "-- | A list of VPC Security Groups associated with the cache cluster.",
                         "typeExposed": "[SecurityGroupMembership]",
-                        "type": "List \"SecurityGroups\" SecurityGroupMembership"
+                        "type": "List \"member\" SecurityGroupMembership"
                     },
                     {
                         "location": "querystring",
@@ -3020,7 +3020,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | Contains a list of engine default parameters.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -3035,7 +3035,7 @@
                         "locationName": "CacheNodeTypeSpecificParameters",
                         "documentation": "-- | A list of parameters specific to a particular cache node type. Each element\n-- in the list contains detailed information about one parameter.",
                         "typeExposed": "[CacheNodeTypeSpecificParameter]",
-                        "type": "List \"CacheNodeTypeSpecificParameter\" CacheNodeTypeSpecificParameter"
+                        "type": "List \"member\" CacheNodeTypeSpecificParameter"
                     }
                 ],
                 "fields": [
@@ -3052,7 +3052,7 @@
                         "locationName": "CacheNodeTypeSpecificParameters",
                         "documentation": "-- | A list of parameters specific to a particular cache node type. Each element\n-- in the list contains detailed information about one parameter.",
                         "typeExposed": "[CacheNodeTypeSpecificParameter]",
-                        "type": "List \"CacheNodeTypeSpecificParameter\" CacheNodeTypeSpecificParameter"
+                        "type": "List \"member\" CacheNodeTypeSpecificParameter"
                     },
                     {
                         "location": "querystring",
@@ -3097,7 +3097,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | Contains a list of engine default parameters.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ]
             },
@@ -3160,7 +3160,7 @@
                         "locationName": "CacheNodeIdsToReboot",
                         "documentation": "-- | A list of the cache node IDs which need to be rebooted for parameter changes\n-- to be applied. A node ID is a numeric identifier (0001, 0002, etc.).",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheNodeId\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -3177,7 +3177,7 @@
                         "locationName": "CacheNodeIdsToReboot",
                         "documentation": "-- | A list of the cache node IDs which need to be rebooted for parameter changes\n-- to be applied. A node ID is a numeric identifier (0001, 0002, etc.).",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheNodeId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3958,7 +3958,7 @@
                         "locationName": "EC2SecurityGroups",
                         "documentation": "-- | A list of Amazon EC2 security groups that are associated with this cache\n-- security group.",
                         "typeExposed": "[EC2SecurityGroup]",
-                        "type": "List \"EC2SecurityGroup\" EC2SecurityGroup"
+                        "type": "List \"member\" EC2SecurityGroup"
                     }
                 ],
                 "fields": [
@@ -4005,7 +4005,7 @@
                         "locationName": "EC2SecurityGroups",
                         "documentation": "-- | A list of Amazon EC2 security groups that are associated with this cache\n-- security group.",
                         "typeExposed": "[EC2SecurityGroup]",
-                        "type": "List \"EC2SecurityGroup\" EC2SecurityGroup"
+                        "type": "List \"member\" EC2SecurityGroup"
                     },
                     {
                         "location": "querystring",
@@ -4157,7 +4157,7 @@
                         "locationName": "CacheNodeTypeSpecificValues",
                         "documentation": "-- | A list of cache node types and their corresponding values for this parameter.",
                         "typeExposed": "[CacheNodeTypeSpecificValue]",
-                        "type": "List \"CacheNodeTypeSpecificValue\" CacheNodeTypeSpecificValue"
+                        "type": "List \"member\" CacheNodeTypeSpecificValue"
                     }
                 ],
                 "fields": [
@@ -4189,7 +4189,7 @@
                         "locationName": "CacheNodeTypeSpecificValues",
                         "documentation": "-- | A list of cache node types and their corresponding values for this parameter.",
                         "typeExposed": "[CacheNodeTypeSpecificValue]",
-                        "type": "List \"CacheNodeTypeSpecificValue\" CacheNodeTypeSpecificValue"
+                        "type": "List \"member\" CacheNodeTypeSpecificValue"
                     },
                     {
                         "location": "querystring",
@@ -4558,7 +4558,7 @@
                         "locationName": "MemberClusters",
                         "documentation": "-- | The names of all the cache clusters that are part of this replication group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ClusterId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4573,7 +4573,7 @@
                         "locationName": "NodeGroups",
                         "documentation": "-- | A single element list with information about the nodes in the replication\n-- group.",
                         "typeExposed": "[NodeGroup]",
-                        "type": "List \"NodeGroup\" NodeGroup"
+                        "type": "List \"member\" NodeGroup"
                     },
                     {
                         "location": "querystring",
@@ -4650,7 +4650,7 @@
                         "locationName": "MemberClusters",
                         "documentation": "-- | The names of all the cache clusters that are part of this replication group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ClusterId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4665,7 +4665,7 @@
                         "locationName": "NodeGroups",
                         "documentation": "-- | A single element list with information about the nodes in the replication\n-- group.",
                         "typeExposed": "[NodeGroup]",
-                        "type": "List \"NodeGroup\" NodeGroup"
+                        "type": "List \"member\" NodeGroup"
                     },
                     {
                         "location": "querystring",
@@ -4942,7 +4942,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "-- | The recurring price charged to run this reserved cache node.",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "List \"RecurringCharge\" RecurringCharge"
+                        "type": "List \"member\" RecurringCharge"
                     }
                 ],
                 "fields": [
@@ -5034,7 +5034,7 @@
                         "locationName": "RecurringCharges",
                         "documentation": "-- | The recurring price charged to run this reserved cache node.",
                         "typeExposed": "[RecurringCharge]",
-                        "type": "List \"RecurringCharge\" RecurringCharge"
+                        "type": "List \"member\" RecurringCharge"
                     },
                     {
                         "location": "querystring",
@@ -5192,7 +5192,7 @@
                         "locationName": "CacheNodeIdsToRemove",
                         "documentation": "-- | A list of cache node IDs that are being removed (or will be removed) from the\n-- cache cluster. A node ID is a numeric identifier (0001, 0002, etc.).",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheNodeId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5224,7 +5224,7 @@
                         "locationName": "CacheNodeIdsToRemove",
                         "documentation": "-- | A list of cache node IDs that are being removed (or will be removed) from the\n-- cache cluster. A node ID is a numeric identifier (0001, 0002, etc.).",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheNodeId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6327,7 +6327,7 @@
                         "locationName": "PreferredAvailabilityZones",
                         "documentation": "-- | A list of the Availability Zones in which cache nodes will be created. The\n-- order of the zones in the list is not important.\n--\n-- This option is only supported on Memcached.\n--\n-- If you want all the nodes in the same Availability Zone, use 'PreferredAvailabilityZone' instead, or repeat the Availability Zone multiple times in the list.\n--\n-- Default: System chosen Availability Zones.\n--\n-- Example: One Memcached node in each of three different Availability Zones: 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1b&PreferredAvailabilityZones.member.3=us-east-1d'\n--\n-- Example: All three Memcached nodes in one Availability Zone: 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1a&PreferredAvailabilityZones.member.3=us-east-1a'",
                         "typeExposed": "[Text]",
-                        "type": "List \"PreferredAvailabilityZone\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6432,7 +6432,7 @@
                         "locationName": "CacheSecurityGroupNames",
                         "documentation": "-- | A list of security group names to associate with this cache cluster.\n--\n-- Use this parameter only when you are creating a cache cluster outside of an\n-- Amazon Virtual Private Cloud (VPC).",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6447,7 +6447,7 @@
                         "locationName": "SecurityGroupIds",
                         "documentation": "-- | One or more VPC security groups associated with the cache cluster.\n--\n-- Use this parameter only when you are creating a cache cluster in an Amazon\n-- Virtual Private Cloud (VPC).",
                         "typeExposed": "[Text]",
-                        "type": "List \"SecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6462,7 +6462,7 @@
                         "locationName": "SnapshotArns",
                         "documentation": "-- | A single-element string list containing an Amazon Resource Name (ARN) that\n-- uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The\n-- snapshot file will be used to populate the node group. The Amazon S3 object\n-- name in the ARN cannot contain any commas.\n--\n-- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.\n--\n-- Example of an Amazon S3 ARN: 'arn:aws:s3:::my_bucket/snapshot1.rdb'",
                         "typeExposed": "[Text]",
-                        "type": "List \"SnapshotArn\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6659,7 +6659,7 @@
                         "locationName": "CacheSecurityGroupNames",
                         "documentation": "-- | A list of security group names to associate with this cache cluster.\n--\n-- Use this parameter only when you are creating a cache cluster outside of an\n-- Amazon Virtual Private Cloud (VPC).",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6779,7 +6779,7 @@
                         "locationName": "PreferredAvailabilityZones",
                         "documentation": "-- | A list of the Availability Zones in which cache nodes will be created. The\n-- order of the zones in the list is not important.\n--\n-- This option is only supported on Memcached.\n--\n-- If you want all the nodes in the same Availability Zone, use 'PreferredAvailabilityZone' instead, or repeat the Availability Zone multiple times in the list.\n--\n-- Default: System chosen Availability Zones.\n--\n-- Example: One Memcached node in each of three different Availability Zones: 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1b&PreferredAvailabilityZones.member.3=us-east-1d'\n--\n-- Example: All three Memcached nodes in one Availability Zone: 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1a&PreferredAvailabilityZones.member.3=us-east-1a'",
                         "typeExposed": "[Text]",
-                        "type": "List \"PreferredAvailabilityZone\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6824,7 +6824,7 @@
                         "locationName": "SecurityGroupIds",
                         "documentation": "-- | One or more VPC security groups associated with the cache cluster.\n--\n-- Use this parameter only when you are creating a cache cluster in an Amazon\n-- Virtual Private Cloud (VPC).",
                         "typeExposed": "[Text]",
-                        "type": "List \"SecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6839,7 +6839,7 @@
                         "locationName": "SnapshotArns",
                         "documentation": "-- | A single-element string list containing an Amazon Resource Name (ARN) that\n-- uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The\n-- snapshot file will be used to populate the node group. The Amazon S3 object\n-- name in the ARN cannot contain any commas.\n--\n-- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.\n--\n-- Example of an Amazon S3 ARN: 'arn:aws:s3:::my_bucket/snapshot1.rdb'",
                         "typeExposed": "[Text]",
-                        "type": "List \"SnapshotArn\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7496,7 +7496,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "-- | A list of VPC subnet IDs for the cache subnet group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SubnetIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -7543,7 +7543,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "-- | A list of VPC subnet IDs for the cache subnet group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SubnetIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -7863,7 +7863,7 @@
                         "locationName": "PreferredCacheClusterAZs",
                         "documentation": "-- | A list of EC2 availability zones in which the replication group's cache\n-- clusters will be created. The order of the availability zones in the list is\n-- not important.\n--\n-- Default: system chosen availability zones.\n--\n-- Example: One Redis cache cluster in each of three availability zones.\n-- PreferredAvailabilityZones.member.1=us-east-1a\n-- PreferredAvailabilityZones.member.2=us-east-1c\n-- PreferredAvailabilityZones.member.3=us-east-1d",
                         "typeExposed": "[Text]",
-                        "type": "List \"AvailabilityZone\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7953,7 +7953,7 @@
                         "locationName": "CacheSecurityGroupNames",
                         "documentation": "-- | A list of cache security group names to associate with this replication group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7968,7 +7968,7 @@
                         "locationName": "SecurityGroupIds",
                         "documentation": "-- | One or more Amazon VPC security groups associated with this replication group.\n--\n-- Use this parameter only when you are creating a replication group in an\n-- Amazon Virtual Private Cloud (VPC).",
                         "typeExposed": "[Text]",
-                        "type": "List \"SecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7983,7 +7983,7 @@
                         "locationName": "SnapshotArns",
                         "documentation": "-- | A single-element string list containing an Amazon Resource Name (ARN) that\n-- uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The\n-- snapshot file will be used to populate the node group. The Amazon S3 object\n-- name in the ARN cannot contain any commas.\n--\n-- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.\n--\n-- Example of an Amazon S3 ARN: 'arn:aws:s3:::my_bucket/snapshot1.rdb'",
                         "typeExposed": "[Text]",
-                        "type": "List \"SnapshotArn\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8165,7 +8165,7 @@
                         "locationName": "CacheSecurityGroupNames",
                         "documentation": "-- | A list of cache security group names to associate with this replication group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8270,7 +8270,7 @@
                         "locationName": "PreferredCacheClusterAZs",
                         "documentation": "-- | A list of EC2 availability zones in which the replication group's cache\n-- clusters will be created. The order of the availability zones in the list is\n-- not important.\n--\n-- Default: system chosen availability zones.\n--\n-- Example: One Redis cache cluster in each of three availability zones.\n-- PreferredAvailabilityZones.member.1=us-east-1a\n-- PreferredAvailabilityZones.member.2=us-east-1c\n-- PreferredAvailabilityZones.member.3=us-east-1d",
                         "typeExposed": "[Text]",
-                        "type": "List \"AvailabilityZone\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8345,7 +8345,7 @@
                         "locationName": "SecurityGroupIds",
                         "documentation": "-- | One or more Amazon VPC security groups associated with this replication group.\n--\n-- Use this parameter only when you are creating a replication group in an\n-- Amazon Virtual Private Cloud (VPC).",
                         "typeExposed": "[Text]",
-                        "type": "List \"SecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8360,7 +8360,7 @@
                         "locationName": "SnapshotArns",
                         "documentation": "-- | A single-element string list containing an Amazon Resource Name (ARN) that\n-- uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The\n-- snapshot file will be used to populate the node group. The Amazon S3 object\n-- name in the ARN cannot contain any commas.\n--\n-- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.\n--\n-- Example of an Amazon S3 ARN: 'arn:aws:s3:::my_bucket/snapshot1.rdb'",
                         "typeExposed": "[Text]",
-                        "type": "List \"SnapshotArn\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9655,7 +9655,7 @@
                         "locationName": "CacheClusters",
                         "documentation": "-- | A list of cache clusters. Each item in the list contains detailed information\n-- about one cache cluster.",
                         "typeExposed": "[CacheCluster]",
-                        "type": "List \"CacheCluster\" CacheCluster"
+                        "type": "List \"member\" CacheCluster"
                     }
                 ],
                 "fields": [
@@ -9672,7 +9672,7 @@
                         "locationName": "CacheClusters",
                         "documentation": "-- | A list of cache clusters. Each item in the list contains detailed information\n-- about one cache cluster.",
                         "typeExposed": "[CacheCluster]",
-                        "type": "List \"CacheCluster\" CacheCluster"
+                        "type": "List \"member\" CacheCluster"
                     },
                     {
                         "location": "querystring",
@@ -9944,7 +9944,7 @@
                         "locationName": "CacheEngineVersions",
                         "documentation": "-- | A list of cache engine version details. Each element in the list contains\n-- detailed information about one cache engine version.",
                         "typeExposed": "[CacheEngineVersion]",
-                        "type": "List \"CacheEngineVersion\" CacheEngineVersion"
+                        "type": "List \"member\" CacheEngineVersion"
                     }
                 ],
                 "fields": [
@@ -9961,7 +9961,7 @@
                         "locationName": "CacheEngineVersions",
                         "documentation": "-- | A list of cache engine version details. Each element in the list contains\n-- detailed information about one cache engine version.",
                         "typeExposed": "[CacheEngineVersion]",
-                        "type": "List \"CacheEngineVersion\" CacheEngineVersion"
+                        "type": "List \"member\" CacheEngineVersion"
                     },
                     {
                         "location": "querystring",
@@ -10303,7 +10303,7 @@
                         "locationName": "CacheParameterGroups",
                         "documentation": "-- | A list of cache parameter groups. Each element in the list contains detailed\n-- information about one cache parameter group.",
                         "typeExposed": "[CacheParameterGroup]",
-                        "type": "List \"CacheParameterGroup\" CacheParameterGroup"
+                        "type": "List \"member\" CacheParameterGroup"
                     }
                 ],
                 "fields": [
@@ -10320,7 +10320,7 @@
                         "locationName": "CacheParameterGroups",
                         "documentation": "-- | A list of cache parameter groups. Each element in the list contains detailed\n-- information about one cache parameter group.",
                         "typeExposed": "[CacheParameterGroup]",
-                        "type": "List \"CacheParameterGroup\" CacheParameterGroup"
+                        "type": "List \"member\" CacheParameterGroup"
                     },
                     {
                         "location": "querystring",
@@ -10557,7 +10557,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | A list of 'Parameter' instances.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     },
                     {
                         "location": "querystring",
@@ -10572,7 +10572,7 @@
                         "locationName": "CacheNodeTypeSpecificParameters",
                         "documentation": "-- | A list of parameters specific to a particular cache node type. Each element\n-- in the list contains detailed information about one parameter.",
                         "typeExposed": "[CacheNodeTypeSpecificParameter]",
-                        "type": "List \"CacheNodeTypeSpecificParameter\" CacheNodeTypeSpecificParameter"
+                        "type": "List \"member\" CacheNodeTypeSpecificParameter"
                     }
                 ],
                 "fields": [
@@ -10589,7 +10589,7 @@
                         "locationName": "CacheNodeTypeSpecificParameters",
                         "documentation": "-- | A list of parameters specific to a particular cache node type. Each element\n-- in the list contains detailed information about one parameter.",
                         "typeExposed": "[CacheNodeTypeSpecificParameter]",
-                        "type": "List \"CacheNodeTypeSpecificParameter\" CacheNodeTypeSpecificParameter"
+                        "type": "List \"member\" CacheNodeTypeSpecificParameter"
                     },
                     {
                         "location": "querystring",
@@ -10619,7 +10619,7 @@
                         "locationName": "Parameters",
                         "documentation": "-- | A list of 'Parameter' instances.",
                         "typeExposed": "[Parameter]",
-                        "type": "List \"Parameter\" Parameter"
+                        "type": "List \"member\" Parameter"
                     }
                 ]
             },
@@ -10877,7 +10877,7 @@
                         "locationName": "CacheSecurityGroups",
                         "documentation": "-- | A list of cache security groups. Each element in the list contains detailed\n-- information about one group.",
                         "typeExposed": "[CacheSecurityGroup]",
-                        "type": "List \"CacheSecurityGroup\" CacheSecurityGroup"
+                        "type": "List \"member\" CacheSecurityGroup"
                     }
                 ],
                 "fields": [
@@ -10894,7 +10894,7 @@
                         "locationName": "CacheSecurityGroups",
                         "documentation": "-- | A list of cache security groups. Each element in the list contains detailed\n-- information about one group.",
                         "typeExposed": "[CacheSecurityGroup]",
-                        "type": "List \"CacheSecurityGroup\" CacheSecurityGroup"
+                        "type": "List \"member\" CacheSecurityGroup"
                     },
                     {
                         "location": "querystring",
@@ -11131,7 +11131,7 @@
                         "locationName": "CacheSubnetGroups",
                         "documentation": "-- | A list of cache subnet groups. Each element in the list contains detailed\n-- information about one group.",
                         "typeExposed": "[CacheSubnetGroup]",
-                        "type": "List \"CacheSubnetGroup\" CacheSubnetGroup"
+                        "type": "List \"member\" CacheSubnetGroup"
                     }
                 ],
                 "fields": [
@@ -11148,7 +11148,7 @@
                         "locationName": "CacheSubnetGroups",
                         "documentation": "-- | A list of cache subnet groups. Each element in the list contains detailed\n-- information about one group.",
                         "typeExposed": "[CacheSubnetGroup]",
-                        "type": "List \"CacheSubnetGroup\" CacheSubnetGroup"
+                        "type": "List \"member\" CacheSubnetGroup"
                     },
                     {
                         "location": "querystring",
@@ -11626,7 +11626,7 @@
                         "locationName": "Events",
                         "documentation": "-- | A list of events. Each element in the list contains detailed information\n-- about one event.",
                         "typeExposed": "[Event]",
-                        "type": "List \"Event\" Event"
+                        "type": "List \"member\" Event"
                     }
                 ],
                 "fields": [
@@ -11643,7 +11643,7 @@
                         "locationName": "Events",
                         "documentation": "-- | A list of events. Each element in the list contains detailed information\n-- about one event.",
                         "typeExposed": "[Event]",
-                        "type": "List \"Event\" Event"
+                        "type": "List \"member\" Event"
                     },
                     {
                         "location": "querystring",
@@ -12019,7 +12019,7 @@
                         "locationName": "ReplicationGroups",
                         "documentation": "-- | A list of replication groups. Each item in the list contains detailed\n-- information about one replication group.",
                         "typeExposed": "[ReplicationGroup]",
-                        "type": "List \"ReplicationGroup\" ReplicationGroup"
+                        "type": "List \"member\" ReplicationGroup"
                     }
                 ],
                 "fields": [
@@ -12051,7 +12051,7 @@
                         "locationName": "ReplicationGroups",
                         "documentation": "-- | A list of replication groups. Each item in the list contains detailed\n-- information about one replication group.",
                         "typeExposed": "[ReplicationGroup]",
-                        "type": "List \"ReplicationGroup\" ReplicationGroup"
+                        "type": "List \"member\" ReplicationGroup"
                     }
                 ]
             },
@@ -12273,7 +12273,7 @@
                         "locationName": "ReservedCacheNodes",
                         "documentation": "-- | A list of reserved cache nodes. Each element in the list contains detailed\n-- information about one node.",
                         "typeExposed": "[ReservedCacheNode]",
-                        "type": "List \"ReservedCacheNode\" ReservedCacheNode"
+                        "type": "List \"member\" ReservedCacheNode"
                     }
                 ],
                 "fields": [
@@ -12305,7 +12305,7 @@
                         "locationName": "ReservedCacheNodes",
                         "documentation": "-- | A list of reserved cache nodes. Each element in the list contains detailed\n-- information about one node.",
                         "typeExposed": "[ReservedCacheNode]",
-                        "type": "List \"ReservedCacheNode\" ReservedCacheNode"
+                        "type": "List \"member\" ReservedCacheNode"
                     }
                 ]
             },
@@ -12702,7 +12702,7 @@
                         "locationName": "ReservedCacheNodesOfferings",
                         "documentation": "-- | A list of reserved cache node offerings. Each element in the list contains\n-- detailed information about one offering.",
                         "typeExposed": "[ReservedCacheNodesOffering]",
-                        "type": "List \"ReservedCacheNodesOffering\" ReservedCacheNodesOffering"
+                        "type": "List \"member\" ReservedCacheNodesOffering"
                     }
                 ],
                 "fields": [
@@ -12734,7 +12734,7 @@
                         "locationName": "ReservedCacheNodesOfferings",
                         "documentation": "-- | A list of reserved cache node offerings. Each element in the list contains\n-- detailed information about one offering.",
                         "typeExposed": "[ReservedCacheNodesOffering]",
-                        "type": "List \"ReservedCacheNodesOffering\" ReservedCacheNodesOffering"
+                        "type": "List \"member\" ReservedCacheNodesOffering"
                     }
                 ]
             },
@@ -13096,7 +13096,7 @@
                         "locationName": "Snapshots",
                         "documentation": "-- | A list of snapshots. Each item in the list contains detailed information\n-- about one snapshot.",
                         "typeExposed": "[Snapshot]",
-                        "type": "List \"Snapshot\" Snapshot"
+                        "type": "List \"member\" Snapshot"
                     }
                 ],
                 "fields": [
@@ -13128,7 +13128,7 @@
                         "locationName": "Snapshots",
                         "documentation": "-- | A list of snapshots. Each item in the list contains detailed information\n-- about one snapshot.",
                         "typeExposed": "[Snapshot]",
-                        "type": "List \"Snapshot\" Snapshot"
+                        "type": "List \"member\" Snapshot"
                     }
                 ]
             },
@@ -13610,7 +13610,7 @@
                         "locationName": "CacheNodeIdsToRemove",
                         "documentation": "-- | A list of cache node IDs to be removed. A node ID is a numeric identifier\n-- (0001, 0002, etc.). This parameter is only valid when NumCacheNodes is less\n-- than the existing number of cache nodes. The number of cache node IDs\n-- supplied in this parameter must match the difference between the existing\n-- number of cache nodes in the cluster or pending cache nodes, whichever is\n-- greater, and the value of /NumCacheNodes/ in the request.\n--\n-- For example: If you have 3 active cache nodes, 7 pending cache nodes, and\n-- the number of cache nodes in this 'ModifyCacheCluser' call is 5, you must list\n-- 2 (7 - 5) cache node IDs to remove.",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheNodeId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13640,7 +13640,7 @@
                         "locationName": "NewAvailabilityZones",
                         "documentation": "-- | The list of Availability Zones where the new Memcached cache nodes will be\n-- created.\n--\n-- This parameter is only valid when 'NumCacheNodes' in the request is greater\n-- than the sum of the number of active cache nodes and the number of cache\n-- nodes pending creation (which may be zero). The number of Availability Zones\n-- supplied in this list must match the cache nodes being added in this request.\n--\n-- This option is only supported on Memcached clusters.\n--\n-- Scenarios:   Scenario 1: You have 3 active nodes and wish to add 2 nodes.\n--\n-- Specify 'NumCacheNodes=5' (3 + 2) and optionally specify two Availability Zones\n-- for the two new nodes.  Scenario 2: You have 3 active nodes and 2 nodes\n-- pending creation (from the scenario 1 call) and want to add 1 more node.\n--\n-- Specify 'NumCacheNodes=6' ((3 + 2) + 1) and optionally specify an Availability\n-- Zone for the new node.  Scenario 3: You want to cancel all pending actions.\n--\n-- Specify 'NumCacheNodes=3' to cancel all pending actions.\n--\n-- The Availability Zone placement of nodes pending creation cannot be\n-- modified. If you wish to cancel any nodes pending creation, add 0 nodes by\n-- setting 'NumCacheNodes' to the number of current nodes.\n--\n-- If 'cross-az' is specified, existing Memcached nodes remain in their current\n-- Availability Zone. Only newly created nodes can be located in different\n-- Availability Zones. For guidance on how to move existing Memcached nodes to\n-- different Availability Zones, see the Availability Zone Considerations\n-- section of \u003chttp://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html Cache Node Considerations for Memcached\u003e.\n--\n-- Impact of new add/remove requests upon pending requests\n--\n-- Scenarios Pending Operation New Request Results   Scenario-1 Delete Delete\n-- The new delete, pending or immediate, replaces the pending delete.   Scenario-2\n-- Delete Create The new create, pending or immediate, replaces the pending\n-- delete.   Scenario-3 Create Delete The new delete, pending or immediate,\n-- replaces the pending create.   Scenario-4 Create Create The new create is\n-- added to the pending create.\n-- Important:\n-- If the new create request is Apply\n-- Immediately - Yes, all creates are performed immediately. If the new create\n-- request is Apply Immediately - No, all creates are pending.   Example: 'NewAvailabilityZones.member.1=us-east-1a&NewAvailabilityZones.member.2=us-east-1b&NewAvailabilityZones.member.3=us-east-1d'",
                         "typeExposed": "[Text]",
-                        "type": "List \"PreferredAvailabilityZone\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13655,7 +13655,7 @@
                         "locationName": "CacheSecurityGroupNames",
                         "documentation": "-- | A list of cache security group names to authorize on this cache cluster. This\n-- change is asynchronously applied as soon as possible.\n--\n-- This parameter can be used only with clusters that are created outside of an\n-- Amazon Virtual Private Cloud (VPC).\n--\n-- Constraints: Must contain no more than 255 alphanumeric characters. Must not\n-- be \"Default\".",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13670,7 +13670,7 @@
                         "locationName": "SecurityGroupIds",
                         "documentation": "-- | Specifies the VPC Security Groups associated with the cache cluster.\n--\n-- This parameter can be used only with clusters that are created in an Amazon\n-- Virtual Private Cloud (VPC).",
                         "typeExposed": "[Text]",
-                        "type": "List \"SecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13882,7 +13882,7 @@
                         "locationName": "CacheNodeIdsToRemove",
                         "documentation": "-- | A list of cache node IDs to be removed. A node ID is a numeric identifier\n-- (0001, 0002, etc.). This parameter is only valid when NumCacheNodes is less\n-- than the existing number of cache nodes. The number of cache node IDs\n-- supplied in this parameter must match the difference between the existing\n-- number of cache nodes in the cluster or pending cache nodes, whichever is\n-- greater, and the value of /NumCacheNodes/ in the request.\n--\n-- For example: If you have 3 active cache nodes, 7 pending cache nodes, and\n-- the number of cache nodes in this 'ModifyCacheCluser' call is 5, you must list\n-- 2 (7 - 5) cache node IDs to remove.",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheNodeId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13912,7 +13912,7 @@
                         "locationName": "CacheSecurityGroupNames",
                         "documentation": "-- | A list of cache security group names to authorize on this cache cluster. This\n-- change is asynchronously applied as soon as possible.\n--\n-- This parameter can be used only with clusters that are created outside of an\n-- Amazon Virtual Private Cloud (VPC).\n--\n-- Constraints: Must contain no more than 255 alphanumeric characters. Must not\n-- be \"Default\".",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13942,7 +13942,7 @@
                         "locationName": "NewAvailabilityZones",
                         "documentation": "-- | The list of Availability Zones where the new Memcached cache nodes will be\n-- created.\n--\n-- This parameter is only valid when 'NumCacheNodes' in the request is greater\n-- than the sum of the number of active cache nodes and the number of cache\n-- nodes pending creation (which may be zero). The number of Availability Zones\n-- supplied in this list must match the cache nodes being added in this request.\n--\n-- This option is only supported on Memcached clusters.\n--\n-- Scenarios:   Scenario 1: You have 3 active nodes and wish to add 2 nodes.\n--\n-- Specify 'NumCacheNodes=5' (3 + 2) and optionally specify two Availability Zones\n-- for the two new nodes.  Scenario 2: You have 3 active nodes and 2 nodes\n-- pending creation (from the scenario 1 call) and want to add 1 more node.\n--\n-- Specify 'NumCacheNodes=6' ((3 + 2) + 1) and optionally specify an Availability\n-- Zone for the new node.  Scenario 3: You want to cancel all pending actions.\n--\n-- Specify 'NumCacheNodes=3' to cancel all pending actions.\n--\n-- The Availability Zone placement of nodes pending creation cannot be\n-- modified. If you wish to cancel any nodes pending creation, add 0 nodes by\n-- setting 'NumCacheNodes' to the number of current nodes.\n--\n-- If 'cross-az' is specified, existing Memcached nodes remain in their current\n-- Availability Zone. Only newly created nodes can be located in different\n-- Availability Zones. For guidance on how to move existing Memcached nodes to\n-- different Availability Zones, see the Availability Zone Considerations\n-- section of \u003chttp://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html Cache Node Considerations for Memcached\u003e.\n--\n-- Impact of new add/remove requests upon pending requests\n--\n-- Scenarios Pending Operation New Request Results   Scenario-1 Delete Delete\n-- The new delete, pending or immediate, replaces the pending delete.   Scenario-2\n-- Delete Create The new create, pending or immediate, replaces the pending\n-- delete.   Scenario-3 Create Delete The new delete, pending or immediate,\n-- replaces the pending create.   Scenario-4 Create Create The new create is\n-- added to the pending create.\n-- Important:\n-- If the new create request is Apply\n-- Immediately - Yes, all creates are performed immediately. If the new create\n-- request is Apply Immediately - No, all creates are pending.   Example: 'NewAvailabilityZones.member.1=us-east-1a&NewAvailabilityZones.member.2=us-east-1b&NewAvailabilityZones.member.3=us-east-1d'",
                         "typeExposed": "[Text]",
-                        "type": "List \"PreferredAvailabilityZone\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -14017,7 +14017,7 @@
                         "locationName": "SecurityGroupIds",
                         "documentation": "-- | Specifies the VPC Security Groups associated with the cache cluster.\n--\n-- This parameter can be used only with clusters that are created in an Amazon\n-- Virtual Private Cloud (VPC).",
                         "typeExposed": "[Text]",
-                        "type": "List \"SecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -14213,7 +14213,7 @@
                         "locationName": "ParameterNameValues",
                         "documentation": "-- | An array of parameter names and values for the parameter update. You must\n-- supply at least one parameter name and value; subsequent arguments are\n-- optional. A maximum of 20 parameters may be modified per request.",
                         "typeExposed": "[ParameterNameValue]",
-                        "type": "List \"ParameterNameValue\" ParameterNameValue"
+                        "type": "List \"member\" ParameterNameValue"
                     }
                 ],
                 "fields": [
@@ -14245,7 +14245,7 @@
                         "locationName": "ParameterNameValues",
                         "documentation": "-- | An array of parameter names and values for the parameter update. You must\n-- supply at least one parameter name and value; subsequent arguments are\n-- optional. A maximum of 20 parameters may be modified per request.",
                         "typeExposed": "[ParameterNameValue]",
-                        "type": "List \"ParameterNameValue\" ParameterNameValue"
+                        "type": "List \"member\" ParameterNameValue"
                     }
                 ]
             }
@@ -14430,7 +14430,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "-- | The EC2 subnet IDs for the cache subnet group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SubnetIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -14477,7 +14477,7 @@
                         "locationName": "SubnetIds",
                         "documentation": "-- | The EC2 subnet IDs for the cache subnet group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SubnetIdentifier\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -14772,7 +14772,7 @@
                         "locationName": "CacheSecurityGroupNames",
                         "documentation": "-- | A list of cache security group names to authorize for the clusters in this\n-- replication group. This change is asynchronously applied as soon as possible.\n--\n-- This parameter can be used only with replication group containing cache\n-- clusters running outside of an Amazon Virtual Private Cloud (VPC).\n--\n-- Constraints: Must contain no more than 255 alphanumeric characters. Must not\n-- be \"Default\".",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -14787,7 +14787,7 @@
                         "locationName": "SecurityGroupIds",
                         "documentation": "-- | Specifies the VPC Security Groups associated with the cache clusters in the\n-- replication group.\n--\n-- This parameter can be used only with replication group containing cache\n-- clusters running in an Amazon Virtual Private Cloud (VPC).",
                         "typeExposed": "[Text]",
-                        "type": "List \"SecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -14999,7 +14999,7 @@
                         "locationName": "CacheSecurityGroupNames",
                         "documentation": "-- | A list of cache security group names to authorize for the clusters in this\n-- replication group. This change is asynchronously applied as soon as possible.\n--\n-- This parameter can be used only with replication group containing cache\n-- clusters running outside of an Amazon Virtual Private Cloud (VPC).\n--\n-- Constraints: Must contain no more than 255 alphanumeric characters. Must not\n-- be \"Default\".",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheSecurityGroupName\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -15119,7 +15119,7 @@
                         "locationName": "SecurityGroupIds",
                         "documentation": "-- | Specifies the VPC Security Groups associated with the cache clusters in the\n-- replication group.\n--\n-- This parameter can be used only with replication group containing cache\n-- clusters running in an Amazon Virtual Private Cloud (VPC).",
                         "typeExposed": "[Text]",
-                        "type": "List \"SecurityGroupId\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -15561,7 +15561,7 @@
                         "locationName": "CacheNodeIdsToReboot",
                         "documentation": "-- | A list of cache node IDs to reboot. A node ID is a numeric identifier (0001,\n-- 0002, etc.). To reboot an entire cache cluster, specify all of the cache node\n-- IDs.",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheNodeId\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -15593,7 +15593,7 @@
                         "locationName": "CacheNodeIdsToReboot",
                         "documentation": "-- | A list of cache node IDs to reboot. A node ID is a numeric identifier (0001,\n-- 0002, etc.). To reboot an entire cache cluster, specify all of the cache node\n-- IDs.",
                         "typeExposed": "[Text]",
-                        "type": "List \"CacheNodeId\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -15779,7 +15779,7 @@
                         "locationName": "ParameterNameValues",
                         "documentation": "-- | An array of parameter names to be reset. If you are not resetting the entire\n-- cache parameter group, you must specify at least one parameter name.",
                         "typeExposed": "[ParameterNameValue]",
-                        "type": "List \"ParameterNameValue\" ParameterNameValue"
+                        "type": "List \"member\" ParameterNameValue"
                     }
                 ],
                 "fields": [
@@ -15811,7 +15811,7 @@
                         "locationName": "ParameterNameValues",
                         "documentation": "-- | An array of parameter names to be reset. If you are not resetting the entire\n-- cache parameter group, you must specify at least one parameter name.",
                         "typeExposed": "[ParameterNameValue]",
-                        "type": "List \"ParameterNameValue\" ParameterNameValue"
+                        "type": "List \"member\" ParameterNameValue"
                     },
                     {
                         "location": "querystring",

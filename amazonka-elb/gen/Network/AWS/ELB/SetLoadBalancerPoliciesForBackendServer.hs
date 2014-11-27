@@ -63,7 +63,7 @@ import qualified GHC.Exts
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer
     { _slbpfbsInstancePort     :: Int
     , _slbpfbsLoadBalancerName :: Text
-    , _slbpfbsPolicyNames      :: List "PolicyNames" Text
+    , _slbpfbsPolicyNames      :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'SetLoadBalancerPoliciesForBackendServer' constructor.

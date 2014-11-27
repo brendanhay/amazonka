@@ -79,12 +79,6 @@ newtype MonitorInstancesResponse = MonitorInstancesResponse
     { _mirInstanceMonitorings :: List "item" InstanceMonitoring
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList MonitorInstancesResponse where
-    type Item MonitorInstancesResponse = InstanceMonitoring
-
-    fromList = MonitorInstancesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _mirInstanceMonitorings
-
 -- | 'MonitorInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -108,7 +102,7 @@ instance ToPath MonitorInstances where
 instance ToQuery MonitorInstances where
     toQuery MonitorInstances{..} = mconcat
         [ "dryRun"     =? _miDryRun
-        , "InstanceId" =? _miInstanceIds
+        , toQuery     _miInstanceIds
         ]
 
 instance ToHeaders MonitorInstances
@@ -122,4 +116,4 @@ instance AWSRequest MonitorInstances where
 
 instance FromXML MonitorInstancesResponse where
     parseXML x = MonitorInstancesResponse
-        <$> x .@  "instancesSet"
+        <$> parseXML x

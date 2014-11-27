@@ -102,7 +102,7 @@ lscPathPrefix = lens _lscPathPrefix (\s a -> s { _lscPathPrefix = a })
 data ListServerCertificatesResponse = ListServerCertificatesResponse
     { _lscrIsTruncated                   :: Maybe Bool
     , _lscrMarker                        :: Maybe Text
-    , _lscrServerCertificateMetadataList :: List "ServerCertificateMetadataList" ServerCertificateMetadata
+    , _lscrServerCertificateMetadataList :: List "member" ServerCertificateMetadata
     } deriving (Eq, Show)
 
 -- | 'ListServerCertificatesResponse' constructor.

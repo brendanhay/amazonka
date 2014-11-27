@@ -51,7 +51,7 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
-    { _dlbptPolicyTypeNames :: List "PolicyTypeNames" Text
+    { _dlbptPolicyTypeNames :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLoadBalancerPolicyTypes where
@@ -80,7 +80,7 @@ dlbptPolicyTypeNames =
         . _List
 
 newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
-    { _dlbptrPolicyTypeDescriptions :: List "PolicyTypeDescriptions" PolicyTypeDescription
+    { _dlbptrPolicyTypeDescriptions :: List "member" PolicyTypeDescription
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLoadBalancerPolicyTypesResponse where

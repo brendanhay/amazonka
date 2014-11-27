@@ -47,8 +47,8 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data RemoveTags = RemoveTags
-    { _rtLoadBalancerNames :: List "LoadBalancerNames" Text
-    , _rtTags              :: List1 "Tags" TagKeyOnly
+    { _rtLoadBalancerNames :: List "member" Text
+    , _rtTags              :: List1 "member" TagKeyOnly
     } deriving (Eq, Show)
 
 -- | 'RemoveTags' constructor.

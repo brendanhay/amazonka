@@ -101,7 +101,7 @@ luPathPrefix = lens _luPathPrefix (\s a -> s { _luPathPrefix = a })
 data ListUsersResponse = ListUsersResponse
     { _lurIsTruncated :: Maybe Bool
     , _lurMarker      :: Maybe Text
-    , _lurUsers       :: List "Users" User
+    , _lurUsers       :: List "member" User
     } deriving (Eq, Show)
 
 -- | 'ListUsersResponse' constructor.

@@ -142,12 +142,6 @@ newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
     { _dnarNetworkAcls :: List "item" NetworkAcl
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeNetworkAclsResponse where
-    type Item DescribeNetworkAclsResponse = NetworkAcl
-
-    fromList = DescribeNetworkAclsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dnarNetworkAcls
-
 -- | 'DescribeNetworkAclsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -169,8 +163,8 @@ instance ToPath DescribeNetworkAcls where
 instance ToQuery DescribeNetworkAcls where
     toQuery DescribeNetworkAcls{..} = mconcat
         [ "dryRun"       =? _dna1DryRun
-        , "Filter"       =? _dna1Filters
-        , "NetworkAclId" =? _dna1NetworkAclIds
+        , toQuery       _dna1Filters
+        , toQuery       _dna1NetworkAclIds
         ]
 
 instance ToHeaders DescribeNetworkAcls
@@ -184,4 +178,4 @@ instance AWSRequest DescribeNetworkAcls where
 
 instance FromXML DescribeNetworkAclsResponse where
     parseXML x = DescribeNetworkAclsResponse
-        <$> x .@  "networkAclSet"
+        <$> parseXML x

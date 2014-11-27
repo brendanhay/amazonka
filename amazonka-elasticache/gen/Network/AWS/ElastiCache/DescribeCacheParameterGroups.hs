@@ -99,7 +99,7 @@ dcpgMaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Int)
 dcpgMaxRecords = lens _dcpgMaxRecords (\s a -> s { _dcpgMaxRecords = a })
 
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
-    { _dcpgrCacheParameterGroups :: List "CacheParameterGroup" CacheParameterGroup
+    { _dcpgrCacheParameterGroups :: List "member" CacheParameterGroup
     , _dcpgrMarker               :: Maybe Text
     } deriving (Eq, Show)
 

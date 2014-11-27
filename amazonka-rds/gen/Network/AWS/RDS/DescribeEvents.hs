@@ -63,8 +63,8 @@ import qualified GHC.Exts
 data DescribeEvents = DescribeEvents
     { _deDuration         :: Maybe Int
     , _deEndTime          :: Maybe ISO8601
-    , _deEventCategories  :: List "EventCategory" Text
-    , _deFilters          :: List "Filter" Filter
+    , _deEventCategories  :: List "member" Text
+    , _deFilters          :: List "member" Filter
     , _deMarker           :: Maybe Text
     , _deMaxRecords       :: Maybe Int
     , _deSourceIdentifier :: Maybe Text
@@ -175,7 +175,7 @@ deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
 deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a }) . mapping _Time
 
 data DescribeEventsResponse = DescribeEventsResponse
-    { _derEvents :: List "Event" Event
+    { _derEvents :: List "member" Event
     , _derMarker :: Maybe Text
     } deriving (Eq, Show)
 

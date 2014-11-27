@@ -97,12 +97,6 @@ newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
     { _dkprKeyPairs :: List "item" KeyPairInfo
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeKeyPairsResponse where
-    type Item DescribeKeyPairsResponse = KeyPairInfo
-
-    fromList = DescribeKeyPairsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dkprKeyPairs
-
 -- | 'DescribeKeyPairsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -124,8 +118,8 @@ instance ToPath DescribeKeyPairs where
 instance ToQuery DescribeKeyPairs where
     toQuery DescribeKeyPairs{..} = mconcat
         [ "dryRun"  =? _dkp1DryRun
-        , "Filter"  =? _dkp1Filters
-        , "KeyName" =? _dkp1KeyNames
+        , toQuery  _dkp1Filters
+        , toQuery  _dkp1KeyNames
         ]
 
 instance ToHeaders DescribeKeyPairs
@@ -139,4 +133,4 @@ instance AWSRequest DescribeKeyPairs where
 
 instance FromXML DescribeKeyPairsResponse where
     parseXML x = DescribeKeyPairsResponse
-        <$> x .@  "keySet"
+        <$> parseXML x

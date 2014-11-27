@@ -79,12 +79,6 @@ newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uirInstanceMonitorings :: List "item" InstanceMonitoring
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList UnmonitorInstancesResponse where
-    type Item UnmonitorInstancesResponse = InstanceMonitoring
-
-    fromList = UnmonitorInstancesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _uirInstanceMonitorings
-
 -- | 'UnmonitorInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -108,7 +102,7 @@ instance ToPath UnmonitorInstances where
 instance ToQuery UnmonitorInstances where
     toQuery UnmonitorInstances{..} = mconcat
         [ "dryRun"     =? _uiDryRun
-        , "InstanceId" =? _uiInstanceIds
+        , toQuery     _uiInstanceIds
         ]
 
 instance ToHeaders UnmonitorInstances
@@ -122,4 +116,4 @@ instance AWSRequest UnmonitorInstances where
 
 instance FromXML UnmonitorInstancesResponse where
     parseXML x = UnmonitorInstancesResponse
-        <$> x .@  "instancesSet"
+        <$> parseXML x

@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 data AddTagsToResource = AddTagsToResource
     { _attrResourceName :: Text
-    , _attrTags         :: List "Tag" Tag
+    , _attrTags         :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'AddTagsToResource' constructor.

@@ -50,8 +50,8 @@ import Network.AWS.SNS.Types
 import qualified GHC.Exts
 
 data AddPermission = AddPermission
-    { _apAWSAccountId :: List "AWSAccountId" Text
-    , _apActionName   :: List "ActionName" Text
+    { _apAWSAccountId :: List "member" Text
+    , _apActionName   :: List "member" Text
     , _apLabel        :: Text
     , _apTopicArn     :: Text
     } deriving (Eq, Ord, Show)

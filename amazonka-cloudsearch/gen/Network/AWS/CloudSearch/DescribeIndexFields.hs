@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data DescribeIndexFields = DescribeIndexFields
     { _difDeployed   :: Maybe Bool
     , _difDomainName :: Text
-    , _difFieldNames :: List "SuggesterNames" Text
+    , _difFieldNames :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeIndexFields' constructor.
@@ -91,7 +91,7 @@ difFieldNames :: Lens' DescribeIndexFields [Text]
 difFieldNames = lens _difFieldNames (\s a -> s { _difFieldNames = a }) . _List
 
 newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
-    { _difrIndexFields :: List "IndexFields" IndexFieldStatus
+    { _difrIndexFields :: List "member" IndexFieldStatus
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeIndexFieldsResponse where

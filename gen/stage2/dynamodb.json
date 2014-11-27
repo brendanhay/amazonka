@@ -4430,7 +4430,9 @@
         ],
         "imports": [],
         "shared": [
+            "WriteRequest",
             "AttributeValue",
+            "ProvisionedThroughput",
             "TableDescription",
             "KeysAndAttributes",
             "ReturnConsumedCapacity",

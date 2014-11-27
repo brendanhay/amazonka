@@ -437,8 +437,8 @@ instance FromXML GeoLocationDetails where
         <*> x .@? "SubdivisionCode"
         <*> x .@? "SubdivisionName"
 
-instance ToXML GeoLocationDetails where
-    toXML GeoLocationDetails{..} = nodes "GeoLocationDetails"
+instance ToXMLRoot GeoLocationDetails where
+    toXMLRoot GeoLocationDetails{..} = namespaced ns "GeoLocationDetails"
         [ "ContinentCode"   =@ _gldContinentCode
         , "ContinentName"   =@ _gldContinentName
         , "CountryCode"     =@ _gldCountryCode
@@ -446,6 +446,8 @@ instance ToXML GeoLocationDetails where
         , "SubdivisionCode" =@ _gldSubdivisionCode
         , "SubdivisionName" =@ _gldSubdivisionName
         ]
+
+instance ToXML GeoLocationDetails
 
 data HealthCheck = HealthCheck
     { _hcCallerReference    :: Text
@@ -507,13 +509,15 @@ instance FromXML HealthCheck where
         <*> x .@  "HealthCheckVersion"
         <*> x .@  "Id"
 
-instance ToXML HealthCheck where
-    toXML HealthCheck{..} = nodes "HealthCheck"
+instance ToXMLRoot HealthCheck where
+    toXMLRoot HealthCheck{..} = namespaced ns "HealthCheck"
         [ "Id"                 =@ _hcId
         , "CallerReference"    =@ _hcCallerReference
         , "HealthCheckConfig"  =@ _hcHealthCheckConfig
         , "HealthCheckVersion" =@ _hcHealthCheckVersion
         ]
+
+instance ToXML HealthCheck
 
 data VPCRegion
     = ApNortheast1 -- ^ ap-northeast-1
@@ -944,14 +948,16 @@ instance FromXML HostedZone where
         <*> x .@  "Name"
         <*> x .@? "ResourceRecordSetCount"
 
-instance ToXML HostedZone where
-    toXML HostedZone{..} = nodes "HostedZone"
+instance ToXMLRoot HostedZone where
+    toXMLRoot HostedZone{..} = namespaced ns "HostedZone"
         [ "Id"                     =@ _hzId
         , "Name"                   =@ _hzName
         , "CallerReference"        =@ _hzCallerReference
         , "Config"                 =@ _hzConfig
         , "ResourceRecordSetCount" =@ _hzResourceRecordSetCount
         ]
+
+instance ToXML HostedZone
 
 data ResourceTagSet = ResourceTagSet
     { _rtsResourceId   :: Maybe Text
@@ -995,12 +1001,14 @@ instance FromXML ResourceTagSet where
         <*> x .@? "ResourceType"
         <*> x .@  "Tags"
 
-instance ToXML ResourceTagSet where
-    toXML ResourceTagSet{..} = nodes "ResourceTagSet"
+instance ToXMLRoot ResourceTagSet where
+    toXMLRoot ResourceTagSet{..} = namespaced ns "ResourceTagSet"
         [ "ResourceType" =@ _rtsResourceType
         , "ResourceId"   =@ _rtsResourceId
         , "Tags"         =@ _rtsTags
         ]
+
+instance ToXML ResourceTagSet
 
 data ChangeStatus
     = Insync  -- ^ INSYNC
@@ -1505,13 +1513,15 @@ instance FromXML ChangeInfo where
         <*> x .@  "Status"
         <*> x .@  "SubmittedAt"
 
-instance ToXML ChangeInfo where
-    toXML ChangeInfo{..} = nodes "ChangeInfo"
+instance ToXMLRoot ChangeInfo where
+    toXMLRoot ChangeInfo{..} = namespaced ns "ChangeInfo"
         [ "Id"          =@ _ciId
         , "Status"      =@ _ciStatus
         , "SubmittedAt" =@ _ciSubmittedAt
         , "Comment"     =@ _ciComment
         ]
+
+instance ToXML ChangeInfo
 
 data GeoLocation = GeoLocation
     { _glContinentCode   :: Maybe Text

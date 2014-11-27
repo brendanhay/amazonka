@@ -57,7 +57,7 @@ import Network.AWS.RDS.Types
 import qualified GHC.Exts
 
 data DescribeEventSubscriptions = DescribeEventSubscriptions
-    { _des1Filters          :: List "Filter" Filter
+    { _des1Filters          :: List "member" Filter
     , _des1Marker           :: Maybe Text
     , _des1MaxRecords       :: Maybe Int
     , _des1SubscriptionName :: Maybe Text
@@ -110,7 +110,7 @@ des1SubscriptionName =
     lens _des1SubscriptionName (\s a -> s { _des1SubscriptionName = a })
 
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
-    { _desrEventSubscriptionsList :: List "EventSubscription" EventSubscription
+    { _desrEventSubscriptionsList :: List "member" EventSubscription
     , _desrMarker                 :: Maybe Text
     } deriving (Eq, Show)
 

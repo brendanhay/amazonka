@@ -98,7 +98,7 @@ lmfadUserName = lens _lmfadUserName (\s a -> s { _lmfadUserName = a })
 
 data ListMFADevicesResponse = ListMFADevicesResponse
     { _lmfadrIsTruncated :: Maybe Bool
-    , _lmfadrMFADevices  :: List "MFADevices" MFADevice
+    , _lmfadrMFADevices  :: List "member" MFADevice
     , _lmfadrMarker      :: Maybe Text
     } deriving (Eq, Show)
 

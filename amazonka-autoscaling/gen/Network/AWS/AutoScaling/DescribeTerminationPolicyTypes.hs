@@ -53,7 +53,7 @@ describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
 describeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 
 newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
-    { _dtptrTerminationPolicyTypes :: List "TerminationPolicies" Text
+    { _dtptrTerminationPolicyTypes :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTerminationPolicyTypesResponse where

@@ -2555,10 +2555,12 @@ instance FromXML CommonPrefix where
     parseXML x = CommonPrefix
         <$> x .@? "Prefix"
 
-instance ToXML CommonPrefix where
-    toXML CommonPrefix{..} = nodes "CommonPrefix"
+instance ToXMLRoot CommonPrefix where
+    toXMLRoot CommonPrefix{..} = namespaced ns "CommonPrefix"
         [ "Prefix" =@ _cpPrefix
         ]
+
+instance ToXML CommonPrefix
 
 data MultipartUpload = MultipartUpload
     { _muInitiated    :: Maybe RFC822

@@ -72,7 +72,7 @@ lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
 
 data ListSubscriptionsResponse = ListSubscriptionsResponse
     { _lsrNextToken     :: Maybe Text
-    , _lsrSubscriptions :: List "Subscriptions" Subscription
+    , _lsrSubscriptions :: List "member" Subscription
     } deriving (Eq, Show)
 
 -- | 'ListSubscriptionsResponse' constructor.

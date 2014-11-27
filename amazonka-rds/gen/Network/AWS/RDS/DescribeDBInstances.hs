@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 data DescribeDBInstances = DescribeDBInstances
     { _ddbi1DBInstanceIdentifier :: Maybe Text
-    , _ddbi1Filters              :: List "Filter" Filter
+    , _ddbi1Filters              :: List "member" Filter
     , _ddbi1Marker               :: Maybe Text
     , _ddbi1MaxRecords           :: Maybe Int
     } deriving (Eq, Show)
@@ -114,7 +114,7 @@ ddbi1MaxRecords :: Lens' DescribeDBInstances (Maybe Int)
 ddbi1MaxRecords = lens _ddbi1MaxRecords (\s a -> s { _ddbi1MaxRecords = a })
 
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse
-    { _ddbirDBInstances :: List "DBInstance" DBInstance
+    { _ddbirDBInstances :: List "member" DBInstance
     , _ddbirMarker      :: Maybe Text
     } deriving (Eq, Show)
 

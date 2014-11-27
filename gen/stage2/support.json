@@ -3205,7 +3205,8 @@
         ],
         "imports": [],
         "shared": [
-            "Attachment"
+            "Attachment",
+            "TrustedAdvisorCheckRefreshStatus"
         ]
     },
     "operations": [

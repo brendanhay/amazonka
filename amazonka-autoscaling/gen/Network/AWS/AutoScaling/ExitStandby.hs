@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 data ExitStandby = ExitStandby
     { _es1AutoScalingGroupName :: Text
-    , _es1InstanceIds          :: List "InstanceIds" Text
+    , _es1InstanceIds          :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'ExitStandby' constructor.
@@ -80,7 +80,7 @@ es1InstanceIds :: Lens' ExitStandby [Text]
 es1InstanceIds = lens _es1InstanceIds (\s a -> s { _es1InstanceIds = a }) . _List
 
 newtype ExitStandbyResponse = ExitStandbyResponse
-    { _esrActivities :: List "Activities" Activity
+    { _esrActivities :: List "member" Activity
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ExitStandbyResponse where

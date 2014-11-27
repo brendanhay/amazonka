@@ -277,7 +277,7 @@ instance ToQuery SourceSecurityGroup where
 
 data TagDescription = TagDescription
     { _tdLoadBalancerName :: Maybe Text
-    , _tdTags             :: List1 "Tags" Tag
+    , _tdTags             :: List1 "member" Tag
     } deriving (Eq, Show)
 
 -- | 'TagDescription' constructor.
@@ -559,7 +559,7 @@ instance ToQuery CrossZoneLoadBalancing where
 
 data LoadBalancerAttributes = LoadBalancerAttributes
     { _lbaAccessLog              :: Maybe AccessLog
-    , _lbaAdditionalAttributes   :: List "AdditionalAttributes" AdditionalAttribute
+    , _lbaAdditionalAttributes   :: List "member" AdditionalAttribute
     , _lbaConnectionDraining     :: Maybe ConnectionDraining
     , _lbaConnectionSettings     :: Maybe ConnectionSettings
     , _lbaCrossZoneLoadBalancing :: Maybe CrossZoneLoadBalancing
@@ -715,7 +715,7 @@ instance ToQuery AccessLog where
 
 data ListenerDescription = ListenerDescription
     { _ldListener    :: Maybe Listener
-    , _ldPolicyNames :: List "PolicyNames" Text
+    , _ldPolicyNames :: List "member" Text
     } deriving (Eq, Show)
 
 -- | 'ListenerDescription' constructor.
@@ -795,7 +795,7 @@ instance ToQuery LBCookieStickinessPolicy where
         ]
 
 data PolicyDescription = PolicyDescription
-    { _pdPolicyAttributeDescriptions :: List "PolicyAttributeDescriptions" PolicyAttributeDescription
+    { _pdPolicyAttributeDescriptions :: List "member" PolicyAttributeDescription
     , _pdPolicyName                  :: Maybe Text
     , _pdPolicyTypeName              :: Maybe Text
     } deriving (Eq, Show)
@@ -923,21 +923,21 @@ instance ToQuery PolicyAttribute where
         ]
 
 data LoadBalancerDescription = LoadBalancerDescription
-    { _lbdAvailabilityZones         :: List "AvailabilityZones" Text
-    , _lbdBackendServerDescriptions :: List "BackendServerDescriptions" BackendServerDescription
+    { _lbdAvailabilityZones         :: List "member" Text
+    , _lbdBackendServerDescriptions :: List "member" BackendServerDescription
     , _lbdCanonicalHostedZoneName   :: Maybe Text
     , _lbdCanonicalHostedZoneNameID :: Maybe Text
     , _lbdCreatedTime               :: Maybe ISO8601
     , _lbdDNSName                   :: Maybe Text
     , _lbdHealthCheck               :: Maybe HealthCheck
-    , _lbdInstances                 :: List "Instances" Instance
-    , _lbdListenerDescriptions      :: List "ListenerDescriptions" ListenerDescription
+    , _lbdInstances                 :: List "member" Instance
+    , _lbdListenerDescriptions      :: List "member" ListenerDescription
     , _lbdLoadBalancerName          :: Maybe Text
     , _lbdPolicies                  :: Maybe Policies
     , _lbdScheme                    :: Maybe Text
-    , _lbdSecurityGroups            :: List "SecurityGroups" Text
+    , _lbdSecurityGroups            :: List "member" Text
     , _lbdSourceSecurityGroup       :: Maybe SourceSecurityGroup
-    , _lbdSubnets                   :: List "Subnets" Text
+    , _lbdSubnets                   :: List "member" Text
     , _lbdVPCId                     :: Maybe Text
     } deriving (Eq, Show)
 
@@ -1135,7 +1135,7 @@ instance ToQuery LoadBalancerDescription where
 
 data BackendServerDescription = BackendServerDescription
     { _bsdInstancePort :: Maybe Nat
-    , _bsdPolicyNames  :: List "PolicyNames" Text
+    , _bsdPolicyNames  :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'BackendServerDescription' constructor.
@@ -1278,7 +1278,7 @@ instance ToQuery ConnectionSettings where
 
 data PolicyTypeDescription = PolicyTypeDescription
     { _ptdDescription                     :: Maybe Text
-    , _ptdPolicyAttributeTypeDescriptions :: List "PolicyAttributeTypeDescriptions" PolicyAttributeTypeDescription
+    , _ptdPolicyAttributeTypeDescriptions :: List "member" PolicyAttributeTypeDescription
     , _ptdPolicyTypeName                  :: Maybe Text
     } deriving (Eq, Show)
 
@@ -1330,9 +1330,9 @@ instance ToQuery PolicyTypeDescription where
         ]
 
 data Policies = Policies
-    { _pAppCookieStickinessPolicies :: List "AppCookieStickinessPolicies" AppCookieStickinessPolicy
-    , _pLBCookieStickinessPolicies  :: List "LBCookieStickinessPolicies" LBCookieStickinessPolicy
-    , _pOtherPolicies               :: List "PolicyNames" Text
+    { _pAppCookieStickinessPolicies :: List "member" AppCookieStickinessPolicy
+    , _pLBCookieStickinessPolicies  :: List "member" LBCookieStickinessPolicy
+    , _pOtherPolicies               :: List "member" Text
     } deriving (Eq, Show)
 
 -- | 'Policies' constructor.

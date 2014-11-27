@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 data DescribeOptionGroups = DescribeOptionGroups
     { _dogEngineName         :: Maybe Text
-    , _dogFilters            :: List "Filter" Filter
+    , _dogFilters            :: List "member" Filter
     , _dogMajorEngineVersion :: Maybe Text
     , _dogMarker             :: Maybe Text
     , _dogMaxRecords         :: Maybe Int
@@ -128,7 +128,7 @@ dogOptionGroupName =
 
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse
     { _dogrMarker           :: Maybe Text
-    , _dogrOptionGroupsList :: List "OptionGroup" OptionGroup
+    , _dogrOptionGroupsList :: List "member" OptionGroup
     } deriving (Eq, Show)
 
 -- | 'DescribeOptionGroupsResponse' constructor.

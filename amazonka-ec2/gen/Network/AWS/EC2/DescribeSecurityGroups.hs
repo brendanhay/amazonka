@@ -139,12 +139,6 @@ newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgrSecurityGroups :: List "item" SecurityGroup
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeSecurityGroupsResponse where
-    type Item DescribeSecurityGroupsResponse = SecurityGroup
-
-    fromList = DescribeSecurityGroupsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dsgrSecurityGroups
-
 -- | 'DescribeSecurityGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -168,9 +162,9 @@ instance ToPath DescribeSecurityGroups where
 instance ToQuery DescribeSecurityGroups where
     toQuery DescribeSecurityGroups{..} = mconcat
         [ "dryRun"    =? _dsg1DryRun
-        , "Filter"    =? _dsg1Filters
-        , "GroupId"   =? _dsg1GroupIds
-        , "GroupName" =? _dsg1GroupNames
+        , toQuery    _dsg1Filters
+        , toQuery    _dsg1GroupIds
+        , toQuery    _dsg1GroupNames
         ]
 
 instance ToHeaders DescribeSecurityGroups
@@ -184,4 +178,4 @@ instance AWSRequest DescribeSecurityGroups where
 
 instance FromXML DescribeSecurityGroupsResponse where
     parseXML x = DescribeSecurityGroupsResponse
-        <$> x .@  "securityGroupInfo"
+        <$> parseXML x

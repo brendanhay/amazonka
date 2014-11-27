@@ -84,7 +84,7 @@ data CreateDBInstance = CreateDBInstance
     , _cdbiDBInstanceIdentifier       :: Text
     , _cdbiDBName                     :: Maybe Text
     , _cdbiDBParameterGroupName       :: Maybe Text
-    , _cdbiDBSecurityGroups           :: List "DBSecurityGroupName" Text
+    , _cdbiDBSecurityGroups           :: List "member" Text
     , _cdbiDBSubnetGroupName          :: Maybe Text
     , _cdbiEngine                     :: Text
     , _cdbiEngineVersion              :: Maybe Text
@@ -99,10 +99,10 @@ data CreateDBInstance = CreateDBInstance
     , _cdbiPreferredMaintenanceWindow :: Maybe Text
     , _cdbiPubliclyAccessible         :: Maybe Bool
     , _cdbiStorageType                :: Maybe Text
-    , _cdbiTags                       :: List "Tag" Tag
+    , _cdbiTags                       :: List "member" Tag
     , _cdbiTdeCredentialArn           :: Maybe Text
     , _cdbiTdeCredentialPassword      :: Maybe Text
-    , _cdbiVpcSecurityGroupIds        :: List "VpcSecurityGroupId" Text
+    , _cdbiVpcSecurityGroupIds        :: List "member" Text
     } deriving (Eq, Show)
 
 -- | 'CreateDBInstance' constructor.

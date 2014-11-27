@@ -57,7 +57,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances
-    { _dasiInstanceIds :: List "InstanceIds" Text
+    { _dasiInstanceIds :: List "member" Text
     , _dasiMaxRecords  :: Maybe Int
     , _dasiNextToken   :: Maybe Text
     } deriving (Eq, Ord, Show)
@@ -95,7 +95,7 @@ dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
 dasiNextToken = lens _dasiNextToken (\s a -> s { _dasiNextToken = a })
 
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
-    { _dasirAutoScalingInstances :: List "AutoScalingInstances" AutoScalingInstanceDetails
+    { _dasirAutoScalingInstances :: List "member" AutoScalingInstanceDetails
     , _dasirNextToken            :: Maybe Text
     } deriving (Eq, Show)
 

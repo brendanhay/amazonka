@@ -91,7 +91,7 @@ liNextToken :: Lens' ListIdentities (Maybe Text)
 liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
 
 data ListIdentitiesResponse = ListIdentitiesResponse
-    { _lirIdentities :: List "Identities" Text
+    { _lirIdentities :: List "member" Text
     , _lirNextToken  :: Maybe Text
     } deriving (Eq, Ord, Show)
 

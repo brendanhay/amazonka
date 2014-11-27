@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 data CreateTags = CreateTags
     { _ctResourceName :: Text
-    , _ctTags         :: List "Tag" Tag
+    , _ctTags         :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateTags' constructor.

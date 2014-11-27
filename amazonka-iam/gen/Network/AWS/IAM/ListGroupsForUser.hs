@@ -95,7 +95,7 @@ lgfuUserName :: Lens' ListGroupsForUser Text
 lgfuUserName = lens _lgfuUserName (\s a -> s { _lgfuUserName = a })
 
 data ListGroupsForUserResponse = ListGroupsForUserResponse
-    { _lgfurGroups      :: List "Groups" Group
+    { _lgfurGroups      :: List "member" Group
     , _lgfurIsTruncated :: Maybe Bool
     , _lgfurMarker      :: Maybe Text
     } deriving (Eq, Show)

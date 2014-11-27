@@ -111,9 +111,9 @@ dcpSource :: Lens' DescribeCacheParameters (Maybe Text)
 dcpSource = lens _dcpSource (\s a -> s { _dcpSource = a })
 
 data DescribeCacheParametersResponse = DescribeCacheParametersResponse
-    { _dcprCacheNodeTypeSpecificParameters :: List "CacheNodeTypeSpecificParameter" CacheNodeTypeSpecificParameter
+    { _dcprCacheNodeTypeSpecificParameters :: List "member" CacheNodeTypeSpecificParameter
     , _dcprMarker                          :: Maybe Text
-    , _dcprParameters                      :: List "Parameter" Parameter
+    , _dcprParameters                      :: List "member" Parameter
     } deriving (Eq, Show)
 
 -- | 'DescribeCacheParametersResponse' constructor.

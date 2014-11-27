@@ -60,7 +60,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeScalingActivities = DescribeScalingActivities
-    { _dsa2ActivityIds          :: List "ActivityIds" Text
+    { _dsa2ActivityIds          :: List "member" Text
     , _dsa2AutoScalingGroupName :: Maybe Text
     , _dsa2MaxRecords           :: Maybe Int
     , _dsa2NextToken            :: Maybe Text
@@ -110,7 +110,7 @@ dsa2NextToken :: Lens' DescribeScalingActivities (Maybe Text)
 dsa2NextToken = lens _dsa2NextToken (\s a -> s { _dsa2NextToken = a })
 
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
-    { _dsar1Activities :: List "Activities" Activity
+    { _dsar1Activities :: List "member" Activity
     , _dsar1NextToken  :: Maybe Text
     } deriving (Eq, Show)
 

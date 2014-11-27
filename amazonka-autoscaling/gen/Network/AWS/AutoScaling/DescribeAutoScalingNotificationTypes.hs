@@ -53,7 +53,7 @@ describeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
 describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
 
 newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
-    { _dasntrAutoScalingNotificationTypes :: List "LifecycleHookTypes" Text
+    { _dasntrAutoScalingNotificationTypes :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAutoScalingNotificationTypesResponse where

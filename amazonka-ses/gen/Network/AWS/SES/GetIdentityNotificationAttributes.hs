@@ -53,7 +53,7 @@ import Network.AWS.SES.Types
 import qualified GHC.Exts
 
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
-    { _ginaIdentities :: List "Identities" Text
+    { _ginaIdentities :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetIdentityNotificationAttributes where

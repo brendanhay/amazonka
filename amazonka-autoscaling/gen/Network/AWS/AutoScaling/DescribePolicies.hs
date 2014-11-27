@@ -60,7 +60,7 @@ data DescribePolicies = DescribePolicies
     { _dp1AutoScalingGroupName :: Maybe Text
     , _dp1MaxRecords           :: Maybe Int
     , _dp1NextToken            :: Maybe Text
-    , _dp1PolicyNames          :: List "PolicyNames" Text
+    , _dp1PolicyNames          :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribePolicies' constructor.
@@ -106,7 +106,7 @@ dp1PolicyNames = lens _dp1PolicyNames (\s a -> s { _dp1PolicyNames = a }) . _Lis
 
 data DescribePoliciesResponse = DescribePoliciesResponse
     { _dprNextToken       :: Maybe Text
-    , _dprScalingPolicies :: List "ScalingPolicies" ScalingPolicy
+    , _dprScalingPolicies :: List "member" ScalingPolicy
     } deriving (Eq, Show)
 
 -- | 'DescribePoliciesResponse' constructor.

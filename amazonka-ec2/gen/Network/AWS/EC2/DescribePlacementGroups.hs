@@ -99,12 +99,6 @@ newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
     { _dpgrPlacementGroups :: List "item" PlacementGroup
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribePlacementGroupsResponse where
-    type Item DescribePlacementGroupsResponse = PlacementGroup
-
-    fromList = DescribePlacementGroupsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dpgrPlacementGroups
-
 -- | 'DescribePlacementGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -128,8 +122,8 @@ instance ToPath DescribePlacementGroups where
 instance ToQuery DescribePlacementGroups where
     toQuery DescribePlacementGroups{..} = mconcat
         [ "dryRun"    =? _dpg1DryRun
-        , "Filter"    =? _dpg1Filters
-        , "groupName" =? _dpg1GroupNames
+        , toQuery    _dpg1Filters
+        , toQuery    _dpg1GroupNames
         ]
 
 instance ToHeaders DescribePlacementGroups
@@ -143,4 +137,4 @@ instance AWSRequest DescribePlacementGroups where
 
 instance FromXML DescribePlacementGroupsResponse where
     parseXML x = DescribePlacementGroupsResponse
-        <$> x .@  "placementGroupSet"
+        <$> parseXML x

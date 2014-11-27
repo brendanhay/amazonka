@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data DescribeAlarms = DescribeAlarms
     { _daActionPrefix    :: Maybe Text
     , _daAlarmNamePrefix :: Maybe Text
-    , _daAlarmNames      :: List "AlarmNames" Text
+    , _daAlarmNames      :: List "member" Text
     , _daMaxRecords      :: Maybe Nat
     , _daNextToken       :: Maybe Text
     , _daStateValue      :: Maybe StateValue
@@ -118,7 +118,7 @@ daStateValue :: Lens' DescribeAlarms (Maybe StateValue)
 daStateValue = lens _daStateValue (\s a -> s { _daStateValue = a })
 
 data DescribeAlarmsResponse = DescribeAlarmsResponse
-    { _darMetricAlarms :: List "MetricAlarms" MetricAlarm
+    { _darMetricAlarms :: List "member" MetricAlarm
     , _darNextToken    :: Maybe Text
     } deriving (Eq, Show)
 

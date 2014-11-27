@@ -125,12 +125,6 @@ newtype DescribeAddressesResponse = DescribeAddressesResponse
     { _darAddresses :: List "item" Address
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeAddressesResponse where
-    type Item DescribeAddressesResponse = Address
-
-    fromList = DescribeAddressesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _darAddresses
-
 -- | 'DescribeAddressesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -151,10 +145,10 @@ instance ToPath DescribeAddresses where
 
 instance ToQuery DescribeAddresses where
     toQuery DescribeAddresses{..} = mconcat
-        [ "AllocationId" =? _daAllocationIds
+        [ toQuery       _daAllocationIds
         , "dryRun"       =? _daDryRun
-        , "Filter"       =? _daFilters
-        , "PublicIp"     =? _daPublicIps
+        , toQuery       _daFilters
+        , toQuery       _daPublicIps
         ]
 
 instance ToHeaders DescribeAddresses
@@ -168,4 +162,4 @@ instance AWSRequest DescribeAddresses where
 
 instance FromXML DescribeAddressesResponse where
     parseXML x = DescribeAddressesResponse
-        <$> x .@  "addressesSet"
+        <$> parseXML x

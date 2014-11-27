@@ -133,12 +133,6 @@ newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { _dvcrVpnConnections :: List "item" VpnConnection
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeVpnConnectionsResponse where
-    type Item DescribeVpnConnectionsResponse = VpnConnection
-
-    fromList = DescribeVpnConnectionsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dvcrVpnConnections
-
 -- | 'DescribeVpnConnectionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -162,8 +156,8 @@ instance ToPath DescribeVpnConnections where
 instance ToQuery DescribeVpnConnections where
     toQuery DescribeVpnConnections{..} = mconcat
         [ "dryRun"          =? _dvc1DryRun
-        , "Filter"          =? _dvc1Filters
-        , "VpnConnectionId" =? _dvc1VpnConnectionIds
+        , toQuery          _dvc1Filters
+        , toQuery          _dvc1VpnConnectionIds
         ]
 
 instance ToHeaders DescribeVpnConnections
@@ -177,4 +171,4 @@ instance AWSRequest DescribeVpnConnections where
 
 instance FromXML DescribeVpnConnectionsResponse where
     parseXML x = DescribeVpnConnectionsResponse
-        <$> x .@  "vpnConnectionSet"
+        <$> parseXML x

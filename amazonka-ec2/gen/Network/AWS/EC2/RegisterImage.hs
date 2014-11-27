@@ -211,7 +211,7 @@ instance ToPath RegisterImage where
 instance ToQuery RegisterImage where
     toQuery RegisterImage{..} = mconcat
         [ "architecture"       =? _ri1Architecture
-        , "BlockDeviceMapping" =? _ri1BlockDeviceMappings
+        , toQuery             _ri1BlockDeviceMappings
         , "description"        =? _ri1Description
         , "dryRun"             =? _ri1DryRun
         , "ImageLocation"      =? _ri1ImageLocation

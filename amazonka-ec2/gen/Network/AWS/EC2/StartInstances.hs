@@ -105,12 +105,6 @@ newtype StartInstancesResponse = StartInstancesResponse
     { _sirStartingInstances :: List "item" InstanceStateChange
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList StartInstancesResponse where
-    type Item StartInstancesResponse = InstanceStateChange
-
-    fromList = StartInstancesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _sirStartingInstances
-
 -- | 'StartInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -135,7 +129,7 @@ instance ToQuery StartInstances where
     toQuery StartInstances{..} = mconcat
         [ "additionalInfo" =? _si1AdditionalInfo
         , "dryRun"         =? _si1DryRun
-        , "InstanceId"     =? _si1InstanceIds
+        , toQuery         _si1InstanceIds
         ]
 
 instance ToHeaders StartInstances
@@ -149,4 +143,4 @@ instance AWSRequest StartInstances where
 
 instance FromXML StartInstancesResponse where
     parseXML x = StartInstancesResponse
-        <$> x .@  "instancesSet"
+        <$> parseXML x

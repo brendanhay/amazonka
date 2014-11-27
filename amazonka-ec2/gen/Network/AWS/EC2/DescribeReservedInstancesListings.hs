@@ -121,12 +121,6 @@ newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesLis
     { _drilrReservedInstancesListings :: List "item" ReservedInstancesListing
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeReservedInstancesListingsResponse where
-    type Item DescribeReservedInstancesListingsResponse = ReservedInstancesListing
-
-    fromList = DescribeReservedInstancesListingsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _drilrReservedInstancesListings
-
 -- | 'DescribeReservedInstancesListingsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -150,7 +144,7 @@ instance ToPath DescribeReservedInstancesListings where
 
 instance ToQuery DescribeReservedInstancesListings where
     toQuery DescribeReservedInstancesListings{..} = mconcat
-        [ "filters"                    =? _drilFilters
+        [ toQuery                     _drilFilters
         , "reservedInstancesId"        =? _drilReservedInstancesId
         , "reservedInstancesListingId" =? _drilReservedInstancesListingId
         ]
@@ -166,4 +160,4 @@ instance AWSRequest DescribeReservedInstancesListings where
 
 instance FromXML DescribeReservedInstancesListingsResponse where
     parseXML x = DescribeReservedInstancesListingsResponse
-        <$> x .@  "reservedInstancesListingsSet"
+        <$> parseXML x

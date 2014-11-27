@@ -80,7 +80,7 @@ data CreateCluster = CreateCluster
     , _ccAvailabilityZone                 :: Maybe Text
     , _ccClusterIdentifier                :: Text
     , _ccClusterParameterGroupName        :: Maybe Text
-    , _ccClusterSecurityGroups            :: List "ClusterSecurityGroupName" Text
+    , _ccClusterSecurityGroups            :: List "member" Text
     , _ccClusterSubnetGroupName           :: Maybe Text
     , _ccClusterType                      :: Maybe Text
     , _ccClusterVersion                   :: Maybe Text
@@ -97,8 +97,8 @@ data CreateCluster = CreateCluster
     , _ccPort                             :: Maybe Int
     , _ccPreferredMaintenanceWindow       :: Maybe Text
     , _ccPubliclyAccessible               :: Maybe Bool
-    , _ccTags                             :: List "Tag" Tag
-    , _ccVpcSecurityGroupIds              :: List "VpcSecurityGroupId" Text
+    , _ccTags                             :: List "member" Tag
+    , _ccVpcSecurityGroupIds              :: List "member" Text
     } deriving (Eq, Show)
 
 -- | 'CreateCluster' constructor.

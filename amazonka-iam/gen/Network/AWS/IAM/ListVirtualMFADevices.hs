@@ -100,7 +100,7 @@ lvmfadMaxItems = lens _lvmfadMaxItems (\s a -> s { _lvmfadMaxItems = a }) . mapp
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { _lvmfadrIsTruncated       :: Maybe Bool
     , _lvmfadrMarker            :: Maybe Text
-    , _lvmfadrVirtualMFADevices :: List "VirtualMFADevices" VirtualMFADevice
+    , _lvmfadrVirtualMFADevices :: List "member" VirtualMFADevice
     } deriving (Eq, Show)
 
 -- | 'ListVirtualMFADevicesResponse' constructor.

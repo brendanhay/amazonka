@@ -54,8 +54,8 @@ import qualified GHC.Exts
 
 data DescribeEnvironments = DescribeEnvironments
     { _de1ApplicationName       :: Maybe Text
-    , _de1EnvironmentIds        :: List "EnvironmentIds" Text
-    , _de1EnvironmentNames      :: List "EnvironmentNames" Text
+    , _de1EnvironmentIds        :: List "member" Text
+    , _de1EnvironmentNames      :: List "member" Text
     , _de1IncludeDeleted        :: Maybe Bool
     , _de1IncludedDeletedBackTo :: Maybe ISO8601
     , _de1VersionLabel          :: Maybe Text
@@ -131,7 +131,7 @@ de1VersionLabel :: Lens' DescribeEnvironments (Maybe Text)
 de1VersionLabel = lens _de1VersionLabel (\s a -> s { _de1VersionLabel = a })
 
 newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
-    { _derEnvironments :: List "Environments" EnvironmentDescription
+    { _derEnvironments :: List "member" EnvironmentDescription
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeEnvironmentsResponse where

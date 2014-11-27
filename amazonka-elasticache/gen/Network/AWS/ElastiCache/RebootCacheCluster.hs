@@ -59,7 +59,7 @@ import qualified GHC.Exts
 
 data RebootCacheCluster = RebootCacheCluster
     { _rccCacheClusterId       :: Text
-    , _rccCacheNodeIdsToReboot :: List "CacheNodeId" Text
+    , _rccCacheNodeIdsToReboot :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'RebootCacheCluster' constructor.

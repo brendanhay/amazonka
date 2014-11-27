@@ -80,7 +80,7 @@ lsbtTopicArn = lens _lsbtTopicArn (\s a -> s { _lsbtTopicArn = a })
 
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     { _lsbtrNextToken     :: Maybe Text
-    , _lsbtrSubscriptions :: List "Subscriptions" Subscription
+    , _lsbtrSubscriptions :: List "member" Subscription
     } deriving (Eq, Show)
 
 -- | 'ListSubscriptionsByTopicResponse' constructor.

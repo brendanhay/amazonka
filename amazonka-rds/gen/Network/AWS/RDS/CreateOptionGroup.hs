@@ -56,7 +56,7 @@ data CreateOptionGroup = CreateOptionGroup
     , _cogMajorEngineVersion     :: Text
     , _cogOptionGroupDescription :: Text
     , _cogOptionGroupName        :: Text
-    , _cogTags                   :: List "Tag" Tag
+    , _cogTags                   :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateOptionGroup' constructor.

@@ -54,7 +54,7 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
     { _prdbioDBInstanceCount               :: Maybe Int
     , _prdbioReservedDBInstanceId          :: Maybe Text
     , _prdbioReservedDBInstancesOfferingId :: Text
-    , _prdbioTags                          :: List "Tag" Tag
+    , _prdbioTags                          :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'PurchaseReservedDBInstancesOffering' constructor.

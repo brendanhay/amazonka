@@ -150,6 +150,6 @@ instance AWSRequest DescribeSnapshotAttribute where
 
 instance FromXML DescribeSnapshotAttributeResponse where
     parseXML x = DescribeSnapshotAttributeResponse
-        <$> x .@  "createVolumePermission"
-        <*> x .@  "productCodes"
+        <$> parseXML x
+        <*> parseXML x
         <*> x .@? "snapshotId"

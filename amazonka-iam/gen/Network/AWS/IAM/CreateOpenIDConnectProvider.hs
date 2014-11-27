@@ -61,8 +61,8 @@ import Network.AWS.IAM.Types
 import qualified GHC.Exts
 
 data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider
-    { _coidcpClientIDList   :: List "ClientIDList" Text
-    , _coidcpThumbprintList :: List "ThumbprintList" Text
+    { _coidcpClientIDList   :: List "member" Text
+    , _coidcpThumbprintList :: List "member" Text
     , _coidcpUrl            :: Text
     } deriving (Eq, Ord, Show)
 

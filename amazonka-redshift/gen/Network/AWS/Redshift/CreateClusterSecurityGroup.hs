@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup
     { _ccsg1ClusterSecurityGroupName :: Text
     , _ccsg1Description              :: Text
-    , _ccsg1Tags                     :: List "Tag" Tag
+    , _ccsg1Tags                     :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateClusterSecurityGroup' constructor.

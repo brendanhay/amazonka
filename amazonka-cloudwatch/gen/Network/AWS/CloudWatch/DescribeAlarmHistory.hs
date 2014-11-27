@@ -117,7 +117,7 @@ dahStartDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
 dahStartDate = lens _dahStartDate (\s a -> s { _dahStartDate = a }) . mapping _Time
 
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
-    { _dahrAlarmHistoryItems :: List "AlarmHistoryItems" AlarmHistoryItem
+    { _dahrAlarmHistoryItems :: List "member" AlarmHistoryItem
     , _dahrNextToken         :: Maybe Text
     } deriving (Eq, Show)
 

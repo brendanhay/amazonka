@@ -835,7 +835,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "-- | The security groups to associate with the EC2 instances.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SecurityGroups\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -895,7 +895,7 @@
                         "locationName": "BlockDeviceMappings",
                         "documentation": "-- | A block device mapping that specifies how block devices are exposed to the\n-- instance. Each mapping is made up of a 'virtualName' and a 'deviceName'.",
                         "typeExposed": "[BlockDeviceMapping]",
-                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
+                        "type": "List \"member\" BlockDeviceMapping"
                     },
                     {
                         "location": "querystring",
@@ -1017,7 +1017,7 @@
                         "locationName": "BlockDeviceMappings",
                         "documentation": "-- | A block device mapping that specifies how block devices are exposed to the\n-- instance. Each mapping is made up of a 'virtualName' and a 'deviceName'.",
                         "typeExposed": "[BlockDeviceMapping]",
-                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
+                        "type": "List \"member\" BlockDeviceMapping"
                     },
                     {
                         "location": "querystring",
@@ -1212,7 +1212,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "-- | The security groups to associate with the EC2 instances.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SecurityGroups\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1359,7 +1359,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "-- | One or more Availability Zones for the group.",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 \"AvailabilityZones\" Text"
+                        "type": "List1 \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1425,7 +1425,7 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "-- | One or more load balancers associated with the group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"LoadBalancerNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1455,7 +1455,7 @@
                         "locationName": "Instances",
                         "documentation": "-- | The EC2 instances associated with the group.",
                         "typeExposed": "[Instance]",
-                        "type": "List \"Instances\" Instance"
+                        "type": "List \"member\" Instance"
                     },
                     {
                         "location": "querystring",
@@ -1470,7 +1470,7 @@
                         "locationName": "SuspendedProcesses",
                         "documentation": "-- | The suspended processes associated with the group.",
                         "typeExposed": "[SuspendedProcess]",
-                        "type": "List \"SuspendedProcesses\" SuspendedProcess"
+                        "type": "List \"member\" SuspendedProcess"
                     },
                     {
                         "location": "querystring",
@@ -1515,7 +1515,7 @@
                         "locationName": "EnabledMetrics",
                         "documentation": "-- | The metrics enabled for this Auto Scaling group.",
                         "typeExposed": "[EnabledMetric]",
-                        "type": "List \"EnabledMetrics\" EnabledMetric"
+                        "type": "List \"member\" EnabledMetric"
                     },
                     {
                         "location": "querystring",
@@ -1545,7 +1545,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The tags for the Auto Scaling group.",
                         "typeExposed": "[TagDescription]",
-                        "type": "List \"Tags\" TagDescription"
+                        "type": "List \"member\" TagDescription"
                     },
                     {
                         "location": "querystring",
@@ -1560,7 +1560,7 @@
                         "locationName": "TerminationPolicies",
                         "documentation": "-- | The termination policies for this Auto Scaling group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TerminationPolicies\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -1607,7 +1607,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "-- | One or more Availability Zones for the group.",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 \"AvailabilityZones\" Text"
+                        "type": "List1 \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1667,7 +1667,7 @@
                         "locationName": "EnabledMetrics",
                         "documentation": "-- | The metrics enabled for this Auto Scaling group.",
                         "typeExposed": "[EnabledMetric]",
-                        "type": "List \"EnabledMetrics\" EnabledMetric"
+                        "type": "List \"member\" EnabledMetric"
                     },
                     {
                         "location": "querystring",
@@ -1712,7 +1712,7 @@
                         "locationName": "Instances",
                         "documentation": "-- | The EC2 instances associated with the group.",
                         "typeExposed": "[Instance]",
-                        "type": "List \"Instances\" Instance"
+                        "type": "List \"member\" Instance"
                     },
                     {
                         "location": "querystring",
@@ -1742,7 +1742,7 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "-- | One or more load balancers associated with the group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"LoadBalancerNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1817,7 +1817,7 @@
                         "locationName": "SuspendedProcesses",
                         "documentation": "-- | The suspended processes associated with the group.",
                         "typeExposed": "[SuspendedProcess]",
-                        "type": "List \"SuspendedProcesses\" SuspendedProcess"
+                        "type": "List \"member\" SuspendedProcess"
                     },
                     {
                         "location": "querystring",
@@ -1832,7 +1832,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The tags for the Auto Scaling group.",
                         "typeExposed": "[TagDescription]",
-                        "type": "List \"Tags\" TagDescription"
+                        "type": "List \"member\" TagDescription"
                     },
                     {
                         "location": "querystring",
@@ -1847,7 +1847,7 @@
                         "locationName": "TerminationPolicies",
                         "documentation": "-- | The termination policies for this Auto Scaling group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TerminationPolicies\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1984,7 +1984,7 @@
                         "locationName": "Alarms",
                         "documentation": "-- | The CloudWatch Alarms related to the policy.",
                         "typeExposed": "[Alarm]",
-                        "type": "List \"Alarms\" Alarm"
+                        "type": "List \"member\" Alarm"
                     },
                     {
                         "location": "querystring",
@@ -2031,7 +2031,7 @@
                         "locationName": "Alarms",
                         "documentation": "-- | The CloudWatch Alarms related to the policy.",
                         "typeExposed": "[Alarm]",
-                        "type": "List \"Alarms\" Alarm"
+                        "type": "List \"member\" Alarm"
                     },
                     {
                         "location": "querystring",
@@ -2556,7 +2556,7 @@
                         "locationName": "ScalingProcesses",
                         "documentation": "-- | One or more of the following processes:\n--\n-- Launch Terminate HealthCheck ReplaceUnhealthy AZRebalance AlarmNotification\n-- ScheduledActions AddToLoadBalancer",
                         "typeExposed": "[Text]",
-                        "type": "List \"ScalingProcesses\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -2588,7 +2588,7 @@
                         "locationName": "ScalingProcesses",
                         "documentation": "-- | One or more of the following processes:\n--\n-- Launch Terminate HealthCheck ReplaceUnhealthy AZRebalance AlarmNotification\n-- ScheduledActions AddToLoadBalancer",
                         "typeExposed": "[Text]",
-                        "type": "List \"ScalingProcesses\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -3698,7 +3698,7 @@
                         "locationName": "Values",
                         "documentation": "-- | The value of the filter.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Values\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -3730,7 +3730,7 @@
                         "locationName": "Values",
                         "documentation": "-- | The value of the filter.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Values\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -4503,7 +4503,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "-- | One or more EC2 instance IDs. You must specify at least one ID.",
                         "typeExposed": "[Text]",
-                        "type": "List \"InstanceIds\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -4535,7 +4535,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "-- | One or more EC2 instance IDs. You must specify at least one ID.",
                         "typeExposed": "[Text]",
-                        "type": "List \"InstanceIds\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -4872,7 +4872,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "-- | One or more Availability Zones for the group. This parameter is optional if\n-- you specify subnets using the 'VPCZoneIdentifier' parameter.",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 \"AvailabilityZones\" Text"
+                        "type": "List1 \"member\" Text"
                     }
                 ],
                 "shared": false,
@@ -5035,7 +5035,7 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "-- | One or more load balancers.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html Load Balance Your Auto Scaling Group\u003e in the /AutoScaling Developer Guide/.",
                         "typeExposed": "[Text]",
-                        "type": "List \"LoadBalancerNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5110,7 +5110,7 @@
                         "locationName": "TerminationPolicies",
                         "documentation": "-- | One or more termination policies used to select the instance to terminate.\n-- These policies are executed in the order that they are listed.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your AutoScaling Group\u003e in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TerminationPolicies\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5125,7 +5125,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The tag to be created or updated. Each tag should be defined by its resource\n-- type, resource ID, key, value, and a propagate flag. Valid values: key=/value/,\n-- value=/value/, propagate=/true/ or /false/. Value and propagate are optional\n-- parameters.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Add, Modify, or Remove Auto Scaling Group Tags\u003e in\n-- the /Auto Scaling Developer Guide/.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tags\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -5157,7 +5157,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "-- | One or more Availability Zones for the group. This parameter is optional if\n-- you specify subnets using the 'VPCZoneIdentifier' parameter.",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 \"AvailabilityZones\" Text"
+                        "type": "List1 \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5262,7 +5262,7 @@
                         "locationName": "LoadBalancerNames",
                         "documentation": "-- | One or more load balancers.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html Load Balance Your Auto Scaling Group\u003e in the /AutoScaling Developer Guide/.",
                         "typeExposed": "[Text]",
-                        "type": "List \"LoadBalancerNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5322,7 +5322,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The tag to be created or updated. Each tag should be defined by its resource\n-- type, resource ID, key, value, and a propagate flag. Valid values: key=/value/,\n-- value=/value/, propagate=/true/ or /false/. Value and propagate are optional\n-- parameters.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Add, Modify, or Remove Auto Scaling Group Tags\u003e in\n-- the /Auto Scaling Developer Guide/.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tags\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -5337,7 +5337,7 @@
                         "locationName": "TerminationPolicies",
                         "documentation": "-- | One or more termination policies used to select the instance to terminate.\n-- These policies are executed in the order that they are listed.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your AutoScaling Group\u003e in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TerminationPolicies\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5566,7 +5566,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "-- | One or more security groups with which to associate the instances.\n--\n-- If your instances are launched in EC2-Classic, you can either specify\n-- security group names or the security group IDs. For more information about\n-- security groups for EC2-Classic, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups\u003e in the /AmazonElastic Compute Cloud User Guide/.\n--\n-- If your instances are launched in a VPC, specify security group IDs. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC\u003e in the /Amazon VirtualPrivate Cloud User Guide/.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SecurityGroups\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -5656,7 +5656,7 @@
                         "locationName": "BlockDeviceMappings",
                         "documentation": "-- | One or more mappings that specify how block devices are exposed to the\n-- instance. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping\u003e in the /AmazonElastic Compute Cloud User Guide/.",
                         "typeExposed": "[BlockDeviceMapping]",
-                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
+                        "type": "List \"member\" BlockDeviceMapping"
                     },
                     {
                         "location": "querystring",
@@ -5778,7 +5778,7 @@
                         "locationName": "BlockDeviceMappings",
                         "documentation": "-- | One or more mappings that specify how block devices are exposed to the\n-- instance. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping\u003e in the /AmazonElastic Compute Cloud User Guide/.",
                         "typeExposed": "[BlockDeviceMapping]",
-                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
+                        "type": "List \"member\" BlockDeviceMapping"
                     },
                     {
                         "location": "querystring",
@@ -5958,7 +5958,7 @@
                         "locationName": "SecurityGroups",
                         "documentation": "-- | One or more security groups with which to associate the instances.\n--\n-- If your instances are launched in EC2-Classic, you can either specify\n-- security group names or the security group IDs. For more information about\n-- security groups for EC2-Classic, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups\u003e in the /AmazonElastic Compute Cloud User Guide/.\n--\n-- If your instances are launched in a VPC, specify security group IDs. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC\u003e in the /Amazon VirtualPrivate Cloud User Guide/.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SecurityGroups\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6057,7 +6057,7 @@
                     "locationName": "Tags",
                     "documentation": "-- | The tag to be created or updated. Each tag should be defined by its resource\n-- type, resource ID, key, value, and a propagate flag. The resource type and\n-- resource ID identify the type and name of resource for which the tag is\n-- created. Currently, 'auto-scaling-group' is the only supported resource type.\n-- The valid value for the resource ID is /groupname/.\n--\n-- The 'PropagateAtLaunch' flag defines whether the new tag will be applied to\n-- instances launched by the group. Valid values are 'true' or 'false'. However,\n-- instances that are already running will not get the new or updated tag.\n-- Likewise, when you modify a tag, the updated version will be applied only to\n-- new instances launched by the group after the change. Running instances that\n-- had the previous version of the tag will continue to have the older tag.\n--\n-- When you create a tag and a tag of the same name already exists, the\n-- operation overwrites the previous tag definition, but you will not get an\n-- error message.",
                     "typeExposed": "[Tag]",
-                    "type": "List \"Tags\" Tag"
+                    "type": "List \"member\" Tag"
                 },
                 "contents": [],
                 "path": [
@@ -6099,7 +6099,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The tag to be created or updated. Each tag should be defined by its resource\n-- type, resource ID, key, value, and a propagate flag. The resource type and\n-- resource ID identify the type and name of resource for which the tag is\n-- created. Currently, 'auto-scaling-group' is the only supported resource type.\n-- The valid value for the resource ID is /groupname/.\n--\n-- The 'PropagateAtLaunch' flag defines whether the new tag will be applied to\n-- instances launched by the group. Valid values are 'true' or 'false'. However,\n-- instances that are already running will not get the new or updated tag.\n-- Likewise, when you modify a tag, the updated version will be applied only to\n-- new instances launched by the group after the change. Running instances that\n-- had the previous version of the tag will continue to have the older tag.\n--\n-- When you create a tag and a tag of the same name already exists, the\n-- operation overwrites the previous tag definition, but you will not get an\n-- error message.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tags\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -6116,7 +6116,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The tag to be created or updated. Each tag should be defined by its resource\n-- type, resource ID, key, value, and a propagate flag. The resource type and\n-- resource ID identify the type and name of resource for which the tag is\n-- created. Currently, 'auto-scaling-group' is the only supported resource type.\n-- The valid value for the resource ID is /groupname/.\n--\n-- The 'PropagateAtLaunch' flag defines whether the new tag will be applied to\n-- instances launched by the group. Valid values are 'true' or 'false'. However,\n-- instances that are already running will not get the new or updated tag.\n-- Likewise, when you modify a tag, the updated version will be applied only to\n-- new instances launched by the group after the change. Running instances that\n-- had the previous version of the tag will continue to have the older tag.\n--\n-- When you create a tag and a tag of the same name already exists, the\n-- operation overwrites the previous tag definition, but you will not get an\n-- error message.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tags\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -7047,7 +7047,7 @@
                     "locationName": "Tags",
                     "documentation": "-- | Each tag should be defined by its resource type, resource ID, key, value, and\n-- a propagate flag. Valid values are: Resource type = /auto-scaling-group/,\n-- Resource ID = /AutoScalingGroupName/, key=/value/, value=/value/, propagate=/true/ or /false/.",
                     "typeExposed": "[Tag]",
-                    "type": "List \"Tags\" Tag"
+                    "type": "List \"member\" Tag"
                 },
                 "contents": [],
                 "path": [
@@ -7089,7 +7089,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | Each tag should be defined by its resource type, resource ID, key, value, and\n-- a propagate flag. Valid values are: Resource type = /auto-scaling-group/,\n-- Resource ID = /AutoScalingGroupName/, key=/value/, value=/value/, propagate=/true/ or /false/.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tags\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ],
                 "fields": [
@@ -7106,7 +7106,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | Each tag should be defined by its resource type, resource ID, key, value, and\n-- a propagate flag. Valid values are: Resource type = /auto-scaling-group/,\n-- Resource ID = /AutoScalingGroupName/, key=/value/, value=/value/, propagate=/true/ or /false/.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tags\" Tag"
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -7274,7 +7274,7 @@
                     "locationName": "AdjustmentTypes",
                     "documentation": "-- | The policy adjustment types.",
                     "typeExposed": "[AdjustmentType]",
-                    "type": "List \"AdjustmentTypes\" AdjustmentType"
+                    "type": "List \"member\" AdjustmentType"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7303,7 +7303,7 @@
                         "locationName": "AdjustmentTypes",
                         "documentation": "-- | The policy adjustment types.",
                         "typeExposed": "[AdjustmentType]",
-                        "type": "List \"AdjustmentTypes\" AdjustmentType"
+                        "type": "List \"member\" AdjustmentType"
                     }
                 ],
                 "fields": [
@@ -7320,7 +7320,7 @@
                         "locationName": "AdjustmentTypes",
                         "documentation": "-- | The policy adjustment types.",
                         "typeExposed": "[AdjustmentType]",
-                        "type": "List \"AdjustmentTypes\" AdjustmentType"
+                        "type": "List \"member\" AdjustmentType"
                     }
                 ]
             },
@@ -7407,7 +7407,7 @@
                         "locationName": "AutoScalingGroups",
                         "documentation": "-- | The groups.",
                         "typeExposed": "[AutoScalingGroup]",
-                        "type": "List \"AutoScalingGroups\" AutoScalingGroup"
+                        "type": "List \"member\" AutoScalingGroup"
                     },
                     {
                         "location": "querystring",
@@ -7439,7 +7439,7 @@
                         "locationName": "AutoScalingGroups",
                         "documentation": "-- | The groups.",
                         "typeExposed": "[AutoScalingGroup]",
-                        "type": "List \"AutoScalingGroups\" AutoScalingGroup"
+                        "type": "List \"member\" AutoScalingGroup"
                     },
                     {
                         "location": "querystring",
@@ -7540,7 +7540,7 @@
                         "locationName": "AutoScalingGroupNames",
                         "documentation": "-- | The group names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"AutoScalingGroupNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7587,7 +7587,7 @@
                         "locationName": "AutoScalingGroupNames",
                         "documentation": "-- | The group names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"AutoScalingGroupNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7661,7 +7661,7 @@
                         "locationName": "AutoScalingInstances",
                         "documentation": "-- | The instances.",
                         "typeExposed": "[AutoScalingInstanceDetails]",
-                        "type": "List \"AutoScalingInstances\" AutoScalingInstanceDetails"
+                        "type": "List \"member\" AutoScalingInstanceDetails"
                     },
                     {
                         "location": "querystring",
@@ -7693,7 +7693,7 @@
                         "locationName": "AutoScalingInstances",
                         "documentation": "-- | The instances.",
                         "typeExposed": "[AutoScalingInstanceDetails]",
-                        "type": "List \"AutoScalingInstances\" AutoScalingInstanceDetails"
+                        "type": "List \"member\" AutoScalingInstanceDetails"
                     },
                     {
                         "location": "querystring",
@@ -7794,7 +7794,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "-- | One or more Auto Scaling instances to describe, up to 50 instances. If you\n-- omit this parameter, all Auto Scaling instances are described. If you specify\n-- an ID that does not exist, it is ignored with no error.",
                         "typeExposed": "[Text]",
-                        "type": "List \"InstanceIds\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7841,7 +7841,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "-- | One or more Auto Scaling instances to describe, up to 50 instances. If you\n-- omit this parameter, all Auto Scaling instances are described. If you specify\n-- an ID that does not exist, it is ignored with no error.",
                         "typeExposed": "[Text]",
-                        "type": "List \"InstanceIds\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -7905,7 +7905,7 @@
                     "locationName": "AutoScalingNotificationTypes",
                     "documentation": "-- | One or more of the following notification types:\n--\n-- 'autoscaling:EC2_INSTANCE_LAUNCH'\n--\n-- 'autoscaling:EC2_INSTANCE_LAUNCH_ERROR'\n--\n-- 'autoscaling:EC2_INSTANCE_TERMINATE'\n--\n-- 'autoscaling:EC2_INSTANCE_TERMINATE_ERROR'\n--\n-- 'autoscaling:TEST_NOTIFICATION'\n--\n--",
                     "typeExposed": "[Text]",
-                    "type": "List \"LifecycleHookTypes\" Text"
+                    "type": "List \"member\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7934,7 +7934,7 @@
                         "locationName": "AutoScalingNotificationTypes",
                         "documentation": "-- | One or more of the following notification types:\n--\n-- 'autoscaling:EC2_INSTANCE_LAUNCH'\n--\n-- 'autoscaling:EC2_INSTANCE_LAUNCH_ERROR'\n--\n-- 'autoscaling:EC2_INSTANCE_TERMINATE'\n--\n-- 'autoscaling:EC2_INSTANCE_TERMINATE_ERROR'\n--\n-- 'autoscaling:TEST_NOTIFICATION'\n--\n--",
                         "typeExposed": "[Text]",
-                        "type": "List \"LifecycleHookTypes\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -7951,7 +7951,7 @@
                         "locationName": "AutoScalingNotificationTypes",
                         "documentation": "-- | One or more of the following notification types:\n--\n-- 'autoscaling:EC2_INSTANCE_LAUNCH'\n--\n-- 'autoscaling:EC2_INSTANCE_LAUNCH_ERROR'\n--\n-- 'autoscaling:EC2_INSTANCE_TERMINATE'\n--\n-- 'autoscaling:EC2_INSTANCE_TERMINATE_ERROR'\n--\n-- 'autoscaling:TEST_NOTIFICATION'\n--\n--",
                         "typeExposed": "[Text]",
-                        "type": "List \"LifecycleHookTypes\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -8038,7 +8038,7 @@
                         "locationName": "LaunchConfigurations",
                         "documentation": "-- | The launch configurations.",
                         "typeExposed": "[LaunchConfiguration]",
-                        "type": "List \"LaunchConfigurations\" LaunchConfiguration"
+                        "type": "List \"member\" LaunchConfiguration"
                     },
                     {
                         "location": "querystring",
@@ -8070,7 +8070,7 @@
                         "locationName": "LaunchConfigurations",
                         "documentation": "-- | The launch configurations.",
                         "typeExposed": "[LaunchConfiguration]",
-                        "type": "List \"LaunchConfigurations\" LaunchConfiguration"
+                        "type": "List \"member\" LaunchConfiguration"
                     },
                     {
                         "location": "querystring",
@@ -8171,7 +8171,7 @@
                         "locationName": "LaunchConfigurationNames",
                         "documentation": "-- | The launch configuration names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"LaunchConfigurationNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8218,7 +8218,7 @@
                         "locationName": "LaunchConfigurationNames",
                         "documentation": "-- | The launch configuration names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"LaunchConfigurationNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8282,7 +8282,7 @@
                     "locationName": "LifecycleHookTypes",
                     "documentation": "-- | One or more of the following notification types:\n--\n-- 'autoscaling:EC2_INSTANCE_LAUNCHING'\n--\n-- 'autoscaling:EC2_INSTANCE_TERMINATING'\n--\n--",
                     "typeExposed": "[Text]",
-                    "type": "List \"LifecycleHookTypes\" Text"
+                    "type": "List \"member\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8311,7 +8311,7 @@
                         "locationName": "LifecycleHookTypes",
                         "documentation": "-- | One or more of the following notification types:\n--\n-- 'autoscaling:EC2_INSTANCE_LAUNCHING'\n--\n-- 'autoscaling:EC2_INSTANCE_TERMINATING'\n--\n--",
                         "typeExposed": "[Text]",
-                        "type": "List \"LifecycleHookTypes\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -8328,7 +8328,7 @@
                         "locationName": "LifecycleHookTypes",
                         "documentation": "-- | One or more of the following notification types:\n--\n-- 'autoscaling:EC2_INSTANCE_LAUNCHING'\n--\n-- 'autoscaling:EC2_INSTANCE_TERMINATING'\n--\n--",
                         "typeExposed": "[Text]",
-                        "type": "List \"LifecycleHookTypes\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -8404,7 +8404,7 @@
                     "locationName": "LifecycleHooks",
                     "documentation": "-- | The lifecycle hooks for the specified group.",
                     "typeExposed": "[LifecycleHook]",
-                    "type": "List \"LifecycleHooks\" LifecycleHook"
+                    "type": "List \"member\" LifecycleHook"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8433,7 +8433,7 @@
                         "locationName": "LifecycleHooks",
                         "documentation": "-- | The lifecycle hooks for the specified group.",
                         "typeExposed": "[LifecycleHook]",
-                        "type": "List \"LifecycleHooks\" LifecycleHook"
+                        "type": "List \"member\" LifecycleHook"
                     }
                 ],
                 "fields": [
@@ -8450,7 +8450,7 @@
                         "locationName": "LifecycleHooks",
                         "documentation": "-- | The lifecycle hooks for the specified group.",
                         "typeExposed": "[LifecycleHook]",
-                        "type": "List \"LifecycleHooks\" LifecycleHook"
+                        "type": "List \"member\" LifecycleHook"
                     }
                 ]
             },
@@ -8538,7 +8538,7 @@
                         "locationName": "LifecycleHookNames",
                         "documentation": "-- | The names of one or more lifecycle hooks.",
                         "typeExposed": "[Text]",
-                        "type": "List \"LifecycleHookNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -8570,7 +8570,7 @@
                         "locationName": "LifecycleHookNames",
                         "documentation": "-- | The names of one or more lifecycle hooks.",
                         "typeExposed": "[Text]",
-                        "type": "List \"LifecycleHookNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -8614,7 +8614,7 @@
                         "locationName": "Metrics",
                         "documentation": "-- | One or more of the following metrics:\n--\n-- GroupMinSize\n--\n-- GroupMaxSize\n--\n-- GroupDesiredCapacity\n--\n-- GroupInServiceInstances\n--\n-- GroupPendingInstances\n--\n-- GroupStandbyInstances\n--\n-- GroupTerminatingInstances\n--\n-- GroupTotalInstances\n--\n-- The 'GroupStandbyInstances' metric is not returned by default. You must\n-- explicitly request it when calling 'EnableMetricsCollection'.\n--\n--",
                         "typeExposed": "[MetricCollectionType]",
-                        "type": "List \"Metrics\" MetricCollectionType"
+                        "type": "List \"member\" MetricCollectionType"
                     },
                     {
                         "location": "querystring",
@@ -8629,7 +8629,7 @@
                         "locationName": "Granularities",
                         "documentation": "-- | The granularities for the listed metrics.",
                         "typeExposed": "[MetricGranularityType]",
-                        "type": "List \"Granularities\" MetricGranularityType"
+                        "type": "List \"member\" MetricGranularityType"
                     }
                 ],
                 "fields": [
@@ -8646,7 +8646,7 @@
                         "locationName": "Granularities",
                         "documentation": "-- | The granularities for the listed metrics.",
                         "typeExposed": "[MetricGranularityType]",
-                        "type": "List \"Granularities\" MetricGranularityType"
+                        "type": "List \"member\" MetricGranularityType"
                     },
                     {
                         "location": "querystring",
@@ -8661,7 +8661,7 @@
                         "locationName": "Metrics",
                         "documentation": "-- | One or more of the following metrics:\n--\n-- GroupMinSize\n--\n-- GroupMaxSize\n--\n-- GroupDesiredCapacity\n--\n-- GroupInServiceInstances\n--\n-- GroupPendingInstances\n--\n-- GroupStandbyInstances\n--\n-- GroupTerminatingInstances\n--\n-- GroupTotalInstances\n--\n-- The 'GroupStandbyInstances' metric is not returned by default. You must\n-- explicitly request it when calling 'EnableMetricsCollection'.\n--\n--",
                         "typeExposed": "[MetricCollectionType]",
-                        "type": "List \"Metrics\" MetricCollectionType"
+                        "type": "List \"member\" MetricCollectionType"
                     }
                 ]
             },
@@ -8748,7 +8748,7 @@
                         "locationName": "NotificationConfigurations",
                         "documentation": "-- | The notification configurations.",
                         "typeExposed": "[NotificationConfiguration]",
-                        "type": "List \"NotificationConfigurations\" NotificationConfiguration"
+                        "type": "List \"member\" NotificationConfiguration"
                     },
                     {
                         "location": "querystring",
@@ -8795,7 +8795,7 @@
                         "locationName": "NotificationConfigurations",
                         "documentation": "-- | The notification configurations.",
                         "typeExposed": "[NotificationConfiguration]",
-                        "type": "List \"NotificationConfigurations\" NotificationConfiguration"
+                        "type": "List \"member\" NotificationConfiguration"
                     }
                 ]
             },
@@ -8881,7 +8881,7 @@
                         "locationName": "AutoScalingGroupNames",
                         "documentation": "-- | The name of the group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"AutoScalingGroupNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8928,7 +8928,7 @@
                         "locationName": "AutoScalingGroupNames",
                         "documentation": "-- | The name of the group.",
                         "typeExposed": "[Text]",
-                        "type": "List \"AutoScalingGroupNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9002,7 +9002,7 @@
                         "locationName": "ScalingPolicies",
                         "documentation": "-- | The scaling policies.",
                         "typeExposed": "[ScalingPolicy]",
-                        "type": "List \"ScalingPolicies\" ScalingPolicy"
+                        "type": "List \"member\" ScalingPolicy"
                     },
                     {
                         "location": "querystring",
@@ -9049,7 +9049,7 @@
                         "locationName": "ScalingPolicies",
                         "documentation": "-- | The scaling policies.",
                         "typeExposed": "[ScalingPolicy]",
-                        "type": "List \"ScalingPolicies\" ScalingPolicy"
+                        "type": "List \"member\" ScalingPolicy"
                     }
                 ]
             },
@@ -9155,7 +9155,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "-- | One or more policy names or policy ARNs to be described. If you omit this\n-- list, all policy names are described. If an group name is provided, the\n-- results are limited to that group. This list is limited to 50 items. If you\n-- specify an unknown policy name, it is ignored with no error.",
                         "typeExposed": "[Text]",
-                        "type": "List \"PolicyNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9247,7 +9247,7 @@
                         "locationName": "PolicyNames",
                         "documentation": "-- | One or more policy names or policy ARNs to be described. If you omit this\n-- list, all policy names are described. If an group name is provided, the\n-- results are limited to that group. This list is limited to 50 items. If you\n-- specify an unknown policy name, it is ignored with no error.",
                         "typeExposed": "[Text]",
-                        "type": "List \"PolicyNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -9291,7 +9291,7 @@
                         "locationName": "Activities",
                         "documentation": "-- | The scaling activities.",
                         "typeExposed": "[Activity]",
-                        "type": "List \"Activities\" Activity"
+                        "type": "List \"member\" Activity"
                     },
                     {
                         "location": "querystring",
@@ -9323,7 +9323,7 @@
                         "locationName": "Activities",
                         "documentation": "-- | The scaling activities.",
                         "typeExposed": "[Activity]",
-                        "type": "List \"Activities\" Activity"
+                        "type": "List \"member\" Activity"
                     },
                     {
                         "location": "querystring",
@@ -9429,7 +9429,7 @@
                         "locationName": "ActivityIds",
                         "documentation": "-- | A list containing the activity IDs of the desired scaling activities. If\n-- this list is omitted, all activities are described. If an 'AutoScalingGroupName'\n-- is provided, the results are limited to that group. The list of requested\n-- activities cannot contain more than 50 items. If unknown activities are\n-- requested, they are ignored with no error.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ActivityIds\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9491,7 +9491,7 @@
                         "locationName": "ActivityIds",
                         "documentation": "-- | A list containing the activity IDs of the desired scaling activities. If\n-- this list is omitted, all activities are described. If an 'AutoScalingGroupName'\n-- is provided, the results are limited to that group. The list of requested\n-- activities cannot contain more than 50 items. If unknown activities are\n-- requested, they are ignored with no error.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ActivityIds\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9569,7 +9569,7 @@
                     "locationName": "Processes",
                     "documentation": "-- | The names of the process types.",
                     "typeExposed": "[ProcessType]",
-                    "type": "List \"Processes\" ProcessType"
+                    "type": "List \"member\" ProcessType"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -9598,7 +9598,7 @@
                         "locationName": "Processes",
                         "documentation": "-- | The names of the process types.",
                         "typeExposed": "[ProcessType]",
-                        "type": "List \"Processes\" ProcessType"
+                        "type": "List \"member\" ProcessType"
                     }
                 ],
                 "fields": [
@@ -9615,7 +9615,7 @@
                         "locationName": "Processes",
                         "documentation": "-- | The names of the process types.",
                         "typeExposed": "[ProcessType]",
-                        "type": "List \"Processes\" ProcessType"
+                        "type": "List \"member\" ProcessType"
                     }
                 ]
             },
@@ -9702,7 +9702,7 @@
                         "locationName": "ScheduledUpdateGroupActions",
                         "documentation": "-- | The scheduled actions.",
                         "typeExposed": "[ScheduledUpdateGroupAction]",
-                        "type": "List \"ScheduledUpdateGroupActions\" ScheduledUpdateGroupAction"
+                        "type": "List \"member\" ScheduledUpdateGroupAction"
                     },
                     {
                         "location": "querystring",
@@ -9749,7 +9749,7 @@
                         "locationName": "ScheduledUpdateGroupActions",
                         "documentation": "-- | The scheduled actions.",
                         "typeExposed": "[ScheduledUpdateGroupAction]",
-                        "type": "List \"ScheduledUpdateGroupActions\" ScheduledUpdateGroupAction"
+                        "type": "List \"member\" ScheduledUpdateGroupAction"
                     }
                 ]
             },
@@ -9865,7 +9865,7 @@
                         "locationName": "ScheduledActionNames",
                         "documentation": "-- | Describes one or more scheduled actions. If you omit this list, the call\n-- describes all scheduled actions. If you specify an unknown scheduled action\n-- it is ignored with no error.\n--\n-- You can describe up to a maximum of 50 instances with a single call. If\n-- there are more items to return, the call returns a token. To get the next set\n-- of items, repeat the call with the returned token in the 'NextToken' parameter.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ScheduledActionNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -10002,7 +10002,7 @@
                         "locationName": "ScheduledActionNames",
                         "documentation": "-- | Describes one or more scheduled actions. If you omit this list, the call\n-- describes all scheduled actions. If you specify an unknown scheduled action\n-- it is ignored with no error.\n--\n-- You can describe up to a maximum of 50 instances with a single call. If\n-- there are more items to return, the call returns a token. To get the next set\n-- of items, repeat the call with the returned token in the 'NextToken' parameter.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ScheduledActionNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -10061,7 +10061,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The tags.",
                         "typeExposed": "[TagDescription]",
-                        "type": "List \"Tags\" TagDescription"
+                        "type": "List \"member\" TagDescription"
                     },
                     {
                         "location": "querystring",
@@ -10108,7 +10108,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | The tags.",
                         "typeExposed": "[TagDescription]",
-                        "type": "List \"Tags\" TagDescription"
+                        "type": "List \"member\" TagDescription"
                     }
                 ]
             },
@@ -10193,7 +10193,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | The value of the filter type used to identify the tags to be returned. For\n-- example, you can filter so that tags are returned according to Auto Scaling\n-- group, the key and value, or whether the new tag will be applied to instances\n-- launched after the tag is created (PropagateAtLaunch).",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filters\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -10240,7 +10240,7 @@
                         "locationName": "Filters",
                         "documentation": "-- | The value of the filter type used to identify the tags to be returned. For\n-- example, you can filter so that tags are returned according to Auto Scaling\n-- group, the key and value, or whether the new tag will be applied to instances\n-- launched after the tag is created (PropagateAtLaunch).",
                         "typeExposed": "[Filter]",
-                        "type": "List \"Filters\" Filter"
+                        "type": "List \"member\" Filter"
                     },
                     {
                         "location": "querystring",
@@ -10304,7 +10304,7 @@
                     "locationName": "TerminationPolicyTypes",
                     "documentation": "-- | The Termination policies supported by Auto Scaling. They are: 'OldestInstance', 'OldestLaunchConfiguration', 'NewestInstance', 'ClosestToNextInstanceHour', and 'Default'.",
                     "typeExposed": "[Text]",
-                    "type": "List \"TerminationPolicies\" Text"
+                    "type": "List \"member\" Text"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -10333,7 +10333,7 @@
                         "locationName": "TerminationPolicyTypes",
                         "documentation": "-- | The Termination policies supported by Auto Scaling. They are: 'OldestInstance', 'OldestLaunchConfiguration', 'NewestInstance', 'ClosestToNextInstanceHour', and 'Default'.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TerminationPolicies\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -10350,7 +10350,7 @@
                         "locationName": "TerminationPolicyTypes",
                         "documentation": "-- | The Termination policies supported by Auto Scaling. They are: 'OldestInstance', 'OldestLaunchConfiguration', 'NewestInstance', 'ClosestToNextInstanceHour', and 'Default'.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TerminationPolicies\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -10426,7 +10426,7 @@
                     "locationName": "Activities",
                     "documentation": "-- | The activities related to detaching the instances from the Auto Scaling group.",
                     "typeExposed": "[Activity]",
-                    "type": "List \"Activities\" Activity"
+                    "type": "List \"member\" Activity"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -10455,7 +10455,7 @@
                         "locationName": "Activities",
                         "documentation": "-- | The activities related to detaching the instances from the Auto Scaling group.",
                         "typeExposed": "[Activity]",
-                        "type": "List \"Activities\" Activity"
+                        "type": "List \"member\" Activity"
                     }
                 ],
                 "fields": [
@@ -10472,7 +10472,7 @@
                         "locationName": "Activities",
                         "documentation": "-- | The activities related to detaching the instances from the Auto Scaling group.",
                         "typeExposed": "[Activity]",
-                        "type": "List \"Activities\" Activity"
+                        "type": "List \"member\" Activity"
                     }
                 ]
             },
@@ -10580,7 +10580,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "-- | One or more instance IDs.",
                         "typeExposed": "[Text]",
-                        "type": "List \"InstanceIds\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -10612,7 +10612,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "-- | One or more instance IDs.",
                         "typeExposed": "[Text]",
-                        "type": "List \"InstanceIds\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -10742,7 +10742,7 @@
                         "locationName": "Metrics",
                         "documentation": "-- | One or more of the following metrics:\n--\n-- GroupMinSize\n--\n-- GroupMaxSize\n--\n-- GroupDesiredCapacity\n--\n-- GroupInServiceInstances\n--\n-- GroupPendingInstances\n--\n-- GroupStandbyInstances\n--\n-- GroupTerminatingInstances\n--\n-- GroupTotalInstances\n--\n-- If you omit this parameter, all metrics are disabled.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Metrics\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -10774,7 +10774,7 @@
                         "locationName": "Metrics",
                         "documentation": "-- | One or more of the following metrics:\n--\n-- GroupMinSize\n--\n-- GroupMaxSize\n--\n-- GroupDesiredCapacity\n--\n-- GroupInServiceInstances\n--\n-- GroupPendingInstances\n--\n-- GroupStandbyInstances\n--\n-- GroupTerminatingInstances\n--\n-- GroupTotalInstances\n--\n-- If you omit this parameter, all metrics are disabled.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Metrics\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -10909,7 +10909,7 @@
                         "locationName": "Metrics",
                         "documentation": "-- | One or more of the following metrics:\n--\n-- GroupMinSize\n--\n-- GroupMaxSize\n--\n-- GroupDesiredCapacity\n--\n-- GroupInServiceInstances\n--\n-- GroupPendingInstances\n--\n-- GroupStandbyInstances\n--\n-- GroupTerminatingInstances\n--\n-- GroupTotalInstances\n--\n-- If you omit this parameter, all metrics are enabled.\n--\n-- The 'GroupStandbyInstances' metric is not returned by default. You must\n-- explicitly request it when calling 'EnableMetricsCollection'.\n--\n--",
                         "typeExposed": "[Text]",
-                        "type": "List \"Metrics\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -10956,7 +10956,7 @@
                         "locationName": "Metrics",
                         "documentation": "-- | One or more of the following metrics:\n--\n-- GroupMinSize\n--\n-- GroupMaxSize\n--\n-- GroupDesiredCapacity\n--\n-- GroupInServiceInstances\n--\n-- GroupPendingInstances\n--\n-- GroupStandbyInstances\n--\n-- GroupTerminatingInstances\n--\n-- GroupTotalInstances\n--\n-- If you omit this parameter, all metrics are enabled.\n--\n-- The 'GroupStandbyInstances' metric is not returned by default. You must\n-- explicitly request it when calling 'EnableMetricsCollection'.\n--\n--",
                         "typeExposed": "[Text]",
-                        "type": "List \"Metrics\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -10989,7 +10989,7 @@
                     "locationName": "Activities",
                     "documentation": "-- | The activities related to moving instances into 'Standby' mode.",
                     "typeExposed": "[Activity]",
-                    "type": "List \"Activities\" Activity"
+                    "type": "List \"member\" Activity"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -11018,7 +11018,7 @@
                         "locationName": "Activities",
                         "documentation": "-- | The activities related to moving instances into 'Standby' mode.",
                         "typeExposed": "[Activity]",
-                        "type": "List \"Activities\" Activity"
+                        "type": "List \"member\" Activity"
                     }
                 ],
                 "fields": [
@@ -11035,7 +11035,7 @@
                         "locationName": "Activities",
                         "documentation": "-- | The activities related to moving instances into 'Standby' mode.",
                         "typeExposed": "[Activity]",
-                        "type": "List \"Activities\" Activity"
+                        "type": "List \"member\" Activity"
                     }
                 ]
             },
@@ -11143,7 +11143,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "-- | One or more instances to move into 'Standby' mode. You must specify at least\n-- one instance ID.",
                         "typeExposed": "[Text]",
-                        "type": "List \"InstanceIds\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -11175,7 +11175,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "-- | One or more instances to move into 'Standby' mode. You must specify at least\n-- one instance ID.",
                         "typeExposed": "[Text]",
-                        "type": "List \"InstanceIds\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -11405,7 +11405,7 @@
                     "locationName": "Activities",
                     "documentation": "-- | The activities related to moving instances out of 'Standby' mode.",
                     "typeExposed": "[Activity]",
-                    "type": "List \"Activities\" Activity"
+                    "type": "List \"member\" Activity"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -11434,7 +11434,7 @@
                         "locationName": "Activities",
                         "documentation": "-- | The activities related to moving instances out of 'Standby' mode.",
                         "typeExposed": "[Activity]",
-                        "type": "List \"Activities\" Activity"
+                        "type": "List \"member\" Activity"
                     }
                 ],
                 "fields": [
@@ -11451,7 +11451,7 @@
                         "locationName": "Activities",
                         "documentation": "-- | The activities related to moving instances out of 'Standby' mode.",
                         "typeExposed": "[Activity]",
-                        "type": "List \"Activities\" Activity"
+                        "type": "List \"member\" Activity"
                     }
                 ]
             },
@@ -11539,7 +11539,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "-- | One or more instance IDs. You must specify at least one instance ID.",
                         "typeExposed": "[Text]",
-                        "type": "List \"InstanceIds\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -11571,7 +11571,7 @@
                         "locationName": "InstanceIds",
                         "documentation": "-- | One or more instance IDs. You must specify at least one instance ID.",
                         "typeExposed": "[Text]",
-                        "type": "List \"InstanceIds\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -12063,7 +12063,7 @@
                         "locationName": "NotificationTypes",
                         "documentation": "-- | The type of event that will cause the notification to be sent. For details\n-- about notification types supported by Auto Scaling, see 'DescribeAutoScalingNotificationTypes'.",
                         "typeExposed": "[Text]",
-                        "type": "List \"LifecycleHookTypes\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -12095,7 +12095,7 @@
                         "locationName": "NotificationTypes",
                         "documentation": "-- | The type of event that will cause the notification to be sent. For details\n-- about notification types supported by Auto Scaling, see 'DescribeAutoScalingNotificationTypes'.",
                         "typeExposed": "[Text]",
-                        "type": "List \"LifecycleHookTypes\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -13137,7 +13137,7 @@
                         "locationName": "ScalingProcesses",
                         "documentation": "-- | One or more of the following processes:\n--\n-- Launch Terminate HealthCheck ReplaceUnhealthy AZRebalance AlarmNotification\n-- ScheduledActions AddToLoadBalancer",
                         "typeExposed": "[Text]",
-                        "type": "List \"ScalingProcesses\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -13169,7 +13169,7 @@
                         "locationName": "ScalingProcesses",
                         "documentation": "-- | One or more of the following processes:\n--\n-- Launch Terminate HealthCheck ReplaceUnhealthy AZRebalance AlarmNotification\n-- ScheduledActions AddToLoadBalancer",
                         "typeExposed": "[Text]",
-                        "type": "List \"ScalingProcesses\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -13648,7 +13648,7 @@
                         "locationName": "ScalingProcesses",
                         "documentation": "-- | One or more of the following processes:\n--\n-- Launch Terminate HealthCheck ReplaceUnhealthy AZRebalance AlarmNotification\n-- ScheduledActions AddToLoadBalancer",
                         "typeExposed": "[Text]",
-                        "type": "List \"ScalingProcesses\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -13680,7 +13680,7 @@
                         "locationName": "ScalingProcesses",
                         "documentation": "-- | One or more of the following processes:\n--\n-- Launch Terminate HealthCheck ReplaceUnhealthy AZRebalance AlarmNotification\n-- ScheduledActions AddToLoadBalancer",
                         "typeExposed": "[Text]",
-                        "type": "List \"ScalingProcesses\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -13968,7 +13968,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "-- | One or more Availability Zones for the group.",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 \"AvailabilityZones\" Text"
+                        "type": "List1 \"member\" Text"
                     }
                 ],
                 "shared": false,
@@ -14191,7 +14191,7 @@
                         "locationName": "TerminationPolicies",
                         "documentation": "-- | A standalone termination policy or a list of termination policies used to\n-- select the instance to terminate. The policies are executed in the order that\n-- they are listed.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your AutoScaling Group\u003e in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TerminationPolicies\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -14223,7 +14223,7 @@
                         "locationName": "AvailabilityZones",
                         "documentation": "-- | One or more Availability Zones for the group.",
                         "typeExposed": "NonEmpty Text",
-                        "type": "List1 \"AvailabilityZones\" Text"
+                        "type": "List1 \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -14358,7 +14358,7 @@
                         "locationName": "TerminationPolicies",
                         "documentation": "-- | A standalone termination policy or a list of termination policies used to\n-- select the instance to terminate. The policies are executed in the order that\n-- they are listed.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your AutoScaling Group\u003e in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "[Text]",
-                        "type": "List \"TerminationPolicies\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",

@@ -218,18 +218,18 @@ instance ToQuery StatisticSet where
 
 data MetricAlarm = MetricAlarm
     { _maActionsEnabled                     :: Maybe Bool
-    , _maAlarmActions                       :: List "OKActions" Text
+    , _maAlarmActions                       :: List "member" Text
     , _maAlarmArn                           :: Maybe Text
     , _maAlarmConfigurationUpdatedTimestamp :: Maybe ISO8601
     , _maAlarmDescription                   :: Maybe Text
     , _maAlarmName                          :: Maybe Text
     , _maComparisonOperator                 :: Maybe ComparisonOperator
-    , _maDimensions                         :: List "Dimensions" Dimension
+    , _maDimensions                         :: List "member" Dimension
     , _maEvaluationPeriods                  :: Maybe Nat
-    , _maInsufficientDataActions            :: List "OKActions" Text
+    , _maInsufficientDataActions            :: List "member" Text
     , _maMetricName                         :: Maybe Text
     , _maNamespace                          :: Maybe Text
-    , _maOKActions                          :: List "OKActions" Text
+    , _maOKActions                          :: List "member" Text
     , _maPeriod                             :: Maybe Nat
     , _maStateReason                        :: Maybe Text
     , _maStateReasonData                    :: Maybe Text
@@ -506,7 +506,7 @@ instance FromXML HistoryItemType where
     parseXML = parseXMLText "HistoryItemType"
 
 data MetricDatum = MetricDatum
-    { _mdDimensions      :: List "Dimensions" Dimension
+    { _mdDimensions      :: List "member" Dimension
     , _mdMetricName      :: Text
     , _mdStatisticValues :: Maybe StatisticSet
     , _mdTimestamp       :: Maybe ISO8601
@@ -843,7 +843,7 @@ instance ToQuery AlarmHistoryItem where
         ]
 
 data Metric = Metric
-    { _mDimensions :: List "Dimensions" Dimension
+    { _mDimensions :: List "member" Dimension
     , _mMetricName :: Maybe Text
     , _mNamespace  :: Maybe Text
     } deriving (Eq, Show)

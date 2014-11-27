@@ -76,12 +76,6 @@ newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingR
     { _crilrReservedInstancesListings :: List "item" ReservedInstancesListing
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList CancelReservedInstancesListingResponse where
-    type Item CancelReservedInstancesListingResponse = ReservedInstancesListing
-
-    fromList = CancelReservedInstancesListingResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _crilrReservedInstancesListings
-
 -- | 'CancelReservedInstancesListingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -119,4 +113,4 @@ instance AWSRequest CancelReservedInstancesListing where
 
 instance FromXML CancelReservedInstancesListingResponse where
     parseXML x = CancelReservedInstancesListingResponse
-        <$> x .@  "reservedInstancesListingsSet"
+        <$> parseXML x

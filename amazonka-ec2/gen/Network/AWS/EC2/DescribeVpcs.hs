@@ -116,12 +116,6 @@ newtype DescribeVpcsResponse = DescribeVpcsResponse
     { _dvrVpcs :: List "item" Vpc
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeVpcsResponse where
-    type Item DescribeVpcsResponse = Vpc
-
-    fromList = DescribeVpcsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dvrVpcs
-
 -- | 'DescribeVpcsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -143,8 +137,8 @@ instance ToPath DescribeVpcs where
 instance ToQuery DescribeVpcs where
     toQuery DescribeVpcs{..} = mconcat
         [ "dryRun" =? _dv1DryRun
-        , "Filter" =? _dv1Filters
-        , "VpcId"  =? _dv1VpcIds
+        , toQuery _dv1Filters
+        , toQuery _dv1VpcIds
         ]
 
 instance ToHeaders DescribeVpcs
@@ -158,4 +152,4 @@ instance AWSRequest DescribeVpcs where
 
 instance FromXML DescribeVpcsResponse where
     parseXML x = DescribeVpcsResponse
-        <$> x .@  "vpcSet"
+        <$> parseXML x

@@ -499,7 +499,7 @@ data InstanceProfile = InstanceProfile
     , _ipInstanceProfileId   :: Text
     , _ipInstanceProfileName :: Text
     , _ipPath                :: Text
-    , _ipRoles               :: List "Roles" Role
+    , _ipRoles               :: List "member" Role
     } deriving (Eq, Show)
 
 -- | 'InstanceProfile' constructor.

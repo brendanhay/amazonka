@@ -134,7 +134,7 @@ dcevMaxRecords :: Lens' DescribeCacheEngineVersions (Maybe Int)
 dcevMaxRecords = lens _dcevMaxRecords (\s a -> s { _dcevMaxRecords = a })
 
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
-    { _dcevrCacheEngineVersions :: List "CacheEngineVersion" CacheEngineVersion
+    { _dcevrCacheEngineVersions :: List "member" CacheEngineVersion
     , _dcevrMarker              :: Maybe Text
     } deriving (Eq, Show)
 

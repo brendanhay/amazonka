@@ -80,7 +80,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
     , _rfcsAvailabilityZone                 :: Maybe Text
     , _rfcsClusterIdentifier                :: Text
     , _rfcsClusterParameterGroupName        :: Maybe Text
-    , _rfcsClusterSecurityGroups            :: List "ClusterSecurityGroupName" Text
+    , _rfcsClusterSecurityGroups            :: List "member" Text
     , _rfcsClusterSubnetGroupName           :: Maybe Text
     , _rfcsElasticIp                        :: Maybe Text
     , _rfcsHsmClientCertificateIdentifier   :: Maybe Text
@@ -92,7 +92,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
     , _rfcsPubliclyAccessible               :: Maybe Bool
     , _rfcsSnapshotClusterIdentifier        :: Maybe Text
     , _rfcsSnapshotIdentifier               :: Text
-    , _rfcsVpcSecurityGroupIds              :: List "VpcSecurityGroupId" Text
+    , _rfcsVpcSecurityGroupIds              :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'RestoreFromClusterSnapshot' constructor.

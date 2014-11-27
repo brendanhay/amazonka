@@ -163,9 +163,9 @@ instance ToPath DescribeReservedInstancesModifications where
 
 instance ToQuery DescribeReservedInstancesModifications where
     toQuery DescribeReservedInstancesModifications{..} = mconcat
-        [ "Filter"                          =? _drimFilters
+        [ toQuery                          _drimFilters
         , "nextToken"                       =? _drimNextToken
-        , "ReservedInstancesModificationId" =? _drimReservedInstancesModificationIds
+        , toQuery                          _drimReservedInstancesModificationIds
         ]
 
 instance ToHeaders DescribeReservedInstancesModifications
@@ -180,7 +180,7 @@ instance AWSRequest DescribeReservedInstancesModifications where
 instance FromXML DescribeReservedInstancesModificationsResponse where
     parseXML x = DescribeReservedInstancesModificationsResponse
         <$> x .@? "nextToken"
-        <*> x .@  "reservedInstancesModificationsSet"
+        <*> parseXML x
 
 instance AWSPager DescribeReservedInstancesModifications where
     page rq rs

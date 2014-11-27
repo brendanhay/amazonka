@@ -69,16 +69,16 @@ data ModifyCacheCluster = ModifyCacheCluster
     , _mccApplyImmediately           :: Maybe Bool
     , _mccAutoMinorVersionUpgrade    :: Maybe Bool
     , _mccCacheClusterId             :: Text
-    , _mccCacheNodeIdsToRemove       :: List "CacheNodeId" Text
+    , _mccCacheNodeIdsToRemove       :: List "member" Text
     , _mccCacheParameterGroupName    :: Maybe Text
-    , _mccCacheSecurityGroupNames    :: List "CacheSecurityGroupName" Text
+    , _mccCacheSecurityGroupNames    :: List "member" Text
     , _mccEngineVersion              :: Maybe Text
-    , _mccNewAvailabilityZones       :: List "PreferredAvailabilityZone" Text
+    , _mccNewAvailabilityZones       :: List "member" Text
     , _mccNotificationTopicArn       :: Maybe Text
     , _mccNotificationTopicStatus    :: Maybe Text
     , _mccNumCacheNodes              :: Maybe Int
     , _mccPreferredMaintenanceWindow :: Maybe Text
-    , _mccSecurityGroupIds           :: List "SecurityGroupId" Text
+    , _mccSecurityGroupIds           :: List "member" Text
     , _mccSnapshotRetentionLimit     :: Maybe Int
     , _mccSnapshotWindow             :: Maybe Text
     } deriving (Eq, Show)

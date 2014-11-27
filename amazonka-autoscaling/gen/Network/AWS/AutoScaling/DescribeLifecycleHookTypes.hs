@@ -53,7 +53,7 @@ describeLifecycleHookTypes :: DescribeLifecycleHookTypes
 describeLifecycleHookTypes = DescribeLifecycleHookTypes
 
 newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
-    { _dlhtrLifecycleHookTypes :: List "LifecycleHookTypes" Text
+    { _dlhtrLifecycleHookTypes :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLifecycleHookTypesResponse where

@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
     { _clbpLoadBalancerName :: Text
-    , _clbpPolicyAttributes :: List "PolicyAttributes" PolicyAttribute
+    , _clbpPolicyAttributes :: List "member" PolicyAttribute
     , _clbpPolicyName       :: Text
     , _clbpPolicyTypeName   :: Text
     } deriving (Eq, Show)

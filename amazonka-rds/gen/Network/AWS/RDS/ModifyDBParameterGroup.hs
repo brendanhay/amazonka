@@ -62,7 +62,7 @@ import qualified GHC.Exts
 
 data ModifyDBParameterGroup = ModifyDBParameterGroup
     { _mdbpgDBParameterGroupName :: Text
-    , _mdbpgParameters           :: List "Parameter" Parameter
+    , _mdbpgParameters           :: List "member" Parameter
     } deriving (Eq, Show)
 
 -- | 'ModifyDBParameterGroup' constructor.

@@ -143,12 +143,6 @@ newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
     { _drtrRouteTables :: List "item" RouteTable
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeRouteTablesResponse where
-    type Item DescribeRouteTablesResponse = RouteTable
-
-    fromList = DescribeRouteTablesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _drtrRouteTables
-
 -- | 'DescribeRouteTablesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -170,8 +164,8 @@ instance ToPath DescribeRouteTables where
 instance ToQuery DescribeRouteTables where
     toQuery DescribeRouteTables{..} = mconcat
         [ "dryRun"       =? _drt2DryRun
-        , "Filter"       =? _drt2Filters
-        , "RouteTableId" =? _drt2RouteTableIds
+        , toQuery       _drt2Filters
+        , toQuery       _drt2RouteTableIds
         ]
 
 instance ToHeaders DescribeRouteTables
@@ -185,4 +179,4 @@ instance AWSRequest DescribeRouteTables where
 
 instance FromXML DescribeRouteTablesResponse where
     parseXML x = DescribeRouteTablesResponse
-        <$> x .@  "routeTableSet"
+        <$> parseXML x

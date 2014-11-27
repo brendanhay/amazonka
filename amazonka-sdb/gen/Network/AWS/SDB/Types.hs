@@ -161,7 +161,7 @@ instance ToQuery Attribute where
         ]
 
 data DeletableItem = DeletableItem
-    { _diAttributes :: List "Attribute" Attribute
+    { _diAttributes :: List "member" Attribute
     , _diName       :: Text
     } deriving (Eq, Show)
 
@@ -198,7 +198,7 @@ instance ToQuery DeletableItem where
         ]
 
 data ReplaceableItem = ReplaceableItem
-    { _riAttributes :: List "Attribute" ReplaceableAttribute
+    { _riAttributes :: List "member" ReplaceableAttribute
     , _riName       :: Text
     } deriving (Eq, Show)
 
@@ -341,7 +341,7 @@ instance ToQuery ReplaceableAttribute where
 
 data Item = Item
     { _iAlternateNameEncoding :: Maybe Text
-    , _iAttributes            :: List "Attribute" Attribute
+    , _iAttributes            :: List "member" Attribute
     , _iName                  :: Text
     } deriving (Eq, Show)
 

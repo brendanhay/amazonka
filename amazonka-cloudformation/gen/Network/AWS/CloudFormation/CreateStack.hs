@@ -61,15 +61,15 @@ import Network.AWS.CloudFormation.Types
 import qualified GHC.Exts
 
 data CreateStack = CreateStack
-    { _csCapabilities     :: List "Capabilities" Capability
+    { _csCapabilities     :: List "member" Capability
     , _csDisableRollback  :: Maybe Bool
-    , _csNotificationARNs :: List "NotificationARNs" Text
+    , _csNotificationARNs :: List "member" Text
     , _csOnFailure        :: Maybe OnFailure
-    , _csParameters       :: List "Parameters" Parameter
+    , _csParameters       :: List "member" Parameter
     , _csStackName        :: Text
     , _csStackPolicyBody  :: Maybe Text
     , _csStackPolicyURL   :: Maybe Text
-    , _csTags             :: List "Tags" Tag
+    , _csTags             :: List "member" Tag
     , _csTemplateBody     :: Maybe Text
     , _csTemplateURL      :: Maybe Text
     , _csTimeoutInMinutes :: Maybe Nat

@@ -81,8 +81,8 @@ data UpdateEnvironment = UpdateEnvironment
     { _ueDescription     :: Maybe Text
     , _ueEnvironmentId   :: Maybe Text
     , _ueEnvironmentName :: Maybe Text
-    , _ueOptionSettings  :: List "OptionSettings" ConfigurationOptionSetting
-    , _ueOptionsToRemove :: List "OptionsToRemove" OptionSpecification
+    , _ueOptionSettings  :: List "member" ConfigurationOptionSetting
+    , _ueOptionsToRemove :: List "member" OptionSpecification
     , _ueTemplateName    :: Maybe Text
     , _ueTier            :: Maybe EnvironmentTier
     , _ueVersionLabel    :: Maybe Text

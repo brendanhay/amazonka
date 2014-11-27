@@ -20,10 +20,11 @@ library
         CloudSearch
 
     build-depends:
-        base          >= 4.7     && < 5
-      , amazonka      == 0.0.4.*
+        amazonka      == 0.0.4.*
       , amazonka-core == 0.0.4.*
       , amazonka-cloudsearch == 0.0.4.*
+      , base          >= 4.7     && < 5
+      , bytestring    >= 0.9
       , lens          >= 4.3     && < 5
       , lifted-base
       , text          >= 1.1

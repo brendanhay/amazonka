@@ -133,7 +133,7 @@ instance ToQuery ModifyNetworkInterfaceAttribute where
         [ "attachment"         =? _mniaAttachment
         , "description"        =? _mniaDescription
         , "dryRun"             =? _mniaDryRun
-        , "SecurityGroupId"    =? _mniaGroups
+        , toQuery             _mniaGroups
         , "networkInterfaceId" =? _mniaNetworkInterfaceId
         , "sourceDestCheck"    =? _mniaSourceDestCheck
         ]

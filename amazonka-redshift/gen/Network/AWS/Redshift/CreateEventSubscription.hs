@@ -77,13 +77,13 @@ import qualified GHC.Exts
 
 data CreateEventSubscription = CreateEventSubscription
     { _cesEnabled          :: Maybe Bool
-    , _cesEventCategories  :: List "EventCategory" Text
+    , _cesEventCategories  :: List "member" Text
     , _cesSeverity         :: Maybe Text
     , _cesSnsTopicArn      :: Text
-    , _cesSourceIds        :: List "SourceId" Text
+    , _cesSourceIds        :: List "member" Text
     , _cesSourceType       :: Maybe Text
     , _cesSubscriptionName :: Text
-    , _cesTags             :: List "Tag" Tag
+    , _cesTags             :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateEventSubscription' constructor.

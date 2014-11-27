@@ -122,7 +122,7 @@ dsSnapshotSource = lens _dsSnapshotSource (\s a -> s { _dsSnapshotSource = a })
 
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrMarker    :: Maybe Text
-    , _dsrSnapshots :: List "Snapshot" Snapshot
+    , _dsrSnapshots :: List "member" Snapshot
     } deriving (Eq, Show)
 
 -- | 'DescribeSnapshotsResponse' constructor.

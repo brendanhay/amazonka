@@ -168,10 +168,10 @@ instance ToQuery DeleteMessageBatchRequestEntry where
         ]
 
 data MessageAttributeValue = MessageAttributeValue
-    { _mavBinaryListValues :: List "BinaryListValue" Base64
+    { _mavBinaryListValues :: List "member" Base64
     , _mavBinaryValue      :: Maybe Base64
     , _mavDataType         :: Text
-    , _mavStringListValues :: List "StringListValue" Text
+    , _mavStringListValues :: List "member" Text
     , _mavStringValue      :: Maybe Text
     } deriving (Eq, Show)
 
@@ -357,11 +357,11 @@ instance ToQuery DeleteMessageBatchResultEntry where
         ]
 
 data Message = Message
-    { _mAttributes             :: EMap "Attribute" "Name" "Value" Text Text
+    { _mAttributes             :: EMap "entry" "Name" "Value" Text Text
     , _mBody                   :: Maybe Text
     , _mMD5OfBody              :: Maybe Text
     , _mMD5OfMessageAttributes :: Maybe Text
-    , _mMessageAttributes      :: EMap "MessageAttribute" "Name" "Value" Text MessageAttributeValue
+    , _mMessageAttributes      :: EMap "entry" "Name" "Value" Text MessageAttributeValue
     , _mMessageId              :: Maybe Text
     , _mReceiptHandle          :: Maybe Text
     } deriving (Eq, Show)
@@ -458,7 +458,7 @@ instance ToQuery Message where
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
     { _smbreDelaySeconds      :: Maybe Int
     , _smbreId                :: Text
-    , _smbreMessageAttributes :: EMap "MessageAttribute" "Name" "Value" Text MessageAttributeValue
+    , _smbreMessageAttributes :: EMap "entry" "Name" "Value" Text MessageAttributeValue
     , _smbreMessageBody       :: Text
     } deriving (Eq, Show)
 

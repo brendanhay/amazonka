@@ -167,7 +167,7 @@ deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
 deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a }) . mapping _Time
 
 data DescribeEventsResponse = DescribeEventsResponse
-    { _derEvents :: List "Event" Event
+    { _derEvents :: List "member" Event
     , _derMarker :: Maybe Text
     } deriving (Eq, Show)
 

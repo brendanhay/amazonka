@@ -51,12 +51,6 @@ newtype DescribeExportTasks = DescribeExportTasks
     { _detExportTaskIds :: List "ExportTaskId" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeExportTasks where
-    type Item DescribeExportTasks = Text
-
-    fromList = DescribeExportTasks . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _detExportTaskIds
-
 -- | 'DescribeExportTasks' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -75,12 +69,6 @@ detExportTaskIds = lens _detExportTaskIds (\s a -> s { _detExportTaskIds = a }) 
 newtype DescribeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks :: List "item" ExportTask
     } deriving (Eq, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeExportTasksResponse where
-    type Item DescribeExportTasksResponse = ExportTask
-
-    fromList = DescribeExportTasksResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _detrExportTasks
 
 -- | 'DescribeExportTasksResponse' constructor.
 --
@@ -101,7 +89,7 @@ instance ToPath DescribeExportTasks where
 
 instance ToQuery DescribeExportTasks where
     toQuery DescribeExportTasks{..} = mconcat
-        [ "exportTaskId" =? _detExportTaskIds
+        [ toQuery _detExportTaskIds
         ]
 
 instance ToHeaders DescribeExportTasks
@@ -115,4 +103,4 @@ instance AWSRequest DescribeExportTasks where
 
 instance FromXML DescribeExportTasksResponse where
     parseXML x = DescribeExportTasksResponse
-        <$> x .@  "exportTaskSet"
+        <$> parseXML x

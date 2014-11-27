@@ -102,7 +102,7 @@ drg1ReplicationGroupId =
 
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
     { _drgrMarker            :: Maybe Text
-    , _drgrReplicationGroups :: List "ReplicationGroup" ReplicationGroup
+    , _drgrReplicationGroups :: List "member" ReplicationGroup
     } deriving (Eq, Show)
 
 -- | 'DescribeReplicationGroupsResponse' constructor.

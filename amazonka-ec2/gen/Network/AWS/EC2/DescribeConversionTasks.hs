@@ -88,12 +88,6 @@ newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctrConversionTasks :: List "item" ConversionTask
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeConversionTasksResponse where
-    type Item DescribeConversionTasksResponse = ConversionTask
-
-    fromList = DescribeConversionTasksResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dctrConversionTasks
-
 -- | 'DescribeConversionTasksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -115,9 +109,9 @@ instance ToPath DescribeConversionTasks where
 
 instance ToQuery DescribeConversionTasks where
     toQuery DescribeConversionTasks{..} = mconcat
-        [ "conversionTaskId" =? _dctConversionTaskIds
+        [ toQuery           _dctConversionTaskIds
         , "dryRun"           =? _dctDryRun
-        , "filter"           =? _dctFilters
+        , toQuery           _dctFilters
         ]
 
 instance ToHeaders DescribeConversionTasks
@@ -131,4 +125,4 @@ instance AWSRequest DescribeConversionTasks where
 
 instance FromXML DescribeConversionTasksResponse where
     parseXML x = DescribeConversionTasksResponse
-        <$> x .@  "conversionTasks"
+        <$> parseXML x

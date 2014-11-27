@@ -90,7 +90,7 @@ dseStackName = lens _dseStackName (\s a -> s { _dseStackName = a })
 
 data DescribeStackEventsResponse = DescribeStackEventsResponse
     { _dserNextToken   :: Maybe Text
-    , _dserStackEvents :: List "StackEvents" StackEvent
+    , _dserStackEvents :: List "member" StackEvent
     } deriving (Eq, Show)
 
 -- | 'DescribeStackEventsResponse' constructor.

@@ -102,7 +102,7 @@ rei1InfoType :: Lens' RetrieveEnvironmentInfo EnvironmentInfoType
 rei1InfoType = lens _rei1InfoType (\s a -> s { _rei1InfoType = a })
 
 newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
-    { _reirEnvironmentInfo :: List "EnvironmentInfo" EnvironmentInfoDescription
+    { _reirEnvironmentInfo :: List "member" EnvironmentInfoDescription
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList RetrieveEnvironmentInfoResponse where

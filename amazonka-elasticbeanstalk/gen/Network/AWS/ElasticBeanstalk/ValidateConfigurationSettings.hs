@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data ValidateConfigurationSettings = ValidateConfigurationSettings
     { _vcsApplicationName :: Text
     , _vcsEnvironmentName :: Maybe Text
-    , _vcsOptionSettings  :: List "OptionSettings" ConfigurationOptionSetting
+    , _vcsOptionSettings  :: List "member" ConfigurationOptionSetting
     , _vcsTemplateName    :: Maybe Text
     } deriving (Eq, Show)
 
@@ -108,7 +108,7 @@ vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsTemplateName = lens _vcsTemplateName (\s a -> s { _vcsTemplateName = a })
 
 newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
-    { _vcsrMessages :: List "Messages" ValidationMessage
+    { _vcsrMessages :: List "member" ValidationMessage
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ValidateConfigurationSettingsResponse where

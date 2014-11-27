@@ -47,7 +47,7 @@ import Network.AWS.CloudWatch.Types
 import qualified GHC.Exts
 
 newtype DeleteAlarms = DeleteAlarms
-    { _da1AlarmNames :: List "AlarmNames" Text
+    { _da1AlarmNames :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DeleteAlarms where

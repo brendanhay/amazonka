@@ -67,7 +67,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data GetQueueAttributes = GetQueueAttributes
-    { _gqaAttributeNames :: List "AttributeName" Text
+    { _gqaAttributeNames :: List "member" Text
     , _gqaQueueUrl       :: Text
     } deriving (Eq, Show)
 
@@ -97,7 +97,7 @@ gqaQueueUrl :: Lens' GetQueueAttributes Text
 gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
 
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
-    { _gqarAttributes :: EMap "Attribute" "Name" "Value" Text Text
+    { _gqarAttributes :: EMap "entry" "Name" "Value" Text Text
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetQueueAttributesResponse' constructor.

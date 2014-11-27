@@ -86,7 +86,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
     , _rdbitpitRestoreTime                :: Maybe ISO8601
     , _rdbitpitSourceDBInstanceIdentifier :: Text
     , _rdbitpitStorageType                :: Maybe Text
-    , _rdbitpitTags                       :: List "Tag" Tag
+    , _rdbitpitTags                       :: List "member" Tag
     , _rdbitpitTargetDBInstanceIdentifier :: Text
     , _rdbitpitTdeCredentialArn           :: Maybe Text
     , _rdbitpitTdeCredentialPassword      :: Maybe Text

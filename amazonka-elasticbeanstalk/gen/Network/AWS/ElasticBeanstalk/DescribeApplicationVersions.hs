@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 data DescribeApplicationVersions = DescribeApplicationVersions
     { _dav1ApplicationName :: Maybe Text
-    , _dav1VersionLabels   :: List "Versions" Text
+    , _dav1VersionLabels   :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeApplicationVersions' constructor.
@@ -81,7 +81,7 @@ dav1VersionLabels =
         . _List
 
 newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
-    { _davrApplicationVersions :: List "ApplicationVersions" ApplicationVersionDescription
+    { _davrApplicationVersions :: List "member" ApplicationVersionDescription
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeApplicationVersionsResponse where

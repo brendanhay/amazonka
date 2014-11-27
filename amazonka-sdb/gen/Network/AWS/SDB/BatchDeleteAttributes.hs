@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 data BatchDeleteAttributes = BatchDeleteAttributes
     { _bdaDomainName :: Text
-    , _bdaItems      :: List "Item" DeletableItem
+    , _bdaItems      :: List "member" DeletableItem
     } deriving (Eq, Show)
 
 -- | 'BatchDeleteAttributes' constructor.

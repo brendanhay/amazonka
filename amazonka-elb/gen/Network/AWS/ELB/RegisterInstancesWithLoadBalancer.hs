@@ -73,7 +73,7 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
-    { _riwlbInstances        :: List "Instances" Instance
+    { _riwlbInstances        :: List "member" Instance
     , _riwlbLoadBalancerName :: Text
     } deriving (Eq, Show)
 
@@ -103,7 +103,7 @@ riwlbLoadBalancerName =
     lens _riwlbLoadBalancerName (\s a -> s { _riwlbLoadBalancerName = a })
 
 newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
-    { _riwlbrInstances :: List "Instances" Instance
+    { _riwlbrInstances :: List "member" Instance
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList RegisterInstancesWithLoadBalancerResponse where

@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data DescribeSuggesters = DescribeSuggesters
     { _ds1Deployed       :: Maybe Bool
     , _ds1DomainName     :: Text
-    , _ds1SuggesterNames :: List "SuggesterNames" Text
+    , _ds1SuggesterNames :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeSuggesters' constructor.
@@ -93,7 +93,7 @@ ds1SuggesterNames =
         . _List
 
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse
-    { _dsrSuggesters :: List "Suggesters" SuggesterStatus
+    { _dsrSuggesters :: List "member" SuggesterStatus
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeSuggestersResponse where

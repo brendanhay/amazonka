@@ -53,7 +53,7 @@ listOpenIDConnectProviders :: ListOpenIDConnectProviders
 listOpenIDConnectProviders = ListOpenIDConnectProviders
 
 newtype ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse
-    { _loidcprOpenIDConnectProviderList :: List "OpenIDConnectProviderList" OpenIDConnectProviderListEntry
+    { _loidcprOpenIDConnectProviderList :: List "member" OpenIDConnectProviderListEntry
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ListOpenIDConnectProvidersResponse where

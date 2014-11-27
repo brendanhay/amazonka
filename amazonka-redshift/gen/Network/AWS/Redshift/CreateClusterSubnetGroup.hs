@@ -57,8 +57,8 @@ import qualified GHC.Exts
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup
     { _ccsgClusterSubnetGroupName :: Text
     , _ccsgDescription            :: Text
-    , _ccsgSubnetIds              :: List "SubnetIdentifier" Text
-    , _ccsgTags                   :: List "Tag" Tag
+    , _ccsgSubnetIds              :: List "member" Text
+    , _ccsgTags                   :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateClusterSubnetGroup' constructor.

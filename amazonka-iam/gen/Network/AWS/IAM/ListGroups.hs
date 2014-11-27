@@ -97,7 +97,7 @@ lgPathPrefix :: Lens' ListGroups (Maybe Text)
 lgPathPrefix = lens _lgPathPrefix (\s a -> s { _lgPathPrefix = a })
 
 data ListGroupsResponse = ListGroupsResponse
-    { _lgrGroups      :: List "Groups" Group
+    { _lgrGroups      :: List "member" Group
     , _lgrIsTruncated :: Maybe Bool
     , _lgrMarker      :: Maybe Text
     } deriving (Eq, Show)

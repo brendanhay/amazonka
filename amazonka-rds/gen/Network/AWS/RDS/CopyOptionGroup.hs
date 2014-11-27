@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 data CopyOptionGroup = CopyOptionGroup
     { _cog1SourceOptionGroupIdentifier  :: Text
-    , _cog1Tags                         :: List "Tag" Tag
+    , _cog1Tags                         :: List "member" Tag
     , _cog1TargetOptionGroupDescription :: Text
     , _cog1TargetOptionGroupIdentifier  :: Text
     } deriving (Eq, Show)

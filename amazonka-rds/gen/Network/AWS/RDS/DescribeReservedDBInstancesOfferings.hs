@@ -59,7 +59,7 @@ import qualified GHC.Exts
 data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
     { _drdbioDBInstanceClass               :: Maybe Text
     , _drdbioDuration                      :: Maybe Text
-    , _drdbioFilters                       :: List "Filter" Filter
+    , _drdbioFilters                       :: List "member" Filter
     , _drdbioMarker                        :: Maybe Text
     , _drdbioMaxRecords                    :: Maybe Int
     , _drdbioMultiAZ                       :: Maybe Bool
@@ -166,7 +166,7 @@ drdbioReservedDBInstancesOfferingId =
 
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse
     { _drdbiorMarker                       :: Maybe Text
-    , _drdbiorReservedDBInstancesOfferings :: List "ReservedDBInstancesOffering" ReservedDBInstancesOffering
+    , _drdbiorReservedDBInstancesOfferings :: List "member" ReservedDBInstancesOffering
     } deriving (Eq, Show)
 
 -- | 'DescribeReservedDBInstancesOfferingsResponse' constructor.

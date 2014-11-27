@@ -129,7 +129,7 @@ dcc1ShowCacheNodeInfo =
     lens _dcc1ShowCacheNodeInfo (\s a -> s { _dcc1ShowCacheNodeInfo = a })
 
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse
-    { _dccrCacheClusters :: List "CacheCluster" CacheCluster
+    { _dccrCacheClusters :: List "member" CacheCluster
     , _dccrMarker        :: Maybe Text
     } deriving (Eq, Show)
 

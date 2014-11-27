@@ -183,7 +183,7 @@
                         "locationName": "Versions",
                         "documentation": "-- | The names of the versions for this application.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Versions\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -198,7 +198,7 @@
                         "locationName": "ConfigurationTemplates",
                         "documentation": "-- | The names of the configuration templates associated with this application.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ConfigurationTemplates\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -230,7 +230,7 @@
                         "locationName": "ConfigurationTemplates",
                         "documentation": "-- | The names of the configuration templates associated with this application.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ConfigurationTemplates\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -290,7 +290,7 @@
                         "locationName": "Versions",
                         "documentation": "-- | The names of the versions for this application.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Versions\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -1146,7 +1146,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | A list of the configuration options and their values in this configuration\n-- set.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     }
                 ],
                 "fields": [
@@ -1253,7 +1253,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | A list of the configuration options and their values in this configuration\n-- set.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -1609,7 +1609,7 @@
                         "locationName": "AutoScalingGroups",
                         "documentation": "-- | The 'AutoScalingGroups' used by this environment.",
                         "typeExposed": "[AutoScalingGroup]",
-                        "type": "List \"AutoScalingGroups\" AutoScalingGroup"
+                        "type": "List \"member\" AutoScalingGroup"
                     },
                     {
                         "location": "querystring",
@@ -1624,7 +1624,7 @@
                         "locationName": "Instances",
                         "documentation": "-- | The Amazon EC2 instances used by this environment.",
                         "typeExposed": "[Instance]",
-                        "type": "List \"Instances\" Instance"
+                        "type": "List \"member\" Instance"
                     },
                     {
                         "location": "querystring",
@@ -1639,7 +1639,7 @@
                         "locationName": "LaunchConfigurations",
                         "documentation": "-- | The Auto Scaling launch configurations in use by this environment.",
                         "typeExposed": "[LaunchConfiguration]",
-                        "type": "List \"LaunchConfigurations\" LaunchConfiguration"
+                        "type": "List \"member\" LaunchConfiguration"
                     },
                     {
                         "location": "querystring",
@@ -1654,7 +1654,7 @@
                         "locationName": "LoadBalancers",
                         "documentation": "-- | The LoadBalancers in use by this environment.",
                         "typeExposed": "[LoadBalancer]",
-                        "type": "List \"LoadBalancers\" LoadBalancer"
+                        "type": "List \"member\" LoadBalancer"
                     },
                     {
                         "location": "querystring",
@@ -1669,7 +1669,7 @@
                         "locationName": "Triggers",
                         "documentation": "-- | The 'AutoScaling' triggers in use by this environment.",
                         "typeExposed": "[Trigger]",
-                        "type": "List \"Triggers\" Trigger"
+                        "type": "List \"member\" Trigger"
                     },
                     {
                         "location": "querystring",
@@ -1684,7 +1684,7 @@
                         "locationName": "Queues",
                         "documentation": "-- | The queues used by this environment.",
                         "typeExposed": "[Queue]",
-                        "type": "List \"Queues\" Queue"
+                        "type": "List \"member\" Queue"
                     }
                 ],
                 "fields": [
@@ -1701,7 +1701,7 @@
                         "locationName": "AutoScalingGroups",
                         "documentation": "-- | The 'AutoScalingGroups' used by this environment.",
                         "typeExposed": "[AutoScalingGroup]",
-                        "type": "List \"AutoScalingGroups\" AutoScalingGroup"
+                        "type": "List \"member\" AutoScalingGroup"
                     },
                     {
                         "location": "querystring",
@@ -1731,7 +1731,7 @@
                         "locationName": "Instances",
                         "documentation": "-- | The Amazon EC2 instances used by this environment.",
                         "typeExposed": "[Instance]",
-                        "type": "List \"Instances\" Instance"
+                        "type": "List \"member\" Instance"
                     },
                     {
                         "location": "querystring",
@@ -1746,7 +1746,7 @@
                         "locationName": "LaunchConfigurations",
                         "documentation": "-- | The Auto Scaling launch configurations in use by this environment.",
                         "typeExposed": "[LaunchConfiguration]",
-                        "type": "List \"LaunchConfigurations\" LaunchConfiguration"
+                        "type": "List \"member\" LaunchConfiguration"
                     },
                     {
                         "location": "querystring",
@@ -1761,7 +1761,7 @@
                         "locationName": "LoadBalancers",
                         "documentation": "-- | The LoadBalancers in use by this environment.",
                         "typeExposed": "[LoadBalancer]",
-                        "type": "List \"LoadBalancers\" LoadBalancer"
+                        "type": "List \"member\" LoadBalancer"
                     },
                     {
                         "location": "querystring",
@@ -1776,7 +1776,7 @@
                         "locationName": "Queues",
                         "documentation": "-- | The queues used by this environment.",
                         "typeExposed": "[Queue]",
-                        "type": "List \"Queues\" Queue"
+                        "type": "List \"member\" Queue"
                     },
                     {
                         "location": "querystring",
@@ -1791,7 +1791,7 @@
                         "locationName": "Triggers",
                         "documentation": "-- | The 'AutoScaling' triggers in use by this environment.",
                         "typeExposed": "[Trigger]",
-                        "type": "List \"Triggers\" Trigger"
+                        "type": "List \"member\" Trigger"
                     }
                 ]
             },
@@ -1953,7 +1953,7 @@
                         "locationName": "Listeners",
                         "documentation": "-- | A list of Listeners used by the LoadBalancer.",
                         "typeExposed": "[Listener]",
-                        "type": "List \"Listeners\" Listener"
+                        "type": "List \"member\" Listener"
                     }
                 ],
                 "fields": [
@@ -1985,7 +1985,7 @@
                         "locationName": "Listeners",
                         "documentation": "-- | A list of Listeners used by the LoadBalancer.",
                         "typeExposed": "[Listener]",
-                        "type": "List \"Listeners\" Listener"
+                        "type": "List \"member\" Listener"
                     },
                     {
                         "location": "querystring",
@@ -2509,7 +2509,7 @@
                         "locationName": "ValueOptions",
                         "documentation": "-- | If specified, values for the configuration option are selected from this\n-- list.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ValueOptions\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -2721,7 +2721,7 @@
                         "locationName": "ValueOptions",
                         "documentation": "-- | If specified, values for the configuration option are selected from this\n-- list.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ValueOptions\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -3957,7 +3957,7 @@
                         "locationName": "PermittedFileTypes",
                         "documentation": "-- | The permitted file types allowed for a solution stack.",
                         "typeExposed": "[Text]",
-                        "type": "List \"PermittedFileTypes\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -3974,7 +3974,7 @@
                         "locationName": "PermittedFileTypes",
                         "documentation": "-- | The permitted file types allowed for a solution stack.",
                         "typeExposed": "[Text]",
-                        "type": "List \"PermittedFileTypes\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -4007,6 +4007,7 @@
             "ApplicationDescriptionMessage",
             "EnvironmentTier",
             "EnvironmentResourcesDescription",
+            "EnvironmentInfoType",
             "EnvironmentDescription",
             "EnvironmentHealth"
         ]
@@ -4863,7 +4864,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | A list of the configuration options and their values in this configuration\n-- set.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     }
                 ],
                 "fields": [
@@ -4970,7 +4971,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | A list of the configuration options and their values in this configuration\n-- set.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -5187,7 +5188,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk sets the specified configuration option\n-- to the requested value. The new value overrides the value obtained from the\n-- solution stack or the source configuration template.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     }
                 ],
                 "fields": [
@@ -5249,7 +5250,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk sets the specified configuration option\n-- to the requested value. The new value overrides the value obtained from the\n-- solution stack or the source configuration template.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -5967,7 +5968,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | This specifies the tags applied to resources in the environment.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tags\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -6027,7 +6028,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk sets the specified configuration options\n-- to the requested value in the configuration set for the new environment.\n-- These override the values obtained from the solution stack or the\n-- configuration template.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -6042,7 +6043,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "-- | A list of custom user-defined configuration options to remove from the\n-- configuration set for this new environment.",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "List \"OptionsToRemove\" OptionSpecification"
+                        "type": "List \"member\" OptionSpecification"
                     }
                 ],
                 "fields": [
@@ -6119,7 +6120,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk sets the specified configuration options\n-- to the requested value in the configuration set for the new environment.\n-- These override the values obtained from the solution stack or the\n-- configuration template.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -6134,7 +6135,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "-- | A list of custom user-defined configuration options to remove from the\n-- configuration set for this new environment.",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "List \"OptionsToRemove\" OptionSpecification"
+                        "type": "List \"member\" OptionSpecification"
                     },
                     {
                         "location": "querystring",
@@ -6164,7 +6165,7 @@
                         "locationName": "Tags",
                         "documentation": "-- | This specifies the tags applied to resources in the environment.",
                         "typeExposed": "[Tag]",
-                        "type": "List \"Tags\" Tag"
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -6985,7 +6986,7 @@
                     "locationName": "ApplicationVersions",
                     "documentation": "-- | A list of 'ApplicationVersionDescription' .",
                     "typeExposed": "[ApplicationVersionDescription]",
-                    "type": "List \"ApplicationVersions\" ApplicationVersionDescription"
+                    "type": "List \"member\" ApplicationVersionDescription"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7014,7 +7015,7 @@
                         "locationName": "ApplicationVersions",
                         "documentation": "-- | A list of 'ApplicationVersionDescription' .",
                         "typeExposed": "[ApplicationVersionDescription]",
-                        "type": "List \"ApplicationVersions\" ApplicationVersionDescription"
+                        "type": "List \"member\" ApplicationVersionDescription"
                     }
                 ],
                 "fields": [
@@ -7031,7 +7032,7 @@
                         "locationName": "ApplicationVersions",
                         "documentation": "-- | A list of 'ApplicationVersionDescription' .",
                         "typeExposed": "[ApplicationVersionDescription]",
-                        "type": "List \"ApplicationVersions\" ApplicationVersionDescription"
+                        "type": "List \"member\" ApplicationVersionDescription"
                     }
                 ]
             },
@@ -7118,7 +7119,7 @@
                         "locationName": "VersionLabels",
                         "documentation": "-- | If specified, restricts the returned descriptions to only include ones that\n-- have the specified version labels.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Versions\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -7150,7 +7151,7 @@
                         "locationName": "VersionLabels",
                         "documentation": "-- | If specified, restricts the returned descriptions to only include ones that\n-- have the specified version labels.",
                         "typeExposed": "[Text]",
-                        "type": "List \"Versions\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -7183,7 +7184,7 @@
                     "locationName": "Applications",
                     "documentation": "-- | This parameter contains a list of 'ApplicationDescription'.",
                     "typeExposed": "[ApplicationDescription]",
-                    "type": "List \"Applications\" ApplicationDescription"
+                    "type": "List \"member\" ApplicationDescription"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7212,7 +7213,7 @@
                         "locationName": "Applications",
                         "documentation": "-- | This parameter contains a list of 'ApplicationDescription'.",
                         "typeExposed": "[ApplicationDescription]",
-                        "type": "List \"Applications\" ApplicationDescription"
+                        "type": "List \"member\" ApplicationDescription"
                     }
                 ],
                 "fields": [
@@ -7229,7 +7230,7 @@
                         "locationName": "Applications",
                         "documentation": "-- | This parameter contains a list of 'ApplicationDescription'.",
                         "typeExposed": "[ApplicationDescription]",
-                        "type": "List \"Applications\" ApplicationDescription"
+                        "type": "List \"member\" ApplicationDescription"
                     }
                 ]
             },
@@ -7272,7 +7273,7 @@
                     "locationName": "ApplicationNames",
                     "documentation": "-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to\n-- only include those with the specified names.",
                     "typeExposed": "[Text]",
-                    "type": "List \"ApplicationNames\" Text"
+                    "type": "List \"member\" Text"
                 },
                 "contents": [],
                 "path": [
@@ -7314,7 +7315,7 @@
                         "locationName": "ApplicationNames",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to\n-- only include those with the specified names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ApplicationNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ],
                 "fields": [
@@ -7331,7 +7332,7 @@
                         "locationName": "ApplicationNames",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to\n-- only include those with the specified names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"ApplicationNames\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             }
@@ -7390,7 +7391,7 @@
                         "locationName": "Options",
                         "documentation": "-- | A list of 'ConfigurationOptionDescription'.",
                         "typeExposed": "[ConfigurationOptionDescription]",
-                        "type": "List \"Options\" ConfigurationOptionDescription"
+                        "type": "List \"member\" ConfigurationOptionDescription"
                     }
                 ],
                 "fields": [
@@ -7407,7 +7408,7 @@
                         "locationName": "Options",
                         "documentation": "-- | A list of 'ConfigurationOptionDescription'.",
                         "typeExposed": "[ConfigurationOptionDescription]",
-                        "type": "List \"Options\" ConfigurationOptionDescription"
+                        "type": "List \"member\" ConfigurationOptionDescription"
                     },
                     {
                         "location": "querystring",
@@ -7568,7 +7569,7 @@
                         "locationName": "Options",
                         "documentation": "-- | If specified, restricts the descriptions to only the specified options.",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "List \"OptionsToRemove\" OptionSpecification"
+                        "type": "List \"member\" OptionSpecification"
                     }
                 ],
                 "fields": [
@@ -7615,7 +7616,7 @@
                         "locationName": "Options",
                         "documentation": "-- | If specified, restricts the descriptions to only the specified options.",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "List \"OptionsToRemove\" OptionSpecification"
+                        "type": "List \"member\" OptionSpecification"
                     },
                     {
                         "location": "querystring",
@@ -7678,7 +7679,7 @@
                     "locationName": "ConfigurationSettings",
                     "documentation": "-- | A list of 'ConfigurationSettingsDescription'.",
                     "typeExposed": "[ConfigurationSettingsDescription]",
-                    "type": "List \"ConfigurationSettings\" ConfigurationSettingsDescription"
+                    "type": "List \"member\" ConfigurationSettingsDescription"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -7707,7 +7708,7 @@
                         "locationName": "ConfigurationSettings",
                         "documentation": "-- | A list of 'ConfigurationSettingsDescription'.",
                         "typeExposed": "[ConfigurationSettingsDescription]",
-                        "type": "List \"ConfigurationSettings\" ConfigurationSettingsDescription"
+                        "type": "List \"member\" ConfigurationSettingsDescription"
                     }
                 ],
                 "fields": [
@@ -7724,7 +7725,7 @@
                         "locationName": "ConfigurationSettings",
                         "documentation": "-- | A list of 'ConfigurationSettingsDescription'.",
                         "typeExposed": "[ConfigurationSettingsDescription]",
-                        "type": "List \"ConfigurationSettings\" ConfigurationSettingsDescription"
+                        "type": "List \"member\" ConfigurationSettingsDescription"
                     }
                 ]
             },
@@ -8108,7 +8109,7 @@
                     "locationName": "Environments",
                     "documentation": "-- | Returns an 'EnvironmentDescription' list.",
                     "typeExposed": "[EnvironmentDescription]",
-                    "type": "List \"Environments\" EnvironmentDescription"
+                    "type": "List \"member\" EnvironmentDescription"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -8137,7 +8138,7 @@
                         "locationName": "Environments",
                         "documentation": "-- | Returns an 'EnvironmentDescription' list.",
                         "typeExposed": "[EnvironmentDescription]",
-                        "type": "List \"Environments\" EnvironmentDescription"
+                        "type": "List \"member\" EnvironmentDescription"
                     }
                 ],
                 "fields": [
@@ -8154,7 +8155,7 @@
                         "locationName": "Environments",
                         "documentation": "-- | Returns an 'EnvironmentDescription' list.",
                         "typeExposed": "[EnvironmentDescription]",
-                        "type": "List \"Environments\" EnvironmentDescription"
+                        "type": "List \"member\" EnvironmentDescription"
                     }
                 ]
             },
@@ -8276,7 +8277,7 @@
                         "locationName": "EnvironmentIds",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to\n-- include only those that have the specified IDs.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EnvironmentIds\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8291,7 +8292,7 @@
                         "locationName": "EnvironmentNames",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to\n-- include only those that have the specified names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EnvironmentNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8353,7 +8354,7 @@
                         "locationName": "EnvironmentIds",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to\n-- include only those that have the specified IDs.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EnvironmentIds\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8368,7 +8369,7 @@
                         "locationName": "EnvironmentNames",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to\n-- include only those that have the specified names.",
                         "typeExposed": "[Text]",
-                        "type": "List \"EnvironmentNames\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -8457,7 +8458,7 @@
                         "locationName": "Events",
                         "documentation": "-- | A list of 'EventDescription'.",
                         "typeExposed": "[EventDescription]",
-                        "type": "List \"Events\" EventDescription"
+                        "type": "List \"member\" EventDescription"
                     },
                     {
                         "location": "querystring",
@@ -8489,7 +8490,7 @@
                         "locationName": "Events",
                         "documentation": "-- | A list of 'EventDescription'.",
                         "typeExposed": "[EventDescription]",
-                        "type": "List \"Events\" EventDescription"
+                        "type": "List \"member\" EventDescription"
                     },
                     {
                         "location": "querystring",
@@ -8990,7 +8991,7 @@
                         "locationName": "SolutionStacks",
                         "documentation": "-- | A list of available solution stacks.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SolutionStacks\" Text"
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -9005,7 +9006,7 @@
                         "locationName": "SolutionStackDetails",
                         "documentation": "-- | A list of available solution stacks and their 'SolutionStackDescription'.",
                         "typeExposed": "[SolutionStackDescription]",
-                        "type": "List \"SolutionStackDetails\" SolutionStackDescription"
+                        "type": "List \"member\" SolutionStackDescription"
                     }
                 ],
                 "fields": [
@@ -9022,7 +9023,7 @@
                         "locationName": "SolutionStackDetails",
                         "documentation": "-- | A list of available solution stacks and their 'SolutionStackDescription'.",
                         "typeExposed": "[SolutionStackDescription]",
-                        "type": "List \"SolutionStackDetails\" SolutionStackDescription"
+                        "type": "List \"member\" SolutionStackDescription"
                     },
                     {
                         "location": "querystring",
@@ -9037,7 +9038,7 @@
                         "locationName": "SolutionStacks",
                         "documentation": "-- | A list of available solution stacks.",
                         "typeExposed": "[Text]",
-                        "type": "List \"SolutionStacks\" Text"
+                        "type": "List \"member\" Text"
                     }
                 ]
             },
@@ -9586,7 +9587,7 @@
                     "locationName": "EnvironmentInfo",
                     "documentation": "-- | The 'EnvironmentInfoDescription' of the environment.",
                     "typeExposed": "[EnvironmentInfoDescription]",
-                    "type": "List \"EnvironmentInfo\" EnvironmentInfoDescription"
+                    "type": "List \"member\" EnvironmentInfoDescription"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -9615,7 +9616,7 @@
                         "locationName": "EnvironmentInfo",
                         "documentation": "-- | The 'EnvironmentInfoDescription' of the environment.",
                         "typeExposed": "[EnvironmentInfoDescription]",
-                        "type": "List \"EnvironmentInfo\" EnvironmentInfoDescription"
+                        "type": "List \"member\" EnvironmentInfoDescription"
                     }
                 ],
                 "fields": [
@@ -9632,7 +9633,7 @@
                         "locationName": "EnvironmentInfo",
                         "documentation": "-- | The 'EnvironmentInfoDescription' of the environment.",
                         "typeExposed": "[EnvironmentInfoDescription]",
-                        "type": "List \"EnvironmentInfo\" EnvironmentInfoDescription"
+                        "type": "List \"member\" EnvironmentInfoDescription"
                     }
                 ]
             },
@@ -11230,7 +11231,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | A list of the configuration options and their values in this configuration\n-- set.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     }
                 ],
                 "fields": [
@@ -11337,7 +11338,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | A list of the configuration options and their values in this configuration\n-- set.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -11499,7 +11500,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | A list of configuration option settings to update with the new specified\n-- option value.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -11514,7 +11515,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "-- | A list of configuration options to remove from the configuration set.\n--\n-- Constraint: You can remove only 'UserDefined' configuration options.",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "List \"OptionsToRemove\" OptionSpecification"
+                        "type": "List \"member\" OptionSpecification"
                     }
                 ],
                 "fields": [
@@ -11561,7 +11562,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | A list of configuration option settings to update with the new specified\n-- option value.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -11576,7 +11577,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "-- | A list of configuration options to remove from the configuration set.\n--\n-- Constraint: You can remove only 'UserDefined' configuration options.",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "List \"OptionsToRemove\" OptionSpecification"
+                        "type": "List \"member\" OptionSpecification"
                     },
                     {
                         "location": "querystring",
@@ -12263,7 +12264,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk updates the configuration set associated\n-- with the running environment and sets the specified configuration options to\n-- the requested value.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -12278,7 +12279,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "-- | A list of custom user-defined configuration options to remove from the\n-- configuration set for this environment.",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "List \"OptionsToRemove\" OptionSpecification"
+                        "type": "List \"member\" OptionSpecification"
                     }
                 ],
                 "fields": [
@@ -12340,7 +12341,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | If specified, AWS Elastic Beanstalk updates the configuration set associated\n-- with the running environment and sets the specified configuration options to\n-- the requested value.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",
@@ -12355,7 +12356,7 @@
                         "locationName": "OptionsToRemove",
                         "documentation": "-- | A list of custom user-defined configuration options to remove from the\n-- configuration set for this environment.",
                         "typeExposed": "[OptionSpecification]",
-                        "type": "List \"OptionsToRemove\" OptionSpecification"
+                        "type": "List \"member\" OptionSpecification"
                     },
                     {
                         "location": "querystring",
@@ -12433,7 +12434,7 @@
                     "locationName": "Messages",
                     "documentation": "-- | A list of 'ValidationMessage'.",
                     "typeExposed": "[ValidationMessage]",
-                    "type": "List \"Messages\" ValidationMessage"
+                    "type": "List \"member\" ValidationMessage"
                 },
                 "contents": [],
                 "wrapper": false,
@@ -12462,7 +12463,7 @@
                         "locationName": "Messages",
                         "documentation": "-- | A list of 'ValidationMessage'.",
                         "typeExposed": "[ValidationMessage]",
-                        "type": "List \"Messages\" ValidationMessage"
+                        "type": "List \"member\" ValidationMessage"
                     }
                 ],
                 "fields": [
@@ -12479,7 +12480,7 @@
                         "locationName": "Messages",
                         "documentation": "-- | A list of 'ValidationMessage'.",
                         "typeExposed": "[ValidationMessage]",
-                        "type": "List \"Messages\" ValidationMessage"
+                        "type": "List \"member\" ValidationMessage"
                     }
                 ]
             },
@@ -12606,7 +12607,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | A list of the options and desired values to evaluate.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     }
                 ],
                 "fields": [
@@ -12653,7 +12654,7 @@
                         "locationName": "OptionSettings",
                         "documentation": "-- | A list of the options and desired values to evaluate.",
                         "typeExposed": "[ConfigurationOptionSetting]",
-                        "type": "List \"OptionSettings\" ConfigurationOptionSetting"
+                        "type": "List \"member\" ConfigurationOptionSetting"
                     },
                     {
                         "location": "querystring",

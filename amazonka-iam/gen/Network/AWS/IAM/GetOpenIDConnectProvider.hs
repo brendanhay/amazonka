@@ -74,9 +74,9 @@ goidcpOpenIDConnectProviderArn =
         (\s a -> s { _goidcpOpenIDConnectProviderArn = a })
 
 data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse
-    { _goidcprClientIDList   :: List "ClientIDList" Text
+    { _goidcprClientIDList   :: List "member" Text
     , _goidcprCreateDate     :: Maybe ISO8601
-    , _goidcprThumbprintList :: List "ThumbprintList" Text
+    , _goidcprThumbprintList :: List "member" Text
     , _goidcprUrl            :: Maybe Text
     } deriving (Eq, Ord, Show)
 

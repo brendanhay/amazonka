@@ -71,7 +71,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data SendMessageBatch = SendMessageBatch
-    { _smbEntries  :: List "SendMessageBatchRequestEntry" SendMessageBatchRequestEntry
+    { _smbEntries  :: List "member" SendMessageBatchRequestEntry
     , _smbQueueUrl :: Text
     } deriving (Eq, Show)
 
@@ -99,8 +99,8 @@ smbQueueUrl :: Lens' SendMessageBatch Text
 smbQueueUrl = lens _smbQueueUrl (\s a -> s { _smbQueueUrl = a })
 
 data SendMessageBatchResponse = SendMessageBatchResponse
-    { _smbrFailed     :: List "BatchResultErrorEntry" BatchResultErrorEntry
-    , _smbrSuccessful :: List "SendMessageBatchResultEntry" SendMessageBatchResultEntry
+    { _smbrFailed     :: List "member" BatchResultErrorEntry
+    , _smbrSuccessful :: List "member" SendMessageBatchResultEntry
     } deriving (Eq, Show)
 
 -- | 'SendMessageBatchResponse' constructor.

@@ -691,11 +691,13 @@ instance FromXML CloudFrontOriginAccessIdentityConfig where
         <$> x .@  "CallerReference"
         <*> x .@  "Comment"
 
-instance ToXML CloudFrontOriginAccessIdentityConfig where
-    toXML CloudFrontOriginAccessIdentityConfig{..} = nodes "CloudFrontOriginAccessIdentityConfig"
+instance ToXMLRoot CloudFrontOriginAccessIdentityConfig where
+    toXMLRoot CloudFrontOriginAccessIdentityConfig{..} = namespaced ns "CloudFrontOriginAccessIdentityConfig"
         [ "CallerReference" =@ _cfoaicCallerReference
         , "Comment"         =@ _cfoaicComment
         ]
+
+instance ToXML CloudFrontOriginAccessIdentityConfig
 
 data Origin = Origin
     { _oCustomOriginConfig :: Maybe CustomOriginConfig
@@ -1010,8 +1012,8 @@ instance FromXML StreamingDistributionConfig where
         <*> x .@  "S3Origin"
         <*> x .@  "TrustedSigners"
 
-instance ToXML StreamingDistributionConfig where
-    toXML StreamingDistributionConfig{..} = nodes "StreamingDistributionConfig"
+instance ToXMLRoot StreamingDistributionConfig where
+    toXMLRoot StreamingDistributionConfig{..} = namespaced ns "StreamingDistributionConfig"
         [ "CallerReference" =@ _sdcCallerReference
         , "S3Origin"        =@ _sdcS3Origin
         , "Aliases"         =@ _sdcAliases
@@ -1021,6 +1023,8 @@ instance ToXML StreamingDistributionConfig where
         , "PriceClass"      =@ _sdcPriceClass
         , "Enabled"         =@ _sdcEnabled
         ]
+
+instance ToXML StreamingDistributionConfig
 
 data Signer = Signer
     { _sAwsAccountNumber :: Maybe Text
@@ -1818,8 +1822,8 @@ instance FromXML DistributionConfig where
         <*> x .@? "Restrictions"
         <*> x .@? "ViewerCertificate"
 
-instance ToXML DistributionConfig where
-    toXML DistributionConfig{..} = nodes "DistributionConfig"
+instance ToXMLRoot DistributionConfig where
+    toXMLRoot DistributionConfig{..} = namespaced ns "DistributionConfig"
         [ "CallerReference"      =@ _dcCallerReference
         , "Aliases"              =@ _dcAliases
         , "DefaultRootObject"    =@ _dcDefaultRootObject
@@ -1834,6 +1838,8 @@ instance ToXML DistributionConfig where
         , "ViewerCertificate"    =@ _dcViewerCertificate
         , "Restrictions"         =@ _dcRestrictions
         ]
+
+instance ToXML DistributionConfig
 
 data CacheBehavior = CacheBehavior
     { _cbAllowedMethods       :: Maybe AllowedMethods

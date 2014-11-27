@@ -55,10 +55,10 @@ import qualified GHC.Exts
 
 data ModifyEventSubscription = ModifyEventSubscription
     { _mesEnabled          :: Maybe Bool
-    , _mesEventCategories  :: List "EventCategory" Text
+    , _mesEventCategories  :: List "member" Text
     , _mesSeverity         :: Maybe Text
     , _mesSnsTopicArn      :: Maybe Text
-    , _mesSourceIds        :: List "SourceId" Text
+    , _mesSourceIds        :: List "member" Text
     , _mesSourceType       :: Maybe Text
     , _mesSubscriptionName :: Text
     } deriving (Eq, Ord, Show)

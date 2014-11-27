@@ -98,7 +98,7 @@ data GetGroupResponse = GetGroupResponse
     { _ggrGroup       :: Group
     , _ggrIsTruncated :: Maybe Bool
     , _ggrMarker      :: Maybe Text
-    , _ggrUsers       :: List "Users" User
+    , _ggrUsers       :: List "member" User
     } deriving (Eq, Show)
 
 -- | 'GetGroupResponse' constructor.

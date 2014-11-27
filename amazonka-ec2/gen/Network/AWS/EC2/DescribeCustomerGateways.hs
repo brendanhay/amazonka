@@ -121,12 +121,6 @@ newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { _dcgrCustomerGateways :: List "item" CustomerGateway
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeCustomerGatewaysResponse where
-    type Item DescribeCustomerGatewaysResponse = CustomerGateway
-
-    fromList = DescribeCustomerGatewaysResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dcgrCustomerGateways
-
 -- | 'DescribeCustomerGatewaysResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -149,9 +143,9 @@ instance ToPath DescribeCustomerGateways where
 
 instance ToQuery DescribeCustomerGateways where
     toQuery DescribeCustomerGateways{..} = mconcat
-        [ "CustomerGatewayId" =? _dcgCustomerGatewayIds
+        [ toQuery            _dcgCustomerGatewayIds
         , "dryRun"            =? _dcgDryRun
-        , "Filter"            =? _dcgFilters
+        , toQuery            _dcgFilters
         ]
 
 instance ToHeaders DescribeCustomerGateways
@@ -165,4 +159,4 @@ instance AWSRequest DescribeCustomerGateways where
 
 instance FromXML DescribeCustomerGatewaysResponse where
     parseXML x = DescribeCustomerGatewaysResponse
-        <$> x .@  "customerGatewaySet"
+        <$> parseXML x

@@ -26,8 +26,8 @@ import           Data.Time.Clock.POSIX
 import           Network.AWS.SQS
 import           System.IO
 
-sendReceive :: IO (Either Error ())
-sendReceive = do
+example :: IO (Either Error ())
+example = do
     lgr  <- newLogger Debug stdout
     env  <- getEnv Ireland Discover <&> envLogger .~ lgr
     name <- Text.pack . show <$> getTimestamp

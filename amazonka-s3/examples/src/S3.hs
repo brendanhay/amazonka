@@ -26,8 +26,8 @@ import           Data.Time.Clock.POSIX
 import           Network.AWS.S3
 import           System.IO
 
-integration :: IO (Either Error ListBucketsResponse)
-integration = do
+example :: IO (Either Error ListBucketsResponse)
+example = do
     lgr <- newLogger Debug stdout
     env <- getEnv Ireland Discover <&> envLogger .~ lgr
     runAWST env $ send listBuckets

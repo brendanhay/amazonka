@@ -23,6 +23,8 @@ example = do
     lgr  <- newLogger Debug stdout
     env  <- getEnv Oregon Discover <&> envLogger .~ lgr
     tmpl <- Text.readFile "load-balanced-apache.json"
-    runAWST env . send $
-        createStack "amazonka-test-stack"
-            & csTemplateBody ?~ tmpl
+    runAWST env . send $ createStack "amazonka-test-stack"
+        & csTemplateBody ?~ tmpl
+        & csParameters   .~ [ parameter & pParameterKey   ?~ "KeyName"
+                                        & pParameterValue ?~ "default-keypair"
+                            ]

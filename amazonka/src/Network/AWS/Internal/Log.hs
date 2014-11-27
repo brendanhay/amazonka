@@ -23,7 +23,7 @@ import System.IO
 
 data LogLevel
     = Info  -- ^ Informational messages supplied by the user, not used by the library.
-    | Debug -- ^ Info level + Debug messages + non-streaming response bodies.
+    | Debug -- ^ Info level + debug messages + non-streaming response bodies.
     | Trace -- ^ Debug level + potentially sensitive signing metadata.
       deriving (Eq, Ord, Enum, Show)
 

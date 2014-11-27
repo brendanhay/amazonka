@@ -48,6 +48,7 @@ module Control.Monad.Trans.AWS
     , newLogger
     , logInfo
     , logDebug
+    , logTrace
 
     -- * Regionalisation
     , Region      (..)
@@ -86,7 +87,6 @@ import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
-import           Data.ByteString.Builder      (Builder)
 import           Data.Conduit
 import           Data.Time
 import           Network.AWS                  (Env, envRegion, envLogger, envAuth, envManager)
@@ -236,6 +236,10 @@ logInfo x = view envLogger >>= (`info` x)
 -- | Use the supplied logger from 'envLogger' to log debug messages.
 logDebug :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
 logDebug x = view envLogger >>= (`debug` x)
+
+-- | Use the supplied logger from 'envLogger' to log trace messages.
+logTrace :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
+logTrace x = view envLogger >>= (`trace` x)
 
 -- | Scope a monadic action within the specific 'Region'.
 within :: MonadReader Env m => Region -> m a -> m a

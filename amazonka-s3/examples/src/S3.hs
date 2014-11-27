@@ -23,7 +23,7 @@ import           System.IO
 
 example :: IO (Either Error ())
 example = do
-    lgr <- newLogger Debug stdout
+    lgr <- newLogger Info stdout
     env <- getEnv Ireland Discover <&> envLogger .~ lgr
     runAWST env $ do
         bs <- view lbrBuckets <$> send listBuckets

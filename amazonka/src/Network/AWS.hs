@@ -107,16 +107,16 @@ send :: (MonadCatch m, MonadResource m, AWSRequest a)
 send Env{..} x@(request -> rq) = go `catch` er >>= response x
   where
     go = do
-        debug _envLogger (build rq)
+        trace _envLogger (build rq)
 
         t  <- liftIO getCurrentTime
 
         Signed m s <- Sign.sign _envAuth _envRegion rq t
-        info  _envLogger (build s)
-        debug _envLogger (build m)
+        debug  _envLogger (build s)
+        trace _envLogger (build m)
 
         rs <- liftResourceT (http s _envManager)
-        info _envLogger (build rs)
+        debug _envLogger (build rs)
 
         return (Right rs)
 

@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE MultiWayIf        #-}
 
 -- Module      : Network.AWS.Internal.Log
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,8 +22,9 @@ import Network.AWS.Data
 import System.IO
 
 data LogLevel
-    = Info  -- ^ Informational messages + debug messages + non-streaming response bodies.
-    | Debug -- ^ Info level + potentiall sensitive signing metadata.
+    = Info  -- ^ Informational messages supplied by the user, not used by the library.
+    | Debug -- ^ Info level + Debug messages + non-streaming response bodies.
+    | Trace -- ^ Debug level + potentially sensitive signing metadata.
       deriving (Eq, Ord, Enum, Show)
 
 type Logger = LogLevel -> Builder -> IO ()
@@ -35,10 +37,9 @@ newLogger x hd = liftIO $ do
     hSetBinaryMode hd True
     hSetBuffering  hd LineBuffering -- ^ Should be BlockBuffering, but .. concurrency.
     return $ \y b ->
-        case (x, y) of
-            (_,     Info)  -> hPutBuilder hd (b <> "\n")
-            (Debug, Debug) -> hPutBuilder hd (b <> "\n")
-            _              -> return ()
+        if y >= x
+            then hPutBuilder hd (b <> "\n")
+            else return ()
 
 info :: (MonadIO m, ToBuilder a) => Logger -> a -> m ()
 info f = liftIO . f Info . build
@@ -47,3 +48,7 @@ info f = liftIO . f Info . build
 debug :: (MonadIO m, ToBuilder a) => Logger -> a -> m ()
 debug f = liftIO . f Debug . build
 {-# INLINE debug #-}
+
+trace :: (MonadIO m, ToBuilder a) => Logger -> a -> m ()
+trace f = liftIO . f Trace . build
+{-# INLINE trace #-}

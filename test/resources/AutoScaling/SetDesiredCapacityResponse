@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<SetDesiredCapacityResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {% if sdcrResponseMetadata %}
-  <ResponseMetadata>
-    <RequestId>{{ rmRequestId }}</RequestId>
-  </ResponseMetadata>
-  {% endif %}
-</SetDesiredCapacityResponse>

@@ -1,7 +1,0 @@
-GET /
-Action=EnableMetricsCollection
-AutoScalingGroupName={{ emcAutoScalingGroupName }}
-Granularity={{ emcGranularity }}
-{% if emcMetrics %}
-Metrics.member.{{ n }}={{.}}
-{% endif %}

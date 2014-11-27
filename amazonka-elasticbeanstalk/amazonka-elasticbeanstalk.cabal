@@ -1,0 +1,80 @@
+name:                  amazonka-elasticbeanstalk
+version:               0.0.5
+synopsis:              Amazon Elastic Beanstalk SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web
+    applications and services developed with Java, .NET, PHP, Node.js, Python,
+    Ruby, and Docker on familiar servers such as Apache HTTP Server, Apache
+    Tomcat, Nginx, Passenger, and IIS 7.5/8. You can simply upload your code and
+    Elastic Beanstalk automatically handles the deployment, from capacity
+    provisioning, load balancing, auto-scaling to application health monitoring.
+    At the same time, you retain full control over the AWS resources powering
+    your application and can access the underlying resources at any time. There
+    is no additional charge for Elastic Beanstalk - you pay only for the AWS
+    resources needed to store and run your applications.
+
+    .
+    /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/Welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.ElasticBeanstalk
+        , Network.AWS.ElasticBeanstalk.CheckDNSAvailability
+        , Network.AWS.ElasticBeanstalk.CreateApplication
+        , Network.AWS.ElasticBeanstalk.CreateApplicationVersion
+        , Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
+        , Network.AWS.ElasticBeanstalk.CreateEnvironment
+        , Network.AWS.ElasticBeanstalk.CreateStorageLocation
+        , Network.AWS.ElasticBeanstalk.DeleteApplication
+        , Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
+        , Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
+        , Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
+        , Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
+        , Network.AWS.ElasticBeanstalk.DescribeApplications
+        , Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
+        , Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
+        , Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
+        , Network.AWS.ElasticBeanstalk.DescribeEnvironments
+        , Network.AWS.ElasticBeanstalk.DescribeEvents
+        , Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
+        , Network.AWS.ElasticBeanstalk.RebuildEnvironment
+        , Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
+        , Network.AWS.ElasticBeanstalk.RestartAppServer
+        , Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
+        , Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
+        , Network.AWS.ElasticBeanstalk.TerminateEnvironment
+        , Network.AWS.ElasticBeanstalk.Types
+        , Network.AWS.ElasticBeanstalk.UpdateApplication
+        , Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
+        , Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
+        , Network.AWS.ElasticBeanstalk.UpdateEnvironment
+        , Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
+
+    other-modules:
+
+    build-depends:
+          amazonka-core == 0.0.5.*
+        , base          >= 4.7     && < 5

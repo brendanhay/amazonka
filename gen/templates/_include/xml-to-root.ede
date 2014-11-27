@@ -1,0 +1,29 @@
+
+{% case type.type %}
+{% when "void" %}
+instance ToXMLRoot {{ type.name }} where
+    toXMLRoot = const (namespaced ns "{{ type.name }}" [])
+
+instance ToXML {{ type.name }}
+{% when "empty" %}
+instance ToXMLRoot {{ type.name }} where
+    toXMLRoot = const (namespaced ns "{{ type.name }}" [])
+
+instance ToXML {{ type.name }}
+{% when "nullary" %}
+instance ToXML {{ type.name }} where
+    toXML = toXMLText
+{% else %}
+instance ToXMLRoot {{ type.name }} where
+  {% if type.contents | empty %}
+    toXMLRoot = const (namespaced ns "{{ type.name }}" [])
+  {% else %}
+    toXMLRoot {{ type.name }}{..} = namespaced ns "{{ type.name }}"
+    {% for field in type.contents %}
+        {% include "list.ede" %} "{{ field.value.locationName | concat("\"") | justifyLeft(type.contentPad) }} =@ {{ field.value.name }}
+    {% endfor %}
+        ]
+  {% endif %}
+
+instance ToXML {{ type.name }}
+{% endcase %}

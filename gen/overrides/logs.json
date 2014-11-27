@@ -1,0 +1,9 @@
+{
+    "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_",
+    "library": "amazonka-cloudwatch-logs",
+    "documentation": "Amazon CloudWatch Logs enables you to monitor, store, and access your system, application, and custom log files.",
+    "metadata": {
+        "serviceAbbreviation": "CloudWatchLogs"
+    }
+}

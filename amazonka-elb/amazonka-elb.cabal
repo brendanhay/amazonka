@@ -1,0 +1,74 @@
+name:                  amazonka-elb
+version:               0.0.5
+synopsis:              Amazon Elastic Load Balancing SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Elastic Load Balancing automatically distributes incoming application traffic
+    across multiple Amazon EC2 instances. It enables you to achieve greater
+    levels of fault tolerance in your applications, seamlessly providing the
+    required amount of load balancing capacity needed to distribute application
+    traffic.
+
+    .
+    /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/Welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.ELB
+        , Network.AWS.ELB.AddTags
+        , Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
+        , Network.AWS.ELB.AttachLoadBalancerToSubnets
+        , Network.AWS.ELB.ConfigureHealthCheck
+        , Network.AWS.ELB.CreateAppCookieStickinessPolicy
+        , Network.AWS.ELB.CreateLBCookieStickinessPolicy
+        , Network.AWS.ELB.CreateLoadBalancer
+        , Network.AWS.ELB.CreateLoadBalancerListeners
+        , Network.AWS.ELB.CreateLoadBalancerPolicy
+        , Network.AWS.ELB.DeleteLoadBalancer
+        , Network.AWS.ELB.DeleteLoadBalancerListeners
+        , Network.AWS.ELB.DeleteLoadBalancerPolicy
+        , Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
+        , Network.AWS.ELB.DescribeInstanceHealth
+        , Network.AWS.ELB.DescribeLoadBalancerAttributes
+        , Network.AWS.ELB.DescribeLoadBalancerPolicies
+        , Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
+        , Network.AWS.ELB.DescribeLoadBalancers
+        , Network.AWS.ELB.DescribeTags
+        , Network.AWS.ELB.DetachLoadBalancerFromSubnets
+        , Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
+        , Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
+        , Network.AWS.ELB.ModifyLoadBalancerAttributes
+        , Network.AWS.ELB.RegisterInstancesWithLoadBalancer
+        , Network.AWS.ELB.RemoveTags
+        , Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
+        , Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
+        , Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
+        , Network.AWS.ELB.Types
+
+    other-modules:
+
+    build-depends:
+          amazonka-core == 0.0.5.*
+        , base          >= 4.7     && < 5

@@ -9,9 +9,7 @@ cabal.sandbox.config
 
 # Dirs
 .cabal-sandbox
-bin
 dist
-tmp
 vendor
 
 # CTAGS
@@ -30,8 +28,5 @@ tags
 # OSX
 .DS_Store
 
-# Generators
-*.awk
-script/
-generated/
-model*
+# Certificates
+*.pem

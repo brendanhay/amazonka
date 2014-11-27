@@ -1,0 +1,17 @@
+{% if type.type == "newtype" %}
+newtype {{ type.name }} = {{ type.name }}
+{% else %}
+data {{ type.name }} = {{ type.name }}
+{% endif %}
+{% for field in type.fields %}
+    {% if field.first %}{ {% else %}, {% endif %}{{ field.value.name | justifyLeft(type.fieldPad) }} :: {{ field.value.type }}
+{% endfor %}
+    } deriving{% include "deriving.ede" %}
+{% if type.listElement %}
+instance GHC.Exts.IsList {{ type.name }} where
+    type Item {{ type.name }} = {{ type.listElement }}
+
+    fromList = {{ type.name }} . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . {{ type.field.name }}
+
+{% endif %}

@@ -1,0 +1,21 @@
+{% include "_include/operation-exports.ede" %}
+
+import Network.AWS.Prelude
+{% include "_include/imports.ede" %}
+import qualified GHC.Exts
+
+{% include "_include/datatype.ede" with type = request %}
+
+{% include "_include/datatype.ede" with type = response %}
+{% include "_include/request.ede" %}
+
+instance AWSRequest {{ request.name }} where
+    type Sv {{ request.name }} = {{ service }}
+    type Rs {{ request.name }} = {{ response.name }}
+
+{% if request.streaming %}
+    request  = stream {{ method | toUpper }}
+{% else %}
+    request  = {{ method }}
+{% endif %}
+{% include "_include/response.ede" %}

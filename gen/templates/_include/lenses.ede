@@ -1,0 +1,28 @@
+{% case type.type %}
+{% when "void" %}
+{% when "nullary" %}
+{% else %}
+  {% for field in type.fields %}
+
+    {% if field.value.documentation %}
+{{ field.value.documentation }}
+    {% endif %}
+{{ field.value.lens }} :: Lens' {{ type.name }} {{ field.value.typeExposed | wrapped }}
+    {% if (field.value.name | length) > 24 %}
+{{ field.value.lens }} =
+    lens {{ field.value.name }}
+        (\s a -> s { {{ field.value.name }} = a })
+      {% if field.value.lensMapping %}
+            . {{ field.value.lensMapping }}
+      {% endif %}
+    {% elif (field.value.name | length) > 17 %}
+{{ field.value.lens }} =
+    lens {{ field.value.name }} (\s a -> s { {{ field.value.name }} = a })
+      {% if field.value.lensMapping %}
+        . {{ field.value.lensMapping }}
+      {% endif %}
+    {% else %}
+{{ field.value.lens }} = lens {{ field.value.name }} (\s a -> s { {{ field.value.name }} = a }){% if field.value.lensMapping %} . {{ field.value.lensMapping }}{% endif %}
+    {% endif %}
+  {% endfor %}
+{% endcase %}

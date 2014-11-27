@@ -1,0 +1,40 @@
+{% if request.queryAll %}
+  {% include "query-to.ede" with type = request %}
+{% else %}
+  {% case request.query | length %}
+  {% when 0 %}
+
+instance ToQuery {{ request.name }} where
+    toQuery = const mempty
+  {% when 1 %}
+
+instance ToQuery {{ request.name }} where
+    {% for qry in request.query %}
+      {% case qry.value.type %}
+      {% when "var" %}
+    toQuery {{ request.name }}{..} = toText {{ qry.value.value }}
+      {% when "const" %}
+    toQuery = const "{{ qry.value.value }}"
+      {% when "field" %}
+    toQuery rq = "{{ qry.value.locationName }}" =? {{ qry.value.field }} rq
+      {% endcase %}
+    {% endfor %}
+  {% else %}
+
+instance ToQuery {{ request.name }} where
+    toQuery {{ request.name }}{..} = mconcat
+    {% for qry in request.query %}
+      {% case qry.value.type %}
+      {% when "var" %}
+        {% include "list.ede" with field = qry %} toText {{ qry.value.value }}
+      {% when "const" %}
+        {% include "list.ede" with field = qry %} "{{ qry.value.value }}"
+      {% when "field" %}
+        {% include "list.ede" with field = qry %} "{{ qry.value.locationName  | concat("\"") | justifyLeft(request.queryPad) }} =? {{ qry.value.field }}
+      {% endcase %}
+    {% endfor %}
+    {% if (request.query | length) > 0 %}
+        ]
+    {% endif %}
+  {% endcase %}
+{% endif %}

@@ -1,0 +1,14 @@
+{% if method == "put" || method == "post" %}
+  {% if request.payload %}
+
+instance ToBody {{ request.name }} where
+    {% case request.payload.location %}
+    {% when "body" %}
+    toBody = toBody . {{ request.payload.name }}
+    {% when "body-xml" %}
+    toBody = toBody . encodeXML . {{ request.payload.name }}
+    {% when "body-json" %}
+    toBody = toBody . encode . {{ request.payload.name }}
+    {% endcase %}
+  {% endif %}
+{% endif %}

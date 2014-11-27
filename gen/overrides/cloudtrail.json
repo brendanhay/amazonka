@@ -1,0 +1,9 @@
+{
+    "url": "http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_",
+    "library": "amazonka-cloudtrail",
+    "documentation": "CloudTrail is a web service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. The recorded information includes the identity of the user, the start time of the AWS API call, the source IP address, the request parameters, and the response elements returned by the service.",
+    "metadata": {
+        "serviceAbbreviation": "CloudTrail"
+    }
+}

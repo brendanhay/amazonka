@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CreateAutoScalingGroupResponse xmlns="http://autoscaling.amazonaws.com/doc/2011-01-01/">
-  {% if casgrResponseMetadata %}
-  <ResponseMetadata>
-    <RequestId>{{ rmRequestId }}</RequestId>
-  </ResponseMetadata>
-  {% endif %}
-</CreateAutoScalingGroupResponse>

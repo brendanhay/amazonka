@@ -1,0 +1,3 @@
+{% for field in response.fields %}
+  {% include "field.ede" %}
+{% endfor %}

@@ -1,0 +1,208 @@
+name:                  amazonka-ec2
+version:               0.0.5
+synopsis:              Amazon Elastic Compute Cloud SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides
+    resizable compute capacity in the cloud. It is designed to make web-scale
+    computing easier for developers. Amazon EC2’s simple web service interface
+    allows you to obtain and configure capacity with minimal friction. It
+    provides you with complete control of your computing resources and lets you
+    run on Amazon’s proven computing environment. Amazon EC2 reduces the time
+    required to obtain and boot new server instances to minutes, allowing you to
+    quickly scale capacity, both up and down, as your computing requirements
+    change. Amazon EC2 changes the economics of computing by allowing you to pay
+    only for capacity that you actually use. Amazon EC2 provides developers the
+    tools to build failure resilient applications and isolate themselves from
+    common failure scenarios.
+
+    .
+    /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.EC2
+        , Network.AWS.EC2.AcceptVpcPeeringConnection
+        , Network.AWS.EC2.AllocateAddress
+        , Network.AWS.EC2.AssignPrivateIpAddresses
+        , Network.AWS.EC2.AssociateAddress
+        , Network.AWS.EC2.AssociateDhcpOptions
+        , Network.AWS.EC2.AssociateRouteTable
+        , Network.AWS.EC2.AttachInternetGateway
+        , Network.AWS.EC2.AttachNetworkInterface
+        , Network.AWS.EC2.AttachVolume
+        , Network.AWS.EC2.AttachVpnGateway
+        , Network.AWS.EC2.AuthorizeSecurityGroupEgress
+        , Network.AWS.EC2.AuthorizeSecurityGroupIngress
+        , Network.AWS.EC2.BundleInstance
+        , Network.AWS.EC2.CancelBundleTask
+        , Network.AWS.EC2.CancelConversionTask
+        , Network.AWS.EC2.CancelExportTask
+        , Network.AWS.EC2.CancelReservedInstancesListing
+        , Network.AWS.EC2.CancelSpotInstanceRequests
+        , Network.AWS.EC2.ConfirmProductInstance
+        , Network.AWS.EC2.CopyImage
+        , Network.AWS.EC2.CopySnapshot
+        , Network.AWS.EC2.CreateCustomerGateway
+        , Network.AWS.EC2.CreateDhcpOptions
+        , Network.AWS.EC2.CreateImage
+        , Network.AWS.EC2.CreateInstanceExportTask
+        , Network.AWS.EC2.CreateInternetGateway
+        , Network.AWS.EC2.CreateKeyPair
+        , Network.AWS.EC2.CreateNetworkAcl
+        , Network.AWS.EC2.CreateNetworkAclEntry
+        , Network.AWS.EC2.CreateNetworkInterface
+        , Network.AWS.EC2.CreatePlacementGroup
+        , Network.AWS.EC2.CreateReservedInstancesListing
+        , Network.AWS.EC2.CreateRoute
+        , Network.AWS.EC2.CreateRouteTable
+        , Network.AWS.EC2.CreateSecurityGroup
+        , Network.AWS.EC2.CreateSnapshot
+        , Network.AWS.EC2.CreateSpotDatafeedSubscription
+        , Network.AWS.EC2.CreateSubnet
+        , Network.AWS.EC2.CreateTags
+        , Network.AWS.EC2.CreateVolume
+        , Network.AWS.EC2.CreateVpc
+        , Network.AWS.EC2.CreateVpcPeeringConnection
+        , Network.AWS.EC2.CreateVpnConnection
+        , Network.AWS.EC2.CreateVpnConnectionRoute
+        , Network.AWS.EC2.CreateVpnGateway
+        , Network.AWS.EC2.DeleteCustomerGateway
+        , Network.AWS.EC2.DeleteDhcpOptions
+        , Network.AWS.EC2.DeleteInternetGateway
+        , Network.AWS.EC2.DeleteKeyPair
+        , Network.AWS.EC2.DeleteNetworkAcl
+        , Network.AWS.EC2.DeleteNetworkAclEntry
+        , Network.AWS.EC2.DeleteNetworkInterface
+        , Network.AWS.EC2.DeletePlacementGroup
+        , Network.AWS.EC2.DeleteRoute
+        , Network.AWS.EC2.DeleteRouteTable
+        , Network.AWS.EC2.DeleteSecurityGroup
+        , Network.AWS.EC2.DeleteSnapshot
+        , Network.AWS.EC2.DeleteSpotDatafeedSubscription
+        , Network.AWS.EC2.DeleteSubnet
+        , Network.AWS.EC2.DeleteTags
+        , Network.AWS.EC2.DeleteVolume
+        , Network.AWS.EC2.DeleteVpc
+        , Network.AWS.EC2.DeleteVpcPeeringConnection
+        , Network.AWS.EC2.DeleteVpnConnection
+        , Network.AWS.EC2.DeleteVpnConnectionRoute
+        , Network.AWS.EC2.DeleteVpnGateway
+        , Network.AWS.EC2.DeregisterImage
+        , Network.AWS.EC2.DescribeAccountAttributes
+        , Network.AWS.EC2.DescribeAddresses
+        , Network.AWS.EC2.DescribeAvailabilityZones
+        , Network.AWS.EC2.DescribeBundleTasks
+        , Network.AWS.EC2.DescribeConversionTasks
+        , Network.AWS.EC2.DescribeCustomerGateways
+        , Network.AWS.EC2.DescribeDhcpOptions
+        , Network.AWS.EC2.DescribeExportTasks
+        , Network.AWS.EC2.DescribeImageAttribute
+        , Network.AWS.EC2.DescribeImages
+        , Network.AWS.EC2.DescribeInstanceAttribute
+        , Network.AWS.EC2.DescribeInstanceStatus
+        , Network.AWS.EC2.DescribeInstances
+        , Network.AWS.EC2.DescribeInternetGateways
+        , Network.AWS.EC2.DescribeKeyPairs
+        , Network.AWS.EC2.DescribeNetworkAcls
+        , Network.AWS.EC2.DescribeNetworkInterfaceAttribute
+        , Network.AWS.EC2.DescribeNetworkInterfaces
+        , Network.AWS.EC2.DescribePlacementGroups
+        , Network.AWS.EC2.DescribeRegions
+        , Network.AWS.EC2.DescribeReservedInstances
+        , Network.AWS.EC2.DescribeReservedInstancesListings
+        , Network.AWS.EC2.DescribeReservedInstancesModifications
+        , Network.AWS.EC2.DescribeReservedInstancesOfferings
+        , Network.AWS.EC2.DescribeRouteTables
+        , Network.AWS.EC2.DescribeSecurityGroups
+        , Network.AWS.EC2.DescribeSnapshotAttribute
+        , Network.AWS.EC2.DescribeSnapshots
+        , Network.AWS.EC2.DescribeSpotDatafeedSubscription
+        , Network.AWS.EC2.DescribeSpotInstanceRequests
+        , Network.AWS.EC2.DescribeSpotPriceHistory
+        , Network.AWS.EC2.DescribeSubnets
+        , Network.AWS.EC2.DescribeTags
+        , Network.AWS.EC2.DescribeVolumeAttribute
+        , Network.AWS.EC2.DescribeVolumeStatus
+        , Network.AWS.EC2.DescribeVolumes
+        , Network.AWS.EC2.DescribeVpcAttribute
+        , Network.AWS.EC2.DescribeVpcPeeringConnections
+        , Network.AWS.EC2.DescribeVpcs
+        , Network.AWS.EC2.DescribeVpnConnections
+        , Network.AWS.EC2.DescribeVpnGateways
+        , Network.AWS.EC2.DetachInternetGateway
+        , Network.AWS.EC2.DetachNetworkInterface
+        , Network.AWS.EC2.DetachVolume
+        , Network.AWS.EC2.DetachVpnGateway
+        , Network.AWS.EC2.DisableVgwRoutePropagation
+        , Network.AWS.EC2.DisassociateAddress
+        , Network.AWS.EC2.DisassociateRouteTable
+        , Network.AWS.EC2.EnableVgwRoutePropagation
+        , Network.AWS.EC2.EnableVolumeIO
+        , Network.AWS.EC2.GetConsoleOutput
+        , Network.AWS.EC2.GetPasswordData
+        , Network.AWS.EC2.ImportInstance
+        , Network.AWS.EC2.ImportKeyPair
+        , Network.AWS.EC2.ImportVolume
+        , Network.AWS.EC2.ModifyImageAttribute
+        , Network.AWS.EC2.ModifyInstanceAttribute
+        , Network.AWS.EC2.ModifyNetworkInterfaceAttribute
+        , Network.AWS.EC2.ModifyReservedInstances
+        , Network.AWS.EC2.ModifySnapshotAttribute
+        , Network.AWS.EC2.ModifySubnetAttribute
+        , Network.AWS.EC2.ModifyVolumeAttribute
+        , Network.AWS.EC2.ModifyVpcAttribute
+        , Network.AWS.EC2.MonitorInstances
+        , Network.AWS.EC2.PurchaseReservedInstancesOffering
+        , Network.AWS.EC2.RebootInstances
+        , Network.AWS.EC2.RegisterImage
+        , Network.AWS.EC2.RejectVpcPeeringConnection
+        , Network.AWS.EC2.ReleaseAddress
+        , Network.AWS.EC2.ReplaceNetworkAclAssociation
+        , Network.AWS.EC2.ReplaceNetworkAclEntry
+        , Network.AWS.EC2.ReplaceRoute
+        , Network.AWS.EC2.ReplaceRouteTableAssociation
+        , Network.AWS.EC2.ReportInstanceStatus
+        , Network.AWS.EC2.RequestSpotInstances
+        , Network.AWS.EC2.ResetImageAttribute
+        , Network.AWS.EC2.ResetInstanceAttribute
+        , Network.AWS.EC2.ResetNetworkInterfaceAttribute
+        , Network.AWS.EC2.ResetSnapshotAttribute
+        , Network.AWS.EC2.RevokeSecurityGroupEgress
+        , Network.AWS.EC2.RevokeSecurityGroupIngress
+        , Network.AWS.EC2.RunInstances
+        , Network.AWS.EC2.StartInstances
+        , Network.AWS.EC2.StopInstances
+        , Network.AWS.EC2.TerminateInstances
+        , Network.AWS.EC2.Types
+        , Network.AWS.EC2.UnassignPrivateIpAddresses
+        , Network.AWS.EC2.UnmonitorInstances
+
+    other-modules:
+          Network.AWS.EC2.Internal
+
+    build-depends:
+          amazonka-core == 0.0.5.*
+        , base          >= 4.7     && < 5

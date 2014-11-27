@@ -1,6 +1,0 @@
-GET /
-Action=DeleteAutoScalingGroup
-AutoScalingGroupName={{ dasgAutoScalingGroupName }}
-{% if dasgForceDelete %}
-ForceDelete={{ dasgForceDelete }}
-{% endif %}

@@ -1,0 +1,12 @@
+{% case type.type %}
+{% when "void" %}
+{% when "empty" %}
+data {{ type.name }} = {{ type.name }}
+    deriving{% include "deriving.ede" %}
+{% when "nullary" %}
+{% include "nullary.ede" %}
+{% else %}
+{% include "record.ede" %}
+{% endcase %}
+{% include "constructor.ede" %}
+{% include "lenses.ede" %}

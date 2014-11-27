@@ -1,5 +1,0 @@
-GET /
-Action=AllocateAddress
-{% if aaDomain %}
-Domain={{ aaDomain }}
-{% endif %}

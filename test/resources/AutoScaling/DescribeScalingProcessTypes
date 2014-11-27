@@ -1,5 +1,0 @@
-GET /
-Action=DescribeScalingProcessTypes
-{% if dsptProcesses %}
-Processes.ProcessName={{ ptProcessName }}
-{% endif %}

@@ -1,0 +1,14 @@
+{% if type.documentation %}
+{{ type.documentation }}
+{% else %}
+-- | '{{ type.name }}' constructor.
+{% endif %}
+{% for field in type.fields %}
+  {% if field.first %}
+--
+-- The fields accessible through corresponding lenses are:
+--
+  {% endif %}
+-- * '{{ field.value.lens }}' @::@ {{ field.value.typeExposed | highlight }}
+--
+{% endfor %}

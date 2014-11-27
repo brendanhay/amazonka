@@ -1,0 +1,76 @@
+name:                  amazonka-sns
+version:               0.0.5
+synopsis:              Amazon Simple Notification Service SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Amazon Simple Notification Service (Amazon SNS) is a fast, flexible, fully
+    managed push messaging service. Amazon SNS makes it simple and cost-effective
+    to push notifications to Apple, Google, Fire OS, and Windows devices, as well
+    as Android devices in China with Baidu Cloud Push. You can also use SNS to
+    push notifications to internet connected smart devices, as well as other
+    distributed services. Besides pushing cloud notifications directly to mobile
+    devices, Amazon SNS can also deliver notifications by SMS text message or
+    email, to Amazon Simple Queue Service (SQS) queues, or to any HTTP endpoint.
+    To prevent messages from being lost, all messages published to Amazon SNS are
+    stored redundantly across multiple availability zones.
+
+    .
+    /See:/ <http://docs.aws.amazon.com/sns/latest/api/Welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.SNS
+        , Network.AWS.SNS.AddPermission
+        , Network.AWS.SNS.ConfirmSubscription
+        , Network.AWS.SNS.CreatePlatformApplication
+        , Network.AWS.SNS.CreatePlatformEndpoint
+        , Network.AWS.SNS.CreateTopic
+        , Network.AWS.SNS.DeleteEndpoint
+        , Network.AWS.SNS.DeletePlatformApplication
+        , Network.AWS.SNS.DeleteTopic
+        , Network.AWS.SNS.GetEndpointAttributes
+        , Network.AWS.SNS.GetPlatformApplicationAttributes
+        , Network.AWS.SNS.GetSubscriptionAttributes
+        , Network.AWS.SNS.GetTopicAttributes
+        , Network.AWS.SNS.ListEndpointsByPlatformApplication
+        , Network.AWS.SNS.ListPlatformApplications
+        , Network.AWS.SNS.ListSubscriptions
+        , Network.AWS.SNS.ListSubscriptionsByTopic
+        , Network.AWS.SNS.ListTopics
+        , Network.AWS.SNS.Publish
+        , Network.AWS.SNS.RemovePermission
+        , Network.AWS.SNS.SetEndpointAttributes
+        , Network.AWS.SNS.SetPlatformApplicationAttributes
+        , Network.AWS.SNS.SetSubscriptionAttributes
+        , Network.AWS.SNS.SetTopicAttributes
+        , Network.AWS.SNS.Subscribe
+        , Network.AWS.SNS.Types
+        , Network.AWS.SNS.Unsubscribe
+
+    other-modules:
+
+    build-depends:
+          amazonka-core == 0.0.5.*
+        , base          >= 4.7     && < 5

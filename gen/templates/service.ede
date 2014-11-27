@@ -1,0 +1,18 @@
+{% include "_include/license.ede" %}
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+{% if documentation %}
+{{ documentation }}
+{% endif %}
+module {{ namespace }}
+{% for imp in imports %}
+    {% if imp.first %}( {% else %}, {% endif %}module {{ imp.value }}
+  {% if imp.last %}
+    ) where
+  {% endif %}
+{% else %}
+    where
+{% endfor %}
+
+{% include "_include/imports.ede" %}

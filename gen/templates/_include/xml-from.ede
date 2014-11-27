@@ -1,0 +1,19 @@
+
+instance FromXML {{ type.name }} where
+{% case type.type %}
+{% when "nullary" %}
+    parseXML = parseXMLText "{{ type.name }}"
+{% else %}
+  {% if type.resultWrapper %}
+    parseXML = withElement "{{ type.resultWrapper }}" $ \x -> {{ type.name }}
+  {% else %}
+    parseXML x = {{ type.name }}
+  {% endif %}
+  {% for field in type.fields %}
+    {% if field.value.flattened %}
+        {% include "applicative.ede" %} parseXML x
+    {% else %}
+        {% include "applicative.ede" %} x {% include "xml-operator.ede" %} "{{ field.value.locationName }}"
+    {% endif %}
+  {% endfor %}
+{% endcase %}

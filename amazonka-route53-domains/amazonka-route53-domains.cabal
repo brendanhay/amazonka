@@ -1,0 +1,57 @@
+name:                  amazonka-route53-domains
+version:               0.0.5
+synopsis:              Amazon Route 53 Domains SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Pending
+
+    .
+    /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains.CheckDomainAvailability
+        , Network.AWS.Route53Domains.DisableDomainAutoRenew
+        , Network.AWS.Route53Domains.DisableDomainTransferLock
+        , Network.AWS.Route53Domains.EnableDomainAutoRenew
+        , Network.AWS.Route53Domains.EnableDomainTransferLock
+        , Network.AWS.Route53Domains.GetDomainDetail
+        , Network.AWS.Route53Domains.GetOperationDetail
+        , Network.AWS.Route53Domains.ListDomains
+        , Network.AWS.Route53Domains.ListOperations
+        , Network.AWS.Route53Domains.RegisterDomain
+        , Network.AWS.Route53Domains.RetrieveDomainAuthCode
+        , Network.AWS.Route53Domains.TransferDomain
+        , Network.AWS.Route53Domains.Types
+        , Network.AWS.Route53Domains.UpdateDomainContact
+        , Network.AWS.Route53Domains.UpdateDomainContactPrivacy
+        , Network.AWS.Route53Domains.UpdateDomainNameservers
+
+    other-modules:
+
+    build-depends:
+          amazonka-core == 0.0.5.*
+        , base          >= 4.7     && < 5

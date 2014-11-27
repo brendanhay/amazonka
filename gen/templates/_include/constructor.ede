@@ -1,0 +1,17 @@
+{% case type.type %}
+{% when "void" %}
+{% when "nullary" %}
+{% else %}
+  {% include "constructor-documentation.ede" %}
+  {% include "constructor-signature.ede" %}
+{{ type.ctor }}{% for req in type.required %} p{{ req.index }}{% endfor %} = {{ type.name }}
+  {% for req in type.required %}
+    {% if req.first %}{ {% else %}, {% endif %}{{ req.value.name | justifyLeft(type.fieldPad) }} = {% include "iso.ede" with field = req.value %}p{{ req.index }}
+  {% endfor %}
+  {% for opt in type.optional %}
+    {% if (type.required | empty) && opt.first %}{ {% else %}, {% endif %}{{ opt.value.name | justifyLeft(type.fieldPad) }} = {{ opt.value.default }}
+  {% endfor %}
+  {% if !(type.required | empty) || !(type.optional | empty) %}
+    }
+  {% endif %}
+{% endcase %}

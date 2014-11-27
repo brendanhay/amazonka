@@ -1,6 +1,0 @@
-GET /
-Action=SuspendProcesses
-AutoScalingGroupName={{ spAutoScalingGroupName }}
-{% if spScalingProcesses %}
-ScalingProcesses.member.{{ n }}={{.}}
-{% endif %}

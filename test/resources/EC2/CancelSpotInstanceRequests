@@ -1,5 +1,0 @@
-GET /
-Action=CancelSpotInstanceRequests
-{% if csirSpotInstanceRequestId %}
-SpotInstanceRequestId.{{ n }}={{.}}
-{% endif %}

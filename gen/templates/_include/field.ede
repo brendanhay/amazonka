@@ -1,0 +1,10 @@
+{% case field.value.location %}
+{% when "headers" %}
+        {% include "applicative.ede" %} h ~:: "{{ field.value.locationName }}"
+{% when "header" %}
+        {% include "applicative.ede" %} h {% if field.value.required %}~:{% else %}~:?{% endif %} "{{ field.value.locationName }}"
+{% when "status-code" %}
+        {% include "applicative.ede" %} o .: "{{ field.value.locationName }}"
+{% when "body" %}
+        {% include "applicative.ede" %} pure (RsBody b)
+{% endcase %}

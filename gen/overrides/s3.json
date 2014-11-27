@@ -1,0 +1,72 @@
+{
+    "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/AmazonS3/latest/API/",
+    "library": "amazonka-s3",
+    "documentation": "Amazon Simple Storage Service is storage for the Internet. Amazon S3 has a simple web services interface that you can use to store and retrieve any amount of data, at any time, from anywhere on the web. It gives any developer access to the same highly scalable, reliable, fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites. The service aims to maximize benefits of scale and to pass those benefits on to developers.",
+    "metadata": {
+        "serviceAbbreviation": "S3"
+    },
+    "operationModules": [
+    ],
+    "typeModules": [
+        "Network.AWS.S3.Internal"
+    ],
+    "overrides": {
+        "Error": {
+            "rename_to": "S3ServiceError"
+        },
+        "ListObjectsResponse": {
+            "required": [
+                "Name"
+            ]
+        },
+        "Bucket": {
+            "required": [
+                "CreationDate",
+                "Name"
+            ]
+        },
+        "Object": {
+            "required": [
+                "ETag",
+                "Size",
+                "Owner",
+                "Key",
+                "StorageClass",
+                "LastModified"
+            ]
+        },
+        "BucketLocationConstraint": {
+            "replaced_by": "Region"
+        },
+        "BucketName": {
+            "replaced_by": "BucketName"
+        },
+        "ObjectKey": {
+            "replaced_by": "ObjectKey"
+        },
+        "ObjectVersionId": {
+            "replaced_by": "ObjectVersionId"
+        },
+        "ETag": {
+            "replaced_by": "ETag"
+        },
+        "Delimiter": {
+            "replaced_by": "Char"
+        },
+        "NoncurrentVersionExpiration": {
+            "required": [
+                "NoncurrentDays"
+            ]
+        },
+        "NoncurrentVersionTransition": {
+            "required": [
+                "NoncurrentDays",
+                "StorageClass"
+            ]
+        },
+        "BucketCannedACL": {
+            "sum_prefix": "Canned"
+        }
+    }
+}

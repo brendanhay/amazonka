@@ -1,7 +1,0 @@
-GET /2012-12-12/hostedzone
-{% if lhzMarker %}
-marker={{ lhzMarker }}
-{% endif %}
-{% if lhzMaxItems %}
-maxitems={{ lhzMaxItems }}
-{% endif %}

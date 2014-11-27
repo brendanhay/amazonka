@@ -1,3 +1,0 @@
-GET /
-Action=DeleteLaunchConfiguration
-LaunchConfigurationName={{ dlcLaunchConfigurationName }}

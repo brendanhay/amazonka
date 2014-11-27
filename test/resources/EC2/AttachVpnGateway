@@ -1,4 +1,0 @@
-GET /
-Action=AttachVpnGateway
-VpcId={{ avgVpcId }}
-VpnGatewayId={{ avgVpnGatewayId }}

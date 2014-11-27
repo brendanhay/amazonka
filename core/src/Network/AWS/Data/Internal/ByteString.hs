@@ -104,7 +104,7 @@ instance ToBuilder a => ToBuilder (Maybe a) where
     build (Just x) = "Just " <> build x
 
 instance ToBuilder a => ToBuilder (CI a) where
-    build = build . CI.original
+    build = build . CI.foldedCase
 
 instance ToBuilder [Header] where
     build = mconcat
@@ -140,7 +140,7 @@ instance ToBuilder RequestBody where
 
 instance ToBuilder Request where
     build x = mconcat $ intersperse "\n"
-        [ "Client Request {"
+        [ "[Client Request] {"
         , "  host              = " <> build (host            x)
         , "  port              = " <> build (port            x)
         , "  secure            = " <> build (secure          x)
@@ -156,7 +156,7 @@ instance ToBuilder Request where
 
 instance ToBuilder (Response a) where
     build x = mconcat $ intersperse "\n"
-        [ "Client Response {"
+        [ "[Client Response] {"
         , "  status code    = " <> build (statusCode      s)
         , "  status message = " <> build (statusMessage   s)
         , "  version        = " <> build (responseVersion x)

@@ -48,9 +48,9 @@ data instance Meta V3 = Meta
 
 instance ToBuilder (Meta V3) where
     build Meta{..} = mconcat $ intersperse "\n"
-        [ "Version 3 Metadata {"
-        , "  signature " <> build _mSignature
-        , "  time      " <> build _mTime
+        [ "[Version 3 Metadata] {"
+        , "  signature = " <> build _mSignature
+        , "  time      = " <> build _mTime
         , "}"
         ]
 

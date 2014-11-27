@@ -387,12 +387,12 @@ instance Default (Request a) where
 
 instance ToBuilder (Request a) where
     build Request{..} = mconcat $ intersperse "\n"
-        [ "Request Parameters {"
+        [ "[Raw Request] {"
         , "  method  = "  <> build _rqMethod
         , "  path    = "  <> build _rqPath
         , "  query   = "  <> build _rqQuery
         , "  headers = "  <> build _rqHeaders
-        , "  body {"
+        , "  body    = {"
         , "    hash    = "  <> build (bodyHash _rqBody)
         , "    payload =\n" <> build (_bdyBody _rqBody)
         , "  }"

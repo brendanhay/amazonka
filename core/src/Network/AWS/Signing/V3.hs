@@ -28,8 +28,7 @@ import           Control.Applicative
 import           Control.Lens
 import           Data.ByteString              (ByteString)
 import qualified Data.ByteString.Base64       as Base64
-import qualified Data.ByteString.Char8        as BS
-import           Data.List                    (sortBy)
+import           Data.List                    (sortBy, intersperse)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
@@ -47,11 +46,12 @@ data instance Meta V3 = Meta
     , _mTime      :: UTCTime
     }
 
-instance Show (Meta V3) where
-    show Meta{..} = BS.unpack $ BS.unlines
-        [ "Version 3 Metadata:"
-        , "_mSignature " <> _mSignature
-        , "_mTime      " <> toBS _mTime
+instance ToBuilder (Meta V3) where
+    build Meta{..} = mconcat $ intersperse "\n"
+        [ "Version 3 Metadata {"
+        , "  signature " <> build _mSignature
+        , "  time      " <> build _mTime
+        , "}"
         ]
 
 instance AWSSigner V3 where

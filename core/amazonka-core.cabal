@@ -81,7 +81,7 @@ library
         , cryptohash-conduit   >= 0.1.1
         , data-default-class   >= 0.0.1
         , hashable             >= 1.2
-        , http-client          >= 0.3.6  && < 0.4
+        , http-client          >= 0.4.3  && < 0.5
         , http-types           >= 0.8
         , lens                 >= 4.3    && < 5
         , mmorph               >= 1      && < 2

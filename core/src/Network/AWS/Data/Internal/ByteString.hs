@@ -1,5 +1,8 @@
 {-# LANGUAGE DefaultSignatures #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -12,13 +15,9 @@
 
 module Network.AWS.Data.Internal.ByteString
     ( LazyByteString
-
     , ToByteString (..)
-    , showBS
-
     , ToBuilder    (..)
-    , buildBS
-
+    , showBS
     , stripBS
     ) where
 
@@ -32,11 +31,14 @@ import           Data.CaseInsensitive           (CI)
 import qualified Data.CaseInsensitive           as CI
 import           Data.Char
 import           Data.Int
+import           Data.List                      (intersperse)
+import           Data.Monoid
 import           Data.Text                      (Text)
 import qualified Data.Text.Encoding             as Text
 import           Data.Time                      (UTCTime)
 import           Network.AWS.Data.Internal.Text
-import           Network.HTTP.Types.Method
+import           Network.HTTP.Client
+import           Network.HTTP.Types
 import           Numeric.Natural
 
 type LazyByteString = LBS.ByteString
@@ -77,17 +79,93 @@ class ToBuilder a where
     build = build . toBS
     {-# INLINE build #-}
 
-instance ToBuilder Builder    where build = id
-instance ToBuilder ByteString where build = Build.byteString
-instance ToBuilder Char       where build = Build.charUtf8
-instance ToBuilder [Char]     where build = Build.stringUtf8
-instance ToBuilder Int        where build = Build.intDec
-instance ToBuilder Int64      where build = Build.int64Dec
-instance ToBuilder Integer    where build = Build.integerDec
-instance ToBuilder Natural    where build = Build.integerDec . toInteger
-instance ToBuilder Double     where build = Build.doubleDec
+instance ToBuilder Builder        where build = id
+instance ToBuilder ByteString     where build = Build.byteString
+instance ToBuilder LazyByteString where build = Build.lazyByteString
+instance ToBuilder Char           where build = Build.charUtf8
+instance ToBuilder [Char]         where build = Build.stringUtf8
+instance ToBuilder Int            where build = Build.intDec
+instance ToBuilder Int64          where build = Build.int64Dec
+instance ToBuilder Integer        where build = Build.integerDec
+instance ToBuilder Natural        where build = Build.integerDec . toInteger
+instance ToBuilder Double         where build = Build.doubleDec
 instance ToBuilder StdMethod
 instance ToBuilder (Digest a)
+
+instance ToBuilder Bool where
+    build True  = "True"
+    build False = "False"
+
+instance ToBuilder UTCTime where
+    build = Build.stringUtf8 . show
+
+instance ToBuilder a => ToBuilder (Maybe a) where
+    build Nothing  = "Nothing"
+    build (Just x) = "Just " <> build x
+
+instance ToBuilder a => ToBuilder (CI a) where
+    build = build . CI.foldedCase
+
+instance ToBuilder [Header] where
+    build = mconcat
+          . intersperse "; "
+          . map (\(k, v) -> build k <> ": " <> build v)
+
+instance ToBuilder HttpVersion where
+    build HttpVersion{..} = "HTTP/"
+        <> build httpMajor
+        <> build '.'
+        <> build httpMinor
+
+instance ToBuilder RequestBody where
+    build = \case
+        RequestBodyLBS lbs
+            | n <= m               -> build lbs
+            | otherwise            -> "      <lazy:"    <> build n <> ">"
+          where
+            n = LBS.length lbs
+
+        RequestBodyBS bs
+            | n <= fromIntegral m  -> build bs
+            | otherwise            -> "      <strict:"  <> build n <> ">"
+          where
+            n = BS.length bs
+
+        RequestBodyBuilder n _     -> "      <builder:" <> build n <> ">"
+        RequestBodyStream  n _     -> "      <stream:"  <> build n <> ">"
+        RequestBodyStreamChunked _ -> "      <chunked>"
+      where
+        m :: Int64
+        m = 4096
+
+instance ToBuilder Request where
+    build x = mconcat $ intersperse "\n"
+        [ "[Client Request] {"
+        , "  host              = " <> build (host            x)
+        , "  port              = " <> build (port            x)
+        , "  secure            = " <> build (secure          x)
+        , "  headers           = " <> build (requestHeaders  x)
+        , "  path              = " <> build (path            x)
+        , "  query             = " <> build (queryString     x)
+        , "  method            = " <> build (method          x)
+        , "  redirect count    = " <> build (redirectCount   x)
+        , "  response timeout  = " <> build (responseTimeout x)
+        , "  request version   = " <> build (requestVersion  x)
+        , "}"
+        ]
+
+instance ToBuilder (Response a) where
+    build x = mconcat $ intersperse "\n"
+        [ "[Client Response] {"
+        , "  status code    = " <> build (statusCode      s)
+        , "  status message = " <> build (statusMessage   s)
+        , "  version        = " <> build (responseVersion x)
+        , "  headers        = " <> build (responseHeaders x)
+        , "  cookies        = " <> build (show (responseCookieJar x))
+        , "}"
+        ]
+      where
+        s = responseStatus x
 
 stripBS :: ByteString -> ByteString
 stripBS = BS.dropWhile isSpace . fst . BS.spanEnd isSpace

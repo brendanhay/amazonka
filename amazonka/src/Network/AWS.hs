@@ -30,6 +30,11 @@ module Network.AWS
     , newEnv
     , getEnv
 
+    -- * Logging
+    , LogLevel    (..)
+    , Logger
+    , newLogger
+
     -- * Requests
     -- ** Synchronous
     , send
@@ -47,10 +52,10 @@ import           Control.Monad.Catch
 import           Control.Monad.Except
 import           Control.Monad.Trans.Resource
 import           Data.Conduit
-import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Auth
 import           Network.AWS.Data
+import           Network.AWS.Internal.Log
 import qualified Network.AWS.Signing.Internal as Sign
 import           Network.AWS.Types
 import           Network.HTTP.Conduit         hiding (Response)
@@ -74,7 +79,7 @@ newEnv :: (Functor m, MonadIO m)
        -> Credentials
        -> Manager
        -> ExceptT String m Env
-newEnv r c m = Env r None m `liftM` getAuth m c
+newEnv r c m = Env r (\_ _ -> return ()) m `liftM` getAuth m c
 
 -- | Create a new environment without debug logging, creating a new 'Manager'.
 --
@@ -102,15 +107,17 @@ send :: (MonadCatch m, MonadResource m, AWSRequest a)
 send Env{..} x@(request -> rq) = go `catch` er >>= response x
   where
     go = do
-        debug _envLogger $
-            "[Raw Request]\n" <> toText rq
+        debug _envLogger (build rq)
+
         t  <- liftIO getCurrentTime
-        s  <- Sign.sign _envAuth _envRegion rq t
-        debug _envLogger $
-            "[Signed Request]\n" <> toText s
-        rs <- liftResourceT (http (s^.sgRequest) _envManager)
-        debug _envLogger $
-            "[Raw Response]\n" <> toText rs
+
+        Signed m s <- Sign.sign _envAuth _envRegion rq t
+        info  _envLogger (build s)
+        debug _envLogger (build m)
+
+        rs <- liftResourceT (http s _envManager)
+        info _envLogger (build rs)
+
         return (Right rs)
 
     er ex = return (Left (ex :: HttpException))

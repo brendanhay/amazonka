@@ -35,10 +35,6 @@ module Network.AWS.Types
     , Auth          (..)
     , withAuth
 
-    -- * Logger
-    , Logger        (..)
-    , debug
-
     -- * Services
     , Abbrev
     , AWSService    (..)
@@ -113,6 +109,7 @@ import           Data.Default.Class
 import qualified Data.HashSet                 as Set
 import           Data.Hashable
 import           Data.IORef
+import           Data.List                    (intersperse)
 import           Data.Monoid
 import           Data.String
 import           Data.Text                    (Text)
@@ -205,7 +202,7 @@ data family Meta v :: *
 -- | A signed 'ClientRequest' and associated metadata specific to the signing
 -- algorithm that was used.
 data Signed a v where
-    Signed :: Show (Meta v)
+    Signed :: ToBuilder (Meta v)
            => { _sgMeta    :: Meta v
               , _sgRequest :: ClientRequest
               }
@@ -216,13 +213,6 @@ sgMeta f (Signed m rq) = f m <&> \y -> Signed y rq
 
 sgRequest :: Lens' (Signed a v) ClientRequest
 sgRequest f (Signed m rq) = f rq <&> \y -> Signed m y
-
-instance ToText (Signed a v) where
-    toText (Signed m rq) = Text.unlines
-        [ Text.pack (show m)
-        , "HTTP Request:"
-        , Text.pack (show rq)
-        ]
 
 class AWSSigner v where
     signed :: (AWSService (Sv a), v ~ Sg (Sv a))
@@ -296,16 +286,6 @@ data Auth
 withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Auth  e) f = f e
 withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
-
--- | The log level and associated logger function.
-data Logger
-    = None
-    | Debug (Text -> IO ())
-
--- | Log a message using the debug logger, or if none is specified noop.
-debug :: MonadIO m => Logger -> Text -> m ()
-debug None      = const (return ())
-debug (Debug f) = liftIO . f
 
 data Endpoint = Endpoint
     { _endpointHost  :: ByteString
@@ -405,14 +385,18 @@ data Request a = Request
 instance Default (Request a) where
     def = Request GET "/" mempty mempty ""
 
-instance ToText (Request a) where
-    toText Request{..} = Text.unlines
-        [ "Request:"
-        , "_rqMethod  = " <> toText _rqMethod
-        , "_rqPath    = " <> toText _rqPath
-        , "_rqQuery   = " <> toText _rqQuery
-        , "_rqHeaders = " <> toText _rqHeaders
-        , "_rqBody    = " <> toText _rqBody
+instance ToBuilder (Request a) where
+    build Request{..} = mconcat $ intersperse "\n"
+        [ "[Raw Request] {"
+        , "  method  = "  <> build _rqMethod
+        , "  path    = "  <> build _rqPath
+        , "  query   = "  <> build _rqQuery
+        , "  headers = "  <> build _rqHeaders
+        , "  body    = {"
+        , "    hash    = "  <> build (bodyHash _rqBody)
+        , "    payload =\n" <> build (_bdyBody _rqBody)
+        , "  }"
+        , "}"
         ]
 
 -- | The sum of available AWS regions.

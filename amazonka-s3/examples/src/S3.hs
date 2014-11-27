@@ -28,6 +28,6 @@ import           System.IO
 
 integration :: IO (Either Error ListBucketsResponse)
 integration = do
-    hSetBuffering stdout LineBuffering
-    env <- getEnv Ireland Discover <&> envLogger .~ Debug Text.putStrLn
+    lgr <- newLogger Debug stdout
+    env <- getEnv Ireland Discover <&> envLogger .~ lgr
     runAWST env $ send listBuckets

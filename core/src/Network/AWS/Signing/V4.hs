@@ -58,16 +58,19 @@ data instance Meta V4 = Meta
     , _mTime      :: UTCTime
     }
 
-instance Show (Meta V4) where
-    show Meta{..} = BS.unpack $ BS.unlines
-        [ "Version 4 Metadata:"
-        , "_mAlgorithm " <> _mAlgorithm
-        , "_mScope     " <> _mScope
-        , "_mSigned    " <> _mSigned
-        , "_mCReq      " <> _mCReq
-        , "_mSTS       " <> _mSTS
-        , "_mSignature " <> _mSignature
-        , "_mTime      " <> toBS _mTime
+instance ToBuilder (Meta V4) where
+    build Meta{..} = mconcat $ intersperse "\n"
+        [ "[Version 4 Metadata] {"
+        , "  algorithm         = " <> build _mAlgorithm
+        , "  credential scope  = " <> build _mScope
+        , "  signed headers    = " <> build _mSigned
+        , "  canonical request = {"
+        , build _mCReq
+        , "  }"
+        , "  string to sign    = " <> build _mSTS
+        , "  signature         = " <> build _mSignature
+        , "  time              = " <> build _mTime
+        , "}"
         ]
 
 instance AWSPresigner V4 where

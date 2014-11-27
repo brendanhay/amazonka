@@ -13,26 +13,27 @@
 
 module Network.AWS.Data.Internal.Body where
 
-import           Control.Lens
 import           Control.Applicative
+import           Control.Lens
 import           Control.Monad.IO.Class
 import           Control.Monad.Morph
 import           Control.Monad.Trans.Resource
 import           Crypto.Hash
-import qualified Crypto.Hash.Conduit            as Conduit
+import qualified Crypto.Hash.Conduit                  as Conduit
 import           Data.Aeson
-import           Data.ByteString                (ByteString)
-import qualified Data.ByteString                as BS
-import qualified Data.ByteString.Lazy           as LBS
-import qualified Data.ByteString.Lazy.Char8     as LBS8
+import           Data.ByteString                      (ByteString)
+import qualified Data.ByteString                      as BS
+import qualified Data.ByteString.Builder              as Build
+import qualified Data.ByteString.Lazy                 as LBS
+import qualified Data.ByteString.Lazy.Char8           as LBS8
 import           Data.Conduit
-import qualified Data.Conduit.Binary            as Conduit
+import qualified Data.Conduit.Binary                  as Conduit
 import           Data.IORef
 import           Data.Int
+import           Data.List                            (intersperse)
 import           Data.Monoid
 import           Data.String
-import qualified Data.Text                      as Text
-import           Network.AWS.Data.Internal.Text
+import           Network.AWS.Data.Internal.ByteString
 import           Network.HTTP.Client
 import           System.IO
 
@@ -40,14 +41,14 @@ data RsBody = RsBody (ResumableSource (ResourceT IO) ByteString)
 
 makePrisms ''RsBody
 
-connectBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
-connectBody (RsBody src) sink = hoist liftResourceT src $$+- sink
-
-instance ToText RsBody where
-    toText = const "RsBody <body>"
+instance ToBuilder RsBody where
+    build = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
 
 instance Show RsBody where
-    show = Text.unpack . toText
+    show = LBS8.unpack . Build.toLazyByteString . build
+
+connectBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
+connectBody (RsBody src) sink = hoist liftResourceT src $$+- sink
 
 data RqBody = RqBody
     { _bdyHash :: Digest SHA256
@@ -59,11 +60,13 @@ makeLenses ''RqBody
 bodyHash :: RqBody -> ByteString
 bodyHash = digestToHexByteString . _bdyHash
 
-instance ToText RqBody where
-    toText (RqBody h _) = "RqBody " <> toText h <> " <body>"
-
-instance Show RqBody where
-    show = Text.unpack . toText
+instance ToBuilder RqBody where
+    build x@(RqBody _ b) = mconcat $ intersperse "\n"
+        [ "    Body {"
+        , "      hash    = "  <> build (bodyHash x)
+        , "      payload =\n" <> build b
+        , "    }"
+        ]
 
 instance IsString RqBody where
     fromString = toBody . LBS8.pack

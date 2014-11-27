@@ -37,15 +37,17 @@ module Control.Monad.Trans.AWS
     , envRegion
     , envManager
     , envLogger
-    , scoped
     -- ** Creating the environment
     , Credentials (..)
     , AWS.newEnv
     , AWS.getEnv
 
-    -- * Debugging
-    , debug
-    , whenDebug
+    -- * Logging
+    , LogLevel    (..)
+    , Logger
+    , newLogger
+    , logInfo
+    , logDebug
 
     -- * Regionalisation
     , Region      (..)
@@ -83,14 +85,14 @@ import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
+import           Data.ByteString.Builder      (Builder)
 import           Data.Conduit
-import           Data.Text                    (Text)
 import           Data.Time
 import           Network.AWS                  (Env, envRegion, envLogger, envAuth, envManager)
 import qualified Network.AWS                  as AWS
 import           Network.AWS.Auth
-import qualified Network.AWS.Types            as Types
-import           Network.AWS.Types            hiding (debug)
+import           Network.AWS.Internal.Log
+import           Network.AWS.Types
 
 -- | The top-level error type.
 type Error = ServiceError String
@@ -111,7 +113,7 @@ type MonadAWS m =
 
 -- | The transformer. This satisfies all of the constraints that the functions
 -- in this module require, such as providing 'MonadResource' instances,
--- as well as keeping track of the internal 'Env' environment.
+-- and keeping track of the 'Env' environment.
 --
 -- The 'MonadError' instance for this transformer internally uses 'ExceptT'
 -- to handle actions that result in an 'Error'. For more information see
@@ -225,19 +227,13 @@ verifyWith p f e = either (const err) g (matching p e)
 scoped :: MonadReader Env m => (Env -> m a) -> m a
 scoped f = ask >>= f
 
--- | Use the logger from 'envLogger' to log a debug message.
-debug :: (MonadIO m, MonadReader Env m) => Text -> m ()
-debug t = view envLogger >>= (`Types.debug` t)
+-- | Use the supplied logger from 'envLogger' to log info messages.
+logInfo :: (MonadIO m, MonadReader Env m) => Builder -> m ()
+logInfo x = view envLogger >>= (`info` x)
 
--- | Perform a monadic action if 'envLogger' is set to 'Debug'.
---
--- Analogous to 'when'.
-whenDebug :: MonadReader Env m => m () -> m ()
-whenDebug f = do
-    l <- view envLogger
-    case l of
-        Debug _ -> f
-        _       -> return ()
+-- | Use the supplied logger from 'envLogger' to log debug messages.
+logDebug :: (MonadIO m, MonadReader Env m) => Builder -> m ()
+logDebug x = view envLogger >>= (`debug` x)
 
 -- | Scope a monadic action within the specific 'Region'.
 within :: MonadReader Env m => Region -> m a -> m a

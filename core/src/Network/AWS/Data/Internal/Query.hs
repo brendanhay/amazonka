@@ -69,8 +69,10 @@ instance Plated Query where
 instance ToByteString Query where
     toBS = renderQuery
 
+instance ToBuilder Query
+
 instance ToText Query where
-    toText = Text.decodeUtf8 . renderQuery
+    toText = Text.decodeUtf8 . toBS
 
 instance IsString Query where
     fromString = toQuery . BS.pack

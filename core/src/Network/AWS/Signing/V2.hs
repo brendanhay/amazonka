@@ -4,7 +4,7 @@
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
 
--- Module      : Network.AWS.Signing.V2
+-- Module      : Network.AWS.Signaing.V2
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -29,6 +29,7 @@ import           Control.Lens
 import           Data.ByteString              (ByteString)
 import qualified Data.ByteString.Base64       as Base64
 import qualified Data.ByteString.Char8        as BS
+import           Data.List                    (intersperse)
 import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data
@@ -44,11 +45,12 @@ data instance Meta V2 = Meta
     , _mTime      :: UTCTime
     }
 
-instance Show (Meta V2) where
-    show Meta{..} = BS.unpack $ BS.unlines
-        [ "Version 2 Metadata:"
-        , "_mSignature " <> _mSignature
-        , "_mTime      " <> toBS _mTime
+instance ToBuilder (Meta V2) where
+    build Meta{..} = mconcat $ intersperse "\n"
+        [ "[Version 2 Metadata] {"
+        , "  signature = " <> build _mSignature
+        , "  time      = " <> build _mTime
+        , "}"
         ]
 
 instance AWSSigner V2 where

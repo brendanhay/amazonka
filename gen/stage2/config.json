@@ -2347,7 +2347,10 @@
             }
         ],
         "imports": [],
-        "shared": []
+        "shared": [
+            "DeliveryChannel",
+            "ConfigurationRecorder"
+        ]
     },
     "operations": [
         {

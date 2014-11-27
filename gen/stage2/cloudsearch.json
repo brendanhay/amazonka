@@ -4636,7 +4636,13 @@
         "imports": [],
         "shared": [
             "DomainStatus",
-            "AvailabilityOptionsStatus"
+            "AvailabilityOptionsStatus",
+            "IndexFieldStatus",
+            "ScalingParametersStatus",
+            "AnalysisSchemeStatus",
+            "ExpressionStatus",
+            "SuggesterStatus",
+            "AccessPoliciesStatus"
         ]
     },
     "operations": [

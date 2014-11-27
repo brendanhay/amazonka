@@ -2756,7 +2756,12 @@
             "Group",
             "InstanceProfile",
             "ServerCertificateMetadata",
-            "User"
+            "LoginProfile",
+            "User",
+            "statusType",
+            "Role",
+            "VirtualMFADevice",
+            "SigningCertificate"
         ]
     },
     "operations": [

@@ -3036,6 +3036,7 @@
         "imports": [],
         "shared": [
             "Tag",
+            "HealthCheck",
             "LoadBalancerAttributes",
             "Listener",
             "Instance"

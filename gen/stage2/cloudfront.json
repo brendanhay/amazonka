@@ -8907,7 +8907,10 @@
         "imports": [],
         "shared": [
             "Invalidation",
+            "CloudFrontOriginAccessIdentityConfig",
+            "StreamingDistributionConfig",
             "Distribution",
+            "DistributionConfig",
             "StreamingDistribution",
             "CloudFrontOriginAccessIdentity"
         ]

@@ -3553,9 +3553,15 @@
             "Network.AWS.Route53.Internal"
         ],
         "shared": [
+            "GeoLocationDetails",
+            "HealthCheck",
             "RecordType",
+            "TagResourceType",
+            "HostedZone",
+            "ResourceTagSet",
             "VPC",
             "DelegationSet",
+            "ChangeInfo",
             "HealthCheckObservation"
         ]
     },

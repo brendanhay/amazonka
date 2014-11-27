@@ -1838,6 +1838,7 @@
             "MetricAlarm",
             "StandardUnit",
             "Dimension",
+            "StateValue",
             "Statistic"
         ]
     },

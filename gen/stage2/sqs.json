@@ -1218,7 +1218,10 @@
             }
         ],
         "imports": [],
-        "shared": []
+        "shared": [
+            "Text",
+            "BatchResultErrorEntry"
+        ]
     },
     "operations": [
         {

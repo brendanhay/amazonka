@@ -68,6 +68,21 @@ module Network.AWS.EC2.Types
     , iilsSubnetId
     , iilsUserData
 
+    -- * Snapshot
+    , Snapshot
+    , snapshot
+    , sDescription
+    , sEncrypted
+    , sOwnerAlias
+    , sOwnerId
+    , sProgress
+    , sSnapshotId
+    , sStartTime
+    , sState
+    , sTags
+    , sVolumeId
+    , sVolumeSize
+
     -- * SpotInstanceStateFault
     , SpotInstanceStateFault
     , spotInstanceStateFault
@@ -385,6 +400,30 @@ module Network.AWS.EC2.Types
     , vseNotAfter
     , vseNotBefore
 
+    -- * Volume
+    , Volume
+    , volume
+    , vAttachments
+    , vAvailabilityZone
+    , vCreateTime
+    , vEncrypted
+    , vIops
+    , vSize
+    , vSnapshotId
+    , vState
+    , vTags
+    , vVolumeId
+    , vVolumeType
+
+    -- * Reservation
+    , Reservation
+    , reservation
+    , rGroups
+    , rInstances
+    , rOwnerId
+    , rRequesterId
+    , rReservationId
+
     -- * ImportInstanceVolumeDetailItem
     , ImportInstanceVolumeDetailItem
     , importInstanceVolumeDetailItem
@@ -443,15 +482,15 @@ module Network.AWS.EC2.Types
     -- * Subnet
     , Subnet
     , subnet
-    , sAvailabilityZone
-    , sAvailableIpAddressCount
-    , sCidrBlock
-    , sDefaultForAz
-    , sMapPublicIpOnLaunch
-    , sState
-    , sSubnetId
-    , sTags
-    , sVpcId
+    , s1AvailabilityZone
+    , s1AvailableIpAddressCount
+    , s1CidrBlock
+    , s1DefaultForAz
+    , s1MapPublicIpOnLaunch
+    , s1State
+    , s1SubnetId
+    , s1Tags
+    , s1VpcId
 
     -- * KeyPairInfo
     , KeyPairInfo
@@ -1688,6 +1727,135 @@ instance ToQuery ImportInstanceLaunchSpecification where
         , "privateIpAddress"                  =? _iilsPrivateIpAddress
         , "subnetId"                          =? _iilsSubnetId
         , "userData"                          =? _iilsUserData
+        ]
+
+data Snapshot = Snapshot
+    { _sDescription :: Maybe Text
+    , _sEncrypted   :: Maybe Bool
+    , _sOwnerAlias  :: Maybe Text
+    , _sOwnerId     :: Maybe Text
+    , _sProgress    :: Maybe Text
+    , _sSnapshotId  :: Maybe Text
+    , _sStartTime   :: Maybe ISO8601
+    , _sState       :: Maybe SnapshotState
+    , _sTags        :: List "item" Tag
+    , _sVolumeId    :: Maybe Text
+    , _sVolumeSize  :: Maybe Int
+    } deriving (Eq, Show)
+
+-- | 'Snapshot' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'sDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'sEncrypted' @::@ 'Maybe' 'Bool'
+--
+-- * 'sOwnerAlias' @::@ 'Maybe' 'Text'
+--
+-- * 'sOwnerId' @::@ 'Maybe' 'Text'
+--
+-- * 'sProgress' @::@ 'Maybe' 'Text'
+--
+-- * 'sSnapshotId' @::@ 'Maybe' 'Text'
+--
+-- * 'sStartTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'sState' @::@ 'Maybe' 'SnapshotState'
+--
+-- * 'sTags' @::@ ['Tag']
+--
+-- * 'sVolumeId' @::@ 'Maybe' 'Text'
+--
+-- * 'sVolumeSize' @::@ 'Maybe' 'Int'
+--
+snapshot :: Snapshot
+snapshot = Snapshot
+    { _sSnapshotId  = Nothing
+    , _sVolumeId    = Nothing
+    , _sState       = Nothing
+    , _sStartTime   = Nothing
+    , _sProgress    = Nothing
+    , _sOwnerId     = Nothing
+    , _sDescription = Nothing
+    , _sVolumeSize  = Nothing
+    , _sOwnerAlias  = Nothing
+    , _sTags        = mempty
+    , _sEncrypted   = Nothing
+    }
+
+-- | The description for the snapshot.
+sDescription :: Lens' Snapshot (Maybe Text)
+sDescription = lens _sDescription (\s a -> s { _sDescription = a })
+
+-- | Indicates whether the snapshot is encrypted.
+sEncrypted :: Lens' Snapshot (Maybe Bool)
+sEncrypted = lens _sEncrypted (\s a -> s { _sEncrypted = a })
+
+-- | The AWS account alias (for example, 'amazon', 'self') or AWS account ID that owns
+-- the snapshot.
+sOwnerAlias :: Lens' Snapshot (Maybe Text)
+sOwnerAlias = lens _sOwnerAlias (\s a -> s { _sOwnerAlias = a })
+
+-- | The AWS account ID of the Amazon EBS snapshot owner.
+sOwnerId :: Lens' Snapshot (Maybe Text)
+sOwnerId = lens _sOwnerId (\s a -> s { _sOwnerId = a })
+
+-- | The progress of the snapshot, as a percentage.
+sProgress :: Lens' Snapshot (Maybe Text)
+sProgress = lens _sProgress (\s a -> s { _sProgress = a })
+
+-- | The ID of the snapshot.
+sSnapshotId :: Lens' Snapshot (Maybe Text)
+sSnapshotId = lens _sSnapshotId (\s a -> s { _sSnapshotId = a })
+
+-- | The time stamp when the snapshot was initiated.
+sStartTime :: Lens' Snapshot (Maybe UTCTime)
+sStartTime = lens _sStartTime (\s a -> s { _sStartTime = a }) . mapping _Time
+
+-- | The snapshot state.
+sState :: Lens' Snapshot (Maybe SnapshotState)
+sState = lens _sState (\s a -> s { _sState = a })
+
+-- | Any tags assigned to the snapshot.
+sTags :: Lens' Snapshot [Tag]
+sTags = lens _sTags (\s a -> s { _sTags = a }) . _List
+
+-- | The ID of the volume.
+sVolumeId :: Lens' Snapshot (Maybe Text)
+sVolumeId = lens _sVolumeId (\s a -> s { _sVolumeId = a })
+
+-- | The size of the volume, in GiB.
+sVolumeSize :: Lens' Snapshot (Maybe Int)
+sVolumeSize = lens _sVolumeSize (\s a -> s { _sVolumeSize = a })
+
+instance FromXML Snapshot where
+    parseXML x = Snapshot
+        <$> x .@? "description"
+        <*> x .@? "encrypted"
+        <*> x .@? "ownerAlias"
+        <*> x .@? "ownerId"
+        <*> x .@? "progress"
+        <*> x .@? "snapshotId"
+        <*> x .@? "startTime"
+        <*> x .@? "status"
+        <*> parseXML x
+        <*> x .@? "volumeId"
+        <*> x .@? "volumeSize"
+
+instance ToQuery Snapshot where
+    toQuery Snapshot{..} = mconcat
+        [ "description" =? _sDescription
+        , "encrypted"   =? _sEncrypted
+        , "ownerAlias"  =? _sOwnerAlias
+        , "ownerId"     =? _sOwnerId
+        , "progress"    =? _sProgress
+        , "snapshotId"  =? _sSnapshotId
+        , "startTime"   =? _sStartTime
+        , "status"      =? _sState
+        , toQuery      _sTags
+        , "volumeId"    =? _sVolumeId
+        , "volumeSize"  =? _sVolumeSize
         ]
 
 data SpotInstanceStateFault = SpotInstanceStateFault
@@ -4325,6 +4493,215 @@ instance ToQuery VolumeStatusEvent where
         , "notBefore"   =? _vseNotBefore
         ]
 
+data Volume = Volume
+    { _vAttachments      :: List "item" VolumeAttachment
+    , _vAvailabilityZone :: Maybe Text
+    , _vCreateTime       :: Maybe ISO8601
+    , _vEncrypted        :: Maybe Bool
+    , _vIops             :: Maybe Int
+    , _vSize             :: Maybe Int
+    , _vSnapshotId       :: Maybe Text
+    , _vState            :: Maybe VolumeState
+    , _vTags             :: List "item" Tag
+    , _vVolumeId         :: Maybe Text
+    , _vVolumeType       :: Maybe VolumeType
+    } deriving (Eq, Show)
+
+-- | 'Volume' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'vAttachments' @::@ ['VolumeAttachment']
+--
+-- * 'vAvailabilityZone' @::@ 'Maybe' 'Text'
+--
+-- * 'vCreateTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'vEncrypted' @::@ 'Maybe' 'Bool'
+--
+-- * 'vIops' @::@ 'Maybe' 'Int'
+--
+-- * 'vSize' @::@ 'Maybe' 'Int'
+--
+-- * 'vSnapshotId' @::@ 'Maybe' 'Text'
+--
+-- * 'vState' @::@ 'Maybe' 'VolumeState'
+--
+-- * 'vTags' @::@ ['Tag']
+--
+-- * 'vVolumeId' @::@ 'Maybe' 'Text'
+--
+-- * 'vVolumeType' @::@ 'Maybe' 'VolumeType'
+--
+volume :: Volume
+volume = Volume
+    { _vVolumeId         = Nothing
+    , _vSize             = Nothing
+    , _vSnapshotId       = Nothing
+    , _vAvailabilityZone = Nothing
+    , _vState            = Nothing
+    , _vCreateTime       = Nothing
+    , _vAttachments      = mempty
+    , _vTags             = mempty
+    , _vVolumeType       = Nothing
+    , _vIops             = Nothing
+    , _vEncrypted        = Nothing
+    }
+
+vAttachments :: Lens' Volume [VolumeAttachment]
+vAttachments = lens _vAttachments (\s a -> s { _vAttachments = a }) . _List
+
+-- | The Availability Zone for the volume.
+vAvailabilityZone :: Lens' Volume (Maybe Text)
+vAvailabilityZone =
+    lens _vAvailabilityZone (\s a -> s { _vAvailabilityZone = a })
+
+-- | The time stamp when volume creation was initiated.
+vCreateTime :: Lens' Volume (Maybe UTCTime)
+vCreateTime = lens _vCreateTime (\s a -> s { _vCreateTime = a }) . mapping _Time
+
+-- | Indicates whether the volume is encrypted.
+vEncrypted :: Lens' Volume (Maybe Bool)
+vEncrypted = lens _vEncrypted (\s a -> s { _vEncrypted = a })
+
+-- | The number of I/O operations per second (IOPS) that the volume supports. For
+-- Provisioned IOPS (SSD) volumes, this represents the number of IOPS that are
+-- provisioned for the volume. For General Purpose (SSD) volumes, this
+-- represents the baseline performance of the volume and the rate at which the
+-- volume accumulates I/O credits for bursting. For more information on General
+-- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD) volumes and 3 to
+-- 3072 for General Purpose (SSD) volumes.
+--
+-- Condition: This parameter is required for requests to create 'io1' volumes; it
+-- is not used in requests to create 'standard' or 'gp2' volumes.
+vIops :: Lens' Volume (Maybe Int)
+vIops = lens _vIops (\s a -> s { _vIops = a })
+
+-- | The size of the volume, in GiBs.
+vSize :: Lens' Volume (Maybe Int)
+vSize = lens _vSize (\s a -> s { _vSize = a })
+
+-- | The snapshot from which the volume was created, if applicable.
+vSnapshotId :: Lens' Volume (Maybe Text)
+vSnapshotId = lens _vSnapshotId (\s a -> s { _vSnapshotId = a })
+
+-- | The volume state.
+vState :: Lens' Volume (Maybe VolumeState)
+vState = lens _vState (\s a -> s { _vState = a })
+
+-- | Any tags assigned to the volume.
+vTags :: Lens' Volume [Tag]
+vTags = lens _vTags (\s a -> s { _vTags = a }) . _List
+
+-- | The ID of the volume.
+vVolumeId :: Lens' Volume (Maybe Text)
+vVolumeId = lens _vVolumeId (\s a -> s { _vVolumeId = a })
+
+-- | The volume type. This can be 'gp2' for General Purpose (SSD) volumes, 'io1' for
+-- Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic volumes.
+vVolumeType :: Lens' Volume (Maybe VolumeType)
+vVolumeType = lens _vVolumeType (\s a -> s { _vVolumeType = a })
+
+instance FromXML Volume where
+    parseXML x = Volume
+        <$> parseXML x
+        <*> x .@? "availabilityZone"
+        <*> x .@? "createTime"
+        <*> x .@? "encrypted"
+        <*> x .@? "iops"
+        <*> x .@? "size"
+        <*> x .@? "snapshotId"
+        <*> x .@? "status"
+        <*> parseXML x
+        <*> x .@? "volumeId"
+        <*> x .@? "volumeType"
+
+instance ToQuery Volume where
+    toQuery Volume{..} = mconcat
+        [ toQuery           _vAttachments
+        , "availabilityZone" =? _vAvailabilityZone
+        , "createTime"       =? _vCreateTime
+        , "encrypted"        =? _vEncrypted
+        , "iops"             =? _vIops
+        , "size"             =? _vSize
+        , "snapshotId"       =? _vSnapshotId
+        , "status"           =? _vState
+        , toQuery           _vTags
+        , "volumeId"         =? _vVolumeId
+        , "volumeType"       =? _vVolumeType
+        ]
+
+data Reservation = Reservation
+    { _rGroups        :: List "item" GroupIdentifier
+    , _rInstances     :: List "item" Instance
+    , _rOwnerId       :: Maybe Text
+    , _rRequesterId   :: Maybe Text
+    , _rReservationId :: Maybe Text
+    } deriving (Eq, Show)
+
+-- | 'Reservation' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rGroups' @::@ ['GroupIdentifier']
+--
+-- * 'rInstances' @::@ ['Instance']
+--
+-- * 'rOwnerId' @::@ 'Maybe' 'Text'
+--
+-- * 'rRequesterId' @::@ 'Maybe' 'Text'
+--
+-- * 'rReservationId' @::@ 'Maybe' 'Text'
+--
+reservation :: Reservation
+reservation = Reservation
+    { _rReservationId = Nothing
+    , _rOwnerId       = Nothing
+    , _rRequesterId   = Nothing
+    , _rGroups        = mempty
+    , _rInstances     = mempty
+    }
+
+-- | One or more security groups.
+rGroups :: Lens' Reservation [GroupIdentifier]
+rGroups = lens _rGroups (\s a -> s { _rGroups = a }) . _List
+
+-- | One or more instances.
+rInstances :: Lens' Reservation [Instance]
+rInstances = lens _rInstances (\s a -> s { _rInstances = a }) . _List
+
+-- | The ID of the AWS account that owns the reservation.
+rOwnerId :: Lens' Reservation (Maybe Text)
+rOwnerId = lens _rOwnerId (\s a -> s { _rOwnerId = a })
+
+-- | The ID of the requester that launched the instances on your behalf (for
+-- example, AWS Management Console or Auto Scaling).
+rRequesterId :: Lens' Reservation (Maybe Text)
+rRequesterId = lens _rRequesterId (\s a -> s { _rRequesterId = a })
+
+-- | The ID of the reservation.
+rReservationId :: Lens' Reservation (Maybe Text)
+rReservationId = lens _rReservationId (\s a -> s { _rReservationId = a })
+
+instance FromXML Reservation where
+    parseXML x = Reservation
+        <$> parseXML x
+        <*> parseXML x
+        <*> x .@? "ownerId"
+        <*> x .@? "requesterId"
+        <*> x .@? "reservationId"
+
+instance ToQuery Reservation where
+    toQuery Reservation{..} = mconcat
+        [ toQuery        _rGroups
+        , toQuery        _rInstances
+        , "ownerId"       =? _rOwnerId
+        , "requesterId"   =? _rRequesterId
+        , "reservationId" =? _rReservationId
+        ]
+
 data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
     { _iivdiAvailabilityZone :: Text
     , _iivdiBytesConverted   :: Integer
@@ -4828,93 +5205,93 @@ instance FromXML TelemetryStatus where
     parseXML = parseXMLText "TelemetryStatus"
 
 data Subnet = Subnet
-    { _sAvailabilityZone        :: Maybe Text
-    , _sAvailableIpAddressCount :: Maybe Int
-    , _sCidrBlock               :: Maybe Text
-    , _sDefaultForAz            :: Maybe Bool
-    , _sMapPublicIpOnLaunch     :: Maybe Bool
-    , _sState                   :: Maybe SubnetState
-    , _sSubnetId                :: Maybe Text
-    , _sTags                    :: List "item" Tag
-    , _sVpcId                   :: Maybe Text
+    { _s1AvailabilityZone        :: Maybe Text
+    , _s1AvailableIpAddressCount :: Maybe Int
+    , _s1CidrBlock               :: Maybe Text
+    , _s1DefaultForAz            :: Maybe Bool
+    , _s1MapPublicIpOnLaunch     :: Maybe Bool
+    , _s1State                   :: Maybe SubnetState
+    , _s1SubnetId                :: Maybe Text
+    , _s1Tags                    :: List "item" Tag
+    , _s1VpcId                   :: Maybe Text
     } deriving (Eq, Show)
 
 -- | 'Subnet' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sAvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 's1AvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * 'sAvailableIpAddressCount' @::@ 'Maybe' 'Int'
+-- * 's1AvailableIpAddressCount' @::@ 'Maybe' 'Int'
 --
--- * 'sCidrBlock' @::@ 'Maybe' 'Text'
+-- * 's1CidrBlock' @::@ 'Maybe' 'Text'
 --
--- * 'sDefaultForAz' @::@ 'Maybe' 'Bool'
+-- * 's1DefaultForAz' @::@ 'Maybe' 'Bool'
 --
--- * 'sMapPublicIpOnLaunch' @::@ 'Maybe' 'Bool'
+-- * 's1MapPublicIpOnLaunch' @::@ 'Maybe' 'Bool'
 --
--- * 'sState' @::@ 'Maybe' 'SubnetState'
+-- * 's1State' @::@ 'Maybe' 'SubnetState'
 --
--- * 'sSubnetId' @::@ 'Maybe' 'Text'
+-- * 's1SubnetId' @::@ 'Maybe' 'Text'
 --
--- * 'sTags' @::@ ['Tag']
+-- * 's1Tags' @::@ ['Tag']
 --
--- * 'sVpcId' @::@ 'Maybe' 'Text'
+-- * 's1VpcId' @::@ 'Maybe' 'Text'
 --
 subnet :: Subnet
 subnet = Subnet
-    { _sSubnetId                = Nothing
-    , _sState                   = Nothing
-    , _sVpcId                   = Nothing
-    , _sCidrBlock               = Nothing
-    , _sAvailableIpAddressCount = Nothing
-    , _sAvailabilityZone        = Nothing
-    , _sDefaultForAz            = Nothing
-    , _sMapPublicIpOnLaunch     = Nothing
-    , _sTags                    = mempty
+    { _s1SubnetId                = Nothing
+    , _s1State                   = Nothing
+    , _s1VpcId                   = Nothing
+    , _s1CidrBlock               = Nothing
+    , _s1AvailableIpAddressCount = Nothing
+    , _s1AvailabilityZone        = Nothing
+    , _s1DefaultForAz            = Nothing
+    , _s1MapPublicIpOnLaunch     = Nothing
+    , _s1Tags                    = mempty
     }
 
 -- | The Availability Zone of the subnet.
-sAvailabilityZone :: Lens' Subnet (Maybe Text)
-sAvailabilityZone =
-    lens _sAvailabilityZone (\s a -> s { _sAvailabilityZone = a })
+s1AvailabilityZone :: Lens' Subnet (Maybe Text)
+s1AvailabilityZone =
+    lens _s1AvailabilityZone (\s a -> s { _s1AvailabilityZone = a })
 
 -- | The number of unused IP addresses in the subnet. Note that the IP addresses
 -- for any stopped instances are considered unavailable.
-sAvailableIpAddressCount :: Lens' Subnet (Maybe Int)
-sAvailableIpAddressCount =
-    lens _sAvailableIpAddressCount
-        (\s a -> s { _sAvailableIpAddressCount = a })
+s1AvailableIpAddressCount :: Lens' Subnet (Maybe Int)
+s1AvailableIpAddressCount =
+    lens _s1AvailableIpAddressCount
+        (\s a -> s { _s1AvailableIpAddressCount = a })
 
 -- | The CIDR block assigned to the subnet.
-sCidrBlock :: Lens' Subnet (Maybe Text)
-sCidrBlock = lens _sCidrBlock (\s a -> s { _sCidrBlock = a })
+s1CidrBlock :: Lens' Subnet (Maybe Text)
+s1CidrBlock = lens _s1CidrBlock (\s a -> s { _s1CidrBlock = a })
 
 -- | Indicates whether this is the default subnet for the Availability Zone.
-sDefaultForAz :: Lens' Subnet (Maybe Bool)
-sDefaultForAz = lens _sDefaultForAz (\s a -> s { _sDefaultForAz = a })
+s1DefaultForAz :: Lens' Subnet (Maybe Bool)
+s1DefaultForAz = lens _s1DefaultForAz (\s a -> s { _s1DefaultForAz = a })
 
 -- | Indicates whether instances launched in this subnet receive a public IP
 -- address.
-sMapPublicIpOnLaunch :: Lens' Subnet (Maybe Bool)
-sMapPublicIpOnLaunch =
-    lens _sMapPublicIpOnLaunch (\s a -> s { _sMapPublicIpOnLaunch = a })
+s1MapPublicIpOnLaunch :: Lens' Subnet (Maybe Bool)
+s1MapPublicIpOnLaunch =
+    lens _s1MapPublicIpOnLaunch (\s a -> s { _s1MapPublicIpOnLaunch = a })
 
 -- | The current state of the subnet.
-sState :: Lens' Subnet (Maybe SubnetState)
-sState = lens _sState (\s a -> s { _sState = a })
+s1State :: Lens' Subnet (Maybe SubnetState)
+s1State = lens _s1State (\s a -> s { _s1State = a })
 
 -- | The ID of the subnet.
-sSubnetId :: Lens' Subnet (Maybe Text)
-sSubnetId = lens _sSubnetId (\s a -> s { _sSubnetId = a })
+s1SubnetId :: Lens' Subnet (Maybe Text)
+s1SubnetId = lens _s1SubnetId (\s a -> s { _s1SubnetId = a })
 
 -- | Any tags assigned to the subnet.
-sTags :: Lens' Subnet [Tag]
-sTags = lens _sTags (\s a -> s { _sTags = a }) . _List
+s1Tags :: Lens' Subnet [Tag]
+s1Tags = lens _s1Tags (\s a -> s { _s1Tags = a }) . _List
 
 -- | The ID of the VPC the subnet is in.
-sVpcId :: Lens' Subnet (Maybe Text)
-sVpcId = lens _sVpcId (\s a -> s { _sVpcId = a })
+s1VpcId :: Lens' Subnet (Maybe Text)
+s1VpcId = lens _s1VpcId (\s a -> s { _s1VpcId = a })
 
 instance FromXML Subnet where
     parseXML x = Subnet
@@ -4930,15 +5307,15 @@ instance FromXML Subnet where
 
 instance ToQuery Subnet where
     toQuery Subnet{..} = mconcat
-        [ "availabilityZone"        =? _sAvailabilityZone
-        , "availableIpAddressCount" =? _sAvailableIpAddressCount
-        , "cidrBlock"               =? _sCidrBlock
-        , "defaultForAz"            =? _sDefaultForAz
-        , "mapPublicIpOnLaunch"     =? _sMapPublicIpOnLaunch
-        , "state"                   =? _sState
-        , "subnetId"                =? _sSubnetId
-        , toQuery                  _sTags
-        , "vpcId"                   =? _sVpcId
+        [ "availabilityZone"        =? _s1AvailabilityZone
+        , "availableIpAddressCount" =? _s1AvailableIpAddressCount
+        , "cidrBlock"               =? _s1CidrBlock
+        , "defaultForAz"            =? _s1DefaultForAz
+        , "mapPublicIpOnLaunch"     =? _s1MapPublicIpOnLaunch
+        , "state"                   =? _s1State
+        , "subnetId"                =? _s1SubnetId
+        , toQuery                  _s1Tags
+        , "vpcId"                   =? _s1VpcId
         ]
 
 data KeyPairInfo = KeyPairInfo

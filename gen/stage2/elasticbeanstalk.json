@@ -4007,6 +4007,7 @@
             "ApplicationDescriptionMessage",
             "EnvironmentTier",
             "EnvironmentResourcesDescription",
+            "EnvironmentInfoType",
             "EnvironmentDescription",
             "EnvironmentHealth"
         ]

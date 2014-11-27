@@ -28,8 +28,8 @@ import           System.IO
 
 sendReceive :: IO (Either Error ())
 sendReceive = do
-    hSetBuffering stdout LineBuffering
-    env  <- getEnv Ireland Discover <&> envLogger .~ Debug Text.putStrLn
+    lgr  <- newLogger Debug stdout
+    env  <- getEnv Ireland Discover <&> envLogger .~ lgr
     name <- Text.pack . show <$> getTimestamp
     runAWST env $ do
         url <- setup name

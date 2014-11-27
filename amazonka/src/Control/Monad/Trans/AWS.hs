@@ -112,7 +112,7 @@ type MonadAWS m =
 
 -- | The transformer. This satisfies all of the constraints that the functions
 -- in this module require, such as providing 'MonadResource' instances,
--- as well as keeping track of the internal 'Env' environment.
+-- and keeping track of the 'Env' environment.
 --
 -- The 'MonadError' instance for this transformer internally uses 'ExceptT'
 -- to handle actions that result in an 'Error'. For more information see

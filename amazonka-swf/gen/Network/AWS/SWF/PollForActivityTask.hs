@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Used by workers to get an 'ActivityTask' from the specified activity 'taskList'.
 -- This initiates a long poll, where the service holds the HTTP connection open

@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | SetTerminationProtection locks a job flow so the Amazon EC2 instances in the
 -- cluster cannot be terminated by user intervention, an API call, or in the

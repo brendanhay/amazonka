@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The /DescribeReplicationGroups/ operation returns information about a
 -- particular replication group. If no identifier is specified, /DescribeReplicationGroups/ returns information about all replication groups.

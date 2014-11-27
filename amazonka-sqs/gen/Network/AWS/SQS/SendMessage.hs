@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Delivers a message to the specified queue. With Amazon SQS, you now have the
 -- ability to send large payload messages that are up to 256KB (262,144 bytes)

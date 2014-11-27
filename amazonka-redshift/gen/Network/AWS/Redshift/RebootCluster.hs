@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Reboots a cluster. This action is taken as soon as possible. It results in a
 -- momentary outage to the cluster, during which the cluster status is set to 'rebooting'. A cluster event is created when the reboot is completed. Any pending

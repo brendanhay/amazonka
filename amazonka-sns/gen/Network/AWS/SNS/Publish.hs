@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Sends a message to all of a topic's subscribed endpoints. When a 'messageId' is
 -- returned, the message has been saved and Amazon SNS will attempt to deliver

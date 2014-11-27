@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Adds or overwrites one or more tags for the specified EC2 resource or
 -- resources. Each resource can have a maximum of 10 tags. Each tag consists of

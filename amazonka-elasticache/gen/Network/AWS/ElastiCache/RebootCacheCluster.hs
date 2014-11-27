@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The /RebootCacheCluster/ operation reboots some, or all, of the cache nodes
 -- within a provisioned cache cluster. This API will apply any modified cache

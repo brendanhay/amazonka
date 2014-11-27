@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Records a 'WorkflowExecutionTerminated' event and forces closure of the
 -- workflow execution identified by the given domain, runId, and workflowId. The

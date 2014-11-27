@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Used by deciders to get a 'DecisionTask' from the specified decision 'taskList'.
 -- A decision task may be returned for any open workflow execution that is using

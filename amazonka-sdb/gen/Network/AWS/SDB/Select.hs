@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The 'Select' operation returns a set of attributes for 'ItemNames' that match
 -- the select expression. 'Select' is similar to the standard SQL SELECT

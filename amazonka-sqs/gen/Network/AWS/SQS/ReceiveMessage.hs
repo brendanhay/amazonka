@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Retrieves one or more messages, with a maximum limit of 10 messages, from
 -- the specified queue. Long poll support is enabled by using the 'WaitTimeSeconds'

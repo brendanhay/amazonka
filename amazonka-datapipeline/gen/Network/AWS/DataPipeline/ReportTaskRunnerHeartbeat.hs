@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Task runners call 'ReportTaskRunnerHeartbeat' every 15 minutes to indicate that
 -- they are operational. In the case of AWS Data Pipeline Task Runner launched

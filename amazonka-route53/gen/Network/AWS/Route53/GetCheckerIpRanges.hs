@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | To retrieve a list of the IP ranges used by Amazon Route 53 health checkers
 -- to check the health of your resources, send a 'GET' request to the '2013-04-01/checkeripranges' resource. You can use these IP addresses to configure router and firewall

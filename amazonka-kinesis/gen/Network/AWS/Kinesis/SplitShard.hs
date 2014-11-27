@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Splits a shard into two new shards in the stream, to increase the stream's
 -- capacity to ingest and transport data. 'SplitShard' is called when there is a

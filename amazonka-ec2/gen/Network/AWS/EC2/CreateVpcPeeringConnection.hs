@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Requests a VPC peering connection between two VPCs: a requester VPC that you
 -- own and a peer VPC with which to create the connection. The peer VPC can

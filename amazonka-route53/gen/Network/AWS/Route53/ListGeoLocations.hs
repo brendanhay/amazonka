@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | To retrieve a list of supported geo locations, send a 'GET' request to the '2013-04-01/geolocations' resource. The response to this request includes a 'GeoLocationDetailsList'
 -- element with zero, one, or multiple 'GeoLocationDetails' child elements. The

@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Creates an endpoint for a device and mobile app on one of the supported push
 -- notification services, such as GCM and APNS. 'CreatePlatformEndpoint' requires

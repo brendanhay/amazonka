@@ -7,6 +7,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Auto Scaling allows you to scale your Amazon EC2 capacity up or down
 -- automatically according to conditions you define. With Auto Scaling, you can

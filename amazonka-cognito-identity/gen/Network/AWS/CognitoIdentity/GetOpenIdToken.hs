@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Gets an OpenID token, using a known Cognito ID. This known Cognito ID is
 -- returned by 'GetId'. You can optionally add additional logins for the identity.

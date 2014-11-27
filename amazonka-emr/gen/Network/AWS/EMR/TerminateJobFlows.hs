@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | TerminateJobFlows shuts a list of job flows down. When a job flow is shut
 -- down, any step not yet completed is canceled and the EC2 instances on which

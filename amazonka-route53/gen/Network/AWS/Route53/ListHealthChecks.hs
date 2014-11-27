@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | To retrieve a list of your health checks, send a 'GET' request to the '2013-04-01/healthcheck' resource. The response to this request includes a 'HealthChecks' element with
 -- zero, one, or multiple 'HealthCheck' child elements. By default, the list of

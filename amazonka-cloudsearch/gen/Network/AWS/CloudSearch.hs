@@ -7,6 +7,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Amazon CloudSearch is a fully-managed service in the AWS Cloud that makes it
 -- simple and cost-effective to set up, manage, and scale a search solution for

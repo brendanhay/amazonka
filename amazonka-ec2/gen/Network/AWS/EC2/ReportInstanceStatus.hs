@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Submits feedback about the status of an instance. The instance must be in the 'running' state. If your experience with the instance differs from the instance
 -- status returned by 'DescribeInstanceStatus', use 'ReportInstanceStatus' to report

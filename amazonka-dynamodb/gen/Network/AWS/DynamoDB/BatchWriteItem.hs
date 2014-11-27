@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The /BatchWriteItem/ operation puts or deletes multiple items in one or more
 -- tables. A single call to /BatchWriteItem/ can write up to 16 MB of data, which

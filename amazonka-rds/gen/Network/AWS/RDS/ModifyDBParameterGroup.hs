@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Modifies the parameters of a DB parameter group. To modify more than one
 -- parameter, submit a list of the following: 'ParameterName', 'ParameterValue', and 'ApplyMethod'. A maximum of 20 parameters can be modified in a single request.

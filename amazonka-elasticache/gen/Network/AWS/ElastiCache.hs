@@ -7,6 +7,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | ElastiCache is a web service that makes it easy to deploy, operate, and scale
 -- an in-memory cache in the cloud. The service improves the performance of web

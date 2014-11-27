@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Use this action to create or change your authoritative DNS information. To
 -- use this action, send a 'POST' request to the '2013-04-01/hostedzone//hosted ZoneID//rrset resource. The request body must include an XML document with a 'ChangeResourceRecordSetsRequest' element.

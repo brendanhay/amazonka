@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Creates a new case in the AWS Support Center. This operation is modeled on
 -- the behavior of the AWS Support Center <https://aws.amazon.com/support/createCase Open a new case> page. Its parameters

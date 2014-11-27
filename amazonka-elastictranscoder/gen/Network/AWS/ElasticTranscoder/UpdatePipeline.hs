@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Use the 'UpdatePipeline' operation to update settings for a pipeline. When you
 -- change pipeline settings, your changes take effect immediately. Jobs that you

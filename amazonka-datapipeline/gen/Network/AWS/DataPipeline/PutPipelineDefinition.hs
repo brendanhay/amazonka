@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Adds tasks, schedules, and preconditions that control the behavior of the
 -- pipeline. You can use PutPipelineDefinition to populate a new pipeline.

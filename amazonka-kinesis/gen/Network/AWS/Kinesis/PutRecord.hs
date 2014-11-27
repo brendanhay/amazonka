@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Puts a data record from a producer into an Amazon Kinesis stream. You must
 -- call 'PutRecord' to send data from the producer into the Amazon Kinesis stream

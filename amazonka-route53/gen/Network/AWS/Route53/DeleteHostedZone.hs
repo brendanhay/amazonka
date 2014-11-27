@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | This action deletes a hosted zone. To delete a hosted zone, send a 'DELETE'
 -- request to the '2013-04-01/hostedzone//hosted zone ID/ resource.

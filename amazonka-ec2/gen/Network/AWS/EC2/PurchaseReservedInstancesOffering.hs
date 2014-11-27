@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Purchases a Reserved Instance for use with your account. With Amazon EC2
 -- Reserved Instances, you obtain a capacity reservation for a certain instance

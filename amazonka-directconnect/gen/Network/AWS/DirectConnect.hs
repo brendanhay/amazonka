@@ -7,6 +7,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | AWS Direct Connect links your internal network to an AWS Direct Connect
 -- location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable.

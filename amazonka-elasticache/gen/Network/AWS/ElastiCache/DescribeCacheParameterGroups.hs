@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The /DescribeCacheParameterGroups/ operation returns a list of cache parameter
 -- group descriptions. If a cache parameter group name is specified, the list

@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Revokes ingress from a DBSecurityGroup for previously authorized IP ranges
 -- or EC2 or VPC Security Groups. Required parameters for this API are one of

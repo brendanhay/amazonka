@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | This action deletes a health check. To delete a health check, send a 'DELETE'
 -- request to the '2013-04-01/healthcheck//health check ID/ resource.

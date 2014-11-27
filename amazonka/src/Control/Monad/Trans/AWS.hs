@@ -45,6 +45,7 @@ module Control.Monad.Trans.AWS
     -- * Logging
     , LogLevel    (..)
     , Logger
+    , newLogger
     , logInfo
     , logDebug
 

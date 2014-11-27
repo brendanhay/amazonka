@@ -33,6 +33,7 @@ module Network.AWS
     -- * Logging
     , LogLevel    (..)
     , Logger
+    , newLogger
 
     -- * Requests
     -- ** Synchronous
@@ -106,7 +107,7 @@ send :: (MonadCatch m, MonadResource m, AWSRequest a)
 send Env{..} x@(request -> rq) = go `catch` er >>= response x
   where
     go = do
-        info _envLogger (build rq)
+        debug _envLogger (build rq)
 
         t  <- liftIO getCurrentTime
 

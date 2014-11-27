@@ -35,7 +35,7 @@ type Logger = LogLevel -> Builder -> IO ()
 newLogger :: MonadIO m => LogLevel -> Handle -> m Logger
 newLogger x hd = liftIO $ do
     hSetBinaryMode hd True
-    hSetBuffering  hd LineBuffering -- ^ Should be BlockBuffering, but .. concurrency.
+    hSetBuffering  hd LineBuffering
     return $ \y b ->
         if x >= y
             then hPutBuilder hd (b <> "\n")

@@ -1,5 +1,5 @@
 name:                  amazonka-route53
-version:               0.0.4
+version:               0.0.5
 synopsis:              Amazon Route 53 SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -71,5 +71,5 @@ library
           Network.AWS.Route53.Internal
 
     build-depends:
-          amazonka-core == 0.0.4.*
+          amazonka-core == 0.0.5.*
         , base          >= 4.7     && < 5

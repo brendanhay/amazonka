@@ -1,5 +1,5 @@
 name:                  amazonka-storagegateway
-version:               0.0.4
+version:               0.0.5
 synopsis:              Amazon Storage Gateway SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -87,5 +87,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.4.*
+          amazonka-core == 0.0.5.*
         , base          >= 4.7     && < 5

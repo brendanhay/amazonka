@@ -78,11 +78,8 @@ module Network.AWS.Types
 
     -- * Regions
     , Region        (..)
-    , Zone          (..)
-    , zRegion
-    , zSuffix
 
-    -- * Shared
+    -- * Query Actions
     , Action        (..)
 
     -- * Convenience
@@ -99,11 +96,9 @@ import           Control.Lens                 hiding (Action)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
-import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
 import qualified Data.ByteString              as BS
 import qualified Data.CaseInsensitive         as CI
-import           Data.Char
 import           Data.Conduit
 import           Data.Default.Class
 import qualified Data.HashSet                 as Set
@@ -113,7 +108,6 @@ import           Data.List                    (intersperse)
 import           Data.Monoid
 import           Data.String
 import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           Data.Typeable
@@ -457,18 +451,6 @@ instance ToByteString Region
 instance FromXML Region where parseXML = parseXMLText "Region"
 instance ToXML   Region where toXML    = toXMLText
 
--- | An availability zone.
-data Zone = Zone
-    { _zRegion :: !Region
-    , _zSuffix :: !Char
-    } deriving (Eq, Ord, Read, Show)
-
-instance FromText Zone where
-    parser = Zone <$> parser <*> AText.satisfy isAlpha <* AText.endOfInput
-
-instance ToText Zone where
-    toText Zone{..} = toText _zRegion `Text.snoc` _zSuffix
-
 -- | A service's query action.
 newtype Action = Action Text
     deriving (Eq, Ord, Show, IsString, ToText, ToByteString)
@@ -499,4 +481,3 @@ clientRequest = def
 
 makePrisms ''ServiceError
 makeLenses ''Request
-makeLenses ''Zone

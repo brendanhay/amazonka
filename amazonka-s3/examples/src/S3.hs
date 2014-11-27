@@ -12,15 +12,24 @@
 
 module S3 where
 
-import Control.Lens
-import Control.Monad.Trans.AWS
-import Data.Conduit
-import Network.AWS.S3
-import System.IO
+import qualified Data.ByteString.Builder as Build
+import           Control.Applicative
+import           Control.Lens
+import           Control.Monad
+import           Control.Monad.IO.Class
+import           Control.Monad.Trans.AWS
+import           Data.Conduit
+import qualified Data.Conduit.List       as Conduit
+import           Network.AWS.Data
+import           Network.AWS.S3
+import           System.IO
 
-example :: IO (Either Error ListBucketsResponse)
+example :: IO (Either Error ())
 example = do
     lgr <- newLogger Debug stdout
     env <- getEnv Ireland Discover <&> envLogger .~ lgr
     runAWST env $ do
-         paginate listBuckets $$ awaitForever logInfo
+        bs <- view lbrBuckets <$> send listBuckets
+        forM_ bs $ \b ->
+            paginate (listObjects (b ^. bName))
+                $$ Conduit.mapM_ (logInfo . view oKey)

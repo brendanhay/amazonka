@@ -1,5 +1,5 @@
 name:                  amazonka-swf-examples
-version:               0.0.4
+version:               0.0.5
 synopsis:              Amazon Simple Workflow Service SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         SWF
 
     build-depends:
-        amazonka      == 0.0.4.*
-      , amazonka-core == 0.0.4.*
-      , amazonka-swf == 0.0.4.*
+        amazonka      == 0.0.5.*
+      , amazonka-core == 0.0.5.*
+      , amazonka-swf == 0.0.5.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

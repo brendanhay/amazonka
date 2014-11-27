@@ -1,6 +1,6 @@
 name:                  amazonka-core
 version:               0.0.5
-synopsis:              Core functionality, serialisation primitives, and data types for the Amazonka Amazon Web Services SDKs.
+synopsis:              Core functionality and data types for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

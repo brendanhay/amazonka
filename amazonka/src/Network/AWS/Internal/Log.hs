@@ -17,6 +17,7 @@ module Network.AWS.Internal.Log where
 import Control.Monad.IO.Class
 import Data.ByteString.Builder
 import Data.Monoid
+import Network.AWS.Data
 import System.IO
 
 data LogLevel
@@ -39,10 +40,10 @@ newLogger x hd = liftIO $ do
             (Debug, Debug) -> hPutBuilder hd (b <> "\n")
             _              -> return ()
 
-info :: MonadIO m => Logger -> Builder -> m ()
-info f = liftIO . f Info
+info :: (MonadIO m, ToBuilder a) => Logger -> a -> m ()
+info f = liftIO . f Info . build
 {-# INLINE info #-}
 
-debug :: MonadIO m => Logger -> Builder -> m ()
-debug f = liftIO . f Debug
+debug :: (MonadIO m, ToBuilder a) => Logger -> a -> m ()
+debug f = liftIO . f Debug . build
 {-# INLINE debug #-}

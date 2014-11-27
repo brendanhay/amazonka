@@ -82,6 +82,7 @@ class ToBuilder a where
 instance ToBuilder Builder        where build = id
 instance ToBuilder ByteString     where build = Build.byteString
 instance ToBuilder LazyByteString where build = Build.lazyByteString
+instance ToBuilder Text           where build = Build.byteString . Text.encodeUtf8
 instance ToBuilder Char           where build = Build.charUtf8
 instance ToBuilder [Char]         where build = Build.stringUtf8
 instance ToBuilder Int            where build = Build.intDec

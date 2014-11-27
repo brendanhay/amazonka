@@ -68,8 +68,7 @@ example = do
                i
 
   where
-    say msg = logInfo . mappend msg . Build.utf8String . show
+    say msg = logInfo . mappend msg . Build.stringUtf8 . show
 
 getTimestamp :: IO Integer
 getTimestamp = truncate <$> getPOSIXTime
-

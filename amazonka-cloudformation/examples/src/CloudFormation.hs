@@ -18,13 +18,24 @@ import qualified Data.Text.IO               as Text
 import           Network.AWS.CloudFormation
 import           System.IO
 
-example :: IO (Either Error CreateStackResponse)
-example = do
+stackFromFile :: IO (Either Error CreateStackResponse)
+stackFromFile = do
     lgr  <- newLogger Debug stdout
     env  <- getEnv Ireland Discover <&> envLogger .~ lgr
     tmpl <- Text.readFile "load-balanced-apache.json"
-    runAWST env . send $ createStack "amazonka-test-stack"
+    runAWST env . send $ createStack "amazonka-stack-from-file"
         & csTemplateBody ?~ tmpl
         & csParameters   .~ [ parameter & pParameterKey   ?~ "KeyName"
                                         & pParameterValue ?~ "default-keypair"
                             ]
+
+stackFromUrl :: IO (Either Error CreateStackResponse)
+stackFromUrl = do
+    lgr <- newLogger Debug stdout
+    env <- getEnv Ireland Discover <&> envLogger .~ lgr
+    let url = "https://s3-us-west-2.amazonaws.com/cloudformation-templates-us-west-2/EC2InstanceWithSecurityGroupSample.template"
+    runAWST env . send $ createStack "amazonka-stack-from-url"
+        & csTemplateURL ?~ url
+        & csParameters  .~ [ parameter & pParameterKey   ?~ "KeyName"
+                                       & pParameterValue ?~ "default-keypair"
+                           ]

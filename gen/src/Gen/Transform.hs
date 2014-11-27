@@ -587,16 +587,20 @@ shapes proto time m =
             flatten = x ^. lstFlattened
                   <|> x ^. lstMember . refFlattened
 
-            ann = fromMaybe fld $
-                    x ^. lstMember . refLocationName
-                <|> r ^. refLocationName
+            ann | proto == Query = "member"
+                | otherwise      =
+                    fromMaybe fld $
+                            x ^. lstMember . refLocationName
+                        <|> r ^. refLocationName
 
     flat :: Maybe Bool -> Type -> Type
-    flat (Just True) = TFlatten
-    flat _           = id
+    flat (Just True)      = TFlatten
+    flat _ | proto == Ec2 = TFlatten
+    flat _                = id
 
     insert :: Text -> Type -> State (HashMap Text Type) Type
     insert k t = modify (Map.insert k t) >> return t
+
 
 errorType :: Protocol -> Abbrev -> Text
 errorType p a =

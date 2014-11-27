@@ -108,9 +108,10 @@ deserialise g f = receive $ \a hs bdy -> do
             case f hs o of
                 Left  e -> Left (SerializerError a e)
                 Right x -> Right x
+{-# INLINE deserialise #-}
 
 receive :: forall m a. (MonadResource m, AWSService (Sv a))
-        => (Abbrev -> ResponseHeaders -> ResponseBody -> m (Response a))
+        => (Abbrev -> ResponseHeaders -> ResponseBody -> m (Response a)
         -> a
         -> Either HttpException ClientResponse
         -> m (Response a)
@@ -126,6 +127,7 @@ receive f = const (either (return . Left . HttpError) success)
         s   = responseStatus  rs
         bdy = responseBody    rs
         hs  = responseHeaders rs
+{-# INLINE receive #-}
 
 sinkLbs :: MonadResource m => ResponseBody -> m LBS.ByteString
 sinkLbs bdy = liftResourceT (bdy $$+- Conduit.sinkLbs)

@@ -33,6 +33,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-lambda",
+        "abbrev": "Lambda",
         "exposed": [
             "Network.AWS.Lambda",
             "Network.AWS.Lambda.AddEventSource",

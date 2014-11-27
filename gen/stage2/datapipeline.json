@@ -38,6 +38,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-datapipeline",
+        "abbrev": "DataPipeline",
         "exposed": [
             "Network.AWS.DataPipeline",
             "Network.AWS.DataPipeline.ActivatePipeline",

@@ -36,6 +36,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-support",
+        "abbrev": "Support",
         "exposed": [
             "Network.AWS.Support",
             "Network.AWS.Support.AddAttachmentsToSet",

@@ -33,6 +33,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-cloudwatch",
+        "abbrev": "CloudWatch",
         "exposed": [
             "Network.AWS.CloudWatch",
             "Network.AWS.CloudWatch.DeleteAlarms",

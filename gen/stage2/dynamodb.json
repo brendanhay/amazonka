@@ -35,6 +35,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-dynamodb",
+        "abbrev": "DynamoDB",
         "exposed": [
             "Network.AWS.DynamoDB",
             "Network.AWS.DynamoDB.BatchGetItem",

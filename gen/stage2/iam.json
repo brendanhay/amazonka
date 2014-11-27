@@ -105,6 +105,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-iam",
+        "abbrev": "IAM",
         "exposed": [
             "Network.AWS.IAM",
             "Network.AWS.IAM.AddClientIDToOpenIDConnectProvider",

@@ -73,6 +73,7 @@
             "Network.AWS.S3.Internal"
         ],
         "library": "amazonka-s3",
+        "abbrev": "S3",
         "exposed": [
             "Network.AWS.S3",
             "Network.AWS.S3.AbortMultipartUpload",

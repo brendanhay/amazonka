@@ -47,6 +47,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-codedeploy",
+        "abbrev": "CodeDeploy",
         "exposed": [
             "Network.AWS.CodeDeploy",
             "Network.AWS.CodeDeploy.BatchGetApplications",

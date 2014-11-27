@@ -67,6 +67,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-autoscaling",
+        "abbrev": "AutoScaling",
         "exposed": [
             "Network.AWS.AutoScaling",
             "Network.AWS.AutoScaling.AttachInstances",

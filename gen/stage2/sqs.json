@@ -38,6 +38,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-sqs",
+        "abbrev": "SQS",
         "exposed": [
             "Network.AWS.SQS",
             "Network.AWS.SQS.AddPermission",

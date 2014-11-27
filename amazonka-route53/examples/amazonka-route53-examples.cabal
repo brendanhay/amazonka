@@ -17,7 +17,7 @@ library
     ghc-options:       -Wall -threaded
 
     exposed-modules:
-        Examples
+        Route53
 
     build-depends:
         base          >= 4.7     && < 5

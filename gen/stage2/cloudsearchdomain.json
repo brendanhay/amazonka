@@ -25,6 +25,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-cloudsearch-domains",
+        "abbrev": "CloudSearchDomains",
         "exposed": [
             "Network.AWS.CloudSearchDomains",
             "Network.AWS.CloudSearchDomains.Search",

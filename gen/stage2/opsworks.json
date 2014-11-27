@@ -82,6 +82,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-opsworks",
+        "abbrev": "OpsWorks",
         "exposed": [
             "Network.AWS.OpsWorks",
             "Network.AWS.OpsWorks.AssignVolume",

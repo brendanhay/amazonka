@@ -27,6 +27,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-importexport",
+        "abbrev": "ImportExport",
         "exposed": [
             "Network.AWS.ImportExport",
             "Network.AWS.ImportExport.CancelJob",

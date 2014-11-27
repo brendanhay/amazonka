@@ -39,6 +39,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-cloudformation",
+        "abbrev": "CloudFormation",
         "exposed": [
             "Network.AWS.CloudFormation",
             "Network.AWS.CloudFormation.CancelUpdateStack",

@@ -32,6 +32,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-sdb",
+        "abbrev": "SDB",
         "exposed": [
             "Network.AWS.SDB",
             "Network.AWS.SDB.BatchDeleteAttributes",

@@ -53,6 +53,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-swf",
+        "abbrev": "SWF",
         "exposed": [
             "Network.AWS.SWF",
             "Network.AWS.SWF.CountClosedWorkflowExecutions",

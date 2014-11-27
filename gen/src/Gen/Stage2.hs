@@ -760,6 +760,7 @@ instance ToFilePath Service where
 
 data Cabal = Cabal
     { _cName         :: !Text
+    , _cAbbrev       :: !Abbrev
     , _cUrl          :: !Text
     , _cLibrary      :: !Library
     , _cVersion      :: !Version

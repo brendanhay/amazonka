@@ -39,6 +39,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-elastictranscoder",
+        "abbrev": "ElasticTranscoder",
         "exposed": [
             "Network.AWS.ElasticTranscoder",
             "Network.AWS.ElasticTranscoder.CancelJob",

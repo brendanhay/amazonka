@@ -35,6 +35,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-cognito-sync",
+        "abbrev": "CognitoSync",
         "exposed": [
             "Network.AWS.CognitoSync",
             "Network.AWS.CognitoSync.DeleteDataset",

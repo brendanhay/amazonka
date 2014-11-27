@@ -47,6 +47,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-kms",
+        "abbrev": "KMS",
         "exposed": [
             "Network.AWS.KMS",
             "Network.AWS.KMS.CreateAlias",

@@ -46,6 +46,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-cloudsearch",
+        "abbrev": "CloudSearch",
         "exposed": [
             "Network.AWS.CloudSearch",
             "Network.AWS.CloudSearch.BuildSuggesters",

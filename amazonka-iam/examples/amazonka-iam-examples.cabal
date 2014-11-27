@@ -17,7 +17,7 @@ library
     ghc-options:       -Wall -threaded
 
     exposed-modules:
-        Examples
+        IAM
 
     build-depends:
         base          >= 4.7     && < 5

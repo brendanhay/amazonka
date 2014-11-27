@@ -33,6 +33,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-config",
+        "abbrev": "Config",
         "exposed": [
             "Network.AWS.Config",
             "Network.AWS.Config.DeleteDeliveryChannel",

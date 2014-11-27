@@ -50,6 +50,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-elb",
+        "abbrev": "ELB",
         "exposed": [
             "Network.AWS.ELB",
             "Network.AWS.ELB.AddTags",

@@ -35,6 +35,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-cognito-identity",
+        "abbrev": "CognitoIdentity",
         "exposed": [
             "Network.AWS.CognitoIdentity",
             "Network.AWS.CognitoIdentity.CreateIdentityPool",

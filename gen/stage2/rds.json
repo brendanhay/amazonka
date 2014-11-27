@@ -76,6 +76,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-rds",
+        "abbrev": "RDS",
         "exposed": [
             "Network.AWS.RDS",
             "Network.AWS.RDS.AddSourceIdentifierToSubscription",

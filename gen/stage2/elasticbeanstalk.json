@@ -51,6 +51,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-elasticbeanstalk",
+        "abbrev": "ElasticBeanstalk",
         "exposed": [
             "Network.AWS.ElasticBeanstalk",
             "Network.AWS.ElasticBeanstalk.CheckDNSAvailability",

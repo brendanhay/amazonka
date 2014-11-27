@@ -178,6 +178,7 @@
             "Network.AWS.EC2.Internal"
         ],
         "library": "amazonka-ec2",
+        "abbrev": "EC2",
         "exposed": [
             "Network.AWS.EC2",
             "Network.AWS.EC2.AcceptVpcPeeringConnection",

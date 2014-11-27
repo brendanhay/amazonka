@@ -39,6 +39,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-emr",
+        "abbrev": "EMR",
         "exposed": [
             "Network.AWS.EMR",
             "Network.AWS.EMR.AddInstanceGroups",

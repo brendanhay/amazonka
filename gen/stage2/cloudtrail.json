@@ -29,6 +29,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-cloudtrail",
+        "abbrev": "CloudTrail",
         "exposed": [
             "Network.AWS.CloudTrail",
             "Network.AWS.CloudTrail.CreateTrail",

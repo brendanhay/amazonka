@@ -78,6 +78,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-redshift",
+        "abbrev": "Redshift",
         "exposed": [
             "Network.AWS.Redshift",
             "Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress",

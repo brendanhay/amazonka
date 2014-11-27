@@ -41,6 +41,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-directconnect",
+        "abbrev": "DirectConnect",
         "exposed": [
             "Network.AWS.DirectConnect",
             "Network.AWS.DirectConnect.AllocateConnectionOnInterconnect",

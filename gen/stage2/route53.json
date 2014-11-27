@@ -51,6 +51,7 @@
             "Network.AWS.Route53.Internal"
         ],
         "library": "amazonka-route53",
+        "abbrev": "Route53",
         "exposed": [
             "Network.AWS.Route53",
             "Network.AWS.Route53.AssociateVPCWithHostedZone",

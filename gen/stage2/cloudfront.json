@@ -43,6 +43,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-cloudfront",
+        "abbrev": "CloudFront",
         "exposed": [
             "Network.AWS.CloudFront",
             "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity",

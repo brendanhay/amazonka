@@ -69,6 +69,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-storagegateway",
+        "abbrev": "StorageGateway",
         "exposed": [
             "Network.AWS.StorageGateway",
             "Network.AWS.StorageGateway.ActivateGateway",

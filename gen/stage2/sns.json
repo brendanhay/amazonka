@@ -47,6 +47,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-sns",
+        "abbrev": "SNS",
         "exposed": [
             "Network.AWS.SNS",
             "Network.AWS.SNS.AddPermission",

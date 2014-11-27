@@ -36,6 +36,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-cloudwatch-logs",
+        "abbrev": "CloudWatchLogs",
         "exposed": [
             "Network.AWS.CloudWatchLogs",
             "Network.AWS.CloudWatchLogs.CreateLogGroup",

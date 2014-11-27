@@ -28,6 +28,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-sts",
+        "abbrev": "STS",
         "exposed": [
             "Network.AWS.STS",
             "Network.AWS.STS.AssumeRole",

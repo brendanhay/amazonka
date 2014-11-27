@@ -37,6 +37,7 @@
     "cabal": {
         "other": [],
         "library": "amazonka-route53-domains",
+        "abbrev": "Route53Domains",
         "exposed": [
             "Network.AWS.Route53Domains",
             "Network.AWS.Route53Domains.CheckDomainAvailability",

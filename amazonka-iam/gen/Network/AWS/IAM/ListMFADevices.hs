@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Lists the MFA devices. If the request includes the user name, then this
 -- action lists all the MFA devices associated with the specified user name. If

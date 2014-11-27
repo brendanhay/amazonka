@@ -7,6 +7,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Amazon CodeDeploy is a service that automates code deployments to Amazon EC2
 -- instances. Amazon CodeDeploy makes it easier for you to rapidly release new

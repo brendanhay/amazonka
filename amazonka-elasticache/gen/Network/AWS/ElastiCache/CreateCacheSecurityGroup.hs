@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The /CreateCacheSecurityGroup/ operation creates a new cache security group.
 -- Use a cache security group to control access to one or more cache clusters.

@@ -7,6 +7,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | AWS Support is a one-on-one, fast-response support channel that is staffed
 -- with experienced support personnel. The service helps customers get the most

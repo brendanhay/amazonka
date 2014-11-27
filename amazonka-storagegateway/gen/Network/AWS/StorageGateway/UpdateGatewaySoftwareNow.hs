@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | This operation updates the gateway virtual machine (VM) software. The request
 -- immediately triggers the software update.

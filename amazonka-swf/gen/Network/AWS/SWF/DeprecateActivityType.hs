@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Deprecates the specified /activity type/. After an activity type has been
 -- deprecated, you cannot create new tasks of that activity type. Tasks of this

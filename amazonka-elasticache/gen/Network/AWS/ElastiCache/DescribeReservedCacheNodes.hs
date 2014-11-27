@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The /DescribeReservedCacheNodes/ operation returns information about reserved
 -- cache nodes for this account, or about a specified reserved cache node.

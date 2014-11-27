@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Returns a set of DKIM tokens for a domain. DKIM /tokens/ are character strings
 -- that represent your domain's identity. Using these tokens, you will need to

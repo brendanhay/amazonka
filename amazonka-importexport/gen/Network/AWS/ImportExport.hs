@@ -7,6 +7,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | AWS Import/Export accelerates moving large amounts of data into and out of
 -- AWS using portable storage devices for transport. AWS transfers your data

@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Creates an entry (a rule) in a network ACL with the specified rule number.
 -- Each network ACL has a set of numbered ingress rules and a separate set of

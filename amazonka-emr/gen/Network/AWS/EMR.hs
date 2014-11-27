@@ -7,6 +7,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to
 -- process large amounts of data efficiently. Amazon EMR uses Hadoop processing

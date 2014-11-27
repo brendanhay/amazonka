@@ -7,6 +7,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | AWS Data Pipeline is a web service that you can use to automate the movement
 -- and transformation of data. With AWS Data Pipeline, you can define

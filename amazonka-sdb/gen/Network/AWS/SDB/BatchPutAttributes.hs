@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The 'BatchPutAttributes' operation creates or replaces attributes within one
 -- or more items. By using this operation, the client can perform multiple 'PutAttribute' operation with a single call. This helps yield savings in round trips and

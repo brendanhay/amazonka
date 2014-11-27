@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Suspends the specified Auto Scaling processes for the specified Auto Scaling
 -- group. To suspend specific processes, use the 'ScalingProcesses' parameter. To

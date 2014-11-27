@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | To retrieve a list of your reusable delegation sets, send a 'GET' request to
 -- the '2013-04-01/delegationset' resource. The response to this request includes

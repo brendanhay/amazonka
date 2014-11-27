@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Modifies the parameters of a DB parameter group to the engine/system default
 -- value. To reset specific parameters submit a list of the following: 'ParameterName' and 'ApplyMethod'. To reset the entire DB parameter group, specify the 'DBParameterGroup' name and 'ResetAllParameters' parameters. When resetting the entire group,

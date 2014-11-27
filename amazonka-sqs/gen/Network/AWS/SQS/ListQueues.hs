@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Returns a list of your queues. The maximum number of queues that can be
 -- returned is 1000. If you specify a value for the optional 'QueueNamePrefix'

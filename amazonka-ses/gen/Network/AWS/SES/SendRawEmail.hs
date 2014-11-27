@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Sends an email message, with header and content specified by the client. The 'SendRawEmail' action is useful for sending multipart MIME emails. The raw text of the
 -- message must comply with Internet email standards; otherwise, the message

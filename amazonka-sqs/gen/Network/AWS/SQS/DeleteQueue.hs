@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Deletes the queue specified by the queue URL, regardless of whether the
 -- queue is empty. If the specified queue does not exist, Amazon SQS returns a

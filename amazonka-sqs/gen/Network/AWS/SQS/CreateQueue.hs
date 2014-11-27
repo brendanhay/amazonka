@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Creates a new queue, or returns the URL of an existing one. When you request 'CreateQueue', you provide a name for the queue. To successfully create a new queue, you
 -- must provide a name that is unique within the scope of your own queues.

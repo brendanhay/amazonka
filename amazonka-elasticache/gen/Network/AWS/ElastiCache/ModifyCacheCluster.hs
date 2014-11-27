@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The /ModifyCacheCluster/ operation modifies the settings for a cache cluster.
 -- You can use this operation to change one or more cluster configuration

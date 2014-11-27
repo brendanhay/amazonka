@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a
 -- gateway after the retrieval process is initiated. The virtual tape is

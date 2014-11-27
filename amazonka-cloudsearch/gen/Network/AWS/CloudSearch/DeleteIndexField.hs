@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Removes an ''IndexField' from the search domain. For more information, see Configuring Index Fields
 -- in the /Amazon CloudSearch Developer Guide/.

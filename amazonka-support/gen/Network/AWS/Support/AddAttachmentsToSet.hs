@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Adds one or more attachments to an attachment set. If an 'AttachmentSetId' is
 -- not specified, a new attachment set is created, and the ID of the set is

@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Lists the endpoints and endpoint attributes for devices in a supported push
 -- notification service, such as GCM and APNS. The results for 'ListEndpointsByPlatformApplication' are paginated and return a limited list of endpoints, up to 100. If

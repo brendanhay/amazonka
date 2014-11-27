@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The /DeleteTable/ operation deletes a table and all of its items. After a /DeleteTable/ request, the specified table is in the 'DELETING' state until DynamoDB
 -- completes the deletion. If the table is in the 'ACTIVE' state, you can delete

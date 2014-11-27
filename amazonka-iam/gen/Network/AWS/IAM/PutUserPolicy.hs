@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Adds (or updates) a policy document associated with the specified user. For
 -- information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of Policies> in the /Using IAM/

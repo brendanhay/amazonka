@@ -32,3 +32,5 @@ For any problems, comments, or feedback please create an issue [here on GitHub](
 ## Licence
 
 `amazonka-support` is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
+
+Parts of the code are derived from AWS service descriptions, licensed under Apache 2.0.

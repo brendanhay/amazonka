@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Retrieves history for the specified alarm. Filter alarms by date range or
 -- item type. If an alarm name is not specified, Amazon CloudWatch returns

@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The /DescribeSnapshots/ operation returns information about cache cluster
 -- snapshots. By default, /DescribeSnapshots/ lists all of your snapshots; it can

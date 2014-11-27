@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The PutAttributes operation creates or replaces attributes in an item. The
 -- client may specify new attributes using a combination of the 'Attribute.X.Name'

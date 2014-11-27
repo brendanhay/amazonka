@@ -7,6 +7,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Amazon Relational Database Service (Amazon RDS) is a web service that makes
 -- it easy to set up, operate, and scale a relational database in the cloud. It

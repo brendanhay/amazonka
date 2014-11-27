@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Deletes a VPC peering connection. Either the owner of the requester VPC or
 -- the owner of the peer VPC can delete the VPC peering connection if it's in

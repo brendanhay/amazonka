@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Tells the search domain to start indexing its documents using the latest
 -- indexing options. This operation must be invoked to activate options whose 'OptionStatus' is 'RequiresIndexDocuments'.

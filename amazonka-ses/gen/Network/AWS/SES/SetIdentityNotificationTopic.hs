@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Given an identity (email address or domain), sets the Amazon Simple
 -- Notification Service (Amazon SNS) topic to which Amazon SES will publish

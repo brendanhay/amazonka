@@ -7,6 +7,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Amazon Simple Notification Service (Amazon SNS) is a fast, flexible, fully
 -- managed push messaging service. Amazon SNS makes it simple and cost-effective

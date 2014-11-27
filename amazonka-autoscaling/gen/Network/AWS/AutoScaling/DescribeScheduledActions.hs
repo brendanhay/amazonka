@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Lists the actions scheduled for your Auto Scaling group that haven't been
 -- executed. To list the actions that were already executed, use 'DescribeScalingActivities'.

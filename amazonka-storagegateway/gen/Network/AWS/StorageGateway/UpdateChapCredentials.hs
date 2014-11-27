@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | This operation updates the Challenge-Handshake Authentication Protocol (CHAP)
 -- credentials for a specified iSCSI target. By default, a gateway does not have

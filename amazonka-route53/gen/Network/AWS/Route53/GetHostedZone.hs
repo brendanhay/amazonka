@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | To retrieve the delegation set for a hosted zone, send a 'GET' request to the '2013-04-01/hostedzone//hosted zone ID/ resource. The delegation set is the four Route 53 name servers
 -- that were assigned to the hosted zone when you created it.

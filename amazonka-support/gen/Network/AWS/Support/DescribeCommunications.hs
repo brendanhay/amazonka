@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Returns communications (and attachments) for one or more support cases. You
 -- can use the 'AfterTime' and 'BeforeTime' parameters to filter by date. You can

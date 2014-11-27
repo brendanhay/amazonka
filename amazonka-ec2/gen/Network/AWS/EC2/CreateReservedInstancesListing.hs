@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Creates a listing for Amazon EC2 Reserved Instances to be sold in the
 -- Reserved Instance Marketplace. You can submit one Reserved Instance listing

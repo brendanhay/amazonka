@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Copies a point-in-time snapshot of an Amazon EBS volume and stores it in
 -- Amazon S3. You can copy the snapshot within the same region or from one

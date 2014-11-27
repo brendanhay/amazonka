@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Allows you to purchase reserved nodes. Amazon Redshift offers a predefined
 -- set of reserved node offerings. You can purchase one of the offerings. You

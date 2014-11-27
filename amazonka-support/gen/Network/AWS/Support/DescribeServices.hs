@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Returns the current list of AWS services and a list of service categories
 -- that applies to each one. You then use service names and categories in your 'CreateCase' requests. Each AWS service has its own set of categories.

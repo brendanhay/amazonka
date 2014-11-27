@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Adds tags to an Amazon EMR resource. Tags make it easier to associate
 -- clusters in various ways, such as grouping clusters to track your Amazon EMR

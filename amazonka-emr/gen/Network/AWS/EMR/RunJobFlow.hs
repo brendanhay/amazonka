@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | RunJobFlow creates and starts running a new job flow. The job flow will run
 -- the steps specified. Once the job flow completes, the cluster is stopped and

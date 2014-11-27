@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The 'DeleteDomain' operation deletes a domain. Any items (and their
 -- attributes) in the domain are deleted as well. The 'DeleteDomain' operation

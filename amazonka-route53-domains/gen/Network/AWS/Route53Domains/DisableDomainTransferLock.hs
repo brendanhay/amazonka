@@ -19,6 +19,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | This operation removes the transfer lock on the domain (specifically the 'clientTransferProhibited' status) to allow domain transfers. We recommend you refrain from performing
 -- this action unless you intend to transfer the domain to a different

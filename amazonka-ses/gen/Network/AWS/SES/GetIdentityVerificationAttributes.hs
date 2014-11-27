@@ -52,7 +52,7 @@ import Network.AWS.SES.Types
 import qualified GHC.Exts
 
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
-    { _givaIdentities :: List "Identities" Text
+    { _givaIdentities :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetIdentityVerificationAttributes where

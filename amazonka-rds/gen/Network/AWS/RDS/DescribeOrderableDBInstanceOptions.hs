@@ -59,7 +59,7 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
     { _dodbioDBInstanceClass :: Maybe Text
     , _dodbioEngine          :: Text
     , _dodbioEngineVersion   :: Maybe Text
-    , _dodbioFilters         :: List "Filter" Filter
+    , _dodbioFilters         :: List "member" Filter
     , _dodbioLicenseModel    :: Maybe Text
     , _dodbioMarker          :: Maybe Text
     , _dodbioMaxRecords      :: Maybe Int
@@ -149,7 +149,7 @@ dodbioVpc = lens _dodbioVpc (\s a -> s { _dodbioVpc = a })
 
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse
     { _dodbiorMarker                     :: Maybe Text
-    , _dodbiorOrderableDBInstanceOptions :: List "OrderableDBInstanceOption" OrderableDBInstanceOption
+    , _dodbiorOrderableDBInstanceOptions :: List "member" OrderableDBInstanceOption
     } deriving (Eq, Show)
 
 -- | 'DescribeOrderableDBInstanceOptionsResponse' constructor.

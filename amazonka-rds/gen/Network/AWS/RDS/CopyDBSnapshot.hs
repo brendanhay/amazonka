@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 data CopyDBSnapshot = CopyDBSnapshot
     { _cdbsSourceDBSnapshotIdentifier :: Text
-    , _cdbsTags                       :: List "Tag" Tag
+    , _cdbsTags                       :: List "member" Tag
     , _cdbsTargetDBSnapshotIdentifier :: Text
     } deriving (Eq, Show)
 

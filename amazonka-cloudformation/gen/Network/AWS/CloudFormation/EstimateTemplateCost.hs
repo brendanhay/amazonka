@@ -52,7 +52,7 @@ import Network.AWS.CloudFormation.Types
 import qualified GHC.Exts
 
 data EstimateTemplateCost = EstimateTemplateCost
-    { _etcParameters   :: List "Parameters" Parameter
+    { _etcParameters   :: List "member" Parameter
     , _etcTemplateBody :: Maybe Text
     , _etcTemplateURL  :: Maybe Text
     } deriving (Eq, Show)

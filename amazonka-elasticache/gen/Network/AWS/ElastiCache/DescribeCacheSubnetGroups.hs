@@ -99,7 +99,7 @@ dcsgMaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Int)
 dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
 
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
-    { _dcsgrCacheSubnetGroups :: List "CacheSubnetGroup" CacheSubnetGroup
+    { _dcsgrCacheSubnetGroups :: List "member" CacheSubnetGroup
     , _dcsgrMarker            :: Maybe Text
     } deriving (Eq, Show)
 

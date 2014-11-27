@@ -161,8 +161,8 @@ instance ToQuery ReportInstanceStatus where
         [ "description" =? _risDescription
         , "dryRun"      =? _risDryRun
         , "endTime"     =? _risEndTime
-        , "instanceId"  =? _risInstances
-        , "reasonCode"  =? _risReasonCodes
+        , toQuery      _risInstances
+        , toQuery      _risReasonCodes
         , "startTime"   =? _risStartTime
         , "status"      =? _risStatus
         ]

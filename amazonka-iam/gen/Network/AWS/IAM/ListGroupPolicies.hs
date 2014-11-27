@@ -98,7 +98,7 @@ lgpMaxItems = lens _lgpMaxItems (\s a -> s { _lgpMaxItems = a }) . mapping _Nat
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     { _lgprIsTruncated :: Maybe Bool
     , _lgprMarker      :: Maybe Text
-    , _lgprPolicyNames :: List "PolicyNames" Text
+    , _lgprPolicyNames :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'ListGroupPoliciesResponse' constructor.

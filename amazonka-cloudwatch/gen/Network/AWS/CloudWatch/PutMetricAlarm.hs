@@ -66,16 +66,16 @@ import qualified GHC.Exts
 
 data PutMetricAlarm = PutMetricAlarm
     { _pmaActionsEnabled          :: Maybe Bool
-    , _pmaAlarmActions            :: List "OKActions" Text
+    , _pmaAlarmActions            :: List "member" Text
     , _pmaAlarmDescription        :: Maybe Text
     , _pmaAlarmName               :: Text
     , _pmaComparisonOperator      :: ComparisonOperator
-    , _pmaDimensions              :: List "Dimensions" Dimension
+    , _pmaDimensions              :: List "member" Dimension
     , _pmaEvaluationPeriods       :: Nat
-    , _pmaInsufficientDataActions :: List "OKActions" Text
+    , _pmaInsufficientDataActions :: List "member" Text
     , _pmaMetricName              :: Text
     , _pmaNamespace               :: Text
-    , _pmaOKActions               :: List "OKActions" Text
+    , _pmaOKActions               :: List "member" Text
     , _pmaPeriod                  :: Nat
     , _pmaStatistic               :: Statistic
     , _pmaThreshold               :: Double

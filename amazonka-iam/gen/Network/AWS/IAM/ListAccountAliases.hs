@@ -85,7 +85,7 @@ laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
 laaMaxItems = lens _laaMaxItems (\s a -> s { _laaMaxItems = a }) . mapping _Nat
 
 data ListAccountAliasesResponse = ListAccountAliasesResponse
-    { _laarAccountAliases :: List "AccountAliases" Text
+    { _laarAccountAliases :: List "member" Text
     , _laarIsTruncated    :: Maybe Bool
     , _laarMarker         :: Maybe Text
     } deriving (Eq, Ord, Show)

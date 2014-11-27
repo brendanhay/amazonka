@@ -114,12 +114,6 @@ newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddorDhcpOptions :: List "item" DhcpOptions
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeDhcpOptionsResponse where
-    type Item DescribeDhcpOptionsResponse = DhcpOptions
-
-    fromList = DescribeDhcpOptionsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _ddorDhcpOptions
-
 -- | 'DescribeDhcpOptionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -140,9 +134,9 @@ instance ToPath DescribeDhcpOptions where
 
 instance ToQuery DescribeDhcpOptions where
     toQuery DescribeDhcpOptions{..} = mconcat
-        [ "DhcpOptionsId" =? _ddoDhcpOptionsIds
+        [ toQuery        _ddoDhcpOptionsIds
         , "dryRun"        =? _ddoDryRun
-        , "Filter"        =? _ddoFilters
+        , toQuery        _ddoFilters
         ]
 
 instance ToHeaders DescribeDhcpOptions
@@ -156,4 +150,4 @@ instance AWSRequest DescribeDhcpOptions where
 
 instance FromXML DescribeDhcpOptionsResponse where
     parseXML x = DescribeDhcpOptionsResponse
-        <$> x .@  "dhcpOptionsSet"
+        <$> parseXML x

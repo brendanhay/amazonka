@@ -53,7 +53,7 @@ listSAMLProviders :: ListSAMLProviders
 listSAMLProviders = ListSAMLProviders
 
 newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
-    { _lsamlprSAMLProviderList :: List "SAMLProviderList" SAMLProviderListEntry
+    { _lsamlprSAMLProviderList :: List "member" SAMLProviderListEntry
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ListSAMLProvidersResponse where

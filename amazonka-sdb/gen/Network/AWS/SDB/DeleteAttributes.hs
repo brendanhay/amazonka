@@ -58,7 +58,7 @@ import Network.AWS.SDB.Types
 import qualified GHC.Exts
 
 data DeleteAttributes = DeleteAttributes
-    { _daAttributes :: List "Attribute" Attribute
+    { _daAttributes :: List "member" Attribute
     , _daDomainName :: Text
     , _daExpected   :: Maybe UpdateCondition
     , _daItemName   :: Text

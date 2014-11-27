@@ -53,7 +53,7 @@ describeAdjustmentTypes :: DescribeAdjustmentTypes
 describeAdjustmentTypes = DescribeAdjustmentTypes
 
 newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
-    { _datrAdjustmentTypes :: List "AdjustmentTypes" AdjustmentType
+    { _datrAdjustmentTypes :: List "member" AdjustmentType
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAdjustmentTypesResponse where

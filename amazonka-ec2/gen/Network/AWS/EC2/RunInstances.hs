@@ -427,7 +427,7 @@ instance ToPath RunInstances where
 instance ToQuery RunInstances where
     toQuery RunInstances{..} = mconcat
         [ "additionalInfo"                    =? _riAdditionalInfo
-        , "BlockDeviceMapping"                =? _riBlockDeviceMappings
+        , toQuery                            _riBlockDeviceMappings
         , "clientToken"                       =? _riClientToken
         , "disableApiTermination"             =? _riDisableApiTermination
         , "dryRun"                            =? _riDryRun
@@ -441,12 +441,12 @@ instance ToQuery RunInstances where
         , "MaxCount"                          =? _riMaxCount
         , "MinCount"                          =? _riMinCount
         , "Monitoring"                        =? _riMonitoring
-        , "networkInterface"                  =? _riNetworkInterfaces
+        , toQuery                            _riNetworkInterfaces
         , "Placement"                         =? _riPlacement
         , "privateIpAddress"                  =? _riPrivateIpAddress
         , "RamdiskId"                         =? _riRamdiskId
-        , "SecurityGroupId"                   =? _riSecurityGroupIds
-        , "SecurityGroup"                     =? _riSecurityGroups
+        , toQuery                            _riSecurityGroupIds
+        , toQuery                            _riSecurityGroups
         , "SubnetId"                          =? _riSubnetId
         , "UserData"                          =? _riUserData
         ]
@@ -462,8 +462,8 @@ instance AWSRequest RunInstances where
 
 instance FromXML RunInstancesResponse where
     parseXML x = RunInstancesResponse
-        <$> x .@  "groupSet"
-        <*> x .@  "instancesSet"
+        <$> parseXML x
+        <*> parseXML x
         <*> x .@? "ownerId"
         <*> x .@? "requesterId"
         <*> x .@? "reservationId"

@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 data ResetClusterParameterGroup = ResetClusterParameterGroup
     { _rcpgParameterGroupName :: Text
-    , _rcpgParameters         :: List "Parameter" Parameter
+    , _rcpgParameters         :: List "member" Parameter
     , _rcpgResetAllParameters :: Maybe Bool
     } deriving (Eq, Show)
 

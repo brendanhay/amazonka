@@ -70,8 +70,8 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
     { _dcsgClusterSecurityGroupName :: Maybe Text
     , _dcsgMarker                   :: Maybe Text
     , _dcsgMaxRecords               :: Maybe Int
-    , _dcsgTagKeys                  :: List "TagKey" Text
-    , _dcsgTagValues                :: List "TagValue" Text
+    , _dcsgTagKeys                  :: List "member" Text
+    , _dcsgTagValues                :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusterSecurityGroups' constructor.
@@ -149,7 +149,7 @@ dcsgTagValues :: Lens' DescribeClusterSecurityGroups [Text]
 dcsgTagValues = lens _dcsgTagValues (\s a -> s { _dcsgTagValues = a }) . _List
 
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
-    { _dcsgr1ClusterSecurityGroups :: List "ClusterSecurityGroup" ClusterSecurityGroup
+    { _dcsgr1ClusterSecurityGroups :: List "member" ClusterSecurityGroup
     , _dcsgr1Marker                :: Maybe Text
     } deriving (Eq, Show)
 

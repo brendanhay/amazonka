@@ -56,7 +56,7 @@ import qualified GHC.Exts
 
 data DetachInstances = DetachInstances
     { _diAutoScalingGroupName           :: Text
-    , _diInstanceIds                    :: List "InstanceIds" Text
+    , _diInstanceIds                    :: List "member" Text
     , _diShouldDecrementDesiredCapacity :: Bool
     } deriving (Eq, Ord, Show)
 
@@ -96,7 +96,7 @@ diShouldDecrementDesiredCapacity =
         (\s a -> s { _diShouldDecrementDesiredCapacity = a })
 
 newtype DetachInstancesResponse = DetachInstancesResponse
-    { _dirActivities :: List "Activities" Activity
+    { _dirActivities :: List "member" Activity
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DetachInstancesResponse where

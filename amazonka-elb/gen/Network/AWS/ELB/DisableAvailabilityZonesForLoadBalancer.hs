@@ -60,7 +60,7 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer
-    { _dazflbAvailabilityZones :: List "AvailabilityZones" Text
+    { _dazflbAvailabilityZones :: List "member" Text
     , _dazflbLoadBalancerName  :: Text
     } deriving (Eq, Ord, Show)
 
@@ -95,7 +95,7 @@ dazflbLoadBalancerName =
     lens _dazflbLoadBalancerName (\s a -> s { _dazflbLoadBalancerName = a })
 
 newtype DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
-    { _dazflbrAvailabilityZones :: List "AvailabilityZones" Text
+    { _dazflbrAvailabilityZones :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DisableAvailabilityZonesForLoadBalancerResponse where

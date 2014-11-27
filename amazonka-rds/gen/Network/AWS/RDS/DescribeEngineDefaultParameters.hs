@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
     { _dedpDBParameterGroupFamily :: Text
-    , _dedpFilters                :: List "Filter" Filter
+    , _dedpFilters                :: List "member" Filter
     , _dedpMarker                 :: Maybe Text
     , _dedpMaxRecords             :: Maybe Int
     } deriving (Eq, Show)

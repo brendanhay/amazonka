@@ -48,7 +48,7 @@ import Network.AWS.CloudWatch.Types
 import qualified GHC.Exts
 
 newtype DisableAlarmActions = DisableAlarmActions
-    { _daaAlarmNames :: List "AlarmNames" Text
+    { _daaAlarmNames :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DisableAlarmActions where

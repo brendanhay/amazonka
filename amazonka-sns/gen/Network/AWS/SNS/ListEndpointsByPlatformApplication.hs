@@ -87,7 +87,7 @@ lebpaPlatformApplicationArn =
         (\s a -> s { _lebpaPlatformApplicationArn = a })
 
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
-    { _lebparEndpoints :: List "Endpoints" Endpoint
+    { _lebparEndpoints :: List "member" Endpoint
     , _lebparNextToken :: Maybe Text
     } deriving (Eq, Show)
 

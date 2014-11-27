@@ -103,7 +103,7 @@ lrPathPrefix = lens _lrPathPrefix (\s a -> s { _lrPathPrefix = a })
 data ListRolesResponse = ListRolesResponse
     { _lrrIsTruncated :: Maybe Bool
     , _lrrMarker      :: Maybe Text
-    , _lrrRoles       :: List "Roles" Role
+    , _lrrRoles       :: List "member" Role
     } deriving (Eq, Show)
 
 -- | 'ListRolesResponse' constructor.

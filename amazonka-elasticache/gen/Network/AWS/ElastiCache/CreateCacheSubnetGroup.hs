@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup
     { _ccsgCacheSubnetGroupDescription :: Text
     , _ccsgCacheSubnetGroupName        :: Text
-    , _ccsgSubnetIds                   :: List "SubnetIdentifier" Text
+    , _ccsgSubnetIds                   :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'CreateCacheSubnetGroup' constructor.

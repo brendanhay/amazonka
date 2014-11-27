@@ -208,12 +208,6 @@ newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsRespo
     { _dsirrSpotInstanceRequests :: List "item" SpotInstanceRequest
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeSpotInstanceRequestsResponse where
-    type Item DescribeSpotInstanceRequestsResponse = SpotInstanceRequest
-
-    fromList = DescribeSpotInstanceRequestsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dsirrSpotInstanceRequests
-
 -- | 'DescribeSpotInstanceRequestsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -238,8 +232,8 @@ instance ToPath DescribeSpotInstanceRequests where
 instance ToQuery DescribeSpotInstanceRequests where
     toQuery DescribeSpotInstanceRequests{..} = mconcat
         [ "dryRun"                =? _dsirDryRun
-        , "Filter"                =? _dsirFilters
-        , "SpotInstanceRequestId" =? _dsirSpotInstanceRequestIds
+        , toQuery                _dsirFilters
+        , toQuery                _dsirSpotInstanceRequestIds
         ]
 
 instance ToHeaders DescribeSpotInstanceRequests
@@ -253,4 +247,4 @@ instance AWSRequest DescribeSpotInstanceRequests where
 
 instance FromXML DescribeSpotInstanceRequestsResponse where
     parseXML x = DescribeSpotInstanceRequestsResponse
-        <$> x .@  "spotInstanceRequestSet"
+        <$> parseXML x

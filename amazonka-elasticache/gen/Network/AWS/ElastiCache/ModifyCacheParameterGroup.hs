@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup
     { _mcpgCacheParameterGroupName :: Text
-    , _mcpgParameterNameValues     :: List "ParameterNameValue" ParameterNameValue
+    , _mcpgParameterNameValues     :: List "member" ParameterNameValue
     } deriving (Eq, Show)
 
 -- | 'ModifyCacheParameterGroup' constructor.

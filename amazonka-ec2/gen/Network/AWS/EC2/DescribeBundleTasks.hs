@@ -113,12 +113,6 @@ newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks :: List "item" BundleTask
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeBundleTasksResponse where
-    type Item DescribeBundleTasksResponse = BundleTask
-
-    fromList = DescribeBundleTasksResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dbtrBundleTasks
-
 -- | 'DescribeBundleTasksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -139,9 +133,9 @@ instance ToPath DescribeBundleTasks where
 
 instance ToQuery DescribeBundleTasks where
     toQuery DescribeBundleTasks{..} = mconcat
-        [ "BundleId" =? _dbtBundleIds
+        [ toQuery   _dbtBundleIds
         , "dryRun"   =? _dbtDryRun
-        , "Filter"   =? _dbtFilters
+        , toQuery   _dbtFilters
         ]
 
 instance ToHeaders DescribeBundleTasks
@@ -155,4 +149,4 @@ instance AWSRequest DescribeBundleTasks where
 
 instance FromXML DescribeBundleTasksResponse where
     parseXML x = DescribeBundleTasksResponse
-        <$> x .@  "bundleInstanceTasksSet"
+        <$> parseXML x

@@ -57,7 +57,7 @@ import qualified GHC.Exts
 
 data CreateHsmClientCertificate = CreateHsmClientCertificate
     { _chccHsmClientCertificateIdentifier :: Text
-    , _chccTags                           :: List "Tag" Tag
+    , _chccTags                           :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateHsmClientCertificate' constructor.

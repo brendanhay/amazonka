@@ -131,7 +131,7 @@ instance ToPath ImportInstance where
 instance ToQuery ImportInstance where
     toQuery ImportInstance{..} = mconcat
         [ "description"         =? _iiDescription
-        , "diskImage"           =? _iiDiskImages
+        , toQuery              _iiDiskImages
         , "dryRun"              =? _iiDryRun
         , "launchSpecification" =? _iiLaunchSpecification
         , "platform"            =? _iiPlatform

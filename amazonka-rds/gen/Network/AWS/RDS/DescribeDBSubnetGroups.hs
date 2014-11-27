@@ -57,7 +57,7 @@ import qualified GHC.Exts
 
 data DescribeDBSubnetGroups = DescribeDBSubnetGroups
     { _ddbsgDBSubnetGroupName :: Maybe Text
-    , _ddbsgFilters           :: List "Filter" Filter
+    , _ddbsgFilters           :: List "member" Filter
     , _ddbsgMarker            :: Maybe Text
     , _ddbsgMaxRecords        :: Maybe Int
     } deriving (Eq, Show)
@@ -108,7 +108,7 @@ ddbsgMaxRecords :: Lens' DescribeDBSubnetGroups (Maybe Int)
 ddbsgMaxRecords = lens _ddbsgMaxRecords (\s a -> s { _ddbsgMaxRecords = a })
 
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
-    { _ddbsgrDBSubnetGroups :: List "DBSubnetGroup" DBSubnetGroup
+    { _ddbsgrDBSubnetGroups :: List "member" DBSubnetGroup
     , _ddbsgrMarker         :: Maybe Text
     } deriving (Eq, Show)
 

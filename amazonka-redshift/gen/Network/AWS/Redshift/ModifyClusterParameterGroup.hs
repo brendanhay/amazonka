@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup
     { _mcpgParameterGroupName :: Text
-    , _mcpgParameters         :: List "Parameter" Parameter
+    , _mcpgParameters         :: List "member" Parameter
     } deriving (Eq, Show)
 
 -- | 'ModifyClusterParameterGroup' constructor.

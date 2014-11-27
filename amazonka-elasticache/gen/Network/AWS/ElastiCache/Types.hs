@@ -424,7 +424,7 @@ data Snapshot = Snapshot
     , _sCacheSubnetGroupName       :: Maybe Text
     , _sEngine                     :: Maybe Text
     , _sEngineVersion              :: Maybe Text
-    , _sNodeSnapshots              :: List "NodeSnapshot" NodeSnapshot
+    , _sNodeSnapshots              :: List "member" NodeSnapshot
     , _sNumCacheNodes              :: Maybe Int
     , _sPort                       :: Maybe Int
     , _sPreferredAvailabilityZone  :: Maybe Text
@@ -729,7 +729,7 @@ instance ToQuery Event where
 
 data NodeGroup = NodeGroup
     { _ngNodeGroupId      :: Maybe Text
-    , _ngNodeGroupMembers :: List "NodeGroupMember" NodeGroupMember
+    , _ngNodeGroupMembers :: List "member" NodeGroupMember
     , _ngPrimaryEndpoint  :: Maybe Endpoint
     , _ngStatus           :: Maybe Text
     } deriving (Eq, Show)
@@ -1058,7 +1058,7 @@ instance FromXML SourceType where
 data CacheSubnetGroup = CacheSubnetGroup
     { _csgCacheSubnetGroupDescription :: Maybe Text
     , _csgCacheSubnetGroupName        :: Maybe Text
-    , _csgSubnets                     :: List "Subnet" Subnet
+    , _csgSubnets                     :: List "member" Subnet
     , _csgVpcId                       :: Maybe Text
     } deriving (Eq, Show)
 
@@ -1124,7 +1124,7 @@ data ReservedCacheNode = ReservedCacheNode
     , _rcnFixedPrice                   :: Maybe Double
     , _rcnOfferingType                 :: Maybe Text
     , _rcnProductDescription           :: Maybe Text
-    , _rcnRecurringCharges             :: List "RecurringCharge" RecurringCharge
+    , _rcnRecurringCharges             :: List "member" RecurringCharge
     , _rcnReservedCacheNodeId          :: Maybe Text
     , _rcnReservedCacheNodesOfferingId :: Maybe Text
     , _rcnStartTime                    :: Maybe ISO8601
@@ -1349,9 +1349,9 @@ data CacheCluster = CacheCluster
     , _ccCacheClusterId             :: Maybe Text
     , _ccCacheClusterStatus         :: Maybe Text
     , _ccCacheNodeType              :: Maybe Text
-    , _ccCacheNodes                 :: List "CacheNode" CacheNode
+    , _ccCacheNodes                 :: List "member" CacheNode
     , _ccCacheParameterGroup        :: Maybe CacheParameterGroupStatus
-    , _ccCacheSecurityGroups        :: List "CacheSecurityGroup" CacheSecurityGroupMembership
+    , _ccCacheSecurityGroups        :: List "member" CacheSecurityGroupMembership
     , _ccCacheSubnetGroupName       :: Maybe Text
     , _ccClientDownloadLandingPage  :: Maybe Text
     , _ccConfigurationEndpoint      :: Maybe Endpoint
@@ -1363,7 +1363,7 @@ data CacheCluster = CacheCluster
     , _ccPreferredAvailabilityZone  :: Maybe Text
     , _ccPreferredMaintenanceWindow :: Maybe Text
     , _ccReplicationGroupId         :: Maybe Text
-    , _ccSecurityGroups             :: List "SecurityGroups" SecurityGroupMembership
+    , _ccSecurityGroups             :: List "member" SecurityGroupMembership
     , _ccSnapshotRetentionLimit     :: Maybe Int
     , _ccSnapshotWindow             :: Maybe Text
     } deriving (Eq, Show)
@@ -1618,10 +1618,10 @@ instance ToQuery CacheCluster where
         ]
 
 data EngineDefaults = EngineDefaults
-    { _edCacheNodeTypeSpecificParameters :: List "CacheNodeTypeSpecificParameter" CacheNodeTypeSpecificParameter
+    { _edCacheNodeTypeSpecificParameters :: List "member" CacheNodeTypeSpecificParameter
     , _edCacheParameterGroupFamily       :: Maybe Text
     , _edMarker                          :: Maybe Text
-    , _edParameters                      :: List "Parameter" Parameter
+    , _edParameters                      :: List "member" Parameter
     } deriving (Eq, Show)
 
 -- | 'EngineDefaults' constructor.
@@ -1683,7 +1683,7 @@ instance ToQuery EngineDefaults where
         ]
 
 data CacheParameterGroupStatus = CacheParameterGroupStatus
-    { _cpgsCacheNodeIdsToReboot    :: List "CacheNodeId" Text
+    { _cpgsCacheNodeIdsToReboot    :: List "member" Text
     , _cpgsCacheParameterGroupName :: Maybe Text
     , _cpgsParameterApplyStatus    :: Maybe Text
     } deriving (Eq, Ord, Show)
@@ -2066,7 +2066,7 @@ instance FromXML AutomaticFailoverStatus where
 data CacheSecurityGroup = CacheSecurityGroup
     { _csgCacheSecurityGroupName :: Maybe Text
     , _csgDescription            :: Maybe Text
-    , _csgEC2SecurityGroups      :: List "EC2SecurityGroup" EC2SecurityGroup
+    , _csgEC2SecurityGroups      :: List "member" EC2SecurityGroup
     , _csgOwnerId                :: Maybe Text
     } deriving (Eq, Show)
 
@@ -2128,7 +2128,7 @@ instance ToQuery CacheSecurityGroup where
 
 data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
     { _cntspAllowedValues               :: Maybe Text
-    , _cntspCacheNodeTypeSpecificValues :: List "CacheNodeTypeSpecificValue" CacheNodeTypeSpecificValue
+    , _cntspCacheNodeTypeSpecificValues :: List "member" CacheNodeTypeSpecificValue
     , _cntspDataType                    :: Maybe Text
     , _cntspDescription                 :: Maybe Text
     , _cntspIsModifiable                :: Maybe Bool
@@ -2338,8 +2338,8 @@ instance ToQuery CacheEngineVersion where
 data ReplicationGroup = ReplicationGroup
     { _rgAutomaticFailover     :: Maybe AutomaticFailoverStatus
     , _rgDescription           :: Maybe Text
-    , _rgMemberClusters        :: List "ClusterId" Text
-    , _rgNodeGroups            :: List "NodeGroup" NodeGroup
+    , _rgMemberClusters        :: List "member" Text
+    , _rgNodeGroups            :: List "member" NodeGroup
     , _rgPendingModifiedValues :: Maybe ReplicationGroupPendingModifiedValues
     , _rgReplicationGroupId    :: Maybe Text
     , _rgSnapshottingClusterId :: Maybe Text
@@ -2487,7 +2487,7 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering
     , _rcnoFixedPrice                   :: Maybe Double
     , _rcnoOfferingType                 :: Maybe Text
     , _rcnoProductDescription           :: Maybe Text
-    , _rcnoRecurringCharges             :: List "RecurringCharge" RecurringCharge
+    , _rcnoRecurringCharges             :: List "member" RecurringCharge
     , _rcnoReservedCacheNodesOfferingId :: Maybe Text
     , _rcnoUsagePrice                   :: Maybe Double
     } deriving (Eq, Show)
@@ -2624,7 +2624,7 @@ instance ToQuery Endpoint where
         ]
 
 data PendingModifiedValues = PendingModifiedValues
-    { _pmvCacheNodeIdsToRemove :: List "CacheNodeId" Text
+    { _pmvCacheNodeIdsToRemove :: List "member" Text
     , _pmvEngineVersion        :: Maybe Text
     , _pmvNumCacheNodes        :: Maybe Int
     } deriving (Eq, Ord, Show)

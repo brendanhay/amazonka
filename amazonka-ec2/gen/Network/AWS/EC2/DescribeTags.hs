@@ -144,7 +144,7 @@ instance ToPath DescribeTags where
 instance ToQuery DescribeTags where
     toQuery DescribeTags{..} = mconcat
         [ "dryRun"     =? _dtDryRun
-        , "Filter"     =? _dtFilters
+        , toQuery     _dtFilters
         , "maxResults" =? _dtMaxResults
         , "nextToken"  =? _dtNextToken
         ]
@@ -161,7 +161,7 @@ instance AWSRequest DescribeTags where
 instance FromXML DescribeTagsResponse where
     parseXML x = DescribeTagsResponse
         <$> x .@? "nextToken"
-        <*> x .@  "tagSet"
+        <*> parseXML x
 
 instance AWSPager DescribeTags where
     page rq rs

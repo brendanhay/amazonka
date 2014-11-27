@@ -98,7 +98,7 @@ lupUserName = lens _lupUserName (\s a -> s { _lupUserName = a })
 data ListUserPoliciesResponse = ListUserPoliciesResponse
     { _luprIsTruncated :: Maybe Bool
     , _luprMarker      :: Maybe Text
-    , _luprPolicyNames :: List "PolicyNames" Text
+    , _luprPolicyNames :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'ListUserPoliciesResponse' constructor.

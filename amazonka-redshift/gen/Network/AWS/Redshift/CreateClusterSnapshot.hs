@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data CreateClusterSnapshot = CreateClusterSnapshot
     { _ccsClusterIdentifier  :: Text
     , _ccsSnapshotIdentifier :: Text
-    , _ccsTags               :: List "Tag" Tag
+    , _ccsTags               :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateClusterSnapshot' constructor.

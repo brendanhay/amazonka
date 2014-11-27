@@ -82,20 +82,20 @@ data CreateReplicationGroup = CreateReplicationGroup
     , _crgAutomaticFailoverEnabled    :: Maybe Bool
     , _crgCacheNodeType               :: Maybe Text
     , _crgCacheParameterGroupName     :: Maybe Text
-    , _crgCacheSecurityGroupNames     :: List "CacheSecurityGroupName" Text
+    , _crgCacheSecurityGroupNames     :: List "member" Text
     , _crgCacheSubnetGroupName        :: Maybe Text
     , _crgEngine                      :: Maybe Text
     , _crgEngineVersion               :: Maybe Text
     , _crgNotificationTopicArn        :: Maybe Text
     , _crgNumCacheClusters            :: Maybe Int
     , _crgPort                        :: Maybe Int
-    , _crgPreferredCacheClusterAZs    :: List "AvailabilityZone" Text
+    , _crgPreferredCacheClusterAZs    :: List "member" Text
     , _crgPreferredMaintenanceWindow  :: Maybe Text
     , _crgPrimaryClusterId            :: Maybe Text
     , _crgReplicationGroupDescription :: Text
     , _crgReplicationGroupId          :: Text
-    , _crgSecurityGroupIds            :: List "SecurityGroupId" Text
-    , _crgSnapshotArns                :: List "SnapshotArn" Text
+    , _crgSecurityGroupIds            :: List "member" Text
+    , _crgSnapshotArns                :: List "member" Text
     , _crgSnapshotName                :: Maybe Text
     , _crgSnapshotRetentionLimit      :: Maybe Int
     , _crgSnapshotWindow              :: Maybe Text

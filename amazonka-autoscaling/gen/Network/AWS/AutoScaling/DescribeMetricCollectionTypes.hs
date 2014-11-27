@@ -60,8 +60,8 @@ describeMetricCollectionTypes :: DescribeMetricCollectionTypes
 describeMetricCollectionTypes = DescribeMetricCollectionTypes
 
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
-    { _dmctrGranularities :: List "Granularities" MetricGranularityType
-    , _dmctrMetrics       :: List "Metrics" MetricCollectionType
+    { _dmctrGranularities :: List "member" MetricGranularityType
+    , _dmctrMetrics       :: List "member" MetricCollectionType
     } deriving (Eq, Show)
 
 -- | 'DescribeMetricCollectionTypesResponse' constructor.

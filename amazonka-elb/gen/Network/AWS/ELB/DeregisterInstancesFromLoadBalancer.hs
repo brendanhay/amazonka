@@ -59,7 +59,7 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
-    { _diflbInstances        :: List "Instances" Instance
+    { _diflbInstances        :: List "member" Instance
     , _diflbLoadBalancerName :: Text
     } deriving (Eq, Show)
 
@@ -88,7 +88,7 @@ diflbLoadBalancerName =
     lens _diflbLoadBalancerName (\s a -> s { _diflbLoadBalancerName = a })
 
 newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
-    { _diflbrInstances :: List "Instances" Instance
+    { _diflbrInstances :: List "member" Instance
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DeregisterInstancesFromLoadBalancerResponse where

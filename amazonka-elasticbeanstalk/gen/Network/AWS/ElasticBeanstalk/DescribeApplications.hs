@@ -48,7 +48,7 @@ import Network.AWS.ElasticBeanstalk.Types
 import qualified GHC.Exts
 
 newtype DescribeApplications = DescribeApplications
-    { _daApplicationNames :: List "ApplicationNames" Text
+    { _daApplicationNames :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeApplications where
@@ -76,7 +76,7 @@ daApplicationNames =
         . _List
 
 newtype DescribeApplicationsResponse = DescribeApplicationsResponse
-    { _darApplications :: List "Applications" ApplicationDescription
+    { _darApplications :: List "member" ApplicationDescription
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeApplicationsResponse where

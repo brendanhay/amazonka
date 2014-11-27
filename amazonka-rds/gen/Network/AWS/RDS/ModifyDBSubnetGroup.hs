@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data ModifyDBSubnetGroup = ModifyDBSubnetGroup
     { _mdbsgDBSubnetGroupDescription :: Maybe Text
     , _mdbsgDBSubnetGroupName        :: Text
-    , _mdbsgSubnetIds                :: List "SubnetIdentifier" Text
+    , _mdbsgSubnetIds                :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'ModifyDBSubnetGroup' constructor.

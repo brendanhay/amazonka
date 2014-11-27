@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 data CopyDBParameterGroup = CopyDBParameterGroup
     { _cdbpgSourceDBParameterGroupIdentifier  :: Text
-    , _cdbpgTags                              :: List "Tag" Tag
+    , _cdbpgTags                              :: List "member" Tag
     , _cdbpgTargetDBParameterGroupDescription :: Text
     , _cdbpgTargetDBParameterGroupIdentifier  :: Text
     } deriving (Eq, Show)

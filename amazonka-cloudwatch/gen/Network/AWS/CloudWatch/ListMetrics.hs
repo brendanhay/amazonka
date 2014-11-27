@@ -54,7 +54,7 @@ import Network.AWS.CloudWatch.Types
 import qualified GHC.Exts
 
 data ListMetrics = ListMetrics
-    { _lmDimensions :: List "Dimensions" DimensionFilter
+    { _lmDimensions :: List "member" DimensionFilter
     , _lmMetricName :: Maybe Text
     , _lmNamespace  :: Maybe Text
     , _lmNextToken  :: Maybe Text
@@ -98,7 +98,7 @@ lmNextToken :: Lens' ListMetrics (Maybe Text)
 lmNextToken = lens _lmNextToken (\s a -> s { _lmNextToken = a })
 
 data ListMetricsResponse = ListMetricsResponse
-    { _lmrMetrics   :: List "Metrics" Metric
+    { _lmrMetrics   :: List "member" Metric
     , _lmrNextToken :: Maybe Text
     } deriving (Eq, Show)
 

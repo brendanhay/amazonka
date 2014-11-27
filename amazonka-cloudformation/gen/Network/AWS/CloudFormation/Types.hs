@@ -1148,19 +1148,19 @@ instance FromXML ResourceSignalStatus where
     parseXML = parseXMLText "ResourceSignalStatus"
 
 data Stack = Stack
-    { _sCapabilities      :: List "Capabilities" Capability
+    { _sCapabilities      :: List "member" Capability
     , _sCreationTime      :: ISO8601
     , _sDescription       :: Maybe Text
     , _sDisableRollback   :: Maybe Bool
     , _sLastUpdatedTime   :: Maybe ISO8601
-    , _sNotificationARNs  :: List "NotificationARNs" Text
-    , _sOutputs           :: List "Outputs" Output
-    , _sParameters        :: List "Parameters" Parameter
+    , _sNotificationARNs  :: List "member" Text
+    , _sOutputs           :: List "member" Output
+    , _sParameters        :: List "member" Parameter
     , _sStackId           :: Maybe Text
     , _sStackName         :: Text
     , _sStackStatus       :: StackStatus
     , _sStackStatusReason :: Maybe Text
-    , _sTags              :: List "Tags" Tag
+    , _sTags              :: List "member" Tag
     , _sTimeoutInMinutes  :: Maybe Nat
     } deriving (Eq, Show)
 

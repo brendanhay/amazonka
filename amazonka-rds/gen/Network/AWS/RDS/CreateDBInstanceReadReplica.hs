@@ -79,7 +79,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
     , _cdbirrPubliclyAccessible         :: Maybe Bool
     , _cdbirrSourceDBInstanceIdentifier :: Text
     , _cdbirrStorageType                :: Maybe Text
-    , _cdbirrTags                       :: List "Tag" Tag
+    , _cdbirrTags                       :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateDBInstanceReadReplica' constructor.

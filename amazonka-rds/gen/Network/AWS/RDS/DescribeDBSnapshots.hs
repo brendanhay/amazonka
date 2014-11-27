@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data DescribeDBSnapshots = DescribeDBSnapshots
     { _ddbsDBInstanceIdentifier :: Maybe Text
     , _ddbsDBSnapshotIdentifier :: Maybe Text
-    , _ddbsFilters              :: List "Filter" Filter
+    , _ddbsFilters              :: List "member" Filter
     , _ddbsMarker               :: Maybe Text
     , _ddbsMaxRecords           :: Maybe Int
     , _ddbsSnapshotType         :: Maybe Text
@@ -142,7 +142,7 @@ ddbsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
 ddbsSnapshotType = lens _ddbsSnapshotType (\s a -> s { _ddbsSnapshotType = a })
 
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
-    { _ddbsrDBSnapshots :: List "DBSnapshot" DBSnapshot
+    { _ddbsrDBSnapshots :: List "member" DBSnapshot
     , _ddbsrMarker      :: Maybe Text
     } deriving (Eq, Show)
 

@@ -51,7 +51,7 @@ import Network.AWS.RDS.Types
 import qualified GHC.Exts
 
 data ListTagsForResource = ListTagsForResource
-    { _ltfrFilters      :: List "Filter" Filter
+    { _ltfrFilters      :: List "member" Filter
     , _ltfrResourceName :: Text
     } deriving (Eq, Show)
 
@@ -80,7 +80,7 @@ ltfrResourceName :: Lens' ListTagsForResource Text
 ltfrResourceName = lens _ltfrResourceName (\s a -> s { _ltfrResourceName = a })
 
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
-    { _ltfrrTagList :: List "Tag" Tag
+    { _ltfrrTagList :: List "member" Tag
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ListTagsForResourceResponse where

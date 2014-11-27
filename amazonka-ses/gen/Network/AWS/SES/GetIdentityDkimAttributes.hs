@@ -63,7 +63,7 @@ import Network.AWS.SES.Types
 import qualified GHC.Exts
 
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
-    { _gidaIdentities :: List "Identities" Text
+    { _gidaIdentities :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetIdentityDkimAttributes where

@@ -90,12 +90,6 @@ newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { _csirrCancelledSpotInstanceRequests :: List "item" CancelledSpotInstanceRequest
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList CancelSpotInstanceRequestsResponse where
-    type Item CancelSpotInstanceRequestsResponse = CancelledSpotInstanceRequest
-
-    fromList = CancelSpotInstanceRequestsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _csirrCancelledSpotInstanceRequests
-
 -- | 'CancelSpotInstanceRequestsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -120,7 +114,7 @@ instance ToPath CancelSpotInstanceRequests where
 instance ToQuery CancelSpotInstanceRequests where
     toQuery CancelSpotInstanceRequests{..} = mconcat
         [ "dryRun"                =? _csirDryRun
-        , "SpotInstanceRequestId" =? _csirSpotInstanceRequestIds
+        , toQuery                _csirSpotInstanceRequestIds
         ]
 
 instance ToHeaders CancelSpotInstanceRequests
@@ -134,4 +128,4 @@ instance AWSRequest CancelSpotInstanceRequests where
 
 instance FromXML CancelSpotInstanceRequestsResponse where
     parseXML x = CancelSpotInstanceRequestsResponse
-        <$> x .@  "spotInstanceRequestSet"
+        <$> parseXML x

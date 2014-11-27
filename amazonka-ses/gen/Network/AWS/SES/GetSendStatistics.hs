@@ -58,7 +58,7 @@ getSendStatistics :: GetSendStatistics
 getSendStatistics = GetSendStatistics
 
 newtype GetSendStatisticsResponse = GetSendStatisticsResponse
-    { _gssrSendDataPoints :: List "SendDataPoints" SendDataPoint
+    { _gssrSendDataPoints :: List "member" SendDataPoint
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetSendStatisticsResponse where

@@ -80,7 +80,7 @@ ljMaxJobs = lens _ljMaxJobs (\s a -> s { _ljMaxJobs = a })
 
 data ListJobsResponse = ListJobsResponse
     { _ljrIsTruncated :: Maybe Bool
-    , _ljrJobs        :: List "Jobs" Job
+    , _ljrJobs        :: List "member" Job
     } deriving (Eq, Show)
 
 -- | 'ListJobsResponse' constructor.

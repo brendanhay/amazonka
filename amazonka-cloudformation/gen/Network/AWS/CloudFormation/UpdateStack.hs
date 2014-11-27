@@ -68,9 +68,9 @@ import Network.AWS.CloudFormation.Types
 import qualified GHC.Exts
 
 data UpdateStack = UpdateStack
-    { _usCapabilities                :: List "Capabilities" Capability
-    , _usNotificationARNs            :: List "NotificationARNs" Text
-    , _usParameters                  :: List "Parameters" Parameter
+    { _usCapabilities                :: List "member" Capability
+    , _usNotificationARNs            :: List "member" Text
+    , _usParameters                  :: List "member" Parameter
     , _usStackName                   :: Text
     , _usStackPolicyBody             :: Maybe Text
     , _usStackPolicyDuringUpdateBody :: Maybe Text

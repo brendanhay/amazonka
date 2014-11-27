@@ -295,11 +295,11 @@ ns = "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/"
 
 data ApplicationDescription = ApplicationDescription
     { _adApplicationName        :: Maybe Text
-    , _adConfigurationTemplates :: List "ConfigurationTemplates" Text
+    , _adConfigurationTemplates :: List "member" Text
     , _adDateCreated            :: Maybe ISO8601
     , _adDateUpdated            :: Maybe ISO8601
     , _adDescription            :: Maybe Text
-    , _adVersions               :: List "Versions" Text
+    , _adVersions               :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'ApplicationDescription' constructor.
@@ -746,7 +746,7 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription
     , _csdDeploymentStatus  :: Maybe ConfigurationDeploymentStatus
     , _csdDescription       :: Maybe Text
     , _csdEnvironmentName   :: Maybe Text
-    , _csdOptionSettings    :: List "OptionSettings" ConfigurationOptionSetting
+    , _csdOptionSettings    :: List "member" ConfigurationOptionSetting
     , _csdSolutionStackName :: Maybe Text
     , _csdTemplateName      :: Maybe Text
     } deriving (Eq, Show)
@@ -990,13 +990,13 @@ instance ToQuery OptionSpecification where
         ]
 
 data EnvironmentResourceDescription = EnvironmentResourceDescription
-    { _erdAutoScalingGroups    :: List "AutoScalingGroups" AutoScalingGroup
+    { _erdAutoScalingGroups    :: List "member" AutoScalingGroup
     , _erdEnvironmentName      :: Maybe Text
-    , _erdInstances            :: List "Instances" Instance
-    , _erdLaunchConfigurations :: List "LaunchConfigurations" LaunchConfiguration
-    , _erdLoadBalancers        :: List "LoadBalancers" LoadBalancer
-    , _erdQueues               :: List "Queues" Queue
-    , _erdTriggers             :: List "Triggers" Trigger
+    , _erdInstances            :: List "member" Instance
+    , _erdLaunchConfigurations :: List "member" LaunchConfiguration
+    , _erdLoadBalancers        :: List "member" LoadBalancer
+    , _erdQueues               :: List "member" Queue
+    , _erdTriggers             :: List "member" Trigger
     } deriving (Eq, Show)
 
 -- | 'EnvironmentResourceDescription' constructor.
@@ -1157,7 +1157,7 @@ instance FromXML EnvironmentStatus where
 
 data LoadBalancerDescription = LoadBalancerDescription
     { _lbdDomain           :: Maybe Text
-    , _lbdListeners        :: List "Listeners" Listener
+    , _lbdListeners        :: List "member" Listener
     , _lbdLoadBalancerName :: Maybe Text
     } deriving (Eq, Show)
 
@@ -1385,7 +1385,7 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
     , _codNamespace      :: Maybe Text
     , _codRegex          :: Maybe OptionRestrictionRegex
     , _codUserDefined    :: Maybe Bool
-    , _codValueOptions   :: List "ValueOptions" Text
+    , _codValueOptions   :: List "member" Text
     , _codValueType      :: Maybe ConfigurationOptionValueType
     } deriving (Eq, Show)
 
@@ -2132,7 +2132,7 @@ instance ToQuery Instance where
         ]
 
 data SolutionStackDescription = SolutionStackDescription
-    { _ssdPermittedFileTypes :: List "PermittedFileTypes" Text
+    { _ssdPermittedFileTypes :: List "member" Text
     , _ssdSolutionStackName  :: Maybe Text
     } deriving (Eq, Ord, Show)
 

@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 data PutNotificationConfiguration = PutNotificationConfiguration
     { _pncAutoScalingGroupName :: Text
-    , _pncNotificationTypes    :: List "LifecycleHookTypes" Text
+    , _pncNotificationTypes    :: List "member" Text
     , _pncTopicARN             :: Text
     } deriving (Eq, Ord, Show)
 

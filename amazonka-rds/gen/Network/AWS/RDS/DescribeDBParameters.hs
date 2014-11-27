@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 data DescribeDBParameters = DescribeDBParameters
     { _ddbpDBParameterGroupName :: Text
-    , _ddbpFilters              :: List "Filter" Filter
+    , _ddbpFilters              :: List "member" Filter
     , _ddbpMarker               :: Maybe Text
     , _ddbpMaxRecords           :: Maybe Int
     , _ddbpSource               :: Maybe Text
@@ -125,7 +125,7 @@ ddbpSource = lens _ddbpSource (\s a -> s { _ddbpSource = a })
 
 data DescribeDBParametersResponse = DescribeDBParametersResponse
     { _ddbprMarker     :: Maybe Text
-    , _ddbprParameters :: List "Parameter" Parameter
+    , _ddbprParameters :: List "member" Parameter
     } deriving (Eq, Show)
 
 -- | 'DescribeDBParametersResponse' constructor.

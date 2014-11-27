@@ -82,8 +82,8 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots
     , _dcs1SnapshotIdentifier :: Maybe Text
     , _dcs1SnapshotType       :: Maybe Text
     , _dcs1StartTime          :: Maybe ISO8601
-    , _dcs1TagKeys            :: List "TagKey" Text
-    , _dcs1TagValues          :: List "TagValue" Text
+    , _dcs1TagKeys            :: List "member" Text
+    , _dcs1TagValues          :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusterSnapshots' constructor.
@@ -204,7 +204,7 @@ dcs1TagValues = lens _dcs1TagValues (\s a -> s { _dcs1TagValues = a }) . _List
 
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
     { _dcsrMarker    :: Maybe Text
-    , _dcsrSnapshots :: List "Snapshot" Snapshot
+    , _dcsrSnapshots :: List "member" Snapshot
     } deriving (Eq, Show)
 
 -- | 'DescribeClusterSnapshotsResponse' constructor.

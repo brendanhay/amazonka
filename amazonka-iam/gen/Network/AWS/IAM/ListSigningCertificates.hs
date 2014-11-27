@@ -102,7 +102,7 @@ lsc1UserName :: Lens' ListSigningCertificates (Maybe Text)
 lsc1UserName = lens _lsc1UserName (\s a -> s { _lsc1UserName = a })
 
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse
-    { _lscr1Certificates :: List "Certificates" SigningCertificate
+    { _lscr1Certificates :: List "member" SigningCertificate
     , _lscr1IsTruncated  :: Maybe Bool
     , _lscr1Marker       :: Maybe Text
     } deriving (Eq, Show)

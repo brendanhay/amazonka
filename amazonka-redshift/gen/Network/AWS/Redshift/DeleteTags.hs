@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 data DeleteTags = DeleteTags
     { _dt1ResourceName :: Text
-    , _dt1TagKeys      :: List "TagKey" Text
+    , _dt1TagKeys      :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DeleteTags' constructor.

@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 data ListStacks = ListStacks
     { _lsNextToken         :: Maybe Text
-    , _lsStackStatusFilter :: List "StackStatusFilter" StackStatus
+    , _lsStackStatusFilter :: List "member" StackStatus
     } deriving (Eq, Show)
 
 -- | 'ListStacks' constructor.
@@ -88,7 +88,7 @@ lsStackStatusFilter =
 
 data ListStacksResponse = ListStacksResponse
     { _lsr1NextToken      :: Maybe Text
-    , _lsr1StackSummaries :: List "StackSummaries" StackSummary
+    , _lsr1StackSummaries :: List "member" StackSummary
     } deriving (Eq, Show)
 
 -- | 'ListStacksResponse' constructor.

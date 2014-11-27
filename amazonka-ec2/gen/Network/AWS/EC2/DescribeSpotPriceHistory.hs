@@ -216,11 +216,11 @@ instance ToQuery DescribeSpotPriceHistory where
         [ "availabilityZone"   =? _dsphAvailabilityZone
         , "dryRun"             =? _dsphDryRun
         , "endTime"            =? _dsphEndTime
-        , "Filter"             =? _dsphFilters
-        , "InstanceType"       =? _dsphInstanceTypes
+        , toQuery             _dsphFilters
+        , toQuery             _dsphInstanceTypes
         , "maxResults"         =? _dsphMaxResults
         , "nextToken"          =? _dsphNextToken
-        , "ProductDescription" =? _dsphProductDescriptions
+        , toQuery             _dsphProductDescriptions
         , "startTime"          =? _dsphStartTime
         ]
 
@@ -236,7 +236,7 @@ instance AWSRequest DescribeSpotPriceHistory where
 instance FromXML DescribeSpotPriceHistoryResponse where
     parseXML x = DescribeSpotPriceHistoryResponse
         <$> x .@? "nextToken"
-        <*> x .@  "spotPriceHistorySet"
+        <*> parseXML x
 
 instance AWSPager DescribeSpotPriceHistory where
     page rq rs

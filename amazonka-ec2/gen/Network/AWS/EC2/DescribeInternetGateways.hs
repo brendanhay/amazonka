@@ -113,12 +113,6 @@ newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digrInternetGateways :: List "item" InternetGateway
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeInternetGatewaysResponse where
-    type Item DescribeInternetGatewaysResponse = InternetGateway
-
-    fromList = DescribeInternetGatewaysResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _digrInternetGateways
-
 -- | 'DescribeInternetGatewaysResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -142,8 +136,8 @@ instance ToPath DescribeInternetGateways where
 instance ToQuery DescribeInternetGateways where
     toQuery DescribeInternetGateways{..} = mconcat
         [ "dryRun"            =? _dig1DryRun
-        , "Filter"            =? _dig1Filters
-        , "internetGatewayId" =? _dig1InternetGatewayIds
+        , toQuery            _dig1Filters
+        , toQuery            _dig1InternetGatewayIds
         ]
 
 instance ToHeaders DescribeInternetGateways
@@ -157,4 +151,4 @@ instance AWSRequest DescribeInternetGateways where
 
 instance FromXML DescribeInternetGatewaysResponse where
     parseXML x = DescribeInternetGatewaysResponse
-        <$> x .@  "internetGatewaySet"
+        <$> parseXML x

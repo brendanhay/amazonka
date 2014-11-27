@@ -82,7 +82,7 @@ import qualified GHC.Exts
 
 data BatchPutAttributes = BatchPutAttributes
     { _bpaDomainName :: Text
-    , _bpaItems      :: List "Item" ReplaceableItem
+    , _bpaItems      :: List "member" ReplaceableItem
     } deriving (Eq, Show)
 
 -- | 'BatchPutAttributes' constructor.

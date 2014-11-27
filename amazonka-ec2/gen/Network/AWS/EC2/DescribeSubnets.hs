@@ -124,12 +124,6 @@ newtype DescribeSubnetsResponse = DescribeSubnetsResponse
     { _dsrSubnets :: List "item" Subnet
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeSubnetsResponse where
-    type Item DescribeSubnetsResponse = Subnet
-
-    fromList = DescribeSubnetsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dsrSubnets
-
 -- | 'DescribeSubnetsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -151,8 +145,8 @@ instance ToPath DescribeSubnets where
 instance ToQuery DescribeSubnets where
     toQuery DescribeSubnets{..} = mconcat
         [ "dryRun"   =? _dsDryRun
-        , "Filter"   =? _dsFilters
-        , "SubnetId" =? _dsSubnetIds
+        , toQuery   _dsFilters
+        , toQuery   _dsSubnetIds
         ]
 
 instance ToHeaders DescribeSubnets
@@ -166,4 +160,4 @@ instance AWSRequest DescribeSubnets where
 
 instance FromXML DescribeSubnetsResponse where
     parseXML x = DescribeSubnetsResponse
-        <$> x .@  "subnetSet"
+        <$> parseXML x

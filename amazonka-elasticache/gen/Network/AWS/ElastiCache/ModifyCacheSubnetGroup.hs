@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
     { _mcsgCacheSubnetGroupDescription :: Maybe Text
     , _mcsgCacheSubnetGroupName        :: Text
-    , _mcsgSubnetIds                   :: List "SubnetIdentifier" Text
+    , _mcsgSubnetIds                   :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'ModifyCacheSubnetGroup' constructor.

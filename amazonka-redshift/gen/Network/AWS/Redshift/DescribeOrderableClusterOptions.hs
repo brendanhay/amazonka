@@ -121,7 +121,7 @@ docoNodeType = lens _docoNodeType (\s a -> s { _docoNodeType = a })
 
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
     { _docorMarker                  :: Maybe Text
-    , _docorOrderableClusterOptions :: List "OrderableClusterOption" OrderableClusterOption
+    , _docorOrderableClusterOptions :: List "member" OrderableClusterOption
     } deriving (Eq, Show)
 
 -- | 'DescribeOrderableClusterOptionsResponse' constructor.

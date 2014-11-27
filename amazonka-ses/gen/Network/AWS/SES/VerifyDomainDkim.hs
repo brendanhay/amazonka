@@ -80,7 +80,7 @@ vddDomain :: Lens' VerifyDomainDkim Text
 vddDomain = lens _vddDomain (\s a -> s { _vddDomain = a })
 
 newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
-    { _vddrDkimTokens :: List "DkimTokens" Text
+    { _vddrDkimTokens :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList VerifyDomainDkimResponse where

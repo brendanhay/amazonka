@@ -121,7 +121,7 @@ dcvMaxRecords :: Lens' DescribeClusterVersions (Maybe Int)
 dcvMaxRecords = lens _dcvMaxRecords (\s a -> s { _dcvMaxRecords = a })
 
 data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
-    { _dcvrClusterVersions :: List "ClusterVersion" ClusterVersion
+    { _dcvrClusterVersions :: List "member" ClusterVersion
     , _dcvrMarker          :: Maybe Text
     } deriving (Eq, Show)
 

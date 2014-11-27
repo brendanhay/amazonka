@@ -52,7 +52,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations
-    { _dncAutoScalingGroupNames :: List "AutoScalingGroupNames" Text
+    { _dncAutoScalingGroupNames :: List "member" Text
     , _dncMaxRecords            :: Maybe Int
     , _dncNextToken             :: Maybe Text
     } deriving (Eq, Ord, Show)
@@ -92,7 +92,7 @@ dncNextToken = lens _dncNextToken (\s a -> s { _dncNextToken = a })
 
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
     { _dncrNextToken                  :: Maybe Text
-    , _dncrNotificationConfigurations :: List "NotificationConfigurations" NotificationConfiguration
+    , _dncrNotificationConfigurations :: List "member" NotificationConfiguration
     } deriving (Eq, Show)
 
 -- | 'DescribeNotificationConfigurationsResponse' constructor.

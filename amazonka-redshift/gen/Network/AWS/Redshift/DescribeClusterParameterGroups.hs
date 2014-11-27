@@ -72,8 +72,8 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups
     { _dcpgMarker             :: Maybe Text
     , _dcpgMaxRecords         :: Maybe Int
     , _dcpgParameterGroupName :: Maybe Text
-    , _dcpgTagKeys            :: List "TagKey" Text
-    , _dcpgTagValues          :: List "TagValue" Text
+    , _dcpgTagKeys            :: List "member" Text
+    , _dcpgTagValues          :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusterParameterGroups' constructor.
@@ -145,7 +145,7 @@ dcpgTagValues = lens _dcpgTagValues (\s a -> s { _dcpgTagValues = a }) . _List
 
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
     { _dcpgrMarker          :: Maybe Text
-    , _dcpgrParameterGroups :: List "ClusterParameterGroup" ClusterParameterGroup
+    , _dcpgrParameterGroups :: List "member" ClusterParameterGroup
     } deriving (Eq, Show)
 
 -- | 'DescribeClusterParameterGroupsResponse' constructor.

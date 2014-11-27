@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
     { _slbpolLoadBalancerName :: Text
     , _slbpolLoadBalancerPort :: Int
-    , _slbpolPolicyNames      :: List "PolicyNames" Text
+    , _slbpolPolicyNames      :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'SetLoadBalancerPoliciesOfListener' constructor.

@@ -74,8 +74,8 @@ data DescribeTags = DescribeTags
     , _dtMaxRecords   :: Maybe Int
     , _dtResourceName :: Maybe Text
     , _dtResourceType :: Maybe Text
-    , _dtTagKeys      :: List "TagKey" Text
-    , _dtTagValues    :: List "TagValue" Text
+    , _dtTagKeys      :: List "member" Text
+    , _dtTagValues    :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeTags' constructor.
@@ -154,7 +154,7 @@ dtTagValues = lens _dtTagValues (\s a -> s { _dtTagValues = a }) . _List
 
 data DescribeTagsResponse = DescribeTagsResponse
     { _dtrMarker          :: Maybe Text
-    , _dtrTaggedResources :: List "TaggedResource" TaggedResource
+    , _dtrTaggedResources :: List "member" TaggedResource
     } deriving (Eq, Show)
 
 -- | 'DescribeTagsResponse' constructor.

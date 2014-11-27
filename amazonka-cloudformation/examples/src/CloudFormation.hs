@@ -21,7 +21,7 @@ import           System.IO
 example :: IO (Either Error CreateStackResponse)
 example = do
     lgr  <- newLogger Debug stdout
-    env  <- getEnv Oregon Discover <&> envLogger .~ lgr
+    env  <- getEnv Ireland Discover <&> envLogger .~ lgr
     tmpl <- Text.readFile "load-balanced-apache.json"
     runAWST env . send $ createStack "amazonka-test-stack"
         & csTemplateBody ?~ tmpl

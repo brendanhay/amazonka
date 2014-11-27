@@ -59,7 +59,7 @@ import qualified GHC.Exts
 data DescribeConfigurationOptions = DescribeConfigurationOptions
     { _dcoApplicationName   :: Maybe Text
     , _dcoEnvironmentName   :: Maybe Text
-    , _dcoOptions           :: List "OptionsToRemove" OptionSpecification
+    , _dcoOptions           :: List "member" OptionSpecification
     , _dcoSolutionStackName :: Maybe Text
     , _dcoTemplateName      :: Maybe Text
     } deriving (Eq, Show)
@@ -116,7 +116,7 @@ dcoTemplateName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoTemplateName = lens _dcoTemplateName (\s a -> s { _dcoTemplateName = a })
 
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
-    { _dcorOptions           :: List "Options" ConfigurationOptionDescription
+    { _dcorOptions           :: List "member" ConfigurationOptionDescription
     , _dcorSolutionStackName :: Maybe Text
     } deriving (Eq, Show)
 

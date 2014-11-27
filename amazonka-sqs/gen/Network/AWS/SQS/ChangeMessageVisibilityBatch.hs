@@ -58,7 +58,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
-    { _cmvbEntries  :: List "ChangeMessageVisibilityBatchRequestEntry" ChangeMessageVisibilityBatchRequestEntry
+    { _cmvbEntries  :: List "member" ChangeMessageVisibilityBatchRequestEntry
     , _cmvbQueueUrl :: Text
     } deriving (Eq, Show)
 
@@ -87,8 +87,8 @@ cmvbQueueUrl :: Lens' ChangeMessageVisibilityBatch Text
 cmvbQueueUrl = lens _cmvbQueueUrl (\s a -> s { _cmvbQueueUrl = a })
 
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
-    { _cmvbrFailed     :: List "BatchResultErrorEntry" BatchResultErrorEntry
-    , _cmvbrSuccessful :: List "ChangeMessageVisibilityBatchResultEntry" ChangeMessageVisibilityBatchResultEntry
+    { _cmvbrFailed     :: List "member" BatchResultErrorEntry
+    , _cmvbrSuccessful :: List "member" ChangeMessageVisibilityBatchResultEntry
     } deriving (Eq, Show)
 
 -- | 'ChangeMessageVisibilityBatchResponse' constructor.

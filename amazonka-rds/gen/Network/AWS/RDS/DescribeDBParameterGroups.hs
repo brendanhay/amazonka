@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 data DescribeDBParameterGroups = DescribeDBParameterGroups
     { _ddbpgDBParameterGroupName :: Maybe Text
-    , _ddbpgFilters              :: List "Filter" Filter
+    , _ddbpgFilters              :: List "member" Filter
     , _ddbpgMarker               :: Maybe Text
     , _ddbpgMaxRecords           :: Maybe Int
     } deriving (Eq, Show)
@@ -112,7 +112,7 @@ ddbpgMaxRecords :: Lens' DescribeDBParameterGroups (Maybe Int)
 ddbpgMaxRecords = lens _ddbpgMaxRecords (\s a -> s { _ddbpgMaxRecords = a })
 
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
-    { _ddbpgrDBParameterGroups :: List "DBParameterGroup" DBParameterGroup
+    { _ddbpgrDBParameterGroups :: List "member" DBParameterGroup
     , _ddbpgrMarker            :: Maybe Text
     } deriving (Eq, Show)
 

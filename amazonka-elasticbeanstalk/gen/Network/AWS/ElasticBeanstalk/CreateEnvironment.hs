@@ -77,10 +77,10 @@ data CreateEnvironment = CreateEnvironment
     , _ceCNAMEPrefix       :: Maybe Text
     , _ceDescription       :: Maybe Text
     , _ceEnvironmentName   :: Text
-    , _ceOptionSettings    :: List "OptionSettings" ConfigurationOptionSetting
-    , _ceOptionsToRemove   :: List "OptionsToRemove" OptionSpecification
+    , _ceOptionSettings    :: List "member" ConfigurationOptionSetting
+    , _ceOptionsToRemove   :: List "member" OptionSpecification
     , _ceSolutionStackName :: Maybe Text
-    , _ceTags              :: List "Tags" Tag
+    , _ceTags              :: List "member" Tag
     , _ceTemplateName      :: Maybe Text
     , _ceTier              :: Maybe EnvironmentTier
     , _ceVersionLabel      :: Maybe Text

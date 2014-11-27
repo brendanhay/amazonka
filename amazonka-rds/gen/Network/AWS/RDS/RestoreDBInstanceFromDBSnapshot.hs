@@ -83,7 +83,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
     , _rdbifdbsPort                    :: Maybe Int
     , _rdbifdbsPubliclyAccessible      :: Maybe Bool
     , _rdbifdbsStorageType             :: Maybe Text
-    , _rdbifdbsTags                    :: List "Tag" Tag
+    , _rdbifdbsTags                    :: List "member" Tag
     , _rdbifdbsTdeCredentialArn        :: Maybe Text
     , _rdbifdbsTdeCredentialPassword   :: Maybe Text
     } deriving (Eq, Show)

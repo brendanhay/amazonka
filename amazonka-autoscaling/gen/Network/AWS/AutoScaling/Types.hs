@@ -547,7 +547,7 @@ instance ToQuery BlockDeviceMapping where
 
 data LaunchConfiguration = LaunchConfiguration
     { _lcAssociatePublicIpAddress :: Maybe Bool
-    , _lcBlockDeviceMappings      :: List "BlockDeviceMappings" BlockDeviceMapping
+    , _lcBlockDeviceMappings      :: List "member" BlockDeviceMapping
     , _lcCreatedTime              :: ISO8601
     , _lcEbsOptimized             :: Maybe Bool
     , _lcIamInstanceProfile       :: Maybe Text
@@ -560,7 +560,7 @@ data LaunchConfiguration = LaunchConfiguration
     , _lcLaunchConfigurationName  :: Text
     , _lcPlacementTenancy         :: Maybe Text
     , _lcRamdiskId                :: Maybe Text
-    , _lcSecurityGroups           :: List "SecurityGroups" Text
+    , _lcSecurityGroups           :: List "member" Text
     , _lcSpotPrice                :: Maybe Text
     , _lcUserData                 :: Maybe Text
     } deriving (Eq, Show)
@@ -755,23 +755,23 @@ instance ToQuery LaunchConfiguration where
 data AutoScalingGroup = AutoScalingGroup
     { _asgAutoScalingGroupARN     :: Maybe Text
     , _asgAutoScalingGroupName    :: Text
-    , _asgAvailabilityZones       :: List1 "AvailabilityZones" Text
+    , _asgAvailabilityZones       :: List1 "member" Text
     , _asgCreatedTime             :: ISO8601
     , _asgDefaultCooldown         :: Int
     , _asgDesiredCapacity         :: Int
-    , _asgEnabledMetrics          :: List "EnabledMetrics" EnabledMetric
+    , _asgEnabledMetrics          :: List "member" EnabledMetric
     , _asgHealthCheckGracePeriod  :: Maybe Int
     , _asgHealthCheckType         :: Text
-    , _asgInstances               :: List "Instances" Instance
+    , _asgInstances               :: List "member" Instance
     , _asgLaunchConfigurationName :: Text
-    , _asgLoadBalancerNames       :: List "LoadBalancerNames" Text
+    , _asgLoadBalancerNames       :: List "member" Text
     , _asgMaxSize                 :: Int
     , _asgMinSize                 :: Int
     , _asgPlacementGroup          :: Maybe Text
     , _asgStatus                  :: Maybe Text
-    , _asgSuspendedProcesses      :: List "SuspendedProcesses" SuspendedProcess
-    , _asgTags                    :: List "Tags" TagDescription
-    , _asgTerminationPolicies     :: List "TerminationPolicies" Text
+    , _asgSuspendedProcesses      :: List "member" SuspendedProcess
+    , _asgTags                    :: List "member" TagDescription
+    , _asgTerminationPolicies     :: List "member" Text
     , _asgVPCZoneIdentifier       :: Maybe Text
     } deriving (Eq, Show)
 
@@ -1010,7 +1010,7 @@ instance ToQuery AutoScalingGroup where
 
 data ScalingPolicy = ScalingPolicy
     { _sp1AdjustmentType       :: Maybe Text
-    , _sp1Alarms               :: List "Alarms" Alarm
+    , _sp1Alarms               :: List "member" Alarm
     , _sp1AutoScalingGroupName :: Maybe Text
     , _sp1Cooldown             :: Maybe Int
     , _sp1MinAdjustmentStep    :: Maybe Int
@@ -1276,7 +1276,7 @@ instance ToQuery ScheduledUpdateGroupAction where
 
 data ScalingProcessQuery = ScalingProcessQuery
     { _spqAutoScalingGroupName :: Text
-    , _spqScalingProcesses     :: List "ScalingProcesses" Text
+    , _spqScalingProcesses     :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'ScalingProcessQuery' constructor.
@@ -1786,7 +1786,7 @@ instance ToQuery MetricGranularityType where
 
 data Filter = Filter
     { _fName   :: Text
-    , _fValues :: List "Values" Text
+    , _fValues :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'Filter' constructor.

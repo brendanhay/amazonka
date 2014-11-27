@@ -119,7 +119,7 @@ dsrStackName :: Lens' DescribeStackResources (Maybe Text)
 dsrStackName = lens _dsrStackName (\s a -> s { _dsrStackName = a })
 
 newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse
-    { _dsrrStackResources :: List "StackResources" StackResource
+    { _dsrrStackResources :: List "member" StackResource
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeStackResourcesResponse where

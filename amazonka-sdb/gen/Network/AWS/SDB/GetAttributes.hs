@@ -57,7 +57,7 @@ import Network.AWS.SDB.Types
 import qualified GHC.Exts
 
 data GetAttributes = GetAttributes
-    { _gaAttributeNames :: List "AttributeName" Text
+    { _gaAttributeNames :: List "member" Text
     , _gaConsistentRead :: Maybe Bool
     , _gaDomainName     :: Text
     , _gaItemName       :: Text
@@ -105,7 +105,7 @@ gaItemName :: Lens' GetAttributes Text
 gaItemName = lens _gaItemName (\s a -> s { _gaItemName = a })
 
 newtype GetAttributesResponse = GetAttributesResponse
-    { _garAttributes :: List "Attribute" Attribute
+    { _garAttributes :: List "member" Attribute
     } deriving (Eq, Show, Monoid, Semigroup)
 
 -- | 'GetAttributesResponse' constructor.

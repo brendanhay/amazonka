@@ -53,7 +53,7 @@ describeScalingProcessTypes :: DescribeScalingProcessTypes
 describeScalingProcessTypes = DescribeScalingProcessTypes
 
 newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
-    { _dsptrProcesses :: List "Processes" ProcessType
+    { _dsptrProcesses :: List "member" ProcessType
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeScalingProcessTypesResponse where

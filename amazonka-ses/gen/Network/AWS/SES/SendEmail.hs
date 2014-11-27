@@ -71,7 +71,7 @@ import qualified GHC.Exts
 data SendEmail = SendEmail
     { _seDestination      :: Destination
     , _seMessage          :: Message
-    , _seReplyToAddresses :: List "ToAddresses" Text
+    , _seReplyToAddresses :: List "member" Text
     , _seReturnPath       :: Maybe Text
     , _seSource           :: Text
     } deriving (Eq, Show)

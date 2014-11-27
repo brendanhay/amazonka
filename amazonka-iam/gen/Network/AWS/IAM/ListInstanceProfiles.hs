@@ -100,7 +100,7 @@ lipPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
 lipPathPrefix = lens _lipPathPrefix (\s a -> s { _lipPathPrefix = a })
 
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse
-    { _liprInstanceProfiles :: List "InstanceProfiles" InstanceProfile
+    { _liprInstanceProfiles :: List "member" InstanceProfile
     , _liprIsTruncated      :: Maybe Bool
     , _liprMarker           :: Maybe Text
     } deriving (Eq, Show)

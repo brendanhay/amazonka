@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data EnableMetricsCollection = EnableMetricsCollection
     { _emcAutoScalingGroupName :: Text
     , _emcGranularity          :: Text
-    , _emcMetrics              :: List "Metrics" Text
+    , _emcMetrics              :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'EnableMetricsCollection' constructor.

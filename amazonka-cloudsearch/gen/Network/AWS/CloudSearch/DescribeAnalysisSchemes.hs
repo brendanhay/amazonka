@@ -54,7 +54,7 @@ import Network.AWS.CloudSearch.Types
 import qualified GHC.Exts
 
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes
-    { _das1AnalysisSchemeNames :: List "SuggesterNames" Text
+    { _das1AnalysisSchemeNames :: List "member" Text
     , _das1Deployed            :: Maybe Bool
     , _das1DomainName          :: Text
     } deriving (Eq, Ord, Show)
@@ -93,7 +93,7 @@ das1DomainName :: Lens' DescribeAnalysisSchemes Text
 das1DomainName = lens _das1DomainName (\s a -> s { _das1DomainName = a })
 
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
-    { _dasrAnalysisSchemes :: List "AnalysisSchemes" AnalysisSchemeStatus
+    { _dasrAnalysisSchemes :: List "member" AnalysisSchemeStatus
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAnalysisSchemesResponse where

@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 data DescribeOptionGroupOptions = DescribeOptionGroupOptions
     { _dogoEngineName         :: Text
-    , _dogoFilters            :: List "Filter" Filter
+    , _dogoFilters            :: List "member" Filter
     , _dogoMajorEngineVersion :: Maybe Text
     , _dogoMarker             :: Maybe Text
     , _dogoMaxRecords         :: Maybe Int
@@ -117,7 +117,7 @@ dogoMaxRecords = lens _dogoMaxRecords (\s a -> s { _dogoMaxRecords = a })
 
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
     { _dogorMarker             :: Maybe Text
-    , _dogorOptionGroupOptions :: List "OptionGroupOption" OptionGroupOption
+    , _dogorOptionGroupOptions :: List "member" OptionGroupOption
     } deriving (Eq, Show)
 
 -- | 'DescribeOptionGroupOptionsResponse' constructor.

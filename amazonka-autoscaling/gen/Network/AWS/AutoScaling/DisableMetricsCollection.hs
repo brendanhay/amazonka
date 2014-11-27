@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 data DisableMetricsCollection = DisableMetricsCollection
     { _dmcAutoScalingGroupName :: Text
-    , _dmcMetrics              :: List "Metrics" Text
+    , _dmcMetrics              :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DisableMetricsCollection' constructor.

@@ -78,7 +78,7 @@ data ModifyDBInstance = ModifyDBInstance
     , _mdbiDBInstanceClass            :: Maybe Text
     , _mdbiDBInstanceIdentifier       :: Text
     , _mdbiDBParameterGroupName       :: Maybe Text
-    , _mdbiDBSecurityGroups           :: List "DBSecurityGroupName" Text
+    , _mdbiDBSecurityGroups           :: List "member" Text
     , _mdbiEngineVersion              :: Maybe Text
     , _mdbiIops                       :: Maybe Int
     , _mdbiMasterUserPassword         :: Maybe Text
@@ -90,7 +90,7 @@ data ModifyDBInstance = ModifyDBInstance
     , _mdbiStorageType                :: Maybe Text
     , _mdbiTdeCredentialArn           :: Maybe Text
     , _mdbiTdeCredentialPassword      :: Maybe Text
-    , _mdbiVpcSecurityGroupIds        :: List "VpcSecurityGroupId" Text
+    , _mdbiVpcSecurityGroupIds        :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'ModifyDBInstance' constructor.

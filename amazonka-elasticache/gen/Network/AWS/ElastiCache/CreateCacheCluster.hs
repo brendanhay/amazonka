@@ -75,7 +75,7 @@ data CreateCacheCluster = CreateCacheCluster
     , _cccCacheClusterId             :: Text
     , _cccCacheNodeType              :: Maybe Text
     , _cccCacheParameterGroupName    :: Maybe Text
-    , _cccCacheSecurityGroupNames    :: List "CacheSecurityGroupName" Text
+    , _cccCacheSecurityGroupNames    :: List "member" Text
     , _cccCacheSubnetGroupName       :: Maybe Text
     , _cccEngine                     :: Maybe Text
     , _cccEngineVersion              :: Maybe Text
@@ -83,11 +83,11 @@ data CreateCacheCluster = CreateCacheCluster
     , _cccNumCacheNodes              :: Maybe Int
     , _cccPort                       :: Maybe Int
     , _cccPreferredAvailabilityZone  :: Maybe Text
-    , _cccPreferredAvailabilityZones :: List "PreferredAvailabilityZone" Text
+    , _cccPreferredAvailabilityZones :: List "member" Text
     , _cccPreferredMaintenanceWindow :: Maybe Text
     , _cccReplicationGroupId         :: Maybe Text
-    , _cccSecurityGroupIds           :: List "SecurityGroupId" Text
-    , _cccSnapshotArns               :: List "SnapshotArn" Text
+    , _cccSecurityGroupIds           :: List "member" Text
+    , _cccSnapshotArns               :: List "member" Text
     , _cccSnapshotName               :: Maybe Text
     , _cccSnapshotRetentionLimit     :: Maybe Int
     , _cccSnapshotWindow             :: Maybe Text

@@ -60,7 +60,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data DeleteMessageBatch = DeleteMessageBatch
-    { _dmbEntries  :: List "DeleteMessageBatchRequestEntry" DeleteMessageBatchRequestEntry
+    { _dmbEntries  :: List "member" DeleteMessageBatchRequestEntry
     , _dmbQueueUrl :: Text
     } deriving (Eq, Show)
 
@@ -88,8 +88,8 @@ dmbQueueUrl :: Lens' DeleteMessageBatch Text
 dmbQueueUrl = lens _dmbQueueUrl (\s a -> s { _dmbQueueUrl = a })
 
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse
-    { _dmbrFailed     :: List "BatchResultErrorEntry" BatchResultErrorEntry
-    , _dmbrSuccessful :: List "DeleteMessageBatchResultEntry" DeleteMessageBatchResultEntry
+    { _dmbrFailed     :: List "member" BatchResultErrorEntry
+    , _dmbrSuccessful :: List "member" DeleteMessageBatchResultEntry
     } deriving (Eq, Show)
 
 -- | 'DeleteMessageBatchResponse' constructor.

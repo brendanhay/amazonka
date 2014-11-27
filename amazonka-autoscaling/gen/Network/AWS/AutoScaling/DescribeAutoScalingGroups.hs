@@ -57,7 +57,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups
-    { _dasgAutoScalingGroupNames :: List "AutoScalingGroupNames" Text
+    { _dasgAutoScalingGroupNames :: List "member" Text
     , _dasgMaxRecords            :: Maybe Int
     , _dasgNextToken             :: Maybe Text
     } deriving (Eq, Ord, Show)
@@ -96,7 +96,7 @@ dasgNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
 dasgNextToken = lens _dasgNextToken (\s a -> s { _dasgNextToken = a })
 
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
-    { _dasgrAutoScalingGroups :: List "AutoScalingGroups" AutoScalingGroup
+    { _dasgrAutoScalingGroups :: List "member" AutoScalingGroup
     , _dasgrNextToken         :: Maybe Text
     } deriving (Eq, Show)
 

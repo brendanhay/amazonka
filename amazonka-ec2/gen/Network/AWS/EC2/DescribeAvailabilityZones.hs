@@ -103,12 +103,6 @@ newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { _dazrAvailabilityZones :: List "item" AvailabilityZone
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeAvailabilityZonesResponse where
-    type Item DescribeAvailabilityZonesResponse = AvailabilityZone
-
-    fromList = DescribeAvailabilityZonesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dazrAvailabilityZones
-
 -- | 'DescribeAvailabilityZonesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -132,8 +126,8 @@ instance ToPath DescribeAvailabilityZones where
 instance ToQuery DescribeAvailabilityZones where
     toQuery DescribeAvailabilityZones{..} = mconcat
         [ "dryRun"   =? _dazDryRun
-        , "Filter"   =? _dazFilters
-        , "ZoneName" =? _dazZoneNames
+        , toQuery   _dazFilters
+        , toQuery   _dazZoneNames
         ]
 
 instance ToHeaders DescribeAvailabilityZones
@@ -147,4 +141,4 @@ instance AWSRequest DescribeAvailabilityZones where
 
 instance FromXML DescribeAvailabilityZonesResponse where
     parseXML x = DescribeAvailabilityZonesResponse
-        <$> x .@  "availabilityZoneInfo"
+        <$> parseXML x

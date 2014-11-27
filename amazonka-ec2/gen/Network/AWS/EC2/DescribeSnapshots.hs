@@ -175,12 +175,6 @@ newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots :: List "item" Snapshot
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeSnapshotsResponse where
-    type Item DescribeSnapshotsResponse = Snapshot
-
-    fromList = DescribeSnapshotsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dsrSnapshots
-
 -- | 'DescribeSnapshotsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -201,10 +195,10 @@ instance ToPath DescribeSnapshots where
 instance ToQuery DescribeSnapshots where
     toQuery DescribeSnapshots{..} = mconcat
         [ "dryRun"       =? _ds1DryRun
-        , "Filter"       =? _ds1Filters
-        , "Owner"        =? _ds1OwnerIds
-        , "RestorableBy" =? _ds1RestorableByUserIds
-        , "SnapshotId"   =? _ds1SnapshotIds
+        , toQuery       _ds1Filters
+        , toQuery       _ds1OwnerIds
+        , toQuery       _ds1RestorableByUserIds
+        , toQuery       _ds1SnapshotIds
         ]
 
 instance ToHeaders DescribeSnapshots
@@ -218,4 +212,4 @@ instance AWSRequest DescribeSnapshots where
 
 instance FromXML DescribeSnapshotsResponse where
     parseXML x = DescribeSnapshotsResponse
-        <$> x .@  "snapshotSet"
+        <$> parseXML x

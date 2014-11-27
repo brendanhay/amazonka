@@ -69,8 +69,8 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
     { _dcsg1ClusterSubnetGroupName :: Maybe Text
     , _dcsg1Marker                 :: Maybe Text
     , _dcsg1MaxRecords             :: Maybe Int
-    , _dcsg1TagKeys                :: List "TagKey" Text
-    , _dcsg1TagValues              :: List "TagValue" Text
+    , _dcsg1TagKeys                :: List "member" Text
+    , _dcsg1TagValues              :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeClusterSubnetGroups' constructor.
@@ -141,7 +141,7 @@ dcsg1TagValues :: Lens' DescribeClusterSubnetGroups [Text]
 dcsg1TagValues = lens _dcsg1TagValues (\s a -> s { _dcsg1TagValues = a }) . _List
 
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
-    { _dcsgrClusterSubnetGroups :: List "ClusterSubnetGroup" ClusterSubnetGroup
+    { _dcsgrClusterSubnetGroups :: List "member" ClusterSubnetGroup
     , _dcsgrMarker              :: Maybe Text
     } deriving (Eq, Show)
 

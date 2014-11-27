@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data DescribeExpressions = DescribeExpressions
     { _deDeployed        :: Maybe Bool
     , _deDomainName      :: Text
-    , _deExpressionNames :: List "SuggesterNames" Text
+    , _deExpressionNames :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeExpressions' constructor.
@@ -94,7 +94,7 @@ deExpressionNames =
         . _List
 
 newtype DescribeExpressionsResponse = DescribeExpressionsResponse
-    { _derExpressions :: List "Expressions" ExpressionStatus
+    { _derExpressions :: List "member" ExpressionStatus
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeExpressionsResponse where

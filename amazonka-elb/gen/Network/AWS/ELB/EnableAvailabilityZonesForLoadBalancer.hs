@@ -56,7 +56,7 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer
-    { _eazflbAvailabilityZones :: List "AvailabilityZones" Text
+    { _eazflbAvailabilityZones :: List "member" Text
     , _eazflbLoadBalancerName  :: Text
     } deriving (Eq, Ord, Show)
 
@@ -88,7 +88,7 @@ eazflbLoadBalancerName =
     lens _eazflbLoadBalancerName (\s a -> s { _eazflbLoadBalancerName = a })
 
 newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
-    { _eazflbrAvailabilityZones :: List "AvailabilityZones" Text
+    { _eazflbrAvailabilityZones :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList EnableAvailabilityZonesForLoadBalancerResponse where

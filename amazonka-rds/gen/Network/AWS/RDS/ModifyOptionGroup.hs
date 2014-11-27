@@ -53,8 +53,8 @@ import qualified GHC.Exts
 data ModifyOptionGroup = ModifyOptionGroup
     { _mogApplyImmediately :: Maybe Bool
     , _mogOptionGroupName  :: Text
-    , _mogOptionsToInclude :: List "OptionConfiguration" OptionConfiguration
-    , _mogOptionsToRemove  :: List "OptionsToRemove" Text
+    , _mogOptionsToInclude :: List "member" OptionConfiguration
+    , _mogOptionsToRemove  :: List "member" Text
     } deriving (Eq, Show)
 
 -- | 'ModifyOptionGroup' constructor.

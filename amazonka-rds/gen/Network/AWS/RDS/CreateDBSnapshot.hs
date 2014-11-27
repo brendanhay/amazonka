@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data CreateDBSnapshot = CreateDBSnapshot
     { _cdbs1DBInstanceIdentifier :: Text
     , _cdbs1DBSnapshotIdentifier :: Text
-    , _cdbs1Tags                 :: List "Tag" Tag
+    , _cdbs1Tags                 :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateDBSnapshot' constructor.

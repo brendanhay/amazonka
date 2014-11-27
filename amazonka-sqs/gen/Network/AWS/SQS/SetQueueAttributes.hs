@@ -49,7 +49,7 @@ import Network.AWS.SQS.Types
 import qualified GHC.Exts
 
 data SetQueueAttributes = SetQueueAttributes
-    { _sqaAttributes :: EMap "Attribute" "Name" "Value" Text Text
+    { _sqaAttributes :: EMap "entry" "Name" "Value" Text Text
     , _sqaQueueUrl   :: Text
     } deriving (Eq, Show)
 

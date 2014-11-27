@@ -170,7 +170,7 @@ deVersionLabel :: Lens' DescribeEvents (Maybe Text)
 deVersionLabel = lens _deVersionLabel (\s a -> s { _deVersionLabel = a })
 
 data DescribeEventsResponse = DescribeEventsResponse
-    { _derEvents    :: List "Events" EventDescription
+    { _derEvents    :: List "member" EventDescription
     , _derNextToken :: Maybe Text
     } deriving (Eq, Show)
 

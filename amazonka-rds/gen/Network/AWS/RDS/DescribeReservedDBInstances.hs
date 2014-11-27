@@ -61,7 +61,7 @@ import qualified GHC.Exts
 data DescribeReservedDBInstances = DescribeReservedDBInstances
     { _drdbiDBInstanceClass               :: Maybe Text
     , _drdbiDuration                      :: Maybe Text
-    , _drdbiFilters                       :: List "Filter" Filter
+    , _drdbiFilters                       :: List "member" Filter
     , _drdbiMarker                        :: Maybe Text
     , _drdbiMaxRecords                    :: Maybe Int
     , _drdbiMultiAZ                       :: Maybe Bool
@@ -176,7 +176,7 @@ drdbiReservedDBInstancesOfferingId =
 
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
     { _drdbirMarker              :: Maybe Text
-    , _drdbirReservedDBInstances :: List "ReservedDBInstance" ReservedDBInstance
+    , _drdbirReservedDBInstances :: List "member" ReservedDBInstance
     } deriving (Eq, Show)
 
 -- | 'DescribeReservedDBInstancesResponse' constructor.

@@ -60,7 +60,7 @@ import Network.AWS.CloudWatch.Types
 import qualified GHC.Exts
 
 data PutMetricData = PutMetricData
-    { _pmdMetricData :: List "MetricData" MetricDatum
+    { _pmdMetricData :: List "member" MetricDatum
     , _pmdNamespace  :: Text
     } deriving (Eq, Show)
 

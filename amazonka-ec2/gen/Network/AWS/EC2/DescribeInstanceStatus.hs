@@ -244,9 +244,9 @@ instance ToPath DescribeInstanceStatus where
 instance ToQuery DescribeInstanceStatus where
     toQuery DescribeInstanceStatus{..} = mconcat
         [ "dryRun"              =? _disDryRun
-        , "Filter"              =? _disFilters
+        , toQuery              _disFilters
         , "includeAllInstances" =? _disIncludeAllInstances
-        , "InstanceId"          =? _disInstanceIds
+        , toQuery              _disInstanceIds
         , "MaxResults"          =? _disMaxResults
         , "NextToken"           =? _disNextToken
         ]
@@ -262,7 +262,7 @@ instance AWSRequest DescribeInstanceStatus where
 
 instance FromXML DescribeInstanceStatusResponse where
     parseXML x = DescribeInstanceStatusResponse
-        <$> x .@  "instanceStatusSet"
+        <$> parseXML x
         <*> x .@? "nextToken"
 
 instance AWSPager DescribeInstanceStatus where

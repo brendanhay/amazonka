@@ -68,7 +68,7 @@ idDomainName :: Lens' IndexDocuments Text
 idDomainName = lens _idDomainName (\s a -> s { _idDomainName = a })
 
 newtype IndexDocumentsResponse = IndexDocumentsResponse
-    { _idrFieldNames :: List "SuggesterNames" Text
+    { _idrFieldNames :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList IndexDocumentsResponse where

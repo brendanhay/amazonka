@@ -68,21 +68,6 @@ module Network.AWS.EC2.Types
     , iilsSubnetId
     , iilsUserData
 
-    -- * Snapshot
-    , Snapshot
-    , snapshot
-    , sDescription
-    , sEncrypted
-    , sOwnerAlias
-    , sOwnerId
-    , sProgress
-    , sSnapshotId
-    , sStartTime
-    , sState
-    , sTags
-    , sVolumeId
-    , sVolumeSize
-
     -- * SpotInstanceStateFault
     , SpotInstanceStateFault
     , spotInstanceStateFault
@@ -400,30 +385,6 @@ module Network.AWS.EC2.Types
     , vseNotAfter
     , vseNotBefore
 
-    -- * Volume
-    , Volume
-    , volume
-    , vAttachments
-    , vAvailabilityZone
-    , vCreateTime
-    , vEncrypted
-    , vIops
-    , vSize
-    , vSnapshotId
-    , vState
-    , vTags
-    , vVolumeId
-    , vVolumeType
-
-    -- * Reservation
-    , Reservation
-    , reservation
-    , rGroups
-    , rInstances
-    , rOwnerId
-    , rRequesterId
-    , rReservationId
-
     -- * ImportInstanceVolumeDetailItem
     , ImportInstanceVolumeDetailItem
     , importInstanceVolumeDetailItem
@@ -482,15 +443,15 @@ module Network.AWS.EC2.Types
     -- * Subnet
     , Subnet
     , subnet
-    , s1AvailabilityZone
-    , s1AvailableIpAddressCount
-    , s1CidrBlock
-    , s1DefaultForAz
-    , s1MapPublicIpOnLaunch
-    , s1State
-    , s1SubnetId
-    , s1Tags
-    , s1VpcId
+    , sAvailabilityZone
+    , sAvailableIpAddressCount
+    , sCidrBlock
+    , sDefaultForAz
+    , sMapPublicIpOnLaunch
+    , sState
+    , sSubnetId
+    , sTags
+    , sVpcId
 
     -- * KeyPairInfo
     , KeyPairInfo
@@ -1704,8 +1665,8 @@ instance FromXML ImportInstanceLaunchSpecification where
     parseXML x = ImportInstanceLaunchSpecification
         <$> x .@? "additionalInfo"
         <*> x .@? "architecture"
-        <*> x .@  "GroupId"
-        <*> x .@  "GroupName"
+        <*> parseXML x
+        <*> parseXML x
         <*> x .@? "instanceInitiatedShutdownBehavior"
         <*> x .@? "instanceType"
         <*> x .@? "monitoring"
@@ -1718,8 +1679,8 @@ instance ToQuery ImportInstanceLaunchSpecification where
     toQuery ImportInstanceLaunchSpecification{..} = mconcat
         [ "additionalInfo"                    =? _iilsAdditionalInfo
         , "architecture"                      =? _iilsArchitecture
-        , "GroupId"                           =? _iilsGroupIds
-        , "GroupName"                         =? _iilsGroupNames
+        , toQuery                            _iilsGroupIds
+        , toQuery                            _iilsGroupNames
         , "instanceInitiatedShutdownBehavior" =? _iilsInstanceInitiatedShutdownBehavior
         , "instanceType"                      =? _iilsInstanceType
         , "monitoring"                        =? _iilsMonitoring
@@ -1727,135 +1688,6 @@ instance ToQuery ImportInstanceLaunchSpecification where
         , "privateIpAddress"                  =? _iilsPrivateIpAddress
         , "subnetId"                          =? _iilsSubnetId
         , "userData"                          =? _iilsUserData
-        ]
-
-data Snapshot = Snapshot
-    { _sDescription :: Maybe Text
-    , _sEncrypted   :: Maybe Bool
-    , _sOwnerAlias  :: Maybe Text
-    , _sOwnerId     :: Maybe Text
-    , _sProgress    :: Maybe Text
-    , _sSnapshotId  :: Maybe Text
-    , _sStartTime   :: Maybe ISO8601
-    , _sState       :: Maybe SnapshotState
-    , _sTags        :: List "item" Tag
-    , _sVolumeId    :: Maybe Text
-    , _sVolumeSize  :: Maybe Int
-    } deriving (Eq, Show)
-
--- | 'Snapshot' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sDescription' @::@ 'Maybe' 'Text'
---
--- * 'sEncrypted' @::@ 'Maybe' 'Bool'
---
--- * 'sOwnerAlias' @::@ 'Maybe' 'Text'
---
--- * 'sOwnerId' @::@ 'Maybe' 'Text'
---
--- * 'sProgress' @::@ 'Maybe' 'Text'
---
--- * 'sSnapshotId' @::@ 'Maybe' 'Text'
---
--- * 'sStartTime' @::@ 'Maybe' 'UTCTime'
---
--- * 'sState' @::@ 'Maybe' 'SnapshotState'
---
--- * 'sTags' @::@ ['Tag']
---
--- * 'sVolumeId' @::@ 'Maybe' 'Text'
---
--- * 'sVolumeSize' @::@ 'Maybe' 'Int'
---
-snapshot :: Snapshot
-snapshot = Snapshot
-    { _sSnapshotId  = Nothing
-    , _sVolumeId    = Nothing
-    , _sState       = Nothing
-    , _sStartTime   = Nothing
-    , _sProgress    = Nothing
-    , _sOwnerId     = Nothing
-    , _sDescription = Nothing
-    , _sVolumeSize  = Nothing
-    , _sOwnerAlias  = Nothing
-    , _sTags        = mempty
-    , _sEncrypted   = Nothing
-    }
-
--- | The description for the snapshot.
-sDescription :: Lens' Snapshot (Maybe Text)
-sDescription = lens _sDescription (\s a -> s { _sDescription = a })
-
--- | Indicates whether the snapshot is encrypted.
-sEncrypted :: Lens' Snapshot (Maybe Bool)
-sEncrypted = lens _sEncrypted (\s a -> s { _sEncrypted = a })
-
--- | The AWS account alias (for example, 'amazon', 'self') or AWS account ID that owns
--- the snapshot.
-sOwnerAlias :: Lens' Snapshot (Maybe Text)
-sOwnerAlias = lens _sOwnerAlias (\s a -> s { _sOwnerAlias = a })
-
--- | The AWS account ID of the Amazon EBS snapshot owner.
-sOwnerId :: Lens' Snapshot (Maybe Text)
-sOwnerId = lens _sOwnerId (\s a -> s { _sOwnerId = a })
-
--- | The progress of the snapshot, as a percentage.
-sProgress :: Lens' Snapshot (Maybe Text)
-sProgress = lens _sProgress (\s a -> s { _sProgress = a })
-
--- | The ID of the snapshot.
-sSnapshotId :: Lens' Snapshot (Maybe Text)
-sSnapshotId = lens _sSnapshotId (\s a -> s { _sSnapshotId = a })
-
--- | The time stamp when the snapshot was initiated.
-sStartTime :: Lens' Snapshot (Maybe UTCTime)
-sStartTime = lens _sStartTime (\s a -> s { _sStartTime = a }) . mapping _Time
-
--- | The snapshot state.
-sState :: Lens' Snapshot (Maybe SnapshotState)
-sState = lens _sState (\s a -> s { _sState = a })
-
--- | Any tags assigned to the snapshot.
-sTags :: Lens' Snapshot [Tag]
-sTags = lens _sTags (\s a -> s { _sTags = a }) . _List
-
--- | The ID of the volume.
-sVolumeId :: Lens' Snapshot (Maybe Text)
-sVolumeId = lens _sVolumeId (\s a -> s { _sVolumeId = a })
-
--- | The size of the volume, in GiB.
-sVolumeSize :: Lens' Snapshot (Maybe Int)
-sVolumeSize = lens _sVolumeSize (\s a -> s { _sVolumeSize = a })
-
-instance FromXML Snapshot where
-    parseXML x = Snapshot
-        <$> x .@? "description"
-        <*> x .@? "encrypted"
-        <*> x .@? "ownerAlias"
-        <*> x .@? "ownerId"
-        <*> x .@? "progress"
-        <*> x .@? "snapshotId"
-        <*> x .@? "startTime"
-        <*> x .@? "status"
-        <*> x .@  "tagSet"
-        <*> x .@? "volumeId"
-        <*> x .@? "volumeSize"
-
-instance ToQuery Snapshot where
-    toQuery Snapshot{..} = mconcat
-        [ "description" =? _sDescription
-        , "encrypted"   =? _sEncrypted
-        , "ownerAlias"  =? _sOwnerAlias
-        , "ownerId"     =? _sOwnerId
-        , "progress"    =? _sProgress
-        , "snapshotId"  =? _sSnapshotId
-        , "startTime"   =? _sStartTime
-        , "status"      =? _sState
-        , "tagSet"      =? _sTags
-        , "volumeId"    =? _sVolumeId
-        , "volumeSize"  =? _sVolumeSize
         ]
 
 data SpotInstanceStateFault = SpotInstanceStateFault
@@ -2121,26 +1953,26 @@ instance FromXML ReservedInstancesListing where
     parseXML x = ReservedInstancesListing
         <$> x .@? "clientToken"
         <*> x .@? "createDate"
-        <*> x .@  "instanceCounts"
-        <*> x .@  "priceSchedules"
+        <*> parseXML x
+        <*> parseXML x
         <*> x .@? "reservedInstancesId"
         <*> x .@? "reservedInstancesListingId"
         <*> x .@? "status"
         <*> x .@? "statusMessage"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@? "updateDate"
 
 instance ToQuery ReservedInstancesListing where
     toQuery ReservedInstancesListing{..} = mconcat
         [ "clientToken"                =? _rilClientToken
         , "createDate"                 =? _rilCreateDate
-        , "instanceCounts"             =? _rilInstanceCounts
-        , "priceSchedules"             =? _rilPriceSchedules
+        , toQuery                     _rilInstanceCounts
+        , toQuery                     _rilPriceSchedules
         , "reservedInstancesId"        =? _rilReservedInstancesId
         , "reservedInstancesListingId" =? _rilReservedInstancesListingId
         , "status"                     =? _rilStatus
         , "statusMessage"              =? _rilStatusMessage
-        , "tagSet"                     =? _rilTags
+        , toQuery                     _rilTags
         , "updateDate"                 =? _rilUpdateDate
         ]
 
@@ -2387,15 +2219,15 @@ doTags = lens _doTags (\s a -> s { _doTags = a }) . _List
 
 instance FromXML DhcpOptions where
     parseXML x = DhcpOptions
-        <$> x .@  "dhcpConfigurationSet"
+        <$> parseXML x
         <*> x .@? "dhcpOptionsId"
-        <*> x .@  "tagSet"
+        <*> parseXML x
 
 instance ToQuery DhcpOptions where
     toQuery DhcpOptions{..} = mconcat
-        [ "dhcpConfigurationSet" =? _doDhcpConfigurations
+        [ toQuery               _doDhcpConfigurations
         , "dhcpOptionsId"        =? _doDhcpOptionsId
-        , "tagSet"               =? _doTags
+        , toQuery               _doTags
         ]
 
 data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification
@@ -2519,10 +2351,10 @@ instance FromXML InstanceNetworkInterfaceSpecification where
         <*> x .@? "deleteOnTermination"
         <*> x .@? "description"
         <*> x .@? "deviceIndex"
-        <*> x .@  "SecurityGroupId"
+        <*> parseXML x
         <*> x .@? "networkInterfaceId"
         <*> x .@? "privateIpAddress"
-        <*> x .@  "privateIpAddressesSet"
+        <*> parseXML x
         <*> x .@? "secondaryPrivateIpAddressCount"
         <*> x .@? "subnetId"
 
@@ -2532,10 +2364,10 @@ instance ToQuery InstanceNetworkInterfaceSpecification where
         , "deleteOnTermination"            =? _inisDeleteOnTermination
         , "description"                    =? _inisDescription
         , "deviceIndex"                    =? _inisDeviceIndex
-        , "SecurityGroupId"                =? _inisGroups
+        , toQuery                         _inisGroups
         , "networkInterfaceId"             =? _inisNetworkInterfaceId
         , "privateIpAddress"               =? _inisPrivateIpAddress
-        , "privateIpAddressesSet"          =? _inisPrivateIpAddresses
+        , toQuery                         _inisPrivateIpAddresses
         , "secondaryPrivateIpAddressCount" =? _inisSecondaryPrivateIpAddressCount
         , "subnetId"                       =? _inisSubnetId
         ]
@@ -2857,7 +2689,7 @@ iVirtualizationType =
 instance FromXML Image where
     parseXML x = Image
         <$> x .@  "architecture"
-        <*> x .@  "blockDeviceMapping"
+        <*> parseXML x
         <*> x .@? "description"
         <*> x .@  "hypervisor"
         <*> x .@  "imageId"
@@ -2868,7 +2700,7 @@ instance FromXML Image where
         <*> x .@  "name"
         <*> x .@  "imageOwnerId"
         <*> x .@? "platform"
-        <*> x .@  "productCodes"
+        <*> parseXML x
         <*> x .@  "isPublic"
         <*> x .@? "ramdiskId"
         <*> x .@? "rootDeviceName"
@@ -2876,13 +2708,13 @@ instance FromXML Image where
         <*> x .@? "sriovNetSupport"
         <*> x .@  "imageState"
         <*> x .@? "stateReason"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@  "virtualizationType"
 
 instance ToQuery Image where
     toQuery Image{..} = mconcat
         [ "architecture"       =? _iArchitecture
-        , "blockDeviceMapping" =? _iBlockDeviceMappings
+        , toQuery             _iBlockDeviceMappings
         , "description"        =? _iDescription
         , "hypervisor"         =? _iHypervisor
         , "imageId"            =? _iImageId
@@ -2893,7 +2725,7 @@ instance ToQuery Image where
         , "name"               =? _iName
         , "imageOwnerId"       =? _iOwnerId
         , "platform"           =? _iPlatform
-        , "productCodes"       =? _iProductCodes
+        , toQuery             _iProductCodes
         , "isPublic"           =? _iPublic
         , "ramdiskId"          =? _iRamdiskId
         , "rootDeviceName"     =? _iRootDeviceName
@@ -2901,7 +2733,7 @@ instance ToQuery Image where
         , "sriovNetSupport"    =? _iSriovNetSupport
         , "imageState"         =? _iState
         , "stateReason"        =? _iStateReason
-        , "tagSet"             =? _iTags
+        , toQuery             _iTags
         , "virtualizationType" =? _iVirtualizationType
         ]
 
@@ -2935,12 +2767,12 @@ dcValues = lens _dcValues (\s a -> s { _dcValues = a }) . _List
 instance FromXML DhcpConfiguration where
     parseXML x = DhcpConfiguration
         <$> x .@? "key"
-        <*> x .@  "valueSet"
+        <*> parseXML x
 
 instance ToQuery DhcpConfiguration where
     toQuery DhcpConfiguration{..} = mconcat
         [ "key"      =? _dcKey
-        , "valueSet" =? _dcValues
+        , toQuery   _dcValues
         ]
 
 data Tag = Tag
@@ -3164,12 +2996,12 @@ vsiStatus = lens _vsiStatus (\s a -> s { _vsiStatus = a })
 
 instance FromXML VolumeStatusInfo where
     parseXML x = VolumeStatusInfo
-        <$> x .@  "details"
+        <$> parseXML x
         <*> x .@? "status"
 
 instance ToQuery VolumeStatusInfo where
     toQuery VolumeStatusInfo{..} = mconcat
-        [ "details" =? _vsiDetails
+        [ toQuery  _vsiDetails
         , "status"  =? _vsiStatus
         ]
 
@@ -3272,13 +3104,13 @@ cvpmRemove = lens _cvpmRemove (\s a -> s { _cvpmRemove = a }) . _List
 
 instance FromXML CreateVolumePermissionModifications where
     parseXML x = CreateVolumePermissionModifications
-        <$> x .@  "Add"
-        <*> x .@  "Remove"
+        <$> parseXML x
+        <*> parseXML x
 
 instance ToQuery CreateVolumePermissionModifications where
     toQuery CreateVolumePermissionModifications{..} = mconcat
-        [ "Add"    =? _cvpmAdd
-        , "Remove" =? _cvpmRemove
+        [ toQuery _cvpmAdd
+        , toQuery _cvpmRemove
         ]
 
 data VpcState
@@ -3711,7 +3543,7 @@ instance FromXML ConversionTask where
         <*> x .@? "importVolume"
         <*> x .@  "state"
         <*> x .@? "statusMessage"
-        <*> x .@  "tagSet"
+        <*> parseXML x
 
 instance ToQuery ConversionTask where
     toQuery ConversionTask{..} = mconcat
@@ -3721,7 +3553,7 @@ instance ToQuery ConversionTask where
         , "importVolume"     =? _ctImportVolume
         , "state"            =? _ctState
         , "statusMessage"    =? _ctStatusMessage
-        , "tagSet"           =? _ctTags
+        , toQuery           _ctTags
         ]
 
 data AttachmentStatus
@@ -4217,7 +4049,7 @@ instance FromXML SpotInstanceRequest where
         <*> x .@? "spotPrice"
         <*> x .@? "state"
         <*> x .@? "status"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@? "type"
         <*> x .@? "validFrom"
         <*> x .@? "validUntil"
@@ -4236,7 +4068,7 @@ instance ToQuery SpotInstanceRequest where
         , "spotPrice"                =? _siSpotPrice
         , "state"                    =? _siState
         , "status"                   =? _siStatus
-        , "tagSet"                   =? _siTags
+        , toQuery                   _siTags
         , "type"                     =? _siType
         , "validFrom"                =? _siValidFrom
         , "validUntil"               =? _siValidUntil
@@ -4391,7 +4223,7 @@ lsUserData = lens _lsUserData (\s a -> s { _lsUserData = a })
 instance FromXML LaunchSpecification where
     parseXML x = LaunchSpecification
         <$> x .@? "addressingType"
-        <*> x .@  "blockDeviceMapping"
+        <*> parseXML x
         <*> x .@? "ebsOptimized"
         <*> x .@? "iamInstanceProfile"
         <*> x .@? "imageId"
@@ -4399,17 +4231,17 @@ instance FromXML LaunchSpecification where
         <*> x .@? "kernelId"
         <*> x .@? "keyName"
         <*> x .@? "monitoring"
-        <*> x .@  "networkInterfaceSet"
+        <*> parseXML x
         <*> x .@? "placement"
         <*> x .@? "ramdiskId"
-        <*> x .@  "groupSet"
+        <*> parseXML x
         <*> x .@? "subnetId"
         <*> x .@? "userData"
 
 instance ToQuery LaunchSpecification where
     toQuery LaunchSpecification{..} = mconcat
         [ "addressingType"      =? _lsAddressingType
-        , "blockDeviceMapping"  =? _lsBlockDeviceMappings
+        , toQuery              _lsBlockDeviceMappings
         , "ebsOptimized"        =? _lsEbsOptimized
         , "iamInstanceProfile"  =? _lsIamInstanceProfile
         , "imageId"             =? _lsImageId
@@ -4417,10 +4249,10 @@ instance ToQuery LaunchSpecification where
         , "kernelId"            =? _lsKernelId
         , "keyName"             =? _lsKeyName
         , "monitoring"          =? _lsMonitoring
-        , "networkInterfaceSet" =? _lsNetworkInterfaces
+        , toQuery              _lsNetworkInterfaces
         , "placement"           =? _lsPlacement
         , "ramdiskId"           =? _lsRamdiskId
-        , "groupSet"            =? _lsSecurityGroups
+        , toQuery              _lsSecurityGroups
         , "subnetId"            =? _lsSubnetId
         , "userData"            =? _lsUserData
         ]
@@ -4491,215 +4323,6 @@ instance ToQuery VolumeStatusEvent where
         , "eventType"   =? _vseEventType
         , "notAfter"    =? _vseNotAfter
         , "notBefore"   =? _vseNotBefore
-        ]
-
-data Volume = Volume
-    { _vAttachments      :: List "item" VolumeAttachment
-    , _vAvailabilityZone :: Maybe Text
-    , _vCreateTime       :: Maybe ISO8601
-    , _vEncrypted        :: Maybe Bool
-    , _vIops             :: Maybe Int
-    , _vSize             :: Maybe Int
-    , _vSnapshotId       :: Maybe Text
-    , _vState            :: Maybe VolumeState
-    , _vTags             :: List "item" Tag
-    , _vVolumeId         :: Maybe Text
-    , _vVolumeType       :: Maybe VolumeType
-    } deriving (Eq, Show)
-
--- | 'Volume' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vAttachments' @::@ ['VolumeAttachment']
---
--- * 'vAvailabilityZone' @::@ 'Maybe' 'Text'
---
--- * 'vCreateTime' @::@ 'Maybe' 'UTCTime'
---
--- * 'vEncrypted' @::@ 'Maybe' 'Bool'
---
--- * 'vIops' @::@ 'Maybe' 'Int'
---
--- * 'vSize' @::@ 'Maybe' 'Int'
---
--- * 'vSnapshotId' @::@ 'Maybe' 'Text'
---
--- * 'vState' @::@ 'Maybe' 'VolumeState'
---
--- * 'vTags' @::@ ['Tag']
---
--- * 'vVolumeId' @::@ 'Maybe' 'Text'
---
--- * 'vVolumeType' @::@ 'Maybe' 'VolumeType'
---
-volume :: Volume
-volume = Volume
-    { _vVolumeId         = Nothing
-    , _vSize             = Nothing
-    , _vSnapshotId       = Nothing
-    , _vAvailabilityZone = Nothing
-    , _vState            = Nothing
-    , _vCreateTime       = Nothing
-    , _vAttachments      = mempty
-    , _vTags             = mempty
-    , _vVolumeType       = Nothing
-    , _vIops             = Nothing
-    , _vEncrypted        = Nothing
-    }
-
-vAttachments :: Lens' Volume [VolumeAttachment]
-vAttachments = lens _vAttachments (\s a -> s { _vAttachments = a }) . _List
-
--- | The Availability Zone for the volume.
-vAvailabilityZone :: Lens' Volume (Maybe Text)
-vAvailabilityZone =
-    lens _vAvailabilityZone (\s a -> s { _vAvailabilityZone = a })
-
--- | The time stamp when volume creation was initiated.
-vCreateTime :: Lens' Volume (Maybe UTCTime)
-vCreateTime = lens _vCreateTime (\s a -> s { _vCreateTime = a }) . mapping _Time
-
--- | Indicates whether the volume is encrypted.
-vEncrypted :: Lens' Volume (Maybe Bool)
-vEncrypted = lens _vEncrypted (\s a -> s { _vEncrypted = a })
-
--- | The number of I/O operations per second (IOPS) that the volume supports. For
--- Provisioned IOPS (SSD) volumes, this represents the number of IOPS that are
--- provisioned for the volume. For General Purpose (SSD) volumes, this
--- represents the baseline performance of the volume and the rate at which the
--- volume accumulates I/O credits for bursting. For more information on General
--- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide/.
---
--- Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD) volumes and 3 to
--- 3072 for General Purpose (SSD) volumes.
---
--- Condition: This parameter is required for requests to create 'io1' volumes; it
--- is not used in requests to create 'standard' or 'gp2' volumes.
-vIops :: Lens' Volume (Maybe Int)
-vIops = lens _vIops (\s a -> s { _vIops = a })
-
--- | The size of the volume, in GiBs.
-vSize :: Lens' Volume (Maybe Int)
-vSize = lens _vSize (\s a -> s { _vSize = a })
-
--- | The snapshot from which the volume was created, if applicable.
-vSnapshotId :: Lens' Volume (Maybe Text)
-vSnapshotId = lens _vSnapshotId (\s a -> s { _vSnapshotId = a })
-
--- | The volume state.
-vState :: Lens' Volume (Maybe VolumeState)
-vState = lens _vState (\s a -> s { _vState = a })
-
--- | Any tags assigned to the volume.
-vTags :: Lens' Volume [Tag]
-vTags = lens _vTags (\s a -> s { _vTags = a }) . _List
-
--- | The ID of the volume.
-vVolumeId :: Lens' Volume (Maybe Text)
-vVolumeId = lens _vVolumeId (\s a -> s { _vVolumeId = a })
-
--- | The volume type. This can be 'gp2' for General Purpose (SSD) volumes, 'io1' for
--- Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic volumes.
-vVolumeType :: Lens' Volume (Maybe VolumeType)
-vVolumeType = lens _vVolumeType (\s a -> s { _vVolumeType = a })
-
-instance FromXML Volume where
-    parseXML x = Volume
-        <$> x .@  "attachmentSet"
-        <*> x .@? "availabilityZone"
-        <*> x .@? "createTime"
-        <*> x .@? "encrypted"
-        <*> x .@? "iops"
-        <*> x .@? "size"
-        <*> x .@? "snapshotId"
-        <*> x .@? "status"
-        <*> x .@  "tagSet"
-        <*> x .@? "volumeId"
-        <*> x .@? "volumeType"
-
-instance ToQuery Volume where
-    toQuery Volume{..} = mconcat
-        [ "attachmentSet"    =? _vAttachments
-        , "availabilityZone" =? _vAvailabilityZone
-        , "createTime"       =? _vCreateTime
-        , "encrypted"        =? _vEncrypted
-        , "iops"             =? _vIops
-        , "size"             =? _vSize
-        , "snapshotId"       =? _vSnapshotId
-        , "status"           =? _vState
-        , "tagSet"           =? _vTags
-        , "volumeId"         =? _vVolumeId
-        , "volumeType"       =? _vVolumeType
-        ]
-
-data Reservation = Reservation
-    { _rGroups        :: List "item" GroupIdentifier
-    , _rInstances     :: List "item" Instance
-    , _rOwnerId       :: Maybe Text
-    , _rRequesterId   :: Maybe Text
-    , _rReservationId :: Maybe Text
-    } deriving (Eq, Show)
-
--- | 'Reservation' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rGroups' @::@ ['GroupIdentifier']
---
--- * 'rInstances' @::@ ['Instance']
---
--- * 'rOwnerId' @::@ 'Maybe' 'Text'
---
--- * 'rRequesterId' @::@ 'Maybe' 'Text'
---
--- * 'rReservationId' @::@ 'Maybe' 'Text'
---
-reservation :: Reservation
-reservation = Reservation
-    { _rReservationId = Nothing
-    , _rOwnerId       = Nothing
-    , _rRequesterId   = Nothing
-    , _rGroups        = mempty
-    , _rInstances     = mempty
-    }
-
--- | One or more security groups.
-rGroups :: Lens' Reservation [GroupIdentifier]
-rGroups = lens _rGroups (\s a -> s { _rGroups = a }) . _List
-
--- | One or more instances.
-rInstances :: Lens' Reservation [Instance]
-rInstances = lens _rInstances (\s a -> s { _rInstances = a }) . _List
-
--- | The ID of the AWS account that owns the reservation.
-rOwnerId :: Lens' Reservation (Maybe Text)
-rOwnerId = lens _rOwnerId (\s a -> s { _rOwnerId = a })
-
--- | The ID of the requester that launched the instances on your behalf (for
--- example, AWS Management Console or Auto Scaling).
-rRequesterId :: Lens' Reservation (Maybe Text)
-rRequesterId = lens _rRequesterId (\s a -> s { _rRequesterId = a })
-
--- | The ID of the reservation.
-rReservationId :: Lens' Reservation (Maybe Text)
-rReservationId = lens _rReservationId (\s a -> s { _rReservationId = a })
-
-instance FromXML Reservation where
-    parseXML x = Reservation
-        <$> x .@  "groupSet"
-        <*> x .@  "instancesSet"
-        <*> x .@? "ownerId"
-        <*> x .@? "requesterId"
-        <*> x .@? "reservationId"
-
-instance ToQuery Reservation where
-    toQuery Reservation{..} = mconcat
-        [ "groupSet"      =? _rGroups
-        , "instancesSet"  =? _rInstances
-        , "ownerId"       =? _rOwnerId
-        , "requesterId"   =? _rRequesterId
-        , "reservationId" =? _rReservationId
         ]
 
 data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
@@ -4925,8 +4548,8 @@ instance FromXML ReservedInstancesModification where
         <$> x .@? "clientToken"
         <*> x .@? "createDate"
         <*> x .@? "effectiveDate"
-        <*> x .@  "modificationResultSet"
-        <*> x .@  "reservedInstancesSet"
+        <*> parseXML x
+        <*> parseXML x
         <*> x .@? "reservedInstancesModificationId"
         <*> x .@? "status"
         <*> x .@? "statusMessage"
@@ -4937,8 +4560,8 @@ instance ToQuery ReservedInstancesModification where
         [ "clientToken"                     =? _rimClientToken
         , "createDate"                      =? _rimCreateDate
         , "effectiveDate"                   =? _rimEffectiveDate
-        , "modificationResultSet"           =? _rimModificationResults
-        , "reservedInstancesSet"            =? _rimReservedInstancesIds
+        , toQuery                          _rimModificationResults
+        , toQuery                          _rimReservedInstancesIds
         , "reservedInstancesModificationId" =? _rimReservedInstancesModificationId
         , "status"                          =? _rimStatus
         , "statusMessage"                   =? _rimStatusMessage
@@ -5141,19 +4764,19 @@ instance FromXML NetworkInterface where
         <*> x .@? "attachment"
         <*> x .@? "availabilityZone"
         <*> x .@? "description"
-        <*> x .@  "groupSet"
+        <*> parseXML x
         <*> x .@? "macAddress"
         <*> x .@? "networkInterfaceId"
         <*> x .@? "ownerId"
         <*> x .@? "privateDnsName"
         <*> x .@? "privateIpAddress"
-        <*> x .@  "privateIpAddressesSet"
+        <*> parseXML x
         <*> x .@? "requesterId"
         <*> x .@? "requesterManaged"
         <*> x .@? "sourceDestCheck"
         <*> x .@? "status"
         <*> x .@? "subnetId"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@? "vpcId"
 
 instance ToQuery NetworkInterface where
@@ -5162,19 +4785,19 @@ instance ToQuery NetworkInterface where
         , "attachment"            =? _niAttachment
         , "availabilityZone"      =? _niAvailabilityZone
         , "description"           =? _niDescription
-        , "groupSet"              =? _niGroups
+        , toQuery                _niGroups
         , "macAddress"            =? _niMacAddress
         , "networkInterfaceId"    =? _niNetworkInterfaceId
         , "ownerId"               =? _niOwnerId
         , "privateDnsName"        =? _niPrivateDnsName
         , "privateIpAddress"      =? _niPrivateIpAddress
-        , "privateIpAddressesSet" =? _niPrivateIpAddresses
+        , toQuery                _niPrivateIpAddresses
         , "requesterId"           =? _niRequesterId
         , "requesterManaged"      =? _niRequesterManaged
         , "sourceDestCheck"       =? _niSourceDestCheck
         , "status"                =? _niStatus
         , "subnetId"              =? _niSubnetId
-        , "tagSet"                =? _niTagSet
+        , toQuery                _niTagSet
         , "vpcId"                 =? _niVpcId
         ]
 
@@ -5205,93 +4828,93 @@ instance FromXML TelemetryStatus where
     parseXML = parseXMLText "TelemetryStatus"
 
 data Subnet = Subnet
-    { _s1AvailabilityZone        :: Maybe Text
-    , _s1AvailableIpAddressCount :: Maybe Int
-    , _s1CidrBlock               :: Maybe Text
-    , _s1DefaultForAz            :: Maybe Bool
-    , _s1MapPublicIpOnLaunch     :: Maybe Bool
-    , _s1State                   :: Maybe SubnetState
-    , _s1SubnetId                :: Maybe Text
-    , _s1Tags                    :: List "item" Tag
-    , _s1VpcId                   :: Maybe Text
+    { _sAvailabilityZone        :: Maybe Text
+    , _sAvailableIpAddressCount :: Maybe Int
+    , _sCidrBlock               :: Maybe Text
+    , _sDefaultForAz            :: Maybe Bool
+    , _sMapPublicIpOnLaunch     :: Maybe Bool
+    , _sState                   :: Maybe SubnetState
+    , _sSubnetId                :: Maybe Text
+    , _sTags                    :: List "item" Tag
+    , _sVpcId                   :: Maybe Text
     } deriving (Eq, Show)
 
 -- | 'Subnet' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 's1AvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 'sAvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * 's1AvailableIpAddressCount' @::@ 'Maybe' 'Int'
+-- * 'sAvailableIpAddressCount' @::@ 'Maybe' 'Int'
 --
--- * 's1CidrBlock' @::@ 'Maybe' 'Text'
+-- * 'sCidrBlock' @::@ 'Maybe' 'Text'
 --
--- * 's1DefaultForAz' @::@ 'Maybe' 'Bool'
+-- * 'sDefaultForAz' @::@ 'Maybe' 'Bool'
 --
--- * 's1MapPublicIpOnLaunch' @::@ 'Maybe' 'Bool'
+-- * 'sMapPublicIpOnLaunch' @::@ 'Maybe' 'Bool'
 --
--- * 's1State' @::@ 'Maybe' 'SubnetState'
+-- * 'sState' @::@ 'Maybe' 'SubnetState'
 --
--- * 's1SubnetId' @::@ 'Maybe' 'Text'
+-- * 'sSubnetId' @::@ 'Maybe' 'Text'
 --
--- * 's1Tags' @::@ ['Tag']
+-- * 'sTags' @::@ ['Tag']
 --
--- * 's1VpcId' @::@ 'Maybe' 'Text'
+-- * 'sVpcId' @::@ 'Maybe' 'Text'
 --
 subnet :: Subnet
 subnet = Subnet
-    { _s1SubnetId                = Nothing
-    , _s1State                   = Nothing
-    , _s1VpcId                   = Nothing
-    , _s1CidrBlock               = Nothing
-    , _s1AvailableIpAddressCount = Nothing
-    , _s1AvailabilityZone        = Nothing
-    , _s1DefaultForAz            = Nothing
-    , _s1MapPublicIpOnLaunch     = Nothing
-    , _s1Tags                    = mempty
+    { _sSubnetId                = Nothing
+    , _sState                   = Nothing
+    , _sVpcId                   = Nothing
+    , _sCidrBlock               = Nothing
+    , _sAvailableIpAddressCount = Nothing
+    , _sAvailabilityZone        = Nothing
+    , _sDefaultForAz            = Nothing
+    , _sMapPublicIpOnLaunch     = Nothing
+    , _sTags                    = mempty
     }
 
 -- | The Availability Zone of the subnet.
-s1AvailabilityZone :: Lens' Subnet (Maybe Text)
-s1AvailabilityZone =
-    lens _s1AvailabilityZone (\s a -> s { _s1AvailabilityZone = a })
+sAvailabilityZone :: Lens' Subnet (Maybe Text)
+sAvailabilityZone =
+    lens _sAvailabilityZone (\s a -> s { _sAvailabilityZone = a })
 
 -- | The number of unused IP addresses in the subnet. Note that the IP addresses
 -- for any stopped instances are considered unavailable.
-s1AvailableIpAddressCount :: Lens' Subnet (Maybe Int)
-s1AvailableIpAddressCount =
-    lens _s1AvailableIpAddressCount
-        (\s a -> s { _s1AvailableIpAddressCount = a })
+sAvailableIpAddressCount :: Lens' Subnet (Maybe Int)
+sAvailableIpAddressCount =
+    lens _sAvailableIpAddressCount
+        (\s a -> s { _sAvailableIpAddressCount = a })
 
 -- | The CIDR block assigned to the subnet.
-s1CidrBlock :: Lens' Subnet (Maybe Text)
-s1CidrBlock = lens _s1CidrBlock (\s a -> s { _s1CidrBlock = a })
+sCidrBlock :: Lens' Subnet (Maybe Text)
+sCidrBlock = lens _sCidrBlock (\s a -> s { _sCidrBlock = a })
 
 -- | Indicates whether this is the default subnet for the Availability Zone.
-s1DefaultForAz :: Lens' Subnet (Maybe Bool)
-s1DefaultForAz = lens _s1DefaultForAz (\s a -> s { _s1DefaultForAz = a })
+sDefaultForAz :: Lens' Subnet (Maybe Bool)
+sDefaultForAz = lens _sDefaultForAz (\s a -> s { _sDefaultForAz = a })
 
 -- | Indicates whether instances launched in this subnet receive a public IP
 -- address.
-s1MapPublicIpOnLaunch :: Lens' Subnet (Maybe Bool)
-s1MapPublicIpOnLaunch =
-    lens _s1MapPublicIpOnLaunch (\s a -> s { _s1MapPublicIpOnLaunch = a })
+sMapPublicIpOnLaunch :: Lens' Subnet (Maybe Bool)
+sMapPublicIpOnLaunch =
+    lens _sMapPublicIpOnLaunch (\s a -> s { _sMapPublicIpOnLaunch = a })
 
 -- | The current state of the subnet.
-s1State :: Lens' Subnet (Maybe SubnetState)
-s1State = lens _s1State (\s a -> s { _s1State = a })
+sState :: Lens' Subnet (Maybe SubnetState)
+sState = lens _sState (\s a -> s { _sState = a })
 
 -- | The ID of the subnet.
-s1SubnetId :: Lens' Subnet (Maybe Text)
-s1SubnetId = lens _s1SubnetId (\s a -> s { _s1SubnetId = a })
+sSubnetId :: Lens' Subnet (Maybe Text)
+sSubnetId = lens _sSubnetId (\s a -> s { _sSubnetId = a })
 
 -- | Any tags assigned to the subnet.
-s1Tags :: Lens' Subnet [Tag]
-s1Tags = lens _s1Tags (\s a -> s { _s1Tags = a }) . _List
+sTags :: Lens' Subnet [Tag]
+sTags = lens _sTags (\s a -> s { _sTags = a }) . _List
 
 -- | The ID of the VPC the subnet is in.
-s1VpcId :: Lens' Subnet (Maybe Text)
-s1VpcId = lens _s1VpcId (\s a -> s { _s1VpcId = a })
+sVpcId :: Lens' Subnet (Maybe Text)
+sVpcId = lens _sVpcId (\s a -> s { _sVpcId = a })
 
 instance FromXML Subnet where
     parseXML x = Subnet
@@ -5302,20 +4925,20 @@ instance FromXML Subnet where
         <*> x .@? "mapPublicIpOnLaunch"
         <*> x .@? "state"
         <*> x .@? "subnetId"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@? "vpcId"
 
 instance ToQuery Subnet where
     toQuery Subnet{..} = mconcat
-        [ "availabilityZone"        =? _s1AvailabilityZone
-        , "availableIpAddressCount" =? _s1AvailableIpAddressCount
-        , "cidrBlock"               =? _s1CidrBlock
-        , "defaultForAz"            =? _s1DefaultForAz
-        , "mapPublicIpOnLaunch"     =? _s1MapPublicIpOnLaunch
-        , "state"                   =? _s1State
-        , "subnetId"                =? _s1SubnetId
-        , "tagSet"                  =? _s1Tags
-        , "vpcId"                   =? _s1VpcId
+        [ "availabilityZone"        =? _sAvailabilityZone
+        , "availableIpAddressCount" =? _sAvailableIpAddressCount
+        , "cidrBlock"               =? _sCidrBlock
+        , "defaultForAz"            =? _sDefaultForAz
+        , "mapPublicIpOnLaunch"     =? _sMapPublicIpOnLaunch
+        , "state"                   =? _sState
+        , "subnetId"                =? _sSubnetId
+        , toQuery                  _sTags
+        , "vpcId"                   =? _sVpcId
         ]
 
 data KeyPairInfo = KeyPairInfo
@@ -5389,13 +5012,13 @@ lpmRemove = lens _lpmRemove (\s a -> s { _lpmRemove = a }) . _List
 
 instance FromXML LaunchPermissionModifications where
     parseXML x = LaunchPermissionModifications
-        <$> x .@  "Add"
-        <*> x .@  "Remove"
+        <$> parseXML x
+        <*> parseXML x
 
 instance ToQuery LaunchPermissionModifications where
     toQuery LaunchPermissionModifications{..} = mconcat
-        [ "Add"    =? _lpmAdd
-        , "Remove" =? _lpmRemove
+        [ toQuery _lpmAdd
+        , toQuery _lpmRemove
         ]
 
 data SnapshotState
@@ -6265,12 +5888,12 @@ issStatus = lens _issStatus (\s a -> s { _issStatus = a })
 
 instance FromXML InstanceStatusSummary where
     parseXML x = InstanceStatusSummary
-        <$> x .@  "details"
+        <$> parseXML x
         <*> x .@? "status"
 
 instance ToQuery InstanceStatusSummary where
     toQuery InstanceStatusSummary{..} = mconcat
-        [ "details" =? _issDetails
+        [ toQuery  _issDetails
         , "status"  =? _issStatus
         ]
 
@@ -6984,10 +6607,10 @@ instance FromXML SecurityGroup where
         <$> x .@  "groupDescription"
         <*> x .@  "groupId"
         <*> x .@  "groupName"
-        <*> x .@  "ipPermissions"
-        <*> x .@  "ipPermissionsEgress"
+        <*> parseXML x
+        <*> parseXML x
         <*> x .@  "ownerId"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@? "vpcId"
 
 instance ToQuery SecurityGroup where
@@ -6995,10 +6618,10 @@ instance ToQuery SecurityGroup where
         [ "groupDescription"    =? _sgDescription
         , "groupId"             =? _sgGroupId
         , "groupName"           =? _sgGroupName
-        , "ipPermissions"       =? _sgIpPermissions
-        , "ipPermissionsEgress" =? _sgIpPermissionsEgress
+        , toQuery              _sgIpPermissions
+        , toQuery              _sgIpPermissionsEgress
         , "ownerId"             =? _sgOwnerId
-        , "tagSet"              =? _sgTags
+        , toQuery              _sgTags
         , "vpcId"               =? _sgVpcId
         ]
 
@@ -7346,7 +6969,7 @@ instance FromXML CustomerGateway where
         <*> x .@? "customerGatewayId"
         <*> x .@? "ipAddress"
         <*> x .@? "state"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@? "type"
 
 instance ToQuery CustomerGateway where
@@ -7355,7 +6978,7 @@ instance ToQuery CustomerGateway where
         , "customerGatewayId" =? _cgCustomerGatewayId
         , "ipAddress"         =? _cgIpAddress
         , "state"             =? _cgState
-        , "tagSet"            =? _cgTags
+        , toQuery            _cgTags
         , "type"              =? _cgType
         ]
 
@@ -7986,14 +7609,14 @@ azZoneName = lens _azZoneName (\s a -> s { _azZoneName = a })
 
 instance FromXML AvailabilityZone where
     parseXML x = AvailabilityZone
-        <$> x .@  "messageSet"
+        <$> parseXML x
         <*> x .@? "regionName"
         <*> x .@? "zoneState"
         <*> x .@? "zoneName"
 
 instance ToQuery AvailabilityZone where
     toQuery AvailabilityZone{..} = mconcat
-        [ "messageSet" =? _azMessages
+        [ toQuery     _azMessages
         , "regionName" =? _azRegionName
         , "zoneState"  =? _azState
         , "zoneName"   =? _azZoneName
@@ -8094,20 +7717,20 @@ rtVpcId = lens _rtVpcId (\s a -> s { _rtVpcId = a })
 
 instance FromXML RouteTable where
     parseXML x = RouteTable
-        <$> x .@  "associationSet"
-        <*> x .@  "propagatingVgwSet"
+        <$> parseXML x
+        <*> parseXML x
         <*> x .@? "routeTableId"
-        <*> x .@  "routeSet"
-        <*> x .@  "tagSet"
+        <*> parseXML x
+        <*> parseXML x
         <*> x .@? "vpcId"
 
 instance ToQuery RouteTable where
     toQuery RouteTable{..} = mconcat
-        [ "associationSet"    =? _rtAssociations
-        , "propagatingVgwSet" =? _rtPropagatingVgws
+        [ toQuery            _rtAssociations
+        , toQuery            _rtPropagatingVgws
         , "routeTableId"      =? _rtRouteTableId
-        , "routeSet"          =? _rtRoutes
-        , "tagSet"            =? _rtTags
+        , toQuery            _rtRoutes
+        , toQuery            _rtTags
         , "vpcId"             =? _rtVpcId
         ]
 
@@ -8421,17 +8044,17 @@ instance FromXML IpPermission where
     parseXML x = IpPermission
         <$> x .@  "fromPort"
         <*> x .@  "ipProtocol"
-        <*> x .@  "ipRanges"
+        <*> parseXML x
         <*> x .@  "toPort"
-        <*> x .@  "groups"
+        <*> parseXML x
 
 instance ToQuery IpPermission where
     toQuery IpPermission{..} = mconcat
         [ "fromPort"   =? _ipFromPort
         , "ipProtocol" =? _ipIpProtocol
-        , "ipRanges"   =? _ipIpRanges
+        , toQuery     _ipIpRanges
         , "toPort"     =? _ipToPort
-        , "groups"     =? _ipUserIdGroupPairs
+        , toQuery     _ipUserIdGroupPairs
         ]
 
 data ConversionTaskState
@@ -8845,13 +8468,13 @@ instance FromXML InstanceNetworkInterface where
         <$> x .@? "association"
         <*> x .@? "attachment"
         <*> x .@? "description"
-        <*> x .@  "groupSet"
+        <*> parseXML x
         <*> x .@? "macAddress"
         <*> x .@? "networkInterfaceId"
         <*> x .@? "ownerId"
         <*> x .@? "privateDnsName"
         <*> x .@? "privateIpAddress"
-        <*> x .@  "privateIpAddressesSet"
+        <*> parseXML x
         <*> x .@? "sourceDestCheck"
         <*> x .@? "status"
         <*> x .@? "subnetId"
@@ -8862,13 +8485,13 @@ instance ToQuery InstanceNetworkInterface where
         [ "association"           =? _iniAssociation
         , "attachment"            =? _iniAttachment
         , "description"           =? _iniDescription
-        , "groupSet"              =? _iniGroups
+        , toQuery                _iniGroups
         , "macAddress"            =? _iniMacAddress
         , "networkInterfaceId"    =? _iniNetworkInterfaceId
         , "ownerId"               =? _iniOwnerId
         , "privateDnsName"        =? _iniPrivateDnsName
         , "privateIpAddress"      =? _iniPrivateIpAddress
-        , "privateIpAddressesSet" =? _iniPrivateIpAddresses
+        , toQuery                _iniPrivateIpAddresses
         , "sourceDestCheck"       =? _iniSourceDestCheck
         , "status"                =? _iniStatus
         , "subnetId"              =? _iniSubnetId
@@ -9097,7 +8720,7 @@ instance FromXML Vpc where
         <*> x .@? "instanceTenancy"
         <*> x .@? "isDefault"
         <*> x .@? "state"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@? "vpcId"
 
 instance ToQuery Vpc where
@@ -9107,7 +8730,7 @@ instance ToQuery Vpc where
         , "instanceTenancy" =? _vpcInstanceTenancy
         , "isDefault"       =? _vpcIsDefault
         , "state"           =? _vpcState
-        , "tagSet"          =? _vpcTags
+        , toQuery          _vpcTags
         , "vpcId"           =? _vpcVpcId
         ]
 
@@ -9178,7 +8801,7 @@ isSystemStatus = lens _isSystemStatus (\s a -> s { _isSystemStatus = a })
 instance FromXML InstanceStatus where
     parseXML x = InstanceStatus
         <$> x .@? "availabilityZone"
-        <*> x .@  "eventsSet"
+        <*> parseXML x
         <*> x .@? "instanceId"
         <*> x .@? "instanceState"
         <*> x .@? "instanceStatus"
@@ -9187,7 +8810,7 @@ instance FromXML InstanceStatus where
 instance ToQuery InstanceStatus where
     toQuery InstanceStatus{..} = mconcat
         [ "availabilityZone" =? _isAvailabilityZone
-        , "eventsSet"        =? _isEvents
+        , toQuery           _isEvents
         , "instanceId"       =? _isInstanceId
         , "instanceState"    =? _isInstanceState
         , "instanceStatus"   =? _isInstanceStatus
@@ -9401,12 +9024,12 @@ aaAttributeValues =
 instance FromXML AccountAttribute where
     parseXML x = AccountAttribute
         <$> x .@? "attributeName"
-        <*> x .@  "attributeValueSet"
+        <*> parseXML x
 
 instance ToQuery AccountAttribute where
     toQuery AccountAttribute{..} = mconcat
         [ "attributeName"     =? _aaAttributeName
-        , "attributeValueSet" =? _aaAttributeValues
+        , toQuery            _aaAttributeValues
         ]
 
 data PriceSchedule = PriceSchedule
@@ -9689,18 +9312,18 @@ instance FromXML VpnGateway where
     parseXML x = VpnGateway
         <$> x .@? "availabilityZone"
         <*> x .@? "state"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@? "type"
-        <*> x .@  "attachments"
+        <*> parseXML x
         <*> x .@? "vpnGatewayId"
 
 instance ToQuery VpnGateway where
     toQuery VpnGateway{..} = mconcat
         [ "availabilityZone" =? _vgAvailabilityZone
         , "state"            =? _vgState
-        , "tagSet"           =? _vgTags
+        , toQuery           _vgTags
         , "type"             =? _vgType
-        , "attachments"      =? _vgVpcAttachments
+        , toQuery           _vgVpcAttachments
         , "vpnGatewayId"     =? _vgVpnGatewayId
         ]
 
@@ -9735,12 +9358,12 @@ fValues = lens _fValues (\s a -> s { _fValues = a }) . _List
 instance FromXML Filter where
     parseXML x = Filter
         <$> x .@  "Name"
-        <*> x .@  "Value"
+        <*> parseXML x
 
 instance ToQuery Filter where
     toQuery Filter{..} = mconcat
         [ "Name"  =? _fName
-        , "Value" =? _fValues
+        , toQuery _fValues
         ]
 
 data VolumeType
@@ -9881,20 +9504,20 @@ naVpcId = lens _naVpcId (\s a -> s { _naVpcId = a })
 
 instance FromXML NetworkAcl where
     parseXML x = NetworkAcl
-        <$> x .@  "associationSet"
-        <*> x .@  "entrySet"
+        <$> parseXML x
+        <*> parseXML x
         <*> x .@? "default"
         <*> x .@? "networkAclId"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@? "vpcId"
 
 instance ToQuery NetworkAcl where
     toQuery NetworkAcl{..} = mconcat
-        [ "associationSet" =? _naAssociations
-        , "entrySet"       =? _naEntries
+        [ toQuery         _naAssociations
+        , toQuery         _naEntries
         , "default"        =? _naIsDefault
         , "networkAclId"   =? _naNetworkAclId
-        , "tagSet"         =? _naTags
+        , toQuery         _naTags
         , "vpcId"          =? _naVpcId
         ]
 
@@ -10109,12 +9732,12 @@ ndcValues = lens _ndcValues (\s a -> s { _ndcValues = a }) . _List
 instance FromXML NewDhcpConfiguration where
     parseXML x = NewDhcpConfiguration
         <$> x .@? "key"
-        <*> x .@  "Value"
+        <*> parseXML x
 
 instance ToQuery NewDhcpConfiguration where
     toQuery NewDhcpConfiguration{..} = mconcat
         [ "key"   =? _ndcKey
-        , "Value" =? _ndcValues
+        , toQuery _ndcValues
         ]
 
 data StateReason = StateReason
@@ -10297,15 +9920,15 @@ igTags = lens _igTags (\s a -> s { _igTags = a }) . _List
 
 instance FromXML InternetGateway where
     parseXML x = InternetGateway
-        <$> x .@  "attachmentSet"
+        <$> parseXML x
         <*> x .@  "internetGatewayId"
-        <*> x .@  "tagSet"
+        <*> parseXML x
 
 instance ToQuery InternetGateway where
     toQuery InternetGateway{..} = mconcat
-        [ "attachmentSet"     =? _igAttachments
+        [ toQuery            _igAttachments
         , "internetGatewayId" =? _igInternetGatewayId
-        , "tagSet"            =? _igTags
+        , toQuery            _igTags
         ]
 
 data VolumeStatusName
@@ -10405,14 +10028,14 @@ instance FromXML ImportInstanceTaskDetails where
         <$> x .@? "description"
         <*> x .@? "instanceId"
         <*> x .@? "platform"
-        <*> x .@  "volumes"
+        <*> parseXML x
 
 instance ToQuery ImportInstanceTaskDetails where
     toQuery ImportInstanceTaskDetails{..} = mconcat
         [ "description" =? _iitdDescription
         , "instanceId"  =? _iitdInstanceId
         , "platform"    =? _iitdPlatform
-        , "volumes"     =? _iitdVolumes
+        , toQuery      _iitdVolumes
         ]
 
 data PlacementGroup = PlacementGroup
@@ -10792,9 +10415,9 @@ instance FromXML ReservedInstancesOffering where
         <*> x .@? "instanceType"
         <*> x .@? "marketplace"
         <*> x .@? "offeringType"
-        <*> x .@  "pricingDetailsSet"
+        <*> parseXML x
         <*> x .@? "productDescription"
-        <*> x .@  "recurringCharges"
+        <*> parseXML x
         <*> x .@? "reservedInstancesOfferingId"
         <*> x .@? "usagePrice"
 
@@ -10808,9 +10431,9 @@ instance ToQuery ReservedInstancesOffering where
         , "instanceType"                =? _rioInstanceType
         , "marketplace"                 =? _rioMarketplace
         , "offeringType"                =? _rioOfferingType
-        , "pricingDetailsSet"           =? _rioPricingDetails
+        , toQuery                      _rioPricingDetails
         , "productDescription"          =? _rioProductDescription
-        , "recurringCharges"            =? _rioRecurringCharges
+        , toQuery                      _rioRecurringCharges
         , "reservedInstancesOfferingId" =? _rioReservedInstancesOfferingId
         , "usagePrice"                  =? _rioUsagePrice
         ]
@@ -10973,11 +10596,11 @@ instance FromXML ReservedInstances where
         <*> x .@? "instanceType"
         <*> x .@? "offeringType"
         <*> x .@? "productDescription"
-        <*> x .@  "recurringCharges"
+        <*> parseXML x
         <*> x .@? "reservedInstancesId"
         <*> x .@? "start"
         <*> x .@? "state"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@? "usagePrice"
 
 instance ToQuery ReservedInstances where
@@ -10992,11 +10615,11 @@ instance ToQuery ReservedInstances where
         , "instanceType"        =? _ri1InstanceType
         , "offeringType"        =? _ri1OfferingType
         , "productDescription"  =? _ri1ProductDescription
-        , "recurringCharges"    =? _ri1RecurringCharges
+        , toQuery              _ri1RecurringCharges
         , "reservedInstancesId" =? _ri1ReservedInstancesId
         , "start"               =? _ri1Start
         , "state"               =? _ri1State
-        , "tagSet"              =? _ri1Tags
+        , toQuery              _ri1Tags
         , "usagePrice"          =? _ri1UsagePrice
         ]
 
@@ -11186,11 +10809,11 @@ instance FromXML VpnConnection where
         <$> x .@? "customerGatewayConfiguration"
         <*> x .@? "customerGatewayId"
         <*> x .@? "options"
-        <*> x .@  "routes"
+        <*> parseXML x
         <*> x .@? "state"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@? "type"
-        <*> x .@  "vgwTelemetry"
+        <*> parseXML x
         <*> x .@? "vpnConnectionId"
         <*> x .@? "vpnGatewayId"
 
@@ -11199,11 +10822,11 @@ instance ToQuery VpnConnection where
         [ "customerGatewayConfiguration" =? _vcCustomerGatewayConfiguration
         , "customerGatewayId"            =? _vcCustomerGatewayId
         , "options"                      =? _vcOptions
-        , "routes"                       =? _vcRoutes
+        , toQuery                       _vcRoutes
         , "state"                        =? _vcState
-        , "tagSet"                       =? _vcTags
+        , toQuery                       _vcTags
         , "type"                         =? _vcType
-        , "vgwTelemetry"                 =? _vcVgwTelemetry
+        , toQuery                       _vcVgwTelemetry
         , "vpnConnectionId"              =? _vcVpnConnectionId
         , "vpnGatewayId"                 =? _vcVpnGatewayId
         ]
@@ -11446,7 +11069,7 @@ instance FromXML VpcPeeringConnection where
         <*> x .@? "expirationTime"
         <*> x .@? "requesterVpcInfo"
         <*> x .@? "status"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@? "vpcPeeringConnectionId"
 
 instance ToQuery VpcPeeringConnection where
@@ -11455,7 +11078,7 @@ instance ToQuery VpcPeeringConnection where
         , "expirationTime"         =? _vpc1ExpirationTime
         , "requesterVpcInfo"       =? _vpc1RequesterVpcInfo
         , "status"                 =? _vpc1Status
-        , "tagSet"                 =? _vpc1Tags
+        , toQuery                 _vpc1Tags
         , "vpcPeeringConnectionId" =? _vpc1VpcPeeringConnectionId
         ]
 
@@ -12031,7 +11654,7 @@ instance FromXML Instance where
     parseXML x = Instance
         <$> x .@? "amiLaunchIndex"
         <*> x .@? "architecture"
-        <*> x .@  "blockDeviceMapping"
+        <*> parseXML x
         <*> x .@? "clientToken"
         <*> x .@? "ebsOptimized"
         <*> x .@? "hypervisor"
@@ -12044,18 +11667,18 @@ instance FromXML Instance where
         <*> x .@? "keyName"
         <*> x .@? "launchTime"
         <*> x .@? "monitoring"
-        <*> x .@  "networkInterfaceSet"
+        <*> parseXML x
         <*> x .@? "placement"
         <*> x .@? "platform"
         <*> x .@? "privateDnsName"
         <*> x .@? "privateIpAddress"
-        <*> x .@  "productCodes"
+        <*> parseXML x
         <*> x .@? "dnsName"
         <*> x .@? "ipAddress"
         <*> x .@? "ramdiskId"
         <*> x .@? "rootDeviceName"
         <*> x .@? "rootDeviceType"
-        <*> x .@  "groupSet"
+        <*> parseXML x
         <*> x .@? "sourceDestCheck"
         <*> x .@? "spotInstanceRequestId"
         <*> x .@? "sriovNetSupport"
@@ -12063,7 +11686,7 @@ instance FromXML Instance where
         <*> x .@? "stateReason"
         <*> x .@? "reason"
         <*> x .@? "subnetId"
-        <*> x .@  "tagSet"
+        <*> parseXML x
         <*> x .@? "virtualizationType"
         <*> x .@? "vpcId"
 
@@ -12071,7 +11694,7 @@ instance ToQuery Instance where
     toQuery Instance{..} = mconcat
         [ "amiLaunchIndex"        =? _i1AmiLaunchIndex
         , "architecture"          =? _i1Architecture
-        , "blockDeviceMapping"    =? _i1BlockDeviceMappings
+        , toQuery                _i1BlockDeviceMappings
         , "clientToken"           =? _i1ClientToken
         , "ebsOptimized"          =? _i1EbsOptimized
         , "hypervisor"            =? _i1Hypervisor
@@ -12084,18 +11707,18 @@ instance ToQuery Instance where
         , "keyName"               =? _i1KeyName
         , "launchTime"            =? _i1LaunchTime
         , "monitoring"            =? _i1Monitoring
-        , "networkInterfaceSet"   =? _i1NetworkInterfaces
+        , toQuery                _i1NetworkInterfaces
         , "placement"             =? _i1Placement
         , "platform"              =? _i1Platform
         , "privateDnsName"        =? _i1PrivateDnsName
         , "privateIpAddress"      =? _i1PrivateIpAddress
-        , "productCodes"          =? _i1ProductCodes
+        , toQuery                _i1ProductCodes
         , "dnsName"               =? _i1PublicDnsName
         , "ipAddress"             =? _i1PublicIpAddress
         , "ramdiskId"             =? _i1RamdiskId
         , "rootDeviceName"        =? _i1RootDeviceName
         , "rootDeviceType"        =? _i1RootDeviceType
-        , "groupSet"              =? _i1SecurityGroups
+        , toQuery                _i1SecurityGroups
         , "sourceDestCheck"       =? _i1SourceDestCheck
         , "spotInstanceRequestId" =? _i1SpotInstanceRequestId
         , "sriovNetSupport"       =? _i1SriovNetSupport
@@ -12103,7 +11726,7 @@ instance ToQuery Instance where
         , "stateReason"           =? _i1StateReason
         , "reason"                =? _i1StateTransitionReason
         , "subnetId"              =? _i1SubnetId
-        , "tagSet"                =? _i1Tags
+        , toQuery                _i1Tags
         , "virtualizationType"    =? _i1VirtualizationType
         , "vpcId"                 =? _i1VpcId
         ]
@@ -12365,7 +11988,7 @@ rslsUserData = lens _rslsUserData (\s a -> s { _rslsUserData = a })
 instance FromXML RequestSpotLaunchSpecification where
     parseXML x = RequestSpotLaunchSpecification
         <$> x .@? "addressingType"
-        <*> x .@  "blockDeviceMapping"
+        <*> parseXML x
         <*> x .@? "ebsOptimized"
         <*> x .@? "iamInstanceProfile"
         <*> x .@? "imageId"
@@ -12373,18 +11996,18 @@ instance FromXML RequestSpotLaunchSpecification where
         <*> x .@? "kernelId"
         <*> x .@? "keyName"
         <*> x .@? "monitoring"
-        <*> x .@  "NetworkInterface"
+        <*> parseXML x
         <*> x .@? "placement"
         <*> x .@? "ramdiskId"
-        <*> x .@  "SecurityGroupId"
-        <*> x .@  "SecurityGroup"
+        <*> parseXML x
+        <*> parseXML x
         <*> x .@? "subnetId"
         <*> x .@? "userData"
 
 instance ToQuery RequestSpotLaunchSpecification where
     toQuery RequestSpotLaunchSpecification{..} = mconcat
         [ "addressingType"     =? _rslsAddressingType
-        , "blockDeviceMapping" =? _rslsBlockDeviceMappings
+        , toQuery             _rslsBlockDeviceMappings
         , "ebsOptimized"       =? _rslsEbsOptimized
         , "iamInstanceProfile" =? _rslsIamInstanceProfile
         , "imageId"            =? _rslsImageId
@@ -12392,11 +12015,11 @@ instance ToQuery RequestSpotLaunchSpecification where
         , "kernelId"           =? _rslsKernelId
         , "keyName"            =? _rslsKeyName
         , "monitoring"         =? _rslsMonitoring
-        , "NetworkInterface"   =? _rslsNetworkInterfaces
+        , toQuery             _rslsNetworkInterfaces
         , "placement"          =? _rslsPlacement
         , "ramdiskId"          =? _rslsRamdiskId
-        , "SecurityGroupId"    =? _rslsSecurityGroupIds
-        , "SecurityGroup"      =? _rslsSecurityGroups
+        , toQuery             _rslsSecurityGroupIds
+        , toQuery             _rslsSecurityGroups
         , "subnetId"           =? _rslsSubnetId
         , "userData"           =? _rslsUserData
         ]
@@ -12651,17 +12274,17 @@ vsiVolumeStatus = lens _vsiVolumeStatus (\s a -> s { _vsiVolumeStatus = a })
 
 instance FromXML VolumeStatusItem where
     parseXML x = VolumeStatusItem
-        <$> x .@  "actionsSet"
+        <$> parseXML x
         <*> x .@? "availabilityZone"
-        <*> x .@  "eventsSet"
+        <*> parseXML x
         <*> x .@? "volumeId"
         <*> x .@? "volumeStatus"
 
 instance ToQuery VolumeStatusItem where
     toQuery VolumeStatusItem{..} = mconcat
-        [ "actionsSet"       =? _vsiActions
+        [ toQuery           _vsiActions
         , "availabilityZone" =? _vsiAvailabilityZone
-        , "eventsSet"        =? _vsiEvents
+        , toQuery           _vsiEvents
         , "volumeId"         =? _vsiVolumeId
         , "volumeStatus"     =? _vsiVolumeStatus
         ]

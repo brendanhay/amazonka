@@ -189,12 +189,6 @@ newtype DescribeImagesResponse = DescribeImagesResponse
     { _dirImages :: List "item" Image
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeImagesResponse where
-    type Item DescribeImagesResponse = Image
-
-    fromList = DescribeImagesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dirImages
-
 -- | 'DescribeImagesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -216,10 +210,10 @@ instance ToPath DescribeImages where
 instance ToQuery DescribeImages where
     toQuery DescribeImages{..} = mconcat
         [ "dryRun"       =? _di2DryRun
-        , "ExecutableBy" =? _di2ExecutableUsers
-        , "Filter"       =? _di2Filters
-        , "ImageId"      =? _di2ImageIds
-        , "Owner"        =? _di2Owners
+        , toQuery       _di2ExecutableUsers
+        , toQuery       _di2Filters
+        , toQuery       _di2ImageIds
+        , toQuery       _di2Owners
         ]
 
 instance ToHeaders DescribeImages
@@ -233,4 +227,4 @@ instance AWSRequest DescribeImages where
 
 instance FromXML DescribeImagesResponse where
     parseXML x = DescribeImagesResponse
-        <$> x .@  "imagesSet"
+        <$> parseXML x

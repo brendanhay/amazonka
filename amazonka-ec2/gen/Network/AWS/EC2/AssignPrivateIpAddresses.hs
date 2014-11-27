@@ -128,7 +128,7 @@ instance ToQuery AssignPrivateIpAddresses where
     toQuery AssignPrivateIpAddresses{..} = mconcat
         [ "allowReassignment"              =? _apiaAllowReassignment
         , "networkInterfaceId"             =? _apiaNetworkInterfaceId
-        , "privateIpAddress"               =? _apiaPrivateIpAddresses
+        , toQuery                         _apiaPrivateIpAddresses
         , "secondaryPrivateIpAddressCount" =? _apiaSecondaryPrivateIpAddressCount
         ]
 

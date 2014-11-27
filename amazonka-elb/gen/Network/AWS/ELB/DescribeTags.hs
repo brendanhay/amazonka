@@ -48,7 +48,7 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 newtype DescribeTags = DescribeTags
-    { _dtLoadBalancerNames :: List1 "LoadBalancerNames" Text
+    { _dtLoadBalancerNames :: List1 "member" Text
     } deriving (Eq, Ord, Show, Semigroup)
 
 -- | 'DescribeTags' constructor.
@@ -70,7 +70,7 @@ dtLoadBalancerNames =
         . _List1
 
 newtype DescribeTagsResponse = DescribeTagsResponse
-    { _dtrTagDescriptions :: List "TagDescriptions" TagDescription
+    { _dtrTagDescriptions :: List "member" TagDescription
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTagsResponse where

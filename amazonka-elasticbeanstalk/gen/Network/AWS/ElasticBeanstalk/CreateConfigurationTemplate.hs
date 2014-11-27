@@ -71,7 +71,7 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate
     { _cctApplicationName     :: Text
     , _cctDescription         :: Maybe Text
     , _cctEnvironmentId       :: Maybe Text
-    , _cctOptionSettings      :: List "OptionSettings" ConfigurationOptionSetting
+    , _cctOptionSettings      :: List "member" ConfigurationOptionSetting
     , _cctSolutionStackName   :: Maybe Text
     , _cctSourceConfiguration :: Maybe SourceConfiguration
     , _cctTemplateName        :: Text
@@ -182,7 +182,7 @@ data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
     , _cctrDeploymentStatus  :: Maybe ConfigurationDeploymentStatus
     , _cctrDescription       :: Maybe Text
     , _cctrEnvironmentName   :: Maybe Text
-    , _cctrOptionSettings    :: List "OptionSettings" ConfigurationOptionSetting
+    , _cctrOptionSettings    :: List "member" ConfigurationOptionSetting
     , _cctrSolutionStackName :: Maybe Text
     , _cctrTemplateName      :: Maybe Text
     } deriving (Eq, Show)

@@ -54,8 +54,8 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data AddTags = AddTags
-    { _atLoadBalancerNames :: List "LoadBalancerNames" Text
-    , _atTags              :: List1 "Tags" Tag
+    { _atLoadBalancerNames :: List "member" Text
+    , _atTags              :: List1 "member" Tag
     } deriving (Eq, Show)
 
 -- | 'AddTags' constructor.

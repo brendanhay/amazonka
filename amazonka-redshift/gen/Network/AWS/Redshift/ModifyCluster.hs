@@ -76,7 +76,7 @@ data ModifyCluster = ModifyCluster
     , _mcAutomatedSnapshotRetentionPeriod :: Maybe Int
     , _mcClusterIdentifier                :: Text
     , _mcClusterParameterGroupName        :: Maybe Text
-    , _mcClusterSecurityGroups            :: List "ClusterSecurityGroupName" Text
+    , _mcClusterSecurityGroups            :: List "member" Text
     , _mcClusterType                      :: Maybe Text
     , _mcClusterVersion                   :: Maybe Text
     , _mcHsmClientCertificateIdentifier   :: Maybe Text
@@ -86,7 +86,7 @@ data ModifyCluster = ModifyCluster
     , _mcNodeType                         :: Maybe Text
     , _mcNumberOfNodes                    :: Maybe Int
     , _mcPreferredMaintenanceWindow       :: Maybe Text
-    , _mcVpcSecurityGroupIds              :: List "VpcSecurityGroupId" Text
+    , _mcVpcSecurityGroupIds              :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'ModifyCluster' constructor.

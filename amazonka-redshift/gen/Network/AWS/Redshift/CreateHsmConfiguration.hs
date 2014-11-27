@@ -68,7 +68,7 @@ data CreateHsmConfiguration = CreateHsmConfiguration
     , _chcHsmPartitionName           :: Text
     , _chcHsmPartitionPassword       :: Text
     , _chcHsmServerPublicCertificate :: Text
-    , _chcTags                       :: List "Tag" Tag
+    , _chcTags                       :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateHsmConfiguration' constructor.

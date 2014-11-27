@@ -446,7 +446,7 @@ data OptionGroup = OptionGroup
     , _ogMajorEngineVersion                    :: Maybe Text
     , _ogOptionGroupDescription                :: Maybe Text
     , _ogOptionGroupName                       :: Maybe Text
-    , _ogOptions                               :: List "Option" Option
+    , _ogOptions                               :: List "member" Option
     , _ogVpcId                                 :: Maybe Text
     } deriving (Eq, Show)
 
@@ -584,7 +584,7 @@ instance ToQuery DBParameterGroupStatus where
 
 data Event = Event
     { _eDate             :: Maybe ISO8601
-    , _eEventCategories  :: List "EventCategory" Text
+    , _eEventCategories  :: List "member" Text
     , _eMessage          :: Maybe Text
     , _eSourceIdentifier :: Maybe Text
     , _eSourceType       :: Maybe SourceType
@@ -654,8 +654,8 @@ instance ToQuery Event where
 data DBSecurityGroup = DBSecurityGroup
     { _dbsgDBSecurityGroupDescription :: Maybe Text
     , _dbsgDBSecurityGroupName        :: Maybe Text
-    , _dbsgEC2SecurityGroups          :: List "EC2SecurityGroup" EC2SecurityGroup
-    , _dbsgIPRanges                   :: List "IPRange" IPRange
+    , _dbsgEC2SecurityGroups          :: List "member" EC2SecurityGroup
+    , _dbsgIPRanges                   :: List "member" IPRange
     , _dbsgOwnerId                    :: Maybe Text
     , _dbsgVpcId                      :: Maybe Text
     } deriving (Eq, Show)
@@ -787,7 +787,7 @@ data DBEngineVersion = DBEngineVersion
     , _dbevDefaultCharacterSet        :: Maybe CharacterSet
     , _dbevEngine                     :: Maybe Text
     , _dbevEngineVersion              :: Maybe Text
-    , _dbevSupportedCharacterSets     :: List "CharacterSet" CharacterSet
+    , _dbevSupportedCharacterSets     :: List "member" CharacterSet
     } deriving (Eq, Show)
 
 -- | 'DBEngineVersion' constructor.
@@ -1310,7 +1310,7 @@ data ReservedDBInstancesOffering = ReservedDBInstancesOffering
     , _rdbioMultiAZ                       :: Maybe Bool
     , _rdbioOfferingType                  :: Maybe Text
     , _rdbioProductDescription            :: Maybe Text
-    , _rdbioRecurringCharges              :: List "RecurringCharge" RecurringCharge
+    , _rdbioRecurringCharges              :: List "member" RecurringCharge
     , _rdbioReservedDBInstancesOfferingId :: Maybe Text
     , _rdbioUsagePrice                    :: Maybe Double
     } deriving (Eq, Show)
@@ -1553,7 +1553,7 @@ data ReservedDBInstance = ReservedDBInstance
     , _rdbiMultiAZ                       :: Maybe Bool
     , _rdbiOfferingType                  :: Maybe Text
     , _rdbiProductDescription            :: Maybe Text
-    , _rdbiRecurringCharges              :: List "RecurringCharge" RecurringCharge
+    , _rdbiRecurringCharges              :: List "member" RecurringCharge
     , _rdbiReservedDBInstanceId          :: Maybe Text
     , _rdbiReservedDBInstancesOfferingId :: Maybe Text
     , _rdbiStartTime                     :: Maybe ISO8601
@@ -1714,7 +1714,7 @@ instance ToQuery ReservedDBInstance where
 data EngineDefaults = EngineDefaults
     { _edDBParameterGroupFamily :: Maybe Text
     , _edMarker                 :: Maybe Text
-    , _edParameters             :: List "Parameter" Parameter
+    , _edParameters             :: List "member" Parameter
     } deriving (Eq, Show)
 
 -- | 'EngineDefaults' constructor.
@@ -1801,8 +1801,8 @@ data OptionGroupOption = OptionGroupOption
     , _ogoMajorEngineVersion                :: Maybe Text
     , _ogoMinimumRequiredMinorEngineVersion :: Maybe Text
     , _ogoName                              :: Maybe Text
-    , _ogoOptionGroupOptionSettings         :: List "OptionGroupOptionSetting" OptionGroupOptionSetting
-    , _ogoOptionsDependedOn                 :: List "OptionName" Text
+    , _ogoOptionGroupOptionSettings         :: List "member" OptionGroupOptionSetting
+    , _ogoOptionsDependedOn                 :: List "member" Text
     , _ogoPermanent                         :: Maybe Bool
     , _ogoPersistent                        :: Maybe Bool
     , _ogoPortRequired                      :: Maybe Bool
@@ -1946,8 +1946,8 @@ data DBInstance = DBInstance
     , _dbiDBInstanceIdentifier                  :: Maybe Text
     , _dbiDBInstanceStatus                      :: Maybe Text
     , _dbiDBName                                :: Maybe Text
-    , _dbiDBParameterGroups                     :: List "DBParameterGroup" DBParameterGroupStatus
-    , _dbiDBSecurityGroups                      :: List "DBSecurityGroup" DBSecurityGroupMembership
+    , _dbiDBParameterGroups                     :: List "member" DBParameterGroupStatus
+    , _dbiDBSecurityGroups                      :: List "member" DBSecurityGroupMembership
     , _dbiDBSubnetGroup                         :: Maybe DBSubnetGroup
     , _dbiEndpoint                              :: Maybe Endpoint
     , _dbiEngine                                :: Maybe Text
@@ -1958,18 +1958,18 @@ data DBInstance = DBInstance
     , _dbiLicenseModel                          :: Maybe Text
     , _dbiMasterUsername                        :: Maybe Text
     , _dbiMultiAZ                               :: Maybe Bool
-    , _dbiOptionGroupMemberships                :: List "OptionGroupMembership" OptionGroupMembership
+    , _dbiOptionGroupMemberships                :: List "member" OptionGroupMembership
     , _dbiPendingModifiedValues                 :: Maybe PendingModifiedValues
     , _dbiPreferredBackupWindow                 :: Maybe Text
     , _dbiPreferredMaintenanceWindow            :: Maybe Text
     , _dbiPubliclyAccessible                    :: Maybe Bool
-    , _dbiReadReplicaDBInstanceIdentifiers      :: List "ReadReplicaDBInstanceIdentifier" Text
+    , _dbiReadReplicaDBInstanceIdentifiers      :: List "member" Text
     , _dbiReadReplicaSourceDBInstanceIdentifier :: Maybe Text
     , _dbiSecondaryAvailabilityZone             :: Maybe Text
-    , _dbiStatusInfos                           :: List "DBInstanceStatusInfo" DBInstanceStatusInfo
+    , _dbiStatusInfos                           :: List "member" DBInstanceStatusInfo
     , _dbiStorageType                           :: Maybe Text
     , _dbiTdeCredentialArn                      :: Maybe Text
-    , _dbiVpcSecurityGroups                     :: List "VpcSecurityGroupMembership" VpcSecurityGroupMembership
+    , _dbiVpcSecurityGroups                     :: List "member" VpcSecurityGroupMembership
     } deriving (Eq, Show)
 
 -- | 'DBInstance' constructor.
@@ -2398,9 +2398,9 @@ data EventSubscription = EventSubscription
     { _esCustSubscriptionId       :: Maybe Text
     , _esCustomerAwsId            :: Maybe Text
     , _esEnabled                  :: Maybe Bool
-    , _esEventCategoriesList      :: List "EventCategory" Text
+    , _esEventCategoriesList      :: List "member" Text
     , _esSnsTopicArn              :: Maybe Text
-    , _esSourceIdsList            :: List "SourceId" Text
+    , _esSourceIdsList            :: List "member" Text
     , _esSourceType               :: Maybe Text
     , _esStatus                   :: Maybe Text
     , _esSubscriptionCreationTime :: Maybe Text
@@ -2522,7 +2522,7 @@ data DBSubnetGroup = DBSubnetGroup
     { _dbsg1DBSubnetGroupDescription :: Maybe Text
     , _dbsg1DBSubnetGroupName        :: Maybe Text
     , _dbsg1SubnetGroupStatus        :: Maybe Text
-    , _dbsg1Subnets                  :: List "Subnet" Subnet
+    , _dbsg1Subnets                  :: List "member" Subnet
     , _dbsg1VpcId                    :: Maybe Text
     } deriving (Eq, Show)
 
@@ -2811,7 +2811,7 @@ instance ToQuery DescribeDBLogFilesDetails where
         ]
 
 data OrderableDBInstanceOption = OrderableDBInstanceOption
-    { _odbioAvailabilityZones  :: List "AvailabilityZone" AvailabilityZone
+    { _odbioAvailabilityZones  :: List "member" AvailabilityZone
     , _odbioDBInstanceClass    :: Maybe Text
     , _odbioEngine             :: Maybe Text
     , _odbioEngineVersion      :: Maybe Text
@@ -2938,7 +2938,7 @@ instance ToQuery OrderableDBInstanceOption where
 
 data Filter = Filter
     { _fName   :: Text
-    , _fValues :: List "Value" Text
+    , _fValues :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'Filter' constructor.
@@ -3055,11 +3055,11 @@ instance ToQuery Endpoint where
         ]
 
 data OptionConfiguration = OptionConfiguration
-    { _ocDBSecurityGroupMemberships  :: List "DBSecurityGroupName" Text
+    { _ocDBSecurityGroupMemberships  :: List "member" Text
     , _ocOptionName                  :: Text
-    , _ocOptionSettings              :: List "OptionSetting" OptionSetting
+    , _ocOptionSettings              :: List "member" OptionSetting
     , _ocPort                        :: Maybe Int
-    , _ocVpcSecurityGroupMemberships :: List "VpcSecurityGroupId" Text
+    , _ocVpcSecurityGroupMemberships :: List "member" Text
     } deriving (Eq, Show)
 
 -- | 'OptionConfiguration' constructor.
@@ -3130,14 +3130,14 @@ instance ToQuery OptionConfiguration where
         ]
 
 data Option = Option
-    { _oDBSecurityGroupMemberships  :: List "DBSecurityGroup" DBSecurityGroupMembership
+    { _oDBSecurityGroupMemberships  :: List "member" DBSecurityGroupMembership
     , _oOptionDescription           :: Maybe Text
     , _oOptionName                  :: Maybe Text
-    , _oOptionSettings              :: List "OptionSetting" OptionSetting
+    , _oOptionSettings              :: List "member" OptionSetting
     , _oPermanent                   :: Maybe Bool
     , _oPersistent                  :: Maybe Bool
     , _oPort                        :: Maybe Int
-    , _oVpcSecurityGroupMemberships :: List "VpcSecurityGroupMembership" VpcSecurityGroupMembership
+    , _oVpcSecurityGroupMemberships :: List "member" VpcSecurityGroupMembership
     } deriving (Eq, Show)
 
 -- | 'Option' constructor.
@@ -3316,7 +3316,7 @@ instance ToQuery OptionGroupMembership where
         ]
 
 data EventCategoriesMap = EventCategoriesMap
-    { _ecmEventCategories :: List "EventCategory" Text
+    { _ecmEventCategories :: List "member" Text
     , _ecmSourceType      :: Maybe Text
     } deriving (Eq, Ord, Show)
 

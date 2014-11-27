@@ -102,7 +102,7 @@ sSelectExpression =
     lens _sSelectExpression (\s a -> s { _sSelectExpression = a })
 
 data SelectResponse = SelectResponse
-    { _srItems     :: List "Item" Item
+    { _srItems     :: List "member" Item
     , _srNextToken :: Maybe Text
     } deriving (Eq, Show)
 

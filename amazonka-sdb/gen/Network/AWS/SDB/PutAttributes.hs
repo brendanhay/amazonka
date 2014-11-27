@@ -76,7 +76,7 @@ import Network.AWS.SDB.Types
 import qualified GHC.Exts
 
 data PutAttributes = PutAttributes
-    { _paAttributes :: List "Attribute" ReplaceableAttribute
+    { _paAttributes :: List "member" ReplaceableAttribute
     , _paDomainName :: Text
     , _paExpected   :: Maybe UpdateCondition
     , _paItemName   :: Text

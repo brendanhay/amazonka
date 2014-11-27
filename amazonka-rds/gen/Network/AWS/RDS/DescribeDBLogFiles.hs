@@ -59,7 +59,7 @@ data DescribeDBLogFiles = DescribeDBLogFiles
     , _ddblfFileLastWritten      :: Maybe Integer
     , _ddblfFileSize             :: Maybe Integer
     , _ddblfFilenameContains     :: Maybe Text
-    , _ddblfFilters              :: List "Filter" Filter
+    , _ddblfFilters              :: List "member" Filter
     , _ddblfMarker               :: Maybe Text
     , _ddblfMaxRecords           :: Maybe Int
     } deriving (Eq, Show)
@@ -140,7 +140,7 @@ ddblfMaxRecords :: Lens' DescribeDBLogFiles (Maybe Int)
 ddblfMaxRecords = lens _ddblfMaxRecords (\s a -> s { _ddblfMaxRecords = a })
 
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
-    { _ddblfrDescribeDBLogFiles :: List "DescribeDBLogFilesDetails" DescribeDBLogFilesDetails
+    { _ddblfrDescribeDBLogFiles :: List "member" DescribeDBLogFilesDetails
     , _ddblfrMarker             :: Maybe Text
     } deriving (Eq, Show)
 

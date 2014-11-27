@@ -68,7 +68,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup
     , _mrgAutoMinorVersionUpgrade     :: Maybe Bool
     , _mrgAutomaticFailoverEnabled    :: Maybe Bool
     , _mrgCacheParameterGroupName     :: Maybe Text
-    , _mrgCacheSecurityGroupNames     :: List "CacheSecurityGroupName" Text
+    , _mrgCacheSecurityGroupNames     :: List "member" Text
     , _mrgEngineVersion               :: Maybe Text
     , _mrgNotificationTopicArn        :: Maybe Text
     , _mrgNotificationTopicStatus     :: Maybe Text
@@ -76,7 +76,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup
     , _mrgPrimaryClusterId            :: Maybe Text
     , _mrgReplicationGroupDescription :: Maybe Text
     , _mrgReplicationGroupId          :: Text
-    , _mrgSecurityGroupIds            :: List "SecurityGroupId" Text
+    , _mrgSecurityGroupIds            :: List "member" Text
     , _mrgSnapshotRetentionLimit      :: Maybe Int
     , _mrgSnapshotWindow              :: Maybe Text
     , _mrgSnapshottingClusterId       :: Maybe Text

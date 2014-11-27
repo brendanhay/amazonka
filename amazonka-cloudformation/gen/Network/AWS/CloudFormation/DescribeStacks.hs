@@ -84,7 +84,7 @@ ds1StackName = lens _ds1StackName (\s a -> s { _ds1StackName = a })
 
 data DescribeStacksResponse = DescribeStacksResponse
     { _dsrNextToken :: Maybe Text
-    , _dsrStacks    :: List "Stacks" Stack
+    , _dsrStacks    :: List "member" Stack
     } deriving (Eq, Show)
 
 -- | 'DescribeStacksResponse' constructor.

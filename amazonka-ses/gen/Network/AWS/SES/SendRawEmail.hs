@@ -73,7 +73,7 @@ import Network.AWS.SES.Types
 import qualified GHC.Exts
 
 data SendRawEmail = SendRawEmail
-    { _sreDestinations :: List "ToAddresses" Text
+    { _sreDestinations :: List "member" Text
     , _sreRawMessage   :: RawMessage
     , _sreSource       :: Maybe Text
     } deriving (Eq, Show)

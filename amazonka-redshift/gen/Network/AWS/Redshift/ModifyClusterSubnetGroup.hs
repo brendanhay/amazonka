@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
     { _mcsgClusterSubnetGroupName :: Text
     , _mcsgDescription            :: Maybe Text
-    , _mcsgSubnetIds              :: List "SubnetIdentifier" Text
+    , _mcsgSubnetIds              :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'ModifyClusterSubnetGroup' constructor.

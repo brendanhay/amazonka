@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
     { _dlblLoadBalancerName  :: Text
-    , _dlblLoadBalancerPorts :: List "LoadBalancerPorts" Int
+    , _dlblLoadBalancerPorts :: List "member" Int
     } deriving (Eq, Ord, Show)
 
 -- | 'DeleteLoadBalancerListeners' constructor.

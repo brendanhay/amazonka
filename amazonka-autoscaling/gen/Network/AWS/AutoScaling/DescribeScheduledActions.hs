@@ -59,7 +59,7 @@ data DescribeScheduledActions = DescribeScheduledActions
     , _dsa1EndTime              :: Maybe ISO8601
     , _dsa1MaxRecords           :: Maybe Int
     , _dsa1NextToken            :: Maybe Text
-    , _dsa1ScheduledActionNames :: List "ScheduledActionNames" Text
+    , _dsa1ScheduledActionNames :: List "member" Text
     , _dsa1StartTime            :: Maybe ISO8601
     } deriving (Eq, Ord, Show)
 
@@ -129,7 +129,7 @@ dsa1StartTime = lens _dsa1StartTime (\s a -> s { _dsa1StartTime = a }) . mapping
 
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
     { _dsarNextToken                   :: Maybe Text
-    , _dsarScheduledUpdateGroupActions :: List "ScheduledUpdateGroupActions" ScheduledUpdateGroupAction
+    , _dsarScheduledUpdateGroupActions :: List "member" ScheduledUpdateGroupAction
     } deriving (Eq, Show)
 
 -- | 'DescribeScheduledActionsResponse' constructor.

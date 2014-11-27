@@ -54,7 +54,7 @@ import Network.AWS.ELB.Types
 import qualified GHC.Exts
 
 data DescribeInstanceHealth = DescribeInstanceHealth
-    { _dihInstances        :: List "Instances" Instance
+    { _dihInstances        :: List "member" Instance
     , _dihLoadBalancerName :: Text
     } deriving (Eq, Show)
 
@@ -83,7 +83,7 @@ dihLoadBalancerName =
     lens _dihLoadBalancerName (\s a -> s { _dihLoadBalancerName = a })
 
 newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
-    { _dihrInstanceStates :: List "InstanceStates" InstanceState
+    { _dihrInstanceStates :: List "member" InstanceState
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeInstanceHealthResponse where

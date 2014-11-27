@@ -80,7 +80,7 @@ import qualified GHC.Exts
 
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup
     { _uasgAutoScalingGroupName    :: Text
-    , _uasgAvailabilityZones       :: List1 "AvailabilityZones" Text
+    , _uasgAvailabilityZones       :: List1 "member" Text
     , _uasgDefaultCooldown         :: Maybe Int
     , _uasgDesiredCapacity         :: Maybe Int
     , _uasgHealthCheckGracePeriod  :: Maybe Int
@@ -89,7 +89,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
     , _uasgMaxSize                 :: Maybe Int
     , _uasgMinSize                 :: Maybe Int
     , _uasgPlacementGroup          :: Maybe Text
-    , _uasgTerminationPolicies     :: List "TerminationPolicies" Text
+    , _uasgTerminationPolicies     :: List "member" Text
     , _uasgVPCZoneIdentifier       :: Maybe Text
     } deriving (Eq, Ord, Show)
 

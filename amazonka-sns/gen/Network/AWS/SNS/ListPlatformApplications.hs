@@ -76,7 +76,7 @@ lpaNextToken = lens _lpaNextToken (\s a -> s { _lpaNextToken = a })
 
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
     { _lparNextToken            :: Maybe Text
-    , _lparPlatformApplications :: List "PlatformApplications" PlatformApplication
+    , _lparPlatformApplications :: List "member" PlatformApplication
     } deriving (Eq, Show)
 
 -- | 'ListPlatformApplicationsResponse' constructor.

@@ -94,9 +94,9 @@ data DescribeResizeResponse = DescribeResizeResponse
     { _drrAvgResizeRateInMegaBytesPerSecond  :: Maybe Double
     , _drrElapsedTimeInSeconds               :: Maybe Integer
     , _drrEstimatedTimeToCompletionInSeconds :: Maybe Integer
-    , _drrImportTablesCompleted              :: List "ImportTablesCompleted" Text
-    , _drrImportTablesInProgress             :: List "ImportTablesInProgress" Text
-    , _drrImportTablesNotStarted             :: List "ImportTablesNotStarted" Text
+    , _drrImportTablesCompleted              :: List "member" Text
+    , _drrImportTablesInProgress             :: List "member" Text
+    , _drrImportTablesNotStarted             :: List "member" Text
     , _drrProgressInMegaBytes                :: Maybe Integer
     , _drrStatus                             :: Maybe Text
     , _drrTargetClusterType                  :: Maybe Text

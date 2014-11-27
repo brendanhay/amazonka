@@ -127,9 +127,9 @@ ns :: Text
 ns = "http://ses.amazonaws.com/doc/2010-12-01/"
 
 data Destination = Destination
-    { _dBccAddresses :: List "ToAddresses" Text
-    , _dCcAddresses  :: List "ToAddresses" Text
-    , _dToAddresses  :: List "ToAddresses" Text
+    { _dBccAddresses :: List "member" Text
+    , _dCcAddresses  :: List "member" Text
+    , _dToAddresses  :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'Destination' constructor.
@@ -176,7 +176,7 @@ instance ToQuery Destination where
 
 data IdentityDkimAttributes = IdentityDkimAttributes
     { _idaDkimEnabled            :: Bool
-    , _idaDkimTokens             :: List "DkimTokens" Text
+    , _idaDkimTokens             :: List "member" Text
     , _idaDkimVerificationStatus :: VerificationStatus
     } deriving (Eq, Show)
 

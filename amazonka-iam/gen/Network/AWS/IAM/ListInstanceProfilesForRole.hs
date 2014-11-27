@@ -98,7 +98,7 @@ lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
 lipfrRoleName = lens _lipfrRoleName (\s a -> s { _lipfrRoleName = a })
 
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
-    { _lipfrrInstanceProfiles :: List "InstanceProfiles" InstanceProfile
+    { _lipfrrInstanceProfiles :: List "member" InstanceProfile
     , _lipfrrIsTruncated      :: Maybe Bool
     , _lipfrrMarker           :: Maybe Text
     } deriving (Eq, Show)

@@ -102,7 +102,7 @@ lakUserName :: Lens' ListAccessKeys (Maybe Text)
 lakUserName = lens _lakUserName (\s a -> s { _lakUserName = a })
 
 data ListAccessKeysResponse = ListAccessKeysResponse
-    { _lakrAccessKeyMetadata :: List "AccessKeyMetadata" AccessKeyMetadata
+    { _lakrAccessKeyMetadata :: List "member" AccessKeyMetadata
     , _lakrIsTruncated       :: Maybe Bool
     , _lakrMarker            :: Maybe Text
     } deriving (Eq, Show)

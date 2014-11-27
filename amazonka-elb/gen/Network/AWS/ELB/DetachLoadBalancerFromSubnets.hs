@@ -56,7 +56,7 @@ import qualified GHC.Exts
 
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets
     { _dlbfsLoadBalancerName :: Text
-    , _dlbfsSubnets          :: List "Subnets" Text
+    , _dlbfsSubnets          :: List "member" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DetachLoadBalancerFromSubnets' constructor.
@@ -85,7 +85,7 @@ dlbfsSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
 dlbfsSubnets = lens _dlbfsSubnets (\s a -> s { _dlbfsSubnets = a }) . _List
 
 newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
-    { _dlbfsrSubnets :: List "Subnets" Text
+    { _dlbfsrSubnets :: List "member" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DetachLoadBalancerFromSubnetsResponse where

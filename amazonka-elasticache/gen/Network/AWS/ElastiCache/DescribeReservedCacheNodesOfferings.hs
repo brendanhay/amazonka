@@ -149,7 +149,7 @@ drcnoReservedCacheNodesOfferingId =
 
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse
     { _drcnorMarker                      :: Maybe Text
-    , _drcnorReservedCacheNodesOfferings :: List "ReservedCacheNodesOffering" ReservedCacheNodesOffering
+    , _drcnorReservedCacheNodesOfferings :: List "member" ReservedCacheNodesOffering
     } deriving (Eq, Show)
 
 -- | 'DescribeReservedCacheNodesOfferingsResponse' constructor.

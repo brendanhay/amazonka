@@ -72,7 +72,7 @@ decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
 
 newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
-    { _decrEventCategoriesMapList :: List "EventCategoriesMap" EventCategoriesMap
+    { _decrEventCategoriesMapList :: List "member" EventCategoriesMap
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeEventCategoriesResponse where

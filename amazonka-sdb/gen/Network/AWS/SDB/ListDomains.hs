@@ -81,7 +81,7 @@ ldNextToken :: Lens' ListDomains (Maybe Text)
 ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
 
 data ListDomainsResponse = ListDomainsResponse
-    { _ldrDomainNames :: List "DomainName" Text
+    { _ldrDomainNames :: List "member" Text
     , _ldrNextToken   :: Maybe Text
     } deriving (Eq, Ord, Show)
 

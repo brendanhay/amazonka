@@ -132,12 +132,6 @@ newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsRes
     { _dvpcrVpcPeeringConnections :: List "item" VpcPeeringConnection
     } deriving (Eq, Show, Monoid, Semigroup)
 
-instance GHC.Exts.IsList DescribeVpcPeeringConnectionsResponse where
-    type Item DescribeVpcPeeringConnectionsResponse = VpcPeeringConnection
-
-    fromList = DescribeVpcPeeringConnectionsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dvpcrVpcPeeringConnections
-
 -- | 'DescribeVpcPeeringConnectionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -162,8 +156,8 @@ instance ToPath DescribeVpcPeeringConnections where
 instance ToQuery DescribeVpcPeeringConnections where
     toQuery DescribeVpcPeeringConnections{..} = mconcat
         [ "dryRun"                 =? _dvpc1DryRun
-        , "Filter"                 =? _dvpc1Filters
-        , "VpcPeeringConnectionId" =? _dvpc1VpcPeeringConnectionIds
+        , toQuery                 _dvpc1Filters
+        , toQuery                 _dvpc1VpcPeeringConnectionIds
         ]
 
 instance ToHeaders DescribeVpcPeeringConnections
@@ -177,4 +171,4 @@ instance AWSRequest DescribeVpcPeeringConnections where
 
 instance FromXML DescribeVpcPeeringConnectionsResponse where
     parseXML x = DescribeVpcPeeringConnectionsResponse
-        <$> x .@  "vpcPeeringConnectionSet"
+        <$> parseXML x

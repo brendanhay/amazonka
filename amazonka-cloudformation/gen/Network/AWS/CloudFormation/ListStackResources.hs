@@ -90,7 +90,7 @@ lsrStackName = lens _lsrStackName (\s a -> s { _lsrStackName = a })
 
 data ListStackResourcesResponse = ListStackResourcesResponse
     { _lsrrNextToken              :: Maybe Text
-    , _lsrrStackResourceSummaries :: List "StackResourceSummaries" StackResourceSummary
+    , _lsrrStackResourceSummaries :: List "member" StackResourceSummary
     } deriving (Eq, Show)
 
 -- | 'ListStackResourcesResponse' constructor.

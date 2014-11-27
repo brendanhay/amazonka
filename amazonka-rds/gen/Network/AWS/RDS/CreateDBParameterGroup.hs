@@ -73,7 +73,7 @@ data CreateDBParameterGroup = CreateDBParameterGroup
     { _cdbpg1DBParameterGroupFamily :: Text
     , _cdbpg1DBParameterGroupName   :: Text
     , _cdbpg1Description            :: Text
-    , _cdbpg1Tags                   :: List "Tag" Tag
+    , _cdbpg1Tags                   :: List "member" Tag
     } deriving (Eq, Show)
 
 -- | 'CreateDBParameterGroup' constructor.

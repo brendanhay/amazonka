@@ -37,7 +37,7 @@ newLogger x hd = liftIO $ do
     hSetBinaryMode hd True
     hSetBuffering  hd LineBuffering -- ^ Should be BlockBuffering, but .. concurrency.
     return $ \y b ->
-        if y >= x
+        if x >= y
             then hPutBuilder hd (b <> "\n")
             else return ()
 

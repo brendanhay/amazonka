@@ -19,17 +19,18 @@ import           Control.Monad.IO.Class
 import           Control.Monad.Trans.AWS
 import qualified Data.ByteString.Builder as Build
 import           Data.Monoid
-import           Data.Text               (Text)
 import qualified Data.Text               as Text
+import qualified Data.Text.IO            as Text
 import           Data.Time.Clock.POSIX
 import           Network.AWS.EC2
 import           System.IO
 
+example :: IO (Either Error RunInstancesResponse)
 example = do
     lgr <- newLogger Debug stdout
     env <- getEnv Ireland Discover <&> envLogger .~ lgr
     ts  <- Text.pack . show <$> getTimestamp
-    r   <- runAWST env $ do
+    runAWST env $ do
         say "Create KeyPair " ts
         k <- send (createKeyPair ts)
 
@@ -57,18 +58,20 @@ example = do
             & riInstanceType     ?~ T2_Micro
             & riSecurityGroupIds .~ [g]
 
-        either (\e -> do
-                   say "Failed to Launch Instance " e
-                   say "Deleting SecurityGroup " g
-                   void . send $ deleteSecurityGroup & dsgGroupId ?~ g
-                   say "Deleting KeyPair " ts
-                   void . send $ deleteKeyPair ts
-                   throwAWSError e)
-               return
-               i
+        case i of
+            Right x -> return x
+            Left  e -> do
+                say "Failed to Launch Instance " e
+                say "Deleting SecurityGroup " g
+                void . send $ deleteSecurityGroup & dsgGroupId ?~ g
 
-  where
-    say msg = logInfo . mappend msg . Build.stringUtf8 . show
+                say "Deleting KeyPair " ts
+                void . send $ deleteKeyPair ts
+
+                throwAWSError e
+
+say :: Show a => Build.Builder -> a -> AWST IO ()
+say msg = logInfo . mappend msg . Build.stringUtf8 . show
 
 getTimestamp :: IO Integer
 getTimestamp = truncate <$> getPOSIXTime

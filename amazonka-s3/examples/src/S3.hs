@@ -29,8 +29,8 @@ import           System.IO
 
 default (Builder)
 
-example :: IO (Either Error ())
-example = do
+listAllObjects :: IO (Either Error ())
+listAllObjects = do
     lgr <- newLogger Info stdout
     env <- getEnv Ireland Discover <&> envLogger .~ lgr
     runAWST env $ do

@@ -72,6 +72,7 @@ module Control.Monad.Trans.AWS
     , presign
 
     -- * Types
+    , ToBuilder   (..)
     , module Network.AWS.Types
     ) where
 
@@ -91,6 +92,7 @@ import           Data.Time
 import           Network.AWS                  (Env, envRegion, envLogger, envAuth, envManager)
 import qualified Network.AWS                  as AWS
 import           Network.AWS.Auth
+import           Network.AWS.Data             (ToBuilder(..))
 import           Network.AWS.Internal.Log
 import           Network.AWS.Types
 
@@ -228,11 +230,11 @@ scoped :: MonadReader Env m => (Env -> m a) -> m a
 scoped f = ask >>= f
 
 -- | Use the supplied logger from 'envLogger' to log info messages.
-logInfo :: (MonadIO m, MonadReader Env m) => Builder -> m ()
+logInfo :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
 logInfo x = view envLogger >>= (`info` x)
 
 -- | Use the supplied logger from 'envLogger' to log debug messages.
-logDebug :: (MonadIO m, MonadReader Env m) => Builder -> m ()
+logDebug :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
 logDebug x = view envLogger >>= (`debug` x)
 
 -- | Scope a monadic action within the specific 'Region'.

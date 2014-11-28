@@ -6,8 +6,12 @@
 
 ## Description
 
-Core data types, signing, (de)serialisation routines, and HTTP plumbing for all
-`amazonka-*` libraries.
+Core functionality, serialisation primitives, and data types for
+Amazonka related Amazon Web Services SDKs.
+
+The external interface of this library is stable with respect to the
+downstream Amazonka libraries, only, and as such is probably not suitable
+for use in non-Amazonka projects.
 
 
 ## Contribute

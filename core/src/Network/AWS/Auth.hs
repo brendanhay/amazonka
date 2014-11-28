@@ -14,8 +14,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Explicitly specify, or automatically retrieve your Amazon AWS security
--- credentials from the underlying host.
+-- | Explicitly specify your Amazon AWS security credentials, or retrieve them
+-- from the underlying OS.
 module Network.AWS.Auth
     (
     -- * Defaults

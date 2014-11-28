@@ -233,30 +233,15 @@ class AWSPresigner v where
 
 -- | Access key credential.
 newtype AccessKey = AccessKey ByteString
-    deriving (Eq, Show, IsString)
-
-instance ToByteString AccessKey where
-    toBS (AccessKey k) = k
-
-instance ToText AccessKey where
-    toText = Text.decodeUtf8 . toBS
+    deriving (Eq, Show, IsString, ToText, ToByteString, ToBuilder)
 
 -- | Secret key credential.
 newtype SecretKey = SecretKey ByteString
-    deriving (Eq, Show, IsString)
-
-instance ToByteString SecretKey where
-    toBS (SecretKey k) = k
-
-instance ToText SecretKey where
-    toText = Text.decodeUtf8 . toBS
+    deriving (Eq, IsString, ToText, ToByteString, ToBuilder)
 
 -- | A security token used by STS to temporarily authorise access to an AWS resource.
 newtype SecurityToken = SecurityToken ByteString
-    deriving (Eq, Show, IsString)
-
-instance ToByteString SecurityToken where
-    toBS (SecurityToken t) = t
+    deriving (Eq, IsString, ToText, ToByteString, ToBuilder)
 
 -- | The authorisation environment.
 data AuthEnv = AuthEnv
@@ -275,8 +260,8 @@ instance FromJSON AuthEnv where
       where
         f g = fmap (g . Text.encodeUtf8)
 
--- | An authorisation environment containing AWS credentials and potentially
--- a reference which can be refreshed out-of-band as they expire.
+-- | An authorisation environment containing AWS credentials, and potentially
+-- a reference which can be refreshed out-of-band as temporary credentials expire.
 data Auth
     = Ref  ThreadId (IORef AuthEnv)
     | Auth AuthEnv

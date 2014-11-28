@@ -18,15 +18,17 @@ module Network.AWS.Data.Internal.ByteString
     , ToByteString (..)
     , ToBuilder    (..)
     , showBS
+    , buildBS
     , stripBS
     ) where
 
 import           Crypto.Hash
 import           Data.ByteString                (ByteString)
+import qualified Data.ByteString                as BS
 import           Data.ByteString.Builder        (Builder)
 import qualified Data.ByteString.Builder        as Build
-import qualified Data.ByteString.Char8          as BS
-import qualified Data.ByteString.Lazy.Char8     as LBS
+import qualified Data.ByteString.Char8          as BS8
+import qualified Data.ByteString.Lazy           as LBS
 import           Data.CaseInsensitive           (CI)
 import qualified Data.CaseInsensitive           as CI
 import           Data.Char
@@ -44,7 +46,7 @@ import           Numeric.Natural
 type LazyByteString = LBS.ByteString
 
 showBS :: ToByteString a => a -> String
-showBS = BS.unpack . toBS
+showBS = BS8.unpack . toBS
 {-# INLINE showBS #-}
 
 class ToByteString a where
@@ -54,22 +56,23 @@ class ToByteString a where
     toBS = Text.encodeUtf8 . toText
     {-# INLINE toBS #-}
 
-instance ToByteString Builder    where toBS = buildBS
-instance ToByteString ByteString where toBS = id
-instance ToByteString Text       where toBS = Text.encodeUtf8
-instance ToByteString Int        where toBS = buildBS
-instance ToByteString Integer    where toBS = buildBS
-instance ToByteString Natural    where toBS = buildBS
-instance ToByteString Double     where toBS = buildBS
-instance ToByteString StdMethod  where toBS = renderStdMethod
-instance ToByteString (Digest a) where toBS = digestToHexByteString
-instance ToByteString UTCTime    where toBS = BS.pack . show
+instance ToByteString ByteString     where toBS = id
+instance ToByteString Builder        where toBS = toBS . Build.toLazyByteString
+instance ToByteString LazyByteString where toBS = LBS.toStrict
+instance ToByteString Text           where toBS = Text.encodeUtf8
+instance ToByteString Int            where toBS = toBS . buildBS
+instance ToByteString Integer        where toBS = toBS . buildBS
+instance ToByteString Natural        where toBS = toBS . buildBS
+instance ToByteString Double         where toBS = toBS . buildBS
+instance ToByteString StdMethod      where toBS = renderStdMethod
+instance ToByteString (Digest a)     where toBS = digestToHexByteString
+instance ToByteString UTCTime        where toBS = BS8.pack . show
 
 instance ToByteString a => ToByteString (CI a) where
     toBS = toBS . CI.original
 
-buildBS :: ToBuilder a => a -> ByteString
-buildBS = LBS.toStrict . Build.toLazyByteString . build
+buildBS :: ToBuilder a => a -> LazyByteString
+buildBS = Build.toLazyByteString . build
 {-# INLINE buildBS #-}
 
 class ToBuilder a where
@@ -82,7 +85,7 @@ class ToBuilder a where
 instance ToBuilder Builder        where build = id
 instance ToBuilder ByteString     where build = Build.byteString
 instance ToBuilder LazyByteString where build = Build.lazyByteString
-instance ToBuilder Text           where build = Build.byteString . Text.encodeUtf8
+instance ToBuilder Text           where build = Build.byteString . toBS
 instance ToBuilder Char           where build = Build.charUtf8
 instance ToBuilder [Char]         where build = Build.stringUtf8
 instance ToBuilder Int            where build = Build.intDec
@@ -169,5 +172,5 @@ instance ToBuilder (Response a) where
         s = responseStatus x
 
 stripBS :: ByteString -> ByteString
-stripBS = BS.dropWhile isSpace . fst . BS.spanEnd isSpace
+stripBS = BS8.dropWhile isSpace . fst . BS8.spanEnd isSpace
 {-# INLINE stripBS #-}

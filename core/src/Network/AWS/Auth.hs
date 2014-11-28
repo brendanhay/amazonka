@@ -89,18 +89,18 @@ data Credentials
       -- the dns lookup terminates promptly if not running on EC2.
       deriving (Eq)
 
-instance ToText Credentials where
-    toText = \case
-        FromKeys    a _   -> "FromKeys "    <> toText a <> " ****"
-        FromSession a _ _ -> "FromSession " <> toText a <> " **** ****"
-        FromProfile n     -> "FromProfile " <> n
-        FromEnv     a s   -> "FromEnv "     <> a <> " " <> s
+instance ToBuilder Credentials where
+    build = \case
+        FromKeys    a _   -> "FromKeys "    <> build a <> " ****"
+        FromSession a _ _ -> "FromSession " <> build a <> " **** ****"
+        FromProfile n     -> "FromProfile " <> build n
+        FromEnv     a s   -> "FromEnv "     <> build a <> " " <> build s
         Discover          -> "Discover"
 
 instance Show Credentials where
-    show = showText
+    show = LBS.unpack . buildBS
 
--- | Retrieve authentication information from the environment or instance-data.
+-- | Retrieve authentication information using the specified 'Credentials' style.
 getAuth :: (Functor m, MonadIO m)
         => Manager
         -> Credentials

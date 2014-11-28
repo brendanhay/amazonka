@@ -70,10 +70,12 @@ fromSession a s t = Auth (AuthEnv a s (Just t) Nothing)
 data Credentials
     = FromKeys AccessKey SecretKey
       -- ^ Explicit access and secret keys.
-      -- Note: you can achieve the same result purely by using 'fromKeys'.
+      -- /Note:/ you can achieve the same result purely using 'fromKeys' without
+      -- having to use the impure 'getAuth'.
     | FromSession AccessKey SecretKey SecurityToken
       -- ^ A session containing the access key, secret key, and a security token.
-      -- Note: you can achieve the same result purely by using 'fromSession'.
+      -- /Note:/ you can achieve the same result purely using 'fromSession'
+      -- without having to use the impure 'getAuth'.
     | FromProfile Text
       -- ^ An IAM Profile name to lookup from the local EC2 instance-data.
     | FromEnv Text Text
@@ -82,7 +84,7 @@ data Credentials
       -- ^ Attempt to read the default access and secret keys from the environment,
       -- falling back to the first available IAM profile if they are not set.
       --
-      -- Note: This attempts to resolve <http://instance-data> rather than directly
+      -- /Note:/ This attempts to resolve <http://instance-data> rather than directly
       -- retrieving <http://169.254.169.254> for IAM profile information to ensure
       -- the dns lookup terminates promptly if not running on EC2.
       deriving (Eq)

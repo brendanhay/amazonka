@@ -4,7 +4,7 @@
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
 
--- Module      : Network.AWS.Signing.V4
+-- Module      : Network.AWS.Signing.Internal.V4
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,15 +14,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Signing.V4
-    (
-    -- * Types
-      V4
-    , Meta (..)
-    , authorisation
-
-    -- * Re-exports
-    , module Network.AWS.Signing.Internal
+module Network.AWS.Signing.Internal.V4
+    ( V4
     ) where
 
 import           Control.Applicative

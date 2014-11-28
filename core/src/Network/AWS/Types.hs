@@ -237,11 +237,12 @@ newtype AccessKey = AccessKey ByteString
 
 -- | Secret key credential.
 newtype SecretKey = SecretKey ByteString
-    deriving (Eq, IsString, ToText, ToByteString, ToBuilder)
+    deriving (Eq, IsString, ToText, ToByteString)
 
--- | A security token used by STS to temporarily authorise access to an AWS resource.
+-- | A security token used by STS to temporarily authorise access to
+-- an AWS resource.
 newtype SecurityToken = SecurityToken ByteString
-    deriving (Eq, IsString, ToText, ToByteString, ToBuilder)
+    deriving (Eq, IsString, ToText, ToByteString)
 
 -- | The authorisation environment.
 data AuthEnv = AuthEnv
@@ -260,11 +261,25 @@ instance FromJSON AuthEnv where
       where
         f g = fmap (g . Text.encodeUtf8)
 
+instance ToBuilder AuthEnv where
+    build AuthEnv{..} = mconcat $ intersperse "\n"
+        [ "[Authentication] {"
+        , " access key     = " <> build _authAccess
+        , " secret key     = ****"
+        , " security token = ****"
+        , " expiry         = " <> build _authExpiry
+        , "}"
+        ]
+
 -- | An authorisation environment containing AWS credentials, and potentially
 -- a reference which can be refreshed out-of-band as temporary credentials expire.
 data Auth
     = Ref  ThreadId (IORef AuthEnv)
     | Auth AuthEnv
+
+instance ToBuilder Auth where
+    build (Ref t _) = "[Authentication] { <thread:" <> build (show t) <> "> }"
+    build (Auth  e) = build e
 
 withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Auth  e) f = f e

@@ -171,3 +171,4 @@ For any problems, comments, or feedback please create an issue [here on GitHub](
 ## Licence
 
 Amazonka is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
+Source files subject to this contain an additional licensing clause in their header.

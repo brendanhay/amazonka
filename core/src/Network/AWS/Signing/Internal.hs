@@ -44,6 +44,3 @@ presign a r rq t x = withAuth a $ \e -> return $
 
 hmacSHA256 :: ByteString -> ByteString -> ByteString
 hmacSHA256 = HMAC.hmac SHA256.hash 64
-
-serviceOf :: AWSService (Sv a) => Request a -> Service (Sv a)
-serviceOf = const service

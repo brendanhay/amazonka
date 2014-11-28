@@ -75,7 +75,7 @@ module Network.AWS.SDB.Types
 
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V2
+import Network.AWS.Signing
 import qualified GHC.Exts
 
 -- | Version @2009-04-15@ of the Amazon SimpleDB service.

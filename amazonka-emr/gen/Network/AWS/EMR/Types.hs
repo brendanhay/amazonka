@@ -412,7 +412,7 @@ module Network.AWS.EMR.Types
 import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V4
+import Network.AWS.Signing
 import qualified GHC.Exts
 
 -- | Version @2009-03-31@ of the Amazon Elastic MapReduce service.

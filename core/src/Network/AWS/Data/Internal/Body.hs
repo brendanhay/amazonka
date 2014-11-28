@@ -23,7 +23,6 @@ import qualified Crypto.Hash.Conduit                  as Conduit
 import           Data.Aeson
 import           Data.ByteString                      (ByteString)
 import qualified Data.ByteString                      as BS
-import qualified Data.ByteString.Builder              as Build
 import qualified Data.ByteString.Lazy                 as LBS
 import qualified Data.ByteString.Lazy.Char8           as LBS8
 import           Data.Conduit
@@ -45,7 +44,7 @@ instance ToBuilder RsBody where
     build = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
 
 instance Show RsBody where
-    show = LBS8.unpack . Build.toLazyByteString . build
+    show = LBS8.unpack . buildBS
 
 connectBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
 connectBody (RsBody src) sink = hoist liftResourceT src $$+- sink
@@ -69,7 +68,7 @@ instance ToBuilder RqBody where
         ]
 
 instance Show RqBody where
-    show = LBS8.unpack . Build.toLazyByteString . build . _bdyBody
+    show = LBS8.unpack . buildBS . _bdyBody
 
 instance IsString RqBody where
     fromString = toBody . LBS8.pack

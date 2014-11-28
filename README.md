@@ -59,15 +59,16 @@ build-depends:
 
 ### Credentials
 
-Credentials can either be specified or obtained in a [number of ways](http://brendanhay.github.io/amazonka/amazonka-core/Network-AWS-Auth.html).
+Credentials can either be specified explicitly, or obtained from the underlying
+environment in a [number of ways](http://brendanhay.github.io/amazonka/amazonka-core/Network-AWS-Auth.html).
 
-Usually the easiest is to use `Discover`, which will attempt to read the `AWS_ACCESS_KEY`
+Usually the most convenient is to use `Discover`, which will attempt to read the `AWS_ACCESS_KEY`
 and `AWS_SECRET_KEY` variables from the environment. If either of these variables
 are not set, `amazonka` will then attempt to retrieve IAM profile information from
 `http://169.254.169.254`.
 
-This allows you to seamlessly move between development environments (where you set the keys)
-and production EC2 instances which have an IAM role + profile assigned.
+This allows you to seamlessly move between development environments (where you specify or set the keys)
+and production EC2 instances (which have an IAM role + profile assigned).
 
 ### Type Signatures
 
@@ -171,3 +172,6 @@ For any problems, comments, or feedback please create an issue [here on GitHub](
 ## Licence
 
 Amazonka is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
+
+Parts of the code are derived from AWS service descriptions, licensed under Apache 2.0.
+Source files subject to this contain an additional licensing clause in their header.

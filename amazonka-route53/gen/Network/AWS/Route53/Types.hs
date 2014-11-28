@@ -195,7 +195,7 @@ module Network.AWS.Route53.Types
 
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V3
+import Network.AWS.Signing
 import Network.AWS.Route53.Internal
 import qualified GHC.Exts
 

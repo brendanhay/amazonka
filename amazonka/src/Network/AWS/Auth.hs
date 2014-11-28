@@ -14,8 +14,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Explicitly specify, or automatically retrieve your Amazon AWS security
--- credentials from the underlying host.
+-- | Explicitly specify your Amazon AWS security credentials, or retrieve them
+-- from the underlying OS.
 module Network.AWS.Auth
     (
     -- * Defaults
@@ -34,7 +34,6 @@ module Network.AWS.Auth
 import           Control.Applicative
 import           Control.Concurrent
 import           Control.Monad.Except
-import qualified Data.Aeson                 as Aeson
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.IORef
@@ -46,7 +45,7 @@ import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Types
-import           Network.HTTP.Client
+import           Network.HTTP.Conduit
 import           System.Environment
 import           System.Mem.Weak
 
@@ -70,10 +69,12 @@ fromSession a s t = Auth (AuthEnv a s (Just t) Nothing)
 data Credentials
     = FromKeys AccessKey SecretKey
       -- ^ Explicit access and secret keys.
-      -- Note: you can achieve the same result purely by using 'fromKeys'.
+      -- /Note:/ you can achieve the same result purely using 'fromKeys' without
+      -- having to use the impure 'getAuth'.
     | FromSession AccessKey SecretKey SecurityToken
       -- ^ A session containing the access key, secret key, and a security token.
-      -- Note: you can achieve the same result purely by using 'fromSession'.
+      -- /Note:/ you can achieve the same result purely using 'fromSession'
+      -- without having to use the impure 'getAuth'.
     | FromProfile Text
       -- ^ An IAM Profile name to lookup from the local EC2 instance-data.
     | FromEnv Text Text
@@ -82,23 +83,23 @@ data Credentials
       -- ^ Attempt to read the default access and secret keys from the environment,
       -- falling back to the first available IAM profile if they are not set.
       --
-      -- Note: This attempts to resolve <http://instance-data> rather than directly
+      -- /Note:/ This attempts to resolve <http://instance-data> rather than directly
       -- retrieving <http://169.254.169.254> for IAM profile information to ensure
       -- the dns lookup terminates promptly if not running on EC2.
       deriving (Eq)
 
-instance ToText Credentials where
-    toText = \case
-        FromKeys    a _   -> "FromKeys "    <> toText a <> " ****"
-        FromSession a _ _ -> "FromSession " <> toText a <> " **** ****"
-        FromProfile n     -> "FromProfile " <> n
-        FromEnv     a s   -> "FromEnv "     <> a <> " " <> s
+instance ToBuilder Credentials where
+    build = \case
+        FromKeys    a _   -> "FromKeys "    <> build a <> " ****"
+        FromSession a _ _ -> "FromSession " <> build a <> " **** ****"
+        FromProfile n     -> "FromProfile " <> build n
+        FromEnv     a s   -> "FromEnv "     <> build a <> " " <> build s
         Discover          -> "Discover"
 
 instance Show Credentials where
-    show = showText
+    show = LBS.unpack . buildBS
 
--- | Retrieve authentication information from the environment or instance-data.
+-- | Retrieve authentication information using the specified 'Credentials' style.
 getAuth :: (Functor m, MonadIO m)
         => Manager
         -> Credentials
@@ -169,7 +170,7 @@ fromProfileName m name = auth >>= start
             (IAM . SecurityCredentials $ Just name)
         either (throwError . HttpParserException)
                return
-               (Aeson.eitherDecode lbs)
+               (eitherDecode' lbs)
 
     start !a = ExceptT . liftM Right . liftIO $
         case _authExpiry a of

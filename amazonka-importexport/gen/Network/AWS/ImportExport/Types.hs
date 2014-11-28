@@ -45,7 +45,7 @@ module Network.AWS.ImportExport.Types
 
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V2
+import Network.AWS.Signing
 import qualified GHC.Exts
 
 -- | Version @2010-06-01@ of the Amazon Import/Export service.

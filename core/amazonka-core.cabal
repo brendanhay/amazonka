@@ -1,6 +1,6 @@
 name:                  amazonka-core
-version:               0.0.5
-synopsis:              Core functionality, serialisation primitives, and data types for the Amazonka Amazon Web Services SDKs.
+version:               0.0.6
+synopsis:              Core functionality and data types for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
@@ -16,6 +16,10 @@ description:
     Core functionality, serialisation primitives, and data types for
     Amazonka related Amazon Web Services SDKs.
     .
+    The external interface of this library is stable with respect to the
+    downstream Amazonka libraries, only, and as such is probably not suitable
+    for use in non-Amazonka projects.
+    .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
 
@@ -30,23 +34,18 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.AWS.Auth
-        , Network.AWS.Data
+          Network.AWS.Data
         , Network.AWS.EC2.Metadata
         , Network.AWS.Error
         , Network.AWS.Pagination
         , Network.AWS.Prelude
-        , Network.AWS.Request.Internal
         , Network.AWS.Request.JSON
         , Network.AWS.Request.Query
         , Network.AWS.Request.RestJSON
         , Network.AWS.Request.RestXML
         , Network.AWS.Request.S3
         , Network.AWS.Response
-        , Network.AWS.Signing.Internal
-        , Network.AWS.Signing.V2
-        , Network.AWS.Signing.V3
-        , Network.AWS.Signing.V4
+        , Network.AWS.Signing
         , Network.AWS.Types
 
     other-modules:
@@ -65,6 +64,11 @@ library
         , Network.AWS.Data.Internal.Time
         , Network.AWS.Data.Internal.URI
         , Network.AWS.Data.Internal.XML
+        , Network.AWS.Request.Internal
+        , Network.AWS.Signing.Internal
+        , Network.AWS.Signing.Internal.V2
+        , Network.AWS.Signing.Internal.V3
+        , Network.AWS.Signing.Internal.V4
 
     build-depends:
           aeson                >= 0.8    && < 0.9

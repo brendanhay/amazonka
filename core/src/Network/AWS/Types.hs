@@ -39,6 +39,7 @@ module Network.AWS.Types
     , Abbrev
     , AWSService    (..)
     , Service       (..)
+    , serviceOf
 
     -- * Endpoints
     , Endpoint      (..)
@@ -78,11 +79,8 @@ module Network.AWS.Types
 
     -- * Regions
     , Region        (..)
-    , Zone          (..)
-    , zRegion
-    , zSuffix
 
-    -- * Shared
+    -- * Query Actions
     , Action        (..)
 
     -- * Convenience
@@ -99,11 +97,9 @@ import           Control.Lens                 hiding (Action)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
-import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
 import qualified Data.ByteString              as BS
 import qualified Data.CaseInsensitive         as CI
-import           Data.Char
 import           Data.Conduit
 import           Data.Default.Class
 import qualified Data.HashSet                 as Set
@@ -113,12 +109,11 @@ import           Data.List                    (intersperse)
 import           Data.Monoid
 import           Data.String
 import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           Data.Typeable
 import           GHC.Generics
-import           Network.AWS.Data             hiding ((.:), (.:?))
+import           Network.AWS.Data
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types.Header
@@ -170,6 +165,9 @@ class (AWSSigner (Sg a), Show (Er a)) => AWSService a where
     handle  :: Service a
             -> Status
             -> Maybe (LazyByteString -> ServiceError (Er a))
+
+serviceOf :: AWSService (Sv a) => Request a -> Service (Sv a)
+serviceOf = const service
 
 -- | An alias for the common response 'Either' containing a service error in the
 -- 'Left' case, or the expected response in the 'Right'.
@@ -235,30 +233,16 @@ class AWSPresigner v where
 
 -- | Access key credential.
 newtype AccessKey = AccessKey ByteString
-    deriving (Eq, Show, IsString)
-
-instance ToByteString AccessKey where
-    toBS (AccessKey k) = k
-
-instance ToText AccessKey where
-    toText = Text.decodeUtf8 . toBS
+    deriving (Eq, Show, IsString, ToText, ToByteString, ToBuilder)
 
 -- | Secret key credential.
 newtype SecretKey = SecretKey ByteString
-    deriving (Eq, Show, IsString)
+    deriving (Eq, IsString, ToText, ToByteString)
 
-instance ToByteString SecretKey where
-    toBS (SecretKey k) = k
-
-instance ToText SecretKey where
-    toText = Text.decodeUtf8 . toBS
-
--- | A security token used by STS to temporarily authorise access to an AWS resource.
+-- | A security token used by STS to temporarily authorise access to
+-- an AWS resource.
 newtype SecurityToken = SecurityToken ByteString
-    deriving (Eq, Show, IsString)
-
-instance ToByteString SecurityToken where
-    toBS (SecurityToken t) = t
+    deriving (Eq, IsString, ToText, ToByteString)
 
 -- | The authorisation environment.
 data AuthEnv = AuthEnv
@@ -277,11 +261,25 @@ instance FromJSON AuthEnv where
       where
         f g = fmap (g . Text.encodeUtf8)
 
--- | An authorisation environment containing AWS credentials and potentially
--- a reference which can be refreshed out-of-band as they expire.
+instance ToBuilder AuthEnv where
+    build AuthEnv{..} = mconcat $ intersperse "\n"
+        [ "[Authentication] {"
+        , " access key     = " <> build _authAccess
+        , " secret key     = ****"
+        , " security token = ****"
+        , " expiry         = " <> build _authExpiry
+        , "}"
+        ]
+
+-- | An authorisation environment containing AWS credentials, and potentially
+-- a reference which can be refreshed out-of-band as temporary credentials expire.
 data Auth
     = Ref  ThreadId (IORef AuthEnv)
     | Auth AuthEnv
+
+instance ToBuilder Auth where
+    build (Ref t _) = "[Authentication] { <thread:" <> build (show t) <> "> }"
+    build (Auth  e) = build e
 
 withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Auth  e) f = f e
@@ -453,21 +451,10 @@ instance ToText Region where
         SaoPaulo        -> "sa-east-1"
 
 instance ToByteString Region
+instance ToBuilder    Region
 
 instance FromXML Region where parseXML = parseXMLText "Region"
 instance ToXML   Region where toXML    = toXMLText
-
--- | An availability zone.
-data Zone = Zone
-    { _zRegion :: !Region
-    , _zSuffix :: !Char
-    } deriving (Eq, Ord, Read, Show)
-
-instance FromText Zone where
-    parser = Zone <$> parser <*> AText.satisfy isAlpha <* AText.endOfInput
-
-instance ToText Zone where
-    toText Zone{..} = toText _zRegion `Text.snoc` _zSuffix
 
 -- | A service's query action.
 newtype Action = Action Text
@@ -499,4 +486,3 @@ clientRequest = def
 
 makePrisms ''ServiceError
 makeLenses ''Request
-makeLenses ''Zone

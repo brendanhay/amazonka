@@ -295,7 +295,7 @@ module Network.AWS.CloudSearch.Types
 
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V4
+import Network.AWS.Signing
 import qualified GHC.Exts
 
 -- | Version @2013-01-01@ of the Amazon CloudSearch service.

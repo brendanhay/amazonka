@@ -1,6 +1,6 @@
 DEPS := $(wildcard amazonka-*)
 
-.PHONY: install clean
+.PHONY: install full-clean clean
 
 build: $(addprefix build-,$(DEPS)) build-amazonka
 
@@ -11,6 +11,9 @@ install: cabal.sandbox.config $(addprefix install-,$(DEPS)) install-amazonka
 
 install-%:
 	@make -C $* install
+
+full-clean: clean
+	rm -rf cabal.sandbox.config .cabal-sandbox
 
 clean: $(addprefix clean-,$(DEPS)) clean-amazonka
 

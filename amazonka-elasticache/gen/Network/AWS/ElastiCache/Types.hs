@@ -329,7 +329,7 @@ module Network.AWS.ElastiCache.Types
 
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V4
+import Network.AWS.Signing
 import qualified GHC.Exts
 
 -- | Version @2014-09-30@ of the Amazon ElastiCache service.

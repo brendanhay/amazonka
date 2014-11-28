@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE MultiWayIf        #-}
 
 -- Module      : Network.AWS.Internal.Log
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,7 +22,7 @@ import System.IO
 
 data LogLevel
     = Info  -- ^ Informational messages supplied by the user, not used by the library.
-    | Debug -- ^ Info level + Debug messages + non-streaming response bodies.
+    | Debug -- ^ Info level + debug messages + non-streaming response bodies.
     | Trace -- ^ Debug level + potentially sensitive signing metadata.
       deriving (Eq, Ord, Enum, Show)
 
@@ -35,7 +34,7 @@ type Logger = LogLevel -> Builder -> IO ()
 newLogger :: MonadIO m => LogLevel -> Handle -> m Logger
 newLogger x hd = liftIO $ do
     hSetBinaryMode hd True
-    hSetBuffering  hd LineBuffering -- ^ Should be BlockBuffering, but .. concurrency.
+    hSetBuffering  hd LineBuffering
     return $ \y b ->
         if x >= y
             then hPutBuilder hd (b <> "\n")

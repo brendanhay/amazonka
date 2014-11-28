@@ -131,7 +131,7 @@ module Network.AWS.CloudWatch.Types
 
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V4
+import Network.AWS.Signing
 import qualified GHC.Exts
 
 -- | Version @2010-08-01@ of the Amazon CloudWatch service.

@@ -67,7 +67,7 @@ module Network.AWS.SNS.Types
 
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V4
+import Network.AWS.Signing
 import qualified GHC.Exts
 
 -- | Version @2010-03-31@ of the Amazon Simple Notification Service service.

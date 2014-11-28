@@ -2,7 +2,7 @@
 
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.{{ service.signature }}
+import Network.AWS.Signing
 {% include "_include/imports.ede" %}
 import qualified GHC.Exts
 

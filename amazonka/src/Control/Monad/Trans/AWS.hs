@@ -192,7 +192,7 @@ instance (Applicative m, MonadIO m, MonadBase IO m, MonadThrow m)
 -- | Unwrap an 'AWST' transformer, calling all of the registered 'ResourceT'
 -- release actions.
 runAWST :: MonadBaseControl IO m => Env -> AWST m a -> m (Either Error a)
-runAWST e m = runResourceT . withInternalState (runAWST' f . (e,))
+runAWST e m = runResourceT . withInternalState $ runAWST' f . (e,)
   where
     f = liftBase ((_envLogger e) Debug (build e)) >> m
 

@@ -30,8 +30,7 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.AWS.Auth
-        , Network.AWS.Data
+          Network.AWS.Data
         , Network.AWS.EC2.Metadata
         , Network.AWS.Error
         , Network.AWS.Pagination

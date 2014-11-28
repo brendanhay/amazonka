@@ -15,6 +15,7 @@ module Network.AWS.Data.Internal.JSON
     -- * FromJSON
       FromJSON (..)
     , parseJSONText
+    , eitherDecode'
     -- ** Parser a
     , withObject
     , (.:)
@@ -30,6 +31,7 @@ module Network.AWS.Data.Internal.JSON
     , (.=)
     ) where
 
+import           Data.Aeson                     (eitherDecode')
 import           Data.Aeson.Types
 import qualified Data.HashMap.Strict            as Map
 import           Data.Text                      (Text)

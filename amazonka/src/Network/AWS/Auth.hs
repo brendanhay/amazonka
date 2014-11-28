@@ -34,7 +34,6 @@ module Network.AWS.Auth
 import           Control.Applicative
 import           Control.Concurrent
 import           Control.Monad.Except
-import qualified Data.Aeson                 as Aeson
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.IORef
@@ -46,7 +45,7 @@ import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Types
-import           Network.HTTP.Client
+import           Network.HTTP.Conduit
 import           System.Environment
 import           System.Mem.Weak
 
@@ -171,7 +170,7 @@ fromProfileName m name = auth >>= start
             (IAM . SecurityCredentials $ Just name)
         either (throwError . HttpParserException)
                return
-               (Aeson.eitherDecode lbs)
+               (eitherDecode' lbs)
 
     start !a = ExceptT . liftM Right . liftIO $
         case _authExpiry a of

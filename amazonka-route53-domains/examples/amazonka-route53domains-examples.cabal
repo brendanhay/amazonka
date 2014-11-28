@@ -1,5 +1,5 @@
 name:                  amazonka-route53-domains-examples
-version:               0.0.5
+version:               0.0.6
 synopsis:              Amazon Route 53 Domains SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         Route53Domains
 
     build-depends:
-        amazonka      == 0.0.5.*
-      , amazonka-core == 0.0.5.*
-      , amazonka-route53-domains == 0.0.5.*
+        amazonka      == 0.0.6.*
+      , amazonka-core == 0.0.6.*
+      , amazonka-route53-domains == 0.0.6.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

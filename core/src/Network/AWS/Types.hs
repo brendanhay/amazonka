@@ -39,6 +39,7 @@ module Network.AWS.Types
     , Abbrev
     , AWSService    (..)
     , Service       (..)
+    , serviceOf
 
     -- * Endpoints
     , Endpoint      (..)
@@ -164,6 +165,9 @@ class (AWSSigner (Sg a), Show (Er a)) => AWSService a where
     handle  :: Service a
             -> Status
             -> Maybe (LazyByteString -> ServiceError (Er a))
+
+serviceOf :: AWSService (Sv a) => Request a -> Service (Sv a)
+serviceOf = const service
 
 -- | An alias for the common response 'Either' containing a service error in the
 -- 'Left' case, or the expected response in the 'Right'.

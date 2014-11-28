@@ -56,7 +56,7 @@ import           Data.Time
 import           Network.AWS.Auth
 import           Network.AWS.Data
 import           Network.AWS.Internal.Log
-import qualified Network.AWS.Signing.V4       as Sign
+import qualified Network.AWS.Signing          as Sign
 import           Network.AWS.Types
 import           Network.HTTP.Conduit         hiding (Response)
 

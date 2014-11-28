@@ -7,6 +7,8 @@
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
+
+-- This is required due to the MonadBaseControl instance.
 {-# LANGUAGE UndecidableInstances       #-}
 
 -- Module      : Control.Monad.Trans.AWS
@@ -89,10 +91,10 @@ import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
 import           Data.Conduit
 import           Data.Time
-import           Network.AWS                  (Env, envRegion, envLogger, envAuth, envManager)
 import qualified Network.AWS                  as AWS
 import           Network.AWS.Auth
 import           Network.AWS.Data             (ToBuilder(..))
+import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
 import           Network.AWS.Types
 
@@ -190,7 +192,9 @@ instance (Applicative m, MonadIO m, MonadBase IO m, MonadThrow m)
 -- | Unwrap an 'AWST' transformer, calling all of the registered 'ResourceT'
 -- release actions.
 runAWST :: MonadBaseControl IO m => Env -> AWST m a -> m (Either Error a)
-runAWST e m = runResourceT (withInternalState (runAWST' m . (e,)))
+runAWST e m = runResourceT . withInternalState (runAWST' f . (e,))
+  where
+    f = liftBase ((_envLogger e) Debug (build e)) >> m
 
 runAWST' :: AWST m a -> (Env, InternalState) -> m (Either Error a)
 runAWST' (AWST k) = runExceptT . runReaderT k

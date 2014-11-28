@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE MultiWayIf        #-}
 
 -- Module      : Network.AWS.Internal.Log
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>

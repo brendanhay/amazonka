@@ -2,7 +2,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TypeFamilies      #-}
 {-# LANGUAGE ViewPatterns      #-}
 
@@ -47,7 +46,6 @@ module Network.AWS
     , module Network.AWS.Types
     ) where
 
-import           Control.Lens
 import           Control.Monad.Catch
 import           Control.Monad.Except
 import           Control.Monad.Trans.Resource
@@ -55,20 +53,11 @@ import           Data.Conduit
 import           Data.Time
 import           Network.AWS.Auth
 import           Network.AWS.Data
+import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
 import qualified Network.AWS.Signing          as Sign
 import           Network.AWS.Types
 import           Network.HTTP.Conduit         hiding (Response)
-
--- | The environment containing the parameters required to make AWS requests.
-data Env = Env
-    { _envRegion  :: !Region
-    , _envLogger  :: Logger
-    , _envManager :: Manager
-    , _envAuth    :: Auth
-    }
-
-makeLenses ''Env
 
 -- | This creates a new environment without debug logging and uses 'getAuth'
 -- to expand/discover the supplied 'Credentials'.

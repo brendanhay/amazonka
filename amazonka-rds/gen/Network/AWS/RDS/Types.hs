@@ -417,7 +417,7 @@ module Network.AWS.RDS.Types
 
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V4
+import Network.AWS.Signing
 import qualified GHC.Exts
 
 -- | Version @2014-09-01@ of the Amazon Relational Database Service service.

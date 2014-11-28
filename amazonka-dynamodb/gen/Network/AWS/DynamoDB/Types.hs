@@ -241,7 +241,7 @@ module Network.AWS.DynamoDB.Types
 import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V4
+import Network.AWS.Signing
 import qualified GHC.Exts
 
 -- | Version @2012-08-10@ of the Amazon DynamoDB service.

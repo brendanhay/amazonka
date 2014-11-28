@@ -213,7 +213,7 @@ module Network.AWS.ELB.Types
 
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V4
+import Network.AWS.Signing
 import qualified GHC.Exts
 
 -- | Version @2012-06-01@ of the Amazon Elastic Load Balancing service.

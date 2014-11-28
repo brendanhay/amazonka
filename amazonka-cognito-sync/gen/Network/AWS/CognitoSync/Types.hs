@@ -92,7 +92,7 @@ module Network.AWS.CognitoSync.Types
 import Data.Char (isUpper)
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V4
+import Network.AWS.Signing
 import qualified GHC.Exts
 
 -- | Version @2014-06-30@ of the Amazon Cognito Sync service.

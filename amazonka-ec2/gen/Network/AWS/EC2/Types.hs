@@ -1398,7 +1398,7 @@ module Network.AWS.EC2.Types
 
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V4
+import Network.AWS.Signing
 import Network.AWS.EC2.Internal
 import qualified GHC.Exts
 

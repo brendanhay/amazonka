@@ -419,7 +419,7 @@ module Network.AWS.S3.Types
 
 import Network.AWS.Error
 import Network.AWS.Prelude
-import Network.AWS.Signing.V4
+import Network.AWS.Signing
 import Network.AWS.S3.Internal
 import qualified GHC.Exts
 

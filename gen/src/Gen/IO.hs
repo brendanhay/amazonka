@@ -1,4 +1,3 @@
-{-# LANGUAGE BangPatterns      #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns      #-}
@@ -65,11 +64,13 @@ renderFile lbl t d p env = do
   where
     f = d </> toFilePath p
 
-readFromFile :: (LBS.ByteString -> a) -> FilePath -> Script a
+readFromFile :: (LBS.ByteString -> Either String a)
+             -> FilePath
+             -> Script (Either String a)
 readFromFile f p = do
     b <- scriptIO (doesFileExist p)
     if not b
-        then left ("Failed to find " ++ p)
+        then return . Left $ "Failed to find " ++ p
         else f <$> scriptIO (LBS.readFile p)
 
 writeJSON :: ToJSON a => FilePath -> a -> Script ()

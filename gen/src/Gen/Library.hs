@@ -57,11 +57,11 @@ render d Templates{..} Output{..} = do
 
     createDir (ex </> "src")
 
-    renderFile "Example Cabal" _tExCabal ex
+    renderFile "Render Cabal" _tExCabal ex
         ("amazonka-" <> name <> "-examples.cabal")
             =<< cabal
 
-    renderFile "Example Makefile" _tExMakefile ex "Makefile"
+    renderFile "Render Makefile" _tExMakefile ex "Makefile"
         =<< cabal
 
     return lib

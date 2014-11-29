@@ -29,7 +29,7 @@ load d o = do
     m2 <- merge <$> sequence
         [ return m1
         , requireObject (api v)
---        , optionalObject "waiters"    (waiters v)
+        , optionalObject "waiters"    (waiters v)
         , optionalObject "pagination" (pagers  v)
         ]
     Model name v d m2 <$> parse m1
@@ -40,7 +40,7 @@ load d o = do
         return (takeWhile (/= '.') f)
 
     api     = path "api.json"
---    waiters = path "waiters.json"
+    waiters = path "waiters.json"
     pagers  = path "paginators.json"
 
     path e v = d </> v <.> e

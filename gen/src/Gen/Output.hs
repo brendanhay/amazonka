@@ -33,12 +33,10 @@ import           Control.Applicative
 import           Control.Arrow            ((&&&))
 import           Control.Error
 import           Control.Lens             hiding ((.=), (<.>), op, mapping)
-import           Control.Monad            (forM_)
 import           Data.Aeson
 import           Data.Aeson.Encode.Pretty
 import           Data.Aeson.Types         (Pair)
 import           Data.Bifunctor
-import qualified Data.ByteString.Lazy     as LBS
 import           Data.CaseInsensitive     (CI)
 import qualified Data.CaseInsensitive     as CI
 import           Data.Char
@@ -57,8 +55,6 @@ import           Data.Text.Manipulate
 import           GHC.Generics
 import           Gen.Documentation
 import           Gen.Filters
-import           Gen.IO
-import           Gen.JSON                 ()
 import           Gen.Names
 import           Gen.TH
 import           Gen.Types

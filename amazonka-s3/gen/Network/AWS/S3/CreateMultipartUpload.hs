@@ -259,7 +259,11 @@ cmuSSECustomerKeyMD5 :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSECustomerKeyMD5 =
     lens _cmuSSECustomerKeyMD5 (\s a -> s { _cmuSSECustomerKeyMD5 = a })
 
--- | Specifies the AWS KMS key ID to use for object encryption.
+-- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT
+-- requests for an object protected by AWS KMS will fail if not made via SSL or
+-- using SigV4. Documentation on configuring any of the officially supported AWS
+-- SDKs and CLI can be found at
+-- http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
 cmuSSEKMSKeyId :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSEKMSKeyId = lens _cmuSSEKMSKeyId (\s a -> s { _cmuSSEKMSKeyId = a }) . mapping _Sensitive
 
@@ -343,7 +347,8 @@ cmurSSECustomerKeyMD5 :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmurSSECustomerKeyMD5 =
     lens _cmurSSECustomerKeyMD5 (\s a -> s { _cmurSSECustomerKeyMD5 = a })
 
--- | If present, specifies the AWS KMS key used to encrypt the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master
+-- encryption key that was used for the object.
 cmurSSEKMSKeyId :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmurSSEKMSKeyId = lens _cmurSSEKMSKeyId (\s a -> s { _cmurSSEKMSKeyId = a }) . mapping _Sensitive
 

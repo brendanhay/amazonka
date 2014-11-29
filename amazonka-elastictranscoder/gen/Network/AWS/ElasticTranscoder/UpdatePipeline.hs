@@ -35,6 +35,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     -- ** Request constructor
     , updatePipeline
     -- ** Request lenses
+    , upAwsKmsKeyArn
     , upContentConfig
     , upId
     , upInputBucket
@@ -57,7 +58,8 @@ import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
 data UpdatePipeline = UpdatePipeline
-    { _upContentConfig   :: Maybe PipelineOutputConfig
+    { _upAwsKmsKeyArn    :: Maybe Text
+    , _upContentConfig   :: Maybe PipelineOutputConfig
     , _upId              :: Text
     , _upInputBucket     :: Maybe Text
     , _upName            :: Maybe Text
@@ -69,6 +71,8 @@ data UpdatePipeline = UpdatePipeline
 -- | 'UpdatePipeline' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'upAwsKmsKeyArn' @::@ 'Maybe' 'Text'
 --
 -- * 'upContentConfig' @::@ 'Maybe' 'PipelineOutputConfig'
 --
@@ -91,10 +95,21 @@ updatePipeline p1 = UpdatePipeline
     , _upName            = Nothing
     , _upInputBucket     = Nothing
     , _upRole            = Nothing
+    , _upAwsKmsKeyArn    = Nothing
     , _upNotifications   = Nothing
     , _upContentConfig   = Nothing
     , _upThumbnailConfig = Nothing
     }
+
+-- | The AWS Key Management Service (AWS KMS) key that you want to use with this
+-- pipeline.
+--
+-- If you use either 'S3' or 'S3-AWS-KMS' as your 'Encryption:Mode', you don't need
+-- to provide a key with your job because a default key, known as an AWS-KMS
+-- key, is created for you automatically. You need to provide an AWS-KMS key
+-- only if you want to use a non-default AWS-KMS key, or if you are using an 'Encryption:Mode' of 'AES-PKCS7', 'AES-CTR', or 'AES-GCM'.
+upAwsKmsKeyArn :: Lens' UpdatePipeline (Maybe Text)
+upAwsKmsKeyArn = lens _upAwsKmsKeyArn (\s a -> s { _upAwsKmsKeyArn = a })
 
 -- | The optional 'ContentConfig' object specifies information about the Amazon S3
 -- bucket in which you want Elastic Transcoder to save transcoded files and
@@ -238,6 +253,7 @@ instance ToJSON UpdatePipeline where
         [ "Name"            .= _upName
         , "InputBucket"     .= _upInputBucket
         , "Role"            .= _upRole
+        , "AwsKmsKeyArn"    .= _upAwsKmsKeyArn
         , "Notifications"   .= _upNotifications
         , "ContentConfig"   .= _upContentConfig
         , "ThumbnailConfig" .= _upThumbnailConfig

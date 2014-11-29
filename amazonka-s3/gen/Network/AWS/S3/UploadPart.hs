@@ -47,7 +47,6 @@ module Network.AWS.S3.UploadPart
     , upSSECustomerAlgorithm
     , upSSECustomerKey
     , upSSECustomerKeyMD5
-    , upSSEKMSKeyId
     , upUploadId
 
     -- * Response
@@ -77,7 +76,6 @@ data UploadPart = UploadPart
     , _upSSECustomerAlgorithm :: Maybe Text
     , _upSSECustomerKey       :: Maybe (Sensitive Text)
     , _upSSECustomerKeyMD5    :: Maybe Text
-    , _upSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _upUploadId             :: Text
     } deriving (Show)
 
@@ -103,8 +101,6 @@ data UploadPart = UploadPart
 --
 -- * 'upSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'upSSEKMSKeyId' @::@ 'Maybe' 'Text'
---
 -- * 'upUploadId' @::@ 'Text'
 --
 uploadPart :: RqBody -- ^ 'upBody'
@@ -124,7 +120,6 @@ uploadPart p1 p2 p3 p4 p5 = UploadPart
     , _upSSECustomerAlgorithm = Nothing
     , _upSSECustomerKey       = Nothing
     , _upSSECustomerKeyMD5    = Nothing
-    , _upSSEKMSKeyId          = Nothing
     }
 
 upBody :: Lens' UploadPart RqBody
@@ -169,10 +164,6 @@ upSSECustomerKey = lens _upSSECustomerKey (\s a -> s { _upSSECustomerKey = a }) 
 upSSECustomerKeyMD5 :: Lens' UploadPart (Maybe Text)
 upSSECustomerKeyMD5 =
     lens _upSSECustomerKeyMD5 (\s a -> s { _upSSECustomerKeyMD5 = a })
-
--- | Specifies the AWS KMS key ID to use for object encryption.
-upSSEKMSKeyId :: Lens' UploadPart (Maybe Text)
-upSSEKMSKeyId = lens _upSSEKMSKeyId (\s a -> s { _upSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | Upload ID identifying the multipart upload whose part is being uploaded.
 upUploadId :: Lens' UploadPart Text
@@ -227,7 +218,8 @@ uprSSECustomerKeyMD5 :: Lens' UploadPartResponse (Maybe Text)
 uprSSECustomerKeyMD5 =
     lens _uprSSECustomerKeyMD5 (\s a -> s { _uprSSECustomerKeyMD5 = a })
 
--- | If present, specifies the AWS KMS key used to encrypt the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master
+-- encryption key that was used for the object.
 uprSSEKMSKeyId :: Lens' UploadPartResponse (Maybe Text)
 uprSSEKMSKeyId = lens _uprSSEKMSKeyId (\s a -> s { _uprSSEKMSKeyId = a }) . mapping _Sensitive
 
@@ -258,7 +250,6 @@ instance ToHeaders UploadPart where
         , "x-amz-server-side-encryption-customer-algorithm" =: _upSSECustomerAlgorithm
         , "x-amz-server-side-encryption-customer-key"       =: _upSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _upSSECustomerKeyMD5
-        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _upSSEKMSKeyId
         ]
 
 instance ToBody UploadPart where

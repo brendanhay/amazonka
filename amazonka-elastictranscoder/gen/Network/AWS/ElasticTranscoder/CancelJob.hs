@@ -24,6 +24,10 @@
 
 -- | The CancelJob operation cancels an unfinished job.
 --
+-- You can only cancel a job that has a status of 'Submitted'. To prevent a
+-- pipeline from starting to process a job while you're getting the job
+-- identifier, use 'UpdatePipelineStatus' to temporarily pause the pipeline.
+--
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CancelJob.html>
 module Network.AWS.ElasticTranscoder.CancelJob
     (

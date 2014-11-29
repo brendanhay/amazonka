@@ -29,12 +29,18 @@ module Network.AWS.DataPipeline.Types
     -- ** Error
     , JSONError
 
+    -- * ParameterObject
+    , ParameterObject
+    , parameterObject
+    , poAttributes
+    , poId
+
     -- * PipelineObject
     , PipelineObject
     , pipelineObject
-    , poFields
-    , poId
-    , poName
+    , po1Fields
+    , po1Id
+    , po1Name
 
     -- * Field
     , Field
@@ -43,11 +49,23 @@ module Network.AWS.DataPipeline.Types
     , fRefValue
     , fStringValue
 
+    -- * ParameterValue
+    , ParameterValue
+    , parameterValue
+    , pvId
+    , pvStringValue
+
     -- * Selector
     , Selector
     , selector
     , sFieldName
     , sOperator
+
+    -- * ParameterAttribute
+    , ParameterAttribute
+    , parameterAttribute
+    , paKey
+    , paStringValue
 
     -- * Operator
     , Operator
@@ -130,42 +148,81 @@ instance AWSService DataPipeline where
 
     handle = jsonError statusSuccess
 
+data ParameterObject = ParameterObject
+    { _poAttributes :: List "attributes" ParameterAttribute
+    , _poId         :: Text
+    } deriving (Eq, Show)
+
+-- | 'ParameterObject' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'poAttributes' @::@ ['ParameterAttribute']
+--
+-- * 'poId' @::@ 'Text'
+--
+parameterObject :: Text -- ^ 'poId'
+                -> ParameterObject
+parameterObject p1 = ParameterObject
+    { _poId         = p1
+    , _poAttributes = mempty
+    }
+
+-- | The attributes of the parameter object.
+poAttributes :: Lens' ParameterObject [ParameterAttribute]
+poAttributes = lens _poAttributes (\s a -> s { _poAttributes = a }) . _List
+
+-- | Identifier of the parameter object.
+poId :: Lens' ParameterObject Text
+poId = lens _poId (\s a -> s { _poId = a })
+
+instance FromJSON ParameterObject where
+    parseJSON = withObject "ParameterObject" $ \o -> ParameterObject
+        <$> o .:  "attributes"
+        <*> o .:  "id"
+
+instance ToJSON ParameterObject where
+    toJSON ParameterObject{..} = object
+        [ "id"         .= _poId
+        , "attributes" .= _poAttributes
+        ]
+
 data PipelineObject = PipelineObject
-    { _poFields :: List "fields" Field
-    , _poId     :: Text
-    , _poName   :: Text
+    { _po1Fields :: List "fields" Field
+    , _po1Id     :: Text
+    , _po1Name   :: Text
     } deriving (Eq, Show)
 
 -- | 'PipelineObject' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'poFields' @::@ ['Field']
+-- * 'po1Fields' @::@ ['Field']
 --
--- * 'poId' @::@ 'Text'
+-- * 'po1Id' @::@ 'Text'
 --
--- * 'poName' @::@ 'Text'
+-- * 'po1Name' @::@ 'Text'
 --
-pipelineObject :: Text -- ^ 'poId'
-               -> Text -- ^ 'poName'
+pipelineObject :: Text -- ^ 'po1Id'
+               -> Text -- ^ 'po1Name'
                -> PipelineObject
 pipelineObject p1 p2 = PipelineObject
-    { _poId     = p1
-    , _poName   = p2
-    , _poFields = mempty
+    { _po1Id     = p1
+    , _po1Name   = p2
+    , _po1Fields = mempty
     }
 
 -- | Key-value pairs that define the properties of the object.
-poFields :: Lens' PipelineObject [Field]
-poFields = lens _poFields (\s a -> s { _poFields = a }) . _List
+po1Fields :: Lens' PipelineObject [Field]
+po1Fields = lens _po1Fields (\s a -> s { _po1Fields = a }) . _List
 
 -- | Identifier of the object.
-poId :: Lens' PipelineObject Text
-poId = lens _poId (\s a -> s { _poId = a })
+po1Id :: Lens' PipelineObject Text
+po1Id = lens _po1Id (\s a -> s { _po1Id = a })
 
 -- | Name of the object.
-poName :: Lens' PipelineObject Text
-poName = lens _poName (\s a -> s { _poName = a })
+po1Name :: Lens' PipelineObject Text
+po1Name = lens _po1Name (\s a -> s { _po1Name = a })
 
 instance FromJSON PipelineObject where
     parseJSON = withObject "PipelineObject" $ \o -> PipelineObject
@@ -175,9 +232,9 @@ instance FromJSON PipelineObject where
 
 instance ToJSON PipelineObject where
     toJSON PipelineObject{..} = object
-        [ "id"     .= _poId
-        , "name"   .= _poName
-        , "fields" .= _poFields
+        [ "id"     .= _po1Id
+        , "name"   .= _po1Name
+        , "fields" .= _po1Fields
         ]
 
 data Field = Field
@@ -229,6 +286,46 @@ instance ToJSON Field where
         , "refValue"    .= _fRefValue
         ]
 
+data ParameterValue = ParameterValue
+    { _pvId          :: Text
+    , _pvStringValue :: Text
+    } deriving (Eq, Ord, Show)
+
+-- | 'ParameterValue' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pvId' @::@ 'Text'
+--
+-- * 'pvStringValue' @::@ 'Text'
+--
+parameterValue :: Text -- ^ 'pvId'
+               -> Text -- ^ 'pvStringValue'
+               -> ParameterValue
+parameterValue p1 p2 = ParameterValue
+    { _pvId          = p1
+    , _pvStringValue = p2
+    }
+
+-- | Identifier of the parameter value.
+pvId :: Lens' ParameterValue Text
+pvId = lens _pvId (\s a -> s { _pvId = a })
+
+-- | The field value, expressed as a String.
+pvStringValue :: Lens' ParameterValue Text
+pvStringValue = lens _pvStringValue (\s a -> s { _pvStringValue = a })
+
+instance FromJSON ParameterValue where
+    parseJSON = withObject "ParameterValue" $ \o -> ParameterValue
+        <$> o .:  "id"
+        <*> o .:  "stringValue"
+
+instance ToJSON ParameterValue where
+    toJSON ParameterValue{..} = object
+        [ "id"          .= _pvId
+        , "stringValue" .= _pvStringValue
+        ]
+
 data Selector = Selector
     { _sFieldName :: Maybe Text
     , _sOperator  :: Maybe Operator
@@ -267,6 +364,46 @@ instance ToJSON Selector where
     toJSON Selector{..} = object
         [ "fieldName" .= _sFieldName
         , "operator"  .= _sOperator
+        ]
+
+data ParameterAttribute = ParameterAttribute
+    { _paKey         :: Text
+    , _paStringValue :: Text
+    } deriving (Eq, Ord, Show)
+
+-- | 'ParameterAttribute' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'paKey' @::@ 'Text'
+--
+-- * 'paStringValue' @::@ 'Text'
+--
+parameterAttribute :: Text -- ^ 'paKey'
+                   -> Text -- ^ 'paStringValue'
+                   -> ParameterAttribute
+parameterAttribute p1 p2 = ParameterAttribute
+    { _paKey         = p1
+    , _paStringValue = p2
+    }
+
+-- | The field identifier.
+paKey :: Lens' ParameterAttribute Text
+paKey = lens _paKey (\s a -> s { _paKey = a })
+
+-- | The field value, expressed as a String.
+paStringValue :: Lens' ParameterAttribute Text
+paStringValue = lens _paStringValue (\s a -> s { _paStringValue = a })
+
+instance FromJSON ParameterAttribute where
+    parseJSON = withObject "ParameterAttribute" $ \o -> ParameterAttribute
+        <$> o .:  "key"
+        <*> o .:  "stringValue"
+
+instance ToJSON ParameterAttribute where
+    toJSON ParameterAttribute{..} = object
+        [ "key"         .= _paKey
+        , "stringValue" .= _paStringValue
         ]
 
 data Operator = Operator

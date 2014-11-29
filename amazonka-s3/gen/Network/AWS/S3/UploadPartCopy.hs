@@ -42,7 +42,6 @@ module Network.AWS.S3.UploadPartCopy
     , upcCopySourceSSECustomerAlgorithm
     , upcCopySourceSSECustomerKey
     , upcCopySourceSSECustomerKeyMD5
-    , upcCopySourceSSEKMSKeyId
     , upcKey
     , upcPartNumber
     , upcSSECustomerAlgorithm
@@ -79,7 +78,6 @@ data UploadPartCopy = UploadPartCopy
     , _upcCopySourceSSECustomerAlgorithm :: Maybe Text
     , _upcCopySourceSSECustomerKey       :: Maybe (Sensitive Text)
     , _upcCopySourceSSECustomerKeyMD5    :: Maybe Text
-    , _upcCopySourceSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _upcKey                            :: Text
     , _upcPartNumber                     :: Int
     , _upcSSECustomerAlgorithm           :: Maybe Text
@@ -111,8 +109,6 @@ data UploadPartCopy = UploadPartCopy
 -- * 'upcCopySourceSSECustomerKey' @::@ 'Maybe' 'Text'
 --
 -- * 'upcCopySourceSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
---
--- * 'upcCopySourceSSEKMSKeyId' @::@ 'Maybe' 'Text'
 --
 -- * 'upcKey' @::@ 'Text'
 --
@@ -149,7 +145,6 @@ uploadPartCopy p1 p2 p3 p4 p5 = UploadPartCopy
     , _upcCopySourceSSECustomerAlgorithm = Nothing
     , _upcCopySourceSSECustomerKey       = Nothing
     , _upcCopySourceSSECustomerKeyMD5    = Nothing
-    , _upcCopySourceSSEKMSKeyId          = Nothing
     }
 
 upcBucket :: Lens' UploadPartCopy Text
@@ -218,13 +213,6 @@ upcCopySourceSSECustomerKeyMD5 :: Lens' UploadPartCopy (Maybe Text)
 upcCopySourceSSECustomerKeyMD5 =
     lens _upcCopySourceSSECustomerKeyMD5
         (\s a -> s { _upcCopySourceSSECustomerKeyMD5 = a })
-
--- | Specifies the AWS KMS key ID to use for object encryption.
-upcCopySourceSSEKMSKeyId :: Lens' UploadPartCopy (Maybe Text)
-upcCopySourceSSEKMSKeyId =
-    lens _upcCopySourceSSEKMSKeyId
-        (\s a -> s { _upcCopySourceSSEKMSKeyId = a })
-            . mapping _Sensitive
 
 upcKey :: Lens' UploadPartCopy Text
 upcKey = lens _upcKey (\s a -> s { _upcKey = a })
@@ -321,7 +309,8 @@ upcrSSECustomerKeyMD5 :: Lens' UploadPartCopyResponse (Maybe Text)
 upcrSSECustomerKeyMD5 =
     lens _upcrSSECustomerKeyMD5 (\s a -> s { _upcrSSECustomerKeyMD5 = a })
 
--- | If present, specifies the AWS KMS key used to encrypt the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master
+-- encryption key that was used for the object.
 upcrSSEKMSKeyId :: Lens' UploadPartCopyResponse (Maybe Text)
 upcrSSEKMSKeyId = lens _upcrSSEKMSKeyId (\s a -> s { _upcrSSEKMSKeyId = a }) . mapping _Sensitive
 
@@ -360,7 +349,6 @@ instance ToHeaders UploadPartCopy where
         , "x-amz-copy-source-server-side-encryption-customer-algorithm" =: _upcCopySourceSSECustomerAlgorithm
         , "x-amz-copy-source-server-side-encryption-customer-key"       =: _upcCopySourceSSECustomerKey
         , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _upcCopySourceSSECustomerKeyMD5
-        , "x-amz-server-side-encryption-aws-kms-key-id"                 =: _upcCopySourceSSEKMSKeyId
         ]
 
 instance ToXMLRoot UploadPartCopy where

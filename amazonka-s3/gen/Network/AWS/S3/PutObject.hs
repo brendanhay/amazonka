@@ -279,7 +279,11 @@ poSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
 poSSECustomerKeyMD5 =
     lens _poSSECustomerKeyMD5 (\s a -> s { _poSSECustomerKeyMD5 = a })
 
--- | Specifies the AWS KMS key ID to use for object encryption.
+-- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT
+-- requests for an object protected by AWS KMS will fail if not made via SSL or
+-- using SigV4. Documentation on configuring any of the officially supported AWS
+-- SDKs and CLI can be found at
+-- http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
 poSSEKMSKeyId :: Lens' PutObject (Maybe Text)
 poSSEKMSKeyId = lens _poSSEKMSKeyId (\s a -> s { _poSSEKMSKeyId = a }) . mapping _Sensitive
 
@@ -363,7 +367,8 @@ porSSECustomerKeyMD5 :: Lens' PutObjectResponse (Maybe Text)
 porSSECustomerKeyMD5 =
     lens _porSSECustomerKeyMD5 (\s a -> s { _porSSECustomerKeyMD5 = a })
 
--- | If present, specifies the AWS KMS key used to encrypt the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master
+-- encryption key that was used for the object.
 porSSEKMSKeyId :: Lens' PutObjectResponse (Maybe Text)
 porSSEKMSKeyId = lens _porSSEKMSKeyId (\s a -> s { _porSSEKMSKeyId = a }) . mapping _Sensitive
 

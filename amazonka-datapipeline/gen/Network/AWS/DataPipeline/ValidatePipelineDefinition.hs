@@ -33,6 +33,8 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     -- ** Request constructor
     , validatePipelineDefinition
     -- ** Request lenses
+    , vpdParameterObjects
+    , vpdParameterValues
     , vpdPipelineId
     , vpdPipelineObjects
 
@@ -52,13 +54,19 @@ import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
 data ValidatePipelineDefinition = ValidatePipelineDefinition
-    { _vpdPipelineId      :: Text
-    , _vpdPipelineObjects :: List "pipelineObjects" PipelineObject
+    { _vpdParameterObjects :: List "parameterObjects" ParameterObject
+    , _vpdParameterValues  :: List "parameterValues" ParameterValue
+    , _vpdPipelineId       :: Text
+    , _vpdPipelineObjects  :: List "pipelineObjects" PipelineObject
     } deriving (Eq, Show)
 
 -- | 'ValidatePipelineDefinition' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'vpdParameterObjects' @::@ ['ParameterObject']
+--
+-- * 'vpdParameterValues' @::@ ['ParameterValue']
 --
 -- * 'vpdPipelineId' @::@ 'Text'
 --
@@ -67,9 +75,23 @@ data ValidatePipelineDefinition = ValidatePipelineDefinition
 validatePipelineDefinition :: Text -- ^ 'vpdPipelineId'
                            -> ValidatePipelineDefinition
 validatePipelineDefinition p1 = ValidatePipelineDefinition
-    { _vpdPipelineId      = p1
-    , _vpdPipelineObjects = mempty
+    { _vpdPipelineId       = p1
+    , _vpdPipelineObjects  = mempty
+    , _vpdParameterObjects = mempty
+    , _vpdParameterValues  = mempty
     }
+
+-- | A list of parameter objects used with the pipeline.
+vpdParameterObjects :: Lens' ValidatePipelineDefinition [ParameterObject]
+vpdParameterObjects =
+    lens _vpdParameterObjects (\s a -> s { _vpdParameterObjects = a })
+        . _List
+
+-- | A list of parameter values used with the pipeline.
+vpdParameterValues :: Lens' ValidatePipelineDefinition [ParameterValue]
+vpdParameterValues =
+    lens _vpdParameterValues (\s a -> s { _vpdParameterValues = a })
+        . _List
 
 -- | Identifies the pipeline whose definition is to be validated.
 vpdPipelineId :: Lens' ValidatePipelineDefinition Text
@@ -132,8 +154,10 @@ instance ToHeaders ValidatePipelineDefinition
 
 instance ToJSON ValidatePipelineDefinition where
     toJSON ValidatePipelineDefinition{..} = object
-        [ "pipelineId"      .= _vpdPipelineId
-        , "pipelineObjects" .= _vpdPipelineObjects
+        [ "pipelineId"       .= _vpdPipelineId
+        , "pipelineObjects"  .= _vpdPipelineObjects
+        , "parameterObjects" .= _vpdParameterObjects
+        , "parameterValues"  .= _vpdParameterValues
         ]
 
 instance AWSRequest ValidatePipelineDefinition where

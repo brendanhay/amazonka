@@ -40,6 +40,8 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
     -- ** Response constructor
     , getPipelineDefinitionResponse
     -- ** Response lenses
+    , gpdrParameterObjects
+    , gpdrParameterValues
     , gpdrPipelineObjects
     ) where
 
@@ -79,26 +81,40 @@ gpdPipelineId = lens _gpdPipelineId (\s a -> s { _gpdPipelineId = a })
 gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
 gpdVersion = lens _gpdVersion (\s a -> s { _gpdVersion = a })
 
-newtype GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
-    { _gpdrPipelineObjects :: List "pipelineObjects" PipelineObject
-    } deriving (Eq, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList GetPipelineDefinitionResponse where
-    type Item GetPipelineDefinitionResponse = PipelineObject
-
-    fromList = GetPipelineDefinitionResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _gpdrPipelineObjects
+data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
+    { _gpdrParameterObjects :: List "parameterObjects" ParameterObject
+    , _gpdrParameterValues  :: List "parameterValues" ParameterValue
+    , _gpdrPipelineObjects  :: List "pipelineObjects" PipelineObject
+    } deriving (Eq, Show)
 
 -- | 'GetPipelineDefinitionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'gpdrParameterObjects' @::@ ['ParameterObject']
+--
+-- * 'gpdrParameterValues' @::@ ['ParameterValue']
+--
 -- * 'gpdrPipelineObjects' @::@ ['PipelineObject']
 --
 getPipelineDefinitionResponse :: GetPipelineDefinitionResponse
 getPipelineDefinitionResponse = GetPipelineDefinitionResponse
-    { _gpdrPipelineObjects = mempty
+    { _gpdrPipelineObjects  = mempty
+    , _gpdrParameterObjects = mempty
+    , _gpdrParameterValues  = mempty
     }
+
+-- | Returns a list of parameter objects used in the pipeline definition.
+gpdrParameterObjects :: Lens' GetPipelineDefinitionResponse [ParameterObject]
+gpdrParameterObjects =
+    lens _gpdrParameterObjects (\s a -> s { _gpdrParameterObjects = a })
+        . _List
+
+-- | Returns a list of parameter values used in the pipeline definition.
+gpdrParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
+gpdrParameterValues =
+    lens _gpdrParameterValues (\s a -> s { _gpdrParameterValues = a })
+        . _List
 
 -- | An array of objects defined in the pipeline.
 gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
@@ -129,4 +145,6 @@ instance AWSRequest GetPipelineDefinition where
 
 instance FromJSON GetPipelineDefinitionResponse where
     parseJSON = withObject "GetPipelineDefinitionResponse" $ \o -> GetPipelineDefinitionResponse
-        <$> o .:  "pipelineObjects"
+        <$> o .:  "parameterObjects"
+        <*> o .:  "parameterValues"
+        <*> o .:  "pipelineObjects"

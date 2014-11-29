@@ -44,7 +44,6 @@ module Network.AWS.S3.HeadObject
     , hoSSECustomerAlgorithm
     , hoSSECustomerKey
     , hoSSECustomerKeyMD5
-    , hoSSEKMSKeyId
     , hoVersionId
 
     -- * Response
@@ -91,7 +90,6 @@ data HeadObject = HeadObject
     , _hoSSECustomerAlgorithm :: Maybe Text
     , _hoSSECustomerKey       :: Maybe (Sensitive Text)
     , _hoSSECustomerKeyMD5    :: Maybe Text
-    , _hoSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _hoVersionId            :: Maybe Text
     } deriving (Eq, Ord, Show)
 
@@ -119,8 +117,6 @@ data HeadObject = HeadObject
 --
 -- * 'hoSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'hoSSEKMSKeyId' @::@ 'Maybe' 'Text'
---
 -- * 'hoVersionId' @::@ 'Maybe' 'Text'
 --
 headObject :: Text -- ^ 'hoBucket'
@@ -138,7 +134,6 @@ headObject p1 p2 = HeadObject
     , _hoSSECustomerAlgorithm = Nothing
     , _hoSSECustomerKey       = Nothing
     , _hoSSECustomerKeyMD5    = Nothing
-    , _hoSSEKMSKeyId          = Nothing
     }
 
 hoBucket :: Lens' HeadObject Text
@@ -197,10 +192,6 @@ hoSSECustomerKey = lens _hoSSECustomerKey (\s a -> s { _hoSSECustomerKey = a }) 
 hoSSECustomerKeyMD5 :: Lens' HeadObject (Maybe Text)
 hoSSECustomerKeyMD5 =
     lens _hoSSECustomerKeyMD5 (\s a -> s { _hoSSECustomerKeyMD5 = a })
-
--- | Specifies the AWS KMS key ID to use for object encryption.
-hoSSEKMSKeyId :: Lens' HeadObject (Maybe Text)
-hoSSEKMSKeyId = lens _hoSSEKMSKeyId (\s a -> s { _hoSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | VersionId used to reference a specific version of the object.
 hoVersionId :: Lens' HeadObject (Maybe Text)
@@ -388,7 +379,8 @@ horSSECustomerKeyMD5 :: Lens' HeadObjectResponse (Maybe Text)
 horSSECustomerKeyMD5 =
     lens _horSSECustomerKeyMD5 (\s a -> s { _horSSECustomerKeyMD5 = a })
 
--- | If present, specifies the AWS KMS key used to encrypt the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master
+-- encryption key that was used for the object.
 horSSEKMSKeyId :: Lens' HeadObjectResponse (Maybe Text)
 horSSEKMSKeyId = lens _horSSEKMSKeyId (\s a -> s { _horSSEKMSKeyId = a }) . mapping _Sensitive
 
@@ -431,7 +423,6 @@ instance ToHeaders HeadObject where
         , "x-amz-server-side-encryption-customer-algorithm" =: _hoSSECustomerAlgorithm
         , "x-amz-server-side-encryption-customer-key"       =: _hoSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _hoSSECustomerKeyMD5
-        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _hoSSEKMSKeyId
         ]
 
 instance ToXMLRoot HeadObject where

@@ -17,7 +17,7 @@ module Main (main) where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Lens           hiding (transform)
+import           Control.Lens           (Lens', (^.), view, assign, makeLenses)
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.State
@@ -31,10 +31,11 @@ import qualified Gen.Templates          as Templates
 import           Gen.Types
 import           Options.Applicative
 import           System.Directory
+import           System.FilePath
 import           System.IO
 
 data Options = Options
-    { _out       :: FilePath
+    { _output     :: FilePath
     , _models    :: [FilePath]
     , _services  :: FilePath
     , _overrides :: FilePath
@@ -88,7 +89,7 @@ parser = Options
 validate :: MonadIO m => Options -> m Options
 validate o = flip execStateT o $ do
     sequence_
-        [ check out
+        [ check output
         , check services
         , check overrides
         , check templates
@@ -115,22 +116,20 @@ main = do
         -- Process a Input AST from the corresponding botocore model.
         forM_ (o ^. models) $ \d -> do
             -- Load the Input raw JSON.
-            !m  <- Model.load d (o ^. overrides)
+            !m   <- Model.load d (o ^. overrides)
 
             -- Decode the Input JSON to AST.
-            !s1 <- parse (_mModel m)
+            !inp <- parse (_mModel m)
 
             -- Transformation from Input -> Output AST.
-            let !s2 = AST.transform m s1
+            let !out = AST.transform m inp
 
             -- Store the intemediary Output AST as JSON.
             -- Note: This is primarily done for debugging purposes.
---            store (o ^. services) m s2
-  -- where
-  --   f = d </> _mName m <.> "json"
+            writeJSON (o ^. services </> _mName m <.> "json") out
 
             -- Render the templates, creating or overriding the target library.
-            lib <- Library.render (o ^. out) ts s2
+            lib <- Library.render (o ^. output) ts out
 
             -- Copy static assets to the library root.
             copyContents (o ^. assets) lib

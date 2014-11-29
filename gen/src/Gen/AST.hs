@@ -3,7 +3,6 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
@@ -504,7 +503,7 @@ shapes proto time m =
           -> State (HashMap Text Type) Field
     field pay req (fld, r) = do
         t <- require req fld <$> ref fld r
-        return $ Field
+        return Field
             { _fName          = fld
             , _fShape         = r ^. refShape
             , _fType          = t

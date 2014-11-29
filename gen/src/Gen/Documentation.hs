@@ -1,6 +1,5 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.Documentation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>

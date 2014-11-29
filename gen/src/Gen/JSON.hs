@@ -1,6 +1,5 @@
 {-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE OverloadedStrings    #-}
-{-# LANGUAGE RecordWildCards      #-}
 {-# LANGUAGE ViewPatterns         #-}
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}

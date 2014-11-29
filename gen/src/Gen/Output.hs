@@ -267,30 +267,30 @@ typeMapping t
     | otherwise    = Nothing
   where
     go y = case y of
-        TType      _     -> []
-        TPrim      p     -> maybeToList (primIso p)
-        TMaybe     x     -> mapping (go x)
-        TSensitive x     -> maybeToList (typeIso y) ++ go x
-        TFlatten   x     -> go x
-        TCase      x     -> go x
-        TList      _ _   -> maybeToList (typeIso y)
-        TList1     _ _   -> maybeToList (typeIso y)
-        TMap       _ _ _ -> maybeToList (typeIso y)
-        THashMap     _ _ -> maybeToList (typeIso y)
+        TType      {} -> []
+        TPrim      p  -> maybeToList (primIso p)
+        TMaybe     x  -> mapping (go x)
+        TSensitive x  -> maybeToList (typeIso y) ++ go x
+        TFlatten   x  -> go x
+        TCase      x  -> go x
+        TList      {} -> maybeToList (typeIso y)
+        TList1     {} -> maybeToList (typeIso y)
+        TMap       {} -> maybeToList (typeIso y)
+        THashMap   {} -> maybeToList (typeIso y)
 
     mapping (x:xs) = "mapping " <> x : xs
     mapping _      = []
 
-typeIso :: Type -> Maybe Text
+typeIso :: Type   -> Maybe Text
 typeIso = \case
-    TPrim      p     -> primIso p
-    TSensitive _     -> Just "_Sensitive"
-    TFlatten   x     -> typeIso x
-    TList      _ _   -> Just "_List"  -- No nested mappings, since it's Coercible.
-    TList1     _ _   -> Just "_List1" -- No nested mappings, since it's Coercible.
-    TMap       _ _ _ -> Just "_EMap"  -- No nested mappings, since it's Coercible.
-    THashMap     _ _ -> Just "_Map"   -- No nested mappings, since it's Coercible.
-    _                -> Nothing
+    TPrim      p  -> primIso p
+    TSensitive {} -> Just "_Sensitive"
+    TFlatten   x  -> typeIso x
+    TList      {} -> Just "_List"  -- No nested mappings, since it's Coercible.
+    TList1     {} -> Just "_List1" -- No nested mappings, since it's Coercible.
+    TMap       {} -> Just "_EMap"  -- No nested mappings, since it's Coercible.
+    THashMap   {} -> Just "_Map"   -- No nested mappings, since it's Coercible.
+    _             -> Nothing
 
 primIso :: Prim -> Maybe Text
 primIso = \case
@@ -607,7 +607,7 @@ instance ToJSON Request where
             , "shared"   .= _rqShared
             ]
 
-        qry = (map toJSON (_uriQuery _rqUri) ++ map fieldLocation qs)
+        qry = map toJSON (_uriQuery _rqUri) ++ map fieldLocation qs
 
         qs = filter isQuery fs
         fs = toListOf dataFields _rqData

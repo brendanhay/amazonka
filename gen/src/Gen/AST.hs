@@ -3,11 +3,10 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Gen.Transform
+-- Module      : Gen.AST
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -17,12 +16,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.Transform (transformS1ToS2) where
+module Gen.AST (transform) where
 
 import           Control.Applicative        ((<$>), (<*>), (<|>), pure)
 import           Control.Arrow              ((&&&))
 import           Control.Error
-import           Control.Lens               hiding (op, ignored, filtered, indexed)
+import           Control.Lens               hiding (op, ignored, filtered, indexed, transform)
 import           Control.Monad
 import           Control.Monad.State.Strict
 import qualified Data.CaseInsensitive       as CI
@@ -36,14 +35,14 @@ import           Data.Monoid                hiding (Product)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
+import qualified Gen.Input                  as Input
+import           Gen.Input                  hiding (Operation)
 import           Gen.Names
-import qualified Gen.Stage1                 as S1
-import           Gen.Stage1                 hiding (Operation)
-import           Gen.Stage2
+import           Gen.Output
 import           Gen.Types
 
-transformS1ToS2 :: Model -> Stage1 -> Stage2
-transformS1ToS2 m s1 = Stage2 cabal service ops types
+transform :: Model -> Input -> Output
+transform m inp = Output cabal service ops types
   where
     cabal = Cabal
         { _cName         = name
@@ -51,7 +50,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         , _cAbbrev       = abbrev
         , _cLibrary      = overrides ^. oLibrary
         , _cVersion      = overrides ^. oVersion
-        , _cDescription  = description (s1 ^. s1Documentation)
+        , _cDescription  = description (inp ^. inpDocumentation)
         , _cProtocol     = protocol
         , _cExposed      = sort $
             service ^. svNamespace : typesNamespace : operationNamespaces
@@ -66,15 +65,14 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         , _svNamespace      = namespace [unAbbrev abbrev]
         , _svImports        = sort (typesNamespace : operationNamespaces)
         , _svVersion        = version
-        , _svDocumentation  = above (s1 ^. s1Documentation)
+        , _svDocumentation  = above (inp ^. inpDocumentation)
         , _svProtocol       = protocol
-        , _svEndpoint       = endpoint
         , _svEndpointPrefix = endpointPrefix
-        , _svSignature      = s1 ^. mSignatureVersion
+        , _svSignature      = inp ^. mSignatureVersion
         , _svChecksum       = checksum
         , _svXmlNamespace   = xmlNamespace
-        , _svTargetPrefix   = s1 ^. mTargetPrefix
-        , _svJsonVersion    = s1 ^. mJsonVersion
+        , _svTargetPrefix   = inp ^. mTargetPrefix
+        , _svJsonVersion    = inp ^. mJsonVersion
         , _svError          = errorType protocol abbrev
         }
 
@@ -89,24 +87,24 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
 
     operationNamespaces = sort (map (view opNamespace) ops)
 
-    name = "Amazon " <> stripAWS (s1 ^. mServiceFullName)
+    name = "Amazon " <> stripAWS (inp ^. mServiceFullName)
 
     url = overrides ^. oUrl
 
-    abbrev   = s1 ^. mServiceAbbreviation
-    protocol = s1 ^. mProtocol
-    version  = s1 ^. mApiVersion
+    abbrev   = inp ^. mServiceAbbreviation
+    protocol = inp ^. mProtocol
+    version  = inp ^. mApiVersion
 
-    (ops, ts, share) = dataTypes overrides abbrev s1
+    (ops, ts, share) = dataTypes overrides abbrev inp
 
-    endpointPrefix = s1 ^. mEndpointPrefix
+    endpointPrefix = inp ^. mEndpointPrefix
 
     overrides = m ^. mOverrides
-    endpoint  = maybe Regional (const Global) (s1 ^. mGlobalEndpoint)
-    checksum  = fromMaybe SHA256 (s1 ^. mChecksumFormat)
+
+    checksum = fromMaybe SHA256 (inp ^. mChecksumFormat)
 
     xmlNamespace
-        | Just x <- s1 ^. mXmlNamespace         = Just x
+        | Just x <- inp ^. mXmlNamespace         = Just x
         | protocol `elem` [Query, Xml, RestXml] = Just $
                "http://"
             <> endpointPrefix
@@ -117,37 +115,37 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
 
 dataTypes :: Overrides
           -> Abbrev
-          -> Stage1
+          -> Input
           -> ([Operation], HashMap Text Data, HashSet Text)
-dataTypes o a s1 = res (runState run ds)
+dataTypes o a inp = res (runState run ds)
   where
     res (x, y) = (sort (Map.elems x), y, ss)
 
     run = Map.traverseWithKey
-        (operation a proto url (o ^. oOperationsModules) ss (s1 ^. s1Pagination))
-        (s1' ^. s1Operations)
+        (operation a proto url (o ^. oOperationsModules) ss (inp ^. inpPagination))
+        (inp' ^. inpOperations)
 
-    (s1', prefixed -> ds) = runState (requests s1 ss) datas
+    (inp', prefixed -> ds) = runState (requests inp ss) datas
 
     ss = evalState share datas
 
-    share = shared s1
+    share = shared inp
 
     datas = overriden overrides $
-        shapes proto (defaultTS (s1 ^. mTimestampFormat)) (s1 ^. s1Shapes)
+        shapes proto (defaultTS (inp ^. mTimestampFormat)) (inp ^. inpShapes)
 
-    proto     = s1 ^. mProtocol
+    proto     = inp ^. mProtocol
     url       = o ^. oOperationUrl
     overrides = o ^. oOverrides
 
 -- | Insert a new request datatype for any shared input, and update
 -- the operations accordingly.
-requests :: Stage1 -> HashSet Text -> State (HashMap Text Data) Stage1
-requests s1 ss = do
-    os <- Map.traverseWithKey go (s1 ^. s1Operations)
-    return $! s1 & s1Operations .~ os
+requests :: Input -> HashSet Text -> State (HashMap Text Data) Input
+requests inp ss = do
+    os <- Map.traverseWithKey go (inp ^. inpOperations)
+    return $! inp & inpOperations .~ os
   where
-    go :: Text -> S1.Operation -> State (HashMap Text Data) S1.Operation
+    go :: Text -> Input.Operation -> State (HashMap Text Data) Input.Operation
     go n o = do
         rq <- update n (o ^. oInput)
         rs <- update (n <> "Response") (o ^. oOutput)
@@ -187,7 +185,7 @@ operation :: Abbrev
           -> HashSet Text
           -> HashMap Text (Pager ())
           -> Text
-          -> S1.Operation
+          -> Input.Operation
           -> State (HashMap Text Data) Operation
 operation a proto base ns ss pgs n o = do
     inp <- request  (o ^. oInput)
@@ -321,14 +319,14 @@ pager inp out (Just pg) = get >>= go
             f = (k ==) . CI.mk . Text.dropWhile (not . isUpper) . _fName
 
 -- | Find any datatypes that are shared as operation inputs/outputs.
-shared :: Stage1 -> State (HashMap Text Data) (HashSet Text)
-shared s1 = do
+shared :: Input -> State (HashMap Text Data) (HashSet Text)
+shared inp = do
     xs <- forM ops $ \o ->
         (++) <$> ins (o ^. oInput)
              <*> ins (o ^. oOutput)
     return $! occur (freq (concat xs))
   where
-    ops = Map.elems (s1 ^. s1Operations)
+    ops = Map.elems (inp ^. inpOperations)
 
     occur = Set.fromList . mapMaybe snd . filter ((> 1) . fst)
     freq  = map (length &&& headMay) . group . sort
@@ -473,7 +471,7 @@ overriden = flip (Map.foldlWithKey' run)
 
     renamed m = nameOf %~ (\n -> fromMaybe n (Map.lookup (CI.mk n) m))
 
-shapes :: Protocol -> Timestamp -> HashMap Text S1.Shape -> HashMap Text Data
+shapes :: Protocol -> Timestamp -> HashMap Text Input.Shape -> HashMap Text Data
 shapes proto time m =
     evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
   where
@@ -482,7 +480,7 @@ shapes proto time m =
         | Just True <- x ^. scFault     = False
     skip _                              = True
 
-    solve :: Text -> S1.Shape -> State (HashMap Text Type) Data
+    solve :: Text -> Input.Shape -> State (HashMap Text Type) Data
     solve k = \case
         Struct' x -> go <$> mapM (field pay req) (ordMap (x ^. scMembers))
           where
@@ -505,7 +503,7 @@ shapes proto time m =
           -> State (HashMap Text Type) Field
     field pay req (fld, r) = do
         t <- require req fld <$> ref fld r
-        return $ Field
+        return Field
             { _fName          = fld
             , _fShape         = r ^. refShape
             , _fType          = t
@@ -537,7 +535,7 @@ shapes proto time m =
               return
               x
 
-    prop :: Text -> Ref -> Text -> S1.Shape -> State (HashMap Text Type) Type
+    prop :: Text -> Ref -> Text -> Input.Shape -> State (HashMap Text Type) Type
     prop fld r k s =  do
         x <- gets (Map.lookup k)
         maybe (go >>= insert k)

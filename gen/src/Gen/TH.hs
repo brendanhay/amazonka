@@ -36,12 +36,12 @@ data TH = TH
 
 makeLenses ''TH
 
-stage1 :: TH
-stage1 = TH ctorName keyName lensName "type" "contents" $
-    J.deriveFromJSON (jason stage1)
+input :: TH
+input = TH ctorName keyName lensName "type" "contents" $
+    J.deriveFromJSON (jason input)
 
-stage2 :: TH
-stage2 = stage1 & thJSON .~ A.deriveToJSON (aeson stage2)
+output :: TH
+output = input & thJSON .~ A.deriveToJSON (aeson output)
 
 nullary :: TH -> Name -> Q [Dec]
 nullary = (^. thJSON)

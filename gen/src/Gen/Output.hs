@@ -17,7 +17,7 @@
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
--- Module      : Gen.Stage2
+-- Module      : Gen.Output
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -27,18 +27,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.Stage2 where
+module Gen.Output where
 
 import           Control.Applicative
 import           Control.Arrow            ((&&&))
 import           Control.Error
 import           Control.Lens             hiding ((.=), (<.>), op, mapping)
-import           Control.Monad            (forM_)
 import           Data.Aeson
 import           Data.Aeson.Encode.Pretty
 import           Data.Aeson.Types         (Pair)
 import           Data.Bifunctor
-import qualified Data.ByteString.Lazy     as LBS
 import           Data.CaseInsensitive     (CI)
 import qualified Data.CaseInsensitive     as CI
 import           Data.Char
@@ -57,8 +55,6 @@ import           Data.Text.Manipulate
 import           GHC.Generics
 import           Gen.Documentation
 import           Gen.Filters
-import           Gen.IO
-import           Gen.JSON                 ()
 import           Gen.Names
 import           Gen.TH
 import           Gen.Types
@@ -267,30 +263,30 @@ typeMapping t
     | otherwise    = Nothing
   where
     go y = case y of
-        TType      _     -> []
-        TPrim      p     -> maybeToList (primIso p)
-        TMaybe     x     -> mapping (go x)
-        TSensitive x     -> maybeToList (typeIso y) ++ go x
-        TFlatten   x     -> go x
-        TCase      x     -> go x
-        TList      _ _   -> maybeToList (typeIso y)
-        TList1     _ _   -> maybeToList (typeIso y)
-        TMap       _ _ _ -> maybeToList (typeIso y)
-        THashMap     _ _ -> maybeToList (typeIso y)
+        TType      {} -> []
+        TPrim      p  -> maybeToList (primIso p)
+        TMaybe     x  -> mapping (go x)
+        TSensitive x  -> maybeToList (typeIso y) ++ go x
+        TFlatten   x  -> go x
+        TCase      x  -> go x
+        TList      {} -> maybeToList (typeIso y)
+        TList1     {} -> maybeToList (typeIso y)
+        TMap       {} -> maybeToList (typeIso y)
+        THashMap   {} -> maybeToList (typeIso y)
 
     mapping (x:xs) = "mapping " <> x : xs
     mapping _      = []
 
-typeIso :: Type -> Maybe Text
+typeIso :: Type   -> Maybe Text
 typeIso = \case
-    TPrim      p     -> primIso p
-    TSensitive _     -> Just "_Sensitive"
-    TFlatten   x     -> typeIso x
-    TList      _ _   -> Just "_List"  -- No nested mappings, since it's Coercible.
-    TList1     _ _   -> Just "_List1" -- No nested mappings, since it's Coercible.
-    TMap       _ _ _ -> Just "_EMap"  -- No nested mappings, since it's Coercible.
-    THashMap     _ _ -> Just "_Map"   -- No nested mappings, since it's Coercible.
-    _                -> Nothing
+    TPrim      p  -> primIso p
+    TSensitive {} -> Just "_Sensitive"
+    TFlatten   x  -> typeIso x
+    TList      {} -> Just "_List"  -- No nested mappings, since it's Coercible.
+    TList1     {} -> Just "_List1" -- No nested mappings, since it's Coercible.
+    TMap       {} -> Just "_EMap"  -- No nested mappings, since it's Coercible.
+    THashMap   {} -> Just "_Map"   -- No nested mappings, since it's Coercible.
+    _             -> Nothing
 
 primIso :: Prim -> Maybe Text
 primIso = \case
@@ -607,7 +603,7 @@ instance ToJSON Request where
             , "shared"   .= _rqShared
             ]
 
-        qry = (map toJSON (_uriQuery _rqUri) ++ map fieldLocation qs)
+        qry = map toJSON (_uriQuery _rqUri) ++ map fieldLocation qs
 
         qs = filter isQuery fs
         fs = toListOf dataFields _rqData
@@ -704,21 +700,13 @@ data Operation = Operation
     , _opPager            :: Maybe (Pager Type)
     } deriving (Eq, Show)
 
-record stage2 ''Operation
+record output ''Operation
 
 instance Ord Operation where
     compare = on compare _opName
 
 instance ToFilePath Operation where
     toFilePath = toFilePath . _opNamespace
-
-data Endpoint
-    = Global
-    | Regional
-      deriving (Eq, Show)
-
-instance ToJSON Endpoint where
-    toJSON = toJSON . show
 
 data Service = Service
     { _svName           :: !Text
@@ -729,7 +717,6 @@ data Service = Service
     , _svVersion        :: !Text
     , _svDocumentation  :: !Above
     , _svProtocol       :: !Protocol
-    , _svEndpoint       :: !Endpoint
     , _svEndpointPrefix :: !Text
     , _svSignature      :: !Signature
     , _svChecksum       :: !Checksum
@@ -739,7 +726,7 @@ data Service = Service
     , _svError          :: !Text
     } deriving (Eq, Show)
 
-record stage2 ''Service
+record output ''Service
 
 instance ToFilePath Service where
     toFilePath = toFilePath . _svNamespace
@@ -756,7 +743,7 @@ data Cabal = Cabal
     , _cOther        :: [NS]
     } deriving (Eq, Show)
 
-record stage2 ''Cabal
+record output ''Cabal
 
 instance ToFilePath Cabal where
     toFilePath c = toFilePath (_cLibrary c) <.> "cabal"
@@ -768,68 +755,16 @@ data Types = Types
     , _tShared    :: HashSet Text
     } deriving (Eq, Show)
 
-record stage2 ''Types
+record output ''Types
 
 instance ToFilePath Types where
     toFilePath = toFilePath . _tNamespace
 
-data Stage2 = Stage2
-    { _s2Cabal      :: Cabal
-    , _s2Service    :: Service
-    , _s2Operations :: [Operation]
-    , _s2Types      :: Types
+data Output = Output
+    { _outCabal      :: Cabal
+    , _outService    :: Service
+    , _outOperations :: [Operation]
+    , _outTypes      :: Types
     } deriving (Eq, Show)
 
-record stage2 ''Stage2
-
-store :: ToJSON a => FilePath -> Model -> a -> Script ()
-store d m x =
-    say "Store Stage2" f >> scriptIO (LBS.writeFile f (encodePretty x))
-  where
-    f = d </> _mName m <.> "json"
-
-render :: FilePath -> Templates -> Stage2 -> Script FilePath
-render d Templates{..} Stage2{..} = do
-    svc <- toEnv _s2Service
-
-    createDir src
-
-    renderFile "Render Service" _tService gen _s2Service svc
-
-    renderFile "Render Types" typ gen _s2Types
-        =<< Map.insert "service" (Object svc) <$> toEnv _s2Types
-
-    forM_ _s2Operations $ \o -> renderFile "Render Operation" op gen o
-        =<< toEnv o
-
-    renderFile "Render Cabal" _tCabal lib _s2Cabal
-        =<< cabal
-
-    renderFile "Render README" _tReadme lib "README.md"
-        =<< cabal
-
-    createDir (ex </> "src")
-
-    renderFile "Example Cabal" _tExCabal ex
-        ("amazonka-" <> name <> "-examples.cabal")
-            =<< cabal
-
-    renderFile "Example Makefile" _tExMakefile ex "Makefile"
-        =<< cabal
-
-    return lib
-  where
-    (typ, op) = _tProtocol (_svProtocol _s2Service)
-
-    name = toFilePath . Text.toLower . unAbbrev $ _svAbbrev _s2Service
-
-    cabal = toEnv _s2Cabal
-
-    ex, src, gen, lib :: FilePath
-    ex  = rel "examples"
-    src = rel "src"
-    gen = rel "gen"
-    lib = rel ""
-
-    rel :: ToFilePath a => a -> FilePath
-    rel = combine d . combine (toFilePath (_cLibrary _s2Cabal)) . toFilePath
+record output ''Output

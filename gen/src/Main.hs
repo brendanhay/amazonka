@@ -17,15 +17,18 @@ module Main (main) where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Lens
+import           Control.Lens           hiding (transform)
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.State
 import           Data.Monoid
+import qualified Gen.AST                as AST
 import           Gen.IO
-import qualified Gen.Stage1             as S1
-import qualified Gen.Stage2             as S2
-import           Gen.Transform
+import           Gen.JSON
+import qualified Gen.Library            as Library
+import qualified Gen.Model              as Model
+import qualified Gen.Templates          as Templates
+import           Gen.Types
 import           Options.Applicative
 import           System.Directory
 import           System.IO
@@ -104,29 +107,30 @@ main :: IO ()
 main = do
     hSetBuffering stdout LineBuffering
 
-    o <- customExecParser (prefs showHelpOnError) options
-        >>= validate
+    o <- customExecParser (prefs showHelpOnError) options >>= validate
 
     runScript $ do
-        !ts <- loadTemplates (o ^. templates)
+        !ts <- Templates.load (o ^. templates)
 
-        -- Process a Stage1 AST from the corresponding botocore model.
+        -- Process a Input AST from the corresponding botocore model.
         forM_ (o ^. models) $ \d -> do
-            -- Load the Stage1 raw JSON.
-            !m  <- S1.model d (o ^. overrides)
+            -- Load the Input raw JSON.
+            !m  <- Model.load d (o ^. overrides)
 
-            -- Decode the Stage1 JSON to AST.
-            !s1 <- S1.decode m
+            -- Decode the Input JSON to AST.
+            !s1 <- parse (_mModel m)
 
-            -- Transformation from Stage1 -> Stage2 AST.
-            let !s2 = transformS1ToS2 m s1
+            -- Transformation from Input -> Output AST.
+            let !s2 = AST.transform m s1
 
-            -- Store the intemediary Stage2 AST as JSON.
+            -- Store the intemediary Output AST as JSON.
             -- Note: This is primarily done for debugging purposes.
-            S2.store (o ^. services) m s2
+--            store (o ^. services) m s2
+  -- where
+  --   f = d </> _mName m <.> "json"
 
             -- Render the templates, creating or overriding the target library.
-            lib <- S2.render (o ^. out) ts s2
+            lib <- Library.render (o ^. out) ts s2
 
             -- Copy static assets to the library root.
-            copyAssets (o ^. assets) lib
+            copyContents (o ^. assets) lib

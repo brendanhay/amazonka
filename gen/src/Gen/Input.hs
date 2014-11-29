@@ -1,4 +1,3 @@
-{-# LANGUAGE BangPatterns               #-}
 {-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE ExtendedDefaultRules       #-}
 {-# LANGUAGE FlexibleInstances          #-}
@@ -10,7 +9,7 @@
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
--- Module      : Gen.Stage1
+-- Module      : Gen.Input
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -20,22 +19,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.Stage1 where
+module Gen.Input where
 
 import Control.Applicative
-import Control.Error
 import Control.Lens        hiding ((<.>), (??))
 import Data.HashMap.Strict (HashMap)
-import Data.Jason          as J
-import Data.Jason.Types
+import Data.Jason
 import Data.Text           (Text)
-import Gen.IO
-import Gen.JSON
-import Gen.Names
 import Gen.TH
 import Gen.Types
-import System.Directory
-import System.FilePath
 
 default (Text)
 
@@ -44,7 +36,7 @@ data HTTP = HTTP
     , _hRequestUri :: URI
     } deriving (Eq, Show)
 
-record stage1 ''HTTP
+record input ''HTTP
 
 data Ref = Ref
     { _refShape         :: !Text
@@ -59,7 +51,7 @@ data Ref = Ref
     , _refFlattened     :: Maybe Bool
     } deriving (Eq, Show)
 
-record stage1 ''Ref
+record input ''Ref
 
 data Operation = Operation
     { _oName             :: !Text
@@ -71,14 +63,14 @@ data Operation = Operation
     , _oErrors           :: Maybe [Ref]
     } deriving (Eq, Show)
 
-record stage1 ''Operation
+record input ''Operation
 
 data XmlNamespace = XmlNamespace
     { _xnsPrefix :: !Text
     , _xnsUri    :: !Text
     } deriving (Eq, Show)
 
-record stage1 ''XmlNamespace
+record input ''XmlNamespace
 
 data SList = SList
     { _lstMember        :: Ref
@@ -88,7 +80,7 @@ data SList = SList
     , _lstFlattened     :: Maybe Bool
     } deriving (Eq, Show)
 
-record stage1 ''SList
+record input ''SList
 
 data SStruct = SStruct
     { _scRequired      :: Maybe [Text]
@@ -100,7 +92,7 @@ data SStruct = SStruct
     , _scFault         :: Maybe Bool
     } deriving (Eq, Show)
 
-record stage1 ''SStruct
+record input ''SStruct
 
 data SMap = SMap
     { _mapKey           :: Ref
@@ -111,7 +103,7 @@ data SMap = SMap
     , _mapFlattened     :: Maybe Bool
     } deriving (Eq, Show)
 
-record stage1 ''SMap
+record input ''SMap
 
 data SString = SString
     { _strMin           :: Maybe Int
@@ -124,7 +116,7 @@ data SString = SString
     , _strSensitive     :: Maybe Bool
     } deriving (Eq, Show)
 
-record stage1 ''SString
+record input ''SString
 
 data SNum a = SNum
     { _numMin           :: Maybe a
@@ -133,7 +125,7 @@ data SNum a = SNum
     , _numBox           :: Maybe Bool
     } deriving (Eq, Show)
 
-record stage1 ''SNum
+record input ''SNum
 
 isNatural :: (Ord a, Num a) => SNum a -> Bool
 isNatural n
@@ -145,21 +137,21 @@ data SBool = SBool
     , _blBox           :: Maybe Bool
     } deriving (Eq, Show)
 
-record stage1 ''SBool
+record input ''SBool
 
 data STime = STime
     { _tsTimestampFormat :: Maybe Timestamp
     , _tsDocumentation   :: Maybe Text
     } deriving (Eq, Show)
 
-record stage1 ''STime
+record input ''STime
 
 data SBlob = SBlob
     { _blbSensitive     :: Maybe Bool
     , _blbDocumentation :: Maybe Text
     } deriving (Eq, Show)
 
-record stage1 ''SBlob
+record input ''SBlob
 
 -- Need to deserialise errors
 data Shape
@@ -194,32 +186,33 @@ instance FromJSON Shape where
             "blob"      -> f Blob'
             e           -> fail ("Unknown Shape type: " ++ show e)
 
--- data Pager = Pager
---     { _pgMoreResults      :: Maybe [Key]
---     , _pgLimitKey         :: Maybe [Key]
---     , _pgOutputToken      :: Maybe [Key]
---     , _pgInputToken       :: Maybe [Key]
---     , _pgResultkey        :: Maybe [Key]
---     , _pgNonAggregateKeys :: Maybe [Key]
+-- data Waiter = Waiter
+--     { _wOperation    :: Maybe Text
+--     , _wDescription  :: Maybe Text
+--     , _wInterval     :: Maybe Int
+--     , _wMaxAttempts  :: Maybe Int
+--     , _wAcceptorType :: Maybe Text
+--     , _wSuccessType  :: Maybe Text
+--     , _wSuccessPath  :: Maybe Text
+--     , _wSuccessValue :: Maybe Value
+--     , _wFailureValue :: Maybe [Text]
+--     , _wIgnoreErrors :: Maybe [Text]
+--     , _wExtends      :: Maybe Text
 --     } deriving (Eq, Show)
 
--- record stage1 ''Pager
+-- record (input & thField .~ keyPython) ''Waiter
 
-data Waiter = Waiter
-    { _wOperation    :: Maybe Text
-    , _wDescription  :: Maybe Text
-    , _wInterval     :: Maybe Int
-    , _wMaxAttempts  :: Maybe Int
-    , _wAcceptorType :: Maybe Text
-    , _wSuccessType  :: Maybe Text
-    , _wSuccessPath  :: Maybe Text
-    , _wSuccessValue :: Maybe Value
-    , _wFailureValue :: Maybe [Text]
-    , _wIgnoreErrors :: Maybe [Text]
-    , _wExtends      :: Maybe Text
-    } deriving (Eq, Show)
+-- data Endpoint = Endpoint
+--     {
+--     } deriving (Show, Eq)
 
-record (stage1 & thField .~ keyPython) ''Waiter
+-- data Waiter = Waiter
+--     {
+--     } deriving (Show, Eq)
+
+-- data Retry = Retry
+--     {
+--     } deriving (Show, Eq)
 
 data Metadata = Metadata
     { _mServiceFullName     :: !Text
@@ -236,50 +229,17 @@ data Metadata = Metadata
     , _mProtocol            :: !Protocol
     } deriving (Eq, Show)
 
-classy stage1 ''Metadata
+classy input ''Metadata
 
-data Stage1 = Stage1
-    { _s1Metadata          :: Metadata
-    , _s1Documentation     :: Text
-    , _s1Operations        :: HashMap Text Operation
-    , _s1Shapes            :: HashMap Text Shape
-    , _s1Pagination        :: HashMap Text (Pager ())
-    , _s1Waiters           :: HashMap Text Waiter
+data Input = Input
+    { _inpMetadata          :: Metadata
+    , _inpDocumentation     :: Text
+    , _inpOperations        :: HashMap Text Operation
+    , _inpShapes            :: HashMap Text Shape
+    , _inpPagination        :: HashMap Text (Pager ())
     } deriving (Eq, Show)
 
-record stage1 ''Stage1
+record input ''Input
 
-instance HasMetadata Stage1 where
-    metadata = s1Metadata
-
-model :: FilePath -> FilePath -> Script Model
-model d o = do
-    v  <- version
-    m1 <- reqObject override
-    m2 <- merge <$> sequence
-        [ return m1
-        , reqObject (api v)
-        , optObject "waiters"    (waiters v)
-        , optObject "pagination" (pagers  v)
-        ]
-    Model name v d m2 <$> hoistEither (parseEither parseJSON (Object m1))
-  where
-    version = do
-        fs <- scriptIO (getDirectoryContents d)
-        f  <- tryHead ("Failed to get model version from " ++ d) (filter dots fs)
-        return (takeWhile (/= '.') f)
-
-    api     = path "api.json"
-    waiters = path "waiters.json"
-    pagers  = path "paginators.json"
-
-    path e v = d </> v <.> e
-
-    override = o </> name <.> "json"
-
-    name = takeBaseName (dropTrailingPathSeparator d)
-
-decode :: Model -> Script Stage1
-decode Model{..} = do
-    say "Decode Stage1" _mPath
-    hoistEither (parseEither parseJSON (Object _mModel))
+instance HasMetadata Input where
+    metadata = inpMetadata

@@ -31,20 +31,20 @@ data TH = TH
     , _thLens     :: Text -> Text
     , _thTag      :: String
     , _thContents :: String
-    , _thJSON     :: Name -> Q [Dec]
+    , _thJSON     :: TH -> Name -> Q [Dec]
     }
 
 makeLenses ''TH
 
 input :: TH
 input = TH ctorName keyName lensName "type" "contents" $
-    J.deriveFromJSON (jason input)
+    \t -> J.deriveFromJSON (jason t)
 
 output :: TH
-output = input & thJSON .~ A.deriveToJSON (aeson output)
+output = input & thJSON .~ (\t -> A.deriveToJSON (aeson t))
 
 nullary :: TH -> Name -> Q [Dec]
-nullary = (^. thJSON)
+nullary th = (_thJSON th) th
 
 record :: TH -> Name -> Q [Dec]
 record th n = concat <$> sequence

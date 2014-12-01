@@ -26,8 +26,6 @@
 
 module Gen.Types where
 
-import Debug.Trace
-
 import           Control.Applicative
 import           Control.Lens         ((&), (.~), Traversal', makeLenses)
 import           Control.Monad
@@ -541,7 +539,7 @@ instance FromJSON Retries where
                 <*> parseJSON m
                 <*> traverse (\x -> parseJSON (go x p)) n
       where
-        go (Object x) (Object y) = trace ("merging " ++ show (x, y)) $ Object $ merge [x, y]
+        go (Object x) (Object y) = Object $ merge [x, y]
         go _          _          = error "Expected two objects"
 
 data Model = Model

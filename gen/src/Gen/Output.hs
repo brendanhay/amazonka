@@ -596,7 +596,7 @@ instance ToJSON Request where
     toJSON Request{..} =
         Object (x <> operationJSON _rqProto _rqShared True _rqName _rqData)
       where
-        Object x = object $
+        Object x = object
             [ "path"     .= _uriPath _rqUri
             , "query"    .= qry
             , "queryPad" .= fieldPad qs

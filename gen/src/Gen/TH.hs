@@ -41,10 +41,10 @@ input = TH ctorName keyName lensName "type" "contents" $
     \t -> J.deriveFromJSON (jason t)
 
 output :: TH
-output = input & thJSON .~ (\t -> A.deriveToJSON (aeson t))
+output = input & thJSON .~ A.deriveToJSON . aeson
 
 nullary :: TH -> Name -> Q [Dec]
-nullary th = (_thJSON th) th
+nullary th = _thJSON th th
 
 record :: TH -> Name -> Q [Dec]
 record th n = concat <$> sequence

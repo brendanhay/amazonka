@@ -19,11 +19,9 @@ module Gen.JSON where
 import           Control.Error
 import qualified Data.Aeson       as A
 import           Data.Function    (on)
-import           Data.Jason       (eitherDecode')
 import           Data.Jason.Types
 import           Data.List
 import           Data.Monoid
-import           Data.Text        (Text)
 
 parse :: FromJSON a => Object -> Script a
 parse = hoistEither . parseEither parseJSON . Object

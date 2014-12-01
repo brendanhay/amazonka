@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE BangPatterns            #-}
 {-# LANGUAGE RecordWildCards            #-}
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
@@ -41,18 +40,14 @@ loadModel d o Retries{..} = do
         , optionalObject "pagination" (pagers  v)
         ]
 
-    let !r = retry
-
-    scriptIO (print r)
-
-    Model name v d m2 r <$> parse m1
+    Model name v d m2 retry <$> parse m1
   where
     version = do
         fs <- scriptIO (getDirectoryContents d)
         f  <- tryHead ("Failed to get model version from " ++ d) (filter dots fs)
         return (takeWhile (/= '.') f)
 
-    retry   = Map.lookupDefault _rDefaultRetry (Text.pack name) _rRetry
+    retry   = Map.lookupDefault _rDefault (Text.pack name) _rRetries
 
     api     = path "api.json"
     waiters = path "waiters.json"

@@ -13,14 +13,23 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.Templates (loadTemplates) where
+module Gen.Templates where
 
 import Control.Applicative
 import Control.Error
 import Gen.IO
 import Gen.Types
 import System.FilePath
-import Text.EDE            (eitherParseFile)
+import Text.EDE
+
+data Templates = Templates
+    { _tCabal      :: Template
+    , _tService    :: Template
+    , _tReadme     :: Template
+    , _tExCabal    :: Template
+    , _tExMakefile :: Template
+    , _tProtocol   :: Protocol -> (Template, Template)
+    }
 
 loadTemplates :: FilePath -> Script Templates
 loadTemplates d = do

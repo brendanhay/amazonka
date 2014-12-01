@@ -27,6 +27,7 @@ import qualified Data.Text           as Text
 import           Gen.IO
 import           Gen.JSON
 import           Gen.Output
+import           Gen.Templates
 import           Gen.Types
 import           System.FilePath
 

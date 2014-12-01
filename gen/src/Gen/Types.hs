@@ -52,7 +52,6 @@ import           Gen.Names
 import           Gen.Orphans          ()
 import           Gen.TH
 import           System.FilePath
-import           Text.EDE             (Template)
 
 default (Text)
 
@@ -512,14 +511,14 @@ instance FromJSON Retry where
             Just  y -> withObject "default_retry" go y
       where
         go o = Retry
-            <$> o .:? "max_attempts" .!= (error $ "max_attempts: " ++ show o)
-            <*> o .:? "delay" .!= (error $ "delay: " ++ show o)
-            <*> o .:  "policies"
+            <$> o .: "max_attempts"
+            <*> o .: "delay"
+            <*> o .: "policies"
 
 data Retries = Retries
-    { _rDefinitions  :: HashMap Text Policy
-    , _rDefaultRetry :: Retry
-    , _rRetry        :: HashMap Text Retry
+    { _rDefinitions :: HashMap Text Policy
+    , _rRetries     :: HashMap Text Retry
+    , _rDefault     :: Retry
     } deriving (Eq, Show)
 
 makeLenses ''Retries
@@ -527,20 +526,20 @@ makeLenses ''Retries
 instance FromJSON Retries where
     parseJSON = withObject "retries" $ \o -> do
         r <- o .: "retry"
-
-        let d = "__default__"
-            n = Map.delete d r
-
-        m <- maybe (fail $ "Unable to find: " ++ show d) return (Map.lookup d r)
-
-        let p = toJSON (Map.singleton d m)
-
+        m <- maybe (fail $ "Missing: " ++ show def) return (Map.lookup def r)
         Retries <$> o .: "definitions"
+                <*> mergeAll r m
                 <*> parseJSON m
-                <*> traverse (\x -> parseJSON (go x p)) n
       where
+        mergeAll r m = traverse (\x -> parseJSON (go x p)) n
+          where
+            n = Map.delete def r
+            p = toJSON (Map.singleton def m)
+
         go (Object x) (Object y) = Object $ merge [x, y]
         go _          _          = error "Expected two objects"
+
+        def = "__default__"
 
 data Model = Model
     { _mName          :: String
@@ -555,12 +554,3 @@ makeLenses ''Model
 
 instance Ord Model where
     compare a b = comparing _mName a b <> comparing _mVersion a b
-
-data Templates = Templates
-    { _tCabal      :: Template
-    , _tService    :: Template
-    , _tReadme     :: Template
-    , _tExCabal    :: Template
-    , _tExMakefile :: Template
-    , _tProtocol   :: Protocol -> (Template, Template)
-    }

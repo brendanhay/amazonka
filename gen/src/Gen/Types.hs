@@ -26,6 +26,8 @@
 
 module Gen.Types where
 
+import Debug.Trace
+
 import           Control.Applicative
 import           Control.Lens         ((&), (.~), Traversal', makeLenses)
 import           Control.Monad
@@ -47,6 +49,7 @@ import           Data.SemVer
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Traversable     (Traversable, traverse)
+import           Gen.JSON             (merge)
 import           Gen.Names
 import           Gen.Orphans          ()
 import           Gen.TH
@@ -497,29 +500,49 @@ data Delay = Delay
 record (input & thField .~ keyPython) ''Delay
 
 data Retry = Retry
-    { _rMaxAttempts :: Maybe Int
-    , _rDelay       :: Maybe Delay
+    { _rMaxAttempts :: !Int
+    , _rDelay       :: !Delay
     , _rPolicies    :: HashMap Text Policy
     } deriving (Eq, Show)
 
 makeLenses ''Retry
 
 instance FromJSON Retry where
-    parseJSON = withObject "retry" $ \o -> go o <|> (o .: "__default__" >>= go)
+    parseJSON = withObject "retry" $ \x ->
+        case lookup "__default__" (unObject x) of
+            Nothing -> go x
+            Just  y -> withObject "default_retry" go y
       where
         go o = Retry
-            <$> o .:? "max_attempts"
-            <*> o .:? "delay"
+            <$> o .:? "max_attempts" .!= (error $ "max_attempts: " ++ show o)
+            <*> o .:? "delay" .!= (error $ "delay: " ++ show o)
             <*> o .:  "policies"
 
 data Retries = Retries
-    { _rDefinitions :: HashMap Text Policy
-    , _rRetry       :: HashMap Text Retry
+    { _rDefinitions  :: HashMap Text Policy
+    , _rDefaultRetry :: Retry
+    , _rRetry        :: HashMap Text Retry
     } deriving (Eq, Show)
 
-merge __default__ and replace $refs during parsing
+makeLenses ''Retries
 
-record input ''Retries
+instance FromJSON Retries where
+    parseJSON = withObject "retries" $ \o -> do
+        r <- o .: "retry"
+
+        let d = "__default__"
+            n = Map.delete d r
+
+        m <- maybe (fail $ "Unable to find: " ++ show d) return (Map.lookup d r)
+
+        let p = toJSON (Map.singleton d m)
+
+        Retries <$> o .: "definitions"
+                <*> parseJSON m
+                <*> traverse (\x -> parseJSON (go x p)) n
+      where
+        go (Object x) (Object y) = trace ("merging " ++ show (x, y)) $ Object $ merge [x, y]
+        go _          _          = error "Expected two objects"
 
 data Model = Model
     { _mName          :: String

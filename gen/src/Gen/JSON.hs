@@ -24,7 +24,6 @@ import           Data.Jason.Types
 import           Data.List
 import           Data.Monoid
 import           Data.Text        (Text)
-import           Gen.IO
 
 parse :: FromJSON a => Object -> Script a
 parse = hoistEither . parseEither parseJSON . Object
@@ -51,13 +50,3 @@ merge = foldl' go mempty
       where
         g (k, x) | Just y <- lookup k ys = (k, f x y)
                  | otherwise             = (k, x)
-
-requireObject :: FromJSON a => FilePath -> Script a
-requireObject f = loadObject f >>= hoistEither
-
-optionalObject :: Text -> FilePath -> Script Object
-optionalObject k = fmap (fromMaybe (mkObject [(k, Object mempty)]) . hush)
-    . loadObject
-
-loadObject :: FromJSON a => FilePath -> Script (Either String a)
-loadObject = readFromFile eitherDecode'

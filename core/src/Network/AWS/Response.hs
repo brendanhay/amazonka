@@ -120,7 +120,7 @@ receive f = const (either (return . Left . HttpError) success)
     success rs =
         maybe (f (_svcAbbrev svc) hs bdy)
               (\g -> Left . g <$> sinkLbs bdy)
-              (handle svc s)
+              (_svcHandle svc s)
       where
         svc = service :: Service (Sv a)
 

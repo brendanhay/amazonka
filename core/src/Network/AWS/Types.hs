@@ -38,6 +38,7 @@ module Network.AWS.Types
     -- * Services
     , Abbrev
     , AWSService    (..)
+    , Delay         (..)
     , Service       (..)
     , serviceOf
 
@@ -162,9 +163,6 @@ class (AWSSigner (Sg a), Show (Er a)) => AWSService a where
     type Er a :: *
 
     service :: Service a
-    handle  :: Service a
-            -> Status
-            -> Maybe (LazyByteString -> ServiceError (Er a))
 
 serviceOf :: AWSService (Sv a) => Request a -> Service (Sv a)
 serviceOf = const service
@@ -362,6 +360,9 @@ endpoint Service{..} r = go (CI.mk _svcPrefix)
         , Tokyo
         ]
 
+-- | Retry delay base, growth, and attempts for an AWS service.
+data Delay = Exp !Double !Int !Int
+
 -- | Attributes specific to an AWS service.
 data Service a = Service
     { _svcAbbrev       :: !Text
@@ -369,6 +370,9 @@ data Service a = Service
     , _svcVersion      :: ByteString
     , _svcTargetPrefix :: Maybe ByteString
     , _svcJSONVersion  :: Maybe ByteString
+    , _svcDelay        :: !Delay
+    , _svcRetry        :: Int    -> ServiceError (Er a)   -> Bool
+    , _svcHandle       :: Status -> Maybe (LazyByteString -> ServiceError (Er a))
     }
 
 -- | An unsigned request.

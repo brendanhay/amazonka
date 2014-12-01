@@ -39,6 +39,7 @@ module Control.Monad.Trans.AWS
     , envRegion
     , envManager
     , envLogger
+    , envRetry
     -- ** Creating the environment
     , Credentials (..)
     , AWS.newEnv
@@ -55,6 +56,9 @@ module Control.Monad.Trans.AWS
     -- * Regionalisation
     , Region      (..)
     , within
+
+    -- * Retries
+    , once
 
     -- * Errors
     , Error
@@ -248,6 +252,13 @@ logTrace x = view envLogger >>= (`trace` x)
 -- | Scope a monadic action within the specific 'Region'.
 within :: MonadReader Env m => Region -> m a -> m a
 within r = local (envRegion .~ r)
+
+-- | Scope a monadic action such that any potential retry logic for the
+-- 'Service' is ignored.
+--
+-- /Example:/ Any requests will at most be sent once.
+once :: MonadReader Env m => m a -> m a
+once = local (envRetry .~ False)
 
 -- | Send a data type which is an instance of 'AWSRequest', returning it's
 -- associated 'Rs' response type.

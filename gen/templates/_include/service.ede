@@ -11,15 +11,14 @@ instance AWSService {{ service.abbrev }} where
         , _svcVersion      = "{{ service.version }}"
         , _svcTargetPrefix = {% if service.targetPrefix %}Just "{{ service.targetPrefix }}"{% else %}Nothing{% endif %}
         , _svcJSONVersion  = {% if service.jsonVersion %}Just "{{ service.jsonVersion }}"{% else %}Nothing{% endif %}
+        , _svcHandle       = {% if service.error == "JSONError" %}jsonError{% else %}restError{% endif %} statusSuccess
+        , _svcDelay        = {{ service.delay | show }}
         }
-{% case service.error %}
-  {% when "JSONError" %}
 
-    handle = jsonError statusSuccess
-  {% else %}
-
-    handle = restError statusSuccess
-{% endcase %}
+     retry n e
+{% for retry in service.retries %}
+  {{ retry | show }}
+{% endfor %}
 {% if service.xmlNamespace %}
 
 ns :: Text

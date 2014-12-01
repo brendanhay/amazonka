@@ -448,11 +448,85 @@ instance FromJSON Overrides where
         <*> o .:? "typeModules"      .!= mempty
         <*> o .:? "overrides"        .!= mempty
 
+data Resp
+    = Status (Maybe Text) !Int
+    | CRC32  !Text
+      deriving (Eq, Show)
+
+instance FromJSON Resp where
+    parseJSON = withObject "resp" $ \o -> status o <|> crc o
+      where
+        status o = Status
+             <$> o .:? "service_error_code"
+             <*> o .:  "http_status_code"
+
+        crc = fmap CRC32 . (.: "crc32body")
+
+data Policy
+    = Ref   !Text
+    | Sock  [Text]
+    | Resp  Resp
+      deriving (Eq, Show)
+
+instance FromJSON Policy where
+    parseJSON = withObject "ref" $ \o ->
+            sock o
+        <|> resp o
+        <|> ref  o
+      where
+        sock = fmap Sock . ((.: "applies_when") >=> (.: "socket_errors"))
+        resp = fmap Resp . ((.: "applies_when") >=> (.: "response"))
+        ref  = fmap Ref  . (.: "$ref")
+
+data Base
+    = Rand
+    | Factor !Int
+      deriving (Eq, Show)
+
+instance FromJSON Base where
+    parseJSON = \case
+       String "rand" -> pure Rand
+       o             -> Factor <$> parseJSON o
+
+data Delay = Delay
+    { _dType         :: !Text
+    , _dBase         :: !Base
+    , _dGrowthFactor :: !Int
+    } deriving (Eq, Show)
+
+record (input & thField .~ keyPython) ''Delay
+
+data Retry = Retry
+    { _rMaxAttempts :: Maybe Int
+    , _rDelay       :: Maybe Delay
+    , _rPolicies    :: HashMap Text Policy
+    } deriving (Eq, Show)
+
+makeLenses ''Retry
+
+instance FromJSON Retry where
+    parseJSON = withObject "retry" $ \o -> go o <|> (o .: "__default__" >>= go)
+      where
+        go o = Retry
+            <$> o .:? "max_attempts"
+            <*> o .:? "delay"
+            <*> o .:  "policies"
+
+data Retries = Retries
+    { _rDefinitions :: HashMap Text Policy
+    , _rRetry       :: HashMap Text Retry
+    } deriving (Eq, Show)
+
+merge __default__ and replace $refs during parsing
+
+record input ''Retries
+
 data Model = Model
     { _mName          :: String
     , _mVersion       :: String
     , _mPath          :: FilePath
     , _mModel         :: Object
+    , _mRetry         :: Retry
     , _mOverrides     :: Overrides
     } deriving (Show, Eq)
 

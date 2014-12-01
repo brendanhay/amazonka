@@ -13,7 +13,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.Templates (load) where
+module Gen.Templates (loadTemplates) where
 
 import Control.Applicative
 import Control.Error
@@ -22,26 +22,26 @@ import Gen.Types
 import System.FilePath
 import Text.EDE            (eitherParseFile)
 
-load :: FilePath -> Script Templates
-load d = do
+loadTemplates :: FilePath -> Script Templates
+loadTemplates d = do
     f  <- Templates
-        <$> load' "cabal"
-        <*> load' "service"
-        <*> load' "readme"
-        <*> load' "example-cabal"
-        <*> load' "example-makefile"
+        <$> load "cabal"
+        <*> load "service"
+        <*> load "readme"
+        <*> load "example-cabal"
+        <*> load "example-makefile"
 
     !x <- (,)
-        <$> load' "types-xml"
-        <*> load' "operation-xml"
+        <$> load "types-xml"
+        <*> load "operation-xml"
 
     !j <- (,)
-        <$> load' "types-json"
-        <*> load' "operation-json"
+        <$> load "types-json"
+        <*> load "operation-json"
 
     !q <- (,)
-        <$> load' "types-query"
-        <*> load' "operation-query"
+        <$> load "types-query"
+        <*> load "operation-query"
 
     return $! f $ \case
         Json     -> j
@@ -51,7 +51,7 @@ load d = do
         Query    -> q
         Ec2      -> q
   where
-    load' (path -> f) =
+    load (path -> f) =
            say "Parse Template" f
         *> scriptIO (eitherParseFile f)
        >>= hoistEither

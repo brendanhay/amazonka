@@ -12,18 +12,22 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.Model (load) where
+module Gen.Model where
 
 import Control.Applicative
 import Control.Error
+import Control.Monad
 import Gen.IO
 import Gen.JSON
 import Gen.Types
 import System.Directory
 import System.FilePath
 
-load :: FilePath -> FilePath -> Script Model
-load d o = do
+loadRetries :: FilePath -> Script Retries
+loadRetries = requireObject >=> parse
+
+loadModel :: FilePath -> FilePath -> Retries -> Script Model
+loadModel d o rs = do
     v  <- version
     m1 <- requireObject override
     m2 <- merge <$> sequence
@@ -32,7 +36,7 @@ load d o = do
         , optionalObject "waiters"    (waiters v)
         , optionalObject "pagination" (pagers  v)
         ]
-    Model name v d m2 <$> parse m1
+    Model name v d m2 undefined <$> parse m1
   where
     version = do
         fs <- scriptIO (getDirectoryContents d)

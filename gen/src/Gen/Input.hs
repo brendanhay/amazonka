@@ -196,6 +196,11 @@ instance FromJSON Shape where
 --     {
 --     } deriving (Show, Eq)
 
+-- data Index
+--     = IIndex  !Text
+--     | IAccess !Text
+--       deriving (Eq, Show)
+
 data MatchType
     = MPath
     | MPathAll

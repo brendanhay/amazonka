@@ -48,6 +48,7 @@ module Network.AWS
 
     -- * Types
     , module Network.AWS.Types
+    , module Network.AWS.Error
     ) where
 
 import           Control.Concurrent           (threadDelay)
@@ -59,12 +60,12 @@ import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Auth
 import           Network.AWS.Data
+import           Network.AWS.Error
 import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
 import qualified Network.AWS.Signing          as Sign
 import           Network.AWS.Types
 import           Network.HTTP.Conduit         hiding (Response)
-import           Network.HTTP.Types.Status    (statusCode)
 
 -- | This creates a new environment without debug logging and uses 'getAuth'
 -- to expand/discover the supplied 'Credentials'.
@@ -100,9 +101,7 @@ send :: (MonadCatch m, MonadResource m, AWSRequest a)
      => Env
      -> a
      -> m (Response a)
-send e x
-    | _envRetry e = retry e x
-    | otherwise   = raw e x >>= response x
+send e = if _envRetry e then retry e else raw e
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate over
 -- the associated 'Rs' response type in the success case, or the related service's
@@ -143,18 +142,15 @@ retry e@Env{..} x = go _svcDelay
   where
     go cur = do
         y <- raw e x
-        z <- response x y
-        case z of
+        case y of
             Right rs -> return (Right rs)
-            Left  er
-                | Just next <- decrement cur
-                , attempt y er -> wait (seconds cur) >> go next
-                | otherwise    -> return (Left er)
+            Left (ServiceError _ s er)
+                | _svcRetry s er
+                , Just next <- decrement cur
+                     -> wait (seconds cur) >> go next
+            Left er  -> return (Left er)
 
     Service{..} = service :: Service (Sv a)
-
-    attempt (Right rs) = _svcRetry (statusCode (responseStatus rs))
-    attempt (Left  _)  = const False
 
     wait n = do
         debug _envLogger ("Retrying in " <> build n <> "s ...")
@@ -170,8 +166,8 @@ retry e@Env{..} x = go _svcDelay
 raw :: (MonadCatch m, MonadResource m, AWSRequest a)
     => Env
     -> a
-    -> m (Either HttpException ClientResponse)
-raw Env{..} (request -> rq) = go `catch` er
+    -> m (Response a)
+raw Env{..} x@(request -> rq) = go `catch` er >>= response x
   where
     go = do
         trace _envLogger (build rq)
@@ -184,6 +180,6 @@ raw Env{..} (request -> rq) = go `catch` er
 
         rs <- liftResourceT (http s _envManager)
 
-        return $! Right rs
+        return (Right rs)
 
     er ex = return (Left (ex :: HttpException))

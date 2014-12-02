@@ -36,9 +36,8 @@ newLogger x hd = liftIO $ do
     hSetBinaryMode hd True
     hSetBuffering  hd LineBuffering
     return $ \y b ->
-        if x >= y
-            then hPutBuilder hd (b <> "\n")
-            else return ()
+        when (x >= y) $
+            hPutBuilder hd (b <> "\n")
 
 info :: (MonadIO m, ToBuilder a) => Logger -> a -> m ()
 info f = liftIO . f Info . build

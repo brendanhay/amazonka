@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -27,7 +28,7 @@ module Network.AWS.RDS.Types
     -- * Service
       RDS
     -- ** Error
-    , RESTError
+    , RESTError (..)
     -- ** XML
     , ns
 
@@ -433,12 +434,27 @@ instance AWSService RDS where
         , _svcVersion      = "2014-09-01"
         , _svcTargetPrefix = Nothing
         , _svcJSONVersion  = Nothing
+        , _svcHandle       = restError statusSuccess
+        , _svcDelay        = delay
+        , _svcRetry        = retry
         }
 
-    handle = restError statusSuccess
+delay :: Delay
+delay = Exp 0.05 2 5
+{-# INLINE delay #-}
+
+retry :: AWSErrorCode -> Status -> a -> Retry
+retry (statusCode -> s) (awsErrorCode -> e)
+    | s == 500  = True -- General Server Error
+    | s == 509  = True -- Limit Exceeded
+    | s == 503  = True -- Service Unavailable
+    | s == 400  = "Throttling" == e -- Throttling
+    | otherwise = False
+{-# INLINE retry #-}
 
 ns :: Text
 ns = "http://rds.amazonaws.com/doc/2014-09-01/"
+{-# INLINE ns #-}
 
 data OptionGroup = OptionGroup
     { _ogAllowsVpcAndNonVpcInstanceMemberships :: Maybe Bool

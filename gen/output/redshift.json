@@ -71,7 +71,30 @@
         "documentation": "-- | Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse\n-- service that makes it simple and cost-effective to efficiently analyze all\n-- your data using your existing business intelligence tools. You can start\n-- small for just $0.25 per hour with no commitments or upfront costs and scale\n-- to a petabyte or more for $1,000 per terabyte per year, less than a tenth of\n-- most other data warehousing solutions.",
         "xmlNamespace": "http://redshift.amazonaws.com/doc/2012-12-01/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "redshift",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {

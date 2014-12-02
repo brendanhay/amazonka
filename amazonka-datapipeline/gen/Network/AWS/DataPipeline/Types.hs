@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -27,7 +28,7 @@ module Network.AWS.DataPipeline.Types
     -- * Service
       DataPipeline
     -- ** Error
-    , JSONError
+    , JSONError (..)
 
     -- * ParameterObject
     , ParameterObject
@@ -144,9 +145,23 @@ instance AWSService DataPipeline where
         , _svcVersion      = "2012-10-29"
         , _svcTargetPrefix = Just "DataPipeline"
         , _svcJSONVersion  = Just "1.1"
+        , _svcHandle       = jsonError statusSuccess
+        , _svcDelay        = delay
+        , _svcRetry        = retry
         }
 
-    handle = jsonError statusSuccess
+delay :: Delay
+delay = Exp 0.05 2 5
+{-# INLINE delay #-}
+
+retry :: AWSErrorCode -> Status -> a -> Retry
+retry (statusCode -> s) (awsErrorCode -> e)
+    | s == 500  = True -- General Server Error
+    | s == 509  = True -- Limit Exceeded
+    | s == 503  = True -- Service Unavailable
+    | s == 400  = "Throttling" == e -- Throttling
+    | otherwise = False
+{-# INLINE retry #-}
 
 data ParameterObject = ParameterObject
     { _poAttributes :: List "attributes" ParameterAttribute

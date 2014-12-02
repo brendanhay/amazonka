@@ -40,7 +40,26 @@
         "documentation": "-- | Amazon CodeDeploy is a service that automates code deployments to Amazon EC2\n-- instances. Amazon CodeDeploy makes it easier for you to rapidly release new\n-- features, helps you avoid downtime during deployment, and handles the\n-- complexity of updating your applications. You can use Amazon CodeDeploy to\n-- automate deployments, eliminating the need for error-prone manual operations,\n-- and the service scales with your infrastructure so you can easily deploy to\n-- one EC2 instance or thousands.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "codedeploy",
+        "retryPolicies": {
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "CodeDeploy_20141006"
     },
     "cabal": {

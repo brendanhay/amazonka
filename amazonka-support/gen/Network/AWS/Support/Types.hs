@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -27,7 +28,7 @@ module Network.AWS.Support.Types
     -- * Service
       Support
     -- ** Error
-    , JSONError
+    , JSONError (..)
 
     -- * TrustedAdvisorResourcesSummary
     , TrustedAdvisorResourcesSummary
@@ -175,9 +176,22 @@ instance AWSService Support where
         , _svcVersion      = "2013-04-15"
         , _svcTargetPrefix = Just "AWSSupport_20130415"
         , _svcJSONVersion  = Just "1.1"
+        , _svcHandle       = jsonError statusSuccess
+        , _svcDelay        = delay
+        , _svcRetry        = retry
         }
 
-    handle = jsonError statusSuccess
+delay :: Delay
+delay = Exp 0.05 2 5
+{-# INLINE delay #-}
+
+retry :: AWSErrorCode -> Status -> a -> Retry
+retry (statusCode -> s) (awsErrorCode -> e)
+    | s == 500  = True -- General Server Error
+    | s == 509  = True -- Limit Exceeded
+    | s == 503  = True -- Service Unavailable
+    | otherwise = False
+{-# INLINE retry #-}
 
 data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary
     { _tarsResourcesFlagged    :: Integer

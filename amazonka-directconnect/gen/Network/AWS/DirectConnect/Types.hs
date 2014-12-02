@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -27,7 +28,7 @@ module Network.AWS.DirectConnect.Types
     -- * Service
       DirectConnect
     -- ** Error
-    , JSONError
+    , JSONError (..)
 
     -- * VirtualInterface
     , VirtualInterface
@@ -165,9 +166,23 @@ instance AWSService DirectConnect where
         , _svcVersion      = "2012-10-25"
         , _svcTargetPrefix = Just "OvertureService"
         , _svcJSONVersion  = Just "1.1"
+        , _svcHandle       = jsonError statusSuccess
+        , _svcDelay        = delay
+        , _svcRetry        = retry
         }
 
-    handle = jsonError statusSuccess
+delay :: Delay
+delay = Exp 0.05 2 5
+{-# INLINE delay #-}
+
+retry :: AWSErrorCode -> Status -> a -> Retry
+retry (statusCode -> s) (awsErrorCode -> e)
+    | s == 500  = True -- General Server Error
+    | s == 509  = True -- Limit Exceeded
+    | s == 503  = True -- Service Unavailable
+    | s == 400  = "Throttling" == e -- Throttling
+    | otherwise = False
+{-# INLINE retry #-}
 
 data VirtualInterface = VirtualInterface
     { _viAmazonAddress         :: Maybe Text

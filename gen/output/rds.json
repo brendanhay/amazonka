@@ -69,7 +69,30 @@
         "documentation": "-- | Amazon Relational Database Service (Amazon RDS) is a web service that makes\n-- it easy to set up, operate, and scale a relational database in the cloud. It\n-- provides cost-efficient and resizable capacity while managing time-consuming\n-- database administration tasks, freeing you up to focus on your applications\n-- and business.",
         "xmlNamespace": "http://rds.amazonaws.com/doc/2014-09-01/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "rds",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {

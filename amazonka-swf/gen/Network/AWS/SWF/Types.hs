@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -27,7 +28,7 @@ module Network.AWS.SWF.Types
     -- * Service
       SWF
     -- ** Error
-    , JSONError
+    , JSONError (..)
 
     -- * WorkflowExecutionCancelRequestedEventAttributes
     , WorkflowExecutionCancelRequestedEventAttributes
@@ -797,9 +798,23 @@ instance AWSService SWF where
         , _svcVersion      = "2012-01-25"
         , _svcTargetPrefix = Just "SimpleWorkflowService"
         , _svcJSONVersion  = Just "1.0"
+        , _svcHandle       = jsonError statusSuccess
+        , _svcDelay        = delay
+        , _svcRetry        = retry
         }
 
-    handle = jsonError statusSuccess
+delay :: Delay
+delay = Exp 0.05 2 5
+{-# INLINE delay #-}
+
+retry :: AWSErrorCode -> Status -> a -> Retry
+retry (statusCode -> s) (awsErrorCode -> e)
+    | s == 500  = True -- General Server Error
+    | s == 509  = True -- Limit Exceeded
+    | s == 503  = True -- Service Unavailable
+    | s == 400  = "Throttling" == e -- Throttling
+    | otherwise = False
+{-# INLINE retry #-}
 
 data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRequestedEventAttributes
     { _wecreaCause                     :: Maybe WorkflowExecutionCancelRequestedCause

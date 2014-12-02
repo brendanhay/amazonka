@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -27,7 +28,7 @@ module Network.AWS.Config.Types
     -- * Service
       Config
     -- ** Error
-    , JSONError
+    , JSONError (..)
 
     -- * ConfigExportDeliveryInfo
     , ConfigExportDeliveryInfo
@@ -141,9 +142,22 @@ instance AWSService Config where
         , _svcVersion      = "2014-11-12"
         , _svcTargetPrefix = Just "StarlingDoveService"
         , _svcJSONVersion  = Just "1.1"
+        , _svcHandle       = jsonError statusSuccess
+        , _svcDelay        = delay
+        , _svcRetry        = retry
         }
 
-    handle = jsonError statusSuccess
+delay :: Delay
+delay = Exp 0.05 2 5
+{-# INLINE delay #-}
+
+retry :: AWSErrorCode -> Status -> a -> Retry
+retry (statusCode -> s) (awsErrorCode -> e)
+    | s == 500  = True -- General Server Error
+    | s == 509  = True -- Limit Exceeded
+    | s == 503  = True -- Service Unavailable
+    | otherwise = False
+{-# INLINE retry #-}
 
 data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo
     { _cediLastAttemptTime    :: Maybe ISO8601

@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -27,7 +28,7 @@ module Network.AWS.EC2.Types
     -- * Service
       EC2
     -- ** Error
-    , EC2Error
+    , EC2Error (..)
     -- ** XML
     , ns
 
@@ -1415,12 +1416,27 @@ instance AWSService EC2 where
         , _svcVersion      = "2014-09-01"
         , _svcTargetPrefix = Nothing
         , _svcJSONVersion  = Nothing
+        , _svcHandle       = restError statusSuccess
+        , _svcDelay        = delay
+        , _svcRetry        = retry
         }
 
-    handle = restError statusSuccess
+delay :: Delay
+delay = Exp 0.05 2 5
+{-# INLINE delay #-}
+
+retry :: AWSErrorCode -> Status -> a -> Retry
+retry (statusCode -> s) (awsErrorCode -> e)
+    | s == 500  = True -- General Server Error
+    | s == 509  = True -- Limit Exceeded
+    | s == 503  = "RequestLimitExceeded" == e -- Request Limit Exceeded
+    | s == 503  = True -- Service Unavailable
+    | otherwise = False
+{-# INLINE retry #-}
 
 ns :: Text
 ns = "http://ec2.amazonaws.com/doc/2014-09-01"
+{-# INLINE ns #-}
 
 data ImageAttributeName
     = ImageBlockDeviceMapping -- ^ blockDeviceMapping

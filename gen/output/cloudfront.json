@@ -36,7 +36,26 @@
         "documentation": "-- | Amazon CloudFront is a web service that speeds up distribution of your static\n-- and dynamic web content, for example, .html, .css, .php, image, and media\n-- files, to end users. CloudFront delivers your content through a worldwide\n-- network of edge locations. When an end user requests content that you're\n-- serving with CloudFront, the user is routed to the edge location that\n-- provides the lowest latency, so content is delivered with the best possible\n-- performance. If the content is already in that edge location, CloudFront\n-- delivers it immediately. If the content is not currently in that edge\n-- location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server\n-- (for example, a web server) that you have identified as the source for the\n-- definitive version of your content.",
         "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-05-31/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "cloudfront",
+        "retryPolicies": {
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {

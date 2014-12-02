@@ -32,7 +32,30 @@
         "documentation": "-- | Amazon Elastic Transcoder lets you convert media files that you have stored\n-- in Amazon Simple Storage Service (Amazon S3) into media files in the formats\n-- required by consumer playback devices. For example, you can convert large,\n-- high-quality digital media files into formats that users can play back on\n-- mobile devices, tablets, web browsers, and connected televisions.",
         "xmlNamespace": null,
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "elastictranscoder",
+        "retryPolicies": {
+            "throttling": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {

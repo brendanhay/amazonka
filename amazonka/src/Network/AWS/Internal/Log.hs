@@ -14,6 +14,7 @@
 -- request, response, and signing life-cycles.
 module Network.AWS.Internal.Log where
 
+import Control.Monad
 import Control.Monad.IO.Class
 import Data.ByteString.Builder
 import Data.Monoid

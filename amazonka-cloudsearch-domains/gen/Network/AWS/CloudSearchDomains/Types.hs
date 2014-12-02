@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -27,7 +28,7 @@ module Network.AWS.CloudSearchDomains.Types
     -- * Service
       CloudSearchDomains
     -- ** Error
-    , JSONError
+    , JSONError (..)
 
     -- * SearchStatus
     , SearchStatus
@@ -112,9 +113,22 @@ instance AWSService CloudSearchDomains where
         , _svcVersion      = "2013-01-01"
         , _svcTargetPrefix = Nothing
         , _svcJSONVersion  = Just "1.1"
+        , _svcHandle       = jsonError statusSuccess
+        , _svcDelay        = delay
+        , _svcRetry        = retry
         }
 
-    handle = jsonError statusSuccess
+delay :: Delay
+delay = Exp 0.05 2 5
+{-# INLINE delay #-}
+
+retry :: AWSErrorCode -> Status -> a -> Retry
+retry (statusCode -> s) (awsErrorCode -> e)
+    | s == 500  = True -- General Server Error
+    | s == 509  = True -- Limit Exceeded
+    | s == 503  = True -- Service Unavailable
+    | otherwise = False
+{-# INLINE retry #-}
 
 data SearchStatus = SearchStatus
     { _ssRid    :: Maybe Text

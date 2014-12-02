@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -27,7 +28,7 @@ module Network.AWS.CodeDeploy.Types
     -- * Service
       CodeDeploy
     -- ** Error
-    , JSONError
+    , JSONError (..)
 
     -- * GenericRevisionInfo
     , GenericRevisionInfo
@@ -234,9 +235,22 @@ instance AWSService CodeDeploy where
         , _svcVersion      = "2014-10-06"
         , _svcTargetPrefix = Just "CodeDeploy_20141006"
         , _svcJSONVersion  = Just "1.1"
+        , _svcHandle       = jsonError statusSuccess
+        , _svcDelay        = delay
+        , _svcRetry        = retry
         }
 
-    handle = jsonError statusSuccess
+delay :: Delay
+delay = Exp 0.05 2 5
+{-# INLINE delay #-}
+
+retry :: AWSErrorCode -> Status -> a -> Retry
+retry (statusCode -> s) (awsErrorCode -> e)
+    | s == 500  = True -- General Server Error
+    | s == 509  = True -- Limit Exceeded
+    | s == 503  = True -- Service Unavailable
+    | otherwise = False
+{-# INLINE retry #-}
 
 data GenericRevisionInfo = GenericRevisionInfo
     { _griDeploymentGroups :: List "deploymentGroups" Text

@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -27,7 +28,7 @@ module Network.AWS.S3.Types
     -- * Service
       S3
     -- ** Error
-    , RESTError
+    , RESTError (..)
     -- ** XML
     , ns
 
@@ -436,12 +437,27 @@ instance AWSService S3 where
         , _svcVersion      = "2006-03-01"
         , _svcTargetPrefix = Nothing
         , _svcJSONVersion  = Nothing
+        , _svcHandle       = restError statusSuccess
+        , _svcDelay        = delay
+        , _svcRetry        = retry
         }
 
-    handle = restError statusSuccess
+delay :: Delay
+delay = Exp 0.05 2 5
+{-# INLINE delay #-}
+
+retry :: AWSErrorCode -> Status -> a -> Retry
+retry (statusCode -> s) (awsErrorCode -> e)
+    | s == 500  = True -- General Server Error
+    | s == 509  = True -- Limit Exceeded
+    | s == 503  = True -- Service Unavailable
+    | s == 400  = "RequestTimeout" == e -- Timeouts
+    | otherwise = False
+{-# INLINE retry #-}
 
 ns :: Text
 ns = "http://s3.amazonaws.com/doc/2006-03-01/"
+{-# INLINE ns #-}
 
 data Event
     = S3ObjectCreatedCompleteMultipartUpload -- ^ s3:ObjectCreated:CompleteMultipartUpload

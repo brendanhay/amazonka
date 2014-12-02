@@ -29,7 +29,26 @@
         "documentation": "-- | AWS Support is a one-on-one, fast-response support channel that is staffed\n-- with experienced support personnel. The service helps customers get the most\n-- from the products and features provided by Amazon Web Services. There are\n-- four levels, or tiers, of AWS Support: Basic, Developer, Business, and\n-- Enterprise. The Basic tier is free of charge and offers support for account\n-- and billing questions and service limit increases. The other tiers offer an\n-- unlimited number of technical support cases with pay-by-the-month pricing and\n-- no long-term contracts, providing developers and businesses flexibility to\n-- choose the level of support that meets their needs.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "support",
+        "retryPolicies": {
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "AWSSupport_20130415"
     },
     "cabal": {

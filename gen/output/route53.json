@@ -42,7 +42,30 @@
         "documentation": "-- | Amazon Route 53 is a scalable Domain Name System (DNS) web service. It\n-- provides secure and reliable routing to your infrastructure that uses Amazon\n-- Web Services (AWS) products, such as Amazon Elastic Compute Cloud (Amazon\n-- EC2), Elastic Load Balancing, or Amazon Simple Storage Service (Amazon S3).\n-- You can also use Amazon Route 53 to route users to your infrastructure\n-- outside of AWS.",
         "xmlNamespace": "http://route53.amazonaws.com/doc/2013-04-01/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "route53",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {

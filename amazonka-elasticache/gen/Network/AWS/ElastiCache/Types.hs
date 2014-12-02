@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -27,7 +28,7 @@ module Network.AWS.ElastiCache.Types
     -- * Service
       ElastiCache
     -- ** Error
-    , RESTError
+    , RESTError (..)
     -- ** XML
     , ns
 
@@ -345,12 +346,27 @@ instance AWSService ElastiCache where
         , _svcVersion      = "2014-09-30"
         , _svcTargetPrefix = Nothing
         , _svcJSONVersion  = Nothing
+        , _svcHandle       = restError statusSuccess
+        , _svcDelay        = delay
+        , _svcRetry        = retry
         }
 
-    handle = restError statusSuccess
+delay :: Delay
+delay = Exp 0.05 2 5
+{-# INLINE delay #-}
+
+retry :: AWSErrorCode -> Status -> a -> Retry
+retry (statusCode -> s) (awsErrorCode -> e)
+    | s == 500  = True -- General Server Error
+    | s == 509  = True -- Limit Exceeded
+    | s == 503  = True -- Service Unavailable
+    | s == 400  = "Throttling" == e -- Throttling
+    | otherwise = False
+{-# INLINE retry #-}
 
 ns :: Text
 ns = "http://elasticache.amazonaws.com/doc/2014-09-30/"
+{-# INLINE ns #-}
 
 data NodeSnapshot = NodeSnapshot
     { _nsCacheNodeCreateTime :: Maybe ISO8601

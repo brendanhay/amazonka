@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -27,7 +28,7 @@ module Network.AWS.SQS.Types
     -- * Service
       SQS
     -- ** Error
-    , RESTError
+    , RESTError (..)
     -- ** XML
     , ns
 
@@ -117,12 +118,27 @@ instance AWSService SQS where
         , _svcVersion      = "2012-11-05"
         , _svcTargetPrefix = Nothing
         , _svcJSONVersion  = Nothing
+        , _svcHandle       = restError statusSuccess
+        , _svcDelay        = delay
+        , _svcRetry        = retry
         }
 
-    handle = restError statusSuccess
+delay :: Delay
+delay = Exp 0.05 2 5
+{-# INLINE delay #-}
+
+retry :: AWSErrorCode -> Status -> a -> Retry
+retry (statusCode -> s) (awsErrorCode -> e)
+    | s == 500  = True -- General Server Error
+    | s == 509  = True -- Limit Exceeded
+    | s == 403  = "RequestThrottled" == e -- Request Limit Exceeded
+    | s == 503  = True -- Service Unavailable
+    | otherwise = False
+{-# INLINE retry #-}
 
 ns :: Text
 ns = "http://queue.amazonaws.com/doc/2012-11-05/"
+{-# INLINE ns #-}
 
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry
     { _dmbreId            :: Text

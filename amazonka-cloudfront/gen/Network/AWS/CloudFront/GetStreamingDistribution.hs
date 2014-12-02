@@ -121,4 +121,4 @@ instance AWSRequest GetStreamingDistribution where
     request  = get
     response = xmlHeaderResponse $ \h x -> GetStreamingDistributionResponse
         <$> h ~:? "ETag"
-        <*> x .@? "StreamingDistribution" "StreamingDistribution"
+        <*> x .@? "StreamingDistribution"

@@ -128,6 +128,6 @@ instance AWSRequest CreateDistribution where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateDistributionResponse
-        <$> x .@? "Distribution" "Distribution"
+        <$> x .@? "Distribution"
         <*> h ~:? "ETag"
         <*> h ~:? "Location"

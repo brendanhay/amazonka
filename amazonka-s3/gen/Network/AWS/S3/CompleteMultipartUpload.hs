@@ -203,11 +203,11 @@ instance AWSRequest CompleteMultipartUpload where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CompleteMultipartUploadResponse
-        <$> x .@? "Bucket" "Bucket"
-        <*> x .@? "ETag" "ETag"
+        <$> x .@? "Bucket"
+        <*> x .@? "ETag"
         <*> h ~:? "x-amz-expiration"
-        <*> x .@? "Key" "Key"
-        <*> x .@? "Location" "Location"
+        <*> x .@? "Key"
+        <*> x .@? "Location"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"

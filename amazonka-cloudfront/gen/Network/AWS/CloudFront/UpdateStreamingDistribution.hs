@@ -148,4 +148,4 @@ instance AWSRequest UpdateStreamingDistribution where
     request  = put
     response = xmlHeaderResponse $ \h x -> UpdateStreamingDistributionResponse
         <$> h ~:? "ETag"
-        <*> x .@? "StreamingDistribution" "StreamingDistribution"
+        <*> x .@? "StreamingDistribution"

@@ -228,8 +228,8 @@ instance AWSRequest CreateHostedZone where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateHostedZoneResponse
-        <$> x .@  "ChangeInfo" "ChangeInfo"
-        <*> x .@  "DelegationSet" "DelegationSet"
-        <*> x .@  "HostedZone" "HostedZone"
-        <*> h ~: "Location"
-        <*> x .@? "VPC" "VPC"
+        <$> x .@  "ChangeInfo"
+        <*> x .@  "DelegationSet"
+        <*> x .@  "HostedZone"
+        <*> h ~:  "Location"
+        <*> x .@? "VPC"

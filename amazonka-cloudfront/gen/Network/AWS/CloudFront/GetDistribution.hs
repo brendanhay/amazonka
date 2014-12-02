@@ -118,5 +118,5 @@ instance AWSRequest GetDistribution where
 
     request  = get
     response = xmlHeaderResponse $ \h x -> GetDistributionResponse
-        <$> x .@? "Distribution" "Distribution"
+        <$> x .@? "Distribution"
         <*> h ~:? "ETag"

@@ -120,5 +120,5 @@ instance AWSRequest GetCloudFrontOriginAccessIdentity where
 
     request  = get
     response = xmlHeaderResponse $ \h x -> GetCloudFrontOriginAccessIdentityResponse
-        <$> x .@? "CloudFrontOriginAccessIdentity" "CloudFrontOriginAccessIdentity"
+        <$> x .@? "CloudFrontOriginAccessIdentity"
         <*> h ~:? "ETag"

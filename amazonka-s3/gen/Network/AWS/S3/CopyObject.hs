@@ -513,7 +513,7 @@ instance AWSRequest CopyObject where
 
     request  = put
     response = xmlHeaderResponse $ \h x -> CopyObjectResponse
-        <$> x .@? "CopyObjectResult" "CopyObjectResult"
+        <$> x .@? "CopyObjectResult"
         <*> h ~:? "x-amz-copy-source-version-id"
         <*> h ~:? "x-amz-expiration"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"

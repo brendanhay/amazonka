@@ -140,5 +140,5 @@ instance AWSRequest CreateHealthCheck where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateHealthCheckResponse
-        <$> x .@  "HealthCheck" "HealthCheck"
-        <*> h ~: "Location"
+        <$> x .@  "HealthCheck"
+        <*> h ~:  "Location"

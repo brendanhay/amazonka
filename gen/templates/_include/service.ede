@@ -28,7 +28,14 @@ instance AWSService {{ service.abbrev }} where
               -> Bool
         retry (statusCode -> s) (awsErrorCode -> e)
         {% for policy in service.retryPolicies %}
-            | s == {{ policy.value.code }}  = {% if policy.value.error %}"{{ policy.value.error }}" == e{% else %}True{% endif %} -- {{ policy.key | toTitle }}
+          {% if policy.value.error | defined %}
+            | s == {{ policy.value.code }} && "{{ policy.value.error }}" == e = True -- {{ policy.key | toTitle }}
+          {% endif %}
+        {% endfor %}
+        {% for policy in service.retryPolicies %}
+          {% if !(policy.value.error | defined) %}
+            | s == {{ policy.value.code }}  = True -- {{ policy.key | toTitle }}
+          {% endif %}
         {% endfor %}
             | otherwise = False
 {% if service.xmlNamespace %}

@@ -28,7 +28,7 @@ module Network.AWS.CloudTrail.Types
     -- * Service
       CloudTrail
     -- ** Error
-    , JSONError (..)
+    , JSONError
 
     -- * Trail
     , Trail
@@ -55,29 +55,32 @@ instance AWSService CloudTrail where
     type Sg CloudTrail = V4
     type Er CloudTrail = JSONError
 
-    service = Service
-        { _svcAbbrev       = "CloudTrail"
-        , _svcPrefix       = "cloudtrail"
-        , _svcVersion      = "2013-11-01"
-        , _svcTargetPrefix = Just "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101"
-        , _svcJSONVersion  = Just "1.1"
-        , _svcHandle       = jsonError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service CloudTrail
+        service' = Service
+              { _svcAbbrev       = "CloudTrail"
+              , _svcPrefix       = "cloudtrail"
+              , _svcVersion      = "2013-11-01"
+              , _svcTargetPrefix = Just "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101"
+              , _svcJSONVersion  = Just "1.1"
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> JSONError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data Trail = Trail
     { _tCloudWatchLogsLogGroupArn  :: Maybe Text

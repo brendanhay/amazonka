@@ -28,7 +28,7 @@ module Network.AWS.CloudSearchDomains.Types
     -- * Service
       CloudSearchDomains
     -- ** Error
-    , JSONError (..)
+    , JSONError
 
     -- * SearchStatus
     , SearchStatus
@@ -107,29 +107,32 @@ instance AWSService CloudSearchDomains where
     type Sg CloudSearchDomains = V4
     type Er CloudSearchDomains = JSONError
 
-    service = Service
-        { _svcAbbrev       = "CloudSearchDomains"
-        , _svcPrefix       = "cloudsearchdomain"
-        , _svcVersion      = "2013-01-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Just "1.1"
-        , _svcHandle       = jsonError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service CloudSearchDomains
+        service' = Service
+              { _svcAbbrev       = "CloudSearchDomains"
+              , _svcPrefix       = "cloudsearchdomain"
+              , _svcVersion      = "2013-01-01"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Just "1.1"
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> JSONError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data SearchStatus = SearchStatus
     { _ssRid    :: Maybe Text

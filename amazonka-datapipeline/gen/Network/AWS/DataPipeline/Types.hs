@@ -28,7 +28,7 @@ module Network.AWS.DataPipeline.Types
     -- * Service
       DataPipeline
     -- ** Error
-    , JSONError (..)
+    , JSONError
 
     -- * ParameterObject
     , ParameterObject
@@ -139,30 +139,33 @@ instance AWSService DataPipeline where
     type Sg DataPipeline = V4
     type Er DataPipeline = JSONError
 
-    service = Service
-        { _svcAbbrev       = "DataPipeline"
-        , _svcPrefix       = "datapipeline"
-        , _svcVersion      = "2012-10-29"
-        , _svcTargetPrefix = Just "DataPipeline"
-        , _svcJSONVersion  = Just "1.1"
-        , _svcHandle       = jsonError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service DataPipeline
+        service' = Service
+              { _svcAbbrev       = "DataPipeline"
+              , _svcPrefix       = "datapipeline"
+              , _svcVersion      = "2012-10-29"
+              , _svcTargetPrefix = Just "DataPipeline"
+              , _svcJSONVersion  = Just "1.1"
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | s == 400  = "Throttling" == e -- Throttling
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> JSONError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | s == 400  = "Throttling" == e -- Throttling
+            | otherwise = False
 
 data ParameterObject = ParameterObject
     { _poAttributes :: List "attributes" ParameterAttribute

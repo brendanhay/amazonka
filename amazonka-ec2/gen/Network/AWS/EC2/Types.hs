@@ -28,7 +28,7 @@ module Network.AWS.EC2.Types
     -- * Service
       EC2
     -- ** Error
-    , EC2Error (..)
+    , EC2Error
     -- ** XML
     , ns
 
@@ -1410,30 +1410,33 @@ instance AWSService EC2 where
     type Sg EC2 = V4
     type Er EC2 = EC2Error
 
-    service = Service
-        { _svcAbbrev       = "EC2"
-        , _svcPrefix       = "ec2"
-        , _svcVersion      = "2014-09-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        , _svcHandle       = restError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service EC2
+        service' = Service
+              { _svcAbbrev       = "EC2"
+              , _svcPrefix       = "ec2"
+              , _svcVersion      = "2014-09-01"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError EC2Error)
+        handle = restError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = "RequestLimitExceeded" == e -- Request Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> EC2Error
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = "RequestLimitExceeded" == e -- Request Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://ec2.amazonaws.com/doc/2014-09-01"

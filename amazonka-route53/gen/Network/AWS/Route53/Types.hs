@@ -28,7 +28,7 @@ module Network.AWS.Route53.Types
     -- * Service
       Route53
     -- ** Error
-    , RESTError (..)
+    , RESTError
     -- ** XML
     , ns
 
@@ -207,30 +207,33 @@ instance AWSService Route53 where
     type Sg Route53 = V3
     type Er Route53 = RESTError
 
-    service = Service
-        { _svcAbbrev       = "Route53"
-        , _svcPrefix       = "route53"
-        , _svcVersion      = "2013-04-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        , _svcHandle       = restError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service Route53
+        service' = Service
+              { _svcAbbrev       = "Route53"
+              , _svcPrefix       = "route53"
+              , _svcVersion      = "2013-04-01"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | s == 400  = "Throttling" == e -- Throttling
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> RESTError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | s == 400  = "Throttling" == e -- Throttling
+            | otherwise = False
 
 ns :: Text
 ns = "http://route53.amazonaws.com/doc/2013-04-01/"

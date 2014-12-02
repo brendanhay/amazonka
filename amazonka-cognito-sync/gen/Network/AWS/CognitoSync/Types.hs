@@ -28,7 +28,7 @@ module Network.AWS.CognitoSync.Types
     -- * Service
       CognitoSync
     -- ** Error
-    , JSONError (..)
+    , JSONError
 
     -- * IdentityPoolUsage
     , IdentityPoolUsage
@@ -103,29 +103,32 @@ instance AWSService CognitoSync where
     type Sg CognitoSync = V4
     type Er CognitoSync = JSONError
 
-    service = Service
-        { _svcAbbrev       = "CognitoSync"
-        , _svcPrefix       = "cognito-sync"
-        , _svcVersion      = "2014-06-30"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Just "1.1"
-        , _svcHandle       = jsonError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service CognitoSync
+        service' = Service
+              { _svcAbbrev       = "CognitoSync"
+              , _svcPrefix       = "cognito-sync"
+              , _svcVersion      = "2014-06-30"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Just "1.1"
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> JSONError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data IdentityPoolUsage = IdentityPoolUsage
     { _ipuDataStorage       :: Maybe Integer

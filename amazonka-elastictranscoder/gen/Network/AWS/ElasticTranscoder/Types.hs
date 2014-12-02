@@ -28,7 +28,7 @@ module Network.AWS.ElasticTranscoder.Types
     -- * Service
       ElasticTranscoder
     -- ** Error
-    , JSONError (..)
+    , JSONError
 
     -- * PipelineOutputConfig
     , PipelineOutputConfig
@@ -295,30 +295,33 @@ instance AWSService ElasticTranscoder where
     type Sg ElasticTranscoder = V4
     type Er ElasticTranscoder = JSONError
 
-    service = Service
-        { _svcAbbrev       = "ElasticTranscoder"
-        , _svcPrefix       = "elastictranscoder"
-        , _svcVersion      = "2012-09-25"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        , _svcHandle       = jsonError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service ElasticTranscoder
+        service' = Service
+              { _svcAbbrev       = "ElasticTranscoder"
+              , _svcPrefix       = "elastictranscoder"
+              , _svcVersion      = "2012-09-25"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | s == 400  = "ThrottlingException" == e -- Throttling
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> JSONError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | s == 400  = "ThrottlingException" == e -- Throttling
+            | otherwise = False
 
 data PipelineOutputConfig = PipelineOutputConfig
     { _pocBucket       :: Maybe Text

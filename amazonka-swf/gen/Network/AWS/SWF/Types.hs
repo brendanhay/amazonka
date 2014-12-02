@@ -28,7 +28,7 @@ module Network.AWS.SWF.Types
     -- * Service
       SWF
     -- ** Error
-    , JSONError (..)
+    , JSONError
 
     -- * WorkflowExecutionCancelRequestedEventAttributes
     , WorkflowExecutionCancelRequestedEventAttributes
@@ -792,30 +792,33 @@ instance AWSService SWF where
     type Sg SWF = V4
     type Er SWF = JSONError
 
-    service = Service
-        { _svcAbbrev       = "SWF"
-        , _svcPrefix       = "swf"
-        , _svcVersion      = "2012-01-25"
-        , _svcTargetPrefix = Just "SimpleWorkflowService"
-        , _svcJSONVersion  = Just "1.0"
-        , _svcHandle       = jsonError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service SWF
+        service' = Service
+              { _svcAbbrev       = "SWF"
+              , _svcPrefix       = "swf"
+              , _svcVersion      = "2012-01-25"
+              , _svcTargetPrefix = Just "SimpleWorkflowService"
+              , _svcJSONVersion  = Just "1.0"
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | s == 400  = "Throttling" == e -- Throttling
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> JSONError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | s == 400  = "Throttling" == e -- Throttling
+            | otherwise = False
 
 data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRequestedEventAttributes
     { _wecreaCause                     :: Maybe WorkflowExecutionCancelRequestedCause

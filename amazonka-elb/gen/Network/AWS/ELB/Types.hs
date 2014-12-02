@@ -28,7 +28,7 @@ module Network.AWS.ELB.Types
     -- * Service
       ELB
     -- ** Error
-    , RESTError (..)
+    , RESTError
     -- ** XML
     , ns
 
@@ -224,30 +224,33 @@ instance AWSService ELB where
     type Sg ELB = V4
     type Er ELB = RESTError
 
-    service = Service
-        { _svcAbbrev       = "ELB"
-        , _svcPrefix       = "elasticloadbalancing"
-        , _svcVersion      = "2012-06-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        , _svcHandle       = restError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service ELB
+        service' = Service
+              { _svcAbbrev       = "ELB"
+              , _svcPrefix       = "elasticloadbalancing"
+              , _svcVersion      = "2012-06-01"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | s == 400  = "Throttling" == e -- Throttling
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> RESTError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | s == 400  = "Throttling" == e -- Throttling
+            | otherwise = False
 
 ns :: Text
 ns = "http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/"

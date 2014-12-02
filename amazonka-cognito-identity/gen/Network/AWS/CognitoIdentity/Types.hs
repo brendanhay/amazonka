@@ -28,7 +28,7 @@ module Network.AWS.CognitoIdentity.Types
     -- * Service
       CognitoIdentity
     -- ** Error
-    , JSONError (..)
+    , JSONError
 
     -- * IdentityDescription
     , IdentityDescription
@@ -66,29 +66,32 @@ instance AWSService CognitoIdentity where
     type Sg CognitoIdentity = V4
     type Er CognitoIdentity = JSONError
 
-    service = Service
-        { _svcAbbrev       = "CognitoIdentity"
-        , _svcPrefix       = "cognito-identity"
-        , _svcVersion      = "2014-06-30"
-        , _svcTargetPrefix = Just "AWSCognitoIdentityService"
-        , _svcJSONVersion  = Just "1.1"
-        , _svcHandle       = jsonError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service CognitoIdentity
+        service' = Service
+              { _svcAbbrev       = "CognitoIdentity"
+              , _svcPrefix       = "cognito-identity"
+              , _svcVersion      = "2014-06-30"
+              , _svcTargetPrefix = Just "AWSCognitoIdentityService"
+              , _svcJSONVersion  = Just "1.1"
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> JSONError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data IdentityDescription = IdentityDescription
     { _idIdentityId :: Maybe Text

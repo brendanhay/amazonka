@@ -28,7 +28,7 @@ module Network.AWS.Config.Types
     -- * Service
       Config
     -- ** Error
-    , JSONError (..)
+    , JSONError
 
     -- * ConfigExportDeliveryInfo
     , ConfigExportDeliveryInfo
@@ -136,29 +136,32 @@ instance AWSService Config where
     type Sg Config = V4
     type Er Config = JSONError
 
-    service = Service
-        { _svcAbbrev       = "Config"
-        , _svcPrefix       = "config"
-        , _svcVersion      = "2014-11-12"
-        , _svcTargetPrefix = Just "StarlingDoveService"
-        , _svcJSONVersion  = Just "1.1"
-        , _svcHandle       = jsonError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service Config
+        service' = Service
+              { _svcAbbrev       = "Config"
+              , _svcPrefix       = "config"
+              , _svcVersion      = "2014-11-12"
+              , _svcTargetPrefix = Just "StarlingDoveService"
+              , _svcJSONVersion  = Just "1.1"
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> JSONError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo
     { _cediLastAttemptTime    :: Maybe ISO8601

@@ -28,7 +28,7 @@ module Network.AWS.Lambda.Types
     -- * Service
       Lambda
     -- ** Error
-    , JSONError (..)
+    , JSONError
 
     -- * Runtime
     , Runtime (..)
@@ -85,29 +85,32 @@ instance AWSService Lambda where
     type Sg Lambda = V4
     type Er Lambda = JSONError
 
-    service = Service
-        { _svcAbbrev       = "Lambda"
-        , _svcPrefix       = "lambda"
-        , _svcVersion      = "2014-11-11"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        , _svcHandle       = jsonError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service Lambda
+        service' = Service
+              { _svcAbbrev       = "Lambda"
+              , _svcPrefix       = "lambda"
+              , _svcVersion      = "2014-11-11"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> JSONError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data Runtime
     = Nodejs -- ^ nodejs

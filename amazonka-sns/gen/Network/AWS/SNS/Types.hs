@@ -28,7 +28,7 @@ module Network.AWS.SNS.Types
     -- * Service
       SNS
     -- ** Error
-    , RESTError (..)
+    , RESTError
     -- ** XML
     , ns
 
@@ -78,30 +78,33 @@ instance AWSService SNS where
     type Sg SNS = V4
     type Er SNS = RESTError
 
-    service = Service
-        { _svcAbbrev       = "SNS"
-        , _svcPrefix       = "sns"
-        , _svcVersion      = "2010-03-31"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        , _svcHandle       = restError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service SNS
+        service' = Service
+              { _svcAbbrev       = "SNS"
+              , _svcPrefix       = "sns"
+              , _svcVersion      = "2010-03-31"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | s == 400  = "Throttling" == e -- Throttling
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> RESTError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | s == 400  = "Throttling" == e -- Throttling
+            | otherwise = False
 
 ns :: Text
 ns = "http://sns.amazonaws.com/doc/2010-03-31/"

@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.Types
     -- * Service
       AutoScaling
     -- ** Error
-    , RESTError (..)
+    , RESTError
     -- ** XML
     , ns
 
@@ -265,30 +265,33 @@ instance AWSService AutoScaling where
     type Sg AutoScaling = V4
     type Er AutoScaling = RESTError
 
-    service = Service
-        { _svcAbbrev       = "AutoScaling"
-        , _svcPrefix       = "autoscaling"
-        , _svcVersion      = "2011-01-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        , _svcHandle       = restError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service AutoScaling
+        service' = Service
+              { _svcAbbrev       = "AutoScaling"
+              , _svcPrefix       = "autoscaling"
+              , _svcVersion      = "2011-01-01"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | s == 400  = "Throttling" == e -- Throttling
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> RESTError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | s == 400  = "Throttling" == e -- Throttling
+            | otherwise = False
 
 ns :: Text
 ns = "http://autoscaling.amazonaws.com/doc/2011-01-01/"

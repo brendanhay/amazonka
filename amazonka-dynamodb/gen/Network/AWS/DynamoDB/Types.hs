@@ -28,7 +28,7 @@ module Network.AWS.DynamoDB.Types
     -- * Service
       DynamoDB
     -- ** Error
-    , JSONError (..)
+    , JSONError
 
     -- * WriteRequest
     , WriteRequest
@@ -252,31 +252,34 @@ instance AWSService DynamoDB where
     type Sg DynamoDB = V4
     type Er DynamoDB = JSONError
 
-    service = Service
-        { _svcAbbrev       = "DynamoDB"
-        , _svcPrefix       = "dynamodb"
-        , _svcVersion      = "2012-08-10"
-        , _svcTargetPrefix = Just "DynamoDB_20120810"
-        , _svcJSONVersion  = Just "1.0"
-        , _svcHandle       = jsonError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service DynamoDB
+        service' = Service
+              { _svcAbbrev       = "DynamoDB"
+              , _svcPrefix       = "dynamodb"
+              , _svcVersion      = "2012-08-10"
+              , _svcTargetPrefix = Just "DynamoDB_20120810"
+              , _svcJSONVersion  = Just "1.0"
+              , _svcDelay        = Exp 0.05 2 10
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 10
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | s == 400  = "ThrottlingException" == e -- Throttling
-    | s == 400  = "ProvisionedThroughputExceededException" == e -- Throughput Exceeded
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> JSONError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | s == 400  = "ThrottlingException" == e -- Throttling
+            | s == 400  = "ProvisionedThroughputExceededException" == e -- Throughput Exceeded
+            | otherwise = False
 
 data WriteRequest = WriteRequest
     { _wDeleteRequest :: Maybe DeleteRequest

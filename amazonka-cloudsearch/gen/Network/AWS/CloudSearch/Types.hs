@@ -28,7 +28,7 @@ module Network.AWS.CloudSearch.Types
     -- * Service
       CloudSearch
     -- ** Error
-    , RESTError (..)
+    , RESTError
     -- ** XML
     , ns
 
@@ -306,30 +306,33 @@ instance AWSService CloudSearch where
     type Sg CloudSearch = V4
     type Er CloudSearch = RESTError
 
-    service = Service
-        { _svcAbbrev       = "CloudSearch"
-        , _svcPrefix       = "cloudsearch"
-        , _svcVersion      = "2013-01-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        , _svcHandle       = restError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service CloudSearch
+        service' = Service
+              { _svcAbbrev       = "CloudSearch"
+              , _svcPrefix       = "cloudsearch"
+              , _svcVersion      = "2013-01-01"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 509  = "BandwidthLimitExceeded" == e -- Request Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> RESTError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 509  = "BandwidthLimitExceeded" == e -- Request Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://cloudsearch.amazonaws.com/doc/2013-01-01/"

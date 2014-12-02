@@ -28,7 +28,7 @@ module Network.AWS.Support.Types
     -- * Service
       Support
     -- ** Error
-    , JSONError (..)
+    , JSONError
 
     -- * TrustedAdvisorResourcesSummary
     , TrustedAdvisorResourcesSummary
@@ -170,29 +170,32 @@ instance AWSService Support where
     type Sg Support = V4
     type Er Support = JSONError
 
-    service = Service
-        { _svcAbbrev       = "Support"
-        , _svcPrefix       = "support"
-        , _svcVersion      = "2013-04-15"
-        , _svcTargetPrefix = Just "AWSSupport_20130415"
-        , _svcJSONVersion  = Just "1.1"
-        , _svcHandle       = jsonError statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service Support
+        service' = Service
+              { _svcAbbrev       = "Support"
+              , _svcPrefix       = "support"
+              , _svcVersion      = "2013-04-15"
+              , _svcTargetPrefix = Just "AWSSupport_20130415"
+              , _svcJSONVersion  = Just "1.1"
+              , _svcDelay        = Exp 0.05 2 5
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp 0.05 2 5
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-    | s == 500  = True -- General Server Error
-    | s == 509  = True -- Limit Exceeded
-    | s == 503  = True -- Service Unavailable
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> JSONError
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary
     { _tarsResourcesFlagged    :: Integer

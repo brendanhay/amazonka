@@ -133,9 +133,9 @@ instance AWSService SQS where
               -> RESTError
               -> Bool
         retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 403 && "RequestThrottled" == e = True -- Request Limit Exceeded
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
-            | s == 403  = "RequestThrottled" == e -- Request Limit Exceeded
             | s == 503  = True -- Service Unavailable
             | otherwise = False
 

@@ -199,10 +199,10 @@ instance AWSService StorageGateway where
               -> JSONError
               -> Bool
         retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "ThrottlingException" == e = True -- Throttling
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable
-            | s == 400  = "ThrottlingException" == e -- Throttling
             | otherwise = False
 
 data ChapInfo = ChapInfo

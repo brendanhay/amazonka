@@ -39,6 +39,10 @@
         },
         "endpointPrefix": "elasticmapreduce",
         "retryPolicies": {
+            "throttling": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
             "service_unavailable": {
                 "error": null,
                 "code": 503

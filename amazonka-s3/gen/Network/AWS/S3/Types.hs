@@ -452,10 +452,10 @@ instance AWSService S3 where
               -> RESTError
               -> Bool
         retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "RequestTimeout" == e = True -- Timeouts
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable
-            | s == 400  = "RequestTimeout" == e -- Timeouts
             | otherwise = False
 
 ns :: Text

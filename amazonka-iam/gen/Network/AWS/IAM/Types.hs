@@ -212,10 +212,10 @@ instance AWSService IAM where
               -> RESTError
               -> Bool
         retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "Throttling" == e = True -- Throttling
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable
-            | s == 400  = "Throttling" == e -- Throttling
             | otherwise = False
 
 ns :: Text

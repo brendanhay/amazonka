@@ -1431,9 +1431,9 @@ instance AWSService EC2 where
               -> EC2Error
               -> Bool
         retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 503 && "RequestLimitExceeded" == e = True -- Request Limit Exceeded
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
-            | s == 503  = "RequestLimitExceeded" == e -- Request Limit Exceeded
             | s == 503  = True -- Service Unavailable
             | otherwise = False
 

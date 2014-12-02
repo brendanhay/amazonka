@@ -272,11 +272,11 @@ instance AWSService DynamoDB where
               -> JSONError
               -> Bool
         retry (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "ThrottlingException" == e = True -- Throttling
+            | s == 400 && "ProvisionedThroughputExceededException" == e = True -- Throughput Exceeded
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable
-            | s == 400  = "ThrottlingException" == e -- Throttling
-            | s == 400  = "ProvisionedThroughputExceededException" == e -- Throughput Exceeded
             | otherwise = False
 
 data WriteRequest = WriteRequest

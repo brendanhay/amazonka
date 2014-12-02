@@ -56,7 +56,7 @@ import           Text.EDE             (Template)
 default (Text)
 
 currentLibraryVersion :: Version
-currentLibraryVersion = initial & patch .~ 6
+currentLibraryVersion = initial & patch .~ 7
 
 class ToFilePath a where
     toFilePath :: a -> FilePath

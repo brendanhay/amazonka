@@ -1,5 +1,5 @@
 name:                  amazonka-ses-examples
-version:               0.0.6
+version:               0.0.7
 synopsis:              Amazon Simple Email Service SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         SES
 
     build-depends:
-        amazonka      == 0.0.6.*
-      , amazonka-core == 0.0.6.*
-      , amazonka-ses == 0.0.6.*
+        amazonka      == 0.0.7.*
+      , amazonka-core == 0.0.7.*
+      , amazonka-ses == 0.0.7.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

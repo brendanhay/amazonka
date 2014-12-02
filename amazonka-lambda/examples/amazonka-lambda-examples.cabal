@@ -1,5 +1,5 @@
 name:                  amazonka-lambda-examples
-version:               0.0.6
+version:               0.0.7
 synopsis:              Amazon Lambda SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         Lambda
 
     build-depends:
-        amazonka      == 0.0.6.*
-      , amazonka-core == 0.0.6.*
-      , amazonka-lambda == 0.0.6.*
+        amazonka      == 0.0.7.*
+      , amazonka-core == 0.0.7.*
+      , amazonka-lambda == 0.0.7.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -22,7 +23,7 @@ module {{ namespace }}
     -- * Service
       {{ service.abbrev }}
     -- ** Error
-    , {{ service.error }}
+    , {{ service.error }} (..)
 {% if service.xmlNamespace %}
     -- ** XML
     , ns

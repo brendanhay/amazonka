@@ -20,10 +20,10 @@ delay :: Delay
 delay = Exp {{ service.retryDelay.base }} {{ service.retryDelay.growth }} {{ service.retryDelay.attempts }}
 {-# INLINE delay #-}
 
-retry :: Retry
-retry s e =
+retry :: AWSErrorCode -> Status -> a -> Retry
+retry (statusCode -> s) (awsErrorCode -> e) =
 {% for policy in service.retryPolicies %}
-    | s == {{ policy.value.code }}  = {% if policy.value.error %}"{{ policy.value.error }}" == awsErrorCode e{% else %}True{% endif %} -- {{ policy.key | toTitle }}
+    | s == {{ policy.value.code }}  = {% if policy.value.error %}"{{ policy.value.error }}" == e{% else %}True{% endif %} -- {{ policy.key | toTitle }}
 {% endfor %}
     | otherwise = False
 {-# INLINE retry #-}

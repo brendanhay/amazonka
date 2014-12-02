@@ -105,7 +105,7 @@ idLogins = lens _idLogins (\s a -> s { _idLogins = a }) . _List
 instance FromJSON IdentityDescription where
     parseJSON = withObject "IdentityDescription" $ \o -> IdentityDescription
         <$> o .:? "IdentityId"
-        <*> o .:  "Logins"
+        <*> o .:? "Logins" .!= mempty
 
 instance ToJSON IdentityDescription where
     toJSON IdentityDescription{..} = object
@@ -190,8 +190,8 @@ instance FromJSON IdentityPool where
         <*> o .:? "DeveloperProviderName"
         <*> o .:  "IdentityPoolId"
         <*> o .:  "IdentityPoolName"
-        <*> o .:  "OpenIdConnectProviderARNs"
-        <*> o .:  "SupportedLoginProviders"
+        <*> o .:? "OpenIdConnectProviderARNs" .!= mempty
+        <*> o .:? "SupportedLoginProviders" .!= mempty
 
 instance ToJSON IdentityPool where
     toJSON IdentityPool{..} = object

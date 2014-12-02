@@ -122,4 +122,4 @@ instance AWSRequest DescribeTrustedAdvisorCheckSummaries where
 
 instance FromJSON DescribeTrustedAdvisorCheckSummariesResponse where
     parseJSON = withObject "DescribeTrustedAdvisorCheckSummariesResponse" $ \o -> DescribeTrustedAdvisorCheckSummariesResponse
-        <$> o .:  "summaries"
+        <$> o .:? "summaries" .!= mempty

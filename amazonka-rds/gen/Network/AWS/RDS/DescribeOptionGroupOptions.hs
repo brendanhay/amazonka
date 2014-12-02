@@ -169,7 +169,7 @@ instance AWSRequest DescribeOptionGroupOptions where
 instance FromXML DescribeOptionGroupOptionsResponse where
     parseXML = withElement "DescribeOptionGroupOptionsResult" $ \x -> DescribeOptionGroupOptionsResponse
         <$> x .@? "Marker"
-        <*> x .@  "OptionGroupOptions"
+        <*> x .@? "OptionGroupOptions" .!@ mempty
 
 instance AWSPager DescribeOptionGroupOptions where
     page rq rs

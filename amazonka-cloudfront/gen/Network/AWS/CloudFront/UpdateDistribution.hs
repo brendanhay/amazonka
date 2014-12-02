@@ -144,5 +144,5 @@ instance AWSRequest UpdateDistribution where
 
     request  = put
     response = xmlHeaderResponse $ \h x -> UpdateDistributionResponse
-        <$> x .@? "Distribution"
+        <$> x .@? "Distribution" "Distribution"
         <*> h ~:? "ETag"

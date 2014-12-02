@@ -129,4 +129,4 @@ instance AWSRequest DescribeApps where
 
 instance FromJSON DescribeAppsResponse where
     parseJSON = withObject "DescribeAppsResponse" $ \o -> DescribeAppsResponse
-        <$> o .:  "Apps"
+        <$> o .:? "Apps" .!= mempty

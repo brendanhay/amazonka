@@ -495,8 +495,8 @@ instance FromJSON ScanResponse where
     parseJSON = withObject "ScanResponse" $ \o -> ScanResponse
         <$> o .:? "ConsumedCapacity"
         <*> o .:? "Count"
-        <*> o .:  "Items"
-        <*> o .:  "LastEvaluatedKey"
+        <*> o .:? "Items" .!= mempty
+        <*> o .:? "LastEvaluatedKey" .!= mempty
         <*> o .:? "ScannedCount"
 
 instance AWSPager Scan where

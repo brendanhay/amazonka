@@ -125,5 +125,5 @@ instance AWSRequest ListDeploymentConfigs where
 
 instance FromJSON ListDeploymentConfigsResponse where
     parseJSON = withObject "ListDeploymentConfigsResponse" $ \o -> ListDeploymentConfigsResponse
-        <$> o .:  "deploymentConfigsList"
+        <$> o .:? "deploymentConfigsList" .!= mempty
         <*> o .:? "nextToken"

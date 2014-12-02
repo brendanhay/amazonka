@@ -156,7 +156,7 @@ instance FromJSON ListVolumesResponse where
     parseJSON = withObject "ListVolumesResponse" $ \o -> ListVolumesResponse
         <$> o .:? "GatewayARN"
         <*> o .:? "Marker"
-        <*> o .:  "VolumeInfos"
+        <*> o .:? "VolumeInfos" .!= mempty
 
 instance AWSPager ListVolumes where
     page rq rs

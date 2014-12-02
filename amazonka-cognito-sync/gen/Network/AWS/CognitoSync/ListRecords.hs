@@ -269,7 +269,7 @@ instance FromJSON ListRecordsResponse where
         <*> o .:? "DatasetExists"
         <*> o .:? "DatasetSyncCount"
         <*> o .:? "LastModifiedBy"
-        <*> o .:  "MergedDatasetNames"
+        <*> o .:? "MergedDatasetNames" .!= mempty
         <*> o .:? "NextToken"
-        <*> o .:  "Records"
+        <*> o .:? "Records" .!= mempty
         <*> o .:? "SyncSessionToken"

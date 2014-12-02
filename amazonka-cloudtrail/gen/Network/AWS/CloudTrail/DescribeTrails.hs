@@ -120,4 +120,4 @@ instance AWSRequest DescribeTrails where
 
 instance FromJSON DescribeTrailsResponse where
     parseJSON = withObject "DescribeTrailsResponse" $ \o -> DescribeTrailsResponse
-        <$> o .:  "trailList"
+        <$> o .:? "trailList" .!= mempty

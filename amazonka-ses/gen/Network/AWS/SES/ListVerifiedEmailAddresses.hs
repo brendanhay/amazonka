@@ -100,4 +100,4 @@ instance AWSRequest ListVerifiedEmailAddresses where
 
 instance FromXML ListVerifiedEmailAddressesResponse where
     parseXML = withElement "ListVerifiedEmailAddressesResult" $ \x -> ListVerifiedEmailAddressesResponse
-        <$> x .@  "VerifiedEmailAddresses"
+        <$> x .@? "VerifiedEmailAddresses" .!@ mempty

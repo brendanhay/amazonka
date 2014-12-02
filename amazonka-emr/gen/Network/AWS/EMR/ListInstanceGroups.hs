@@ -129,7 +129,7 @@ instance AWSRequest ListInstanceGroups where
 
 instance FromJSON ListInstanceGroupsResponse where
     parseJSON = withObject "ListInstanceGroupsResponse" $ \o -> ListInstanceGroupsResponse
-        <$> o .:  "InstanceGroups"
+        <$> o .:? "InstanceGroups" .!= mempty
         <*> o .:? "Marker"
 
 instance AWSPager ListInstanceGroups where

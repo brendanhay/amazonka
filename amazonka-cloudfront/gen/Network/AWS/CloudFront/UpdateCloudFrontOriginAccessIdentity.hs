@@ -147,5 +147,5 @@ instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
 
     request  = put
     response = xmlHeaderResponse $ \h x -> UpdateCloudFrontOriginAccessIdentityResponse
-        <$> x .@? "CloudFrontOriginAccessIdentity"
+        <$> x .@? "CloudFrontOriginAccessIdentity" "CloudFrontOriginAccessIdentity"
         <*> h ~:? "ETag"

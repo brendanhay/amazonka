@@ -178,7 +178,7 @@ poId = lens _poId (\s a -> s { _poId = a })
 
 instance FromJSON ParameterObject where
     parseJSON = withObject "ParameterObject" $ \o -> ParameterObject
-        <$> o .:  "attributes"
+        <$> o .:? "attributes" .!= mempty
         <*> o .:  "id"
 
 instance ToJSON ParameterObject where
@@ -226,7 +226,7 @@ po1Name = lens _po1Name (\s a -> s { _po1Name = a })
 
 instance FromJSON PipelineObject where
     parseJSON = withObject "PipelineObject" $ \o -> PipelineObject
-        <$> o .:  "fields"
+        <$> o .:? "fields" .!= mempty
         <*> o .:  "id"
         <*> o .:  "name"
 
@@ -452,7 +452,7 @@ oValues = lens _oValues (\s a -> s { _oValues = a }) . _List
 instance FromJSON Operator where
     parseJSON = withObject "Operator" $ \o -> Operator
         <$> o .:? "type"
-        <*> o .:  "values"
+        <*> o .:? "values" .!= mempty
 
 instance ToJSON Operator where
     toJSON Operator{..} = object
@@ -509,7 +509,7 @@ toTaskId = lens _toTaskId (\s a -> s { _toTaskId = a })
 instance FromJSON TaskObject where
     parseJSON = withObject "TaskObject" $ \o -> TaskObject
         <$> o .:? "attemptId"
-        <*> o .:  "objects"
+        <*> o .:? "objects" .!= mempty
         <*> o .:? "pipelineId"
         <*> o .:? "taskId"
 
@@ -550,7 +550,7 @@ veId = lens _veId (\s a -> s { _veId = a })
 
 instance FromJSON ValidationError where
     parseJSON = withObject "ValidationError" $ \o -> ValidationError
-        <$> o .:  "errors"
+        <$> o .:? "errors" .!= mempty
         <*> o .:? "id"
 
 instance ToJSON ValidationError where
@@ -609,7 +609,7 @@ pdPipelineId = lens _pdPipelineId (\s a -> s { _pdPipelineId = a })
 instance FromJSON PipelineDescription where
     parseJSON = withObject "PipelineDescription" $ \o -> PipelineDescription
         <$> o .:? "description"
-        <*> o .:  "fields"
+        <*> o .:? "fields" .!= mempty
         <*> o .:  "name"
         <*> o .:  "pipelineId"
 
@@ -690,7 +690,7 @@ qSelectors = lens _qSelectors (\s a -> s { _qSelectors = a }) . _List
 
 instance FromJSON Query where
     parseJSON = withObject "Query" $ \o -> Query
-        <$> o .:  "selectors"
+        <$> o .:? "selectors" .!= mempty
 
 instance ToJSON Query where
     toJSON Query{..} = object
@@ -836,7 +836,7 @@ vwWarnings = lens _vwWarnings (\s a -> s { _vwWarnings = a }) . _List
 instance FromJSON ValidationWarning where
     parseJSON = withObject "ValidationWarning" $ \o -> ValidationWarning
         <$> o .:? "id"
-        <*> o .:  "warnings"
+        <*> o .:? "warnings" .!= mempty
 
 instance ToJSON ValidationWarning where
     toJSON ValidationWarning{..} = object

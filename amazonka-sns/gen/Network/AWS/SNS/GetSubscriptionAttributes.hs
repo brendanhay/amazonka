@@ -114,4 +114,4 @@ instance AWSRequest GetSubscriptionAttributes where
 
 instance FromXML GetSubscriptionAttributesResponse where
     parseXML = withElement "GetSubscriptionAttributesResult" $ \x -> GetSubscriptionAttributesResponse
-        <$> x .@  "Attributes"
+        <$> x .@? "Attributes" .!@ mempty

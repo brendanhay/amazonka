@@ -264,9 +264,9 @@ instance FromXML DescribeResizeResponse where
         <$> x .@? "AvgResizeRateInMegaBytesPerSecond"
         <*> x .@? "ElapsedTimeInSeconds"
         <*> x .@? "EstimatedTimeToCompletionInSeconds"
-        <*> x .@  "ImportTablesCompleted"
-        <*> x .@  "ImportTablesInProgress"
-        <*> x .@  "ImportTablesNotStarted"
+        <*> x .@? "ImportTablesCompleted" .!@ mempty
+        <*> x .@? "ImportTablesInProgress" .!@ mempty
+        <*> x .@? "ImportTablesNotStarted" .!@ mempty
         <*> x .@? "ProgressInMegaBytes"
         <*> x .@? "Status"
         <*> x .@? "TargetClusterType"

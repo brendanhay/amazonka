@@ -132,5 +132,5 @@ instance AWSRequest CreateInvalidation where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateInvalidationResponse
-        <$> x .@? "Invalidation"
+        <$> x .@? "Invalidation" "Invalidation"
         <*> h ~:? "Location"

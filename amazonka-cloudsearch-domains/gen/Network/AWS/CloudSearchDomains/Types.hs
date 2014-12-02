@@ -226,8 +226,8 @@ hitId = lens _hitId (\s a -> s { _hitId = a })
 
 instance FromJSON Hit where
     parseJSON = withObject "Hit" $ \o -> Hit
-        <$> o .:  "fields"
-        <*> o .:  "highlights"
+        <$> o .:? "fields" .!= mempty
+        <*> o .:? "highlights" .!= mempty
         <*> o .:? "id"
 
 instance ToJSON Hit where
@@ -388,7 +388,7 @@ biBuckets = lens _biBuckets (\s a -> s { _biBuckets = a }) . _List
 
 instance FromJSON BucketInfo where
     parseJSON = withObject "BucketInfo" $ \o -> BucketInfo
-        <$> o .:  "buckets"
+        <$> o .:? "buckets" .!= mempty
 
 instance ToJSON BucketInfo where
     toJSON BucketInfo{..} = object
@@ -462,7 +462,7 @@ instance FromJSON SuggestModel where
     parseJSON = withObject "SuggestModel" $ \o -> SuggestModel
         <$> o .:? "found"
         <*> o .:? "query"
-        <*> o .:  "suggestions"
+        <*> o .:? "suggestions" .!= mempty
 
 instance ToJSON SuggestModel where
     toJSON SuggestModel{..} = object
@@ -519,7 +519,7 @@ instance FromJSON Hits where
     parseJSON = withObject "Hits" $ \o -> Hits
         <$> o .:? "cursor"
         <*> o .:? "found"
-        <*> o .:  "hit"
+        <*> o .:? "hit" .!= mempty
         <*> o .:? "start"
 
 instance ToJSON Hits where

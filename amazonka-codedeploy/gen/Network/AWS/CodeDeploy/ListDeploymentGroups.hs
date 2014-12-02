@@ -148,5 +148,5 @@ instance AWSRequest ListDeploymentGroups where
 instance FromJSON ListDeploymentGroupsResponse where
     parseJSON = withObject "ListDeploymentGroupsResponse" $ \o -> ListDeploymentGroupsResponse
         <$> o .:? "applicationName"
-        <*> o .:  "deploymentGroups"
+        <*> o .:? "deploymentGroups" .!= mempty
         <*> o .:? "nextToken"

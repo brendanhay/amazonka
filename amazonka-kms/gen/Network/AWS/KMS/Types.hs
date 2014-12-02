@@ -281,8 +281,8 @@ gcEncryptionContextSubset =
 
 instance FromJSON GrantConstraints where
     parseJSON = withObject "GrantConstraints" $ \o -> GrantConstraints
-        <$> o .:  "EncryptionContextEquals"
-        <*> o .:  "EncryptionContextSubset"
+        <$> o .:? "EncryptionContextEquals" .!= mempty
+        <*> o .:? "EncryptionContextSubset" .!= mempty
 
 instance ToJSON GrantConstraints where
     toJSON GrantConstraints{..} = object
@@ -409,7 +409,7 @@ instance FromJSON GrantListEntry where
         <*> o .:? "GrantId"
         <*> o .:? "GranteePrincipal"
         <*> o .:? "IssuingAccount"
-        <*> o .:  "Operations"
+        <*> o .:? "Operations" .!= mempty
         <*> o .:? "RetiringPrincipal"
 
 instance ToJSON GrantListEntry where

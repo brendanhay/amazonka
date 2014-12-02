@@ -147,4 +147,4 @@ instance AWSRequest AddJobFlowSteps where
 
 instance FromJSON AddJobFlowStepsResponse where
     parseJSON = withObject "AddJobFlowStepsResponse" $ \o -> AddJobFlowStepsResponse
-        <$> o .:  "StepIds"
+        <$> o .:? "StepIds" .!= mempty

@@ -656,6 +656,6 @@ instance AWSRequest UpdateItem where
 
 instance FromJSON UpdateItemResponse where
     parseJSON = withObject "UpdateItemResponse" $ \o -> UpdateItemResponse
-        <$> o .:  "Attributes"
+        <$> o .:? "Attributes" .!= mempty
         <*> o .:? "ConsumedCapacity"
         <*> o .:? "ItemCollectionMetrics"

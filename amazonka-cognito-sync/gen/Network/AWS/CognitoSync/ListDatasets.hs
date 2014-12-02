@@ -169,5 +169,5 @@ instance AWSRequest ListDatasets where
 instance FromJSON ListDatasetsResponse where
     parseJSON = withObject "ListDatasetsResponse" $ \o -> ListDatasetsResponse
         <$> o .:? "Count"
-        <*> o .:  "Datasets"
+        <*> o .:? "Datasets" .!= mempty
         <*> o .:? "NextToken"

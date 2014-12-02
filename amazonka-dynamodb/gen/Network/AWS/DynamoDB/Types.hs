@@ -505,14 +505,14 @@ instance FromJSON AttributeValue where
     parseJSON = withObject "AttributeValue" $ \o -> AttributeValue
         <$> o .:? "B"
         <*> o .:? "BOOL"
-        <*> o .:  "BS"
-        <*> o .:  "L"
-        <*> o .:  "M"
+        <*> o .:? "BS" .!= mempty
+        <*> o .:? "L" .!= mempty
+        <*> o .:? "M" .!= mempty
         <*> o .:? "N"
-        <*> o .:  "NS"
+        <*> o .:? "NS" .!= mempty
         <*> o .:? "NULL"
         <*> o .:? "S"
-        <*> o .:  "SS"
+        <*> o .:? "SS" .!= mempty
 
 instance ToJSON AttributeValue where
     toJSON AttributeValue{..} = object
@@ -905,12 +905,12 @@ tdTableStatus = lens _tdTableStatus (\s a -> s { _tdTableStatus = a })
 
 instance FromJSON TableDescription where
     parseJSON = withObject "TableDescription" $ \o -> TableDescription
-        <$> o .:  "AttributeDefinitions"
+        <$> o .:? "AttributeDefinitions" .!= mempty
         <*> o .:? "CreationDateTime"
-        <*> o .:  "GlobalSecondaryIndexes"
+        <*> o .:? "GlobalSecondaryIndexes" .!= mempty
         <*> o .:? "ItemCount"
         <*> o .:  "KeySchema"
-        <*> o .:  "LocalSecondaryIndexes"
+        <*> o .:? "LocalSecondaryIndexes" .!= mempty
         <*> o .:? "ProvisionedThroughput"
         <*> o .:? "TableName"
         <*> o .:? "TableSizeBytes"
@@ -1028,7 +1028,7 @@ instance FromJSON KeysAndAttributes where
     parseJSON = withObject "KeysAndAttributes" $ \o -> KeysAndAttributes
         <$> o .:  "AttributesToGet"
         <*> o .:? "ConsistentRead"
-        <*> o .:  "ExpressionAttributeNames"
+        <*> o .:? "ExpressionAttributeNames" .!= mempty
         <*> o .:  "Keys"
         <*> o .:? "ProjectionExpression"
 
@@ -1392,7 +1392,7 @@ eavValue = lens _eavValue (\s a -> s { _eavValue = a })
 
 instance FromJSON ExpectedAttributeValue where
     parseJSON = withObject "ExpectedAttributeValue" $ \o -> ExpectedAttributeValue
-        <$> o .:  "AttributeValueList"
+        <$> o .:? "AttributeValueList" .!= mempty
         <*> o .:? "ComparisonOperator"
         <*> o .:? "Exists"
         <*> o .:? "Value"
@@ -1745,8 +1745,8 @@ icmSizeEstimateRangeGB =
 
 instance FromJSON ItemCollectionMetrics where
     parseJSON = withObject "ItemCollectionMetrics" $ \o -> ItemCollectionMetrics
-        <$> o .:  "ItemCollectionKey"
-        <*> o .:  "SizeEstimateRangeGB"
+        <$> o .:? "ItemCollectionKey" .!= mempty
+        <*> o .:? "SizeEstimateRangeGB" .!= mempty
 
 instance ToJSON ItemCollectionMetrics where
     toJSON ItemCollectionMetrics{..} = object
@@ -1843,8 +1843,8 @@ ccTableName = lens _ccTableName (\s a -> s { _ccTableName = a })
 instance FromJSON ConsumedCapacity where
     parseJSON = withObject "ConsumedCapacity" $ \o -> ConsumedCapacity
         <$> o .:? "CapacityUnits"
-        <*> o .:  "GlobalSecondaryIndexes"
-        <*> o .:  "LocalSecondaryIndexes"
+        <*> o .:? "GlobalSecondaryIndexes" .!= mempty
+        <*> o .:? "LocalSecondaryIndexes" .!= mempty
         <*> o .:? "Table"
         <*> o .:? "TableName"
 
@@ -2213,7 +2213,7 @@ dKey = lens _dKey (\s a -> s { _dKey = a }) . _Map
 
 instance FromJSON DeleteRequest where
     parseJSON = withObject "DeleteRequest" $ \o -> DeleteRequest
-        <$> o .:  "Key"
+        <$> o .:? "Key" .!= mempty
 
 instance ToJSON DeleteRequest where
     toJSON DeleteRequest{..} = object
@@ -2286,7 +2286,7 @@ pItem = lens _pItem (\s a -> s { _pItem = a }) . _Map
 
 instance FromJSON PutRequest where
     parseJSON = withObject "PutRequest" $ \o -> PutRequest
-        <$> o .:  "Item"
+        <$> o .:? "Item" .!= mempty
 
 instance ToJSON PutRequest where
     toJSON PutRequest{..} = object
@@ -2455,7 +2455,7 @@ cComparisonOperator =
 
 instance FromJSON Condition where
     parseJSON = withObject "Condition" $ \o -> Condition
-        <$> o .:  "AttributeValueList"
+        <$> o .:? "AttributeValueList" .!= mempty
         <*> o .:  "ComparisonOperator"
 
 instance ToJSON Condition where

@@ -162,7 +162,7 @@ instance FromXML ListVirtualMFADevicesResponse where
     parseXML = withElement "ListVirtualMFADevicesResult" $ \x -> ListVirtualMFADevicesResponse
         <$> x .@? "IsTruncated"
         <*> x .@? "Marker"
-        <*> x .@  "VirtualMFADevices"
+        <*> x .@? "VirtualMFADevices" .!@ mempty
 
 instance AWSPager ListVirtualMFADevices where
     page rq rs

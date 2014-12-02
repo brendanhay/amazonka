@@ -280,7 +280,7 @@ instance FromXML ListResourceRecordSetsResponse where
         <*> x .@? "NextRecordIdentifier"
         <*> x .@? "NextRecordName"
         <*> x .@? "NextRecordType"
-        <*> x .@  "ResourceRecordSets"
+        <*> x .@? "ResourceRecordSets" .!@ mempty
 
 instance AWSPager ListResourceRecordSets where
     page rq rs

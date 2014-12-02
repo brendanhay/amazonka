@@ -184,7 +184,7 @@ instance AWSRequest QueryObjects where
 instance FromJSON QueryObjectsResponse where
     parseJSON = withObject "QueryObjectsResponse" $ \o -> QueryObjectsResponse
         <$> o .:? "hasMoreResults"
-        <*> o .:  "ids"
+        <*> o .:? "ids" .!= mempty
         <*> o .:? "marker"
 
 instance AWSPager QueryObjects where

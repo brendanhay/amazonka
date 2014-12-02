@@ -301,6 +301,6 @@ instance AWSRequest BatchWriteItem where
 
 instance FromJSON BatchWriteItemResponse where
     parseJSON = withObject "BatchWriteItemResponse" $ \o -> BatchWriteItemResponse
-        <$> o .:  "ConsumedCapacity"
-        <*> o .:  "ItemCollectionMetrics"
-        <*> o .:  "UnprocessedItems"
+        <$> o .:? "ConsumedCapacity" .!= mempty
+        <*> o .:? "ItemCollectionMetrics" .!= mempty
+        <*> o .:? "UnprocessedItems" .!= mempty

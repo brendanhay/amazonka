@@ -172,7 +172,7 @@ instance AWSRequest DescribeCommunications where
 
 instance FromJSON DescribeCommunicationsResponse where
     parseJSON = withObject "DescribeCommunicationsResponse" $ \o -> DescribeCommunicationsResponse
-        <$> o .:  "communications"
+        <$> o .:? "communications" .!= mempty
         <*> o .:? "nextToken"
 
 instance AWSPager DescribeCommunications where

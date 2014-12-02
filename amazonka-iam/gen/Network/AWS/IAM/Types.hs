@@ -569,7 +569,7 @@ instance FromXML InstanceProfile where
         <*> x .@  "InstanceProfileId"
         <*> x .@  "InstanceProfileName"
         <*> x .@  "Path"
-        <*> x .@  "Roles"
+        <*> x .@? "Roles" .!@ mempty
 
 instance ToQuery InstanceProfile where
     toQuery InstanceProfile{..} = mconcat

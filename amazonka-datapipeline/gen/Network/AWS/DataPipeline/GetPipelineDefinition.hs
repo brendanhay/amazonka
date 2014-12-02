@@ -145,6 +145,6 @@ instance AWSRequest GetPipelineDefinition where
 
 instance FromJSON GetPipelineDefinitionResponse where
     parseJSON = withObject "GetPipelineDefinitionResponse" $ \o -> GetPipelineDefinitionResponse
-        <$> o .:  "parameterObjects"
-        <*> o .:  "parameterValues"
-        <*> o .:  "pipelineObjects"
+        <$> o .:? "parameterObjects" .!= mempty
+        <*> o .:? "parameterValues" .!= mempty
+        <*> o .:? "pipelineObjects" .!= mempty

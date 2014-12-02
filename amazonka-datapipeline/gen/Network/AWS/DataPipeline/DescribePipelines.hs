@@ -132,4 +132,4 @@ instance AWSRequest DescribePipelines where
 
 instance FromJSON DescribePipelinesResponse where
     parseJSON = withObject "DescribePipelinesResponse" $ \o -> DescribePipelinesResponse
-        <$> o .:  "pipelineDescriptionList"
+        <$> o .:? "pipelineDescriptionList" .!= mempty

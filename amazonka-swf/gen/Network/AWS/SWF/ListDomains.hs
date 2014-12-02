@@ -175,7 +175,7 @@ instance AWSRequest ListDomains where
 
 instance FromJSON ListDomainsResponse where
     parseJSON = withObject "ListDomainsResponse" $ \o -> ListDomainsResponse
-        <$> o .:  "domainInfos"
+        <$> o .:? "domainInfos" .!= mempty
         <*> o .:? "nextPageToken"
 
 instance AWSPager ListDomains where

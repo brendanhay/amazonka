@@ -204,7 +204,7 @@ instance AWSRequest DescribeReservedCacheNodesOfferings where
 instance FromXML DescribeReservedCacheNodesOfferingsResponse where
     parseXML = withElement "DescribeReservedCacheNodesOfferingsResult" $ \x -> DescribeReservedCacheNodesOfferingsResponse
         <$> x .@? "Marker"
-        <*> x .@  "ReservedCacheNodesOfferings"
+        <*> x .@? "ReservedCacheNodesOfferings" .!@ mempty
 
 instance AWSPager DescribeReservedCacheNodesOfferings where
     page rq rs

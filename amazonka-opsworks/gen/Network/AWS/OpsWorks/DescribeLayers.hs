@@ -129,4 +129,4 @@ instance AWSRequest DescribeLayers where
 
 instance FromJSON DescribeLayersResponse where
     parseJSON = withObject "DescribeLayersResponse" $ \o -> DescribeLayersResponse
-        <$> o .:  "Layers"
+        <$> o .:? "Layers" .!= mempty

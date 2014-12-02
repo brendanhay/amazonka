@@ -124,4 +124,4 @@ instance AWSRequest ListVolumeRecoveryPoints where
 instance FromJSON ListVolumeRecoveryPointsResponse where
     parseJSON = withObject "ListVolumeRecoveryPointsResponse" $ \o -> ListVolumeRecoveryPointsResponse
         <$> o .:? "GatewayARN"
-        <*> o .:  "VolumeRecoveryPointInfos"
+        <*> o .:? "VolumeRecoveryPointInfos" .!= mempty

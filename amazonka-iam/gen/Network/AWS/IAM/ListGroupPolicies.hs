@@ -156,7 +156,7 @@ instance FromXML ListGroupPoliciesResponse where
     parseXML = withElement "ListGroupPoliciesResult" $ \x -> ListGroupPoliciesResponse
         <$> x .@? "IsTruncated"
         <*> x .@? "Marker"
-        <*> x .@  "PolicyNames"
+        <*> x .@? "PolicyNames" .!@ mempty
 
 instance AWSPager ListGroupPolicies where
     page rq rs

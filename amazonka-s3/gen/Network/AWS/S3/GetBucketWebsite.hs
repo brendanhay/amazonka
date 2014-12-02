@@ -140,4 +140,4 @@ instance FromXML GetBucketWebsiteResponse where
         <$> x .@? "ErrorDocument"
         <*> x .@? "IndexDocument"
         <*> x .@? "RedirectAllRequestsTo"
-        <*> x .@  "RoutingRules"
+        <*> x .@? "RoutingRules" .!@ mempty

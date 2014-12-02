@@ -2875,7 +2875,7 @@ instance FromJSON WorkflowExecutionStartedEventAttributes where
         <*> o .:? "input"
         <*> o .:? "parentInitiatedEventId"
         <*> o .:? "parentWorkflowExecution"
-        <*> o .:  "tagList"
+        <*> o .:? "tagList" .!= mempty
         <*> o .:  "taskList"
         <*> o .:? "taskStartToCloseTimeout"
         <*> o .:  "workflowType"
@@ -3587,7 +3587,7 @@ weiNextPageToken = lens _weiNextPageToken (\s a -> s { _weiNextPageToken = a })
 
 instance FromJSON WorkflowExecutionInfos where
     parseJSON = withObject "WorkflowExecutionInfos" $ \o -> WorkflowExecutionInfos
-        <$> o .:  "executionInfos"
+        <$> o .:? "executionInfos" .!= mempty
         <*> o .:? "nextPageToken"
 
 instance ToJSON WorkflowExecutionInfos where
@@ -3728,7 +3728,7 @@ instance FromJSON StartChildWorkflowExecutionDecisionAttributes where
         <*> o .:? "control"
         <*> o .:? "executionStartToCloseTimeout"
         <*> o .:? "input"
-        <*> o .:  "tagList"
+        <*> o .:? "tagList" .!= mempty
         <*> o .:? "taskList"
         <*> o .:? "taskStartToCloseTimeout"
         <*> o .:  "workflowId"
@@ -4418,7 +4418,7 @@ instance FromJSON StartChildWorkflowExecutionInitiatedEventAttributes where
         <*> o .:  "decisionTaskCompletedEventId"
         <*> o .:? "executionStartToCloseTimeout"
         <*> o .:? "input"
-        <*> o .:  "tagList"
+        <*> o .:? "tagList" .!= mempty
         <*> o .:  "taskList"
         <*> o .:? "taskStartToCloseTimeout"
         <*> o .:  "workflowId"
@@ -4835,7 +4835,7 @@ instance FromJSON WorkflowExecutionInfo where
         <*> o .:  "executionStatus"
         <*> o .:? "parent"
         <*> o .:  "startTimestamp"
-        <*> o .:  "tagList"
+        <*> o .:? "tagList" .!= mempty
         <*> o .:  "workflowType"
 
 instance ToJSON WorkflowExecutionInfo where
@@ -7575,7 +7575,7 @@ instance FromJSON ContinueAsNewWorkflowExecutionDecisionAttributes where
         <$> o .:? "childPolicy"
         <*> o .:? "executionStartToCloseTimeout"
         <*> o .:? "input"
-        <*> o .:  "tagList"
+        <*> o .:? "tagList" .!= mempty
         <*> o .:? "taskList"
         <*> o .:? "taskStartToCloseTimeout"
         <*> o .:? "workflowTypeVersion"
@@ -7802,7 +7802,7 @@ instance FromJSON WorkflowExecutionContinuedAsNewEventAttributes where
         <*> o .:? "executionStartToCloseTimeout"
         <*> o .:? "input"
         <*> o .:  "newExecutionRunId"
-        <*> o .:  "tagList"
+        <*> o .:? "tagList" .!= mempty
         <*> o .:  "taskList"
         <*> o .:? "taskStartToCloseTimeout"
         <*> o .:  "workflowType"

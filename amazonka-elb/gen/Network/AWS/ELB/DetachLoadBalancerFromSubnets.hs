@@ -129,4 +129,4 @@ instance AWSRequest DetachLoadBalancerFromSubnets where
 
 instance FromXML DetachLoadBalancerFromSubnetsResponse where
     parseXML = withElement "DetachLoadBalancerFromSubnetsResult" $ \x -> DetachLoadBalancerFromSubnetsResponse
-        <$> x .@  "Subnets"
+        <$> x .@? "Subnets" .!@ mempty

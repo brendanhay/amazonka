@@ -129,5 +129,5 @@ instance AWSRequest ListIdentityPools where
 
 instance FromJSON ListIdentityPoolsResponse where
     parseJSON = withObject "ListIdentityPoolsResponse" $ \o -> ListIdentityPoolsResponse
-        <$> o .:  "IdentityPools"
+        <$> o .:? "IdentityPools" .!= mempty
         <*> o .:? "NextToken"

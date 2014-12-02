@@ -287,7 +287,7 @@ sdStreamStatus = lens _sdStreamStatus (\s a -> s { _sdStreamStatus = a })
 instance FromJSON StreamDescription where
     parseJSON = withObject "StreamDescription" $ \o -> StreamDescription
         <$> o .:  "HasMoreShards"
-        <*> o .:  "Shards"
+        <*> o .:? "Shards" .!= mempty
         <*> o .:  "StreamARN"
         <*> o .:  "StreamName"
         <*> o .:  "StreamStatus"

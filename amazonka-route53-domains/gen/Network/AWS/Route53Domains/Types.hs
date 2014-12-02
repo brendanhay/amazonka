@@ -308,7 +308,7 @@ nName = lens _nName (\s a -> s { _nName = a })
 
 instance FromJSON Nameserver where
     parseJSON = withObject "Nameserver" $ \o -> Nameserver
-        <$> o .:  "GlueIps"
+        <$> o .:? "GlueIps" .!= mempty
         <*> o .:  "Name"
 
 instance ToJSON Nameserver where
@@ -1534,7 +1534,7 @@ instance FromJSON ContactDetail where
         <*> o .:? "ContactType"
         <*> o .:? "CountryCode"
         <*> o .:? "Email"
-        <*> o .:  "ExtraParams"
+        <*> o .:? "ExtraParams" .!= mempty
         <*> o .:? "Fax"
         <*> o .:? "FirstName"
         <*> o .:? "LastName"

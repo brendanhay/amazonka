@@ -179,4 +179,4 @@ instance AWSRequest DescribeEnvironments where
 
 instance FromXML DescribeEnvironmentsResponse where
     parseXML = withElement "DescribeEnvironmentsResult" $ \x -> DescribeEnvironmentsResponse
-        <$> x .@  "Environments"
+        <$> x .@? "Environments" .!@ mempty

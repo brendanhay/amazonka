@@ -526,7 +526,7 @@ instance FromXML OptionGroup where
         <*> x .@? "MajorEngineVersion"
         <*> x .@? "OptionGroupDescription"
         <*> x .@? "OptionGroupName"
-        <*> x .@  "Options"
+        <*> x .@? "Options" .!@ mempty
         <*> x .@? "VpcId"
 
 instance ToQuery OptionGroup where
@@ -637,7 +637,7 @@ eSourceType = lens _eSourceType (\s a -> s { _eSourceType = a })
 instance FromXML Event where
     parseXML x = Event
         <$> x .@? "Date"
-        <*> x .@  "EventCategories"
+        <*> x .@? "EventCategories" .!@ mempty
         <*> x .@? "Message"
         <*> x .@? "SourceIdentifier"
         <*> x .@? "SourceType"
@@ -719,8 +719,8 @@ instance FromXML DBSecurityGroup where
     parseXML x = DBSecurityGroup
         <$> x .@? "DBSecurityGroupDescription"
         <*> x .@? "DBSecurityGroupName"
-        <*> x .@  "EC2SecurityGroups"
-        <*> x .@  "IPRanges"
+        <*> x .@? "EC2SecurityGroups" .!@ mempty
+        <*> x .@? "IPRanges" .!@ mempty
         <*> x .@? "OwnerId"
         <*> x .@? "VpcId"
 
@@ -865,7 +865,7 @@ instance FromXML DBEngineVersion where
         <*> x .@? "DefaultCharacterSet"
         <*> x .@? "Engine"
         <*> x .@? "EngineVersion"
-        <*> x .@  "SupportedCharacterSets"
+        <*> x .@? "SupportedCharacterSets" .!@ mempty
 
 instance ToQuery DBEngineVersion where
     toQuery DBEngineVersion{..} = mconcat
@@ -1410,7 +1410,7 @@ instance FromXML ReservedDBInstancesOffering where
         <*> x .@? "MultiAZ"
         <*> x .@? "OfferingType"
         <*> x .@? "ProductDescription"
-        <*> x .@  "RecurringCharges"
+        <*> x .@? "RecurringCharges" .!@ mempty
         <*> x .@? "ReservedDBInstancesOfferingId"
         <*> x .@? "UsagePrice"
 
@@ -1686,7 +1686,7 @@ instance FromXML ReservedDBInstance where
         <*> x .@? "MultiAZ"
         <*> x .@? "OfferingType"
         <*> x .@? "ProductDescription"
-        <*> x .@  "RecurringCharges"
+        <*> x .@? "RecurringCharges" .!@ mempty
         <*> x .@? "ReservedDBInstanceId"
         <*> x .@? "ReservedDBInstancesOfferingId"
         <*> x .@? "StartTime"
@@ -1755,7 +1755,7 @@ instance FromXML EngineDefaults where
     parseXML x = EngineDefaults
         <$> x .@? "DBParameterGroupFamily"
         <*> x .@? "Marker"
-        <*> x .@  "Parameters"
+        <*> x .@? "Parameters" .!@ mempty
 
 instance ToQuery EngineDefaults where
     toQuery EngineDefaults{..} = mconcat
@@ -1915,8 +1915,8 @@ instance FromXML OptionGroupOption where
         <*> x .@? "MajorEngineVersion"
         <*> x .@? "MinimumRequiredMinorEngineVersion"
         <*> x .@? "Name"
-        <*> x .@  "OptionGroupOptionSettings"
-        <*> x .@  "OptionsDependedOn"
+        <*> x .@? "OptionGroupOptionSettings" .!@ mempty
+        <*> x .@? "OptionsDependedOn" .!@ mempty
         <*> x .@? "Permanent"
         <*> x .@? "Persistent"
         <*> x .@? "PortRequired"
@@ -2304,8 +2304,8 @@ instance FromXML DBInstance where
         <*> x .@? "DBInstanceIdentifier"
         <*> x .@? "DBInstanceStatus"
         <*> x .@? "DBName"
-        <*> x .@  "DBParameterGroups"
-        <*> x .@  "DBSecurityGroups"
+        <*> x .@? "DBParameterGroups" .!@ mempty
+        <*> x .@? "DBSecurityGroups" .!@ mempty
         <*> x .@? "DBSubnetGroup"
         <*> x .@? "Endpoint"
         <*> x .@? "Engine"
@@ -2316,18 +2316,18 @@ instance FromXML DBInstance where
         <*> x .@? "LicenseModel"
         <*> x .@? "MasterUsername"
         <*> x .@? "MultiAZ"
-        <*> x .@  "OptionGroupMemberships"
+        <*> x .@? "OptionGroupMemberships" .!@ mempty
         <*> x .@? "PendingModifiedValues"
         <*> x .@? "PreferredBackupWindow"
         <*> x .@? "PreferredMaintenanceWindow"
         <*> x .@? "PubliclyAccessible"
-        <*> x .@  "ReadReplicaDBInstanceIdentifiers"
+        <*> x .@? "ReadReplicaDBInstanceIdentifiers" .!@ mempty
         <*> x .@? "ReadReplicaSourceDBInstanceIdentifier"
         <*> x .@? "SecondaryAvailabilityZone"
-        <*> x .@  "StatusInfos"
+        <*> x .@? "StatusInfos" .!@ mempty
         <*> x .@? "StorageType"
         <*> x .@? "TdeCredentialArn"
-        <*> x .@  "VpcSecurityGroups"
+        <*> x .@? "VpcSecurityGroups" .!@ mempty
 
 instance ToQuery DBInstance where
     toQuery DBInstance{..} = mconcat
@@ -2498,9 +2498,9 @@ instance FromXML EventSubscription where
         <$> x .@? "CustSubscriptionId"
         <*> x .@? "CustomerAwsId"
         <*> x .@? "Enabled"
-        <*> x .@  "EventCategoriesList"
+        <*> x .@? "EventCategoriesList" .!@ mempty
         <*> x .@? "SnsTopicArn"
-        <*> x .@  "SourceIdsList"
+        <*> x .@? "SourceIdsList" .!@ mempty
         <*> x .@? "SourceType"
         <*> x .@? "Status"
         <*> x .@? "SubscriptionCreationTime"
@@ -2578,7 +2578,7 @@ instance FromXML DBSubnetGroup where
         <$> x .@? "DBSubnetGroupDescription"
         <*> x .@? "DBSubnetGroupName"
         <*> x .@? "SubnetGroupStatus"
-        <*> x .@  "Subnets"
+        <*> x .@? "Subnets" .!@ mempty
         <*> x .@? "VpcId"
 
 instance ToQuery DBSubnetGroup where
@@ -2911,7 +2911,7 @@ odbioVpc = lens _odbioVpc (\s a -> s { _odbioVpc = a })
 
 instance FromXML OrderableDBInstanceOption where
     parseXML x = OrderableDBInstanceOption
-        <$> x .@  "AvailabilityZones"
+        <$> x .@? "AvailabilityZones" .!@ mempty
         <*> x .@? "DBInstanceClass"
         <*> x .@? "Engine"
         <*> x .@? "EngineVersion"
@@ -2967,7 +2967,7 @@ fValues = lens _fValues (\s a -> s { _fValues = a }) . _List
 instance FromXML Filter where
     parseXML x = Filter
         <$> x .@  "Name"
-        <*> x .@  "Values"
+        <*> x .@? "Values" .!@ mempty
 
 instance ToQuery Filter where
     toQuery Filter{..} = mconcat
@@ -3114,11 +3114,11 @@ ocVpcSecurityGroupMemberships =
 
 instance FromXML OptionConfiguration where
     parseXML x = OptionConfiguration
-        <$> x .@  "DBSecurityGroupMemberships"
+        <$> x .@? "DBSecurityGroupMemberships" .!@ mempty
         <*> x .@  "OptionName"
-        <*> x .@  "OptionSettings"
+        <*> x .@? "OptionSettings" .!@ mempty
         <*> x .@? "Port"
-        <*> x .@  "VpcSecurityGroupMemberships"
+        <*> x .@? "VpcSecurityGroupMemberships" .!@ mempty
 
 instance ToQuery OptionConfiguration where
     toQuery OptionConfiguration{..} = mconcat
@@ -3215,14 +3215,14 @@ oVpcSecurityGroupMemberships =
 
 instance FromXML Option where
     parseXML x = Option
-        <$> x .@  "DBSecurityGroupMemberships"
+        <$> x .@? "DBSecurityGroupMemberships" .!@ mempty
         <*> x .@? "OptionDescription"
         <*> x .@? "OptionName"
-        <*> x .@  "OptionSettings"
+        <*> x .@? "OptionSettings" .!@ mempty
         <*> x .@? "Permanent"
         <*> x .@? "Persistent"
         <*> x .@? "Port"
-        <*> x .@  "VpcSecurityGroupMemberships"
+        <*> x .@? "VpcSecurityGroupMemberships" .!@ mempty
 
 instance ToQuery Option where
     toQuery Option{..} = mconcat
@@ -3346,7 +3346,7 @@ ecmSourceType = lens _ecmSourceType (\s a -> s { _ecmSourceType = a })
 
 instance FromXML EventCategoriesMap where
     parseXML x = EventCategoriesMap
-        <$> x .@  "EventCategories"
+        <$> x .@? "EventCategories" .!@ mempty
         <*> x .@? "SourceType"
 
 instance ToQuery EventCategoriesMap where

@@ -362,7 +362,7 @@ instance AWSRequest UploadPartCopy where
 
     request  = put
     response = xmlHeaderResponse $ \h x -> UploadPartCopyResponse
-        <$> x .@? "CopyPartResult"
+        <$> x .@? "CopyPartResult" "CopyPartResult"
         <*> h ~:? "x-amz-copy-source-version-id"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"

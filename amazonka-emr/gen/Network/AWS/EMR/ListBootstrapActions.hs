@@ -129,7 +129,7 @@ instance AWSRequest ListBootstrapActions where
 
 instance FromJSON ListBootstrapActionsResponse where
     parseJSON = withObject "ListBootstrapActionsResponse" $ \o -> ListBootstrapActionsResponse
-        <$> o .:  "BootstrapActions"
+        <$> o .:? "BootstrapActions" .!= mempty
         <*> o .:? "Marker"
 
 instance AWSPager ListBootstrapActions where

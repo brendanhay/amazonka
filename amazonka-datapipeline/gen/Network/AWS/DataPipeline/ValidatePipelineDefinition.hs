@@ -170,5 +170,5 @@ instance AWSRequest ValidatePipelineDefinition where
 instance FromJSON ValidatePipelineDefinitionResponse where
     parseJSON = withObject "ValidatePipelineDefinitionResponse" $ \o -> ValidatePipelineDefinitionResponse
         <$> o .:  "errored"
-        <*> o .:  "validationErrors"
-        <*> o .:  "validationWarnings"
+        <*> o .:? "validationErrors" .!= mempty
+        <*> o .:? "validationWarnings" .!= mempty

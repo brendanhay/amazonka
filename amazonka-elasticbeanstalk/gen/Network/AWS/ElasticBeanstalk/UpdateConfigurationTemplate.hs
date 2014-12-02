@@ -268,6 +268,6 @@ instance FromXML UpdateConfigurationTemplateResponse where
         <*> x .@? "DeploymentStatus"
         <*> x .@? "Description"
         <*> x .@? "EnvironmentName"
-        <*> x .@  "OptionSettings"
+        <*> x .@? "OptionSettings" .!@ mempty
         <*> x .@? "SolutionStackName"
         <*> x .@? "TemplateName"

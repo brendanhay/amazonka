@@ -161,7 +161,7 @@ instance AWSRequest ListInstanceProfiles where
 
 instance FromXML ListInstanceProfilesResponse where
     parseXML = withElement "ListInstanceProfilesResult" $ \x -> ListInstanceProfilesResponse
-        <$> x .@  "InstanceProfiles"
+        <$> x .@? "InstanceProfiles" .!@ mempty
         <*> x .@? "IsTruncated"
         <*> x .@? "Marker"
 

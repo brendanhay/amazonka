@@ -366,7 +366,7 @@ pocStorageClass = lens _pocStorageClass (\s a -> s { _pocStorageClass = a })
 instance FromJSON PipelineOutputConfig where
     parseJSON = withObject "PipelineOutputConfig" $ \o -> PipelineOutputConfig
         <$> o .:? "Bucket"
-        <*> o .:  "Permissions"
+        <*> o .:? "Permissions" .!= mempty
         <*> o .:? "StorageClass"
 
 instance ToJSON PipelineOutputConfig where
@@ -456,7 +456,7 @@ instance FromJSON CreateJobPlaylist where
     parseJSON = withObject "CreateJobPlaylist" $ \o -> CreateJobPlaylist
         <$> o .:? "Format"
         <*> o .:? "Name"
-        <*> o .:  "OutputKeys"
+        <*> o .:? "OutputKeys" .!= mempty
 
 instance ToJSON CreateJobPlaylist where
     toJSON CreateJobPlaylist{..} = object
@@ -522,8 +522,8 @@ cMergePolicy = lens _cMergePolicy (\s a -> s { _cMergePolicy = a })
 
 instance FromJSON Captions where
     parseJSON = withObject "Captions" $ \o -> Captions
-        <$> o .:  "CaptionFormats"
-        <*> o .:  "CaptionSources"
+        <$> o .:? "CaptionFormats" .!= mempty
+        <*> o .:? "CaptionSources" .!= mempty
         <*> o .:? "MergePolicy"
 
 instance ToJSON Captions where
@@ -853,7 +853,7 @@ instance FromJSON JobOutput where
     parseJSON = withObject "JobOutput" $ \o -> JobOutput
         <$> o .:? "AlbumArt"
         <*> o .:? "Captions"
-        <*> o .:  "Composition"
+        <*> o .:? "Composition" .!= mempty
         <*> o .:? "Duration"
         <*> o .:? "Encryption"
         <*> o .:? "Height"
@@ -866,7 +866,7 @@ instance FromJSON JobOutput where
         <*> o .:? "StatusDetail"
         <*> o .:? "ThumbnailEncryption"
         <*> o .:? "ThumbnailPattern"
-        <*> o .:  "Watermarks"
+        <*> o .:? "Watermarks" .!= mempty
         <*> o .:? "Width"
 
 instance ToJSON JobOutput where
@@ -1003,9 +1003,9 @@ instance FromJSON Job' where
         <*> o .:? "Input"
         <*> o .:? "Output"
         <*> o .:? "OutputKeyPrefix"
-        <*> o .:  "Outputs"
+        <*> o .:? "Outputs" .!= mempty
         <*> o .:? "PipelineId"
-        <*> o .:  "Playlists"
+        <*> o .:? "Playlists" .!= mempty
         <*> o .:? "Status"
 
 instance ToJSON Job' where
@@ -1477,7 +1477,7 @@ instance FromJSON CreateJobOutput where
     parseJSON = withObject "CreateJobOutput" $ \o -> CreateJobOutput
         <$> o .:? "AlbumArt"
         <*> o .:? "Captions"
-        <*> o .:  "Composition"
+        <*> o .:? "Composition" .!= mempty
         <*> o .:? "Encryption"
         <*> o .:? "Key"
         <*> o .:? "PresetId"
@@ -1485,7 +1485,7 @@ instance FromJSON CreateJobOutput where
         <*> o .:? "SegmentDuration"
         <*> o .:? "ThumbnailEncryption"
         <*> o .:? "ThumbnailPattern"
-        <*> o .:  "Watermarks"
+        <*> o .:? "Watermarks" .!= mempty
 
 instance ToJSON CreateJobOutput where
     toJSON CreateJobOutput{..} = object
@@ -1876,7 +1876,7 @@ jaaMergePolicy = lens _jaaMergePolicy (\s a -> s { _jaaMergePolicy = a })
 
 instance FromJSON JobAlbumArt where
     parseJSON = withObject "JobAlbumArt" $ \o -> JobAlbumArt
-        <$> o .:  "Artwork"
+        <$> o .:? "Artwork" .!= mempty
         <*> o .:? "MergePolicy"
 
 instance ToJSON JobAlbumArt where
@@ -2593,7 +2593,7 @@ pGranteeType = lens _pGranteeType (\s a -> s { _pGranteeType = a })
 
 instance FromJSON Permission where
     parseJSON = withObject "Permission" $ \o -> Permission
-        <$> o .:  "Access"
+        <$> o .:? "Access" .!= mempty
         <*> o .:? "Grantee"
         <*> o .:? "GranteeType"
 
@@ -2919,7 +2919,7 @@ instance FromJSON VideoParameters where
         <$> o .:? "AspectRatio"
         <*> o .:? "BitRate"
         <*> o .:? "Codec"
-        <*> o .:  "CodecOptions"
+        <*> o .:? "CodecOptions" .!= mempty
         <*> o .:? "DisplayAspectRatio"
         <*> o .:? "FixedGOP"
         <*> o .:? "FrameRate"
@@ -2930,7 +2930,7 @@ instance FromJSON VideoParameters where
         <*> o .:? "PaddingPolicy"
         <*> o .:? "Resolution"
         <*> o .:? "SizingPolicy"
-        <*> o .:  "Watermarks"
+        <*> o .:? "Watermarks" .!= mempty
 
 instance ToJSON VideoParameters where
     toJSON VideoParameters{..} = object
@@ -3047,7 +3047,7 @@ instance FromJSON Playlist where
     parseJSON = withObject "Playlist" $ \o -> Playlist
         <$> o .:? "Format"
         <*> o .:? "Name"
-        <*> o .:  "OutputKeys"
+        <*> o .:? "OutputKeys" .!= mempty
         <*> o .:? "Status"
         <*> o .:? "StatusDetail"
 

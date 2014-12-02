@@ -129,4 +129,4 @@ instance AWSRequest DescribeRdsDbInstances where
 
 instance FromJSON DescribeRdsDbInstancesResponse where
     parseJSON = withObject "DescribeRdsDbInstancesResponse" $ \o -> DescribeRdsDbInstancesResponse
-        <$> o .:  "RdsDbInstances"
+        <$> o .:? "RdsDbInstances" .!= mempty

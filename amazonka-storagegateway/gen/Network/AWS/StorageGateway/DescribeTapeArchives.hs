@@ -153,7 +153,7 @@ instance AWSRequest DescribeTapeArchives where
 instance FromJSON DescribeTapeArchivesResponse where
     parseJSON = withObject "DescribeTapeArchivesResponse" $ \o -> DescribeTapeArchivesResponse
         <$> o .:? "Marker"
-        <*> o .:  "TapeArchives"
+        <*> o .:? "TapeArchives" .!= mempty
 
 instance AWSPager DescribeTapeArchives where
     page rq rs

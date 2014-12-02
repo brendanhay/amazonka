@@ -389,14 +389,14 @@ instance FromJSON GetDomainDetailResponse where
         <*> o .:? "DnsSec"
         <*> o .:  "DomainName"
         <*> o .:? "ExpirationDate"
-        <*> o .:  "Nameservers"
+        <*> o .:? "Nameservers" .!= mempty
         <*> o .:  "RegistrantContact"
         <*> o .:? "RegistrantPrivacy"
         <*> o .:? "RegistrarName"
         <*> o .:? "RegistrarUrl"
         <*> o .:? "RegistryDomainId"
         <*> o .:? "Reseller"
-        <*> o .:  "StatusList"
+        <*> o .:? "StatusList" .!= mempty
         <*> o .:  "TechContact"
         <*> o .:? "TechPrivacy"
         <*> o .:? "UpdatedDate"

@@ -408,10 +408,10 @@ instance AWSRequest CreateMultipartUpload where
 
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateMultipartUploadResponse
-        <$> x .@? "Bucket"
-        <*> x .@? "Key"
+        <$> x .@? "Bucket" "Bucket"
+        <*> x .@? "Key" "Key"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
-        <*> x .@? "UploadId"
+        <*> x .@? "UploadId" "UploadId"

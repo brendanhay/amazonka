@@ -133,4 +133,4 @@ instance AWSRequest CreateStreamingDistribution where
     response = xmlHeaderResponse $ \h x -> CreateStreamingDistributionResponse
         <$> h ~:? "ETag"
         <*> h ~:? "Location"
-        <*> x .@? "StreamingDistribution"
+        <*> x .@? "StreamingDistribution" "StreamingDistribution"

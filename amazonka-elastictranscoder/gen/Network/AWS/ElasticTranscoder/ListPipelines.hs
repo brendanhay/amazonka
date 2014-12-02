@@ -132,7 +132,7 @@ instance AWSRequest ListPipelines where
 instance FromJSON ListPipelinesResponse where
     parseJSON = withObject "ListPipelinesResponse" $ \o -> ListPipelinesResponse
         <$> o .:? "NextPageToken"
-        <*> o .:  "Pipelines"
+        <*> o .:? "Pipelines" .!= mempty
 
 instance AWSPager ListPipelines where
     page rq rs

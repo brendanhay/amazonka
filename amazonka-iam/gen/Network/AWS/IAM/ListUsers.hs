@@ -159,7 +159,7 @@ instance FromXML ListUsersResponse where
     parseXML = withElement "ListUsersResult" $ \x -> ListUsersResponse
         <$> x .@? "IsTruncated"
         <*> x .@? "Marker"
-        <*> x .@  "Users"
+        <*> x .@? "Users" .!@ mempty
 
 instance AWSPager ListUsers where
     page rq rs

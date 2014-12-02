@@ -154,4 +154,4 @@ instance AWSRequest ValidateConfigurationSettings where
 
 instance FromXML ValidateConfigurationSettingsResponse where
     parseXML = withElement "ValidateConfigurationSettingsResult" $ \x -> ValidateConfigurationSettingsResponse
-        <$> x .@  "Messages"
+        <$> x .@? "Messages" .!@ mempty

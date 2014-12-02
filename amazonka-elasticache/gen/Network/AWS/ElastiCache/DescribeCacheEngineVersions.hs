@@ -188,7 +188,7 @@ instance AWSRequest DescribeCacheEngineVersions where
 
 instance FromXML DescribeCacheEngineVersionsResponse where
     parseXML = withElement "DescribeCacheEngineVersionsResult" $ \x -> DescribeCacheEngineVersionsResponse
-        <$> x .@  "CacheEngineVersions"
+        <$> x .@? "CacheEngineVersions" .!@ mempty
         <*> x .@? "Marker"
 
 instance AWSPager DescribeCacheEngineVersions where

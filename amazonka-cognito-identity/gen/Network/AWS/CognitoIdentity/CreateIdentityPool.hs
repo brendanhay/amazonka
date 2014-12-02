@@ -230,5 +230,5 @@ instance FromJSON CreateIdentityPoolResponse where
         <*> o .:? "DeveloperProviderName"
         <*> o .:  "IdentityPoolId"
         <*> o .:  "IdentityPoolName"
-        <*> o .:  "OpenIdConnectProviderARNs"
-        <*> o .:  "SupportedLoginProviders"
+        <*> o .:? "OpenIdConnectProviderARNs" .!= mempty
+        <*> o .:? "SupportedLoginProviders" .!= mempty

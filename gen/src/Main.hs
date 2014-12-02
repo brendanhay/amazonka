@@ -125,13 +125,13 @@ main = do
         -- Process a Input AST from the corresponding botocore model.
         forM_ (o ^. models) $ \d -> do
             -- Load the Input raw JSON.
-            !m   <- loadModel d (o ^. overrides) rs
+            !m   <- loadModel d (o ^. overrides)
 
             -- Decode the Input JSON to AST.
             !inp <- parse (_mModel m)
 
             -- Transformation from Input -> Output AST.
-            let !out = transformAST (_rDefinitions rs) m inp
+            let !out = transformAST rs m inp
 
             -- Store the intemediary Output AST as JSON.
             -- Note: This is primarily done for debugging purposes.

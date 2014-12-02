@@ -3,6 +3,7 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
@@ -41,8 +42,8 @@ import           Gen.Names
 import           Gen.Output
 import           Gen.Types
 
-transformAST :: HashMap Text Policy -> Model -> Input -> Output
-transformAST ps m inp = Output cabal service ops types
+transformAST :: Retries -> Model -> Input -> Output
+transformAST Retries{..} m inp = Output cabal service ops types
   where
     cabal = Cabal
         { _cName         = name
@@ -125,12 +126,14 @@ transformAST ps m inp = Output cabal service ops types
       where
         go :: (a, Policy) -> Maybe (a, RetryPolicy)
         go (k, p)
-            | ApplyWhen (WhenStatus e c) <- p = Just (k, Status e c)
+            | ApplyWhen (WhenStatus e c) <- p          = Just (k, Status e c)
             | ApplyRef r <- p
-            , Just x     <- Map.lookup r ps   = go (k, x)
-            | otherwise                       = Nothing
+            , Just x     <- Map.lookup r _rDefinitions = go (k, x)
+            | otherwise                                = Nothing
 
-    retry = m ^. mRetry
+    retry = fromMaybe _rDefault $
+            Map.lookup endpointPrefix _rRetries
+        <|> Map.lookup (Text.pack (m ^. mName)) _rRetries
 
 dataTypes :: Overrides
           -> Abbrev

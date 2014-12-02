@@ -541,12 +541,11 @@ instance FromJSON Retries where
         def = "__default__"
 
 data Model = Model
-    { _mName          :: String
-    , _mVersion       :: String
-    , _mPath          :: FilePath
-    , _mModel         :: Object
-    , _mRetry         :: Retry
-    , _mOverrides     :: Overrides
+    { _mName      :: String
+    , _mVersion   :: String
+    , _mPath      :: FilePath
+    , _mModel     :: Object
+    , _mOverrides :: Overrides
     } deriving (Show, Eq)
 
 makeLenses ''Model

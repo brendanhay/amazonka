@@ -29,8 +29,8 @@ import           System.FilePath
 loadRetries :: FilePath -> Script Retries
 loadRetries = requireObject >=> parse
 
-loadModel :: FilePath -> FilePath -> Retries -> Script Model
-loadModel d o Retries{..} = do
+loadModel :: FilePath -> FilePath -> Script Model
+loadModel d o = do
     v  <- version
     m1 <- requireObject override
     m2 <- merge <$> sequence
@@ -39,15 +39,12 @@ loadModel d o Retries{..} = do
         , optionalObject "waiters"    (waiters v)
         , optionalObject "pagination" (pagers  v)
         ]
-
-    Model name v d m2 retry <$> parse m1
+    Model name v d m2 <$> parse m1
   where
     version = do
         fs <- scriptIO (getDirectoryContents d)
         f  <- tryHead ("Failed to get model version from " ++ d) (filter dots fs)
         return (takeWhile (/= '.') f)
-
-    retry   = Map.lookupDefault _rDefault (Text.pack name) _rRetries
 
     api     = path "api.json"
     waiters = path "waiters.json"

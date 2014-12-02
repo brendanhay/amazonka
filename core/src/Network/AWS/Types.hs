@@ -143,16 +143,6 @@ instance Monoid (ServiceError a) where
         f (Errors xs) = xs
         f x           = [x]
 
-class AWSError a where
-    awsError :: a -> ServiceError String
-
-instance Show a => AWSError (ServiceError a) where
-    awsError = \case
-        HttpError       e     -> HttpError e
-        SerializerError a e   -> SerializerError a e
-        ServiceError    a s x -> ServiceError a s (show x)
-        Errors          xs    -> Errors (map awsError xs)
-
 -- | The properties (such as endpoint) for a service, as well as it's
 -- associated signing algorithm and error types.
 class (AWSSigner (Sg a), Show (Er a)) => AWSService a where
@@ -371,7 +361,7 @@ data Service a = Service
     , _svcTargetPrefix :: Maybe ByteString
     , _svcJSONVersion  :: Maybe ByteString
     , _svcDelay        :: !Delay
-    , _svcRetry        :: Int    -> ServiceError (Er a)   -> Bool
+    , _svcRetry        :: Status -> Er a -> Bool
     , _svcHandle       :: Status -> Maybe (LazyByteString -> ServiceError (Er a))
     }
 

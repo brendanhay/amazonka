@@ -20,6 +20,7 @@ module Network.AWS.Data.Internal.JSON
     , withObject
     , (.:)
     , (.:?)
+    , (.!=)
     -- ** Either String a
     , (.:>)
     , (.:?>)

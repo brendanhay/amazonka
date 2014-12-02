@@ -27,6 +27,7 @@ module Network.AWS.Data.Internal.XML
     , localName
     , (.@)
     , (.@?)
+    , (.!@)
 
     -- * ToXML
     , ToXML     (..)
@@ -90,6 +91,10 @@ ns .@? n =
         Left _   -> Right Nothing
         Right xs -> parseXML xs
 {-# INLINE (.@?) #-}
+
+(.!@) :: Either String (Maybe a) -> a -> Either String a
+f .!@ x = fromMaybe x <$> f
+{-# INLINE (.!@) #-}
 
 namespaced :: Text -> Text -> [Node] -> Element
 namespaced g l = element (Name l (Just g) Nothing)

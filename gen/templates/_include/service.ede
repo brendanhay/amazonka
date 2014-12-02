@@ -12,12 +12,11 @@ instance AWSService {{ service.abbrev }} where
         , _svcTargetPrefix = {% if service.targetPrefix %}Just "{{ service.targetPrefix }}"{% else %}Nothing{% endif %}
         , _svcJSONVersion  = {% if service.jsonVersion %}Just "{{ service.jsonVersion }}"{% else %}Nothing{% endif %}
         , _svcHandle       = {% if service.error == "JSONError" %}jsonError{% else %}restError{% endif %} statusSuccess
-        , _svcDelay        = {{ service.delay | show }}
-        }
+        , _svcDelay        = {% include "delay.ede" with delay = service.retryDelay %}        }
 
      retry n e
-{% for retry in service.retries %}
-  {{ retry | show }}
+{% for policy in service.retryPolicies %}
+  {{ policy | show }}
 {% endfor %}
 {% if service.xmlNamespace %}
 

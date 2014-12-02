@@ -41,8 +41,8 @@ import           Gen.Names
 import           Gen.Output
 import           Gen.Types
 
-transformAST :: Model -> Input -> Output
-transformAST m inp = Output cabal service ops types
+transformAST :: HashMap Text Policy -> Model -> Input -> Output
+transformAST ps m inp = Output cabal service ops types
   where
     cabal = Cabal
         { _cName         = name
@@ -74,6 +74,8 @@ transformAST m inp = Output cabal service ops types
         , _svTargetPrefix   = inp ^. mTargetPrefix
         , _svJsonVersion    = inp ^. mJsonVersion
         , _svError          = errorType protocol abbrev
+        , _svRetryDelay     = delay
+        , _svRetryPolicies  = policies
         }
 
     types = Types
@@ -112,6 +114,23 @@ transformAST m inp = Output cabal service ops types
             <> version
             <> "/"
         | otherwise                             = Nothing
+
+    delay = Exp
+        { _eAttempts = retry ^. rMaxAttempts
+        , _eBase     = retry ^. rDelay . dBase
+        , _eGrowth   = retry ^. rDelay . dGrowthFactor
+        }
+
+    policies = Map.fromList . mapMaybe go . Map.toList $ retry ^. rPolicies
+      where
+        go :: (a, Policy) -> Maybe (a, RetryPolicy)
+        go (k, p)
+            | ApplyWhen (WhenStatus e c) <- p = Just (k, Status e c)
+            | ApplyRef r <- p
+            , Just x     <- Map.lookup r ps   = go (k, x)
+            | otherwise                       = Nothing
+
+    retry = m ^. mRetry
 
 dataTypes :: Overrides
           -> Abbrev

@@ -131,7 +131,7 @@ main = do
             !inp <- parse (_mModel m)
 
             -- Transformation from Input -> Output AST.
-            let !out = transformAST m inp
+            let !out = transformAST (_rDefinitions rs) m inp
 
             -- Store the intemediary Output AST as JSON.
             -- Note: This is primarily done for debugging purposes.

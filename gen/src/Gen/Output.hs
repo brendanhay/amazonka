@@ -709,6 +709,21 @@ instance Ord Operation where
 instance ToFilePath Operation where
     toFilePath = toFilePath . _opNamespace
 
+data RetryDelay = Exp
+    { _eAttempts :: !Int
+    , _eBase     :: !Base
+    , _eGrowth   :: !Int
+    } deriving (Eq, Show)
+
+record output ''RetryDelay
+
+data RetryPolicy = Status
+    { _sError :: Maybe Text
+    , _sCode  :: !Int
+    } deriving (Eq, Show)
+
+record output ''RetryPolicy
+
 data Service = Service
     { _svName           :: !Text
     , _svUrl            :: !Text
@@ -725,6 +740,8 @@ data Service = Service
     , _svTargetPrefix   :: Maybe Text
     , _svJsonVersion    :: Maybe Text
     , _svError          :: !Text
+    , _svRetryDelay     :: !RetryDelay
+    , _svRetryPolicies  :: HashMap Text RetryPolicy
     } deriving (Eq, Show)
 
 record output ''Service

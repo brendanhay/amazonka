@@ -43,6 +43,7 @@ import           Data.Jason.Types     hiding (Parser)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
+import           Data.Scientific
 import           Data.SemVer
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
@@ -448,24 +449,24 @@ instance FromJSON Overrides where
         <*> o .:? "typeModules"      .!= mempty
         <*> o .:? "overrides"        .!= mempty
 
-data Resp
-    = Status (Maybe Text) !Int
-    | CRC32  !Text
+data When
+    = WhenStatus (Maybe Text) !Int
+    | WhenCRC32  !Text
       deriving (Eq, Show)
 
-instance FromJSON Resp where
-    parseJSON = withObject "resp" $ \o -> status o <|> crc o
+instance FromJSON When where
+    parseJSON = withObject "when" $ \o -> status o <|> crc o
       where
-        status o = Status
+        status o = WhenStatus
              <$> o .:? "service_error_code"
              <*> o .:  "http_status_code"
 
-        crc = fmap CRC32 . (.: "crc32body")
+        crc = fmap WhenCRC32 . (.: "crc32body")
 
 data Policy
-    = Ref   !Text
-    | Sock  [Text]
-    | Resp  Resp
+    = ApplyRef  !Text
+    | ApplySock [Text]
+    | ApplyWhen When
       deriving (Eq, Show)
 
 instance FromJSON Policy where
@@ -474,18 +475,16 @@ instance FromJSON Policy where
         <|> resp o
         <|> ref  o
       where
-        sock = fmap Sock . ((.: "applies_when") >=> (.: "socket_errors"))
-        resp = fmap Resp . ((.: "applies_when") >=> (.: "response"))
-        ref  = fmap Ref  . (.: "$ref")
+        sock = fmap ApplySock . ((.: "applies_when") >=> (.: "socket_errors"))
+        resp = fmap ApplyWhen . ((.: "applies_when") >=> (.: "response"))
+        ref  = fmap ApplyRef  . (.: "$ref")
 
-data Base
-    = Rand
-    | Factor !Int
-      deriving (Eq, Show)
+newtype Base = Factor Scientific
+    deriving (Eq, Show, A.ToJSON)
 
 instance FromJSON Base where
     parseJSON = \case
-       String "rand" -> pure Rand
+       String "rand" -> pure (Factor 0.05)
        o             -> Factor <$> parseJSON o
 
 data Delay = Delay

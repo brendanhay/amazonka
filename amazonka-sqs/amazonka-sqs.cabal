@@ -1,5 +1,5 @@
 name:                  amazonka-sqs
-version:               0.0.6
+version:               0.0.7
 synopsis:              Amazon Simple Queue Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -60,5 +60,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.6.*
+          amazonka-core == 0.0.7.*
         , base          >= 4.7     && < 5

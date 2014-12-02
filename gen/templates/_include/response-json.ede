@@ -2,6 +2,6 @@
   {% if field.value.location %}
     {% include "field.ede" %}
   {% else %}
-        {% include "applicative.ede" %} o {% include "json-operator.ede" %} "{{ field.value.locationName }}"
+        {% include "applicative.ede" %} o {% include "json-operator.ede" %}
   {% endif %}
 {% endfor %}

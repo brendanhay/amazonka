@@ -100,7 +100,6 @@ module Network.AWS.SQS.Types
     , breeSenderFault
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts

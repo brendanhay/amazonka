@@ -66,7 +66,6 @@ module Network.AWS.SNS.Types
     , eEndpointArn
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts

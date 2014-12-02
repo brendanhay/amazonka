@@ -269,7 +269,6 @@ module Network.AWS.ElasticBeanstalk.Types
     , ssdSolutionStackName
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts

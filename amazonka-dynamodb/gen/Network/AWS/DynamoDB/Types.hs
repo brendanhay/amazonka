@@ -239,8 +239,6 @@ module Network.AWS.DynamoDB.Types
     , gsiuUpdate
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts

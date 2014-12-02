@@ -418,8 +418,6 @@ module Network.AWS.OpsWorks.Types
     , AppType (..)
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts

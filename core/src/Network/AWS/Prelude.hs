@@ -41,8 +41,12 @@ module Network.AWS.Prelude
     -- * Errors
     , AWSError     (..)
     , AWSErrorCode (..)
+    , ServiceError (..)
     , RESTError
+    , restError
     , JSONError
+    , jsonError
+    , statusSuccess
 
     -- * Shared
     , Delay        (..)

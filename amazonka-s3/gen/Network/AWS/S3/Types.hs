@@ -418,7 +418,6 @@ module Network.AWS.S3.Types
     , module Network.AWS.S3.Internal
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import Network.AWS.S3.Internal

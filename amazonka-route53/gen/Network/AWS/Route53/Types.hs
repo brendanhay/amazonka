@@ -194,7 +194,6 @@ module Network.AWS.Route53.Types
     , module Network.AWS.Route53.Internal
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import Network.AWS.Route53.Internal

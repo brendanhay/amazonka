@@ -74,7 +74,6 @@ module Network.AWS.SDB.Types
     , iName
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts

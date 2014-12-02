@@ -282,8 +282,6 @@ module Network.AWS.ElasticTranscoder.Types
     , jiResolution
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts

@@ -179,7 +179,6 @@ module Network.AWS.IAM.Types
     , akmUserName
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts

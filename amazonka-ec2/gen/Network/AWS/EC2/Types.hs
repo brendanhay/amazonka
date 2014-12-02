@@ -1397,7 +1397,6 @@ module Network.AWS.EC2.Types
     , module Network.AWS.EC2.Internal
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import Network.AWS.EC2.Internal

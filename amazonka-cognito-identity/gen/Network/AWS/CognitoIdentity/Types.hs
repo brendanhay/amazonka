@@ -53,8 +53,6 @@ module Network.AWS.CognitoIdentity.Types
     , ipsdIdentityPoolName
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts

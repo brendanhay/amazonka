@@ -102,7 +102,6 @@ module Network.AWS.SES.Types
     , mSubject
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts

@@ -80,8 +80,6 @@ module Network.AWS.Kinesis.Types
     , ShardIteratorType (..)
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts

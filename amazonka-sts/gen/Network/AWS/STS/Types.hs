@@ -53,7 +53,6 @@ module Network.AWS.STS.Types
     , aruAssumedRoleId
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts

@@ -24,7 +24,7 @@ module Network.AWS.Prelude
     , HashMap
     , HttpException
     , Natural
-    , NonEmpty
+    , NonEmpty     (..)
     , RequestBody
     , Response
     , Text
@@ -65,7 +65,7 @@ import Control.Exception         (Exception)
 import Data.ByteString           (ByteString)
 import Data.CaseInsensitive      (CI)
 import Data.HashMap.Strict       (HashMap)
-import Data.List.NonEmpty        (NonEmpty)
+import Data.List.NonEmpty        (NonEmpty(..))
 import Data.Semigroup            (Semigroup)
 import Data.String               (IsString(..))
 import Data.Text                 (Text)

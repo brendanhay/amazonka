@@ -21,7 +21,7 @@ import Network.AWS.Error
 import Network.AWS.Prelude
 
 data Message = Message
-    { _msgCode    :: Code
+    { _msgCode    :: ErrorCode
     , _msgMessage :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -33,7 +33,7 @@ instance FromXML Message where
         <$> x .@ "Code"
         <*> x .@ "Message"
 
-msgCode :: Lens' Message Code
+msgCode :: Lens' Message ErrorCode
 msgCode = lens _msgCode (\s x -> s { _msgCode = x })
 
 msgMessage :: Lens' Message Text
@@ -45,7 +45,7 @@ data EC2Error = EC2Error
     } deriving (Eq, Ord, Show, Generic)
 
 instance AWSErrorCode EC2Error where
-    awsErrorCode e = let m :| _ = _errErrors e in awsErrorCode m
+    awsErrorCode e = let List1 (m :| _) = _errErrors e in awsErrorCode m
 
 instance FromXML EC2Error where
     parseXML x = EC2Error

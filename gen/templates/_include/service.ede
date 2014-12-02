@@ -5,29 +5,32 @@ instance AWSService {{ service.abbrev }} where
     type Sg {{ service.abbrev }} = {{ service.signature }}
     type Er {{ service.abbrev }} = {{ service.error }}
 
-    service = Service
-        { _svcAbbrev       = "{{ service.abbrev }}"
-        , _svcPrefix       = "{{ service.endpointPrefix }}"
-        , _svcVersion      = "{{ service.version }}"
-        , _svcTargetPrefix = {% if service.targetPrefix %}Just "{{ service.targetPrefix }}"{% else %}Nothing{% endif %}
-        , _svcJSONVersion  = {% if service.jsonVersion %}Just "{{ service.jsonVersion }}"{% else %}Nothing{% endif %}
-        , _svcHandle       = {% if service.error == "JSONError" %}jsonError{% else %}restError{% endif %} statusSuccess
-        , _svcDelay        = delay
-        , _svcRetry        = retry
-        }
-    {-# INLINE service #-}
+    service = service'
+      where
+        service' :: Service {{ service.abbrev }}
+        service' = Service
+              { _svcAbbrev       = "{{ service.abbrev }}"
+              , _svcPrefix       = "{{ service.endpointPrefix }}"
+              , _svcVersion      = "{{ service.version }}"
+              , _svcTargetPrefix = {% if service.targetPrefix %}Just "{{ service.targetPrefix }}"{% else %}Nothing{% endif %}
+              , _svcJSONVersion  = {% if service.jsonVersion %}Just "{{ service.jsonVersion }}"{% else %}Nothing{% endif %}
+              , _svcDelay        = Exp {{ service.retryDelay.base }} {{ service.retryDelay.growth }} {{ service.retryDelay.attempts }}
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-delay :: Delay
-delay = Exp {{ service.retryDelay.base }} {{ service.retryDelay.growth }} {{ service.retryDelay.attempts }}
-{-# INLINE delay #-}
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError {{ service.error }})
+        handle = {% if service.error == "JSONError" %}jsonError{% else %}restError{% endif %} statusSuccess service'
 
-retry :: AWSErrorCode -> Status -> a -> Bool
-retry (statusCode -> s) (awsErrorCode -> e)
-{% for policy in service.retryPolicies %}
-    | s == {{ policy.value.code }}  = {% if policy.value.error %}"{{ policy.value.error }}" == e{% else %}True{% endif %} -- {{ policy.key | toTitle }}
-{% endfor %}
-    | otherwise = False
-{-# INLINE retry #-}
+        retry :: Status
+              -> {{ service.error }}
+              -> Bool
+        retry (statusCode -> s) (awsErrorCode -> e)
+        {% for policy in service.retryPolicies %}
+            | s == {{ policy.value.code }}  = {% if policy.value.error %}"{{ policy.value.error }}" == e{% else %}True{% endif %} -- {{ policy.key | toTitle }}
+        {% endfor %}
+            | otherwise = False
 {% if service.xmlNamespace %}
 
 ns :: Text

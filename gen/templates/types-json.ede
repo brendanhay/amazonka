@@ -1,7 +1,5 @@
 {% include "_include/types-exports.ede" %}
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 {% include "_include/imports.ede" %}

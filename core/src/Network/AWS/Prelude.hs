@@ -39,6 +39,7 @@ module Network.AWS.Prelude
     , Whole
 
     -- * Shared
+    , Delay        (..)
     , Empty        (..)
     , Service      (..)
 

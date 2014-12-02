@@ -149,12 +149,13 @@ instance AWSService DataPipeline where
         , _svcDelay        = delay
         , _svcRetry        = retry
         }
+    {-# INLINE service #-}
 
 delay :: Delay
 delay = Exp 0.05 2 5
 {-# INLINE delay #-}
 
-retry :: AWSErrorCode -> Status -> a -> Retry
+retry :: AWSErrorCode -> Status -> a -> Bool
 retry (statusCode -> s) (awsErrorCode -> e)
     | s == 500  = True -- General Server Error
     | s == 509  = True -- Limit Exceeded

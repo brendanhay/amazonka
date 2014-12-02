@@ -38,6 +38,12 @@ module Network.AWS.Prelude
     , Semigroup
     , Whole
 
+    -- * Errors
+    , AWSError     (..)
+    , AWSErrorCode (..)
+    , RESTError
+    , JSONError
+
     -- * Shared
     , Delay        (..)
     , Empty        (..)
@@ -48,6 +54,7 @@ module Network.AWS.Prelude
     , Status       (..)
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Types
 
 import Control.Exception         (Exception)

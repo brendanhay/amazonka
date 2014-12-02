@@ -30,6 +30,7 @@ module Network.AWS.Error
     -- * Types
     , ErrorCode    (..)
     , ErrorType    (..)
+    , ServiceError (..)
 
     -- * REST Errors
     , RESTError

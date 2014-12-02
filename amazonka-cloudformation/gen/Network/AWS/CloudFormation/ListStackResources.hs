@@ -140,7 +140,7 @@ instance AWSRequest ListStackResources where
 instance FromXML ListStackResourcesResponse where
     parseXML = withElement "ListStackResourcesResult" $ \x -> ListStackResourcesResponse
         <$> x .@? "NextToken"
-        <*> x .@  "StackResourceSummaries"
+        <*> x .@? "StackResourceSummaries" .!@ mempty
 
 instance AWSPager ListStackResources where
     page rq rs

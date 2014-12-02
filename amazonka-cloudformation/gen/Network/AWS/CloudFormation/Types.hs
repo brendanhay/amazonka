@@ -1283,19 +1283,19 @@ sTimeoutInMinutes =
 
 instance FromXML Stack where
     parseXML x = Stack
-        <$> x .@  "Capabilities"
+        <$> x .@? "Capabilities" .!@ mempty
         <*> x .@  "CreationTime"
         <*> x .@? "Description"
         <*> x .@? "DisableRollback"
         <*> x .@? "LastUpdatedTime"
-        <*> x .@  "NotificationARNs"
-        <*> x .@  "Outputs"
-        <*> x .@  "Parameters"
+        <*> x .@? "NotificationARNs" .!@ mempty
+        <*> x .@? "Outputs" .!@ mempty
+        <*> x .@? "Parameters" .!@ mempty
         <*> x .@? "StackId"
         <*> x .@  "StackName"
         <*> x .@  "StackStatus"
         <*> x .@? "StackStatusReason"
-        <*> x .@  "Tags"
+        <*> x .@? "Tags" .!@ mempty
         <*> x .@? "TimeoutInMinutes"
 
 instance ToQuery Stack where

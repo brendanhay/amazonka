@@ -146,7 +146,7 @@ instance AWSRequest ListAccountAliases where
 
 instance FromXML ListAccountAliasesResponse where
     parseXML = withElement "ListAccountAliasesResult" $ \x -> ListAccountAliasesResponse
-        <$> x .@  "AccountAliases"
+        <$> x .@? "AccountAliases" .!@ mempty
         <*> x .@? "IsTruncated"
         <*> x .@? "Marker"
 

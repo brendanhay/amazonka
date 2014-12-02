@@ -33,6 +33,7 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
     -- ** Request constructor
     , createPipeline
     -- ** Request lenses
+    , cp1AwsKmsKeyArn
     , cp1ContentConfig
     , cp1InputBucket
     , cp1Name
@@ -55,7 +56,8 @@ import Network.AWS.ElasticTranscoder.Types
 import qualified GHC.Exts
 
 data CreatePipeline = CreatePipeline
-    { _cp1ContentConfig   :: Maybe PipelineOutputConfig
+    { _cp1AwsKmsKeyArn    :: Maybe Text
+    , _cp1ContentConfig   :: Maybe PipelineOutputConfig
     , _cp1InputBucket     :: Text
     , _cp1Name            :: Text
     , _cp1Notifications   :: Maybe Notifications
@@ -67,6 +69,8 @@ data CreatePipeline = CreatePipeline
 -- | 'CreatePipeline' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'cp1AwsKmsKeyArn' @::@ 'Maybe' 'Text'
 --
 -- * 'cp1ContentConfig' @::@ 'Maybe' 'PipelineOutputConfig'
 --
@@ -91,10 +95,21 @@ createPipeline p1 p2 p3 = CreatePipeline
     , _cp1InputBucket     = p2
     , _cp1Role            = p3
     , _cp1OutputBucket    = Nothing
+    , _cp1AwsKmsKeyArn    = Nothing
     , _cp1Notifications   = Nothing
     , _cp1ContentConfig   = Nothing
     , _cp1ThumbnailConfig = Nothing
     }
+
+-- | The AWS Key Management Service (AWS KMS) key that you want to use with this
+-- pipeline.
+--
+-- If you use either 'S3' or 'S3-AWS-KMS' as your 'Encryption:Mode', you don't need
+-- to provide a key with your job because a default key, known as an AWS-KMS
+-- key, is created for you automatically. You need to provide an AWS-KMS key
+-- only if you want to use a non-default AWS-KMS key, or if you are using an 'Encryption:Mode' of 'AES-PKCS7', 'AES-CTR', or 'AES-GCM'.
+cp1AwsKmsKeyArn :: Lens' CreatePipeline (Maybe Text)
+cp1AwsKmsKeyArn = lens _cp1AwsKmsKeyArn (\s a -> s { _cp1AwsKmsKeyArn = a })
 
 -- | The optional 'ContentConfig' object specifies information about the Amazon S3
 -- bucket in which you want Elastic Transcoder to save transcoded files and
@@ -274,6 +289,7 @@ instance ToJSON CreatePipeline where
         , "InputBucket"     .= _cp1InputBucket
         , "OutputBucket"    .= _cp1OutputBucket
         , "Role"            .= _cp1Role
+        , "AwsKmsKeyArn"    .= _cp1AwsKmsKeyArn
         , "Notifications"   .= _cp1Notifications
         , "ContentConfig"   .= _cp1ContentConfig
         , "ThumbnailConfig" .= _cp1ThumbnailConfig

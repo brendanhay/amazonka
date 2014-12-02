@@ -713,7 +713,7 @@ jfdVisibleToAllUsers =
 instance FromJSON JobFlowDetail where
     parseJSON = withObject "JobFlowDetail" $ \o -> JobFlowDetail
         <$> o .:? "AmiVersion"
-        <*> o .:  "BootstrapActions"
+        <*> o .:? "BootstrapActions" .!= mempty
         <*> o .:  "ExecutionStatusDetail"
         <*> o .:  "Instances"
         <*> o .:  "JobFlowId"
@@ -721,8 +721,8 @@ instance FromJSON JobFlowDetail where
         <*> o .:? "LogUri"
         <*> o .:  "Name"
         <*> o .:? "ServiceRole"
-        <*> o .:  "Steps"
-        <*> o .:  "SupportedProducts"
+        <*> o .:? "Steps" .!= mempty
+        <*> o .:? "SupportedProducts" .!= mempty
         <*> o .:? "VisibleToAllUsers"
 
 instance ToJSON JobFlowDetail where
@@ -808,7 +808,7 @@ spcName = lens _spcName (\s a -> s { _spcName = a })
 
 instance FromJSON SupportedProductConfig where
     parseJSON = withObject "SupportedProductConfig" $ \o -> SupportedProductConfig
-        <$> o .:  "Args"
+        <$> o .:? "Args" .!= mempty
         <*> o .:? "Name"
 
 instance ToJSON SupportedProductConfig where
@@ -854,7 +854,7 @@ cScriptPath = lens _cScriptPath (\s a -> s { _cScriptPath = a })
 
 instance FromJSON Command where
     parseJSON = withObject "Command" $ \o -> Command
-        <$> o .:  "Args"
+        <$> o .:? "Args" .!= mempty
         <*> o .:? "Name"
         <*> o .:? "ScriptPath"
 
@@ -1067,8 +1067,8 @@ aVersion = lens _aVersion (\s a -> s { _aVersion = a })
 
 instance FromJSON Application where
     parseJSON = withObject "Application" $ \o -> Application
-        <$> o .:  "AdditionalInfo"
-        <*> o .:  "Args"
+        <$> o .:? "AdditionalInfo" .!= mempty
+        <*> o .:? "Args" .!= mempty
         <*> o .:? "Name"
         <*> o .:? "Version"
 
@@ -1348,7 +1348,7 @@ c1VisibleToAllUsers =
 
 instance FromJSON Cluster where
     parseJSON = withObject "Cluster" $ \o -> Cluster
-        <$> o .:  "Applications"
+        <$> o .:? "Applications" .!= mempty
         <*> o .:? "AutoTerminate"
         <*> o .:? "Ec2InstanceAttributes"
         <*> o .:? "Id"
@@ -1358,7 +1358,7 @@ instance FromJSON Cluster where
         <*> o .:? "RunningAmiVersion"
         <*> o .:? "ServiceRole"
         <*> o .:? "Status"
-        <*> o .:  "Tags"
+        <*> o .:? "Tags" .!= mempty
         <*> o .:? "TerminationProtected"
         <*> o .:? "VisibleToAllUsers"
 
@@ -1615,10 +1615,10 @@ hscProperties = lens _hscProperties (\s a -> s { _hscProperties = a }) . _Map
 
 instance FromJSON HadoopStepConfig where
     parseJSON = withObject "HadoopStepConfig" $ \o -> HadoopStepConfig
-        <$> o .:  "Args"
+        <$> o .:? "Args" .!= mempty
         <*> o .:? "Jar"
         <*> o .:? "MainClass"
-        <*> o .:  "Properties"
+        <*> o .:? "Properties" .!= mempty
 
 instance ToJSON HadoopStepConfig where
     toJSON HadoopStepConfig{..} = object
@@ -2100,10 +2100,10 @@ hjscProperties = lens _hjscProperties (\s a -> s { _hjscProperties = a }) . _Lis
 
 instance FromJSON HadoopJarStepConfig where
     parseJSON = withObject "HadoopJarStepConfig" $ \o -> HadoopJarStepConfig
-        <$> o .:  "Args"
+        <$> o .:? "Args" .!= mempty
         <*> o .:  "Jar"
         <*> o .:? "MainClass"
-        <*> o .:  "Properties"
+        <*> o .:? "Properties" .!= mempty
 
 instance ToJSON HadoopJarStepConfig where
     toJSON HadoopJarStepConfig{..} = object
@@ -2158,7 +2158,7 @@ igmcInstanceGroupId =
 
 instance FromJSON InstanceGroupModifyConfig where
     parseJSON = withObject "InstanceGroupModifyConfig" $ \o -> InstanceGroupModifyConfig
-        <$> o .:  "EC2InstanceIdsToTerminate"
+        <$> o .:? "EC2InstanceIdsToTerminate" .!= mempty
         <*> o .:? "InstanceCount"
         <*> o .:  "InstanceGroupId"
 
@@ -2892,7 +2892,7 @@ instance FromJSON JobFlowInstancesConfig where
         <*> o .:? "Ec2SubnetId"
         <*> o .:? "HadoopVersion"
         <*> o .:? "InstanceCount"
-        <*> o .:  "InstanceGroups"
+        <*> o .:? "InstanceGroups" .!= mempty
         <*> o .:? "KeepJobFlowAliveWhenNoSteps"
         <*> o .:? "MasterInstanceType"
         <*> o .:? "Placement"
@@ -3318,7 +3318,7 @@ instance FromJSON JobFlowInstancesDetail where
         <*> o .:? "Ec2SubnetId"
         <*> o .:? "HadoopVersion"
         <*> o .:  "InstanceCount"
-        <*> o .:  "InstanceGroups"
+        <*> o .:? "InstanceGroups" .!= mempty
         <*> o .:? "KeepJobFlowAliveWhenNoSteps"
         <*> o .:? "MasterInstanceId"
         <*> o .:  "MasterInstanceType"
@@ -3641,7 +3641,7 @@ sbacPath = lens _sbacPath (\s a -> s { _sbacPath = a })
 
 instance FromJSON ScriptBootstrapActionConfig where
     parseJSON = withObject "ScriptBootstrapActionConfig" $ \o -> ScriptBootstrapActionConfig
-        <$> o .:  "Args"
+        <$> o .:? "Args" .!= mempty
         <*> o .:  "Path"
 
 instance ToJSON ScriptBootstrapActionConfig where

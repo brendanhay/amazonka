@@ -159,7 +159,7 @@ instance AWSRequest DescribeScalingActivities where
 
 instance FromXML DescribeScalingActivitiesResponse where
     parseXML = withElement "DescribeScalingActivitiesResult" $ \x -> DescribeScalingActivitiesResponse
-        <$> x .@  "Activities"
+        <$> x .@? "Activities" .!@ mempty
         <*> x .@? "NextToken"
 
 instance AWSPager DescribeScalingActivities where

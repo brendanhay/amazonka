@@ -55,13 +55,13 @@ MODELS ?= $(QUERY) $(XML) $(JSON)
 gen: build
 	@dist/build/amazonka-gen/amazonka-gen \
  --out=../ \
- --services=stage2 \
+ --services=output \
  --overrides=overrides \
  --templates=templates \
  --assets=assets \
- $(addprefix --model=,$(addprefix stage1/,$(MODELS)))
+ $(addprefix --model=,$(addprefix input/,$(MODELS)))
 
-build: stage1 stage2
+build: input output
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
 install: add-sources
@@ -69,7 +69,7 @@ install: add-sources
 
 clean:
 	cabal clean
-	rm -rf stage1 stage2 cabal.sandbox.config .cabal-sandbox vendor
+	rm -rf input output cabal.sandbox.config .cabal-sandbox vendor
 
 add-sources: cabal.sandbox.config $(DEPS)
 	cabal sandbox add-source vendor/jason
@@ -83,8 +83,8 @@ vendor/botocore:
 vendor/%:
 	git clone git@github.com:brendanhay/$*.git $@
 
-stage1:
+input:
 	cp -rf vendor/botocore/botocore/data/aws $@
 
-stage2:
+output:
 	@mkdir $@

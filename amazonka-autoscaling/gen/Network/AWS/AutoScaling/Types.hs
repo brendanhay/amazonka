@@ -714,7 +714,7 @@ lcUserData = lens _lcUserData (\s a -> s { _lcUserData = a })
 instance FromXML LaunchConfiguration where
     parseXML x = LaunchConfiguration
         <$> x .@? "AssociatePublicIpAddress"
-        <*> x .@  "BlockDeviceMappings"
+        <*> x .@? "BlockDeviceMappings" .!@ mempty
         <*> x .@  "CreatedTime"
         <*> x .@? "EbsOptimized"
         <*> x .@? "IamInstanceProfile"
@@ -727,7 +727,7 @@ instance FromXML LaunchConfiguration where
         <*> x .@  "LaunchConfigurationName"
         <*> x .@? "PlacementTenancy"
         <*> x .@? "RamdiskId"
-        <*> x .@  "SecurityGroups"
+        <*> x .@? "SecurityGroups" .!@ mempty
         <*> x .@? "SpotPrice"
         <*> x .@? "UserData"
 
@@ -969,19 +969,19 @@ instance FromXML AutoScalingGroup where
         <*> x .@  "CreatedTime"
         <*> x .@  "DefaultCooldown"
         <*> x .@  "DesiredCapacity"
-        <*> x .@  "EnabledMetrics"
+        <*> x .@? "EnabledMetrics" .!@ mempty
         <*> x .@? "HealthCheckGracePeriod"
         <*> x .@  "HealthCheckType"
-        <*> x .@  "Instances"
+        <*> x .@? "Instances" .!@ mempty
         <*> x .@  "LaunchConfigurationName"
-        <*> x .@  "LoadBalancerNames"
+        <*> x .@? "LoadBalancerNames" .!@ mempty
         <*> x .@  "MaxSize"
         <*> x .@  "MinSize"
         <*> x .@? "PlacementGroup"
         <*> x .@? "Status"
-        <*> x .@  "SuspendedProcesses"
-        <*> x .@  "Tags"
-        <*> x .@  "TerminationPolicies"
+        <*> x .@? "SuspendedProcesses" .!@ mempty
+        <*> x .@? "Tags" .!@ mempty
+        <*> x .@? "TerminationPolicies" .!@ mempty
         <*> x .@? "VPCZoneIdentifier"
 
 instance ToQuery AutoScalingGroup where
@@ -1096,7 +1096,7 @@ sp1ScalingAdjustment =
 instance FromXML ScalingPolicy where
     parseXML x = ScalingPolicy
         <$> x .@? "AdjustmentType"
-        <*> x .@  "Alarms"
+        <*> x .@? "Alarms" .!@ mempty
         <*> x .@? "AutoScalingGroupName"
         <*> x .@? "Cooldown"
         <*> x .@? "MinAdjustmentStep"
@@ -1311,7 +1311,7 @@ spqScalingProcesses =
 instance FromXML ScalingProcessQuery where
     parseXML x = ScalingProcessQuery
         <$> x .@  "AutoScalingGroupName"
-        <*> x .@  "ScalingProcesses"
+        <*> x .@? "ScalingProcesses" .!@ mempty
 
 instance ToQuery ScalingProcessQuery where
     toQuery ScalingProcessQuery{..} = mconcat
@@ -1815,7 +1815,7 @@ fValues = lens _fValues (\s a -> s { _fValues = a }) . _List
 instance FromXML Filter where
     parseXML x = Filter
         <$> x .@  "Name"
-        <*> x .@  "Values"
+        <*> x .@? "Values" .!@ mempty
 
 instance ToQuery Filter where
     toQuery Filter{..} = mconcat

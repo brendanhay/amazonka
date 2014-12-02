@@ -125,7 +125,7 @@ instance AWSRequest ListPlatformApplications where
 instance FromXML ListPlatformApplicationsResponse where
     parseXML = withElement "ListPlatformApplicationsResult" $ \x -> ListPlatformApplicationsResponse
         <$> x .@? "NextToken"
-        <*> x .@  "PlatformApplications"
+        <*> x .@? "PlatformApplications" .!@ mempty
 
 instance AWSPager ListPlatformApplications where
     page rq rs

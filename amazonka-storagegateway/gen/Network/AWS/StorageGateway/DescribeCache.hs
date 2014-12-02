@@ -169,5 +169,5 @@ instance FromJSON DescribeCacheResponse where
         <*> o .:? "CacheHitPercentage"
         <*> o .:? "CacheMissPercentage"
         <*> o .:? "CacheUsedPercentage"
-        <*> o .:  "DiskIds"
+        <*> o .:? "DiskIds" .!= mempty
         <*> o .:? "GatewayARN"

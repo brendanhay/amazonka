@@ -118,7 +118,7 @@ instance AWSRequest ListSubscriptions where
 instance FromXML ListSubscriptionsResponse where
     parseXML = withElement "ListSubscriptionsResult" $ \x -> ListSubscriptionsResponse
         <$> x .@? "NextToken"
-        <*> x .@  "Subscriptions"
+        <*> x .@? "Subscriptions" .!@ mempty
 
 instance AWSPager ListSubscriptions where
     page rq rs

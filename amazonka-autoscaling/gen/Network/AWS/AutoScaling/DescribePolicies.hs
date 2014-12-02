@@ -157,7 +157,7 @@ instance AWSRequest DescribePolicies where
 instance FromXML DescribePoliciesResponse where
     parseXML = withElement "DescribePoliciesResult" $ \x -> DescribePoliciesResponse
         <$> x .@? "NextToken"
-        <*> x .@  "ScalingPolicies"
+        <*> x .@? "ScalingPolicies" .!@ mempty
 
 instance AWSPager DescribePolicies where
     page rq rs

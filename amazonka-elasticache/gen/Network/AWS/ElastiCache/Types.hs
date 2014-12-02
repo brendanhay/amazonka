@@ -628,7 +628,7 @@ instance FromXML Snapshot where
         <*> x .@? "CacheSubnetGroupName"
         <*> x .@? "Engine"
         <*> x .@? "EngineVersion"
-        <*> x .@  "NodeSnapshots"
+        <*> x .@? "NodeSnapshots" .!@ mempty
         <*> x .@? "NumCacheNodes"
         <*> x .@? "Port"
         <*> x .@? "PreferredAvailabilityZone"
@@ -776,7 +776,7 @@ ngStatus = lens _ngStatus (\s a -> s { _ngStatus = a })
 instance FromXML NodeGroup where
     parseXML x = NodeGroup
         <$> x .@? "NodeGroupId"
-        <*> x .@  "NodeGroupMembers"
+        <*> x .@? "NodeGroupMembers" .!@ mempty
         <*> x .@? "PrimaryEndpoint"
         <*> x .@? "Status"
 
@@ -1106,7 +1106,7 @@ instance FromXML CacheSubnetGroup where
     parseXML x = CacheSubnetGroup
         <$> x .@? "CacheSubnetGroupDescription"
         <*> x .@? "CacheSubnetGroupName"
-        <*> x .@  "Subnets"
+        <*> x .@? "Subnets" .!@ mempty
         <*> x .@? "VpcId"
 
 instance ToQuery CacheSubnetGroup where
@@ -1239,7 +1239,7 @@ instance FromXML ReservedCacheNode where
         <*> x .@? "FixedPrice"
         <*> x .@? "OfferingType"
         <*> x .@? "ProductDescription"
-        <*> x .@  "RecurringCharges"
+        <*> x .@? "RecurringCharges" .!@ mempty
         <*> x .@? "ReservedCacheNodeId"
         <*> x .@? "ReservedCacheNodesOfferingId"
         <*> x .@? "StartTime"
@@ -1573,9 +1573,9 @@ instance FromXML CacheCluster where
         <*> x .@? "CacheClusterId"
         <*> x .@? "CacheClusterStatus"
         <*> x .@? "CacheNodeType"
-        <*> x .@  "CacheNodes"
+        <*> x .@? "CacheNodes" .!@ mempty
         <*> x .@? "CacheParameterGroup"
-        <*> x .@  "CacheSecurityGroups"
+        <*> x .@? "CacheSecurityGroups" .!@ mempty
         <*> x .@? "CacheSubnetGroupName"
         <*> x .@? "ClientDownloadLandingPage"
         <*> x .@? "ConfigurationEndpoint"
@@ -1587,7 +1587,7 @@ instance FromXML CacheCluster where
         <*> x .@? "PreferredAvailabilityZone"
         <*> x .@? "PreferredMaintenanceWindow"
         <*> x .@? "ReplicationGroupId"
-        <*> x .@  "SecurityGroups"
+        <*> x .@? "SecurityGroups" .!@ mempty
         <*> x .@? "SnapshotRetentionLimit"
         <*> x .@? "SnapshotWindow"
 
@@ -1669,10 +1669,10 @@ edParameters = lens _edParameters (\s a -> s { _edParameters = a }) . _List
 
 instance FromXML EngineDefaults where
     parseXML x = EngineDefaults
-        <$> x .@  "CacheNodeTypeSpecificParameters"
+        <$> x .@? "CacheNodeTypeSpecificParameters" .!@ mempty
         <*> x .@? "CacheParameterGroupFamily"
         <*> x .@? "Marker"
-        <*> x .@  "Parameters"
+        <*> x .@? "Parameters" .!@ mempty
 
 instance ToQuery EngineDefaults where
     toQuery EngineDefaults{..} = mconcat
@@ -1727,7 +1727,7 @@ cpgsParameterApplyStatus =
 
 instance FromXML CacheParameterGroupStatus where
     parseXML x = CacheParameterGroupStatus
-        <$> x .@  "CacheNodeIdsToReboot"
+        <$> x .@? "CacheNodeIdsToReboot" .!@ mempty
         <*> x .@? "CacheParameterGroupName"
         <*> x .@? "ParameterApplyStatus"
 
@@ -2115,7 +2115,7 @@ instance FromXML CacheSecurityGroup where
     parseXML x = CacheSecurityGroup
         <$> x .@? "CacheSecurityGroupName"
         <*> x .@? "Description"
-        <*> x .@  "EC2SecurityGroups"
+        <*> x .@? "EC2SecurityGroups" .!@ mempty
         <*> x .@? "OwnerId"
 
 instance ToQuery CacheSecurityGroup where
@@ -2214,7 +2214,7 @@ cntspSource = lens _cntspSource (\s a -> s { _cntspSource = a })
 instance FromXML CacheNodeTypeSpecificParameter where
     parseXML x = CacheNodeTypeSpecificParameter
         <$> x .@? "AllowedValues"
-        <*> x .@  "CacheNodeTypeSpecificValues"
+        <*> x .@? "CacheNodeTypeSpecificValues" .!@ mempty
         <*> x .@? "DataType"
         <*> x .@? "Description"
         <*> x .@? "IsModifiable"
@@ -2421,8 +2421,8 @@ instance FromXML ReplicationGroup where
     parseXML x = ReplicationGroup
         <$> x .@? "AutomaticFailover"
         <*> x .@? "Description"
-        <*> x .@  "MemberClusters"
-        <*> x .@  "NodeGroups"
+        <*> x .@? "MemberClusters" .!@ mempty
+        <*> x .@? "NodeGroups" .!@ mempty
         <*> x .@? "PendingModifiedValues"
         <*> x .@? "ReplicationGroupId"
         <*> x .@? "SnapshottingClusterId"
@@ -2569,7 +2569,7 @@ instance FromXML ReservedCacheNodesOffering where
         <*> x .@? "FixedPrice"
         <*> x .@? "OfferingType"
         <*> x .@? "ProductDescription"
-        <*> x .@  "RecurringCharges"
+        <*> x .@? "RecurringCharges" .!@ mempty
         <*> x .@? "ReservedCacheNodesOfferingId"
         <*> x .@? "UsagePrice"
 
@@ -2663,7 +2663,7 @@ pmvNumCacheNodes = lens _pmvNumCacheNodes (\s a -> s { _pmvNumCacheNodes = a })
 
 instance FromXML PendingModifiedValues where
     parseXML x = PendingModifiedValues
-        <$> x .@  "CacheNodeIdsToRemove"
+        <$> x .@? "CacheNodeIdsToRemove" .!@ mempty
         <*> x .@? "EngineVersion"
         <*> x .@? "NumCacheNodes"
 

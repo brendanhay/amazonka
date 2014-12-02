@@ -121,12 +121,11 @@ pollForTaskResponse = PollForTaskResponse
     { _pftrTaskObject = Nothing
     }
 
--- | An instance of 'PollForTaskResult', which contains an instance of 'TaskObject'.
--- The returned object contains all the information needed to complete the task
--- that is being assigned to the task runner. One of the fields returned in this
--- object is taskId, which contains an identifier for the task being assigned.
--- The calling task runner uses taskId in subsequent calls to 'ReportTaskProgress'
--- and 'SetTaskStatus'.
+-- | An instance of 'TaskObject'. The returned object contains all the information
+-- needed to complete the task that is being assigned to the task runner. One of
+-- the fields returned in this object is taskId, which contains an identifier
+-- for the task being assigned. The calling task runner uses taskId in
+-- subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus'.
 pftrTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftrTaskObject = lens _pftrTaskObject (\s a -> s { _pftrTaskObject = a })
 

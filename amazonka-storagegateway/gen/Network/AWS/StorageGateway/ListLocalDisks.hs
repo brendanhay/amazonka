@@ -119,5 +119,5 @@ instance AWSRequest ListLocalDisks where
 
 instance FromJSON ListLocalDisksResponse where
     parseJSON = withObject "ListLocalDisksResponse" $ \o -> ListLocalDisksResponse
-        <$> o .:  "Disks"
+        <$> o .:? "Disks" .!= mempty
         <*> o .:? "GatewayARN"

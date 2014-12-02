@@ -205,7 +205,7 @@ instance FromJSON MetricFilterMatchRecord where
     parseJSON = withObject "MetricFilterMatchRecord" $ \o -> MetricFilterMatchRecord
         <$> o .:? "eventMessage"
         <*> o .:? "eventNumber"
-        <*> o .:  "extractedValues"
+        <*> o .:? "extractedValues" .!= mempty
 
 instance ToJSON MetricFilterMatchRecord where
     toJSON MetricFilterMatchRecord{..} = object

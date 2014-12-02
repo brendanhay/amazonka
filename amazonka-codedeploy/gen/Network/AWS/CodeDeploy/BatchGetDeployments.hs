@@ -121,4 +121,4 @@ instance AWSRequest BatchGetDeployments where
 
 instance FromJSON BatchGetDeploymentsResponse where
     parseJSON = withObject "BatchGetDeploymentsResponse" $ \o -> BatchGetDeploymentsResponse
-        <$> o .:  "deploymentsInfo"
+        <$> o .:? "deploymentsInfo" .!= mempty

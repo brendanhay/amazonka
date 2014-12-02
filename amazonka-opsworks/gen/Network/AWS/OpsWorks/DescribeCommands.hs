@@ -141,4 +141,4 @@ instance AWSRequest DescribeCommands where
 
 instance FromJSON DescribeCommandsResponse where
     parseJSON = withObject "DescribeCommandsResponse" $ \o -> DescribeCommandsResponse
-        <$> o .:  "Commands"
+        <$> o .:? "Commands" .!= mempty

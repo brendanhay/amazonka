@@ -132,4 +132,4 @@ instance AWSRequest ListTagsForResources where
 
 instance FromXML ListTagsForResourcesResponse where
     parseXML x = ListTagsForResourcesResponse
-        <$> x .@  "ResourceTagSets"
+        <$> x .@? "ResourceTagSets" .!@ mempty

@@ -1,0 +1,2879 @@
+{
+    "service": {
+        "signature": "V2",
+        "checksum": "sha256",
+        "abbrev": "SDB",
+        "error": "RESTError",
+        "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API.html",
+        "namespace": "Network.AWS.SDB",
+        "protocol": "query",
+        "imports": [
+            "Network.AWS.SDB.BatchDeleteAttributes",
+            "Network.AWS.SDB.BatchPutAttributes",
+            "Network.AWS.SDB.CreateDomain",
+            "Network.AWS.SDB.DeleteAttributes",
+            "Network.AWS.SDB.DeleteDomain",
+            "Network.AWS.SDB.DomainMetadata",
+            "Network.AWS.SDB.GetAttributes",
+            "Network.AWS.SDB.ListDomains",
+            "Network.AWS.SDB.PutAttributes",
+            "Network.AWS.SDB.Select",
+            "Network.AWS.SDB.Types"
+        ],
+        "name": "Amazon SimpleDB",
+        "version": "2009-04-15",
+        "documentation": "-- | Amazon SimpleDB is a highly available and flexible non-relational data store\n-- that offloads the work of database administration. Developers simply store\n-- and query data items via web services requests and Amazon SimpleDB does the\n-- rest. Unbound by the strict requirements of a relational database, Amazon\n-- SimpleDB is optimized to provide high availability and flexibility, with\n-- little or no administrative burden. Behind the scenes, Amazon SimpleDB\n-- creates and manages multiple geographically distributed replicas of your data\n-- automatically to enable high availability and data durability. The service\n-- charges you only for the resources actually consumed in storing your data and\n-- serving your requests. You can change your data model on the fly, and data is\n-- automatically indexed for you. With Amazon SimpleDB, you can focus on\n-- application development without worrying about infrastructure provisioning,\n-- high availability, software maintenance, schema and index management, or\n-- performance tuning.",
+        "xmlNamespace": "http://sdb.amazonaws.com/doc/2009-04-15/",
+        "jsonVersion": null,
+        "endpointPrefix": "sdb",
+        "targetPrefix": null
+    },
+    "cabal": {
+        "other": [],
+        "library": "amazonka-sdb",
+        "abbrev": "SDB",
+        "exposed": [
+            "Network.AWS.SDB",
+            "Network.AWS.SDB.BatchDeleteAttributes",
+            "Network.AWS.SDB.BatchPutAttributes",
+            "Network.AWS.SDB.CreateDomain",
+            "Network.AWS.SDB.DeleteAttributes",
+            "Network.AWS.SDB.DeleteDomain",
+            "Network.AWS.SDB.DomainMetadata",
+            "Network.AWS.SDB.GetAttributes",
+            "Network.AWS.SDB.ListDomains",
+            "Network.AWS.SDB.PutAttributes",
+            "Network.AWS.SDB.Select",
+            "Network.AWS.SDB.Types"
+        ],
+        "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API.html",
+        "protocol": "query",
+        "name": "Amazon SimpleDB",
+        "version": "0.0.7",
+        "description": "Amazon SimpleDB is a highly available and flexible non-relational data store\nthat offloads the work of database administration. Developers simply store\nand query data items via web services requests and Amazon SimpleDB does the\nrest. Unbound by the strict requirements of a relational database, Amazon\nSimpleDB is optimized to provide high availability and flexibility, with\nlittle or no administrative burden. Behind the scenes, Amazon SimpleDB\ncreates and manages multiple geographically distributed replicas of your data\nautomatically to enable high availability and data durability. The service\ncharges you only for the resources actually consumed in storing your data and\nserving your requests. You can change your data model on the fly, and data is\nautomatically indexed for you. With Amazon SimpleDB, you can focus on\napplication development without worrying about infrastructure provisioning,\nhigh availability, software maintenance, schema and index management, or\nperformance tuning."
+    },
+    "types": {
+        "namespace": "Network.AWS.SDB.Types",
+        "types": [
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show"
+                ],
+                "fieldPad": 24,
+                "ctor": "attribute",
+                "contents": [],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "aName",
+                        "name": "_aName",
+                        "shape": "String",
+                        "locationName": "Name",
+                        "documentation": "-- | The name of the attribute.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "aValue",
+                        "name": "_aValue",
+                        "shape": "String",
+                        "locationName": "Value",
+                        "documentation": "-- | The value of the attribute.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "contentPad": 0,
+                "name": "Attribute",
+                "locationPad": 23,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aAlternateNameEncoding",
+                        "name": "_aAlternateNameEncoding",
+                        "shape": "String",
+                        "locationName": "AlternateNameEncoding",
+                        "documentation": "",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aAlternateValueEncoding",
+                        "name": "_aAlternateValueEncoding",
+                        "shape": "String",
+                        "locationName": "AlternateValueEncoding",
+                        "documentation": "",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aAlternateNameEncoding",
+                        "name": "_aAlternateNameEncoding",
+                        "shape": "String",
+                        "locationName": "AlternateNameEncoding",
+                        "documentation": "",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aAlternateValueEncoding",
+                        "name": "_aAlternateValueEncoding",
+                        "shape": "String",
+                        "locationName": "AlternateValueEncoding",
+                        "documentation": "",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "aName",
+                        "name": "_aName",
+                        "shape": "String",
+                        "locationName": "Name",
+                        "documentation": "-- | The name of the attribute.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "aValue",
+                        "name": "_aValue",
+                        "shape": "String",
+                        "locationName": "Value",
+                        "documentation": "-- | The value of the attribute.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "fieldPad": 13,
+                "ctor": "deletableItem",
+                "contents": [],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "diName",
+                        "name": "_diName",
+                        "shape": "String",
+                        "locationName": "ItemName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "contentPad": 0,
+                "name": "DeletableItem",
+                "locationPad": 11,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "diAttributes",
+                        "name": "_diAttributes",
+                        "shape": "AttributeList",
+                        "locationName": "Attributes",
+                        "documentation": null,
+                        "typeExposed": "[Attribute]",
+                        "type": "List \"member\" Attribute"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "diAttributes",
+                        "name": "_diAttributes",
+                        "shape": "AttributeList",
+                        "locationName": "Attributes",
+                        "documentation": null,
+                        "typeExposed": "[Attribute]",
+                        "type": "List \"member\" Attribute"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "diName",
+                        "name": "_diName",
+                        "shape": "String",
+                        "locationName": "ItemName",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "fieldPad": 13,
+                "ctor": "replaceableItem",
+                "contents": [],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "riName",
+                        "name": "_riName",
+                        "shape": "String",
+                        "locationName": "ItemName",
+                        "documentation": "-- | The name of the replaceable item.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "contentPad": 0,
+                "name": "ReplaceableItem",
+                "locationPad": 11,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "riAttributes",
+                        "name": "_riAttributes",
+                        "shape": "ReplaceableAttributeList",
+                        "locationName": "Attributes",
+                        "documentation": "-- | The list of attributes for a replaceable item.",
+                        "typeExposed": "[ReplaceableAttribute]",
+                        "type": "List \"member\" ReplaceableAttribute"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "riAttributes",
+                        "name": "_riAttributes",
+                        "shape": "ReplaceableAttributeList",
+                        "locationName": "Attributes",
+                        "documentation": "-- | The list of attributes for a replaceable item.",
+                        "typeExposed": "[ReplaceableAttribute]",
+                        "type": "List \"member\" ReplaceableAttribute"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "riName",
+                        "name": "_riName",
+                        "shape": "String",
+                        "locationName": "ItemName",
+                        "documentation": "-- | The name of the replaceable item.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show"
+                ],
+                "fieldPad": 9,
+                "ctor": "updateCondition",
+                "contents": [],
+                "payload": null,
+                "required": [],
+                "contentPad": 0,
+                "name": "UpdateCondition",
+                "locationPad": 7,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ucName",
+                        "name": "_ucName",
+                        "shape": "String",
+                        "locationName": "Name",
+                        "documentation": "-- | The name of the attribute involved in the condition.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ucValue",
+                        "name": "_ucValue",
+                        "shape": "String",
+                        "locationName": "Value",
+                        "documentation": "-- | The value of an attribute. This value can only be specified when the 'Exists'\n-- parameter is equal to 'true'.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ucExists",
+                        "name": "_ucExists",
+                        "shape": "Boolean",
+                        "locationName": "Exists",
+                        "documentation": "-- | A value specifying whether or not the specified attribute must exist with the\n-- specified value in order for the update condition to be satisfied. Specify 'true' if the attribute must exist for the update condition to be satisfied.\n-- Specify 'false' if the attribute should not exist in order for the update\n-- condition to be satisfied.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ucExists",
+                        "name": "_ucExists",
+                        "shape": "Boolean",
+                        "locationName": "Exists",
+                        "documentation": "-- | A value specifying whether or not the specified attribute must exist with the\n-- specified value in order for the update condition to be satisfied. Specify 'true' if the attribute must exist for the update condition to be satisfied.\n-- Specify 'false' if the attribute should not exist in order for the update\n-- condition to be satisfied.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ucName",
+                        "name": "_ucName",
+                        "shape": "String",
+                        "locationName": "Name",
+                        "documentation": "-- | The name of the attribute involved in the condition.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ucValue",
+                        "name": "_ucValue",
+                        "shape": "String",
+                        "locationName": "Value",
+                        "documentation": "-- | The value of an attribute. This value can only be specified when the 'Exists'\n-- parameter is equal to 'true'.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show"
+                ],
+                "fieldPad": 10,
+                "ctor": "replaceableAttribute",
+                "contents": [],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "raName",
+                        "name": "_raName",
+                        "shape": "String",
+                        "locationName": "Name",
+                        "documentation": "-- | The name of the replaceable attribute.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "raValue",
+                        "name": "_raValue",
+                        "shape": "String",
+                        "locationName": "Value",
+                        "documentation": "-- | The value of the replaceable attribute.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "contentPad": 0,
+                "name": "ReplaceableAttribute",
+                "locationPad": 8,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "raReplace",
+                        "name": "_raReplace",
+                        "shape": "Boolean",
+                        "locationName": "Replace",
+                        "documentation": "-- | A flag specifying whether or not to replace the attribute/value pair or to\n-- add a new attribute/value pair. The default setting is 'false'.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "raName",
+                        "name": "_raName",
+                        "shape": "String",
+                        "locationName": "Name",
+                        "documentation": "-- | The name of the replaceable attribute.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "raReplace",
+                        "name": "_raReplace",
+                        "shape": "Boolean",
+                        "locationName": "Replace",
+                        "documentation": "-- | A flag specifying whether or not to replace the attribute/value pair or to\n-- add a new attribute/value pair. The default setting is 'false'.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "raValue",
+                        "name": "_raValue",
+                        "shape": "String",
+                        "locationName": "Value",
+                        "documentation": "-- | The value of the replaceable attribute.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "fieldPad": 23,
+                "ctor": "item",
+                "contents": [],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "iName",
+                        "name": "_iName",
+                        "shape": "String",
+                        "locationName": "Name",
+                        "documentation": "-- | The name of the item.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "contentPad": 0,
+                "name": "Item",
+                "locationPad": 22,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "iAlternateNameEncoding",
+                        "name": "_iAlternateNameEncoding",
+                        "shape": "String",
+                        "locationName": "AlternateNameEncoding",
+                        "documentation": "",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "iAttributes",
+                        "name": "_iAttributes",
+                        "shape": "AttributeList",
+                        "locationName": "Attributes",
+                        "documentation": "-- | A list of attributes.",
+                        "typeExposed": "[Attribute]",
+                        "type": "List \"member\" Attribute"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "iAlternateNameEncoding",
+                        "name": "_iAlternateNameEncoding",
+                        "shape": "String",
+                        "locationName": "AlternateNameEncoding",
+                        "documentation": "",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "iAttributes",
+                        "name": "_iAttributes",
+                        "shape": "AttributeList",
+                        "locationName": "Attributes",
+                        "documentation": "-- | A list of attributes.",
+                        "typeExposed": "[Attribute]",
+                        "type": "List \"member\" Attribute"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "iName",
+                        "name": "_iName",
+                        "shape": "String",
+                        "locationName": "Name",
+                        "documentation": "-- | The name of the item.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        ],
+        "imports": [],
+        "shared": [
+            "Attribute",
+            "UpdateCondition"
+        ]
+    },
+    "operations": [
+        {
+            "service": "SDB",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "batchDeleteAttributesResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "query",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "BatchDeleteAttributesResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_BatchDeleteAttributes.html",
+            "namespace": "Network.AWS.SDB.BatchDeleteAttributes",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SDB.Types"
+            ],
+            "pager": null,
+            "name": "BatchDeleteAttributes",
+            "method": "post",
+            "documentation": "-- | Performs multiple DeleteAttributes operations in a single call, which\n-- reduces round trips and latencies. This enables Amazon SimpleDB to optimize\n-- requests, which generally yields better throughput.\n--\n-- The following limitations are enforced for this operation:  1 MB request\n-- size 25 item limit per BatchDeleteAttributes operation",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 14,
+                "ctor": "batchDeleteAttributes",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "bdaDomainName",
+                        "name": "_bdaDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain in which the attributes are being deleted.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 11,
+                "name": "BatchDeleteAttributes",
+                "query": [
+                    {
+                        "field": "_bdaDomainName",
+                        "locationName": "DomainName",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_bdaItems",
+                        "locationName": "Items",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 11,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "bdaItems",
+                        "name": "_bdaItems",
+                        "shape": "DeletableItemList",
+                        "locationName": "Items",
+                        "documentation": "-- | A list of items on which to perform the operation.",
+                        "typeExposed": "[DeletableItem]",
+                        "type": "List \"member\" DeletableItem"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "bdaDomainName",
+                        "name": "_bdaDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain in which the attributes are being deleted.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "bdaItems",
+                        "name": "_bdaItems",
+                        "shape": "DeletableItemList",
+                        "locationName": "Items",
+                        "documentation": "-- | A list of items on which to perform the operation.",
+                        "typeExposed": "[DeletableItem]",
+                        "type": "List \"member\" DeletableItem"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SDB",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "batchPutAttributesResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "query",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "BatchPutAttributesResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_BatchPutAttributes.html",
+            "namespace": "Network.AWS.SDB.BatchPutAttributes",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SDB.Types"
+            ],
+            "pager": null,
+            "name": "BatchPutAttributes",
+            "method": "post",
+            "documentation": "-- | The 'BatchPutAttributes' operation creates or replaces attributes within one\n-- or more items. By using this operation, the client can perform multiple 'PutAttribute' operation with a single call. This helps yield savings in round trips and\n-- latencies, enabling Amazon SimpleDB to optimize requests and generally\n-- produce better throughput.\n--\n-- The client may specify the item name with the 'Item.X.ItemName' parameter.\n-- The client may specify new attributes using a combination of the 'Item.X.Attribute.Y.Name' and 'Item.X.Attribute.Y.Value' parameters. The client may specify the first\n-- attribute for the first item using the parameters 'Item.0.Attribute.0.Name' and 'Item.0.Attribute.0.Value', and for the second attribute for the first item by\n-- the parameters 'Item.0.Attribute.1.Name' and 'Item.0.Attribute.1.Value', and so\n-- on.\n--\n-- Attributes are uniquely identified within an item by their name/value\n-- combination. For example, a single item can have the attributes '{\"first_name\", \"first_value\" }' and '{ \"first_name\", \"second_value\" }'. However,\n-- it cannot have two attribute instances where both the 'Item.X.Attribute.Y.Name'\n-- and 'Item.X.Attribute.Y.Value' are the same.\n--\n-- Optionally, the requester can supply the 'Replace' parameter for each\n-- individual value. Setting this value to 'true' will cause the new attribute\n-- values to replace the existing attribute values. For example, if an item 'I'\n-- has the attributes '{ 'a', '1' }, { 'b', '2'}' and '{ 'b', '3' }' and the\n-- requester does a BatchPutAttributes of '{'I', 'b', '4' }' with the Replace\n-- parameter set to true, the final attributes of the item will be '{ 'a', '1' }'\n-- and '{ 'b', '4' }', replacing the previous values of the 'b' attribute with the\n-- new value.\n--\n-- This operation is vulnerable to exceeding the maximum URL size when making\n-- a REST request using the HTTP GET method. This operation does not support\n-- conditions using 'Expected.X.Name', 'Expected.X.Value', or 'Expected.X.Exists'.\n-- You can execute multiple 'BatchPutAttributes' operations and other operations\n-- in parallel. However, large numbers of concurrent 'BatchPutAttributes' calls\n-- can result in Service Unavailable (503) responses.\n--\n-- The following limitations are enforced for this operation:  256 attribute\n-- name-value pairs per item 1 MB request size 1 billion attributes per domain 10 GB of total user data storage per domain\n-- 25 item limit per 'BatchPutAttributes' operation",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 14,
+                "ctor": "batchPutAttributes",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "bpaDomainName",
+                        "name": "_bpaDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain in which the attributes are being stored.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 11,
+                "name": "BatchPutAttributes",
+                "query": [
+                    {
+                        "field": "_bpaDomainName",
+                        "locationName": "DomainName",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_bpaItems",
+                        "locationName": "Items",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 11,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "bpaItems",
+                        "name": "_bpaItems",
+                        "shape": "ReplaceableItemList",
+                        "locationName": "Items",
+                        "documentation": "-- | A list of items on which to perform the operation.",
+                        "typeExposed": "[ReplaceableItem]",
+                        "type": "List \"member\" ReplaceableItem"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "bpaDomainName",
+                        "name": "_bpaDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain in which the attributes are being stored.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "bpaItems",
+                        "name": "_bpaItems",
+                        "shape": "ReplaceableItemList",
+                        "locationName": "Items",
+                        "documentation": "-- | A list of items on which to perform the operation.",
+                        "typeExposed": "[ReplaceableItem]",
+                        "type": "List \"member\" ReplaceableItem"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SDB",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "createDomainResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "query",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "CreateDomainResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_CreateDomain.html",
+            "namespace": "Network.AWS.SDB.CreateDomain",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SDB.Types"
+            ],
+            "pager": null,
+            "name": "CreateDomain",
+            "method": "post",
+            "documentation": "-- | The 'CreateDomain' operation creates a new domain. The domain name should be\n-- unique among the domains associated with the Access Key ID provided in the\n-- request. The 'CreateDomain' operation may take 10 or more seconds to complete.\n--\n-- The client can create up to 100 domains per account.\n--\n-- If the client requires additional domains, go to \u003chttp://aws.amazon.com/contact-us/simpledb-limit-request/ http://aws.amazon.com/contact-us/simpledb-limit-request/\u003e.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "query",
+                "fieldPad": 0,
+                "ctor": "createDomain",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "monoid": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "cdDomainName",
+                    "name": "_cdDomainName",
+                    "shape": "String",
+                    "locationName": "DomainName",
+                    "documentation": "-- | The name of the domain to create. The name can range between 3 and 255\n-- characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-',\n-- and '.'.",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cdDomainName",
+                        "name": "_cdDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain to create. The name can range between 3 and 255\n-- characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-',\n-- and '.'.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 11,
+                "name": "CreateDomain",
+                "query": [
+                    {
+                        "field": "_cdDomainName",
+                        "locationName": "DomainName",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cdDomainName",
+                        "name": "_cdDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain to create. The name can range between 3 and 255\n-- characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-',\n-- and '.'.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SDB",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "deleteAttributesResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "query",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "DeleteAttributesResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteAttributes.html",
+            "namespace": "Network.AWS.SDB.DeleteAttributes",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SDB.Types"
+            ],
+            "pager": null,
+            "name": "DeleteAttributes",
+            "method": "post",
+            "documentation": "-- | Deletes one or more attributes associated with an item. If all attributes of\n-- the item are deleted, the item is deleted.\n--\n-- 'DeleteAttributes' is an idempotent operation; running it multiple times on\n-- the same item or attribute does not result in an error response.\n--\n-- Because Amazon SimpleDB makes multiple copies of item data and uses an\n-- eventual consistency update model, performing a 'GetAttributes' or 'Select'\n-- operation (read) immediately after a 'DeleteAttributes' or 'PutAttributes'\n-- operation (write) might not return updated item data.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 13,
+                "ctor": "deleteAttributes",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "daDomainName",
+                        "name": "_daDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain in which to perform the operation.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "daItemName",
+                        "name": "_daItemName",
+                        "shape": "String",
+                        "locationName": "ItemName",
+                        "documentation": "-- | The name of the item. Similar to rows on a spreadsheet, items represent\n-- individual objects that contain one or more value-attribute pairs.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 11,
+                "name": "DeleteAttributes",
+                "query": [
+                    {
+                        "field": "_daDomainName",
+                        "locationName": "DomainName",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_daItemName",
+                        "locationName": "ItemName",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_daAttributes",
+                        "locationName": "Attributes",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_daExpected",
+                        "locationName": "Expected",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 11,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "daAttributes",
+                        "name": "_daAttributes",
+                        "shape": "AttributeList",
+                        "locationName": "Attributes",
+                        "documentation": "-- | A list of Attributes. Similar to columns on a spreadsheet, attributes\n-- represent categories of data that can be assigned to items.",
+                        "typeExposed": "[Attribute]",
+                        "type": "List \"member\" Attribute"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "daExpected",
+                        "name": "_daExpected",
+                        "shape": "UpdateCondition",
+                        "locationName": "Expected",
+                        "documentation": "-- | The update condition which, if specified, determines whether the specified\n-- attributes will be deleted or not. The update condition must be satisfied in\n-- order for this request to be processed and the attributes to be deleted.",
+                        "typeExposed": "Maybe UpdateCondition",
+                        "type": "Maybe UpdateCondition"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "daAttributes",
+                        "name": "_daAttributes",
+                        "shape": "AttributeList",
+                        "locationName": "Attributes",
+                        "documentation": "-- | A list of Attributes. Similar to columns on a spreadsheet, attributes\n-- represent categories of data that can be assigned to items.",
+                        "typeExposed": "[Attribute]",
+                        "type": "List \"member\" Attribute"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "daDomainName",
+                        "name": "_daDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain in which to perform the operation.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "daExpected",
+                        "name": "_daExpected",
+                        "shape": "UpdateCondition",
+                        "locationName": "Expected",
+                        "documentation": "-- | The update condition which, if specified, determines whether the specified\n-- attributes will be deleted or not. The update condition must be satisfied in\n-- order for this request to be processed and the attributes to be deleted.",
+                        "typeExposed": "Maybe UpdateCondition",
+                        "type": "Maybe UpdateCondition"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "daItemName",
+                        "name": "_daItemName",
+                        "shape": "String",
+                        "locationName": "ItemName",
+                        "documentation": "-- | The name of the item. Similar to rows on a spreadsheet, items represent\n-- individual objects that contain one or more value-attribute pairs.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SDB",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "deleteDomainResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "query",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "DeleteDomainResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteDomain.html",
+            "namespace": "Network.AWS.SDB.DeleteDomain",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SDB.Types"
+            ],
+            "pager": null,
+            "name": "DeleteDomain",
+            "method": "post",
+            "documentation": "-- | The 'DeleteDomain' operation deletes a domain. Any items (and their\n-- attributes) in the domain are deleted as well. The 'DeleteDomain' operation\n-- might take 10 or more seconds to complete.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "query",
+                "fieldPad": 0,
+                "ctor": "deleteDomain",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "monoid": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "ddDomainName",
+                    "name": "_ddDomainName",
+                    "shape": "String",
+                    "locationName": "DomainName",
+                    "documentation": "-- | The name of the domain to delete.",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ddDomainName",
+                        "name": "_ddDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain to delete.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 11,
+                "name": "DeleteDomain",
+                "query": [
+                    {
+                        "field": "_ddDomainName",
+                        "locationName": "DomainName",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ddDomainName",
+                        "name": "_ddDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain to delete.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SDB",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "xml",
+                "fieldPad": 28,
+                "ctor": "domainMetadataResponse",
+                "headerPad": 0,
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "DomainMetadataResponse",
+                "resultWrapper": "DomainMetadataResult",
+                "locationPad": 25,
+                "type": "record",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrItemCount",
+                        "name": "_dmrItemCount",
+                        "shape": "Integer",
+                        "locationName": "ItemCount",
+                        "documentation": "-- | The number of all items in the domain.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrItemNamesSizeBytes",
+                        "name": "_dmrItemNamesSizeBytes",
+                        "shape": "Long",
+                        "locationName": "ItemNamesSizeBytes",
+                        "documentation": "-- | The total size of all item names in the domain, in bytes.",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrAttributeNameCount",
+                        "name": "_dmrAttributeNameCount",
+                        "shape": "Integer",
+                        "locationName": "AttributeNameCount",
+                        "documentation": "-- | The number of unique attribute names in the domain.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrAttributeNamesSizeBytes",
+                        "name": "_dmrAttributeNamesSizeBytes",
+                        "shape": "Long",
+                        "locationName": "AttributeNamesSizeBytes",
+                        "documentation": "-- | The total size of all unique attribute names in the domain, in bytes.",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrAttributeValueCount",
+                        "name": "_dmrAttributeValueCount",
+                        "shape": "Integer",
+                        "locationName": "AttributeValueCount",
+                        "documentation": "-- | The number of all attribute name/value pairs in the domain.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrAttributeValuesSizeBytes",
+                        "name": "_dmrAttributeValuesSizeBytes",
+                        "shape": "Long",
+                        "locationName": "AttributeValuesSizeBytes",
+                        "documentation": "-- | The total size of all attribute values in the domain, in bytes.",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrTimestamp",
+                        "name": "_dmrTimestamp",
+                        "shape": "Integer",
+                        "locationName": "Timestamp",
+                        "documentation": "-- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrAttributeNameCount",
+                        "name": "_dmrAttributeNameCount",
+                        "shape": "Integer",
+                        "locationName": "AttributeNameCount",
+                        "documentation": "-- | The number of unique attribute names in the domain.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrAttributeNamesSizeBytes",
+                        "name": "_dmrAttributeNamesSizeBytes",
+                        "shape": "Long",
+                        "locationName": "AttributeNamesSizeBytes",
+                        "documentation": "-- | The total size of all unique attribute names in the domain, in bytes.",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrAttributeValueCount",
+                        "name": "_dmrAttributeValueCount",
+                        "shape": "Integer",
+                        "locationName": "AttributeValueCount",
+                        "documentation": "-- | The number of all attribute name/value pairs in the domain.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrAttributeValuesSizeBytes",
+                        "name": "_dmrAttributeValuesSizeBytes",
+                        "shape": "Long",
+                        "locationName": "AttributeValuesSizeBytes",
+                        "documentation": "-- | The total size of all attribute values in the domain, in bytes.",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrItemCount",
+                        "name": "_dmrItemCount",
+                        "shape": "Integer",
+                        "locationName": "ItemCount",
+                        "documentation": "-- | The number of all items in the domain.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrItemNamesSizeBytes",
+                        "name": "_dmrItemNamesSizeBytes",
+                        "shape": "Long",
+                        "locationName": "ItemNamesSizeBytes",
+                        "documentation": "-- | The total size of all item names in the domain, in bytes.",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dmrTimestamp",
+                        "name": "_dmrTimestamp",
+                        "shape": "Integer",
+                        "locationName": "Timestamp",
+                        "documentation": "-- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DomainMetadata.html",
+            "namespace": "Network.AWS.SDB.DomainMetadata",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SDB.Types"
+            ],
+            "pager": null,
+            "name": "DomainMetadata",
+            "method": "post",
+            "documentation": "-- | Returns information about the domain, including when the domain was created,\n-- the number of items and attributes in the domain, and the size of the\n-- attribute names and values.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "query",
+                "fieldPad": 0,
+                "ctor": "domainMetadata",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "monoid": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "dmDomainName",
+                    "name": "_dmDomainName",
+                    "shape": "String",
+                    "locationName": "DomainName",
+                    "documentation": "-- | The name of the domain for which to display the metadata of.",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dmDomainName",
+                        "name": "_dmDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain for which to display the metadata of.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 11,
+                "name": "DomainMetadata",
+                "query": [
+                    {
+                        "field": "_dmDomainName",
+                        "locationName": "DomainName",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dmDomainName",
+                        "name": "_dmDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain for which to display the metadata of.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SDB",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "xml",
+                "fieldPad": 0,
+                "ctor": "getAttributesResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": "_List",
+                    "lensMapping": "_List",
+                    "default": "mempty",
+                    "monoid": true,
+                    "flattened": true,
+                    "required": true,
+                    "lens": "garAttributes",
+                    "name": "_garAttributes",
+                    "shape": "AttributeList",
+                    "locationName": "Attributes",
+                    "documentation": "-- | The list of attributes returned by the operation.",
+                    "typeExposed": "[Attribute]",
+                    "type": "List \"member\" Attribute"
+                },
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "GetAttributesResponse",
+                "resultWrapper": "GetAttributesResult",
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "garAttributes",
+                        "name": "_garAttributes",
+                        "shape": "AttributeList",
+                        "locationName": "Attributes",
+                        "documentation": "-- | The list of attributes returned by the operation.",
+                        "typeExposed": "[Attribute]",
+                        "type": "List \"member\" Attribute"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "garAttributes",
+                        "name": "_garAttributes",
+                        "shape": "AttributeList",
+                        "locationName": "Attributes",
+                        "documentation": "-- | The list of attributes returned by the operation.",
+                        "typeExposed": "[Attribute]",
+                        "type": "List \"member\" Attribute"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_GetAttributes.html",
+            "namespace": "Network.AWS.SDB.GetAttributes",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SDB.Types"
+            ],
+            "pager": null,
+            "name": "GetAttributes",
+            "method": "post",
+            "documentation": "-- | Returns all of the attributes associated with the specified item.\n-- Optionally, the attributes returned can be limited to one or more attributes\n-- by specifying an attribute name parameter.\n--\n-- If the item does not exist on the replica that was accessed for this\n-- operation, an empty set is returned. The system does not return an error as\n-- it cannot guarantee the item does not exist on other replicas.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 17,
+                "ctor": "getAttributes",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaDomainName",
+                        "name": "_gaDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain in which to perform the operation.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaItemName",
+                        "name": "_gaItemName",
+                        "shape": "String",
+                        "locationName": "ItemName",
+                        "documentation": "-- | The name of the item.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 15,
+                "name": "GetAttributes",
+                "query": [
+                    {
+                        "field": "_gaDomainName",
+                        "locationName": "DomainName",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gaItemName",
+                        "locationName": "ItemName",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gaAttributeNames",
+                        "locationName": "AttributeNames",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gaConsistentRead",
+                        "locationName": "ConsistentRead",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 15,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "gaAttributeNames",
+                        "name": "_gaAttributeNames",
+                        "shape": "AttributeNameList",
+                        "locationName": "AttributeNames",
+                        "documentation": "-- | The names of the attributes.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaConsistentRead",
+                        "name": "_gaConsistentRead",
+                        "shape": "Boolean",
+                        "locationName": "ConsistentRead",
+                        "documentation": "-- | Determines whether or not strong consistency should be enforced when data is\n-- read from SimpleDB. If 'true', any data previously written to SimpleDB will be\n-- returned. Otherwise, results will be consistent eventually, and the client\n-- may not see data that was written immediately before your read.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "gaAttributeNames",
+                        "name": "_gaAttributeNames",
+                        "shape": "AttributeNameList",
+                        "locationName": "AttributeNames",
+                        "documentation": "-- | The names of the attributes.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaConsistentRead",
+                        "name": "_gaConsistentRead",
+                        "shape": "Boolean",
+                        "locationName": "ConsistentRead",
+                        "documentation": "-- | Determines whether or not strong consistency should be enforced when data is\n-- read from SimpleDB. If 'true', any data previously written to SimpleDB will be\n-- returned. Otherwise, results will be consistent eventually, and the client\n-- may not see data that was written immediately before your read.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaDomainName",
+                        "name": "_gaDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain in which to perform the operation.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaItemName",
+                        "name": "_gaItemName",
+                        "shape": "String",
+                        "locationName": "ItemName",
+                        "documentation": "-- | The name of the item.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SDB",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "xml",
+                "fieldPad": 15,
+                "ctor": "listDomainsResponse",
+                "headerPad": 0,
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "ListDomainsResponse",
+                "resultWrapper": "ListDomainsResult",
+                "locationPad": 12,
+                "type": "record",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "ldrDomainNames",
+                        "name": "_ldrDomainNames",
+                        "shape": "DomainNameList",
+                        "locationName": "DomainNames",
+                        "documentation": "-- | A list of domain names that match the expression.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ldrNextToken",
+                        "name": "_ldrNextToken",
+                        "shape": "String",
+                        "locationName": "NextToken",
+                        "documentation": "-- | An opaque token indicating that there are more domains than the specified 'MaxNumberOfDomains' still available.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "ldrDomainNames",
+                        "name": "_ldrDomainNames",
+                        "shape": "DomainNameList",
+                        "locationName": "DomainNames",
+                        "documentation": "-- | A list of domain names that match the expression.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ldrNextToken",
+                        "name": "_ldrNextToken",
+                        "shape": "String",
+                        "locationName": "NextToken",
+                        "documentation": "-- | An opaque token indicating that there are more domains than the specified 'MaxNumberOfDomains' still available.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_ListDomains.html",
+            "namespace": "Network.AWS.SDB.ListDomains",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SDB.Types"
+            ],
+            "pager": {
+                "token": {
+                    "input": "ldNextToken",
+                    "outputRequired": false,
+                    "output": "ldrNextToken",
+                    "inputRequired": false
+                },
+                "type": "next",
+                "resultKey": "ldrDomainNames"
+            },
+            "name": "ListDomains",
+            "method": "post",
+            "documentation": "-- | The 'ListDomains' operation lists all domains associated with the Access Key\n-- ID. It returns domain names up to the limit set by \u003c#MaxNumberOfDomains MaxNumberOfDomains\u003e. A \u003c#NextToken NextToken\u003e is returned if there are more than 'MaxNumberOfDomains' domains. Calling 'ListDomains' successive times with the 'NextToken' provided by the operation returns up to 'MaxNumberOfDomains' more domain names with each successive operation call.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 21,
+                "ctor": "listDomains",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 19,
+                "name": "ListDomains",
+                "query": [
+                    {
+                        "field": "_ldMaxNumberOfDomains",
+                        "locationName": "MaxNumberOfDomains",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_ldNextToken",
+                        "locationName": "NextToken",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 19,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ldMaxNumberOfDomains",
+                        "name": "_ldMaxNumberOfDomains",
+                        "shape": "Integer",
+                        "locationName": "MaxNumberOfDomains",
+                        "documentation": "-- | The maximum number of domain names you want returned. The range is 1 to 100.\n-- The default setting is 100.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ldNextToken",
+                        "name": "_ldNextToken",
+                        "shape": "String",
+                        "locationName": "NextToken",
+                        "documentation": "-- | A string informing Amazon SimpleDB where to start the next list of domain\n-- names.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ldMaxNumberOfDomains",
+                        "name": "_ldMaxNumberOfDomains",
+                        "shape": "Integer",
+                        "locationName": "MaxNumberOfDomains",
+                        "documentation": "-- | The maximum number of domain names you want returned. The range is 1 to 100.\n-- The default setting is 100.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ldNextToken",
+                        "name": "_ldNextToken",
+                        "shape": "String",
+                        "locationName": "NextToken",
+                        "documentation": "-- | A string informing Amazon SimpleDB where to start the next list of domain\n-- names.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SDB",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "putAttributesResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "query",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "PutAttributesResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_PutAttributes.html",
+            "namespace": "Network.AWS.SDB.PutAttributes",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SDB.Types"
+            ],
+            "pager": null,
+            "name": "PutAttributes",
+            "method": "post",
+            "documentation": "-- | The PutAttributes operation creates or replaces attributes in an item. The\n-- client may specify new attributes using a combination of the 'Attribute.X.Name'\n-- and 'Attribute.X.Value' parameters. The client specifies the first attribute by\n-- the parameters 'Attribute.0.Name' and 'Attribute.0.Value', the second attribute\n-- by the parameters 'Attribute.1.Name' and 'Attribute.1.Value', and so on.\n--\n-- Attributes are uniquely identified in an item by their name/value\n-- combination. For example, a single item can have the attributes '{\"first_name\", \"first_value\" }' and '{ \"first_name\", second_value\" }'. However,\n-- it cannot have two attribute instances where both the 'Attribute.X.Name' and 'Attribute.X.Value' are the same.\n--\n-- Optionally, the requestor can supply the 'Replace' parameter for each\n-- individual attribute. Setting this value to 'true' causes the new attribute\n-- value to replace the existing attribute value(s). For example, if an item has\n-- the attributes '{ 'a', '1' }', '{ 'b', '2'}' and '{ 'b', '3' }' and the requestor\n-- calls 'PutAttributes' using the attributes '{ 'b', '4' }' with the 'Replace'\n-- parameter set to true, the final attributes of the item are changed to '{ 'a','1' }' and '{ 'b', '4' }', which replaces the previous values of the 'b'\n-- attribute with the new value.\n--\n-- You cannot specify an empty string as an attribute name.\n--\n-- Because Amazon SimpleDB makes multiple copies of client data and uses an\n-- eventual consistency update model, an immediate 'GetAttributes' or 'Select'\n-- operation (read) immediately after a 'PutAttributes' or 'DeleteAttributes'\n-- operation (write) might not return the updated data.\n--\n-- The following limitations are enforced for this operation:  256 total\n-- attribute name-value pairs per item One billion attributes per domain 10 GB\n-- of total user data storage per domain",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 13,
+                "ctor": "putAttributes",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "paDomainName",
+                        "name": "_paDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain in which to perform the operation.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "paItemName",
+                        "name": "_paItemName",
+                        "shape": "String",
+                        "locationName": "ItemName",
+                        "documentation": "-- | The name of the item.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 11,
+                "name": "PutAttributes",
+                "query": [
+                    {
+                        "field": "_paDomainName",
+                        "locationName": "DomainName",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_paItemName",
+                        "locationName": "ItemName",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_paAttributes",
+                        "locationName": "Attributes",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_paExpected",
+                        "locationName": "Expected",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 11,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "paAttributes",
+                        "name": "_paAttributes",
+                        "shape": "ReplaceableAttributeList",
+                        "locationName": "Attributes",
+                        "documentation": "-- | The list of attributes.",
+                        "typeExposed": "[ReplaceableAttribute]",
+                        "type": "List \"member\" ReplaceableAttribute"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "paExpected",
+                        "name": "_paExpected",
+                        "shape": "UpdateCondition",
+                        "locationName": "Expected",
+                        "documentation": "-- | The update condition which, if specified, determines whether the specified\n-- attributes will be updated or not. The update condition must be satisfied in\n-- order for this request to be processed and the attributes to be updated.",
+                        "typeExposed": "Maybe UpdateCondition",
+                        "type": "Maybe UpdateCondition"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "paAttributes",
+                        "name": "_paAttributes",
+                        "shape": "ReplaceableAttributeList",
+                        "locationName": "Attributes",
+                        "documentation": "-- | The list of attributes.",
+                        "typeExposed": "[ReplaceableAttribute]",
+                        "type": "List \"member\" ReplaceableAttribute"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "paDomainName",
+                        "name": "_paDomainName",
+                        "shape": "String",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The name of the domain in which to perform the operation.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "paExpected",
+                        "name": "_paExpected",
+                        "shape": "UpdateCondition",
+                        "locationName": "Expected",
+                        "documentation": "-- | The update condition which, if specified, determines whether the specified\n-- attributes will be updated or not. The update condition must be satisfied in\n-- order for this request to be processed and the attributes to be updated.",
+                        "typeExposed": "Maybe UpdateCondition",
+                        "type": "Maybe UpdateCondition"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "paItemName",
+                        "name": "_paItemName",
+                        "shape": "String",
+                        "locationName": "ItemName",
+                        "documentation": "-- | The name of the item.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "SDB",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "xml",
+                "fieldPad": 12,
+                "ctor": "selectResponse",
+                "headerPad": 0,
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "SelectResponse",
+                "resultWrapper": "SelectResult",
+                "locationPad": 10,
+                "type": "record",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "srItems",
+                        "name": "_srItems",
+                        "shape": "ItemList",
+                        "locationName": "Items",
+                        "documentation": "-- | A list of items that match the select expression.",
+                        "typeExposed": "[Item]",
+                        "type": "List \"member\" Item"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "srNextToken",
+                        "name": "_srNextToken",
+                        "shape": "String",
+                        "locationName": "NextToken",
+                        "documentation": "-- | An opaque token indicating that more items than 'MaxNumberOfItems' were\n-- matched, the response size exceeded 1 megabyte, or the execution time\n-- exceeded 5 seconds.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": true,
+                        "required": true,
+                        "lens": "srItems",
+                        "name": "_srItems",
+                        "shape": "ItemList",
+                        "locationName": "Items",
+                        "documentation": "-- | A list of items that match the select expression.",
+                        "typeExposed": "[Item]",
+                        "type": "List \"member\" Item"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "srNextToken",
+                        "name": "_srNextToken",
+                        "shape": "String",
+                        "locationName": "NextToken",
+                        "documentation": "-- | An opaque token indicating that more items than 'MaxNumberOfItems' were\n-- matched, the response size exceeded 1 megabyte, or the execution time\n-- exceeded 5 seconds.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_Select.html",
+            "namespace": "Network.AWS.SDB.Select",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SDB.Types"
+            ],
+            "pager": {
+                "token": {
+                    "input": "sNextToken",
+                    "outputRequired": false,
+                    "output": "srNextToken",
+                    "inputRequired": false
+                },
+                "type": "next",
+                "resultKey": "srItems"
+            },
+            "name": "Select",
+            "method": "post",
+            "documentation": "-- | The 'Select' operation returns a set of attributes for 'ItemNames' that match\n-- the select expression. 'Select' is similar to the standard SQL SELECT\n-- statement.\n--\n-- The total size of the response cannot exceed 1 MB in total size. Amazon\n-- SimpleDB automatically adjusts the number of items returned per page to\n-- enforce this limit. For example, if the client asks to retrieve 2500 items,\n-- but each individual item is 10 kB in size, the system returns 100 items and\n-- an appropriate 'NextToken' so the client can access the next page of results.\n--\n-- For information on how to construct select expressions, see Using Select to\n-- Create Amazon SimpleDB Queries in the Developer Guide.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 18,
+                "ctor": "select",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "sSelectExpression",
+                        "name": "_sSelectExpression",
+                        "shape": "String",
+                        "locationName": "SelectExpression",
+                        "documentation": "-- | The expression used to query the domain.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 17,
+                "name": "Select",
+                "query": [
+                    {
+                        "field": "_sSelectExpression",
+                        "locationName": "SelectExpression",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_sNextToken",
+                        "locationName": "NextToken",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_sConsistentRead",
+                        "locationName": "ConsistentRead",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 17,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sNextToken",
+                        "name": "_sNextToken",
+                        "shape": "String",
+                        "locationName": "NextToken",
+                        "documentation": "-- | A string informing Amazon SimpleDB where to start the next list of 'ItemNames'.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sConsistentRead",
+                        "name": "_sConsistentRead",
+                        "shape": "Boolean",
+                        "locationName": "ConsistentRead",
+                        "documentation": "-- | Determines whether or not strong consistency should be enforced when data is\n-- read from SimpleDB. If 'true', any data previously written to SimpleDB will be\n-- returned. Otherwise, results will be consistent eventually, and the client\n-- may not see data that was written immediately before your read.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sConsistentRead",
+                        "name": "_sConsistentRead",
+                        "shape": "Boolean",
+                        "locationName": "ConsistentRead",
+                        "documentation": "-- | Determines whether or not strong consistency should be enforced when data is\n-- read from SimpleDB. If 'true', any data previously written to SimpleDB will be\n-- returned. Otherwise, results will be consistent eventually, and the client\n-- may not see data that was written immediately before your read.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sNextToken",
+                        "name": "_sNextToken",
+                        "shape": "String",
+                        "locationName": "NextToken",
+                        "documentation": "-- | A string informing Amazon SimpleDB where to start the next list of 'ItemNames'.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "sSelectExpression",
+                        "name": "_sSelectExpression",
+                        "shape": "String",
+                        "locationName": "SelectExpression",
+                        "documentation": "-- | The expression used to query the domain.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        }
+    ]
+}

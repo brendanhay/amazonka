@@ -144,4 +144,4 @@ instance AWSRequest CreateReusableDelegationSet where
     request  = post
     response = xmlHeaderResponse $ \h x -> CreateReusableDelegationSetResponse
         <$> x .@  "DelegationSet"
-        <*> h ~: "Location"
+        <*> h ~:  "Location"

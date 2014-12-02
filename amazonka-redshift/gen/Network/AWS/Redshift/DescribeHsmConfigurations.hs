@@ -197,7 +197,7 @@ instance AWSRequest DescribeHsmConfigurations where
 
 instance FromXML DescribeHsmConfigurationsResponse where
     parseXML = withElement "DescribeHsmConfigurationsResult" $ \x -> DescribeHsmConfigurationsResponse
-        <$> x .@  "HsmConfigurations"
+        <$> x .@? "HsmConfigurations" .!@ mempty
         <*> x .@? "Marker"
 
 instance AWSPager DescribeHsmConfigurations where

@@ -43,6 +43,7 @@ module Network.AWS.DataPipeline.ReportTaskProgress
     -- ** Request constructor
     , reportTaskProgress
     -- ** Request lenses
+    , rtpFields
     , rtpTaskId
 
     -- * Response
@@ -58,13 +59,16 @@ import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
-newtype ReportTaskProgress = ReportTaskProgress
-    { _rtpTaskId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+data ReportTaskProgress = ReportTaskProgress
+    { _rtpFields :: List "fields" Field
+    , _rtpTaskId :: Text
+    } deriving (Eq, Show)
 
 -- | 'ReportTaskProgress' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'rtpFields' @::@ ['Field']
 --
 -- * 'rtpTaskId' @::@ 'Text'
 --
@@ -72,7 +76,13 @@ reportTaskProgress :: Text -- ^ 'rtpTaskId'
                    -> ReportTaskProgress
 reportTaskProgress p1 = ReportTaskProgress
     { _rtpTaskId = p1
+    , _rtpFields = mempty
     }
+
+-- | Key-value pairs that define the properties of the ReportTaskProgressInput
+-- object.
+rtpFields :: Lens' ReportTaskProgress [Field]
+rtpFields = lens _rtpFields (\s a -> s { _rtpFields = a }) . _List
 
 -- | Identifier of the task assigned to the task runner. This value is provided in
 -- the 'TaskObject' that the service returns with the response for the 'PollForTask'
@@ -112,6 +122,7 @@ instance ToHeaders ReportTaskProgress
 instance ToJSON ReportTaskProgress where
     toJSON ReportTaskProgress{..} = object
         [ "taskId" .= _rtpTaskId
+        , "fields" .= _rtpFields
         ]
 
 instance AWSRequest ReportTaskProgress where

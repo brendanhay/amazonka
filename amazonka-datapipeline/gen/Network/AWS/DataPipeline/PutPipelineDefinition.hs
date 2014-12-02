@@ -29,7 +29,8 @@
 -- pipeline. Changes to the pipeline are saved unless one of the following three
 -- validation errors exists in the pipeline.  An object is missing a name or
 -- identifier field. A string or reference field is empty. The number of objects
--- in the pipeline exceeds the maximum allowed objects.
+-- in the pipeline exceeds the maximum allowed objects. The pipeline is in a
+-- FINISHED state.
 --
 -- Pipeline object definitions are passed to the 'PutPipelineDefinition' action
 -- and returned by the 'GetPipelineDefinition' action.
@@ -42,6 +43,8 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     -- ** Request constructor
     , putPipelineDefinition
     -- ** Request lenses
+    , ppdParameterObjects
+    , ppdParameterValues
     , ppdPipelineId
     , ppdPipelineObjects
 
@@ -61,13 +64,19 @@ import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
 data PutPipelineDefinition = PutPipelineDefinition
-    { _ppdPipelineId      :: Text
-    , _ppdPipelineObjects :: List "pipelineObjects" PipelineObject
+    { _ppdParameterObjects :: List "parameterObjects" ParameterObject
+    , _ppdParameterValues  :: List "parameterValues" ParameterValue
+    , _ppdPipelineId       :: Text
+    , _ppdPipelineObjects  :: List "pipelineObjects" PipelineObject
     } deriving (Eq, Show)
 
 -- | 'PutPipelineDefinition' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'ppdParameterObjects' @::@ ['ParameterObject']
+--
+-- * 'ppdParameterValues' @::@ ['ParameterValue']
 --
 -- * 'ppdPipelineId' @::@ 'Text'
 --
@@ -76,9 +85,23 @@ data PutPipelineDefinition = PutPipelineDefinition
 putPipelineDefinition :: Text -- ^ 'ppdPipelineId'
                       -> PutPipelineDefinition
 putPipelineDefinition p1 = PutPipelineDefinition
-    { _ppdPipelineId      = p1
-    , _ppdPipelineObjects = mempty
+    { _ppdPipelineId       = p1
+    , _ppdPipelineObjects  = mempty
+    , _ppdParameterObjects = mempty
+    , _ppdParameterValues  = mempty
     }
+
+-- | A list of parameter objects used with the pipeline.
+ppdParameterObjects :: Lens' PutPipelineDefinition [ParameterObject]
+ppdParameterObjects =
+    lens _ppdParameterObjects (\s a -> s { _ppdParameterObjects = a })
+        . _List
+
+-- | A list of parameter values used with the pipeline.
+ppdParameterValues :: Lens' PutPipelineDefinition [ParameterValue]
+ppdParameterValues =
+    lens _ppdParameterValues (\s a -> s { _ppdParameterValues = a })
+        . _List
 
 -- | The identifier of the pipeline to be configured.
 ppdPipelineId :: Lens' PutPipelineDefinition Text
@@ -145,8 +168,10 @@ instance ToHeaders PutPipelineDefinition
 
 instance ToJSON PutPipelineDefinition where
     toJSON PutPipelineDefinition{..} = object
-        [ "pipelineId"      .= _ppdPipelineId
-        , "pipelineObjects" .= _ppdPipelineObjects
+        [ "pipelineId"       .= _ppdPipelineId
+        , "pipelineObjects"  .= _ppdPipelineObjects
+        , "parameterObjects" .= _ppdParameterObjects
+        , "parameterValues"  .= _ppdParameterValues
         ]
 
 instance AWSRequest PutPipelineDefinition where
@@ -159,5 +184,5 @@ instance AWSRequest PutPipelineDefinition where
 instance FromJSON PutPipelineDefinitionResponse where
     parseJSON = withObject "PutPipelineDefinitionResponse" $ \o -> PutPipelineDefinitionResponse
         <$> o .:  "errored"
-        <*> o .:  "validationErrors"
-        <*> o .:  "validationWarnings"
+        <*> o .:? "validationErrors" .!= mempty
+        <*> o .:? "validationWarnings" .!= mempty

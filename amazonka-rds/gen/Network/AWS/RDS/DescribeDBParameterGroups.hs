@@ -164,7 +164,7 @@ instance AWSRequest DescribeDBParameterGroups where
 
 instance FromXML DescribeDBParameterGroupsResponse where
     parseXML = withElement "DescribeDBParameterGroupsResult" $ \x -> DescribeDBParameterGroupsResponse
-        <$> x .@  "DBParameterGroups"
+        <$> x .@? "DBParameterGroups" .!@ mempty
         <*> x .@? "Marker"
 
 instance AWSPager DescribeDBParameterGroups where

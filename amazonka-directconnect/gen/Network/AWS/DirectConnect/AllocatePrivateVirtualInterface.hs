@@ -283,7 +283,7 @@ instance FromJSON AllocatePrivateVirtualInterfaceResponse where
         <*> o .:? "customerRouterConfig"
         <*> o .:? "location"
         <*> o .:? "ownerAccount"
-        <*> o .:  "routeFilterPrefixes"
+        <*> o .:? "routeFilterPrefixes" .!= mempty
         <*> o .:? "virtualGatewayId"
         <*> o .:? "virtualInterfaceId"
         <*> o .:? "virtualInterfaceName"

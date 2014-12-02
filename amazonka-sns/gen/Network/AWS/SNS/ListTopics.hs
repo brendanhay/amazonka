@@ -117,7 +117,7 @@ instance AWSRequest ListTopics where
 instance FromXML ListTopicsResponse where
     parseXML = withElement "ListTopicsResult" $ \x -> ListTopicsResponse
         <$> x .@? "NextToken"
-        <*> x .@  "Topics"
+        <*> x .@? "Topics" .!@ mempty
 
 instance AWSPager ListTopics where
     page rq rs

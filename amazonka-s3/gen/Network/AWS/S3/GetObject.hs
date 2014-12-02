@@ -48,7 +48,6 @@ module Network.AWS.S3.GetObject
     , goSSECustomerAlgorithm
     , goSSECustomerKey
     , goSSECustomerKeyMD5
-    , goSSEKMSKeyId
     , goVersionId
 
     -- * Response
@@ -102,7 +101,6 @@ data GetObject = GetObject
     , _goSSECustomerAlgorithm       :: Maybe Text
     , _goSSECustomerKey             :: Maybe (Sensitive Text)
     , _goSSECustomerKeyMD5          :: Maybe Text
-    , _goSSEKMSKeyId                :: Maybe (Sensitive Text)
     , _goVersionId                  :: Maybe Text
     } deriving (Eq, Ord, Show)
 
@@ -142,8 +140,6 @@ data GetObject = GetObject
 --
 -- * 'goSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'goSSEKMSKeyId' @::@ 'Maybe' 'Text'
---
 -- * 'goVersionId' @::@ 'Maybe' 'Text'
 --
 getObject :: Text -- ^ 'goBucket'
@@ -167,7 +163,6 @@ getObject p1 p2 = GetObject
     , _goSSECustomerAlgorithm       = Nothing
     , _goSSECustomerKey             = Nothing
     , _goSSECustomerKeyMD5          = Nothing
-    , _goSSEKMSKeyId                = Nothing
     }
 
 goBucket :: Lens' GetObject Text
@@ -260,10 +255,6 @@ goSSECustomerKey = lens _goSSECustomerKey (\s a -> s { _goSSECustomerKey = a }) 
 goSSECustomerKeyMD5 :: Lens' GetObject (Maybe Text)
 goSSECustomerKeyMD5 =
     lens _goSSECustomerKeyMD5 (\s a -> s { _goSSECustomerKeyMD5 = a })
-
--- | Specifies the AWS KMS key ID to use for object encryption.
-goSSEKMSKeyId :: Lens' GetObject (Maybe Text)
-goSSEKMSKeyId = lens _goSSEKMSKeyId (\s a -> s { _goSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | VersionId used to reference a specific version of the object.
 goVersionId :: Lens' GetObject (Maybe Text)
@@ -460,7 +451,8 @@ gorSSECustomerKeyMD5 :: Lens' GetObjectResponse (Maybe Text)
 gorSSECustomerKeyMD5 =
     lens _gorSSECustomerKeyMD5 (\s a -> s { _gorSSECustomerKeyMD5 = a })
 
--- | If present, specifies the AWS KMS key used to encrypt the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master
+-- encryption key that was used for the object.
 gorSSEKMSKeyId :: Lens' GetObjectResponse (Maybe Text)
 gorSSEKMSKeyId = lens _gorSSEKMSKeyId (\s a -> s { _gorSSEKMSKeyId = a }) . mapping _Sensitive
 
@@ -511,7 +503,6 @@ instance ToHeaders GetObject where
         , "x-amz-server-side-encryption-customer-algorithm" =: _goSSECustomerAlgorithm
         , "x-amz-server-side-encryption-customer-key"       =: _goSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _goSSECustomerKeyMD5
-        , "x-amz-server-side-encryption-aws-kms-key-id"     =: _goSSEKMSKeyId
         ]
 
 instance ToXMLRoot GetObject where

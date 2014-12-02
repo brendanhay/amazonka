@@ -47,7 +47,6 @@ module Network.AWS.S3.CopyObject
     , coCopySourceSSECustomerAlgorithm
     , coCopySourceSSECustomerKey
     , coCopySourceSSECustomerKeyMD5
-    , coCopySourceSSEKMSKeyId
     , coExpires
     , coGrantFullControl
     , coGrantRead
@@ -59,6 +58,7 @@ module Network.AWS.S3.CopyObject
     , coSSECustomerAlgorithm
     , coSSECustomerKey
     , coSSECustomerKeyMD5
+    , coSSEKMSKeyId
     , coServerSideEncryption
     , coStorageClass
     , coWebsiteRedirectLocation
@@ -98,7 +98,6 @@ data CopyObject = CopyObject
     , _coCopySourceSSECustomerAlgorithm :: Maybe Text
     , _coCopySourceSSECustomerKey       :: Maybe (Sensitive Text)
     , _coCopySourceSSECustomerKeyMD5    :: Maybe Text
-    , _coCopySourceSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _coExpires                        :: Maybe RFC822
     , _coGrantFullControl               :: Maybe Text
     , _coGrantRead                      :: Maybe Text
@@ -110,6 +109,7 @@ data CopyObject = CopyObject
     , _coSSECustomerAlgorithm           :: Maybe Text
     , _coSSECustomerKey                 :: Maybe (Sensitive Text)
     , _coSSECustomerKeyMD5              :: Maybe Text
+    , _coSSEKMSKeyId                    :: Maybe (Sensitive Text)
     , _coServerSideEncryption           :: Maybe ServerSideEncryption
     , _coStorageClass                   :: Maybe StorageClass
     , _coWebsiteRedirectLocation        :: Maybe Text
@@ -149,8 +149,6 @@ data CopyObject = CopyObject
 --
 -- * 'coCopySourceSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'coCopySourceSSEKMSKeyId' @::@ 'Maybe' 'Text'
---
 -- * 'coExpires' @::@ 'Maybe' 'UTCTime'
 --
 -- * 'coGrantFullControl' @::@ 'Maybe' 'Text'
@@ -172,6 +170,8 @@ data CopyObject = CopyObject
 -- * 'coSSECustomerKey' @::@ 'Maybe' 'Text'
 --
 -- * 'coSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+--
+-- * 'coSSEKMSKeyId' @::@ 'Maybe' 'Text'
 --
 -- * 'coServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
 --
@@ -210,10 +210,10 @@ copyObject p1 p2 p3 = CopyObject
     , _coSSECustomerAlgorithm           = Nothing
     , _coSSECustomerKey                 = Nothing
     , _coSSECustomerKeyMD5              = Nothing
+    , _coSSEKMSKeyId                    = Nothing
     , _coCopySourceSSECustomerAlgorithm = Nothing
     , _coCopySourceSSECustomerKey       = Nothing
     , _coCopySourceSSECustomerKeyMD5    = Nothing
-    , _coCopySourceSSEKMSKeyId          = Nothing
     }
 
 -- | The canned ACL to apply to the object.
@@ -302,12 +302,6 @@ coCopySourceSSECustomerKeyMD5 =
     lens _coCopySourceSSECustomerKeyMD5
         (\s a -> s { _coCopySourceSSECustomerKeyMD5 = a })
 
--- | Specifies the AWS KMS key ID to use for object encryption.
-coCopySourceSSEKMSKeyId :: Lens' CopyObject (Maybe Text)
-coCopySourceSSEKMSKeyId =
-    lens _coCopySourceSSEKMSKeyId (\s a -> s { _coCopySourceSSEKMSKeyId = a })
-        . mapping _Sensitive
-
 -- | The date and time at which the object is no longer cacheable.
 coExpires :: Lens' CopyObject (Maybe UTCTime)
 coExpires = lens _coExpires (\s a -> s { _coExpires = a }) . mapping _Time
@@ -362,6 +356,14 @@ coSSECustomerKey = lens _coSSECustomerKey (\s a -> s { _coSSECustomerKey = a }) 
 coSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
 coSSECustomerKeyMD5 =
     lens _coSSECustomerKeyMD5 (\s a -> s { _coSSECustomerKeyMD5 = a })
+
+-- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT
+-- requests for an object protected by AWS KMS will fail if not made via SSL or
+-- using SigV4. Documentation on configuring any of the officially supported AWS
+-- SDKs and CLI can be found at
+-- http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
+coSSEKMSKeyId :: Lens' CopyObject (Maybe Text)
+coSSEKMSKeyId = lens _coSSEKMSKeyId (\s a -> s { _coSSEKMSKeyId = a }) . mapping _Sensitive
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
@@ -446,7 +448,8 @@ corSSECustomerKeyMD5 :: Lens' CopyObjectResponse (Maybe Text)
 corSSECustomerKeyMD5 =
     lens _corSSECustomerKeyMD5 (\s a -> s { _corSSECustomerKeyMD5 = a })
 
--- | If present, specifies the AWS KMS key used to encrypt the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master
+-- encryption key that was used for the object.
 corSSEKMSKeyId :: Lens' CopyObjectResponse (Maybe Text)
 corSSEKMSKeyId = lens _corSSEKMSKeyId (\s a -> s { _corSSEKMSKeyId = a }) . mapping _Sensitive
 
@@ -493,10 +496,10 @@ instance ToHeaders CopyObject where
         , "x-amz-server-side-encryption-customer-algorithm"             =: _coSSECustomerAlgorithm
         , "x-amz-server-side-encryption-customer-key"                   =: _coSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"               =: _coSSECustomerKeyMD5
+        , "x-amz-server-side-encryption-aws-kms-key-id"                 =: _coSSEKMSKeyId
         , "x-amz-copy-source-server-side-encryption-customer-algorithm" =: _coCopySourceSSECustomerAlgorithm
         , "x-amz-copy-source-server-side-encryption-customer-key"       =: _coCopySourceSSECustomerKey
         , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _coCopySourceSSECustomerKeyMD5
-        , "x-amz-copy-source-server-side-encryption-aws-kms-key-id"     =: _coCopySourceSSEKMSKeyId
         ]
 
 instance ToXMLRoot CopyObject where

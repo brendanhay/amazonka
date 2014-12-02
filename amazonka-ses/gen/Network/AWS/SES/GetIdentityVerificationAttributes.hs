@@ -117,4 +117,4 @@ instance AWSRequest GetIdentityVerificationAttributes where
 
 instance FromXML GetIdentityVerificationAttributesResponse where
     parseXML = withElement "GetIdentityVerificationAttributesResult" $ \x -> GetIdentityVerificationAttributesResponse
-        <$> x .@  "VerificationAttributes"
+        <$> x .@? "VerificationAttributes" .!@ mempty

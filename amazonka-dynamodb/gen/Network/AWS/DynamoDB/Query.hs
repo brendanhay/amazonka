@@ -640,8 +640,8 @@ instance FromJSON QueryResponse where
     parseJSON = withObject "QueryResponse" $ \o -> QueryResponse
         <$> o .:? "ConsumedCapacity"
         <*> o .:? "Count"
-        <*> o .:  "Items"
-        <*> o .:  "LastEvaluatedKey"
+        <*> o .:? "Items" .!= mempty
+        <*> o .:? "LastEvaluatedKey" .!= mempty
         <*> o .:? "ScannedCount"
 
 instance AWSPager Query where

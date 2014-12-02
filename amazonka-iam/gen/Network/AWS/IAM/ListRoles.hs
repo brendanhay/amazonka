@@ -161,7 +161,7 @@ instance FromXML ListRolesResponse where
     parseXML = withElement "ListRolesResult" $ \x -> ListRolesResponse
         <$> x .@? "IsTruncated"
         <*> x .@? "Marker"
-        <*> x .@  "Roles"
+        <*> x .@? "Roles" .!@ mempty
 
 instance AWSPager ListRoles where
     page rq rs

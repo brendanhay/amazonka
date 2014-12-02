@@ -199,7 +199,7 @@ instance AWSRequest DescribeClusters where
 
 instance FromXML DescribeClustersResponse where
     parseXML = withElement "DescribeClustersResult" $ \x -> DescribeClustersResponse
-        <$> x .@  "Clusters"
+        <$> x .@? "Clusters" .!@ mempty
         <*> x .@? "Marker"
 
 instance AWSPager DescribeClusters where

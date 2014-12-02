@@ -62,6 +62,7 @@ module Network.AWS.ElasticTranscoder.Types
     , joCaptions
     , joComposition
     , joDuration
+    , joEncryption
     , joHeight
     , joId
     , joKey
@@ -70,6 +71,7 @@ module Network.AWS.ElasticTranscoder.Types
     , joSegmentDuration
     , joStatus
     , joStatusDetail
+    , joThumbnailEncryption
     , joThumbnailPattern
     , joWatermarks
     , joWidth
@@ -90,6 +92,7 @@ module Network.AWS.ElasticTranscoder.Types
     -- * CaptionSource
     , CaptionSource
     , captionSource
+    , csEncryption
     , csKey
     , csLabel
     , csLanguage
@@ -99,6 +102,7 @@ module Network.AWS.ElasticTranscoder.Types
     , Artwork
     , artwork
     , aAlbumArtFormat
+    , aEncryption
     , aInputKey
     , aMaxHeight
     , aMaxWidth
@@ -117,10 +121,12 @@ module Network.AWS.ElasticTranscoder.Types
     , cjoAlbumArt
     , cjoCaptions
     , cjoComposition
+    , cjoEncryption
     , cjoKey
     , cjoPresetId
     , cjoRotate
     , cjoSegmentDuration
+    , cjoThumbnailEncryption
     , cjoThumbnailPattern
     , cjoWatermarks
 
@@ -145,6 +151,14 @@ module Network.AWS.ElasticTranscoder.Types
     , tResolution
     , tSizingPolicy
 
+    -- * Encryption
+    , Encryption
+    , encryption
+    , eInitializationVector
+    , eKey
+    , eKeyMd5
+    , eMode
+
     -- * JobAlbumArt
     , JobAlbumArt
     , jobAlbumArt
@@ -154,6 +168,7 @@ module Network.AWS.ElasticTranscoder.Types
     -- * JobWatermark
     , JobWatermark
     , jobWatermark
+    , jwEncryption
     , jwInputKey
     , jwPresetWatermarkId
 
@@ -161,6 +176,7 @@ module Network.AWS.ElasticTranscoder.Types
     , Pipeline
     , pipeline
     , pArn
+    , pAwsKmsKeyArn
     , pContentConfig
     , pId
     , pInputBucket
@@ -187,6 +203,7 @@ module Network.AWS.ElasticTranscoder.Types
     -- * CaptionFormat
     , CaptionFormat
     , captionFormat
+    , cfEncryption
     , cfFormat
     , cfPattern
 
@@ -257,6 +274,7 @@ module Network.AWS.ElasticTranscoder.Types
     , jobInput
     , jiAspectRatio
     , jiContainer
+    , jiEncryption
     , jiFrameRate
     , jiInterlaced
     , jiKey
@@ -348,7 +366,7 @@ pocStorageClass = lens _pocStorageClass (\s a -> s { _pocStorageClass = a })
 instance FromJSON PipelineOutputConfig where
     parseJSON = withObject "PipelineOutputConfig" $ \o -> PipelineOutputConfig
         <$> o .:? "Bucket"
-        <*> o .:  "Permissions"
+        <*> o .:? "Permissions" .!= mempty
         <*> o .:? "StorageClass"
 
 instance ToJSON PipelineOutputConfig where
@@ -438,7 +456,7 @@ instance FromJSON CreateJobPlaylist where
     parseJSON = withObject "CreateJobPlaylist" $ \o -> CreateJobPlaylist
         <$> o .:? "Format"
         <*> o .:? "Name"
-        <*> o .:  "OutputKeys"
+        <*> o .:? "OutputKeys" .!= mempty
 
 instance ToJSON CreateJobPlaylist where
     toJSON CreateJobPlaylist{..} = object
@@ -491,7 +509,7 @@ cCaptionSources = lens _cCaptionSources (\s a -> s { _cCaptionSources = a }) . _
 -- MergeRetain: Elastic Transcoder transcodes both embedded and sidecar
 -- captions into outputs. If captions for a language are embedded in the input
 -- file and also appear in a sidecar file, Elastic Transcoder uses the embedded
--- captions and ignores the sidecar captions for that language. If CaptionSources
+-- captions and ignores the sidecar captions for that language. If 'CaptionSources'
 -- is empty, Elastic Transcoder omits all sidecar captions from the output
 -- files.
 --
@@ -504,8 +522,8 @@ cMergePolicy = lens _cMergePolicy (\s a -> s { _cMergePolicy = a })
 
 instance FromJSON Captions where
     parseJSON = withObject "Captions" $ \o -> Captions
-        <$> o .:  "CaptionFormats"
-        <*> o .:  "CaptionSources"
+        <$> o .:? "CaptionFormats" .!= mempty
+        <*> o .:? "CaptionSources" .!= mempty
         <*> o .:? "MergePolicy"
 
 instance ToJSON Captions where
@@ -538,9 +556,14 @@ audioCodecOptions = AudioCodecOptions
 --
 -- 'auto': If you specify 'auto', Elastic Transcoder will select the profile
 -- based on the bit rate selected for the output file.  'AAC-LC': The most common
--- AAC profile. Use for bitrates larger than 64 kbps.  'HE-AAC': Not supported on
--- some older players and devices. Use for bitrates between 40 and 80 kbps.  'HE-AACv2': Not supported on some players and devices. Use for bitrates less than 48
+-- AAC profile. Use for bit rates larger than 64 kbps.  'HE-AAC': Not supported on
+-- some older players and devices. Use for bit rates between 40 and 80 kbps.  'HE-AACv2': Not supported on some players and devices. Use for bit rates less than 48
 -- kbps.  All outputs in a 'Smooth' playlist must have the same value for 'Profile'.
+--
+-- If you created any presets before AAC profiles were added, Elastic
+-- Transcoder automatically updated your presets to use AAC-LC. You can change
+-- the value as required.
+--
 acoProfile :: Lens' AudioCodecOptions (Maybe Text)
 acoProfile = lens _acoProfile (\s a -> s { _acoProfile = a })
 
@@ -554,21 +577,23 @@ instance ToJSON AudioCodecOptions where
         ]
 
 data JobOutput = JobOutput
-    { _joAlbumArt         :: Maybe JobAlbumArt
-    , _joCaptions         :: Maybe Captions
-    , _joComposition      :: List "Composition" Clip
-    , _joDuration         :: Maybe Integer
-    , _joHeight           :: Maybe Int
-    , _joId               :: Maybe Text
-    , _joKey              :: Maybe Text
-    , _joPresetId         :: Maybe Text
-    , _joRotate           :: Maybe Text
-    , _joSegmentDuration  :: Maybe Text
-    , _joStatus           :: Maybe Text
-    , _joStatusDetail     :: Maybe Text
-    , _joThumbnailPattern :: Maybe Text
-    , _joWatermarks       :: List "Watermarks" JobWatermark
-    , _joWidth            :: Maybe Int
+    { _joAlbumArt            :: Maybe JobAlbumArt
+    , _joCaptions            :: Maybe Captions
+    , _joComposition         :: List "Composition" Clip
+    , _joDuration            :: Maybe Integer
+    , _joEncryption          :: Maybe Encryption
+    , _joHeight              :: Maybe Int
+    , _joId                  :: Maybe Text
+    , _joKey                 :: Maybe Text
+    , _joPresetId            :: Maybe Text
+    , _joRotate              :: Maybe Text
+    , _joSegmentDuration     :: Maybe Text
+    , _joStatus              :: Maybe Text
+    , _joStatusDetail        :: Maybe Text
+    , _joThumbnailEncryption :: Maybe Encryption
+    , _joThumbnailPattern    :: Maybe Text
+    , _joWatermarks          :: List "Watermarks" JobWatermark
+    , _joWidth               :: Maybe Int
     } deriving (Eq, Show)
 
 -- | 'JobOutput' constructor.
@@ -582,6 +607,8 @@ data JobOutput = JobOutput
 -- * 'joComposition' @::@ ['Clip']
 --
 -- * 'joDuration' @::@ 'Maybe' 'Integer'
+--
+-- * 'joEncryption' @::@ 'Maybe' 'Encryption'
 --
 -- * 'joHeight' @::@ 'Maybe' 'Int'
 --
@@ -599,6 +626,8 @@ data JobOutput = JobOutput
 --
 -- * 'joStatusDetail' @::@ 'Maybe' 'Text'
 --
+-- * 'joThumbnailEncryption' @::@ 'Maybe' 'Encryption'
+--
 -- * 'joThumbnailPattern' @::@ 'Maybe' 'Text'
 --
 -- * 'joWatermarks' @::@ ['JobWatermark']
@@ -607,21 +636,23 @@ data JobOutput = JobOutput
 --
 jobOutput :: JobOutput
 jobOutput = JobOutput
-    { _joId               = Nothing
-    , _joKey              = Nothing
-    , _joThumbnailPattern = Nothing
-    , _joRotate           = Nothing
-    , _joPresetId         = Nothing
-    , _joSegmentDuration  = Nothing
-    , _joStatus           = Nothing
-    , _joStatusDetail     = Nothing
-    , _joDuration         = Nothing
-    , _joWidth            = Nothing
-    , _joHeight           = Nothing
-    , _joWatermarks       = mempty
-    , _joAlbumArt         = Nothing
-    , _joComposition      = mempty
-    , _joCaptions         = Nothing
+    { _joId                  = Nothing
+    , _joKey                 = Nothing
+    , _joThumbnailPattern    = Nothing
+    , _joThumbnailEncryption = Nothing
+    , _joRotate              = Nothing
+    , _joPresetId            = Nothing
+    , _joSegmentDuration     = Nothing
+    , _joStatus              = Nothing
+    , _joStatusDetail        = Nothing
+    , _joDuration            = Nothing
+    , _joWidth               = Nothing
+    , _joHeight              = Nothing
+    , _joWatermarks          = mempty
+    , _joAlbumArt            = Nothing
+    , _joComposition         = mempty
+    , _joCaptions            = Nothing
+    , _joEncryption          = Nothing
     }
 
 -- | The album art to be associated with the output file, if any.
@@ -683,6 +714,13 @@ joComposition = lens _joComposition (\s a -> s { _joComposition = a }) . _List
 -- | Duration of the output file, in seconds.
 joDuration :: Lens' JobOutput (Maybe Integer)
 joDuration = lens _joDuration (\s a -> s { _joDuration = a })
+
+-- | The encryption settings, if any, that you want Elastic Transcoder to apply to
+-- your output files. If you choose to use encryption, you must specify a mode
+-- to use. If you choose not to use encryption, Elastic Transcoder will write an
+-- unencrypted file to your Amazon S3 bucket.
+joEncryption :: Lens' JobOutput (Maybe Encryption)
+joEncryption = lens _joEncryption (\s a -> s { _joEncryption = a })
 
 -- | Height of the output file, in pixels.
 joHeight :: Lens' JobOutput (Maybe Int)
@@ -755,6 +793,12 @@ joStatus = lens _joStatus (\s a -> s { _joStatus = a })
 joStatusDetail :: Lens' JobOutput (Maybe Text)
 joStatusDetail = lens _joStatusDetail (\s a -> s { _joStatusDetail = a })
 
+-- | The encryption settings, if any, that you want Elastic Transcoder to apply to
+-- your thumbnail.
+joThumbnailEncryption :: Lens' JobOutput (Maybe Encryption)
+joThumbnailEncryption =
+    lens _joThumbnailEncryption (\s a -> s { _joThumbnailEncryption = a })
+
 -- | Whether you want Elastic Transcoder to create thumbnails for your videos and,
 -- if so, how you want Elastic Transcoder to name the files.
 --
@@ -809,8 +853,9 @@ instance FromJSON JobOutput where
     parseJSON = withObject "JobOutput" $ \o -> JobOutput
         <$> o .:? "AlbumArt"
         <*> o .:? "Captions"
-        <*> o .:  "Composition"
+        <*> o .:? "Composition" .!= mempty
         <*> o .:? "Duration"
+        <*> o .:? "Encryption"
         <*> o .:? "Height"
         <*> o .:? "Id"
         <*> o .:? "Key"
@@ -819,27 +864,30 @@ instance FromJSON JobOutput where
         <*> o .:? "SegmentDuration"
         <*> o .:? "Status"
         <*> o .:? "StatusDetail"
+        <*> o .:? "ThumbnailEncryption"
         <*> o .:? "ThumbnailPattern"
-        <*> o .:  "Watermarks"
+        <*> o .:? "Watermarks" .!= mempty
         <*> o .:? "Width"
 
 instance ToJSON JobOutput where
     toJSON JobOutput{..} = object
-        [ "Id"               .= _joId
-        , "Key"              .= _joKey
-        , "ThumbnailPattern" .= _joThumbnailPattern
-        , "Rotate"           .= _joRotate
-        , "PresetId"         .= _joPresetId
-        , "SegmentDuration"  .= _joSegmentDuration
-        , "Status"           .= _joStatus
-        , "StatusDetail"     .= _joStatusDetail
-        , "Duration"         .= _joDuration
-        , "Width"            .= _joWidth
-        , "Height"           .= _joHeight
-        , "Watermarks"       .= _joWatermarks
-        , "AlbumArt"         .= _joAlbumArt
-        , "Composition"      .= _joComposition
-        , "Captions"         .= _joCaptions
+        [ "Id"                  .= _joId
+        , "Key"                 .= _joKey
+        , "ThumbnailPattern"    .= _joThumbnailPattern
+        , "ThumbnailEncryption" .= _joThumbnailEncryption
+        , "Rotate"              .= _joRotate
+        , "PresetId"            .= _joPresetId
+        , "SegmentDuration"     .= _joSegmentDuration
+        , "Status"              .= _joStatus
+        , "StatusDetail"        .= _joStatusDetail
+        , "Duration"            .= _joDuration
+        , "Width"               .= _joWidth
+        , "Height"              .= _joHeight
+        , "Watermarks"          .= _joWatermarks
+        , "AlbumArt"            .= _joAlbumArt
+        , "Composition"         .= _joComposition
+        , "Captions"            .= _joCaptions
+        , "Encryption"          .= _joEncryption
         ]
 
 data Job' = Job'
@@ -955,9 +1003,9 @@ instance FromJSON Job' where
         <*> o .:? "Input"
         <*> o .:? "Output"
         <*> o .:? "OutputKeyPrefix"
-        <*> o .:  "Outputs"
+        <*> o .:? "Outputs" .!= mempty
         <*> o .:? "PipelineId"
-        <*> o .:  "Playlists"
+        <*> o .:? "Playlists" .!= mempty
         <*> o .:? "Status"
 
 instance ToJSON Job' where
@@ -974,15 +1022,18 @@ instance ToJSON Job' where
         ]
 
 data CaptionSource = CaptionSource
-    { _csKey        :: Maybe Text
+    { _csEncryption :: Maybe Encryption
+    , _csKey        :: Maybe Text
     , _csLabel      :: Maybe Text
     , _csLanguage   :: Maybe Text
     , _csTimeOffset :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'CaptionSource' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'csEncryption' @::@ 'Maybe' 'Encryption'
 --
 -- * 'csKey' @::@ 'Maybe' 'Text'
 --
@@ -998,7 +1049,13 @@ captionSource = CaptionSource
     , _csLanguage   = Nothing
     , _csTimeOffset = Nothing
     , _csLabel      = Nothing
+    , _csEncryption = Nothing
     }
+
+-- | The encryption settings, if any, that you want Elastic Transcoder to apply to
+-- your caption sources.
+csEncryption :: Lens' CaptionSource (Maybe Encryption)
+csEncryption = lens _csEncryption (\s a -> s { _csEncryption = a })
 
 -- | The name of the sidecar caption file that you want Elastic Transcoder to
 -- include in the output file.
@@ -1032,7 +1089,8 @@ csTimeOffset = lens _csTimeOffset (\s a -> s { _csTimeOffset = a })
 
 instance FromJSON CaptionSource where
     parseJSON = withObject "CaptionSource" $ \o -> CaptionSource
-        <$> o .:? "Key"
+        <$> o .:? "Encryption"
+        <*> o .:? "Key"
         <*> o .:? "Label"
         <*> o .:? "Language"
         <*> o .:? "TimeOffset"
@@ -1043,22 +1101,26 @@ instance ToJSON CaptionSource where
         , "Language"   .= _csLanguage
         , "TimeOffset" .= _csTimeOffset
         , "Label"      .= _csLabel
+        , "Encryption" .= _csEncryption
         ]
 
 data Artwork = Artwork
     { _aAlbumArtFormat :: Maybe Text
+    , _aEncryption     :: Maybe Encryption
     , _aInputKey       :: Maybe Text
     , _aMaxHeight      :: Maybe Text
     , _aMaxWidth       :: Maybe Text
     , _aPaddingPolicy  :: Maybe Text
     , _aSizingPolicy   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'Artwork' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'aAlbumArtFormat' @::@ 'Maybe' 'Text'
+--
+-- * 'aEncryption' @::@ 'Maybe' 'Encryption'
 --
 -- * 'aInputKey' @::@ 'Maybe' 'Text'
 --
@@ -1078,11 +1140,17 @@ artwork = Artwork
     , _aSizingPolicy   = Nothing
     , _aPaddingPolicy  = Nothing
     , _aAlbumArtFormat = Nothing
+    , _aEncryption     = Nothing
     }
 
 -- | The format of album art, if any. Valid formats are '.jpg' and '.png'.
 aAlbumArtFormat :: Lens' Artwork (Maybe Text)
 aAlbumArtFormat = lens _aAlbumArtFormat (\s a -> s { _aAlbumArtFormat = a })
+
+-- | The encryption settings, if any, that you want Elastic Transcoder to apply to
+-- your artwork.
+aEncryption :: Lens' Artwork (Maybe Encryption)
+aEncryption = lens _aEncryption (\s a -> s { _aEncryption = a })
 
 -- | The name of the file to be used as album art. To determine which Amazon S3
 -- bucket contains the specified file, Elastic Transcoder checks the pipeline
@@ -1140,6 +1208,7 @@ aSizingPolicy = lens _aSizingPolicy (\s a -> s { _aSizingPolicy = a })
 instance FromJSON Artwork where
     parseJSON = withObject "Artwork" $ \o -> Artwork
         <$> o .:? "AlbumArtFormat"
+        <*> o .:? "Encryption"
         <*> o .:? "InputKey"
         <*> o .:? "MaxHeight"
         <*> o .:? "MaxWidth"
@@ -1154,6 +1223,7 @@ instance ToJSON Artwork where
         , "SizingPolicy"   .= _aSizingPolicy
         , "PaddingPolicy"  .= _aPaddingPolicy
         , "AlbumArtFormat" .= _aAlbumArtFormat
+        , "Encryption"     .= _aEncryption
         ]
 
 data TimeSpan = TimeSpan
@@ -1204,15 +1274,17 @@ instance ToJSON TimeSpan where
         ]
 
 data CreateJobOutput = CreateJobOutput
-    { _cjoAlbumArt         :: Maybe JobAlbumArt
-    , _cjoCaptions         :: Maybe Captions
-    , _cjoComposition      :: List "Composition" Clip
-    , _cjoKey              :: Maybe Text
-    , _cjoPresetId         :: Maybe Text
-    , _cjoRotate           :: Maybe Text
-    , _cjoSegmentDuration  :: Maybe Text
-    , _cjoThumbnailPattern :: Maybe Text
-    , _cjoWatermarks       :: List "Watermarks" JobWatermark
+    { _cjoAlbumArt            :: Maybe JobAlbumArt
+    , _cjoCaptions            :: Maybe Captions
+    , _cjoComposition         :: List "Composition" Clip
+    , _cjoEncryption          :: Maybe Encryption
+    , _cjoKey                 :: Maybe Text
+    , _cjoPresetId            :: Maybe Text
+    , _cjoRotate              :: Maybe Text
+    , _cjoSegmentDuration     :: Maybe Text
+    , _cjoThumbnailEncryption :: Maybe Encryption
+    , _cjoThumbnailPattern    :: Maybe Text
+    , _cjoWatermarks          :: List "Watermarks" JobWatermark
     } deriving (Eq, Show)
 
 -- | 'CreateJobOutput' constructor.
@@ -1225,6 +1297,8 @@ data CreateJobOutput = CreateJobOutput
 --
 -- * 'cjoComposition' @::@ ['Clip']
 --
+-- * 'cjoEncryption' @::@ 'Maybe' 'Encryption'
+--
 -- * 'cjoKey' @::@ 'Maybe' 'Text'
 --
 -- * 'cjoPresetId' @::@ 'Maybe' 'Text'
@@ -1233,21 +1307,25 @@ data CreateJobOutput = CreateJobOutput
 --
 -- * 'cjoSegmentDuration' @::@ 'Maybe' 'Text'
 --
+-- * 'cjoThumbnailEncryption' @::@ 'Maybe' 'Encryption'
+--
 -- * 'cjoThumbnailPattern' @::@ 'Maybe' 'Text'
 --
 -- * 'cjoWatermarks' @::@ ['JobWatermark']
 --
 createJobOutput :: CreateJobOutput
 createJobOutput = CreateJobOutput
-    { _cjoKey              = Nothing
-    , _cjoThumbnailPattern = Nothing
-    , _cjoRotate           = Nothing
-    , _cjoPresetId         = Nothing
-    , _cjoSegmentDuration  = Nothing
-    , _cjoWatermarks       = mempty
-    , _cjoAlbumArt         = Nothing
-    , _cjoComposition      = mempty
-    , _cjoCaptions         = Nothing
+    { _cjoKey                 = Nothing
+    , _cjoThumbnailPattern    = Nothing
+    , _cjoThumbnailEncryption = Nothing
+    , _cjoRotate              = Nothing
+    , _cjoPresetId            = Nothing
+    , _cjoSegmentDuration     = Nothing
+    , _cjoWatermarks          = mempty
+    , _cjoAlbumArt            = Nothing
+    , _cjoComposition         = mempty
+    , _cjoCaptions            = Nothing
+    , _cjoEncryption          = Nothing
     }
 
 -- | Information about the album art that you want Elastic Transcoder to add to
@@ -1309,6 +1387,13 @@ cjoCaptions = lens _cjoCaptions (\s a -> s { _cjoCaptions = a })
 cjoComposition :: Lens' CreateJobOutput [Clip]
 cjoComposition = lens _cjoComposition (\s a -> s { _cjoComposition = a }) . _List
 
+-- | You can specify encryption settings for any output files that you want to use
+-- for a transcoding job. This includes the output file and any watermarks,
+-- thumbnails, album art, or captions that you want to use. You must specify
+-- encryption settings for each file individually.
+cjoEncryption :: Lens' CreateJobOutput (Maybe Encryption)
+cjoEncryption = lens _cjoEncryption (\s a -> s { _cjoEncryption = a })
+
 -- | The name to assign to the transcoded file. Elastic Transcoder saves the file
 -- in the Amazon S3 bucket specified by the 'OutputBucket' object in the pipeline
 -- that is specified by the pipeline ID. If a file with the specified name
@@ -1343,6 +1428,12 @@ cjoRotate = lens _cjoRotate (\s a -> s { _cjoRotate = a })
 cjoSegmentDuration :: Lens' CreateJobOutput (Maybe Text)
 cjoSegmentDuration =
     lens _cjoSegmentDuration (\s a -> s { _cjoSegmentDuration = a })
+
+-- | The encryption settings, if any, that you want Elastic Transcoder to apply to
+-- your thumbnail.
+cjoThumbnailEncryption :: Lens' CreateJobOutput (Maybe Encryption)
+cjoThumbnailEncryption =
+    lens _cjoThumbnailEncryption (\s a -> s { _cjoThumbnailEncryption = a })
 
 -- | Whether you want Elastic Transcoder to create thumbnails for your videos and,
 -- if so, how you want Elastic Transcoder to name the files.
@@ -1386,25 +1477,29 @@ instance FromJSON CreateJobOutput where
     parseJSON = withObject "CreateJobOutput" $ \o -> CreateJobOutput
         <$> o .:? "AlbumArt"
         <*> o .:? "Captions"
-        <*> o .:  "Composition"
+        <*> o .:? "Composition" .!= mempty
+        <*> o .:? "Encryption"
         <*> o .:? "Key"
         <*> o .:? "PresetId"
         <*> o .:? "Rotate"
         <*> o .:? "SegmentDuration"
+        <*> o .:? "ThumbnailEncryption"
         <*> o .:? "ThumbnailPattern"
-        <*> o .:  "Watermarks"
+        <*> o .:? "Watermarks" .!= mempty
 
 instance ToJSON CreateJobOutput where
     toJSON CreateJobOutput{..} = object
-        [ "Key"              .= _cjoKey
-        , "ThumbnailPattern" .= _cjoThumbnailPattern
-        , "Rotate"           .= _cjoRotate
-        , "PresetId"         .= _cjoPresetId
-        , "SegmentDuration"  .= _cjoSegmentDuration
-        , "Watermarks"       .= _cjoWatermarks
-        , "AlbumArt"         .= _cjoAlbumArt
-        , "Composition"      .= _cjoComposition
-        , "Captions"         .= _cjoCaptions
+        [ "Key"                 .= _cjoKey
+        , "ThumbnailPattern"    .= _cjoThumbnailPattern
+        , "ThumbnailEncryption" .= _cjoThumbnailEncryption
+        , "Rotate"              .= _cjoRotate
+        , "PresetId"            .= _cjoPresetId
+        , "SegmentDuration"     .= _cjoSegmentDuration
+        , "Watermarks"          .= _cjoWatermarks
+        , "AlbumArt"            .= _cjoAlbumArt
+        , "Composition"         .= _cjoComposition
+        , "Captions"            .= _cjoCaptions
+        , "Encryption"          .= _cjoEncryption
         ]
 
 data AudioParameters = AudioParameters
@@ -1558,7 +1653,8 @@ tAspectRatio = lens _tAspectRatio (\s a -> s { _tAspectRatio = a })
 tFormat :: Lens' Thumbnails (Maybe Text)
 tFormat = lens _tFormat (\s a -> s { _tFormat = a })
 
--- | The number of seconds between thumbnails. Specify an integer value.
+-- | The approximate number of seconds between thumbnails. Specify an integer
+-- value.
 tInterval :: Lens' Thumbnails (Maybe Text)
 tInterval = lens _tInterval (\s a -> s { _tInterval = a })
 
@@ -1639,6 +1735,112 @@ instance ToJSON Thumbnails where
         , "PaddingPolicy" .= _tPaddingPolicy
         ]
 
+data Encryption = Encryption
+    { _eInitializationVector :: Maybe Text
+    , _eKey                  :: Maybe Text
+    , _eKeyMd5               :: Maybe Text
+    , _eMode                 :: Maybe Text
+    } deriving (Eq, Ord, Show)
+
+-- | 'Encryption' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'eInitializationVector' @::@ 'Maybe' 'Text'
+--
+-- * 'eKey' @::@ 'Maybe' 'Text'
+--
+-- * 'eKeyMd5' @::@ 'Maybe' 'Text'
+--
+-- * 'eMode' @::@ 'Maybe' 'Text'
+--
+encryption :: Encryption
+encryption = Encryption
+    { _eMode                 = Nothing
+    , _eKey                  = Nothing
+    , _eKeyMd5               = Nothing
+    , _eInitializationVector = Nothing
+    }
+
+-- | The series of random bits created by a random bit generator, unique for every
+-- encryption operation, that you used to encrypt your input files or that you
+-- want Elastic Transcoder to use to encrypt your output files. The
+-- initialization vector must be base64-encoded, and it must be exactly 16 bytes
+-- long before being base64-encoded.
+eInitializationVector :: Lens' Encryption (Maybe Text)
+eInitializationVector =
+    lens _eInitializationVector (\s a -> s { _eInitializationVector = a })
+
+-- | The data encryption key that you want Elastic Transcoder to use to encrypt
+-- your output file, or that was used to encrypt your input file. The key must
+-- be base64-encoded and it must be one of the following bit lengths before
+-- being base64-encoded:
+--
+-- '128', '192', or '256'.
+--
+-- The key must also be encrypted by using the Amazon Key Management Service.
+eKey :: Lens' Encryption (Maybe Text)
+eKey = lens _eKey (\s a -> s { _eKey = a })
+
+-- | The MD5 digest of the key that you used to encrypt your input file, or that
+-- you want Elastic Transcoder to use to encrypt your output file. Elastic
+-- Transcoder uses the key digest as a checksum to make sure your key was not
+-- corrupted in transit. The key MD5 must be base64-encoded, and it must be
+-- exactly 16 bytes long before being base64-encoded.
+eKeyMd5 :: Lens' Encryption (Maybe Text)
+eKeyMd5 = lens _eKeyMd5 (\s a -> s { _eKeyMd5 = a })
+
+-- | The specific server-side encryption mode that you want Elastic Transcoder to
+-- use when decrypting your input files or encrypting your output files. Elastic
+-- Transcoder supports the following options:
+--
+-- S3: Amazon S3 creates and manages the keys used for encrypting your files.
+--
+-- S3-AWS-KMS: Amazon S3 calls the Amazon Key Management Service, which creates
+-- and manages the keys that are used for encrypting your files. If you specify 'S3-AWS-KMS' and you don't want to use the default key, you must add the AWS-KMS key that
+-- you want to use to your pipeline.
+--
+-- AES-CBC-PKCS7: A padded cipher-block mode of operation originally used for
+-- HLS files.
+--
+-- AES-CTR: AES Counter Mode.
+--
+-- AES-GCM: AES Galois Counter Mode, a mode of operation that is an
+-- authenticated encryption format, meaning that a file, key, or initialization
+-- vector that has been tampered with will fail the decryption process.
+--
+-- For all three AES options, you must provide the following settings, which
+-- must be base64-encoded:
+--
+-- Key
+--
+-- Key MD5
+--
+-- Initialization Vector
+--
+-- For the AES modes, your private encryption keys and your unencrypted data
+-- are never stored by AWS; therefore, it is important that you safely manage
+-- your encryption keys. If you lose them, you won't be able to unencrypt your
+-- data.
+--
+eMode :: Lens' Encryption (Maybe Text)
+eMode = lens _eMode (\s a -> s { _eMode = a })
+
+instance FromJSON Encryption where
+    parseJSON = withObject "Encryption" $ \o -> Encryption
+        <$> o .:? "InitializationVector"
+        <*> o .:? "Key"
+        <*> o .:? "KeyMd5"
+        <*> o .:? "Mode"
+
+instance ToJSON Encryption where
+    toJSON Encryption{..} = object
+        [ "Mode"                 .= _eMode
+        , "Key"                  .= _eKey
+        , "KeyMd5"               .= _eKeyMd5
+        , "InitializationVector" .= _eInitializationVector
+        ]
+
 data JobAlbumArt = JobAlbumArt
     { _jaaArtwork     :: List "Artwork" Artwork
     , _jaaMergePolicy :: Maybe Text
@@ -1674,7 +1876,7 @@ jaaMergePolicy = lens _jaaMergePolicy (\s a -> s { _jaaMergePolicy = a })
 
 instance FromJSON JobAlbumArt where
     parseJSON = withObject "JobAlbumArt" $ \o -> JobAlbumArt
-        <$> o .:  "Artwork"
+        <$> o .:? "Artwork" .!= mempty
         <*> o .:? "MergePolicy"
 
 instance ToJSON JobAlbumArt where
@@ -1684,13 +1886,16 @@ instance ToJSON JobAlbumArt where
         ]
 
 data JobWatermark = JobWatermark
-    { _jwInputKey          :: Maybe Text
+    { _jwEncryption        :: Maybe Encryption
+    , _jwInputKey          :: Maybe Text
     , _jwPresetWatermarkId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'JobWatermark' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'jwEncryption' @::@ 'Maybe' 'Encryption'
 --
 -- * 'jwInputKey' @::@ 'Maybe' 'Text'
 --
@@ -1700,7 +1905,13 @@ jobWatermark :: JobWatermark
 jobWatermark = JobWatermark
     { _jwPresetWatermarkId = Nothing
     , _jwInputKey          = Nothing
+    , _jwEncryption        = Nothing
     }
+
+-- | The encryption settings, if any, that you want Elastic Transcoder to apply to
+-- your watermarks.
+jwEncryption :: Lens' JobWatermark (Maybe Encryption)
+jwEncryption = lens _jwEncryption (\s a -> s { _jwEncryption = a })
 
 -- | The name of the .png or .jpg file that you want to use for the watermark. To
 -- determine which Amazon S3 bucket contains the specified file, Elastic
@@ -1723,17 +1934,20 @@ jwPresetWatermarkId =
 
 instance FromJSON JobWatermark where
     parseJSON = withObject "JobWatermark" $ \o -> JobWatermark
-        <$> o .:? "InputKey"
+        <$> o .:? "Encryption"
+        <*> o .:? "InputKey"
         <*> o .:? "PresetWatermarkId"
 
 instance ToJSON JobWatermark where
     toJSON JobWatermark{..} = object
         [ "PresetWatermarkId" .= _jwPresetWatermarkId
         , "InputKey"          .= _jwInputKey
+        , "Encryption"        .= _jwEncryption
         ]
 
 data Pipeline = Pipeline
     { _pArn             :: Maybe Text
+    , _pAwsKmsKeyArn    :: Maybe Text
     , _pContentConfig   :: Maybe PipelineOutputConfig
     , _pId              :: Maybe Text
     , _pInputBucket     :: Maybe Text
@@ -1750,6 +1964,8 @@ data Pipeline = Pipeline
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pArn' @::@ 'Maybe' 'Text'
+--
+-- * 'pAwsKmsKeyArn' @::@ 'Maybe' 'Text'
 --
 -- * 'pContentConfig' @::@ 'Maybe' 'PipelineOutputConfig'
 --
@@ -1778,6 +1994,7 @@ pipeline = Pipeline
     , _pInputBucket     = Nothing
     , _pOutputBucket    = Nothing
     , _pRole            = Nothing
+    , _pAwsKmsKeyArn    = Nothing
     , _pNotifications   = Nothing
     , _pContentConfig   = Nothing
     , _pThumbnailConfig = Nothing
@@ -1786,6 +2003,16 @@ pipeline = Pipeline
 -- | The Amazon Resource Name (ARN) for the pipeline.
 pArn :: Lens' Pipeline (Maybe Text)
 pArn = lens _pArn (\s a -> s { _pArn = a })
+
+-- | The AWS Key Management Service (AWS KMS) key that you want to use with this
+-- pipeline.
+--
+-- If you use either 'S3' or 'S3-AWS-KMS' as your 'Encryption:Mode', you don't need
+-- to provide a key with your job because a default key, known as an AWS-KMS
+-- key, is created for you automatically. You need to provide an AWS-KMS key
+-- only if you want to use a non-default AWS-KMS key, or if you are using an 'Encryption:Mode' of 'AES-PKCS7', 'AES-CTR', or 'AES-GCM'.
+pAwsKmsKeyArn :: Lens' Pipeline (Maybe Text)
+pAwsKmsKeyArn = lens _pAwsKmsKeyArn (\s a -> s { _pAwsKmsKeyArn = a })
 
 -- | Information about the Amazon S3 bucket in which you want Elastic Transcoder
 -- to save transcoded files and playlists. Either you specify both 'ContentConfig'
@@ -1894,6 +2121,7 @@ pThumbnailConfig = lens _pThumbnailConfig (\s a -> s { _pThumbnailConfig = a })
 instance FromJSON Pipeline where
     parseJSON = withObject "Pipeline" $ \o -> Pipeline
         <$> o .:? "Arn"
+        <*> o .:? "AwsKmsKeyArn"
         <*> o .:? "ContentConfig"
         <*> o .:? "Id"
         <*> o .:? "InputBucket"
@@ -1913,6 +2141,7 @@ instance ToJSON Pipeline where
         , "InputBucket"     .= _pInputBucket
         , "OutputBucket"    .= _pOutputBucket
         , "Role"            .= _pRole
+        , "AwsKmsKeyArn"    .= _pAwsKmsKeyArn
         , "Notifications"   .= _pNotifications
         , "ContentConfig"   .= _pContentConfig
         , "ThumbnailConfig" .= _pThumbnailConfig
@@ -2032,13 +2261,16 @@ instance ToJSON Preset where
         ]
 
 data CaptionFormat = CaptionFormat
-    { _cfFormat  :: Maybe Text
-    , _cfPattern :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    { _cfEncryption :: Maybe Encryption
+    , _cfFormat     :: Maybe Text
+    , _cfPattern    :: Maybe Text
+    } deriving (Eq, Show)
 
 -- | 'CaptionFormat' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'cfEncryption' @::@ 'Maybe' 'Encryption'
 --
 -- * 'cfFormat' @::@ 'Maybe' 'Text'
 --
@@ -2046,9 +2278,15 @@ data CaptionFormat = CaptionFormat
 --
 captionFormat :: CaptionFormat
 captionFormat = CaptionFormat
-    { _cfFormat  = Nothing
-    , _cfPattern = Nothing
+    { _cfFormat     = Nothing
+    , _cfPattern    = Nothing
+    , _cfEncryption = Nothing
     }
+
+-- | The encryption settings, if any, that you want Elastic Transcoder to apply to
+-- your caption formats.
+cfEncryption :: Lens' CaptionFormat (Maybe Encryption)
+cfEncryption = lens _cfEncryption (\s a -> s { _cfEncryption = a })
 
 -- | The format you specify determines whether Elastic Transcoder generates an
 -- embedded or sidecar caption for this output.
@@ -2094,13 +2332,15 @@ cfPattern = lens _cfPattern (\s a -> s { _cfPattern = a })
 
 instance FromJSON CaptionFormat where
     parseJSON = withObject "CaptionFormat" $ \o -> CaptionFormat
-        <$> o .:? "Format"
+        <$> o .:? "Encryption"
+        <*> o .:? "Format"
         <*> o .:? "Pattern"
 
 instance ToJSON CaptionFormat where
     toJSON CaptionFormat{..} = object
-        [ "Format"  .= _cfFormat
-        , "Pattern" .= _cfPattern
+        [ "Format"     .= _cfFormat
+        , "Pattern"    .= _cfPattern
+        , "Encryption" .= _cfEncryption
         ]
 
 data PresetWatermark = PresetWatermark
@@ -2353,7 +2593,7 @@ pGranteeType = lens _pGranteeType (\s a -> s { _pGranteeType = a })
 
 instance FromJSON Permission where
     parseJSON = withObject "Permission" $ \o -> Permission
-        <$> o .:  "Access"
+        <$> o .:? "Access" .!= mempty
         <*> o .:? "Grantee"
         <*> o .:? "GranteeType"
 
@@ -2679,7 +2919,7 @@ instance FromJSON VideoParameters where
         <$> o .:? "AspectRatio"
         <*> o .:? "BitRate"
         <*> o .:? "Codec"
-        <*> o .:  "CodecOptions"
+        <*> o .:? "CodecOptions" .!= mempty
         <*> o .:? "DisplayAspectRatio"
         <*> o .:? "FixedGOP"
         <*> o .:? "FrameRate"
@@ -2690,7 +2930,7 @@ instance FromJSON VideoParameters where
         <*> o .:? "PaddingPolicy"
         <*> o .:? "Resolution"
         <*> o .:? "SizingPolicy"
-        <*> o .:  "Watermarks"
+        <*> o .:? "Watermarks" .!= mempty
 
 instance ToJSON VideoParameters where
     toJSON VideoParameters{..} = object
@@ -2807,7 +3047,7 @@ instance FromJSON Playlist where
     parseJSON = withObject "Playlist" $ \o -> Playlist
         <$> o .:? "Format"
         <*> o .:? "Name"
-        <*> o .:  "OutputKeys"
+        <*> o .:? "OutputKeys" .!= mempty
         <*> o .:? "Status"
         <*> o .:? "StatusDetail"
 
@@ -2913,11 +3153,12 @@ instance ToJSON Clip where
 data JobInput = JobInput
     { _jiAspectRatio :: Maybe Text
     , _jiContainer   :: Maybe Text
+    , _jiEncryption  :: Maybe Encryption
     , _jiFrameRate   :: Maybe Text
     , _jiInterlaced  :: Maybe Text
     , _jiKey         :: Maybe Text
     , _jiResolution  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Show)
 
 -- | 'JobInput' constructor.
 --
@@ -2926,6 +3167,8 @@ data JobInput = JobInput
 -- * 'jiAspectRatio' @::@ 'Maybe' 'Text'
 --
 -- * 'jiContainer' @::@ 'Maybe' 'Text'
+--
+-- * 'jiEncryption' @::@ 'Maybe' 'Encryption'
 --
 -- * 'jiFrameRate' @::@ 'Maybe' 'Text'
 --
@@ -2943,6 +3186,7 @@ jobInput = JobInput
     , _jiAspectRatio = Nothing
     , _jiInterlaced  = Nothing
     , _jiContainer   = Nothing
+    , _jiEncryption  = Nothing
     }
 
 -- | The aspect ratio of the input file. If you want Elastic Transcoder to
@@ -2965,6 +3209,12 @@ jiAspectRatio = lens _jiAspectRatio (\s a -> s { _jiAspectRatio = a })
 -- '3gp', 'aac', 'asf', 'avi', 'divx', 'flv', 'm4a', 'mkv', 'mov', 'mp3', 'mp4', 'mpeg', 'mpeg-ps', 'mpeg-ts', 'mxf', 'ogg', 'vob', 'wav', 'webm'
 jiContainer :: Lens' JobInput (Maybe Text)
 jiContainer = lens _jiContainer (\s a -> s { _jiContainer = a })
+
+-- | The encryption settings, if any, that are used for decrypting your input
+-- files. If your input file is encrypted, you must specify the mode that
+-- Elastic Transcoder will use to decrypt your file.
+jiEncryption :: Lens' JobInput (Maybe Encryption)
+jiEncryption = lens _jiEncryption (\s a -> s { _jiEncryption = a })
 
 -- | The frame rate of the input file. If you want Elastic Transcoder to
 -- automatically detect the frame rate of the input file, specify 'auto'. If you
@@ -3010,6 +3260,7 @@ instance FromJSON JobInput where
     parseJSON = withObject "JobInput" $ \o -> JobInput
         <$> o .:? "AspectRatio"
         <*> o .:? "Container"
+        <*> o .:? "Encryption"
         <*> o .:? "FrameRate"
         <*> o .:? "Interlaced"
         <*> o .:? "Key"
@@ -3023,4 +3274,5 @@ instance ToJSON JobInput where
         , "AspectRatio" .= _jiAspectRatio
         , "Interlaced"  .= _jiInterlaced
         , "Container"   .= _jiContainer
+        , "Encryption"  .= _jiEncryption
         ]

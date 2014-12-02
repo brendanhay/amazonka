@@ -262,7 +262,7 @@ instance AWSRequest DescribeClusterSnapshots where
 instance FromXML DescribeClusterSnapshotsResponse where
     parseXML = withElement "DescribeClusterSnapshotsResult" $ \x -> DescribeClusterSnapshotsResponse
         <$> x .@? "Marker"
-        <*> x .@  "Snapshots"
+        <*> x .@? "Snapshots" .!@ mempty
 
 instance AWSPager DescribeClusterSnapshots where
     page rq rs

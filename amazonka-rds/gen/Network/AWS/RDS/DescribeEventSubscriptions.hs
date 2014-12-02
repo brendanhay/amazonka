@@ -164,7 +164,7 @@ instance AWSRequest DescribeEventSubscriptions where
 
 instance FromXML DescribeEventSubscriptionsResponse where
     parseXML = withElement "DescribeEventSubscriptionsResult" $ \x -> DescribeEventSubscriptionsResponse
-        <$> x .@  "EventSubscriptionsList"
+        <$> x .@? "EventSubscriptionsList" .!@ mempty
         <*> x .@? "Marker"
 
 instance AWSPager DescribeEventSubscriptions where

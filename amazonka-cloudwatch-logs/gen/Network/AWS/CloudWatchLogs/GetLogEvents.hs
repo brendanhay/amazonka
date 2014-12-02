@@ -196,6 +196,6 @@ instance AWSRequest GetLogEvents where
 
 instance FromJSON GetLogEventsResponse where
     parseJSON = withObject "GetLogEventsResponse" $ \o -> GetLogEventsResponse
-        <$> o .:  "events"
+        <$> o .:? "events" .!= mempty
         <*> o .:? "nextBackwardToken"
         <*> o .:? "nextForwardToken"

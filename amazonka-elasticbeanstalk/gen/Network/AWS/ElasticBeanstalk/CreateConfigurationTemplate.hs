@@ -314,6 +314,6 @@ instance FromXML CreateConfigurationTemplateResponse where
         <*> x .@? "DeploymentStatus"
         <*> x .@? "Description"
         <*> x .@? "EnvironmentName"
-        <*> x .@  "OptionSettings"
+        <*> x .@? "OptionSettings" .!@ mempty
         <*> x .@? "SolutionStackName"
         <*> x .@? "TemplateName"

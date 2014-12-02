@@ -47,8 +47,8 @@ import           Data.SemVer
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Traversable     (Traversable, traverse)
-import           Gen.JSON             ()
 import           Gen.Names
+import           Gen.Orphans          ()
 import           Gen.TH
 import           System.FilePath
 import           Text.EDE             (Template)
@@ -56,7 +56,7 @@ import           Text.EDE             (Template)
 default (Text)
 
 currentLibraryVersion :: Version
-currentLibraryVersion = initial & patch .~ 6
+currentLibraryVersion = initial & patch .~ 7
 
 class ToFilePath a where
     toFilePath :: a -> FilePath
@@ -106,8 +106,8 @@ data Protocol
     | Ec2
       deriving (Eq, Show)
 
-nullary stage1 ''Protocol
-nullary stage2 ''Protocol
+nullary input ''Protocol
+nullary output ''Protocol
 
 data Timestamp
     = RFC822
@@ -133,8 +133,8 @@ data Checksum
     | SHA256
       deriving (Eq, Show)
 
-nullary stage1 ''Checksum
-nullary stage2 ''Checksum
+nullary input ''Checksum
+nullary output ''Checksum
 
 data Method
     = GET
@@ -153,7 +153,7 @@ instance FromJSON Method where
         "DELETE" -> pure DELETE
         e        -> fail ("Unknown Method: " ++ Text.unpack e)
 
-nullary stage2 ''Method
+nullary output ''Method
 
 data Location
     = Headers
@@ -173,7 +173,7 @@ instance FromJSON Location where
         "statusCode"  -> pure StatusCode
         e             -> fail ("Unknown Location: " ++ Text.unpack e)
 
-nullary stage2 ''Location
+nullary output ''Location
 
 location :: Protocol -> Maybe Bool -> Maybe Location -> Maybe Location
 location _ _ (Just l)    = Just l
@@ -224,7 +224,7 @@ uriParser = URI
 instance FromJSON URI where
     parseJSON = withText "uri" (either fail return . parseOnly uriParser)
 
-record stage2 ''URI
+record output ''URI
 
 uriSegments :: Traversal' URI Seg
 uriSegments f x = URI <$> traverse f (_uriPath x) <*> traverse f (_uriQuery x)
@@ -449,11 +449,11 @@ instance FromJSON Overrides where
         <*> o .:? "overrides"        .!= mempty
 
 data Model = Model
-    { _mName      :: String
-    , _mVersion   :: String
-    , _mPath      :: FilePath
-    , _mModel     :: Object
-    , _mOverrides :: Overrides
+    { _mName          :: String
+    , _mVersion       :: String
+    , _mPath          :: FilePath
+    , _mModel         :: Object
+    , _mOverrides     :: Overrides
     } deriving (Show, Eq)
 
 makeLenses ''Model
@@ -469,8 +469,3 @@ data Templates = Templates
     , _tExMakefile :: Template
     , _tProtocol   :: Protocol -> (Template, Template)
     }
-
-dots :: FilePath -> Bool
-dots "."  = False
-dots ".." = False
-dots _    = True

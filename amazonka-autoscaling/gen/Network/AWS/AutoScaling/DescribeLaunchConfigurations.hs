@@ -147,7 +147,7 @@ instance AWSRequest DescribeLaunchConfigurations where
 
 instance FromXML DescribeLaunchConfigurationsResponse where
     parseXML = withElement "DescribeLaunchConfigurationsResult" $ \x -> DescribeLaunchConfigurationsResponse
-        <$> x .@  "LaunchConfigurations"
+        <$> x .@? "LaunchConfigurations" .!@ mempty
         <*> x .@? "NextToken"
 
 instance AWSPager DescribeLaunchConfigurations where

@@ -115,4 +115,4 @@ instance AWSRequest GetTopicAttributes where
 
 instance FromXML GetTopicAttributesResponse where
     parseXML = withElement "GetTopicAttributesResult" $ \x -> GetTopicAttributesResponse
-        <$> x .@  "Attributes"
+        <$> x .@? "Attributes" .!@ mempty

@@ -192,8 +192,8 @@ instance AWSRequest GetTemplateSummary where
 
 instance FromXML GetTemplateSummaryResponse where
     parseXML = withElement "GetTemplateSummaryResult" $ \x -> GetTemplateSummaryResponse
-        <$> x .@  "Capabilities"
+        <$> x .@? "Capabilities" .!@ mempty
         <*> x .@? "CapabilitiesReason"
         <*> x .@? "Description"
-        <*> x .@  "Parameters"
+        <*> x .@? "Parameters" .!@ mempty
         <*> x .@? "Version"

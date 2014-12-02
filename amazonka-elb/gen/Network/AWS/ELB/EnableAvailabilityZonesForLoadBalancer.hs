@@ -135,4 +135,4 @@ instance AWSRequest EnableAvailabilityZonesForLoadBalancer where
 
 instance FromXML EnableAvailabilityZonesForLoadBalancerResponse where
     parseXML = withElement "EnableAvailabilityZonesForLoadBalancerResult" $ \x -> EnableAvailabilityZonesForLoadBalancerResponse
-        <$> x .@  "AvailabilityZones"
+        <$> x .@? "AvailabilityZones" .!@ mempty

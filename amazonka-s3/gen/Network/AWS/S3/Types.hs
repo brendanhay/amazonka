@@ -1417,7 +1417,7 @@ instance FromXML WebsiteConfiguration where
         <$> x .@? "ErrorDocument"
         <*> x .@? "IndexDocument"
         <*> x .@? "RedirectAllRequestsTo"
-        <*> x .@  "RoutingRules"
+        <*> x .@? "RoutingRules" .!@ mempty
 
 instance ToXML WebsiteConfiguration where
     toXML WebsiteConfiguration{..} = nodes "WebsiteConfiguration"
@@ -2380,7 +2380,7 @@ tTagSet = lens _tTagSet (\s a -> s { _tTagSet = a }) . _List
 
 instance FromXML Tagging where
     parseXML x = Tagging
-        <$> x .@  "TagSet"
+        <$> x .@? "TagSet" .!@ mempty
 
 instance ToXML Tagging where
     toXML Tagging{..} = nodes "Tagging"
@@ -2839,7 +2839,7 @@ acpOwner = lens _acpOwner (\s a -> s { _acpOwner = a })
 
 instance FromXML AccessControlPolicy where
     parseXML x = AccessControlPolicy
-        <$> x .@  "AccessControlList"
+        <$> x .@? "AccessControlList" .!@ mempty
         <*> x .@? "Owner"
 
 instance ToXMLRoot AccessControlPolicy where
@@ -3117,7 +3117,7 @@ leTargetPrefix = lens _leTargetPrefix (\s a -> s { _leTargetPrefix = a })
 instance FromXML LoggingEnabled where
     parseXML x = LoggingEnabled
         <$> x .@? "TargetBucket"
-        <*> x .@  "TargetGrants"
+        <*> x .@? "TargetGrants" .!@ mempty
         <*> x .@? "TargetPrefix"
 
 instance ToXML LoggingEnabled where

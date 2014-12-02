@@ -636,7 +636,7 @@ lbaCrossZoneLoadBalancing =
 instance FromXML LoadBalancerAttributes where
     parseXML x = LoadBalancerAttributes
         <$> x .@? "AccessLog"
-        <*> x .@  "AdditionalAttributes"
+        <*> x .@? "AdditionalAttributes" .!@ mempty
         <*> x .@? "ConnectionDraining"
         <*> x .@? "ConnectionSettings"
         <*> x .@? "CrossZoneLoadBalancing"
@@ -743,7 +743,7 @@ ldPolicyNames = lens _ldPolicyNames (\s a -> s { _ldPolicyNames = a }) . _List
 instance FromXML ListenerDescription where
     parseXML x = ListenerDescription
         <$> x .@? "Listener"
-        <*> x .@  "PolicyNames"
+        <*> x .@? "PolicyNames" .!@ mempty
 
 instance ToQuery ListenerDescription where
     toQuery ListenerDescription{..} = mconcat
@@ -834,7 +834,7 @@ pdPolicyTypeName = lens _pdPolicyTypeName (\s a -> s { _pdPolicyTypeName = a })
 
 instance FromXML PolicyDescription where
     parseXML x = PolicyDescription
-        <$> x .@  "PolicyAttributeDescriptions"
+        <$> x .@? "PolicyAttributeDescriptions" .!@ mempty
         <*> x .@? "PolicyName"
         <*> x .@? "PolicyTypeName"
 
@@ -1096,21 +1096,21 @@ lbdVPCId = lens _lbdVPCId (\s a -> s { _lbdVPCId = a })
 
 instance FromXML LoadBalancerDescription where
     parseXML x = LoadBalancerDescription
-        <$> x .@  "AvailabilityZones"
-        <*> x .@  "BackendServerDescriptions"
+        <$> x .@? "AvailabilityZones" .!@ mempty
+        <*> x .@? "BackendServerDescriptions" .!@ mempty
         <*> x .@? "CanonicalHostedZoneName"
         <*> x .@? "CanonicalHostedZoneNameID"
         <*> x .@? "CreatedTime"
         <*> x .@? "DNSName"
         <*> x .@? "HealthCheck"
-        <*> x .@  "Instances"
-        <*> x .@  "ListenerDescriptions"
+        <*> x .@? "Instances" .!@ mempty
+        <*> x .@? "ListenerDescriptions" .!@ mempty
         <*> x .@? "LoadBalancerName"
         <*> x .@? "Policies"
         <*> x .@? "Scheme"
-        <*> x .@  "SecurityGroups"
+        <*> x .@? "SecurityGroups" .!@ mempty
         <*> x .@? "SourceSecurityGroup"
-        <*> x .@  "Subnets"
+        <*> x .@? "Subnets" .!@ mempty
         <*> x .@? "VPCId"
 
 instance ToQuery LoadBalancerDescription where
@@ -1163,7 +1163,7 @@ bsdPolicyNames = lens _bsdPolicyNames (\s a -> s { _bsdPolicyNames = a }) . _Lis
 instance FromXML BackendServerDescription where
     parseXML x = BackendServerDescription
         <$> x .@? "InstancePort"
-        <*> x .@  "PolicyNames"
+        <*> x .@? "PolicyNames" .!@ mempty
 
 instance ToQuery BackendServerDescription where
     toQuery BackendServerDescription{..} = mconcat
@@ -1319,7 +1319,7 @@ ptdPolicyTypeName =
 instance FromXML PolicyTypeDescription where
     parseXML x = PolicyTypeDescription
         <$> x .@? "Description"
-        <*> x .@  "PolicyAttributeTypeDescriptions"
+        <*> x .@? "PolicyAttributeTypeDescriptions" .!@ mempty
         <*> x .@? "PolicyTypeName"
 
 instance ToQuery PolicyTypeDescription where
@@ -1372,9 +1372,9 @@ pOtherPolicies = lens _pOtherPolicies (\s a -> s { _pOtherPolicies = a }) . _Lis
 
 instance FromXML Policies where
     parseXML x = Policies
-        <$> x .@  "AppCookieStickinessPolicies"
-        <*> x .@  "LBCookieStickinessPolicies"
-        <*> x .@  "OtherPolicies"
+        <$> x .@? "AppCookieStickinessPolicies" .!@ mempty
+        <*> x .@? "LBCookieStickinessPolicies" .!@ mempty
+        <*> x .@? "OtherPolicies" .!@ mempty
 
 instance ToQuery Policies where
     toQuery Policies{..} = mconcat

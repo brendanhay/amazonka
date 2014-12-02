@@ -163,9 +163,9 @@ dToAddresses = lens _dToAddresses (\s a -> s { _dToAddresses = a }) . _List
 
 instance FromXML Destination where
     parseXML x = Destination
-        <$> x .@  "BccAddresses"
-        <*> x .@  "CcAddresses"
-        <*> x .@  "ToAddresses"
+        <$> x .@? "BccAddresses" .!@ mempty
+        <*> x .@? "CcAddresses" .!@ mempty
+        <*> x .@? "ToAddresses" .!@ mempty
 
 instance ToQuery Destination where
     toQuery Destination{..} = mconcat
@@ -227,7 +227,7 @@ idaDkimVerificationStatus =
 instance FromXML IdentityDkimAttributes where
     parseXML x = IdentityDkimAttributes
         <$> x .@  "DkimEnabled"
-        <*> x .@  "DkimTokens"
+        <*> x .@? "DkimTokens" .!@ mempty
         <*> x .@  "DkimVerificationStatus"
 
 instance ToQuery IdentityDkimAttributes where

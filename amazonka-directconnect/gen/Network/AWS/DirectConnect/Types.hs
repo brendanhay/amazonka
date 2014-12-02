@@ -305,7 +305,7 @@ instance FromJSON VirtualInterface where
         <*> o .:? "customerRouterConfig"
         <*> o .:? "location"
         <*> o .:? "ownerAccount"
-        <*> o .:  "routeFilterPrefixes"
+        <*> o .:? "routeFilterPrefixes" .!= mempty
         <*> o .:? "virtualGatewayId"
         <*> o .:? "virtualInterfaceId"
         <*> o .:? "virtualInterfaceName"
@@ -398,7 +398,7 @@ cConnections = lens _cConnections (\s a -> s { _cConnections = a }) . _List
 
 instance FromJSON Connections where
     parseJSON = withObject "Connections" $ \o -> Connections
-        <$> o .:  "connections"
+        <$> o .:? "connections" .!= mempty
 
 instance ToJSON Connections where
     toJSON Connections{..} = object
@@ -709,7 +709,7 @@ instance FromJSON NewPublicVirtualInterface where
         <*> o .:  "asn"
         <*> o .:? "authKey"
         <*> o .:  "customerAddress"
-        <*> o .:  "routeFilterPrefixes"
+        <*> o .:? "routeFilterPrefixes" .!= mempty
         <*> o .:  "virtualInterfaceName"
         <*> o .:  "vlan"
 
@@ -1007,7 +1007,7 @@ instance FromJSON NewPublicVirtualInterfaceAllocation where
         <*> o .:  "asn"
         <*> o .:? "authKey"
         <*> o .:  "customerAddress"
-        <*> o .:  "routeFilterPrefixes"
+        <*> o .:? "routeFilterPrefixes" .!= mempty
         <*> o .:  "virtualInterfaceName"
         <*> o .:  "vlan"
 

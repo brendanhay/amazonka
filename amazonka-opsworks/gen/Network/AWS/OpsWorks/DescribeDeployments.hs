@@ -140,4 +140,4 @@ instance AWSRequest DescribeDeployments where
 
 instance FromJSON DescribeDeploymentsResponse where
     parseJSON = withObject "DescribeDeploymentsResponse" $ \o -> DescribeDeploymentsResponse
-        <$> o .:  "Deployments"
+        <$> o .:? "Deployments" .!= mempty

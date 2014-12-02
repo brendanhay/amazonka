@@ -280,7 +280,7 @@ instance AWSRequest PollForDecisionTask where
 
 instance FromJSON PollForDecisionTaskResponse where
     parseJSON = withObject "PollForDecisionTaskResponse" $ \o -> PollForDecisionTaskResponse
-        <$> o .:  "events"
+        <$> o .:? "events" .!= mempty
         <*> o .:? "nextPageToken"
         <*> o .:? "previousStartedEventId"
         <*> o .:  "startedEventId"

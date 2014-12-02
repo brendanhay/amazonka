@@ -162,7 +162,7 @@ instance FromJSON DescribeTapeRecoveryPointsResponse where
     parseJSON = withObject "DescribeTapeRecoveryPointsResponse" $ \o -> DescribeTapeRecoveryPointsResponse
         <$> o .:? "GatewayARN"
         <*> o .:? "Marker"
-        <*> o .:  "TapeRecoveryPointInfos"
+        <*> o .:? "TapeRecoveryPointInfos" .!= mempty
 
 instance AWSPager DescribeTapeRecoveryPoints where
     page rq rs

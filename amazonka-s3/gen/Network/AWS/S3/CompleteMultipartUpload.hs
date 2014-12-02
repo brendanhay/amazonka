@@ -161,7 +161,8 @@ cmur1Key = lens _cmur1Key (\s a -> s { _cmur1Key = a })
 cmur1Location :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 cmur1Location = lens _cmur1Location (\s a -> s { _cmur1Location = a })
 
--- | If present, specifies the AWS KMS key used to encrypt the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master
+-- encryption key that was used for the object.
 cmur1SSEKMSKeyId :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 cmur1SSEKMSKeyId = lens _cmur1SSEKMSKeyId (\s a -> s { _cmur1SSEKMSKeyId = a }) . mapping _Sensitive
 

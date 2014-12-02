@@ -1,6 +1,5 @@
 {-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE OverloadedStrings    #-}
-{-# LANGUAGE RecordWildCards      #-}
 {-# LANGUAGE ViewPatterns         #-}
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
@@ -17,31 +16,23 @@
 
 module Gen.JSON where
 
-import qualified Data.Aeson           as A
-import           Data.Bifunctor
-import           Data.CaseInsensitive (CI)
-import qualified Data.CaseInsensitive as CI
-import           Data.Function        (on)
-import           Data.HashMap.Strict  (HashMap)
-import qualified Data.HashMap.Strict  as Map
+import           Control.Error
+import qualified Data.Aeson       as A
+import           Data.Function    (on)
+import           Data.Jason       (eitherDecode')
 import           Data.Jason.Types
 import           Data.List
 import           Data.Monoid
-import           Data.SemVer          (Version, fromText, toText)
-import           Data.Text            (Text)
+import           Data.Text        (Text)
+import           Gen.IO
 
-instance FromJSON (CI Text) where
-    parseJSON = withText "case-insensitive" (return . CI.mk)
+parse :: FromJSON a => Object -> Script a
+parse = hoistEither . parseEither parseJSON . Object
 
-instance FromJSON a => FromJSON (HashMap (CI Text) a) where
-    parseJSON = fmap (Map.fromList . map (first CI.mk) . Map.toList) . parseJSON
-
-instance FromJSON Version where
-    parseJSON = withText "semantic_version" $
-        either fail return . fromText
-
-instance A.ToJSON Version where
-    toJSON = A.String . toText
+toEnv :: (Show a, A.ToJSON a) => a -> Script A.Object
+toEnv (A.toJSON -> A.Object o) = right o
+toEnv e                        = left $
+    "Failed to extract JSON Object from: " ++ show e
 
 merge :: [Object] -> Object
 merge = foldl' go mempty
@@ -60,3 +51,13 @@ merge = foldl' go mempty
       where
         g (k, x) | Just y <- lookup k ys = (k, f x y)
                  | otherwise             = (k, x)
+
+requireObject :: FromJSON a => FilePath -> Script a
+requireObject f = loadObject f >>= hoistEither
+
+optionalObject :: Text -> FilePath -> Script Object
+optionalObject k = fmap (fromMaybe (mkObject [(k, Object mempty)]) . hush)
+    . loadObject
+
+loadObject :: FromJSON a => FilePath -> Script (Either String a)
+loadObject = readFromFile eitherDecode'

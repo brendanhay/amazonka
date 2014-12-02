@@ -23,7 +23,8 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Validates a pipeline and initiates processing. If the pipeline does not pass
--- validation, activation fails.
+-- validation, activation fails. You cannot perform this operation on FINISHED
+-- pipelines and attempting to do so will return an InvalidRequestException.
 --
 -- Call this action to start processing pipeline tasks of a pipeline you've
 -- created using the 'CreatePipeline' and 'PutPipelineDefinition' actions. A
@@ -37,6 +38,7 @@ module Network.AWS.DataPipeline.ActivatePipeline
     -- ** Request constructor
     , activatePipeline
     -- ** Request lenses
+    , apParameterValues
     , apPipelineId
 
     -- * Response
@@ -50,21 +52,31 @@ import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
-newtype ActivatePipeline = ActivatePipeline
-    { _apPipelineId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+data ActivatePipeline = ActivatePipeline
+    { _apParameterValues :: List "parameterValues" ParameterValue
+    , _apPipelineId      :: Text
+    } deriving (Eq, Show)
 
 -- | 'ActivatePipeline' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'apParameterValues' @::@ ['ParameterValue']
 --
 -- * 'apPipelineId' @::@ 'Text'
 --
 activatePipeline :: Text -- ^ 'apPipelineId'
                  -> ActivatePipeline
 activatePipeline p1 = ActivatePipeline
-    { _apPipelineId = p1
+    { _apPipelineId      = p1
+    , _apParameterValues = mempty
     }
+
+-- | Returns a list of parameter values to pass to the pipeline at activation.
+apParameterValues :: Lens' ActivatePipeline [ParameterValue]
+apParameterValues =
+    lens _apParameterValues (\s a -> s { _apParameterValues = a })
+        . _List
 
 -- | The identifier of the pipeline to activate.
 apPipelineId :: Lens' ActivatePipeline Text
@@ -87,7 +99,8 @@ instance ToHeaders ActivatePipeline
 
 instance ToJSON ActivatePipeline where
     toJSON ActivatePipeline{..} = object
-        [ "pipelineId" .= _apPipelineId
+        [ "pipelineId"      .= _apPipelineId
+        , "parameterValues" .= _apParameterValues
         ]
 
 instance AWSRequest ActivatePipeline where

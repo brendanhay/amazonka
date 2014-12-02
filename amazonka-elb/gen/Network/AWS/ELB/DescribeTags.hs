@@ -115,4 +115,4 @@ instance AWSRequest DescribeTags where
 
 instance FromXML DescribeTagsResponse where
     parseXML = withElement "DescribeTagsResult" $ \x -> DescribeTagsResponse
-        <$> x .@  "TagDescriptions"
+        <$> x .@? "TagDescriptions" .!@ mempty

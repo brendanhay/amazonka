@@ -199,7 +199,7 @@ instance AWSRequest ListWorkflowTypes where
 instance FromJSON ListWorkflowTypesResponse where
     parseJSON = withObject "ListWorkflowTypesResponse" $ \o -> ListWorkflowTypesResponse
         <$> o .:? "nextPageToken"
-        <*> o .:  "typeInfos"
+        <*> o .:? "typeInfos" .!= mempty
 
 instance AWSPager ListWorkflowTypes where
     page rq rs

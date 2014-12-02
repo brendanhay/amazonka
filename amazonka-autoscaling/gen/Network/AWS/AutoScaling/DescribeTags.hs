@@ -148,7 +148,7 @@ instance AWSRequest DescribeTags where
 instance FromXML DescribeTagsResponse where
     parseXML = withElement "DescribeTagsResult" $ \x -> DescribeTagsResponse
         <$> x .@? "NextToken"
-        <*> x .@  "Tags"
+        <*> x .@? "Tags" .!@ mempty
 
 instance AWSPager DescribeTags where
     page rq rs

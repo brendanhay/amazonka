@@ -119,4 +119,4 @@ instance AWSRequest DescribeApplications where
 
 instance FromXML DescribeApplicationsResponse where
     parseXML = withElement "DescribeApplicationsResult" $ \x -> DescribeApplicationsResponse
-        <$> x .@  "Applications"
+        <$> x .@? "Applications" .!@ mempty

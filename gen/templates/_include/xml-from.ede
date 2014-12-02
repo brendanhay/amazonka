@@ -13,7 +13,7 @@ instance FromXML {{ type.name }} where
     {% if field.value.flattened %}
         {% include "applicative.ede" %} parseXML x
     {% else %}
-        {% include "applicative.ede" %} x {% include "xml-operator.ede" %} "{{ field.value.locationName }}"
+        {% include "applicative.ede" %} x {% include "xml-operator.ede" %}
     {% endif %}
   {% endfor %}
 {% endcase %}

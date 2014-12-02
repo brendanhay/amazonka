@@ -6,6 +6,6 @@ instance FromJSON {{ type.name }} where
 {% else %}
     parseJSON = withObject "{{ type.name }}" $ \o -> {{ type.name }}
   {% for field in type.fields %}
-        {% include "applicative.ede" %} o {% include "json-operator.ede" %} "{{ field.value.locationName }}"
+        {% include "applicative.ede" %} o {% include "json-operator.ede" %}
   {% endfor %}
 {% endcase %}

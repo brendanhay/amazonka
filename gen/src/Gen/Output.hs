@@ -332,6 +332,7 @@ instance ToJSON Field where
         , "documentation" .= _fDocumentation
         , "required"      .= isRequired _fType
         , "flattened"     .= isFlattened _fType
+        , "monoid"        .= isMonoid _fType
         , "default"       .= typeDefault _fType
         , "iso"           .= typeIso _fType
         ]

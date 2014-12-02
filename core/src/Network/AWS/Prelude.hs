@@ -30,25 +30,21 @@ module Network.AWS.Prelude
     , Text
 
     -- * Classes
-    , AWSError        (..)
-    , AWSPager        (..)
-    , AWSRequest      (..)
-    , AWSService      (..)
+    , AWSPager     (..)
+    , AWSRequest   (..)
+    , AWSService   (..)
     , Generic
-    , IsString        (..)
+    , IsString     (..)
     , Semigroup
     , Whole
 
     -- * Shared
-    , Empty           (..)
-    , Service         (..)
-
-    -- * Errors
-    , ServiceError    (..)
+    , Empty        (..)
+    , Service      (..)
 
     -- * HTTP
-    , StdMethod (..)
-    , Status
+    , StdMethod    (..)
+    , Status       (..)
     ) where
 
 import Network.AWS.Types
@@ -64,7 +60,7 @@ import Data.Text                 (Text)
 import GHC.Generics              (Generic)
 import Network.HTTP.Client       (HttpException, RequestBody)
 import Network.HTTP.Types.Method (StdMethod(..))
-import Network.HTTP.Types.Status (Status)
+import Network.HTTP.Types.Status (Status(..))
 import Numeric.Natural           (Natural, Whole)
 
 import Control.Applicative       as Export

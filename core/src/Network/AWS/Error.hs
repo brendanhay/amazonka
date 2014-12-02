@@ -23,8 +23,15 @@ module Network.AWS.Error
     -- * Status Checks
       statusSuccess
 
+    -- * Classes
+    , AWSError     (..)
+    , AWSErrorCode (..)
+
+    -- * Types
+    , ErrorCode    (..)
+    , ErrorType    (..)
+
     -- * REST Errors
-    , ErrorType (..)
     , RESTError
     , restRequestId
     , restType

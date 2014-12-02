@@ -53,9 +53,6 @@ module Network.AWS.Types
     , _ServiceError
     , _Errors
 
-    , AWSError
-    , awsError
-
     -- * Signing
     , AWSSigner     (..)
     , AWSPresigner  (..)

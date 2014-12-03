@@ -115,7 +115,7 @@ send Env{..} x@(request -> rq)
         rs <- liftResourceT (http s _envManager)
         return (Right rs)
 
-    err ex = return (Left (ex :: HttpException))
+    err e = return (Left (e :: HttpException))
 
     check n rs
         | n <= _rAttempts

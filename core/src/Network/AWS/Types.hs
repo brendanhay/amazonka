@@ -363,8 +363,10 @@ exponentialBackon :: Double -- ^ Base.
                   -> RetryPolicy
 exponentialBackon !base !grow = RetryPolicy f
   where
-    f n | n > 0     = Just . truncate $ base * (fromIntegral grow ^^ (n - 1))
+    f n | n > 0     = Just $ truncate (g n * 1000000)
         | otherwise = Nothing
+
+    g n = base * (fromIntegral grow ^^ (n - 1))
 
 -- | Attributes specific to an AWS service.
 data Service a = Service

@@ -101,12 +101,12 @@ send :: (MonadCatch m, MonadResource m, AWSRequest a)
      -> a
      -> m (Response a)
 send Env{..} x@(request -> rq)
-    | _envRetry = retrying _rPolicy check attempt
-    | otherwise = attempt
+    | _envRetry = retrying _rPolicy check go
+    | otherwise = go
   where
-    attempt = go `catch` er >>= response x
+    go = attempt `catch` err >>= response x
 
-    go = do
+    attempt = do
         trace _envLogger (build rq)
         t  <- liftIO getCurrentTime
         Signed m s <- Sign.sign _envAuth _envRegion rq t
@@ -115,7 +115,7 @@ send Env{..} x@(request -> rq)
         rs <- liftResourceT (http s _envManager)
         return (Right rs)
 
-    er ex = return (Left (ex :: HttpException))
+    err ex = return (Left (ex :: HttpException))
 
     check n rs
         | n <= _rAttempts

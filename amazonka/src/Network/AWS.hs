@@ -100,8 +100,33 @@ send :: (MonadCatch m, MonadResource m, AWSRequest a)
      => Env
      -> a
      -> m (Response a)
-send e | _envRetry e = retry e
-       | otherwise   = raw e
+send Env{..} x@(request -> rq)
+    | _envRetry = retrying _rPolicy check attempt
+    | otherwise = attempt
+  where
+    attempt = go `catch` er >>= response x
+
+    go = do
+        trace _envLogger (build rq)
+        t  <- liftIO getCurrentTime
+        Signed m s <- Sign.sign _envAuth _envRegion rq t
+        debug  _envLogger (build s)
+        trace _envLogger (build m)
+        rs <- liftResourceT (http s _envManager)
+        return (Right rs)
+
+    er ex = return (Left (ex :: HttpException))
+
+    check n rs
+        | n <= _rAttempts
+        , Left (ServiceError _ s e) <- rs
+        , _rCheck s e = do
+             debug _envLogger ("Preparing retry attempt " <> build n)
+             return True
+        | otherwise   = return False
+
+    Retry   {..} = _svcRetry
+    Service {..} = serviceOf rq
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate over
 -- the associated 'Rs' response type in the success case, or the related service's
@@ -133,42 +158,3 @@ presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
         -> UTCTime -- ^ Expiry time.
         -> m (Signed a (Sg (Sv a)))
 presign Env{..} (request -> rq) = Sign.presign _envAuth _envRegion rq
-
-retry :: forall m a. (MonadCatch m, MonadResource m, AWSRequest a)
-      => Env
-      -> a
-      -> m (Response a)
-retry e = retrying _rPolicy check . raw e
-  where
-    check :: MonadIO m => Int -> Response a -> m Bool
-    check n rs
-        | n <= _rAttempts
-        , Left (ServiceError _ s x) <- rs
-        , _rCheck s x = do
-             debug (_envLogger e) ("Preparing retry attempt " <> build n)
-             return True
-        | otherwise   = return False
-
-    Retry   {..} = _svcRetry
-    Service {..} = service :: Service (Sv a)
-
-raw :: (MonadCatch m, MonadResource m, AWSRequest a)
-    => Env
-    -> a
-    -> m (Response a)
-raw Env{..} x@(request -> rq) = go `catch` er >>= response x
-  where
-    go = do
-        trace _envLogger (build rq)
-
-        t  <- liftIO getCurrentTime
-
-        Signed m s <- Sign.sign _envAuth _envRegion rq t
-        debug  _envLogger (build s)
-        trace _envLogger (build m)
-
-        rs <- liftResourceT (http s _envManager)
-
-        return (Right rs)
-
-    er ex = return (Left (ex :: HttpException))

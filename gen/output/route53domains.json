@@ -30,7 +30,26 @@
         "documentation": "-- | Pending",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "route53domains",
+        "retryPolicies": {
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "Route53Domains_v20140515"
     },
     "cabal": {

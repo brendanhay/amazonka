@@ -62,7 +62,30 @@
         "documentation": "-- | AWS Storage Gateway is a service that connects an on-premises software\n-- appliance with cloud-based storage to provide seamless and secure integration\n-- between your on-premises IT environment and AWS's storage infrastructure.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "storagegateway",
+        "retryPolicies": {
+            "throttling": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "StorageGateway_20130630"
     },
     "cabal": {

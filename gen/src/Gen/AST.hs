@@ -3,6 +3,7 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
@@ -16,12 +17,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.AST (transform) where
+module Gen.AST (transformAST) where
 
 import           Control.Applicative        ((<$>), (<*>), (<|>), pure)
 import           Control.Arrow              ((&&&))
 import           Control.Error
-import           Control.Lens               hiding (op, ignored, filtered, indexed, transform)
+import           Control.Lens               hiding (op, ignored, filtered, indexed)
 import           Control.Monad
 import           Control.Monad.State.Strict
 import qualified Data.CaseInsensitive       as CI
@@ -41,8 +42,8 @@ import           Gen.Names
 import           Gen.Output
 import           Gen.Types
 
-transform :: Model -> Input -> Output
-transform m inp = Output cabal service ops types
+transformAST :: Retries -> Model -> Input -> Output
+transformAST Retries{..} m inp = Output cabal service ops types
   where
     cabal = Cabal
         { _cName         = name
@@ -74,6 +75,8 @@ transform m inp = Output cabal service ops types
         , _svTargetPrefix   = inp ^. mTargetPrefix
         , _svJsonVersion    = inp ^. mJsonVersion
         , _svError          = errorType protocol abbrev
+        , _svRetryDelay     = delay
+        , _svRetryPolicies  = policies
         }
 
     types = Types
@@ -112,6 +115,25 @@ transform m inp = Output cabal service ops types
             <> version
             <> "/"
         | otherwise                             = Nothing
+
+    delay = Exp
+        { _eAttempts = retry ^. rMaxAttempts
+        , _eBase     = retry ^. rDelay . dBase
+        , _eGrowth   = retry ^. rDelay . dGrowthFactor
+        }
+
+    policies = Map.fromList . mapMaybe go . Map.toList $ retry ^. rPolicies
+      where
+        go :: (a, Policy) -> Maybe (a, RetryPolicy)
+        go (k, p)
+            | ApplyWhen (WhenStatus e c) <- p          = Just (k, Status e c)
+            | ApplyRef r <- p
+            , Just x     <- Map.lookup r _rDefinitions = go (k, x)
+            | otherwise                                = Nothing
+
+    retry = fromMaybe _rDefault $
+            Map.lookup endpointPrefix _rRetries
+        <|> Map.lookup (Text.pack (m ^. mName)) _rRetries
 
 dataTypes :: Overrides
           -> Abbrev

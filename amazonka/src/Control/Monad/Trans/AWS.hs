@@ -4,7 +4,6 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE RankNTypes                 #-}
-{-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
 
@@ -39,6 +38,7 @@ module Control.Monad.Trans.AWS
     , envRegion
     , envManager
     , envLogger
+    , envRetry
     -- ** Creating the environment
     , Credentials (..)
     , AWS.newEnv
@@ -55,6 +55,9 @@ module Control.Monad.Trans.AWS
     -- * Regionalisation
     , Region      (..)
     , within
+
+    -- * Retries
+    , once
 
     -- * Errors
     , Error
@@ -77,6 +80,7 @@ module Control.Monad.Trans.AWS
     -- * Types
     , ToBuilder   (..)
     , module Network.AWS.Types
+    , module Network.AWS.Error
     ) where
 
 import           Control.Applicative
@@ -94,6 +98,7 @@ import           Data.Time
 import qualified Network.AWS                  as AWS
 import           Network.AWS.Auth
 import           Network.AWS.Data             (ToBuilder(..))
+import           Network.AWS.Error
 import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
 import           Network.AWS.Types
@@ -194,7 +199,7 @@ instance (Applicative m, MonadIO m, MonadBase IO m, MonadThrow m)
 runAWST :: MonadBaseControl IO m => Env -> AWST m a -> m (Either Error a)
 runAWST e m = runResourceT . withInternalState $ runAWST' f . (e,)
   where
-    f = liftBase ((_envLogger e) Debug (build e)) >> m
+    f = liftBase (_envLogger e Debug (build e)) >> m
 
 runAWST' :: AWST m a -> (Env, InternalState) -> m (Either Error a)
 runAWST' (AWST k) = runExceptT . runReaderT k
@@ -248,6 +253,13 @@ logTrace x = view envLogger >>= (`trace` x)
 -- | Scope a monadic action within the specific 'Region'.
 within :: MonadReader Env m => Region -> m a -> m a
 within r = local (envRegion .~ r)
+
+-- | Scope a monadic action such that any potential retry logic for the
+-- 'Service' is ignored.
+--
+-- /Example:/ Any requests will at most be sent once.
+once :: MonadReader Env m => m a -> m a
+once = local (envRetry .~ False)
 
 -- | Send a data type which is an instance of 'AWSRequest', returning it's
 -- associated 'Rs' response type.

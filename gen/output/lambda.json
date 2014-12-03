@@ -26,7 +26,26 @@
         "documentation": "-- | AWS Lambda is a compute service that runs your code in response to events and\n-- automatically manages the compute resources for you, making it easy to build\n-- applications that respond quickly to new information. AWS Lambda starts\n-- running your code within milliseconds of an event such as an image upload,\n-- in-app activity, website click, or output from a connected device. You can\n-- also use AWS Lambda to create new back-end services where compute resources\n-- are automatically triggered based on custom requests. With AWS Lambda you pay\n-- only for the requests served and the compute time required to run your code.\n-- Billing is metered in increments of 100 milliseconds, making it\n-- cost-effective and easy to scale automatically from a few requests per day to\n-- thousands per second.",
         "xmlNamespace": null,
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "lambda",
+        "retryPolicies": {
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {

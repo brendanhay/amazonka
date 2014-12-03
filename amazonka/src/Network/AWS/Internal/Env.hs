@@ -27,6 +27,7 @@ data Env = Env
     { _envRegion  :: !Region
     , _envLogger  :: Logger
     , _envManager :: Manager
+    , _envRetry   :: !Bool
     , _envAuth    :: Auth
     }
 
@@ -37,5 +38,6 @@ instance ToBuilder Env where
         [ "[Environment] {"
         , "  region = " <> build _envRegion
         , "  auth   = " <> build _envAuth
+        , "  retry  = " <> build _envRetry
         , "}"
         ]

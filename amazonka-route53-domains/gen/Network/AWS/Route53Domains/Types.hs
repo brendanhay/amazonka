@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -94,8 +95,6 @@ module Network.AWS.Route53Domains.Types
     , osType
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -107,15 +106,38 @@ instance AWSService Route53Domains where
     type Sg Route53Domains = V4
     type Er Route53Domains = JSONError
 
-    service = Service
-        { _svcAbbrev       = "Route53Domains"
-        , _svcPrefix       = "route53domains"
-        , _svcVersion      = "2014-05-15"
-        , _svcTargetPrefix = Just "Route53Domains_v20140515"
-        , _svcJSONVersion  = Just "1.1"
-        }
+    service = service'
+      where
+        service' :: Service Route53Domains
+        service' = Service
+              { _svcAbbrev       = "Route53Domains"
+              , _svcPrefix       = "route53domains"
+              , _svcVersion      = "2014-05-15"
+              , _svcTargetPrefix = Just "Route53Domains_v20140515"
+              , _svcJSONVersion  = Just "1.1"
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = jsonError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry JSONError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data DomainSummary = DomainSummary
     { _dsAutoRenew    :: Maybe Bool

@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -73,7 +74,6 @@ module Network.AWS.SDB.Types
     , iName
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -85,18 +85,42 @@ instance AWSService SDB where
     type Sg SDB = V2
     type Er SDB = RESTError
 
-    service = Service
-        { _svcAbbrev       = "SDB"
-        , _svcPrefix       = "sdb"
-        , _svcVersion      = "2009-04-15"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service SDB
+        service' = Service
+              { _svcAbbrev       = "SDB"
+              , _svcPrefix       = "sdb"
+              , _svcVersion      = "2009-04-15"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry RESTError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://sdb.amazonaws.com/doc/2009-04-15/"
+{-# INLINE ns #-}
 
 data Attribute = Attribute
     { _aAlternateNameEncoding  :: Maybe Text

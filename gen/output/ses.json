@@ -33,7 +33,30 @@
         "documentation": "-- | Amazon Simple Email Service (Amazon SES) is a cost-effective outbound-only\n-- email-sending service built on the reliable and scalable infrastructure that\n-- Amazon.com has developed to serve its own customer base. With Amazon SES, you\n-- can send transactional email, marketing messages, or any other type of\n-- high-quality content and you only pay for what you use. Along with high\n-- deliverability, Amazon SES provides easy, real-time access to your sending\n-- statistics and built-in notifications for bounces, complaints, and deliveries\n-- to help you fine-tune your email-sending strategy.",
         "xmlNamespace": "http://ses.amazonaws.com/doc/2010-12-01/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "email",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {

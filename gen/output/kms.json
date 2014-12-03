@@ -40,7 +40,26 @@
         "documentation": "-- | Amazon Key Management Service (KMS) is a managed service that makes it easy\n-- for you to create and control the encryption keys used to encrypt your data,\n-- and uses Hardware Security Modules (HSMs) to protect the security of your\n-- keys. Amazon Key Management Service is integrated with other Amazon services\n-- including Amazon EBS, Amazon S3, and Amazon Redshift. Amazon Key Management\n-- Service is also integrated with Amazon CloudTrail to provide you with logs of\n-- all key usage to help meet your regulatory and compliance needs.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "kms",
+        "retryPolicies": {
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "TrentService"
     },
     "cabal": {

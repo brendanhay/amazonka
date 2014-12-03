@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -1396,7 +1397,6 @@ module Network.AWS.EC2.Types
     , module Network.AWS.EC2.Internal
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import Network.AWS.EC2.Internal
@@ -1409,18 +1409,43 @@ instance AWSService EC2 where
     type Sg EC2 = V4
     type Er EC2 = EC2Error
 
-    service = Service
-        { _svcAbbrev       = "EC2"
-        , _svcPrefix       = "ec2"
-        , _svcVersion      = "2014-09-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service EC2
+        service' = Service
+              { _svcAbbrev       = "EC2"
+              , _svcPrefix       = "ec2"
+              , _svcVersion      = "2014-09-01"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError EC2Error)
+        handle = restError statusSuccess service'
+
+        retry :: Retry EC2Error
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> EC2Error
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 503 && "RequestLimitExceeded" == e = True -- Request Limit Exceeded
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://ec2.amazonaws.com/doc/2014-09-01"
+{-# INLINE ns #-}
 
 data ImageAttributeName
     = ImageBlockDeviceMapping -- ^ blockDeviceMapping

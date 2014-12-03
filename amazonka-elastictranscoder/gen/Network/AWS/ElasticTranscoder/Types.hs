@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -281,8 +282,6 @@ module Network.AWS.ElasticTranscoder.Types
     , jiResolution
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -294,15 +293,39 @@ instance AWSService ElasticTranscoder where
     type Sg ElasticTranscoder = V4
     type Er ElasticTranscoder = JSONError
 
-    service = Service
-        { _svcAbbrev       = "ElasticTranscoder"
-        , _svcPrefix       = "elastictranscoder"
-        , _svcVersion      = "2012-09-25"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service ElasticTranscoder
+        service' = Service
+              { _svcAbbrev       = "ElasticTranscoder"
+              , _svcPrefix       = "elastictranscoder"
+              , _svcVersion      = "2012-09-25"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = jsonError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry JSONError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "ThrottlingException" == e = True -- Throttling
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data PipelineOutputConfig = PipelineOutputConfig
     { _pocBucket       :: Maybe Text

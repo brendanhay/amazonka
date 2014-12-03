@@ -14,29 +14,27 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.Library (render) where
+module Gen.Library (renderLibrary) where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Lens             hiding ((<.>), op, mapping)
-import           Control.Monad            (forM_)
+import           Control.Monad       (forM_)
 import           Data.Aeson
-import           Data.Aeson.Encode.Pretty
-import           Data.Aeson.Types         (Pair)
-import qualified Data.HashMap.Strict      as Map
+import qualified Data.HashMap.Strict as Map
 import           Data.Monoid
-import           Data.Text                (Text)
-import qualified Data.Text                as Text
+import           Data.Text           (Text)
+import qualified Data.Text           as Text
 import           Gen.IO
 import           Gen.JSON
 import           Gen.Output
+import           Gen.Templates
 import           Gen.Types
 import           System.FilePath
 
 default (Text, FilePath)
 
-render :: FilePath -> Templates -> Output -> Script FilePath
-render d Templates{..} Output{..} = do
+renderLibrary :: FilePath -> Templates -> Output -> Script FilePath
+renderLibrary d Templates{..} Output{..} = do
     svc <- toEnv _outService
 
     createDir src

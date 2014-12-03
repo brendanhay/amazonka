@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -193,7 +194,6 @@ module Network.AWS.Route53.Types
     , module Network.AWS.Route53.Internal
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import Network.AWS.Route53.Internal
@@ -206,18 +206,43 @@ instance AWSService Route53 where
     type Sg Route53 = V3
     type Er Route53 = RESTError
 
-    service = Service
-        { _svcAbbrev       = "Route53"
-        , _svcPrefix       = "route53"
-        , _svcVersion      = "2013-04-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service Route53
+        service' = Service
+              { _svcAbbrev       = "Route53"
+              , _svcPrefix       = "route53"
+              , _svcVersion      = "2013-04-01"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry RESTError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "Throttling" == e = True -- Throttling
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://route53.amazonaws.com/doc/2013-04-01/"
+{-# INLINE ns #-}
 
 data AliasTarget = AliasTarget
     { _atDNSName              :: Text

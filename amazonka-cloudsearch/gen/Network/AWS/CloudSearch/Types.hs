@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -293,7 +294,6 @@ module Network.AWS.CloudSearch.Types
     , apsStatus
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -305,18 +305,43 @@ instance AWSService CloudSearch where
     type Sg CloudSearch = V4
     type Er CloudSearch = RESTError
 
-    service = Service
-        { _svcAbbrev       = "CloudSearch"
-        , _svcPrefix       = "cloudsearch"
-        , _svcVersion      = "2013-01-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service CloudSearch
+        service' = Service
+              { _svcAbbrev       = "CloudSearch"
+              , _svcPrefix       = "cloudsearch"
+              , _svcVersion      = "2013-01-01"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry RESTError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 509 && "BandwidthLimitExceeded" == e = True -- Request Limit Exceeded
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://cloudsearch.amazonaws.com/doc/2013-01-01/"
+{-# INLINE ns #-}
 
 data DomainStatus = DomainStatus
     { _dsARN                    :: Maybe Text

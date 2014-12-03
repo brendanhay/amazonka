@@ -15,32 +15,33 @@
 
 module Main (main) where
 
-import           Control.Applicative
-import           Control.Error
-import           Control.Lens           (Lens', (^.), view, assign, makeLenses)
-import           Control.Monad
-import           Control.Monad.IO.Class
-import           Control.Monad.State
-import           Data.Monoid
-import qualified Gen.AST                as AST
-import           Gen.IO
-import           Gen.JSON
-import qualified Gen.Library            as Library
-import qualified Gen.Model              as Model
-import qualified Gen.Templates          as Templates
-import           Gen.Types
-import           Options.Applicative
-import           System.Directory
-import           System.FilePath
-import           System.IO
+import Control.Applicative
+import Control.Error
+import Control.Lens           (Lens', (^.), view, assign, makeLenses)
+import Control.Monad
+import Control.Monad.IO.Class
+import Control.Monad.State
+import Data.Monoid
+import Gen.AST
+import Gen.IO
+import Gen.JSON
+import Gen.Library
+import Gen.Model
+import Gen.Templates
+import Gen.Types
+import Options.Applicative
+import System.Directory
+import System.FilePath
+import System.IO
 
 data Options = Options
-    { _output     :: FilePath
+    { _output    :: FilePath
     , _models    :: [FilePath]
     , _services  :: FilePath
     , _overrides :: FilePath
     , _templates :: FilePath
     , _assets    :: FilePath
+    , _retry     :: FilePath
     } deriving (Show)
 
 makeLenses ''Options
@@ -86,6 +87,12 @@ parser = Options
         <> help "Directory containing assets for generated libraries. [required]"
          )
 
+    <*> strOption
+         ( long "retry"
+        <> metavar "PATH"
+        <> help "Path to the file containing retry definitions. [required]"
+         )
+
 validate :: MonadIO m => Options -> m Options
 validate o = flip execStateT o $ do
     sequence_
@@ -94,6 +101,7 @@ validate o = flip execStateT o $ do
         , check overrides
         , check templates
         , check assets
+        , check retry
         ]
     mapM canon (o ^. models)
         >>= assign models
@@ -111,25 +119,26 @@ main = do
     o <- customExecParser (prefs showHelpOnError) options >>= validate
 
     runScript $ do
-        !ts <- Templates.load (o ^. templates)
+        !ts <- loadTemplates (o ^. templates)
+        !rs <- loadRetries   (o ^. retry)
 
         -- Process a Input AST from the corresponding botocore model.
         forM_ (o ^. models) $ \d -> do
             -- Load the Input raw JSON.
-            !m   <- Model.load d (o ^. overrides)
+            !m   <- loadModel d (o ^. overrides)
 
             -- Decode the Input JSON to AST.
             !inp <- parse (_mModel m)
 
             -- Transformation from Input -> Output AST.
-            let !out = AST.transform m inp
+            let !out = transformAST rs m inp
 
             -- Store the intemediary Output AST as JSON.
             -- Note: This is primarily done for debugging purposes.
             writeJSON (o ^. services </> _mName m <.> "json") out
 
             -- Render the templates, creating or overriding the target library.
-            lib <- Library.render (o ^. output) ts out
+            lib <- renderLibrary (o ^. output) ts out
 
             -- Copy static assets to the library root.
             copyContents (o ^. assets) lib

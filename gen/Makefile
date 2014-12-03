@@ -59,6 +59,7 @@ gen: build
  --overrides=overrides \
  --templates=templates \
  --assets=assets \
+ --retry=input/_retry.json \
  $(addprefix --model=,$(addprefix input/,$(MODELS)))
 
 build: input output

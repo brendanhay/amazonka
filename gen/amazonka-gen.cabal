@@ -31,7 +31,7 @@ executable amazonka-gen
         , bytestring
         , case-insensitive
         , directory
-        , ede                  == 0.2.3.*
+        , ede                  == 0.2.4.*
         , errors
         , filepath
         , hashable
@@ -40,6 +40,7 @@ executable amazonka-gen
         , mtl
         , optparse-applicative == 0.11.*
         , parsec
+        , scientific
         , semver
         , tagsoup
         , template-haskell

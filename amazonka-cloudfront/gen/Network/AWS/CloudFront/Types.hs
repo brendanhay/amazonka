@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -394,7 +395,6 @@ module Network.AWS.CloudFront.Types
     , lcPrefix
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -406,18 +406,42 @@ instance AWSService CloudFront where
     type Sg CloudFront = V4
     type Er CloudFront = RESTError
 
-    service = Service
-        { _svcAbbrev       = "CloudFront"
-        , _svcPrefix       = "cloudfront"
-        , _svcVersion      = "2014-05-31"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service CloudFront
+        service' = Service
+              { _svcAbbrev       = "CloudFront"
+              , _svcPrefix       = "cloudfront"
+              , _svcVersion      = "2014-05-31"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry RESTError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://cloudfront.amazonaws.com/doc/2014-05-31/"
+{-# INLINE ns #-}
 
 data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
     { _cfoailIsTruncated :: Bool

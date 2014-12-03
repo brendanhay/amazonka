@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -409,8 +410,6 @@ module Network.AWS.EMR.Types
     , sbacPath
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -422,15 +421,39 @@ instance AWSService EMR where
     type Sg EMR = V4
     type Er EMR = JSONError
 
-    service = Service
-        { _svcAbbrev       = "EMR"
-        , _svcPrefix       = "elasticmapreduce"
-        , _svcVersion      = "2009-03-31"
-        , _svcTargetPrefix = Just "ElasticMapReduce"
-        , _svcJSONVersion  = Just "1.1"
-        }
+    service = service'
+      where
+        service' :: Service EMR
+        service' = Service
+              { _svcAbbrev       = "EMR"
+              , _svcPrefix       = "elasticmapreduce"
+              , _svcVersion      = "2009-03-31"
+              , _svcTargetPrefix = Just "ElasticMapReduce"
+              , _svcJSONVersion  = Just "1.1"
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = jsonError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry JSONError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "ThrottlingException" == e = True -- Throttling
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data MarketType
     = OnDemand -- ^ ON_DEMAND

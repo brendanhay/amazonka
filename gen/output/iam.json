@@ -98,7 +98,30 @@
         "documentation": "-- | AWS Identity and Access Management (IAM) enables you to securely control\n-- access to AWS services and resources for your users. Using IAM, you can\n-- create and manage AWS users and groups and use permissions to allow and deny\n-- their access to AWS resources.",
         "xmlNamespace": "https://iam.amazonaws.com/doc/2010-05-08/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "iam",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {

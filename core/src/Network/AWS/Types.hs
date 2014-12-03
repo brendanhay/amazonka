@@ -1,3 +1,4 @@
+{-# LANGUAGE BangPatterns               #-}
 {-# LANGUAGE DefaultSignatures          #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
@@ -41,6 +42,10 @@ module Network.AWS.Types
     , Service       (..)
     , serviceOf
 
+    -- * Retries
+    , Retry         (..)
+    , exponentialBackon
+
     -- * Endpoints
     , Endpoint      (..)
     , endpoint
@@ -51,9 +56,6 @@ module Network.AWS.Types
     , _SerializerError
     , _ServiceError
     , _Errors
-
-    , AWSError
-    , awsError
 
     -- * Signing
     , AWSSigner     (..)
@@ -96,6 +98,7 @@ import           Control.Exception            (Exception)
 import           Control.Lens                 hiding (Action)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
+import           Control.Retry
 import           Data.Aeson                   hiding (Error)
 import           Data.ByteString              (ByteString)
 import qualified Data.ByteString              as BS
@@ -142,16 +145,6 @@ instance Monoid (ServiceError a) where
         f (Errors xs) = xs
         f x           = [x]
 
-class AWSError a where
-    awsError :: a -> ServiceError String
-
-instance Show a => AWSError (ServiceError a) where
-    awsError = \case
-        HttpError       e     -> HttpError e
-        SerializerError a e   -> SerializerError a e
-        ServiceError    a s x -> ServiceError a s (show x)
-        Errors          xs    -> Errors (map awsError xs)
-
 -- | The properties (such as endpoint) for a service, as well as it's
 -- associated signing algorithm and error types.
 class (AWSSigner (Sg a), Show (Er a)) => AWSService a where
@@ -162,9 +155,6 @@ class (AWSSigner (Sg a), Show (Er a)) => AWSService a where
     type Er a :: *
 
     service :: Service a
-    handle  :: Service a
-            -> Status
-            -> Maybe (LazyByteString -> ServiceError (Er a))
 
 serviceOf :: AWSService (Sv a) => Request a -> Service (Sv a)
 serviceOf = const service
@@ -362,6 +352,20 @@ endpoint Service{..} r = go (CI.mk _svcPrefix)
         , Tokyo
         ]
 
+data Retry a = Retry
+    { _rPolicy   :: RetryPolicy
+    , _rAttempts :: !Int
+    , _rCheck    :: Status -> a -> Bool
+    }
+
+exponentialBackon :: Double -- ^ Base.
+                  -> Int    -- ^ Growth.
+                  -> RetryPolicy
+exponentialBackon !base !grow = RetryPolicy f
+  where
+    f n | n > 0     = Just . truncate $ base * (fromIntegral grow ^^ (n - 1))
+        | otherwise = Nothing
+
 -- | Attributes specific to an AWS service.
 data Service a = Service
     { _svcAbbrev       :: !Text
@@ -369,6 +373,8 @@ data Service a = Service
     , _svcVersion      :: ByteString
     , _svcTargetPrefix :: Maybe ByteString
     , _svcJSONVersion  :: Maybe ByteString
+    , _svcHandle       :: Status -> Maybe (LazyByteString -> ServiceError (Er a))
+    , _svcRetry        :: Retry (Er a)
     }
 
 -- | An unsigned request.

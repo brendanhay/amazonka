@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -417,7 +418,6 @@ module Network.AWS.S3.Types
     , module Network.AWS.S3.Internal
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import Network.AWS.S3.Internal
@@ -430,18 +430,43 @@ instance AWSService S3 where
     type Sg S3 = V4
     type Er S3 = RESTError
 
-    service = Service
-        { _svcAbbrev       = "S3"
-        , _svcPrefix       = "s3"
-        , _svcVersion      = "2006-03-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service S3
+        service' = Service
+              { _svcAbbrev       = "S3"
+              , _svcPrefix       = "s3"
+              , _svcVersion      = "2006-03-01"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry RESTError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "RequestTimeout" == e = True -- Timeouts
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://s3.amazonaws.com/doc/2006-03-01/"
+{-# INLINE ns #-}
 
 data Event
     = S3ObjectCreatedCompleteMultipartUpload -- ^ s3:ObjectCreated:CompleteMultipartUpload

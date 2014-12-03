@@ -29,7 +29,26 @@
         "documentation": "-- | Amazon CloudWatch Logs enables you to monitor, store, and access your system,\n-- application, and custom log files.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "logs",
+        "retryPolicies": {
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "Logs_20140328"
     },
     "cabal": {

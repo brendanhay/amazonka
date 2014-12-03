@@ -40,7 +40,30 @@
         "documentation": "-- | Amazon Simple Notification Service (Amazon SNS) is a fast, flexible, fully\n-- managed push messaging service. Amazon SNS makes it simple and cost-effective\n-- to push notifications to Apple, Google, Fire OS, and Windows devices, as well\n-- as Android devices in China with Baidu Cloud Push. You can also use SNS to\n-- push notifications to internet connected smart devices, as well as other\n-- distributed services. Besides pushing cloud notifications directly to mobile\n-- devices, Amazon SNS can also deliver notifications by SMS text message or\n-- email, to Amazon Simple Queue Service (SQS) queues, or to any HTTP endpoint.\n-- To prevent messages from being lost, all messages published to Amazon SNS are\n-- stored redundantly across multiple availability zones.",
         "xmlNamespace": "http://sns.amazonaws.com/doc/2010-03-31/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "sns",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {

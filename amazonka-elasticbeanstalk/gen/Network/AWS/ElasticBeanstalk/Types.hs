@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -268,7 +269,6 @@ module Network.AWS.ElasticBeanstalk.Types
     , ssdSolutionStackName
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -280,18 +280,43 @@ instance AWSService ElasticBeanstalk where
     type Sg ElasticBeanstalk = V4
     type Er ElasticBeanstalk = RESTError
 
-    service = Service
-        { _svcAbbrev       = "ElasticBeanstalk"
-        , _svcPrefix       = "elasticbeanstalk"
-        , _svcVersion      = "2010-12-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service ElasticBeanstalk
+        service' = Service
+              { _svcAbbrev       = "ElasticBeanstalk"
+              , _svcPrefix       = "elasticbeanstalk"
+              , _svcVersion      = "2010-12-01"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry RESTError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "Throttling" == e = True -- Throttling
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/"
+{-# INLINE ns #-}
 
 data ApplicationDescription = ApplicationDescription
     { _adApplicationName        :: Maybe Text

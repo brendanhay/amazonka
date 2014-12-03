@@ -31,7 +31,30 @@
         "documentation": "-- | Amazon Simple Queue Service (SQS) is a fast, reliable, scalable, fully\n-- managed message queuing service. SQS makes it simple and cost-effective to\n-- decouple the components of a cloud application. You can use SQS to transmit\n-- any volume of data, at any level of throughput, without losing messages or\n-- requiring other services to be always available. With SQS, you can offload\n-- the administrative burden of operating and scaling a highly available\n-- messaging cluster, while paying a low price for only what you use.",
         "xmlNamespace": "http://queue.amazonaws.com/doc/2012-11-05/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "sqs",
+        "retryPolicies": {
+            "request_limit_exceeded": {
+                "error": "RequestThrottled",
+                "code": 403
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {

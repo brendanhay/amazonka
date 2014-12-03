@@ -34,7 +34,30 @@
         "documentation": "-- | AWS Direct Connect links your internal network to an AWS Direct Connect\n-- location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable.\n-- One end of the cable is connected to your router, the other to an AWS Direct\n-- Connect router. With this connection in place, you can create virtual\n-- interfaces directly to the AWS cloud and Amazon Virtual Private Cloud,\n-- bypassing Internet service providers in your network path.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "directconnect",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "OvertureService"
     },
     "cabal": {

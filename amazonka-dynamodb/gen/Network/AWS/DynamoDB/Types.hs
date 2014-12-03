@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -238,8 +239,6 @@ module Network.AWS.DynamoDB.Types
     , gsiuUpdate
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -251,15 +250,40 @@ instance AWSService DynamoDB where
     type Sg DynamoDB = V4
     type Er DynamoDB = JSONError
 
-    service = Service
-        { _svcAbbrev       = "DynamoDB"
-        , _svcPrefix       = "dynamodb"
-        , _svcVersion      = "2012-08-10"
-        , _svcTargetPrefix = Just "DynamoDB_20120810"
-        , _svcJSONVersion  = Just "1.0"
-        }
+    service = service'
+      where
+        service' :: Service DynamoDB
+        service' = Service
+              { _svcAbbrev       = "DynamoDB"
+              , _svcPrefix       = "dynamodb"
+              , _svcVersion      = "2012-08-10"
+              , _svcTargetPrefix = Just "DynamoDB_20120810"
+              , _svcJSONVersion  = Just "1.0"
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = jsonError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry JSONError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 10
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "ThrottlingException" == e = True -- Throttling
+            | s == 400 && "ProvisionedThroughputExceededException" == e = True -- Throughput Exceeded
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data WriteRequest = WriteRequest
     { _wDeleteRequest :: Maybe DeleteRequest

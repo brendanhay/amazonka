@@ -596,7 +596,7 @@ instance ToJSON Request where
     toJSON Request{..} =
         Object (x <> operationJSON _rqProto _rqShared True _rqName _rqData)
       where
-        Object x = object $
+        Object x = object
             [ "path"     .= _uriPath _rqUri
             , "query"    .= qry
             , "queryPad" .= fieldPad qs
@@ -709,6 +709,21 @@ instance Ord Operation where
 instance ToFilePath Operation where
     toFilePath = toFilePath . _opNamespace
 
+data RetryDelay = Exp
+    { _eAttempts :: !Int
+    , _eBase     :: !Base
+    , _eGrowth   :: !Int
+    } deriving (Eq, Show)
+
+record output ''RetryDelay
+
+data RetryPolicy = Status
+    { _sError :: Maybe Text
+    , _sCode  :: !Int
+    } deriving (Eq, Show)
+
+record output ''RetryPolicy
+
 data Service = Service
     { _svName           :: !Text
     , _svUrl            :: !Text
@@ -725,6 +740,8 @@ data Service = Service
     , _svTargetPrefix   :: Maybe Text
     , _svJsonVersion    :: Maybe Text
     , _svError          :: !Text
+    , _svRetryDelay     :: !RetryDelay
+    , _svRetryPolicies  :: HashMap Text RetryPolicy
     } deriving (Eq, Show)
 
 record output ''Service

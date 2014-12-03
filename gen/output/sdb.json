@@ -25,7 +25,26 @@
         "documentation": "-- | Amazon SimpleDB is a highly available and flexible non-relational data store\n-- that offloads the work of database administration. Developers simply store\n-- and query data items via web services requests and Amazon SimpleDB does the\n-- rest. Unbound by the strict requirements of a relational database, Amazon\n-- SimpleDB is optimized to provide high availability and flexibility, with\n-- little or no administrative burden. Behind the scenes, Amazon SimpleDB\n-- creates and manages multiple geographically distributed replicas of your data\n-- automatically to enable high availability and data durability. The service\n-- charges you only for the resources actually consumed in storing your data and\n-- serving your requests. You can change your data model on the fly, and data is\n-- automatically indexed for you. With Amazon SimpleDB, you can focus on\n-- application development without worrying about infrastructure provisioning,\n-- high availability, software maintenance, schema and index management, or\n-- performance tuning.",
         "xmlNamespace": "http://sdb.amazonaws.com/doc/2009-04-15/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "sdb",
+        "retryPolicies": {
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {

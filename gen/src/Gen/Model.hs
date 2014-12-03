@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
@@ -12,18 +13,24 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.Model (load) where
+module Gen.Model where
 
-import Control.Applicative
-import Control.Error
-import Gen.IO
-import Gen.JSON
-import Gen.Types
-import System.Directory
-import System.FilePath
+import           Control.Applicative
+import           Control.Error
+import           Control.Monad
+import qualified Data.HashMap.Strict as Map
+import qualified Data.Text           as Text
+import           Gen.IO
+import           Gen.JSON
+import           Gen.Types
+import           System.Directory
+import           System.FilePath
 
-load :: FilePath -> FilePath -> Script Model
-load d o = do
+loadRetries :: FilePath -> Script Retries
+loadRetries = requireObject >=> parse
+
+loadModel :: FilePath -> FilePath -> Script Model
+loadModel d o = do
     v  <- version
     m1 <- requireObject override
     m2 <- merge <$> sequence

@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -52,7 +53,6 @@ module Network.AWS.STS.Types
     , aruAssumedRoleId
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -64,18 +64,43 @@ instance AWSService STS where
     type Sg STS = V4
     type Er STS = RESTError
 
-    service = Service
-        { _svcAbbrev       = "STS"
-        , _svcPrefix       = "sts"
-        , _svcVersion      = "2011-06-15"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service STS
+        service' = Service
+              { _svcAbbrev       = "STS"
+              , _svcPrefix       = "sts"
+              , _svcVersion      = "2011-06-15"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry RESTError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "Throttling" == e = True -- Throttling
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "https://sts.amazonaws.com/doc/2011-06-15/"
+{-# INLINE ns #-}
 
 data Credentials = Credentials
     { _cAccessKeyId     :: Text

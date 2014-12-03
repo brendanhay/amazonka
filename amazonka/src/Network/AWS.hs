@@ -5,6 +5,9 @@
 {-# LANGUAGE TypeFamilies      #-}
 {-# LANGUAGE ViewPatterns      #-}
 
+{-# LANGUAGE TupleSections      #-}
+{-# LANGUAGE ScopedTypeVariables      #-}
+
 -- Module      : Network.AWS
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -24,6 +27,7 @@ module Network.AWS
     , envRegion
     , envManager
     , envLogger
+    , envRetry
     -- ** Creating the environment
     , Credentials (..)
     , newEnv
@@ -44,15 +48,18 @@ module Network.AWS
 
     -- * Types
     , module Network.AWS.Types
+    , module Network.AWS.Error
     ) where
 
 import           Control.Monad.Catch
 import           Control.Monad.Except
 import           Control.Monad.Trans.Resource
+import           Control.Retry
 import           Data.Conduit
 import           Data.Time
 import           Network.AWS.Auth
 import           Network.AWS.Data
+import           Network.AWS.Error
 import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
 import qualified Network.AWS.Signing          as Sign
@@ -68,7 +75,7 @@ newEnv :: (Functor m, MonadIO m)
        -> Credentials
        -> Manager
        -> ExceptT String m Env
-newEnv r c m = Env r (\_ _ -> return ()) m `liftM` getAuth m c
+newEnv r c m = Env r (\_ _ -> return ()) m True `liftM` getAuth m c
 
 -- | Create a new environment without debug logging, creating a new 'Manager'.
 --
@@ -93,23 +100,33 @@ send :: (MonadCatch m, MonadResource m, AWSRequest a)
      => Env
      -> a
      -> m (Response a)
-send Env{..} x@(request -> rq) = go `catch` er >>= response x
+send Env{..} x@(request -> rq)
+    | _envRetry = retrying _rPolicy check go
+    | otherwise = go
   where
-    go = do
+    go = attempt `catch` err >>= response x
+
+    attempt = do
         trace _envLogger (build rq)
-
         t  <- liftIO getCurrentTime
-
         Signed m s <- Sign.sign _envAuth _envRegion rq t
-        debug  _envLogger (build s)
+        debug _envLogger (build s)
         trace _envLogger (build m)
-
         rs <- liftResourceT (http s _envManager)
-        debug _envLogger (build rs)
-
         return (Right rs)
 
-    er ex = return (Left (ex :: HttpException))
+    err ex = return (Left (ex :: HttpException))
+
+    check n rs
+        | n <= _rAttempts
+        , Left (ServiceError _ s e) <- rs
+        , _rCheck s e = do
+             debug _envLogger ("[Retry Attempt] " <> build n)
+             return True
+        | otherwise   = return False
+
+    Retry   {..} = _svcRetry
+    Service {..} = serviceOf rq
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate over
 -- the associated 'Rs' response type in the success case, or the related service's
@@ -123,12 +140,12 @@ paginate :: (MonadCatch m, MonadResource m, AWSPager a)
          -> Source m (Response a)
 paginate e = go
   where
-    go rq = do
-        rs <- lift (send e rq)
-        yield rs
+    go x = do
+        y <- lift (send e x)
+        yield y
         either (const (return ()))
-               (maybe (return ()) go . page rq)
-               rs
+               (maybe (return ()) go . page x)
+               y
 
 -- | Presign a URL with expiry to be used at a later time.
 --

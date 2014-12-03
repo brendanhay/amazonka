@@ -75,7 +75,30 @@
         "documentation": "-- | AWS OpsWorks provides a simple and flexible way to create and manage stacks\n-- and applications. With AWS OpsWorks, you can provision AWS resources, manage\n-- their configuration, deploy applications to those resources, and monitor\n-- their health.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "opsworks",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "OpsWorks_20130218"
     },
     "cabal": {

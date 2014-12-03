@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -125,8 +126,6 @@ module Network.AWS.DataPipeline.Types
     , vwWarnings
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -138,15 +137,39 @@ instance AWSService DataPipeline where
     type Sg DataPipeline = V4
     type Er DataPipeline = JSONError
 
-    service = Service
-        { _svcAbbrev       = "DataPipeline"
-        , _svcPrefix       = "datapipeline"
-        , _svcVersion      = "2012-10-29"
-        , _svcTargetPrefix = Just "DataPipeline"
-        , _svcJSONVersion  = Just "1.1"
-        }
+    service = service'
+      where
+        service' :: Service DataPipeline
+        service' = Service
+              { _svcAbbrev       = "DataPipeline"
+              , _svcPrefix       = "datapipeline"
+              , _svcVersion      = "2012-10-29"
+              , _svcTargetPrefix = Just "DataPipeline"
+              , _svcJSONVersion  = Just "1.1"
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = jsonError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry JSONError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "Throttling" == e = True -- Throttling
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data ParameterObject = ParameterObject
     { _poAttributes :: List "attributes" ParameterAttribute

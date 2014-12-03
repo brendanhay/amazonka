@@ -43,7 +43,30 @@
         "documentation": "-- | Elastic Load Balancing automatically distributes incoming application traffic\n-- across multiple Amazon EC2 instances. It enables you to achieve greater\n-- levels of fault tolerance in your applications, seamlessly providing the\n-- required amount of load balancing capacity needed to distribute application\n-- traffic.",
         "xmlNamespace": "http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "elasticloadbalancing",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {

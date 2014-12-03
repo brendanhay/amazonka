@@ -21,13 +21,15 @@
 
 module Gen.Input where
 
-import Control.Applicative
-import Control.Lens        hiding ((<.>), (??))
-import Data.HashMap.Strict (HashMap)
-import Data.Jason
-import Data.Text           (Text)
-import Gen.TH
-import Gen.Types
+import           Control.Applicative
+import           Control.Lens         hiding ((<.>), (??))
+import           Data.HashMap.Strict  (HashMap)
+import           Data.Jason
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
+import           Data.Text.Manipulate
+import           Gen.TH
+import           Gen.Types
 
 default (Text)
 
@@ -186,33 +188,55 @@ instance FromJSON Shape where
             "blob"      -> f Blob'
             e           -> fail ("Unknown Shape type: " ++ show e)
 
--- data Waiter = Waiter
---     { _wOperation    :: Maybe Text
---     , _wDescription  :: Maybe Text
---     , _wInterval     :: Maybe Int
---     , _wMaxAttempts  :: Maybe Int
---     , _wAcceptorType :: Maybe Text
---     , _wSuccessType  :: Maybe Text
---     , _wSuccessPath  :: Maybe Text
---     , _wSuccessValue :: Maybe Value
---     , _wFailureValue :: Maybe [Text]
---     , _wIgnoreErrors :: Maybe [Text]
---     , _wExtends      :: Maybe Text
---     } deriving (Eq, Show)
-
--- record (input & thField .~ keyPython) ''Waiter
-
 -- data Endpoint = Endpoint
---     {
---     } deriving (Show, Eq)
-
--- data Waiter = Waiter
 --     {
 --     } deriving (Show, Eq)
 
 -- data Retry = Retry
 --     {
 --     } deriving (Show, Eq)
+
+-- data Index
+--     = IIndex  !Text
+--     | IAccess !Text
+--       deriving (Eq, Show)
+
+data MatchType
+    = MPath
+    | MPathAll
+    | MPathAny
+    | MStatus
+    | MError
+      deriving (Eq, Show)
+
+nullary (input & thCtor .~ toCamel . Text.drop 1) ''MatchType
+
+data StateType
+    = SRetry
+    | SSuccess
+    | SFailure
+    | SError
+      deriving (Eq, Show)
+
+nullary (input & thCtor .~ toCamel . Text.drop 1) ''StateType
+
+data Acceptor = Acceptor
+    { _aExpected :: Value
+    , _aMatcher  :: !MatchType
+    , _aState    :: !StateType
+    , _aArgument :: Maybe Text -- index notation
+    } deriving (Eq, Show)
+
+record input ''Acceptor
+
+data Waiter = Waiter
+    { _wDelay       :: !Int
+    , _wOperation   :: !Text
+    , _wMaxAttempts :: !Int
+    , _wAcceptors   :: [Acceptor]
+    } deriving (Show, Eq)
+
+record input ''Waiter
 
 data Metadata = Metadata
     { _mServiceFullName     :: !Text
@@ -237,6 +261,7 @@ data Input = Input
     , _inpOperations        :: HashMap Text Operation
     , _inpShapes            :: HashMap Text Shape
     , _inpPagination        :: HashMap Text (Pager ())
+    , _inpWaiters           :: HashMap Text Waiter
     } deriving (Eq, Show)
 
 record input ''Input

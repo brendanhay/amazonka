@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -43,7 +44,6 @@ module Network.AWS.ImportExport.Types
     , jobJobType
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -55,18 +55,42 @@ instance AWSService ImportExport where
     type Sg ImportExport = V2
     type Er ImportExport = RESTError
 
-    service = Service
-        { _svcAbbrev       = "ImportExport"
-        , _svcPrefix       = "importexport"
-        , _svcVersion      = "2010-06-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service ImportExport
+        service' = Service
+              { _svcAbbrev       = "ImportExport"
+              , _svcPrefix       = "importexport"
+              , _svcVersion      = "2010-06-01"
+              , _svcTargetPrefix = Nothing
+              , _svcJSONVersion  = Nothing
+              , _svcHandle       = handle
+              , _svcRetry        = retry
+              }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry RESTError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://importexport.amazonaws.com/doc/2010-06-01/"
+{-# INLINE ns #-}
 
 data JobType
     = Export' -- ^ Export

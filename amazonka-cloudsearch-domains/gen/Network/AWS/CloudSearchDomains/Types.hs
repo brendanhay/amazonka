@@ -114,7 +114,6 @@ instance AWSService CloudSearchDomains where
               , _svcVersion      = "2013-01-01"
               , _svcTargetPrefix = Nothing
               , _svcJSONVersion  = Just "1.1"
-              , _svcDelay        = Exp 0.05 2 5
               , _svcHandle       = handle
               , _svcRetry        = retry
               }
@@ -123,10 +122,17 @@ instance AWSService CloudSearchDomains where
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Status
+        retry :: Retry JSONError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
               -> JSONError
               -> Bool
-        retry (statusCode -> s) (awsErrorCode -> e)
+        check (statusCode -> s) (awsErrorCode -> e)
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable

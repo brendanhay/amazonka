@@ -167,7 +167,6 @@ instance AWSService DirectConnect where
               , _svcVersion      = "2012-10-25"
               , _svcTargetPrefix = Just "OvertureService"
               , _svcJSONVersion  = Just "1.1"
-              , _svcDelay        = Exp 0.05 2 5
               , _svcHandle       = handle
               , _svcRetry        = retry
               }
@@ -176,10 +175,17 @@ instance AWSService DirectConnect where
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Status
+        retry :: Retry JSONError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
               -> JSONError
               -> Bool
-        retry (statusCode -> s) (awsErrorCode -> e)
+        check (statusCode -> s) (awsErrorCode -> e)
             | s == 400 && "Throttling" == e = True -- Throttling
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded

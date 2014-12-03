@@ -430,7 +430,6 @@ instance AWSService EMR where
               , _svcVersion      = "2009-03-31"
               , _svcTargetPrefix = Just "ElasticMapReduce"
               , _svcJSONVersion  = Just "1.1"
-              , _svcDelay        = Exp 0.05 2 5
               , _svcHandle       = handle
               , _svcRetry        = retry
               }
@@ -439,10 +438,17 @@ instance AWSService EMR where
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Status
+        retry :: Retry JSONError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
               -> JSONError
               -> Bool
-        retry (statusCode -> s) (awsErrorCode -> e)
+        check (statusCode -> s) (awsErrorCode -> e)
             | s == 400 && "ThrottlingException" == e = True -- Throttling
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded

@@ -302,7 +302,6 @@ instance AWSService ElasticTranscoder where
               , _svcVersion      = "2012-09-25"
               , _svcTargetPrefix = Nothing
               , _svcJSONVersion  = Nothing
-              , _svcDelay        = Exp 0.05 2 5
               , _svcHandle       = handle
               , _svcRetry        = retry
               }
@@ -311,10 +310,17 @@ instance AWSService ElasticTranscoder where
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Status
+        retry :: Retry JSONError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
               -> JSONError
               -> Bool
-        retry (statusCode -> s) (awsErrorCode -> e)
+        check (statusCode -> s) (awsErrorCode -> e)
             | s == 400 && "ThrottlingException" == e = True -- Throttling
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded

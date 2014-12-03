@@ -1418,7 +1418,6 @@ instance AWSService EC2 where
               , _svcVersion      = "2014-09-01"
               , _svcTargetPrefix = Nothing
               , _svcJSONVersion  = Nothing
-              , _svcDelay        = Exp 0.05 2 5
               , _svcHandle       = handle
               , _svcRetry        = retry
               }
@@ -1427,10 +1426,17 @@ instance AWSService EC2 where
                -> Maybe (LazyByteString -> ServiceError EC2Error)
         handle = restError statusSuccess service'
 
-        retry :: Status
+        retry :: Retry EC2Error
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
               -> EC2Error
               -> Bool
-        retry (statusCode -> s) (awsErrorCode -> e)
+        check (statusCode -> s) (awsErrorCode -> e)
             | s == 503 && "RequestLimitExceeded" == e = True -- Request Limit Exceeded
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded

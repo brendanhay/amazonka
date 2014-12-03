@@ -14,7 +14,6 @@ instance AWSService {{ service.abbrev }} where
               , _svcVersion      = "{{ service.version }}"
               , _svcTargetPrefix = {% if service.targetPrefix %}Just "{{ service.targetPrefix }}"{% else %}Nothing{% endif %}
               , _svcJSONVersion  = {% if service.jsonVersion %}Just "{{ service.jsonVersion }}"{% else %}Nothing{% endif %}
-              , _svcDelay        = Exp {{ service.retryDelay.base }} {{ service.retryDelay.growth }} {{ service.retryDelay.attempts }}
               , _svcHandle       = handle
               , _svcRetry        = retry
               }
@@ -23,10 +22,17 @@ instance AWSService {{ service.abbrev }} where
                -> Maybe (LazyByteString -> ServiceError {{ service.error }})
         handle = {% if service.error == "JSONError" %}jsonError{% else %}restError{% endif %} statusSuccess service'
 
-        retry :: Status
+        retry :: Retry {{ service.error }}
+        retry = Retry
+            { _rPolicy   = exponentialBackon {{ service.retryDelay.base }} {{ service.retryDelay.growth }}
+            , _rAttempts = {{ service.retryDelay.attempts }}
+            , _rCheck    = check
+            }
+
+        check :: Status
               -> {{ service.error }}
               -> Bool
-        retry (statusCode -> s) (awsErrorCode -> e)
+        check (statusCode -> s) (awsErrorCode -> e)
         {% for policy in service.retryPolicies %}
           {% if policy.value.error | defined %}
             | s == {{ policy.value.code }} && "{{ policy.value.error }}" == e = True -- {{ policy.key | toTitle }}

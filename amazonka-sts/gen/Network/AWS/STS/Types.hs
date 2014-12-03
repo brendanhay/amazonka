@@ -73,7 +73,6 @@ instance AWSService STS where
               , _svcVersion      = "2011-06-15"
               , _svcTargetPrefix = Nothing
               , _svcJSONVersion  = Nothing
-              , _svcDelay        = Exp 0.05 2 5
               , _svcHandle       = handle
               , _svcRetry        = retry
               }
@@ -82,10 +81,17 @@ instance AWSService STS where
                -> Maybe (LazyByteString -> ServiceError RESTError)
         handle = restError statusSuccess service'
 
-        retry :: Status
+        retry :: Retry RESTError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
               -> RESTError
               -> Bool
-        retry (statusCode -> s) (awsErrorCode -> e)
+        check (statusCode -> s) (awsErrorCode -> e)
             | s == 400 && "Throttling" == e = True -- Throttling
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded

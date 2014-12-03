@@ -314,7 +314,6 @@ instance AWSService CloudSearch where
               , _svcVersion      = "2013-01-01"
               , _svcTargetPrefix = Nothing
               , _svcJSONVersion  = Nothing
-              , _svcDelay        = Exp 0.05 2 5
               , _svcHandle       = handle
               , _svcRetry        = retry
               }
@@ -323,10 +322,17 @@ instance AWSService CloudSearch where
                -> Maybe (LazyByteString -> ServiceError RESTError)
         handle = restError statusSuccess service'
 
-        retry :: Status
+        retry :: Retry RESTError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 5
+            , _rCheck    = check
+            }
+
+        check :: Status
               -> RESTError
               -> Bool
-        retry (statusCode -> s) (awsErrorCode -> e)
+        check (statusCode -> s) (awsErrorCode -> e)
             | s == 509 && "BandwidthLimitExceeded" == e = True -- Request Limit Exceeded
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded

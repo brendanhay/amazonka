@@ -259,7 +259,6 @@ instance AWSService DynamoDB where
               , _svcVersion      = "2012-08-10"
               , _svcTargetPrefix = Just "DynamoDB_20120810"
               , _svcJSONVersion  = Just "1.0"
-              , _svcDelay        = Exp 0.05 2 10
               , _svcHandle       = handle
               , _svcRetry        = retry
               }
@@ -268,10 +267,17 @@ instance AWSService DynamoDB where
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Status
+        retry :: Retry JSONError
+        retry = Retry
+            { _rPolicy   = exponentialBackon 0.05 2
+            , _rAttempts = 10
+            , _rCheck    = check
+            }
+
+        check :: Status
               -> JSONError
               -> Bool
-        retry (statusCode -> s) (awsErrorCode -> e)
+        check (statusCode -> s) (awsErrorCode -> e)
             | s == 400 && "ThrottlingException" == e = True -- Throttling
             | s == 400 && "ProvisionedThroughputExceededException" == e = True -- Throughput Exceeded
             | s == 500  = True -- General Server Error

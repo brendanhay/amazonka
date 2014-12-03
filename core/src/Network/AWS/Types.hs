@@ -373,8 +373,8 @@ data Service a = Service
     , _svcVersion      :: ByteString
     , _svcTargetPrefix :: Maybe ByteString
     , _svcJSONVersion  :: Maybe ByteString
-    , _svcRetry        :: Retry (Er a)
     , _svcHandle       :: Status -> Maybe (LazyByteString -> ServiceError (Er a))
+    , _svcRetry        :: Retry (Er a)
     }
 
 -- | An unsigned request.

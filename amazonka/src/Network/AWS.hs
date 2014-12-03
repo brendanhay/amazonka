@@ -110,7 +110,7 @@ send Env{..} x@(request -> rq)
         trace _envLogger (build rq)
         t  <- liftIO getCurrentTime
         Signed m s <- Sign.sign _envAuth _envRegion rq t
-        debug  _envLogger (build s)
+        debug _envLogger (build s)
         trace _envLogger (build m)
         rs <- liftResourceT (http s _envManager)
         return (Right rs)
@@ -121,7 +121,7 @@ send Env{..} x@(request -> rq)
         | n <= _rAttempts
         , Left (ServiceError _ s e) <- rs
         , _rCheck s e = do
-             debug _envLogger ("Preparing retry attempt " <> build n)
+             debug _envLogger ("[Retry Attempt] " <> build n)
              return True
         | otherwise   = return False
 

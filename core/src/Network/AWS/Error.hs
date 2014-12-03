@@ -43,6 +43,7 @@ module Network.AWS.Error
     -- * JSON Errors
     , JSONError
     , jsonType
+    , jsonCode
     , jsonMessage
     , jsonError
     ) where

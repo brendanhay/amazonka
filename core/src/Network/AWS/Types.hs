@@ -1,3 +1,4 @@
+{-# LANGUAGE BangPatterns               #-}
 {-# LANGUAGE DefaultSignatures          #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
@@ -38,9 +39,12 @@ module Network.AWS.Types
     -- * Services
     , Abbrev
     , AWSService    (..)
-    , Delay         (..)
     , Service       (..)
     , serviceOf
+
+    -- * Retries
+    , Retry         (..)
+    , exponentialBackon
 
     -- * Endpoints
     , Endpoint      (..)
@@ -94,6 +98,7 @@ import           Control.Exception            (Exception)
 import           Control.Lens                 hiding (Action)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
+import           Control.Retry
 import           Data.Aeson                   hiding (Error)
 import           Data.ByteString              (ByteString)
 import qualified Data.ByteString              as BS
@@ -347,8 +352,19 @@ endpoint Service{..} r = go (CI.mk _svcPrefix)
         , Tokyo
         ]
 
--- | Retry delay base, growth, and attempts for an AWS service.
-data Delay = Exp !Double !Int !Int
+data Retry a = Retry
+    { _rPolicy   :: RetryPolicy
+    , _rAttempts :: !Int
+    , _rCheck    :: Status -> a -> Bool
+    }
+
+exponentialBackon :: Double -- ^ Base.
+                  -> Int    -- ^ Growth.
+                  -> RetryPolicy
+exponentialBackon !base !grow = RetryPolicy f
+  where
+    f n | n > 0     = Just . truncate $ base * (fromIntegral grow ^^ (n - 1))
+        | otherwise = Nothing
 
 -- | Attributes specific to an AWS service.
 data Service a = Service
@@ -357,8 +373,7 @@ data Service a = Service
     , _svcVersion      :: ByteString
     , _svcTargetPrefix :: Maybe ByteString
     , _svcJSONVersion  :: Maybe ByteString
-    , _svcDelay        :: !Delay
-    , _svcRetry        :: Status -> Er a -> Bool
+    , _svcRetry        :: Retry (Er a)
     , _svcHandle       :: Status -> Maybe (LazyByteString -> ServiceError (Er a))
     }
 

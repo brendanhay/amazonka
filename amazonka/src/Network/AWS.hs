@@ -51,12 +51,11 @@ module Network.AWS
     , module Network.AWS.Error
     ) where
 
-import           Control.Concurrent           (threadDelay)
 import           Control.Monad.Catch
 import           Control.Monad.Except
 import           Control.Monad.Trans.Resource
+import           Control.Retry
 import           Data.Conduit
-import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Auth
 import           Network.AWS.Data
@@ -101,7 +100,8 @@ send :: (MonadCatch m, MonadResource m, AWSRequest a)
      => Env
      -> a
      -> m (Response a)
-send e = if _envRetry e then retry e else raw e
+send e | _envRetry e = retry e
+       | otherwise   = raw e
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate over
 -- the associated 'Rs' response type in the success case, or the related service's
@@ -138,30 +138,19 @@ retry :: forall m a. (MonadCatch m, MonadResource m, AWSRequest a)
       => Env
       -> a
       -> m (Response a)
-retry e@Env{..} x = go _svcDelay
+retry e = retrying _rPolicy check . raw e
   where
-    go cur = do
-        y <- raw e x
-        case y of
-            Right rs -> return (Right rs)
-            Left (ServiceError _ s er)
-                | _svcRetry s er
-                , Just next <- decrement cur
-                     -> wait (seconds cur) >> go next
-            Left er  -> return (Left er)
+    check :: MonadIO m => Int -> Response a -> m Bool
+    check n rs
+        | n <= _rAttempts
+        , Left (ServiceError _ s x) <- rs
+        , _rCheck s x = do
+             debug (_envLogger e) ("Preparing retry attempt " <> build n)
+             return True
+        | otherwise   = return False
 
-    Service{..} = service :: Service (Sv a)
-
-    wait n = do
-        debug _envLogger ("Retrying in " <> build n <> "s ...")
-        liftIO (threadDelay (n * 1000000))
-
-    decrement (Exp base grow n)
-        | n == 0    = Nothing
-        | otherwise = Just (Exp base grow (n - 1))
-
-    seconds (Exp base grow n) =
-        truncate $ base * (fromIntegral grow ^^ (n - 1))
+    Retry   {..} = _svcRetry
+    Service {..} = service :: Service (Sv a)
 
 raw :: (MonadCatch m, MonadResource m, AWSRequest a)
     => Env

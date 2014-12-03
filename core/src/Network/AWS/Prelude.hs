@@ -38,6 +38,10 @@ module Network.AWS.Prelude
     , Semigroup
     , Whole
 
+    -- * Retries
+    , Retry        (..)
+    , exponentialBackon
+
     -- * Errors
     , AWSError     (..)
     , AWSErrorCode (..)
@@ -49,7 +53,6 @@ module Network.AWS.Prelude
     , statusSuccess
 
     -- * Shared
-    , Delay        (..)
     , Empty        (..)
     , Service      (..)
 

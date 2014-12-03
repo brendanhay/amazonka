@@ -144,8 +144,8 @@ instance FromJSON JSONError where
       where
         rest o = JSONError
              <$> o .:? "Type"
-             <*> o .: "Code"
-             <*> o .: "Message"
+             <*> o .:  "Code"
+             <*> o .:  "Message"
 
         post o = JSONError
              <$> o .:? "__type"

@@ -63,7 +63,7 @@ import           Network.AWS.Error
 import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
 import qualified Network.AWS.Signing          as Sign
-import           Network.AWS.Types
+import           Network.AWS.Types            hiding (exponentialBackon)
 import           Network.HTTP.Conduit         hiding (Response)
 
 -- | This creates a new environment without debug logging and uses 'getAuth'

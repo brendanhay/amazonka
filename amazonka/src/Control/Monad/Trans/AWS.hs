@@ -101,7 +101,7 @@ import           Network.AWS.Data             (ToBuilder(..))
 import           Network.AWS.Error
 import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
-import           Network.AWS.Types
+import           Network.AWS.Types            hiding (exponentialBackon)
 
 -- | The top-level error type.
 type Error = ServiceError String

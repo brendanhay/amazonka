@@ -189,7 +189,7 @@ class AWSWaiter a where
     -- | The request used to poll for acceptance fulfillment.
     type Rq a :: *
 
-    waiter :: AWSRequest (Rq a) => a -> Rq a -> Waiter a
+    waiter :: a -> Waiter a
 
 -- | Signing metadata data specific to a signing algorithm.
 --
@@ -390,7 +390,6 @@ data Service a = Service
 data Waiter a = Waiter
     { _waitDelay     :: !Int
     , _waitAttempts  :: !Int
-    , _waitOperation :: Rq a
     , _waitAccept    :: Rs (Rq a) -> Bool
     }
 

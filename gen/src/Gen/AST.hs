@@ -67,7 +67,7 @@ transformAST Retries{..} m inp = Output cabal service ops types waiters
         , _svUrl            = url
         , _svAbbrev         = abbrev
         , _svNamespace      = namespace [unAbbrev abbrev]
-        , _svImports        = sort (typesNamespace : operationNamespaces)
+        , _svImports        = sort (typesNamespace : waitersNamespace : operationNamespaces)
         , _svVersion        = version
         , _svDocumentation  = above (inp ^. inpDocumentation)
         , _svProtocol       = protocol
@@ -91,7 +91,7 @@ transformAST Retries{..} m inp = Output cabal service ops types waiters
 
     waiters = Waiters
         { _wNamespace = waitersNamespace
-        , _wImports   = overrides ^. oTypesModules
+        , _wImports   = sort (typesNamespace : overrides ^. oTypesModules)
         , _wWaiters   = mempty
         }
 

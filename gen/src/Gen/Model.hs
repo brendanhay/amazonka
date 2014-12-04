@@ -14,16 +14,14 @@
 
 module Gen.Model where
 
-import           Control.Applicative
-import           Control.Error
-import           Control.Monad
-import qualified Data.HashMap.Strict as Map
-import qualified Data.Text           as Text
-import           Gen.IO
-import           Gen.JSON
-import           Gen.Types
-import           System.Directory
-import           System.FilePath
+import Control.Applicative
+import Control.Error
+import Control.Monad
+import Gen.IO
+import Gen.JSON
+import Gen.Types
+import System.Directory
+import System.FilePath
 
 loadRetries :: FilePath -> Script Retries
 loadRetries = requireObject >=> parse

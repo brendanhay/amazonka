@@ -1,0 +1,12 @@
+{% include "_include/license.ede" %}
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+module {{ namespace }} where
+
+import Network.AWS.Prelude
+{% include "_include/imports.ede" %}
+
+{% for wait in waiters %}
+  {{ wait | show }}
+{% endfor %}

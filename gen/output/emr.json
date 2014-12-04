@@ -1,8 +1,18 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {
+            "ClusterRunning": {
+                "operation": "DescribeCluster",
+                "acceptors": [],
+                "maxAttempts": 60,
+                "delay": 30
+            }
+        },
         "namespace": "Network.AWS.EMR.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.EMR.DescribeCluster",
+            "Network.AWS.EMR.Types"
+        ]
     },
     "service": {
         "signature": "V4",
@@ -30,7 +40,8 @@
             "Network.AWS.EMR.SetTerminationProtection",
             "Network.AWS.EMR.SetVisibleToAllUsers",
             "Network.AWS.EMR.TerminateJobFlows",
-            "Network.AWS.EMR.Types"
+            "Network.AWS.EMR.Types",
+            "Network.AWS.EMR.Waiters"
         ],
         "name": "Amazon Elastic MapReduce",
         "version": "2009-03-31",

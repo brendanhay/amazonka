@@ -1,8 +1,10 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {},
         "namespace": "Network.AWS.CognitoIdentity.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.CognitoIdentity.Types"
+        ]
     },
     "service": {
         "signature": "V4",
@@ -74,8 +76,7 @@
             "Network.AWS.CognitoIdentity.Types",
             "Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity",
             "Network.AWS.CognitoIdentity.UnlinkIdentity",
-            "Network.AWS.CognitoIdentity.UpdateIdentityPool",
-            "Network.AWS.CognitoIdentity.Waiters"
+            "Network.AWS.CognitoIdentity.UpdateIdentityPool"
         ],
         "url": "http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html",
         "protocol": "json",

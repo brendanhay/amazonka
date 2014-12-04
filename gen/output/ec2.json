@@ -1,9 +1,128 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {
+            "InstanceTerminated": {
+                "operation": "DescribeInstances",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "VolumeInUse": {
+                "operation": "DescribeVolumes",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "SubnetAvailable": {
+                "operation": "DescribeSubnets",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "CustomerGatewayAvailable": {
+                "operation": "DescribeCustomerGateways",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "ConversionTaskCompleted": {
+                "operation": "DescribeConversionTasks",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "InstanceStopped": {
+                "operation": "DescribeInstances",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "ConversionTaskDeleted": {
+                "operation": "DescribeConversionTasks",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "InstanceRunning": {
+                "operation": "DescribeInstances",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "VpcAvailable": {
+                "operation": "DescribeVpcs",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "ExportTaskCompleted": {
+                "operation": "DescribeExportTasks",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "VpnConnectionAvailable": {
+                "operation": "DescribeVpnConnections",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "ExportTaskCancelled": {
+                "operation": "DescribeExportTasks",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "VolumeDeleted": {
+                "operation": "DescribeVolumes",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "BundleTaskComplete": {
+                "operation": "DescribeBundleTasks",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "VpnConnectionDeleted": {
+                "operation": "DescribeVpnConnections",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "ConversionTaskCancelled": {
+                "operation": "DescribeConversionTasks",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "SnapshotCompleted": {
+                "operation": "DescribeSnapshots",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            },
+            "VolumeAvailable": {
+                "operation": "DescribeVolumes",
+                "acceptors": [],
+                "maxAttempts": 40,
+                "delay": 15
+            }
+        },
         "namespace": "Network.AWS.EC2.Waiters",
         "imports": [
-            "Network.AWS.EC2.Internal"
+            "Network.AWS.EC2.DescribeBundleTasks",
+            "Network.AWS.EC2.DescribeConversionTasks",
+            "Network.AWS.EC2.DescribeCustomerGateways",
+            "Network.AWS.EC2.DescribeExportTasks",
+            "Network.AWS.EC2.DescribeInstances",
+            "Network.AWS.EC2.DescribeSnapshots",
+            "Network.AWS.EC2.DescribeSubnets",
+            "Network.AWS.EC2.DescribeVolumes",
+            "Network.AWS.EC2.DescribeVpcs",
+            "Network.AWS.EC2.DescribeVpnConnections",
+            "Network.AWS.EC2.Types"
         ]
     },
     "service": {
@@ -169,7 +288,8 @@
             "Network.AWS.EC2.TerminateInstances",
             "Network.AWS.EC2.Types",
             "Network.AWS.EC2.UnassignPrivateIpAddresses",
-            "Network.AWS.EC2.UnmonitorInstances"
+            "Network.AWS.EC2.UnmonitorInstances",
+            "Network.AWS.EC2.Waiters"
         ],
         "name": "Amazon Elastic Compute Cloud",
         "version": "2014-09-01",

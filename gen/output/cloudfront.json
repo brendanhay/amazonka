@@ -1,8 +1,32 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {
+            "StreamingDistributionDeployed": {
+                "operation": "GetStreamingDistribution",
+                "acceptors": [],
+                "maxAttempts": 25,
+                "delay": 60
+            },
+            "DistributionDeployed": {
+                "operation": "GetDistribution",
+                "acceptors": [],
+                "maxAttempts": 25,
+                "delay": 60
+            },
+            "InvalidationCompleted": {
+                "operation": "GetInvalidation",
+                "acceptors": [],
+                "maxAttempts": 30,
+                "delay": 20
+            }
+        },
         "namespace": "Network.AWS.CloudFront.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.CloudFront.GetDistribution",
+            "Network.AWS.CloudFront.GetInvalidation",
+            "Network.AWS.CloudFront.GetStreamingDistribution",
+            "Network.AWS.CloudFront.Types"
+        ]
     },
     "service": {
         "signature": "V4",
@@ -34,7 +58,8 @@
             "Network.AWS.CloudFront.Types",
             "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity",
             "Network.AWS.CloudFront.UpdateDistribution",
-            "Network.AWS.CloudFront.UpdateStreamingDistribution"
+            "Network.AWS.CloudFront.UpdateStreamingDistribution",
+            "Network.AWS.CloudFront.Waiters"
         ],
         "name": "Amazon CloudFront",
         "version": "2014-05-31",

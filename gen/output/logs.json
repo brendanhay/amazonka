@@ -1,8 +1,10 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {},
         "namespace": "Network.AWS.CloudWatchLogs.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.CloudWatchLogs.Types"
+        ]
     },
     "service": {
         "signature": "V4",
@@ -76,8 +78,7 @@
             "Network.AWS.CloudWatchLogs.PutMetricFilter",
             "Network.AWS.CloudWatchLogs.PutRetentionPolicy",
             "Network.AWS.CloudWatchLogs.TestMetricFilter",
-            "Network.AWS.CloudWatchLogs.Types",
-            "Network.AWS.CloudWatchLogs.Waiters"
+            "Network.AWS.CloudWatchLogs.Types"
         ],
         "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.html",
         "protocol": "json",

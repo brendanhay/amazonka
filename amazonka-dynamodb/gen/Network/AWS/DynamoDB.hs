@@ -32,6 +32,7 @@ module Network.AWS.DynamoDB
     , module Network.AWS.DynamoDB.Types
     , module Network.AWS.DynamoDB.UpdateItem
     , module Network.AWS.DynamoDB.UpdateTable
+    , module Network.AWS.DynamoDB.Waiters
     ) where
 
 import Network.AWS.DynamoDB.BatchGetItem
@@ -48,3 +49,4 @@ import Network.AWS.DynamoDB.Scan
 import Network.AWS.DynamoDB.Types
 import Network.AWS.DynamoDB.UpdateItem
 import Network.AWS.DynamoDB.UpdateTable
+import Network.AWS.DynamoDB.Waiters

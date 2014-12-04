@@ -1,14 +1,17 @@
+{-# LANGUAGE TypeFamilies #-}
+
 {% include "_include/license.ede" %}
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 module {{ namespace }} where
 
-import Network.AWS.Prelude
 {% include "_include/imports.ede" %}
+import Network.AWS.Types
 {% for waiter in waiters %}
 
 data {{ waiter.key }} = {{ waiter.key }}
+    deriving (Show)
 
 instance AWSWaiter {{ waiter.key }} where
     type Rq {{ waiter.key }} = {{ waiter.value.operation }}

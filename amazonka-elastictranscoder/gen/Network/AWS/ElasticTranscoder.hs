@@ -34,6 +34,7 @@ module Network.AWS.ElasticTranscoder
     , module Network.AWS.ElasticTranscoder.UpdatePipeline
     , module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     , module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
+    , module Network.AWS.ElasticTranscoder.Waiters
     ) where
 
 import Network.AWS.ElasticTranscoder.CancelJob
@@ -54,3 +55,4 @@ import Network.AWS.ElasticTranscoder.Types
 import Network.AWS.ElasticTranscoder.UpdatePipeline
 import Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
 import Network.AWS.ElasticTranscoder.UpdatePipelineStatus
+import Network.AWS.ElasticTranscoder.Waiters

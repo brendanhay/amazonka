@@ -53,6 +53,7 @@ library
         , Network.AWS.DynamoDB.Types
         , Network.AWS.DynamoDB.UpdateItem
         , Network.AWS.DynamoDB.UpdateTable
+        , Network.AWS.DynamoDB.Waiters
 
     other-modules:
 

@@ -86,13 +86,14 @@ transformAST Retries{..} m inp = Output cabal service ops types waiters
 
     waiters = Waiters
         { _wNamespace = waitersNamespace
-        , _wImports   = sort (typesNamespace : nub (map (operationNS abbrev) $ Map.keys ws))
-        , _wWaiters   = Map.map f ws
+        , _wImports   = sort . nub . map f $ Map.elems ws
+        , _wWaiters   = Map.map g ws
         }
       where
         ws = inp ^. inpWaiters
 
-        f Input.Waiter{..} = Waiter _wDelay _wMaxAttempts _wOperation mempty
+        f = operationNS abbrev . Input._wOperation
+        g Input.Waiter{..} = Waiter _wDelay _wMaxAttempts _wOperation mempty
 
     anyWaiters = not . Map.null $ _wWaiters waiters
 

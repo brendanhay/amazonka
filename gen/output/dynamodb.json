@@ -1,8 +1,24 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {
+            "TableNotExists": {
+                "operation": "DescribeTable",
+                "acceptors": [],
+                "maxAttempts": 25,
+                "delay": 20
+            },
+            "TableExists": {
+                "operation": "DescribeTable",
+                "acceptors": [],
+                "maxAttempts": 25,
+                "delay": 20
+            }
+        },
         "namespace": "Network.AWS.DynamoDB.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.DynamoDB.DescribeTable",
+            "Network.AWS.DynamoDB.Types"
+        ]
     },
     "service": {
         "signature": "V4",
@@ -26,7 +42,8 @@
             "Network.AWS.DynamoDB.Scan",
             "Network.AWS.DynamoDB.Types",
             "Network.AWS.DynamoDB.UpdateItem",
-            "Network.AWS.DynamoDB.UpdateTable"
+            "Network.AWS.DynamoDB.UpdateTable",
+            "Network.AWS.DynamoDB.Waiters"
         ],
         "name": "Amazon DynamoDB",
         "version": "2012-08-10",

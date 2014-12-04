@@ -1,8 +1,10 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {},
         "namespace": "Network.AWS.Support.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.Support.Types"
+        ]
     },
     "service": {
         "signature": "V4",
@@ -76,8 +78,7 @@
             "Network.AWS.Support.DescribeTrustedAdvisorChecks",
             "Network.AWS.Support.RefreshTrustedAdvisorCheck",
             "Network.AWS.Support.ResolveCase",
-            "Network.AWS.Support.Types",
-            "Network.AWS.Support.Waiters"
+            "Network.AWS.Support.Types"
         ],
         "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.html",
         "protocol": "json",

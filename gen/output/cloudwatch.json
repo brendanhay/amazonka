@@ -1,8 +1,10 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {},
         "namespace": "Network.AWS.CloudWatch.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.CloudWatch.Types"
+        ]
     },
     "service": {
         "signature": "V4",
@@ -74,8 +76,7 @@
             "Network.AWS.CloudWatch.PutMetricAlarm",
             "Network.AWS.CloudWatch.PutMetricData",
             "Network.AWS.CloudWatch.SetAlarmState",
-            "Network.AWS.CloudWatch.Types",
-            "Network.AWS.CloudWatch.Waiters"
+            "Network.AWS.CloudWatch.Types"
         ],
         "url": "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html",
         "protocol": "query",

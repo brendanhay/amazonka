@@ -1,8 +1,10 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {},
         "namespace": "Network.AWS.SQS.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.SQS.Types"
+        ]
     },
     "service": {
         "signature": "V4",
@@ -84,8 +86,7 @@
             "Network.AWS.SQS.SendMessage",
             "Network.AWS.SQS.SendMessageBatch",
             "Network.AWS.SQS.SetQueueAttributes",
-            "Network.AWS.SQS.Types",
-            "Network.AWS.SQS.Waiters"
+            "Network.AWS.SQS.Types"
         ],
         "url": "http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html",
         "protocol": "query",

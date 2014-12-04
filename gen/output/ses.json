@@ -1,8 +1,18 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {
+            "IdentityExists": {
+                "operation": "GetIdentityVerificationAttributes",
+                "acceptors": [],
+                "maxAttempts": 20,
+                "delay": 3
+            }
+        },
         "namespace": "Network.AWS.SES.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.SES.GetIdentityVerificationAttributes",
+            "Network.AWS.SES.Types"
+        ]
     },
     "service": {
         "signature": "V4",
@@ -31,7 +41,8 @@
             "Network.AWS.SES.VerifyDomainDkim",
             "Network.AWS.SES.VerifyDomainIdentity",
             "Network.AWS.SES.VerifyEmailAddress",
-            "Network.AWS.SES.VerifyEmailIdentity"
+            "Network.AWS.SES.VerifyEmailIdentity",
+            "Network.AWS.SES.Waiters"
         ],
         "name": "Amazon Simple Email Service",
         "version": "2010-12-01",

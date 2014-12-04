@@ -1,8 +1,10 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {},
         "namespace": "Network.AWS.StorageGateway.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.StorageGateway.Types"
+        ]
     },
     "service": {
         "signature": "V4",
@@ -146,8 +148,7 @@
             "Network.AWS.StorageGateway.UpdateGatewayInformation",
             "Network.AWS.StorageGateway.UpdateGatewaySoftwareNow",
             "Network.AWS.StorageGateway.UpdateMaintenanceStartTime",
-            "Network.AWS.StorageGateway.UpdateSnapshotSchedule",
-            "Network.AWS.StorageGateway.Waiters"
+            "Network.AWS.StorageGateway.UpdateSnapshotSchedule"
         ],
         "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html",
         "protocol": "json",

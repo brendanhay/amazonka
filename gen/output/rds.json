@@ -1,8 +1,24 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {
+            "DBInstanceAvailable": {
+                "operation": "DescribeDBInstances",
+                "acceptors": [],
+                "maxAttempts": 60,
+                "delay": 30
+            },
+            "DBInstanceDeleted": {
+                "operation": "DescribeDBInstances",
+                "acceptors": [],
+                "maxAttempts": 60,
+                "delay": 30
+            }
+        },
         "namespace": "Network.AWS.RDS.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.RDS.DescribeDBInstances",
+            "Network.AWS.RDS.Types"
+        ]
     },
     "service": {
         "signature": "V4",
@@ -67,7 +83,8 @@
             "Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot",
             "Network.AWS.RDS.RestoreDBInstanceToPointInTime",
             "Network.AWS.RDS.RevokeDBSecurityGroupIngress",
-            "Network.AWS.RDS.Types"
+            "Network.AWS.RDS.Types",
+            "Network.AWS.RDS.Waiters"
         ],
         "name": "Amazon Relational Database Service",
         "version": "2014-09-01",

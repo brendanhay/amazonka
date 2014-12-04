@@ -1,8 +1,18 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {
+            "JobComplete": {
+                "operation": "ReadJob",
+                "acceptors": [],
+                "maxAttempts": 120,
+                "delay": 30
+            }
+        },
         "namespace": "Network.AWS.ElasticTranscoder.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.ElasticTranscoder.ReadJob",
+            "Network.AWS.ElasticTranscoder.Types"
+        ]
     },
     "service": {
         "signature": "V4",
@@ -30,7 +40,8 @@
             "Network.AWS.ElasticTranscoder.Types",
             "Network.AWS.ElasticTranscoder.UpdatePipeline",
             "Network.AWS.ElasticTranscoder.UpdatePipelineNotifications",
-            "Network.AWS.ElasticTranscoder.UpdatePipelineStatus"
+            "Network.AWS.ElasticTranscoder.UpdatePipelineStatus",
+            "Network.AWS.ElasticTranscoder.Waiters"
         ],
         "name": "Amazon Elastic Transcoder",
         "version": "2012-09-25",

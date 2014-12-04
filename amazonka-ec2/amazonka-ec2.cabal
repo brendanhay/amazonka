@@ -199,6 +199,7 @@ library
         , Network.AWS.EC2.Types
         , Network.AWS.EC2.UnassignPrivateIpAddresses
         , Network.AWS.EC2.UnmonitorInstances
+        , Network.AWS.EC2.Waiters
 
     other-modules:
           Network.AWS.EC2.Internal

@@ -1,9 +1,36 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {
+            "ObjectNotExists": {
+                "operation": "HeadObject",
+                "acceptors": [],
+                "maxAttempts": 20,
+                "delay": 5
+            },
+            "BucketExists": {
+                "operation": "HeadBucket",
+                "acceptors": [],
+                "maxAttempts": 20,
+                "delay": 5
+            },
+            "ObjectExists": {
+                "operation": "HeadObject",
+                "acceptors": [],
+                "maxAttempts": 20,
+                "delay": 5
+            },
+            "BucketNotExists": {
+                "operation": "HeadBucket",
+                "acceptors": [],
+                "maxAttempts": 20,
+                "delay": 5
+            }
+        },
         "namespace": "Network.AWS.S3.Waiters",
         "imports": [
-            "Network.AWS.S3.Internal"
+            "Network.AWS.S3.HeadBucket",
+            "Network.AWS.S3.HeadObject",
+            "Network.AWS.S3.Types"
         ]
     },
     "service": {
@@ -64,7 +91,8 @@
             "Network.AWS.S3.RestoreObject",
             "Network.AWS.S3.Types",
             "Network.AWS.S3.UploadPart",
-            "Network.AWS.S3.UploadPartCopy"
+            "Network.AWS.S3.UploadPartCopy",
+            "Network.AWS.S3.Waiters"
         ],
         "name": "Amazon Simple Storage Service",
         "version": "2006-03-01",

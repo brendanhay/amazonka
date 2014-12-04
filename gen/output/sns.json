@@ -1,8 +1,10 @@
 {
     "waiters": {
-        "waiters": [],
+        "waiters": {},
         "namespace": "Network.AWS.SNS.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.SNS.Types"
+        ]
     },
     "service": {
         "signature": "V4",
@@ -102,8 +104,7 @@
             "Network.AWS.SNS.SetTopicAttributes",
             "Network.AWS.SNS.Subscribe",
             "Network.AWS.SNS.Types",
-            "Network.AWS.SNS.Unsubscribe",
-            "Network.AWS.SNS.Waiters"
+            "Network.AWS.SNS.Unsubscribe"
         ],
         "url": "http://docs.aws.amazon.com/sns/latest/api/Welcome.html",
         "protocol": "query",

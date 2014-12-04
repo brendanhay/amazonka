@@ -55,6 +55,7 @@ library
         , Network.AWS.ElasticTranscoder.UpdatePipeline
         , Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
         , Network.AWS.ElasticTranscoder.UpdatePipelineStatus
+        , Network.AWS.ElasticTranscoder.Waiters
 
     other-modules:
 

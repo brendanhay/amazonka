@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": [],
+        "namespace": "Network.AWS.Route53.Waiters",
+        "imports": [
+            "Network.AWS.Route53.Internal"
+        ]
+    },
     "service": {
         "signature": "V3",
         "checksum": "sha256",
@@ -103,7 +110,8 @@
             "Network.AWS.Route53.ListTagsForResource",
             "Network.AWS.Route53.ListTagsForResources",
             "Network.AWS.Route53.Types",
-            "Network.AWS.Route53.UpdateHealthCheck"
+            "Network.AWS.Route53.UpdateHealthCheck",
+            "Network.AWS.Route53.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html",
         "protocol": "rest-xml",

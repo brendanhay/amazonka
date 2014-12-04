@@ -1,4 +1,9 @@
 {
+    "waiters": {
+        "waiters": [],
+        "namespace": "Network.AWS.Redshift.Waiters",
+        "imports": []
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -159,7 +164,8 @@
             "Network.AWS.Redshift.RevokeClusterSecurityGroupIngress",
             "Network.AWS.Redshift.RevokeSnapshotAccess",
             "Network.AWS.Redshift.RotateEncryptionKey",
-            "Network.AWS.Redshift.Types"
+            "Network.AWS.Redshift.Types",
+            "Network.AWS.Redshift.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html",
         "protocol": "query",

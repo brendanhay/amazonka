@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": [],
+        "namespace": "Network.AWS.EC2.Waiters",
+        "imports": [
+            "Network.AWS.EC2.Internal"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -357,7 +364,8 @@
             "Network.AWS.EC2.TerminateInstances",
             "Network.AWS.EC2.Types",
             "Network.AWS.EC2.UnassignPrivateIpAddresses",
-            "Network.AWS.EC2.UnmonitorInstances"
+            "Network.AWS.EC2.UnmonitorInstances",
+            "Network.AWS.EC2.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html",
         "protocol": "ec2",

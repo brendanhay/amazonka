@@ -1,4 +1,9 @@
 {
+    "waiters": {
+        "waiters": [],
+        "namespace": "Network.AWS.RDS.Waiters",
+        "imports": []
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -155,7 +160,8 @@
             "Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot",
             "Network.AWS.RDS.RestoreDBInstanceToPointInTime",
             "Network.AWS.RDS.RevokeDBSecurityGroupIngress",
-            "Network.AWS.RDS.Types"
+            "Network.AWS.RDS.Types",
+            "Network.AWS.RDS.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html",
         "protocol": "query",

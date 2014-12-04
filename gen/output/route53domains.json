@@ -1,4 +1,9 @@
 {
+    "waiters": {
+        "waiters": [],
+        "namespace": "Network.AWS.Route53Domains.Waiters",
+        "imports": []
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -73,7 +78,8 @@
             "Network.AWS.Route53Domains.Types",
             "Network.AWS.Route53Domains.UpdateDomainContact",
             "Network.AWS.Route53Domains.UpdateDomainContactPrivacy",
-            "Network.AWS.Route53Domains.UpdateDomainNameservers"
+            "Network.AWS.Route53Domains.UpdateDomainNameservers",
+            "Network.AWS.Route53Domains.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html",
         "protocol": "json",

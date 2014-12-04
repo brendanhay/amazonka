@@ -231,8 +231,8 @@ record input ''Acceptor
 
 data Waiter = Waiter
     { _wDelay       :: !Int
-    , _wOperation   :: !Text
     , _wMaxAttempts :: !Int
+    , _wOperation   :: !Text
     , _wAcceptors   :: [Acceptor]
     } deriving (Show, Eq)
 

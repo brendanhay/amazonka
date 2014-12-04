@@ -1,4 +1,9 @@
 {
+    "waiters": {
+        "waiters": [],
+        "namespace": "Network.AWS.EMR.Waiters",
+        "imports": []
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -81,7 +86,8 @@
             "Network.AWS.EMR.SetTerminationProtection",
             "Network.AWS.EMR.SetVisibleToAllUsers",
             "Network.AWS.EMR.TerminateJobFlows",
-            "Network.AWS.EMR.Types"
+            "Network.AWS.EMR.Types",
+            "Network.AWS.EMR.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html",
         "protocol": "json",

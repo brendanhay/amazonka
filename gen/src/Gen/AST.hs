@@ -43,7 +43,7 @@ import           Gen.Output
 import           Gen.Types
 
 transformAST :: Retries -> Model -> Input -> Output
-transformAST Retries{..} m inp = Output cabal service ops types
+transformAST Retries{..} m inp = Output cabal service ops types waiters
   where
     cabal = Cabal
         { _cName         = name
@@ -54,7 +54,10 @@ transformAST Retries{..} m inp = Output cabal service ops types
         , _cDescription  = description (inp ^. inpDocumentation)
         , _cProtocol     = protocol
         , _cExposed      = sort $
-            service ^. svNamespace : typesNamespace : operationNamespaces
+            service ^. svNamespace
+                : typesNamespace
+                : waitersNamespace
+                : operationNamespaces
         , _cOther        = sort $
             (overrides ^. oOperationsModules) ++ (overrides ^. oTypesModules)
         }
@@ -86,8 +89,14 @@ transformAST Retries{..} m inp = Output cabal service ops types
         , _tShared    = share
         }
 
-    typesNamespace = typesNS abbrev
+    waiters = Waiters
+        { _wNamespace = waitersNamespace
+        , _wImports   = overrides ^. oTypesModules
+        , _wWaiters   = mempty
+        }
 
+    typesNamespace      = typesNS abbrev
+    waitersNamespace    = waitersNS abbrev
     operationNamespaces = sort (map (view opNamespace) ops)
 
     name = "Amazon " <> stripAWS (inp ^. mServiceFullName)

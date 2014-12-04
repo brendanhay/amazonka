@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 

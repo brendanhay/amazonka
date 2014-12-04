@@ -1,4 +1,9 @@
 {
+    "waiters": {
+        "waiters": [],
+        "namespace": "Network.AWS.CognitoSync.Waiters",
+        "imports": []
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -69,7 +74,8 @@
             "Network.AWS.CognitoSync.SubscribeToDataset",
             "Network.AWS.CognitoSync.Types",
             "Network.AWS.CognitoSync.UnsubscribeFromDataset",
-            "Network.AWS.CognitoSync.UpdateRecords"
+            "Network.AWS.CognitoSync.UpdateRecords",
+            "Network.AWS.CognitoSync.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/Welcome.html",
         "protocol": "rest-json",

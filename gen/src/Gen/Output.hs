@@ -778,11 +778,23 @@ record output ''Types
 instance ToFilePath Types where
     toFilePath = toFilePath . _tNamespace
 
+data Waiters = Waiters
+    { _wNamespace :: !NS
+    , _wImports   :: [NS]
+    , _wWaiters   :: HashSet Text
+    } deriving (Eq, Show)
+
+record output ''Waiters
+
+instance ToFilePath Waiters where
+    toFilePath = toFilePath . _wNamespace
+
 data Output = Output
     { _outCabal      :: Cabal
     , _outService    :: Service
     , _outOperations :: [Operation]
     , _outTypes      :: Types
+    , _outWaiters    :: Waiters
     } deriving (Eq, Show)
 
 record output ''Output

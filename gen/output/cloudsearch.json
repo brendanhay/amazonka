@@ -1,4 +1,9 @@
 {
+    "waiters": {
+        "waiters": [],
+        "namespace": "Network.AWS.CloudSearch.Waiters",
+        "imports": []
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -95,7 +100,8 @@
             "Network.AWS.CloudSearch.Types",
             "Network.AWS.CloudSearch.UpdateAvailabilityOptions",
             "Network.AWS.CloudSearch.UpdateScalingParameters",
-            "Network.AWS.CloudSearch.UpdateServiceAccessPolicies"
+            "Network.AWS.CloudSearch.UpdateServiceAccessPolicies",
+            "Network.AWS.CloudSearch.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html",
         "protocol": "query",

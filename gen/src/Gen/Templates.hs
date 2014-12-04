@@ -25,6 +25,7 @@ import Text.EDE
 data Templates = Templates
     { _tCabal      :: Template
     , _tService    :: Template
+    , _tWaiters    :: Template
     , _tReadme     :: Template
     , _tExCabal    :: Template
     , _tExMakefile :: Template
@@ -36,6 +37,7 @@ loadTemplates d = do
     f  <- Templates
         <$> load "cabal"
         <*> load "service"
+        <*> load "waiters"
         <*> load "readme"
         <*> load "example-cabal"
         <*> load "example-makefile"

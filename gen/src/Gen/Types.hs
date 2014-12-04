@@ -266,6 +266,9 @@ namespace = NS . ("Network":) . ("AWS":)
 typesNS :: Abbrev -> NS
 typesNS (Abbrev a) = namespace [a, "Types"]
 
+waitersNS :: Abbrev -> NS
+waitersNS (Abbrev a) = namespace [a, "Waiters"]
+
 operationNS :: Abbrev -> Text -> NS
 operationNS (Abbrev a) o = namespace [a, Text.dropWhileEnd (not . isAlpha) o]
 

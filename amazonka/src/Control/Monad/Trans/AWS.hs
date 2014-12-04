@@ -74,6 +74,8 @@ module Control.Monad.Trans.AWS
     -- ** Paginated
     , paginate
     , paginateCatch
+    -- ** Eventual consistency
+    , await
     -- ** Pre-signing URLs
     , presign
 
@@ -93,7 +95,7 @@ import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
-import           Data.Conduit
+import           Data.Conduit                 hiding (await)
 import           Data.Time
 import qualified Network.AWS                  as AWS
 import           Network.AWS.Auth
@@ -302,7 +304,7 @@ sendCatch :: ( MonadCatch m
              )
           => a
           -> m (Response a)
-sendCatch rq = scoped (`AWS.send` rq)
+sendCatch x = scoped (`AWS.send` x)
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate while
 -- there are more results as defined by the related service operation.
@@ -319,7 +321,7 @@ paginate :: ( MonadCatch m
             )
          => a
          -> Source m (Rs a)
-paginate rq = paginateCatch rq $= awaitForever (hoistEither >=> yield)
+paginate x = paginateCatch x $= awaitForever (hoistEither >=> yield)
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate over
 -- the associated 'Rs' response type in the success case, or the related service's
@@ -334,7 +336,30 @@ paginateCatch :: ( MonadCatch m
                  )
               => a
               -> Source m (Response a)
-paginateCatch rq = scoped (`AWS.paginate` rq)
+paginateCatch x = scoped (`AWS.paginate` x)
+
+await :: ( MonadCatch m
+         , MonadResource m
+         , MonadReader Env m
+         , MonadError Error m
+         , AWSWaiter a
+         , AWSRequest (Rq a)
+         )
+      => a
+      -> Rq a
+      -> m (Rs (Rq a))
+await w = awaitCatch w >=> hoistEither
+
+awaitCatch :: ( MonadCatch m
+              , MonadResource m
+              , MonadReader Env m
+              , AWSWaiter a
+              , AWSRequest (Rq a)
+              )
+           => a
+           -> Rq a
+           -> m (Response (Rq a))
+awaitCatch w x = scoped (\e -> AWS.await e w x)
 
 -- | Presign a URL with expiry to be used at a later time.
 --
@@ -349,4 +374,4 @@ presign :: ( MonadIO m
         -> UTCTime -- ^ Signing time.
         -> UTCTime -- ^ Expiry time.
         -> m (Signed a (Sg (Sv a)))
-presign rq t x = scoped (\e -> AWS.presign e rq t x)
+presign x t1 t2 = scoped (\e -> AWS.presign e x t1 t2)

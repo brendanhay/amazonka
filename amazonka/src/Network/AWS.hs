@@ -5,9 +5,6 @@
 {-# LANGUAGE TypeFamilies      #-}
 {-# LANGUAGE ViewPatterns      #-}
 
-{-# LANGUAGE TupleSections      #-}
-{-# LANGUAGE ScopedTypeVariables      #-}
-
 -- Module      : Network.AWS
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -43,6 +40,8 @@ module Network.AWS
     , send
     -- ** Paginated
     , paginate
+    -- ** Eventual consistency
+    , await
     -- ** Pre-signing URLs
     , presign
 
@@ -55,7 +54,7 @@ import           Control.Monad.Catch
 import           Control.Monad.Except
 import           Control.Monad.Trans.Resource
 import           Control.Retry
-import           Data.Conduit
+import           Data.Conduit                 hiding (await)
 import           Data.Time
 import           Network.AWS.Auth
 import           Network.AWS.Data
@@ -120,7 +119,7 @@ send Env{..} x@(request -> rq)
     check n rs
         | Left (ServiceError _ s e) <- rs
         , _rCheck s e = do
-             debug _envLogger ("[Retry Attempt] " <> build n)
+             debug _envLogger ("[Retrying] after " <> build (n + 1) <> " attempts.")
              return True
         | otherwise   = return False
 
@@ -145,6 +144,29 @@ paginate e = go
         either (const (return ()))
                (maybe (return ()) go . page x)
                y
+
+await :: (MonadCatch m, MonadResource m, AWSWaiter a, AWSRequest (Rq a))
+      => Env
+      -> a
+      -> Rq a
+      -> m (Response (Rq a))
+await e (waiter -> Waiter{..}) = retrying policy check . send e
+  where
+    policy = limitRetries _waitAttempts <> constantDelay _waitDelay
+
+    check n rs = debug (_envLogger e) msg >> return p
+      where
+        msg = "[Wait "
+            <> s
+            <> "] on "
+            <> build (n + 1)
+            <> " attempt."
+
+        (s, p) = case rs of
+            Left  _             -> ("Error",   False)
+            Right x
+                | _waitAccept x -> ("Success", True)
+                | otherwise     -> ("Failure", False)
 
 -- | Presign a URL with expiry to be used at a later time.
 --

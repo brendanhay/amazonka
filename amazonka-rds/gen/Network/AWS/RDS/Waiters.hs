@@ -18,16 +18,16 @@ module Network.AWS.RDS.Waiters where
 import Network.AWS.RDS.DescribeDBInstances
 import Network.AWS.Types
 
-dBInstanceAvailable :: Wait DescribeDBInstances
-dBInstanceAvailable = Wait
+dbInstanceAvailable :: Wait DescribeDBInstances
+dbInstanceAvailable = Wait
     { _waitName     = "DBInstanceAvailable"
     , _waitDelay    = 30
     , _waitAttempts = 60
     , _waitAccept   = const True
     }
 
-dBInstanceDeleted :: Wait DescribeDBInstances
-dBInstanceDeleted = Wait
+dbInstanceDeleted :: Wait DescribeDBInstances
+dbInstanceDeleted = Wait
     { _waitName     = "DBInstanceDeleted"
     , _waitDelay    = 30
     , _waitAttempts = 60

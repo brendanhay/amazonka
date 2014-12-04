@@ -11,8 +11,8 @@ module {{ namespace }} where
 import Network.AWS.Types
 {% for waiter in waiters %}
 
-{{ waiter.key | lowerHead }} :: Wait {{ waiter.value.operation }}
-{{ waiter.key | lowerHead }} = Wait
+{{ waiter.key | waiter }} :: Wait {{ waiter.value.operation }}
+{{ waiter.key | waiter }} = Wait
     { _waitName     = "{{ waiter.key }}"
     , _waitDelay    = {{ waiter.value.delay }}
     , _waitAttempts = {{ waiter.value.maxAttempts }}

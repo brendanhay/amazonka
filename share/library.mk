@@ -17,7 +17,8 @@ install: add-sources
 	cabal install -j \
  --disable-documentation \
  --disable-library-coverage \
- --only-dependencies
+ --only-dependencies \
+ --force-reinstalls # https://github.com/haskell/cabal/issues/2101
 
 add-sources:
 	cabal sandbox add-source $(TOP)/core

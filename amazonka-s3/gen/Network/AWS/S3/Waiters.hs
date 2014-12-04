@@ -18,50 +18,30 @@ import Network.AWS.S3.HeadBucket
 import Network.AWS.S3.HeadObject
 import Network.AWS.Types
 
-data BucketExists = BucketExists
-    deriving (Show)
+bucketExists :: Wait HeadBucket
+bucketExists = Wait
+    { _waitDelay     = 5
+    , _waitAttempts  = 20
+    , _waitAccept    = const True
+    }
 
-instance AWSWaiter BucketExists where
-    type Rq BucketExists = HeadBucket
+bucketNotExists :: Wait HeadBucket
+bucketNotExists = Wait
+    { _waitDelay     = 5
+    , _waitAttempts  = 20
+    , _waitAccept    = const True
+    }
 
-    waiter BucketExists = Waiter
-        { _waitDelay     = 5
-        , _waitAttempts  = 20
-        , _waitAccept    = const True
-        }
+objectExists :: Wait HeadObject
+objectExists = Wait
+    { _waitDelay     = 5
+    , _waitAttempts  = 20
+    , _waitAccept    = const True
+    }
 
-data BucketNotExists = BucketNotExists
-    deriving (Show)
-
-instance AWSWaiter BucketNotExists where
-    type Rq BucketNotExists = HeadBucket
-
-    waiter BucketNotExists = Waiter
-        { _waitDelay     = 5
-        , _waitAttempts  = 20
-        , _waitAccept    = const True
-        }
-
-data ObjectExists = ObjectExists
-    deriving (Show)
-
-instance AWSWaiter ObjectExists where
-    type Rq ObjectExists = HeadObject
-
-    waiter ObjectExists = Waiter
-        { _waitDelay     = 5
-        , _waitAttempts  = 20
-        , _waitAccept    = const True
-        }
-
-data ObjectNotExists = ObjectNotExists
-    deriving (Show)
-
-instance AWSWaiter ObjectNotExists where
-    type Rq ObjectNotExists = HeadObject
-
-    waiter ObjectNotExists = Waiter
-        { _waitDelay     = 5
-        , _waitAttempts  = 20
-        , _waitAccept    = const True
-        }
+objectNotExists :: Wait HeadObject
+objectNotExists = Wait
+    { _waitDelay     = 5
+    , _waitAttempts  = 20
+    , _waitAccept    = const True
+    }

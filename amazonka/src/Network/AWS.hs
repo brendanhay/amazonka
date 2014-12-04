@@ -145,20 +145,23 @@ paginate e = go
                (maybe (return ()) go . page x)
                y
 
-await :: (MonadCatch m, MonadResource m, AWSWaiter a, AWSRequest (Rq a))
+-- | !!!
+await :: (MonadCatch m, MonadResource m, AWSRequest a)
       => Env
+      -> Wait a
       -> a
-      -> Rq a
-      -> m (Response (Rq a))
-await e (waiter -> Waiter{..}) = retrying policy check . send e
+      -> m (Response a)
+await e Wait{..} = retrying policy check . send e
   where
     policy = limitRetries _waitAttempts <> constantDelay _waitDelay
 
     check n rs = debug (_envLogger e) msg >> return p
       where
-        msg = "[Wait "
+        msg = "[Await "
+            <> build _waitName
+            <> "] "
             <> s
-            <> "] on "
+            <> " "
             <> build (n + 1)
             <> " attempt."
 

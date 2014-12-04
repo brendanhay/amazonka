@@ -17,14 +17,9 @@ module Network.AWS.SES.Waiters where
 import Network.AWS.SES.GetIdentityVerificationAttributes
 import Network.AWS.Types
 
-data IdentityExists = IdentityExists
-    deriving (Show)
-
-instance AWSWaiter IdentityExists where
-    type Rq IdentityExists = GetIdentityVerificationAttributes
-
-    waiter IdentityExists = Waiter
-        { _waitDelay     = 3
-        , _waitAttempts  = 20
-        , _waitAccept    = const True
-        }
+identityExists :: Wait GetIdentityVerificationAttributes
+identityExists = Wait
+    { _waitDelay     = 3
+    , _waitAttempts  = 20
+    , _waitAccept    = const True
+    }

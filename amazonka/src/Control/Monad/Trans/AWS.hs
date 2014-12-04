@@ -338,27 +338,27 @@ paginateCatch :: ( MonadCatch m
               -> Source m (Response a)
 paginateCatch x = scoped (`AWS.paginate` x)
 
+-- |
 await :: ( MonadCatch m
          , MonadResource m
          , MonadReader Env m
          , MonadError Error m
-         , AWSWaiter a
-         , AWSRequest (Rq a)
+         , AWSRequest a
          )
-      => a
-      -> Rq a
-      -> m (Rs (Rq a))
+      => Wait a
+      -> a
+      -> m (Rs a)
 await w = awaitCatch w >=> hoistEither
 
+-- |
 awaitCatch :: ( MonadCatch m
               , MonadResource m
               , MonadReader Env m
-              , AWSWaiter a
-              , AWSRequest (Rq a)
+              , AWSRequest a
               )
-           => a
-           -> Rq a
-           -> m (Response (Rq a))
+           => Wait a
+           -> a
+           -> m (Response a)
 awaitCatch w x = scoped (\e -> AWS.await e w x)
 
 -- | Presign a URL with expiry to be used at a later time.

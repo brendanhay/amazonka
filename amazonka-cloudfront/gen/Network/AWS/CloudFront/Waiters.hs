@@ -19,38 +19,23 @@ import Network.AWS.CloudFront.GetInvalidation
 import Network.AWS.CloudFront.GetStreamingDistribution
 import Network.AWS.Types
 
-data DistributionDeployed = DistributionDeployed
-    deriving (Show)
+distributionDeployed :: Wait GetDistribution
+distributionDeployed = Wait
+    { _waitDelay     = 60
+    , _waitAttempts  = 25
+    , _waitAccept    = const True
+    }
 
-instance AWSWaiter DistributionDeployed where
-    type Rq DistributionDeployed = GetDistribution
+invalidationCompleted :: Wait GetInvalidation
+invalidationCompleted = Wait
+    { _waitDelay     = 20
+    , _waitAttempts  = 30
+    , _waitAccept    = const True
+    }
 
-    waiter DistributionDeployed = Waiter
-        { _waitDelay     = 60
-        , _waitAttempts  = 25
-        , _waitAccept    = const True
-        }
-
-data InvalidationCompleted = InvalidationCompleted
-    deriving (Show)
-
-instance AWSWaiter InvalidationCompleted where
-    type Rq InvalidationCompleted = GetInvalidation
-
-    waiter InvalidationCompleted = Waiter
-        { _waitDelay     = 20
-        , _waitAttempts  = 30
-        , _waitAccept    = const True
-        }
-
-data StreamingDistributionDeployed = StreamingDistributionDeployed
-    deriving (Show)
-
-instance AWSWaiter StreamingDistributionDeployed where
-    type Rq StreamingDistributionDeployed = GetStreamingDistribution
-
-    waiter StreamingDistributionDeployed = Waiter
-        { _waitDelay     = 60
-        , _waitAttempts  = 25
-        , _waitAccept    = const True
-        }
+streamingDistributionDeployed :: Wait GetStreamingDistribution
+streamingDistributionDeployed = Wait
+    { _waitDelay     = 60
+    , _waitAttempts  = 25
+    , _waitAccept    = const True
+    }

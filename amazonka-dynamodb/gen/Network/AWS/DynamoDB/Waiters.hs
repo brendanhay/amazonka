@@ -17,26 +17,16 @@ module Network.AWS.DynamoDB.Waiters where
 import Network.AWS.DynamoDB.DescribeTable
 import Network.AWS.Types
 
-data TableExists = TableExists
-    deriving (Show)
+tableExists :: Wait DescribeTable
+tableExists = Wait
+    { _waitDelay     = 20
+    , _waitAttempts  = 25
+    , _waitAccept    = const True
+    }
 
-instance AWSWaiter TableExists where
-    type Rq TableExists = DescribeTable
-
-    waiter TableExists = Waiter
-        { _waitDelay     = 20
-        , _waitAttempts  = 25
-        , _waitAccept    = const True
-        }
-
-data TableNotExists = TableNotExists
-    deriving (Show)
-
-instance AWSWaiter TableNotExists where
-    type Rq TableNotExists = DescribeTable
-
-    waiter TableNotExists = Waiter
-        { _waitDelay     = 20
-        , _waitAttempts  = 25
-        , _waitAccept    = const True
-        }
+tableNotExists :: Wait DescribeTable
+tableNotExists = Wait
+    { _waitDelay     = 20
+    , _waitAttempts  = 25
+    , _waitAccept    = const True
+    }

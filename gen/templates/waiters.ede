@@ -1,4 +1,5 @@
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 {% include "_include/license.ede" %}
 --
@@ -10,15 +11,11 @@ module {{ namespace }} where
 import Network.AWS.Types
 {% for waiter in waiters %}
 
-data {{ waiter.key }} = {{ waiter.key }}
-    deriving (Show)
-
-instance AWSWaiter {{ waiter.key }} where
-    type Rq {{ waiter.key }} = {{ waiter.value.operation }}
-
-    waiter {{ waiter.key }} = Waiter
-        { _waitDelay     = {{ waiter.value.delay }}
-        , _waitAttempts  = {{ waiter.value.maxAttempts }}
-        , _waitAccept    = const True
-        }
+{{ waiter.key | lowerHead }} :: Wait {{ waiter.value.operation }}
+{{ waiter.key | lowerHead }} = Wait
+    { _waitName     = "{{ waiter.key }}"
+    , _waitDelay    = {{ waiter.value.delay }}
+    , _waitAttempts = {{ waiter.value.maxAttempts }}
+    , _waitAccept   = const True
+    }
 {% endfor %}

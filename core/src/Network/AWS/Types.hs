@@ -47,8 +47,7 @@ module Network.AWS.Types
     , exponentialBackon
 
     -- * Waiters
-    , AWSWaiter     (..)
-    , Waiter        (..)
+    , Wait          (..)
 
     -- * Endpoints
     , Endpoint      (..)
@@ -184,14 +183,6 @@ class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
 -- a subsequent request, if available.
 class AWSRequest a => AWSPager a where
     page :: a -> Rs a -> Maybe a
-
--- | Specify the wait parameters for repeatedly retrying a
--- particular operation to assert some remote condition.
-class AWSWaiter a where
-    -- | The request used to poll for acceptance fulfillment.
-    type Rq a :: *
-
-    waiter :: a -> Waiter a
 
 -- | Signing metadata data specific to a signing algorithm.
 --
@@ -389,10 +380,11 @@ data Service a = Service
     }
 
 -- | Timings and acceptance criteria to judge fulfillment of a remote operation.
-data Waiter a = Waiter
-    { _waitDelay     :: !Int
-    , _waitAttempts  :: !Int
-    , _waitAccept    :: Rs (Rq a) -> Bool
+data Wait a = Wait
+    { _waitName     :: !Text
+    , _waitDelay    :: !Int
+    , _waitAttempts :: !Int
+    , _waitAccept   :: Rs a -> Bool
     }
 
 -- | An unsigned request.

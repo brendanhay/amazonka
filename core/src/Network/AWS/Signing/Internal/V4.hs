@@ -37,7 +37,6 @@ import           Network.AWS.Request.Internal
 import           Network.AWS.Signing.Internal
 import           Network.AWS.Types
 import           Network.HTTP.Types.Header
-import           System.Locale
 
 data V4
 
@@ -67,16 +66,16 @@ instance ToBuilder (Meta V4) where
         ]
 
 instance AWSPresigner V4 where
-    presigned a r rq l t x = out
+    presigned a r rq t x = out
         & sgRequest . queryString <>~ auth (out ^. sgMeta)
       where
-        out = finalise Nothing qry service a r rq l t
+        out = finalise Nothing qry service a r rq t
 
         qry cs sh =
               pair (CI.original hAMZAlgorithm)     algorithm
             . pair (CI.original hAMZCredential)    cs
-            . pair (CI.original hAMZDate)          (LocaleTime l t :: ISO8601)
-            . pair (CI.original hAMZExpires)       (LocaleTime l x :: ISO8601)
+            . pair (CI.original hAMZDate)          (Time t :: ISO8601)
+            . pair (CI.original hAMZExpires)       (Time x :: ISO8601)
             . pair (CI.original hAMZSignedHeaders) sh
             . pair (CI.original hAMZToken)         (toBS <$> _authToken a)
             . pair (CI.original hAMZContentSHA256) ("UNSIGNED-PAYLOAD" :: ByteString)
@@ -84,12 +83,12 @@ instance AWSPresigner V4 where
         auth = mappend "&X-AMZ-Signature=" . _mSignature
 
 instance AWSSigner V4 where
-    signed a r rq l t = out
+    signed a r rq t = out
         & sgRequest
         %~ requestHeaders
         %~ hdr hAuthorization (authorisation $ out ^. sgMeta)
       where
-        out = finalise (Just "AWS4") (\_ _ -> id) service a r inp l t
+        out = finalise (Just "AWS4") (\_ _ -> id) service a r inp t
 
         inp = rq & rqHeaders %~ hdrs (maybeToList tok)
 
@@ -115,10 +114,9 @@ finalise :: Maybe ByteString
          -> AuthEnv
          -> Region
          -> Request a
-         -> TimeLocale
          -> UTCTime
          -> Signed a V4
-finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
+finalise p qry s@Service{..} AuthEnv{..} r Request{..} t = Signed meta rq
   where
     meta = Meta
         { _mAlgorithm = algorithm
@@ -147,7 +145,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
 
     headers = sortBy (comparing fst)
         . hdr hHost _endpointHost
-        . hdr hAMZDate (toBS (LocaleTime l t :: AWSTime))
+        . hdr hAMZDate (toBS (Time t :: AWSTime))
         $ _rqHeaders
 
     joinedHeaders = map f $ groupBy ((==) `on` fst) headers
@@ -179,7 +177,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
        ]
 
     scope =
-        [ toBS (LocaleTime l t :: BasicTime)
+        [ toBS (Time t :: BasicTime)
         , toBS _endpointScope
         , toBS _svcPrefix
         , "aws4_request"
@@ -192,7 +190,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
 
     stringToSign = BS.intercalate "\n"
         [ algorithm
-        , toBS (LocaleTime l t :: AWSTime)
+        , toBS (Time t :: AWSTime)
         , credentialScope
         , Base16.encode (SHA256.hash canonicalRequest)
         ]

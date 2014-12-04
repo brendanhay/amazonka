@@ -49,7 +49,7 @@ instance ToBuilder (Meta V3) where
         ]
 
 instance AWSSigner V3 where
-    signed AuthEnv{..} r x@Request{..} l t = Signed meta rq
+    signed AuthEnv{..} r x@Request{..} t = Signed meta rq
       where
         meta = Meta
             { _mSignature = signature
@@ -69,7 +69,7 @@ instance AWSSigner V3 where
         headers = sortBy (comparing fst)
             . hdr hAMZAuth authorisation
             . hdr hHost _endpointHost
-            . hdr hDate (toBS (LocaleTime l t :: RFC822))
+            . hdr hDate (toBS (Time t :: RFC822))
             $ _rqHeaders
                 ++ maybeToList ((hAMZToken,) . toBS <$> _authToken)
 
@@ -79,4 +79,4 @@ instance AWSSigner V3 where
             <> signature
 
         signature = Base64.encode
-            $ hmacSHA256 (toBS _authSecret) (toBS (LocaleTime l t :: AWSTime))
+            $ hmacSHA256 (toBS _authSecret) (toBS (Time t :: AWSTime))

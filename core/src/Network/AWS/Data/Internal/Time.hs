@@ -37,7 +37,6 @@ import           Data.Aeson
 import           Data.Attoparsec.Text                 (Parser)
 import qualified Data.Attoparsec.Text                 as AText
 import qualified Data.ByteString.Char8                as BS
-import           Data.Function                        (on)
 import           Data.Tagged
 import qualified Data.Text                            as Text
 import           Data.Time
@@ -47,7 +46,6 @@ import           Network.AWS.Data.Internal.JSON
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.Text
 import           Network.AWS.Data.Internal.XML
-import           System.Locale
 
 data Format
     = RFC822Format
@@ -58,30 +56,17 @@ data Format
       deriving (Eq, Show)
 
 data Time :: Format -> * where
-    Time       :: UTCTime    -> Time a
-    LocaleTime :: TimeLocale -> UTCTime -> Time a
+    Time :: UTCTime -> Time a
 
 deriving instance Show (Time a)
 deriving instance Eq   (Time a)
+deriving instance Ord  (Time a)
 
-instance Ord (Time (a :: Format)) where
-    compare = compare `on` ts
-      where
-        ts (Time         t) = (t, defaultTimeLocale)
-        ts (LocaleTime l t) = (t, l)
-
--- | This is a poorly behaved isomorphism, due to the fact 'LocaleTime' only
--- exists for testing purposes, and we wish to compose using 'mapping'
--- in actual usage.
---
--- /See:/ 'convert'.
 _Time :: Iso' (Time a) UTCTime
-_Time = iso (\case; Time a -> a; LocaleTime _ a -> a) Time
+_Time = iso (\(Time t) -> t) Time
 
--- | Safely convert between two 'Time's, unlike the '_Time' isomorphism.
 convert :: Time a -> Time b
-convert (Time         t) = Time t
-convert (LocaleTime l t) = LocaleTime l t
+convert (Time t) = Time t
 
 type RFC822    = Time RFC822Format
 type ISO8601   = Time ISO8601Format
@@ -115,7 +100,7 @@ instance FromText POSIX where
 parseFormattedTime :: forall a. TimeFormat (Time a) => Parser (Time a)
 parseFormattedTime = do
     x <- Text.unpack <$> AText.takeText
-    p (parseTime defaultTimeLocale (untag f) x) x
+    p (parseTimeM True defaultTimeLocale (untag f) x) x
   where
     p :: Maybe UTCTime -> String -> Parser (Time a)
     p Nothing  s = fail   ("Unable to parse " ++ untag f ++ " from " ++ s)
@@ -130,21 +115,11 @@ instance ToText BasicTime where toText = Text.pack . renderFormattedTime
 instance ToText AWSTime   where toText = Text.pack . renderFormattedTime
 
 instance ToText POSIX where
-    toText t = toText time
-      where
-        time :: Integer
-        time = truncate . utcTimeToPOSIXSeconds $
-            case t of
-                Time         x -> x
-                LocaleTime _ x -> x
+    toText (Time t) = toText (truncate (utcTimeToPOSIXSeconds t) :: Integer)
 
 renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> String
-renderFormattedTime x = formatTime l (untag f) t
+renderFormattedTime (Time t) = formatTime defaultTimeLocale (untag f) t
   where
-    (l, t) = case x of
-        Time          t' -> (defaultTimeLocale, t')
-        LocaleTime l' t' -> (l', t')
-
     f :: Tagged (Time a) String
     f = format
 

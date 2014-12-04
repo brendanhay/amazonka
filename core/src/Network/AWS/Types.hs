@@ -122,7 +122,6 @@ import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           Network.HTTP.Types.Status    (Status)
-import           System.Locale
 
 -- | Abbreviated service name.
 type Abbrev = Text
@@ -207,7 +206,6 @@ class AWSSigner v where
            => AuthEnv
            -> Region
            -> Request a
-           -> TimeLocale
            -> UTCTime
            -> Signed a v
 
@@ -216,7 +214,6 @@ class AWSPresigner v where
               => AuthEnv
               -> Region
               -> Request a
-              -> TimeLocale
               -> UTCTime
               -> UTCTime
               -> Signed a v

@@ -15,29 +15,28 @@
 module Network.AWS.RDS.Waiters where
 
 import Network.AWS.RDS.DescribeDBInstances
-import Network.AWS.RDS.Types
 import Network.AWS.Types
 
 data DBInstanceAvailable = DBInstanceAvailable
+    deriving (Show)
 
 instance AWSWaiter DBInstanceAvailable where
     type Rq DBInstanceAvailable = DescribeDBInstances
 
-    waiter DBInstanceAvailable x = Waiter
+    waiter DBInstanceAvailable = Waiter
         { _waitDelay     = 30
         , _waitAttempts  = 60
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data DBInstanceDeleted = DBInstanceDeleted
+    deriving (Show)
 
 instance AWSWaiter DBInstanceDeleted where
     type Rq DBInstanceDeleted = DescribeDBInstances
 
-    waiter DBInstanceDeleted x = Waiter
+    waiter DBInstanceDeleted = Waiter
         { _waitDelay     = 30
         , _waitAttempts  = 60
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }

@@ -24,221 +24,220 @@ import Network.AWS.EC2.DescribeSubnets
 import Network.AWS.EC2.DescribeVolumes
 import Network.AWS.EC2.DescribeVpcs
 import Network.AWS.EC2.DescribeVpnConnections
-import Network.AWS.EC2.Types
 import Network.AWS.Types
 
 data BundleTaskComplete = BundleTaskComplete
+    deriving (Show)
 
 instance AWSWaiter BundleTaskComplete where
     type Rq BundleTaskComplete = DescribeBundleTasks
 
-    waiter BundleTaskComplete x = Waiter
+    waiter BundleTaskComplete = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data ConversionTaskCancelled = ConversionTaskCancelled
+    deriving (Show)
 
 instance AWSWaiter ConversionTaskCancelled where
     type Rq ConversionTaskCancelled = DescribeConversionTasks
 
-    waiter ConversionTaskCancelled x = Waiter
+    waiter ConversionTaskCancelled = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data ConversionTaskCompleted = ConversionTaskCompleted
+    deriving (Show)
 
 instance AWSWaiter ConversionTaskCompleted where
     type Rq ConversionTaskCompleted = DescribeConversionTasks
 
-    waiter ConversionTaskCompleted x = Waiter
+    waiter ConversionTaskCompleted = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data ConversionTaskDeleted = ConversionTaskDeleted
+    deriving (Show)
 
 instance AWSWaiter ConversionTaskDeleted where
     type Rq ConversionTaskDeleted = DescribeConversionTasks
 
-    waiter ConversionTaskDeleted x = Waiter
+    waiter ConversionTaskDeleted = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data CustomerGatewayAvailable = CustomerGatewayAvailable
+    deriving (Show)
 
 instance AWSWaiter CustomerGatewayAvailable where
     type Rq CustomerGatewayAvailable = DescribeCustomerGateways
 
-    waiter CustomerGatewayAvailable x = Waiter
+    waiter CustomerGatewayAvailable = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data ExportTaskCancelled = ExportTaskCancelled
+    deriving (Show)
 
 instance AWSWaiter ExportTaskCancelled where
     type Rq ExportTaskCancelled = DescribeExportTasks
 
-    waiter ExportTaskCancelled x = Waiter
+    waiter ExportTaskCancelled = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data ExportTaskCompleted = ExportTaskCompleted
+    deriving (Show)
 
 instance AWSWaiter ExportTaskCompleted where
     type Rq ExportTaskCompleted = DescribeExportTasks
 
-    waiter ExportTaskCompleted x = Waiter
+    waiter ExportTaskCompleted = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data InstanceRunning = InstanceRunning
+    deriving (Show)
 
 instance AWSWaiter InstanceRunning where
     type Rq InstanceRunning = DescribeInstances
 
-    waiter InstanceRunning x = Waiter
+    waiter InstanceRunning = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data InstanceStopped = InstanceStopped
+    deriving (Show)
 
 instance AWSWaiter InstanceStopped where
     type Rq InstanceStopped = DescribeInstances
 
-    waiter InstanceStopped x = Waiter
+    waiter InstanceStopped = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data InstanceTerminated = InstanceTerminated
+    deriving (Show)
 
 instance AWSWaiter InstanceTerminated where
     type Rq InstanceTerminated = DescribeInstances
 
-    waiter InstanceTerminated x = Waiter
+    waiter InstanceTerminated = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data SnapshotCompleted = SnapshotCompleted
+    deriving (Show)
 
 instance AWSWaiter SnapshotCompleted where
     type Rq SnapshotCompleted = DescribeSnapshots
 
-    waiter SnapshotCompleted x = Waiter
+    waiter SnapshotCompleted = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data SubnetAvailable = SubnetAvailable
+    deriving (Show)
 
 instance AWSWaiter SubnetAvailable where
     type Rq SubnetAvailable = DescribeSubnets
 
-    waiter SubnetAvailable x = Waiter
+    waiter SubnetAvailable = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data VolumeAvailable = VolumeAvailable
+    deriving (Show)
 
 instance AWSWaiter VolumeAvailable where
     type Rq VolumeAvailable = DescribeVolumes
 
-    waiter VolumeAvailable x = Waiter
+    waiter VolumeAvailable = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data VolumeDeleted = VolumeDeleted
+    deriving (Show)
 
 instance AWSWaiter VolumeDeleted where
     type Rq VolumeDeleted = DescribeVolumes
 
-    waiter VolumeDeleted x = Waiter
+    waiter VolumeDeleted = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data VolumeInUse = VolumeInUse
+    deriving (Show)
 
 instance AWSWaiter VolumeInUse where
     type Rq VolumeInUse = DescribeVolumes
 
-    waiter VolumeInUse x = Waiter
+    waiter VolumeInUse = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data VpcAvailable = VpcAvailable
+    deriving (Show)
 
 instance AWSWaiter VpcAvailable where
     type Rq VpcAvailable = DescribeVpcs
 
-    waiter VpcAvailable x = Waiter
+    waiter VpcAvailable = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data VpnConnectionAvailable = VpnConnectionAvailable
+    deriving (Show)
 
 instance AWSWaiter VpnConnectionAvailable where
     type Rq VpnConnectionAvailable = DescribeVpnConnections
 
-    waiter VpnConnectionAvailable x = Waiter
+    waiter VpnConnectionAvailable = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data VpnConnectionDeleted = VpnConnectionDeleted
+    deriving (Show)
 
 instance AWSWaiter VpnConnectionDeleted where
     type Rq VpnConnectionDeleted = DescribeVpnConnections
 
-    waiter VpnConnectionDeleted x = Waiter
+    waiter VpnConnectionDeleted = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 40
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }

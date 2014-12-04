@@ -16,41 +16,40 @@ module Network.AWS.Redshift.Waiters where
 
 import Network.AWS.Redshift.DescribeClusterSnapshots
 import Network.AWS.Redshift.DescribeClusters
-import Network.AWS.Redshift.Types
 import Network.AWS.Types
 
 data ClusterAvailable = ClusterAvailable
+    deriving (Show)
 
 instance AWSWaiter ClusterAvailable where
     type Rq ClusterAvailable = DescribeClusters
 
-    waiter ClusterAvailable x = Waiter
+    waiter ClusterAvailable = Waiter
         { _waitDelay     = 60
         , _waitAttempts  = 30
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data ClusterDeleted = ClusterDeleted
+    deriving (Show)
 
 instance AWSWaiter ClusterDeleted where
     type Rq ClusterDeleted = DescribeClusters
 
-    waiter ClusterDeleted x = Waiter
+    waiter ClusterDeleted = Waiter
         { _waitDelay     = 60
         , _waitAttempts  = 30
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data SnapshotAvailable = SnapshotAvailable
+    deriving (Show)
 
 instance AWSWaiter SnapshotAvailable where
     type Rq SnapshotAvailable = DescribeClusterSnapshots
 
-    waiter SnapshotAvailable x = Waiter
+    waiter SnapshotAvailable = Waiter
         { _waitDelay     = 15
         , _waitAttempts  = 20
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }

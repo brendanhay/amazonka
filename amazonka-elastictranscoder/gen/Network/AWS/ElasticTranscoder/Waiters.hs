@@ -15,17 +15,16 @@
 module Network.AWS.ElasticTranscoder.Waiters where
 
 import Network.AWS.ElasticTranscoder.ReadJob
-import Network.AWS.ElasticTranscoder.Types
 import Network.AWS.Types
 
 data JobComplete = JobComplete
+    deriving (Show)
 
 instance AWSWaiter JobComplete where
     type Rq JobComplete = ReadJob
 
-    waiter JobComplete x = Waiter
+    waiter JobComplete = Waiter
         { _waitDelay     = 30
         , _waitAttempts  = 120
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }

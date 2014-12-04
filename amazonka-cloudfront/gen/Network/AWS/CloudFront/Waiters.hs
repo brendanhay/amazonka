@@ -17,41 +17,40 @@ module Network.AWS.CloudFront.Waiters where
 import Network.AWS.CloudFront.GetDistribution
 import Network.AWS.CloudFront.GetInvalidation
 import Network.AWS.CloudFront.GetStreamingDistribution
-import Network.AWS.CloudFront.Types
 import Network.AWS.Types
 
 data DistributionDeployed = DistributionDeployed
+    deriving (Show)
 
 instance AWSWaiter DistributionDeployed where
     type Rq DistributionDeployed = GetDistribution
 
-    waiter DistributionDeployed x = Waiter
+    waiter DistributionDeployed = Waiter
         { _waitDelay     = 60
         , _waitAttempts  = 25
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data InvalidationCompleted = InvalidationCompleted
+    deriving (Show)
 
 instance AWSWaiter InvalidationCompleted where
     type Rq InvalidationCompleted = GetInvalidation
 
-    waiter InvalidationCompleted x = Waiter
+    waiter InvalidationCompleted = Waiter
         { _waitDelay     = 20
         , _waitAttempts  = 30
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 
 data StreamingDistributionDeployed = StreamingDistributionDeployed
+    deriving (Show)
 
 instance AWSWaiter StreamingDistributionDeployed where
     type Rq StreamingDistributionDeployed = GetStreamingDistribution
 
-    waiter StreamingDistributionDeployed x = Waiter
+    waiter StreamingDistributionDeployed = Waiter
         { _waitDelay     = 60
         , _waitAttempts  = 25
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }

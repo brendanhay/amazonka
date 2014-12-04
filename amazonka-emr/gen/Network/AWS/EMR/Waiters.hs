@@ -15,17 +15,16 @@
 module Network.AWS.EMR.Waiters where
 
 import Network.AWS.EMR.DescribeCluster
-import Network.AWS.EMR.Types
 import Network.AWS.Types
 
 data ClusterRunning = ClusterRunning
+    deriving (Show)
 
 instance AWSWaiter ClusterRunning where
     type Rq ClusterRunning = DescribeCluster
 
-    waiter ClusterRunning x = Waiter
+    waiter ClusterRunning = Waiter
         { _waitDelay     = 30
         , _waitAttempts  = 60
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }

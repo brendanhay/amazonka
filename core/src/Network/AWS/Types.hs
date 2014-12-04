@@ -185,6 +185,8 @@ class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
 class AWSRequest a => AWSPager a where
     page :: a -> Rs a -> Maybe a
 
+-- | Specify the wait parameters for repeatedly retrying a
+-- particular operation to assert some remote condition.
 class AWSWaiter a where
     -- | The request used to poll for acceptance fulfillment.
     type Rq a :: *

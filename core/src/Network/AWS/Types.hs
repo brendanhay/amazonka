@@ -37,14 +37,18 @@ module Network.AWS.Types
     , withAuth
 
     -- * Services
-    , Abbrev
     , AWSService    (..)
+    , Abbrev
     , Service       (..)
     , serviceOf
 
     -- * Retries
     , Retry         (..)
     , exponentialBackon
+
+    -- * Waiters
+    , AWSWaiter     (..)
+    , Waiter        (..)
 
     -- * Endpoints
     , Endpoint      (..)
@@ -180,6 +184,12 @@ class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
 -- a subsequent request, if available.
 class AWSRequest a => AWSPager a where
     page :: a -> Rs a -> Maybe a
+
+class AWSWaiter a where
+    -- | The request used to poll for acceptance fulfillment.
+    type Rq a :: *
+
+    waiter :: AWSRequest (Rq a) => a -> Rq a -> Waiter a
 
 -- | Signing metadata data specific to a signing algorithm.
 --
@@ -374,6 +384,14 @@ data Service a = Service
     , _svcJSONVersion  :: Maybe ByteString
     , _svcHandle       :: Status -> Maybe (LazyByteString -> ServiceError (Er a))
     , _svcRetry        :: Retry (Er a)
+    }
+
+-- | Timings and acceptance criteria to judge fulfillment of a remote operation.
+data Waiter a = Waiter
+    { _waitDelay     :: !Int
+    , _waitAttempts  :: !Int
+    , _waitOperation :: Rq a
+    , _waitAccept    :: Rs (Rq a) -> Bool
     }
 
 -- | An unsigned request.

@@ -2,9 +2,7 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.Lambda.Waiters",
-        "imports": [
-            "Network.AWS.Lambda.Types"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",

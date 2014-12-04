@@ -2,9 +2,7 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.DirectConnect.Waiters",
-        "imports": [
-            "Network.AWS.DirectConnect.Types"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",

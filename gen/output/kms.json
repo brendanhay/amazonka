@@ -2,9 +2,7 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.KMS.Waiters",
-        "imports": [
-            "Network.AWS.KMS.Types"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",

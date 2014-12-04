@@ -2,9 +2,7 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.ElastiCache.Waiters",
-        "imports": [
-            "Network.AWS.ElastiCache.Types"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",

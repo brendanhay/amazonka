@@ -24,8 +24,7 @@
         "imports": [
             "Network.AWS.CloudFront.GetDistribution",
             "Network.AWS.CloudFront.GetInvalidation",
-            "Network.AWS.CloudFront.GetStreamingDistribution",
-            "Network.AWS.CloudFront.Types"
+            "Network.AWS.CloudFront.GetStreamingDistribution"
         ]
     },
     "service": {

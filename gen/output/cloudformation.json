@@ -2,9 +2,7 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.CloudFormation.Waiters",
-        "imports": [
-            "Network.AWS.CloudFormation.Types"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",

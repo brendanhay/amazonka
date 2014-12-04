@@ -2,9 +2,7 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.CloudSearch.Waiters",
-        "imports": [
-            "Network.AWS.CloudSearch.Types"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",

@@ -2,9 +2,7 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.StorageGateway.Waiters",
-        "imports": [
-            "Network.AWS.StorageGateway.Types"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",

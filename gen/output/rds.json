@@ -16,8 +16,7 @@
         },
         "namespace": "Network.AWS.RDS.Waiters",
         "imports": [
-            "Network.AWS.RDS.DescribeDBInstances",
-            "Network.AWS.RDS.Types"
+            "Network.AWS.RDS.DescribeDBInstances"
         ]
     },
     "service": {

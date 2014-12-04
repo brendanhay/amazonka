@@ -2,9 +2,7 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.AutoScaling.Waiters",
-        "imports": [
-            "Network.AWS.AutoScaling.Types"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",

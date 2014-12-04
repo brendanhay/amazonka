@@ -10,8 +10,7 @@
         },
         "namespace": "Network.AWS.SES.Waiters",
         "imports": [
-            "Network.AWS.SES.GetIdentityVerificationAttributes",
-            "Network.AWS.SES.Types"
+            "Network.AWS.SES.GetIdentityVerificationAttributes"
         ]
     },
     "service": {

@@ -10,8 +10,7 @@
         },
         "namespace": "Network.AWS.EMR.Waiters",
         "imports": [
-            "Network.AWS.EMR.DescribeCluster",
-            "Network.AWS.EMR.Types"
+            "Network.AWS.EMR.DescribeCluster"
         ]
     },
     "service": {

@@ -16,8 +16,7 @@
         },
         "namespace": "Network.AWS.DynamoDB.Waiters",
         "imports": [
-            "Network.AWS.DynamoDB.DescribeTable",
-            "Network.AWS.DynamoDB.Types"
+            "Network.AWS.DynamoDB.DescribeTable"
         ]
     },
     "service": {

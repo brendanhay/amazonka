@@ -2,9 +2,7 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.Route53Domains.Waiters",
-        "imports": [
-            "Network.AWS.Route53Domains.Types"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",

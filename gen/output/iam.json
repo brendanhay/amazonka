@@ -2,9 +2,7 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.IAM.Waiters",
-        "imports": [
-            "Network.AWS.IAM.Types"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",

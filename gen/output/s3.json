@@ -29,8 +29,7 @@
         "namespace": "Network.AWS.S3.Waiters",
         "imports": [
             "Network.AWS.S3.HeadBucket",
-            "Network.AWS.S3.HeadObject",
-            "Network.AWS.S3.Types"
+            "Network.AWS.S3.HeadObject"
         ]
     },
     "service": {

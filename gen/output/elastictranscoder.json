@@ -10,8 +10,7 @@
         },
         "namespace": "Network.AWS.ElasticTranscoder.Waiters",
         "imports": [
-            "Network.AWS.ElasticTranscoder.ReadJob",
-            "Network.AWS.ElasticTranscoder.Types"
+            "Network.AWS.ElasticTranscoder.ReadJob"
         ]
     },
     "service": {

@@ -16,10 +16,9 @@ data {{ waiter.key }} = {{ waiter.key }}
 instance AWSWaiter {{ waiter.key }} where
     type Rq {{ waiter.key }} = {{ waiter.value.operation }}
 
-    waiter {{ waiter.key }} x = Waiter
+    waiter {{ waiter.key }} = Waiter
         { _waitDelay     = {{ waiter.value.delay }}
         , _waitAttempts  = {{ waiter.value.maxAttempts }}
-        , _waitOperation = x
-        , _waitAccept    = const False
+        , _waitAccept    = const True
         }
 {% endfor %}

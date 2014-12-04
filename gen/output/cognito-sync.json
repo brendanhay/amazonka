@@ -2,9 +2,7 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.CognitoSync.Waiters",
-        "imports": [
-            "Network.AWS.CognitoSync.Types"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",

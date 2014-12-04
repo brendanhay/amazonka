@@ -2,9 +2,7 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.Kinesis.Waiters",
-        "imports": [
-            "Network.AWS.Kinesis.Types"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",

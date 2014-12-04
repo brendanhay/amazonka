@@ -2,9 +2,7 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.CodeDeploy.Waiters",
-        "imports": [
-            "Network.AWS.CodeDeploy.Types"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",

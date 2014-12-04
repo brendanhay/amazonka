@@ -121,8 +121,7 @@
             "Network.AWS.EC2.DescribeSubnets",
             "Network.AWS.EC2.DescribeVolumes",
             "Network.AWS.EC2.DescribeVpcs",
-            "Network.AWS.EC2.DescribeVpnConnections",
-            "Network.AWS.EC2.Types"
+            "Network.AWS.EC2.DescribeVpnConnections"
         ]
     },
     "service": {

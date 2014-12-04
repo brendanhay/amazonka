@@ -778,10 +778,19 @@ record output ''Types
 instance ToFilePath Types where
     toFilePath = toFilePath . _tNamespace
 
+data Waiter = Waiter
+    { _wDelay       :: !Int
+    , _wMaxAttempts :: !Int
+    , _wOperation   :: !Text
+    , _wAcceptors   :: [Text]
+    } deriving (Show, Eq)
+
+record output ''Waiter
+
 data Waiters = Waiters
     { _wNamespace :: !NS
     , _wImports   :: [NS]
-    , _wWaiters   :: HashSet Text
+    , _wWaiters   :: HashMap Text Waiter
     } deriving (Eq, Show)
 
 record output ''Waiters

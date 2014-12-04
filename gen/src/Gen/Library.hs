@@ -44,8 +44,9 @@ renderLibrary d Templates{..} Output{..} = do
     renderFile "Render Types" typ gen _outTypes
         =<< Map.insert "service" (Object svc) <$> toEnv _outTypes
 
-    renderFile "Render Waiters" _tWaiters gen _outWaiters
-        =<< Map.insert "service" (Object svc) <$> toEnv _outWaiters
+    unless (Map.null (_wWaiters _outWaiters)) $
+        renderFile "Render Waiters" _tWaiters gen _outWaiters
+            =<< Map.insert "service" (Object svc) <$> toEnv _outWaiters
 
     forM_ _outOperations $ \o -> renderFile "Render Operation" op gen o
         =<< toEnv o

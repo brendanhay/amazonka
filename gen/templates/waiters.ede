@@ -6,7 +6,17 @@ module {{ namespace }} where
 
 import Network.AWS.Prelude
 {% include "_include/imports.ede" %}
+{% for waiter in waiters %}
 
-{% for wait in waiters %}
-  {{ wait | show }}
+data {{ waiter.key }} = {{ waiter.key }}
+
+instance AWSWaiter {{ waiter.key }} where
+    type Rq {{ waiter.key }} = {{ waiter.value.operation }}
+
+    waiter {{ waiter.key }} x = Waiter
+        { _waitDelay     = {{ waiter.value.delay }}
+        , _waitAttempts  = {{ waiter.value.maxAttempts }}
+        , _waitOperation = x
+        , _waitAccept    = const False
+        }
 {% endfor %}

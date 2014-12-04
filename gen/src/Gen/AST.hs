@@ -31,13 +31,13 @@ import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
 import           Data.HashSet               (HashSet)
 import qualified Data.HashSet               as Set
-import           Data.List                  (find, sort, group)
+import           Data.List                  (find, sort, group, nub)
 import           Data.Monoid                hiding (Product)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
 import qualified Gen.Input                  as Input
-import           Gen.Input                  hiding (Operation)
+import           Gen.Input                  hiding (Operation(..), Waiter(..))
 import           Gen.Names
 import           Gen.Output
 import           Gen.Types
@@ -53,13 +53,8 @@ transformAST Retries{..} m inp = Output cabal service ops types waiters
         , _cVersion      = overrides ^. oVersion
         , _cDescription  = description (inp ^. inpDocumentation)
         , _cProtocol     = protocol
-        , _cExposed      = sort $
-            service ^. svNamespace
-                : typesNamespace
-                : waitersNamespace
-                : operationNamespaces
-        , _cOther        = sort $
-            (overrides ^. oOperationsModules) ++ (overrides ^. oTypesModules)
+        , _cExposed      = external
+        , _cOther        = internal
         }
 
     service = Service
@@ -67,7 +62,7 @@ transformAST Retries{..} m inp = Output cabal service ops types waiters
         , _svUrl            = url
         , _svAbbrev         = abbrev
         , _svNamespace      = namespace [unAbbrev abbrev]
-        , _svImports        = sort (typesNamespace : waitersNamespace : operationNamespaces)
+        , _svImports        = imports
         , _svVersion        = version
         , _svDocumentation  = above (inp ^. inpDocumentation)
         , _svProtocol       = protocol
@@ -91,9 +86,30 @@ transformAST Retries{..} m inp = Output cabal service ops types waiters
 
     waiters = Waiters
         { _wNamespace = waitersNamespace
-        , _wImports   = sort (typesNamespace : overrides ^. oTypesModules)
-        , _wWaiters   = mempty
+        , _wImports   = sort (typesNamespace : nub (map (operationNS abbrev) $ Map.keys ws))
+        , _wWaiters   = Map.map f ws
         }
+      where
+        ws = inp ^. inpWaiters
+
+        f Input.Waiter{..} = Waiter _wDelay _wMaxAttempts _wOperation mempty
+
+    anyWaiters = not . Map.null $ _wWaiters waiters
+
+    imports = sort $
+          typesNamespace
+        : operationNamespaces
+       ++ [waitersNamespace | anyWaiters]
+
+    external = sort $
+          service ^. svNamespace
+        : typesNamespace
+        : operationNamespaces
+       ++ [waitersNamespace | anyWaiters]
+
+    internal = sort $
+          (overrides ^. oOperationsModules)
+       ++ (overrides ^. oTypesModules)
 
     typesNamespace      = typesNS abbrev
     waitersNamespace    = waitersNS abbrev

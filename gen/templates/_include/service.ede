@@ -24,9 +24,8 @@ instance AWSService {{ service.abbrev }} where
 
         retry :: Retry {{ service.error }}
         retry = Retry
-            { _rPolicy   = exponentialBackon {{ service.retryDelay.base }} {{ service.retryDelay.growth }}
-            , _rAttempts = {{ service.retryDelay.attempts }}
-            , _rCheck    = check
+            { _rPolicy = exponentialBackon {{ service.retryDelay.base }} {{ service.retryDelay.growth }} {{ service.retryDelay.attempts }}
+            , _rCheck  = check
             }
 
         check :: Status

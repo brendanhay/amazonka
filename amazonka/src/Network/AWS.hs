@@ -118,8 +118,7 @@ send Env{..} x@(request -> rq)
     err e = return (Left (e :: HttpException))
 
     check n rs
-        | n <= _rAttempts
-        , Left (ServiceError _ s e) <- rs
+        | Left (ServiceError _ s e) <- rs
         , _rCheck s e = do
              debug _envLogger ("[Retry Attempt] " <> build n)
              return True

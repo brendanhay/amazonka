@@ -353,15 +353,15 @@ endpoint Service{..} r = go (CI.mk _svcPrefix)
         ]
 
 data Retry a = Retry
-    { _rPolicy   :: RetryPolicy
-    , _rAttempts :: !Int
-    , _rCheck    :: Status -> a -> Bool
+    { _rPolicy :: RetryPolicy
+    , _rCheck  :: Status -> a -> Bool
     }
 
 exponentialBackon :: Double -- ^ Base.
                   -> Int    -- ^ Growth.
+                  -> Int    -- ^ Attempts.
                   -> RetryPolicy
-exponentialBackon !base !grow = RetryPolicy f
+exponentialBackon !base !grow = (<> RetryPolicy f) . limitRetries
   where
     f n | n > 0     = Just $ truncate (g n * 1000000)
         | otherwise = Nothing

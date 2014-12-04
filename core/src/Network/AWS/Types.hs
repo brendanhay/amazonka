@@ -371,17 +371,17 @@ exponentialBackon !base !grow = (<> RetryPolicy f) . limitRetries
 -- | Attributes specific to an AWS service.
 data Service a = Service
     { _svcAbbrev       :: !Text
-    , _svcPrefix       :: ByteString
-    , _svcVersion      :: ByteString
+    , _svcPrefix       :: !ByteString
+    , _svcVersion      :: !ByteString
     , _svcTargetPrefix :: Maybe ByteString
     , _svcJSONVersion  :: Maybe ByteString
     , _svcHandle       :: Status -> Maybe (LazyByteString -> ServiceError (Er a))
     , _svcRetry        :: Retry (Er a)
     }
 
--- | Timings and acceptance criteria to judge fulfillment of a remote operation.
+-- | Timing and acceptance criteria to check fulfillment of a remote operation.
 data Wait a = Wait
-    { _waitName     :: !Text
+    { _waitName     :: !ByteString
     , _waitDelay    :: !Int
     , _waitAttempts :: !Int
     , _waitAccept   :: Rs a -> Bool
@@ -390,7 +390,7 @@ data Wait a = Wait
 -- | An unsigned request.
 data Request a = Request
     { _rqMethod  :: !StdMethod
-    , _rqPath    :: ByteString
+    , _rqPath    :: !ByteString
     , _rqQuery   :: Query
     , _rqHeaders :: [Header]
     , _rqBody    :: RqBody

@@ -1,4 +1,5 @@
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.S3.Waiters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,28 +21,32 @@ import Network.AWS.Types
 
 bucketExists :: Wait HeadBucket
 bucketExists = Wait
-    { _waitDelay     = 5
-    , _waitAttempts  = 20
-    , _waitAccept    = const True
+    { _waitName     = "BucketExists"
+    , _waitDelay    = 5
+    , _waitAttempts = 20
+    , _waitAccept   = const True
     }
 
 bucketNotExists :: Wait HeadBucket
 bucketNotExists = Wait
-    { _waitDelay     = 5
-    , _waitAttempts  = 20
-    , _waitAccept    = const True
+    { _waitName     = "BucketNotExists"
+    , _waitDelay    = 5
+    , _waitAttempts = 20
+    , _waitAccept   = const True
     }
 
 objectExists :: Wait HeadObject
 objectExists = Wait
-    { _waitDelay     = 5
-    , _waitAttempts  = 20
-    , _waitAccept    = const True
+    { _waitName     = "ObjectExists"
+    , _waitDelay    = 5
+    , _waitAttempts = 20
+    , _waitAccept   = const True
     }
 
 objectNotExists :: Wait HeadObject
 objectNotExists = Wait
-    { _waitDelay     = 5
-    , _waitAttempts  = 20
-    , _waitAccept    = const True
+    { _waitName     = "ObjectNotExists"
+    , _waitDelay    = 5
+    , _waitAttempts = 20
+    , _waitAccept   = const True
     }

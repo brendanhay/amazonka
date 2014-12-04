@@ -1,4 +1,5 @@
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.RDS.Waiters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,14 +20,16 @@ import Network.AWS.Types
 
 dBInstanceAvailable :: Wait DescribeDBInstances
 dBInstanceAvailable = Wait
-    { _waitDelay     = 30
-    , _waitAttempts  = 60
-    , _waitAccept    = const True
+    { _waitName     = "DBInstanceAvailable"
+    , _waitDelay    = 30
+    , _waitAttempts = 60
+    , _waitAccept   = const True
     }
 
 dBInstanceDeleted :: Wait DescribeDBInstances
 dBInstanceDeleted = Wait
-    { _waitDelay     = 30
-    , _waitAttempts  = 60
-    , _waitAccept    = const True
+    { _waitName     = "DBInstanceDeleted"
+    , _waitDelay    = 30
+    , _waitAttempts = 60
+    , _waitAccept   = const True
     }

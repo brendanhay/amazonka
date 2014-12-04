@@ -1,4 +1,5 @@
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.EC2.Waiters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,126 +29,144 @@ import Network.AWS.Types
 
 bundleTaskComplete :: Wait DescribeBundleTasks
 bundleTaskComplete = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "BundleTaskComplete"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 conversionTaskCancelled :: Wait DescribeConversionTasks
 conversionTaskCancelled = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "ConversionTaskCancelled"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 conversionTaskCompleted :: Wait DescribeConversionTasks
 conversionTaskCompleted = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "ConversionTaskCompleted"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 conversionTaskDeleted :: Wait DescribeConversionTasks
 conversionTaskDeleted = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "ConversionTaskDeleted"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 customerGatewayAvailable :: Wait DescribeCustomerGateways
 customerGatewayAvailable = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "CustomerGatewayAvailable"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 exportTaskCancelled :: Wait DescribeExportTasks
 exportTaskCancelled = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "ExportTaskCancelled"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 exportTaskCompleted :: Wait DescribeExportTasks
 exportTaskCompleted = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "ExportTaskCompleted"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 instanceRunning :: Wait DescribeInstances
 instanceRunning = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "InstanceRunning"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 instanceStopped :: Wait DescribeInstances
 instanceStopped = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "InstanceStopped"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 instanceTerminated :: Wait DescribeInstances
 instanceTerminated = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "InstanceTerminated"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 snapshotCompleted :: Wait DescribeSnapshots
 snapshotCompleted = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "SnapshotCompleted"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 subnetAvailable :: Wait DescribeSubnets
 subnetAvailable = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "SubnetAvailable"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 volumeAvailable :: Wait DescribeVolumes
 volumeAvailable = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "VolumeAvailable"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 volumeDeleted :: Wait DescribeVolumes
 volumeDeleted = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "VolumeDeleted"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 volumeInUse :: Wait DescribeVolumes
 volumeInUse = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "VolumeInUse"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 vpcAvailable :: Wait DescribeVpcs
 vpcAvailable = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "VpcAvailable"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 vpnConnectionAvailable :: Wait DescribeVpnConnections
 vpnConnectionAvailable = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "VpnConnectionAvailable"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }
 
 vpnConnectionDeleted :: Wait DescribeVpnConnections
 vpnConnectionDeleted = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 40
-    , _waitAccept    = const True
+    { _waitName     = "VpnConnectionDeleted"
+    , _waitDelay    = 15
+    , _waitAttempts = 40
+    , _waitAccept   = const True
     }

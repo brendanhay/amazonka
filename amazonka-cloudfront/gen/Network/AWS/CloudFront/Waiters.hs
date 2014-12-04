@@ -1,4 +1,5 @@
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFront.Waiters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,21 +22,24 @@ import Network.AWS.Types
 
 distributionDeployed :: Wait GetDistribution
 distributionDeployed = Wait
-    { _waitDelay     = 60
-    , _waitAttempts  = 25
-    , _waitAccept    = const True
+    { _waitName     = "DistributionDeployed"
+    , _waitDelay    = 60
+    , _waitAttempts = 25
+    , _waitAccept   = const True
     }
 
 invalidationCompleted :: Wait GetInvalidation
 invalidationCompleted = Wait
-    { _waitDelay     = 20
-    , _waitAttempts  = 30
-    , _waitAccept    = const True
+    { _waitName     = "InvalidationCompleted"
+    , _waitDelay    = 20
+    , _waitAttempts = 30
+    , _waitAccept   = const True
     }
 
 streamingDistributionDeployed :: Wait GetStreamingDistribution
 streamingDistributionDeployed = Wait
-    { _waitDelay     = 60
-    , _waitAttempts  = 25
-    , _waitAccept    = const True
+    { _waitName     = "StreamingDistributionDeployed"
+    , _waitDelay    = 60
+    , _waitAttempts = 25
+    , _waitAccept   = const True
     }

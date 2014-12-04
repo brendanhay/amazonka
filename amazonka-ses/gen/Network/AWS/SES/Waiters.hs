@@ -1,4 +1,5 @@
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.SES.Waiters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,7 +20,8 @@ import Network.AWS.Types
 
 identityExists :: Wait GetIdentityVerificationAttributes
 identityExists = Wait
-    { _waitDelay     = 3
-    , _waitAttempts  = 20
-    , _waitAccept    = const True
+    { _waitName     = "IdentityExists"
+    , _waitDelay    = 3
+    , _waitAttempts = 20
+    , _waitAccept   = const True
     }

@@ -157,13 +157,9 @@ await e Wait{..} = retrying policy check . send e
 
     check n rs = debug (_envLogger e) msg >> return p
       where
-        msg = "[Await "
-            <> build _waitName
-            <> "] "
-            <> s
-            <> " "
-            <> build (n + 1)
-            <> " attempt."
+        msg = "[Await " <> build _waitName <> "] "
+            <> s <> " "
+            <> build (n + 1) <> " attempt."
 
         (s, p) = case rs of
             Left  _             -> ("Error",   False)

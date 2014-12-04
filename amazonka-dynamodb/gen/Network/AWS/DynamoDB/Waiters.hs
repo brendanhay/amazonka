@@ -1,4 +1,5 @@
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.DynamoDB.Waiters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,14 +20,16 @@ import Network.AWS.Types
 
 tableExists :: Wait DescribeTable
 tableExists = Wait
-    { _waitDelay     = 20
-    , _waitAttempts  = 25
-    , _waitAccept    = const True
+    { _waitName     = "TableExists"
+    , _waitDelay    = 20
+    , _waitAttempts = 25
+    , _waitAccept   = const True
     }
 
 tableNotExists :: Wait DescribeTable
 tableNotExists = Wait
-    { _waitDelay     = 20
-    , _waitAttempts  = 25
-    , _waitAccept    = const True
+    { _waitName     = "TableNotExists"
+    , _waitDelay    = 20
+    , _waitAttempts = 25
+    , _waitAccept   = const True
     }

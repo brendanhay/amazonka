@@ -1,4 +1,5 @@
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Redshift.Waiters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,21 +21,24 @@ import Network.AWS.Types
 
 clusterAvailable :: Wait DescribeClusters
 clusterAvailable = Wait
-    { _waitDelay     = 60
-    , _waitAttempts  = 30
-    , _waitAccept    = const True
+    { _waitName     = "ClusterAvailable"
+    , _waitDelay    = 60
+    , _waitAttempts = 30
+    , _waitAccept   = const True
     }
 
 clusterDeleted :: Wait DescribeClusters
 clusterDeleted = Wait
-    { _waitDelay     = 60
-    , _waitAttempts  = 30
-    , _waitAccept    = const True
+    { _waitName     = "ClusterDeleted"
+    , _waitDelay    = 60
+    , _waitAttempts = 30
+    , _waitAccept   = const True
     }
 
 snapshotAvailable :: Wait DescribeClusterSnapshots
 snapshotAvailable = Wait
-    { _waitDelay     = 15
-    , _waitAttempts  = 20
-    , _waitAccept    = const True
+    { _waitName     = "SnapshotAvailable"
+    , _waitDelay    = 15
+    , _waitAttempts = 20
+    , _waitAccept   = const True
     }

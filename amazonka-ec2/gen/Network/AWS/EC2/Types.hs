@@ -1428,9 +1428,8 @@ instance AWSService EC2 where
 
         retry :: Retry EC2Error
         retry = Retry
-            { _rPolicy   = exponentialBackon 0.05 2
-            , _rAttempts = 5
-            , _rCheck    = check
+            { _rPolicy = exponentialBackon 0.05 2 5
+            , _rCheck  = check
             }
 
         check :: Status

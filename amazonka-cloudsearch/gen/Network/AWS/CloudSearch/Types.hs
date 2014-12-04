@@ -324,9 +324,8 @@ instance AWSService CloudSearch where
 
         retry :: Retry RESTError
         retry = Retry
-            { _rPolicy   = exponentialBackon 0.05 2
-            , _rAttempts = 5
-            , _rCheck    = check
+            { _rPolicy = exponentialBackon 0.05 2 5
+            , _rCheck  = check
             }
 
         check :: Status

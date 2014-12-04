@@ -269,9 +269,8 @@ instance AWSService DynamoDB where
 
         retry :: Retry JSONError
         retry = Retry
-            { _rPolicy   = exponentialBackon 0.05 2
-            , _rAttempts = 10
-            , _rCheck    = check
+            { _rPolicy = exponentialBackon 0.05 2 10
+            , _rCheck  = check
             }
 
         check :: Status

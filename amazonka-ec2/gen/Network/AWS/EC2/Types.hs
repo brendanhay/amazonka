@@ -1413,23 +1413,25 @@ instance AWSService EC2 where
       where
         service' :: Service EC2
         service' = Service
-              { _svcAbbrev       = "EC2"
-              , _svcPrefix       = "ec2"
-              , _svcVersion      = "2014-09-01"
-              , _svcTargetPrefix = Nothing
-              , _svcJSONVersion  = Nothing
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "EC2"
+            , _svcPrefix       = "ec2"
+            , _svcVersion      = "2014-09-01"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError EC2Error)
         handle = restError statusSuccess service'
 
-        retry :: Retry EC2Error
+        retry :: Retry EC2
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

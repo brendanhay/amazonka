@@ -431,23 +431,25 @@ instance AWSService RDS where
       where
         service' :: Service RDS
         service' = Service
-              { _svcAbbrev       = "RDS"
-              , _svcPrefix       = "rds"
-              , _svcVersion      = "2014-09-01"
-              , _svcTargetPrefix = Nothing
-              , _svcJSONVersion  = Nothing
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "RDS"
+            , _svcPrefix       = "rds"
+            , _svcVersion      = "2014-09-01"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError RESTError)
         handle = restError statusSuccess service'
 
-        retry :: Retry RESTError
+        retry :: Retry RDS
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

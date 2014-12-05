@@ -425,23 +425,25 @@ instance AWSService EMR where
       where
         service' :: Service EMR
         service' = Service
-              { _svcAbbrev       = "EMR"
-              , _svcPrefix       = "elasticmapreduce"
-              , _svcVersion      = "2009-03-31"
-              , _svcTargetPrefix = Just "ElasticMapReduce"
-              , _svcJSONVersion  = Just "1.1"
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "EMR"
+            , _svcPrefix       = "elasticmapreduce"
+            , _svcVersion      = "2009-03-31"
+            , _svcTargetPrefix = Just "ElasticMapReduce"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
+        retry :: Retry EMR
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

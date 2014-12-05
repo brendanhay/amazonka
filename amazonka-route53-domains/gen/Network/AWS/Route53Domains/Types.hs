@@ -110,23 +110,25 @@ instance AWSService Route53Domains where
       where
         service' :: Service Route53Domains
         service' = Service
-              { _svcAbbrev       = "Route53Domains"
-              , _svcPrefix       = "route53domains"
-              , _svcVersion      = "2014-05-15"
-              , _svcTargetPrefix = Just "Route53Domains_v20140515"
-              , _svcJSONVersion  = Just "1.1"
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "Route53Domains"
+            , _svcPrefix       = "route53domains"
+            , _svcVersion      = "2014-05-15"
+            , _svcTargetPrefix = Just "Route53Domains_v20140515"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
+        retry :: Retry Route53Domains
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

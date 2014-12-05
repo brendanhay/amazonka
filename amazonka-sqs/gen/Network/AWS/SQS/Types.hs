@@ -115,23 +115,25 @@ instance AWSService SQS where
       where
         service' :: Service SQS
         service' = Service
-              { _svcAbbrev       = "SQS"
-              , _svcPrefix       = "sqs"
-              , _svcVersion      = "2012-11-05"
-              , _svcTargetPrefix = Nothing
-              , _svcJSONVersion  = Nothing
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "SQS"
+            , _svcPrefix       = "sqs"
+            , _svcVersion      = "2012-11-05"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError RESTError)
         handle = restError statusSuccess service'
 
-        retry :: Retry RESTError
+        retry :: Retry SQS
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

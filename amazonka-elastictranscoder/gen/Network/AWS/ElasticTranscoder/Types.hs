@@ -297,23 +297,25 @@ instance AWSService ElasticTranscoder where
       where
         service' :: Service ElasticTranscoder
         service' = Service
-              { _svcAbbrev       = "ElasticTranscoder"
-              , _svcPrefix       = "elastictranscoder"
-              , _svcVersion      = "2012-09-25"
-              , _svcTargetPrefix = Nothing
-              , _svcJSONVersion  = Nothing
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "ElasticTranscoder"
+            , _svcPrefix       = "elastictranscoder"
+            , _svcVersion      = "2012-09-25"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
+        retry :: Retry ElasticTranscoder
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

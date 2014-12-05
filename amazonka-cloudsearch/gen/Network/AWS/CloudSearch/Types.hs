@@ -309,23 +309,25 @@ instance AWSService CloudSearch where
       where
         service' :: Service CloudSearch
         service' = Service
-              { _svcAbbrev       = "CloudSearch"
-              , _svcPrefix       = "cloudsearch"
-              , _svcVersion      = "2013-01-01"
-              , _svcTargetPrefix = Nothing
-              , _svcJSONVersion  = Nothing
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "CloudSearch"
+            , _svcPrefix       = "cloudsearch"
+            , _svcVersion      = "2013-01-01"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError RESTError)
         handle = restError statusSuccess service'
 
-        retry :: Retry RESTError
+        retry :: Retry CloudSearch
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

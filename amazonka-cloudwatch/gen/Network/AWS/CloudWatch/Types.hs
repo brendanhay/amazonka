@@ -145,23 +145,25 @@ instance AWSService CloudWatch where
       where
         service' :: Service CloudWatch
         service' = Service
-              { _svcAbbrev       = "CloudWatch"
-              , _svcPrefix       = "monitoring"
-              , _svcVersion      = "2010-08-01"
-              , _svcTargetPrefix = Nothing
-              , _svcJSONVersion  = Nothing
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "CloudWatch"
+            , _svcPrefix       = "monitoring"
+            , _svcVersion      = "2010-08-01"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError RESTError)
         handle = restError statusSuccess service'
 
-        retry :: Retry RESTError
+        retry :: Retry CloudWatch
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

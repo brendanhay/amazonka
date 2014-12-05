@@ -109,23 +109,25 @@ instance AWSService CloudSearchDomains where
       where
         service' :: Service CloudSearchDomains
         service' = Service
-              { _svcAbbrev       = "CloudSearchDomains"
-              , _svcPrefix       = "cloudsearchdomain"
-              , _svcVersion      = "2013-01-01"
-              , _svcTargetPrefix = Nothing
-              , _svcJSONVersion  = Just "1.1"
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "CloudSearchDomains"
+            , _svcPrefix       = "cloudsearchdomain"
+            , _svcVersion      = "2013-01-01"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
+        retry :: Retry CloudSearchDomains
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

@@ -95,23 +95,25 @@ instance AWSService Kinesis where
       where
         service' :: Service Kinesis
         service' = Service
-              { _svcAbbrev       = "Kinesis"
-              , _svcPrefix       = "kinesis"
-              , _svcVersion      = "2013-12-02"
-              , _svcTargetPrefix = Just "Kinesis_20131202"
-              , _svcJSONVersion  = Just "1.1"
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "Kinesis"
+            , _svcPrefix       = "kinesis"
+            , _svcVersion      = "2013-12-02"
+            , _svcTargetPrefix = Just "Kinesis_20131202"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
+        retry :: Retry Kinesis
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

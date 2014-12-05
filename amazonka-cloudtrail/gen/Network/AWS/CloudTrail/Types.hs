@@ -57,23 +57,25 @@ instance AWSService CloudTrail where
       where
         service' :: Service CloudTrail
         service' = Service
-              { _svcAbbrev       = "CloudTrail"
-              , _svcPrefix       = "cloudtrail"
-              , _svcVersion      = "2013-11-01"
-              , _svcTargetPrefix = Just "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101"
-              , _svcJSONVersion  = Just "1.1"
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "CloudTrail"
+            , _svcPrefix       = "cloudtrail"
+            , _svcVersion      = "2013-11-01"
+            , _svcTargetPrefix = Just "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
+        retry :: Retry CloudTrail
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

@@ -210,23 +210,25 @@ instance AWSService Route53 where
       where
         service' :: Service Route53
         service' = Service
-              { _svcAbbrev       = "Route53"
-              , _svcPrefix       = "route53"
-              , _svcVersion      = "2013-04-01"
-              , _svcTargetPrefix = Nothing
-              , _svcJSONVersion  = Nothing
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "Route53"
+            , _svcPrefix       = "route53"
+            , _svcVersion      = "2013-04-01"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError RESTError)
         handle = restError statusSuccess service'
 
-        retry :: Retry RESTError
+        retry :: Retry Route53
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

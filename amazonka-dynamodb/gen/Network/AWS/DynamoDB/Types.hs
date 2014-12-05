@@ -254,23 +254,25 @@ instance AWSService DynamoDB where
       where
         service' :: Service DynamoDB
         service' = Service
-              { _svcAbbrev       = "DynamoDB"
-              , _svcPrefix       = "dynamodb"
-              , _svcVersion      = "2012-08-10"
-              , _svcTargetPrefix = Just "DynamoDB_20120810"
-              , _svcJSONVersion  = Just "1.0"
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "DynamoDB"
+            , _svcPrefix       = "dynamodb"
+            , _svcVersion      = "2012-08-10"
+            , _svcTargetPrefix = Just "DynamoDB_20120810"
+            , _svcJSONVersion  = Just "1.0"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
+        retry :: Retry DynamoDB
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 10
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 10
+            , _retryCheck    = check
             }
 
         check :: Status

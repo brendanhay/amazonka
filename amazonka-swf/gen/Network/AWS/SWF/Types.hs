@@ -794,23 +794,25 @@ instance AWSService SWF where
       where
         service' :: Service SWF
         service' = Service
-              { _svcAbbrev       = "SWF"
-              , _svcPrefix       = "swf"
-              , _svcVersion      = "2012-01-25"
-              , _svcTargetPrefix = Just "SimpleWorkflowService"
-              , _svcJSONVersion  = Just "1.0"
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "SWF"
+            , _svcPrefix       = "swf"
+            , _svcVersion      = "2012-01-25"
+            , _svcTargetPrefix = Just "SimpleWorkflowService"
+            , _svcJSONVersion  = Just "1.0"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
+        retry :: Retry SWF
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

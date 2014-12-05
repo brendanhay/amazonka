@@ -433,23 +433,25 @@ instance AWSService OpsWorks where
       where
         service' :: Service OpsWorks
         service' = Service
-              { _svcAbbrev       = "OpsWorks"
-              , _svcPrefix       = "opsworks"
-              , _svcVersion      = "2013-02-18"
-              , _svcTargetPrefix = Just "OpsWorks_20130218"
-              , _svcJSONVersion  = Just "1.1"
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "OpsWorks"
+            , _svcPrefix       = "opsworks"
+            , _svcVersion      = "2013-02-18"
+            , _svcTargetPrefix = Just "OpsWorks_20130218"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
+        retry :: Retry OpsWorks
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

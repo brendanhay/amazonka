@@ -162,23 +162,25 @@ instance AWSService DirectConnect where
       where
         service' :: Service DirectConnect
         service' = Service
-              { _svcAbbrev       = "DirectConnect"
-              , _svcPrefix       = "directconnect"
-              , _svcVersion      = "2012-10-25"
-              , _svcTargetPrefix = Just "OvertureService"
-              , _svcJSONVersion  = Just "1.1"
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "DirectConnect"
+            , _svcPrefix       = "directconnect"
+            , _svcVersion      = "2012-10-25"
+            , _svcTargetPrefix = Just "OvertureService"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
+        retry :: Retry DirectConnect
         retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

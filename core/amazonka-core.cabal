@@ -90,7 +90,6 @@ library
         , lens                 >= 4.3    && < 5
         , mmorph               >= 1      && < 2
         , mtl                  >= 2.2.1  && < 2.3
-        , retry                >= 0.5
         , resourcet            == 1.1.*
         , semigroups           >= 0.12
         , tagged               >= 0.7

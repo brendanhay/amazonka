@@ -40,7 +40,9 @@ module Network.AWS.Prelude
 
     -- * Retries
     , Retry        (..)
-    , exponentialBackon
+
+    -- * Waiters
+    , Wait         (..)
 
     -- * Errors
     , AWSError     (..)

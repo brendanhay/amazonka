@@ -32,8 +32,7 @@
 -- completes the deletion.
 --
 -- Note: Amazon Kinesis might continue to accept data read and write
--- operations, such as 'PutRecord' and 'GetRecords', on a stream in the 'DELETING'
--- state until the stream deletion is complete.
+-- operations, such as 'PutRecord', 'PutRecords', and 'GetRecords', on a stream in the 'DELETING' state until the stream deletion is complete.
 --
 -- When you delete a stream, any shards in that stream are also deleted, and
 -- any tags are dissociated from the stream.

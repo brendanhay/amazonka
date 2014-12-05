@@ -24,6 +24,8 @@
 
 -- | Updates the metadata document for an existing SAML provider.
 --
+-- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSAMLProvider.html>
 module Network.AWS.IAM.UpdateSAMLProvider
     (

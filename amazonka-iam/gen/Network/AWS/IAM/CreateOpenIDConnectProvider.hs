@@ -35,6 +35,10 @@
 -- certificate(s) that the IdP uses. You get all of this information from the
 -- OIDC IdP that you want to use for access to AWS.
 --
+-- Because trust for the OIDC provider is ultimately derived from the IAM
+-- provider that this action creates, it is a best practice to limit access to
+-- the 'CreateOpenIDConnectProvider' action to highly-privileged users.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html>
 module Network.AWS.IAM.CreateOpenIDConnectProvider
     (

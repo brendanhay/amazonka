@@ -25,6 +25,8 @@
 -- | Returns the SAML provider metadocument that was uploaded when the provider
 -- was created or updated.
 --
+-- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html>
 module Network.AWS.IAM.GetSAMLProvider
     (

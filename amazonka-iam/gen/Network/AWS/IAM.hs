@@ -48,6 +48,7 @@ module Network.AWS.IAM
     , module Network.AWS.IAM.DeleteVirtualMFADevice
     , module Network.AWS.IAM.EnableMFADevice
     , module Network.AWS.IAM.GenerateCredentialReport
+    , module Network.AWS.IAM.GetAccountAuthorizationDetails
     , module Network.AWS.IAM.GetAccountPasswordPolicy
     , module Network.AWS.IAM.GetAccountSummary
     , module Network.AWS.IAM.GetCredentialReport
@@ -134,6 +135,7 @@ import Network.AWS.IAM.DeleteUserPolicy
 import Network.AWS.IAM.DeleteVirtualMFADevice
 import Network.AWS.IAM.EnableMFADevice
 import Network.AWS.IAM.GenerateCredentialReport
+import Network.AWS.IAM.GetAccountAuthorizationDetails
 import Network.AWS.IAM.GetAccountPasswordPolicy
 import Network.AWS.IAM.GetAccountSummary
 import Network.AWS.IAM.GetCredentialReport

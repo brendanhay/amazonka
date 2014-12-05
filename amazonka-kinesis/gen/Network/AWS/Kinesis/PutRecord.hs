@@ -22,18 +22,22 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Puts a data record from a producer into an Amazon Kinesis stream. You must
--- call 'PutRecord' to send data from the producer into the Amazon Kinesis stream
--- for real-time ingestion and subsequent processing. You must specify the name
--- of the stream that captures, stores, and transports the data; a partition
--- key; and the data blob itself. The data blob could be a segment from a log
--- file, geographic/location data, website clickstream data, or any other data
--- type.
+-- | Puts (writes) a single data record from a producer into an Amazon Kinesis
+-- stream. Call 'PutRecord' to send data from the producer into the Amazon Kinesis
+-- stream for real-time ingestion and subsequent processing, one record at a
+-- time. Each shard can support up to 1000 records written per second, up to a
+-- maximum total of 1 MB data written per second.
 --
--- The partition key is used to distribute data across shards. Amazon Kinesis
--- segregates the data records that belong to a data stream into multiple
--- shards, using the partition key associated with each data record to determine
--- which shard a given data record belongs to.
+-- You must specify the name of the stream that captures, stores, and
+-- transports the data; a partition key; and the data blob itself.
+--
+-- The data blob can be any type of data; for example, a segment from a log
+-- file, geographic/location data, website clickstream data, and so on.
+--
+-- The partition key is used by Amazon Kinesis to distribute data across
+-- shards. Amazon Kinesis segregates the data records that belong to a data
+-- stream into multiple shards, using the partition key associated with each
+-- data record to determine which shard a given data record belongs to.
 --
 -- Partition keys are Unicode strings, with a maximum length limit of 256
 -- bytes. An MD5 hash function is used to map partition keys to 128-bit integer
@@ -117,9 +121,9 @@ putRecord p1 p2 p3 = PutRecord
     , _prSequenceNumberForOrdering = Nothing
     }
 
--- | The data blob to put into the record, which is Base64-encoded when the blob
+-- | The data blob to put into the record, which is base64-encoded when the blob
 -- is serialized. The maximum size of the data blob (the payload before
--- Base64-encoding) is 50 kilobytes (KB)
+-- base64-encoding) is 50 kilobytes (KB)
 prData :: Lens' PutRecord Base64
 prData = lens _prData (\s a -> s { _prData = a })
 

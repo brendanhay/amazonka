@@ -71,7 +71,11 @@ listTagsForResource p1 p2 = ListTagsForResource
 ltfrResourceId :: Lens' ListTagsForResource Text
 ltfrResourceId = lens _ltfrResourceId (\s a -> s { _ltfrResourceId = a })
 
--- | The type of the resource. The resource type for health checks is 'healthcheck'.
+-- | The type of the resource.
+--
+-- - The resource type for health checks is 'healthcheck'.
+--
+-- - The resource type for hosted zones is 'hostedzone'.
 ltfrResourceType :: Lens' ListTagsForResource TagResourceType
 ltfrResourceType = lens _ltfrResourceType (\s a -> s { _ltfrResourceType = a })
 

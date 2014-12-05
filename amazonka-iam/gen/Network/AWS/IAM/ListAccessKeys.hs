@@ -34,6 +34,9 @@
 -- action to manage root credentials even if the AWS account has no associated
 -- users.
 --
+-- To ensure the security of your AWS account, the secret access key is
+-- accessible only during key and user creation.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html>
 module Network.AWS.IAM.ListAccessKeys
     (

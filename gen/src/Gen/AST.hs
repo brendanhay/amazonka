@@ -679,8 +679,7 @@ prefixWaiters ds = Map.map go
         fromMaybe (error $ "Unable to find data type:\n" ++ show (k, Map.keys ds))
                   (Map.lookup k ds)
 
-    firstName f = -- trace (show (f ^. nameOf, universeOn typeOf f))
-        head . mapMaybe name $ universeOn typeOf f
+    firstName f = head . mapMaybe name $ universeOn typeOf f
 
     name :: Type -> Maybe Text
     name (TType k) = Just k

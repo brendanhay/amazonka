@@ -685,6 +685,7 @@ instance ToXML ChangeAction where
 
 data TagResourceType
     = Healthcheck -- ^ healthcheck
+    | Hostedzone  -- ^ hostedzone
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable TagResourceType
@@ -692,11 +693,14 @@ instance Hashable TagResourceType
 instance FromText TagResourceType where
     parser = takeText >>= \case
         "healthcheck" -> pure Healthcheck
+        "hostedzone"  -> pure Hostedzone
         e             -> fail $
             "Failure parsing TagResourceType from " ++ show e
 
 instance ToText TagResourceType where
-    toText Healthcheck = "healthcheck"
+    toText = \case
+        Healthcheck -> "healthcheck"
+        Hostedzone  -> "hostedzone"
 
 instance ToByteString TagResourceType
 instance ToHeader     TagResourceType
@@ -1013,7 +1017,11 @@ resourceTagSet p1 = ResourceTagSet
 rtsResourceId :: Lens' ResourceTagSet (Maybe Text)
 rtsResourceId = lens _rtsResourceId (\s a -> s { _rtsResourceId = a })
 
--- | The type of the resource. The resource type for health checks is 'healthcheck'.
+-- | The type of the resource.
+--
+-- - The resource type for health checks is 'healthcheck'.
+--
+-- - The resource type for hosted zones is 'hostedzone'.
 rtsResourceType :: Lens' ResourceTagSet (Maybe TagResourceType)
 rtsResourceType = lens _rtsResourceType (\s a -> s { _rtsResourceType = a })
 

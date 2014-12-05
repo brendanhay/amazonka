@@ -75,6 +75,18 @@ module Network.AWS.IAM.Types
     , ipPath
     , ipRoles
 
+    -- * RoleDetail
+    , RoleDetail
+    , roleDetail
+    , rdArn
+    , rdAssumeRolePolicyDocument
+    , rdCreateDate
+    , rdInstanceProfileList
+    , rdPath
+    , rdRoleId
+    , rdRoleName
+    , rdRolePolicyList
+
     -- * ReportFormatType
     , ReportFormatType (..)
 
@@ -100,8 +112,21 @@ module Network.AWS.IAM.Types
     , lpPasswordResetRequired
     , lpUserName
 
+    -- * EntityType
+    , EntityType (..)
+
     -- * SummaryKeyType
     , SummaryKeyType (..)
+
+    -- * GroupDetail
+    , GroupDetail
+    , groupDetail
+    , gdArn
+    , gdCreateDate
+    , gdGroupId
+    , gdGroupName
+    , gdGroupPolicyList
+    , gdPath
 
     -- * ReportStateType
     , ReportStateType (..)
@@ -115,6 +140,12 @@ module Network.AWS.IAM.Types
     , uPath
     , uUserId
     , uUserName
+
+    -- * PolicyDetail
+    , PolicyDetail
+    , policyDetail
+    , pdPolicyDocument
+    , pdPolicyName
 
     -- * StatusType
     , StatusType (..)
@@ -135,6 +166,17 @@ module Network.AWS.IAM.Types
     , rPath
     , rRoleId
     , rRoleName
+
+    -- * UserDetail
+    , UserDetail
+    , userDetail
+    , udArn
+    , udCreateDate
+    , udGroupList
+    , udPath
+    , udUserId
+    , udUserName
+    , udUserPolicyList
 
     -- * ServerCertificate
     , ServerCertificate
@@ -432,7 +474,7 @@ group p1 p2 p3 p4 p5 = Group
 gArn :: Lens' Group Text
 gArn = lens _gArn (\s a -> s { _gArn = a })
 
--- | The date when the group was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the group was created.
 gCreateDate :: Lens' Group UTCTime
 gCreateDate = lens _gCreateDate (\s a -> s { _gCreateDate = a }) . _Time
 
@@ -441,7 +483,7 @@ gCreateDate = lens _gCreateDate (\s a -> s { _gCreateDate = a }) . _Time
 gGroupId :: Lens' Group Text
 gGroupId = lens _gGroupId (\s a -> s { _gGroupId = a })
 
--- | The name that identifies the group.
+-- | The friendly name that identifies the group.
 gGroupName :: Lens' Group Text
 gGroupName = lens _gGroupName (\s a -> s { _gGroupName = a })
 
@@ -605,6 +647,110 @@ instance ToQuery InstanceProfile where
         , "InstanceProfileName" =? _ipInstanceProfileName
         , "Path"                =? _ipPath
         , "Roles"               =? _ipRoles
+        ]
+
+data RoleDetail = RoleDetail
+    { _rdArn                      :: Maybe Text
+    , _rdAssumeRolePolicyDocument :: Maybe Text
+    , _rdCreateDate               :: Maybe ISO8601
+    , _rdInstanceProfileList      :: List "member" InstanceProfile
+    , _rdPath                     :: Maybe Text
+    , _rdRoleId                   :: Maybe Text
+    , _rdRoleName                 :: Maybe Text
+    , _rdRolePolicyList           :: List "member" PolicyDetail
+    } deriving (Eq, Show)
+
+-- | 'RoleDetail' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rdArn' @::@ 'Maybe' 'Text'
+--
+-- * 'rdAssumeRolePolicyDocument' @::@ 'Maybe' 'Text'
+--
+-- * 'rdCreateDate' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'rdInstanceProfileList' @::@ ['InstanceProfile']
+--
+-- * 'rdPath' @::@ 'Maybe' 'Text'
+--
+-- * 'rdRoleId' @::@ 'Maybe' 'Text'
+--
+-- * 'rdRoleName' @::@ 'Maybe' 'Text'
+--
+-- * 'rdRolePolicyList' @::@ ['PolicyDetail']
+--
+roleDetail :: RoleDetail
+roleDetail = RoleDetail
+    { _rdPath                     = Nothing
+    , _rdRoleName                 = Nothing
+    , _rdRoleId                   = Nothing
+    , _rdArn                      = Nothing
+    , _rdCreateDate               = Nothing
+    , _rdAssumeRolePolicyDocument = Nothing
+    , _rdInstanceProfileList      = mempty
+    , _rdRolePolicyList           = mempty
+    }
+
+rdArn :: Lens' RoleDetail (Maybe Text)
+rdArn = lens _rdArn (\s a -> s { _rdArn = a })
+
+-- | The trust policy that grants an entity permission to assume the role.
+--
+-- The returned policy is URL-encoded according to <http://www.faqs.org/rfcs/rfc3986.html RFC 3986>.
+rdAssumeRolePolicyDocument :: Lens' RoleDetail (Maybe Text)
+rdAssumeRolePolicyDocument =
+    lens _rdAssumeRolePolicyDocument
+        (\s a -> s { _rdAssumeRolePolicyDocument = a })
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the role was created.
+rdCreateDate :: Lens' RoleDetail (Maybe UTCTime)
+rdCreateDate = lens _rdCreateDate (\s a -> s { _rdCreateDate = a }) . mapping _Time
+
+rdInstanceProfileList :: Lens' RoleDetail [InstanceProfile]
+rdInstanceProfileList =
+    lens _rdInstanceProfileList (\s a -> s { _rdInstanceProfileList = a })
+        . _List
+
+-- | The path to the role. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+rdPath :: Lens' RoleDetail (Maybe Text)
+rdPath = lens _rdPath (\s a -> s { _rdPath = a })
+
+-- | The stable and unique string identifying the role. For more information about
+-- IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+rdRoleId :: Lens' RoleDetail (Maybe Text)
+rdRoleId = lens _rdRoleId (\s a -> s { _rdRoleId = a })
+
+-- | The friendly name that identifies the role.
+rdRoleName :: Lens' RoleDetail (Maybe Text)
+rdRoleName = lens _rdRoleName (\s a -> s { _rdRoleName = a })
+
+-- | A list of the access (permissions) policies attached to the role.
+rdRolePolicyList :: Lens' RoleDetail [PolicyDetail]
+rdRolePolicyList = lens _rdRolePolicyList (\s a -> s { _rdRolePolicyList = a }) . _List
+
+instance FromXML RoleDetail where
+    parseXML x = RoleDetail
+        <$> x .@? "Arn"
+        <*> x .@? "AssumeRolePolicyDocument"
+        <*> x .@? "CreateDate"
+        <*> x .@? "InstanceProfileList" .!@ mempty
+        <*> x .@? "Path"
+        <*> x .@? "RoleId"
+        <*> x .@? "RoleName"
+        <*> x .@? "RolePolicyList" .!@ mempty
+
+instance ToQuery RoleDetail where
+    toQuery RoleDetail{..} = mconcat
+        [ "Arn"                      =? _rdArn
+        , "AssumeRolePolicyDocument" =? _rdAssumeRolePolicyDocument
+        , "CreateDate"               =? _rdCreateDate
+        , "InstanceProfileList"      =? _rdInstanceProfileList
+        , "Path"                     =? _rdPath
+        , "RoleId"                   =? _rdRoleId
+        , "RoleName"                 =? _rdRoleName
+        , "RolePolicyList"           =? _rdRolePolicyList
         ]
 
 data ReportFormatType
@@ -796,6 +942,35 @@ instance ToQuery LoginProfile where
         , "UserName"              =? _lpUserName
         ]
 
+data EntityType
+    = ETGroup -- ^ Group
+    | ETRole  -- ^ Role
+    | ETUser  -- ^ User
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable EntityType
+
+instance FromText EntityType where
+    parser = takeText >>= \case
+        "Group" -> pure ETGroup
+        "Role"  -> pure ETRole
+        "User"  -> pure ETUser
+        e       -> fail $
+            "Failure parsing EntityType from " ++ show e
+
+instance ToText EntityType where
+    toText = \case
+        ETGroup -> "Group"
+        ETRole  -> "Role"
+        ETUser  -> "User"
+
+instance ToByteString EntityType
+instance ToHeader     EntityType
+instance ToQuery      EntityType
+
+instance FromXML EntityType where
+    parseXML = parseXMLText "EntityType"
+
 data SummaryKeyType
     = AccessKeysPerUserQuota          -- ^ AccessKeysPerUserQuota
     | AccountMFAEnabled               -- ^ AccountMFAEnabled
@@ -857,6 +1032,87 @@ instance ToQuery      SummaryKeyType
 
 instance FromXML SummaryKeyType where
     parseXML = parseXMLText "SummaryKeyType"
+
+data GroupDetail = GroupDetail
+    { _gdArn             :: Maybe Text
+    , _gdCreateDate      :: Maybe ISO8601
+    , _gdGroupId         :: Maybe Text
+    , _gdGroupName       :: Maybe Text
+    , _gdGroupPolicyList :: List "member" PolicyDetail
+    , _gdPath            :: Maybe Text
+    } deriving (Eq, Show)
+
+-- | 'GroupDetail' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gdArn' @::@ 'Maybe' 'Text'
+--
+-- * 'gdCreateDate' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'gdGroupId' @::@ 'Maybe' 'Text'
+--
+-- * 'gdGroupName' @::@ 'Maybe' 'Text'
+--
+-- * 'gdGroupPolicyList' @::@ ['PolicyDetail']
+--
+-- * 'gdPath' @::@ 'Maybe' 'Text'
+--
+groupDetail :: GroupDetail
+groupDetail = GroupDetail
+    { _gdPath            = Nothing
+    , _gdGroupName       = Nothing
+    , _gdGroupId         = Nothing
+    , _gdArn             = Nothing
+    , _gdCreateDate      = Nothing
+    , _gdGroupPolicyList = mempty
+    }
+
+gdArn :: Lens' GroupDetail (Maybe Text)
+gdArn = lens _gdArn (\s a -> s { _gdArn = a })
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the group was created.
+gdCreateDate :: Lens' GroupDetail (Maybe UTCTime)
+gdCreateDate = lens _gdCreateDate (\s a -> s { _gdCreateDate = a }) . mapping _Time
+
+-- | The stable and unique string identifying the group. For more information
+-- about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+gdGroupId :: Lens' GroupDetail (Maybe Text)
+gdGroupId = lens _gdGroupId (\s a -> s { _gdGroupId = a })
+
+-- | The friendly name that identifies the group.
+gdGroupName :: Lens' GroupDetail (Maybe Text)
+gdGroupName = lens _gdGroupName (\s a -> s { _gdGroupName = a })
+
+-- | A list of the policies attached to the group.
+gdGroupPolicyList :: Lens' GroupDetail [PolicyDetail]
+gdGroupPolicyList =
+    lens _gdGroupPolicyList (\s a -> s { _gdGroupPolicyList = a })
+        . _List
+
+-- | The path to the group. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+gdPath :: Lens' GroupDetail (Maybe Text)
+gdPath = lens _gdPath (\s a -> s { _gdPath = a })
+
+instance FromXML GroupDetail where
+    parseXML x = GroupDetail
+        <$> x .@? "Arn"
+        <*> x .@? "CreateDate"
+        <*> x .@? "GroupId"
+        <*> x .@? "GroupName"
+        <*> x .@? "GroupPolicyList" .!@ mempty
+        <*> x .@? "Path"
+
+instance ToQuery GroupDetail where
+    toQuery GroupDetail{..} = mconcat
+        [ "Arn"             =? _gdArn
+        , "CreateDate"      =? _gdCreateDate
+        , "GroupId"         =? _gdGroupId
+        , "GroupName"       =? _gdGroupName
+        , "GroupPolicyList" =? _gdGroupPolicyList
+        , "Path"            =? _gdPath
+        ]
 
 data ReportStateType
     = Complete   -- ^ COMPLETE
@@ -981,6 +1237,46 @@ instance ToQuery User where
         , "Path"             =? _uPath
         , "UserId"           =? _uUserId
         , "UserName"         =? _uUserName
+        ]
+
+data PolicyDetail = PolicyDetail
+    { _pdPolicyDocument :: Maybe Text
+    , _pdPolicyName     :: Maybe Text
+    } deriving (Eq, Ord, Show)
+
+-- | 'PolicyDetail' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pdPolicyDocument' @::@ 'Maybe' 'Text'
+--
+-- * 'pdPolicyName' @::@ 'Maybe' 'Text'
+--
+policyDetail :: PolicyDetail
+policyDetail = PolicyDetail
+    { _pdPolicyName     = Nothing
+    , _pdPolicyDocument = Nothing
+    }
+
+-- | The policy document.
+--
+-- The returned policy is URL-encoded according to <http://www.faqs.org/rfcs/rfc3986.html RFC 3986>.
+pdPolicyDocument :: Lens' PolicyDetail (Maybe Text)
+pdPolicyDocument = lens _pdPolicyDocument (\s a -> s { _pdPolicyDocument = a })
+
+-- | The name of the policy.
+pdPolicyName :: Lens' PolicyDetail (Maybe Text)
+pdPolicyName = lens _pdPolicyName (\s a -> s { _pdPolicyName = a })
+
+instance FromXML PolicyDetail where
+    parseXML x = PolicyDetail
+        <$> x .@? "PolicyDocument"
+        <*> x .@? "PolicyName"
+
+instance ToQuery PolicyDetail where
+    toQuery PolicyDetail{..} = mconcat
+        [ "PolicyDocument" =? _pdPolicyDocument
+        , "PolicyName"     =? _pdPolicyName
         ]
 
 data StatusType
@@ -1108,14 +1404,13 @@ rArn = lens _rArn (\s a -> s { _rArn = a })
 
 -- | The policy that grants an entity permission to assume the role.
 --
--- The returned policy is URL-encoded according to RFC 3986. For more
--- information about RFC 3986, go to <http://www.faqs.org/rfcs/rfc3986.html http://www.faqs.org/rfcs/rfc3986.html>.
+-- The returned policy is URL-encoded according to <http://www.faqs.org/rfcs/rfc3986.html RFC 3986>.
 rAssumeRolePolicyDocument :: Lens' Role (Maybe Text)
 rAssumeRolePolicyDocument =
     lens _rAssumeRolePolicyDocument
         (\s a -> s { _rAssumeRolePolicyDocument = a })
 
--- | The date when the role was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the role was created.
 rCreateDate :: Lens' Role UTCTime
 rCreateDate = lens _rCreateDate (\s a -> s { _rCreateDate = a }) . _Time
 
@@ -1129,7 +1424,7 @@ rPath = lens _rPath (\s a -> s { _rPath = a })
 rRoleId :: Lens' Role Text
 rRoleId = lens _rRoleId (\s a -> s { _rRoleId = a })
 
--- | The name that identifies the role.
+-- | The friendly name that identifies the role.
 rRoleName :: Lens' Role Text
 rRoleName = lens _rRoleName (\s a -> s { _rRoleName = a })
 
@@ -1150,6 +1445,95 @@ instance ToQuery Role where
         , "Path"                     =? _rPath
         , "RoleId"                   =? _rRoleId
         , "RoleName"                 =? _rRoleName
+        ]
+
+data UserDetail = UserDetail
+    { _udArn            :: Maybe Text
+    , _udCreateDate     :: Maybe ISO8601
+    , _udGroupList      :: List "member" Text
+    , _udPath           :: Maybe Text
+    , _udUserId         :: Maybe Text
+    , _udUserName       :: Maybe Text
+    , _udUserPolicyList :: List "member" PolicyDetail
+    } deriving (Eq, Show)
+
+-- | 'UserDetail' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'udArn' @::@ 'Maybe' 'Text'
+--
+-- * 'udCreateDate' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'udGroupList' @::@ ['Text']
+--
+-- * 'udPath' @::@ 'Maybe' 'Text'
+--
+-- * 'udUserId' @::@ 'Maybe' 'Text'
+--
+-- * 'udUserName' @::@ 'Maybe' 'Text'
+--
+-- * 'udUserPolicyList' @::@ ['PolicyDetail']
+--
+userDetail :: UserDetail
+userDetail = UserDetail
+    { _udPath           = Nothing
+    , _udUserName       = Nothing
+    , _udUserId         = Nothing
+    , _udArn            = Nothing
+    , _udCreateDate     = Nothing
+    , _udUserPolicyList = mempty
+    , _udGroupList      = mempty
+    }
+
+udArn :: Lens' UserDetail (Maybe Text)
+udArn = lens _udArn (\s a -> s { _udArn = a })
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the user was created.
+udCreateDate :: Lens' UserDetail (Maybe UTCTime)
+udCreateDate = lens _udCreateDate (\s a -> s { _udCreateDate = a }) . mapping _Time
+
+-- | A list of the IAM groups that the user is in.
+udGroupList :: Lens' UserDetail [Text]
+udGroupList = lens _udGroupList (\s a -> s { _udGroupList = a }) . _List
+
+-- | The path to the user. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+udPath :: Lens' UserDetail (Maybe Text)
+udPath = lens _udPath (\s a -> s { _udPath = a })
+
+-- | The stable and unique string identifying the user. For more information about
+-- IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+udUserId :: Lens' UserDetail (Maybe Text)
+udUserId = lens _udUserId (\s a -> s { _udUserId = a })
+
+-- | The friendly name identifying the user.
+udUserName :: Lens' UserDetail (Maybe Text)
+udUserName = lens _udUserName (\s a -> s { _udUserName = a })
+
+-- | A list of the policies attached to the user.
+udUserPolicyList :: Lens' UserDetail [PolicyDetail]
+udUserPolicyList = lens _udUserPolicyList (\s a -> s { _udUserPolicyList = a }) . _List
+
+instance FromXML UserDetail where
+    parseXML x = UserDetail
+        <$> x .@? "Arn"
+        <*> x .@? "CreateDate"
+        <*> x .@? "GroupList" .!@ mempty
+        <*> x .@? "Path"
+        <*> x .@? "UserId"
+        <*> x .@? "UserName"
+        <*> x .@? "UserPolicyList" .!@ mempty
+
+instance ToQuery UserDetail where
+    toQuery UserDetail{..} = mconcat
+        [ "Arn"            =? _udArn
+        , "CreateDate"     =? _udCreateDate
+        , "GroupList"      =? _udGroupList
+        , "Path"           =? _udPath
+        , "UserId"         =? _udUserId
+        , "UserName"       =? _udUserName
+        , "UserPolicyList" =? _udUserPolicyList
         ]
 
 data ServerCertificate = ServerCertificate

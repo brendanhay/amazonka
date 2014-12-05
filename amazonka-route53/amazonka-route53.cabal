@@ -66,6 +66,7 @@ library
         , Network.AWS.Route53.ListTagsForResources
         , Network.AWS.Route53.Types
         , Network.AWS.Route53.UpdateHealthCheck
+        , Network.AWS.Route53.UpdateHostedZoneComment
 
     other-modules:
           Network.AWS.Route53.Internal

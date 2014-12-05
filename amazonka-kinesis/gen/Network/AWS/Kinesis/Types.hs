@@ -54,6 +54,21 @@ module Network.AWS.Kinesis.Types
     , sdStreamName
     , sdStreamStatus
 
+    -- * PutRecordsResultEntry
+    , PutRecordsResultEntry
+    , putRecordsResultEntry
+    , prreErrorCode
+    , prreErrorMessage
+    , prreSequenceNumber
+    , prreShardId
+
+    -- * PutRecordsRequestEntry
+    , PutRecordsRequestEntry
+    , putRecordsRequestEntry
+    , prreData
+    , prreExplicitHashKey
+    , prrePartitionKey
+
     -- * StreamStatus
     , StreamStatus (..)
 
@@ -324,6 +339,127 @@ instance ToJSON StreamDescription where
         , "HasMoreShards" .= _sdHasMoreShards
         ]
 
+data PutRecordsResultEntry = PutRecordsResultEntry
+    { _prreErrorCode      :: Maybe Text
+    , _prreErrorMessage   :: Maybe Text
+    , _prreSequenceNumber :: Maybe Text
+    , _prreShardId        :: Maybe Text
+    } deriving (Eq, Ord, Show)
+
+-- | 'PutRecordsResultEntry' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'prreErrorCode' @::@ 'Maybe' 'Text'
+--
+-- * 'prreErrorMessage' @::@ 'Maybe' 'Text'
+--
+-- * 'prreSequenceNumber' @::@ 'Maybe' 'Text'
+--
+-- * 'prreShardId' @::@ 'Maybe' 'Text'
+--
+putRecordsResultEntry :: PutRecordsResultEntry
+putRecordsResultEntry = PutRecordsResultEntry
+    { _prreSequenceNumber = Nothing
+    , _prreShardId        = Nothing
+    , _prreErrorCode      = Nothing
+    , _prreErrorMessage   = Nothing
+    }
+
+-- | The error code for an individual record result. 'ErrorCodes' can be either 'ProvisionedThroughputExceededException' or 'InternalFailure'.
+prreErrorCode :: Lens' PutRecordsResultEntry (Maybe Text)
+prreErrorCode = lens _prreErrorCode (\s a -> s { _prreErrorCode = a })
+
+-- | The error message for an individual record result. An 'ErrorCode' value of 'ProvisionedThroughputExceededException' has an error message that includes the account ID, stream name, and shard
+-- ID. An 'ErrorCode' value of 'InternalFailure' has the error message '"InternalService Failure"'.
+prreErrorMessage :: Lens' PutRecordsResultEntry (Maybe Text)
+prreErrorMessage = lens _prreErrorMessage (\s a -> s { _prreErrorMessage = a })
+
+-- | The sequence number for an individual record result.
+prreSequenceNumber :: Lens' PutRecordsResultEntry (Maybe Text)
+prreSequenceNumber =
+    lens _prreSequenceNumber (\s a -> s { _prreSequenceNumber = a })
+
+-- | The shard ID for an individual record result.
+prreShardId :: Lens' PutRecordsResultEntry (Maybe Text)
+prreShardId = lens _prreShardId (\s a -> s { _prreShardId = a })
+
+instance FromJSON PutRecordsResultEntry where
+    parseJSON = withObject "PutRecordsResultEntry" $ \o -> PutRecordsResultEntry
+        <$> o .:? "ErrorCode"
+        <*> o .:? "ErrorMessage"
+        <*> o .:? "SequenceNumber"
+        <*> o .:? "ShardId"
+
+instance ToJSON PutRecordsResultEntry where
+    toJSON PutRecordsResultEntry{..} = object
+        [ "SequenceNumber" .= _prreSequenceNumber
+        , "ShardId"        .= _prreShardId
+        , "ErrorCode"      .= _prreErrorCode
+        , "ErrorMessage"   .= _prreErrorMessage
+        ]
+
+data PutRecordsRequestEntry = PutRecordsRequestEntry
+    { _prreData            :: Base64
+    , _prreExplicitHashKey :: Maybe Text
+    , _prrePartitionKey    :: Text
+    } deriving (Eq, Show)
+
+-- | 'PutRecordsRequestEntry' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'prreData' @::@ 'Base64'
+--
+-- * 'prreExplicitHashKey' @::@ 'Maybe' 'Text'
+--
+-- * 'prrePartitionKey' @::@ 'Text'
+--
+putRecordsRequestEntry :: Base64 -- ^ 'prreData'
+                       -> Text -- ^ 'prrePartitionKey'
+                       -> PutRecordsRequestEntry
+putRecordsRequestEntry p1 p2 = PutRecordsRequestEntry
+    { _prreData            = p1
+    , _prrePartitionKey    = p2
+    , _prreExplicitHashKey = Nothing
+    }
+
+-- | The data blob to put into the record, which is base64-encoded when the blob
+-- is serialized. The maximum size of the data blob (the payload before
+-- base64-encoding) is 50 kilobytes (KB)
+prreData :: Lens' PutRecordsRequestEntry Base64
+prreData = lens _prreData (\s a -> s { _prreData = a })
+
+-- | The hash value used to determine explicitly the shard that the data record is
+-- assigned to by overriding the partition key hash.
+prreExplicitHashKey :: Lens' PutRecordsRequestEntry (Maybe Text)
+prreExplicitHashKey =
+    lens _prreExplicitHashKey (\s a -> s { _prreExplicitHashKey = a })
+
+-- | Determines which shard in the stream the data record is assigned to.
+-- Partition keys are Unicode strings with a maximum length limit of 256 bytes.
+-- Amazon Kinesis uses the partition key as input to a hash function that maps
+-- the partition key and associated data to a specific shard. Specifically, an
+-- MD5 hash function is used to map partition keys to 128-bit integer values and
+-- to map associated data records to shards. As a result of this hashing
+-- mechanism, all data records with the same partition key map to the same shard
+-- within the stream.
+prrePartitionKey :: Lens' PutRecordsRequestEntry Text
+prrePartitionKey = lens _prrePartitionKey (\s a -> s { _prrePartitionKey = a })
+
+instance FromJSON PutRecordsRequestEntry where
+    parseJSON = withObject "PutRecordsRequestEntry" $ \o -> PutRecordsRequestEntry
+        <$> o .:  "Data"
+        <*> o .:? "ExplicitHashKey"
+        <*> o .:  "PartitionKey"
+
+instance ToJSON PutRecordsRequestEntry where
+    toJSON PutRecordsRequestEntry{..} = object
+        [ "Data"            .= _prreData
+        , "ExplicitHashKey" .= _prreExplicitHashKey
+        , "PartitionKey"    .= _prrePartitionKey
+        ]
+
 data StreamStatus
     = Active   -- ^ ACTIVE
     | Creating -- ^ CREATING
@@ -429,7 +565,7 @@ record p1 p2 p3 = Record
 -- | The data blob. The data in the blob is both opaque and immutable to the
 -- Amazon Kinesis service, which does not inspect, interpret, or change the data
 -- in the blob in any way. The maximum size of the data blob (the payload before
--- Base64-encoding) is 50 kilobytes (KB)
+-- base64-encoding) is 50 kilobytes (KB)
 rData :: Lens' Record Base64
 rData = lens _rData (\s a -> s { _rData = a })
 

@@ -24,6 +24,11 @@
 
 -- | Updates the password policy settings for the AWS account.
 --
+-- This action does not support partial updates. No parameters are required,
+-- but if you do not specify a parameter, that parameter's value reverts to its
+-- default value. See the Request Parameters section for each parameter's
+-- default value.
+--
 -- For more information about using a password policy, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAMPassword Policy> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html>

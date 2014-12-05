@@ -45,9 +45,6 @@ module Network.AWS.Types
     -- * Retries
     , Retry         (..)
 
-    -- * Waiters
-    , Wait          (..)
-
     -- * Endpoints
     , Endpoint      (..)
     , endpoint
@@ -367,14 +364,6 @@ data Retry a = Exponential
     , _retryGrowth   :: !Int
     , _retryAttempts :: !Int
     , _retryCheck    :: Status -> Er a -> Bool
-    }
-
--- | Timing and acceptance criteria to check fulfillment of a remote operation.
-data Wait a = Wait
-    { _waitName     :: !ByteString
-    , _waitDelay    :: !Int
-    , _waitAttempts :: !Int
-    , _waitSuccess  :: Rs a -> Bool
     }
 
 -- | An unsigned request.

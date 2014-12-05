@@ -3,13 +3,42 @@
         "waiters": {
             "TableNotExists": {
                 "operation": "DescribeTable",
-                "acceptors": [],
+                "acceptors": [
+                    {
+                        "matcher": "error",
+                        "state": "success",
+                        "argument": null,
+                        "expected": "\"ResourceNotFoundException\""
+                    }
+                ],
                 "maxAttempts": 25,
                 "delay": 20
             },
             "TableExists": {
                 "operation": "DescribeTable",
-                "acceptors": [],
+                "acceptors": [
+                    {
+                        "matcher": "path",
+                        "state": "success",
+                        "argument": {
+                            "contents": [
+                                "dtrTable",
+                                {
+                                    "contents": "tdTableStatus",
+                                    "type": "access"
+                                }
+                            ],
+                            "type": "nested"
+                        },
+                        "expected": "\"ACTIVE\""
+                    },
+                    {
+                        "matcher": "error",
+                        "state": "retry",
+                        "argument": null,
+                        "expected": "\"ResourceNotFoundException\""
+                    }
+                ],
                 "maxAttempts": 25,
                 "delay": 20
             }

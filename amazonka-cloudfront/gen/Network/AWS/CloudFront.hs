@@ -44,7 +44,6 @@ module Network.AWS.CloudFront
     , module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     , module Network.AWS.CloudFront.UpdateDistribution
     , module Network.AWS.CloudFront.UpdateStreamingDistribution
-    , module Network.AWS.CloudFront.Waiters
     ) where
 
 import Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
@@ -69,4 +68,3 @@ import Network.AWS.CloudFront.Types
 import Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
 import Network.AWS.CloudFront.UpdateDistribution
 import Network.AWS.CloudFront.UpdateStreamingDistribution
-import Network.AWS.CloudFront.Waiters

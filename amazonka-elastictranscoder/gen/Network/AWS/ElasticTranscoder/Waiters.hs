@@ -16,12 +16,16 @@
 module Network.AWS.ElasticTranscoder.Waiters where
 
 import Network.AWS.ElasticTranscoder.ReadJob
-import Network.AWS.Types
+import Network.AWS.Waiter
 
 jobComplete :: Wait ReadJob
 jobComplete = Wait
-    { _waitName     = "JobComplete"
-    , _waitDelay    = 30
-    , _waitAttempts = 120
-    , _waitAccept   = const True
+    { _waitName      = "JobComplete"
+    , _waitAttempts  = 120
+    , _waitDelay     = 30
+    , _waitAcceptors =
+        [ path Success {"contents":["rjrJob",{"contents":"jStatus","type":"access"}],"type":"nested"} "Complete"
+        , path Failure {"contents":["rjrJob",{"contents":"jStatus","type":"access"}],"type":"nested"} "Canceled"
+        , path Failure {"contents":["rjrJob",{"contents":"jStatus","type":"access"}],"type":"nested"} "Error"
+        ]
     }

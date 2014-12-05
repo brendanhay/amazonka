@@ -69,6 +69,7 @@ module Network.AWS.EC2.CreateSnapshot
     -- ** Response lenses
     , csr1Description
     , csr1Encrypted
+    , csr1KmsKeyId
     , csr1OwnerAlias
     , csr1OwnerId
     , csr1Progress
@@ -123,6 +124,7 @@ cs2VolumeId = lens _cs2VolumeId (\s a -> s { _cs2VolumeId = a })
 data CreateSnapshotResponse = CreateSnapshotResponse
     { _csr1Description :: Maybe Text
     , _csr1Encrypted   :: Maybe Bool
+    , _csr1KmsKeyId    :: Maybe Text
     , _csr1OwnerAlias  :: Maybe Text
     , _csr1OwnerId     :: Maybe Text
     , _csr1Progress    :: Maybe Text
@@ -141,6 +143,8 @@ data CreateSnapshotResponse = CreateSnapshotResponse
 -- * 'csr1Description' @::@ 'Maybe' 'Text'
 --
 -- * 'csr1Encrypted' @::@ 'Maybe' 'Bool'
+--
+-- * 'csr1KmsKeyId' @::@ 'Maybe' 'Text'
 --
 -- * 'csr1OwnerAlias' @::@ 'Maybe' 'Text'
 --
@@ -173,6 +177,7 @@ createSnapshotResponse = CreateSnapshotResponse
     , _csr1OwnerAlias  = Nothing
     , _csr1Tags        = mempty
     , _csr1Encrypted   = Nothing
+    , _csr1KmsKeyId    = Nothing
     }
 
 -- | The description for the snapshot.
@@ -182,6 +187,12 @@ csr1Description = lens _csr1Description (\s a -> s { _csr1Description = a })
 -- | Indicates whether the snapshot is encrypted.
 csr1Encrypted :: Lens' CreateSnapshotResponse (Maybe Bool)
 csr1Encrypted = lens _csr1Encrypted (\s a -> s { _csr1Encrypted = a })
+
+-- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
+-- (CMK) that was used to protect the volume encryption key for the parent
+-- volume.
+csr1KmsKeyId :: Lens' CreateSnapshotResponse (Maybe Text)
+csr1KmsKeyId = lens _csr1KmsKeyId (\s a -> s { _csr1KmsKeyId = a })
 
 -- | The AWS account alias (for example, 'amazon', 'self') or AWS account ID that owns
 -- the snapshot.
@@ -243,6 +254,7 @@ instance FromXML CreateSnapshotResponse where
     parseXML x = CreateSnapshotResponse
         <$> x .@? "description"
         <*> x .@? "encrypted"
+        <*> x .@? "kmsKeyId"
         <*> x .@? "ownerAlias"
         <*> x .@? "ownerId"
         <*> x .@? "progress"

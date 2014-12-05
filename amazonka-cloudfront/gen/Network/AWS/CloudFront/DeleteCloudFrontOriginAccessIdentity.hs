@@ -84,7 +84,7 @@ deleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdent
 
 instance ToPath DeleteCloudFrontOriginAccessIdentity where
     toPath DeleteCloudFrontOriginAccessIdentity{..} = mconcat
-        [ "/2014-05-31/origin-access-identity/cloudfront/"
+        [ "/2014-10-21/origin-access-identity/cloudfront/"
         , toText _dcfoaiId
         ]
 

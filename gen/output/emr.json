@@ -3,7 +3,113 @@
         "waiters": {
             "ClusterRunning": {
                 "operation": "DescribeCluster",
-                "acceptors": [],
+                "acceptors": [
+                    {
+                        "matcher": "path",
+                        "state": "success",
+                        "argument": {
+                            "contents": [
+                                "dcrCluster",
+                                {
+                                    "contents": [
+                                        "c1Status",
+                                        {
+                                            "contents": "csState",
+                                            "type": "access"
+                                        }
+                                    ],
+                                    "type": "nested"
+                                }
+                            ],
+                            "type": "nested"
+                        },
+                        "expected": "\"RUNNING\""
+                    },
+                    {
+                        "matcher": "path",
+                        "state": "success",
+                        "argument": {
+                            "contents": [
+                                "dcrCluster",
+                                {
+                                    "contents": [
+                                        "c1Status",
+                                        {
+                                            "contents": "csState",
+                                            "type": "access"
+                                        }
+                                    ],
+                                    "type": "nested"
+                                }
+                            ],
+                            "type": "nested"
+                        },
+                        "expected": "\"WAITING\""
+                    },
+                    {
+                        "matcher": "path",
+                        "state": "failure",
+                        "argument": {
+                            "contents": [
+                                "dcrCluster",
+                                {
+                                    "contents": [
+                                        "c1Status",
+                                        {
+                                            "contents": "csState",
+                                            "type": "access"
+                                        }
+                                    ],
+                                    "type": "nested"
+                                }
+                            ],
+                            "type": "nested"
+                        },
+                        "expected": "\"TERMINATING\""
+                    },
+                    {
+                        "matcher": "path",
+                        "state": "failure",
+                        "argument": {
+                            "contents": [
+                                "dcrCluster",
+                                {
+                                    "contents": [
+                                        "c1Status",
+                                        {
+                                            "contents": "csState",
+                                            "type": "access"
+                                        }
+                                    ],
+                                    "type": "nested"
+                                }
+                            ],
+                            "type": "nested"
+                        },
+                        "expected": "\"TERMINATED\""
+                    },
+                    {
+                        "matcher": "path",
+                        "state": "failure",
+                        "argument": {
+                            "contents": [
+                                "dcrCluster",
+                                {
+                                    "contents": [
+                                        "c1Status",
+                                        {
+                                            "contents": "csState",
+                                            "type": "access"
+                                        }
+                                    ],
+                                    "type": "nested"
+                                }
+                            ],
+                            "type": "nested"
+                        },
+                        "expected": "\"TERMINATED_WITH_ERRORS\""
+                    }
+                ],
                 "maxAttempts": 60,
                 "delay": 30
             }

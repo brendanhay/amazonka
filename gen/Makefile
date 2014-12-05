@@ -85,7 +85,9 @@ vendor/%:
 	git clone git@github.com:brendanhay/$*.git $@
 
 input:
-	cp -rf vendor/botocore/botocore/data/aws $@
+	cp -rf vendor/botocore/botocore/data/aws $@ && \
+ rm input/cloudfront/2014-10-21.waiters.json && \
+ rm input/cloudfront/2014-05-31.waiters.json
 
 output:
 	@mkdir $@

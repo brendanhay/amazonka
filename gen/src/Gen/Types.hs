@@ -543,6 +543,77 @@ instance FromJSON Retries where
 
         def = "__default__"
 
+data MatchType
+    = MatchPath
+    | MatchPathAll
+    | MatchPathAny
+    | MatchStatus
+    | MatchError
+      deriving (Eq, Show)
+
+nullary (input  & thCtor .~ ctor "Match") ''MatchType
+nullary (output & thCtor .~ ctor "Match") ''MatchType
+
+data StateType
+    = StateRetry
+    | StateSuccess
+    | StateFailure
+      deriving (Eq, Show)
+
+nullary (input  & thCtor .~ ctor "State") ''StateType
+nullary (output & thCtor .~ ctor "State") ''StateType
+
+newtype Expected = Expected (Either Int Text)
+    deriving (Eq, Show)
+
+instance FromJSON Expected where
+    parseJSON (String s) = pure $ Expected (Right s)
+    parseJSON o          = Expected . Left <$> parseJSON o
+
+instance A.ToJSON Expected where
+    toJSON (Expected (Right s)) = A.toJSON ("\"" <> s <> "\"")
+    toJSON (Expected (Left  n)) = A.toJSON n
+
+data Notation
+    = Indexed !Text !Notation
+    | Nested  !Text !Notation
+    | Access  !Text
+      deriving (Eq, Show)
+
+instance FromJSON Notation where
+    parseJSON = withText "notation" (either fail pure . parseOnly note)
+      where
+        note :: Parser Notation
+        note = (indexed <|> nested <|> access) <* AText.endOfInput
+
+        indexed = Indexed <$> key <* AText.string "[]." <*> note
+        nested  = Nested  <$> key <* AText.char '.'     <*> note
+        access  = Access  <$> key
+
+        key = AText.takeWhile1 (AText.notInClass "[].")
+
+nullary output ''Notation
+
+data Acceptor = Acceptor
+    { _aExpected :: !Expected
+    , _aMatcher  :: !MatchType
+    , _aState    :: !StateType
+    , _aArgument :: Maybe Notation
+    } deriving (Eq, Show)
+
+record  input  ''Acceptor
+nullary output ''Acceptor
+
+data Waiter = Waiter
+    { _wDelay       :: !Int
+    , _wMaxAttempts :: !Int
+    , _wOperation   :: !Text
+    , _wAcceptors   :: [Acceptor]
+    } deriving (Show, Eq)
+
+record  input  ''Waiter
+nullary output ''Waiter
+
 data Model = Model
     { _mName      :: String
     , _mVersion   :: String

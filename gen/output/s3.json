@@ -3,25 +3,65 @@
         "waiters": {
             "ObjectNotExists": {
                 "operation": "HeadObject",
-                "acceptors": [],
+                "acceptors": [
+                    {
+                        "matcher": "status",
+                        "state": "success",
+                        "argument": null,
+                        "expected": 404
+                    }
+                ],
                 "maxAttempts": 20,
                 "delay": 5
             },
             "BucketExists": {
                 "operation": "HeadBucket",
-                "acceptors": [],
+                "acceptors": [
+                    {
+                        "matcher": "status",
+                        "state": "success",
+                        "argument": null,
+                        "expected": 200
+                    },
+                    {
+                        "matcher": "status",
+                        "state": "retry",
+                        "argument": null,
+                        "expected": 404
+                    }
+                ],
                 "maxAttempts": 20,
                 "delay": 5
             },
             "ObjectExists": {
                 "operation": "HeadObject",
-                "acceptors": [],
+                "acceptors": [
+                    {
+                        "matcher": "status",
+                        "state": "success",
+                        "argument": null,
+                        "expected": 200
+                    },
+                    {
+                        "matcher": "status",
+                        "state": "retry",
+                        "argument": null,
+                        "expected": 404
+                    }
+                ],
                 "maxAttempts": 20,
                 "delay": 5
             },
             "BucketNotExists": {
                 "operation": "HeadBucket",
-                "acceptors": [],
+                "acceptors": [
+                    {
+                        "matcher": "status",
+                        "state": "success",
+                        "argument": null,
+                        "expected": 404
+                    }
+                ],
                 "maxAttempts": 20,
                 "delay": 5
             }

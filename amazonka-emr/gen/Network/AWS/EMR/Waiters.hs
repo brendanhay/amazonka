@@ -16,12 +16,18 @@
 module Network.AWS.EMR.Waiters where
 
 import Network.AWS.EMR.DescribeCluster
-import Network.AWS.Types
+import Network.AWS.Waiter
 
 clusterRunning :: Wait DescribeCluster
 clusterRunning = Wait
-    { _waitName     = "ClusterRunning"
-    , _waitDelay    = 30
-    , _waitAttempts = 60
-    , _waitAccept   = const True
+    { _waitName      = "ClusterRunning"
+    , _waitAttempts  = 60
+    , _waitDelay     = 30
+    , _waitAcceptors =
+        [ path Success {"contents":["dcrCluster",{"contents":["c1Status",{"contents":"csState","type":"access"}],"type":"nested"}],"type":"nested"} "RUNNING"
+        , path Success {"contents":["dcrCluster",{"contents":["c1Status",{"contents":"csState","type":"access"}],"type":"nested"}],"type":"nested"} "WAITING"
+        , path Failure {"contents":["dcrCluster",{"contents":["c1Status",{"contents":"csState","type":"access"}],"type":"nested"}],"type":"nested"} "TERMINATING"
+        , path Failure {"contents":["dcrCluster",{"contents":["c1Status",{"contents":"csState","type":"access"}],"type":"nested"}],"type":"nested"} "TERMINATED"
+        , path Failure {"contents":["dcrCluster",{"contents":["c1Status",{"contents":"csState","type":"access"}],"type":"nested"}],"type":"nested"} "TERMINATED_WITH_ERRORS"
+        ]
     }

@@ -74,6 +74,7 @@ module Network.AWS.EC2.Types
     , snapshot
     , sDescription
     , sEncrypted
+    , sKmsKeyId
     , sOwnerAlias
     , sOwnerId
     , sProgress
@@ -409,6 +410,7 @@ module Network.AWS.EC2.Types
     , vCreateTime
     , vEncrypted
     , vIops
+    , vKmsKeyId
     , vSize
     , vSnapshotId
     , vState
@@ -1402,7 +1404,7 @@ import Network.AWS.Signing
 import Network.AWS.EC2.Internal
 import qualified GHC.Exts
 
--- | Version @2014-09-01@ of the Amazon Elastic Compute Cloud service.
+-- | Version @2014-10-01@ of the Amazon Elastic Compute Cloud service.
 data EC2
 
 instance AWSService EC2 where
@@ -1415,7 +1417,7 @@ instance AWSService EC2 where
         service' = Service
             { _svcAbbrev       = "EC2"
             , _svcPrefix       = "ec2"
-            , _svcVersion      = "2014-09-01"
+            , _svcVersion      = "2014-10-01"
             , _svcTargetPrefix = Nothing
             , _svcJSONVersion  = Nothing
             , _svcHandle       = handle
@@ -1445,7 +1447,7 @@ instance AWSService EC2 where
             | otherwise = False
 
 ns :: Text
-ns = "http://ec2.amazonaws.com/doc/2014-09-01"
+ns = "http://ec2.amazonaws.com/doc/2014-10-01"
 {-# INLINE ns #-}
 
 data ImageAttributeName
@@ -1758,6 +1760,7 @@ instance ToQuery ImportInstanceLaunchSpecification where
 data Snapshot = Snapshot
     { _sDescription :: Maybe Text
     , _sEncrypted   :: Maybe Bool
+    , _sKmsKeyId    :: Maybe Text
     , _sOwnerAlias  :: Maybe Text
     , _sOwnerId     :: Maybe Text
     , _sProgress    :: Maybe Text
@@ -1776,6 +1779,8 @@ data Snapshot = Snapshot
 -- * 'sDescription' @::@ 'Maybe' 'Text'
 --
 -- * 'sEncrypted' @::@ 'Maybe' 'Bool'
+--
+-- * 'sKmsKeyId' @::@ 'Maybe' 'Text'
 --
 -- * 'sOwnerAlias' @::@ 'Maybe' 'Text'
 --
@@ -1808,6 +1813,7 @@ snapshot = Snapshot
     , _sOwnerAlias  = Nothing
     , _sTags        = mempty
     , _sEncrypted   = Nothing
+    , _sKmsKeyId    = Nothing
     }
 
 -- | The description for the snapshot.
@@ -1817,6 +1823,12 @@ sDescription = lens _sDescription (\s a -> s { _sDescription = a })
 -- | Indicates whether the snapshot is encrypted.
 sEncrypted :: Lens' Snapshot (Maybe Bool)
 sEncrypted = lens _sEncrypted (\s a -> s { _sEncrypted = a })
+
+-- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
+-- (CMK) that was used to protect the volume encryption key for the parent
+-- volume.
+sKmsKeyId :: Lens' Snapshot (Maybe Text)
+sKmsKeyId = lens _sKmsKeyId (\s a -> s { _sKmsKeyId = a })
 
 -- | The AWS account alias (for example, 'amazon', 'self') or AWS account ID that owns
 -- the snapshot.
@@ -1859,6 +1871,7 @@ instance FromXML Snapshot where
     parseXML x = Snapshot
         <$> x .@? "description"
         <*> x .@? "encrypted"
+        <*> x .@? "kmsKeyId"
         <*> x .@? "ownerAlias"
         <*> x .@? "ownerId"
         <*> x .@? "progress"
@@ -1873,6 +1886,7 @@ instance ToQuery Snapshot where
     toQuery Snapshot{..} = mconcat
         [ "description" =? _sDescription
         , "encrypted"   =? _sEncrypted
+        , "kmsKeyId"    =? _sKmsKeyId
         , "ownerAlias"  =? _sOwnerAlias
         , "ownerId"     =? _sOwnerId
         , "progress"    =? _sProgress
@@ -2619,6 +2633,7 @@ attributeValue = AttributeValue
     { _avValue = Nothing
     }
 
+-- | Valid values are case-sensitive and vary by action.
 avValue :: Lens' AttributeValue (Maybe Text)
 avValue = lens _avValue (\s a -> s { _avValue = a })
 
@@ -4525,6 +4540,7 @@ data Volume = Volume
     , _vCreateTime       :: Maybe ISO8601
     , _vEncrypted        :: Maybe Bool
     , _vIops             :: Maybe Int
+    , _vKmsKeyId         :: Maybe Text
     , _vSize             :: Maybe Int
     , _vSnapshotId       :: Maybe Text
     , _vState            :: Maybe VolumeState
@@ -4546,6 +4562,8 @@ data Volume = Volume
 -- * 'vEncrypted' @::@ 'Maybe' 'Bool'
 --
 -- * 'vIops' @::@ 'Maybe' 'Int'
+--
+-- * 'vKmsKeyId' @::@ 'Maybe' 'Text'
 --
 -- * 'vSize' @::@ 'Maybe' 'Int'
 --
@@ -4572,6 +4590,7 @@ volume = Volume
     , _vVolumeType       = Nothing
     , _vIops             = Nothing
     , _vEncrypted        = Nothing
+    , _vKmsKeyId         = Nothing
     }
 
 vAttachments :: Lens' Volume [VolumeAttachment]
@@ -4605,6 +4624,11 @@ vEncrypted = lens _vEncrypted (\s a -> s { _vEncrypted = a })
 vIops :: Lens' Volume (Maybe Int)
 vIops = lens _vIops (\s a -> s { _vIops = a })
 
+-- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
+-- (CMK) that was used to protect the volume encryption key for the volume.
+vKmsKeyId :: Lens' Volume (Maybe Text)
+vKmsKeyId = lens _vKmsKeyId (\s a -> s { _vKmsKeyId = a })
+
 -- | The size of the volume, in GiBs.
 vSize :: Lens' Volume (Maybe Int)
 vSize = lens _vSize (\s a -> s { _vSize = a })
@@ -4637,6 +4661,7 @@ instance FromXML Volume where
         <*> x .@? "createTime"
         <*> x .@? "encrypted"
         <*> x .@? "iops"
+        <*> x .@? "kmsKeyId"
         <*> x .@? "size"
         <*> x .@? "snapshotId"
         <*> x .@? "status"
@@ -4651,6 +4676,7 @@ instance ToQuery Volume where
         , "createTime"       =? _vCreateTime
         , "encrypted"        =? _vEncrypted
         , "iops"             =? _vIops
+        , "kmsKeyId"         =? _vKmsKeyId
         , "size"             =? _vSize
         , "snapshotId"       =? _vSnapshotId
         , "status"           =? _vState
@@ -9750,11 +9776,11 @@ filter' p1 = Filter
     , _fValues = mempty
     }
 
--- | The name of the filter.
+-- | The name of the filter. Filter names are case-sensitive.
 fName :: Lens' Filter Text
 fName = lens _fName (\s a -> s { _fName = a })
 
--- | One or more filter values.
+-- | One or more filter values. Filter values are case-sensitive.
 fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\s a -> s { _fValues = a }) . _List
 
@@ -10057,6 +10083,7 @@ attributeBooleanValue = AttributeBooleanValue
     { _abvValue = Nothing
     }
 
+-- | Valid values are 'true' or 'false'.
 abvValue :: Lens' AttributeBooleanValue (Maybe Bool)
 abvValue = lens _abvValue (\s a -> s { _abvValue = a })
 

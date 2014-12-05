@@ -48,6 +48,7 @@ module Network.AWS.EC2.CreateVolume
     , cv1DryRun
     , cv1Encrypted
     , cv1Iops
+    , cv1KmsKeyId
     , cv1Size
     , cv1SnapshotId
     , cv1VolumeType
@@ -62,6 +63,7 @@ module Network.AWS.EC2.CreateVolume
     , cvrCreateTime
     , cvrEncrypted
     , cvrIops
+    , cvrKmsKeyId
     , cvrSize
     , cvrSnapshotId
     , cvrState
@@ -80,6 +82,7 @@ data CreateVolume = CreateVolume
     , _cv1DryRun           :: Maybe Bool
     , _cv1Encrypted        :: Maybe Bool
     , _cv1Iops             :: Maybe Int
+    , _cv1KmsKeyId         :: Maybe Text
     , _cv1Size             :: Maybe Int
     , _cv1SnapshotId       :: Maybe Text
     , _cv1VolumeType       :: Maybe VolumeType
@@ -97,6 +100,8 @@ data CreateVolume = CreateVolume
 --
 -- * 'cv1Iops' @::@ 'Maybe' 'Int'
 --
+-- * 'cv1KmsKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'cv1Size' @::@ 'Maybe' 'Int'
 --
 -- * 'cv1SnapshotId' @::@ 'Maybe' 'Text'
@@ -113,6 +118,7 @@ createVolume p1 = CreateVolume
     , _cv1VolumeType       = Nothing
     , _cv1Iops             = Nothing
     , _cv1Encrypted        = Nothing
+    , _cv1KmsKeyId         = Nothing
     }
 
 -- | The Availability Zone in which to create the volume. Use 'DescribeAvailabilityZones' to list the Availability Zones that are currently available to you.
@@ -132,9 +138,18 @@ cv1Encrypted = lens _cv1Encrypted (\s a -> s { _cv1Encrypted = a })
 cv1Iops :: Lens' CreateVolume (Maybe Int)
 cv1Iops = lens _cv1Iops (\s a -> s { _cv1Iops = a })
 
+-- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
+-- (CMK) to use when creating the encrypted volume. This parameter is only
+-- required if you want to use a non-default CMK; if this parameter is not
+-- specified, the default CMK is used. The ARN contains the 'arn:aws:kms'
+-- namespace, followed by the region of the CMK, the AWS account ID of the CMK
+-- owner, the 'key' namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/:/012345678910/:key//abcd1234-a123-456a-a12b-a123b4cd56ef/.
+cv1KmsKeyId :: Lens' CreateVolume (Maybe Text)
+cv1KmsKeyId = lens _cv1KmsKeyId (\s a -> s { _cv1KmsKeyId = a })
+
 -- | The size of the volume, in GiBs.
 --
--- Constraints: If the volume type is 'io1', the minimum size of the volume is 10
+-- Constraints: If the volume type is 'io1', the minimum size of the volume is 4
 -- GiB.
 --
 -- Default: If you're creating the volume from a snapshot and don't specify a
@@ -159,6 +174,7 @@ data CreateVolumeResponse = CreateVolumeResponse
     , _cvrCreateTime       :: Maybe ISO8601
     , _cvrEncrypted        :: Maybe Bool
     , _cvrIops             :: Maybe Int
+    , _cvrKmsKeyId         :: Maybe Text
     , _cvrSize             :: Maybe Int
     , _cvrSnapshotId       :: Maybe Text
     , _cvrState            :: Maybe VolumeState
@@ -180,6 +196,8 @@ data CreateVolumeResponse = CreateVolumeResponse
 -- * 'cvrEncrypted' @::@ 'Maybe' 'Bool'
 --
 -- * 'cvrIops' @::@ 'Maybe' 'Int'
+--
+-- * 'cvrKmsKeyId' @::@ 'Maybe' 'Text'
 --
 -- * 'cvrSize' @::@ 'Maybe' 'Int'
 --
@@ -206,6 +224,7 @@ createVolumeResponse = CreateVolumeResponse
     , _cvrVolumeType       = Nothing
     , _cvrIops             = Nothing
     , _cvrEncrypted        = Nothing
+    , _cvrKmsKeyId         = Nothing
     }
 
 cvrAttachments :: Lens' CreateVolumeResponse [VolumeAttachment]
@@ -238,6 +257,11 @@ cvrEncrypted = lens _cvrEncrypted (\s a -> s { _cvrEncrypted = a })
 -- is not used in requests to create 'standard' or 'gp2' volumes.
 cvrIops :: Lens' CreateVolumeResponse (Maybe Int)
 cvrIops = lens _cvrIops (\s a -> s { _cvrIops = a })
+
+-- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
+-- (CMK) that was used to protect the volume encryption key for the volume.
+cvrKmsKeyId :: Lens' CreateVolumeResponse (Maybe Text)
+cvrKmsKeyId = lens _cvrKmsKeyId (\s a -> s { _cvrKmsKeyId = a })
 
 -- | The size of the volume, in GiBs.
 cvrSize :: Lens' CreateVolumeResponse (Maybe Int)
@@ -273,6 +297,7 @@ instance ToQuery CreateVolume where
         , "dryRun"           =? _cv1DryRun
         , "encrypted"        =? _cv1Encrypted
         , "Iops"             =? _cv1Iops
+        , "KmsKeyId"         =? _cv1KmsKeyId
         , "Size"             =? _cv1Size
         , "SnapshotId"       =? _cv1SnapshotId
         , "VolumeType"       =? _cv1VolumeType
@@ -294,6 +319,7 @@ instance FromXML CreateVolumeResponse where
         <*> x .@? "createTime"
         <*> x .@? "encrypted"
         <*> x .@? "iops"
+        <*> x .@? "kmsKeyId"
         <*> x .@? "size"
         <*> x .@? "snapshotId"
         <*> x .@? "status"

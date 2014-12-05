@@ -19,27 +19,35 @@ import Network.AWS.CloudFront.GetDistribution
 import Network.AWS.CloudFront.GetInvalidation
 import Network.AWS.CloudFront.GetStreamingDistribution
 import Network.AWS.Types
+import Network.AWS.Waiter
 
 distributionDeployed :: Wait GetDistribution
 distributionDeployed = Wait
-    { _waitName     = "DistributionDeployed"
-    , _waitDelay    = 60
-    , _waitAttempts = 25
-    , _waitAccept   = const True
+    { _waitName      = "DistributionDeployed"
+    , _waitAttempts  = 25
+    , _waitDelay     = 60
+    , _waitAcceptors =
+        [ path Success Status "Deployed"
+        ]
     }
 
 invalidationCompleted :: Wait GetInvalidation
 invalidationCompleted = Wait
-    { _waitName     = "InvalidationCompleted"
-    , _waitDelay    = 20
-    , _waitAttempts = 30
-    , _waitAccept   = const True
+    { _waitName      = "InvalidationCompleted"
+    , _waitAttempts  = 30
+    , _waitDelay     = 20
+    , _waitAcceptors =
+        [ path Success Status "Completed"
+        ]
     }
 
 streamingDistributionDeployed :: Wait GetStreamingDistribution
 streamingDistributionDeployed = Wait
-    { _waitName     = "StreamingDistributionDeployed"
-    , _waitDelay    = 60
-    , _waitAttempts = 25
-    , _waitAccept   = const True
+    { _waitName      = "StreamingDistributionDeployed"
+    , _waitAttempts  = 25
+    , _waitDelay     = 60
+    , _waitAcceptors =
+        [ path Success Status "Deployed"
+        ]
     }
+

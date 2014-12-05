@@ -16,20 +16,25 @@
 module Network.AWS.DynamoDB.Waiters where
 
 import Network.AWS.DynamoDB.DescribeTable
-import Network.AWS.Types
+import Network.AWS.Waiter
 
 tableExists :: Wait DescribeTable
 tableExists = Wait
-    { _waitName     = "TableExists"
-    , _waitDelay    = 20
-    , _waitAttempts = 25
-    , _waitAccept   = const True
+    { _waitName      = "TableExists"
+    , _waitAttempts  = 25
+    , _waitDelay     = 20
+    , _waitAcceptors =
+        [ path Success {"contents":["dtrTable",{"contents":"tdTableStatus","type":"access"}],"type":"nested"} "ACTIVE"
+        , error Retry null "ResourceNotFoundException"
+        ]
     }
 
 tableNotExists :: Wait DescribeTable
 tableNotExists = Wait
-    { _waitName     = "TableNotExists"
-    , _waitDelay    = 20
-    , _waitAttempts = 25
-    , _waitAccept   = const True
+    { _waitName      = "TableNotExists"
+    , _waitAttempts  = 25
+    , _waitDelay     = 20
+    , _waitAcceptors =
+        [ error Success null "ResourceNotFoundException"
+        ]
     }

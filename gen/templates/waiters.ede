@@ -8,14 +8,20 @@
 module {{ namespace }} where
 
 {% include "_include/imports.ede" %}
-import Network.AWS.Types
+import Network.AWS.Waiter
 {% for waiter in waiters %}
 
 {{ waiter.key | waiter }} :: Wait {{ waiter.value.operation }}
 {{ waiter.key | waiter }} = Wait
-    { _waitName     = "{{ waiter.key }}"
-    , _waitDelay    = {{ waiter.value.delay }}
-    , _waitAttempts = {{ waiter.value.maxAttempts }}
-    , _waitAccept   = const True
+    { _waitName      = "{{ waiter.key }}"
+    , _waitAttempts  = {{ waiter.value.maxAttempts }}
+    , _waitDelay     = {{ waiter.value.delay }}
+    , _waitAcceptors =
+    {% for accept in waiter.value.acceptors %}
+        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.state | upperHead }} {{ accept.value.argument | show }} {{ accept.value.expected }}
+    {% else %}
+        [
+    {% endfor %}
+        ]
     }
 {% endfor %}

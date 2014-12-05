@@ -17,36 +17,46 @@ module Network.AWS.S3.Waiters where
 
 import Network.AWS.S3.HeadBucket
 import Network.AWS.S3.HeadObject
-import Network.AWS.Types
+import Network.AWS.Waiter
 
 bucketExists :: Wait HeadBucket
 bucketExists = Wait
-    { _waitName     = "BucketExists"
-    , _waitDelay    = 5
-    , _waitAttempts = 20
-    , _waitAccept   = const True
+    { _waitName      = "BucketExists"
+    , _waitAttempts  = 20
+    , _waitDelay     = 5
+    , _waitAcceptors =
+        [ status Success null 200
+        , status Retry null 404
+        ]
     }
 
 bucketNotExists :: Wait HeadBucket
 bucketNotExists = Wait
-    { _waitName     = "BucketNotExists"
-    , _waitDelay    = 5
-    , _waitAttempts = 20
-    , _waitAccept   = const True
+    { _waitName      = "BucketNotExists"
+    , _waitAttempts  = 20
+    , _waitDelay     = 5
+    , _waitAcceptors =
+        [ status Success null 404
+        ]
     }
 
 objectExists :: Wait HeadObject
 objectExists = Wait
-    { _waitName     = "ObjectExists"
-    , _waitDelay    = 5
-    , _waitAttempts = 20
-    , _waitAccept   = const True
+    { _waitName      = "ObjectExists"
+    , _waitAttempts  = 20
+    , _waitDelay     = 5
+    , _waitAcceptors =
+        [ status Success null 200
+        , status Retry null 404
+        ]
     }
 
 objectNotExists :: Wait HeadObject
 objectNotExists = Wait
-    { _waitName     = "ObjectNotExists"
-    , _waitDelay    = 5
-    , _waitAttempts = 20
-    , _waitAccept   = const True
+    { _waitName      = "ObjectNotExists"
+    , _waitAttempts  = 20
+    , _waitDelay     = 5
+    , _waitAcceptors =
+        [ status Success null 404
+        ]
     }

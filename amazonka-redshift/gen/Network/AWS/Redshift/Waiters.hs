@@ -17,28 +17,40 @@ module Network.AWS.Redshift.Waiters where
 
 import Network.AWS.Redshift.DescribeClusterSnapshots
 import Network.AWS.Redshift.DescribeClusters
-import Network.AWS.Types
+import Network.AWS.Waiter
 
 clusterAvailable :: Wait DescribeClusters
 clusterAvailable = Wait
-    { _waitName     = "ClusterAvailable"
-    , _waitDelay    = 60
-    , _waitAttempts = 30
-    , _waitAccept   = const True
+    { _waitName      = "ClusterAvailable"
+    , _waitAttempts  = 30
+    , _waitDelay     = 60
+    , _waitAcceptors =
+        [ pathAll Success {"contents":["dcrClusters",{"contents":"cClusterStatus","type":"access"}],"type":"indexed"} "available"
+        , pathAny Failure {"contents":["dcrClusters",{"contents":"cClusterStatus","type":"access"}],"type":"indexed"} "deleting"
+        , error Retry null "ClusterNotFound"
+        ]
     }
 
 clusterDeleted :: Wait DescribeClusters
 clusterDeleted = Wait
-    { _waitName     = "ClusterDeleted"
-    , _waitDelay    = 60
-    , _waitAttempts = 30
-    , _waitAccept   = const True
+    { _waitName      = "ClusterDeleted"
+    , _waitAttempts  = 30
+    , _waitDelay     = 60
+    , _waitAcceptors =
+        [ error Success null "ClusterNotFound"
+        , pathAny Failure {"contents":["dcrClusters",{"contents":"cClusterStatus","type":"access"}],"type":"indexed"} "creating"
+        , pathAny Failure {"contents":["dcrClusters",{"contents":"cClusterStatus","type":"access"}],"type":"indexed"} "rebooting"
+        ]
     }
 
 snapshotAvailable :: Wait DescribeClusterSnapshots
 snapshotAvailable = Wait
-    { _waitName     = "SnapshotAvailable"
-    , _waitDelay    = 15
-    , _waitAttempts = 20
-    , _waitAccept   = const True
+    { _waitName      = "SnapshotAvailable"
+    , _waitAttempts  = 20
+    , _waitDelay     = 15
+    , _waitAcceptors =
+        [ pathAll Success {"contents":["dcsrSnapshots",{"contents":"sStatus","type":"access"}],"type":"indexed"} "available"
+        , pathAny Failure {"contents":["dcsrSnapshots",{"contents":"sStatus","type":"access"}],"type":"indexed"} "failed"
+        , pathAny Failure {"contents":["dcsrSnapshots",{"contents":"sStatus","type":"access"}],"type":"indexed"} "deleted"
+        ]
     }

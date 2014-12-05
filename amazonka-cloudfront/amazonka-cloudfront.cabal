@@ -65,7 +65,6 @@ library
         , Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.UpdateDistribution
         , Network.AWS.CloudFront.UpdateStreamingDistribution
-        , Network.AWS.CloudFront.Waiters
 
     other-modules:
 

@@ -3,7 +3,29 @@
         "waiters": {
             "IdentityExists": {
                 "operation": "GetIdentityVerificationAttributes",
-                "acceptors": [],
+                "acceptors": [
+                    {
+                        "matcher": "pathAll",
+                        "state": "success",
+                        "argument": {
+                            "contents": [
+                                "givarVerificationAttributes",
+                                {
+                                    "contents": [
+                                        "traverseValues",
+                                        {
+                                            "contents": "ivaVerificationStatus",
+                                            "type": "access"
+                                        }
+                                    ],
+                                    "type": "nested"
+                                }
+                            ],
+                            "type": "nested"
+                        },
+                        "expected": "\"Success\""
+                    }
+                ],
                 "maxAttempts": 20,
                 "delay": 3
             }

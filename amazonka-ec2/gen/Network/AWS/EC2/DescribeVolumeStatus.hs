@@ -54,6 +54,11 @@
 -- calling the 'EnableVolumeIO' action and then check the volume for data
 -- consistency.
 --
+-- Volume status is based on the volume status checks, and does not reflect
+-- the volume state. Therefore, volume status does not indicate volumes in the 'error' state (for example, when a volume is incapable of accepting I/O.)
+--
+--
+--
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumeStatus.html>
 module Network.AWS.EC2.DescribeVolumeStatus
     (

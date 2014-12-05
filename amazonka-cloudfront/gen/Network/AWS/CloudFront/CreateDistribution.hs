@@ -108,7 +108,7 @@ cdrLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrLocation = lens _cdrLocation (\s a -> s { _cdrLocation = a })
 
 instance ToPath CreateDistribution where
-    toPath = const "/2014-05-31/distribution"
+    toPath = const "/2014-10-21/distribution"
 
 instance ToQuery CreateDistribution where
     toQuery = const mempty

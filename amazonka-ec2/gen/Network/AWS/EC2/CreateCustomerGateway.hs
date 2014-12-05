@@ -34,6 +34,10 @@
 -- assigned to your network. If you don't have an ASN already, you can use a
 -- private ASN (in the 64512 - 65534 range).
 --
+-- Amazon EC2 supports all 2-byte ASN numbers in the range of 1 - 65534, with
+-- the exception of 7224, which is reserved in the 'us-east-1' region, and 9059,
+-- which is reserved in the 'eu-west-1' region.
+--
 -- For more information about VPN customer gateways, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a HardwareVirtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud UserGuide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateCustomerGateway.html>

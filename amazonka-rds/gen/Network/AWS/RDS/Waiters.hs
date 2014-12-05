@@ -16,20 +16,35 @@
 module Network.AWS.RDS.Waiters where
 
 import Network.AWS.RDS.DescribeDBInstances
-import Network.AWS.Types
+import Network.AWS.Waiter
 
 dbInstanceAvailable :: Wait DescribeDBInstances
 dbInstanceAvailable = Wait
-    { _waitName     = "DBInstanceAvailable"
-    , _waitDelay    = 30
-    , _waitAttempts = 60
-    , _waitAccept   = const True
+    { _waitName      = "DBInstanceAvailable"
+    , _waitAttempts  = 60
+    , _waitDelay     = 30
+    , _waitAcceptors =
+        [ pathAll Success {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "available"
+        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "deleted"
+        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "deleting"
+        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "failed"
+        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "incompatible-restore"
+        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "incompatible-parameters"
+        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "incompatible-parameters"
+        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "incompatible-restore"
+        ]
     }
 
 dbInstanceDeleted :: Wait DescribeDBInstances
 dbInstanceDeleted = Wait
-    { _waitName     = "DBInstanceDeleted"
-    , _waitDelay    = 30
-    , _waitAttempts = 60
-    , _waitAccept   = const True
+    { _waitName      = "DBInstanceDeleted"
+    , _waitAttempts  = 60
+    , _waitDelay     = 30
+    , _waitAcceptors =
+        [ pathAll Success {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "deleted"
+        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "creating"
+        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "modifying"
+        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "rebooting"
+        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "resetting-master-credentials"
+        ]
     }

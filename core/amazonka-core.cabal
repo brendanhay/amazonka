@@ -47,6 +47,7 @@ library
         , Network.AWS.Response
         , Network.AWS.Signing
         , Network.AWS.Types
+        , Network.AWS.Waiter
 
     other-modules:
           Network.AWS.Data.Internal.Base64

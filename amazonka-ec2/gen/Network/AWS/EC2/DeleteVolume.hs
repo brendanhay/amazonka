@@ -25,6 +25,8 @@
 -- | Deletes the specified Amazon EBS volume. The volume must be in the 'available'
 -- state (not attached to an instance).
 --
+-- The volume may remain in the 'deleting' state for several minutes.
+--
 -- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html Deleting an Amazon EBS Volume> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVolume.html>

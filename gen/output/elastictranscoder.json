@@ -3,7 +3,53 @@
         "waiters": {
             "JobComplete": {
                 "operation": "ReadJob",
-                "acceptors": [],
+                "acceptors": [
+                    {
+                        "matcher": "path",
+                        "state": "success",
+                        "argument": {
+                            "contents": [
+                                "rjrJob",
+                                {
+                                    "contents": "jStatus",
+                                    "type": "access"
+                                }
+                            ],
+                            "type": "nested"
+                        },
+                        "expected": "\"Complete\""
+                    },
+                    {
+                        "matcher": "path",
+                        "state": "failure",
+                        "argument": {
+                            "contents": [
+                                "rjrJob",
+                                {
+                                    "contents": "jStatus",
+                                    "type": "access"
+                                }
+                            ],
+                            "type": "nested"
+                        },
+                        "expected": "\"Canceled\""
+                    },
+                    {
+                        "matcher": "path",
+                        "state": "failure",
+                        "argument": {
+                            "contents": [
+                                "rjrJob",
+                                {
+                                    "contents": "jStatus",
+                                    "type": "access"
+                                }
+                            ],
+                            "type": "nested"
+                        },
+                        "expected": "\"Error\""
+                    }
+                ],
                 "maxAttempts": 120,
                 "delay": 30
             }

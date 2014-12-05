@@ -16,12 +16,14 @@
 module Network.AWS.SES.Waiters where
 
 import Network.AWS.SES.GetIdentityVerificationAttributes
-import Network.AWS.Types
+import Network.AWS.Waiter
 
 identityExists :: Wait GetIdentityVerificationAttributes
 identityExists = Wait
-    { _waitName     = "IdentityExists"
-    , _waitDelay    = 3
-    , _waitAttempts = 20
-    , _waitAccept   = const True
+    { _waitName      = "IdentityExists"
+    , _waitAttempts  = 20
+    , _waitDelay     = 3
+    , _waitAcceptors =
+        [ pathAll Success {"contents":["givarVerificationAttributes",{"contents":["traverseValues",{"contents":"ivaVerificationStatus","type":"access"}],"type":"nested"}],"type":"nested"} "Success"
+        ]
     }

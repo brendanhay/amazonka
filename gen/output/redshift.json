@@ -3,19 +3,139 @@
         "waiters": {
             "ClusterDeleted": {
                 "operation": "DescribeClusters",
-                "acceptors": [],
+                "acceptors": [
+                    {
+                        "matcher": "error",
+                        "state": "success",
+                        "argument": null,
+                        "expected": "\"ClusterNotFound\""
+                    },
+                    {
+                        "matcher": "pathAny",
+                        "state": "failure",
+                        "argument": {
+                            "contents": [
+                                "dcrClusters",
+                                {
+                                    "contents": "cClusterStatus",
+                                    "type": "access"
+                                }
+                            ],
+                            "type": "indexed"
+                        },
+                        "expected": "\"creating\""
+                    },
+                    {
+                        "matcher": "pathAny",
+                        "state": "failure",
+                        "argument": {
+                            "contents": [
+                                "dcrClusters",
+                                {
+                                    "contents": "cClusterStatus",
+                                    "type": "access"
+                                }
+                            ],
+                            "type": "indexed"
+                        },
+                        "expected": "\"rebooting\""
+                    }
+                ],
                 "maxAttempts": 30,
                 "delay": 60
             },
             "SnapshotAvailable": {
                 "operation": "DescribeClusterSnapshots",
-                "acceptors": [],
+                "acceptors": [
+                    {
+                        "matcher": "pathAll",
+                        "state": "success",
+                        "argument": {
+                            "contents": [
+                                "dcsrSnapshots",
+                                {
+                                    "contents": "sStatus",
+                                    "type": "access"
+                                }
+                            ],
+                            "type": "indexed"
+                        },
+                        "expected": "\"available\""
+                    },
+                    {
+                        "matcher": "pathAny",
+                        "state": "failure",
+                        "argument": {
+                            "contents": [
+                                "dcsrSnapshots",
+                                {
+                                    "contents": "sStatus",
+                                    "type": "access"
+                                }
+                            ],
+                            "type": "indexed"
+                        },
+                        "expected": "\"failed\""
+                    },
+                    {
+                        "matcher": "pathAny",
+                        "state": "failure",
+                        "argument": {
+                            "contents": [
+                                "dcsrSnapshots",
+                                {
+                                    "contents": "sStatus",
+                                    "type": "access"
+                                }
+                            ],
+                            "type": "indexed"
+                        },
+                        "expected": "\"deleted\""
+                    }
+                ],
                 "maxAttempts": 20,
                 "delay": 15
             },
             "ClusterAvailable": {
                 "operation": "DescribeClusters",
-                "acceptors": [],
+                "acceptors": [
+                    {
+                        "matcher": "pathAll",
+                        "state": "success",
+                        "argument": {
+                            "contents": [
+                                "dcrClusters",
+                                {
+                                    "contents": "cClusterStatus",
+                                    "type": "access"
+                                }
+                            ],
+                            "type": "indexed"
+                        },
+                        "expected": "\"available\""
+                    },
+                    {
+                        "matcher": "pathAny",
+                        "state": "failure",
+                        "argument": {
+                            "contents": [
+                                "dcrClusters",
+                                {
+                                    "contents": "cClusterStatus",
+                                    "type": "access"
+                                }
+                            ],
+                            "type": "indexed"
+                        },
+                        "expected": "\"deleting\""
+                    },
+                    {
+                        "matcher": "error",
+                        "state": "retry",
+                        "argument": null,
+                        "expected": "\"ClusterNotFound\""
+                    }
+                ],
                 "maxAttempts": 30,
                 "delay": 60
             }

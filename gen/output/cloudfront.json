@@ -1,31 +1,8 @@
 {
     "waiters": {
-        "waiters": {
-            "StreamingDistributionDeployed": {
-                "operation": "GetStreamingDistribution",
-                "acceptors": [],
-                "maxAttempts": 25,
-                "delay": 60
-            },
-            "DistributionDeployed": {
-                "operation": "GetDistribution",
-                "acceptors": [],
-                "maxAttempts": 25,
-                "delay": 60
-            },
-            "InvalidationCompleted": {
-                "operation": "GetInvalidation",
-                "acceptors": [],
-                "maxAttempts": 30,
-                "delay": 20
-            }
-        },
+        "waiters": {},
         "namespace": "Network.AWS.CloudFront.Waiters",
-        "imports": [
-            "Network.AWS.CloudFront.GetDistribution",
-            "Network.AWS.CloudFront.GetInvalidation",
-            "Network.AWS.CloudFront.GetStreamingDistribution"
-        ]
+        "imports": []
     },
     "service": {
         "signature": "V4",
@@ -57,13 +34,12 @@
             "Network.AWS.CloudFront.Types",
             "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity",
             "Network.AWS.CloudFront.UpdateDistribution",
-            "Network.AWS.CloudFront.UpdateStreamingDistribution",
-            "Network.AWS.CloudFront.Waiters"
+            "Network.AWS.CloudFront.UpdateStreamingDistribution"
         ],
         "name": "Amazon CloudFront",
-        "version": "2014-05-31",
+        "version": "2014-10-21",
         "documentation": "-- | Amazon CloudFront is a web service that speeds up distribution of your static\n-- and dynamic web content, for example, .html, .css, .php, image, and media\n-- files, to end users. CloudFront delivers your content through a worldwide\n-- network of edge locations. When an end user requests content that you're\n-- serving with CloudFront, the user is routed to the edge location that\n-- provides the lowest latency, so content is delivered with the best possible\n-- performance. If the content is already in that edge location, CloudFront\n-- delivers it immediately. If the content is not currently in that edge\n-- location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server\n-- (for example, a web server) that you have identified as the source for the\n-- definitive version of your content.",
-        "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-05-31/",
+        "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-10-21/",
         "jsonVersion": null,
         "retryDelay": {
             "base": 5.0e-2,
@@ -114,8 +90,7 @@
             "Network.AWS.CloudFront.Types",
             "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity",
             "Network.AWS.CloudFront.UpdateDistribution",
-            "Network.AWS.CloudFront.UpdateStreamingDistribution",
-            "Network.AWS.CloudFront.Waiters"
+            "Network.AWS.CloudFront.UpdateStreamingDistribution"
         ],
         "url": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/Welcome.html",
         "protocol": "rest-xml",
@@ -669,7 +644,7 @@
                     "Eq",
                     "Show"
                 ],
-                "fieldPad": 11,
+                "fieldPad": 16,
                 "ctor": "allowedMethods",
                 "contents": [
                     {
@@ -684,7 +659,7 @@
                         "name": "_amQuantity",
                         "shape": "integer",
                         "locationName": "Quantity",
-                        "documentation": "-- | The number of HTTP methods that you want CloudFront to forward to your\n-- origin. Valid values are 2 (for GET and HEAD requests) and 7 (for DELETE,\n-- GET, HEAD, OPTIONS, PATCH, POST, and PUT requests).",
+                        "documentation": "-- | The number of HTTP methods that you want CloudFront to forward to your\n-- origin. Valid values are 2 (for GET and HEAD requests), 3 (for GET, HEAD and\n-- OPTIONS requests) and 7 (for GET, HEAD, OPTIONS, PUT, PATCH, POST, and DELETE\n-- requests).",
                         "typeExposed": "Int",
                         "type": "Int"
                     },
@@ -698,11 +673,27 @@
                         "required": true,
                         "lens": "amItems",
                         "name": "_amItems",
-                        "shape": "AllowedMethodsList",
+                        "shape": "MethodsList",
                         "locationName": "Items",
                         "documentation": "-- | A complex type that contains the HTTP methods that you want CloudFront to\n-- process and forward to your origin.",
                         "typeExposed": "[Method]",
                         "type": "List \"Method\" Method"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "amCachedMethods",
+                        "name": "_amCachedMethods",
+                        "shape": "CachedMethods",
+                        "locationName": "CachedMethods",
+                        "documentation": null,
+                        "typeExposed": "Maybe CachedMethods",
+                        "type": "Maybe CachedMethods"
                     }
                 ],
                 "payload": null,
@@ -719,14 +710,14 @@
                         "name": "_amQuantity",
                         "shape": "integer",
                         "locationName": "Quantity",
-                        "documentation": "-- | The number of HTTP methods that you want CloudFront to forward to your\n-- origin. Valid values are 2 (for GET and HEAD requests) and 7 (for DELETE,\n-- GET, HEAD, OPTIONS, PATCH, POST, and PUT requests).",
+                        "documentation": "-- | The number of HTTP methods that you want CloudFront to forward to your\n-- origin. Valid values are 2 (for GET and HEAD requests), 3 (for GET, HEAD and\n-- OPTIONS requests) and 7 (for GET, HEAD, OPTIONS, PUT, PATCH, POST, and DELETE\n-- requests).",
                         "typeExposed": "Int",
                         "type": "Int"
                     }
                 ],
-                "contentPad": 9,
+                "contentPad": 14,
                 "name": "AllowedMethods",
-                "locationPad": 9,
+                "locationPad": 14,
                 "type": "record",
                 "optional": [
                     {
@@ -739,14 +730,46 @@
                         "required": true,
                         "lens": "amItems",
                         "name": "_amItems",
-                        "shape": "AllowedMethodsList",
+                        "shape": "MethodsList",
                         "locationName": "Items",
                         "documentation": "-- | A complex type that contains the HTTP methods that you want CloudFront to\n-- process and forward to your origin.",
                         "typeExposed": "[Method]",
                         "type": "List \"Method\" Method"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "amCachedMethods",
+                        "name": "_amCachedMethods",
+                        "shape": "CachedMethods",
+                        "locationName": "CachedMethods",
+                        "documentation": null,
+                        "typeExposed": "Maybe CachedMethods",
+                        "type": "Maybe CachedMethods"
                     }
                 ],
                 "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "amCachedMethods",
+                        "name": "_amCachedMethods",
+                        "shape": "CachedMethods",
+                        "locationName": "CachedMethods",
+                        "documentation": null,
+                        "typeExposed": "Maybe CachedMethods",
+                        "type": "Maybe CachedMethods"
+                    },
                     {
                         "location": null,
                         "iso": "_List",
@@ -757,7 +780,7 @@
                         "required": true,
                         "lens": "amItems",
                         "name": "_amItems",
-                        "shape": "AllowedMethodsList",
+                        "shape": "MethodsList",
                         "locationName": "Items",
                         "documentation": "-- | A complex type that contains the HTTP methods that you want CloudFront to\n-- process and forward to your origin.",
                         "typeExposed": "[Method]",
@@ -775,7 +798,7 @@
                         "name": "_amQuantity",
                         "shape": "integer",
                         "locationName": "Quantity",
-                        "documentation": "-- | The number of HTTP methods that you want CloudFront to forward to your\n-- origin. Valid values are 2 (for GET and HEAD requests) and 7 (for DELETE,\n-- GET, HEAD, OPTIONS, PATCH, POST, and PUT requests).",
+                        "documentation": "-- | The number of HTTP methods that you want CloudFront to forward to your\n-- origin. Valid values are 2 (for GET and HEAD requests), 3 (for GET, HEAD and\n-- OPTIONS requests) and 7 (for GET, HEAD, OPTIONS, PUT, PATCH, POST, and DELETE\n-- requests).",
                         "typeExposed": "Int",
                         "type": "Int"
                     }
@@ -5781,6 +5804,123 @@
                     "Eq",
                     "Show"
                 ],
+                "fieldPad": 11,
+                "ctor": "cachedMethods",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cmQuantity",
+                        "name": "_cmQuantity",
+                        "shape": "integer",
+                        "locationName": "Quantity",
+                        "documentation": "-- | The number of HTTP methods for which you want CloudFront to cache responses.\n-- Valid values are 2 (for caching responses to GET and HEAD requests) and 3\n-- (for caching responses to GET, HEAD, and OPTIONS requests).",
+                        "typeExposed": "Int",
+                        "type": "Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cmItems",
+                        "name": "_cmItems",
+                        "shape": "MethodsList",
+                        "locationName": "Items",
+                        "documentation": "-- | A complex type that contains the HTTP methods that you want CloudFront to\n-- cache responses to.",
+                        "typeExposed": "[Method]",
+                        "type": "List \"Method\" Method"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cmQuantity",
+                        "name": "_cmQuantity",
+                        "shape": "integer",
+                        "locationName": "Quantity",
+                        "documentation": "-- | The number of HTTP methods for which you want CloudFront to cache responses.\n-- Valid values are 2 (for caching responses to GET and HEAD requests) and 3\n-- (for caching responses to GET, HEAD, and OPTIONS requests).",
+                        "typeExposed": "Int",
+                        "type": "Int"
+                    }
+                ],
+                "contentPad": 9,
+                "name": "CachedMethods",
+                "locationPad": 9,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cmItems",
+                        "name": "_cmItems",
+                        "shape": "MethodsList",
+                        "locationName": "Items",
+                        "documentation": "-- | A complex type that contains the HTTP methods that you want CloudFront to\n-- cache responses to.",
+                        "typeExposed": "[Method]",
+                        "type": "List \"Method\" Method"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cmItems",
+                        "name": "_cmItems",
+                        "shape": "MethodsList",
+                        "locationName": "Items",
+                        "documentation": "-- | A complex type that contains the HTTP methods that you want CloudFront to\n-- cache responses to.",
+                        "typeExposed": "[Method]",
+                        "type": "List \"Method\" Method"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cmQuantity",
+                        "name": "_cmQuantity",
+                        "shape": "integer",
+                        "locationName": "Quantity",
+                        "documentation": "-- | The number of HTTP methods for which you want CloudFront to cache responses.\n-- Valid values are 2 (for caching responses to GET and HEAD requests) and 3\n-- (for caching responses to GET, HEAD, and OPTIONS requests).",
+                        "typeExposed": "Int",
+                        "type": "Int"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
                 "fieldPad": 31,
                 "ctor": "viewerCertificate",
                 "contents": [
@@ -5831,6 +5971,22 @@
                         "documentation": "-- | If you specify a value for IAMCertificateId, you must also specify how you\n-- want CloudFront to serve HTTPS requests. Valid values are vip and sni-only.\n-- If you specify vip, CloudFront uses dedicated IP addresses for your content\n-- and can respond to HTTPS requests from any viewer. However, you must request\n-- permission to use this feature, and you incur additional monthly charges. If\n-- you specify sni-only, CloudFront can only respond to HTTPS requests from\n-- viewers that support Server Name Indication (SNI). All modern browsers\n-- support SNI, but some browsers still in use don't support SNI. Do not specify\n-- a value for SSLSupportMethod if you specified true for\n-- CloudFrontDefaultCertificate.",
                         "typeExposed": "Maybe SSLSupportMethod",
                         "type": "Maybe SSLSupportMethod"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "vcMinimumProtocolVersion",
+                        "name": "_vcMinimumProtocolVersion",
+                        "shape": "MinimumProtocolVersion",
+                        "locationName": "MinimumProtocolVersion",
+                        "documentation": "-- | Specify the minimum version of the SSL protocol that you want CloudFront to\n-- use, SSLv3 or TLSv1, for HTTPS connections. CloudFront will serve your\n-- objects only to browsers or devices that support at least the SSL version\n-- that you specify. The TLSv1 protocol is more secure, so we recommend that you\n-- specify SSLv3 only if your users are using browsers or devices that don't\n-- support TLSv1. If you're using a custom certificate (if you specify a value\n-- for IAMCertificateId) and if you're using dedicated IP (if you specify vip\n-- for SSLSupportMethod), you can choose SSLv3 or TLSv1 as the\n-- MinimumProtocolVersion. If you're using a custom certificate (if you specify\n-- a value for IAMCertificateId) and if you're using SNI (if you specify\n-- sni-only for SSLSupportMethod), you must specify TLSv1 for\n-- MinimumProtocolVersion.",
+                        "typeExposed": "Maybe MinimumProtocolVersion",
+                        "type": "Maybe MinimumProtocolVersion"
                     }
                 ],
                 "payload": null,
@@ -5887,6 +6043,22 @@
                         "documentation": "-- | If you specify a value for IAMCertificateId, you must also specify how you\n-- want CloudFront to serve HTTPS requests. Valid values are vip and sni-only.\n-- If you specify vip, CloudFront uses dedicated IP addresses for your content\n-- and can respond to HTTPS requests from any viewer. However, you must request\n-- permission to use this feature, and you incur additional monthly charges. If\n-- you specify sni-only, CloudFront can only respond to HTTPS requests from\n-- viewers that support Server Name Indication (SNI). All modern browsers\n-- support SNI, but some browsers still in use don't support SNI. Do not specify\n-- a value for SSLSupportMethod if you specified true for\n-- CloudFrontDefaultCertificate.",
                         "typeExposed": "Maybe SSLSupportMethod",
                         "type": "Maybe SSLSupportMethod"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "vcMinimumProtocolVersion",
+                        "name": "_vcMinimumProtocolVersion",
+                        "shape": "MinimumProtocolVersion",
+                        "locationName": "MinimumProtocolVersion",
+                        "documentation": "-- | Specify the minimum version of the SSL protocol that you want CloudFront to\n-- use, SSLv3 or TLSv1, for HTTPS connections. CloudFront will serve your\n-- objects only to browsers or devices that support at least the SSL version\n-- that you specify. The TLSv1 protocol is more secure, so we recommend that you\n-- specify SSLv3 only if your users are using browsers or devices that don't\n-- support TLSv1. If you're using a custom certificate (if you specify a value\n-- for IAMCertificateId) and if you're using dedicated IP (if you specify vip\n-- for SSLSupportMethod), you can choose SSLv3 or TLSv1 as the\n-- MinimumProtocolVersion. If you're using a custom certificate (if you specify\n-- a value for IAMCertificateId) and if you're using SNI (if you specify\n-- sni-only for SSLSupportMethod), you must specify TLSv1 for\n-- MinimumProtocolVersion.",
+                        "typeExposed": "Maybe MinimumProtocolVersion",
+                        "type": "Maybe MinimumProtocolVersion"
                     }
                 ],
                 "fields": [
@@ -5921,6 +6093,22 @@
                         "documentation": "-- | If you want viewers to use HTTPS to request your objects and you're using an\n-- alternate domain name in your object URLs (for example,\n-- https://example.com/logo.jpg), specify the IAM certificate identifier of the\n-- custom viewer certificate for this distribution. Specify either this value or\n-- CloudFrontDefaultCertificate.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "vcMinimumProtocolVersion",
+                        "name": "_vcMinimumProtocolVersion",
+                        "shape": "MinimumProtocolVersion",
+                        "locationName": "MinimumProtocolVersion",
+                        "documentation": "-- | Specify the minimum version of the SSL protocol that you want CloudFront to\n-- use, SSLv3 or TLSv1, for HTTPS connections. CloudFront will serve your\n-- objects only to browsers or devices that support at least the SSL version\n-- that you specify. The TLSv1 protocol is more secure, so we recommend that you\n-- specify SSLv3 only if your users are using browsers or devices that don't\n-- support TLSv1. If you're using a custom certificate (if you specify a value\n-- for IAMCertificateId) and if you're using dedicated IP (if you specify vip\n-- for SSLSupportMethod), you can choose SSLv3 or TLSv1 as the\n-- MinimumProtocolVersion. If you're using a custom certificate (if you specify\n-- a value for IAMCertificateId) and if you're using SNI (if you specify\n-- sni-only for SSLSupportMethod), you must specify TLSv1 for\n-- MinimumProtocolVersion.",
+                        "typeExposed": "Maybe MinimumProtocolVersion",
+                        "type": "Maybe MinimumProtocolVersion"
                     },
                     {
                         "location": null,
@@ -6162,6 +6350,23 @@
                 "name": "Method",
                 "type": "nullary",
                 "branchPad": 7
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "TLSv1": "TLSv1",
+                    "SSLv3": "SSLv3"
+                },
+                "valuePad": 6,
+                "name": "MinimumProtocolVersion",
+                "type": "nullary",
+                "branchPad": 5
             },
             {
                 "deriving": [
@@ -9713,7 +9918,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-05-31/origin-access-identity/cloudfront",
+                        "value": "/2014-10-21/origin-access-identity/cloudfront",
                         "type": "const"
                     }
                 ],
@@ -10011,7 +10216,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-05-31/distribution",
+                        "value": "/2014-10-21/distribution",
                         "type": "const"
                     }
                 ],
@@ -10255,7 +10460,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-05-31/distribution/",
+                        "value": "/2014-10-21/distribution/",
                         "type": "const"
                     },
                     {
@@ -10593,7 +10798,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-05-31/streaming-distribution",
+                        "value": "/2014-10-21/streaming-distribution",
                         "type": "const"
                     }
                 ],
@@ -10715,7 +10920,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/origin-access-identity/cloudfront/",
+                        "value": "/2014-10-21/origin-access-identity/cloudfront/",
                         "type": "const"
                     },
                     {
@@ -10865,7 +11070,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/distribution/",
+                        "value": "/2014-10-21/distribution/",
                         "type": "const"
                     },
                     {
@@ -11015,7 +11220,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/streaming-distribution/",
+                        "value": "/2014-10-21/streaming-distribution/",
                         "type": "const"
                     },
                     {
@@ -11290,7 +11495,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/origin-access-identity/cloudfront/",
+                        "value": "/2014-10-21/origin-access-identity/cloudfront/",
                         "type": "const"
                     },
                     {
@@ -11526,7 +11731,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/origin-access-identity/cloudfront/",
+                        "value": "/2014-10-21/origin-access-identity/cloudfront/",
                         "type": "const"
                     },
                     {
@@ -11766,7 +11971,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/distribution/",
+                        "value": "/2014-10-21/distribution/",
                         "type": "const"
                     },
                     {
@@ -12002,7 +12207,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/distribution/",
+                        "value": "/2014-10-21/distribution/",
                         "type": "const"
                     },
                     {
@@ -12202,7 +12407,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/distribution/",
+                        "value": "/2014-10-21/distribution/",
                         "type": "const"
                     },
                     {
@@ -12478,7 +12683,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/streaming-distribution/",
+                        "value": "/2014-10-21/streaming-distribution/",
                         "type": "const"
                     },
                     {
@@ -12714,7 +12919,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/streaming-distribution/",
+                        "value": "/2014-10-21/streaming-distribution/",
                         "type": "const"
                     },
                     {
@@ -12923,7 +13128,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/origin-access-identity/cloudfront",
+                        "value": "/2014-10-21/origin-access-identity/cloudfront",
                         "type": "const"
                     }
                 ],
@@ -13167,7 +13372,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/distribution",
+                        "value": "/2014-10-21/distribution",
                         "type": "const"
                     }
                 ],
@@ -13411,7 +13616,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/distribution/",
+                        "value": "/2014-10-21/distribution/",
                         "type": "const"
                     },
                     {
@@ -13696,7 +13901,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-05-31/streaming-distribution",
+                        "value": "/2014-10-21/streaming-distribution",
                         "type": "const"
                     }
                 ],
@@ -13968,7 +14173,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-05-31/origin-access-identity/cloudfront/",
+                        "value": "/2014-10-21/origin-access-identity/cloudfront/",
                         "type": "const"
                     },
                     {
@@ -14291,7 +14496,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-05-31/distribution/",
+                        "value": "/2014-10-21/distribution/",
                         "type": "const"
                     },
                     {
@@ -14614,7 +14819,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-05-31/streaming-distribution/",
+                        "value": "/2014-10-21/streaming-distribution/",
                         "type": "const"
                     },
                     {

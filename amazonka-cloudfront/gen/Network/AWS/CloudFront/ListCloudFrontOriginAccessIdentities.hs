@@ -102,7 +102,7 @@ lcfoairCloudFrontOriginAccessIdentityList =
         (\s a -> s { _lcfoairCloudFrontOriginAccessIdentityList = a })
 
 instance ToPath ListCloudFrontOriginAccessIdentities where
-    toPath = const "/2014-05-31/origin-access-identity/cloudfront"
+    toPath = const "/2014-10-21/origin-access-identity/cloudfront"
 
 instance ToQuery ListCloudFrontOriginAccessIdentities where
     toQuery ListCloudFrontOriginAccessIdentities{..} = mconcat

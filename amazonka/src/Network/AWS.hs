@@ -53,16 +53,17 @@ module Network.AWS
 import           Control.Monad.Catch
 import           Control.Monad.Except
 import           Control.Monad.Trans.Resource
-import           Control.Retry
 import           Data.Conduit                 hiding (await)
+import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Auth
 import           Network.AWS.Data
 import           Network.AWS.Error
 import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
+import           Network.AWS.Internal.Retry
 import qualified Network.AWS.Signing          as Sign
-import           Network.AWS.Types            hiding (exponentialBackon)
+import           Network.AWS.Types
 import           Network.HTTP.Conduit         hiding (Response)
 
 -- | This creates a new environment without debug logging and uses 'getAuth'
@@ -74,7 +75,7 @@ newEnv :: (Functor m, MonadIO m)
        -> Credentials
        -> Manager
        -> ExceptT String m Env
-newEnv r c m = Env r (\_ _ -> return ()) m True `liftM` getAuth m c
+newEnv r c m = Env r (\_ _ -> return ()) m mempty `liftM` getAuth m c
 
 -- | Create a new environment without debug logging, creating a new 'Manager'.
 --
@@ -99,13 +100,9 @@ send :: (MonadCatch m, MonadResource m, AWSRequest a)
      => Env
      -> a
      -> m (Response a)
-send Env{..} x@(request -> rq)
-    | _envRetry = retrying _rPolicy check go
-    | otherwise = go
+send e@Env{..} x@(request -> rq) = retrier e rq (go `catch` err >>= response x)
   where
-    go = attempt `catch` err >>= response x
-
-    attempt = do
+    go = do
         trace _envLogger (build rq)
         t  <- liftIO getCurrentTime
         Signed m s <- Sign.sign _envAuth _envRegion rq t
@@ -114,17 +111,15 @@ send Env{..} x@(request -> rq)
         rs <- liftResourceT (http s _envManager)
         return (Right rs)
 
-    err e = return (Left (e :: HttpException))
+    err ex = return (Left (ex :: HttpException))
 
-    check n rs
-        | Left (ServiceError _ s e) <- rs
-        , _rCheck s e = do
-             debug _envLogger ("[Retrying] after " <> build (n + 1) <> " attempts.")
-             return True
-        | otherwise   = return False
-
-    Retry   {..} = _svcRetry
-    Service {..} = serviceOf rq
+-- | !!!
+await :: (MonadCatch m, MonadResource m, AWSRequest a)
+      => Env
+      -> Wait a
+      -> a
+      -> m (Response a)
+await e w = waiter e w . send e
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate over
 -- the associated 'Rs' response type in the success case, or the related service's
@@ -144,28 +139,6 @@ paginate e = go
         either (const (return ()))
                (maybe (return ()) go . page x)
                y
-
--- | !!!
-await :: (MonadCatch m, MonadResource m, AWSRequest a)
-      => Env
-      -> Wait a
-      -> a
-      -> m (Response a)
-await e Wait{..} = retrying policy check . send e
-  where
-    policy = limitRetries _waitAttempts <> constantDelay _waitDelay
-
-    check n rs = debug (_envLogger e) msg >> return p
-      where
-        msg = "[Await " <> build _waitName <> "] "
-            <> s <> " "
-            <> build (n + 1) <> " attempt."
-
-        (s, p) = case rs of
-            Left  _             -> ("Error",   False)
-            Right x
-                | _waitAccept x -> ("Success", True)
-                | otherwise     -> ("Failure", False)
 
 -- | Presign a URL with expiry to be used at a later time.
 --

@@ -95,6 +95,7 @@ import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
+import           Control.Retry                (limitRetries)
 import           Data.Conduit                 hiding (await)
 import           Data.Time
 import qualified Network.AWS                  as AWS
@@ -103,7 +104,7 @@ import           Network.AWS.Data             (ToBuilder(..))
 import           Network.AWS.Error
 import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
-import           Network.AWS.Types            hiding (exponentialBackon)
+import           Network.AWS.Types
 
 -- | The top-level error type.
 type Error = ServiceError String
@@ -261,7 +262,7 @@ within r = local (envRegion .~ r)
 --
 -- /Example:/ Any requests will at most be sent once.
 once :: MonadReader Env m => m a -> m a
-once = local (envRetry .~ False)
+once = local (envRetry .~ limitRetries 1)
 
 -- | Send a data type which is an instance of 'AWSRequest', returning it's
 -- associated 'Rs' response type.

@@ -16,7 +16,7 @@
 module Network.AWS.RDS.Waiters where
 
 import Network.AWS.RDS.DescribeDBInstances
-import Network.AWS.Waiter
+import Network.AWS.Waiters
 
 dbInstanceAvailable :: Wait DescribeDBInstances
 dbInstanceAvailable = Wait

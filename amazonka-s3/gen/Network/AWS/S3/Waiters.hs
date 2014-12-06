@@ -17,7 +17,7 @@ module Network.AWS.S3.Waiters where
 
 import Network.AWS.S3.HeadBucket
 import Network.AWS.S3.HeadObject
-import Network.AWS.Waiter
+import Network.AWS.Waiters
 
 bucketExists :: Wait HeadBucket
 bucketExists = Wait

@@ -4,7 +4,7 @@
 {-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Network.AWS.Waiter
+-- Module      : Network.AWS.Waiters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Waiter
+module Network.AWS.Waiters
     (
     -- * Types
       Acceptor

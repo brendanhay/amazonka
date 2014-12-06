@@ -8,7 +8,7 @@
 module {{ namespace }} where
 
 {% include "_include/imports.ede" %}
-import Network.AWS.Waiter
+import Network.AWS.Waiters
 {% for waiter in waiters %}
 
 {{ waiter.key | waiter }} :: Wait {{ waiter.value.operation }}

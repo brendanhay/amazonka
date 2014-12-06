@@ -16,7 +16,7 @@
 module Network.AWS.DynamoDB.Waiters where
 
 import Network.AWS.DynamoDB.DescribeTable
-import Network.AWS.Waiter
+import Network.AWS.Waiters
 
 tableExists :: Wait DescribeTable
 tableExists = Wait

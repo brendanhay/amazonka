@@ -16,7 +16,7 @@
 module Network.AWS.Kinesis.Waiters where
 
 import Network.AWS.Kinesis.DescribeStream
-import Network.AWS.Waiter
+import Network.AWS.Waiters
 
 streamExists :: Wait DescribeStream
 streamExists = Wait

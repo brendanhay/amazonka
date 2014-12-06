@@ -17,7 +17,7 @@ module Network.AWS.Redshift.Waiters where
 
 import Network.AWS.Redshift.DescribeClusterSnapshots
 import Network.AWS.Redshift.DescribeClusters
-import Network.AWS.Waiter
+import Network.AWS.Waiters
 
 clusterAvailable :: Wait DescribeClusters
 clusterAvailable = Wait

@@ -25,7 +25,7 @@ import Network.AWS.EC2.DescribeSubnets
 import Network.AWS.EC2.DescribeVolumes
 import Network.AWS.EC2.DescribeVpcs
 import Network.AWS.EC2.DescribeVpnConnections
-import Network.AWS.Waiter
+import Network.AWS.Waiters
 
 bundleTaskComplete :: Wait DescribeBundleTasks
 bundleTaskComplete = Wait

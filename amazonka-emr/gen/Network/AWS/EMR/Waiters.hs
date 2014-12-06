@@ -16,7 +16,7 @@
 module Network.AWS.EMR.Waiters where
 
 import Network.AWS.EMR.DescribeCluster
-import Network.AWS.Waiter
+import Network.AWS.Waiters
 
 clusterRunning :: Wait DescribeCluster
 clusterRunning = Wait

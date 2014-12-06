@@ -16,7 +16,7 @@
 module Network.AWS.SES.Waiters where
 
 import Network.AWS.SES.GetIdentityVerificationAttributes
-import Network.AWS.Waiter
+import Network.AWS.Waiters
 
 identityExists :: Wait GetIdentityVerificationAttributes
 identityExists = Wait

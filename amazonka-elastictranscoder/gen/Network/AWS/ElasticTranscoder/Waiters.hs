@@ -16,7 +16,7 @@
 module Network.AWS.ElasticTranscoder.Waiters where
 
 import Network.AWS.ElasticTranscoder.ReadJob
-import Network.AWS.Waiter
+import Network.AWS.Waiters
 
 jobComplete :: Wait ReadJob
 jobComplete = Wait

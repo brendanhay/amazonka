@@ -15,6 +15,7 @@
 
 module Network.AWS.EC2.Waiters where
 
+import Prelude hiding (error)
 import Network.AWS.EC2.DescribeBundleTasks
 import Network.AWS.EC2.DescribeConversionTasks
 import Network.AWS.EC2.DescribeCustomerGateways
@@ -25,6 +26,7 @@ import Network.AWS.EC2.DescribeSubnets
 import Network.AWS.EC2.DescribeVolumes
 import Network.AWS.EC2.DescribeVpcs
 import Network.AWS.EC2.DescribeVpnConnections
+import Network.AWS.EC2.Types
 import Network.AWS.Waiters
 
 bundleTaskComplete :: Wait DescribeBundleTasks

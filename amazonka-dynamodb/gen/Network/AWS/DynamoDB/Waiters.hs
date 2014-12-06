@@ -15,7 +15,9 @@
 
 module Network.AWS.DynamoDB.Waiters where
 
+import Prelude hiding (error)
 import Network.AWS.DynamoDB.DescribeTable
+import Network.AWS.DynamoDB.Types
 import Network.AWS.Waiters
 
 tableExists :: Wait DescribeTable
@@ -24,7 +26,7 @@ tableExists = Wait
     , _waitAttempts  = 25
     , _waitDelay     = 20
     , _waitAcceptors =
-        [ path (dtrTable . tdTableStatus) "ACTIVE" Success
+        [ path (dtrTable . tdTableStatus) TSActive Success
         , error "ResourceNotFoundException" Retry
         ]
     }

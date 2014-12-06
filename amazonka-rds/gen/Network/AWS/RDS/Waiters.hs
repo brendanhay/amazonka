@@ -15,7 +15,9 @@
 
 module Network.AWS.RDS.Waiters where
 
+import Prelude hiding (error)
 import Network.AWS.RDS.DescribeDBInstances
+import Network.AWS.RDS.Types
 import Network.AWS.Waiters
 
 dbInstanceAvailable :: Wait DescribeDBInstances

@@ -15,7 +15,9 @@
 
 module Network.AWS.Kinesis.Waiters where
 
+import Prelude hiding (error)
 import Network.AWS.Kinesis.DescribeStream
+import Network.AWS.Kinesis.Types
 import Network.AWS.Waiters
 
 streamExists :: Wait DescribeStream

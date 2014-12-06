@@ -15,7 +15,9 @@
 
 module Network.AWS.SES.Waiters where
 
+import Prelude hiding (error)
 import Network.AWS.SES.GetIdentityVerificationAttributes
+import Network.AWS.SES.Types
 import Network.AWS.Waiters
 
 identityExists :: Wait GetIdentityVerificationAttributes
@@ -24,6 +26,6 @@ identityExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 3
     , _waitAcceptors =
-        [ pathAll (givarVerificationAttributes . traverseValues . ivaVerificationStatus) "Success" Success
+        [ pathAll (givarVerificationAttributes . traverse . ivaVerificationStatus) "Success" Success
         ]
     }

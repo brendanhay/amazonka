@@ -15,8 +15,10 @@
 
 module Network.AWS.S3.Waiters where
 
+import Prelude hiding (error)
 import Network.AWS.S3.HeadBucket
 import Network.AWS.S3.HeadObject
+import Network.AWS.S3.Types
 import Network.AWS.Waiters
 
 bucketExists :: Wait HeadBucket

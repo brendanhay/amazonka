@@ -15,7 +15,9 @@
 
 module Network.AWS.ElasticTranscoder.Waiters where
 
+import Prelude hiding (error)
 import Network.AWS.ElasticTranscoder.ReadJob
+import Network.AWS.ElasticTranscoder.Types
 import Network.AWS.Waiters
 
 jobComplete :: Wait ReadJob

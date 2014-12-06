@@ -15,7 +15,9 @@
 
 module Network.AWS.EMR.Waiters where
 
+import Prelude hiding (error)
 import Network.AWS.EMR.DescribeCluster
+import Network.AWS.EMR.Types
 import Network.AWS.Waiters
 
 clusterRunning :: Wait DescribeCluster

@@ -15,8 +15,10 @@
 
 module Network.AWS.Redshift.Waiters where
 
+import Prelude hiding (error)
 import Network.AWS.Redshift.DescribeClusterSnapshots
 import Network.AWS.Redshift.DescribeClusters
+import Network.AWS.Redshift.Types
 import Network.AWS.Waiters
 
 clusterAvailable :: Wait DescribeClusters

@@ -23,7 +23,7 @@ instance AWSService {{ service.abbrev }} where
         handle = {% if service.error == "JSONError" %}jsonError{% else %}restError{% endif %} statusSuccess service'
 
         retry :: Retry {{ service.abbrev }}
-        retry = Retry
+        retry = Exponential
             { _retryBase     = {{ service.retryDelay.base }}
             , _retryGrowth   = {{ service.retryDelay.growth }}
             , _retryAttempts = {{ service.retryDelay.attempts }}

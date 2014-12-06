@@ -592,7 +592,13 @@ instance FromJSON Notation where
 
         key = AText.takeWhile1 (AText.notInClass "[].")
 
-nullary output ''Notation
+instance A.ToJSON Notation where
+    toJSON = A.toJSON . go
+      where
+        go = \case
+            Indexed k i -> k <> " . " <> go i
+            Nested  k i -> k <> " . " <> go i
+            Access  k   -> k
 
 data Acceptor = Acceptor
     { _aExpected :: !Expected

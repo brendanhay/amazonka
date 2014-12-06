@@ -41,9 +41,6 @@ loadModel d o = do
   where
     version = do
         fs <- reverse . sort . filter dots <$> scriptIO (getDirectoryContents d)
-
-        scriptIO $ print fs
-
         f  <- tryHead ("Failed to get model version from " ++ d) fs
         return (takeWhile (/= '.') f)
 

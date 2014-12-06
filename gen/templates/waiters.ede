@@ -18,7 +18,14 @@ import Network.AWS.Waiter
     , _waitDelay     = {{ waiter.value.delay }}
     , _waitAcceptors =
     {% for accept in waiter.value.acceptors %}
-        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.state | upperHead }} {{ accept.value.argument | show }} {{ accept.value.expected }}
+      {% case accept.value.matcher %}
+      {% when "error" %}
+        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} {{ accept.value.state | upperHead }}
+      {% when "status" %}
+        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} {{ accept.value.state | upperHead }}
+      {% else %}
+        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.argument | wrapped }} {{ accept.value.expected }} {{ accept.value.state | upperHead }}
+      {% endcase %}
     {% else %}
         [
     {% endfor %}

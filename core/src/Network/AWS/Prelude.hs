@@ -41,9 +41,6 @@ module Network.AWS.Prelude
     -- * Retries
     , Retry        (..)
 
-    -- * Waiters
-    , Wait         (..)
-
     -- * Errors
     , AWSError     (..)
     , AWSErrorCode (..)

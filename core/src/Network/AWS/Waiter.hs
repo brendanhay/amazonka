@@ -1,3 +1,9 @@
+{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RankNTypes        #-}
+{-# LANGUAGE ViewPatterns      #-}
+
 -- Module      : Network.AWS.Waiter
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -8,19 +14,39 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Waiter where
+module Network.AWS.Waiter
+    (
+    -- * Types
+      Acceptor
+    , Accept (..)
+    , Wait   (..)
+
+    -- * Run Acceptors
+    , accept
+
+    -- * Matchers
+    , path
+    , pathAll
+    , pathAny
+    , error
+    , status
+    ) where
 
 import Control.Lens
+import Data.ByteString    (ByteString)
+import Data.Maybe
+import Network.AWS.Error
 import Network.AWS.Types
-import Prelude           hiding (error)
+import Network.HTTP.Types
+import Prelude            hiding (error)
+
+type Acceptor a = a -> Status -> Response a -> Maybe Accept
 
 data Accept
     = Success
     | Failure
     | Retry
       deriving (Eq, Show)
-
-type Acceptor a = Status -> Response a -> Accept
 
 -- | Timing and acceptance criteria to check fulfillment of a remote operation.
 data Wait a = Wait
@@ -30,22 +56,31 @@ data Wait a = Wait
     , _waitAcceptors :: [Acceptor a]
     }
 
--- for acceptor in acceptors:
---     if acceptor.matcher_func(response):
---         current_state = acceptor.state
---         break
--- if current_state == 'success':
---     return
--- if current_state == 'failure':
---     raise WaiterError(
+accept :: [Acceptor a] -> Acceptor a
+accept xs rq s rs = listToMaybe $ mapMaybe (\f -> f rq s rs) xs
 
--- path :: 
+path :: Eq b => Getter (Rs a) b -> b -> Accept -> Acceptor a
+path l x = pathAll l x
 
--- pathAll :: Traversal' a b ->
+pathAll :: Eq b => Fold (Rs a) b -> b -> Accept -> Acceptor a
+pathAll l x = match (allOf l (== x))
 
-pathAny :: Traversal' (Rs a) b -> Accept -> b -> Acceptor a
-pathAny = undefined
+pathAny :: Eq b => Fold (Rs a) b -> b -> Accept -> Acceptor a
+pathAny l x = match (anyOf l (== x))
 
--- status
+match :: (Rs a -> Bool) -> Accept -> Acceptor a
+match l a _ _ = \case
+    Right rs
+        | l rs -> Just a
+    _          -> Nothing
 
--- error
+status :: Int -> Accept -> Acceptor a
+status x a _ (statusCode -> y) _
+    | x == y    = Just a
+    | otherwise = Nothing
+
+error :: AWSErrorCode (Er (Sv a)) => ErrorCode -> Accept -> Acceptor a
+error c a _ _ = \case
+    Left (ServiceError _ _ e)
+        | c == awsErrorCode e -> Just a
+    _                         -> Nothing

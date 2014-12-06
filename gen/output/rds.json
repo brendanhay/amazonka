@@ -7,121 +7,49 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "ddbirDBInstances",
-                                {
-                                    "contents": "dbiDBInstanceStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
                         "expected": "\"available\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "ddbirDBInstances",
-                                {
-                                    "contents": "dbiDBInstanceStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
                         "expected": "\"deleted\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "ddbirDBInstances",
-                                {
-                                    "contents": "dbiDBInstanceStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
                         "expected": "\"deleting\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "ddbirDBInstances",
-                                {
-                                    "contents": "dbiDBInstanceStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
                         "expected": "\"failed\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "ddbirDBInstances",
-                                {
-                                    "contents": "dbiDBInstanceStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
                         "expected": "\"incompatible-restore\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "ddbirDBInstances",
-                                {
-                                    "contents": "dbiDBInstanceStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
                         "expected": "\"incompatible-parameters\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "ddbirDBInstances",
-                                {
-                                    "contents": "dbiDBInstanceStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
                         "expected": "\"incompatible-parameters\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "ddbirDBInstances",
-                                {
-                                    "contents": "dbiDBInstanceStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
                         "expected": "\"incompatible-restore\""
                     }
                 ],
@@ -134,76 +62,31 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "ddbirDBInstances",
-                                {
-                                    "contents": "dbiDBInstanceStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
                         "expected": "\"deleted\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "ddbirDBInstances",
-                                {
-                                    "contents": "dbiDBInstanceStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
                         "expected": "\"creating\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "ddbirDBInstances",
-                                {
-                                    "contents": "dbiDBInstanceStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
                         "expected": "\"modifying\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "ddbirDBInstances",
-                                {
-                                    "contents": "dbiDBInstanceStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
                         "expected": "\"rebooting\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "ddbirDBInstances",
-                                {
-                                    "contents": "dbiDBInstanceStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
                         "expected": "\"resetting-master-credentials\""
                     }
                 ],

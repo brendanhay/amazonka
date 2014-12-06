@@ -25,9 +25,9 @@ clusterAvailable = Wait
     , _waitAttempts  = 30
     , _waitDelay     = 60
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dcrClusters",{"contents":"cClusterStatus","type":"access"}],"type":"indexed"} "available"
-        , pathAny Failure {"contents":["dcrClusters",{"contents":"cClusterStatus","type":"access"}],"type":"indexed"} "deleting"
-        , error Retry null "ClusterNotFound"
+        [ pathAll (dcrClusters . cClusterStatus) "available" Success
+        , pathAny (dcrClusters . cClusterStatus) "deleting" Failure
+        , error "ClusterNotFound" Retry
         ]
     }
 
@@ -37,9 +37,9 @@ clusterDeleted = Wait
     , _waitAttempts  = 30
     , _waitDelay     = 60
     , _waitAcceptors =
-        [ error Success null "ClusterNotFound"
-        , pathAny Failure {"contents":["dcrClusters",{"contents":"cClusterStatus","type":"access"}],"type":"indexed"} "creating"
-        , pathAny Failure {"contents":["dcrClusters",{"contents":"cClusterStatus","type":"access"}],"type":"indexed"} "rebooting"
+        [ error "ClusterNotFound" Success
+        , pathAny (dcrClusters . cClusterStatus) "creating" Failure
+        , pathAny (dcrClusters . cClusterStatus) "rebooting" Failure
         ]
     }
 
@@ -49,8 +49,8 @@ snapshotAvailable = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dcsrSnapshots",{"contents":"sStatus","type":"access"}],"type":"indexed"} "available"
-        , pathAny Failure {"contents":["dcsrSnapshots",{"contents":"sStatus","type":"access"}],"type":"indexed"} "failed"
-        , pathAny Failure {"contents":["dcsrSnapshots",{"contents":"sStatus","type":"access"}],"type":"indexed"} "deleted"
+        [ pathAll (dcsrSnapshots . sStatus) "available" Success
+        , pathAny (dcsrSnapshots . sStatus) "failed" Failure
+        , pathAny (dcsrSnapshots . sStatus) "deleted" Failure
         ]
     }

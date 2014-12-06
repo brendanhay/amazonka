@@ -33,8 +33,8 @@ bundleTaskComplete = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dbtrBundleTasks",{"contents":"btState","type":"access"}],"type":"indexed"} "complete"
-        , pathAny Failure {"contents":["dbtrBundleTasks",{"contents":"btState","type":"access"}],"type":"indexed"} "failed"
+        [ pathAll (dbtrBundleTasks . btState) "complete" Success
+        , pathAny (dbtrBundleTasks . btState) "failed" Failure
         ]
     }
 
@@ -44,7 +44,7 @@ conversionTaskCancelled = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dctrConversionTasks",{"contents":"ctState","type":"access"}],"type":"indexed"} "cancelled"
+        [ pathAll (dctrConversionTasks . ctState) "cancelled" Success
         ]
     }
 
@@ -54,9 +54,9 @@ conversionTaskCompleted = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dctrConversionTasks",{"contents":"ctState","type":"access"}],"type":"indexed"} "completed"
-        , pathAny Failure {"contents":["dctrConversionTasks",{"contents":"ctState","type":"access"}],"type":"indexed"} "cancelled"
-        , pathAny Failure {"contents":["dctrConversionTasks",{"contents":"ctState","type":"access"}],"type":"indexed"} "cancelling"
+        [ pathAll (dctrConversionTasks . ctState) "completed" Success
+        , pathAny (dctrConversionTasks . ctState) "cancelled" Failure
+        , pathAny (dctrConversionTasks . ctState) "cancelling" Failure
         ]
     }
 
@@ -66,7 +66,7 @@ conversionTaskDeleted = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dctrConversionTasks",{"contents":"ctState","type":"access"}],"type":"indexed"} "deleted"
+        [ pathAll (dctrConversionTasks . ctState) "deleted" Success
         ]
     }
 
@@ -76,9 +76,9 @@ customerGatewayAvailable = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dcgrCustomerGateways",{"contents":"cgState","type":"access"}],"type":"indexed"} "available"
-        , pathAny Failure {"contents":["dcgrCustomerGateways",{"contents":"cgState","type":"access"}],"type":"indexed"} "deleted"
-        , pathAny Failure {"contents":["dcgrCustomerGateways",{"contents":"cgState","type":"access"}],"type":"indexed"} "deleting"
+        [ pathAll (dcgrCustomerGateways . cgState) "available" Success
+        , pathAny (dcgrCustomerGateways . cgState) "deleted" Failure
+        , pathAny (dcgrCustomerGateways . cgState) "deleting" Failure
         ]
     }
 
@@ -88,7 +88,7 @@ exportTaskCancelled = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["detrExportTasks",{"contents":"etState","type":"access"}],"type":"indexed"} "cancelled"
+        [ pathAll (detrExportTasks . etState) "cancelled" Success
         ]
     }
 
@@ -98,7 +98,7 @@ exportTaskCompleted = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["detrExportTasks",{"contents":"etState","type":"access"}],"type":"indexed"} "completed"
+        [ pathAll (detrExportTasks . etState) "completed" Success
         ]
     }
 
@@ -108,10 +108,10 @@ instanceRunning = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dirReservations",{"contents":["rInstances",{"contents":["i1State",{"contents":"isName","type":"access"}],"type":"nested"}],"type":"indexed"}],"type":"indexed"} "running"
-        , pathAny Failure {"contents":["dirReservations",{"contents":["rInstances",{"contents":["i1State",{"contents":"isName","type":"access"}],"type":"nested"}],"type":"indexed"}],"type":"indexed"} "shutting-down"
-        , pathAny Failure {"contents":["dirReservations",{"contents":["rInstances",{"contents":["i1State",{"contents":"isName","type":"access"}],"type":"nested"}],"type":"indexed"}],"type":"indexed"} "terminated"
-        , pathAny Failure {"contents":["dirReservations",{"contents":["rInstances",{"contents":["i1State",{"contents":"isName","type":"access"}],"type":"nested"}],"type":"indexed"}],"type":"indexed"} "stopping"
+        [ pathAll (dirReservations . rInstances . i1State . isName) "running" Success
+        , pathAny (dirReservations . rInstances . i1State . isName) "shutting-down" Failure
+        , pathAny (dirReservations . rInstances . i1State . isName) "terminated" Failure
+        , pathAny (dirReservations . rInstances . i1State . isName) "stopping" Failure
         ]
     }
 
@@ -121,9 +121,9 @@ instanceStopped = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dirReservations",{"contents":["rInstances",{"contents":["i1State",{"contents":"isName","type":"access"}],"type":"nested"}],"type":"indexed"}],"type":"indexed"} "stopped"
-        , pathAny Failure {"contents":["dirReservations",{"contents":["rInstances",{"contents":["i1State",{"contents":"isName","type":"access"}],"type":"nested"}],"type":"indexed"}],"type":"indexed"} "pending"
-        , pathAny Failure {"contents":["dirReservations",{"contents":["rInstances",{"contents":["i1State",{"contents":"isName","type":"access"}],"type":"nested"}],"type":"indexed"}],"type":"indexed"} "terminated"
+        [ pathAll (dirReservations . rInstances . i1State . isName) "stopped" Success
+        , pathAny (dirReservations . rInstances . i1State . isName) "pending" Failure
+        , pathAny (dirReservations . rInstances . i1State . isName) "terminated" Failure
         ]
     }
 
@@ -133,9 +133,9 @@ instanceTerminated = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dirReservations",{"contents":["rInstances",{"contents":["i1State",{"contents":"isName","type":"access"}],"type":"nested"}],"type":"indexed"}],"type":"indexed"} "terminated"
-        , pathAny Failure {"contents":["dirReservations",{"contents":["rInstances",{"contents":["i1State",{"contents":"isName","type":"access"}],"type":"nested"}],"type":"indexed"}],"type":"indexed"} "pending"
-        , pathAny Failure {"contents":["dirReservations",{"contents":["rInstances",{"contents":["i1State",{"contents":"isName","type":"access"}],"type":"nested"}],"type":"indexed"}],"type":"indexed"} "stopping"
+        [ pathAll (dirReservations . rInstances . i1State . isName) "terminated" Success
+        , pathAny (dirReservations . rInstances . i1State . isName) "pending" Failure
+        , pathAny (dirReservations . rInstances . i1State . isName) "stopping" Failure
         ]
     }
 
@@ -145,7 +145,7 @@ snapshotCompleted = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dsrSnapshots",{"contents":"sState","type":"access"}],"type":"indexed"} "completed"
+        [ pathAll (dsrSnapshots . sState) "completed" Success
         ]
     }
 
@@ -155,7 +155,7 @@ subnetAvailable = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dsrSubnets",{"contents":"s1State","type":"access"}],"type":"indexed"} "available"
+        [ pathAll (dsrSubnets . s1State) "available" Success
         ]
     }
 
@@ -165,8 +165,8 @@ volumeAvailable = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dvrVolumes",{"contents":"vState","type":"access"}],"type":"indexed"} "available"
-        , pathAny Failure {"contents":["dvrVolumes",{"contents":"vState","type":"access"}],"type":"indexed"} "deleted"
+        [ pathAll (dvrVolumes . vState) "available" Success
+        , pathAny (dvrVolumes . vState) "deleted" Failure
         ]
     }
 
@@ -176,7 +176,7 @@ volumeDeleted = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dvrVolumes",{"contents":"vState","type":"access"}],"type":"indexed"} "deleted"
+        [ pathAll (dvrVolumes . vState) "deleted" Success
         ]
     }
 
@@ -186,8 +186,8 @@ volumeInUse = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dvrVolumes",{"contents":"vState","type":"access"}],"type":"indexed"} "in-use"
-        , pathAny Failure {"contents":["dvrVolumes",{"contents":"vState","type":"access"}],"type":"indexed"} "deleted"
+        [ pathAll (dvrVolumes . vState) "in-use" Success
+        , pathAny (dvrVolumes . vState) "deleted" Failure
         ]
     }
 
@@ -197,7 +197,7 @@ vpcAvailable = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dvrVpcs",{"contents":"vpcState","type":"access"}],"type":"indexed"} "available"
+        [ pathAll (dvrVpcs . vpcState) "available" Success
         ]
     }
 
@@ -207,9 +207,9 @@ vpnConnectionAvailable = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dvcrVpnConnections",{"contents":"vcState","type":"access"}],"type":"indexed"} "available"
-        , pathAny Failure {"contents":["dvcrVpnConnections",{"contents":"vcState","type":"access"}],"type":"indexed"} "deleting"
-        , pathAny Failure {"contents":["dvcrVpnConnections",{"contents":"vcState","type":"access"}],"type":"indexed"} "deleted"
+        [ pathAll (dvcrVpnConnections . vcState) "available" Success
+        , pathAny (dvcrVpnConnections . vcState) "deleting" Failure
+        , pathAny (dvcrVpnConnections . vcState) "deleted" Failure
         ]
     }
 
@@ -219,7 +219,7 @@ vpnConnectionDeleted = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll Success {"contents":["dvcrVpnConnections",{"contents":"vcState","type":"access"}],"type":"indexed"} "deleted"
-        , pathAny Failure {"contents":["dvcrVpnConnections",{"contents":"vcState","type":"access"}],"type":"indexed"} "pending"
+        [ pathAll (dvcrVpnConnections . vcState) "deleted" Success
+        , pathAny (dvcrVpnConnections . vcState) "pending" Failure
         ]
     }

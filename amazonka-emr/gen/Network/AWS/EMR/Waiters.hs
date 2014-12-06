@@ -24,10 +24,10 @@ clusterRunning = Wait
     , _waitAttempts  = 60
     , _waitDelay     = 30
     , _waitAcceptors =
-        [ path Success {"contents":["dcrCluster",{"contents":["c1Status",{"contents":"csState","type":"access"}],"type":"nested"}],"type":"nested"} "RUNNING"
-        , path Success {"contents":["dcrCluster",{"contents":["c1Status",{"contents":"csState","type":"access"}],"type":"nested"}],"type":"nested"} "WAITING"
-        , path Failure {"contents":["dcrCluster",{"contents":["c1Status",{"contents":"csState","type":"access"}],"type":"nested"}],"type":"nested"} "TERMINATING"
-        , path Failure {"contents":["dcrCluster",{"contents":["c1Status",{"contents":"csState","type":"access"}],"type":"nested"}],"type":"nested"} "TERMINATED"
-        , path Failure {"contents":["dcrCluster",{"contents":["c1Status",{"contents":"csState","type":"access"}],"type":"nested"}],"type":"nested"} "TERMINATED_WITH_ERRORS"
+        [ path (dcrCluster . c1Status . csState) "RUNNING" Success
+        , path (dcrCluster . c1Status . csState) "WAITING" Success
+        , path (dcrCluster . c1Status . csState) "TERMINATING" Failure
+        , path (dcrCluster . c1Status . csState) "TERMINATED" Failure
+        , path (dcrCluster . c1Status . csState) "TERMINATED_WITH_ERRORS" Failure
         ]
     }

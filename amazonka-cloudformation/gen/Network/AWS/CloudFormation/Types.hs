@@ -195,7 +195,7 @@ instance AWSService CloudFormation where
         handle = restError statusSuccess service'
 
         retry :: Retry CloudFormation
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 5

@@ -298,7 +298,7 @@ instance AWSService ElasticBeanstalk where
         handle = restError statusSuccess service'
 
         retry :: Retry ElasticBeanstalk
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 5

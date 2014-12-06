@@ -445,7 +445,7 @@ instance AWSService RDS where
         handle = restError statusSuccess service'
 
         retry :: Retry RDS
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 5

@@ -435,7 +435,7 @@ instance AWSService CloudFront where
         handle = restError statusSuccess service'
 
         retry :: Retry CloudFront
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 5

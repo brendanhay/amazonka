@@ -20,16 +20,7 @@
                     {
                         "matcher": "path",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dtrTable",
-                                {
-                                    "contents": "tdTableStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "nested"
-                        },
+                        "argument": "dtrTable . tdTableStatus",
                         "expected": "\"ACTIVE\""
                     },
                     {

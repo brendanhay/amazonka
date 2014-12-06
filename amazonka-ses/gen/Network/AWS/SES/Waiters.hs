@@ -24,6 +24,6 @@ identityExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 3
     , _waitAcceptors =
-        [ pathAll Success {"contents":["givarVerificationAttributes",{"contents":["traverseValues",{"contents":"ivaVerificationStatus","type":"access"}],"type":"nested"}],"type":"nested"} "Success"
+        [ pathAll (givarVerificationAttributes . traverseValues . ivaVerificationStatus) "Success" Success
         ]
     }

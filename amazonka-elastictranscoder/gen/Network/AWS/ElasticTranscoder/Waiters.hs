@@ -24,8 +24,8 @@ jobComplete = Wait
     , _waitAttempts  = 120
     , _waitDelay     = 30
     , _waitAcceptors =
-        [ path Success {"contents":["rjrJob",{"contents":"jStatus","type":"access"}],"type":"nested"} "Complete"
-        , path Failure {"contents":["rjrJob",{"contents":"jStatus","type":"access"}],"type":"nested"} "Canceled"
-        , path Failure {"contents":["rjrJob",{"contents":"jStatus","type":"access"}],"type":"nested"} "Error"
+        [ path (rjrJob . jStatus) "Complete" Success
+        , path (rjrJob . jStatus) "Canceled" Failure
+        , path (rjrJob . jStatus) "Error" Failure
         ]
     }

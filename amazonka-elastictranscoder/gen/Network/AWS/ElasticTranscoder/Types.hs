@@ -311,7 +311,7 @@ instance AWSService ElasticTranscoder where
         handle = jsonError statusSuccess service'
 
         retry :: Retry ElasticTranscoder
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 5

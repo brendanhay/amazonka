@@ -268,7 +268,7 @@ instance AWSService DynamoDB where
         handle = jsonError statusSuccess service'
 
         retry :: Retry DynamoDB
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 10

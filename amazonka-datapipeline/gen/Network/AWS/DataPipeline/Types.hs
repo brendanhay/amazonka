@@ -155,7 +155,7 @@ instance AWSService DataPipeline where
         handle = jsonError statusSuccess service'
 
         retry :: Retry DataPipeline
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 5

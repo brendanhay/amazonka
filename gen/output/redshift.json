@@ -13,31 +13,13 @@
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dcrClusters",
-                                {
-                                    "contents": "cClusterStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dcrClusters . cClusterStatus",
                         "expected": "\"creating\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dcrClusters",
-                                {
-                                    "contents": "cClusterStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dcrClusters . cClusterStatus",
                         "expected": "\"rebooting\""
                     }
                 ],
@@ -50,46 +32,19 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dcsrSnapshots",
-                                {
-                                    "contents": "sStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dcsrSnapshots . sStatus",
                         "expected": "\"available\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dcsrSnapshots",
-                                {
-                                    "contents": "sStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dcsrSnapshots . sStatus",
                         "expected": "\"failed\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dcsrSnapshots",
-                                {
-                                    "contents": "sStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dcsrSnapshots . sStatus",
                         "expected": "\"deleted\""
                     }
                 ],
@@ -102,31 +57,13 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dcrClusters",
-                                {
-                                    "contents": "cClusterStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dcrClusters . cClusterStatus",
                         "expected": "\"available\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dcrClusters",
-                                {
-                                    "contents": "cClusterStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dcrClusters . cClusterStatus",
                         "expected": "\"deleting\""
                     },
                     {

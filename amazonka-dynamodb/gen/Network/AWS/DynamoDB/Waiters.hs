@@ -24,8 +24,8 @@ tableExists = Wait
     , _waitAttempts  = 25
     , _waitDelay     = 20
     , _waitAcceptors =
-        [ path Success {"contents":["dtrTable",{"contents":"tdTableStatus","type":"access"}],"type":"nested"} "ACTIVE"
-        , error Retry null "ResourceNotFoundException"
+        [ path (dtrTable . tdTableStatus) "ACTIVE" Success
+        , error "ResourceNotFoundException" Retry
         ]
     }
 
@@ -35,6 +35,6 @@ tableNotExists = Wait
     , _waitAttempts  = 25
     , _waitDelay     = 20
     , _waitAcceptors =
-        [ error Success null "ResourceNotFoundException"
+        [ error "ResourceNotFoundException" Success
         ]
     }

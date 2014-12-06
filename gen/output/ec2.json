@@ -7,82 +7,19 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dirReservations",
-                                {
-                                    "contents": [
-                                        "rInstances",
-                                        {
-                                            "contents": [
-                                                "i1State",
-                                                {
-                                                    "contents": "isName",
-                                                    "type": "access"
-                                                }
-                                            ],
-                                            "type": "nested"
-                                        }
-                                    ],
-                                    "type": "indexed"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dirReservations . rInstances . i1State . isName",
                         "expected": "\"terminated\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dirReservations",
-                                {
-                                    "contents": [
-                                        "rInstances",
-                                        {
-                                            "contents": [
-                                                "i1State",
-                                                {
-                                                    "contents": "isName",
-                                                    "type": "access"
-                                                }
-                                            ],
-                                            "type": "nested"
-                                        }
-                                    ],
-                                    "type": "indexed"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dirReservations . rInstances . i1State . isName",
                         "expected": "\"pending\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dirReservations",
-                                {
-                                    "contents": [
-                                        "rInstances",
-                                        {
-                                            "contents": [
-                                                "i1State",
-                                                {
-                                                    "contents": "isName",
-                                                    "type": "access"
-                                                }
-                                            ],
-                                            "type": "nested"
-                                        }
-                                    ],
-                                    "type": "indexed"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dirReservations . rInstances . i1State . isName",
                         "expected": "\"stopping\""
                     }
                 ],
@@ -95,31 +32,13 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dvrVolumes",
-                                {
-                                    "contents": "vState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dvrVolumes . vState",
                         "expected": "\"in-use\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dvrVolumes",
-                                {
-                                    "contents": "vState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dvrVolumes . vState",
                         "expected": "\"deleted\""
                     }
                 ],
@@ -132,16 +51,7 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dsrSubnets",
-                                {
-                                    "contents": "s1State",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dsrSubnets . s1State",
                         "expected": "\"available\""
                     }
                 ],
@@ -154,46 +64,19 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dcgrCustomerGateways",
-                                {
-                                    "contents": "cgState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dcgrCustomerGateways . cgState",
                         "expected": "\"available\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dcgrCustomerGateways",
-                                {
-                                    "contents": "cgState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dcgrCustomerGateways . cgState",
                         "expected": "\"deleted\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dcgrCustomerGateways",
-                                {
-                                    "contents": "cgState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dcgrCustomerGateways . cgState",
                         "expected": "\"deleting\""
                     }
                 ],
@@ -206,46 +89,19 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dctrConversionTasks",
-                                {
-                                    "contents": "ctState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dctrConversionTasks . ctState",
                         "expected": "\"completed\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dctrConversionTasks",
-                                {
-                                    "contents": "ctState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dctrConversionTasks . ctState",
                         "expected": "\"cancelled\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dctrConversionTasks",
-                                {
-                                    "contents": "ctState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dctrConversionTasks . ctState",
                         "expected": "\"cancelling\""
                     }
                 ],
@@ -258,82 +114,19 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dirReservations",
-                                {
-                                    "contents": [
-                                        "rInstances",
-                                        {
-                                            "contents": [
-                                                "i1State",
-                                                {
-                                                    "contents": "isName",
-                                                    "type": "access"
-                                                }
-                                            ],
-                                            "type": "nested"
-                                        }
-                                    ],
-                                    "type": "indexed"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dirReservations . rInstances . i1State . isName",
                         "expected": "\"stopped\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dirReservations",
-                                {
-                                    "contents": [
-                                        "rInstances",
-                                        {
-                                            "contents": [
-                                                "i1State",
-                                                {
-                                                    "contents": "isName",
-                                                    "type": "access"
-                                                }
-                                            ],
-                                            "type": "nested"
-                                        }
-                                    ],
-                                    "type": "indexed"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dirReservations . rInstances . i1State . isName",
                         "expected": "\"pending\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dirReservations",
-                                {
-                                    "contents": [
-                                        "rInstances",
-                                        {
-                                            "contents": [
-                                                "i1State",
-                                                {
-                                                    "contents": "isName",
-                                                    "type": "access"
-                                                }
-                                            ],
-                                            "type": "nested"
-                                        }
-                                    ],
-                                    "type": "indexed"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dirReservations . rInstances . i1State . isName",
                         "expected": "\"terminated\""
                     }
                 ],
@@ -346,16 +139,7 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dctrConversionTasks",
-                                {
-                                    "contents": "ctState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dctrConversionTasks . ctState",
                         "expected": "\"deleted\""
                     }
                 ],
@@ -368,109 +152,25 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dirReservations",
-                                {
-                                    "contents": [
-                                        "rInstances",
-                                        {
-                                            "contents": [
-                                                "i1State",
-                                                {
-                                                    "contents": "isName",
-                                                    "type": "access"
-                                                }
-                                            ],
-                                            "type": "nested"
-                                        }
-                                    ],
-                                    "type": "indexed"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dirReservations . rInstances . i1State . isName",
                         "expected": "\"running\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dirReservations",
-                                {
-                                    "contents": [
-                                        "rInstances",
-                                        {
-                                            "contents": [
-                                                "i1State",
-                                                {
-                                                    "contents": "isName",
-                                                    "type": "access"
-                                                }
-                                            ],
-                                            "type": "nested"
-                                        }
-                                    ],
-                                    "type": "indexed"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dirReservations . rInstances . i1State . isName",
                         "expected": "\"shutting-down\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dirReservations",
-                                {
-                                    "contents": [
-                                        "rInstances",
-                                        {
-                                            "contents": [
-                                                "i1State",
-                                                {
-                                                    "contents": "isName",
-                                                    "type": "access"
-                                                }
-                                            ],
-                                            "type": "nested"
-                                        }
-                                    ],
-                                    "type": "indexed"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dirReservations . rInstances . i1State . isName",
                         "expected": "\"terminated\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dirReservations",
-                                {
-                                    "contents": [
-                                        "rInstances",
-                                        {
-                                            "contents": [
-                                                "i1State",
-                                                {
-                                                    "contents": "isName",
-                                                    "type": "access"
-                                                }
-                                            ],
-                                            "type": "nested"
-                                        }
-                                    ],
-                                    "type": "indexed"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dirReservations . rInstances . i1State . isName",
                         "expected": "\"stopping\""
                     }
                 ],
@@ -483,16 +183,7 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dvrVpcs",
-                                {
-                                    "contents": "vpcState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dvrVpcs . vpcState",
                         "expected": "\"available\""
                     }
                 ],
@@ -505,16 +196,7 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "detrExportTasks",
-                                {
-                                    "contents": "etState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "detrExportTasks . etState",
                         "expected": "\"completed\""
                     }
                 ],
@@ -527,46 +209,19 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dvcrVpnConnections",
-                                {
-                                    "contents": "vcState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dvcrVpnConnections . vcState",
                         "expected": "\"available\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dvcrVpnConnections",
-                                {
-                                    "contents": "vcState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dvcrVpnConnections . vcState",
                         "expected": "\"deleting\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dvcrVpnConnections",
-                                {
-                                    "contents": "vcState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dvcrVpnConnections . vcState",
                         "expected": "\"deleted\""
                     }
                 ],
@@ -579,16 +234,7 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "detrExportTasks",
-                                {
-                                    "contents": "etState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "detrExportTasks . etState",
                         "expected": "\"cancelled\""
                     }
                 ],
@@ -601,16 +247,7 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dvrVolumes",
-                                {
-                                    "contents": "vState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dvrVolumes . vState",
                         "expected": "\"deleted\""
                     }
                 ],
@@ -623,31 +260,13 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dbtrBundleTasks",
-                                {
-                                    "contents": "btState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dbtrBundleTasks . btState",
                         "expected": "\"complete\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dbtrBundleTasks",
-                                {
-                                    "contents": "btState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dbtrBundleTasks . btState",
                         "expected": "\"failed\""
                     }
                 ],
@@ -660,31 +279,13 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dvcrVpnConnections",
-                                {
-                                    "contents": "vcState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dvcrVpnConnections . vcState",
                         "expected": "\"deleted\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dvcrVpnConnections",
-                                {
-                                    "contents": "vcState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dvcrVpnConnections . vcState",
                         "expected": "\"pending\""
                     }
                 ],
@@ -697,16 +298,7 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dctrConversionTasks",
-                                {
-                                    "contents": "ctState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dctrConversionTasks . ctState",
                         "expected": "\"cancelled\""
                     }
                 ],
@@ -719,16 +311,7 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dsrSnapshots",
-                                {
-                                    "contents": "sState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dsrSnapshots . sState",
                         "expected": "\"completed\""
                     }
                 ],
@@ -741,31 +324,13 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dvrVolumes",
-                                {
-                                    "contents": "vState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dvrVolumes . vState",
                         "expected": "\"available\""
                     },
                     {
                         "matcher": "pathAny",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dvrVolumes",
-                                {
-                                    "contents": "vState",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "indexed"
-                        },
+                        "argument": "dvrVolumes . vState",
                         "expected": "\"deleted\""
                     }
                 ],

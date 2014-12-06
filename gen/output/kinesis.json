@@ -7,16 +7,7 @@
                     {
                         "matcher": "path",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dsrStreamDescription",
-                                {
-                                    "contents": "sdStreamStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "nested"
-                        },
+                        "argument": "dsrStreamDescription . sdStreamStatus",
                         "expected": "\"ACTIVE\""
                     }
                 ],

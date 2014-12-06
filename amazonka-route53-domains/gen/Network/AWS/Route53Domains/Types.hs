@@ -124,7 +124,7 @@ instance AWSService Route53Domains where
         handle = jsonError statusSuccess service'
 
         retry :: Retry Route53Domains
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 5

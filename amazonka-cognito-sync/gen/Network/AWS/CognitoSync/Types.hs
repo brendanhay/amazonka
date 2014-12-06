@@ -119,7 +119,7 @@ instance AWSService CognitoSync where
         handle = jsonError statusSuccess service'
 
         retry :: Retry CognitoSync
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 5

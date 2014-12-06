@@ -159,7 +159,7 @@ instance AWSService CloudWatch where
         handle = restError statusSuccess service'
 
         retry :: Retry CloudWatch
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 5

@@ -7,106 +7,31 @@
                     {
                         "matcher": "path",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dcrCluster",
-                                {
-                                    "contents": [
-                                        "c1Status",
-                                        {
-                                            "contents": "csState",
-                                            "type": "access"
-                                        }
-                                    ],
-                                    "type": "nested"
-                                }
-                            ],
-                            "type": "nested"
-                        },
+                        "argument": "dcrCluster . c1Status . csState",
                         "expected": "\"RUNNING\""
                     },
                     {
                         "matcher": "path",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "dcrCluster",
-                                {
-                                    "contents": [
-                                        "c1Status",
-                                        {
-                                            "contents": "csState",
-                                            "type": "access"
-                                        }
-                                    ],
-                                    "type": "nested"
-                                }
-                            ],
-                            "type": "nested"
-                        },
+                        "argument": "dcrCluster . c1Status . csState",
                         "expected": "\"WAITING\""
                     },
                     {
                         "matcher": "path",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dcrCluster",
-                                {
-                                    "contents": [
-                                        "c1Status",
-                                        {
-                                            "contents": "csState",
-                                            "type": "access"
-                                        }
-                                    ],
-                                    "type": "nested"
-                                }
-                            ],
-                            "type": "nested"
-                        },
+                        "argument": "dcrCluster . c1Status . csState",
                         "expected": "\"TERMINATING\""
                     },
                     {
                         "matcher": "path",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dcrCluster",
-                                {
-                                    "contents": [
-                                        "c1Status",
-                                        {
-                                            "contents": "csState",
-                                            "type": "access"
-                                        }
-                                    ],
-                                    "type": "nested"
-                                }
-                            ],
-                            "type": "nested"
-                        },
+                        "argument": "dcrCluster . c1Status . csState",
                         "expected": "\"TERMINATED\""
                     },
                     {
                         "matcher": "path",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "dcrCluster",
-                                {
-                                    "contents": [
-                                        "c1Status",
-                                        {
-                                            "contents": "csState",
-                                            "type": "access"
-                                        }
-                                    ],
-                                    "type": "nested"
-                                }
-                            ],
-                            "type": "nested"
-                        },
+                        "argument": "dcrCluster . c1Status . csState",
                         "expected": "\"TERMINATED_WITH_ERRORS\""
                     }
                 ],

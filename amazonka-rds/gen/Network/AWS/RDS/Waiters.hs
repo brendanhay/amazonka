@@ -24,14 +24,14 @@ dbInstanceAvailable = Wait
     , _waitAttempts  = 60
     , _waitDelay     = 30
     , _waitAcceptors =
-        [ pathAll Success {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "available"
-        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "deleted"
-        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "deleting"
-        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "failed"
-        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "incompatible-restore"
-        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "incompatible-parameters"
-        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "incompatible-parameters"
-        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "incompatible-restore"
+        [ pathAll (ddbirDBInstances . dbiDBInstanceStatus) "available" Success
+        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "deleted" Failure
+        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "deleting" Failure
+        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "failed" Failure
+        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "incompatible-restore" Failure
+        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "incompatible-parameters" Failure
+        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "incompatible-parameters" Failure
+        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "incompatible-restore" Failure
         ]
     }
 
@@ -41,10 +41,10 @@ dbInstanceDeleted = Wait
     , _waitAttempts  = 60
     , _waitDelay     = 30
     , _waitAcceptors =
-        [ pathAll Success {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "deleted"
-        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "creating"
-        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "modifying"
-        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "rebooting"
-        , pathAny Failure {"contents":["ddbirDBInstances",{"contents":"dbiDBInstanceStatus","type":"access"}],"type":"indexed"} "resetting-master-credentials"
+        [ pathAll (ddbirDBInstances . dbiDBInstanceStatus) "deleted" Success
+        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "creating" Failure
+        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "modifying" Failure
+        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "rebooting" Failure
+        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "resetting-master-credentials" Failure
         ]
     }

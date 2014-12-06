@@ -71,7 +71,7 @@ instance AWSService CloudTrail where
         handle = jsonError statusSuccess service'
 
         retry :: Retry CloudTrail
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 5

@@ -1429,7 +1429,7 @@ instance AWSService EC2 where
         handle = restError statusSuccess service'
 
         retry :: Retry EC2
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 5

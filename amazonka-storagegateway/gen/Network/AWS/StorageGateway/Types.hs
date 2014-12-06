@@ -195,7 +195,7 @@ instance AWSService StorageGateway where
         handle = jsonError statusSuccess service'
 
         retry :: Retry StorageGateway
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 5

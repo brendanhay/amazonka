@@ -7,22 +7,7 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "givarVerificationAttributes",
-                                {
-                                    "contents": [
-                                        "traverseValues",
-                                        {
-                                            "contents": "ivaVerificationStatus",
-                                            "type": "access"
-                                        }
-                                    ],
-                                    "type": "nested"
-                                }
-                            ],
-                            "type": "nested"
-                        },
+                        "argument": "givarVerificationAttributes . traverseValues . ivaVerificationStatus",
                         "expected": "\"Success\""
                     }
                 ],

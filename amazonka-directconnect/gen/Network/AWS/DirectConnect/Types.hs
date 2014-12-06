@@ -176,7 +176,7 @@ instance AWSService DirectConnect where
         handle = jsonError statusSuccess service'
 
         retry :: Retry DirectConnect
-        retry = Retry
+        retry = Exponential
             { _retryBase     = 0.05
             , _retryGrowth   = 2
             , _retryAttempts = 5

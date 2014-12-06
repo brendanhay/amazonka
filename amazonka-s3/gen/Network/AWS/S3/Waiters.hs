@@ -25,8 +25,8 @@ bucketExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 5
     , _waitAcceptors =
-        [ status Success null 200
-        , status Retry null 404
+        [ status 200 Success
+        , status 404 Retry
         ]
     }
 
@@ -36,7 +36,7 @@ bucketNotExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 5
     , _waitAcceptors =
-        [ status Success null 404
+        [ status 404 Success
         ]
     }
 
@@ -46,8 +46,8 @@ objectExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 5
     , _waitAcceptors =
-        [ status Success null 200
-        , status Retry null 404
+        [ status 200 Success
+        , status 404 Retry
         ]
     }
 
@@ -57,6 +57,6 @@ objectNotExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 5
     , _waitAcceptors =
-        [ status Success null 404
+        [ status 404 Success
         ]
     }

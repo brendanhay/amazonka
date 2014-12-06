@@ -24,6 +24,6 @@ streamExists = Wait
     , _waitAttempts  = 18
     , _waitDelay     = 10
     , _waitAcceptors =
-        [ path Success {"contents":["dsrStreamDescription",{"contents":"sdStreamStatus","type":"access"}],"type":"nested"} "ACTIVE"
+        [ path (dsrStreamDescription . sdStreamStatus) "ACTIVE" Success
         ]
     }

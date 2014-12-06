@@ -7,46 +7,19 @@
                     {
                         "matcher": "path",
                         "state": "success",
-                        "argument": {
-                            "contents": [
-                                "rjrJob",
-                                {
-                                    "contents": "jStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "nested"
-                        },
+                        "argument": "rjrJob . jStatus",
                         "expected": "\"Complete\""
                     },
                     {
                         "matcher": "path",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "rjrJob",
-                                {
-                                    "contents": "jStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "nested"
-                        },
+                        "argument": "rjrJob . jStatus",
                         "expected": "\"Canceled\""
                     },
                     {
                         "matcher": "path",
                         "state": "failure",
-                        "argument": {
-                            "contents": [
-                                "rjrJob",
-                                {
-                                    "contents": "jStatus",
-                                    "type": "access"
-                                }
-                            ],
-                            "type": "nested"
-                        },
+                        "argument": "rjrJob . jStatus",
                         "expected": "\"Error\""
                     }
                 ],

@@ -2,7 +2,9 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.ELB.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.ELB.Types"
+        ]
     },
     "service": {
         "signature": "V4",

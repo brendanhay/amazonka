@@ -2,7 +2,9 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.DataPipeline.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.DataPipeline.Types"
+        ]
     },
     "service": {
         "signature": "V4",

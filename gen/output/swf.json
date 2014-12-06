@@ -2,7 +2,9 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.SWF.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.SWF.Types"
+        ]
     },
     "service": {
         "signature": "V4",

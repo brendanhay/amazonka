@@ -563,16 +563,20 @@ data StateType
 nullary (input  & thCtor .~ ctor "State") ''StateType
 nullary (output & thCtor .~ ctor "State") ''StateType
 
-newtype Expected = Expected (Either Int Text)
-    deriving (Eq, Show)
+data Expected
+    = ExpectStatus !Int
+    | ExpectText   !Text
+    | ExpectCtor   !Text
+      deriving (Eq, Show)
 
 instance FromJSON Expected where
-    parseJSON (String s) = pure $ Expected (Right s)
-    parseJSON o          = Expected . Left <$> parseJSON o
+    parseJSON (String s) = pure (ExpectText s)
+    parseJSON o          = ExpectStatus <$> parseJSON o
 
 instance A.ToJSON Expected where
-    toJSON (Expected (Right s)) = A.toJSON ("\"" <> s <> "\"")
-    toJSON (Expected (Left  n)) = A.toJSON n
+    toJSON (ExpectStatus n) = A.toJSON n
+    toJSON (ExpectText   s) = A.toJSON ("\"" <> s <> "\"")
+    toJSON (ExpectCtor   c) = A.toJSON c
 
 data Notation
     = Indexed !Text !Notation

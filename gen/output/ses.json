@@ -7,7 +7,7 @@
                     {
                         "matcher": "pathAll",
                         "state": "success",
-                        "argument": "givarVerificationAttributes . traverseValues . ivaVerificationStatus",
+                        "argument": "givarVerificationAttributes . traverse . ivaVerificationStatus",
                         "expected": "\"Success\""
                     }
                 ],
@@ -17,7 +17,8 @@
         },
         "namespace": "Network.AWS.SES.Waiters",
         "imports": [
-            "Network.AWS.SES.GetIdentityVerificationAttributes"
+            "Network.AWS.SES.GetIdentityVerificationAttributes",
+            "Network.AWS.SES.Types"
         ]
     },
     "service": {

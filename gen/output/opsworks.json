@@ -2,7 +2,9 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.OpsWorks.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.OpsWorks.Types"
+        ]
     },
     "service": {
         "signature": "V4",

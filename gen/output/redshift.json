@@ -80,7 +80,8 @@
         "namespace": "Network.AWS.Redshift.Waiters",
         "imports": [
             "Network.AWS.Redshift.DescribeClusterSnapshots",
-            "Network.AWS.Redshift.DescribeClusters"
+            "Network.AWS.Redshift.DescribeClusters",
+            "Network.AWS.Redshift.Types"
         ]
     },
     "service": {

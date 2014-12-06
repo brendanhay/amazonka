@@ -17,7 +17,8 @@
         },
         "namespace": "Network.AWS.Kinesis.Waiters",
         "imports": [
-            "Network.AWS.Kinesis.DescribeStream"
+            "Network.AWS.Kinesis.DescribeStream",
+            "Network.AWS.Kinesis.Types"
         ]
     },
     "service": {

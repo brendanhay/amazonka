@@ -2,7 +2,9 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.CloudTrail.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.CloudTrail.Types"
+        ]
     },
     "service": {
         "signature": "V4",

@@ -29,7 +29,8 @@
         },
         "namespace": "Network.AWS.ElasticTranscoder.Waiters",
         "imports": [
-            "Network.AWS.ElasticTranscoder.ReadJob"
+            "Network.AWS.ElasticTranscoder.ReadJob",
+            "Network.AWS.ElasticTranscoder.Types"
         ]
     },
     "service": {

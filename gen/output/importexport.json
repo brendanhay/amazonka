@@ -2,7 +2,9 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.ImportExport.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.ImportExport.Types"
+        ]
     },
     "service": {
         "signature": "V2",

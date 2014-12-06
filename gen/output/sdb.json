@@ -2,7 +2,9 @@
     "waiters": {
         "waiters": {},
         "namespace": "Network.AWS.SDB.Waiters",
-        "imports": []
+        "imports": [
+            "Network.AWS.SDB.Types"
+        ]
     },
     "service": {
         "signature": "V2",

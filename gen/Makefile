@@ -48,7 +48,7 @@ JSON := \
  support \
  swf
 
-MODELS ?= $(QUERY) $(XML) $(JSON)
+MODELS ?= dynamodb # $(QUERY) $(XML) $(JSON)
 
 .PHONY: gen
 

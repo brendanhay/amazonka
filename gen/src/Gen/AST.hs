@@ -19,6 +19,8 @@
 
 module Gen.AST (transformAST) where
 
+import Debug.Trace
+
 import           Control.Applicative        ((<$>), (<*>), (<|>), pure)
 import           Control.Arrow              ((&&&))
 import           Control.Error
@@ -87,7 +89,7 @@ transformAST Retries{..} m inp = Output cabal service ops types waiters
 
     waiters = Waiters
         { _wNamespace = waitersNamespace
-        , _wImports   = sort . nub . map f $ Map.elems ws
+        , _wImports   = sort . nub $ typesNamespace : map f (Map.elems ws)
         , _wWaiters   = ws
         }
       where
@@ -661,15 +663,47 @@ prefixWaiters :: HashMap Text Data
               -> HashMap Text Waiter
 prefixWaiters ds = Map.map go
   where
-    go w@Waiter{..} = w & wAcceptors %~ map (aArgument %~ fmap (prefix d))
+    go w@Waiter{..} = w & wAcceptors %~ map acceptor
       where
-        d = type' (_wOperation <> "Response")
+        acceptor a =
+            case _aArgument a of
+                Nothing -> a
+                Just x  ->
+                    let (y, e) = runState (prefix initial x) (_aExpected a)
+                     in a & aArgument ?~ y
+                          & aExpected .~ e
 
-    prefix d = \case
-        Indexed k   i -> let f = field k d in Indexed (lensName (_fName f)) (prefix (type' (firstName f)) i)
-        Nested  "*" i -> Nested "traverseValues" (prefix d i)
-        Nested  k   i -> let f = field k d in Nested  (lensName (_fName f)) (prefix (type' (firstName f)) i)
-        Access  k     -> Access . lensName . _fName $ field k d
+        initial = type' (_wOperation <> "Response")
+
+        prefix :: Data -> Notation -> State Expected Notation
+        prefix d = \case
+            Indexed k i -> do
+                let f = field k d
+                Indexed (lensName (_fName f)) <$>
+                    prefix (type' (firstName f)) i
+
+            Nested "*" i ->
+                Nested "traverse" <$> prefix d i
+
+            Nested  k i -> do
+                let f = field k d
+                Nested (lensName (_fName f)) <$>
+                    prefix (type' (firstName f)) i
+
+            Access  k   -> do
+                let f = field k d
+                    r = listToMaybe . mapMaybe name $ universeOn typeOf f
+                case trace (show (k, r)) $ type' <$> r of
+                    Just (Nullary _ fs) -> do
+                        e <- trace (show fs) get
+                        case e of
+                            ExpectText x ->
+                                case find ((x ==) . snd) (Map.toList fs) of
+                                    Just y -> put (ExpectCtor (fst y))
+                                    _      -> return ()
+                            _                  -> return ()
+                    _            -> return ()
+                return $! Access (lensName (_fName f))
 
     field k d =
         fromMaybe (error $ "Unable to find field: " ++ show (k, toListOf (dataFields . nameOf) d, Map.keys ds))

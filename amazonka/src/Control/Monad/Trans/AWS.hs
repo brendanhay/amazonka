@@ -262,7 +262,7 @@ within r = local (envRegion .~ r)
 --
 -- /Example:/ Any requests will at most be sent once.
 once :: MonadReader Env m => m a -> m a
-once = local (envRetry .~ limitRetries 1)
+once = local (envRetry .~ limitRetries 0)
 
 -- | Send a data type which is an instance of 'AWSRequest', returning it's
 -- associated 'Rs' response type.
@@ -271,6 +271,8 @@ once = local (envRetry .~ limitRetries 1)
 -- service using the 'MonadError' instance. In the case of 'AWST' this will
 -- cause the internal 'ExceptT' to short-circuit and return an 'Error' in
 -- the 'Left' case as the result of the computation.
+--
+-- /See:/ 'sendCatch'
 send :: ( MonadCatch m
         , MonadResource m
         , MonadReader Env m
@@ -282,6 +284,8 @@ send :: ( MonadCatch m
 send = sendCatch >=> hoistEither
 
 -- | A variant of 'send' which discards any successful response.
+--
+-- /See:/ 'send'
 send_ :: ( MonadCatch m
          , MonadResource m
          , MonadReader Env m
@@ -314,6 +318,8 @@ sendCatch x = scoped (`AWS.send` x)
 --
 -- /Note:/ The 'ResumableSource' will close when there are no more results or the
 -- 'ResourceT' computation is unwrapped. See: 'runResourceT' for more information.
+--
+-- /See:/ 'paginateCatch'
 paginate :: ( MonadCatch m
             , MonadResource m
             , MonadReader Env m
@@ -339,7 +345,13 @@ paginateCatch :: ( MonadCatch m
               -> Source m (Response a)
 paginateCatch x = scoped (`AWS.paginate` x)
 
--- |
+-- | Poll the API until a predfined condition is fulfilled using the
+-- supplied 'Wait a' specification from the respective service.
+--
+-- Any errors which are unhandled by the 'Wait a' specification during retries
+-- will be thrown in the same manner as 'send'.
+--
+-- /See:/ 'awaitCatch'
 await :: ( MonadCatch m
          , MonadResource m
          , MonadReader Env m
@@ -351,7 +363,14 @@ await :: ( MonadCatch m
       -> m (Rs a)
 await w = awaitCatch w >=> hoistEither
 
--- |
+-- | Poll the API until a predfined condition is fulfilled using the
+-- supplied 'Wait a' specification from the respective service.
+--
+-- The response will be either the first error returned that is not handled
+-- by the specification, or the successful response from the await request.
+--
+-- /Note:/ You can find any available 'Wait a' specifications under the
+-- namespace "Network.AWS.<ServiceName>.Waiters" for supported services.
 awaitCatch :: ( MonadCatch m
               , MonadResource m
               , MonadReader Env m

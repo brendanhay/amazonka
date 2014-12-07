@@ -116,7 +116,14 @@ send e@Env{..} x@(request -> rq) = retrier e rq (go `catch` err >>= response x)
 
     err ex = return (Left (ex :: HttpException))
 
--- | !!!
+-- | Poll the API until a predefined condition is fulfilled using the
+-- supplied 'Wait a' specification from the respective service.
+--
+-- The response will be either the first error returned that is not handled
+-- by the specification, or the successful response from the await request.
+--
+-- /Note:/ You can find any available 'Wait a' specifications under then
+-- "Network.AWS.<ServiceName>.Waiters" namespace for supported services.
 await :: (MonadCatch m, MonadResource m, AWSRequest a)
       => Env
       -> Wait a

@@ -7,8 +7,20 @@
         "serviceAbbreviation": "ElasticTranscoder"
     },
     "overrides": {
+        "ReadJobResponse": {
+            "required": [
+                "Job"
+            ]
+        },
         "Job": {
-            "rename_to": "Job'"
+            "rename_to": "Job'",
+            "required": [
+                "Id",
+                "Status",
+                "Input",
+                "OutputKeyPrefix",
+                "PipelineId"
+            ]
         }
     }
 }

@@ -68,22 +68,23 @@ rjId :: Lens' ReadJob Text
 rjId = lens _rjId (\s a -> s { _rjId = a })
 
 newtype ReadJobResponse = ReadJobResponse
-    { _rjrJob :: Maybe Job'
+    { _rjrJob :: Job'
     } deriving (Eq, Show)
 
 -- | 'ReadJobResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rjrJob' @::@ 'Maybe' 'Job''
+-- * 'rjrJob' @::@ 'Job''
 --
-readJobResponse :: ReadJobResponse
-readJobResponse = ReadJobResponse
-    { _rjrJob = Nothing
+readJobResponse :: Job' -- ^ 'rjrJob'
+                -> ReadJobResponse
+readJobResponse p1 = ReadJobResponse
+    { _rjrJob = p1
     }
 
 -- | A section of the response body that provides information about the job.
-rjrJob :: Lens' ReadJobResponse (Maybe Job')
+rjrJob :: Lens' ReadJobResponse Job'
 rjrJob = lens _rjrJob (\s a -> s { _rjrJob = a })
 
 instance ToPath ReadJob where
@@ -109,4 +110,4 @@ instance AWSRequest ReadJob where
 
 instance FromJSON ReadJobResponse where
     parseJSON = withObject "ReadJobResponse" $ \o -> ReadJobResponse
-        <$> o .:? "Job"
+        <$> o .:  "Job"

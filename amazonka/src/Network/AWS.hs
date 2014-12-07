@@ -29,7 +29,7 @@ module Network.AWS
     -- ** Creating the environment
     , newEnv
     , getEnv
-    -- ** Authentication credentials
+    -- ** Authentication
     , module Network.AWS.Internal.Auth
 
     -- * Logging

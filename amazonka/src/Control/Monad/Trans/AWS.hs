@@ -42,7 +42,7 @@ module Control.Monad.Trans.AWS
     -- ** Creating the environment
     , AWS.newEnv
     , AWS.getEnv
-    -- ** Authentication credentials
+    -- ** Authentication
     , module Network.AWS.Internal.Auth
 
     -- * Logging

@@ -37,17 +37,24 @@ module Network.AWS.Waiters
 import Control.Lens
 import Data.ByteString    (ByteString)
 import Data.Maybe
+import Network.AWS.Data
 import Network.AWS.Error
 import Network.AWS.Types
 import Network.HTTP.Types
 
-type Acceptor a = a -> Status -> Response a -> Maybe Accept
+type Acceptor a = Request a -> Response' a -> Maybe Accept
 
 data Accept
     = AcceptSuccess
     | AcceptFailure
     | AcceptRetry
       deriving (Eq, Show)
+
+instance ToBuilder Accept where
+    build = \case
+        AcceptSuccess -> "Success"
+        AcceptFailure -> "Failure"
+        AcceptRetry   -> "Retry"
 
 -- | Timing and acceptance criteria to check fulfillment of a remote operation.
 data Wait a = Wait
@@ -57,8 +64,8 @@ data Wait a = Wait
     , _waitAcceptors :: [Acceptor a]
     }
 
-accept :: [Acceptor a] -> Acceptor a
-accept xs rq s rs = listToMaybe $ mapMaybe (\f -> f rq s rs) xs
+accept :: Wait a -> Acceptor a
+accept w rq rs = listToMaybe . mapMaybe (\f -> f rq rs) $ _waitAcceptors w
 
 matchAll :: Eq b => b -> Accept -> Fold (Rs a) b -> Acceptor a
 matchAll x a l = match (allOf l (== x)) a
@@ -67,18 +74,21 @@ matchAny :: Eq b => b -> Accept -> Fold (Rs a) b -> Acceptor a
 matchAny x a l = match (anyOf l (== x)) a
 
 matchStatus :: Int -> Accept -> Acceptor a
-matchStatus x a _ (statusCode -> y) _
-    | x == y    = Just a
-    | otherwise = Nothing
+matchStatus x a _ = \case
+    Left (ServiceError _ s _)
+        | x == statusCode s -> Just a
+    Right (s, _)
+        | x == statusCode s -> Just a
+    _                       -> Nothing
 
 matchError :: AWSErrorCode (Er (Sv a)) => ErrorCode -> Accept -> Acceptor a
-matchError c a _ _ = \case
+matchError c a _ = \case
     Left (ServiceError _ _ e)
         | c == awsErrorCode e -> Just a
     _                         -> Nothing
 
 match :: (Rs a -> Bool) -> Accept -> Acceptor a
-match f a _ _ = \case
-    Right rs
+match f a _ = \case
+    Right (_, rs)
         | f rs -> Just a
     _          -> Nothing

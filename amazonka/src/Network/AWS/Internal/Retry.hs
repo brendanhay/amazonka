@@ -27,15 +27,18 @@ import Network.AWS.Internal.Env
 import Network.AWS.Internal.Log
 import Network.AWS.Prelude
 import Network.AWS.Types
+import Network.AWS.Waiters
 
 retrier :: (MonadIO m, AWSService (Sv a))
         => Env
         -> Request a
-        -> m (Response a)
-        -> m (Response a)
-retrier Env{..} rq = retrying (retryPolicy rq <> _envRetry) check
+        -> m (Response' a)
+        -> m (Response' a)
+retrier Env{..} rq = retrying (fromMaybe (retryPolicy rq) _envRetry) check
   where
     check n rs
+        | Left (HttpError    _)     <- rs
+                    = msg n >> return True
         | Left (ServiceError _ s e) <- rs
         , _retryCheck (_svcRetry (serviceOf rq)) s e
                     = msg n >> return True
@@ -47,23 +50,27 @@ retrier Env{..} rq = retrying (retryPolicy rq <> _envRetry) check
 waiter :: MonadIO m
        => Env
        -> Wait a
-       -> m (Response a)
-       -> m (Response a)
-waiter Env{..} w@Wait{..} = retrying (awaitPolicy w) check
+       -> Request a
+       -> m (Response' a)
+       -> m (Response' a)
+waiter Env{..} w rq = retrying (awaitPolicy w) check
   where
-    check n = \case
-        Left  _              -> msg n "Error"   >> return False
-        Right x
-            | _waitSuccess x -> msg n "Success" >> return True
-            | otherwise      -> msg n "Failure" >> return False
+    check n rs = do
+        let a = fromMaybe AcceptRetry (accept w rq rs)
+        msg n a >> return (retry a)
 
-    msg n s = debug _envLogger
+    retry AcceptSuccess = False
+    retry AcceptFailure = False
+    retry AcceptRetry   = True
+
+    msg n a = debug _envLogger
         . mconcat
         . intersperse " "
-        $ [ "[Await " <> build _waitName <> "]"
-          , s
+        $ [ "[Await " <> build (_waitName w) <> "]"
+          , build a
+          , " after "
           , build (n + 1)
-          , "attempt."
+          , "attempts."
           ]
 
 awaitPolicy :: Wait a -> RetryPolicy

@@ -76,6 +76,7 @@ module Network.AWS.Types
 
     -- * Responses
     , Response
+    , Response'
     , Empty         (..)
 
     -- * Regions
@@ -158,7 +159,9 @@ serviceOf = const service
 
 -- | An alias for the common response 'Either' containing a service error in the
 -- 'Left' case, or the expected response in the 'Right'.
-type Response a = Either (ServiceError (Er (Sv a))) (Rs a)
+type Response  a = Either (ServiceError (Er (Sv a))) (Rs a)
+
+type Response' a = Either (ServiceError (Er (Sv a))) (Status, Rs a)
 
 -- | Specify how a request can be de/serialised.
 class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
@@ -170,9 +173,9 @@ class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
 
     request  :: a -> Request a
     response :: MonadResource m
-             => a
+             => Request a
              -> Either HttpException ClientResponse
-             -> m (Response a)
+             -> m (Response' a)
 
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can generate
 -- a subsequent request, if available.

@@ -105,6 +105,7 @@ import           Network.AWS.Error
 import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
 import           Network.AWS.Types
+import           Network.AWS.Waiters
 
 -- | The top-level error type.
 type Error = ServiceError String
@@ -262,7 +263,7 @@ within r = local (envRegion .~ r)
 --
 -- /Example:/ Any requests will at most be sent once.
 once :: MonadReader Env m => m a -> m a
-once = local (envRetry .~ limitRetries 0)
+once = local (envRetry ?~ limitRetries 0)
 
 -- | Send a data type which is an instance of 'AWSRequest', returning it's
 -- associated 'Rs' response type.

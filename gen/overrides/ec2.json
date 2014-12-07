@@ -112,6 +112,64 @@
             "required": [
                 "GroupId"
             ]
+        },
+        "VpnConnection": {
+            "required": [
+                "VpnConnectionId",
+                "CustomerGatewayId",
+                "Customergatewayconfiguration",
+                "State",
+                "Type"
+            ]
+        },
+        "Snapshot": {
+            "required": [
+                "SnapshotId",
+                "OwnerId",
+                "VolumeId",
+                "VolumeSize",
+                "Description",
+                "StartTime",
+                "Progress",
+                "State",
+                "Encrypted"
+            ]
+        },
+        "Reservation": {
+            "required": [
+                "ReservationId",
+                "OwnerId",
+                "RequesterId"
+            ]
+        },
+        "Instance": {
+            "required": [
+                "AmiLaunchIndex",
+                "Architecture",
+                "ClientToken",
+                "Hypervisor",
+                "ImageId",
+                "InstanceId",
+                "InstanceType",
+                "KernelId",
+                "KeyName",
+                "LaunchTime",
+                "Monitoring",
+                "Placement",
+                "Platform",
+                "PrivateDnsName",
+                "PrivateIpAddress",
+                "PublicDnsName",
+                "PublicIpAddress",
+                "RamdiskId",
+                "RootDeviceName",
+                "RootDeviceType",
+                "SourceDestCheck",
+                "State",
+                "SubnetId",
+                "VirtualizationType",
+                "VpcId"
+            ]
         }
     }
 }

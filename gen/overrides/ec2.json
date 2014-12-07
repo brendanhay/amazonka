@@ -170,6 +170,50 @@
                 "VirtualizationType",
                 "VpcId"
             ]
+        },
+        "BundleTask": {
+            "required": [
+                "BundleId",
+                "InstanceId",
+                "Progress",
+                "StartTime",
+                "State",
+                "Storage",
+                "UpdateTime"
+            ]
+        },
+        "Vpc": {
+            "required": [
+                "CidrBlock",
+                "DhcpOptionsId",
+                "InstanceTenancy",
+                "IsDefault",
+                "State",
+                "VpcId"
+            ]
+        },
+        "ExportTask": {
+            "required": [
+                "Description",
+                "ExportTaskId",
+                "ExportToS3Task",
+                "InstanceExportDetails",
+                "State",
+                "StatusMessage"
+            ]
+        },
+        "Volume": {
+            "required": [
+                "AvailabilityZone",
+                "CreateTime",
+                "Encrypted",
+                "Iops",
+                "Size",
+                "SnapshotId",
+                "State",
+                "VolumeId",
+                "VolumeType"
+            ]
         }
     }
 }

@@ -4545,17 +4545,17 @@ instance ToQuery VolumeStatusEvent where
 
 data Volume = Volume
     { _vAttachments      :: List "item" VolumeAttachment
-    , _vAvailabilityZone :: Maybe Text
-    , _vCreateTime       :: Maybe ISO8601
-    , _vEncrypted        :: Maybe Bool
-    , _vIops             :: Maybe Int
+    , _vAvailabilityZone :: Text
+    , _vCreateTime       :: ISO8601
+    , _vEncrypted        :: Bool
+    , _vIops             :: Int
     , _vKmsKeyId         :: Maybe Text
-    , _vSize             :: Maybe Int
-    , _vSnapshotId       :: Maybe Text
-    , _vState            :: Maybe VolumeState
+    , _vSize             :: Int
+    , _vSnapshotId       :: Text
+    , _vState            :: VolumeState
     , _vTags             :: List "item" Tag
-    , _vVolumeId         :: Maybe Text
-    , _vVolumeType       :: Maybe VolumeType
+    , _vVolumeId         :: Text
+    , _vVolumeType       :: VolumeType
     } deriving (Eq, Show)
 
 -- | 'Volume' constructor.
@@ -4564,41 +4564,50 @@ data Volume = Volume
 --
 -- * 'vAttachments' @::@ ['VolumeAttachment']
 --
--- * 'vAvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 'vAvailabilityZone' @::@ 'Text'
 --
--- * 'vCreateTime' @::@ 'Maybe' 'UTCTime'
+-- * 'vCreateTime' @::@ 'UTCTime'
 --
--- * 'vEncrypted' @::@ 'Maybe' 'Bool'
+-- * 'vEncrypted' @::@ 'Bool'
 --
--- * 'vIops' @::@ 'Maybe' 'Int'
+-- * 'vIops' @::@ 'Int'
 --
 -- * 'vKmsKeyId' @::@ 'Maybe' 'Text'
 --
--- * 'vSize' @::@ 'Maybe' 'Int'
+-- * 'vSize' @::@ 'Int'
 --
--- * 'vSnapshotId' @::@ 'Maybe' 'Text'
+-- * 'vSnapshotId' @::@ 'Text'
 --
--- * 'vState' @::@ 'Maybe' 'VolumeState'
+-- * 'vState' @::@ 'VolumeState'
 --
 -- * 'vTags' @::@ ['Tag']
 --
--- * 'vVolumeId' @::@ 'Maybe' 'Text'
+-- * 'vVolumeId' @::@ 'Text'
 --
--- * 'vVolumeType' @::@ 'Maybe' 'VolumeType'
+-- * 'vVolumeType' @::@ 'VolumeType'
 --
-volume :: Volume
-volume = Volume
-    { _vVolumeId         = Nothing
-    , _vSize             = Nothing
-    , _vSnapshotId       = Nothing
-    , _vAvailabilityZone = Nothing
-    , _vState            = Nothing
-    , _vCreateTime       = Nothing
+volume :: Text -- ^ 'vVolumeId'
+       -> Int -- ^ 'vSize'
+       -> Text -- ^ 'vSnapshotId'
+       -> Text -- ^ 'vAvailabilityZone'
+       -> VolumeState -- ^ 'vState'
+       -> UTCTime -- ^ 'vCreateTime'
+       -> VolumeType -- ^ 'vVolumeType'
+       -> Int -- ^ 'vIops'
+       -> Bool -- ^ 'vEncrypted'
+       -> Volume
+volume p1 p2 p3 p4 p5 p6 p7 p8 p9 = Volume
+    { _vVolumeId         = p1
+    , _vSize             = p2
+    , _vSnapshotId       = p3
+    , _vAvailabilityZone = p4
+    , _vState            = p5
+    , _vCreateTime       = withIso _Time (const id) p6
+    , _vVolumeType       = p7
+    , _vIops             = p8
+    , _vEncrypted        = p9
     , _vAttachments      = mempty
     , _vTags             = mempty
-    , _vVolumeType       = Nothing
-    , _vIops             = Nothing
-    , _vEncrypted        = Nothing
     , _vKmsKeyId         = Nothing
     }
 
@@ -4606,16 +4615,16 @@ vAttachments :: Lens' Volume [VolumeAttachment]
 vAttachments = lens _vAttachments (\s a -> s { _vAttachments = a }) . _List
 
 -- | The Availability Zone for the volume.
-vAvailabilityZone :: Lens' Volume (Maybe Text)
+vAvailabilityZone :: Lens' Volume Text
 vAvailabilityZone =
     lens _vAvailabilityZone (\s a -> s { _vAvailabilityZone = a })
 
 -- | The time stamp when volume creation was initiated.
-vCreateTime :: Lens' Volume (Maybe UTCTime)
-vCreateTime = lens _vCreateTime (\s a -> s { _vCreateTime = a }) . mapping _Time
+vCreateTime :: Lens' Volume UTCTime
+vCreateTime = lens _vCreateTime (\s a -> s { _vCreateTime = a }) . _Time
 
 -- | Indicates whether the volume is encrypted.
-vEncrypted :: Lens' Volume (Maybe Bool)
+vEncrypted :: Lens' Volume Bool
 vEncrypted = lens _vEncrypted (\s a -> s { _vEncrypted = a })
 
 -- | The number of I/O operations per second (IOPS) that the volume supports. For
@@ -4630,7 +4639,7 @@ vEncrypted = lens _vEncrypted (\s a -> s { _vEncrypted = a })
 --
 -- Condition: This parameter is required for requests to create 'io1' volumes; it
 -- is not used in requests to create 'standard' or 'gp2' volumes.
-vIops :: Lens' Volume (Maybe Int)
+vIops :: Lens' Volume Int
 vIops = lens _vIops (\s a -> s { _vIops = a })
 
 -- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
@@ -4639,15 +4648,15 @@ vKmsKeyId :: Lens' Volume (Maybe Text)
 vKmsKeyId = lens _vKmsKeyId (\s a -> s { _vKmsKeyId = a })
 
 -- | The size of the volume, in GiBs.
-vSize :: Lens' Volume (Maybe Int)
+vSize :: Lens' Volume Int
 vSize = lens _vSize (\s a -> s { _vSize = a })
 
 -- | The snapshot from which the volume was created, if applicable.
-vSnapshotId :: Lens' Volume (Maybe Text)
+vSnapshotId :: Lens' Volume Text
 vSnapshotId = lens _vSnapshotId (\s a -> s { _vSnapshotId = a })
 
 -- | The volume state.
-vState :: Lens' Volume (Maybe VolumeState)
+vState :: Lens' Volume VolumeState
 vState = lens _vState (\s a -> s { _vState = a })
 
 -- | Any tags assigned to the volume.
@@ -4655,28 +4664,28 @@ vTags :: Lens' Volume [Tag]
 vTags = lens _vTags (\s a -> s { _vTags = a }) . _List
 
 -- | The ID of the volume.
-vVolumeId :: Lens' Volume (Maybe Text)
+vVolumeId :: Lens' Volume Text
 vVolumeId = lens _vVolumeId (\s a -> s { _vVolumeId = a })
 
 -- | The volume type. This can be 'gp2' for General Purpose (SSD) volumes, 'io1' for
 -- Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic volumes.
-vVolumeType :: Lens' Volume (Maybe VolumeType)
+vVolumeType :: Lens' Volume VolumeType
 vVolumeType = lens _vVolumeType (\s a -> s { _vVolumeType = a })
 
 instance FromXML Volume where
     parseXML x = Volume
         <$> parseXML x
-        <*> x .@? "availabilityZone"
-        <*> x .@? "createTime"
-        <*> x .@? "encrypted"
-        <*> x .@? "iops"
+        <*> x .@  "availabilityZone"
+        <*> x .@  "createTime"
+        <*> x .@  "encrypted"
+        <*> x .@  "iops"
         <*> x .@? "kmsKeyId"
-        <*> x .@? "size"
-        <*> x .@? "snapshotId"
-        <*> x .@? "status"
+        <*> x .@  "size"
+        <*> x .@  "snapshotId"
+        <*> x .@  "status"
         <*> parseXML x
-        <*> x .@? "volumeId"
-        <*> x .@? "volumeType"
+        <*> x .@  "volumeId"
+        <*> x .@  "volumeType"
 
 instance ToQuery Volume where
     toQuery Volume{..} = mconcat
@@ -6468,50 +6477,57 @@ instance ToQuery NetworkAclAssociation where
         ]
 
 data BundleTask = BundleTask
-    { _btBundleId        :: Maybe Text
+    { _btBundleId        :: Text
     , _btBundleTaskError :: Maybe BundleTaskError
-    , _btInstanceId      :: Maybe Text
-    , _btProgress        :: Maybe Text
-    , _btStartTime       :: Maybe ISO8601
-    , _btState           :: Maybe BundleTaskState
-    , _btStorage         :: Maybe Storage
-    , _btUpdateTime      :: Maybe ISO8601
+    , _btInstanceId      :: Text
+    , _btProgress        :: Text
+    , _btStartTime       :: ISO8601
+    , _btState           :: BundleTaskState
+    , _btStorage         :: Storage
+    , _btUpdateTime      :: ISO8601
     } deriving (Eq, Show)
 
 -- | 'BundleTask' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'btBundleId' @::@ 'Maybe' 'Text'
+-- * 'btBundleId' @::@ 'Text'
 --
 -- * 'btBundleTaskError' @::@ 'Maybe' 'BundleTaskError'
 --
--- * 'btInstanceId' @::@ 'Maybe' 'Text'
+-- * 'btInstanceId' @::@ 'Text'
 --
--- * 'btProgress' @::@ 'Maybe' 'Text'
+-- * 'btProgress' @::@ 'Text'
 --
--- * 'btStartTime' @::@ 'Maybe' 'UTCTime'
+-- * 'btStartTime' @::@ 'UTCTime'
 --
--- * 'btState' @::@ 'Maybe' 'BundleTaskState'
+-- * 'btState' @::@ 'BundleTaskState'
 --
--- * 'btStorage' @::@ 'Maybe' 'Storage'
+-- * 'btStorage' @::@ 'Storage'
 --
--- * 'btUpdateTime' @::@ 'Maybe' 'UTCTime'
+-- * 'btUpdateTime' @::@ 'UTCTime'
 --
-bundleTask :: BundleTask
-bundleTask = BundleTask
-    { _btInstanceId      = Nothing
-    , _btBundleId        = Nothing
-    , _btState           = Nothing
-    , _btStartTime       = Nothing
-    , _btUpdateTime      = Nothing
-    , _btStorage         = Nothing
-    , _btProgress        = Nothing
+bundleTask :: Text -- ^ 'btInstanceId'
+           -> Text -- ^ 'btBundleId'
+           -> BundleTaskState -- ^ 'btState'
+           -> UTCTime -- ^ 'btStartTime'
+           -> UTCTime -- ^ 'btUpdateTime'
+           -> Storage -- ^ 'btStorage'
+           -> Text -- ^ 'btProgress'
+           -> BundleTask
+bundleTask p1 p2 p3 p4 p5 p6 p7 = BundleTask
+    { _btInstanceId      = p1
+    , _btBundleId        = p2
+    , _btState           = p3
+    , _btStartTime       = withIso _Time (const id) p4
+    , _btUpdateTime      = withIso _Time (const id) p5
+    , _btStorage         = p6
+    , _btProgress        = p7
     , _btBundleTaskError = Nothing
     }
 
 -- | The ID for this bundle task.
-btBundleId :: Lens' BundleTask (Maybe Text)
+btBundleId :: Lens' BundleTask Text
 btBundleId = lens _btBundleId (\s a -> s { _btBundleId = a })
 
 -- | If the task fails, a description of the error.
@@ -6520,39 +6536,39 @@ btBundleTaskError =
     lens _btBundleTaskError (\s a -> s { _btBundleTaskError = a })
 
 -- | The ID of the instance associated with this bundle task.
-btInstanceId :: Lens' BundleTask (Maybe Text)
+btInstanceId :: Lens' BundleTask Text
 btInstanceId = lens _btInstanceId (\s a -> s { _btInstanceId = a })
 
 -- | The level of task completion, as a percent (for example, 20%).
-btProgress :: Lens' BundleTask (Maybe Text)
+btProgress :: Lens' BundleTask Text
 btProgress = lens _btProgress (\s a -> s { _btProgress = a })
 
 -- | The time this task started.
-btStartTime :: Lens' BundleTask (Maybe UTCTime)
-btStartTime = lens _btStartTime (\s a -> s { _btStartTime = a }) . mapping _Time
+btStartTime :: Lens' BundleTask UTCTime
+btStartTime = lens _btStartTime (\s a -> s { _btStartTime = a }) . _Time
 
 -- | The state of the task.
-btState :: Lens' BundleTask (Maybe BundleTaskState)
+btState :: Lens' BundleTask BundleTaskState
 btState = lens _btState (\s a -> s { _btState = a })
 
 -- | The Amazon S3 storage locations.
-btStorage :: Lens' BundleTask (Maybe Storage)
+btStorage :: Lens' BundleTask Storage
 btStorage = lens _btStorage (\s a -> s { _btStorage = a })
 
 -- | The time of the most recent update for the task.
-btUpdateTime :: Lens' BundleTask (Maybe UTCTime)
-btUpdateTime = lens _btUpdateTime (\s a -> s { _btUpdateTime = a }) . mapping _Time
+btUpdateTime :: Lens' BundleTask UTCTime
+btUpdateTime = lens _btUpdateTime (\s a -> s { _btUpdateTime = a }) . _Time
 
 instance FromXML BundleTask where
     parseXML x = BundleTask
-        <$> x .@? "bundleId"
+        <$> x .@  "bundleId"
         <*> x .@? "error"
-        <*> x .@? "instanceId"
-        <*> x .@? "progress"
-        <*> x .@? "startTime"
-        <*> x .@? "state"
-        <*> x .@? "storage"
-        <*> x .@? "updateTime"
+        <*> x .@  "instanceId"
+        <*> x .@  "progress"
+        <*> x .@  "startTime"
+        <*> x .@  "state"
+        <*> x .@  "storage"
+        <*> x .@  "updateTime"
 
 instance ToQuery BundleTask where
     toQuery BundleTask{..} = mconcat
@@ -9086,64 +9102,70 @@ instance ToQuery ReservedInstanceLimitPrice where
         ]
 
 data Vpc = Vpc
-    { _vpcCidrBlock       :: Maybe Text
-    , _vpcDhcpOptionsId   :: Maybe Text
-    , _vpcInstanceTenancy :: Maybe Tenancy
-    , _vpcIsDefault       :: Maybe Bool
-    , _vpcState           :: Maybe VpcState
+    { _vpcCidrBlock       :: Text
+    , _vpcDhcpOptionsId   :: Text
+    , _vpcInstanceTenancy :: Tenancy
+    , _vpcIsDefault       :: Bool
+    , _vpcState           :: VpcState
     , _vpcTags            :: List "item" Tag
-    , _vpcVpcId           :: Maybe Text
+    , _vpcVpcId           :: Text
     } deriving (Eq, Show)
 
 -- | 'Vpc' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vpcCidrBlock' @::@ 'Maybe' 'Text'
+-- * 'vpcCidrBlock' @::@ 'Text'
 --
--- * 'vpcDhcpOptionsId' @::@ 'Maybe' 'Text'
+-- * 'vpcDhcpOptionsId' @::@ 'Text'
 --
--- * 'vpcInstanceTenancy' @::@ 'Maybe' 'Tenancy'
+-- * 'vpcInstanceTenancy' @::@ 'Tenancy'
 --
--- * 'vpcIsDefault' @::@ 'Maybe' 'Bool'
+-- * 'vpcIsDefault' @::@ 'Bool'
 --
--- * 'vpcState' @::@ 'Maybe' 'VpcState'
+-- * 'vpcState' @::@ 'VpcState'
 --
 -- * 'vpcTags' @::@ ['Tag']
 --
--- * 'vpcVpcId' @::@ 'Maybe' 'Text'
+-- * 'vpcVpcId' @::@ 'Text'
 --
-vpc :: Vpc
-vpc = Vpc
-    { _vpcVpcId           = Nothing
-    , _vpcState           = Nothing
-    , _vpcCidrBlock       = Nothing
-    , _vpcDhcpOptionsId   = Nothing
+vpc :: Text -- ^ 'vpcVpcId'
+    -> VpcState -- ^ 'vpcState'
+    -> Text -- ^ 'vpcCidrBlock'
+    -> Text -- ^ 'vpcDhcpOptionsId'
+    -> Tenancy -- ^ 'vpcInstanceTenancy'
+    -> Bool -- ^ 'vpcIsDefault'
+    -> Vpc
+vpc p1 p2 p3 p4 p5 p6 = Vpc
+    { _vpcVpcId           = p1
+    , _vpcState           = p2
+    , _vpcCidrBlock       = p3
+    , _vpcDhcpOptionsId   = p4
+    , _vpcInstanceTenancy = p5
+    , _vpcIsDefault       = p6
     , _vpcTags            = mempty
-    , _vpcInstanceTenancy = Nothing
-    , _vpcIsDefault       = Nothing
     }
 
 -- | The CIDR block for the VPC.
-vpcCidrBlock :: Lens' Vpc (Maybe Text)
+vpcCidrBlock :: Lens' Vpc Text
 vpcCidrBlock = lens _vpcCidrBlock (\s a -> s { _vpcCidrBlock = a })
 
 -- | The ID of the set of DHCP options you've associated with the VPC (or 'default'
 -- if the default options are associated with the VPC).
-vpcDhcpOptionsId :: Lens' Vpc (Maybe Text)
+vpcDhcpOptionsId :: Lens' Vpc Text
 vpcDhcpOptionsId = lens _vpcDhcpOptionsId (\s a -> s { _vpcDhcpOptionsId = a })
 
 -- | The allowed tenancy of instances launched into the VPC.
-vpcInstanceTenancy :: Lens' Vpc (Maybe Tenancy)
+vpcInstanceTenancy :: Lens' Vpc Tenancy
 vpcInstanceTenancy =
     lens _vpcInstanceTenancy (\s a -> s { _vpcInstanceTenancy = a })
 
 -- | Indicates whether the VPC is the default VPC.
-vpcIsDefault :: Lens' Vpc (Maybe Bool)
+vpcIsDefault :: Lens' Vpc Bool
 vpcIsDefault = lens _vpcIsDefault (\s a -> s { _vpcIsDefault = a })
 
 -- | The current state of the VPC.
-vpcState :: Lens' Vpc (Maybe VpcState)
+vpcState :: Lens' Vpc VpcState
 vpcState = lens _vpcState (\s a -> s { _vpcState = a })
 
 -- | Any tags assigned to the VPC.
@@ -9151,18 +9173,18 @@ vpcTags :: Lens' Vpc [Tag]
 vpcTags = lens _vpcTags (\s a -> s { _vpcTags = a }) . _List
 
 -- | The ID of the VPC.
-vpcVpcId :: Lens' Vpc (Maybe Text)
+vpcVpcId :: Lens' Vpc Text
 vpcVpcId = lens _vpcVpcId (\s a -> s { _vpcVpcId = a })
 
 instance FromXML Vpc where
     parseXML x = Vpc
-        <$> x .@? "cidrBlock"
-        <*> x .@? "dhcpOptionsId"
-        <*> x .@? "instanceTenancy"
-        <*> x .@? "isDefault"
-        <*> x .@? "state"
+        <$> x .@  "cidrBlock"
+        <*> x .@  "dhcpOptionsId"
+        <*> x .@  "instanceTenancy"
+        <*> x .@  "isDefault"
+        <*> x .@  "state"
         <*> parseXML x
-        <*> x .@? "vpcId"
+        <*> x .@  "vpcId"
 
 instance ToQuery Vpc where
     toQuery Vpc{..} = mconcat
@@ -12204,72 +12226,78 @@ instance ToQuery Instance where
         ]
 
 data ExportTask = ExportTask
-    { _etDescription           :: Maybe Text
-    , _etExportTaskId          :: Maybe Text
-    , _etExportToS3Task        :: Maybe ExportToS3Task
-    , _etInstanceExportDetails :: Maybe InstanceExportDetails
-    , _etState                 :: Maybe ExportTaskState
-    , _etStatusMessage         :: Maybe Text
+    { _etDescription           :: Text
+    , _etExportTaskId          :: Text
+    , _etExportToS3Task        :: ExportToS3Task
+    , _etInstanceExportDetails :: InstanceExportDetails
+    , _etState                 :: ExportTaskState
+    , _etStatusMessage         :: Text
     } deriving (Eq, Show)
 
 -- | 'ExportTask' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'etDescription' @::@ 'Maybe' 'Text'
+-- * 'etDescription' @::@ 'Text'
 --
--- * 'etExportTaskId' @::@ 'Maybe' 'Text'
+-- * 'etExportTaskId' @::@ 'Text'
 --
--- * 'etExportToS3Task' @::@ 'Maybe' 'ExportToS3Task'
+-- * 'etExportToS3Task' @::@ 'ExportToS3Task'
 --
--- * 'etInstanceExportDetails' @::@ 'Maybe' 'InstanceExportDetails'
+-- * 'etInstanceExportDetails' @::@ 'InstanceExportDetails'
 --
--- * 'etState' @::@ 'Maybe' 'ExportTaskState'
+-- * 'etState' @::@ 'ExportTaskState'
 --
--- * 'etStatusMessage' @::@ 'Maybe' 'Text'
+-- * 'etStatusMessage' @::@ 'Text'
 --
-exportTask :: ExportTask
-exportTask = ExportTask
-    { _etExportTaskId          = Nothing
-    , _etDescription           = Nothing
-    , _etState                 = Nothing
-    , _etStatusMessage         = Nothing
-    , _etInstanceExportDetails = Nothing
-    , _etExportToS3Task        = Nothing
+exportTask :: Text -- ^ 'etExportTaskId'
+           -> Text -- ^ 'etDescription'
+           -> ExportTaskState -- ^ 'etState'
+           -> Text -- ^ 'etStatusMessage'
+           -> InstanceExportDetails -- ^ 'etInstanceExportDetails'
+           -> ExportToS3Task -- ^ 'etExportToS3Task'
+           -> ExportTask
+exportTask p1 p2 p3 p4 p5 p6 = ExportTask
+    { _etExportTaskId          = p1
+    , _etDescription           = p2
+    , _etState                 = p3
+    , _etStatusMessage         = p4
+    , _etInstanceExportDetails = p5
+    , _etExportToS3Task        = p6
     }
 
 -- | A description of the resource being exported.
-etDescription :: Lens' ExportTask (Maybe Text)
+etDescription :: Lens' ExportTask Text
 etDescription = lens _etDescription (\s a -> s { _etDescription = a })
 
 -- | The ID of the export task.
-etExportTaskId :: Lens' ExportTask (Maybe Text)
+etExportTaskId :: Lens' ExportTask Text
 etExportTaskId = lens _etExportTaskId (\s a -> s { _etExportTaskId = a })
 
-etExportToS3Task :: Lens' ExportTask (Maybe ExportToS3Task)
+etExportToS3Task :: Lens' ExportTask ExportToS3Task
 etExportToS3Task = lens _etExportToS3Task (\s a -> s { _etExportToS3Task = a })
 
 -- | The instance being exported.
-etInstanceExportDetails :: Lens' ExportTask (Maybe InstanceExportDetails)
+etInstanceExportDetails :: Lens' ExportTask InstanceExportDetails
 etInstanceExportDetails =
     lens _etInstanceExportDetails (\s a -> s { _etInstanceExportDetails = a })
 
 -- | The state of the conversion task.
-etState :: Lens' ExportTask (Maybe ExportTaskState)
+etState :: Lens' ExportTask ExportTaskState
 etState = lens _etState (\s a -> s { _etState = a })
 
 -- | The status message related to the export task.
-etStatusMessage :: Lens' ExportTask (Maybe Text)
+etStatusMessage :: Lens' ExportTask Text
 etStatusMessage = lens _etStatusMessage (\s a -> s { _etStatusMessage = a })
 
 instance FromXML ExportTask where
     parseXML x = ExportTask
-        <$> x .@? "description"
-        <*> x .@? "exportTaskId"
-        <*> x .@? "exportToS3"
-        <*> x .@? "instanceExport"
-        <*> x .@? "state"
-        <*> x .@? "statusMessage"
+        <$> x .@  "description"
+        <*> x .@  "exportTaskId"
+        <*> x .@  "exportToS3"
+        <*> x .@  "instanceExport"
+        <*> x .@  "state"
+        <*> x .@  "statusMessage"
 
 instance ToQuery ExportTask where
     toQuery ExportTask{..} = mconcat

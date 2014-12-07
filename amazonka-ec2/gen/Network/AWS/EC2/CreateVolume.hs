@@ -170,17 +170,17 @@ cv1VolumeType = lens _cv1VolumeType (\s a -> s { _cv1VolumeType = a })
 
 data CreateVolumeResponse = CreateVolumeResponse
     { _cvrAttachments      :: List "item" VolumeAttachment
-    , _cvrAvailabilityZone :: Maybe Text
-    , _cvrCreateTime       :: Maybe ISO8601
-    , _cvrEncrypted        :: Maybe Bool
-    , _cvrIops             :: Maybe Int
+    , _cvrAvailabilityZone :: Text
+    , _cvrCreateTime       :: ISO8601
+    , _cvrEncrypted        :: Bool
+    , _cvrIops             :: Int
     , _cvrKmsKeyId         :: Maybe Text
-    , _cvrSize             :: Maybe Int
-    , _cvrSnapshotId       :: Maybe Text
-    , _cvrState            :: Maybe VolumeState
+    , _cvrSize             :: Int
+    , _cvrSnapshotId       :: Text
+    , _cvrState            :: VolumeState
     , _cvrTags             :: List "item" Tag
-    , _cvrVolumeId         :: Maybe Text
-    , _cvrVolumeType       :: Maybe VolumeType
+    , _cvrVolumeId         :: Text
+    , _cvrVolumeType       :: VolumeType
     } deriving (Eq, Show)
 
 -- | 'CreateVolumeResponse' constructor.
@@ -189,41 +189,50 @@ data CreateVolumeResponse = CreateVolumeResponse
 --
 -- * 'cvrAttachments' @::@ ['VolumeAttachment']
 --
--- * 'cvrAvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 'cvrAvailabilityZone' @::@ 'Text'
 --
--- * 'cvrCreateTime' @::@ 'Maybe' 'UTCTime'
+-- * 'cvrCreateTime' @::@ 'UTCTime'
 --
--- * 'cvrEncrypted' @::@ 'Maybe' 'Bool'
+-- * 'cvrEncrypted' @::@ 'Bool'
 --
--- * 'cvrIops' @::@ 'Maybe' 'Int'
+-- * 'cvrIops' @::@ 'Int'
 --
 -- * 'cvrKmsKeyId' @::@ 'Maybe' 'Text'
 --
--- * 'cvrSize' @::@ 'Maybe' 'Int'
+-- * 'cvrSize' @::@ 'Int'
 --
--- * 'cvrSnapshotId' @::@ 'Maybe' 'Text'
+-- * 'cvrSnapshotId' @::@ 'Text'
 --
--- * 'cvrState' @::@ 'Maybe' 'VolumeState'
+-- * 'cvrState' @::@ 'VolumeState'
 --
 -- * 'cvrTags' @::@ ['Tag']
 --
--- * 'cvrVolumeId' @::@ 'Maybe' 'Text'
+-- * 'cvrVolumeId' @::@ 'Text'
 --
--- * 'cvrVolumeType' @::@ 'Maybe' 'VolumeType'
+-- * 'cvrVolumeType' @::@ 'VolumeType'
 --
-createVolumeResponse :: CreateVolumeResponse
-createVolumeResponse = CreateVolumeResponse
-    { _cvrVolumeId         = Nothing
-    , _cvrSize             = Nothing
-    , _cvrSnapshotId       = Nothing
-    , _cvrAvailabilityZone = Nothing
-    , _cvrState            = Nothing
-    , _cvrCreateTime       = Nothing
+createVolumeResponse :: Text -- ^ 'cvrVolumeId'
+                     -> Int -- ^ 'cvrSize'
+                     -> Text -- ^ 'cvrSnapshotId'
+                     -> Text -- ^ 'cvrAvailabilityZone'
+                     -> VolumeState -- ^ 'cvrState'
+                     -> UTCTime -- ^ 'cvrCreateTime'
+                     -> VolumeType -- ^ 'cvrVolumeType'
+                     -> Int -- ^ 'cvrIops'
+                     -> Bool -- ^ 'cvrEncrypted'
+                     -> CreateVolumeResponse
+createVolumeResponse p1 p2 p3 p4 p5 p6 p7 p8 p9 = CreateVolumeResponse
+    { _cvrVolumeId         = p1
+    , _cvrSize             = p2
+    , _cvrSnapshotId       = p3
+    , _cvrAvailabilityZone = p4
+    , _cvrState            = p5
+    , _cvrCreateTime       = withIso _Time (const id) p6
+    , _cvrVolumeType       = p7
+    , _cvrIops             = p8
+    , _cvrEncrypted        = p9
     , _cvrAttachments      = mempty
     , _cvrTags             = mempty
-    , _cvrVolumeType       = Nothing
-    , _cvrIops             = Nothing
-    , _cvrEncrypted        = Nothing
     , _cvrKmsKeyId         = Nothing
     }
 
@@ -231,16 +240,16 @@ cvrAttachments :: Lens' CreateVolumeResponse [VolumeAttachment]
 cvrAttachments = lens _cvrAttachments (\s a -> s { _cvrAttachments = a }) . _List
 
 -- | The Availability Zone for the volume.
-cvrAvailabilityZone :: Lens' CreateVolumeResponse (Maybe Text)
+cvrAvailabilityZone :: Lens' CreateVolumeResponse Text
 cvrAvailabilityZone =
     lens _cvrAvailabilityZone (\s a -> s { _cvrAvailabilityZone = a })
 
 -- | The time stamp when volume creation was initiated.
-cvrCreateTime :: Lens' CreateVolumeResponse (Maybe UTCTime)
-cvrCreateTime = lens _cvrCreateTime (\s a -> s { _cvrCreateTime = a }) . mapping _Time
+cvrCreateTime :: Lens' CreateVolumeResponse UTCTime
+cvrCreateTime = lens _cvrCreateTime (\s a -> s { _cvrCreateTime = a }) . _Time
 
 -- | Indicates whether the volume is encrypted.
-cvrEncrypted :: Lens' CreateVolumeResponse (Maybe Bool)
+cvrEncrypted :: Lens' CreateVolumeResponse Bool
 cvrEncrypted = lens _cvrEncrypted (\s a -> s { _cvrEncrypted = a })
 
 -- | The number of I/O operations per second (IOPS) that the volume supports. For
@@ -255,7 +264,7 @@ cvrEncrypted = lens _cvrEncrypted (\s a -> s { _cvrEncrypted = a })
 --
 -- Condition: This parameter is required for requests to create 'io1' volumes; it
 -- is not used in requests to create 'standard' or 'gp2' volumes.
-cvrIops :: Lens' CreateVolumeResponse (Maybe Int)
+cvrIops :: Lens' CreateVolumeResponse Int
 cvrIops = lens _cvrIops (\s a -> s { _cvrIops = a })
 
 -- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
@@ -264,15 +273,15 @@ cvrKmsKeyId :: Lens' CreateVolumeResponse (Maybe Text)
 cvrKmsKeyId = lens _cvrKmsKeyId (\s a -> s { _cvrKmsKeyId = a })
 
 -- | The size of the volume, in GiBs.
-cvrSize :: Lens' CreateVolumeResponse (Maybe Int)
+cvrSize :: Lens' CreateVolumeResponse Int
 cvrSize = lens _cvrSize (\s a -> s { _cvrSize = a })
 
 -- | The snapshot from which the volume was created, if applicable.
-cvrSnapshotId :: Lens' CreateVolumeResponse (Maybe Text)
+cvrSnapshotId :: Lens' CreateVolumeResponse Text
 cvrSnapshotId = lens _cvrSnapshotId (\s a -> s { _cvrSnapshotId = a })
 
 -- | The volume state.
-cvrState :: Lens' CreateVolumeResponse (Maybe VolumeState)
+cvrState :: Lens' CreateVolumeResponse VolumeState
 cvrState = lens _cvrState (\s a -> s { _cvrState = a })
 
 -- | Any tags assigned to the volume.
@@ -280,12 +289,12 @@ cvrTags :: Lens' CreateVolumeResponse [Tag]
 cvrTags = lens _cvrTags (\s a -> s { _cvrTags = a }) . _List
 
 -- | The ID of the volume.
-cvrVolumeId :: Lens' CreateVolumeResponse (Maybe Text)
+cvrVolumeId :: Lens' CreateVolumeResponse Text
 cvrVolumeId = lens _cvrVolumeId (\s a -> s { _cvrVolumeId = a })
 
 -- | The volume type. This can be 'gp2' for General Purpose (SSD) volumes, 'io1' for
 -- Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic volumes.
-cvrVolumeType :: Lens' CreateVolumeResponse (Maybe VolumeType)
+cvrVolumeType :: Lens' CreateVolumeResponse VolumeType
 cvrVolumeType = lens _cvrVolumeType (\s a -> s { _cvrVolumeType = a })
 
 instance ToPath CreateVolume where
@@ -315,14 +324,14 @@ instance AWSRequest CreateVolume where
 instance FromXML CreateVolumeResponse where
     parseXML x = CreateVolumeResponse
         <$> parseXML x
-        <*> x .@? "availabilityZone"
-        <*> x .@? "createTime"
-        <*> x .@? "encrypted"
-        <*> x .@? "iops"
+        <*> x .@  "availabilityZone"
+        <*> x .@  "createTime"
+        <*> x .@  "encrypted"
+        <*> x .@  "iops"
         <*> x .@? "kmsKeyId"
-        <*> x .@? "size"
-        <*> x .@? "snapshotId"
-        <*> x .@? "status"
+        <*> x .@  "size"
+        <*> x .@  "snapshotId"
+        <*> x .@  "status"
         <*> parseXML x
-        <*> x .@? "volumeId"
-        <*> x .@? "volumeType"
+        <*> x .@  "volumeId"
+        <*> x .@  "volumeType"

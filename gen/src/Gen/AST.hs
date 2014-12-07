@@ -19,8 +19,6 @@
 
 module Gen.AST (transformAST) where
 
-import Debug.Trace
-
 import           Control.Applicative        ((<$>), (<*>), (<|>), pure)
 import           Control.Arrow              ((&&&))
 import           Control.Error
@@ -693,9 +691,9 @@ prefixWaiters ds = Map.map go
             Access  k   -> do
                 let f = field k d
                     r = listToMaybe . mapMaybe name $ universeOn typeOf f
-                case trace (show (k, r)) $ type' <$> r of
+                case type' <$> r of
                     Just (Nullary _ fs) -> do
-                        e <- trace (show fs) get
+                        e <- get
                         case e of
                             ExpectText x ->
                                 case find ((x ==) . snd) (Map.toList fs) of

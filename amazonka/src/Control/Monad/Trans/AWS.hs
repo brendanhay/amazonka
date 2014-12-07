@@ -303,6 +303,11 @@ send_ = void . send
 --
 -- This includes 'HTTPExceptions', serialisation errors, and any service
 -- errors returned as part of the 'Response'.
+--
+-- /Note:/ Requests will be retried depending upon each service's respective
+-- strategy. This can be overriden using 'once' or 'envRetry'.
+-- Requests which contain streaming request bodies (such as S3's 'PutObject') are
+-- never considered for retries.
 sendCatch :: ( MonadCatch m
              , MonadResource m
              , MonadReader Env m

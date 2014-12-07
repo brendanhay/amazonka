@@ -99,8 +99,9 @@ getEnv r c = do
 -- This includes 'HTTPExceptions', serialisation errors, and any service
 -- errors returned as part of the 'Response'.
 --
--- /Note:/ Requests which contain streaming request bodies (such as S3's 'PutObject')
--- are not considered for retries.
+-- /Note:/ Requests will be retried depending upon each service's respective
+-- strategy. This can be overriden using 'envRetry'. Requests which contain
+-- streaming request bodies (such as S3's 'PutObject') are never considered for retries.
 send :: (MonadCatch m, MonadResource m, AWSRequest a)
      => Env
      -> a

@@ -371,7 +371,7 @@ await w = awaitCatch w >=> hoistEither
 -- by the specification, or the successful response from the await request.
 --
 -- /Note:/ You can find any available 'Wait' specifications under the
--- namespace "Network.AWS.<ServiceName>.Waiters" for supported services.
+-- namespace @Network.AWS.<ServiceName>.Waiters@ for supported services.
 awaitCatch :: ( MonadCatch m
               , MonadResource m
               , MonadReader Env m

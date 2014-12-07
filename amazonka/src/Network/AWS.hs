@@ -114,7 +114,7 @@ send e@Env{..} (request -> rq) = fmap snd <$> retrier e rq (raw e rq)
 -- by the specification, or the successful response from the await request.
 --
 -- /Note:/ You can find any available 'Wait' specifications under then
--- "Network.AWS.<ServiceName>.Waiters" namespace for supported services.
+-- @Network.AWS.<ServiceName>.Waiters@ namespace for supported services.
 await :: (MonadCatch m, MonadResource m, AWSRequest a)
       => Env
       -> Wait a

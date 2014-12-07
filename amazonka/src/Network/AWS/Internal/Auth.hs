@@ -18,11 +18,9 @@
 -- from the underlying OS.
 module Network.AWS.Internal.Auth
     (
-    -- *** Environment variables
+    -- *** Specifying credentials
       accessKey
     , secretKey
-
-    -- *** Specifying credentials
     , fromKeys
     , fromSession
 

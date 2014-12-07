@@ -34,4 +34,4 @@ cabal.sandbox.config:
 	cabal sandbox init
 
 travis:
-	@make -C core test && make install && make
+	@make -C core test

@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.SNS.Waiters",
+        "imports": [
+            "Network.AWS.SNS.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",

@@ -37,14 +37,13 @@ module Network.AWS.Types
     , withAuth
 
     -- * Services
-    , Abbrev
     , AWSService    (..)
+    , Abbrev
     , Service       (..)
     , serviceOf
 
     -- * Retries
     , Retry         (..)
-    , exponentialBackon
 
     -- * Endpoints
     , Endpoint      (..)
@@ -77,6 +76,7 @@ module Network.AWS.Types
 
     -- * Responses
     , Response
+    , Response'
     , Empty         (..)
 
     -- * Regions
@@ -98,7 +98,6 @@ import           Control.Exception            (Exception)
 import           Control.Lens                 hiding (Action)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
-import           Control.Retry
 import           Data.Aeson                   hiding (Error)
 import           Data.ByteString              (ByteString)
 import qualified Data.ByteString              as BS
@@ -160,7 +159,9 @@ serviceOf = const service
 
 -- | An alias for the common response 'Either' containing a service error in the
 -- 'Left' case, or the expected response in the 'Right'.
-type Response a = Either (ServiceError (Er (Sv a))) (Rs a)
+type Response  a = Either (ServiceError (Er (Sv a))) (Rs a)
+
+type Response' a = Either (ServiceError (Er (Sv a))) (Status, Rs a)
 
 -- | Specify how a request can be de/serialised.
 class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
@@ -172,9 +173,9 @@ class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
 
     request  :: a -> Request a
     response :: MonadResource m
-             => a
+             => Request a
              -> Either HttpException ClientResponse
-             -> m (Response a)
+             -> m (Response' a)
 
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can generate
 -- a subsequent request, if available.
@@ -349,37 +350,29 @@ endpoint Service{..} r = go (CI.mk _svcPrefix)
         , Tokyo
         ]
 
-data Retry a = Retry
-    { _rPolicy :: RetryPolicy
-    , _rCheck  :: Status -> a -> Bool
-    }
-
-exponentialBackon :: Double -- ^ Base.
-                  -> Int    -- ^ Growth.
-                  -> Int    -- ^ Attempts.
-                  -> RetryPolicy
-exponentialBackon !base !grow = (<> RetryPolicy f) . limitRetries
-  where
-    f n | n > 0     = Just $ truncate (g n * 1000000)
-        | otherwise = Nothing
-
-    g n = base * (fromIntegral grow ^^ (n - 1))
-
 -- | Attributes specific to an AWS service.
 data Service a = Service
     { _svcAbbrev       :: !Text
-    , _svcPrefix       :: ByteString
-    , _svcVersion      :: ByteString
+    , _svcPrefix       :: !ByteString
+    , _svcVersion      :: !ByteString
     , _svcTargetPrefix :: Maybe ByteString
     , _svcJSONVersion  :: Maybe ByteString
     , _svcHandle       :: Status -> Maybe (LazyByteString -> ServiceError (Er a))
-    , _svcRetry        :: Retry (Er a)
+    , _svcRetry        :: Retry a
+    }
+
+-- | Constants and predicates used to create a 'RetryPolicy'.
+data Retry a = Exponential
+    { _retryBase     :: !Double
+    , _retryGrowth   :: !Int
+    , _retryAttempts :: !Int
+    , _retryCheck    :: Status -> Er a -> Bool
     }
 
 -- | An unsigned request.
 data Request a = Request
     { _rqMethod  :: !StdMethod
-    , _rqPath    :: ByteString
+    , _rqPath    :: !ByteString
     , _rqQuery   :: Query
     , _rqHeaders :: [Header]
     , _rqBody    :: RqBody

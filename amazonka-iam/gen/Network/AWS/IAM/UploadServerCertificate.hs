@@ -28,6 +28,12 @@
 --
 -- For information about the number of server certificates you can upload, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /Using IAM/ guide.
 --
+-- Because the body of the public key certificate, private key, and the
+-- certificate chain can be large, you should use POST rather than GET when
+-- calling 'UploadServerCertificate'. For information about setting up signatures
+-- and authorization through the API, go to <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests> in the /AWSGeneral Reference/. For general information about using the Query API with
+-- IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests> in the /Using IAM/ guide.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html>
 module Network.AWS.IAM.UploadServerCertificate
     (
@@ -104,6 +110,11 @@ uscCertificateChain =
 --
 -- This parameter is optional. If it is not included, it defaults to a slash
 -- (/).
+--
+-- If you are uploading a server certificate specifically for use with Amazon
+-- CloudFront distributions, you must specify a path using the '--path' option.
+-- The path must begin with '/cloudfront' and must include a trailing slash (for
+-- example, '/cloudfront/test/').
 uscPath :: Lens' UploadServerCertificate (Maybe Text)
 uscPath = lens _uscPath (\s a -> s { _uscPath = a })
 

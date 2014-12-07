@@ -74,6 +74,8 @@ module Control.Monad.Trans.AWS
     -- ** Paginated
     , paginate
     , paginateCatch
+    -- ** Eventual consistency
+    , await
     -- ** Pre-signing URLs
     , presign
 
@@ -93,7 +95,8 @@ import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
-import           Data.Conduit
+import           Control.Retry                (limitRetries)
+import           Data.Conduit                 hiding (await)
 import           Data.Time
 import qualified Network.AWS                  as AWS
 import           Network.AWS.Auth
@@ -102,6 +105,7 @@ import           Network.AWS.Error
 import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
 import           Network.AWS.Types
+import           Network.AWS.Waiters
 
 -- | The top-level error type.
 type Error = ServiceError String
@@ -259,7 +263,7 @@ within r = local (envRegion .~ r)
 --
 -- /Example:/ Any requests will at most be sent once.
 once :: MonadReader Env m => m a -> m a
-once = local (envRetry .~ False)
+once = local (envRetry ?~ limitRetries 0)
 
 -- | Send a data type which is an instance of 'AWSRequest', returning it's
 -- associated 'Rs' response type.
@@ -268,6 +272,8 @@ once = local (envRetry .~ False)
 -- service using the 'MonadError' instance. In the case of 'AWST' this will
 -- cause the internal 'ExceptT' to short-circuit and return an 'Error' in
 -- the 'Left' case as the result of the computation.
+--
+-- /See:/ 'sendCatch'
 send :: ( MonadCatch m
         , MonadResource m
         , MonadReader Env m
@@ -279,6 +285,8 @@ send :: ( MonadCatch m
 send = sendCatch >=> hoistEither
 
 -- | A variant of 'send' which discards any successful response.
+--
+-- /See:/ 'send'
 send_ :: ( MonadCatch m
          , MonadResource m
          , MonadReader Env m
@@ -302,7 +310,7 @@ sendCatch :: ( MonadCatch m
              )
           => a
           -> m (Response a)
-sendCatch rq = scoped (`AWS.send` rq)
+sendCatch x = scoped (`AWS.send` x)
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate while
 -- there are more results as defined by the related service operation.
@@ -311,6 +319,8 @@ sendCatch rq = scoped (`AWS.send` rq)
 --
 -- /Note:/ The 'ResumableSource' will close when there are no more results or the
 -- 'ResourceT' computation is unwrapped. See: 'runResourceT' for more information.
+--
+-- /See:/ 'paginateCatch'
 paginate :: ( MonadCatch m
             , MonadResource m
             , MonadReader Env m
@@ -319,7 +329,7 @@ paginate :: ( MonadCatch m
             )
          => a
          -> Source m (Rs a)
-paginate rq = paginateCatch rq $= awaitForever (hoistEither >=> yield)
+paginate x = paginateCatch x $= awaitForever (hoistEither >=> yield)
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate over
 -- the associated 'Rs' response type in the success case, or the related service's
@@ -334,7 +344,43 @@ paginateCatch :: ( MonadCatch m
                  )
               => a
               -> Source m (Response a)
-paginateCatch rq = scoped (`AWS.paginate` rq)
+paginateCatch x = scoped (`AWS.paginate` x)
+
+-- | Poll the API until a predfined condition is fulfilled using the
+-- supplied 'Wait a' specification from the respective service.
+--
+-- Any errors which are unhandled by the 'Wait a' specification during retries
+-- will be thrown in the same manner as 'send'.
+--
+-- /See:/ 'awaitCatch'
+await :: ( MonadCatch m
+         , MonadResource m
+         , MonadReader Env m
+         , MonadError Error m
+         , AWSRequest a
+         )
+      => Wait a
+      -> a
+      -> m (Rs a)
+await w = awaitCatch w >=> hoistEither
+
+-- | Poll the API until a predfined condition is fulfilled using the
+-- supplied 'Wait a' specification from the respective service.
+--
+-- The response will be either the first error returned that is not handled
+-- by the specification, or the successful response from the await request.
+--
+-- /Note:/ You can find any available 'Wait a' specifications under the
+-- namespace "Network.AWS.<ServiceName>.Waiters" for supported services.
+awaitCatch :: ( MonadCatch m
+              , MonadResource m
+              , MonadReader Env m
+              , AWSRequest a
+              )
+           => Wait a
+           -> a
+           -> m (Response a)
+awaitCatch w x = scoped (\e -> AWS.await e w x)
 
 -- | Presign a URL with expiry to be used at a later time.
 --
@@ -349,4 +395,4 @@ presign :: ( MonadIO m
         -> UTCTime -- ^ Signing time.
         -> UTCTime -- ^ Expiry time.
         -> m (Signed a (Sg (Sv a)))
-presign rq t x = scoped (\e -> AWS.presign e rq t x)
+presign x t1 t2 = scoped (\e -> AWS.presign e x t1 t2)

@@ -87,23 +87,25 @@ instance AWSService Lambda where
       where
         service' :: Service Lambda
         service' = Service
-              { _svcAbbrev       = "Lambda"
-              , _svcPrefix       = "lambda"
-              , _svcVersion      = "2014-11-11"
-              , _svcTargetPrefix = Nothing
-              , _svcJSONVersion  = Nothing
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "Lambda"
+            , _svcPrefix       = "lambda"
+            , _svcVersion      = "2014-11-11"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
-        retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+        retry :: Retry Lambda
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

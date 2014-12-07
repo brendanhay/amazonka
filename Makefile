@@ -33,5 +33,5 @@ upload-%:
 cabal.sandbox.config:
 	cabal sandbox init
 
-test:
+travis:
 	@make -C core test

@@ -254,23 +254,25 @@ instance AWSService DynamoDB where
       where
         service' :: Service DynamoDB
         service' = Service
-              { _svcAbbrev       = "DynamoDB"
-              , _svcPrefix       = "dynamodb"
-              , _svcVersion      = "2012-08-10"
-              , _svcTargetPrefix = Just "DynamoDB_20120810"
-              , _svcJSONVersion  = Just "1.0"
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "DynamoDB"
+            , _svcPrefix       = "dynamodb"
+            , _svcVersion      = "2012-08-10"
+            , _svcTargetPrefix = Just "DynamoDB_20120810"
+            , _svcJSONVersion  = Just "1.0"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
-        retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 10
-            , _rCheck  = check
+        retry :: Retry DynamoDB
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 10
+            , _retryCheck    = check
             }
 
         check :: Status
@@ -700,15 +702,15 @@ instance ToJSON ProjectionType where
 
 data TableDescription = TableDescription
     { _tdAttributeDefinitions   :: List "AttributeDefinitions" AttributeDefinition
-    , _tdCreationDateTime       :: Maybe ISO8601
+    , _tdCreationDateTime       :: ISO8601
     , _tdGlobalSecondaryIndexes :: List "GlobalSecondaryIndexes" GlobalSecondaryIndexDescription
-    , _tdItemCount              :: Maybe Integer
+    , _tdItemCount              :: Integer
     , _tdKeySchema              :: List1 "KeySchema" KeySchemaElement
     , _tdLocalSecondaryIndexes  :: List "LocalSecondaryIndexes" LocalSecondaryIndexDescription
-    , _tdProvisionedThroughput  :: Maybe ProvisionedThroughputDescription
-    , _tdTableName              :: Maybe Text
-    , _tdTableSizeBytes         :: Maybe Integer
-    , _tdTableStatus            :: Maybe TableStatus
+    , _tdProvisionedThroughput  :: ProvisionedThroughputDescription
+    , _tdTableName              :: Text
+    , _tdTableSizeBytes         :: Integer
+    , _tdTableStatus            :: TableStatus
     } deriving (Eq, Show)
 
 -- | 'TableDescription' constructor.
@@ -717,35 +719,41 @@ data TableDescription = TableDescription
 --
 -- * 'tdAttributeDefinitions' @::@ ['AttributeDefinition']
 --
--- * 'tdCreationDateTime' @::@ 'Maybe' 'UTCTime'
+-- * 'tdCreationDateTime' @::@ 'UTCTime'
 --
 -- * 'tdGlobalSecondaryIndexes' @::@ ['GlobalSecondaryIndexDescription']
 --
--- * 'tdItemCount' @::@ 'Maybe' 'Integer'
+-- * 'tdItemCount' @::@ 'Integer'
 --
 -- * 'tdKeySchema' @::@ 'NonEmpty' 'KeySchemaElement'
 --
 -- * 'tdLocalSecondaryIndexes' @::@ ['LocalSecondaryIndexDescription']
 --
--- * 'tdProvisionedThroughput' @::@ 'Maybe' 'ProvisionedThroughputDescription'
+-- * 'tdProvisionedThroughput' @::@ 'ProvisionedThroughputDescription'
 --
--- * 'tdTableName' @::@ 'Maybe' 'Text'
+-- * 'tdTableName' @::@ 'Text'
 --
--- * 'tdTableSizeBytes' @::@ 'Maybe' 'Integer'
+-- * 'tdTableSizeBytes' @::@ 'Integer'
 --
--- * 'tdTableStatus' @::@ 'Maybe' 'TableStatus'
+-- * 'tdTableStatus' @::@ 'TableStatus'
 --
-tableDescription :: NonEmpty KeySchemaElement -- ^ 'tdKeySchema'
+tableDescription :: Text -- ^ 'tdTableName'
+                 -> NonEmpty KeySchemaElement -- ^ 'tdKeySchema'
+                 -> TableStatus -- ^ 'tdTableStatus'
+                 -> UTCTime -- ^ 'tdCreationDateTime'
+                 -> ProvisionedThroughputDescription -- ^ 'tdProvisionedThroughput'
+                 -> Integer -- ^ 'tdTableSizeBytes'
+                 -> Integer -- ^ 'tdItemCount'
                  -> TableDescription
-tableDescription p1 = TableDescription
-    { _tdKeySchema              = withIso _List1 (const id) p1
+tableDescription p1 p2 p3 p4 p5 p6 p7 = TableDescription
+    { _tdTableName              = p1
+    , _tdKeySchema              = withIso _List1 (const id) p2
+    , _tdTableStatus            = p3
+    , _tdCreationDateTime       = withIso _Time (const id) p4
+    , _tdProvisionedThroughput  = p5
+    , _tdTableSizeBytes         = p6
+    , _tdItemCount              = p7
     , _tdAttributeDefinitions   = mempty
-    , _tdTableName              = Nothing
-    , _tdTableStatus            = Nothing
-    , _tdCreationDateTime       = Nothing
-    , _tdProvisionedThroughput  = Nothing
-    , _tdTableSizeBytes         = Nothing
-    , _tdItemCount              = Nothing
     , _tdLocalSecondaryIndexes  = mempty
     , _tdGlobalSecondaryIndexes = mempty
     }
@@ -766,10 +774,10 @@ tdAttributeDefinitions =
         . _List
 
 -- | The date and time when the table was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
-tdCreationDateTime :: Lens' TableDescription (Maybe UTCTime)
+tdCreationDateTime :: Lens' TableDescription UTCTime
 tdCreationDateTime =
     lens _tdCreationDateTime (\s a -> s { _tdCreationDateTime = a })
-        . mapping _Time
+        . _Time
 
 -- | The global secondary indexes, if any, on the table. Each index is scoped to a
 -- given hash key value. Each element is composed of:
@@ -833,7 +841,7 @@ tdGlobalSecondaryIndexes =
 -- | The number of items in the specified table. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in this
 -- value.
-tdItemCount :: Lens' TableDescription (Maybe Integer)
+tdItemCount :: Lens' TableDescription Integer
 tdItemCount = lens _tdItemCount (\s a -> s { _tdItemCount = a })
 
 -- | The primary key structure for the table. Each /KeySchemaElement/ consists of:
@@ -895,18 +903,18 @@ tdLocalSecondaryIndexes =
 
 -- | The provisioned throughput settings for the table, consisting of read and
 -- write capacity units, along with data about increases and decreases.
-tdProvisionedThroughput :: Lens' TableDescription (Maybe ProvisionedThroughputDescription)
+tdProvisionedThroughput :: Lens' TableDescription ProvisionedThroughputDescription
 tdProvisionedThroughput =
     lens _tdProvisionedThroughput (\s a -> s { _tdProvisionedThroughput = a })
 
 -- | The name of the table.
-tdTableName :: Lens' TableDescription (Maybe Text)
+tdTableName :: Lens' TableDescription Text
 tdTableName = lens _tdTableName (\s a -> s { _tdTableName = a })
 
 -- | The total size of the specified table, in bytes. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in this
 -- value.
-tdTableSizeBytes :: Lens' TableDescription (Maybe Integer)
+tdTableSizeBytes :: Lens' TableDescription Integer
 tdTableSizeBytes = lens _tdTableSizeBytes (\s a -> s { _tdTableSizeBytes = a })
 
 -- | The current state of the table:
@@ -923,21 +931,21 @@ tdTableSizeBytes = lens _tdTableSizeBytes (\s a -> s { _tdTableSizeBytes = a })
 -- /ACTIVE/ - The table is ready for use.
 --
 --
-tdTableStatus :: Lens' TableDescription (Maybe TableStatus)
+tdTableStatus :: Lens' TableDescription TableStatus
 tdTableStatus = lens _tdTableStatus (\s a -> s { _tdTableStatus = a })
 
 instance FromJSON TableDescription where
     parseJSON = withObject "TableDescription" $ \o -> TableDescription
         <$> o .:? "AttributeDefinitions" .!= mempty
-        <*> o .:? "CreationDateTime"
+        <*> o .:  "CreationDateTime"
         <*> o .:? "GlobalSecondaryIndexes" .!= mempty
-        <*> o .:? "ItemCount"
+        <*> o .:  "ItemCount"
         <*> o .:  "KeySchema"
         <*> o .:? "LocalSecondaryIndexes" .!= mempty
-        <*> o .:? "ProvisionedThroughput"
-        <*> o .:? "TableName"
-        <*> o .:? "TableSizeBytes"
-        <*> o .:? "TableStatus"
+        <*> o .:  "ProvisionedThroughput"
+        <*> o .:  "TableName"
+        <*> o .:  "TableSizeBytes"
+        <*> o .:  "TableStatus"
 
 instance ToJSON TableDescription where
     toJSON TableDescription{..} = object

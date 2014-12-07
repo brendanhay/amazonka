@@ -1,4 +1,89 @@
 {
+    "waiters": {
+        "waiters": {
+            "ClusterDeleted": {
+                "operation": "DescribeClusters",
+                "acceptors": [
+                    {
+                        "matcher": "matchError",
+                        "state": "success",
+                        "argument": null,
+                        "expected": "\"ClusterNotFound\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dcrClusters) . cClusterStatus . _Just",
+                        "expected": "\"creating\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dcrClusters) . cClusterStatus . _Just",
+                        "expected": "\"rebooting\""
+                    }
+                ],
+                "maxAttempts": 30,
+                "delay": 60
+            },
+            "SnapshotAvailable": {
+                "operation": "DescribeClusterSnapshots",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf dcsrSnapshots) . sStatus . _Just",
+                        "expected": "\"available\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dcsrSnapshots) . sStatus . _Just",
+                        "expected": "\"failed\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dcsrSnapshots) . sStatus . _Just",
+                        "expected": "\"deleted\""
+                    }
+                ],
+                "maxAttempts": 20,
+                "delay": 15
+            },
+            "ClusterAvailable": {
+                "operation": "DescribeClusters",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf dcrClusters) . cClusterStatus . _Just",
+                        "expected": "\"available\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dcrClusters) . cClusterStatus . _Just",
+                        "expected": "\"deleting\""
+                    },
+                    {
+                        "matcher": "matchError",
+                        "state": "retry",
+                        "argument": null,
+                        "expected": "\"ClusterNotFound\""
+                    }
+                ],
+                "maxAttempts": 30,
+                "delay": 60
+            }
+        },
+        "namespace": "Network.AWS.Redshift.Waiters",
+        "imports": [
+            "Network.AWS.Redshift.DescribeClusterSnapshots",
+            "Network.AWS.Redshift.DescribeClusters",
+            "Network.AWS.Redshift.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -64,7 +149,8 @@
             "Network.AWS.Redshift.RevokeClusterSecurityGroupIngress",
             "Network.AWS.Redshift.RevokeSnapshotAccess",
             "Network.AWS.Redshift.RotateEncryptionKey",
-            "Network.AWS.Redshift.Types"
+            "Network.AWS.Redshift.Types",
+            "Network.AWS.Redshift.Waiters"
         ],
         "name": "Amazon Redshift",
         "version": "2012-12-01",
@@ -159,7 +245,8 @@
             "Network.AWS.Redshift.RevokeClusterSecurityGroupIngress",
             "Network.AWS.Redshift.RevokeSnapshotAccess",
             "Network.AWS.Redshift.RotateEncryptionKey",
-            "Network.AWS.Redshift.Types"
+            "Network.AWS.Redshift.Types",
+            "Network.AWS.Redshift.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html",
         "protocol": "query",

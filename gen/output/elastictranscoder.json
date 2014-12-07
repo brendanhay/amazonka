@@ -1,4 +1,38 @@
 {
+    "waiters": {
+        "waiters": {
+            "JobComplete": {
+                "operation": "ReadJob",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "rjrJob . jStatus",
+                        "expected": "\"Complete\""
+                    },
+                    {
+                        "matcher": "matchAll",
+                        "state": "failure",
+                        "argument": "rjrJob . jStatus",
+                        "expected": "\"Canceled\""
+                    },
+                    {
+                        "matcher": "matchAll",
+                        "state": "failure",
+                        "argument": "rjrJob . jStatus",
+                        "expected": "\"Error\""
+                    }
+                ],
+                "maxAttempts": 120,
+                "delay": 30
+            }
+        },
+        "namespace": "Network.AWS.ElasticTranscoder.Waiters",
+        "imports": [
+            "Network.AWS.ElasticTranscoder.ReadJob",
+            "Network.AWS.ElasticTranscoder.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -25,7 +59,8 @@
             "Network.AWS.ElasticTranscoder.Types",
             "Network.AWS.ElasticTranscoder.UpdatePipeline",
             "Network.AWS.ElasticTranscoder.UpdatePipelineNotifications",
-            "Network.AWS.ElasticTranscoder.UpdatePipelineStatus"
+            "Network.AWS.ElasticTranscoder.UpdatePipelineStatus",
+            "Network.AWS.ElasticTranscoder.Waiters"
         ],
         "name": "Amazon Elastic Transcoder",
         "version": "2012-09-25",
@@ -81,7 +116,8 @@
             "Network.AWS.ElasticTranscoder.Types",
             "Network.AWS.ElasticTranscoder.UpdatePipeline",
             "Network.AWS.ElasticTranscoder.UpdatePipelineNotifications",
-            "Network.AWS.ElasticTranscoder.UpdatePipelineStatus"
+            "Network.AWS.ElasticTranscoder.UpdatePipelineStatus",
+            "Network.AWS.ElasticTranscoder.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html",
         "protocol": "rest-json",
@@ -1520,17 +1556,17 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "jId",
                         "name": "_jId",
                         "shape": "Id",
                         "locationName": "Id",
                         "documentation": "-- | The identifier that Elastic Transcoder assigned to the job. You use this\n-- value to get settings for the job or to delete the job.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
@@ -1552,33 +1588,33 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "jPipelineId",
                         "name": "_jPipelineId",
                         "shape": "Id",
                         "locationName": "PipelineId",
                         "documentation": "-- | The 'Id' of the pipeline that you want Elastic Transcoder to use for\n-- transcoding. The pipeline determines several settings, including the Amazon\n-- S3 bucket from which Elastic Transcoder gets the files to transcode and the\n-- bucket into which Elastic Transcoder puts the transcoded files.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "jInput",
                         "name": "_jInput",
                         "shape": "JobInput",
                         "locationName": "Input",
                         "documentation": "-- | A section of the request or response body that provides information about\n-- the file that is being transcoded.",
-                        "typeExposed": "Maybe JobInput",
-                        "type": "Maybe JobInput"
+                        "typeExposed": "JobInput",
+                        "type": "JobInput"
                     },
                     {
                         "location": null,
@@ -1616,17 +1652,17 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "jOutputKeyPrefix",
                         "name": "_jOutputKeyPrefix",
                         "shape": "Key",
                         "locationName": "OutputKeyPrefix",
                         "documentation": "-- | The value, if any, that you want Elastic Transcoder to prepend to the names\n-- of all files that this job creates, including output files, thumbnails, and\n-- playlists. We recommend that you add a / or some other delimiter to the end\n-- of the 'OutputKeyPrefix'.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
@@ -1648,21 +1684,102 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "jStatus",
                         "name": "_jStatus",
                         "shape": "JobStatus",
                         "locationName": "Status",
                         "documentation": "-- | The status of the job: 'Submitted', 'Progressing', 'Complete', 'Canceled', or 'Error'.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     }
                 ],
                 "payload": null,
-                "required": [],
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jId",
+                        "name": "_jId",
+                        "shape": "Id",
+                        "locationName": "Id",
+                        "documentation": "-- | The identifier that Elastic Transcoder assigned to the job. You use this\n-- value to get settings for the job or to delete the job.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jPipelineId",
+                        "name": "_jPipelineId",
+                        "shape": "Id",
+                        "locationName": "PipelineId",
+                        "documentation": "-- | The 'Id' of the pipeline that you want Elastic Transcoder to use for\n-- transcoding. The pipeline determines several settings, including the Amazon\n-- S3 bucket from which Elastic Transcoder gets the files to transcode and the\n-- bucket into which Elastic Transcoder puts the transcoded files.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jInput",
+                        "name": "_jInput",
+                        "shape": "JobInput",
+                        "locationName": "Input",
+                        "documentation": "-- | A section of the request or response body that provides information about\n-- the file that is being transcoded.",
+                        "typeExposed": "JobInput",
+                        "type": "JobInput"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jOutputKeyPrefix",
+                        "name": "_jOutputKeyPrefix",
+                        "shape": "Key",
+                        "locationName": "OutputKeyPrefix",
+                        "documentation": "-- | The value, if any, that you want Elastic Transcoder to prepend to the names\n-- of all files that this job creates, including output files, thumbnails, and\n-- playlists. We recommend that you add a / or some other delimiter to the end\n-- of the 'OutputKeyPrefix'.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jStatus",
+                        "name": "_jStatus",
+                        "shape": "JobStatus",
+                        "locationName": "Status",
+                        "documentation": "-- | The status of the job: 'Submitted', 'Progressing', 'Complete', 'Canceled', or 'Error'.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
                 "contentPad": 16,
                 "name": "Job'",
                 "locationPad": 16,
@@ -1676,22 +1793,6 @@
                         "monoid": false,
                         "flattened": false,
                         "required": false,
-                        "lens": "jId",
-                        "name": "_jId",
-                        "shape": "Id",
-                        "locationName": "Id",
-                        "documentation": "-- | The identifier that Elastic Transcoder assigned to the job. You use this\n-- value to get settings for the job or to delete the job.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
                         "lens": "jArn",
                         "name": "_jArn",
                         "shape": "String",
@@ -1699,38 +1800,6 @@
                         "documentation": "-- | The Amazon Resource Name (ARN) for the job.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "jPipelineId",
-                        "name": "_jPipelineId",
-                        "shape": "Id",
-                        "locationName": "PipelineId",
-                        "documentation": "-- | The 'Id' of the pipeline that you want Elastic Transcoder to use for\n-- transcoding. The pipeline determines several settings, including the Amazon\n-- S3 bucket from which Elastic Transcoder gets the files to transcode and the\n-- bucket into which Elastic Transcoder puts the transcoded files.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "jInput",
-                        "name": "_jInput",
-                        "shape": "JobInput",
-                        "locationName": "Input",
-                        "documentation": "-- | A section of the request or response body that provides information about\n-- the file that is being transcoded.",
-                        "typeExposed": "Maybe JobInput",
-                        "type": "Maybe JobInput"
                     },
                     {
                         "location": null,
@@ -1766,22 +1835,6 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "jOutputKeyPrefix",
-                        "name": "_jOutputKeyPrefix",
-                        "shape": "Key",
-                        "locationName": "OutputKeyPrefix",
-                        "documentation": "-- | The value, if any, that you want Elastic Transcoder to prepend to the names\n-- of all files that this job creates, including output files, thumbnails, and\n-- playlists. We recommend that you add a / or some other delimiter to the end\n-- of the 'OutputKeyPrefix'.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": null,
                         "iso": "_List",
                         "lensMapping": "_List",
                         "default": "mempty",
@@ -1795,22 +1848,6 @@
                         "documentation": "-- | Outputs in Fragmented MP4 or MPEG-TS format only.If you specify a preset in 'PresetId' for which the value of 'Container' is fmp4 (Fragmented MP4) or ts (MPEG-TS), 'Playlists' contains information about the master playlists that you want Elastic\n-- Transcoder to create.\n--\n-- The maximum number of master playlists in a job is 30.",
                         "typeExposed": "[Playlist]",
                         "type": "List \"Playlists\" Playlist"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "jStatus",
-                        "name": "_jStatus",
-                        "shape": "JobStatus",
-                        "locationName": "Status",
-                        "documentation": "-- | The status of the job: 'Submitted', 'Progressing', 'Complete', 'Canceled', or 'Error'.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -1834,33 +1871,33 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "jId",
                         "name": "_jId",
                         "shape": "Id",
                         "locationName": "Id",
                         "documentation": "-- | The identifier that Elastic Transcoder assigned to the job. You use this\n-- value to get settings for the job or to delete the job.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "jInput",
                         "name": "_jInput",
                         "shape": "JobInput",
                         "locationName": "Input",
                         "documentation": "-- | A section of the request or response body that provides information about\n-- the file that is being transcoded.",
-                        "typeExposed": "Maybe JobInput",
-                        "type": "Maybe JobInput"
+                        "typeExposed": "JobInput",
+                        "type": "JobInput"
                     },
                     {
                         "location": null,
@@ -1882,17 +1919,17 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "jOutputKeyPrefix",
                         "name": "_jOutputKeyPrefix",
                         "shape": "Key",
                         "locationName": "OutputKeyPrefix",
                         "documentation": "-- | The value, if any, that you want Elastic Transcoder to prepend to the names\n-- of all files that this job creates, including output files, thumbnails, and\n-- playlists. We recommend that you add a / or some other delimiter to the end\n-- of the 'OutputKeyPrefix'.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
@@ -1914,17 +1951,17 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "jPipelineId",
                         "name": "_jPipelineId",
                         "shape": "Id",
                         "locationName": "PipelineId",
                         "documentation": "-- | The 'Id' of the pipeline that you want Elastic Transcoder to use for\n-- transcoding. The pipeline determines several settings, including the Amazon\n-- S3 bucket from which Elastic Transcoder gets the files to transcode and the\n-- bucket into which Elastic Transcoder puts the transcoded files.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
@@ -1946,17 +1983,17 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "jStatus",
                         "name": "_jStatus",
                         "shape": "JobStatus",
                         "locationName": "Status",
                         "documentation": "-- | The status of the job: 'Submitted', 'Progressing', 'Complete', 'Canceled', or 'Error'.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     }
                 ]
             },
@@ -10846,40 +10883,57 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "monoid": false,
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "rjrJob",
                     "name": "_rjrJob",
                     "shape": "Job",
                     "locationName": "Job",
                     "documentation": "-- | A section of the response body that provides information about the job.",
-                    "typeExposed": "Maybe Job'",
-                    "type": "Maybe Job'"
+                    "typeExposed": "Job'",
+                    "type": "Job'"
                 },
                 "contents": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "rjrJob",
                         "name": "_rjrJob",
                         "shape": "Job",
                         "locationName": "Job",
                         "documentation": "-- | A section of the response body that provides information about the job.",
-                        "typeExposed": "Maybe Job'",
-                        "type": "Maybe Job'"
+                        "typeExposed": "Job'",
+                        "type": "Job'"
                     }
                 ],
                 "wrapper": false,
                 "protocol": "rest-json",
                 "payload": null,
-                "required": [],
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rjrJob",
+                        "name": "_rjrJob",
+                        "shape": "Job",
+                        "locationName": "Job",
+                        "documentation": "-- | A section of the response body that provides information about the job.",
+                        "typeExposed": "Job'",
+                        "type": "Job'"
+                    }
+                ],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -10888,40 +10942,23 @@
                 "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
-                "optional": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "rjrJob",
-                        "name": "_rjrJob",
-                        "shape": "Job",
-                        "locationName": "Job",
-                        "documentation": "-- | A section of the response body that provides information about the job.",
-                        "typeExposed": "Maybe Job'",
-                        "type": "Maybe Job'"
-                    }
-                ],
+                "optional": [],
                 "fields": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "rjrJob",
                         "name": "_rjrJob",
                         "shape": "Job",
                         "locationName": "Job",
                         "documentation": "-- | A section of the response body that provides information about the job.",
-                        "typeExposed": "Maybe Job'",
-                        "type": "Maybe Job'"
+                        "typeExposed": "Job'",
+                        "type": "Job'"
                     }
                 ]
             },

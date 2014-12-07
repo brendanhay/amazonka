@@ -70,22 +70,23 @@ dcClusterId :: Lens' DescribeCluster Text
 dcClusterId = lens _dcClusterId (\s a -> s { _dcClusterId = a })
 
 newtype DescribeClusterResponse = DescribeClusterResponse
-    { _dcrCluster :: Maybe Cluster
+    { _dcrCluster :: Cluster
     } deriving (Eq, Show)
 
 -- | 'DescribeClusterResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrCluster' @::@ 'Maybe' 'Cluster'
+-- * 'dcrCluster' @::@ 'Cluster'
 --
-describeClusterResponse :: DescribeClusterResponse
-describeClusterResponse = DescribeClusterResponse
-    { _dcrCluster = Nothing
+describeClusterResponse :: Cluster -- ^ 'dcrCluster'
+                        -> DescribeClusterResponse
+describeClusterResponse p1 = DescribeClusterResponse
+    { _dcrCluster = p1
     }
 
 -- | This output contains the details for the requested cluster.
-dcrCluster :: Lens' DescribeClusterResponse (Maybe Cluster)
+dcrCluster :: Lens' DescribeClusterResponse Cluster
 dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
 
 instance ToPath DescribeCluster where
@@ -110,4 +111,4 @@ instance AWSRequest DescribeCluster where
 
 instance FromJSON DescribeClusterResponse where
     parseJSON = withObject "DescribeClusterResponse" $ \o -> DescribeClusterResponse
-        <$> o .:? "Cluster"
+        <$> o .:  "Cluster"

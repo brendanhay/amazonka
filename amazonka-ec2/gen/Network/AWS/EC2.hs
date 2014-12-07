@@ -178,6 +178,7 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.Types
     , module Network.AWS.EC2.UnassignPrivateIpAddresses
     , module Network.AWS.EC2.UnmonitorInstances
+    , module Network.AWS.EC2.Waiters
     ) where
 
 import Network.AWS.EC2.AcceptVpcPeeringConnection
@@ -335,3 +336,4 @@ import Network.AWS.EC2.TerminateInstances
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.UnassignPrivateIpAddresses
 import Network.AWS.EC2.UnmonitorInstances
+import Network.AWS.EC2.Waiters

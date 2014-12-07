@@ -37,6 +37,7 @@ library
     other-modules:
           Network.AWS.Internal.Env
         , Network.AWS.Internal.Log
+        , Network.AWS.Internal.Retry
 
     build-depends:
           amazonka-core     == 0.0.7.*

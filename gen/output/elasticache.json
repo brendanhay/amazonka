@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.ElastiCache.Waiters",
+        "imports": [
+            "Network.AWS.ElastiCache.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",

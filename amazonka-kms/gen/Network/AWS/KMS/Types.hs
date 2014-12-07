@@ -95,23 +95,25 @@ instance AWSService KMS where
       where
         service' :: Service KMS
         service' = Service
-              { _svcAbbrev       = "KMS"
-              , _svcPrefix       = "kms"
-              , _svcVersion      = "2014-11-01"
-              , _svcTargetPrefix = Just "TrentService"
-              , _svcJSONVersion  = Just "1.1"
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "KMS"
+            , _svcPrefix       = "kms"
+            , _svcVersion      = "2014-11-01"
+            , _svcTargetPrefix = Just "TrentService"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
-        retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+        retry :: Retry KMS
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

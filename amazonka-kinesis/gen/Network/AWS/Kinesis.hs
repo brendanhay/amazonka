@@ -25,9 +25,11 @@ module Network.AWS.Kinesis
     , module Network.AWS.Kinesis.ListTagsForStream
     , module Network.AWS.Kinesis.MergeShards
     , module Network.AWS.Kinesis.PutRecord
+    , module Network.AWS.Kinesis.PutRecords
     , module Network.AWS.Kinesis.RemoveTagsFromStream
     , module Network.AWS.Kinesis.SplitShard
     , module Network.AWS.Kinesis.Types
+    , module Network.AWS.Kinesis.Waiters
     ) where
 
 import Network.AWS.Kinesis.AddTagsToStream
@@ -40,6 +42,8 @@ import Network.AWS.Kinesis.ListStreams
 import Network.AWS.Kinesis.ListTagsForStream
 import Network.AWS.Kinesis.MergeShards
 import Network.AWS.Kinesis.PutRecord
+import Network.AWS.Kinesis.PutRecords
 import Network.AWS.Kinesis.RemoveTagsFromStream
 import Network.AWS.Kinesis.SplitShard
 import Network.AWS.Kinesis.Types
+import Network.AWS.Kinesis.Waiters

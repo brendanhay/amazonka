@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.CloudTrail.Waiters",
+        "imports": [
+            "Network.AWS.CloudTrail.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",

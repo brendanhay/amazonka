@@ -83,7 +83,7 @@ getCredentialReportResponse = GetCredentialReportResponse
 gcrrContent :: Lens' GetCredentialReportResponse (Maybe Base64)
 gcrrContent = lens _gcrrContent (\s a -> s { _gcrrContent = a })
 
--- | The time and date when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601date-time format>.
+-- | The date and time when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601date-time format>.
 gcrrGeneratedTime :: Lens' GetCredentialReportResponse (Maybe UTCTime)
 gcrrGeneratedTime =
     lens _gcrrGeneratedTime (\s a -> s { _gcrrGeneratedTime = a })

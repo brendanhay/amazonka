@@ -100,7 +100,7 @@ gcfoairETag = lens _gcfoairETag (\s a -> s { _gcfoairETag = a })
 
 instance ToPath GetCloudFrontOriginAccessIdentity where
     toPath GetCloudFrontOriginAccessIdentity{..} = mconcat
-        [ "/2014-05-31/origin-access-identity/cloudfront/"
+        [ "/2014-10-21/origin-access-identity/cloudfront/"
         , toText _gcfoaiId
         ]
 

@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.ELB.Waiters",
+        "imports": [
+            "Network.AWS.ELB.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",

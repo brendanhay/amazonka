@@ -103,23 +103,25 @@ instance AWSService CloudWatchLogs where
       where
         service' :: Service CloudWatchLogs
         service' = Service
-              { _svcAbbrev       = "CloudWatchLogs"
-              , _svcPrefix       = "logs"
-              , _svcVersion      = "2014-03-28"
-              , _svcTargetPrefix = Just "Logs_20140328"
-              , _svcJSONVersion  = Just "1.1"
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "CloudWatchLogs"
+            , _svcPrefix       = "logs"
+            , _svcVersion      = "2014-03-28"
+            , _svcTargetPrefix = Just "Logs_20140328"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
-        retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+        retry :: Retry CloudWatchLogs
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status

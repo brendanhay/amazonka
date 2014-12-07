@@ -709,6 +709,12 @@ instance Ord Operation where
 instance ToFilePath Operation where
     toFilePath = toFilePath . _opNamespace
 
+operationDataTypes :: Operation -> HashMap Text Data
+operationDataTypes o = Map.fromList
+    [ let rq = o ^. opRequest  in (_rqName rq, _rqData rq)
+    , let rs = o ^. opResponse in (_rsName rs, _rsData rs)
+    ]
+
 data RetryDelay = Exp
     { _eAttempts :: !Int
     , _eBase     :: !Base
@@ -778,11 +784,23 @@ record output ''Types
 instance ToFilePath Types where
     toFilePath = toFilePath . _tNamespace
 
+data Waiters = Waiters
+    { _wNamespace :: !NS
+    , _wImports   :: [NS]
+    , _wWaiters   :: HashMap Text Waiter
+    } deriving (Eq, Show)
+
+record output ''Waiters
+
+instance ToFilePath Waiters where
+    toFilePath = toFilePath . _wNamespace
+
 data Output = Output
     { _outCabal      :: Cabal
     , _outService    :: Service
     , _outOperations :: [Operation]
     , _outTypes      :: Types
+    , _outWaiters    :: Waiters
     } deriving (Eq, Show)
 
 record output ''Output

@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.ElasticBeanstalk.Waiters",
+        "imports": [
+            "Network.AWS.ElasticBeanstalk.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",

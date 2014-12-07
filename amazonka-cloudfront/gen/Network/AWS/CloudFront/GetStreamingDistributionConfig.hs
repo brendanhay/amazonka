@@ -99,7 +99,7 @@ gsdcrStreamingDistributionConfig =
 
 instance ToPath GetStreamingDistributionConfig where
     toPath GetStreamingDistributionConfig{..} = mconcat
-        [ "/2014-05-31/streaming-distribution/"
+        [ "/2014-10-21/streaming-distribution/"
         , toText _gsdcId
         , "/config"
         ]

@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
@@ -15,16 +14,15 @@
 
 module Gen.Model where
 
-import           Control.Applicative
-import           Control.Error
-import           Control.Monad
-import qualified Data.HashMap.Strict as Map
-import qualified Data.Text           as Text
-import           Gen.IO
-import           Gen.JSON
-import           Gen.Types
-import           System.Directory
-import           System.FilePath
+import Control.Applicative
+import Control.Error
+import Control.Monad
+import Data.List           (sort)
+import Gen.IO
+import Gen.JSON
+import Gen.Types
+import System.Directory
+import System.FilePath
 
 loadRetries :: FilePath -> Script Retries
 loadRetries = requireObject >=> parse
@@ -42,8 +40,8 @@ loadModel d o = do
     Model name v d m2 <$> parse m1
   where
     version = do
-        fs <- scriptIO (getDirectoryContents d)
-        f  <- tryHead ("Failed to get model version from " ++ d) (filter dots fs)
+        fs <- reverse . sort . filter dots <$> scriptIO (getDirectoryContents d)
+        f  <- tryHead ("Failed to get model version from " ++ d) fs
         return (takeWhile (/= '.') f)
 
     api     = path "api.json"

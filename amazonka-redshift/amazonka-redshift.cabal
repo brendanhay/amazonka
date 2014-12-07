@@ -95,6 +95,7 @@ library
         , Network.AWS.Redshift.RevokeSnapshotAccess
         , Network.AWS.Redshift.RotateEncryptionKey
         , Network.AWS.Redshift.Types
+        , Network.AWS.Redshift.Waiters
 
     other-modules:
 

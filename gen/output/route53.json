@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.Route53.Waiters",
+        "imports": [
+            "Network.AWS.Route53.Types"
+        ]
+    },
     "service": {
         "signature": "V3",
         "checksum": "sha256",
@@ -35,7 +42,8 @@
             "Network.AWS.Route53.ListTagsForResource",
             "Network.AWS.Route53.ListTagsForResources",
             "Network.AWS.Route53.Types",
-            "Network.AWS.Route53.UpdateHealthCheck"
+            "Network.AWS.Route53.UpdateHealthCheck",
+            "Network.AWS.Route53.UpdateHostedZoneComment"
         ],
         "name": "Amazon Route 53",
         "version": "2013-04-01",
@@ -103,7 +111,8 @@
             "Network.AWS.Route53.ListTagsForResource",
             "Network.AWS.Route53.ListTagsForResources",
             "Network.AWS.Route53.Types",
-            "Network.AWS.Route53.UpdateHealthCheck"
+            "Network.AWS.Route53.UpdateHealthCheck",
+            "Network.AWS.Route53.UpdateHostedZoneComment"
         ],
         "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html",
         "protocol": "rest-xml",
@@ -1082,7 +1091,8 @@
                     "Enum"
                 ],
                 "branches": {
-                    "Healthcheck": "healthcheck"
+                    "Healthcheck": "healthcheck",
+                    "Hostedzone": "hostedzone"
                 },
                 "valuePad": 12,
                 "name": "TagResourceType",
@@ -1908,7 +1918,7 @@
                         "name": "_rtsResourceType",
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of the resource. The resource type for health checks is 'healthcheck'.",
+                        "documentation": "-- | The type of the resource.\n--\n-- - The resource type for health checks is 'healthcheck'.\n--\n-- - The resource type for hosted zones is 'hostedzone'.",
                         "typeExposed": "Maybe TagResourceType",
                         "type": "Maybe TagResourceType"
                     },
@@ -1981,7 +1991,7 @@
                         "name": "_rtsResourceType",
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of the resource. The resource type for health checks is 'healthcheck'.",
+                        "documentation": "-- | The type of the resource.\n--\n-- - The resource type for health checks is 'healthcheck'.\n--\n-- - The resource type for hosted zones is 'hostedzone'.",
                         "typeExposed": "Maybe TagResourceType",
                         "type": "Maybe TagResourceType"
                     },
@@ -2031,7 +2041,7 @@
                         "name": "_rtsResourceType",
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of the resource. The resource type for health checks is 'healthcheck'.",
+                        "documentation": "-- | The type of the resource.\n--\n-- - The resource type for health checks is 'healthcheck'.\n--\n-- - The resource type for hosted zones is 'hostedzone'.",
                         "typeExposed": "Maybe TagResourceType",
                         "type": "Maybe TagResourceType"
                     },
@@ -4414,7 +4424,7 @@
                         "name": "_ctfrResourceType",
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of the resource. The resource type for health checks is 'healthcheck'.",
+                        "documentation": "-- | The type of the resource.\n--\n-- - The resource type for health checks is 'healthcheck'.\n--\n-- - The resource type for hosted zones is 'hostedzone'.",
                         "typeExposed": "TagResourceType",
                         "type": "TagResourceType"
                     },
@@ -4539,7 +4549,7 @@
                         "name": "_ctfrResourceType",
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of the resource. The resource type for health checks is 'healthcheck'.",
+                        "documentation": "-- | The type of the resource.\n--\n-- - The resource type for health checks is 'healthcheck'.\n--\n-- - The resource type for hosted zones is 'hostedzone'.",
                         "typeExposed": "TagResourceType",
                         "type": "TagResourceType"
                     }
@@ -10698,7 +10708,7 @@
                         "name": "_ltfrResourceType",
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of the resource. The resource type for health checks is 'healthcheck'.",
+                        "documentation": "-- | The type of the resource.\n--\n-- - The resource type for health checks is 'healthcheck'.\n--\n-- - The resource type for hosted zones is 'hostedzone'.",
                         "typeExposed": "TagResourceType",
                         "type": "TagResourceType"
                     },
@@ -10759,7 +10769,7 @@
                         "name": "_ltfrResourceType",
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of the resource. The resource type for health checks is 'healthcheck'.",
+                        "documentation": "-- | The type of the resource.\n--\n-- - The resource type for health checks is 'healthcheck'.\n--\n-- - The resource type for hosted zones is 'hostedzone'.",
                         "typeExposed": "TagResourceType",
                         "type": "TagResourceType"
                     }
@@ -10929,7 +10939,7 @@
                         "name": "_ltfr1ResourceType",
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of the resources. The resource type for health checks is 'healthcheck'.",
+                        "documentation": "-- | The type of the resources.\n--\n-- - The resource type for health checks is 'healthcheck'.\n--\n-- - The resource type for hosted zones is 'hostedzone'.",
                         "typeExposed": "TagResourceType",
                         "type": "TagResourceType"
                     },
@@ -10990,7 +11000,7 @@
                         "name": "_ltfr1ResourceType",
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of the resources. The resource type for health checks is 'healthcheck'.",
+                        "documentation": "-- | The type of the resources.\n--\n-- - The resource type for health checks is 'healthcheck'.\n--\n-- - The resource type for hosted zones is 'hostedzone'.",
                         "typeExposed": "TagResourceType",
                         "type": "TagResourceType"
                     }
@@ -11512,6 +11522,237 @@
                         "documentation": "-- | If the value of 'Type' is 'HTTP_STR_MATCH' or 'HTTP_STR_MATCH', the string that you\n-- want Route 53 to search for in the response body from the specified resource.\n-- If the string appears in the response body, Route 53 considers the resource\n-- healthy.\n--\n-- Specify this value only if you want to change it.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Route53",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "xml",
+                "fieldPad": 0,
+                "ctor": "updateHostedZoneCommentResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "monoid": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "uhzcrHostedZone",
+                    "name": "_uhzcrHostedZone",
+                    "shape": "HostedZone",
+                    "locationName": "HostedZone",
+                    "documentation": null,
+                    "typeExposed": "HostedZone",
+                    "type": "HostedZone"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uhzcrHostedZone",
+                        "name": "_uhzcrHostedZone",
+                        "shape": "HostedZone",
+                        "locationName": "HostedZone",
+                        "documentation": null,
+                        "typeExposed": "HostedZone",
+                        "type": "HostedZone"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "rest-xml",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uhzcrHostedZone",
+                        "name": "_uhzcrHostedZone",
+                        "shape": "HostedZone",
+                        "locationName": "HostedZone",
+                        "documentation": null,
+                        "typeExposed": "HostedZone",
+                        "type": "HostedZone"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "UpdateHostedZoneCommentResponse",
+                "resultWrapper": null,
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uhzcrHostedZone",
+                        "name": "_uhzcrHostedZone",
+                        "shape": "HostedZone",
+                        "locationName": "HostedZone",
+                        "documentation": null,
+                        "typeExposed": "HostedZone",
+                        "type": "HostedZone"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneComment.html",
+            "namespace": "Network.AWS.Route53.UpdateHostedZoneComment",
+            "protocol": "rest-xml",
+            "imports": [
+                "Network.AWS.Request.RestXML",
+                "Network.AWS.Route53.Types"
+            ],
+            "pager": null,
+            "name": "UpdateHostedZoneComment",
+            "method": "post",
+            "documentation": "-- | To update the hosted zone comment, send a 'POST' request to the '2013-04-01/hostedzone//hosted zone ID/ resource. The request body must include an XML document with a 'UpdateHostedZoneCommentRequest' element. The response to this request includes\n-- the modified 'HostedZone' element.\n--\n-- The comment can have a maximum length of 256 characters.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "xml",
+                "fieldPad": 12,
+                "ctor": "updateHostedZoneComment",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uhzcComment",
+                        "name": "_uhzcComment",
+                        "shape": "ResourceDescription",
+                        "locationName": "Comment",
+                        "documentation": "-- | A comment about your hosted zone.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/2013-04-01/hostedzone/",
+                        "type": "const"
+                    },
+                    {
+                        "value": "_uhzcId",
+                        "type": "var"
+                    }
+                ],
+                "protocol": "rest-xml",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "uri",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uhzcId",
+                        "name": "_uhzcId",
+                        "shape": "ResourceId",
+                        "locationName": "Id",
+                        "documentation": "-- | The ID of the hosted zone you want to update.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 8,
+                "queryPad": 0,
+                "name": "UpdateHostedZoneComment",
+                "query": [],
+                "locationPad": 8,
+                "type": "record",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uhzcComment",
+                        "name": "_uhzcComment",
+                        "shape": "ResourceDescription",
+                        "locationName": "Comment",
+                        "documentation": "-- | A comment about your hosted zone.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uhzcComment",
+                        "name": "_uhzcComment",
+                        "shape": "ResourceDescription",
+                        "locationName": "Comment",
+                        "documentation": "-- | A comment about your hosted zone.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "uri",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uhzcId",
+                        "name": "_uhzcId",
+                        "shape": "ResourceId",
+                        "locationName": "Id",
+                        "documentation": "-- | The ID of the hosted zone you want to update.",
+                        "typeExposed": "Text",
+                        "type": "Text"
                     }
                 ]
             }

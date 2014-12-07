@@ -18,7 +18,7 @@ module Gen.Library (renderLibrary) where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Monad       (forM_)
+import           Control.Monad
 import           Data.Aeson
 import qualified Data.HashMap.Strict as Map
 import           Data.Monoid
@@ -43,6 +43,10 @@ renderLibrary d Templates{..} Output{..} = do
 
     renderFile "Render Types" typ gen _outTypes
         =<< Map.insert "service" (Object svc) <$> toEnv _outTypes
+
+    unless (Map.null (_wWaiters _outWaiters)) $
+        renderFile "Render Waiters" _tWaiters gen _outWaiters
+            =<< Map.insert "service" (Object svc) <$> toEnv _outWaiters
 
     forM_ _outOperations $ \o -> renderFile "Render Operation" op gen o
         =<< toEnv o

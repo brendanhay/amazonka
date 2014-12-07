@@ -38,6 +38,7 @@ module Network.AWS.SES
     , module Network.AWS.SES.VerifyDomainIdentity
     , module Network.AWS.SES.VerifyEmailAddress
     , module Network.AWS.SES.VerifyEmailIdentity
+    , module Network.AWS.SES.Waiters
     ) where
 
 import Network.AWS.SES.DeleteIdentity
@@ -59,3 +60,4 @@ import Network.AWS.SES.VerifyDomainDkim
 import Network.AWS.SES.VerifyDomainIdentity
 import Network.AWS.SES.VerifyEmailAddress
 import Network.AWS.SES.VerifyEmailIdentity
+import Network.AWS.SES.Waiters

@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.AutoScaling.Waiters",
+        "imports": [
+            "Network.AWS.AutoScaling.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",

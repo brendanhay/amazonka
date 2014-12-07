@@ -6,6 +6,11 @@
     "metadata": {
         "serviceAbbreviation": "CloudFront"
     },
+    "ignoreWaiters": [
+        "DistributionDeployed",
+        "InvalidationCompleted",
+        "StreamingDistributionDeployed"
+    ],
     "overrides": {
         "ListCloudFrontOriginAccessIdentitiesResult": {
             "required": [

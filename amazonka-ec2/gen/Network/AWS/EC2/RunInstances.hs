@@ -372,9 +372,9 @@ riUserData = lens _riUserData (\s a -> s { _riUserData = a })
 data RunInstancesResponse = RunInstancesResponse
     { _rirGroups        :: List "item" GroupIdentifier
     , _rirInstances     :: List "item" Instance
-    , _rirOwnerId       :: Maybe Text
-    , _rirRequesterId   :: Maybe Text
-    , _rirReservationId :: Maybe Text
+    , _rirOwnerId       :: Text
+    , _rirRequesterId   :: Text
+    , _rirReservationId :: Text
     } deriving (Eq, Show)
 
 -- | 'RunInstancesResponse' constructor.
@@ -385,17 +385,20 @@ data RunInstancesResponse = RunInstancesResponse
 --
 -- * 'rirInstances' @::@ ['Instance']
 --
--- * 'rirOwnerId' @::@ 'Maybe' 'Text'
+-- * 'rirOwnerId' @::@ 'Text'
 --
--- * 'rirRequesterId' @::@ 'Maybe' 'Text'
+-- * 'rirRequesterId' @::@ 'Text'
 --
--- * 'rirReservationId' @::@ 'Maybe' 'Text'
+-- * 'rirReservationId' @::@ 'Text'
 --
-runInstancesResponse :: RunInstancesResponse
-runInstancesResponse = RunInstancesResponse
-    { _rirReservationId = Nothing
-    , _rirOwnerId       = Nothing
-    , _rirRequesterId   = Nothing
+runInstancesResponse :: Text -- ^ 'rirReservationId'
+                     -> Text -- ^ 'rirOwnerId'
+                     -> Text -- ^ 'rirRequesterId'
+                     -> RunInstancesResponse
+runInstancesResponse p1 p2 p3 = RunInstancesResponse
+    { _rirReservationId = p1
+    , _rirOwnerId       = p2
+    , _rirRequesterId   = p3
     , _rirGroups        = mempty
     , _rirInstances     = mempty
     }
@@ -409,16 +412,16 @@ rirInstances :: Lens' RunInstancesResponse [Instance]
 rirInstances = lens _rirInstances (\s a -> s { _rirInstances = a }) . _List
 
 -- | The ID of the AWS account that owns the reservation.
-rirOwnerId :: Lens' RunInstancesResponse (Maybe Text)
+rirOwnerId :: Lens' RunInstancesResponse Text
 rirOwnerId = lens _rirOwnerId (\s a -> s { _rirOwnerId = a })
 
 -- | The ID of the requester that launched the instances on your behalf (for
 -- example, AWS Management Console or Auto Scaling).
-rirRequesterId :: Lens' RunInstancesResponse (Maybe Text)
+rirRequesterId :: Lens' RunInstancesResponse Text
 rirRequesterId = lens _rirRequesterId (\s a -> s { _rirRequesterId = a })
 
 -- | The ID of the reservation.
-rirReservationId :: Lens' RunInstancesResponse (Maybe Text)
+rirReservationId :: Lens' RunInstancesResponse Text
 rirReservationId = lens _rirReservationId (\s a -> s { _rirReservationId = a })
 
 instance ToPath RunInstances where
@@ -464,6 +467,6 @@ instance FromXML RunInstancesResponse where
     parseXML x = RunInstancesResponse
         <$> parseXML x
         <*> parseXML x
-        <*> x .@? "ownerId"
-        <*> x .@? "requesterId"
-        <*> x .@? "reservationId"
+        <*> x .@  "ownerId"
+        <*> x .@  "requesterId"
+        <*> x .@  "reservationId"

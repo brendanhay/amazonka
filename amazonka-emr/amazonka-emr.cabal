@@ -55,6 +55,7 @@ library
         , Network.AWS.EMR.SetVisibleToAllUsers
         , Network.AWS.EMR.TerminateJobFlows
         , Network.AWS.EMR.Types
+        , Network.AWS.EMR.Waiters
 
     other-modules:
 

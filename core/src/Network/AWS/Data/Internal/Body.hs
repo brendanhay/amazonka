@@ -73,6 +73,15 @@ instance Show RqBody where
 instance IsString RqBody where
     fromString = toBody . LBS8.pack
 
+isStreaming :: RqBody -> Bool
+isStreaming b =
+    case _bdyBody b of
+        RequestBodyLBS           {} -> False
+        RequestBodyBS            {} -> False
+        RequestBodyBuilder       {} -> False
+        RequestBodyStream        {} -> True
+        RequestBodyStreamChunked {} -> True
+
 class ToBody a where
     toBody :: a -> RqBody
     toBody = const (RqBody (hash "") (RequestBodyLBS mempty))

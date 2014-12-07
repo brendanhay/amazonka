@@ -70,21 +70,22 @@ dt1TableName :: Lens' DescribeTable Text
 dt1TableName = lens _dt1TableName (\s a -> s { _dt1TableName = a })
 
 newtype DescribeTableResponse = DescribeTableResponse
-    { _dtrTable :: Maybe TableDescription
+    { _dtrTable :: TableDescription
     } deriving (Eq, Show)
 
 -- | 'DescribeTableResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrTable' @::@ 'Maybe' 'TableDescription'
+-- * 'dtrTable' @::@ 'TableDescription'
 --
-describeTableResponse :: DescribeTableResponse
-describeTableResponse = DescribeTableResponse
-    { _dtrTable = Nothing
+describeTableResponse :: TableDescription -- ^ 'dtrTable'
+                      -> DescribeTableResponse
+describeTableResponse p1 = DescribeTableResponse
+    { _dtrTable = p1
     }
 
-dtrTable :: Lens' DescribeTableResponse (Maybe TableDescription)
+dtrTable :: Lens' DescribeTableResponse TableDescription
 dtrTable = lens _dtrTable (\s a -> s { _dtrTable = a })
 
 instance ToPath DescribeTable where
@@ -109,4 +110,4 @@ instance AWSRequest DescribeTable where
 
 instance FromJSON DescribeTableResponse where
     parseJSON = withObject "DescribeTableResponse" $ \o -> DescribeTableResponse
-        <$> o .:? "Table"
+        <$> o .:  "Table"

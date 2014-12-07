@@ -46,9 +46,11 @@ library
         , Network.AWS.Kinesis.ListTagsForStream
         , Network.AWS.Kinesis.MergeShards
         , Network.AWS.Kinesis.PutRecord
+        , Network.AWS.Kinesis.PutRecords
         , Network.AWS.Kinesis.RemoveTagsFromStream
         , Network.AWS.Kinesis.SplitShard
         , Network.AWS.Kinesis.Types
+        , Network.AWS.Kinesis.Waiters
 
     other-modules:
 

@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.CloudWatchLogs.Waiters",
+        "imports": [
+            "Network.AWS.CloudWatchLogs.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",

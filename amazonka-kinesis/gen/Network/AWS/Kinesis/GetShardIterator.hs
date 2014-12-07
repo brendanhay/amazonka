@@ -34,12 +34,12 @@
 -- You must specify the shard iterator type. For example, you can set the 'ShardIteratorType' parameter to read exactly from the position denoted by a specific sequence
 -- number by using the 'AT_SEQUENCE_NUMBER' shard iterator type, or right after
 -- the sequence number by using the 'AFTER_SEQUENCE_NUMBER' shard iterator type,
--- using sequence numbers returned by earlier calls to 'PutRecord', 'GetRecords', or 'DescribeStream'. You can specify the shard iterator type 'TRIM_HORIZON' in the
--- request to cause 'ShardIterator' to point to the last untrimmed record in the
--- shard in the system, which is the oldest data record in the shard. Or you can
--- point to just after the most recent record in the shard, by using the shard
--- iterator type 'LATEST', so that you always read the most recent data in the
--- shard.
+-- using sequence numbers returned by earlier calls to 'PutRecord', 'PutRecords', 'GetRecords', or 'DescribeStream'. You can specify the shard iterator type 'TRIM_HORIZON' in
+-- the request to cause 'ShardIterator' to point to the last untrimmed record in
+-- the shard in the system, which is the oldest data record in the shard. Or you
+-- can point to just after the most recent record in the shard, by using the
+-- shard iterator type 'LATEST', so that you always read the most recent data in
+-- the shard.
 --
 -- When you repeatedly read from an Amazon Kinesis stream use a 'GetShardIterator'
 -- request to get the first shard iterator to to use in your first 'GetRecords'

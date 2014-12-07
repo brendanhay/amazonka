@@ -27,6 +27,10 @@
 -- and private images owned by other AWS accounts but for which you have
 -- explicit launch permissions.
 --
+-- Deregistered images are included in the returned results for an unspecified
+-- interval after deregistration.
+--
+--
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImages.html>
 module Network.AWS.EC2.DescribeImages
     (

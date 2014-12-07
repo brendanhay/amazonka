@@ -1,4 +1,105 @@
 {
+    "waiters": {
+        "waiters": {
+            "DBInstanceAvailable": {
+                "operation": "DescribeDBInstances",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"available\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"deleted\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"deleting\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"failed\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"incompatible-restore\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"incompatible-parameters\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"incompatible-parameters\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"incompatible-restore\""
+                    }
+                ],
+                "maxAttempts": 60,
+                "delay": 30
+            },
+            "DBInstanceDeleted": {
+                "operation": "DescribeDBInstances",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"deleted\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"creating\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"modifying\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"rebooting\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"resetting-master-credentials\""
+                    }
+                ],
+                "maxAttempts": 60,
+                "delay": 30
+            }
+        },
+        "namespace": "Network.AWS.RDS.Waiters",
+        "imports": [
+            "Network.AWS.RDS.DescribeDBInstances",
+            "Network.AWS.RDS.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -62,7 +163,8 @@
             "Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot",
             "Network.AWS.RDS.RestoreDBInstanceToPointInTime",
             "Network.AWS.RDS.RevokeDBSecurityGroupIngress",
-            "Network.AWS.RDS.Types"
+            "Network.AWS.RDS.Types",
+            "Network.AWS.RDS.Waiters"
         ],
         "name": "Amazon Relational Database Service",
         "version": "2014-09-01",
@@ -155,7 +257,8 @@
             "Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot",
             "Network.AWS.RDS.RestoreDBInstanceToPointInTime",
             "Network.AWS.RDS.RevokeDBSecurityGroupIngress",
-            "Network.AWS.RDS.Types"
+            "Network.AWS.RDS.Types",
+            "Network.AWS.RDS.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html",
         "protocol": "query",

@@ -89,6 +89,7 @@ library
         , Network.AWS.S3.Types
         , Network.AWS.S3.UploadPart
         , Network.AWS.S3.UploadPartCopy
+        , Network.AWS.S3.Waiters
 
     other-modules:
           Network.AWS.S3.Internal

@@ -28,6 +28,8 @@
 -- provider as a principal in their trust policies. Any attempt to assume a role
 -- that references a SAML provider that has been deleted will fail.
 --
+-- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSAMLProvider.html>
 module Network.AWS.IAM.DeleteSAMLProvider
     (

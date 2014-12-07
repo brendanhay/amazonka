@@ -15,6 +15,7 @@
 module Network.AWS.Internal.Env where
 
 import Control.Lens
+import Control.Retry
 import Data.List                (intersperse)
 import Data.Monoid
 import Network.AWS.Data         (ToBuilder(..))
@@ -27,7 +28,7 @@ data Env = Env
     { _envRegion  :: !Region
     , _envLogger  :: Logger
     , _envManager :: Manager
-    , _envRetry   :: !Bool
+    , _envRetry   :: Maybe RetryPolicy
     , _envAuth    :: Auth
     }
 
@@ -36,8 +37,11 @@ makeLenses ''Env
 instance ToBuilder Env where
     build Env{..} = mconcat $ intersperse "\n"
         [ "[Environment] {"
-        , "  region = " <> build _envRegion
-        , "  auth   = " <> build _envAuth
-        , "  retry  = " <> build _envRetry
+        , "  region      = " <> build _envRegion
+        , "  auth        = " <> build _envAuth
+        , "  retry (n=0) = " <>
+            maybe "Nothing"
+                  (\(RetryPolicy f) -> "Maybe " <> build (f 0))
+                  _envRetry
         , "}"
         ]

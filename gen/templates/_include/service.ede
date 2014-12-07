@@ -9,23 +9,25 @@ instance AWSService {{ service.abbrev }} where
       where
         service' :: Service {{ service.abbrev }}
         service' = Service
-              { _svcAbbrev       = "{{ service.abbrev }}"
-              , _svcPrefix       = "{{ service.endpointPrefix }}"
-              , _svcVersion      = "{{ service.version }}"
-              , _svcTargetPrefix = {% if service.targetPrefix %}Just "{{ service.targetPrefix }}"{% else %}Nothing{% endif %}
-              , _svcJSONVersion  = {% if service.jsonVersion %}Just "{{ service.jsonVersion }}"{% else %}Nothing{% endif %}
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "{{ service.abbrev }}"
+            , _svcPrefix       = "{{ service.endpointPrefix }}"
+            , _svcVersion      = "{{ service.version }}"
+            , _svcTargetPrefix = {% if service.targetPrefix %}Just "{{ service.targetPrefix }}"{% else %}Nothing{% endif %}
+            , _svcJSONVersion  = {% if service.jsonVersion %}Just "{{ service.jsonVersion }}"{% else %}Nothing{% endif %}
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError {{ service.error }})
         handle = {% if service.error == "JSONError" %}jsonError{% else %}restError{% endif %} statusSuccess service'
 
-        retry :: Retry {{ service.error }}
-        retry = Retry
-            { _rPolicy = exponentialBackon {{ service.retryDelay.base }} {{ service.retryDelay.growth }} {{ service.retryDelay.attempts }}
-            , _rCheck  = check
+        retry :: Retry {{ service.abbrev }}
+        retry = Exponential
+            { _retryBase     = {{ service.retryDelay.base }}
+            , _retryGrowth   = {{ service.retryDelay.growth }}
+            , _retryAttempts = {{ service.retryDelay.attempts }}
+            , _retryCheck    = check
             }
 
         check :: Status

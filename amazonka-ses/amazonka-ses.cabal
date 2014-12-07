@@ -59,6 +59,7 @@ library
         , Network.AWS.SES.VerifyDomainIdentity
         , Network.AWS.SES.VerifyEmailAddress
         , Network.AWS.SES.VerifyEmailIdentity
+        , Network.AWS.SES.Waiters
 
     other-modules:
 

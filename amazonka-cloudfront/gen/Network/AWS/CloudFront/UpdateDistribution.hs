@@ -118,7 +118,7 @@ udrETag = lens _udrETag (\s a -> s { _udrETag = a })
 
 instance ToPath UpdateDistribution where
     toPath UpdateDistribution{..} = mconcat
-        [ "/2014-05-31/distribution/"
+        [ "/2014-10-21/distribution/"
         , toText _udId
         , "/config"
         ]

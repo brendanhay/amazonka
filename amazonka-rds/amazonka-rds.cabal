@@ -92,6 +92,7 @@ library
         , Network.AWS.RDS.RestoreDBInstanceToPointInTime
         , Network.AWS.RDS.RevokeDBSecurityGroupIngress
         , Network.AWS.RDS.Types
+        , Network.AWS.RDS.Waiters
 
     other-modules:
 

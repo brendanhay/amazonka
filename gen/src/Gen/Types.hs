@@ -266,6 +266,9 @@ namespace = NS . ("Network":) . ("AWS":)
 typesNS :: Abbrev -> NS
 typesNS (Abbrev a) = namespace [a, "Types"]
 
+waitersNS :: Abbrev -> NS
+waitersNS (Abbrev a) = namespace [a, "Waiters"]
+
 operationNS :: Abbrev -> Text -> NS
 operationNS (Abbrev a) o = namespace [a, Text.dropWhileEnd (not . isAlpha) o]
 
@@ -435,6 +438,7 @@ data Overrides = Overrides
     , _oOperationsModules :: [NS]
     , _oTypesModules      :: [NS]
     , _oOverrides         :: HashMap Text Override
+    , _oIgnoreWaiters     :: HashSet (CI Text)
     } deriving (Eq, Show)
 
 makeLenses ''Overrides
@@ -448,6 +452,7 @@ instance FromJSON Overrides where
         <*> o .:? "operationModules" .!= mempty
         <*> o .:? "typeModules"      .!= mempty
         <*> o .:? "overrides"        .!= mempty
+        <*> o .:? "ignoreWaiters"    .!= mempty
 
 data When
     = WhenStatus (Maybe Text) !Int
@@ -539,6 +544,94 @@ instance FromJSON Retries where
         go _          _          = error "Expected two objects"
 
         def = "__default__"
+
+data MatchType
+    = MatchPath
+    | MatchPathAll
+    | MatchPathAny
+    | MatchStatus
+    | MatchError
+      deriving (Eq, Show)
+
+nullary (input  & thCtor .~ ctor "Match") ''MatchType
+
+instance A.ToJSON MatchType where
+    toJSON = A.toJSON . \case
+        MatchPath    -> "matchAll"
+        MatchPathAll -> "matchAll"
+        MatchPathAny -> "matchAny"
+        MatchStatus  -> "matchStatus"
+        MatchError   -> "matchError"
+
+data StateType
+    = StateRetry
+    | StateSuccess
+    | StateFailure
+      deriving (Eq, Show)
+
+nullary (input  & thCtor .~ ctor "State") ''StateType
+nullary (output & thCtor .~ ctor "State") ''StateType
+
+data Expected
+    = ExpectStatus !Int
+    | ExpectText   !Text
+    | ExpectCtor   !Text
+      deriving (Eq, Show)
+
+instance FromJSON Expected where
+    parseJSON (String s) = pure (ExpectText s)
+    parseJSON o          = ExpectStatus <$> parseJSON o
+
+instance A.ToJSON Expected where
+    toJSON (ExpectStatus n) = A.toJSON n
+    toJSON (ExpectText   s) = A.toJSON ("\"" <> s <> "\"")
+    toJSON (ExpectCtor   c) = A.toJSON c
+
+data Notation
+    = Indexed !Text !Notation
+    | Nested  !Text !Notation
+    | Access  !Text
+      deriving (Eq, Show)
+
+instance FromJSON Notation where
+    parseJSON = withText "notation" (either fail pure . parseOnly note)
+      where
+        note :: Parser Notation
+        note = (indexed <|> nested <|> access) <* AText.endOfInput
+
+        indexed = Indexed <$> key <* AText.string "[]." <*> note
+        nested  = Nested  <$> key <* AText.char '.'     <*> note
+        access  = Access  <$> key
+
+        key = AText.takeWhile1 (AText.notInClass "[].")
+
+instance A.ToJSON Notation where
+    toJSON = A.toJSON . go
+      where
+        go = \case
+            Indexed k i -> "folding (concatOf " <> k <> ") . " <> go i
+            Nested  k i -> k <> " . " <> go i
+            Access  k   -> k
+
+data Acceptor = Acceptor
+    { _aExpected :: !Expected
+    , _aMatcher  :: !MatchType
+    , _aState    :: !StateType
+    , _aArgument :: Maybe Notation
+    } deriving (Eq, Show)
+
+record  input  ''Acceptor
+nullary output ''Acceptor
+
+data Waiter = Waiter
+    { _wDelay       :: !Int
+    , _wMaxAttempts :: !Int
+    , _wOperation   :: !Text
+    , _wAcceptors   :: [Acceptor]
+    } deriving (Show, Eq)
+
+record  input  ''Waiter
+nullary output ''Waiter
 
 data Model = Model
     { _mName      :: String

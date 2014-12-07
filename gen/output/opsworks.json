@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.OpsWorks.Waiters",
+        "imports": [
+            "Network.AWS.OpsWorks.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",

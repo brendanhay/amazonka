@@ -48,6 +48,7 @@ module Network.AWS.EC2.CreateVolume
     , cv1DryRun
     , cv1Encrypted
     , cv1Iops
+    , cv1KmsKeyId
     , cv1Size
     , cv1SnapshotId
     , cv1VolumeType
@@ -62,6 +63,7 @@ module Network.AWS.EC2.CreateVolume
     , cvrCreateTime
     , cvrEncrypted
     , cvrIops
+    , cvrKmsKeyId
     , cvrSize
     , cvrSnapshotId
     , cvrState
@@ -80,6 +82,7 @@ data CreateVolume = CreateVolume
     , _cv1DryRun           :: Maybe Bool
     , _cv1Encrypted        :: Maybe Bool
     , _cv1Iops             :: Maybe Int
+    , _cv1KmsKeyId         :: Maybe Text
     , _cv1Size             :: Maybe Int
     , _cv1SnapshotId       :: Maybe Text
     , _cv1VolumeType       :: Maybe VolumeType
@@ -97,6 +100,8 @@ data CreateVolume = CreateVolume
 --
 -- * 'cv1Iops' @::@ 'Maybe' 'Int'
 --
+-- * 'cv1KmsKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'cv1Size' @::@ 'Maybe' 'Int'
 --
 -- * 'cv1SnapshotId' @::@ 'Maybe' 'Text'
@@ -113,6 +118,7 @@ createVolume p1 = CreateVolume
     , _cv1VolumeType       = Nothing
     , _cv1Iops             = Nothing
     , _cv1Encrypted        = Nothing
+    , _cv1KmsKeyId         = Nothing
     }
 
 -- | The Availability Zone in which to create the volume. Use 'DescribeAvailabilityZones' to list the Availability Zones that are currently available to you.
@@ -132,9 +138,18 @@ cv1Encrypted = lens _cv1Encrypted (\s a -> s { _cv1Encrypted = a })
 cv1Iops :: Lens' CreateVolume (Maybe Int)
 cv1Iops = lens _cv1Iops (\s a -> s { _cv1Iops = a })
 
+-- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
+-- (CMK) to use when creating the encrypted volume. This parameter is only
+-- required if you want to use a non-default CMK; if this parameter is not
+-- specified, the default CMK is used. The ARN contains the 'arn:aws:kms'
+-- namespace, followed by the region of the CMK, the AWS account ID of the CMK
+-- owner, the 'key' namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/:/012345678910/:key//abcd1234-a123-456a-a12b-a123b4cd56ef/.
+cv1KmsKeyId :: Lens' CreateVolume (Maybe Text)
+cv1KmsKeyId = lens _cv1KmsKeyId (\s a -> s { _cv1KmsKeyId = a })
+
 -- | The size of the volume, in GiBs.
 --
--- Constraints: If the volume type is 'io1', the minimum size of the volume is 10
+-- Constraints: If the volume type is 'io1', the minimum size of the volume is 4
 -- GiB.
 --
 -- Default: If you're creating the volume from a snapshot and don't specify a
@@ -155,16 +170,17 @@ cv1VolumeType = lens _cv1VolumeType (\s a -> s { _cv1VolumeType = a })
 
 data CreateVolumeResponse = CreateVolumeResponse
     { _cvrAttachments      :: List "item" VolumeAttachment
-    , _cvrAvailabilityZone :: Maybe Text
-    , _cvrCreateTime       :: Maybe ISO8601
-    , _cvrEncrypted        :: Maybe Bool
-    , _cvrIops             :: Maybe Int
-    , _cvrSize             :: Maybe Int
-    , _cvrSnapshotId       :: Maybe Text
-    , _cvrState            :: Maybe VolumeState
+    , _cvrAvailabilityZone :: Text
+    , _cvrCreateTime       :: ISO8601
+    , _cvrEncrypted        :: Bool
+    , _cvrIops             :: Int
+    , _cvrKmsKeyId         :: Maybe Text
+    , _cvrSize             :: Int
+    , _cvrSnapshotId       :: Text
+    , _cvrState            :: VolumeState
     , _cvrTags             :: List "item" Tag
-    , _cvrVolumeId         :: Maybe Text
-    , _cvrVolumeType       :: Maybe VolumeType
+    , _cvrVolumeId         :: Text
+    , _cvrVolumeType       :: VolumeType
     } deriving (Eq, Show)
 
 -- | 'CreateVolumeResponse' constructor.
@@ -173,55 +189,67 @@ data CreateVolumeResponse = CreateVolumeResponse
 --
 -- * 'cvrAttachments' @::@ ['VolumeAttachment']
 --
--- * 'cvrAvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 'cvrAvailabilityZone' @::@ 'Text'
 --
--- * 'cvrCreateTime' @::@ 'Maybe' 'UTCTime'
+-- * 'cvrCreateTime' @::@ 'UTCTime'
 --
--- * 'cvrEncrypted' @::@ 'Maybe' 'Bool'
+-- * 'cvrEncrypted' @::@ 'Bool'
 --
--- * 'cvrIops' @::@ 'Maybe' 'Int'
+-- * 'cvrIops' @::@ 'Int'
 --
--- * 'cvrSize' @::@ 'Maybe' 'Int'
+-- * 'cvrKmsKeyId' @::@ 'Maybe' 'Text'
 --
--- * 'cvrSnapshotId' @::@ 'Maybe' 'Text'
+-- * 'cvrSize' @::@ 'Int'
 --
--- * 'cvrState' @::@ 'Maybe' 'VolumeState'
+-- * 'cvrSnapshotId' @::@ 'Text'
+--
+-- * 'cvrState' @::@ 'VolumeState'
 --
 -- * 'cvrTags' @::@ ['Tag']
 --
--- * 'cvrVolumeId' @::@ 'Maybe' 'Text'
+-- * 'cvrVolumeId' @::@ 'Text'
 --
--- * 'cvrVolumeType' @::@ 'Maybe' 'VolumeType'
+-- * 'cvrVolumeType' @::@ 'VolumeType'
 --
-createVolumeResponse :: CreateVolumeResponse
-createVolumeResponse = CreateVolumeResponse
-    { _cvrVolumeId         = Nothing
-    , _cvrSize             = Nothing
-    , _cvrSnapshotId       = Nothing
-    , _cvrAvailabilityZone = Nothing
-    , _cvrState            = Nothing
-    , _cvrCreateTime       = Nothing
+createVolumeResponse :: Text -- ^ 'cvrVolumeId'
+                     -> Int -- ^ 'cvrSize'
+                     -> Text -- ^ 'cvrSnapshotId'
+                     -> Text -- ^ 'cvrAvailabilityZone'
+                     -> VolumeState -- ^ 'cvrState'
+                     -> UTCTime -- ^ 'cvrCreateTime'
+                     -> VolumeType -- ^ 'cvrVolumeType'
+                     -> Int -- ^ 'cvrIops'
+                     -> Bool -- ^ 'cvrEncrypted'
+                     -> CreateVolumeResponse
+createVolumeResponse p1 p2 p3 p4 p5 p6 p7 p8 p9 = CreateVolumeResponse
+    { _cvrVolumeId         = p1
+    , _cvrSize             = p2
+    , _cvrSnapshotId       = p3
+    , _cvrAvailabilityZone = p4
+    , _cvrState            = p5
+    , _cvrCreateTime       = withIso _Time (const id) p6
+    , _cvrVolumeType       = p7
+    , _cvrIops             = p8
+    , _cvrEncrypted        = p9
     , _cvrAttachments      = mempty
     , _cvrTags             = mempty
-    , _cvrVolumeType       = Nothing
-    , _cvrIops             = Nothing
-    , _cvrEncrypted        = Nothing
+    , _cvrKmsKeyId         = Nothing
     }
 
 cvrAttachments :: Lens' CreateVolumeResponse [VolumeAttachment]
 cvrAttachments = lens _cvrAttachments (\s a -> s { _cvrAttachments = a }) . _List
 
 -- | The Availability Zone for the volume.
-cvrAvailabilityZone :: Lens' CreateVolumeResponse (Maybe Text)
+cvrAvailabilityZone :: Lens' CreateVolumeResponse Text
 cvrAvailabilityZone =
     lens _cvrAvailabilityZone (\s a -> s { _cvrAvailabilityZone = a })
 
 -- | The time stamp when volume creation was initiated.
-cvrCreateTime :: Lens' CreateVolumeResponse (Maybe UTCTime)
-cvrCreateTime = lens _cvrCreateTime (\s a -> s { _cvrCreateTime = a }) . mapping _Time
+cvrCreateTime :: Lens' CreateVolumeResponse UTCTime
+cvrCreateTime = lens _cvrCreateTime (\s a -> s { _cvrCreateTime = a }) . _Time
 
 -- | Indicates whether the volume is encrypted.
-cvrEncrypted :: Lens' CreateVolumeResponse (Maybe Bool)
+cvrEncrypted :: Lens' CreateVolumeResponse Bool
 cvrEncrypted = lens _cvrEncrypted (\s a -> s { _cvrEncrypted = a })
 
 -- | The number of I/O operations per second (IOPS) that the volume supports. For
@@ -236,19 +264,24 @@ cvrEncrypted = lens _cvrEncrypted (\s a -> s { _cvrEncrypted = a })
 --
 -- Condition: This parameter is required for requests to create 'io1' volumes; it
 -- is not used in requests to create 'standard' or 'gp2' volumes.
-cvrIops :: Lens' CreateVolumeResponse (Maybe Int)
+cvrIops :: Lens' CreateVolumeResponse Int
 cvrIops = lens _cvrIops (\s a -> s { _cvrIops = a })
 
+-- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
+-- (CMK) that was used to protect the volume encryption key for the volume.
+cvrKmsKeyId :: Lens' CreateVolumeResponse (Maybe Text)
+cvrKmsKeyId = lens _cvrKmsKeyId (\s a -> s { _cvrKmsKeyId = a })
+
 -- | The size of the volume, in GiBs.
-cvrSize :: Lens' CreateVolumeResponse (Maybe Int)
+cvrSize :: Lens' CreateVolumeResponse Int
 cvrSize = lens _cvrSize (\s a -> s { _cvrSize = a })
 
 -- | The snapshot from which the volume was created, if applicable.
-cvrSnapshotId :: Lens' CreateVolumeResponse (Maybe Text)
+cvrSnapshotId :: Lens' CreateVolumeResponse Text
 cvrSnapshotId = lens _cvrSnapshotId (\s a -> s { _cvrSnapshotId = a })
 
 -- | The volume state.
-cvrState :: Lens' CreateVolumeResponse (Maybe VolumeState)
+cvrState :: Lens' CreateVolumeResponse VolumeState
 cvrState = lens _cvrState (\s a -> s { _cvrState = a })
 
 -- | Any tags assigned to the volume.
@@ -256,12 +289,12 @@ cvrTags :: Lens' CreateVolumeResponse [Tag]
 cvrTags = lens _cvrTags (\s a -> s { _cvrTags = a }) . _List
 
 -- | The ID of the volume.
-cvrVolumeId :: Lens' CreateVolumeResponse (Maybe Text)
+cvrVolumeId :: Lens' CreateVolumeResponse Text
 cvrVolumeId = lens _cvrVolumeId (\s a -> s { _cvrVolumeId = a })
 
 -- | The volume type. This can be 'gp2' for General Purpose (SSD) volumes, 'io1' for
 -- Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic volumes.
-cvrVolumeType :: Lens' CreateVolumeResponse (Maybe VolumeType)
+cvrVolumeType :: Lens' CreateVolumeResponse VolumeType
 cvrVolumeType = lens _cvrVolumeType (\s a -> s { _cvrVolumeType = a })
 
 instance ToPath CreateVolume where
@@ -273,6 +306,7 @@ instance ToQuery CreateVolume where
         , "dryRun"           =? _cv1DryRun
         , "encrypted"        =? _cv1Encrypted
         , "Iops"             =? _cv1Iops
+        , "KmsKeyId"         =? _cv1KmsKeyId
         , "Size"             =? _cv1Size
         , "SnapshotId"       =? _cv1SnapshotId
         , "VolumeType"       =? _cv1VolumeType
@@ -290,13 +324,14 @@ instance AWSRequest CreateVolume where
 instance FromXML CreateVolumeResponse where
     parseXML x = CreateVolumeResponse
         <$> parseXML x
-        <*> x .@? "availabilityZone"
-        <*> x .@? "createTime"
-        <*> x .@? "encrypted"
-        <*> x .@? "iops"
-        <*> x .@? "size"
-        <*> x .@? "snapshotId"
-        <*> x .@? "status"
+        <*> x .@  "availabilityZone"
+        <*> x .@  "createTime"
+        <*> x .@  "encrypted"
+        <*> x .@  "iops"
+        <*> x .@? "kmsKeyId"
+        <*> x .@  "size"
+        <*> x .@  "snapshotId"
+        <*> x .@  "status"
         <*> parseXML x
-        <*> x .@? "volumeId"
-        <*> x .@? "volumeType"
+        <*> x .@  "volumeId"
+        <*> x .@  "volumeType"

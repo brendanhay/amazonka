@@ -29,6 +29,11 @@
 -- For information about limits on the number of policies you can associate
 -- with a group, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /Using IAM/ guide.
 --
+-- Because policy documents can be large, you should use POST rather than GET
+-- when calling 'PutGroupPolicy'. For information about setting up signatures and
+-- authorization through the API, go to <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests> in the /AWSGeneral Reference/. For general information about using the Query API with
+-- IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests> in the /Using IAM/ guide.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html>
 module Network.AWS.IAM.PutGroupPolicy
     (

@@ -38,7 +38,7 @@
 -- metadata document using the identity management software that is used as your
 -- organization's IdP.
 --
--- For more information, see <http://docs.aws.amazon.com/STS/latest/UsingSTS/STSMgmtConsole-SAML.html Giving Console Access Using SAML> and <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html CreatingTemporary Security Credentials for SAML Federation> in the /Using TemporaryCredentials/ guide.
+-- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.   For more information, see <http://docs.aws.amazon.com/STS/latest/UsingSTS/STSMgmtConsole-SAML.html Giving Console Access Using SAML> and <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAML Federation> in the /UsingTemporary Credentials/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html>
 module Network.AWS.IAM.CreateSAMLProvider

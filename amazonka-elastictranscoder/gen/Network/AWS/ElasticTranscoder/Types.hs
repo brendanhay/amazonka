@@ -297,23 +297,25 @@ instance AWSService ElasticTranscoder where
       where
         service' :: Service ElasticTranscoder
         service' = Service
-              { _svcAbbrev       = "ElasticTranscoder"
-              , _svcPrefix       = "elastictranscoder"
-              , _svcVersion      = "2012-09-25"
-              , _svcTargetPrefix = Nothing
-              , _svcJSONVersion  = Nothing
-              , _svcHandle       = handle
-              , _svcRetry        = retry
-              }
+            { _svcAbbrev       = "ElasticTranscoder"
+            , _svcPrefix       = "elastictranscoder"
+            , _svcVersion      = "2012-09-25"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
         handle :: Status
                -> Maybe (LazyByteString -> ServiceError JSONError)
         handle = jsonError statusSuccess service'
 
-        retry :: Retry JSONError
-        retry = Retry
-            { _rPolicy = exponentialBackon 0.05 2 5
-            , _rCheck  = check
+        retry :: Retry ElasticTranscoder
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
             }
 
         check :: Status
@@ -914,14 +916,14 @@ instance ToJSON JobOutput where
 
 data Job' = Job'
     { _jArn             :: Maybe Text
-    , _jId              :: Maybe Text
-    , _jInput           :: Maybe JobInput
+    , _jId              :: Text
+    , _jInput           :: JobInput
     , _jOutput          :: Maybe JobOutput
-    , _jOutputKeyPrefix :: Maybe Text
+    , _jOutputKeyPrefix :: Text
     , _jOutputs         :: List "Outputs" JobOutput
-    , _jPipelineId      :: Maybe Text
+    , _jPipelineId      :: Text
     , _jPlaylists       :: List "Playlists" Playlist
-    , _jStatus          :: Maybe Text
+    , _jStatus          :: Text
     } deriving (Eq, Show)
 
 -- | 'Job'' constructor.
@@ -930,33 +932,38 @@ data Job' = Job'
 --
 -- * 'jArn' @::@ 'Maybe' 'Text'
 --
--- * 'jId' @::@ 'Maybe' 'Text'
+-- * 'jId' @::@ 'Text'
 --
--- * 'jInput' @::@ 'Maybe' 'JobInput'
+-- * 'jInput' @::@ 'JobInput'
 --
 -- * 'jOutput' @::@ 'Maybe' 'JobOutput'
 --
--- * 'jOutputKeyPrefix' @::@ 'Maybe' 'Text'
+-- * 'jOutputKeyPrefix' @::@ 'Text'
 --
 -- * 'jOutputs' @::@ ['JobOutput']
 --
--- * 'jPipelineId' @::@ 'Maybe' 'Text'
+-- * 'jPipelineId' @::@ 'Text'
 --
 -- * 'jPlaylists' @::@ ['Playlist']
 --
--- * 'jStatus' @::@ 'Maybe' 'Text'
+-- * 'jStatus' @::@ 'Text'
 --
-job :: Job'
-job = Job'
-    { _jId              = Nothing
+job :: Text -- ^ 'jId'
+    -> Text -- ^ 'jPipelineId'
+    -> JobInput -- ^ 'jInput'
+    -> Text -- ^ 'jOutputKeyPrefix'
+    -> Text -- ^ 'jStatus'
+    -> Job'
+job p1 p2 p3 p4 p5 = Job'
+    { _jId              = p1
+    , _jPipelineId      = p2
+    , _jInput           = p3
+    , _jOutputKeyPrefix = p4
+    , _jStatus          = p5
     , _jArn             = Nothing
-    , _jPipelineId      = Nothing
-    , _jInput           = Nothing
     , _jOutput          = Nothing
     , _jOutputs         = mempty
-    , _jOutputKeyPrefix = Nothing
     , _jPlaylists       = mempty
-    , _jStatus          = Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for the job.
@@ -965,12 +972,12 @@ jArn = lens _jArn (\s a -> s { _jArn = a })
 
 -- | The identifier that Elastic Transcoder assigned to the job. You use this
 -- value to get settings for the job or to delete the job.
-jId :: Lens' Job' (Maybe Text)
+jId :: Lens' Job' Text
 jId = lens _jId (\s a -> s { _jId = a })
 
 -- | A section of the request or response body that provides information about
 -- the file that is being transcoded.
-jInput :: Lens' Job' (Maybe JobInput)
+jInput :: Lens' Job' JobInput
 jInput = lens _jInput (\s a -> s { _jInput = a })
 
 -- | If you specified one output for a job, information about that output. If you
@@ -987,7 +994,7 @@ jOutput = lens _jOutput (\s a -> s { _jOutput = a })
 -- of all files that this job creates, including output files, thumbnails, and
 -- playlists. We recommend that you add a / or some other delimiter to the end
 -- of the 'OutputKeyPrefix'.
-jOutputKeyPrefix :: Lens' Job' (Maybe Text)
+jOutputKeyPrefix :: Lens' Job' Text
 jOutputKeyPrefix = lens _jOutputKeyPrefix (\s a -> s { _jOutputKeyPrefix = a })
 
 -- | Information about the output files. We recommend that you use the 'Outputs'
@@ -1004,7 +1011,7 @@ jOutputs = lens _jOutputs (\s a -> s { _jOutputs = a }) . _List
 -- transcoding. The pipeline determines several settings, including the Amazon
 -- S3 bucket from which Elastic Transcoder gets the files to transcode and the
 -- bucket into which Elastic Transcoder puts the transcoded files.
-jPipelineId :: Lens' Job' (Maybe Text)
+jPipelineId :: Lens' Job' Text
 jPipelineId = lens _jPipelineId (\s a -> s { _jPipelineId = a })
 
 -- | Outputs in Fragmented MP4 or MPEG-TS format only.If you specify a preset in 'PresetId' for which the value of 'Container' is fmp4 (Fragmented MP4) or ts (MPEG-TS), 'Playlists' contains information about the master playlists that you want Elastic
@@ -1015,20 +1022,20 @@ jPlaylists :: Lens' Job' [Playlist]
 jPlaylists = lens _jPlaylists (\s a -> s { _jPlaylists = a }) . _List
 
 -- | The status of the job: 'Submitted', 'Progressing', 'Complete', 'Canceled', or 'Error'.
-jStatus :: Lens' Job' (Maybe Text)
+jStatus :: Lens' Job' Text
 jStatus = lens _jStatus (\s a -> s { _jStatus = a })
 
 instance FromJSON Job' where
     parseJSON = withObject "Job'" $ \o -> Job'
         <$> o .:? "Arn"
-        <*> o .:? "Id"
-        <*> o .:? "Input"
+        <*> o .:  "Id"
+        <*> o .:  "Input"
         <*> o .:? "Output"
-        <*> o .:? "OutputKeyPrefix"
+        <*> o .:  "OutputKeyPrefix"
         <*> o .:? "Outputs" .!= mempty
-        <*> o .:? "PipelineId"
+        <*> o .:  "PipelineId"
         <*> o .:? "Playlists" .!= mempty
-        <*> o .:? "Status"
+        <*> o .:  "Status"
 
 instance ToJSON Job' where
     toJSON Job'{..} = object

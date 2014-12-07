@@ -24,7 +24,8 @@
 
 -- | Returns a list of cases that you specify by passing one or more case IDs. In
 -- addition, you can filter the cases by date by setting values for the 'AfterTime'
--- and 'BeforeTime' request parameters.
+-- and 'BeforeTime' request parameters. You can set values for the 'IncludeResolvedCases' and 'IncludeCommunications' request parameters to control how much information
+-- is returned.
 --
 -- Case data is available for 12 months after creation. If a case was created
 -- more than 12 months ago, a request for data might cause an error.

@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.SWF.Waiters",
+        "imports": [
+            "Network.AWS.SWF.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",

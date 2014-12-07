@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.CloudSearchDomains.Waiters",
+        "imports": [
+            "Network.AWS.CloudSearchDomains.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",

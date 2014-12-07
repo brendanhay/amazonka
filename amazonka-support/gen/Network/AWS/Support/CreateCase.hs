@@ -23,7 +23,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Creates a new case in the AWS Support Center. This operation is modeled on
--- the behavior of the AWS Support Center <https://aws.amazon.com/support/createCase Open a new case> page. Its parameters
+-- the behavior of the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page. Its parameters
 -- require you to specify the following information:
 --
 -- IssueType. The type of issue for the case. You can specify either
@@ -36,18 +36,20 @@
 -- the urgency of the case, which in turn determines the response time according
 -- to your service level agreement with AWS Support. You obtain the SeverityCode
 -- by calling 'DescribeSeverityLevels'.  Subject. The Subject field on the AWS
--- Support Center <https://aws.amazon.com/support/createCase Open a new case> page.  CommunicationBody. The Description
--- field on the AWS Support Center <https://aws.amazon.com/support/createCase Open a new case> page.  AttachmentSetId. The
--- ID of a set of attachments that has been created by using 'AddAttachmentsToSet'.
--- Language. The human language in which AWS Support handles the case. English
--- and Japanese are currently supported.  CcEmailAddresses. The AWS Support
--- Center CC field on the <https://aws.amazon.com/support/createCase Open a new case> page. You can list email addresses to
--- be copied on any correspondence about the case. The account that opens the
--- case is already identified by passing the AWS Credentials in the HTTP POST
--- method or in a method or function call from one of the programming languages
--- supported by an <http://aws.amazon.com/tools/ AWS SDK>.   A successful 'CreateCase' request returns an AWS
--- Support case number. Case numbers are used by the 'DescribeCases' operation to
--- retrieve existing AWS Support cases.
+-- Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.  CommunicationBody. The Description field on
+-- the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.  AttachmentSetId. The ID of a set of
+-- attachments that has been created by using 'AddAttachmentsToSet'.  Language.
+-- The human language in which AWS Support handles the case. English and
+-- Japanese are currently supported.  CcEmailAddresses. The AWS Support Center CC
+-- field on the <https://console.aws.amazon.com/support/home#/case/create Create Case> page. You can list email addresses to be copied on
+-- any correspondence about the case. The account that opens the case is already
+-- identified by passing the AWS Credentials in the HTTP POST method or in a
+-- method or function call from one of the programming languages supported by an <http://aws.amazon.com/tools/ AWS SDK>.   To add additional communication or attachments to an existing
+-- case, use 'AddCommunicationToCase'.
+--
+-- A successful 'CreateCase' request returns an AWS Support case number. Case
+-- numbers are used by the 'DescribeCases' operation to retrieve existing AWS
+-- Support cases.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_CreateCase.html>
 module Network.AWS.Support.CreateCase
@@ -167,6 +169,11 @@ ccServiceCode = lens _ccServiceCode (\s a -> s { _ccServiceCode = a })
 
 -- | The code for the severity level returned by the call to 'DescribeSeverityLevels'
 -- .
+--
+-- The availability of severity levels depends on each customer's support
+-- subscription. In other words, your subscription may not necessarily require
+-- the urgent level of response time.
+--
 ccSeverityCode :: Lens' CreateCase (Maybe Text)
 ccSeverityCode = lens _ccSeverityCode (\s a -> s { _ccSeverityCode = a })
 

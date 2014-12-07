@@ -5278,84 +5278,92 @@ instance FromXML TelemetryStatus where
     parseXML = parseXMLText "TelemetryStatus"
 
 data Subnet = Subnet
-    { _s1AvailabilityZone        :: Maybe Text
-    , _s1AvailableIpAddressCount :: Maybe Int
-    , _s1CidrBlock               :: Maybe Text
-    , _s1DefaultForAz            :: Maybe Bool
-    , _s1MapPublicIpOnLaunch     :: Maybe Bool
-    , _s1State                   :: Maybe SubnetState
-    , _s1SubnetId                :: Maybe Text
+    { _s1AvailabilityZone        :: Text
+    , _s1AvailableIpAddressCount :: Int
+    , _s1CidrBlock               :: Text
+    , _s1DefaultForAz            :: Bool
+    , _s1MapPublicIpOnLaunch     :: Bool
+    , _s1State                   :: SubnetState
+    , _s1SubnetId                :: Text
     , _s1Tags                    :: List "item" Tag
-    , _s1VpcId                   :: Maybe Text
+    , _s1VpcId                   :: Text
     } deriving (Eq, Show)
 
 -- | 'Subnet' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 's1AvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 's1AvailabilityZone' @::@ 'Text'
 --
--- * 's1AvailableIpAddressCount' @::@ 'Maybe' 'Int'
+-- * 's1AvailableIpAddressCount' @::@ 'Int'
 --
--- * 's1CidrBlock' @::@ 'Maybe' 'Text'
+-- * 's1CidrBlock' @::@ 'Text'
 --
--- * 's1DefaultForAz' @::@ 'Maybe' 'Bool'
+-- * 's1DefaultForAz' @::@ 'Bool'
 --
--- * 's1MapPublicIpOnLaunch' @::@ 'Maybe' 'Bool'
+-- * 's1MapPublicIpOnLaunch' @::@ 'Bool'
 --
--- * 's1State' @::@ 'Maybe' 'SubnetState'
+-- * 's1State' @::@ 'SubnetState'
 --
--- * 's1SubnetId' @::@ 'Maybe' 'Text'
+-- * 's1SubnetId' @::@ 'Text'
 --
 -- * 's1Tags' @::@ ['Tag']
 --
--- * 's1VpcId' @::@ 'Maybe' 'Text'
+-- * 's1VpcId' @::@ 'Text'
 --
-subnet :: Subnet
-subnet = Subnet
-    { _s1SubnetId                = Nothing
-    , _s1State                   = Nothing
-    , _s1VpcId                   = Nothing
-    , _s1CidrBlock               = Nothing
-    , _s1AvailableIpAddressCount = Nothing
-    , _s1AvailabilityZone        = Nothing
-    , _s1DefaultForAz            = Nothing
-    , _s1MapPublicIpOnLaunch     = Nothing
+subnet :: Text -- ^ 's1SubnetId'
+       -> SubnetState -- ^ 's1State'
+       -> Text -- ^ 's1VpcId'
+       -> Text -- ^ 's1CidrBlock'
+       -> Int -- ^ 's1AvailableIpAddressCount'
+       -> Text -- ^ 's1AvailabilityZone'
+       -> Bool -- ^ 's1DefaultForAz'
+       -> Bool -- ^ 's1MapPublicIpOnLaunch'
+       -> Subnet
+subnet p1 p2 p3 p4 p5 p6 p7 p8 = Subnet
+    { _s1SubnetId                = p1
+    , _s1State                   = p2
+    , _s1VpcId                   = p3
+    , _s1CidrBlock               = p4
+    , _s1AvailableIpAddressCount = p5
+    , _s1AvailabilityZone        = p6
+    , _s1DefaultForAz            = p7
+    , _s1MapPublicIpOnLaunch     = p8
     , _s1Tags                    = mempty
     }
 
 -- | The Availability Zone of the subnet.
-s1AvailabilityZone :: Lens' Subnet (Maybe Text)
+s1AvailabilityZone :: Lens' Subnet Text
 s1AvailabilityZone =
     lens _s1AvailabilityZone (\s a -> s { _s1AvailabilityZone = a })
 
 -- | The number of unused IP addresses in the subnet. Note that the IP addresses
 -- for any stopped instances are considered unavailable.
-s1AvailableIpAddressCount :: Lens' Subnet (Maybe Int)
+s1AvailableIpAddressCount :: Lens' Subnet Int
 s1AvailableIpAddressCount =
     lens _s1AvailableIpAddressCount
         (\s a -> s { _s1AvailableIpAddressCount = a })
 
 -- | The CIDR block assigned to the subnet.
-s1CidrBlock :: Lens' Subnet (Maybe Text)
+s1CidrBlock :: Lens' Subnet Text
 s1CidrBlock = lens _s1CidrBlock (\s a -> s { _s1CidrBlock = a })
 
 -- | Indicates whether this is the default subnet for the Availability Zone.
-s1DefaultForAz :: Lens' Subnet (Maybe Bool)
+s1DefaultForAz :: Lens' Subnet Bool
 s1DefaultForAz = lens _s1DefaultForAz (\s a -> s { _s1DefaultForAz = a })
 
 -- | Indicates whether instances launched in this subnet receive a public IP
 -- address.
-s1MapPublicIpOnLaunch :: Lens' Subnet (Maybe Bool)
+s1MapPublicIpOnLaunch :: Lens' Subnet Bool
 s1MapPublicIpOnLaunch =
     lens _s1MapPublicIpOnLaunch (\s a -> s { _s1MapPublicIpOnLaunch = a })
 
 -- | The current state of the subnet.
-s1State :: Lens' Subnet (Maybe SubnetState)
+s1State :: Lens' Subnet SubnetState
 s1State = lens _s1State (\s a -> s { _s1State = a })
 
 -- | The ID of the subnet.
-s1SubnetId :: Lens' Subnet (Maybe Text)
+s1SubnetId :: Lens' Subnet Text
 s1SubnetId = lens _s1SubnetId (\s a -> s { _s1SubnetId = a })
 
 -- | Any tags assigned to the subnet.
@@ -5363,20 +5371,20 @@ s1Tags :: Lens' Subnet [Tag]
 s1Tags = lens _s1Tags (\s a -> s { _s1Tags = a }) . _List
 
 -- | The ID of the VPC the subnet is in.
-s1VpcId :: Lens' Subnet (Maybe Text)
+s1VpcId :: Lens' Subnet Text
 s1VpcId = lens _s1VpcId (\s a -> s { _s1VpcId = a })
 
 instance FromXML Subnet where
     parseXML x = Subnet
-        <$> x .@? "availabilityZone"
-        <*> x .@? "availableIpAddressCount"
-        <*> x .@? "cidrBlock"
-        <*> x .@? "defaultForAz"
-        <*> x .@? "mapPublicIpOnLaunch"
-        <*> x .@? "state"
-        <*> x .@? "subnetId"
+        <$> x .@  "availabilityZone"
+        <*> x .@  "availableIpAddressCount"
+        <*> x .@  "cidrBlock"
+        <*> x .@  "defaultForAz"
+        <*> x .@  "mapPublicIpOnLaunch"
+        <*> x .@  "state"
+        <*> x .@  "subnetId"
         <*> parseXML x
-        <*> x .@? "vpcId"
+        <*> x .@  "vpcId"
 
 instance ToQuery Subnet where
     toQuery Subnet{..} = mconcat

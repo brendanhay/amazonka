@@ -214,6 +214,18 @@
                 "VolumeId",
                 "VolumeType"
             ]
+        },
+        "Subnet": {
+            "required": [
+                "AvailabilityZone",
+                "AvailableIpAddressCount",
+                "CidrBlock",
+                "DefaultForAz",
+                "MapPublicIpOnLaunch",
+                "State",
+                "SubnetId",
+                "VpcId"
+            ]
         }
     }
 }

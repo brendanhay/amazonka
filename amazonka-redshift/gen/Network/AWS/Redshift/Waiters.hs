@@ -26,11 +26,11 @@ clusterAvailable = Wait
     , _waitAttempts  = 30
     , _waitDelay     = 60
     , _waitAcceptors =
-        [ matchAll "available" Success
+        [ matchAll "available" AcceptSuccess
             (folding (concatOf dcrClusters) . cClusterStatus . _Just)
-        , matchAny "deleting" Failure
+        , matchAny "deleting" AcceptFailure
             (folding (concatOf dcrClusters) . cClusterStatus . _Just)
-        , matchError "ClusterNotFound" Retry
+        , matchError "ClusterNotFound" AcceptRetry
         ]
     }
 
@@ -40,10 +40,10 @@ clusterDeleted = Wait
     , _waitAttempts  = 30
     , _waitDelay     = 60
     , _waitAcceptors =
-        [ matchError "ClusterNotFound" Success
-        , matchAny "creating" Failure
+        [ matchError "ClusterNotFound" AcceptSuccess
+        , matchAny "creating" AcceptFailure
             (folding (concatOf dcrClusters) . cClusterStatus . _Just)
-        , matchAny "rebooting" Failure
+        , matchAny "rebooting" AcceptFailure
             (folding (concatOf dcrClusters) . cClusterStatus . _Just)
         ]
     }
@@ -54,11 +54,11 @@ snapshotAvailable = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll "available" Success
+        [ matchAll "available" AcceptSuccess
             (folding (concatOf dcsrSnapshots) . sStatus . _Just)
-        , matchAny "failed" Failure
+        , matchAny "failed" AcceptFailure
             (folding (concatOf dcsrSnapshots) . sStatus . _Just)
-        , matchAny "deleted" Failure
+        , matchAny "deleted" AcceptFailure
             (folding (concatOf dcsrSnapshots) . sStatus . _Just)
         ]
     }

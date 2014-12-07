@@ -26,8 +26,8 @@ bucketExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 5
     , _waitAcceptors =
-        [ matchStatus 200 Success
-        , matchStatus 404 Retry
+        [ matchStatus 200 AcceptSuccess
+        , matchStatus 404 AcceptRetry
         ]
     }
 
@@ -37,7 +37,7 @@ bucketNotExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 5
     , _waitAcceptors =
-        [ matchStatus 404 Success
+        [ matchStatus 404 AcceptSuccess
         ]
     }
 
@@ -47,8 +47,8 @@ objectExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 5
     , _waitAcceptors =
-        [ matchStatus 200 Success
-        , matchStatus 404 Retry
+        [ matchStatus 200 AcceptSuccess
+        , matchStatus 404 AcceptRetry
         ]
     }
 
@@ -58,6 +58,6 @@ objectNotExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 5
     , _waitAcceptors =
-        [ matchStatus 404 Success
+        [ matchStatus 404 AcceptSuccess
         ]
     }

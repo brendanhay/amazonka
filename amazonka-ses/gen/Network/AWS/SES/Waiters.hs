@@ -25,7 +25,7 @@ identityExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 3
     , _waitAcceptors =
-        [ matchAll Success Success
+        [ matchAll Success AcceptSuccess
             (givarVerificationAttributes . traverse . ivaVerificationStatus)
         ]
     }

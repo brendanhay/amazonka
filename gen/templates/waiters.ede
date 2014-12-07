@@ -20,11 +20,11 @@ import Network.AWS.Waiters
     {% for accept in waiter.value.acceptors %}
       {% case accept.value.matcher %}
       {% when "matchError" %}
-        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} {{ accept.value.state | upperHead }}
+        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} Accept{{ accept.value.state | upperHead }}
       {% when "matchStatus" %}
-        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} {{ accept.value.state | upperHead }}
+        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} Accept{{ accept.value.state | upperHead }}
       {% else %}
-        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} {{ accept.value.state | upperHead }}
+        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} Accept{{ accept.value.state | upperHead }}
             {{ accept.value.argument | wrapped }}
       {% endcase %}
     {% else %}

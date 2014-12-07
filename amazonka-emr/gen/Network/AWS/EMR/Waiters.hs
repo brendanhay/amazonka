@@ -25,15 +25,15 @@ clusterRunning = Wait
     , _waitAttempts  = 60
     , _waitDelay     = 30
     , _waitAcceptors =
-        [ matchAll CSRunning Success
+        [ matchAll CSRunning AcceptSuccess
             (dcrCluster . c1Status . csState . _Just)
-        , matchAll CSWaiting Success
+        , matchAll CSWaiting AcceptSuccess
             (dcrCluster . c1Status . csState . _Just)
-        , matchAll CSTerminating Failure
+        , matchAll CSTerminating AcceptFailure
             (dcrCluster . c1Status . csState . _Just)
-        , matchAll CSTerminated Failure
+        , matchAll CSTerminated AcceptFailure
             (dcrCluster . c1Status . csState . _Just)
-        , matchAll CSTerminatedWithErrors Failure
+        , matchAll CSTerminatedWithErrors AcceptFailure
             (dcrCluster . c1Status . csState . _Just)
         ]
     }

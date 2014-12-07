@@ -25,7 +25,7 @@ streamExists = Wait
     , _waitAttempts  = 18
     , _waitDelay     = 10
     , _waitAcceptors =
-        [ matchAll Active Success
+        [ matchAll Active AcceptSuccess
             (dsrStreamDescription . sdStreamStatus)
         ]
     }

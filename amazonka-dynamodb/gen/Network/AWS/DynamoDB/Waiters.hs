@@ -25,9 +25,9 @@ tableExists = Wait
     , _waitAttempts  = 25
     , _waitDelay     = 20
     , _waitAcceptors =
-        [ matchAll TSActive Success
+        [ matchAll TSActive AcceptSuccess
             (dtrTable . tdTableStatus)
-        , matchError "ResourceNotFoundException" Retry
+        , matchError "ResourceNotFoundException" AcceptRetry
         ]
     }
 
@@ -37,6 +37,6 @@ tableNotExists = Wait
     , _waitAttempts  = 25
     , _waitDelay     = 20
     , _waitAcceptors =
-        [ matchError "ResourceNotFoundException" Success
+        [ matchError "ResourceNotFoundException" AcceptSuccess
         ]
     }

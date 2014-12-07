@@ -44,9 +44,9 @@ import Network.HTTP.Types
 type Acceptor a = a -> Status -> Response a -> Maybe Accept
 
 data Accept
-    = Success
-    | Failure
-    | Retry
+    = AcceptSuccess
+    | AcceptFailure
+    | AcceptRetry
       deriving (Eq, Show)
 
 -- | Timing and acceptance criteria to check fulfillment of a remote operation.

@@ -34,9 +34,9 @@ bundleTaskComplete = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll BTSComplete Success
+        [ matchAll BTSComplete AcceptSuccess
             (folding (concatOf dbtrBundleTasks) . btState)
-        , matchAny BTSFailed Failure
+        , matchAny BTSFailed AcceptFailure
             (folding (concatOf dbtrBundleTasks) . btState)
         ]
     }
@@ -47,7 +47,7 @@ conversionTaskCancelled = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll CTSCancelled Success
+        [ matchAll CTSCancelled AcceptSuccess
             (folding (concatOf dctrConversionTasks) . ctState)
         ]
     }
@@ -58,11 +58,11 @@ conversionTaskCompleted = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll CTSCompleted Success
+        [ matchAll CTSCompleted AcceptSuccess
             (folding (concatOf dctrConversionTasks) . ctState)
-        , matchAny CTSCancelled Failure
+        , matchAny CTSCancelled AcceptFailure
             (folding (concatOf dctrConversionTasks) . ctState)
-        , matchAny CTSCancelling Failure
+        , matchAny CTSCancelling AcceptFailure
             (folding (concatOf dctrConversionTasks) . ctState)
         ]
     }
@@ -73,11 +73,11 @@ customerGatewayAvailable = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll "available" Success
+        [ matchAll "available" AcceptSuccess
             (folding (concatOf dcgrCustomerGateways) . cgState)
-        , matchAny "deleted" Failure
+        , matchAny "deleted" AcceptFailure
             (folding (concatOf dcgrCustomerGateways) . cgState)
-        , matchAny "deleting" Failure
+        , matchAny "deleting" AcceptFailure
             (folding (concatOf dcgrCustomerGateways) . cgState)
         ]
     }
@@ -88,7 +88,7 @@ exportTaskCancelled = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll ETSCancelled Success
+        [ matchAll ETSCancelled AcceptSuccess
             (folding (concatOf detrExportTasks) . etState)
         ]
     }
@@ -99,7 +99,7 @@ exportTaskCompleted = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll ETSCompleted Success
+        [ matchAll ETSCompleted AcceptSuccess
             (folding (concatOf detrExportTasks) . etState)
         ]
     }
@@ -110,13 +110,13 @@ instanceRunning = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll ISNRunning Success
+        [ matchAll ISNRunning AcceptSuccess
             (folding (concatOf dirReservations) . folding (concatOf rInstances) . i1State . isName)
-        , matchAny ISNShuttingDown Failure
+        , matchAny ISNShuttingDown AcceptFailure
             (folding (concatOf dirReservations) . folding (concatOf rInstances) . i1State . isName)
-        , matchAny ISNTerminated Failure
+        , matchAny ISNTerminated AcceptFailure
             (folding (concatOf dirReservations) . folding (concatOf rInstances) . i1State . isName)
-        , matchAny ISNStopping Failure
+        , matchAny ISNStopping AcceptFailure
             (folding (concatOf dirReservations) . folding (concatOf rInstances) . i1State . isName)
         ]
     }
@@ -127,11 +127,11 @@ instanceStopped = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll ISNStopped Success
+        [ matchAll ISNStopped AcceptSuccess
             (folding (concatOf dirReservations) . folding (concatOf rInstances) . i1State . isName)
-        , matchAny ISNPending Failure
+        , matchAny ISNPending AcceptFailure
             (folding (concatOf dirReservations) . folding (concatOf rInstances) . i1State . isName)
-        , matchAny ISNTerminated Failure
+        , matchAny ISNTerminated AcceptFailure
             (folding (concatOf dirReservations) . folding (concatOf rInstances) . i1State . isName)
         ]
     }
@@ -142,11 +142,11 @@ instanceTerminated = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll ISNTerminated Success
+        [ matchAll ISNTerminated AcceptSuccess
             (folding (concatOf dirReservations) . folding (concatOf rInstances) . i1State . isName)
-        , matchAny ISNPending Failure
+        , matchAny ISNPending AcceptFailure
             (folding (concatOf dirReservations) . folding (concatOf rInstances) . i1State . isName)
-        , matchAny ISNStopping Failure
+        , matchAny ISNStopping AcceptFailure
             (folding (concatOf dirReservations) . folding (concatOf rInstances) . i1State . isName)
         ]
     }
@@ -157,7 +157,7 @@ snapshotCompleted = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll Completed Success
+        [ matchAll Completed AcceptSuccess
             (folding (concatOf dsrSnapshots) . sState)
         ]
     }
@@ -168,7 +168,7 @@ subnetAvailable = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll SSAvailable Success
+        [ matchAll SSAvailable AcceptSuccess
             (folding (concatOf dsrSubnets) . s1State)
         ]
     }
@@ -179,9 +179,9 @@ volumeAvailable = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll VSAvailable Success
+        [ matchAll VSAvailable AcceptSuccess
             (folding (concatOf dvrVolumes) . vState)
-        , matchAny VSDeleted Failure
+        , matchAny VSDeleted AcceptFailure
             (folding (concatOf dvrVolumes) . vState)
         ]
     }
@@ -192,7 +192,7 @@ volumeDeleted = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll VSDeleted Success
+        [ matchAll VSDeleted AcceptSuccess
             (folding (concatOf dvrVolumes) . vState)
         ]
     }
@@ -203,9 +203,9 @@ volumeInUse = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll VSInUse Success
+        [ matchAll VSInUse AcceptSuccess
             (folding (concatOf dvrVolumes) . vState)
-        , matchAny VSDeleted Failure
+        , matchAny VSDeleted AcceptFailure
             (folding (concatOf dvrVolumes) . vState)
         ]
     }
@@ -216,7 +216,7 @@ vpcAvailable = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll VpcStateAvailable Success
+        [ matchAll VpcStateAvailable AcceptSuccess
             (folding (concatOf dvrVpcs) . vpcState)
         ]
     }
@@ -227,11 +227,11 @@ vpnConnectionAvailable = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll VpnStateAvailable Success
+        [ matchAll VpnStateAvailable AcceptSuccess
             (folding (concatOf dvcrVpnConnections) . vcState)
-        , matchAny VpnStateDeleting Failure
+        , matchAny VpnStateDeleting AcceptFailure
             (folding (concatOf dvcrVpnConnections) . vcState)
-        , matchAny VpnStateDeleted Failure
+        , matchAny VpnStateDeleted AcceptFailure
             (folding (concatOf dvcrVpnConnections) . vcState)
         ]
     }
@@ -242,9 +242,9 @@ vpnConnectionDeleted = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll VpnStateDeleted Success
+        [ matchAll VpnStateDeleted AcceptSuccess
             (folding (concatOf dvcrVpnConnections) . vcState)
-        , matchAny VpnStatePending Failure
+        , matchAny VpnStatePending AcceptFailure
             (folding (concatOf dvcrVpnConnections) . vcState)
         ]
     }

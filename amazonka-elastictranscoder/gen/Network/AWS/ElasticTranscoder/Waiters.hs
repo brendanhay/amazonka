@@ -25,11 +25,11 @@ jobComplete = Wait
     , _waitAttempts  = 120
     , _waitDelay     = 30
     , _waitAcceptors =
-        [ matchAll "Complete" Success
+        [ matchAll "Complete" AcceptSuccess
             (rjrJob . jStatus)
-        , matchAll "Canceled" Failure
+        , matchAll "Canceled" AcceptFailure
             (rjrJob . jStatus)
-        , matchAll "Error" Failure
+        , matchAll "Error" AcceptFailure
             (rjrJob . jStatus)
         ]
     }

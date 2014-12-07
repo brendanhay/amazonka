@@ -15,7 +15,6 @@
 
 module Network.AWS.RDS.Waiters where
 
-import Prelude hiding (error)
 import Network.AWS.RDS.DescribeDBInstances
 import Network.AWS.RDS.Types
 import Network.AWS.Waiters
@@ -26,14 +25,22 @@ dbInstanceAvailable = Wait
     , _waitAttempts  = 60
     , _waitDelay     = 30
     , _waitAcceptors =
-        [ pathAll (ddbirDBInstances . dbiDBInstanceStatus) "available" Success
-        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "deleted" Failure
-        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "deleting" Failure
-        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "failed" Failure
-        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "incompatible-restore" Failure
-        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "incompatible-parameters" Failure
-        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "incompatible-parameters" Failure
-        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "incompatible-restore" Failure
+        [ matchAll "available" Success
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+        , matchAny "deleted" Failure
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+        , matchAny "deleting" Failure
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+        , matchAny "failed" Failure
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+        , matchAny "incompatible-restore" Failure
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+        , matchAny "incompatible-parameters" Failure
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+        , matchAny "incompatible-parameters" Failure
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+        , matchAny "incompatible-restore" Failure
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
         ]
     }
 
@@ -43,10 +50,15 @@ dbInstanceDeleted = Wait
     , _waitAttempts  = 60
     , _waitDelay     = 30
     , _waitAcceptors =
-        [ pathAll (ddbirDBInstances . dbiDBInstanceStatus) "deleted" Success
-        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "creating" Failure
-        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "modifying" Failure
-        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "rebooting" Failure
-        , pathAny (ddbirDBInstances . dbiDBInstanceStatus) "resetting-master-credentials" Failure
+        [ matchAll "deleted" Success
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+        , matchAny "creating" Failure
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+        , matchAny "modifying" Failure
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+        , matchAny "rebooting" Failure
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+        , matchAny "resetting-master-credentials" Failure
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
         ]
     }

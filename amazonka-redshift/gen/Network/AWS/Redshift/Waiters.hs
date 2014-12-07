@@ -15,7 +15,6 @@
 
 module Network.AWS.Redshift.Waiters where
 
-import Prelude hiding (error)
 import Network.AWS.Redshift.DescribeClusterSnapshots
 import Network.AWS.Redshift.DescribeClusters
 import Network.AWS.Redshift.Types
@@ -27,9 +26,11 @@ clusterAvailable = Wait
     , _waitAttempts  = 30
     , _waitDelay     = 60
     , _waitAcceptors =
-        [ pathAll (dcrClusters . cClusterStatus) "available" Success
-        , pathAny (dcrClusters . cClusterStatus) "deleting" Failure
-        , error "ClusterNotFound" Retry
+        [ matchAll "available" Success
+            (folding (concatOf dcrClusters) . cClusterStatus)
+        , matchAny "deleting" Failure
+            (folding (concatOf dcrClusters) . cClusterStatus)
+        , matchError "ClusterNotFound" Retry
         ]
     }
 
@@ -39,9 +40,11 @@ clusterDeleted = Wait
     , _waitAttempts  = 30
     , _waitDelay     = 60
     , _waitAcceptors =
-        [ error "ClusterNotFound" Success
-        , pathAny (dcrClusters . cClusterStatus) "creating" Failure
-        , pathAny (dcrClusters . cClusterStatus) "rebooting" Failure
+        [ matchError "ClusterNotFound" Success
+        , matchAny "creating" Failure
+            (folding (concatOf dcrClusters) . cClusterStatus)
+        , matchAny "rebooting" Failure
+            (folding (concatOf dcrClusters) . cClusterStatus)
         ]
     }
 
@@ -51,8 +54,11 @@ snapshotAvailable = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ pathAll (dcsrSnapshots . sStatus) "available" Success
-        , pathAny (dcsrSnapshots . sStatus) "failed" Failure
-        , pathAny (dcsrSnapshots . sStatus) "deleted" Failure
+        [ matchAll "available" Success
+            (folding (concatOf dcsrSnapshots) . sStatus)
+        , matchAny "failed" Failure
+            (folding (concatOf dcsrSnapshots) . sStatus)
+        , matchAny "deleted" Failure
+            (folding (concatOf dcsrSnapshots) . sStatus)
         ]
     }

@@ -5,34 +5,34 @@
                 "operation": "DescribeCluster",
                 "acceptors": [
                     {
-                        "matcher": "path",
+                        "matcher": "matchAll",
                         "state": "success",
                         "argument": "dcrCluster . c1Status . csState",
-                        "expected": "\"RUNNING\""
+                        "expected": "CSRunning"
                     },
                     {
-                        "matcher": "path",
+                        "matcher": "matchAll",
                         "state": "success",
                         "argument": "dcrCluster . c1Status . csState",
-                        "expected": "\"WAITING\""
+                        "expected": "CSWaiting"
                     },
                     {
-                        "matcher": "path",
+                        "matcher": "matchAll",
                         "state": "failure",
                         "argument": "dcrCluster . c1Status . csState",
-                        "expected": "\"TERMINATING\""
+                        "expected": "CSTerminating"
                     },
                     {
-                        "matcher": "path",
+                        "matcher": "matchAll",
                         "state": "failure",
                         "argument": "dcrCluster . c1Status . csState",
-                        "expected": "\"TERMINATED\""
+                        "expected": "CSTerminated"
                     },
                     {
-                        "matcher": "path",
+                        "matcher": "matchAll",
                         "state": "failure",
                         "argument": "dcrCluster . c1Status . csState",
-                        "expected": "\"TERMINATED_WITH_ERRORS\""
+                        "expected": "CSTerminatedWithErrors"
                     }
                 ],
                 "maxAttempts": 60,

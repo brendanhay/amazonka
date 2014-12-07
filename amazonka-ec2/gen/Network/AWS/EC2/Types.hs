@@ -1758,70 +1758,79 @@ instance ToQuery ImportInstanceLaunchSpecification where
         ]
 
 data Snapshot = Snapshot
-    { _sDescription :: Maybe Text
-    , _sEncrypted   :: Maybe Bool
+    { _sDescription :: Text
+    , _sEncrypted   :: Bool
     , _sKmsKeyId    :: Maybe Text
     , _sOwnerAlias  :: Maybe Text
-    , _sOwnerId     :: Maybe Text
-    , _sProgress    :: Maybe Text
-    , _sSnapshotId  :: Maybe Text
-    , _sStartTime   :: Maybe ISO8601
-    , _sState       :: Maybe SnapshotState
+    , _sOwnerId     :: Text
+    , _sProgress    :: Text
+    , _sSnapshotId  :: Text
+    , _sStartTime   :: ISO8601
+    , _sState       :: SnapshotState
     , _sTags        :: List "item" Tag
-    , _sVolumeId    :: Maybe Text
-    , _sVolumeSize  :: Maybe Int
+    , _sVolumeId    :: Text
+    , _sVolumeSize  :: Int
     } deriving (Eq, Show)
 
 -- | 'Snapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sDescription' @::@ 'Maybe' 'Text'
+-- * 'sDescription' @::@ 'Text'
 --
--- * 'sEncrypted' @::@ 'Maybe' 'Bool'
+-- * 'sEncrypted' @::@ 'Bool'
 --
 -- * 'sKmsKeyId' @::@ 'Maybe' 'Text'
 --
 -- * 'sOwnerAlias' @::@ 'Maybe' 'Text'
 --
--- * 'sOwnerId' @::@ 'Maybe' 'Text'
+-- * 'sOwnerId' @::@ 'Text'
 --
--- * 'sProgress' @::@ 'Maybe' 'Text'
+-- * 'sProgress' @::@ 'Text'
 --
--- * 'sSnapshotId' @::@ 'Maybe' 'Text'
+-- * 'sSnapshotId' @::@ 'Text'
 --
--- * 'sStartTime' @::@ 'Maybe' 'UTCTime'
+-- * 'sStartTime' @::@ 'UTCTime'
 --
--- * 'sState' @::@ 'Maybe' 'SnapshotState'
+-- * 'sState' @::@ 'SnapshotState'
 --
 -- * 'sTags' @::@ ['Tag']
 --
--- * 'sVolumeId' @::@ 'Maybe' 'Text'
+-- * 'sVolumeId' @::@ 'Text'
 --
--- * 'sVolumeSize' @::@ 'Maybe' 'Int'
+-- * 'sVolumeSize' @::@ 'Int'
 --
-snapshot :: Snapshot
-snapshot = Snapshot
-    { _sSnapshotId  = Nothing
-    , _sVolumeId    = Nothing
-    , _sState       = Nothing
-    , _sStartTime   = Nothing
-    , _sProgress    = Nothing
-    , _sOwnerId     = Nothing
-    , _sDescription = Nothing
-    , _sVolumeSize  = Nothing
+snapshot :: Text -- ^ 'sSnapshotId'
+         -> Text -- ^ 'sVolumeId'
+         -> SnapshotState -- ^ 'sState'
+         -> UTCTime -- ^ 'sStartTime'
+         -> Text -- ^ 'sProgress'
+         -> Text -- ^ 'sOwnerId'
+         -> Text -- ^ 'sDescription'
+         -> Int -- ^ 'sVolumeSize'
+         -> Bool -- ^ 'sEncrypted'
+         -> Snapshot
+snapshot p1 p2 p3 p4 p5 p6 p7 p8 p9 = Snapshot
+    { _sSnapshotId  = p1
+    , _sVolumeId    = p2
+    , _sState       = p3
+    , _sStartTime   = withIso _Time (const id) p4
+    , _sProgress    = p5
+    , _sOwnerId     = p6
+    , _sDescription = p7
+    , _sVolumeSize  = p8
+    , _sEncrypted   = p9
     , _sOwnerAlias  = Nothing
     , _sTags        = mempty
-    , _sEncrypted   = Nothing
     , _sKmsKeyId    = Nothing
     }
 
 -- | The description for the snapshot.
-sDescription :: Lens' Snapshot (Maybe Text)
+sDescription :: Lens' Snapshot Text
 sDescription = lens _sDescription (\s a -> s { _sDescription = a })
 
 -- | Indicates whether the snapshot is encrypted.
-sEncrypted :: Lens' Snapshot (Maybe Bool)
+sEncrypted :: Lens' Snapshot Bool
 sEncrypted = lens _sEncrypted (\s a -> s { _sEncrypted = a })
 
 -- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
@@ -1836,23 +1845,23 @@ sOwnerAlias :: Lens' Snapshot (Maybe Text)
 sOwnerAlias = lens _sOwnerAlias (\s a -> s { _sOwnerAlias = a })
 
 -- | The AWS account ID of the Amazon EBS snapshot owner.
-sOwnerId :: Lens' Snapshot (Maybe Text)
+sOwnerId :: Lens' Snapshot Text
 sOwnerId = lens _sOwnerId (\s a -> s { _sOwnerId = a })
 
 -- | The progress of the snapshot, as a percentage.
-sProgress :: Lens' Snapshot (Maybe Text)
+sProgress :: Lens' Snapshot Text
 sProgress = lens _sProgress (\s a -> s { _sProgress = a })
 
 -- | The ID of the snapshot.
-sSnapshotId :: Lens' Snapshot (Maybe Text)
+sSnapshotId :: Lens' Snapshot Text
 sSnapshotId = lens _sSnapshotId (\s a -> s { _sSnapshotId = a })
 
 -- | The time stamp when the snapshot was initiated.
-sStartTime :: Lens' Snapshot (Maybe UTCTime)
-sStartTime = lens _sStartTime (\s a -> s { _sStartTime = a }) . mapping _Time
+sStartTime :: Lens' Snapshot UTCTime
+sStartTime = lens _sStartTime (\s a -> s { _sStartTime = a }) . _Time
 
 -- | The snapshot state.
-sState :: Lens' Snapshot (Maybe SnapshotState)
+sState :: Lens' Snapshot SnapshotState
 sState = lens _sState (\s a -> s { _sState = a })
 
 -- | Any tags assigned to the snapshot.
@@ -1860,27 +1869,27 @@ sTags :: Lens' Snapshot [Tag]
 sTags = lens _sTags (\s a -> s { _sTags = a }) . _List
 
 -- | The ID of the volume.
-sVolumeId :: Lens' Snapshot (Maybe Text)
+sVolumeId :: Lens' Snapshot Text
 sVolumeId = lens _sVolumeId (\s a -> s { _sVolumeId = a })
 
 -- | The size of the volume, in GiB.
-sVolumeSize :: Lens' Snapshot (Maybe Int)
+sVolumeSize :: Lens' Snapshot Int
 sVolumeSize = lens _sVolumeSize (\s a -> s { _sVolumeSize = a })
 
 instance FromXML Snapshot where
     parseXML x = Snapshot
-        <$> x .@? "description"
-        <*> x .@? "encrypted"
+        <$> x .@  "description"
+        <*> x .@  "encrypted"
         <*> x .@? "kmsKeyId"
         <*> x .@? "ownerAlias"
-        <*> x .@? "ownerId"
-        <*> x .@? "progress"
-        <*> x .@? "snapshotId"
-        <*> x .@? "startTime"
-        <*> x .@? "status"
+        <*> x .@  "ownerId"
+        <*> x .@  "progress"
+        <*> x .@  "snapshotId"
+        <*> x .@  "startTime"
+        <*> x .@  "status"
         <*> parseXML x
-        <*> x .@? "volumeId"
-        <*> x .@? "volumeSize"
+        <*> x .@  "volumeId"
+        <*> x .@  "volumeSize"
 
 instance ToQuery Snapshot where
     toQuery Snapshot{..} = mconcat
@@ -4688,9 +4697,9 @@ instance ToQuery Volume where
 data Reservation = Reservation
     { _rGroups        :: List "item" GroupIdentifier
     , _rInstances     :: List "item" Instance
-    , _rOwnerId       :: Maybe Text
-    , _rRequesterId   :: Maybe Text
-    , _rReservationId :: Maybe Text
+    , _rOwnerId       :: Text
+    , _rRequesterId   :: Text
+    , _rReservationId :: Text
     } deriving (Eq, Show)
 
 -- | 'Reservation' constructor.
@@ -4701,17 +4710,20 @@ data Reservation = Reservation
 --
 -- * 'rInstances' @::@ ['Instance']
 --
--- * 'rOwnerId' @::@ 'Maybe' 'Text'
+-- * 'rOwnerId' @::@ 'Text'
 --
--- * 'rRequesterId' @::@ 'Maybe' 'Text'
+-- * 'rRequesterId' @::@ 'Text'
 --
--- * 'rReservationId' @::@ 'Maybe' 'Text'
+-- * 'rReservationId' @::@ 'Text'
 --
-reservation :: Reservation
-reservation = Reservation
-    { _rReservationId = Nothing
-    , _rOwnerId       = Nothing
-    , _rRequesterId   = Nothing
+reservation :: Text -- ^ 'rReservationId'
+            -> Text -- ^ 'rOwnerId'
+            -> Text -- ^ 'rRequesterId'
+            -> Reservation
+reservation p1 p2 p3 = Reservation
+    { _rReservationId = p1
+    , _rOwnerId       = p2
+    , _rRequesterId   = p3
     , _rGroups        = mempty
     , _rInstances     = mempty
     }
@@ -4725,25 +4737,25 @@ rInstances :: Lens' Reservation [Instance]
 rInstances = lens _rInstances (\s a -> s { _rInstances = a }) . _List
 
 -- | The ID of the AWS account that owns the reservation.
-rOwnerId :: Lens' Reservation (Maybe Text)
+rOwnerId :: Lens' Reservation Text
 rOwnerId = lens _rOwnerId (\s a -> s { _rOwnerId = a })
 
 -- | The ID of the requester that launched the instances on your behalf (for
 -- example, AWS Management Console or Auto Scaling).
-rRequesterId :: Lens' Reservation (Maybe Text)
+rRequesterId :: Lens' Reservation Text
 rRequesterId = lens _rRequesterId (\s a -> s { _rRequesterId = a })
 
 -- | The ID of the reservation.
-rReservationId :: Lens' Reservation (Maybe Text)
+rReservationId :: Lens' Reservation Text
 rReservationId = lens _rReservationId (\s a -> s { _rReservationId = a })
 
 instance FromXML Reservation where
     parseXML x = Reservation
         <$> parseXML x
         <*> parseXML x
-        <*> x .@? "ownerId"
-        <*> x .@? "requesterId"
-        <*> x .@? "reservationId"
+        <*> x .@  "ownerId"
+        <*> x .@  "requesterId"
+        <*> x .@  "reservationId"
 
 instance ToQuery Reservation where
     toQuery Reservation{..} = mconcat
@@ -11138,15 +11150,15 @@ instance FromXML ProductCodeValues where
     parseXML = parseXMLText "ProductCodeValues"
 
 data VpnConnection = VpnConnection
-    { _vcCustomerGatewayConfiguration :: Maybe Text
-    , _vcCustomerGatewayId            :: Maybe Text
+    { _vcCustomerGatewayConfiguration :: Text
+    , _vcCustomerGatewayId            :: Text
     , _vcOptions                      :: Maybe VpnConnectionOptions
     , _vcRoutes                       :: List "item" VpnStaticRoute
-    , _vcState                        :: Maybe VpnState
+    , _vcState                        :: VpnState
     , _vcTags                         :: List "item" Tag
-    , _vcType                         :: Maybe GatewayType
+    , _vcType                         :: GatewayType
     , _vcVgwTelemetry                 :: List "item" VgwTelemetry
-    , _vcVpnConnectionId              :: Maybe Text
+    , _vcVpnConnectionId              :: Text
     , _vcVpnGatewayId                 :: Maybe Text
     } deriving (Eq, Show)
 
@@ -11154,33 +11166,38 @@ data VpnConnection = VpnConnection
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vcCustomerGatewayConfiguration' @::@ 'Maybe' 'Text'
+-- * 'vcCustomerGatewayConfiguration' @::@ 'Text'
 --
--- * 'vcCustomerGatewayId' @::@ 'Maybe' 'Text'
+-- * 'vcCustomerGatewayId' @::@ 'Text'
 --
 -- * 'vcOptions' @::@ 'Maybe' 'VpnConnectionOptions'
 --
 -- * 'vcRoutes' @::@ ['VpnStaticRoute']
 --
--- * 'vcState' @::@ 'Maybe' 'VpnState'
+-- * 'vcState' @::@ 'VpnState'
 --
 -- * 'vcTags' @::@ ['Tag']
 --
--- * 'vcType' @::@ 'Maybe' 'GatewayType'
+-- * 'vcType' @::@ 'GatewayType'
 --
 -- * 'vcVgwTelemetry' @::@ ['VgwTelemetry']
 --
--- * 'vcVpnConnectionId' @::@ 'Maybe' 'Text'
+-- * 'vcVpnConnectionId' @::@ 'Text'
 --
 -- * 'vcVpnGatewayId' @::@ 'Maybe' 'Text'
 --
-vpnConnection :: VpnConnection
-vpnConnection = VpnConnection
-    { _vcVpnConnectionId              = Nothing
-    , _vcState                        = Nothing
-    , _vcCustomerGatewayConfiguration = Nothing
-    , _vcType                         = Nothing
-    , _vcCustomerGatewayId            = Nothing
+vpnConnection :: Text -- ^ 'vcVpnConnectionId'
+              -> VpnState -- ^ 'vcState'
+              -> Text -- ^ 'vcCustomerGatewayConfiguration'
+              -> GatewayType -- ^ 'vcType'
+              -> Text -- ^ 'vcCustomerGatewayId'
+              -> VpnConnection
+vpnConnection p1 p2 p3 p4 p5 = VpnConnection
+    { _vcVpnConnectionId              = p1
+    , _vcState                        = p2
+    , _vcCustomerGatewayConfiguration = p3
+    , _vcType                         = p4
+    , _vcCustomerGatewayId            = p5
     , _vcVpnGatewayId                 = Nothing
     , _vcTags                         = mempty
     , _vcVgwTelemetry                 = mempty
@@ -11191,13 +11208,13 @@ vpnConnection = VpnConnection
 -- | The configuration information for the VPN connection's customer gateway (in
 -- the native XML format). This element is always present in the 'CreateVpnConnection' response; however, it's present in the 'DescribeVpnConnections' response only
 -- if the VPN connection is in the 'pending' or 'available' state.
-vcCustomerGatewayConfiguration :: Lens' VpnConnection (Maybe Text)
+vcCustomerGatewayConfiguration :: Lens' VpnConnection Text
 vcCustomerGatewayConfiguration =
     lens _vcCustomerGatewayConfiguration
         (\s a -> s { _vcCustomerGatewayConfiguration = a })
 
 -- | The ID of the customer gateway at your end of the VPN connection.
-vcCustomerGatewayId :: Lens' VpnConnection (Maybe Text)
+vcCustomerGatewayId :: Lens' VpnConnection Text
 vcCustomerGatewayId =
     lens _vcCustomerGatewayId (\s a -> s { _vcCustomerGatewayId = a })
 
@@ -11210,7 +11227,7 @@ vcRoutes :: Lens' VpnConnection [VpnStaticRoute]
 vcRoutes = lens _vcRoutes (\s a -> s { _vcRoutes = a }) . _List
 
 -- | The current state of the VPN connection.
-vcState :: Lens' VpnConnection (Maybe VpnState)
+vcState :: Lens' VpnConnection VpnState
 vcState = lens _vcState (\s a -> s { _vcState = a })
 
 -- | Any tags assigned to the VPN connection.
@@ -11218,7 +11235,7 @@ vcTags :: Lens' VpnConnection [Tag]
 vcTags = lens _vcTags (\s a -> s { _vcTags = a }) . _List
 
 -- | The type of VPN connection.
-vcType :: Lens' VpnConnection (Maybe GatewayType)
+vcType :: Lens' VpnConnection GatewayType
 vcType = lens _vcType (\s a -> s { _vcType = a })
 
 -- | Information about the VPN tunnel.
@@ -11226,7 +11243,7 @@ vcVgwTelemetry :: Lens' VpnConnection [VgwTelemetry]
 vcVgwTelemetry = lens _vcVgwTelemetry (\s a -> s { _vcVgwTelemetry = a }) . _List
 
 -- | The ID of the VPN connection.
-vcVpnConnectionId :: Lens' VpnConnection (Maybe Text)
+vcVpnConnectionId :: Lens' VpnConnection Text
 vcVpnConnectionId =
     lens _vcVpnConnectionId (\s a -> s { _vcVpnConnectionId = a })
 
@@ -11236,15 +11253,15 @@ vcVpnGatewayId = lens _vcVpnGatewayId (\s a -> s { _vcVpnGatewayId = a })
 
 instance FromXML VpnConnection where
     parseXML x = VpnConnection
-        <$> x .@? "customerGatewayConfiguration"
-        <*> x .@? "customerGatewayId"
+        <$> x .@  "customerGatewayConfiguration"
+        <*> x .@  "customerGatewayId"
         <*> x .@? "options"
         <*> parseXML x
-        <*> x .@? "state"
+        <*> x .@  "state"
         <*> parseXML x
-        <*> x .@? "type"
+        <*> x .@  "type"
         <*> parseXML x
-        <*> x .@? "vpnConnectionId"
+        <*> x .@  "vpnConnectionId"
         <*> x .@? "vpnGatewayId"
 
 instance ToQuery VpnConnection where
@@ -11746,158 +11763,183 @@ instance FromXML InstanceStateName where
     parseXML = parseXMLText "InstanceStateName"
 
 data Instance = Instance
-    { _i1AmiLaunchIndex        :: Maybe Int
-    , _i1Architecture          :: Maybe ArchitectureValues
+    { _i1AmiLaunchIndex        :: Int
+    , _i1Architecture          :: ArchitectureValues
     , _i1BlockDeviceMappings   :: List "item" InstanceBlockDeviceMapping
-    , _i1ClientToken           :: Maybe Text
+    , _i1ClientToken           :: Text
     , _i1EbsOptimized          :: Maybe Bool
-    , _i1Hypervisor            :: Maybe HypervisorType
+    , _i1Hypervisor            :: HypervisorType
     , _i1IamInstanceProfile    :: Maybe IamInstanceProfile
-    , _i1ImageId               :: Maybe Text
-    , _i1InstanceId            :: Maybe Text
+    , _i1ImageId               :: Text
+    , _i1InstanceId            :: Text
     , _i1InstanceLifecycle     :: Maybe InstanceLifecycleType
-    , _i1InstanceType          :: Maybe InstanceType
-    , _i1KernelId              :: Maybe Text
-    , _i1KeyName               :: Maybe Text
-    , _i1LaunchTime            :: Maybe ISO8601
-    , _i1Monitoring            :: Maybe Monitoring
+    , _i1InstanceType          :: InstanceType
+    , _i1KernelId              :: Text
+    , _i1KeyName               :: Text
+    , _i1LaunchTime            :: ISO8601
+    , _i1Monitoring            :: Monitoring
     , _i1NetworkInterfaces     :: List "item" InstanceNetworkInterface
-    , _i1Placement             :: Maybe Placement
-    , _i1Platform              :: Maybe PlatformValues
-    , _i1PrivateDnsName        :: Maybe Text
-    , _i1PrivateIpAddress      :: Maybe Text
+    , _i1Placement             :: Placement
+    , _i1Platform              :: PlatformValues
+    , _i1PrivateDnsName        :: Text
+    , _i1PrivateIpAddress      :: Text
     , _i1ProductCodes          :: List "item" ProductCode
-    , _i1PublicDnsName         :: Maybe Text
-    , _i1PublicIpAddress       :: Maybe Text
-    , _i1RamdiskId             :: Maybe Text
-    , _i1RootDeviceName        :: Maybe Text
-    , _i1RootDeviceType        :: Maybe DeviceType
+    , _i1PublicDnsName         :: Text
+    , _i1PublicIpAddress       :: Text
+    , _i1RamdiskId             :: Text
+    , _i1RootDeviceName        :: Text
+    , _i1RootDeviceType        :: DeviceType
     , _i1SecurityGroups        :: List "item" GroupIdentifier
-    , _i1SourceDestCheck       :: Maybe Bool
+    , _i1SourceDestCheck       :: Bool
     , _i1SpotInstanceRequestId :: Maybe Text
     , _i1SriovNetSupport       :: Maybe Text
-    , _i1State                 :: Maybe InstanceState
+    , _i1State                 :: InstanceState
     , _i1StateReason           :: Maybe StateReason
     , _i1StateTransitionReason :: Maybe Text
-    , _i1SubnetId              :: Maybe Text
+    , _i1SubnetId              :: Text
     , _i1Tags                  :: List "item" Tag
-    , _i1VirtualizationType    :: Maybe VirtualizationType
-    , _i1VpcId                 :: Maybe Text
+    , _i1VirtualizationType    :: VirtualizationType
+    , _i1VpcId                 :: Text
     } deriving (Eq, Show)
 
 -- | 'Instance' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'i1AmiLaunchIndex' @::@ 'Maybe' 'Int'
+-- * 'i1AmiLaunchIndex' @::@ 'Int'
 --
--- * 'i1Architecture' @::@ 'Maybe' 'ArchitectureValues'
+-- * 'i1Architecture' @::@ 'ArchitectureValues'
 --
 -- * 'i1BlockDeviceMappings' @::@ ['InstanceBlockDeviceMapping']
 --
--- * 'i1ClientToken' @::@ 'Maybe' 'Text'
+-- * 'i1ClientToken' @::@ 'Text'
 --
 -- * 'i1EbsOptimized' @::@ 'Maybe' 'Bool'
 --
--- * 'i1Hypervisor' @::@ 'Maybe' 'HypervisorType'
+-- * 'i1Hypervisor' @::@ 'HypervisorType'
 --
 -- * 'i1IamInstanceProfile' @::@ 'Maybe' 'IamInstanceProfile'
 --
--- * 'i1ImageId' @::@ 'Maybe' 'Text'
+-- * 'i1ImageId' @::@ 'Text'
 --
--- * 'i1InstanceId' @::@ 'Maybe' 'Text'
+-- * 'i1InstanceId' @::@ 'Text'
 --
 -- * 'i1InstanceLifecycle' @::@ 'Maybe' 'InstanceLifecycleType'
 --
--- * 'i1InstanceType' @::@ 'Maybe' 'InstanceType'
+-- * 'i1InstanceType' @::@ 'InstanceType'
 --
--- * 'i1KernelId' @::@ 'Maybe' 'Text'
+-- * 'i1KernelId' @::@ 'Text'
 --
--- * 'i1KeyName' @::@ 'Maybe' 'Text'
+-- * 'i1KeyName' @::@ 'Text'
 --
--- * 'i1LaunchTime' @::@ 'Maybe' 'UTCTime'
+-- * 'i1LaunchTime' @::@ 'UTCTime'
 --
--- * 'i1Monitoring' @::@ 'Maybe' 'Monitoring'
+-- * 'i1Monitoring' @::@ 'Monitoring'
 --
 -- * 'i1NetworkInterfaces' @::@ ['InstanceNetworkInterface']
 --
--- * 'i1Placement' @::@ 'Maybe' 'Placement'
+-- * 'i1Placement' @::@ 'Placement'
 --
--- * 'i1Platform' @::@ 'Maybe' 'PlatformValues'
+-- * 'i1Platform' @::@ 'PlatformValues'
 --
--- * 'i1PrivateDnsName' @::@ 'Maybe' 'Text'
+-- * 'i1PrivateDnsName' @::@ 'Text'
 --
--- * 'i1PrivateIpAddress' @::@ 'Maybe' 'Text'
+-- * 'i1PrivateIpAddress' @::@ 'Text'
 --
 -- * 'i1ProductCodes' @::@ ['ProductCode']
 --
--- * 'i1PublicDnsName' @::@ 'Maybe' 'Text'
+-- * 'i1PublicDnsName' @::@ 'Text'
 --
--- * 'i1PublicIpAddress' @::@ 'Maybe' 'Text'
+-- * 'i1PublicIpAddress' @::@ 'Text'
 --
--- * 'i1RamdiskId' @::@ 'Maybe' 'Text'
+-- * 'i1RamdiskId' @::@ 'Text'
 --
--- * 'i1RootDeviceName' @::@ 'Maybe' 'Text'
+-- * 'i1RootDeviceName' @::@ 'Text'
 --
--- * 'i1RootDeviceType' @::@ 'Maybe' 'DeviceType'
+-- * 'i1RootDeviceType' @::@ 'DeviceType'
 --
 -- * 'i1SecurityGroups' @::@ ['GroupIdentifier']
 --
--- * 'i1SourceDestCheck' @::@ 'Maybe' 'Bool'
+-- * 'i1SourceDestCheck' @::@ 'Bool'
 --
 -- * 'i1SpotInstanceRequestId' @::@ 'Maybe' 'Text'
 --
 -- * 'i1SriovNetSupport' @::@ 'Maybe' 'Text'
 --
--- * 'i1State' @::@ 'Maybe' 'InstanceState'
+-- * 'i1State' @::@ 'InstanceState'
 --
 -- * 'i1StateReason' @::@ 'Maybe' 'StateReason'
 --
 -- * 'i1StateTransitionReason' @::@ 'Maybe' 'Text'
 --
--- * 'i1SubnetId' @::@ 'Maybe' 'Text'
+-- * 'i1SubnetId' @::@ 'Text'
 --
 -- * 'i1Tags' @::@ ['Tag']
 --
--- * 'i1VirtualizationType' @::@ 'Maybe' 'VirtualizationType'
+-- * 'i1VirtualizationType' @::@ 'VirtualizationType'
 --
--- * 'i1VpcId' @::@ 'Maybe' 'Text'
+-- * 'i1VpcId' @::@ 'Text'
 --
-instance' :: Instance
-instance' = Instance
-    { _i1InstanceId            = Nothing
-    , _i1ImageId               = Nothing
-    , _i1State                 = Nothing
-    , _i1PrivateDnsName        = Nothing
-    , _i1PublicDnsName         = Nothing
+instance' :: Text -- ^ 'i1InstanceId'
+          -> Text -- ^ 'i1ImageId'
+          -> InstanceState -- ^ 'i1State'
+          -> Text -- ^ 'i1PrivateDnsName'
+          -> Text -- ^ 'i1PublicDnsName'
+          -> Text -- ^ 'i1KeyName'
+          -> Int -- ^ 'i1AmiLaunchIndex'
+          -> InstanceType -- ^ 'i1InstanceType'
+          -> UTCTime -- ^ 'i1LaunchTime'
+          -> Placement -- ^ 'i1Placement'
+          -> Text -- ^ 'i1KernelId'
+          -> Text -- ^ 'i1RamdiskId'
+          -> PlatformValues -- ^ 'i1Platform'
+          -> Monitoring -- ^ 'i1Monitoring'
+          -> Text -- ^ 'i1SubnetId'
+          -> Text -- ^ 'i1VpcId'
+          -> Text -- ^ 'i1PrivateIpAddress'
+          -> Text -- ^ 'i1PublicIpAddress'
+          -> ArchitectureValues -- ^ 'i1Architecture'
+          -> DeviceType -- ^ 'i1RootDeviceType'
+          -> Text -- ^ 'i1RootDeviceName'
+          -> VirtualizationType -- ^ 'i1VirtualizationType'
+          -> Text -- ^ 'i1ClientToken'
+          -> Bool -- ^ 'i1SourceDestCheck'
+          -> HypervisorType -- ^ 'i1Hypervisor'
+          -> Instance
+instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p18 p19 p20 p21 p22 p23 p24 p25 = Instance
+    { _i1InstanceId            = p1
+    , _i1ImageId               = p2
+    , _i1State                 = p3
+    , _i1PrivateDnsName        = p4
+    , _i1PublicDnsName         = p5
+    , _i1KeyName               = p6
+    , _i1AmiLaunchIndex        = p7
+    , _i1InstanceType          = p8
+    , _i1LaunchTime            = withIso _Time (const id) p9
+    , _i1Placement             = p10
+    , _i1KernelId              = p11
+    , _i1RamdiskId             = p12
+    , _i1Platform              = p13
+    , _i1Monitoring            = p14
+    , _i1SubnetId              = p15
+    , _i1VpcId                 = p16
+    , _i1PrivateIpAddress      = p17
+    , _i1PublicIpAddress       = p18
+    , _i1Architecture          = p19
+    , _i1RootDeviceType        = p20
+    , _i1RootDeviceName        = p21
+    , _i1VirtualizationType    = p22
+    , _i1ClientToken           = p23
+    , _i1SourceDestCheck       = p24
+    , _i1Hypervisor            = p25
     , _i1StateTransitionReason = Nothing
-    , _i1KeyName               = Nothing
-    , _i1AmiLaunchIndex        = Nothing
     , _i1ProductCodes          = mempty
-    , _i1InstanceType          = Nothing
-    , _i1LaunchTime            = Nothing
-    , _i1Placement             = Nothing
-    , _i1KernelId              = Nothing
-    , _i1RamdiskId             = Nothing
-    , _i1Platform              = Nothing
-    , _i1Monitoring            = Nothing
-    , _i1SubnetId              = Nothing
-    , _i1VpcId                 = Nothing
-    , _i1PrivateIpAddress      = Nothing
-    , _i1PublicIpAddress       = Nothing
     , _i1StateReason           = Nothing
-    , _i1Architecture          = Nothing
-    , _i1RootDeviceType        = Nothing
-    , _i1RootDeviceName        = Nothing
     , _i1BlockDeviceMappings   = mempty
-    , _i1VirtualizationType    = Nothing
     , _i1InstanceLifecycle     = Nothing
     , _i1SpotInstanceRequestId = Nothing
-    , _i1ClientToken           = Nothing
     , _i1Tags                  = mempty
     , _i1SecurityGroups        = mempty
-    , _i1SourceDestCheck       = Nothing
-    , _i1Hypervisor            = Nothing
     , _i1NetworkInterfaces     = mempty
     , _i1IamInstanceProfile    = Nothing
     , _i1EbsOptimized          = Nothing
@@ -11906,11 +11948,11 @@ instance' = Instance
 
 -- | The AMI launch index, which can be used to find this instance in the launch
 -- group.
-i1AmiLaunchIndex :: Lens' Instance (Maybe Int)
+i1AmiLaunchIndex :: Lens' Instance Int
 i1AmiLaunchIndex = lens _i1AmiLaunchIndex (\s a -> s { _i1AmiLaunchIndex = a })
 
 -- | The architecture of the image.
-i1Architecture :: Lens' Instance (Maybe ArchitectureValues)
+i1Architecture :: Lens' Instance ArchitectureValues
 i1Architecture = lens _i1Architecture (\s a -> s { _i1Architecture = a })
 
 -- | Any block device mapping entries for the instance.
@@ -11920,7 +11962,7 @@ i1BlockDeviceMappings =
         . _List
 
 -- | The idempotency token you provided when you launched the instance.
-i1ClientToken :: Lens' Instance (Maybe Text)
+i1ClientToken :: Lens' Instance Text
 i1ClientToken = lens _i1ClientToken (\s a -> s { _i1ClientToken = a })
 
 -- | Indicates whether the instance is optimized for EBS I/O. This optimization
@@ -11932,7 +11974,7 @@ i1EbsOptimized :: Lens' Instance (Maybe Bool)
 i1EbsOptimized = lens _i1EbsOptimized (\s a -> s { _i1EbsOptimized = a })
 
 -- | The hypervisor type of the instance.
-i1Hypervisor :: Lens' Instance (Maybe HypervisorType)
+i1Hypervisor :: Lens' Instance HypervisorType
 i1Hypervisor = lens _i1Hypervisor (\s a -> s { _i1Hypervisor = a })
 
 -- | The IAM instance profile associated with the instance.
@@ -11941,11 +11983,11 @@ i1IamInstanceProfile =
     lens _i1IamInstanceProfile (\s a -> s { _i1IamInstanceProfile = a })
 
 -- | The ID of the AMI used to launch the instance.
-i1ImageId :: Lens' Instance (Maybe Text)
+i1ImageId :: Lens' Instance Text
 i1ImageId = lens _i1ImageId (\s a -> s { _i1ImageId = a })
 
 -- | The ID of the instance.
-i1InstanceId :: Lens' Instance (Maybe Text)
+i1InstanceId :: Lens' Instance Text
 i1InstanceId = lens _i1InstanceId (\s a -> s { _i1InstanceId = a })
 
 -- | Indicates whether this is a Spot Instance.
@@ -11954,24 +11996,24 @@ i1InstanceLifecycle =
     lens _i1InstanceLifecycle (\s a -> s { _i1InstanceLifecycle = a })
 
 -- | The instance type.
-i1InstanceType :: Lens' Instance (Maybe InstanceType)
+i1InstanceType :: Lens' Instance InstanceType
 i1InstanceType = lens _i1InstanceType (\s a -> s { _i1InstanceType = a })
 
 -- | The kernel associated with this instance.
-i1KernelId :: Lens' Instance (Maybe Text)
+i1KernelId :: Lens' Instance Text
 i1KernelId = lens _i1KernelId (\s a -> s { _i1KernelId = a })
 
 -- | The name of the key pair, if this instance was launched with an associated
 -- key pair.
-i1KeyName :: Lens' Instance (Maybe Text)
+i1KeyName :: Lens' Instance Text
 i1KeyName = lens _i1KeyName (\s a -> s { _i1KeyName = a })
 
 -- | The time the instance was launched.
-i1LaunchTime :: Lens' Instance (Maybe UTCTime)
-i1LaunchTime = lens _i1LaunchTime (\s a -> s { _i1LaunchTime = a }) . mapping _Time
+i1LaunchTime :: Lens' Instance UTCTime
+i1LaunchTime = lens _i1LaunchTime (\s a -> s { _i1LaunchTime = a }) . _Time
 
 -- | The monitoring information for the instance.
-i1Monitoring :: Lens' Instance (Maybe Monitoring)
+i1Monitoring :: Lens' Instance Monitoring
 i1Monitoring = lens _i1Monitoring (\s a -> s { _i1Monitoring = a })
 
 -- | [EC2-VPC] One or more network interfaces for the instance.
@@ -11981,21 +12023,21 @@ i1NetworkInterfaces =
         . _List
 
 -- | The location where the instance launched.
-i1Placement :: Lens' Instance (Maybe Placement)
+i1Placement :: Lens' Instance Placement
 i1Placement = lens _i1Placement (\s a -> s { _i1Placement = a })
 
 -- | The value is 'Windows' for Windows instances; otherwise blank.
-i1Platform :: Lens' Instance (Maybe PlatformValues)
+i1Platform :: Lens' Instance PlatformValues
 i1Platform = lens _i1Platform (\s a -> s { _i1Platform = a })
 
 -- | The private DNS name assigned to the instance. This DNS name can only be used
 -- inside the Amazon EC2 network. This name is not available until the instance
 -- enters the 'running' state.
-i1PrivateDnsName :: Lens' Instance (Maybe Text)
+i1PrivateDnsName :: Lens' Instance Text
 i1PrivateDnsName = lens _i1PrivateDnsName (\s a -> s { _i1PrivateDnsName = a })
 
 -- | The private IP address assigned to the instance.
-i1PrivateIpAddress :: Lens' Instance (Maybe Text)
+i1PrivateIpAddress :: Lens' Instance Text
 i1PrivateIpAddress =
     lens _i1PrivateIpAddress (\s a -> s { _i1PrivateIpAddress = a })
 
@@ -12005,25 +12047,25 @@ i1ProductCodes = lens _i1ProductCodes (\s a -> s { _i1ProductCodes = a }) . _Lis
 
 -- | The public DNS name assigned to the instance. This name is not available
 -- until the instance enters the 'running' state.
-i1PublicDnsName :: Lens' Instance (Maybe Text)
+i1PublicDnsName :: Lens' Instance Text
 i1PublicDnsName = lens _i1PublicDnsName (\s a -> s { _i1PublicDnsName = a })
 
 -- | The public IP address assigned to the instance.
-i1PublicIpAddress :: Lens' Instance (Maybe Text)
+i1PublicIpAddress :: Lens' Instance Text
 i1PublicIpAddress =
     lens _i1PublicIpAddress (\s a -> s { _i1PublicIpAddress = a })
 
 -- | The RAM disk associated with this instance.
-i1RamdiskId :: Lens' Instance (Maybe Text)
+i1RamdiskId :: Lens' Instance Text
 i1RamdiskId = lens _i1RamdiskId (\s a -> s { _i1RamdiskId = a })
 
 -- | The root device name (for example, '/dev/sda1').
-i1RootDeviceName :: Lens' Instance (Maybe Text)
+i1RootDeviceName :: Lens' Instance Text
 i1RootDeviceName = lens _i1RootDeviceName (\s a -> s { _i1RootDeviceName = a })
 
 -- | The root device type used by the AMI. The AMI can use an Amazon EBS volume or
 -- an instance store volume.
-i1RootDeviceType :: Lens' Instance (Maybe DeviceType)
+i1RootDeviceType :: Lens' Instance DeviceType
 i1RootDeviceType = lens _i1RootDeviceType (\s a -> s { _i1RootDeviceType = a })
 
 -- | One or more security groups for the instance.
@@ -12035,7 +12077,7 @@ i1SecurityGroups = lens _i1SecurityGroups (\s a -> s { _i1SecurityGroups = a }) 
 -- A value of 'true' means checking is enabled, and 'false' means checking is
 -- disabled. The value must be 'false' for the instance to perform NAT. For more
 -- information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
-i1SourceDestCheck :: Lens' Instance (Maybe Bool)
+i1SourceDestCheck :: Lens' Instance Bool
 i1SourceDestCheck =
     lens _i1SourceDestCheck (\s a -> s { _i1SourceDestCheck = a })
 
@@ -12050,7 +12092,7 @@ i1SriovNetSupport =
     lens _i1SriovNetSupport (\s a -> s { _i1SriovNetSupport = a })
 
 -- | The current state of the instance.
-i1State :: Lens' Instance (Maybe InstanceState)
+i1State :: Lens' Instance InstanceState
 i1State = lens _i1State (\s a -> s { _i1State = a })
 
 -- | The reason for the most recent state transition.
@@ -12064,7 +12106,7 @@ i1StateTransitionReason =
     lens _i1StateTransitionReason (\s a -> s { _i1StateTransitionReason = a })
 
 -- | The ID of the subnet in which the instance is running.
-i1SubnetId :: Lens' Instance (Maybe Text)
+i1SubnetId :: Lens' Instance Text
 i1SubnetId = lens _i1SubnetId (\s a -> s { _i1SubnetId = a })
 
 -- | Any tags assigned to the instance.
@@ -12072,53 +12114,53 @@ i1Tags :: Lens' Instance [Tag]
 i1Tags = lens _i1Tags (\s a -> s { _i1Tags = a }) . _List
 
 -- | The virtualization type of the instance.
-i1VirtualizationType :: Lens' Instance (Maybe VirtualizationType)
+i1VirtualizationType :: Lens' Instance VirtualizationType
 i1VirtualizationType =
     lens _i1VirtualizationType (\s a -> s { _i1VirtualizationType = a })
 
 -- | The ID of the VPC in which the instance is running.
-i1VpcId :: Lens' Instance (Maybe Text)
+i1VpcId :: Lens' Instance Text
 i1VpcId = lens _i1VpcId (\s a -> s { _i1VpcId = a })
 
 instance FromXML Instance where
     parseXML x = Instance
-        <$> x .@? "amiLaunchIndex"
-        <*> x .@? "architecture"
+        <$> x .@  "amiLaunchIndex"
+        <*> x .@  "architecture"
         <*> parseXML x
-        <*> x .@? "clientToken"
+        <*> x .@  "clientToken"
         <*> x .@? "ebsOptimized"
-        <*> x .@? "hypervisor"
+        <*> x .@  "hypervisor"
         <*> x .@? "iamInstanceProfile"
-        <*> x .@? "imageId"
-        <*> x .@? "instanceId"
+        <*> x .@  "imageId"
+        <*> x .@  "instanceId"
         <*> x .@? "instanceLifecycle"
-        <*> x .@? "instanceType"
-        <*> x .@? "kernelId"
-        <*> x .@? "keyName"
-        <*> x .@? "launchTime"
-        <*> x .@? "monitoring"
+        <*> x .@  "instanceType"
+        <*> x .@  "kernelId"
+        <*> x .@  "keyName"
+        <*> x .@  "launchTime"
+        <*> x .@  "monitoring"
         <*> parseXML x
-        <*> x .@? "placement"
-        <*> x .@? "platform"
-        <*> x .@? "privateDnsName"
-        <*> x .@? "privateIpAddress"
+        <*> x .@  "placement"
+        <*> x .@  "platform"
+        <*> x .@  "privateDnsName"
+        <*> x .@  "privateIpAddress"
         <*> parseXML x
-        <*> x .@? "dnsName"
-        <*> x .@? "ipAddress"
-        <*> x .@? "ramdiskId"
-        <*> x .@? "rootDeviceName"
-        <*> x .@? "rootDeviceType"
+        <*> x .@  "dnsName"
+        <*> x .@  "ipAddress"
+        <*> x .@  "ramdiskId"
+        <*> x .@  "rootDeviceName"
+        <*> x .@  "rootDeviceType"
         <*> parseXML x
-        <*> x .@? "sourceDestCheck"
+        <*> x .@  "sourceDestCheck"
         <*> x .@? "spotInstanceRequestId"
         <*> x .@? "sriovNetSupport"
-        <*> x .@? "instanceState"
+        <*> x .@  "instanceState"
         <*> x .@? "stateReason"
         <*> x .@? "reason"
-        <*> x .@? "subnetId"
+        <*> x .@  "subnetId"
         <*> parseXML x
-        <*> x .@? "virtualizationType"
-        <*> x .@? "vpcId"
+        <*> x .@  "virtualizationType"
+        <*> x .@  "vpcId"
 
 instance ToQuery Instance where
     toQuery Instance{..} = mconcat

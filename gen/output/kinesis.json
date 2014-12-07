@@ -5,10 +5,10 @@
                 "operation": "DescribeStream",
                 "acceptors": [
                     {
-                        "matcher": "path",
+                        "matcher": "matchAll",
                         "state": "success",
                         "argument": "dsrStreamDescription . sdStreamStatus",
-                        "expected": "\"ACTIVE\""
+                        "expected": "Active"
                     }
                 ],
                 "maxAttempts": 18,

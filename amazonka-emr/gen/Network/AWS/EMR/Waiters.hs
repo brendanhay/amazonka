@@ -15,7 +15,6 @@
 
 module Network.AWS.EMR.Waiters where
 
-import Prelude hiding (error)
 import Network.AWS.EMR.DescribeCluster
 import Network.AWS.EMR.Types
 import Network.AWS.Waiters
@@ -26,10 +25,15 @@ clusterRunning = Wait
     , _waitAttempts  = 60
     , _waitDelay     = 30
     , _waitAcceptors =
-        [ path (dcrCluster . c1Status . csState) "RUNNING" Success
-        , path (dcrCluster . c1Status . csState) "WAITING" Success
-        , path (dcrCluster . c1Status . csState) "TERMINATING" Failure
-        , path (dcrCluster . c1Status . csState) "TERMINATED" Failure
-        , path (dcrCluster . c1Status . csState) "TERMINATED_WITH_ERRORS" Failure
+        [ matchAll CSRunning Success
+            (dcrCluster . c1Status . csState)
+        , matchAll CSWaiting Success
+            (dcrCluster . c1Status . csState)
+        , matchAll CSTerminating Failure
+            (dcrCluster . c1Status . csState)
+        , matchAll CSTerminated Failure
+            (dcrCluster . c1Status . csState)
+        , matchAll CSTerminatedWithErrors Failure
+            (dcrCluster . c1Status . csState)
         ]
     }

@@ -15,7 +15,6 @@
 
 module Network.AWS.ElasticTranscoder.Waiters where
 
-import Prelude hiding (error)
 import Network.AWS.ElasticTranscoder.ReadJob
 import Network.AWS.ElasticTranscoder.Types
 import Network.AWS.Waiters
@@ -26,8 +25,11 @@ jobComplete = Wait
     , _waitAttempts  = 120
     , _waitDelay     = 30
     , _waitAcceptors =
-        [ path (rjrJob . jStatus) "Complete" Success
-        , path (rjrJob . jStatus) "Canceled" Failure
-        , path (rjrJob . jStatus) "Error" Failure
+        [ matchAll "Complete" Success
+            (rjrJob . jStatus)
+        , matchAll "Canceled" Failure
+            (rjrJob . jStatus)
+        , matchAll "Error" Failure
+            (rjrJob . jStatus)
         ]
     }

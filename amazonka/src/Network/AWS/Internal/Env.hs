@@ -28,7 +28,7 @@ data Env = Env
     { _envRegion  :: !Region
     , _envLogger  :: Logger
     , _envManager :: Manager
-    , _envRetry   :: RetryPolicy
+    , _envRetry   :: Maybe RetryPolicy
     , _envAuth    :: Auth
     }
 
@@ -39,6 +39,9 @@ instance ToBuilder Env where
         [ "[Environment] {"
         , "  region      = " <> build _envRegion
         , "  auth        = " <> build _envAuth
-        , "  retry (n=0) = " <> build (let RetryPolicy r = _envRetry in r 0)
+        , "  retry (n=0) = " <>
+            maybe "Nothing"
+                  (\(RetryPolicy f) -> "Maybe " <> build (f 0))
+                  _envRetry
         , "}"
         ]

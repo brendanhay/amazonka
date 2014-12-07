@@ -5,51 +5,51 @@
                 "operation": "DescribeDBInstances",
                 "acceptors": [
                     {
-                        "matcher": "pathAll",
+                        "matcher": "matchAll",
                         "state": "success",
-                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus",
                         "expected": "\"available\""
                     },
                     {
-                        "matcher": "pathAny",
+                        "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus",
                         "expected": "\"deleted\""
                     },
                     {
-                        "matcher": "pathAny",
+                        "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus",
                         "expected": "\"deleting\""
                     },
                     {
-                        "matcher": "pathAny",
+                        "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus",
                         "expected": "\"failed\""
                     },
                     {
-                        "matcher": "pathAny",
+                        "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus",
                         "expected": "\"incompatible-restore\""
                     },
                     {
-                        "matcher": "pathAny",
+                        "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus",
                         "expected": "\"incompatible-parameters\""
                     },
                     {
-                        "matcher": "pathAny",
+                        "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus",
                         "expected": "\"incompatible-parameters\""
                     },
                     {
-                        "matcher": "pathAny",
+                        "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus",
                         "expected": "\"incompatible-restore\""
                     }
                 ],
@@ -60,33 +60,33 @@
                 "operation": "DescribeDBInstances",
                 "acceptors": [
                     {
-                        "matcher": "pathAll",
+                        "matcher": "matchAll",
                         "state": "success",
-                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus",
                         "expected": "\"deleted\""
                     },
                     {
-                        "matcher": "pathAny",
+                        "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus",
                         "expected": "\"creating\""
                     },
                     {
-                        "matcher": "pathAny",
+                        "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus",
                         "expected": "\"modifying\""
                     },
                     {
-                        "matcher": "pathAny",
+                        "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus",
                         "expected": "\"rebooting\""
                     },
                     {
-                        "matcher": "pathAny",
+                        "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "ddbirDBInstances . dbiDBInstanceStatus",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus",
                         "expected": "\"resetting-master-credentials\""
                     }
                 ],

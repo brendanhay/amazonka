@@ -15,7 +15,6 @@
 
 module Network.AWS.Kinesis.Waiters where
 
-import Prelude hiding (error)
 import Network.AWS.Kinesis.DescribeStream
 import Network.AWS.Kinesis.Types
 import Network.AWS.Waiters
@@ -26,6 +25,7 @@ streamExists = Wait
     , _waitAttempts  = 18
     , _waitDelay     = 10
     , _waitAcceptors =
-        [ path (dsrStreamDescription . sdStreamStatus) "ACTIVE" Success
+        [ matchAll Active Success
+            (dsrStreamDescription . sdStreamStatus)
         ]
     }

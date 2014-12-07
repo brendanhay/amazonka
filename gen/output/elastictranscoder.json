@@ -5,19 +5,19 @@
                 "operation": "ReadJob",
                 "acceptors": [
                     {
-                        "matcher": "path",
+                        "matcher": "matchAll",
                         "state": "success",
                         "argument": "rjrJob . jStatus",
                         "expected": "\"Complete\""
                     },
                     {
-                        "matcher": "path",
+                        "matcher": "matchAll",
                         "state": "failure",
                         "argument": "rjrJob . jStatus",
                         "expected": "\"Canceled\""
                     },
                     {
-                        "matcher": "path",
+                        "matcher": "matchAll",
                         "state": "failure",
                         "argument": "rjrJob . jStatus",
                         "expected": "\"Error\""

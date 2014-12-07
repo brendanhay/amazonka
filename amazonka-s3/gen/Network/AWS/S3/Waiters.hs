@@ -15,7 +15,6 @@
 
 module Network.AWS.S3.Waiters where
 
-import Prelude hiding (error)
 import Network.AWS.S3.HeadBucket
 import Network.AWS.S3.HeadObject
 import Network.AWS.S3.Types
@@ -27,8 +26,8 @@ bucketExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 5
     , _waitAcceptors =
-        [ status 200 Success
-        , status 404 Retry
+        [ matchStatus 200 Success
+        , matchStatus 404 Retry
         ]
     }
 
@@ -38,7 +37,7 @@ bucketNotExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 5
     , _waitAcceptors =
-        [ status 404 Success
+        [ matchStatus 404 Success
         ]
     }
 
@@ -48,8 +47,8 @@ objectExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 5
     , _waitAcceptors =
-        [ status 200 Success
-        , status 404 Retry
+        [ matchStatus 200 Success
+        , matchStatus 404 Retry
         ]
     }
 
@@ -59,6 +58,6 @@ objectNotExists = Wait
     , _waitAttempts  = 20
     , _waitDelay     = 5
     , _waitAcceptors =
-        [ status 404 Success
+        [ matchStatus 404 Success
         ]
     }

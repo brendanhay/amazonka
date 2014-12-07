@@ -5,10 +5,10 @@
                 "operation": "GetIdentityVerificationAttributes",
                 "acceptors": [
                     {
-                        "matcher": "pathAll",
+                        "matcher": "matchAll",
                         "state": "success",
                         "argument": "givarVerificationAttributes . traverse . ivaVerificationStatus",
-                        "expected": "\"Success\""
+                        "expected": "Success"
                     }
                 ],
                 "maxAttempts": 20,

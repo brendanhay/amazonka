@@ -5,7 +5,7 @@
                 "operation": "HeadObject",
                 "acceptors": [
                     {
-                        "matcher": "status",
+                        "matcher": "matchStatus",
                         "state": "success",
                         "argument": null,
                         "expected": 404
@@ -18,13 +18,13 @@
                 "operation": "HeadBucket",
                 "acceptors": [
                     {
-                        "matcher": "status",
+                        "matcher": "matchStatus",
                         "state": "success",
                         "argument": null,
                         "expected": 200
                     },
                     {
-                        "matcher": "status",
+                        "matcher": "matchStatus",
                         "state": "retry",
                         "argument": null,
                         "expected": 404
@@ -37,13 +37,13 @@
                 "operation": "HeadObject",
                 "acceptors": [
                     {
-                        "matcher": "status",
+                        "matcher": "matchStatus",
                         "state": "success",
                         "argument": null,
                         "expected": 200
                     },
                     {
-                        "matcher": "status",
+                        "matcher": "matchStatus",
                         "state": "retry",
                         "argument": null,
                         "expected": 404
@@ -56,7 +56,7 @@
                 "operation": "HeadBucket",
                 "acceptors": [
                     {
-                        "matcher": "status",
+                        "matcher": "matchStatus",
                         "state": "success",
                         "argument": null,
                         "expected": 404

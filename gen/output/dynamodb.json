@@ -5,7 +5,7 @@
                 "operation": "DescribeTable",
                 "acceptors": [
                     {
-                        "matcher": "error",
+                        "matcher": "matchError",
                         "state": "success",
                         "argument": null,
                         "expected": "\"ResourceNotFoundException\""
@@ -18,13 +18,13 @@
                 "operation": "DescribeTable",
                 "acceptors": [
                     {
-                        "matcher": "path",
+                        "matcher": "matchAll",
                         "state": "success",
                         "argument": "dtrTable . tdTableStatus",
                         "expected": "TSActive"
                     },
                     {
-                        "matcher": "error",
+                        "matcher": "matchError",
                         "state": "retry",
                         "argument": null,
                         "expected": "\"ResourceNotFoundException\""

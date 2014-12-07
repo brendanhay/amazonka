@@ -698,6 +698,7 @@ prefixWaiters ds = Map.map go
 
             Access  k   -> do
                 let f = field k d
+                    m = isRequired (f ^. typeOf)
                     r = listToMaybe . mapMaybe name $ universeOn typeOf f
                 case type' <$> r of
                     Just (Nullary _ fs) -> do
@@ -709,7 +710,10 @@ prefixWaiters ds = Map.map go
                                     _      -> return ()
                             _                  -> return ()
                     _            -> return ()
-                return $! Access (lensName (_fName f))
+                return $!
+                    if not m
+                        then Nested (lensName (_fName f)) (Access "_Just")
+                        else Access (lensName (_fName f))
 
     field k d =
         fromMaybe (error $ "Unable to find field: " ++ show (k, toListOf (dataFields . nameOf) d, Map.keys ds))

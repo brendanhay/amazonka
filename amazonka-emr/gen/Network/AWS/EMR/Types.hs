@@ -1246,13 +1246,13 @@ data Cluster = Cluster
     { _c1Applications          :: List "Applications" Application
     , _c1AutoTerminate         :: Maybe Bool
     , _c1Ec2InstanceAttributes :: Maybe Ec2InstanceAttributes
-    , _c1Id                    :: Maybe Text
+    , _c1Id                    :: Text
     , _c1LogUri                :: Maybe Text
-    , _c1Name                  :: Maybe Text
+    , _c1Name                  :: Text
     , _c1RequestedAmiVersion   :: Maybe Text
     , _c1RunningAmiVersion     :: Maybe Text
     , _c1ServiceRole           :: Maybe Text
-    , _c1Status                :: Maybe ClusterStatus
+    , _c1Status                :: ClusterStatus
     , _c1Tags                  :: List "Tags" Tag
     , _c1TerminationProtected  :: Maybe Bool
     , _c1VisibleToAllUsers     :: Maybe Bool
@@ -1268,11 +1268,11 @@ data Cluster = Cluster
 --
 -- * 'c1Ec2InstanceAttributes' @::@ 'Maybe' 'Ec2InstanceAttributes'
 --
--- * 'c1Id' @::@ 'Maybe' 'Text'
+-- * 'c1Id' @::@ 'Text'
 --
 -- * 'c1LogUri' @::@ 'Maybe' 'Text'
 --
--- * 'c1Name' @::@ 'Maybe' 'Text'
+-- * 'c1Name' @::@ 'Text'
 --
 -- * 'c1RequestedAmiVersion' @::@ 'Maybe' 'Text'
 --
@@ -1280,7 +1280,7 @@ data Cluster = Cluster
 --
 -- * 'c1ServiceRole' @::@ 'Maybe' 'Text'
 --
--- * 'c1Status' @::@ 'Maybe' 'ClusterStatus'
+-- * 'c1Status' @::@ 'ClusterStatus'
 --
 -- * 'c1Tags' @::@ ['Tag']
 --
@@ -1288,11 +1288,14 @@ data Cluster = Cluster
 --
 -- * 'c1VisibleToAllUsers' @::@ 'Maybe' 'Bool'
 --
-cluster :: Cluster
-cluster = Cluster
-    { _c1Id                    = Nothing
-    , _c1Name                  = Nothing
-    , _c1Status                = Nothing
+cluster :: Text -- ^ 'c1Id'
+        -> Text -- ^ 'c1Name'
+        -> ClusterStatus -- ^ 'c1Status'
+        -> Cluster
+cluster p1 p2 p3 = Cluster
+    { _c1Id                    = p1
+    , _c1Name                  = p2
+    , _c1Status                = p3
     , _c1Ec2InstanceAttributes = Nothing
     , _c1LogUri                = Nothing
     , _c1RequestedAmiVersion   = Nothing
@@ -1318,7 +1321,7 @@ c1Ec2InstanceAttributes =
     lens _c1Ec2InstanceAttributes (\s a -> s { _c1Ec2InstanceAttributes = a })
 
 -- | The unique identifier for the cluster.
-c1Id :: Lens' Cluster (Maybe Text)
+c1Id :: Lens' Cluster Text
 c1Id = lens _c1Id (\s a -> s { _c1Id = a })
 
 -- | The path to the Amazon S3 location where logs for this cluster are stored.
@@ -1326,7 +1329,7 @@ c1LogUri :: Lens' Cluster (Maybe Text)
 c1LogUri = lens _c1LogUri (\s a -> s { _c1LogUri = a })
 
 -- | The name of the cluster.
-c1Name :: Lens' Cluster (Maybe Text)
+c1Name :: Lens' Cluster Text
 c1Name = lens _c1Name (\s a -> s { _c1Name = a })
 
 -- | The AMI version requested for this cluster.
@@ -1346,7 +1349,7 @@ c1ServiceRole :: Lens' Cluster (Maybe Text)
 c1ServiceRole = lens _c1ServiceRole (\s a -> s { _c1ServiceRole = a })
 
 -- | The current status details about the cluster.
-c1Status :: Lens' Cluster (Maybe ClusterStatus)
+c1Status :: Lens' Cluster ClusterStatus
 c1Status = lens _c1Status (\s a -> s { _c1Status = a })
 
 -- | A list of tags associated with a cluster.
@@ -1375,13 +1378,13 @@ instance FromJSON Cluster where
         <$> o .:? "Applications" .!= mempty
         <*> o .:? "AutoTerminate"
         <*> o .:? "Ec2InstanceAttributes"
-        <*> o .:? "Id"
+        <*> o .:  "Id"
         <*> o .:? "LogUri"
-        <*> o .:? "Name"
+        <*> o .:  "Name"
         <*> o .:? "RequestedAmiVersion"
         <*> o .:? "RunningAmiVersion"
         <*> o .:? "ServiceRole"
-        <*> o .:? "Status"
+        <*> o .:  "Status"
         <*> o .:? "Tags" .!= mempty
         <*> o .:? "TerminationProtected"
         <*> o .:? "VisibleToAllUsers"

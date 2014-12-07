@@ -13,13 +13,13 @@
                     {
                         "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "folding (concatOf dcrClusters) . cClusterStatus",
+                        "argument": "folding (concatOf dcrClusters) . cClusterStatus . _Just",
                         "expected": "\"creating\""
                     },
                     {
                         "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "folding (concatOf dcrClusters) . cClusterStatus",
+                        "argument": "folding (concatOf dcrClusters) . cClusterStatus . _Just",
                         "expected": "\"rebooting\""
                     }
                 ],
@@ -32,19 +32,19 @@
                     {
                         "matcher": "matchAll",
                         "state": "success",
-                        "argument": "folding (concatOf dcsrSnapshots) . sStatus",
+                        "argument": "folding (concatOf dcsrSnapshots) . sStatus . _Just",
                         "expected": "\"available\""
                     },
                     {
                         "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "folding (concatOf dcsrSnapshots) . sStatus",
+                        "argument": "folding (concatOf dcsrSnapshots) . sStatus . _Just",
                         "expected": "\"failed\""
                     },
                     {
                         "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "folding (concatOf dcsrSnapshots) . sStatus",
+                        "argument": "folding (concatOf dcsrSnapshots) . sStatus . _Just",
                         "expected": "\"deleted\""
                     }
                 ],
@@ -57,13 +57,13 @@
                     {
                         "matcher": "matchAll",
                         "state": "success",
-                        "argument": "folding (concatOf dcrClusters) . cClusterStatus",
+                        "argument": "folding (concatOf dcrClusters) . cClusterStatus . _Just",
                         "expected": "\"available\""
                     },
                     {
                         "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "folding (concatOf dcrClusters) . cClusterStatus",
+                        "argument": "folding (concatOf dcrClusters) . cClusterStatus . _Just",
                         "expected": "\"deleting\""
                     },
                     {

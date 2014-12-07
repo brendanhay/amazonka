@@ -7,31 +7,31 @@
                     {
                         "matcher": "matchAll",
                         "state": "success",
-                        "argument": "dcrCluster . c1Status . csState",
+                        "argument": "dcrCluster . c1Status . csState . _Just",
                         "expected": "CSRunning"
                     },
                     {
                         "matcher": "matchAll",
                         "state": "success",
-                        "argument": "dcrCluster . c1Status . csState",
+                        "argument": "dcrCluster . c1Status . csState . _Just",
                         "expected": "CSWaiting"
                     },
                     {
                         "matcher": "matchAll",
                         "state": "failure",
-                        "argument": "dcrCluster . c1Status . csState",
+                        "argument": "dcrCluster . c1Status . csState . _Just",
                         "expected": "CSTerminating"
                     },
                     {
                         "matcher": "matchAll",
                         "state": "failure",
-                        "argument": "dcrCluster . c1Status . csState",
+                        "argument": "dcrCluster . c1Status . csState . _Just",
                         "expected": "CSTerminated"
                     },
                     {
                         "matcher": "matchAll",
                         "state": "failure",
-                        "argument": "dcrCluster . c1Status . csState",
+                        "argument": "dcrCluster . c1Status . csState . _Just",
                         "expected": "CSTerminatedWithErrors"
                     }
                 ],
@@ -2549,49 +2549,49 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Id",
                         "name": "_c1Id",
                         "shape": "ClusterId",
                         "locationName": "Id",
                         "documentation": "-- | The unique identifier for the cluster.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Name",
                         "name": "_c1Name",
                         "shape": "String",
                         "locationName": "Name",
                         "documentation": "-- | The name of the cluster.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Status",
                         "name": "_c1Status",
                         "shape": "ClusterStatus",
                         "locationName": "Status",
                         "documentation": "-- | The current status details about the cluster.",
-                        "typeExposed": "Maybe ClusterStatus",
-                        "type": "Maybe ClusterStatus"
+                        "typeExposed": "ClusterStatus",
+                        "type": "ClusterStatus"
                     },
                     {
                         "location": null,
@@ -2755,60 +2755,61 @@
                     }
                 ],
                 "payload": null,
-                "required": [],
-                "contentPad": 22,
-                "name": "Cluster",
-                "locationPad": 22,
-                "type": "record",
-                "optional": [
+                "required": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Id",
                         "name": "_c1Id",
                         "shape": "ClusterId",
                         "locationName": "Id",
                         "documentation": "-- | The unique identifier for the cluster.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Name",
                         "name": "_c1Name",
                         "shape": "String",
                         "locationName": "Name",
                         "documentation": "-- | The name of the cluster.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Status",
                         "name": "_c1Status",
                         "shape": "ClusterStatus",
                         "locationName": "Status",
                         "documentation": "-- | The current status details about the cluster.",
-                        "typeExposed": "Maybe ClusterStatus",
-                        "type": "Maybe ClusterStatus"
-                    },
+                        "typeExposed": "ClusterStatus",
+                        "type": "ClusterStatus"
+                    }
+                ],
+                "contentPad": 22,
+                "name": "Cluster",
+                "locationPad": 22,
+                "type": "record",
+                "optional": [
                     {
                         "location": null,
                         "iso": null,
@@ -3023,17 +3024,17 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Id",
                         "name": "_c1Id",
                         "shape": "ClusterId",
                         "locationName": "Id",
                         "documentation": "-- | The unique identifier for the cluster.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
@@ -3055,17 +3056,17 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Name",
                         "name": "_c1Name",
                         "shape": "String",
                         "locationName": "Name",
                         "documentation": "-- | The name of the cluster.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
@@ -3119,17 +3120,17 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Status",
                         "name": "_c1Status",
                         "shape": "ClusterStatus",
                         "locationName": "Status",
                         "documentation": "-- | The current status details about the cluster.",
-                        "typeExposed": "Maybe ClusterStatus",
-                        "type": "Maybe ClusterStatus"
+                        "typeExposed": "ClusterStatus",
+                        "type": "ClusterStatus"
                     },
                     {
                         "location": null,
@@ -10492,40 +10493,57 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "monoid": false,
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "dcrCluster",
                     "name": "_dcrCluster",
                     "shape": "Cluster",
                     "locationName": "Cluster",
                     "documentation": "-- | This output contains the details for the requested cluster.",
-                    "typeExposed": "Maybe Cluster",
-                    "type": "Maybe Cluster"
+                    "typeExposed": "Cluster",
+                    "type": "Cluster"
                 },
                 "contents": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "dcrCluster",
                         "name": "_dcrCluster",
                         "shape": "Cluster",
                         "locationName": "Cluster",
                         "documentation": "-- | This output contains the details for the requested cluster.",
-                        "typeExposed": "Maybe Cluster",
-                        "type": "Maybe Cluster"
+                        "typeExposed": "Cluster",
+                        "type": "Cluster"
                     }
                 ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
-                "required": [],
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dcrCluster",
+                        "name": "_dcrCluster",
+                        "shape": "Cluster",
+                        "locationName": "Cluster",
+                        "documentation": "-- | This output contains the details for the requested cluster.",
+                        "typeExposed": "Cluster",
+                        "type": "Cluster"
+                    }
+                ],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -10534,40 +10552,23 @@
                 "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
-                "optional": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "dcrCluster",
-                        "name": "_dcrCluster",
-                        "shape": "Cluster",
-                        "locationName": "Cluster",
-                        "documentation": "-- | This output contains the details for the requested cluster.",
-                        "typeExposed": "Maybe Cluster",
-                        "type": "Maybe Cluster"
-                    }
-                ],
+                "optional": [],
                 "fields": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "dcrCluster",
                         "name": "_dcrCluster",
                         "shape": "Cluster",
                         "locationName": "Cluster",
                         "documentation": "-- | This output contains the details for the requested cluster.",
-                        "typeExposed": "Maybe Cluster",
-                        "type": "Maybe Cluster"
+                        "typeExposed": "Cluster",
+                        "type": "Cluster"
                     }
                 ]
             },

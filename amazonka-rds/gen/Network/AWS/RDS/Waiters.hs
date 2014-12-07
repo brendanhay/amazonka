@@ -26,21 +26,21 @@ dbInstanceAvailable = Wait
     , _waitDelay     = 30
     , _waitAcceptors =
         [ matchAll "available" Success
-            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         , matchAny "deleted" Failure
-            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         , matchAny "deleting" Failure
-            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         , matchAny "failed" Failure
-            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         , matchAny "incompatible-restore" Failure
-            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         , matchAny "incompatible-parameters" Failure
-            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         , matchAny "incompatible-parameters" Failure
-            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         , matchAny "incompatible-restore" Failure
-            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         ]
     }
 
@@ -51,14 +51,14 @@ dbInstanceDeleted = Wait
     , _waitDelay     = 30
     , _waitAcceptors =
         [ matchAll "deleted" Success
-            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         , matchAny "creating" Failure
-            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         , matchAny "modifying" Failure
-            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         , matchAny "rebooting" Failure
-            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         , matchAny "resetting-master-credentials" Failure
-            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus)
+            (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         ]
     }

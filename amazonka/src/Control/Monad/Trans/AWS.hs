@@ -347,9 +347,9 @@ paginateCatch :: ( MonadCatch m
 paginateCatch x = scoped (`AWS.paginate` x)
 
 -- | Poll the API until a predfined condition is fulfilled using the
--- supplied 'Wait a' specification from the respective service.
+-- supplied 'Wait' specification from the respective service.
 --
--- Any errors which are unhandled by the 'Wait a' specification during retries
+-- Any errors which are unhandled by the 'Wait' specification during retries
 -- will be thrown in the same manner as 'send'.
 --
 -- /See:/ 'awaitCatch'
@@ -365,12 +365,12 @@ await :: ( MonadCatch m
 await w = awaitCatch w >=> hoistEither
 
 -- | Poll the API until a predfined condition is fulfilled using the
--- supplied 'Wait a' specification from the respective service.
+-- supplied 'Wait' specification from the respective service.
 --
 -- The response will be either the first error returned that is not handled
 -- by the specification, or the successful response from the await request.
 --
--- /Note:/ You can find any available 'Wait a' specifications under the
+-- /Note:/ You can find any available 'Wait' specifications under the
 -- namespace "Network.AWS.<ServiceName>.Waiters" for supported services.
 awaitCatch :: ( MonadCatch m
               , MonadResource m

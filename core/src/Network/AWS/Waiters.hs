@@ -21,15 +21,17 @@ module Network.AWS.Waiters
     , Accept (..)
     , Wait   (..)
 
-    -- * Run Acceptors
+    -- * Acceptors
     , accept
 
     -- * Matchers
-    , path
-    , pathAll
-    , pathAny
-    , error
-    , status
+    , matchAll
+    , matchAny
+    , matchError
+    , matchStatus
+
+    -- * Lenses
+    , module Control.Lens
     ) where
 
 import Control.Lens
@@ -38,7 +40,6 @@ import Data.Maybe
 import Network.AWS.Error
 import Network.AWS.Types
 import Network.HTTP.Types
-import Prelude            hiding (error)
 
 type Acceptor a = a -> Status -> Response a -> Maybe Accept
 
@@ -59,28 +60,25 @@ data Wait a = Wait
 accept :: [Acceptor a] -> Acceptor a
 accept xs rq s rs = listToMaybe $ mapMaybe (\f -> f rq s rs) xs
 
-path :: Eq b => Getter (Rs a) b -> b -> Accept -> Acceptor a
-path l x = pathAll l x
+matchAll :: Eq b => b -> Accept -> Fold (Rs a) b -> Acceptor a
+matchAll x a l = match (allOf l (== x)) a
 
-pathAll :: Eq b => Fold (Rs a) b -> b -> Accept -> Acceptor a
-pathAll l x = match (allOf l (== x))
+matchAny :: Eq b => b -> Accept -> Fold (Rs a) b -> Acceptor a
+matchAny x a l = match (anyOf l (== x)) a
 
-pathAny :: Eq b => Fold (Rs a) b -> b -> Accept -> Acceptor a
-pathAny l x = match (anyOf l (== x))
-
-match :: (Rs a -> Bool) -> Accept -> Acceptor a
-match l a _ _ = \case
-    Right rs
-        | l rs -> Just a
-    _          -> Nothing
-
-status :: Int -> Accept -> Acceptor a
-status x a _ (statusCode -> y) _
+matchStatus :: Int -> Accept -> Acceptor a
+matchStatus x a _ (statusCode -> y) _
     | x == y    = Just a
     | otherwise = Nothing
 
-error :: AWSErrorCode (Er (Sv a)) => ErrorCode -> Accept -> Acceptor a
-error c a _ _ = \case
+matchError :: AWSErrorCode (Er (Sv a)) => ErrorCode -> Accept -> Acceptor a
+matchError c a _ _ = \case
     Left (ServiceError _ _ e)
         | c == awsErrorCode e -> Just a
     _                         -> Nothing
+
+match :: (Rs a -> Bool) -> Accept -> Acceptor a
+match f a _ _ = \case
+    Right rs
+        | f rs -> Just a
+    _          -> Nothing

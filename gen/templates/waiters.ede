@@ -7,7 +7,6 @@
 
 module {{ namespace }} where
 
-import Prelude hiding (error)
 {% include "_include/imports.ede" %}
 import Network.AWS.Waiters
 {% for waiter in waiters %}
@@ -20,12 +19,13 @@ import Network.AWS.Waiters
     , _waitAcceptors =
     {% for accept in waiter.value.acceptors %}
       {% case accept.value.matcher %}
-      {% when "error" %}
+      {% when "matchError" %}
         {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} {{ accept.value.state | upperHead }}
-      {% when "status" %}
+      {% when "matchStatus" %}
         {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} {{ accept.value.state | upperHead }}
       {% else %}
-        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.argument | wrapped }} {{ accept.value.expected }} {{ accept.value.state | upperHead }}
+        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} {{ accept.value.state | upperHead }}
+            {{ accept.value.argument | wrapped }}
       {% endcase %}
     {% else %}
         [

@@ -552,7 +552,14 @@ data MatchType
       deriving (Eq, Show)
 
 nullary (input  & thCtor .~ ctor "Match") ''MatchType
-nullary (output & thCtor .~ ctor "Match") ''MatchType
+
+instance A.ToJSON MatchType where
+    toJSON = A.toJSON . \case
+        MatchPath    -> "matchAll"
+        MatchPathAll -> "matchAll"
+        MatchPathAny -> "matchAny"
+        MatchStatus  -> "matchStatus"
+        MatchError   -> "matchError"
 
 data StateType
     = StateRetry
@@ -600,7 +607,7 @@ instance A.ToJSON Notation where
     toJSON = A.toJSON . go
       where
         go = \case
-            Indexed k i -> k <> " . " <> go i
+            Indexed k i -> "folding (concatOf " <> k <> ") . " <> go i
             Nested  k i -> k <> " . " <> go i
             Access  k   -> k
 

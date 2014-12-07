@@ -18,15 +18,15 @@
 -- from the underlying OS.
 module Network.AWS.Internal.Auth
     (
-    -- * Defaults
+    -- *** Environment variables
       accessKey
     , secretKey
 
-    -- * Specifying credentials
+    -- *** Specifying credentials
     , fromKeys
     , fromSession
 
-    -- * Retrieving credentials
+    -- *** Retrieving credentials
     , Credentials (..)
     , getAuth
     ) where

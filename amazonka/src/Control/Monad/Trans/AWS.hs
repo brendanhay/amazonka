@@ -40,9 +40,10 @@ module Control.Monad.Trans.AWS
     , envLogger
     , envRetry
     -- ** Creating the environment
-    , Credentials (..)
     , AWS.newEnv
     , AWS.getEnv
+    -- ** Authentication credentials
+    , module Network.AWS.Internal.Auth
 
     -- * Logging
     , LogLevel    (..)
@@ -99,9 +100,9 @@ import           Control.Retry                (limitRetries)
 import           Data.Conduit                 hiding (await)
 import           Data.Time
 import qualified Network.AWS                  as AWS
-import           Network.AWS.Auth
 import           Network.AWS.Data             (ToBuilder(..))
 import           Network.AWS.Error
+import           Network.AWS.Internal.Auth
 import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
 import           Network.AWS.Types

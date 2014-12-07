@@ -32,10 +32,10 @@ library
     exposed-modules:
           Control.Monad.Trans.AWS
         , Network.AWS
-        , Network.AWS.Auth
 
     other-modules:
-          Network.AWS.Internal.Env
+          Network.AWS.Internal.Auth
+        , Network.AWS.Internal.Env
         , Network.AWS.Internal.Log
         , Network.AWS.Internal.Retry
 

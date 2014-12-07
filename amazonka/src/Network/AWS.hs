@@ -27,9 +27,10 @@ module Network.AWS
     , envLogger
     , envRetry
     -- ** Creating the environment
-    , Credentials (..)
     , newEnv
     , getEnv
+    -- ** Authentication credentials
+    , module Network.AWS.Internal.Auth
 
     -- * Logging
     , LogLevel    (..)
@@ -57,9 +58,9 @@ import           Control.Monad.Except
 import           Control.Monad.Trans.Resource
 import           Data.Conduit                 hiding (await)
 import           Data.Time
-import           Network.AWS.Auth
 import           Network.AWS.Data
 import           Network.AWS.Error
+import           Network.AWS.Internal.Auth
 import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
 import           Network.AWS.Internal.Retry

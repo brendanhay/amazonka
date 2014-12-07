@@ -67,17 +67,6 @@ conversionTaskCompleted = Wait
         ]
     }
 
-conversionTaskDeleted :: Wait DescribeConversionTasks
-conversionTaskDeleted = Wait
-    { _waitName      = "ConversionTaskDeleted"
-    , _waitAttempts  = 40
-    , _waitDelay     = 15
-    , _waitAcceptors =
-        [ matchAll "deleted" Success
-            (folding (concatOf dctrConversionTasks) . ctState)
-        ]
-    }
-
 customerGatewayAvailable :: Wait DescribeCustomerGateways
 customerGatewayAvailable = Wait
     { _waitName      = "CustomerGatewayAvailable"

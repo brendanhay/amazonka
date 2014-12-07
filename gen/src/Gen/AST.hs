@@ -87,14 +87,22 @@ transformAST Retries{..} m inp = Output cabal service ops types waiters
 
     waiters = Waiters
         { _wNamespace = waitersNamespace
-        , _wImports   = sort . nub $ typesNamespace : map f (Map.elems ws)
+        , _wImports   = imps
         , _wWaiters   = ws
         }
       where
-        ws = prefixWaiters (ts <> os) (inp ^. inpWaiters)
+        ws = prefixWaiters (ts <> os)
+           . Map.filterWithKey f
+           $ inp ^. inpWaiters
+
         os = foldMap operationDataTypes ops
 
-        f = operationNS abbrev . _wOperation
+        f k _ = not $ Set.member (CI.mk k) (overrides ^. oIgnoreWaiters)
+
+        imps = sort
+            . nub
+            $ typesNamespace
+            : map (operationNS abbrev . _wOperation) (Map.elems ws)
 
     anyWaiters = not . Map.null $ _wWaiters waiters
 

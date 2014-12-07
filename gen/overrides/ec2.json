@@ -9,6 +9,9 @@
     "typeModules": [
         "Network.AWS.EC2.Internal"
     ],
+    "ignoreWaiters": [
+        "ConversionTaskDeleted"
+    ],
     "overrides": {
         "RouteOrigin": {
             "sum_prefix": "Origin"
@@ -225,6 +228,15 @@
                 "State",
                 "SubnetId",
                 "VpcId"
+            ]
+        },
+        "CustomerGateway": {
+            "required": [
+                "BgpAsn",
+                "CustomerGatewayId",
+                "IpAddress",
+                "State",
+                "Type"
             ]
         }
     }

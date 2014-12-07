@@ -438,6 +438,7 @@ data Overrides = Overrides
     , _oOperationsModules :: [NS]
     , _oTypesModules      :: [NS]
     , _oOverrides         :: HashMap Text Override
+    , _oIgnoreWaiters     :: HashSet (CI Text)
     } deriving (Eq, Show)
 
 makeLenses ''Overrides
@@ -451,6 +452,7 @@ instance FromJSON Overrides where
         <*> o .:? "operationModules" .!= mempty
         <*> o .:? "typeModules"      .!= mempty
         <*> o .:? "overrides"        .!= mempty
+        <*> o .:? "ignoreWaiters"    .!= mempty
 
 data When
     = WhenStatus (Maybe Text) !Int

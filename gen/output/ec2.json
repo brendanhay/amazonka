@@ -133,19 +133,6 @@
                 "maxAttempts": 40,
                 "delay": 15
             },
-            "ConversionTaskDeleted": {
-                "operation": "DescribeConversionTasks",
-                "acceptors": [
-                    {
-                        "matcher": "matchAll",
-                        "state": "success",
-                        "argument": "folding (concatOf dctrConversionTasks) . ctState",
-                        "expected": "\"deleted\""
-                    }
-                ],
-                "maxAttempts": 40,
-                "delay": 15
-            },
             "InstanceRunning": {
                 "operation": "DescribeInstances",
                 "acceptors": [
@@ -13582,92 +13569,93 @@
                 "ctor": "customerGateway",
                 "contents": [],
                 "payload": null,
-                "required": [],
-                "contentPad": 0,
-                "name": "CustomerGateway",
-                "locationPad": 18,
-                "type": "record",
-                "optional": [
+                "required": [
                     {
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "cgCustomerGatewayId",
                         "name": "_cgCustomerGatewayId",
                         "shape": "String",
                         "locationName": "customerGatewayId",
                         "documentation": "-- | The ID of the customer gateway.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "cgState",
                         "name": "_cgState",
                         "shape": "String",
                         "locationName": "state",
                         "documentation": "-- | The current state of the customer gateway ('pending | available | deleting |deleted').",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "cgType",
                         "name": "_cgType",
                         "shape": "String",
                         "locationName": "type",
                         "documentation": "-- | The type of VPN connection the customer gateway supports ('ipsec.1').",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "cgIpAddress",
                         "name": "_cgIpAddress",
                         "shape": "String",
                         "locationName": "ipAddress",
                         "documentation": "-- | The Internet-routable IP address of the customer gateway's outside interface.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "cgBgpAsn",
                         "name": "_cgBgpAsn",
                         "shape": "String",
                         "locationName": "bgpAsn",
                         "documentation": "-- | The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number\n-- (ASN).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "contentPad": 0,
+                "name": "CustomerGateway",
+                "locationPad": 18,
+                "type": "record",
+                "optional": [
                     {
                         "location": "querystring",
                         "iso": "_List",
@@ -13690,65 +13678,65 @@
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "cgBgpAsn",
                         "name": "_cgBgpAsn",
                         "shape": "String",
                         "locationName": "bgpAsn",
                         "documentation": "-- | The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number\n-- (ASN).",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "cgCustomerGatewayId",
                         "name": "_cgCustomerGatewayId",
                         "shape": "String",
                         "locationName": "customerGatewayId",
                         "documentation": "-- | The ID of the customer gateway.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "cgIpAddress",
                         "name": "_cgIpAddress",
                         "shape": "String",
                         "locationName": "ipAddress",
                         "documentation": "-- | The Internet-routable IP address of the customer gateway's outside interface.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "cgState",
                         "name": "_cgState",
                         "shape": "String",
                         "locationName": "state",
                         "documentation": "-- | The current state of the customer gateway ('pending | available | deleting |deleted').",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": "querystring",
@@ -13770,17 +13758,17 @@
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "cgType",
                         "name": "_cgType",
                         "shape": "String",
                         "locationName": "type",
                         "documentation": "-- | The type of VPN connection the customer gateway supports ('ipsec.1').",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     }
                 ]
             },

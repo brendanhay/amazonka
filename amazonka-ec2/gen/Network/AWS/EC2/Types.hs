@@ -7368,56 +7368,61 @@ instance ToQuery VolumeAttachment where
         ]
 
 data CustomerGateway = CustomerGateway
-    { _cgBgpAsn            :: Maybe Text
-    , _cgCustomerGatewayId :: Maybe Text
-    , _cgIpAddress         :: Maybe Text
-    , _cgState             :: Maybe Text
+    { _cgBgpAsn            :: Text
+    , _cgCustomerGatewayId :: Text
+    , _cgIpAddress         :: Text
+    , _cgState             :: Text
     , _cgTags              :: List "item" Tag
-    , _cgType              :: Maybe Text
+    , _cgType              :: Text
     } deriving (Eq, Show)
 
 -- | 'CustomerGateway' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cgBgpAsn' @::@ 'Maybe' 'Text'
+-- * 'cgBgpAsn' @::@ 'Text'
 --
--- * 'cgCustomerGatewayId' @::@ 'Maybe' 'Text'
+-- * 'cgCustomerGatewayId' @::@ 'Text'
 --
--- * 'cgIpAddress' @::@ 'Maybe' 'Text'
+-- * 'cgIpAddress' @::@ 'Text'
 --
--- * 'cgState' @::@ 'Maybe' 'Text'
+-- * 'cgState' @::@ 'Text'
 --
 -- * 'cgTags' @::@ ['Tag']
 --
--- * 'cgType' @::@ 'Maybe' 'Text'
+-- * 'cgType' @::@ 'Text'
 --
-customerGateway :: CustomerGateway
-customerGateway = CustomerGateway
-    { _cgCustomerGatewayId = Nothing
-    , _cgState             = Nothing
-    , _cgType              = Nothing
-    , _cgIpAddress         = Nothing
-    , _cgBgpAsn            = Nothing
+customerGateway :: Text -- ^ 'cgCustomerGatewayId'
+                -> Text -- ^ 'cgState'
+                -> Text -- ^ 'cgType'
+                -> Text -- ^ 'cgIpAddress'
+                -> Text -- ^ 'cgBgpAsn'
+                -> CustomerGateway
+customerGateway p1 p2 p3 p4 p5 = CustomerGateway
+    { _cgCustomerGatewayId = p1
+    , _cgState             = p2
+    , _cgType              = p3
+    , _cgIpAddress         = p4
+    , _cgBgpAsn            = p5
     , _cgTags              = mempty
     }
 
 -- | The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number
 -- (ASN).
-cgBgpAsn :: Lens' CustomerGateway (Maybe Text)
+cgBgpAsn :: Lens' CustomerGateway Text
 cgBgpAsn = lens _cgBgpAsn (\s a -> s { _cgBgpAsn = a })
 
 -- | The ID of the customer gateway.
-cgCustomerGatewayId :: Lens' CustomerGateway (Maybe Text)
+cgCustomerGatewayId :: Lens' CustomerGateway Text
 cgCustomerGatewayId =
     lens _cgCustomerGatewayId (\s a -> s { _cgCustomerGatewayId = a })
 
 -- | The Internet-routable IP address of the customer gateway's outside interface.
-cgIpAddress :: Lens' CustomerGateway (Maybe Text)
+cgIpAddress :: Lens' CustomerGateway Text
 cgIpAddress = lens _cgIpAddress (\s a -> s { _cgIpAddress = a })
 
 -- | The current state of the customer gateway ('pending | available | deleting |deleted').
-cgState :: Lens' CustomerGateway (Maybe Text)
+cgState :: Lens' CustomerGateway Text
 cgState = lens _cgState (\s a -> s { _cgState = a })
 
 -- | Any tags assigned to the customer gateway.
@@ -7425,17 +7430,17 @@ cgTags :: Lens' CustomerGateway [Tag]
 cgTags = lens _cgTags (\s a -> s { _cgTags = a }) . _List
 
 -- | The type of VPN connection the customer gateway supports ('ipsec.1').
-cgType :: Lens' CustomerGateway (Maybe Text)
+cgType :: Lens' CustomerGateway Text
 cgType = lens _cgType (\s a -> s { _cgType = a })
 
 instance FromXML CustomerGateway where
     parseXML x = CustomerGateway
-        <$> x .@? "bgpAsn"
-        <*> x .@? "customerGatewayId"
-        <*> x .@? "ipAddress"
-        <*> x .@? "state"
+        <$> x .@  "bgpAsn"
+        <*> x .@  "customerGatewayId"
+        <*> x .@  "ipAddress"
+        <*> x .@  "state"
         <*> parseXML x
-        <*> x .@? "type"
+        <*> x .@  "type"
 
 instance ToQuery CustomerGateway where
     toQuery CustomerGateway{..} = mconcat

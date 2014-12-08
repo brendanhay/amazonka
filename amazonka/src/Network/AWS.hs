@@ -19,8 +19,18 @@
 -- | The core module for making requests to the various AWS services.
 module Network.AWS
     (
+    -- * Requests
+    -- ** Synchronous
+      send
+    -- ** Paginated
+    , paginate
+    -- ** Eventual consistency
+    , await
+    -- ** Pre-signing URLs
+    , presign
+
     -- * Environment
-      Env
+    , Env
     -- ** Lenses
     , envRegion
     , envLogger
@@ -43,16 +53,6 @@ module Network.AWS
     , LogLevel    (..)
     , Logger
     , newLogger
-
-    -- * Requests
-    -- ** Synchronous
-    , send
-    -- ** Paginated
-    , paginate
-    -- ** Eventual consistency
-    , await
-    -- ** Pre-signing URLs
-    , presign
 
     -- * Types
     , module Network.AWS.Types

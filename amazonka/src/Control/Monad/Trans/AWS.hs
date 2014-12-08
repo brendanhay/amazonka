@@ -24,13 +24,33 @@
 -- encapsulates various common parameters, errors, and usage patterns.
 module Control.Monad.Trans.AWS
     (
+    -- * Requests
+    -- ** Synchronous
+      send
+    , send_
+    , sendCatch
+    -- ** Paginated
+    , paginate
+    , paginateCatch
+    -- ** Eventual consistency
+    , await
+    -- ** Pre-signing URLs
+    , presign
+
     -- * Transformer
-      AWS
+    , AWS
     , AWST
     , MonadAWS
 
     -- * Running
     , runAWST
+
+    -- * Regionalisation
+    , Region      (..)
+    , within
+
+    -- * Retries
+    , once
 
     -- * Environment
     , Env
@@ -60,32 +80,12 @@ module Control.Monad.Trans.AWS
     , debug
     , trace
 
-    -- * Regionalisation
-    , Region      (..)
-    , within
-
-    -- * Retries
-    , once
-
     -- * Errors
     , Error
     , hoistEither
     , throwAWSError
     , verify
     , verifyWith
-
-    -- * Requests
-    -- ** Synchronous
-    , send
-    , send_
-    , sendCatch
-    -- ** Paginated
-    , paginate
-    , paginateCatch
-    -- ** Eventual consistency
-    , await
-    -- ** Pre-signing URLs
-    , presign
 
     -- * Types
     , ToBuilder   (..)

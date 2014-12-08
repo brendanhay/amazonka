@@ -224,9 +224,12 @@ resources = AWST (ReaderT (return . snd))
 hoistEither :: (MonadError Error m, AWSError e) => Either e a -> m a
 hoistEither = either throwAWSError return
 
+-- | Throw any 'AWSError' using 'throwError'.
 throwAWSError :: (MonadError Error m, AWSError e) => e -> m a
 throwAWSError = throwError . awsError
 
+-- | Verify that an 'AWSError' matches the given 'Prism', otherwise throw the
+-- error using 'throwAWSError'.
 verify :: (AWSError e, MonadError Error m)
        => Prism' e a
        -> e
@@ -235,6 +238,10 @@ verify p e
     | isn't p e = throwAWSError e
     | otherwise = return ()
 
+-- | Verify that an 'AWSError' matches the given 'Prism', with an additional
+-- guard on the result of the 'Prism'.
+--
+-- /See:/ 'verify'
 verifyWith :: (AWSError e, MonadError Error m)
            => Prism' e a
            -> (a -> Bool)

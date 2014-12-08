@@ -34,7 +34,7 @@ data Templates = Templates
 
 loadTemplates :: FilePath -> Script Templates
 loadTemplates d = do
-    f  <- Templates
+    !f <- Templates
         <$> load "cabal"
         <*> load "service"
         <*> load "waiters"

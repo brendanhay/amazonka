@@ -259,10 +259,8 @@ logTrace x = view envLogger >>= (`trace` x)
 within :: MonadReader Env m => Region -> m a -> m a
 within r = local (envRegion .~ r)
 
--- | Scope a monadic action such that any potential retry logic for the
--- 'Service' is ignored.
---
--- /Example:/ Any requests will at most be sent once.
+-- | Scope a monadic action such that any retry logic for the 'Service' is
+-- ignored and any requests will at most be sent once.
 once :: MonadReader Env m => m a -> m a
 once = local (envRetry ?~ limitRetries 0)
 

@@ -34,24 +34,31 @@ module Control.Monad.Trans.AWS
 
     -- * Environment
     , Env
-    , envAuth
+    -- ** Lenses
     , envRegion
-    , envManager
     , envLogger
-    , envRetry
+    , envRetryCheck
+    , envRetryPolicy
+    , envManager
+    , envAuth
     -- ** Creating the environment
     , AWS.newEnv
     , AWS.getEnv
-    -- ** Authentication
-    , module Network.AWS.Internal.Auth
+    -- ** Specifying credentials
+    , Credentials (..)
+    , fromKeys
+    , fromSession
+    , getAuth
+    , accessKey
+    , secretKey
 
     -- * Logging
     , LogLevel    (..)
     , Logger
     , newLogger
-    , logInfo
-    , logDebug
-    , logTrace
+    , info
+    , debug
+    , trace
 
     -- * Regionalisation
     , Region      (..)
@@ -104,7 +111,8 @@ import           Network.AWS.Data             (ToBuilder(..))
 import           Network.AWS.Error
 import           Network.AWS.Internal.Auth
 import           Network.AWS.Internal.Env
-import           Network.AWS.Internal.Log
+import qualified Network.AWS.Internal.Log     as Log
+import           Network.AWS.Internal.Log     hiding (info, debug, trace)
 import           Network.AWS.Types
 import           Network.AWS.Waiters
 
@@ -244,16 +252,19 @@ scoped :: MonadReader Env m => (Env -> m a) -> m a
 scoped f = ask >>= f
 
 -- | Use the supplied logger from 'envLogger' to log info messages.
-logInfo :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
-logInfo x = view envLogger >>= (`info` x)
+--
+-- /Note:/ By default, the library does not output 'Info' level messages.
+-- Exclusive output is guaranteed via use of this function.
+info :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
+info x = view envLogger >>= (`Log.info` x)
 
 -- | Use the supplied logger from 'envLogger' to log debug messages.
-logDebug :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
-logDebug x = view envLogger >>= (`debug` x)
+debug :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
+debug x = view envLogger >>= (`Log.debug` x)
 
 -- | Use the supplied logger from 'envLogger' to log trace messages.
-logTrace :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
-logTrace x = view envLogger >>= (`trace` x)
+trace :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
+trace x = view envLogger >>= (`Log.trace` x)
 
 -- | Scope a monadic action within the specific 'Region'.
 within :: MonadReader Env m => Region -> m a -> m a
@@ -262,7 +273,7 @@ within r = local (envRegion .~ r)
 -- | Scope a monadic action such that any retry logic for the 'Service' is
 -- ignored and any requests will at most be sent once.
 once :: MonadReader Env m => m a -> m a
-once = local (envRetry ?~ limitRetries 0)
+once = local (envRetryPolicy ?~ limitRetries 0)
 
 -- | Send a data type which is an instance of 'AWSRequest', returning it's
 -- associated 'Rs' response type.

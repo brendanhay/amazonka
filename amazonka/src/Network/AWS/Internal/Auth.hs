@@ -16,18 +16,7 @@
 
 -- | Explicitly specify your Amazon AWS security credentials, or retrieve them
 -- from the underlying OS.
-module Network.AWS.Internal.Auth
-    (
-    -- *** Specifying credentials
-      accessKey
-    , secretKey
-    , fromKeys
-    , fromSession
-
-    -- *** Retrieving credentials
-    , Credentials (..)
-    , getAuth
-    ) where
+module Network.AWS.Internal.Auth where
 
 import           Control.Applicative
 import           Control.Concurrent

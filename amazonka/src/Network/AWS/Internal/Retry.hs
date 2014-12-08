@@ -19,6 +19,7 @@ module Network.AWS.Internal.Retry
     , waiter
     ) where
 
+import Control.Monad
 import Control.Monad.IO.Class
 import Control.Retry
 import Data.List                (intersperse)
@@ -34,18 +35,32 @@ retrier :: (MonadIO m, AWSService (Sv a))
         -> Request a
         -> m (Response' a)
         -> m (Response' a)
-retrier Env{..} rq = retrying (fromMaybe (retryPolicy rq) _envRetry) check
+retrier Env{..} rq = retrying (fromMaybe policy _envRetryPolicy) check
   where
-    check n rs
-        | Left (HttpError    _)     <- rs
-                    = msg n >> return True
-        | Left (ServiceError _ s e) <- rs
-        , _retryCheck (_svcRetry (serviceOf rq)) s e
-                    = msg n >> return True
-        | otherwise = return False
+    policy = limitRetries _retryAttempts
+       <> RetryPolicy (const $ listToMaybe [0 | not stream])
+       <> RetryPolicy delay
+      where
+        !stream = isStreaming (_rqBody rq)
+
+        delay n
+            | n > 0     = Just $ truncate (grow * 1000000)
+            | otherwise = Nothing
+          where
+            grow = _retryBase * (fromIntegral _retryGrowth ^^ (n - 1))
+
+    check n = \case
+        Left (ServiceError _ s e)
+            | _retryCheck s e -> msg n >> return True
+        Left (HttpError e)    -> do
+            p <- liftIO (_envRetryCheck n e)
+            when p (msg n) >> return p
+        _                     -> return False
 
     msg n = debug _envLogger $
         "[Retrying] after " <> build (n + 1) <> " attempts."
+
+    Exponential{..} = _svcRetry (serviceOf rq)
 
 waiter :: MonadIO m
        => Env
@@ -53,8 +68,10 @@ waiter :: MonadIO m
        -> Request a
        -> m (Response' a)
        -> m (Response' a)
-waiter Env{..} w rq = retrying (awaitPolicy w) check
+waiter Env{..} w@Wait{..} rq = retrying policy check
   where
+    policy = limitRetries _waitAttempts <> constantDelay _waitDelay
+
     check n rs = do
         let a = fromMaybe AcceptRetry (accept w rq rs)
         msg n a >> return (retry a)
@@ -66,31 +83,9 @@ waiter Env{..} w rq = retrying (awaitPolicy w) check
     msg n a = debug _envLogger
         . mconcat
         . intersperse " "
-        $ [ "[Await " <> build (_waitName w) <> "]"
+        $ [ "[Await " <> build _waitName <> "]"
           , build a
           , " after "
           , build (n + 1)
           , "attempts."
           ]
-
-awaitPolicy :: Wait a -> RetryPolicy
-awaitPolicy Wait{..} = limitRetries _waitAttempts <> constantDelay _waitDelay
-
-retryPolicy :: AWSService (Sv a) => Request a -> RetryPolicy
-retryPolicy rq = streamingPolicy rq <> servicePolicy rq
-
-servicePolicy :: AWSService (Sv a) => Request a -> RetryPolicy
-servicePolicy rq = limitRetries _retryAttempts <> RetryPolicy delay
-  where
-    delay n
-        | n > 0     = Just $ truncate (grow n * 1000000)
-        | otherwise = Nothing
-
-    grow n = _retryBase * (fromIntegral _retryGrowth ^^ (n - 1))
-
-    Exponential{..} = _svcRetry (serviceOf rq)
-
-streamingPolicy :: Request a -> RetryPolicy
-streamingPolicy rq = RetryPolicy . const $ listToMaybe [0 | not p]
-  where
-    !p = isStreaming (_rqBody rq)

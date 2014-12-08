@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TemplateHaskell   #-}
 
 -- Module      : Network.AWS.Internal.Env
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -25,23 +25,51 @@ import Network.HTTP.Conduit
 
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env
-    { _envRegion  :: !Region
-    , _envLogger  :: Logger
-    , _envManager :: Manager
-    , _envRetry   :: Maybe RetryPolicy
-    , _envAuth    :: Auth
+    { _envRegion      :: !Region
+    , _envLogger      :: Logger
+    , _envRetryCheck  :: Int -> HttpException -> IO Bool
+    , _envRetryPolicy :: Maybe RetryPolicy
+    , _envManager     :: Manager
+    , _envAuth        :: Auth
     }
 
-makeLenses ''Env
+-- |
+envRegion :: Lens' Env Region
+envRegion = lens _envRegion (\s a -> s { _envRegion = a })
+{-# INLINE envRegion #-}
+
+-- |
+envLogger :: Lens' Env Logger
+envLogger = lens _envLogger (\s a -> s { _envLogger = a })
+{-# INLINE envLogger #-}
+
+-- |
+envRetryCheck :: Lens' Env (Int -> HttpException -> IO Bool)
+envRetryCheck = lens _envRetryCheck (\s a -> s { _envRetryCheck = a })
+{-# INLINE envRetryCheck #-}
+
+-- |
+envRetryPolicy :: Lens' Env (Maybe RetryPolicy)
+envRetryPolicy = lens _envRetryPolicy (\s a -> s { _envRetryPolicy = a })
+{-# INLINE envRetryPolicy #-}
+
+-- |
+envManager :: Lens' Env Manager
+envManager = lens _envManager (\s a -> s { _envManager = a })
+{-# INLINE envManager #-}
+
+-- |
+envAuth :: Lens' Env Auth
+envAuth = lens _envAuth (\s a -> s { _envAuth = a })
+{-# INLINE envAuth #-}
 
 instance ToBuilder Env where
     build Env{..} = mconcat $ intersperse "\n"
         [ "[Environment] {"
         , "  region      = " <> build _envRegion
         , "  auth        = " <> build _envAuth
-        , "  retry (n=0) = " <>
-            maybe "Nothing"
-                  (\(RetryPolicy f) -> "Maybe " <> build (f 0))
-                  _envRetry
+        , "  retry (n=0) = " <> maybe "Nothing" policy _envRetryPolicy
         , "}"
         ]
+      where
+        policy (RetryPolicy f) = "Just " <> build (f 0)

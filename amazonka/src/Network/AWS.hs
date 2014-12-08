@@ -90,7 +90,8 @@ newEnv r c m = Env r logger check Nothing m `liftM` getAuth m c
     logger _ _ = return ()
     check  _ _ = return True
 
--- | Create a new environment without debug logging, creating a new 'Manager'.
+-- | Create a new environment in the specified 'Region' with silent log output
+-- and a new 'Manager'.
 --
 -- Any errors are thrown using 'error'.
 --

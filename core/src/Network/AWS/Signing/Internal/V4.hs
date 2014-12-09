@@ -86,6 +86,7 @@ instance AWSSigner V4 where
         %~ hdr hAuthorization (authorisation $ out ^. sgMeta)
       where
         out = finalise (Just "AWS4") (\_ _ -> id) hash r service a inp t
+
         inp = rq & rqHeaders %~ hdr hAMZDate date . hdrs (maybeToList tok)
 
         date = toBS (Time t :: AWSTime)

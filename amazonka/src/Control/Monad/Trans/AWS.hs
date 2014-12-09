@@ -36,6 +36,7 @@ module Control.Monad.Trans.AWS
     , await
     -- ** Pre-signing URLs
     , presign
+    , presignURL
 
     -- * Transformer
     , AWS
@@ -104,6 +105,7 @@ import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
 import           Control.Retry                (limitRetries)
+import           Data.ByteString              (ByteString)
 import           Data.Conduit                 hiding (await)
 import           Data.Time
 import qualified Network.AWS                  as AWS
@@ -115,6 +117,7 @@ import qualified Network.AWS.Internal.Log     as Log
 import           Network.AWS.Internal.Log     hiding (info, debug, trace)
 import           Network.AWS.Types
 import           Network.AWS.Waiters
+import qualified Network.HTTP.Conduit         as Client
 
 -- | The top-level error type.
 type Error = ServiceError String
@@ -404,7 +407,8 @@ awaitCatch :: ( MonadCatch m
            -> m (Response a)
 awaitCatch w x = scoped (\e -> AWS.await e w x)
 
--- | Presign a URL with expiry to be used at a later time.
+-- | Presign an HTTP request that expires at the specified amount of time
+-- in the future.
 --
 -- /Note:/ Requires the service's signer to be an instance of 'AWSPresigner'.
 -- Not all signing process support this.
@@ -416,7 +420,19 @@ presign :: ( MonadIO m
         => a       -- ^ Request to presign.
         -> UTCTime -- ^ Signing time.
         -> Integer -- ^ Expiry time in seconds.
-        -> m (Signed a (Sg (Sv a)))
+        -> m Client.Request
 presign x t ex = scoped (\e -> AWS.presign e x t ex)
 
--- add a presinURL option?
+-- | Presign a URL that expires at the specified amount of time in the future.
+--
+-- /See:/ 'presign'
+presignURL :: ( MonadIO m
+             , MonadReader Env m
+             , AWSRequest a
+             , AWSPresigner (Sg (Sv a))
+             )
+           => a       -- ^ Request to presign.
+           -> UTCTime -- ^ Signing time.
+           -> Integer -- ^ Expiry time in seconds.
+           -> m ByteString
+presignURL x t ex = scoped (\e -> AWS.presignURL e x t ex)

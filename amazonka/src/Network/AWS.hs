@@ -1,5 +1,6 @@
 {-# LANGUAGE ConstraintKinds   #-}
 {-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
@@ -28,6 +29,7 @@ module Network.AWS
     , await
     -- ** Pre-signing URLs
     , presign
+    , presignURL
 
     -- * Environment
     , Env
@@ -63,7 +65,9 @@ import           Control.Applicative
 import           Control.Monad.Catch
 import           Control.Monad.Except
 import           Control.Monad.Trans.Resource
+import           Data.ByteString              (ByteString)
 import           Data.Conduit                 hiding (await)
+import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.Error
@@ -74,6 +78,7 @@ import           Network.AWS.Internal.Retry
 import qualified Network.AWS.Signing          as Sign
 import           Network.AWS.Types
 import           Network.AWS.Waiters
+import qualified Network.HTTP.Conduit         as Client
 import           Network.HTTP.Conduit         hiding (Request, Response)
 
 -- | This creates a new environment without debug logging and uses 'getAuth'
@@ -151,7 +156,8 @@ paginate e = go
                (maybe (return ()) go . page x)
                y
 
--- | Presign a URL with expiry to be used at a later time.
+-- | Presign an HTTP request that expires at the specified amount of time
+-- in the future.
 --
 -- /Note:/ Requires the service's signer to be an instance of 'AWSPresigner'.
 -- Not all signing process support this.
@@ -160,8 +166,35 @@ presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
         -> a       -- ^ Request to presign.
         -> UTCTime -- ^ Signing time.
         -> Integer -- ^ Expiry time in seconds.
-        -> m (Signed a (Sg (Sv a)))
-presign Env{..} (request -> rq) = Sign.presign _envAuth _envRegion rq
+        -> m Client.Request
+presign Env{..} (request -> rq) t ex =
+    _sgRequest `liftM` Sign.presign _envAuth _envRegion rq t ex
+
+-- | Presign a URL that expires at the specified amount of time in the future.
+--
+-- /See:/ 'presign'
+presignURL :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
+           => Env
+           -> a       -- ^ Request to presign.
+           -> UTCTime -- ^ Signing time.
+           -> Integer -- ^ Expiry time in seconds.
+           -> m ByteString
+presignURL e x t ex = (toBS . uri) `liftM` presign e x t ex
+  where
+    uri rq =
+           scheme (secure rq)
+        <> build  (host rq)
+        <> port'  (port rq)
+        <> build  (path rq)
+        <> build  (queryString rq)
+
+    scheme True = "https://"
+    scheme _    = "http://"
+
+    port' = \case
+        80  -> ""
+        443 -> ""
+        n   -> build ':' <> build n
 
 raw :: (MonadCatch m, MonadResource m, AWSRequest a)
     => Env

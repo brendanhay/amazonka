@@ -21,7 +21,7 @@ library
 
     build-depends:
         amazonka      == 0.0.7.*
-      , amazonka-core == 0.0.7.*
+      , amazonka-core == 0.0.7.1
       , amazonka-s3 == 0.0.7.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
@@ -31,3 +31,6 @@ library
       , text          >= 1.1
       , time          >= 1.4
       , transformers  == 0.4.*
+
+      , http-conduit
+      , http-client

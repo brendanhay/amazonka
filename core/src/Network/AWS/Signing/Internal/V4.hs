@@ -69,7 +69,7 @@ instance AWSPresigner V4 where
     presigned a r rq t ex = out & sgRequest
         . queryString <>~ auth (out ^. sgMeta)
       where
-        out = finalise Nothing qry hash r service a inp t
+        out = finalise qry hash r service a inp t
 
         qry cs sh =
               pair (CI.original hAMZAlgorithm)     algorithm
@@ -90,7 +90,7 @@ instance AWSSigner V4 where
         %~ requestHeaders
         %~ hdr hAuthorization (authorisation $ out ^. sgMeta)
       where
-        out = finalise (Just "AWS4") (\_ _ -> id) hash r service a inp t
+        out = finalise (\_ _ -> id) hash r service a inp t
 
         inp = rq & rqHeaders %~ hdr hAMZDate date . hdrs (maybeToList tok)
 
@@ -112,8 +112,7 @@ authorisation Meta{..} = BS.concat
 algorithm :: ByteString
 algorithm = "AWS4-HMAC-SHA256"
 
-finalise :: Maybe ByteString
-         -> (ByteString -> ByteString -> Query -> Query)
+finalise :: (ByteString -> ByteString -> Query -> Query)
          -> ByteString
          -> Region
          -> Service (Sv a)
@@ -121,7 +120,8 @@ finalise :: Maybe ByteString
          -> Request a
          -> UTCTime
          -> Signed a V4
-finalise p qry hash r s@Service{..} AuthEnv{..} Request{..} t = Signed meta rq
+finalise qry hash r s@Service{..} AuthEnv{..} Request{..} t =
+    Signed meta rq
   where
     meta = Meta
         { _mAlgorithm = algorithm
@@ -186,10 +186,10 @@ finalise p qry hash r s@Service{..} AuthEnv{..} Request{..} t = Signed meta rq
         ]
 
     credentialScope = BS.intercalate "/" scope
-    accessScope     = toBS _authAccess <> "/" <> credentialScope
 
-    signingKey = Fold.foldl1 hmacSHA256 $
-        maybe (toBS _authSecret) (<> toBS _authSecret) p : scope
+    accessScope = toBS _authAccess <> "/" <> credentialScope
+
+    signingKey = Fold.foldl1 hmacSHA256 $ ("AWS4" <> toBS _authSecret) : scope
 
     stringToSign = BS.intercalate "\n"
         [ algorithm

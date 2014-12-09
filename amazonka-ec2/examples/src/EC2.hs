@@ -71,7 +71,7 @@ example = do
                 throwAWSError e
 
 say :: Show a => Build.Builder -> a -> AWST IO ()
-say msg = logInfo . mappend msg . Build.stringUtf8 . show
+say msg = info . mappend msg . Build.stringUtf8 . show
 
 getTimestamp :: IO Integer
 getTimestamp = truncate <$> getPOSIXTime

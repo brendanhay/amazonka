@@ -8,6 +8,8 @@
     * [Credentials](#credentials)
     * [Type Signatures](#type-signatures)
     * [Sending Requests](#sending-requests)
+    * [Retries](#retries)
+    * [Waiters](#waiters)
     * [Pagination](#pagination)
     * [Presigned URLs](#presigned-urls)
     * [Asynchronous Actions](#asynchronous-actions)
@@ -151,6 +153,37 @@ when the service signals there are no more results.
 > such as `DescribeAutoScalingGroups` instead of fully paginating it.
 > This can be a convenient way to obtain only the first page of results without
 > using any conduit operators.
+
+### Retries
+
+Various services support some rudimentary, or potentially more exotic retry logic.
+
+Usually it is some form of exponential back _on_, with general server errors,
+rate limit exceeded errors, or service unavailable errors handled in the common cases.
+
+The `Network.AWS.<ServiceName>.Types` module contains the retry specification
+for each respective service.
+
+Additionally, the library will retry basic HTTP errors. This and other retry logic
+can be overriden in the environment available to the request functions.
+
+### Waiters
+
+Waiters are used to poll for remote conditions in the face of eventually consistent
+API operations. The `Wait` specifications can be found in the `Network.AWS.<ServiceName>.Waiters`
+namespace for services that support it. These specifications can be used in conjunction
+with the `await` variants.
+
+For example, if you issued a DynamoDB `DeleteTable` operation, and then wished
+to wait for confirmation that the table has been deleted:
+
+```haskell
+await tableNotExists (describeTable "table-name")
+```
+
+This will attempt the `DescribeTable` operation a maximum of 25 times,
+with 20 seconds of delay between each attempt, until the `Wait` criteria
+succeeds, fails, or exceptionally exits.
 
 ### Presigned URLs
 

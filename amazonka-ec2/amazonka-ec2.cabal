@@ -1,5 +1,5 @@
 name:                  amazonka-ec2
-version:               0.0.7
+version:               0.0.8
 synopsis:              Amazon Elastic Compute Cloud SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -205,5 +205,5 @@ library
           Network.AWS.EC2.Internal
 
     build-depends:
-          amazonka-core == 0.0.7.*
+          amazonka-core == 0.0.8.*
         , base          >= 4.7     && < 5

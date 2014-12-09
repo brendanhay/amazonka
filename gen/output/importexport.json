@@ -65,7 +65,7 @@
         "url": "http://docs.aws.amazon.com/AWSImportExport/latest/DG/api-reference.html",
         "protocol": "query",
         "name": "Amazon Import/Export",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "AWS Import/Export accelerates moving large amounts of data into and out of\nAWS using portable storage devices for transport. AWS transfers your data\ndirectly onto and off of storage devices using Amazon’s high-speed internal\nnetwork and bypassing the Internet. For significant data sets, AWS\nImport/Export is often faster than Internet transfer and more cost effective\nthan upgrading your connectivity."
     },
     "types": {

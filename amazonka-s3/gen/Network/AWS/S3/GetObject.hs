@@ -271,7 +271,7 @@ data GetObjectResponse = GetObjectResponse
     , _gorContentType             :: Maybe Text
     , _gorDeleteMarker            :: Maybe Bool
     , _gorETag                    :: Maybe Text
-    , _gorExpiration              :: Maybe RFC822
+    , _gorExpiration              :: Maybe Text
     , _gorExpires                 :: Maybe RFC822
     , _gorLastModified            :: Maybe RFC822
     , _gorMetadata                :: Map (CI Text) Text
@@ -309,7 +309,7 @@ data GetObjectResponse = GetObjectResponse
 --
 -- * 'gorETag' @::@ 'Maybe' 'Text'
 --
--- * 'gorExpiration' @::@ 'Maybe' 'UTCTime'
+-- * 'gorExpiration' @::@ 'Maybe' 'Text'
 --
 -- * 'gorExpires' @::@ 'Maybe' 'UTCTime'
 --
@@ -410,8 +410,8 @@ gorETag = lens _gorETag (\s a -> s { _gorETag = a })
 -- response includes this header. It includes the expiry-date and rule-id key
 -- value pairs providing object expiration information. The value of the rule-id
 -- is URL encoded.
-gorExpiration :: Lens' GetObjectResponse (Maybe UTCTime)
-gorExpiration = lens _gorExpiration (\s a -> s { _gorExpiration = a }) . mapping _Time
+gorExpiration :: Lens' GetObjectResponse (Maybe Text)
+gorExpiration = lens _gorExpiration (\s a -> s { _gorExpiration = a })
 
 -- | The date and time at which the object is no longer cacheable.
 gorExpires :: Lens' GetObjectResponse (Maybe UTCTime)

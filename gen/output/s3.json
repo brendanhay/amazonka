@@ -8530,7 +8530,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -8540,8 +8540,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, this will contain the expiration date\n-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -8644,7 +8644,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -8654,8 +8654,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, this will contain the expiration date\n-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -9074,7 +9074,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -9084,8 +9084,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, the response includes this header.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -9204,7 +9204,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -9214,8 +9214,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, the response includes this header.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -16238,7 +16238,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -16248,8 +16248,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured (see PUT Bucket lifecycle), the\n-- response includes this header. It includes the expiry-date and rule-id key\n-- value pairs providing object expiration information. The value of the rule-id\n-- is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -16704,7 +16704,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -16714,8 +16714,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured (see PUT Bucket lifecycle), the\n-- response includes this header. It includes the expiry-date and rule-id key\n-- value pairs providing object expiration information. The value of the rule-id\n-- is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -18393,7 +18393,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -18403,8 +18403,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured (see PUT Bucket lifecycle), the\n-- response includes this header. It includes the expiry-date and rule-id key\n-- value pairs providing object expiration information. The value of the rule-id\n-- is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -18843,7 +18843,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -18853,8 +18853,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured (see PUT Bucket lifecycle), the\n-- response includes this header. It includes the expiry-date and rule-id key\n-- value pairs providing object expiration information. The value of the rule-id\n-- is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -25690,7 +25690,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -25700,8 +25700,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, this will contain the expiration date\n-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -25820,7 +25820,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -25830,8 +25830,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, this will contain the expiration date\n-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",

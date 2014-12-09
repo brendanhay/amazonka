@@ -29,7 +29,13 @@
 -- Only you (as owner of the queue) can grant or deny permissions to the queue.
 -- For more information about these permissions, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues> in the /AmazonSQS Developer Guide/.
 --
--- '&Attribute.1=this'
+-- 'AddPermission' writes an Amazon SQS-generated policy. If you want to write
+-- your own policy, use 'SetQueueAttributes' to upload your policy. For more
+-- information about writing your own policy, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AccessPolicyLanguage.html Using The Access PolicyLanguage> in the /Amazon SQS Developer Guide/.
+--
+-- Some API actions take lists of parameters. These lists are specified using
+-- the 'param.n' notation. Values of 'n' are integers starting from 1. For example,
+-- a parameter list with two elements looks like this:  '&Attribute.1=this'
 --
 -- '&Attribute.2=that'
 --

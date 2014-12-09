@@ -386,7 +386,7 @@ coWebsiteRedirectLocation =
 data CopyObjectResponse = CopyObjectResponse
     { _corCopyObjectResult     :: Maybe CopyObjectResult
     , _corCopySourceVersionId  :: Maybe Text
-    , _corExpiration           :: Maybe RFC822
+    , _corExpiration           :: Maybe Text
     , _corSSECustomerAlgorithm :: Maybe Text
     , _corSSECustomerKeyMD5    :: Maybe Text
     , _corSSEKMSKeyId          :: Maybe (Sensitive Text)
@@ -401,7 +401,7 @@ data CopyObjectResponse = CopyObjectResponse
 --
 -- * 'corCopySourceVersionId' @::@ 'Maybe' 'Text'
 --
--- * 'corExpiration' @::@ 'Maybe' 'UTCTime'
+-- * 'corExpiration' @::@ 'Maybe' 'Text'
 --
 -- * 'corSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -431,8 +431,8 @@ corCopySourceVersionId =
     lens _corCopySourceVersionId (\s a -> s { _corCopySourceVersionId = a })
 
 -- | If the object expiration is configured, the response includes this header.
-corExpiration :: Lens' CopyObjectResponse (Maybe UTCTime)
-corExpiration = lens _corExpiration (\s a -> s { _corExpiration = a }) . mapping _Time
+corExpiration :: Lens' CopyObjectResponse (Maybe Text)
+corExpiration = lens _corExpiration (\s a -> s { _corExpiration = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption

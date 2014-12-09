@@ -56,6 +56,12 @@
 -- used for the returned messages. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout>
 -- in the /Amazon SQS Developer Guide/.
 --
+-- Going forward, new attributes might be added. If you are writing code that
+-- calls this action, we recommend that you structure your code so that it can
+-- handle new attributes gracefully.
+--
+--
+--
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html>
 module Network.AWS.SQS.ReceiveMessage
     (
@@ -126,9 +132,12 @@ receiveMessage p1 = ReceiveMessage
 -- be returned:
 --
 -- 'All' - returns all values.  'ApproximateFirstReceiveTimestamp' - returns the
--- time when the message was first received (epoch time in milliseconds).  'ApproximateReceiveCount' - returns the number of times a message has been received but not deleted.  'SenderId' - returns the AWS account number (or the IP address, if anonymous access is
--- allowed) of the sender.  'SentTimestamp' - returns the time when the message
--- was sent (epoch time in milliseconds).
+-- time when the message was first received from the queue (epoch time in
+-- milliseconds).  'ApproximateReceiveCount' - returns the number of times a
+-- message has been received from the queue but not deleted.  'SenderId' - returns
+-- the AWS account number (or the IP address, if anonymous access is allowed) of
+-- the sender.  'SentTimestamp' - returns the time when the message was sent to
+-- the queue (epoch time in milliseconds).
 rmAttributeNames :: Lens' ReceiveMessage [Text]
 rmAttributeNames = lens _rmAttributeNames (\s a -> s { _rmAttributeNames = a }) . _List
 
@@ -141,13 +150,19 @@ rmMaxNumberOfMessages :: Lens' ReceiveMessage (Maybe Int)
 rmMaxNumberOfMessages =
     lens _rmMaxNumberOfMessages (\s a -> s { _rmMaxNumberOfMessages = a })
 
--- | The message attribute Name can contain the following characters: A-Z, a-z,
--- 0-9, underscore(_), hyphen(-), and period (.). The message attribute name
--- must not start or end with a period, and it should not have successive
--- periods. The message attribute name is case sensitive and must be unique
--- among all attribute names for the message. The message attribute name can be
--- up to 256 characters long. Attribute names cannot start with "AWS." or
--- "Amazon." because these prefixes are reserved for use by Amazon Web Services.
+-- | The name of the message attribute, where /N/ is the index. The message
+-- attribute name can contain the following characters: A-Z, a-z, 0-9,
+-- underscore (_), hyphen (-), and period (.). The name must not start or end
+-- with a period, and it should not have successive periods. The name is case
+-- sensitive and must be unique among all attribute names for the message. The
+-- name can be up to 256 characters long. The name cannot start with "AWS." or
+-- "Amazon." (or any variations in casing), because these prefixes are reserved
+-- for use by Amazon Web Services.
+--
+-- When using 'ReceiveMessage', you can send a list of attribute names to
+-- receive, or you can return all of the attributes by specifying "All" or ".*"
+-- in your request. You can also use "foo.*" to return all message attributes
+-- starting with the "foo" prefix.
 rmMessageAttributeNames :: Lens' ReceiveMessage [Text]
 rmMessageAttributeNames =
     lens _rmMessageAttributeNames (\s a -> s { _rmMessageAttributeNames = a })

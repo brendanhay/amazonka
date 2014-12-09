@@ -29,6 +29,7 @@ module Network.AWS.SQS
     , module Network.AWS.SQS.GetQueueUrl
     , module Network.AWS.SQS.ListDeadLetterSourceQueues
     , module Network.AWS.SQS.ListQueues
+    , module Network.AWS.SQS.PurgeQueue
     , module Network.AWS.SQS.ReceiveMessage
     , module Network.AWS.SQS.RemovePermission
     , module Network.AWS.SQS.SendMessage
@@ -48,6 +49,7 @@ import Network.AWS.SQS.GetQueueAttributes
 import Network.AWS.SQS.GetQueueUrl
 import Network.AWS.SQS.ListDeadLetterSourceQueues
 import Network.AWS.SQS.ListQueues
+import Network.AWS.SQS.PurgeQueue
 import Network.AWS.SQS.ReceiveMessage
 import Network.AWS.SQS.RemovePermission
 import Network.AWS.SQS.SendMessage

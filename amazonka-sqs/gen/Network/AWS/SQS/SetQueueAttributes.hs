@@ -26,6 +26,10 @@
 -- attributes, the change can take up to 60 seconds for most of the attributes
 -- to propagate throughout the SQS system. Changes made to the 'MessageRetentionPeriod' attribute can take up to 15 minutes.
 --
+-- Going forward, new attributes might be added. If you are writing code that
+-- calls this action, we recommend that you structure your code so that it can
+-- handle new attributes gracefully.
+--
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SetQueueAttributes.html>
 module Network.AWS.SQS.SetQueueAttributes
     (
@@ -81,16 +85,15 @@ setQueueAttributes p1 = SetQueueAttributes
 -- attribute is 262144 (256 KiB).  'MessageRetentionPeriod' - The number of
 -- seconds Amazon SQS retains a message. Integer representing seconds, from 60
 -- (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4
--- days).  'Policy' - The queue's policy. A valid form-url-encoded policy. For
--- more information about policy structure, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html Basic Policy Structure> in the /Amazon SQS Developer Guide/. For more information about form-url-encoding, see <http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1 http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1>.  'ReceiveMessageWaitTimeSeconds' - The time for which a ReceiveMessage call
--- will wait for a message to arrive. An integer from 0 to 20 (seconds). The
--- default for this attribute is 0.   'VisibilityTimeout' - The visibility timeout
--- for the queue. An integer from 0 to 43200 (12 hours). The default for this
--- attribute is 30. For more information about visibility timeout, see
--- Visibility Timeout in the /Amazon SQS Developer Guide/.  'RedrivePolicy' - The
--- parameters for dead letter queue functionality of the source queue. For more
--- information about RedrivePolicy and dead letter queues, see Using Amazon SQS
--- Dead Letter Queues in the /Amazon SQS Developer Guide/.
+-- days).  'Policy' - The queue's policy. A valid AWS policy. For more information
+-- about policy structure, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of AWS IAM Policies> in the /Amazon IAMUser Guide/.  'ReceiveMessageWaitTimeSeconds' - The time for which a
+-- ReceiveMessage call will wait for a message to arrive. An integer from 0 to
+-- 20 (seconds). The default for this attribute is 0.   'VisibilityTimeout' - The
+-- visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The
+-- default for this attribute is 30. For more information about visibility
+-- timeout, see Visibility Timeout in the /Amazon SQS Developer Guide/.  'RedrivePolicy' - The parameters for dead letter queue functionality of the source queue.
+-- For more information about RedrivePolicy and dead letter queues, see Using
+-- Amazon SQS Dead Letter Queues in the /Amazon SQS Developer Guide/.
 sqaAttributes :: Lens' SetQueueAttributes (HashMap Text Text)
 sqaAttributes = lens _sqaAttributes (\s a -> s { _sqaAttributes = a }) . _EMap
 

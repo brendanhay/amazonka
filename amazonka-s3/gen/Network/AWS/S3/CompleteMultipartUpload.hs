@@ -103,7 +103,7 @@ cmu1UploadId = lens _cmu1UploadId (\s a -> s { _cmu1UploadId = a })
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
     { _cmur1Bucket               :: Maybe Text
     , _cmur1ETag                 :: Maybe Text
-    , _cmur1Expiration           :: Maybe RFC822
+    , _cmur1Expiration           :: Maybe Text
     , _cmur1Key                  :: Maybe Text
     , _cmur1Location             :: Maybe Text
     , _cmur1SSEKMSKeyId          :: Maybe (Sensitive Text)
@@ -119,7 +119,7 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
 --
 -- * 'cmur1ETag' @::@ 'Maybe' 'Text'
 --
--- * 'cmur1Expiration' @::@ 'Maybe' 'UTCTime'
+-- * 'cmur1Expiration' @::@ 'Maybe' 'Text'
 --
 -- * 'cmur1Key' @::@ 'Maybe' 'Text'
 --
@@ -152,8 +152,8 @@ cmur1ETag = lens _cmur1ETag (\s a -> s { _cmur1ETag = a })
 
 -- | If the object expiration is configured, this will contain the expiration date
 -- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
-cmur1Expiration :: Lens' CompleteMultipartUploadResponse (Maybe UTCTime)
-cmur1Expiration = lens _cmur1Expiration (\s a -> s { _cmur1Expiration = a }) . mapping _Time
+cmur1Expiration :: Lens' CompleteMultipartUploadResponse (Maybe Text)
+cmur1Expiration = lens _cmur1Expiration (\s a -> s { _cmur1Expiration = a })
 
 cmur1Key :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 cmur1Key = lens _cmur1Key (\s a -> s { _cmur1Key = a })

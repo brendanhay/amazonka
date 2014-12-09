@@ -50,6 +50,7 @@ library
         , Network.AWS.SQS.GetQueueUrl
         , Network.AWS.SQS.ListDeadLetterSourceQueues
         , Network.AWS.SQS.ListQueues
+        , Network.AWS.SQS.PurgeQueue
         , Network.AWS.SQS.ReceiveMessage
         , Network.AWS.SQS.RemovePermission
         , Network.AWS.SQS.SendMessage

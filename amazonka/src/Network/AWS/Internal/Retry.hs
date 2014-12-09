@@ -70,7 +70,7 @@ waiter :: MonadIO m
        -> m (Response' a)
 waiter Env{..} w@Wait{..} rq = retrying policy check
   where
-    policy = limitRetries _waitAttempts <> constantDelay _waitDelay
+    policy = limitRetries _waitAttempts <> constantDelay (_waitDelay * 1000000)
 
     check n rs = do
         let a = fromMaybe AcceptRetry (accept w rq rs)

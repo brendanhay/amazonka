@@ -53,46 +53,44 @@ data instance Meta V4 = Meta
 instance ToBuilder (Meta V4) where
     build Meta{..} = mconcat $ intersperse "\n"
         [ "[Version 4 Metadata] {"
-        , "  algorithm         = " <> build _mAlgorithm
-        , "  credential scope  = " <> build _mScope
-        , "  signed headers    = " <> build _mSigned
-        , "  canonical request = {"
-        , build _mCReq
-        , "  }"
-        , "  string to sign    = " <> build _mSTS
-        , "  signature         = " <> build _mSignature
-        , "  time              = " <> build _mTime
-        , "}"
+        , build (BS.concatMap nl _mCReq)
+        , build (BS.concatMap nl _mSTS)
         ]
+      where
+        nl '\n' = "\\n"
+        nl c    = BS.singleton c
 
 instance AWSPresigner V4 where
-    presigned a r rq t x = out
-        & sgRequest . queryString <>~ auth (out ^. sgMeta)
+    presigned a r rq t ex = out & sgRequest
+        . queryString <>~ auth (out ^. sgMeta)
       where
-        out = finalise Nothing qry service a r rq t
+        out = finalise Nothing qry hash r service a inp t
 
         qry cs sh =
               pair (CI.original hAMZAlgorithm)     algorithm
             . pair (CI.original hAMZCredential)    cs
-            . pair (CI.original hAMZDate)          (Time t :: ISO8601)
-            . pair (CI.original hAMZExpires)       (Time x :: ISO8601)
+            . pair (CI.original hAMZDate)          (Time t :: AWSTime)
+            . pair (CI.original hAMZExpires)       ex
             . pair (CI.original hAMZSignedHeaders) sh
             . pair (CI.original hAMZToken)         (toBS <$> _authToken a)
-            . pair (CI.original hAMZContentSHA256) ("UNSIGNED-PAYLOAD" :: ByteString)
 
-        auth = mappend "&X-AMZ-Signature=" . _mSignature
+        inp = rq & rqHeaders .~ []
+
+        auth = mappend "&X-Amz-Signature=" . _mSignature
+
+        hash = "UNSIGNED-PAYLOAD"
 
 instance AWSSigner V4 where
-    signed a r rq t = out
-        & sgRequest
+    signed a r rq t = out & sgRequest
         %~ requestHeaders
         %~ hdr hAuthorization (authorisation $ out ^. sgMeta)
       where
-        out = finalise (Just "AWS4") (\_ _ -> id) service a r inp t
+        out = finalise (Just "AWS4") (\_ _ -> id) hash r service a inp t
+        inp = rq & rqHeaders %~ hdr hAMZDate date . hdrs (maybeToList tok)
 
-        inp = rq & rqHeaders %~ hdrs (maybeToList tok)
-
-        tok = (hAMZToken,) . toBS <$> _authToken a
+        date = toBS (Time t :: AWSTime)
+        tok  = (hAMZToken,) . toBS <$> _authToken a
+        hash = bodyHash (_rqBody rq)
 
 authorisation :: Meta V4 -> ByteString
 authorisation Meta{..} = BS.concat
@@ -110,18 +108,19 @@ algorithm = "AWS4-HMAC-SHA256"
 
 finalise :: Maybe ByteString
          -> (ByteString -> ByteString -> Query -> Query)
+         -> ByteString
+         -> Region
          -> Service (Sv a)
          -> AuthEnv
-         -> Region
          -> Request a
          -> UTCTime
          -> Signed a V4
-finalise p qry s@Service{..} AuthEnv{..} r Request{..} t = Signed meta rq
+finalise p qry hash r s@Service{..} AuthEnv{..} Request{..} t = Signed meta rq
   where
     meta = Meta
         { _mAlgorithm = algorithm
         , _mCReq      = canonicalRequest
-        , _mScope     = toBS _authAccess <> "/" <> credentialScope
+        , _mScope     = accessScope
         , _mSigned    = signedHeaders
         , _mSTS       = stringToSign
         , _mSignature = signature
@@ -132,21 +131,18 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} t = Signed meta rq
         & method         .~ meth
         & host           .~ _endpointHost
         & path           .~ _rqPath
-        & queryString    .~ toBS query
+        & queryString    .~ BS.cons '?' (toBS query)
         & requestHeaders .~ headers
         & requestBody    .~ _bdyBody _rqBody
 
     meth  = toBS _rqMethod
-    query = qry credentialScope signedHeaders _rqQuery
+    query = qry accessScope signedHeaders _rqQuery
 
     Endpoint{..} = endpoint s r
 
     canonicalQuery = toBS (query & valuesOf %~ Just . fromMaybe "")
 
-    headers = sortBy (comparing fst)
-        . hdr hHost _endpointHost
-        . hdr hAMZDate (toBS (Time t :: AWSTime))
-        $ _rqHeaders
+    headers = sortBy (comparing fst) (hdr hHost _endpointHost _rqHeaders)
 
     joinedHeaders = map f $ groupBy ((==) `on` fst) headers
       where
@@ -169,11 +165,11 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} t = Signed meta rq
 
     canonicalRequest = mconcat $ intersperse "\n"
        [ meth
-       , collapseURI _rqPath
+       , collapsePath _rqPath
        , canonicalQuery
        , canonicalHeaders
        , signedHeaders
-       , bodyHash _rqBody
+       , hash
        ]
 
     scope =
@@ -184,6 +180,7 @@ finalise p qry s@Service{..} AuthEnv{..} r Request{..} t = Signed meta rq
         ]
 
     credentialScope = BS.intercalate "/" scope
+    accessScope     = toBS _authAccess <> "/" <> credentialScope
 
     signingKey = Fold.foldl1 hmacSHA256 $
         maybe (toBS _authSecret) (<> toBS _authSecret) p : scope

@@ -128,10 +128,10 @@ type Abbrev = Text
 -- | An error type representing the subset of errors that can be directly
 -- attributed to this library.
 data ServiceError a
-    = HttpError       HttpException
-    | SerializerError Abbrev String
-    | ServiceError    Abbrev Status a
-    | Errors          [ServiceError a]
+    = HttpError        HttpException
+    | SerializerError  Abbrev String
+    | ServiceError     Abbrev Status a
+    | Errors           [ServiceError a]
       deriving (Show, Typeable)
 
 instance (Show a, Typeable a) => Exception (ServiceError a)
@@ -216,7 +216,7 @@ class AWSPresigner v where
               -> Region
               -> Request a
               -> UTCTime
-              -> UTCTime
+              -> Integer
               -> Signed a v
 
 -- | Access key credential.

@@ -11,7 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Data.Internal.URI
-    ( collapseURI
+    ( collapsePath
     ) where
 
 import           Data.ByteString.Char8 (ByteString)
@@ -19,8 +19,8 @@ import qualified Data.ByteString.Char8 as BS
 import qualified Data.Foldable         as Fold
 import           Data.Monoid
 
-collapseURI :: ByteString -> ByteString
-collapseURI bs
+collapsePath :: ByteString -> ByteString
+collapsePath bs
     | BS.null bs   = slash
     | BS.null path = slash
     | otherwise    = tl (hd path)

@@ -35,9 +35,9 @@ presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
         -> Region    -- ^ AWS Region.
         -> Request a -- ^ Request to presign.
         -> UTCTime   -- ^ Signing time.
-        -> UTCTime   -- ^ Expiry time.
+        -> Integer   -- ^ Expiry time in seconds.
         -> m (Signed a (Sg (Sv a)))
-presign a r rq t x = withAuth a $ \e -> return (presigned e r rq t x)
+presign a r rq t ex = withAuth a $ \e -> return (presigned e r rq t ex)
 
 hmacSHA256 :: ByteString -> ByteString -> ByteString
 hmacSHA256 = HMAC.hmac SHA256.hash 64

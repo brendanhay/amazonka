@@ -156,7 +156,8 @@ when the service signals there are no more results.
 
 Presigned URLs can be generated for services which are an instance of [`AWSPresigner`](http://brendanhay.nz/amazonka/amazonka-core/Network-AWS-Types.html#t:AWSPresigner).
 
-The `presign` method is used to specify the request to sign and the expiry time.
+The `presign` and `presignURL` methods re used to specify the request to sign
+and the time window in which the request (or raw URL) will be valid.
 
 ### Asynchronous Actions
 

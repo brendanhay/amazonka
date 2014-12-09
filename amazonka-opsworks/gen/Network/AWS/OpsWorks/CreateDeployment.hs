@@ -22,12 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deploys a stack or app.
---
--- App deployment generates a 'deploy' event, which runs the associated recipes
--- and passes them a JSON stack configuration object that includes information
--- about the app.  Stack deployment runs the 'deploy' recipes but does not raise
--- an event.  For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html Deploying Apps> and <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html Run Stack Commands>.
+-- | Runs deployment or stack commands. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html Deploying Apps>
+-- and <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html Run Stack Commands>.
 --
 -- Required Permissions: To use this action, an IAM user must have a Deploy or
 -- Manage permissions level for the stack, or an attached policy that explicitly

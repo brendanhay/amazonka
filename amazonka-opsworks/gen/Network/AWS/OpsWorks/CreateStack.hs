@@ -202,7 +202,11 @@ csDefaultInstanceProfileArn =
     lens _csDefaultInstanceProfileArn
         (\s a -> s { _csDefaultInstanceProfileArn = a })
 
--- | The stack's default operating system, which must be set to 'Amazon Linux' or 'Ubuntu 12.04 LTS'. The default option is 'Amazon Linux'.
+-- | The stack's operating system, which must be set to one of the following.
+--
+-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You
+-- specify the custom AMI you want to use when you create instances.   The
+-- default option is the current Amazon Linux version.
 csDefaultOs :: Lens' CreateStack (Maybe Text)
 csDefaultOs = lens _csDefaultOs (\s a -> s { _csDefaultOs = a })
 
@@ -219,8 +223,9 @@ csDefaultSshKeyName :: Lens' CreateStack (Maybe Text)
 csDefaultSshKeyName =
     lens _csDefaultSshKeyName (\s a -> s { _csDefaultSshKeyName = a })
 
--- | The stack's default subnet ID. All instances will be launched into this
--- subnet unless you specify otherwise when you create the instance. If you also
+-- | The stack's default VPC subnet ID. This parameter is required if you specify
+-- a value for the 'VpcId' parameter. All instances are launched into this subnet
+-- unless you specify otherwise when you create the instance. If you also
 -- specify a value for 'DefaultAvailabilityZone', the subnet must be in that zone.
 -- For information on default values and when this parameter is required, see
 -- the 'VpcId' parameter description.
@@ -280,8 +285,8 @@ csUseOpsworksSecurityGroups =
         (\s a -> s { _csUseOpsworksSecurityGroups = a })
 
 -- | The ID of the VPC that the stack is to be launched into. It must be in the
--- specified region. All instances will be launched into this VPC, and you
--- cannot change the ID later.
+-- specified region. All instances are launched into this VPC, and you cannot
+-- change the ID later.
 --
 -- If your account supports EC2 Classic, the default value is no VPC. If your
 -- account does not support EC2 Classic, the default value is the default VPC

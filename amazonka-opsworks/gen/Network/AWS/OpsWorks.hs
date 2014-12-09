@@ -15,7 +15,8 @@
 -- their configuration, deploy applications to those resources, and monitor
 -- their health.
 module Network.AWS.OpsWorks
-    ( module Network.AWS.OpsWorks.AssignVolume
+    ( module Network.AWS.OpsWorks.AssignInstance
+    , module Network.AWS.OpsWorks.AssignVolume
     , module Network.AWS.OpsWorks.AssociateElasticIp
     , module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     , module Network.AWS.OpsWorks.CloneStack
@@ -31,6 +32,7 @@ module Network.AWS.OpsWorks
     , module Network.AWS.OpsWorks.DeleteStack
     , module Network.AWS.OpsWorks.DeleteUserProfile
     , module Network.AWS.OpsWorks.DeregisterElasticIp
+    , module Network.AWS.OpsWorks.DeregisterInstance
     , module Network.AWS.OpsWorks.DeregisterRdsDbInstance
     , module Network.AWS.OpsWorks.DeregisterVolume
     , module Network.AWS.OpsWorks.DescribeApps
@@ -46,6 +48,7 @@ module Network.AWS.OpsWorks
     , module Network.AWS.OpsWorks.DescribeRaidArrays
     , module Network.AWS.OpsWorks.DescribeRdsDbInstances
     , module Network.AWS.OpsWorks.DescribeServiceErrors
+    , module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
     , module Network.AWS.OpsWorks.DescribeStackSummary
     , module Network.AWS.OpsWorks.DescribeStacks
     , module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
@@ -56,6 +59,7 @@ module Network.AWS.OpsWorks
     , module Network.AWS.OpsWorks.GetHostnameSuggestion
     , module Network.AWS.OpsWorks.RebootInstance
     , module Network.AWS.OpsWorks.RegisterElasticIp
+    , module Network.AWS.OpsWorks.RegisterInstance
     , module Network.AWS.OpsWorks.RegisterRdsDbInstance
     , module Network.AWS.OpsWorks.RegisterVolume
     , module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
@@ -66,6 +70,7 @@ module Network.AWS.OpsWorks
     , module Network.AWS.OpsWorks.StopInstance
     , module Network.AWS.OpsWorks.StopStack
     , module Network.AWS.OpsWorks.Types
+    , module Network.AWS.OpsWorks.UnassignInstance
     , module Network.AWS.OpsWorks.UnassignVolume
     , module Network.AWS.OpsWorks.UpdateApp
     , module Network.AWS.OpsWorks.UpdateElasticIp
@@ -78,6 +83,7 @@ module Network.AWS.OpsWorks
     , module Network.AWS.OpsWorks.UpdateVolume
     ) where
 
+import Network.AWS.OpsWorks.AssignInstance
 import Network.AWS.OpsWorks.AssignVolume
 import Network.AWS.OpsWorks.AssociateElasticIp
 import Network.AWS.OpsWorks.AttachElasticLoadBalancer
@@ -94,6 +100,7 @@ import Network.AWS.OpsWorks.DeleteLayer
 import Network.AWS.OpsWorks.DeleteStack
 import Network.AWS.OpsWorks.DeleteUserProfile
 import Network.AWS.OpsWorks.DeregisterElasticIp
+import Network.AWS.OpsWorks.DeregisterInstance
 import Network.AWS.OpsWorks.DeregisterRdsDbInstance
 import Network.AWS.OpsWorks.DeregisterVolume
 import Network.AWS.OpsWorks.DescribeApps
@@ -109,6 +116,7 @@ import Network.AWS.OpsWorks.DescribePermissions
 import Network.AWS.OpsWorks.DescribeRaidArrays
 import Network.AWS.OpsWorks.DescribeRdsDbInstances
 import Network.AWS.OpsWorks.DescribeServiceErrors
+import Network.AWS.OpsWorks.DescribeStackProvisioningParameters
 import Network.AWS.OpsWorks.DescribeStackSummary
 import Network.AWS.OpsWorks.DescribeStacks
 import Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
@@ -119,6 +127,7 @@ import Network.AWS.OpsWorks.DisassociateElasticIp
 import Network.AWS.OpsWorks.GetHostnameSuggestion
 import Network.AWS.OpsWorks.RebootInstance
 import Network.AWS.OpsWorks.RegisterElasticIp
+import Network.AWS.OpsWorks.RegisterInstance
 import Network.AWS.OpsWorks.RegisterRdsDbInstance
 import Network.AWS.OpsWorks.RegisterVolume
 import Network.AWS.OpsWorks.SetLoadBasedAutoScaling
@@ -129,6 +138,7 @@ import Network.AWS.OpsWorks.StartStack
 import Network.AWS.OpsWorks.StopInstance
 import Network.AWS.OpsWorks.StopStack
 import Network.AWS.OpsWorks.Types
+import Network.AWS.OpsWorks.UnassignInstance
 import Network.AWS.OpsWorks.UnassignVolume
 import Network.AWS.OpsWorks.UpdateApp
 import Network.AWS.OpsWorks.UpdateElasticIp

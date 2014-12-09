@@ -24,6 +24,13 @@
 
 -- | Creates a layer. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html How to Create a Layer>.
 --
+-- You should use CreateLayer for noncustom layer types such as PHP App Server
+-- only if the stack does not have an existing layer of that type. A stack can
+-- have at most one instance of each noncustom layer; if you attempt to create a
+-- second instance, CreateLayer fails. A stack can have an arbitrary number of
+-- custom layers, so you can call CreateLayer as many times as you like for that
+-- layer type.
+--
 -- Required Permissions: To use this action, an IAM user must have a Manage
 -- permissions level for the stack, or an attached policy that explicitly grants
 -- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
@@ -44,6 +51,7 @@ module Network.AWS.OpsWorks.CreateLayer
     , clCustomSecurityGroupIds
     , clEnableAutoHealing
     , clInstallUpdatesOnBoot
+    , clLifecycleEventConfiguration
     , clName
     , clPackages
     , clShortname
@@ -66,21 +74,22 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data CreateLayer = CreateLayer
-    { _clAttributes               :: Map LayerAttributesKeys Text
-    , _clAutoAssignElasticIps     :: Maybe Bool
-    , _clAutoAssignPublicIps      :: Maybe Bool
-    , _clCustomInstanceProfileArn :: Maybe Text
-    , _clCustomRecipes            :: Maybe Recipes
-    , _clCustomSecurityGroupIds   :: List "InstanceIds" Text
-    , _clEnableAutoHealing        :: Maybe Bool
-    , _clInstallUpdatesOnBoot     :: Maybe Bool
-    , _clName                     :: Text
-    , _clPackages                 :: List "InstanceIds" Text
-    , _clShortname                :: Text
-    , _clStackId                  :: Text
-    , _clType                     :: LayerType
-    , _clUseEbsOptimizedInstances :: Maybe Bool
-    , _clVolumeConfigurations     :: List "VolumeConfigurations" VolumeConfiguration
+    { _clAttributes                  :: Map LayerAttributesKeys Text
+    , _clAutoAssignElasticIps        :: Maybe Bool
+    , _clAutoAssignPublicIps         :: Maybe Bool
+    , _clCustomInstanceProfileArn    :: Maybe Text
+    , _clCustomRecipes               :: Maybe Recipes
+    , _clCustomSecurityGroupIds      :: List "InstanceIds" Text
+    , _clEnableAutoHealing           :: Maybe Bool
+    , _clInstallUpdatesOnBoot        :: Maybe Bool
+    , _clLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
+    , _clName                        :: Text
+    , _clPackages                    :: List "InstanceIds" Text
+    , _clShortname                   :: Text
+    , _clStackId                     :: Text
+    , _clType                        :: LayerType
+    , _clUseEbsOptimizedInstances    :: Maybe Bool
+    , _clVolumeConfigurations        :: List "VolumeConfigurations" VolumeConfiguration
     } deriving (Eq, Show)
 
 -- | 'CreateLayer' constructor.
@@ -103,6 +112,8 @@ data CreateLayer = CreateLayer
 --
 -- * 'clInstallUpdatesOnBoot' @::@ 'Maybe' 'Bool'
 --
+-- * 'clLifecycleEventConfiguration' @::@ 'Maybe' 'LifecycleEventConfiguration'
+--
 -- * 'clName' @::@ 'Text'
 --
 -- * 'clPackages' @::@ ['Text']
@@ -123,21 +134,22 @@ createLayer :: Text -- ^ 'clStackId'
             -> Text -- ^ 'clShortname'
             -> CreateLayer
 createLayer p1 p2 p3 p4 = CreateLayer
-    { _clStackId                  = p1
-    , _clType                     = p2
-    , _clName                     = p3
-    , _clShortname                = p4
-    , _clAttributes               = mempty
-    , _clCustomInstanceProfileArn = Nothing
-    , _clCustomSecurityGroupIds   = mempty
-    , _clPackages                 = mempty
-    , _clVolumeConfigurations     = mempty
-    , _clEnableAutoHealing        = Nothing
-    , _clAutoAssignElasticIps     = Nothing
-    , _clAutoAssignPublicIps      = Nothing
-    , _clCustomRecipes            = Nothing
-    , _clInstallUpdatesOnBoot     = Nothing
-    , _clUseEbsOptimizedInstances = Nothing
+    { _clStackId                     = p1
+    , _clType                        = p2
+    , _clName                        = p3
+    , _clShortname                   = p4
+    , _clAttributes                  = mempty
+    , _clCustomInstanceProfileArn    = Nothing
+    , _clCustomSecurityGroupIds      = mempty
+    , _clPackages                    = mempty
+    , _clVolumeConfigurations        = mempty
+    , _clEnableAutoHealing           = Nothing
+    , _clAutoAssignElasticIps        = Nothing
+    , _clAutoAssignPublicIps         = Nothing
+    , _clCustomRecipes               = Nothing
+    , _clInstallUpdatesOnBoot        = Nothing
+    , _clUseEbsOptimizedInstances    = Nothing
+    , _clLifecycleEventConfiguration = Nothing
     }
 
 -- | One or more user-defined key/value pairs to be added to the stack attributes.
@@ -183,9 +195,22 @@ clEnableAutoHealing =
 -- boots. The default value is 'true'. To control when updates are installed, set
 -- this value to 'false'. You must then update your instances manually by using 'CreateDeployment' to run the 'update_dependencies' stack command or manually running 'yum' (Amazon
 -- Linux) or 'apt-get' (Ubuntu) on the instances.
+--
+-- We strongly recommend using the default value of 'true', to ensure that your
+-- instances have the latest security updates.
+--
+--
 clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
 clInstallUpdatesOnBoot =
     lens _clInstallUpdatesOnBoot (\s a -> s { _clInstallUpdatesOnBoot = a })
+
+-- | A LifeCycleEventConfiguration object that you can use to configure the
+-- Shutdown event to specify an execution timeout and enable or disable Elastic
+-- Load Balancer connection draining.
+clLifecycleEventConfiguration :: Lens' CreateLayer (Maybe LifecycleEventConfiguration)
+clLifecycleEventConfiguration =
+    lens _clLifecycleEventConfiguration
+        (\s a -> s { _clLifecycleEventConfiguration = a })
 
 -- | The layer name, which is used by the console.
 clName :: Lens' CreateLayer Text
@@ -207,13 +232,7 @@ clStackId :: Lens' CreateLayer Text
 clStackId = lens _clStackId (\s a -> s { _clStackId = a })
 
 -- | The layer type. A stack cannot have more than one built-in layer of the same
--- type. It can have any number of custom layers. This parameter must be set to
--- one of the following:
---
--- custom: A custom layer db-master: A MySQL layer java-app: A Java App Server
--- layer rails-app: A Rails App Server layer lb: An HAProxy layer memcached: A
--- Memcached layer monitoring-master: A Ganglia layer nodejs-app: A Node.js App
--- Server layer php-app: A PHP App Server layer web: A Static Web Server layer
+-- type. It can have any number of custom layers.
 clType :: Lens' CreateLayer LayerType
 clType = lens _clType (\s a -> s { _clType = a })
 
@@ -258,21 +277,22 @@ instance ToHeaders CreateLayer
 
 instance ToJSON CreateLayer where
     toJSON CreateLayer{..} = object
-        [ "StackId"                  .= _clStackId
-        , "Type"                     .= _clType
-        , "Name"                     .= _clName
-        , "Shortname"                .= _clShortname
-        , "Attributes"               .= _clAttributes
-        , "CustomInstanceProfileArn" .= _clCustomInstanceProfileArn
-        , "CustomSecurityGroupIds"   .= _clCustomSecurityGroupIds
-        , "Packages"                 .= _clPackages
-        , "VolumeConfigurations"     .= _clVolumeConfigurations
-        , "EnableAutoHealing"        .= _clEnableAutoHealing
-        , "AutoAssignElasticIps"     .= _clAutoAssignElasticIps
-        , "AutoAssignPublicIps"      .= _clAutoAssignPublicIps
-        , "CustomRecipes"            .= _clCustomRecipes
-        , "InstallUpdatesOnBoot"     .= _clInstallUpdatesOnBoot
-        , "UseEbsOptimizedInstances" .= _clUseEbsOptimizedInstances
+        [ "StackId"                     .= _clStackId
+        , "Type"                        .= _clType
+        , "Name"                        .= _clName
+        , "Shortname"                   .= _clShortname
+        , "Attributes"                  .= _clAttributes
+        , "CustomInstanceProfileArn"    .= _clCustomInstanceProfileArn
+        , "CustomSecurityGroupIds"      .= _clCustomSecurityGroupIds
+        , "Packages"                    .= _clPackages
+        , "VolumeConfigurations"        .= _clVolumeConfigurations
+        , "EnableAutoHealing"           .= _clEnableAutoHealing
+        , "AutoAssignElasticIps"        .= _clAutoAssignElasticIps
+        , "AutoAssignPublicIps"         .= _clAutoAssignPublicIps
+        , "CustomRecipes"               .= _clCustomRecipes
+        , "InstallUpdatesOnBoot"        .= _clInstallUpdatesOnBoot
+        , "UseEbsOptimizedInstances"    .= _clUseEbsOptimizedInstances
+        , "LifecycleEventConfiguration" .= _clLifecycleEventConfiguration
         ]
 
 instance AWSRequest CreateLayer where

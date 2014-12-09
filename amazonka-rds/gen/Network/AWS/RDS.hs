@@ -71,6 +71,7 @@ module Network.AWS.RDS
     , module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     , module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     , module Network.AWS.RDS.Types
+    , module Network.AWS.RDS.Waiters
     ) where
 
 import Network.AWS.RDS.AddSourceIdentifierToSubscription
@@ -128,3 +129,4 @@ import Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
 import Network.AWS.RDS.RestoreDBInstanceToPointInTime
 import Network.AWS.RDS.RevokeDBSecurityGroupIngress
 import Network.AWS.RDS.Types
+import Network.AWS.RDS.Waiters

@@ -1,3 +1,4 @@
+{-# LANGUAGE BangPatterns               #-}
 {-# LANGUAGE DefaultSignatures          #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
@@ -36,10 +37,13 @@ module Network.AWS.Types
     , withAuth
 
     -- * Services
-    , Abbrev
     , AWSService    (..)
+    , Abbrev
     , Service       (..)
     , serviceOf
+
+    -- * Retries
+    , Retry         (..)
 
     -- * Endpoints
     , Endpoint      (..)
@@ -51,9 +55,6 @@ module Network.AWS.Types
     , _SerializerError
     , _ServiceError
     , _Errors
-
-    , AWSError
-    , awsError
 
     -- * Signing
     , AWSSigner     (..)
@@ -75,6 +76,7 @@ module Network.AWS.Types
 
     -- * Responses
     , Response
+    , Response'
     , Empty         (..)
 
     -- * Regions
@@ -119,7 +121,6 @@ import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           Network.HTTP.Types.Status    (Status)
-import           System.Locale
 
 -- | Abbreviated service name.
 type Abbrev = Text
@@ -127,10 +128,10 @@ type Abbrev = Text
 -- | An error type representing the subset of errors that can be directly
 -- attributed to this library.
 data ServiceError a
-    = HttpError       HttpException
-    | SerializerError Abbrev String
-    | ServiceError    Abbrev Status a
-    | Errors          [ServiceError a]
+    = HttpError        HttpException
+    | SerializerError  Abbrev String
+    | ServiceError     Abbrev Status a
+    | Errors           [ServiceError a]
       deriving (Show, Typeable)
 
 instance (Show a, Typeable a) => Exception (ServiceError a)
@@ -142,16 +143,6 @@ instance Monoid (ServiceError a) where
         f (Errors xs) = xs
         f x           = [x]
 
-class AWSError a where
-    awsError :: a -> ServiceError String
-
-instance Show a => AWSError (ServiceError a) where
-    awsError = \case
-        HttpError       e     -> HttpError e
-        SerializerError a e   -> SerializerError a e
-        ServiceError    a s x -> ServiceError a s (show x)
-        Errors          xs    -> Errors (map awsError xs)
-
 -- | The properties (such as endpoint) for a service, as well as it's
 -- associated signing algorithm and error types.
 class (AWSSigner (Sg a), Show (Er a)) => AWSService a where
@@ -162,16 +153,15 @@ class (AWSSigner (Sg a), Show (Er a)) => AWSService a where
     type Er a :: *
 
     service :: Service a
-    handle  :: Service a
-            -> Status
-            -> Maybe (LazyByteString -> ServiceError (Er a))
 
 serviceOf :: AWSService (Sv a) => Request a -> Service (Sv a)
 serviceOf = const service
 
 -- | An alias for the common response 'Either' containing a service error in the
 -- 'Left' case, or the expected response in the 'Right'.
-type Response a = Either (ServiceError (Er (Sv a))) (Rs a)
+type Response  a = Either (ServiceError (Er (Sv a))) (Rs a)
+
+type Response' a = Either (ServiceError (Er (Sv a))) (Status, Rs a)
 
 -- | Specify how a request can be de/serialised.
 class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
@@ -183,9 +173,9 @@ class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
 
     request  :: a -> Request a
     response :: MonadResource m
-             => a
+             => Request a
              -> Either HttpException ClientResponse
-             -> m (Response a)
+             -> m (Response' a)
 
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can generate
 -- a subsequent request, if available.
@@ -217,7 +207,6 @@ class AWSSigner v where
            => AuthEnv
            -> Region
            -> Request a
-           -> TimeLocale
            -> UTCTime
            -> Signed a v
 
@@ -226,9 +215,8 @@ class AWSPresigner v where
               => AuthEnv
               -> Region
               -> Request a
-              -> TimeLocale
               -> UTCTime
-              -> UTCTime
+              -> Integer
               -> Signed a v
 
 -- | Access key credential.
@@ -365,16 +353,26 @@ endpoint Service{..} r = go (CI.mk _svcPrefix)
 -- | Attributes specific to an AWS service.
 data Service a = Service
     { _svcAbbrev       :: !Text
-    , _svcPrefix       :: ByteString
-    , _svcVersion      :: ByteString
+    , _svcPrefix       :: !ByteString
+    , _svcVersion      :: !ByteString
     , _svcTargetPrefix :: Maybe ByteString
     , _svcJSONVersion  :: Maybe ByteString
+    , _svcHandle       :: Status -> Maybe (LazyByteString -> ServiceError (Er a))
+    , _svcRetry        :: Retry a
+    }
+
+-- | Constants and predicates used to create a 'RetryPolicy'.
+data Retry a = Exponential
+    { _retryBase     :: !Double
+    , _retryGrowth   :: !Int
+    , _retryAttempts :: !Int
+    , _retryCheck    :: Status -> Er a -> Bool
     }
 
 -- | An unsigned request.
 data Request a = Request
     { _rqMethod  :: !StdMethod
-    , _rqPath    :: ByteString
+    , _rqPath    :: !ByteString
     , _rqQuery   :: Query
     , _rqHeaders :: [Header]
     , _rqBody    :: RqBody

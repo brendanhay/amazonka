@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.IAM.Waiters",
+        "imports": [
+            "Network.AWS.IAM.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -41,6 +48,7 @@
             "Network.AWS.IAM.DeleteVirtualMFADevice",
             "Network.AWS.IAM.EnableMFADevice",
             "Network.AWS.IAM.GenerateCredentialReport",
+            "Network.AWS.IAM.GetAccountAuthorizationDetails",
             "Network.AWS.IAM.GetAccountPasswordPolicy",
             "Network.AWS.IAM.GetAccountSummary",
             "Network.AWS.IAM.GetCredentialReport",
@@ -98,7 +106,30 @@
         "documentation": "-- | AWS Identity and Access Management (IAM) enables you to securely control\n-- access to AWS services and resources for your users. Using IAM, you can\n-- create and manage AWS users and groups and use permissions to allow and deny\n-- their access to AWS resources.",
         "xmlNamespace": "https://iam.amazonaws.com/doc/2010-05-08/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "iam",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {
@@ -140,6 +171,7 @@
             "Network.AWS.IAM.DeleteVirtualMFADevice",
             "Network.AWS.IAM.EnableMFADevice",
             "Network.AWS.IAM.GenerateCredentialReport",
+            "Network.AWS.IAM.GetAccountAuthorizationDetails",
             "Network.AWS.IAM.GetAccountPasswordPolicy",
             "Network.AWS.IAM.GetAccountSummary",
             "Network.AWS.IAM.GetCredentialReport",
@@ -195,7 +227,7 @@
         "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Identity and Access Management",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "AWS Identity and Access Management (IAM) enables you to securely control\naccess to AWS services and resources for your users. Using IAM, you can\ncreate and manage AWS users and groups and use permissions to allow and deny\ntheir access to AWS resources."
     },
     "types": {
@@ -598,7 +630,7 @@
                         "name": "_gGroupName",
                         "shape": "groupNameType",
                         "locationName": "GroupName",
-                        "documentation": "-- | The name that identifies the group.",
+                        "documentation": "-- | The friendly name that identifies the group.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -646,7 +678,7 @@
                         "name": "_gCreateDate",
                         "shape": "dateType",
                         "locationName": "CreateDate",
-                        "documentation": "-- | The date when the group was created.",
+                        "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the group was created.",
                         "typeExposed": "UTCTime",
                         "type": "ISO8601"
                     }
@@ -685,7 +717,7 @@
                         "name": "_gCreateDate",
                         "shape": "dateType",
                         "locationName": "CreateDate",
-                        "documentation": "-- | The date when the group was created.",
+                        "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the group was created.",
                         "typeExposed": "UTCTime",
                         "type": "ISO8601"
                     },
@@ -717,7 +749,7 @@
                         "name": "_gGroupName",
                         "shape": "groupNameType",
                         "locationName": "GroupName",
-                        "documentation": "-- | The name that identifies the group.",
+                        "documentation": "-- | The friendly name that identifies the group.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1064,6 +1096,281 @@
                         "documentation": "-- | The role associated with the instance profile.",
                         "typeExposed": "[Role]",
                         "type": "List \"member\" Role"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "fieldPad": 27,
+                "ctor": "roleDetail",
+                "contents": [],
+                "payload": null,
+                "required": [],
+                "contentPad": 0,
+                "name": "RoleDetail",
+                "locationPad": 25,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rdPath",
+                        "name": "_rdPath",
+                        "shape": "pathType",
+                        "locationName": "Path",
+                        "documentation": "-- | The path to the role. For more information about paths, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e\n-- in the /Using IAM/ guide.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rdRoleName",
+                        "name": "_rdRoleName",
+                        "shape": "roleNameType",
+                        "locationName": "RoleName",
+                        "documentation": "-- | The friendly name that identifies the role.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rdRoleId",
+                        "name": "_rdRoleId",
+                        "shape": "idType",
+                        "locationName": "RoleId",
+                        "documentation": "-- | The stable and unique string identifying the role. For more information about\n-- IDs, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e in the /Using IAM/ guide.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rdArn",
+                        "name": "_rdArn",
+                        "shape": "arnType",
+                        "locationName": "Arn",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rdCreateDate",
+                        "name": "_rdCreateDate",
+                        "shape": "dateType",
+                        "locationName": "CreateDate",
+                        "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the role was created.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe ISO8601"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rdAssumeRolePolicyDocument",
+                        "name": "_rdAssumeRolePolicyDocument",
+                        "shape": "policyDocumentType",
+                        "locationName": "AssumeRolePolicyDocument",
+                        "documentation": "-- | The trust policy that grants an entity permission to assume the role.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rdInstanceProfileList",
+                        "name": "_rdInstanceProfileList",
+                        "shape": "instanceProfileListType",
+                        "locationName": "InstanceProfileList",
+                        "documentation": null,
+                        "typeExposed": "[InstanceProfile]",
+                        "type": "List \"member\" InstanceProfile"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rdRolePolicyList",
+                        "name": "_rdRolePolicyList",
+                        "shape": "policyDetailListType",
+                        "locationName": "RolePolicyList",
+                        "documentation": "-- | A list of the access (permissions) policies attached to the role.",
+                        "typeExposed": "[PolicyDetail]",
+                        "type": "List \"member\" PolicyDetail"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rdArn",
+                        "name": "_rdArn",
+                        "shape": "arnType",
+                        "locationName": "Arn",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rdAssumeRolePolicyDocument",
+                        "name": "_rdAssumeRolePolicyDocument",
+                        "shape": "policyDocumentType",
+                        "locationName": "AssumeRolePolicyDocument",
+                        "documentation": "-- | The trust policy that grants an entity permission to assume the role.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rdCreateDate",
+                        "name": "_rdCreateDate",
+                        "shape": "dateType",
+                        "locationName": "CreateDate",
+                        "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the role was created.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe ISO8601"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rdInstanceProfileList",
+                        "name": "_rdInstanceProfileList",
+                        "shape": "instanceProfileListType",
+                        "locationName": "InstanceProfileList",
+                        "documentation": null,
+                        "typeExposed": "[InstanceProfile]",
+                        "type": "List \"member\" InstanceProfile"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rdPath",
+                        "name": "_rdPath",
+                        "shape": "pathType",
+                        "locationName": "Path",
+                        "documentation": "-- | The path to the role. For more information about paths, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e\n-- in the /Using IAM/ guide.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rdRoleId",
+                        "name": "_rdRoleId",
+                        "shape": "idType",
+                        "locationName": "RoleId",
+                        "documentation": "-- | The stable and unique string identifying the role. For more information about\n-- IDs, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e in the /Using IAM/ guide.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rdRoleName",
+                        "name": "_rdRoleName",
+                        "shape": "roleNameType",
+                        "locationName": "RoleName",
+                        "documentation": "-- | The friendly name that identifies the role.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rdRolePolicyList",
+                        "name": "_rdRolePolicyList",
+                        "shape": "policyDetailListType",
+                        "locationName": "RolePolicyList",
+                        "documentation": "-- | A list of the access (permissions) policies attached to the role.",
+                        "typeExposed": "[PolicyDetail]",
+                        "type": "List \"member\" PolicyDetail"
                     }
                 ]
             },
@@ -1492,6 +1799,24 @@
                     "Enum"
                 ],
                 "branches": {
+                    "ETRole": "Role",
+                    "ETUser": "User",
+                    "ETGroup": "Group"
+                },
+                "valuePad": 6,
+                "name": "EntityType",
+                "type": "nullary",
+                "branchPad": 7
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
                     "UsersQuota": "UsersQuota",
                     "Groups": "Groups",
                     "GroupsQuota": "GroupsQuota",
@@ -1511,6 +1836,217 @@
                 "name": "SummaryKeyType",
                 "type": "nullary",
                 "branchPad": 31
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "fieldPad": 18,
+                "ctor": "groupDetail",
+                "contents": [],
+                "payload": null,
+                "required": [],
+                "contentPad": 0,
+                "name": "GroupDetail",
+                "locationPad": 16,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gdPath",
+                        "name": "_gdPath",
+                        "shape": "pathType",
+                        "locationName": "Path",
+                        "documentation": "-- | The path to the group. For more information about paths, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e\n-- in the /Using IAM/ guide.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gdGroupName",
+                        "name": "_gdGroupName",
+                        "shape": "groupNameType",
+                        "locationName": "GroupName",
+                        "documentation": "-- | The friendly name that identifies the group.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gdGroupId",
+                        "name": "_gdGroupId",
+                        "shape": "idType",
+                        "locationName": "GroupId",
+                        "documentation": "-- | The stable and unique string identifying the group. For more information\n-- about IDs, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e in the /Using IAM/ guide.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gdArn",
+                        "name": "_gdArn",
+                        "shape": "arnType",
+                        "locationName": "Arn",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gdCreateDate",
+                        "name": "_gdCreateDate",
+                        "shape": "dateType",
+                        "locationName": "CreateDate",
+                        "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the group was created.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe ISO8601"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gdGroupPolicyList",
+                        "name": "_gdGroupPolicyList",
+                        "shape": "policyDetailListType",
+                        "locationName": "GroupPolicyList",
+                        "documentation": "-- | A list of the policies attached to the group.",
+                        "typeExposed": "[PolicyDetail]",
+                        "type": "List \"member\" PolicyDetail"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gdArn",
+                        "name": "_gdArn",
+                        "shape": "arnType",
+                        "locationName": "Arn",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gdCreateDate",
+                        "name": "_gdCreateDate",
+                        "shape": "dateType",
+                        "locationName": "CreateDate",
+                        "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the group was created.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe ISO8601"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gdGroupId",
+                        "name": "_gdGroupId",
+                        "shape": "idType",
+                        "locationName": "GroupId",
+                        "documentation": "-- | The stable and unique string identifying the group. For more information\n-- about IDs, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e in the /Using IAM/ guide.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gdGroupName",
+                        "name": "_gdGroupName",
+                        "shape": "groupNameType",
+                        "locationName": "GroupName",
+                        "documentation": "-- | The friendly name that identifies the group.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gdGroupPolicyList",
+                        "name": "_gdGroupPolicyList",
+                        "shape": "policyDetailListType",
+                        "locationName": "GroupPolicyList",
+                        "documentation": "-- | A list of the policies attached to the group.",
+                        "typeExposed": "[PolicyDetail]",
+                        "type": "List \"member\" PolicyDetail"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gdPath",
+                        "name": "_gdPath",
+                        "shape": "pathType",
+                        "locationName": "Path",
+                        "documentation": "-- | The path to the group. For more information about paths, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e\n-- in the /Using IAM/ guide.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
             },
             {
                 "deriving": [
@@ -1747,6 +2283,90 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Show"
+                ],
+                "fieldPad": 17,
+                "ctor": "policyDetail",
+                "contents": [],
+                "payload": null,
+                "required": [],
+                "contentPad": 0,
+                "name": "PolicyDetail",
+                "locationPad": 15,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "pdPolicyName",
+                        "name": "_pdPolicyName",
+                        "shape": "policyNameType",
+                        "locationName": "PolicyName",
+                        "documentation": "-- | The name of the policy.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "pdPolicyDocument",
+                        "name": "_pdPolicyDocument",
+                        "shape": "policyDocumentType",
+                        "locationName": "PolicyDocument",
+                        "documentation": "-- | The policy document.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "pdPolicyDocument",
+                        "name": "_pdPolicyDocument",
+                        "shape": "policyDocumentType",
+                        "locationName": "PolicyDocument",
+                        "documentation": "-- | The policy document.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "pdPolicyName",
+                        "name": "_pdPolicyName",
+                        "shape": "policyNameType",
+                        "locationName": "PolicyName",
+                        "documentation": "-- | The name of the policy.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
                     "Show",
                     "Generic",
                     "Enum"
@@ -1915,7 +2535,7 @@
                         "name": "_rRoleName",
                         "shape": "roleNameType",
                         "locationName": "RoleName",
-                        "documentation": "-- | The name that identifies the role.",
+                        "documentation": "-- | The friendly name that identifies the role.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1963,7 +2583,7 @@
                         "name": "_rCreateDate",
                         "shape": "dateType",
                         "locationName": "CreateDate",
-                        "documentation": "-- | The date when the role was created.",
+                        "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the role was created.",
                         "typeExposed": "UTCTime",
                         "type": "ISO8601"
                     }
@@ -1985,7 +2605,7 @@
                         "name": "_rAssumeRolePolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "AssumeRolePolicyDocument",
-                        "documentation": "-- | The policy that grants an entity permission to assume the role.\n--\n-- The returned policy is URL-encoded according to RFC 3986. For more\n-- information about RFC 3986, go to \u003chttp://www.faqs.org/rfcs/rfc3986.html http://www.faqs.org/rfcs/rfc3986.html\u003e.",
+                        "documentation": "-- | The policy that grants an entity permission to assume the role.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2019,7 +2639,7 @@
                         "name": "_rAssumeRolePolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "AssumeRolePolicyDocument",
-                        "documentation": "-- | The policy that grants an entity permission to assume the role.\n--\n-- The returned policy is URL-encoded according to RFC 3986. For more\n-- information about RFC 3986, go to \u003chttp://www.faqs.org/rfcs/rfc3986.html http://www.faqs.org/rfcs/rfc3986.html\u003e.",
+                        "documentation": "-- | The policy that grants an entity permission to assume the role.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2035,7 +2655,7 @@
                         "name": "_rCreateDate",
                         "shape": "dateType",
                         "locationName": "CreateDate",
-                        "documentation": "-- | The date when the role was created.",
+                        "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the role was created.",
                         "typeExposed": "UTCTime",
                         "type": "ISO8601"
                     },
@@ -2083,9 +2703,252 @@
                         "name": "_rRoleName",
                         "shape": "roleNameType",
                         "locationName": "RoleName",
-                        "documentation": "-- | The name that identifies the role.",
+                        "documentation": "-- | The friendly name that identifies the role.",
                         "typeExposed": "Text",
                         "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "fieldPad": 17,
+                "ctor": "userDetail",
+                "contents": [],
+                "payload": null,
+                "required": [],
+                "contentPad": 0,
+                "name": "UserDetail",
+                "locationPad": 15,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "udPath",
+                        "name": "_udPath",
+                        "shape": "pathType",
+                        "locationName": "Path",
+                        "documentation": "-- | The path to the user. For more information about paths, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e\n-- in the /Using IAM/ guide.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "udUserName",
+                        "name": "_udUserName",
+                        "shape": "userNameType",
+                        "locationName": "UserName",
+                        "documentation": "-- | The friendly name identifying the user.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "udUserId",
+                        "name": "_udUserId",
+                        "shape": "idType",
+                        "locationName": "UserId",
+                        "documentation": "-- | The stable and unique string identifying the user. For more information about\n-- IDs, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e in the /Using IAM/ guide.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "udArn",
+                        "name": "_udArn",
+                        "shape": "arnType",
+                        "locationName": "Arn",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "udCreateDate",
+                        "name": "_udCreateDate",
+                        "shape": "dateType",
+                        "locationName": "CreateDate",
+                        "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the user was created.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe ISO8601"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "udUserPolicyList",
+                        "name": "_udUserPolicyList",
+                        "shape": "policyDetailListType",
+                        "locationName": "UserPolicyList",
+                        "documentation": "-- | A list of the policies attached to the user.",
+                        "typeExposed": "[PolicyDetail]",
+                        "type": "List \"member\" PolicyDetail"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "udGroupList",
+                        "name": "_udGroupList",
+                        "shape": "groupNameListType",
+                        "locationName": "GroupList",
+                        "documentation": "-- | A list of the IAM groups that the user is in.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "udArn",
+                        "name": "_udArn",
+                        "shape": "arnType",
+                        "locationName": "Arn",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "udCreateDate",
+                        "name": "_udCreateDate",
+                        "shape": "dateType",
+                        "locationName": "CreateDate",
+                        "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the user was created.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe ISO8601"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "udGroupList",
+                        "name": "_udGroupList",
+                        "shape": "groupNameListType",
+                        "locationName": "GroupList",
+                        "documentation": "-- | A list of the IAM groups that the user is in.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "udPath",
+                        "name": "_udPath",
+                        "shape": "pathType",
+                        "locationName": "Path",
+                        "documentation": "-- | The path to the user. For more information about paths, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e\n-- in the /Using IAM/ guide.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "udUserId",
+                        "name": "_udUserId",
+                        "shape": "idType",
+                        "locationName": "UserId",
+                        "documentation": "-- | The stable and unique string identifying the user. For more information about\n-- IDs, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e in the /Using IAM/ guide.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "udUserName",
+                        "name": "_udUserName",
+                        "shape": "userNameType",
+                        "locationName": "UserName",
+                        "documentation": "-- | The friendly name identifying the user.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "udUserPolicyList",
+                        "name": "_udUserPolicyList",
+                        "shape": "policyDetailListType",
+                        "locationName": "UserPolicyList",
+                        "documentation": "-- | A list of the policies attached to the user.",
+                        "typeExposed": "[PolicyDetail]",
+                        "type": "List \"member\" PolicyDetail"
                     }
                 ]
             },
@@ -4563,7 +5426,7 @@
             "pager": null,
             "name": "CreateOpenIDConnectProvider",
             "method": "post",
-            "documentation": "-- | Creates an IAM entity to describe an identity provider (IdP) that supports \u003chttp://openid.net/connect/ OpenID Connect (OIDC)\u003e.\n--\n-- The OIDC provider that you create with this operation can be used as a\n-- principal in a role's trust policy to establish a trust relationship between\n-- AWS and the OIDC provider.\n--\n-- When you create the IAM OIDC provider, you specify the URL of the OIDC\n-- identity provider (IdP) to trust, a list of client IDs (also known as\n-- audiences) that identify the application or applications that are allowed to\n-- authenticate using the OIDC provider, and a list of thumbprints of the server\n-- certificate(s) that the IdP uses. You get all of this information from the\n-- OIDC IdP that you want to use for access to AWS.",
+            "documentation": "-- | Creates an IAM entity to describe an identity provider (IdP) that supports \u003chttp://openid.net/connect/ OpenID Connect (OIDC)\u003e.\n--\n-- The OIDC provider that you create with this operation can be used as a\n-- principal in a role's trust policy to establish a trust relationship between\n-- AWS and the OIDC provider.\n--\n-- When you create the IAM OIDC provider, you specify the URL of the OIDC\n-- identity provider (IdP) to trust, a list of client IDs (also known as\n-- audiences) that identify the application or applications that are allowed to\n-- authenticate using the OIDC provider, and a list of thumbprints of the server\n-- certificate(s) that the IdP uses. You get all of this information from the\n-- OIDC IdP that you want to use for access to AWS.\n--\n-- Because trust for the OIDC provider is ultimately derived from the IAM\n-- provider that this action creates, it is a best practice to limit access to\n-- the 'CreateOpenIDConnectProvider' action to highly-privileged users.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5047,7 +5910,7 @@
             "pager": null,
             "name": "CreateSAMLProvider",
             "method": "post",
-            "documentation": "-- | Creates an IAM entity to describe an identity provider (IdP) that supports\n-- SAML 2.0.\n--\n-- The SAML provider that you create with this operation can be used as a\n-- principal in a role's trust policy to establish a trust relationship between\n-- AWS and a SAML identity provider. You can create an IAM role that supports\n-- Web-based single sign-on (SSO) to the AWS Management Console or one that\n-- supports API access to AWS.\n--\n-- When you create the SAML provider, you upload an a SAML metadata document\n-- that you get from your IdP and that includes the issuer's name, expiration\n-- information, and keys that can be used to validate the SAML authentication\n-- response (assertions) that are received from the IdP. You must generate the\n-- metadata document using the identity management software that is used as your\n-- organization's IdP.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/STS/latest/UsingSTS/STSMgmtConsole-SAML.html Giving Console Access Using SAML\u003e and \u003chttp://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html CreatingTemporary Security Credentials for SAML Federation\u003e in the /Using TemporaryCredentials/ guide.",
+            "documentation": "-- | Creates an IAM entity to describe an identity provider (IdP) that supports\n-- SAML 2.0.\n--\n-- The SAML provider that you create with this operation can be used as a\n-- principal in a role's trust policy to establish a trust relationship between\n-- AWS and a SAML identity provider. You can create an IAM role that supports\n-- Web-based single sign-on (SSO) to the AWS Management Console or one that\n-- supports API access to AWS.\n--\n-- When you create the SAML provider, you upload an a SAML metadata document\n-- that you get from your IdP and that includes the issuer's name, expiration\n-- information, and keys that can be used to validate the SAML authentication\n-- response (assertions) that are received from the IdP. You must generate the\n-- metadata document using the identity management software that is used as your\n-- organization's IdP.\n--\n-- This operation requires \u003chttp://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4\u003e.   For more information, see \u003chttp://docs.aws.amazon.com/STS/latest/UsingSTS/STSMgmtConsole-SAML.html Giving Console Access Using SAML\u003e and \u003chttp://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAML Federation\u003e in the /UsingTemporary Credentials/ guide.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7068,7 +7931,7 @@
             "pager": null,
             "name": "DeleteSAMLProvider",
             "method": "post",
-            "documentation": "-- | Deletes a SAML provider.\n--\n-- Deleting the provider does not update any roles that reference the SAML\n-- provider as a principal in their trust policies. Any attempt to assume a role\n-- that references a SAML provider that has been deleted will fail.",
+            "documentation": "-- | Deletes a SAML provider.\n--\n-- Deleting the provider does not update any roles that reference the SAML\n-- provider as a principal in their trust policies. Any attempt to assume a role\n-- that references a SAML provider that has been deleted will fail.\n--\n-- This operation requires \u003chttp://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7765,7 +8628,7 @@
             "pager": null,
             "name": "DeleteVirtualMFADevice",
             "method": "post",
-            "documentation": "-- | Deletes a virtual MFA device.",
+            "documentation": "-- | Deletes a virtual MFA device.\n--\n-- You must deactivate a user's virtual MFA device before you can delete it.\n-- For information about deactivating MFA devices, see \u003chttp://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html DeactivateMFADevice\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8231,6 +9094,356 @@
                     "Show"
                 ],
                 "streaming": false,
+                "style": "xml",
+                "fieldPad": 21,
+                "ctor": "getAccountAuthorizationDetailsResponse",
+                "headerPad": 0,
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "GetAccountAuthorizationDetailsResponse",
+                "resultWrapper": "GetAccountAuthorizationDetailsResult",
+                "locationPad": 16,
+                "type": "record",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaadrUserDetailList",
+                        "name": "_gaadrUserDetailList",
+                        "shape": "userDetailListType",
+                        "locationName": "UserDetailList",
+                        "documentation": "-- | A list containing information about IAM users.",
+                        "typeExposed": "[UserDetail]",
+                        "type": "List \"member\" UserDetail"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaadrGroupDetailList",
+                        "name": "_gaadrGroupDetailList",
+                        "shape": "groupDetailListType",
+                        "locationName": "GroupDetailList",
+                        "documentation": "-- | A list containing information about IAM groups.",
+                        "typeExposed": "[GroupDetail]",
+                        "type": "List \"member\" GroupDetail"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaadrRoleDetailList",
+                        "name": "_gaadrRoleDetailList",
+                        "shape": "roleDetailListType",
+                        "locationName": "RoleDetailList",
+                        "documentation": "-- | A list containing information about IAM roles.",
+                        "typeExposed": "[RoleDetail]",
+                        "type": "List \"member\" RoleDetail"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaadrIsTruncated",
+                        "name": "_gaadrIsTruncated",
+                        "shape": "booleanType",
+                        "locationName": "IsTruncated",
+                        "documentation": "-- | A flag that indicates whether there are more items to return. If your results\n-- were truncated, you can make a subsequent pagination request using the 'Marker'\n-- request parameter to retrieve more items.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaadrMarker",
+                        "name": "_gaadrMarker",
+                        "shape": "markerType",
+                        "locationName": "Marker",
+                        "documentation": "-- | If 'IsTruncated' is 'true', this element is present and contains the value to use\n-- for the 'Marker' parameter in a subsequent pagination request.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaadrGroupDetailList",
+                        "name": "_gaadrGroupDetailList",
+                        "shape": "groupDetailListType",
+                        "locationName": "GroupDetailList",
+                        "documentation": "-- | A list containing information about IAM groups.",
+                        "typeExposed": "[GroupDetail]",
+                        "type": "List \"member\" GroupDetail"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaadrIsTruncated",
+                        "name": "_gaadrIsTruncated",
+                        "shape": "booleanType",
+                        "locationName": "IsTruncated",
+                        "documentation": "-- | A flag that indicates whether there are more items to return. If your results\n-- were truncated, you can make a subsequent pagination request using the 'Marker'\n-- request parameter to retrieve more items.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaadrMarker",
+                        "name": "_gaadrMarker",
+                        "shape": "markerType",
+                        "locationName": "Marker",
+                        "documentation": "-- | If 'IsTruncated' is 'true', this element is present and contains the value to use\n-- for the 'Marker' parameter in a subsequent pagination request.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaadrRoleDetailList",
+                        "name": "_gaadrRoleDetailList",
+                        "shape": "roleDetailListType",
+                        "locationName": "RoleDetailList",
+                        "documentation": "-- | A list containing information about IAM roles.",
+                        "typeExposed": "[RoleDetail]",
+                        "type": "List \"member\" RoleDetail"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaadrUserDetailList",
+                        "name": "_gaadrUserDetailList",
+                        "shape": "userDetailListType",
+                        "locationName": "UserDetailList",
+                        "documentation": "-- | A list containing information about IAM users.",
+                        "typeExposed": "[UserDetail]",
+                        "type": "List \"member\" UserDetail"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html",
+            "namespace": "Network.AWS.IAM.GetAccountAuthorizationDetails",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.IAM.Types"
+            ],
+            "pager": null,
+            "name": "GetAccountAuthorizationDetails",
+            "method": "post",
+            "documentation": "-- | Retrieves information about all IAM users, groups, and roles in your account,\n-- including their relationships to one another and their attached policies. Use\n-- this API to obtain a snapshot of the configuration of IAM permissions (users,\n-- groups, roles, and policies) in your account.\n--\n-- You can optionally filter the results using the 'Filter' parameter. You can\n-- paginate the results using the 'MaxItems' and 'Marker' parameters.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 13,
+                "ctor": "getAccountAuthorizationDetails",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 9,
+                "name": "GetAccountAuthorizationDetails",
+                "query": [
+                    {
+                        "field": "_gaadFilter",
+                        "locationName": "Filter",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gaadMaxItems",
+                        "locationName": "MaxItems",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gaadMarker",
+                        "locationName": "Marker",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 9,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaadFilter",
+                        "name": "_gaadFilter",
+                        "shape": "entityListType",
+                        "locationName": "Filter",
+                        "documentation": "-- | A list of entity types (user, group, or role) for filtering the results.",
+                        "typeExposed": "[EntityType]",
+                        "type": "List \"member\" EntityType"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaadMaxItems",
+                        "name": "_gaadMaxItems",
+                        "shape": "maxItemsType",
+                        "locationName": "MaxItems",
+                        "documentation": "-- | Use this only when paginating results to indicate the maximum number of items\n-- you want in the response. If there are additional items beyond the maximum\n-- you specify, the 'IsTruncated' response element is 'true'. This parameter is\n-- optional. If you do not include it, it defaults to 100.",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaadMarker",
+                        "name": "_gaadMarker",
+                        "shape": "markerType",
+                        "locationName": "Marker",
+                        "documentation": "-- | Use this only when paginating results, and only in a subsequent request after\n-- you've received a response where the results are truncated. Set it to the\n-- value of the 'Marker' element in the response you just received.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaadFilter",
+                        "name": "_gaadFilter",
+                        "shape": "entityListType",
+                        "locationName": "Filter",
+                        "documentation": "-- | A list of entity types (user, group, or role) for filtering the results.",
+                        "typeExposed": "[EntityType]",
+                        "type": "List \"member\" EntityType"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaadMarker",
+                        "name": "_gaadMarker",
+                        "shape": "markerType",
+                        "locationName": "Marker",
+                        "documentation": "-- | Use this only when paginating results, and only in a subsequent request after\n-- you've received a response where the results are truncated. Set it to the\n-- value of the 'Marker' element in the response you just received.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaadMaxItems",
+                        "name": "_gaadMaxItems",
+                        "shape": "maxItemsType",
+                        "locationName": "MaxItems",
+                        "documentation": "-- | Use this only when paginating results to indicate the maximum number of items\n-- you want in the response. If there are additional items beyond the maximum\n-- you specify, the 'IsTruncated' response element is 'true'. This parameter is\n-- optional. If you do not include it, it defaults to 100.",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "IAM",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "streaming": false,
                 "listElement": null,
                 "style": "xml",
                 "fieldPad": 0,
@@ -8541,7 +9754,7 @@
                         "name": "_gcrrGeneratedTime",
                         "shape": "dateType",
                         "locationName": "GeneratedTime",
-                        "documentation": "-- | The time and date when the credential report was created, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601date-time format\u003e.",
+                        "documentation": "-- | The date and time when the credential report was created, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601date-time format\u003e.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     }
@@ -8575,7 +9788,7 @@
                         "name": "_gcrrGeneratedTime",
                         "shape": "dateType",
                         "locationName": "GeneratedTime",
-                        "documentation": "-- | The time and date when the credential report was created, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601date-time format\u003e.",
+                        "documentation": "-- | The date and time when the credential report was created, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601date-time format\u003e.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     },
@@ -10430,7 +11643,7 @@
             "pager": null,
             "name": "GetSAMLProvider",
             "method": "post",
-            "documentation": "-- | Returns the SAML provider metadocument that was uploaded when the provider\n-- was created or updated.",
+            "documentation": "-- | Returns the SAML provider metadocument that was uploaded when the provider\n-- was created or updated.\n--\n-- This operation requires \u003chttp://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -11291,7 +12504,7 @@
             },
             "name": "ListAccessKeys",
             "method": "post",
-            "documentation": "-- | Returns information about the access key IDs associated with the specified\n-- user. If there are none, the action returns an empty list.\n--\n-- Although each user is limited to a small number of keys, you can still\n-- paginate the results using the 'MaxItems' and 'Marker' parameters.\n--\n-- If the 'UserName' field is not specified, the UserName is determined\n-- implicitly based on the AWS access key ID used to sign the request. Because\n-- this action works for access keys under the AWS account, you can use this\n-- action to manage root credentials even if the AWS account has no associated\n-- users.",
+            "documentation": "-- | Returns information about the access key IDs associated with the specified\n-- user. If there are none, the action returns an empty list.\n--\n-- Although each user is limited to a small number of keys, you can still\n-- paginate the results using the 'MaxItems' and 'Marker' parameters.\n--\n-- If the 'UserName' field is not specified, the UserName is determined\n-- implicitly based on the AWS access key ID used to sign the request. Because\n-- this action works for access keys under the AWS account, you can use this\n-- action to manage root credentials even if the AWS account has no associated\n-- users.\n--\n-- To ensure the security of your AWS account, the secret access key is\n-- accessible only during key and user creation.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -14292,7 +15505,7 @@
             "pager": null,
             "name": "ListSAMLProviders",
             "method": "post",
-            "documentation": "-- | Lists the SAML providers in the account.",
+            "documentation": "-- | Lists the SAML providers in the account.\n--\n-- This operation requires \u003chttp://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15843,7 +17056,7 @@
             "pager": null,
             "name": "PutGroupPolicy",
             "method": "post",
-            "documentation": "-- | Adds (or updates) a policy document associated with the specified group. For\n-- information about policies, refer to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of Policies\u003e in the /Using IAM/\n-- guide.\n--\n-- For information about limits on the number of policies you can associate\n-- with a group, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities\u003e in the /Using IAM/ guide.",
+            "documentation": "-- | Adds (or updates) a policy document associated with the specified group. For\n-- information about policies, refer to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of Policies\u003e in the /Using IAM/\n-- guide.\n--\n-- For information about limits on the number of policies you can associate\n-- with a group, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities\u003e in the /Using IAM/ guide.\n--\n-- Because policy documents can be large, you should use POST rather than GET\n-- when calling 'PutGroupPolicy'. For information about setting up signatures and\n-- authorization through the API, go to \u003chttp://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests\u003e in the /AWSGeneral Reference/. For general information about using the Query API with\n-- IAM, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests\u003e in the /Using IAM/ guide.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -16030,7 +17243,7 @@
             "pager": null,
             "name": "PutRolePolicy",
             "method": "post",
-            "documentation": "-- | Adds (or updates) a policy document associated with the specified role. For\n-- information about policies, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of Policies\u003e in the /Using IAM/\n-- guide.\n--\n-- For information about limits on the policies you can associate with a role,\n-- see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities\u003e in the /Using IAM/ guide.",
+            "documentation": "-- | Adds (or updates) a policy document associated with the specified role. For\n-- information about policies, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of Policies\u003e in the /Using IAM/\n-- guide.\n--\n-- For information about limits on the policies you can associate with a role,\n-- see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities\u003e in the /Using IAM/ guide.\n--\n-- Because policy documents can be large, you should use POST rather than GET\n-- when calling 'PutRolePolicy'. For information about setting up signatures and\n-- authorization through the API, go to \u003chttp://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests\u003e in the /AWSGeneral Reference/. For general information about using the Query API with\n-- IAM, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests\u003e in the /Using IAM/ guide.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -16217,7 +17430,7 @@
             "pager": null,
             "name": "PutUserPolicy",
             "method": "post",
-            "documentation": "-- | Adds (or updates) a policy document associated with the specified user. For\n-- information about policies, refer to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of Policies\u003e in the /Using IAM/\n-- guide.\n--\n-- For information about limits on the number of policies you can associate\n-- with a user, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities\u003e in the /Using IAM/ guide.",
+            "documentation": "-- | Adds (or updates) a policy document associated with the specified user. For\n-- information about policies, refer to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of Policies\u003e in the /Using IAM/\n-- guide.\n--\n-- For information about limits on the number of policies you can associate\n-- with a user, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities\u003e in the /Using IAM/ guide.\n--\n-- Because policy documents can be large, you should use POST rather than GET\n-- when calling 'PutUserPolicy'. For information about setting up signatures and\n-- authorization through the API, go to \u003chttp://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests\u003e in the /AWSGeneral Reference/. For general information about using the Query API with\n-- IAM, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests\u003e in the /Using IAM/ guide.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -17265,7 +18478,7 @@
             "pager": null,
             "name": "UpdateAccountPasswordPolicy",
             "method": "post",
-            "documentation": "-- | Updates the password policy settings for the AWS account.\n--\n-- For more information about using a password policy, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAMPassword Policy\u003e in the /Using IAM/ guide.",
+            "documentation": "-- | Updates the password policy settings for the AWS account.\n--\n-- This action does not support partial updates. No parameters are required,\n-- but if you do not specify a parameter, that parameter's value reverts to its\n-- default value. See the Request Parameters section for each parameter's\n-- default value.\n--\n-- For more information about using a password policy, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAMPassword Policy\u003e in the /Using IAM/ guide.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -17824,7 +19037,7 @@
             "pager": null,
             "name": "UpdateGroup",
             "method": "post",
-            "documentation": "-- | Updates the name and/or the path of the specified group.\n--\n-- You should understand the implications of changing a group's path or name.\n-- For more information, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups\u003e in the /Using IAM/ guide.",
+            "documentation": "-- | Updates the name and/or the path of the specified group.\n--\n-- You should understand the implications of changing a group's path or name.\n-- For more information, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups\u003e in the /Using IAM/ guide.\n-- To change a group name the requester must have appropriate permissions on\n-- both the source object and the target object. For example, to change Managers\n-- to MGRs, the entity making the request must have permission on Managers and\n-- MGRs, or must have permission on all (*). For more information about\n-- permissions, see Permissions and Policies.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -18200,7 +19413,7 @@
             "pager": null,
             "name": "UpdateOpenIDConnectProviderThumbprint",
             "method": "post",
-            "documentation": "-- | Replaces the existing list of server certificate thumbprints with a new list.\n--\n-- The list that you pass with this action completely replaces the existing\n-- list of thumbprints. (The lists are not merged.)\n--\n-- Typically, you need to update a thumbprint only when the identity provider's\n-- certificate changes, which occurs rarely. However, if the provider's\n-- certificate /does/ change, any attempt to assume an IAM role that specifies the\n-- IAM provider as a principal will fail until the certificate thumbprint is\n-- updated.",
+            "documentation": "-- | Replaces the existing list of server certificate thumbprints with a new list.\n--\n-- The list that you pass with this action completely replaces the existing\n-- list of thumbprints. (The lists are not merged.)\n--\n-- Typically, you need to update a thumbprint only when the identity provider's\n-- certificate changes, which occurs rarely. However, if the provider's\n-- certificate /does/ change, any attempt to assume an IAM role that specifies the\n-- IAM provider as a principal will fail until the certificate thumbprint is\n-- updated.\n--\n-- Because trust for the OpenID Connect provider is ultimately derived from the\n-- provider's certificate and is validated by the thumbprint, it is a best\n-- practice to limit access to the 'UpdateOpenIDConnectProviderThumbprint' action\n-- to highly-privileged users.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -18406,7 +19619,7 @@
             "pager": null,
             "name": "UpdateSAMLProvider",
             "method": "post",
-            "documentation": "-- | Updates the metadata document for an existing SAML provider.",
+            "documentation": "-- | Updates the metadata document for an existing SAML provider.\n--\n-- This operation requires \u003chttp://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -18556,7 +19769,7 @@
             "pager": null,
             "name": "UpdateServerCertificate",
             "method": "post",
-            "documentation": "-- | Updates the name and/or the path of the specified server certificate.\n--\n-- You should understand the implications of changing a server certificate's\n-- path or name. For more information, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html Managing Server Certificates\u003e in the /Using IAM/ guide.",
+            "documentation": "-- | Updates the name and/or the path of the specified server certificate.\n--\n-- You should understand the implications of changing a server certificate's\n-- path or name. For more information, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html Managing Server Certificates\u003e in the /Using IAM/ guide.   To change a server certificate name the requester must have\n-- appropriate permissions on both the source object and the target object. For\n-- example, to change the name from ProductionCert to ProdCert, the entity\n-- making the request must have permission on ProductionCert and ProdCert, or\n-- must have permission on all (*). For more information about permissions, see Permissions and Policies\n-- .",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -18931,7 +20144,7 @@
             "pager": null,
             "name": "UpdateUser",
             "method": "post",
-            "documentation": "-- | Updates the name and/or the path of the specified user.\n--\n-- You should understand the implications of changing a user's path or name.\n-- For more information, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups\u003e in the /Using IAM/ guide.",
+            "documentation": "-- | Updates the name and/or the path of the specified user.\n--\n-- You should understand the implications of changing a user's path or name.\n-- For more information, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups\u003e in the /Using IAM/ guide.\n-- To change a user name the requester must have appropriate permissions on both\n-- the source object and the target object. For example, to change Bob to\n-- Robert, the entity making the request must have permission on Bob and Robert,\n-- or must have permission on all (*). For more information about permissions,\n-- see Permissions and Policies.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -19172,7 +20385,7 @@
             "pager": null,
             "name": "UploadServerCertificate",
             "method": "post",
-            "documentation": "-- | Uploads a server certificate entity for the AWS account. The server\n-- certificate entity includes a public key certificate, a private key, and an\n-- optional certificate chain, which should all be PEM-encoded.\n--\n-- For information about the number of server certificates you can upload, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities\u003e in the /Using IAM/ guide.",
+            "documentation": "-- | Uploads a server certificate entity for the AWS account. The server\n-- certificate entity includes a public key certificate, a private key, and an\n-- optional certificate chain, which should all be PEM-encoded.\n--\n-- For information about the number of server certificates you can upload, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities\u003e in the /Using IAM/ guide.\n--\n-- Because the body of the public key certificate, private key, and the\n-- certificate chain can be large, you should use POST rather than GET when\n-- calling 'UploadServerCertificate'. For information about setting up signatures\n-- and authorization through the API, go to \u003chttp://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests\u003e in the /AWSGeneral Reference/. For general information about using the Query API with\n-- IAM, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests\u003e in the /Using IAM/ guide.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -19293,7 +20506,7 @@
                         "name": "_uscPath",
                         "shape": "pathType",
                         "locationName": "Path",
-                        "documentation": "-- | The path for the server certificate. For more information about paths, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e in the /Using IAM/ guide.\n--\n-- This parameter is optional. If it is not included, it defaults to a slash\n-- (/).",
+                        "documentation": "-- | The path for the server certificate. For more information about paths, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e in the /Using IAM/ guide.\n--\n-- This parameter is optional. If it is not included, it defaults to a slash\n-- (/).\n--\n-- If you are uploading a server certificate specifically for use with Amazon\n-- CloudFront distributions, you must specify a path using the '--path' option.\n-- The path must begin with '/cloudfront' and must include a trailing slash (for\n-- example, '/cloudfront/test/').",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -19359,7 +20572,7 @@
                         "name": "_uscPath",
                         "shape": "pathType",
                         "locationName": "Path",
-                        "documentation": "-- | The path for the server certificate. For more information about paths, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e in the /Using IAM/ guide.\n--\n-- This parameter is optional. If it is not included, it defaults to a slash\n-- (/).",
+                        "documentation": "-- | The path for the server certificate. For more information about paths, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e in the /Using IAM/ guide.\n--\n-- This parameter is optional. If it is not included, it defaults to a slash\n-- (/).\n--\n-- If you are uploading a server certificate specifically for use with Amazon\n-- CloudFront distributions, you must specify a path using the '--path' option.\n-- The path must begin with '/cloudfront' and must include a trailing slash (for\n-- example, '/cloudfront/test/').",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -19487,7 +20700,7 @@
             "pager": null,
             "name": "UploadSigningCertificate",
             "method": "post",
-            "documentation": "-- | Uploads an X.509 signing certificate and associates it with the specified\n-- user. Some AWS services use X.509 signing certificates to validate requests\n-- that are signed with a corresponding private key. When you upload the\n-- certificate, its default status is 'Active'.\n--\n-- If the 'UserName' field is not specified, the user name is determined\n-- implicitly based on the AWS access key ID used to sign the request. Because\n-- this action works for access keys under the AWS account, you can use this\n-- action to manage root credentials even if the AWS account has no associated\n-- users.",
+            "documentation": "-- | Uploads an X.509 signing certificate and associates it with the specified\n-- user. Some AWS services use X.509 signing certificates to validate requests\n-- that are signed with a corresponding private key. When you upload the\n-- certificate, its default status is 'Active'.\n--\n-- If the 'UserName' field is not specified, the user name is determined\n-- implicitly based on the AWS access key ID used to sign the request. Because\n-- this action works for access keys under the AWS account, you can use this\n-- action to manage root credentials even if the AWS account has no associated\n-- users.\n--\n-- Because the body of a X.509 certificate can be large, you should use POST\n-- rather than GET when calling 'UploadSigningCertificate'. For information about\n-- setting up signatures and authorization through the API, go to \u003chttp://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWSAPI Requests\u003e in the /AWS General Reference/. For general information about\n-- using the Query API with IAM, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests\u003e in the /Using IAM/guide.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

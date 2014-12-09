@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -65,7 +66,6 @@ module Network.AWS.SNS.Types
     , eEndpointArn
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -77,18 +77,44 @@ instance AWSService SNS where
     type Sg SNS = V4
     type Er SNS = RESTError
 
-    service = Service
-        { _svcAbbrev       = "SNS"
-        , _svcPrefix       = "sns"
-        , _svcVersion      = "2010-03-31"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service SNS
+        service' = Service
+            { _svcAbbrev       = "SNS"
+            , _svcPrefix       = "sns"
+            , _svcVersion      = "2010-03-31"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry SNS
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "Throttling" == e = True -- Throttling
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://sns.amazonaws.com/doc/2010-03-31/"
+{-# INLINE ns #-}
 
 newtype Topic = Topic
     { _tTopicArn :: Maybe Text

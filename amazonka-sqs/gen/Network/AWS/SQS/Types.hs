@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -99,7 +100,6 @@ module Network.AWS.SQS.Types
     , breeSenderFault
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -111,18 +111,44 @@ instance AWSService SQS where
     type Sg SQS = V4
     type Er SQS = RESTError
 
-    service = Service
-        { _svcAbbrev       = "SQS"
-        , _svcPrefix       = "sqs"
-        , _svcVersion      = "2012-11-05"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service SQS
+        service' = Service
+            { _svcAbbrev       = "SQS"
+            , _svcPrefix       = "sqs"
+            , _svcVersion      = "2012-11-05"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry SQS
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 403 && "RequestThrottled" == e = True -- Request Limit Exceeded
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://queue.amazonaws.com/doc/2012-11-05/"
+{-# INLINE ns #-}
 
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry
     { _dmbreId            :: Text

@@ -43,6 +43,7 @@ module Network.AWS.OpsWorks.UpdateApp
     , uaDescription
     , uaDomains
     , uaEnableSsl
+    , uaEnvironment
     , uaName
     , uaSslConfiguration
     , uaType
@@ -66,6 +67,7 @@ data UpdateApp = UpdateApp
     , _uaDescription      :: Maybe Text
     , _uaDomains          :: List "InstanceIds" Text
     , _uaEnableSsl        :: Maybe Bool
+    , _uaEnvironment      :: List "Environment" EnvironmentVariable
     , _uaName             :: Maybe Text
     , _uaSslConfiguration :: Maybe SslConfiguration
     , _uaType             :: Maybe AppType
@@ -89,6 +91,8 @@ data UpdateApp = UpdateApp
 --
 -- * 'uaEnableSsl' @::@ 'Maybe' 'Bool'
 --
+-- * 'uaEnvironment' @::@ ['EnvironmentVariable']
+--
 -- * 'uaName' @::@ 'Maybe' 'Text'
 --
 -- * 'uaSslConfiguration' @::@ 'Maybe' 'SslConfiguration'
@@ -108,6 +112,7 @@ updateApp p1 = UpdateApp
     , _uaEnableSsl        = Nothing
     , _uaSslConfiguration = Nothing
     , _uaAttributes       = mempty
+    , _uaEnvironment      = mempty
     }
 
 -- | The app ID.
@@ -138,6 +143,16 @@ uaDomains = lens _uaDomains (\s a -> s { _uaDomains = a }) . _List
 -- | Whether SSL is enabled for the app.
 uaEnableSsl :: Lens' UpdateApp (Maybe Bool)
 uaEnableSsl = lens _uaEnableSsl (\s a -> s { _uaEnableSsl = a })
+
+-- | An array of 'EnvironmentVariable' objects that specify environment variables to
+-- be associated with the app. You can specify up to ten environment variables.
+-- After you deploy the app, these variables are defined on the associated app
+-- server instances.
+--
+-- This parameter is supported only by Chef 11.10 stacks. If you have specified
+-- one or more environment variables, you cannot modify the stack's Chef version.
+uaEnvironment :: Lens' UpdateApp [EnvironmentVariable]
+uaEnvironment = lens _uaEnvironment (\s a -> s { _uaEnvironment = a }) . _List
 
 -- | The app name.
 uaName :: Lens' UpdateApp (Maybe Text)
@@ -179,6 +194,7 @@ instance ToJSON UpdateApp where
         , "EnableSsl"        .= _uaEnableSsl
         , "SslConfiguration" .= _uaSslConfiguration
         , "Attributes"       .= _uaAttributes
+        , "Environment"      .= _uaEnvironment
         ]
 
 instance AWSRequest UpdateApp where

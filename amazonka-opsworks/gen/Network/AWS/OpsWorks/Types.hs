@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -36,6 +37,9 @@ module Network.AWS.OpsWorks.Types
     , scChain
     , scPrivateKey
 
+    -- * VirtualizationType
+    , VirtualizationType (..)
+
     -- * Command
     , Command
     , command
@@ -64,6 +68,7 @@ module Network.AWS.OpsWorks.Types
     , raRaidArrayId
     , raRaidLevel
     , raSize
+    , raStackId
     , raVolumeType
 
     -- * ElasticLoadBalancer
@@ -78,6 +83,11 @@ module Network.AWS.OpsWorks.Types
     , elbStackId
     , elbSubnetIds
     , elbVpcId
+
+    -- * LifecycleEventConfiguration
+    , LifecycleEventConfiguration
+    , lifecycleEventConfiguration
+    , lecShutdown
 
     -- * RdsDbInstance
     , RdsDbInstance
@@ -176,6 +186,7 @@ module Network.AWS.OpsWorks.Types
     , appDescription
     , appDomains
     , appEnableSsl
+    , appEnvironment
     , appName
     , appShortname
     , appSslConfiguration
@@ -190,6 +201,18 @@ module Network.AWS.OpsWorks.Types
     , eiIp
     , eiName
     , eiRegion
+
+    -- * ShutdownEventConfiguration
+    , ShutdownEventConfiguration
+    , shutdownEventConfiguration
+    , secDelayUntilElbConnectionsDrained
+    , secExecutionTimeout
+
+    -- * InstanceIdentity
+    , InstanceIdentity
+    , instanceIdentity
+    , iiDocument
+    , iiSignature
 
     -- * UserProfile
     , UserProfile
@@ -242,6 +265,13 @@ module Network.AWS.OpsWorks.Types
     , vcSize
     , vcVolumeType
 
+    -- * ReportedOs
+    , ReportedOs
+    , reportedOs
+    , roFamily
+    , roName
+    , roVersion
+
     -- * Permission
     , Permission
     , permission
@@ -250,6 +280,13 @@ module Network.AWS.OpsWorks.Types
     , pIamUserArn
     , pLevel
     , pStackId
+
+    -- * EnvironmentVariable
+    , EnvironmentVariable
+    , environmentVariable
+    , evKey
+    , evSecure
+    , evValue
 
     -- * Layer
     , Layer
@@ -266,6 +303,7 @@ module Network.AWS.OpsWorks.Types
     , lEnableAutoHealing
     , lInstallUpdatesOnBoot
     , lLayerId
+    , lLifecycleEventConfiguration
     , lName
     , lPackages
     , lShortname
@@ -357,6 +395,7 @@ module Network.AWS.OpsWorks.Types
     , iEc2InstanceId
     , iElasticIp
     , iHostname
+    , iInfrastructureClass
     , iInstallUpdatesOnBoot
     , iInstanceId
     , iInstanceProfileArn
@@ -368,6 +407,8 @@ module Network.AWS.OpsWorks.Types
     , iPrivateIp
     , iPublicDns
     , iPublicIp
+    , iRegisteredBy
+    , iReportedOs
     , iRootDeviceType
     , iRootDeviceVolumeId
     , iSecurityGroupIds
@@ -398,11 +439,15 @@ module Network.AWS.OpsWorks.Types
     -- * InstancesCount
     , InstancesCount
     , instancesCount
+    , icAssigning
     , icBooting
     , icConnectionLost
+    , icDeregistering
     , icOnline
     , icPending
     , icRebooting
+    , icRegistered
+    , icRegistering
     , icRequested
     , icRunningSetup
     , icSetupFailed
@@ -412,13 +457,12 @@ module Network.AWS.OpsWorks.Types
     , icStopping
     , icTerminated
     , icTerminating
+    , icUnassigning
 
     -- * AppType
     , AppType (..)
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -430,15 +474,40 @@ instance AWSService OpsWorks where
     type Sg OpsWorks = V4
     type Er OpsWorks = JSONError
 
-    service = Service
-        { _svcAbbrev       = "OpsWorks"
-        , _svcPrefix       = "opsworks"
-        , _svcVersion      = "2013-02-18"
-        , _svcTargetPrefix = Just "OpsWorks_20130218"
-        , _svcJSONVersion  = Just "1.1"
-        }
+    service = service'
+      where
+        service' :: Service OpsWorks
+        service' = Service
+            { _svcAbbrev       = "OpsWorks"
+            , _svcPrefix       = "opsworks"
+            , _svcVersion      = "2013-02-18"
+            , _svcTargetPrefix = Just "OpsWorks_20130218"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = jsonError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry OpsWorks
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "Throttling" == e = True -- Throttling
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data SslConfiguration = SslConfiguration
     { _scCertificate :: Text
@@ -490,6 +559,35 @@ instance ToJSON SslConfiguration where
         , "PrivateKey"  .= _scPrivateKey
         , "Chain"       .= _scChain
         ]
+
+data VirtualizationType
+    = Hvm         -- ^ hvm
+    | Paravirtual -- ^ paravirtual
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable VirtualizationType
+
+instance FromText VirtualizationType where
+    parser = takeText >>= \case
+        "hvm"         -> pure Hvm
+        "paravirtual" -> pure Paravirtual
+        e             -> fail $
+            "Failure parsing VirtualizationType from " ++ show e
+
+instance ToText VirtualizationType where
+    toText = \case
+        Hvm         -> "hvm"
+        Paravirtual -> "paravirtual"
+
+instance ToByteString VirtualizationType
+instance ToHeader     VirtualizationType
+instance ToQuery      VirtualizationType
+
+instance FromJSON VirtualizationType where
+    parseJSON = parseJSONText "VirtualizationType"
+
+instance ToJSON VirtualizationType where
+    toJSON = toJSONText
 
 data Command = Command
     { _cAcknowledgedAt :: Maybe Text
@@ -625,6 +723,7 @@ data RaidArray = RaidArray
     , _raRaidArrayId      :: Maybe Text
     , _raRaidLevel        :: Maybe Int
     , _raSize             :: Maybe Int
+    , _raStackId          :: Maybe Text
     , _raVolumeType       :: Maybe Text
     } deriving (Eq, Ord, Show)
 
@@ -654,6 +753,8 @@ data RaidArray = RaidArray
 --
 -- * 'raSize' @::@ 'Maybe' 'Int'
 --
+-- * 'raStackId' @::@ 'Maybe' 'Text'
+--
 -- * 'raVolumeType' @::@ 'Maybe' 'Text'
 --
 raidArray :: RaidArray
@@ -668,6 +769,7 @@ raidArray = RaidArray
     , _raMountPoint       = Nothing
     , _raAvailabilityZone = Nothing
     , _raCreatedAt        = Nothing
+    , _raStackId          = Nothing
     , _raVolumeType       = Nothing
     , _raIops             = Nothing
     }
@@ -718,6 +820,10 @@ raRaidLevel = lens _raRaidLevel (\s a -> s { _raRaidLevel = a })
 raSize :: Lens' RaidArray (Maybe Int)
 raSize = lens _raSize (\s a -> s { _raSize = a })
 
+-- | The stack ID.
+raStackId :: Lens' RaidArray (Maybe Text)
+raStackId = lens _raStackId (\s a -> s { _raStackId = a })
+
 -- | The volume type, standard or PIOPS.
 raVolumeType :: Lens' RaidArray (Maybe Text)
 raVolumeType = lens _raVolumeType (\s a -> s { _raVolumeType = a })
@@ -735,6 +841,7 @@ instance FromJSON RaidArray where
         <*> o .:? "RaidArrayId"
         <*> o .:? "RaidLevel"
         <*> o .:? "Size"
+        <*> o .:? "StackId"
         <*> o .:? "VolumeType"
 
 instance ToJSON RaidArray where
@@ -749,6 +856,7 @@ instance ToJSON RaidArray where
         , "MountPoint"       .= _raMountPoint
         , "AvailabilityZone" .= _raAvailabilityZone
         , "CreatedAt"        .= _raCreatedAt
+        , "StackId"          .= _raStackId
         , "VolumeType"       .= _raVolumeType
         , "Iops"             .= _raIops
         ]
@@ -866,6 +974,35 @@ instance ToJSON ElasticLoadBalancer where
         , "AvailabilityZones"       .= _elbAvailabilityZones
         , "SubnetIds"               .= _elbSubnetIds
         , "Ec2InstanceIds"          .= _elbEc2InstanceIds
+        ]
+
+newtype LifecycleEventConfiguration = LifecycleEventConfiguration
+    { _lecShutdown :: Maybe ShutdownEventConfiguration
+    } deriving (Eq, Show)
+
+-- | 'LifecycleEventConfiguration' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lecShutdown' @::@ 'Maybe' 'ShutdownEventConfiguration'
+--
+lifecycleEventConfiguration :: LifecycleEventConfiguration
+lifecycleEventConfiguration = LifecycleEventConfiguration
+    { _lecShutdown = Nothing
+    }
+
+-- | A 'ShutdownEventConfiguration' object that specifies the Shutdown event
+-- configuration.
+lecShutdown :: Lens' LifecycleEventConfiguration (Maybe ShutdownEventConfiguration)
+lecShutdown = lens _lecShutdown (\s a -> s { _lecShutdown = a })
+
+instance FromJSON LifecycleEventConfiguration where
+    parseJSON = withObject "LifecycleEventConfiguration" $ \o -> LifecycleEventConfiguration
+        <$> o .:? "Shutdown"
+
+instance ToJSON LifecycleEventConfiguration where
+    toJSON LifecycleEventConfiguration{..} = object
+        [ "Shutdown" .= _lecShutdown
         ]
 
 data RdsDbInstance = RdsDbInstance
@@ -1220,9 +1357,8 @@ loadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     , _lbascDownScaling = Nothing
     }
 
--- | A 'LoadBasedAutoscalingInstruction' object that describes the downscaling
--- configuration, which defines how and when AWS OpsWorks reduces the number of
--- instances.
+-- | An 'AutoScalingThresholds' object that describes the downscaling configuration,
+-- which defines how and when AWS OpsWorks reduces the number of instances.
 lbascDownScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
 lbascDownScaling = lens _lbascDownScaling (\s a -> s { _lbascDownScaling = a })
 
@@ -1234,9 +1370,8 @@ lbascEnable = lens _lbascEnable (\s a -> s { _lbascEnable = a })
 lbascLayerId :: Lens' LoadBasedAutoScalingConfiguration (Maybe Text)
 lbascLayerId = lens _lbascLayerId (\s a -> s { _lbascLayerId = a })
 
--- | A 'LoadBasedAutoscalingInstruction' object that describes the upscaling
--- configuration, which defines how and when AWS OpsWorks increases the number
--- of instances.
+-- | An 'AutoScalingThresholds' object that describes the upscaling configuration,
+-- which defines how and when AWS OpsWorks increases the number of instances.
 lbascUpScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
 lbascUpScaling = lens _lbascUpScaling (\s a -> s { _lbascUpScaling = a })
 
@@ -1482,6 +1617,7 @@ instance ToJSON ChefConfiguration where
 data LayerType
     = Custom           -- ^ custom
     | DbMaster         -- ^ db-master
+    | JavaApp          -- ^ java-app
     | Lb               -- ^ lb
     | Memcached        -- ^ memcached
     | MonitoringMaster -- ^ monitoring-master
@@ -1497,6 +1633,7 @@ instance FromText LayerType where
     parser = takeText >>= \case
         "custom"            -> pure Custom
         "db-master"         -> pure DbMaster
+        "java-app"          -> pure JavaApp
         "lb"                -> pure Lb
         "memcached"         -> pure Memcached
         "monitoring-master" -> pure MonitoringMaster
@@ -1511,6 +1648,7 @@ instance ToText LayerType where
     toText = \case
         Custom           -> "custom"
         DbMaster         -> "db-master"
+        JavaApp          -> "java-app"
         Lb               -> "lb"
         Memcached        -> "memcached"
         MonitoringMaster -> "monitoring-master"
@@ -1629,6 +1767,7 @@ data App = App
     , _appDescription      :: Maybe Text
     , _appDomains          :: List "InstanceIds" Text
     , _appEnableSsl        :: Maybe Bool
+    , _appEnvironment      :: List "Environment" EnvironmentVariable
     , _appName             :: Maybe Text
     , _appShortname        :: Maybe Text
     , _appSslConfiguration :: Maybe SslConfiguration
@@ -1656,6 +1795,8 @@ data App = App
 --
 -- * 'appEnableSsl' @::@ 'Maybe' 'Bool'
 --
+-- * 'appEnvironment' @::@ ['EnvironmentVariable']
+--
 -- * 'appName' @::@ 'Maybe' 'Text'
 --
 -- * 'appShortname' @::@ 'Maybe' 'Text'
@@ -1681,6 +1822,7 @@ app = App
     , _appSslConfiguration = Nothing
     , _appAttributes       = mempty
     , _appCreatedAt        = Nothing
+    , _appEnvironment      = mempty
     }
 
 -- | The app ID.
@@ -1716,6 +1858,13 @@ appDomains = lens _appDomains (\s a -> s { _appDomains = a }) . _List
 appEnableSsl :: Lens' App (Maybe Bool)
 appEnableSsl = lens _appEnableSsl (\s a -> s { _appEnableSsl = a })
 
+-- | An array of 'EnvironmentVariable' objects that specify environment variables to
+-- be associated with the app. You can specify up to ten environment variables.
+-- After you deploy the app, these variables are defined on the associated app
+-- server instances.
+appEnvironment :: Lens' App [EnvironmentVariable]
+appEnvironment = lens _appEnvironment (\s a -> s { _appEnvironment = a }) . _List
+
 -- | The app name.
 appName :: Lens' App (Maybe Text)
 appName = lens _appName (\s a -> s { _appName = a })
@@ -1747,6 +1896,7 @@ instance FromJSON App where
         <*> o .:? "Description"
         <*> o .:? "Domains" .!= mempty
         <*> o .:? "EnableSsl"
+        <*> o .:? "Environment" .!= mempty
         <*> o .:? "Name"
         <*> o .:? "Shortname"
         <*> o .:? "SslConfiguration"
@@ -1768,6 +1918,7 @@ instance ToJSON App where
         , "SslConfiguration" .= _appSslConfiguration
         , "Attributes"       .= _appAttributes
         , "CreatedAt"        .= _appCreatedAt
+        , "Environment"      .= _appEnvironment
         ]
 
 data ElasticIp = ElasticIp
@@ -1836,6 +1987,88 @@ instance ToJSON ElasticIp where
         , "Domain"     .= _eiDomain
         , "Region"     .= _eiRegion
         , "InstanceId" .= _eiInstanceId
+        ]
+
+data ShutdownEventConfiguration = ShutdownEventConfiguration
+    { _secDelayUntilElbConnectionsDrained :: Maybe Bool
+    , _secExecutionTimeout                :: Maybe Int
+    } deriving (Eq, Ord, Show)
+
+-- | 'ShutdownEventConfiguration' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'secDelayUntilElbConnectionsDrained' @::@ 'Maybe' 'Bool'
+--
+-- * 'secExecutionTimeout' @::@ 'Maybe' 'Int'
+--
+shutdownEventConfiguration :: ShutdownEventConfiguration
+shutdownEventConfiguration = ShutdownEventConfiguration
+    { _secExecutionTimeout                = Nothing
+    , _secDelayUntilElbConnectionsDrained = Nothing
+    }
+
+-- | Whether to enable Elastic Load Balancing connection draining. For more
+-- information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
+secDelayUntilElbConnectionsDrained :: Lens' ShutdownEventConfiguration (Maybe Bool)
+secDelayUntilElbConnectionsDrained =
+    lens _secDelayUntilElbConnectionsDrained
+        (\s a -> s { _secDelayUntilElbConnectionsDrained = a })
+
+-- | The time, in seconds, that AWS OpsWorks will wait after triggering a Shutdown
+-- event before shutting down an instance.
+secExecutionTimeout :: Lens' ShutdownEventConfiguration (Maybe Int)
+secExecutionTimeout =
+    lens _secExecutionTimeout (\s a -> s { _secExecutionTimeout = a })
+
+instance FromJSON ShutdownEventConfiguration where
+    parseJSON = withObject "ShutdownEventConfiguration" $ \o -> ShutdownEventConfiguration
+        <$> o .:? "DelayUntilElbConnectionsDrained"
+        <*> o .:? "ExecutionTimeout"
+
+instance ToJSON ShutdownEventConfiguration where
+    toJSON ShutdownEventConfiguration{..} = object
+        [ "ExecutionTimeout"                .= _secExecutionTimeout
+        , "DelayUntilElbConnectionsDrained" .= _secDelayUntilElbConnectionsDrained
+        ]
+
+data InstanceIdentity = InstanceIdentity
+    { _iiDocument  :: Maybe Text
+    , _iiSignature :: Maybe Text
+    } deriving (Eq, Ord, Show)
+
+-- | 'InstanceIdentity' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'iiDocument' @::@ 'Maybe' 'Text'
+--
+-- * 'iiSignature' @::@ 'Maybe' 'Text'
+--
+instanceIdentity :: InstanceIdentity
+instanceIdentity = InstanceIdentity
+    { _iiDocument  = Nothing
+    , _iiSignature = Nothing
+    }
+
+-- | A JSON document that contains the metadata.
+iiDocument :: Lens' InstanceIdentity (Maybe Text)
+iiDocument = lens _iiDocument (\s a -> s { _iiDocument = a })
+
+-- | A signature that can be used to verify the document's accuracy and
+-- authenticity.
+iiSignature :: Lens' InstanceIdentity (Maybe Text)
+iiSignature = lens _iiSignature (\s a -> s { _iiSignature = a })
+
+instance FromJSON InstanceIdentity where
+    parseJSON = withObject "InstanceIdentity" $ \o -> InstanceIdentity
+        <$> o .:? "Document"
+        <*> o .:? "Signature"
+
+instance ToJSON InstanceIdentity where
+    toJSON InstanceIdentity{..} = object
+        [ "Document"  .= _iiDocument
+        , "Signature" .= _iiSignature
         ]
 
 data UserProfile = UserProfile
@@ -2295,7 +2528,10 @@ vcRaidLevel = lens _vcRaidLevel (\s a -> s { _vcRaidLevel = a })
 vcSize :: Lens' VolumeConfiguration Int
 vcSize = lens _vcSize (\s a -> s { _vcSize = a })
 
--- | The volume type, standard or PIOPS.
+-- | The volume type:
+--
+-- 'standard' - Magnetic  'io1' - Provisioned IOPS (SSD)  'gp2' - General Purpose
+-- (SSD)
 vcVolumeType :: Lens' VolumeConfiguration (Maybe Text)
 vcVolumeType = lens _vcVolumeType (\s a -> s { _vcVolumeType = a })
 
@@ -2316,6 +2552,54 @@ instance ToJSON VolumeConfiguration where
         , "Size"          .= _vcSize
         , "VolumeType"    .= _vcVolumeType
         , "Iops"          .= _vcIops
+        ]
+
+data ReportedOs = ReportedOs
+    { _roFamily  :: Maybe Text
+    , _roName    :: Maybe Text
+    , _roVersion :: Maybe Text
+    } deriving (Eq, Ord, Show)
+
+-- | 'ReportedOs' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'roFamily' @::@ 'Maybe' 'Text'
+--
+-- * 'roName' @::@ 'Maybe' 'Text'
+--
+-- * 'roVersion' @::@ 'Maybe' 'Text'
+--
+reportedOs :: ReportedOs
+reportedOs = ReportedOs
+    { _roFamily  = Nothing
+    , _roName    = Nothing
+    , _roVersion = Nothing
+    }
+
+-- | The operating system family.
+roFamily :: Lens' ReportedOs (Maybe Text)
+roFamily = lens _roFamily (\s a -> s { _roFamily = a })
+
+-- | The operating system name.
+roName :: Lens' ReportedOs (Maybe Text)
+roName = lens _roName (\s a -> s { _roName = a })
+
+-- | The operating system version.
+roVersion :: Lens' ReportedOs (Maybe Text)
+roVersion = lens _roVersion (\s a -> s { _roVersion = a })
+
+instance FromJSON ReportedOs where
+    parseJSON = withObject "ReportedOs" $ \o -> ReportedOs
+        <$> o .:? "Family"
+        <*> o .:? "Name"
+        <*> o .:? "Version"
+
+instance ToJSON ReportedOs where
+    toJSON ReportedOs{..} = object
+        [ "Family"  .= _roFamily
+        , "Name"    .= _roName
+        , "Version" .= _roVersion
         ]
 
 data Permission = Permission
@@ -2390,26 +2674,83 @@ instance ToJSON Permission where
         , "Level"      .= _pLevel
         ]
 
+data EnvironmentVariable = EnvironmentVariable
+    { _evKey    :: Text
+    , _evSecure :: Maybe Bool
+    , _evValue  :: Text
+    } deriving (Eq, Ord, Show)
+
+-- | 'EnvironmentVariable' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'evKey' @::@ 'Text'
+--
+-- * 'evSecure' @::@ 'Maybe' 'Bool'
+--
+-- * 'evValue' @::@ 'Text'
+--
+environmentVariable :: Text -- ^ 'evKey'
+                    -> Text -- ^ 'evValue'
+                    -> EnvironmentVariable
+environmentVariable p1 p2 = EnvironmentVariable
+    { _evKey    = p1
+    , _evValue  = p2
+    , _evSecure = Nothing
+    }
+
+-- | (Required) The environment variable's name, which can consist of up to 64
+-- characters and must be specified. The name can contain upper- and lowercase
+-- letters, numbers, and underscores (_), but it must start with a letter or
+-- underscore.
+evKey :: Lens' EnvironmentVariable Text
+evKey = lens _evKey (\s a -> s { _evKey = a })
+
+-- | (Optional) Whether the variable's value will be returned by the 'DescribeApps'
+-- action. To conceal an environment variable's value, set 'Secure' to 'true'. 'DescribeApps' then returns '**Filtered**' instead of the actual value. The default value for 'Secure' is 'false'.
+evSecure :: Lens' EnvironmentVariable (Maybe Bool)
+evSecure = lens _evSecure (\s a -> s { _evSecure = a })
+
+-- | (Optional) The environment variable's value, which can be left empty. If you
+-- specify a value, it can contain up to 256 characters, which must all be
+-- printable.
+evValue :: Lens' EnvironmentVariable Text
+evValue = lens _evValue (\s a -> s { _evValue = a })
+
+instance FromJSON EnvironmentVariable where
+    parseJSON = withObject "EnvironmentVariable" $ \o -> EnvironmentVariable
+        <$> o .:  "Key"
+        <*> o .:? "Secure"
+        <*> o .:  "Value"
+
+instance ToJSON EnvironmentVariable where
+    toJSON EnvironmentVariable{..} = object
+        [ "Key"    .= _evKey
+        , "Value"  .= _evValue
+        , "Secure" .= _evSecure
+        ]
+
 data Layer = Layer
-    { _lAttributes                :: Map LayerAttributesKeys Text
-    , _lAutoAssignElasticIps      :: Maybe Bool
-    , _lAutoAssignPublicIps       :: Maybe Bool
-    , _lCreatedAt                 :: Maybe Text
-    , _lCustomInstanceProfileArn  :: Maybe Text
-    , _lCustomRecipes             :: Maybe Recipes
-    , _lCustomSecurityGroupIds    :: List "InstanceIds" Text
-    , _lDefaultRecipes            :: Maybe Recipes
-    , _lDefaultSecurityGroupNames :: List "InstanceIds" Text
-    , _lEnableAutoHealing         :: Maybe Bool
-    , _lInstallUpdatesOnBoot      :: Maybe Bool
-    , _lLayerId                   :: Maybe Text
-    , _lName                      :: Maybe Text
-    , _lPackages                  :: List "InstanceIds" Text
-    , _lShortname                 :: Maybe Text
-    , _lStackId                   :: Maybe Text
-    , _lType                      :: Maybe LayerType
-    , _lUseEbsOptimizedInstances  :: Maybe Bool
-    , _lVolumeConfigurations      :: List "VolumeConfigurations" VolumeConfiguration
+    { _lAttributes                  :: Map LayerAttributesKeys Text
+    , _lAutoAssignElasticIps        :: Maybe Bool
+    , _lAutoAssignPublicIps         :: Maybe Bool
+    , _lCreatedAt                   :: Maybe Text
+    , _lCustomInstanceProfileArn    :: Maybe Text
+    , _lCustomRecipes               :: Maybe Recipes
+    , _lCustomSecurityGroupIds      :: List "InstanceIds" Text
+    , _lDefaultRecipes              :: Maybe Recipes
+    , _lDefaultSecurityGroupNames   :: List "InstanceIds" Text
+    , _lEnableAutoHealing           :: Maybe Bool
+    , _lInstallUpdatesOnBoot        :: Maybe Bool
+    , _lLayerId                     :: Maybe Text
+    , _lLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
+    , _lName                        :: Maybe Text
+    , _lPackages                    :: List "InstanceIds" Text
+    , _lShortname                   :: Maybe Text
+    , _lStackId                     :: Maybe Text
+    , _lType                        :: Maybe LayerType
+    , _lUseEbsOptimizedInstances    :: Maybe Bool
+    , _lVolumeConfigurations        :: List "VolumeConfigurations" VolumeConfiguration
     } deriving (Eq, Show)
 
 -- | 'Layer' constructor.
@@ -2440,6 +2781,8 @@ data Layer = Layer
 --
 -- * 'lLayerId' @::@ 'Maybe' 'Text'
 --
+-- * 'lLifecycleEventConfiguration' @::@ 'Maybe' 'LifecycleEventConfiguration'
+--
 -- * 'lName' @::@ 'Maybe' 'Text'
 --
 -- * 'lPackages' @::@ ['Text']
@@ -2456,25 +2799,26 @@ data Layer = Layer
 --
 layer :: Layer
 layer = Layer
-    { _lStackId                   = Nothing
-    , _lLayerId                   = Nothing
-    , _lType                      = Nothing
-    , _lName                      = Nothing
-    , _lShortname                 = Nothing
-    , _lAttributes                = mempty
-    , _lCustomInstanceProfileArn  = Nothing
-    , _lCustomSecurityGroupIds    = mempty
-    , _lDefaultSecurityGroupNames = mempty
-    , _lPackages                  = mempty
-    , _lVolumeConfigurations      = mempty
-    , _lEnableAutoHealing         = Nothing
-    , _lAutoAssignElasticIps      = Nothing
-    , _lAutoAssignPublicIps       = Nothing
-    , _lDefaultRecipes            = Nothing
-    , _lCustomRecipes             = Nothing
-    , _lCreatedAt                 = Nothing
-    , _lInstallUpdatesOnBoot      = Nothing
-    , _lUseEbsOptimizedInstances  = Nothing
+    { _lStackId                     = Nothing
+    , _lLayerId                     = Nothing
+    , _lType                        = Nothing
+    , _lName                        = Nothing
+    , _lShortname                   = Nothing
+    , _lAttributes                  = mempty
+    , _lCustomInstanceProfileArn    = Nothing
+    , _lCustomSecurityGroupIds      = mempty
+    , _lDefaultSecurityGroupNames   = mempty
+    , _lPackages                    = mempty
+    , _lVolumeConfigurations        = mempty
+    , _lEnableAutoHealing           = Nothing
+    , _lAutoAssignElasticIps        = Nothing
+    , _lAutoAssignPublicIps         = Nothing
+    , _lDefaultRecipes              = Nothing
+    , _lCustomRecipes               = Nothing
+    , _lCreatedAt                   = Nothing
+    , _lInstallUpdatesOnBoot        = Nothing
+    , _lUseEbsOptimizedInstances    = Nothing
+    , _lLifecycleEventConfiguration = Nothing
     }
 
 -- | The layer attributes.
@@ -2533,6 +2877,11 @@ lEnableAutoHealing =
 -- boots. The default value is 'true'. If this value is set to 'false', you must
 -- then update your instances manually by using 'CreateDeployment' to run the 'update_dependencies' stack command or manually running 'yum' (Amazon Linux) or 'apt-get' (Ubuntu) on
 -- the instances.
+--
+-- We strongly recommend using the default value of 'true', to ensure that your
+-- instances have the latest security updates.
+--
+--
 lInstallUpdatesOnBoot :: Lens' Layer (Maybe Bool)
 lInstallUpdatesOnBoot =
     lens _lInstallUpdatesOnBoot (\s a -> s { _lInstallUpdatesOnBoot = a })
@@ -2540,6 +2889,13 @@ lInstallUpdatesOnBoot =
 -- | The layer ID.
 lLayerId :: Lens' Layer (Maybe Text)
 lLayerId = lens _lLayerId (\s a -> s { _lLayerId = a })
+
+-- | A 'LifeCycleEventConfiguration' object that specifies the Shutdown event
+-- configuration.
+lLifecycleEventConfiguration :: Lens' Layer (Maybe LifecycleEventConfiguration)
+lLifecycleEventConfiguration =
+    lens _lLifecycleEventConfiguration
+        (\s a -> s { _lLifecycleEventConfiguration = a })
 
 -- | The layer name.
 lName :: Lens' Layer (Maybe Text)
@@ -2557,10 +2913,7 @@ lShortname = lens _lShortname (\s a -> s { _lShortname = a })
 lStackId :: Lens' Layer (Maybe Text)
 lStackId = lens _lStackId (\s a -> s { _lStackId = a })
 
--- | The layer type, which must be one of the following:
---
--- Custom GangliaMonitoringMaster HaProxy MemcachedServer MySqlMaster NodeJsAppServer
--- PhpAppServer RailsAppServer WebServer
+-- | The layer type.
 lType :: Lens' Layer (Maybe LayerType)
 lType = lens _lType (\s a -> s { _lType = a })
 
@@ -2590,6 +2943,7 @@ instance FromJSON Layer where
         <*> o .:? "EnableAutoHealing"
         <*> o .:? "InstallUpdatesOnBoot"
         <*> o .:? "LayerId"
+        <*> o .:? "LifecycleEventConfiguration"
         <*> o .:? "Name"
         <*> o .:? "Packages" .!= mempty
         <*> o .:? "Shortname"
@@ -2600,25 +2954,26 @@ instance FromJSON Layer where
 
 instance ToJSON Layer where
     toJSON Layer{..} = object
-        [ "StackId"                   .= _lStackId
-        , "LayerId"                   .= _lLayerId
-        , "Type"                      .= _lType
-        , "Name"                      .= _lName
-        , "Shortname"                 .= _lShortname
-        , "Attributes"                .= _lAttributes
-        , "CustomInstanceProfileArn"  .= _lCustomInstanceProfileArn
-        , "CustomSecurityGroupIds"    .= _lCustomSecurityGroupIds
-        , "DefaultSecurityGroupNames" .= _lDefaultSecurityGroupNames
-        , "Packages"                  .= _lPackages
-        , "VolumeConfigurations"      .= _lVolumeConfigurations
-        , "EnableAutoHealing"         .= _lEnableAutoHealing
-        , "AutoAssignElasticIps"      .= _lAutoAssignElasticIps
-        , "AutoAssignPublicIps"       .= _lAutoAssignPublicIps
-        , "DefaultRecipes"            .= _lDefaultRecipes
-        , "CustomRecipes"             .= _lCustomRecipes
-        , "CreatedAt"                 .= _lCreatedAt
-        , "InstallUpdatesOnBoot"      .= _lInstallUpdatesOnBoot
-        , "UseEbsOptimizedInstances"  .= _lUseEbsOptimizedInstances
+        [ "StackId"                     .= _lStackId
+        , "LayerId"                     .= _lLayerId
+        , "Type"                        .= _lType
+        , "Name"                        .= _lName
+        , "Shortname"                   .= _lShortname
+        , "Attributes"                  .= _lAttributes
+        , "CustomInstanceProfileArn"    .= _lCustomInstanceProfileArn
+        , "CustomSecurityGroupIds"      .= _lCustomSecurityGroupIds
+        , "DefaultSecurityGroupNames"   .= _lDefaultSecurityGroupNames
+        , "Packages"                    .= _lPackages
+        , "VolumeConfigurations"        .= _lVolumeConfigurations
+        , "EnableAutoHealing"           .= _lEnableAutoHealing
+        , "AutoAssignElasticIps"        .= _lAutoAssignElasticIps
+        , "AutoAssignPublicIps"         .= _lAutoAssignPublicIps
+        , "DefaultRecipes"              .= _lDefaultRecipes
+        , "CustomRecipes"               .= _lCustomRecipes
+        , "CreatedAt"                   .= _lCreatedAt
+        , "InstallUpdatesOnBoot"        .= _lInstallUpdatesOnBoot
+        , "UseEbsOptimizedInstances"    .= _lUseEbsOptimizedInstances
+        , "LifecycleEventConfiguration" .= _lLifecycleEventConfiguration
         ]
 
 data Recipes = Recipes
@@ -2961,7 +3316,7 @@ sDefaultInstanceProfileArn =
     lens _sDefaultInstanceProfileArn
         (\s a -> s { _sDefaultInstanceProfileArn = a })
 
--- | The stack's default operating system, which must be set to 'Amazon Linux' or 'Ubuntu 12.04 LTS'. The default option is 'Amazon Linux'.
+-- | The stack's default operating system.
 sDefaultOs :: Lens' Stack (Maybe Text)
 sDefaultOs = lens _sDefaultOs (\s a -> s { _sDefaultOs = a })
 
@@ -3091,7 +3446,18 @@ deploymentCommand p1 = DeploymentCommand
 -- | The arguments of those commands that take arguments. It should be set to a
 -- JSON object with the following format:
 --
--- '{"arg_name":["value1", "value2", ...]}'
+-- '{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2",...], ...}'
+--
+-- The 'update_dependencies' command takes two arguments:
+--
+-- 'upgrade_os_to' - Specifies the desired Amazon Linux version for instances
+-- whose OS you want to upgrade, such as 'Amazon Linux 2014.09'. You must also set
+-- the 'allow_reboot' argument to true.  'allow_reboot' - Specifies whether to allow
+-- AWS OpsWorks to reboot the instances if necessary, after installing the
+-- updates. This argument can be set to either 'true' or 'false'. The default value
+-- is 'false'.  For example, to upgrade an instance to Amazon Linux 2014.09, set 'Args' to the following.
+--
+-- ' { "upgrade_os_to":["Amazon Linux 2014.09"], "allow_reboot":["true"] } '
 dcArgs :: Lens' DeploymentCommand (HashMap Text [Text])
 dcArgs = lens _dcArgs (\s a -> s { _dcArgs = a }) . _Map
 
@@ -3275,6 +3641,7 @@ data Instance = Instance
     , _iEc2InstanceId            :: Maybe Text
     , _iElasticIp                :: Maybe Text
     , _iHostname                 :: Maybe Text
+    , _iInfrastructureClass      :: Maybe Text
     , _iInstallUpdatesOnBoot     :: Maybe Bool
     , _iInstanceId               :: Maybe Text
     , _iInstanceProfileArn       :: Maybe Text
@@ -3286,6 +3653,8 @@ data Instance = Instance
     , _iPrivateIp                :: Maybe Text
     , _iPublicDns                :: Maybe Text
     , _iPublicIp                 :: Maybe Text
+    , _iRegisteredBy             :: Maybe Text
+    , _iReportedOs               :: Maybe ReportedOs
     , _iRootDeviceType           :: Maybe RootDeviceType
     , _iRootDeviceVolumeId       :: Maybe Text
     , _iSecurityGroupIds         :: List "InstanceIds" Text
@@ -3295,7 +3664,7 @@ data Instance = Instance
     , _iStackId                  :: Maybe Text
     , _iStatus                   :: Maybe Text
     , _iSubnetId                 :: Maybe Text
-    , _iVirtualizationType       :: Maybe Text
+    , _iVirtualizationType       :: Maybe VirtualizationType
     } deriving (Eq, Show)
 
 -- | 'Instance' constructor.
@@ -3320,6 +3689,8 @@ data Instance = Instance
 --
 -- * 'iHostname' @::@ 'Maybe' 'Text'
 --
+-- * 'iInfrastructureClass' @::@ 'Maybe' 'Text'
+--
 -- * 'iInstallUpdatesOnBoot' @::@ 'Maybe' 'Bool'
 --
 -- * 'iInstanceId' @::@ 'Maybe' 'Text'
@@ -3342,6 +3713,10 @@ data Instance = Instance
 --
 -- * 'iPublicIp' @::@ 'Maybe' 'Text'
 --
+-- * 'iRegisteredBy' @::@ 'Maybe' 'Text'
+--
+-- * 'iReportedOs' @::@ 'Maybe' 'ReportedOs'
+--
 -- * 'iRootDeviceType' @::@ 'Maybe' 'RootDeviceType'
 --
 -- * 'iRootDeviceVolumeId' @::@ 'Maybe' 'Text'
@@ -3360,7 +3735,7 @@ data Instance = Instance
 --
 -- * 'iSubnetId' @::@ 'Maybe' 'Text'
 --
--- * 'iVirtualizationType' @::@ 'Maybe' 'Text'
+-- * 'iVirtualizationType' @::@ 'Maybe' 'VirtualizationType'
 --
 instance' :: Instance
 instance' = Instance
@@ -3394,11 +3769,14 @@ instance' = Instance
     , _iRootDeviceVolumeId       = Nothing
     , _iInstallUpdatesOnBoot     = Nothing
     , _iEbsOptimized             = Nothing
+    , _iReportedOs               = Nothing
+    , _iInfrastructureClass      = Nothing
+    , _iRegisteredBy             = Nothing
     }
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be based on
--- one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu 12.04 LTS. For
--- more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances.html Instances>
+-- one of the standard AWS OpsWorks APIs: Amazon Linux, Ubuntu 12.04 LTS, or
+-- Ubuntu 14.04 LTS. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances.html Instances>
 iAmiId :: Lens' Instance (Maybe Text)
 iAmiId = lens _iAmiId (\s a -> s { _iAmiId = a })
 
@@ -3406,12 +3784,7 @@ iAmiId = lens _iAmiId (\s a -> s { _iAmiId = a })
 iArchitecture :: Lens' Instance (Maybe Architecture)
 iArchitecture = lens _iArchitecture (\s a -> s { _iArchitecture = a })
 
--- | The instance's auto scaling type, which has three possible values:
---
--- AlwaysRunning: A 24/7 instance, which is not affected by auto scaling.  TimeBasedAutoScaling
--- : A time-based auto scaling instance, which is started and stopped based on a
--- specified schedule.  LoadBasedAutoScaling: A load-based auto scaling
--- instance, which is started and stopped based on load metrics.
+-- | For load-based or time-based instances, the type.
 iAutoScalingType :: Lens' Instance (Maybe AutoScalingType)
 iAutoScalingType = lens _iAutoScalingType (\s a -> s { _iAutoScalingType = a })
 
@@ -3440,10 +3813,20 @@ iElasticIp = lens _iElasticIp (\s a -> s { _iElasticIp = a })
 iHostname :: Lens' Instance (Maybe Text)
 iHostname = lens _iHostname (\s a -> s { _iHostname = a })
 
+-- | For registered instances, the infrastructure class: 'ec2' or 'on-premises'
+iInfrastructureClass :: Lens' Instance (Maybe Text)
+iInfrastructureClass =
+    lens _iInfrastructureClass (\s a -> s { _iInfrastructureClass = a })
+
 -- | Whether to install operating system and package updates when the instance
 -- boots. The default value is 'true'. If this value is set to 'false', you must
 -- then update your instances manually by using 'CreateDeployment' to run the 'update_dependencies' stack command or manually running 'yum' (Amazon Linux) or 'apt-get' (Ubuntu) on
 -- the instances.
+--
+-- We strongly recommend using the default value of 'true', to ensure that your
+-- instances have the latest security updates.
+--
+--
 iInstallUpdatesOnBoot :: Lens' Instance (Maybe Bool)
 iInstallUpdatesOnBoot =
     lens _iInstallUpdatesOnBoot (\s a -> s { _iInstallUpdatesOnBoot = a })
@@ -3473,7 +3856,7 @@ iLastServiceErrorId =
 iLayerIds :: Lens' Instance [Text]
 iLayerIds = lens _iLayerIds (\s a -> s { _iLayerIds = a }) . _List
 
--- | The instance operating system.
+-- | The instance's operating system.
 iOs :: Lens' Instance (Maybe Text)
 iOs = lens _iOs (\s a -> s { _iOs = a })
 
@@ -3492,6 +3875,14 @@ iPublicDns = lens _iPublicDns (\s a -> s { _iPublicDns = a })
 -- | The instance public IP address.
 iPublicIp :: Lens' Instance (Maybe Text)
 iPublicIp = lens _iPublicIp (\s a -> s { _iPublicIp = a })
+
+-- | For registered instances, who performed the registration.
+iRegisteredBy :: Lens' Instance (Maybe Text)
+iRegisteredBy = lens _iRegisteredBy (\s a -> s { _iRegisteredBy = a })
+
+-- | For registered instances, the reported operating system.
+iReportedOs :: Lens' Instance (Maybe ReportedOs)
+iReportedOs = lens _iReportedOs (\s a -> s { _iReportedOs = a })
 
 -- | The instance root device type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the RootDevice>.
 iRootDeviceType :: Lens' Instance (Maybe RootDeviceType)
@@ -3530,8 +3921,7 @@ iStackId = lens _iStackId (\s a -> s { _iStackId = a })
 
 -- | The instance status:
 --
--- 'requested' 'booting' 'running_setup' 'online' 'setup_failed' 'start_failed' 'terminating'
--- 'terminated' 'stopped' 'connection_lost'
+-- 'booting' 'connection_lost' 'online' 'pending' 'rebooting' 'requested' 'running_setup' 'setup_failed' 'shutting_down' 'start_failed' 'stopped' 'stopping' 'terminated' 'terminating'
 iStatus :: Lens' Instance (Maybe Text)
 iStatus = lens _iStatus (\s a -> s { _iStatus = a })
 
@@ -3540,7 +3930,7 @@ iSubnetId :: Lens' Instance (Maybe Text)
 iSubnetId = lens _iSubnetId (\s a -> s { _iSubnetId = a })
 
 -- | The instance's virtualization type, 'paravirtual' or 'hvm'.
-iVirtualizationType :: Lens' Instance (Maybe Text)
+iVirtualizationType :: Lens' Instance (Maybe VirtualizationType)
 iVirtualizationType =
     lens _iVirtualizationType (\s a -> s { _iVirtualizationType = a })
 
@@ -3555,6 +3945,7 @@ instance FromJSON Instance where
         <*> o .:? "Ec2InstanceId"
         <*> o .:? "ElasticIp"
         <*> o .:? "Hostname"
+        <*> o .:? "InfrastructureClass"
         <*> o .:? "InstallUpdatesOnBoot"
         <*> o .:? "InstanceId"
         <*> o .:? "InstanceProfileArn"
@@ -3566,6 +3957,8 @@ instance FromJSON Instance where
         <*> o .:? "PrivateIp"
         <*> o .:? "PublicDns"
         <*> o .:? "PublicIp"
+        <*> o .:? "RegisteredBy"
+        <*> o .:? "ReportedOs"
         <*> o .:? "RootDeviceType"
         <*> o .:? "RootDeviceVolumeId"
         <*> o .:? "SecurityGroupIds" .!= mempty
@@ -3609,6 +4002,9 @@ instance ToJSON Instance where
         , "RootDeviceVolumeId"       .= _iRootDeviceVolumeId
         , "InstallUpdatesOnBoot"     .= _iInstallUpdatesOnBoot
         , "EbsOptimized"             .= _iEbsOptimized
+        , "ReportedOs"               .= _iReportedOs
+        , "InfrastructureClass"      .= _iInfrastructureClass
+        , "RegisteredBy"             .= _iRegisteredBy
         ]
 
 data Deployment = Deployment
@@ -3757,11 +4153,15 @@ instance ToJSON Deployment where
         ]
 
 data InstancesCount = InstancesCount
-    { _icBooting        :: Maybe Int
+    { _icAssigning      :: Maybe Int
+    , _icBooting        :: Maybe Int
     , _icConnectionLost :: Maybe Int
+    , _icDeregistering  :: Maybe Int
     , _icOnline         :: Maybe Int
     , _icPending        :: Maybe Int
     , _icRebooting      :: Maybe Int
+    , _icRegistered     :: Maybe Int
+    , _icRegistering    :: Maybe Int
     , _icRequested      :: Maybe Int
     , _icRunningSetup   :: Maybe Int
     , _icSetupFailed    :: Maybe Int
@@ -3771,21 +4171,30 @@ data InstancesCount = InstancesCount
     , _icStopping       :: Maybe Int
     , _icTerminated     :: Maybe Int
     , _icTerminating    :: Maybe Int
+    , _icUnassigning    :: Maybe Int
     } deriving (Eq, Ord, Show)
 
 -- | 'InstancesCount' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'icAssigning' @::@ 'Maybe' 'Int'
+--
 -- * 'icBooting' @::@ 'Maybe' 'Int'
 --
 -- * 'icConnectionLost' @::@ 'Maybe' 'Int'
+--
+-- * 'icDeregistering' @::@ 'Maybe' 'Int'
 --
 -- * 'icOnline' @::@ 'Maybe' 'Int'
 --
 -- * 'icPending' @::@ 'Maybe' 'Int'
 --
 -- * 'icRebooting' @::@ 'Maybe' 'Int'
+--
+-- * 'icRegistered' @::@ 'Maybe' 'Int'
+--
+-- * 'icRegistering' @::@ 'Maybe' 'Int'
 --
 -- * 'icRequested' @::@ 'Maybe' 'Int'
 --
@@ -3805,13 +4214,19 @@ data InstancesCount = InstancesCount
 --
 -- * 'icTerminating' @::@ 'Maybe' 'Int'
 --
+-- * 'icUnassigning' @::@ 'Maybe' 'Int'
+--
 instancesCount :: InstancesCount
 instancesCount = InstancesCount
-    { _icBooting        = Nothing
+    { _icAssigning      = Nothing
+    , _icBooting        = Nothing
     , _icConnectionLost = Nothing
+    , _icDeregistering  = Nothing
     , _icOnline         = Nothing
     , _icPending        = Nothing
     , _icRebooting      = Nothing
+    , _icRegistered     = Nothing
+    , _icRegistering    = Nothing
     , _icRequested      = Nothing
     , _icRunningSetup   = Nothing
     , _icSetupFailed    = Nothing
@@ -3821,7 +4236,12 @@ instancesCount = InstancesCount
     , _icStopping       = Nothing
     , _icTerminated     = Nothing
     , _icTerminating    = Nothing
+    , _icUnassigning    = Nothing
     }
+
+-- | The number of instances in the Assigning state.
+icAssigning :: Lens' InstancesCount (Maybe Int)
+icAssigning = lens _icAssigning (\s a -> s { _icAssigning = a })
 
 -- | The number of instances with 'booting' status.
 icBooting :: Lens' InstancesCount (Maybe Int)
@@ -3830,6 +4250,10 @@ icBooting = lens _icBooting (\s a -> s { _icBooting = a })
 -- | The number of instances with 'connection_lost' status.
 icConnectionLost :: Lens' InstancesCount (Maybe Int)
 icConnectionLost = lens _icConnectionLost (\s a -> s { _icConnectionLost = a })
+
+-- | The number of instances in the Deregistering state.
+icDeregistering :: Lens' InstancesCount (Maybe Int)
+icDeregistering = lens _icDeregistering (\s a -> s { _icDeregistering = a })
 
 -- | The number of instances with 'online' status.
 icOnline :: Lens' InstancesCount (Maybe Int)
@@ -3842,6 +4266,14 @@ icPending = lens _icPending (\s a -> s { _icPending = a })
 -- | The number of instances with 'rebooting' status.
 icRebooting :: Lens' InstancesCount (Maybe Int)
 icRebooting = lens _icRebooting (\s a -> s { _icRebooting = a })
+
+-- | The number of instances in the Registered state.
+icRegistered :: Lens' InstancesCount (Maybe Int)
+icRegistered = lens _icRegistered (\s a -> s { _icRegistered = a })
+
+-- | The number of instances in the Registering state.
+icRegistering :: Lens' InstancesCount (Maybe Int)
+icRegistering = lens _icRegistering (\s a -> s { _icRegistering = a })
 
 -- | The number of instances with 'requested' status.
 icRequested :: Lens' InstancesCount (Maybe Int)
@@ -3879,13 +4311,21 @@ icTerminated = lens _icTerminated (\s a -> s { _icTerminated = a })
 icTerminating :: Lens' InstancesCount (Maybe Int)
 icTerminating = lens _icTerminating (\s a -> s { _icTerminating = a })
 
+-- | The number of instances in the Unassigning state.
+icUnassigning :: Lens' InstancesCount (Maybe Int)
+icUnassigning = lens _icUnassigning (\s a -> s { _icUnassigning = a })
+
 instance FromJSON InstancesCount where
     parseJSON = withObject "InstancesCount" $ \o -> InstancesCount
-        <$> o .:? "Booting"
+        <$> o .:? "Assigning"
+        <*> o .:? "Booting"
         <*> o .:? "ConnectionLost"
+        <*> o .:? "Deregistering"
         <*> o .:? "Online"
         <*> o .:? "Pending"
         <*> o .:? "Rebooting"
+        <*> o .:? "Registered"
+        <*> o .:? "Registering"
         <*> o .:? "Requested"
         <*> o .:? "RunningSetup"
         <*> o .:? "SetupFailed"
@@ -3895,14 +4335,19 @@ instance FromJSON InstancesCount where
         <*> o .:? "Stopping"
         <*> o .:? "Terminated"
         <*> o .:? "Terminating"
+        <*> o .:? "Unassigning"
 
 instance ToJSON InstancesCount where
     toJSON InstancesCount{..} = object
-        [ "Booting"        .= _icBooting
+        [ "Assigning"      .= _icAssigning
+        , "Booting"        .= _icBooting
         , "ConnectionLost" .= _icConnectionLost
+        , "Deregistering"  .= _icDeregistering
         , "Online"         .= _icOnline
         , "Pending"        .= _icPending
         , "Rebooting"      .= _icRebooting
+        , "Registered"     .= _icRegistered
+        , "Registering"    .= _icRegistering
         , "Requested"      .= _icRequested
         , "RunningSetup"   .= _icRunningSetup
         , "SetupFailed"    .= _icSetupFailed
@@ -3912,10 +4357,12 @@ instance ToJSON InstancesCount where
         , "Stopping"       .= _icStopping
         , "Terminated"     .= _icTerminated
         , "Terminating"    .= _icTerminating
+        , "Unassigning"    .= _icUnassigning
         ]
 
 data AppType
-    = Nodejs -- ^ nodejs
+    = Java   -- ^ java
+    | Nodejs -- ^ nodejs
     | Other  -- ^ other
     | Php    -- ^ php
     | Rails  -- ^ rails
@@ -3926,6 +4373,7 @@ instance Hashable AppType
 
 instance FromText AppType where
     parser = takeText >>= \case
+        "java"   -> pure Java
         "nodejs" -> pure Nodejs
         "other"  -> pure Other
         "php"    -> pure Php
@@ -3936,6 +4384,7 @@ instance FromText AppType where
 
 instance ToText AppType where
     toText = \case
+        Java   -> "java"
         Nodejs -> "nodejs"
         Other  -> "other"
         Php    -> "php"

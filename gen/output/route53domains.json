@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.Route53Domains.Waiters",
+        "imports": [
+            "Network.AWS.Route53Domains.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -30,7 +37,26 @@
         "documentation": "-- | Pending",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "route53domains",
+        "retryPolicies": {
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "Route53Domains_v20140515"
     },
     "cabal": {
@@ -59,7 +85,7 @@
         "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html",
         "protocol": "json",
         "name": "Amazon Route 53 Domains",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "Pending"
     },
     "types": {

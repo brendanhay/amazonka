@@ -1,4 +1,50 @@
 {
+    "waiters": {
+        "waiters": {
+            "ClusterRunning": {
+                "operation": "DescribeCluster",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "dcrCluster . c1Status . csState . _Just",
+                        "expected": "CSRunning"
+                    },
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "dcrCluster . c1Status . csState . _Just",
+                        "expected": "CSWaiting"
+                    },
+                    {
+                        "matcher": "matchAll",
+                        "state": "failure",
+                        "argument": "dcrCluster . c1Status . csState . _Just",
+                        "expected": "CSTerminating"
+                    },
+                    {
+                        "matcher": "matchAll",
+                        "state": "failure",
+                        "argument": "dcrCluster . c1Status . csState . _Just",
+                        "expected": "CSTerminated"
+                    },
+                    {
+                        "matcher": "matchAll",
+                        "state": "failure",
+                        "argument": "dcrCluster . c1Status . csState . _Just",
+                        "expected": "CSTerminatedWithErrors"
+                    }
+                ],
+                "maxAttempts": 60,
+                "delay": 30
+            }
+        },
+        "namespace": "Network.AWS.EMR.Waiters",
+        "imports": [
+            "Network.AWS.EMR.DescribeCluster",
+            "Network.AWS.EMR.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -25,14 +71,38 @@
             "Network.AWS.EMR.SetTerminationProtection",
             "Network.AWS.EMR.SetVisibleToAllUsers",
             "Network.AWS.EMR.TerminateJobFlows",
-            "Network.AWS.EMR.Types"
+            "Network.AWS.EMR.Types",
+            "Network.AWS.EMR.Waiters"
         ],
         "name": "Amazon Elastic MapReduce",
         "version": "2009-03-31",
         "documentation": "-- | Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to\n-- process large amounts of data efficiently. Amazon EMR uses Hadoop processing\n-- combined with several AWS products to do such tasks as web indexing, data\n-- mining, log file analysis, machine learning, scientific simulation, and data\n-- warehousing.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "elasticmapreduce",
+        "retryPolicies": {
+            "throttling": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "ElasticMapReduce"
     },
     "cabal": {
@@ -58,12 +128,13 @@
             "Network.AWS.EMR.SetTerminationProtection",
             "Network.AWS.EMR.SetVisibleToAllUsers",
             "Network.AWS.EMR.TerminateJobFlows",
-            "Network.AWS.EMR.Types"
+            "Network.AWS.EMR.Types",
+            "Network.AWS.EMR.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html",
         "protocol": "json",
         "name": "Amazon Elastic MapReduce",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to\nprocess large amounts of data efficiently. Amazon EMR uses Hadoop processing\ncombined with several AWS products to do such tasks as web indexing, data\nmining, log file analysis, machine learning, scientific simulation, and data\nwarehousing."
     },
     "types": {
@@ -2478,49 +2549,49 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Id",
                         "name": "_c1Id",
                         "shape": "ClusterId",
                         "locationName": "Id",
                         "documentation": "-- | The unique identifier for the cluster.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Name",
                         "name": "_c1Name",
                         "shape": "String",
                         "locationName": "Name",
                         "documentation": "-- | The name of the cluster.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Status",
                         "name": "_c1Status",
                         "shape": "ClusterStatus",
                         "locationName": "Status",
                         "documentation": "-- | The current status details about the cluster.",
-                        "typeExposed": "Maybe ClusterStatus",
-                        "type": "Maybe ClusterStatus"
+                        "typeExposed": "ClusterStatus",
+                        "type": "ClusterStatus"
                     },
                     {
                         "location": null,
@@ -2684,60 +2755,61 @@
                     }
                 ],
                 "payload": null,
-                "required": [],
-                "contentPad": 22,
-                "name": "Cluster",
-                "locationPad": 22,
-                "type": "record",
-                "optional": [
+                "required": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Id",
                         "name": "_c1Id",
                         "shape": "ClusterId",
                         "locationName": "Id",
                         "documentation": "-- | The unique identifier for the cluster.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Name",
                         "name": "_c1Name",
                         "shape": "String",
                         "locationName": "Name",
                         "documentation": "-- | The name of the cluster.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Status",
                         "name": "_c1Status",
                         "shape": "ClusterStatus",
                         "locationName": "Status",
                         "documentation": "-- | The current status details about the cluster.",
-                        "typeExposed": "Maybe ClusterStatus",
-                        "type": "Maybe ClusterStatus"
-                    },
+                        "typeExposed": "ClusterStatus",
+                        "type": "ClusterStatus"
+                    }
+                ],
+                "contentPad": 22,
+                "name": "Cluster",
+                "locationPad": 22,
+                "type": "record",
+                "optional": [
                     {
                         "location": null,
                         "iso": null,
@@ -2952,17 +3024,17 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Id",
                         "name": "_c1Id",
                         "shape": "ClusterId",
                         "locationName": "Id",
                         "documentation": "-- | The unique identifier for the cluster.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
@@ -2984,17 +3056,17 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Name",
                         "name": "_c1Name",
                         "shape": "String",
                         "locationName": "Name",
                         "documentation": "-- | The name of the cluster.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
@@ -3048,17 +3120,17 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "c1Status",
                         "name": "_c1Status",
                         "shape": "ClusterStatus",
                         "locationName": "Status",
                         "documentation": "-- | The current status details about the cluster.",
-                        "typeExposed": "Maybe ClusterStatus",
-                        "type": "Maybe ClusterStatus"
+                        "typeExposed": "ClusterStatus",
+                        "type": "ClusterStatus"
                     },
                     {
                         "location": null,
@@ -10421,40 +10493,57 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "monoid": false,
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "dcrCluster",
                     "name": "_dcrCluster",
                     "shape": "Cluster",
                     "locationName": "Cluster",
                     "documentation": "-- | This output contains the details for the requested cluster.",
-                    "typeExposed": "Maybe Cluster",
-                    "type": "Maybe Cluster"
+                    "typeExposed": "Cluster",
+                    "type": "Cluster"
                 },
                 "contents": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "dcrCluster",
                         "name": "_dcrCluster",
                         "shape": "Cluster",
                         "locationName": "Cluster",
                         "documentation": "-- | This output contains the details for the requested cluster.",
-                        "typeExposed": "Maybe Cluster",
-                        "type": "Maybe Cluster"
+                        "typeExposed": "Cluster",
+                        "type": "Cluster"
                     }
                 ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
-                "required": [],
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dcrCluster",
+                        "name": "_dcrCluster",
+                        "shape": "Cluster",
+                        "locationName": "Cluster",
+                        "documentation": "-- | This output contains the details for the requested cluster.",
+                        "typeExposed": "Cluster",
+                        "type": "Cluster"
+                    }
+                ],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -10463,40 +10552,23 @@
                 "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
-                "optional": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "dcrCluster",
-                        "name": "_dcrCluster",
-                        "shape": "Cluster",
-                        "locationName": "Cluster",
-                        "documentation": "-- | This output contains the details for the requested cluster.",
-                        "typeExposed": "Maybe Cluster",
-                        "type": "Maybe Cluster"
-                    }
-                ],
+                "optional": [],
                 "fields": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "dcrCluster",
                         "name": "_dcrCluster",
                         "shape": "Cluster",
                         "locationName": "Cluster",
                         "documentation": "-- | This output contains the details for the requested cluster.",
-                        "typeExposed": "Maybe Cluster",
-                        "type": "Maybe Cluster"
+                        "typeExposed": "Cluster",
+                        "type": "Cluster"
                     }
                 ]
             },

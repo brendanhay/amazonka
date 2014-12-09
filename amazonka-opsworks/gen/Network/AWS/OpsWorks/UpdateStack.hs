@@ -192,7 +192,11 @@ usDefaultInstanceProfileArn =
     lens _usDefaultInstanceProfileArn
         (\s a -> s { _usDefaultInstanceProfileArn = a })
 
--- | The stack's default operating system, which must be set to 'Amazon Linux' or 'Ubuntu 12.04 LTS'. The default option is 'Amazon Linux'.
+-- | The stack's operating system, which must be set to one of the following.
+--
+-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You
+-- specify the custom AMI you want to use when you create instances.   The
+-- default option is the current Amazon Linux version.
 usDefaultOs :: Lens' UpdateStack (Maybe Text)
 usDefaultOs = lens _usDefaultOs (\s a -> s { _usDefaultOs = a })
 
@@ -209,10 +213,12 @@ usDefaultSshKeyName :: Lens' UpdateStack (Maybe Text)
 usDefaultSshKeyName =
     lens _usDefaultSshKeyName (\s a -> s { _usDefaultSshKeyName = a })
 
--- | The stack's default subnet ID. All instances will be launched into this
--- subnet unless you specify otherwise when you create the instance. If you also
+-- | The stack's default VPC subnet ID. This parameter is required if you specify
+-- a value for the 'VpcId' parameter. All instances are launched into this subnet
+-- unless you specify otherwise when you create the instance. If you also
 -- specify a value for 'DefaultAvailabilityZone', the subnet must be in that zone.
--- For more information, see 'CreateStack'.
+-- For information on default values and when this parameter is required, see
+-- the 'VpcId' parameter description.
 usDefaultSubnetId :: Lens' UpdateStack (Maybe Text)
 usDefaultSubnetId =
     lens _usDefaultSubnetId (\s a -> s { _usDefaultSubnetId = a })
@@ -235,6 +241,12 @@ usName = lens _usName (\s a -> s { _usName = a })
 -- OpsWorks to work with AWS resources on your behalf. You must set this
 -- parameter to the Amazon Resource Name (ARN) for an existing IAM role. For
 -- more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+--
+-- You must set this parameter to a valid service role ARN or the action will
+-- fail; there is no default value. You can specify the stack's current service
+-- role ARN, if you prefer, but you must do so explicitly.
+--
+--
 usServiceRoleArn :: Lens' UpdateStack (Maybe Text)
 usServiceRoleArn = lens _usServiceRoleArn (\s a -> s { _usServiceRoleArn = a })
 

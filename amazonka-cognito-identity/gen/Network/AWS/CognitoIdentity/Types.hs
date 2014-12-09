@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -52,8 +53,6 @@ module Network.AWS.CognitoIdentity.Types
     , ipsdIdentityPoolName
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -65,15 +64,39 @@ instance AWSService CognitoIdentity where
     type Sg CognitoIdentity = V4
     type Er CognitoIdentity = JSONError
 
-    service = Service
-        { _svcAbbrev       = "CognitoIdentity"
-        , _svcPrefix       = "cognito-identity"
-        , _svcVersion      = "2014-06-30"
-        , _svcTargetPrefix = Just "AWSCognitoIdentityService"
-        , _svcJSONVersion  = Just "1.1"
-        }
+    service = service'
+      where
+        service' :: Service CognitoIdentity
+        service' = Service
+            { _svcAbbrev       = "CognitoIdentity"
+            , _svcPrefix       = "cognito-identity"
+            , _svcVersion      = "2014-06-30"
+            , _svcTargetPrefix = Just "AWSCognitoIdentityService"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = jsonError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry CognitoIdentity
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data IdentityDescription = IdentityDescription
     { _idIdentityId :: Maybe Text

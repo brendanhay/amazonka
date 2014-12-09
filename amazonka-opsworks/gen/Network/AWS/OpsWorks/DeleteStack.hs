@@ -23,7 +23,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Deletes a specified stack. You must first delete all instances, layers, and
--- apps. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html Shut Down a Stack>.
+-- apps or deregister registered instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html Shut Downa Stack>.
 --
 -- Required Permissions: To use this action, an IAM user must have a Manage
 -- permissions level for the stack, or an attached policy that explicitly grants

@@ -1,4 +1,45 @@
 {
+    "waiters": {
+        "waiters": {
+            "TableNotExists": {
+                "operation": "DescribeTable",
+                "acceptors": [
+                    {
+                        "matcher": "matchError",
+                        "state": "success",
+                        "argument": null,
+                        "expected": "\"ResourceNotFoundException\""
+                    }
+                ],
+                "maxAttempts": 25,
+                "delay": 20
+            },
+            "TableExists": {
+                "operation": "DescribeTable",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "dtrTable . tdTableStatus",
+                        "expected": "TSActive"
+                    },
+                    {
+                        "matcher": "matchError",
+                        "state": "retry",
+                        "argument": null,
+                        "expected": "\"ResourceNotFoundException\""
+                    }
+                ],
+                "maxAttempts": 25,
+                "delay": 20
+            }
+        },
+        "namespace": "Network.AWS.DynamoDB.Waiters",
+        "imports": [
+            "Network.AWS.DynamoDB.DescribeTable",
+            "Network.AWS.DynamoDB.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -21,14 +62,42 @@
             "Network.AWS.DynamoDB.Scan",
             "Network.AWS.DynamoDB.Types",
             "Network.AWS.DynamoDB.UpdateItem",
-            "Network.AWS.DynamoDB.UpdateTable"
+            "Network.AWS.DynamoDB.UpdateTable",
+            "Network.AWS.DynamoDB.Waiters"
         ],
         "name": "Amazon DynamoDB",
         "version": "2012-08-10",
         "documentation": "-- | Amazon DynamoDB is a fully managed NoSQL database service that provides fast\n-- and predictable performance with seamless scalability. You can use Amazon\n-- DynamoDB to create a database table that can store and retrieve any amount of\n-- data, and serve any level of request traffic. Amazon DynamoDB automatically\n-- spreads the data and traffic for the table over a sufficient number of\n-- servers to handle the request capacity specified by the customer and the\n-- amount of data stored, while maintaining consistent and fast performance.",
         "xmlNamespace": null,
         "jsonVersion": "1.0",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 10,
+            "growth": 2
+        },
         "endpointPrefix": "dynamodb",
+        "retryPolicies": {
+            "throttling": {
+                "error": "ThrottlingException",
+                "code": 400
+            },
+            "throughput_exceeded": {
+                "error": "ProvisionedThroughputExceededException",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "DynamoDB_20120810"
     },
     "cabal": {
@@ -50,12 +119,13 @@
             "Network.AWS.DynamoDB.Scan",
             "Network.AWS.DynamoDB.Types",
             "Network.AWS.DynamoDB.UpdateItem",
-            "Network.AWS.DynamoDB.UpdateTable"
+            "Network.AWS.DynamoDB.UpdateTable",
+            "Network.AWS.DynamoDB.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon DynamoDB",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "Amazon DynamoDB is a fully managed NoSQL database service that provides fast\nand predictable performance with seamless scalability. You can use Amazon\nDynamoDB to create a database table that can store and retrieve any amount of\ndata, and serve any level of request traffic. Amazon DynamoDB automatically\nspreads the data and traffic for the table over a sufficient number of\nservers to handle the request capacity specified by the customer and the\namount of data stored, while maintaining consistent and fast performance."
     },
     "types": {
@@ -1156,17 +1226,17 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "tdTableName",
                         "name": "_tdTableName",
                         "shape": "TableName",
                         "locationName": "TableName",
                         "documentation": "-- | The name of the table.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
@@ -1188,81 +1258,81 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "tdTableStatus",
                         "name": "_tdTableStatus",
                         "shape": "TableStatus",
                         "locationName": "TableStatus",
                         "documentation": "-- | The current state of the table:\n--\n-- /CREATING/ - The table is being created, as the result of a /CreateTable/\n-- operation.\n--\n-- /UPDATING/ - The table is being updated, as the result of an /UpdateTable/\n-- operation.\n--\n-- /DELETING/ - The table is being deleted, as the result of a /DeleteTable/\n-- operation.\n--\n-- /ACTIVE/ - The table is ready for use.\n--\n--",
-                        "typeExposed": "Maybe TableStatus",
-                        "type": "Maybe TableStatus"
+                        "typeExposed": "TableStatus",
+                        "type": "TableStatus"
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": "mapping _Time",
-                        "default": "Nothing",
+                        "iso": "_Time",
+                        "lensMapping": "_Time",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "tdCreationDateTime",
                         "name": "_tdCreationDateTime",
                         "shape": "Date",
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date and time when the table was created, in \u003chttp://www.epochconverter.com/ UNIX epoch time\u003e format.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "typeExposed": "UTCTime",
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "tdProvisionedThroughput",
                         "name": "_tdProvisionedThroughput",
                         "shape": "ProvisionedThroughputDescription",
                         "locationName": "ProvisionedThroughput",
                         "documentation": "-- | The provisioned throughput settings for the table, consisting of read and\n-- write capacity units, along with data about increases and decreases.",
-                        "typeExposed": "Maybe ProvisionedThroughputDescription",
-                        "type": "Maybe ProvisionedThroughputDescription"
+                        "typeExposed": "ProvisionedThroughputDescription",
+                        "type": "ProvisionedThroughputDescription"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "tdTableSizeBytes",
                         "name": "_tdTableSizeBytes",
                         "shape": "Long",
                         "locationName": "TableSizeBytes",
                         "documentation": "-- | The total size of the specified table, in bytes. DynamoDB updates this value\n-- approximately every six hours. Recent changes might not be reflected in this\n-- value.",
-                        "typeExposed": "Maybe Integer",
-                        "type": "Maybe Integer"
+                        "typeExposed": "Integer",
+                        "type": "Integer"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "tdItemCount",
                         "name": "_tdItemCount",
                         "shape": "Long",
                         "locationName": "ItemCount",
                         "documentation": "-- | The number of items in the specified table. DynamoDB updates this value\n-- approximately every six hours. Recent changes might not be reflected in this\n-- value.",
-                        "typeExposed": "Maybe Integer",
-                        "type": "Maybe Integer"
+                        "typeExposed": "Integer",
+                        "type": "Integer"
                     },
                     {
                         "location": null,
@@ -1301,6 +1371,22 @@
                 "required": [
                     {
                         "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tdTableName",
+                        "name": "_tdTableName",
+                        "shape": "TableName",
+                        "locationName": "TableName",
+                        "documentation": "-- | The name of the table.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
                         "iso": "_List1",
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
@@ -1314,6 +1400,86 @@
                         "documentation": "-- | The primary key structure for the table. Each /KeySchemaElement/ consists of:\n--\n-- /AttributeName/ - The name of the attribute.\n--\n-- /KeyType/ - The key type for the attribute. Can be either 'HASH' or 'RANGE'.\n--\n-- For more information about primary keys, see \u003chttp://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key\u003e in the /AmazonDynamoDB Developer Guide/.",
                         "typeExposed": "NonEmpty KeySchemaElement",
                         "type": "List1 \"KeySchema\" KeySchemaElement"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tdTableStatus",
+                        "name": "_tdTableStatus",
+                        "shape": "TableStatus",
+                        "locationName": "TableStatus",
+                        "documentation": "-- | The current state of the table:\n--\n-- /CREATING/ - The table is being created, as the result of a /CreateTable/\n-- operation.\n--\n-- /UPDATING/ - The table is being updated, as the result of an /UpdateTable/\n-- operation.\n--\n-- /DELETING/ - The table is being deleted, as the result of a /DeleteTable/\n-- operation.\n--\n-- /ACTIVE/ - The table is ready for use.\n--\n--",
+                        "typeExposed": "TableStatus",
+                        "type": "TableStatus"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Time",
+                        "lensMapping": "_Time",
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tdCreationDateTime",
+                        "name": "_tdCreationDateTime",
+                        "shape": "Date",
+                        "locationName": "CreationDateTime",
+                        "documentation": "-- | The date and time when the table was created, in \u003chttp://www.epochconverter.com/ UNIX epoch time\u003e format.",
+                        "typeExposed": "UTCTime",
+                        "type": "ISO8601"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tdProvisionedThroughput",
+                        "name": "_tdProvisionedThroughput",
+                        "shape": "ProvisionedThroughputDescription",
+                        "locationName": "ProvisionedThroughput",
+                        "documentation": "-- | The provisioned throughput settings for the table, consisting of read and\n-- write capacity units, along with data about increases and decreases.",
+                        "typeExposed": "ProvisionedThroughputDescription",
+                        "type": "ProvisionedThroughputDescription"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tdTableSizeBytes",
+                        "name": "_tdTableSizeBytes",
+                        "shape": "Long",
+                        "locationName": "TableSizeBytes",
+                        "documentation": "-- | The total size of the specified table, in bytes. DynamoDB updates this value\n-- approximately every six hours. Recent changes might not be reflected in this\n-- value.",
+                        "typeExposed": "Integer",
+                        "type": "Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tdItemCount",
+                        "name": "_tdItemCount",
+                        "shape": "Long",
+                        "locationName": "ItemCount",
+                        "documentation": "-- | The number of items in the specified table. DynamoDB updates this value\n-- approximately every six hours. Recent changes might not be reflected in this\n-- value.",
+                        "typeExposed": "Integer",
+                        "type": "Integer"
                     }
                 ],
                 "contentPad": 23,
@@ -1336,102 +1502,6 @@
                         "documentation": "-- | An array of /AttributeDefinition/ objects. Each of these objects describes one\n-- attribute in the table and index key schema.\n--\n-- Each /AttributeDefinition/ object in this array is composed of:\n--\n-- /AttributeName/ - The name of the attribute.\n--\n-- /AttributeType/ - The data type for the attribute.\n--\n--",
                         "typeExposed": "[AttributeDefinition]",
                         "type": "List \"AttributeDefinitions\" AttributeDefinition"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "tdTableName",
-                        "name": "_tdTableName",
-                        "shape": "TableName",
-                        "locationName": "TableName",
-                        "documentation": "-- | The name of the table.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "tdTableStatus",
-                        "name": "_tdTableStatus",
-                        "shape": "TableStatus",
-                        "locationName": "TableStatus",
-                        "documentation": "-- | The current state of the table:\n--\n-- /CREATING/ - The table is being created, as the result of a /CreateTable/\n-- operation.\n--\n-- /UPDATING/ - The table is being updated, as the result of an /UpdateTable/\n-- operation.\n--\n-- /DELETING/ - The table is being deleted, as the result of a /DeleteTable/\n-- operation.\n--\n-- /ACTIVE/ - The table is ready for use.\n--\n--",
-                        "typeExposed": "Maybe TableStatus",
-                        "type": "Maybe TableStatus"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": "mapping _Time",
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "tdCreationDateTime",
-                        "name": "_tdCreationDateTime",
-                        "shape": "Date",
-                        "locationName": "CreationDateTime",
-                        "documentation": "-- | The date and time when the table was created, in \u003chttp://www.epochconverter.com/ UNIX epoch time\u003e format.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "tdProvisionedThroughput",
-                        "name": "_tdProvisionedThroughput",
-                        "shape": "ProvisionedThroughputDescription",
-                        "locationName": "ProvisionedThroughput",
-                        "documentation": "-- | The provisioned throughput settings for the table, consisting of read and\n-- write capacity units, along with data about increases and decreases.",
-                        "typeExposed": "Maybe ProvisionedThroughputDescription",
-                        "type": "Maybe ProvisionedThroughputDescription"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "tdTableSizeBytes",
-                        "name": "_tdTableSizeBytes",
-                        "shape": "Long",
-                        "locationName": "TableSizeBytes",
-                        "documentation": "-- | The total size of the specified table, in bytes. DynamoDB updates this value\n-- approximately every six hours. Recent changes might not be reflected in this\n-- value.",
-                        "typeExposed": "Maybe Integer",
-                        "type": "Maybe Integer"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "tdItemCount",
-                        "name": "_tdItemCount",
-                        "shape": "Long",
-                        "locationName": "ItemCount",
-                        "documentation": "-- | The number of items in the specified table. DynamoDB updates this value\n-- approximately every six hours. Recent changes might not be reflected in this\n-- value.",
-                        "typeExposed": "Maybe Integer",
-                        "type": "Maybe Integer"
                     },
                     {
                         "location": null,
@@ -1485,19 +1555,19 @@
                     },
                     {
                         "location": null,
-                        "iso": null,
-                        "lensMapping": "mapping _Time",
-                        "default": "Nothing",
+                        "iso": "_Time",
+                        "lensMapping": "_Time",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "tdCreationDateTime",
                         "name": "_tdCreationDateTime",
                         "shape": "Date",
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date and time when the table was created, in \u003chttp://www.epochconverter.com/ UNIX epoch time\u003e format.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "typeExposed": "UTCTime",
+                        "type": "ISO8601"
                     },
                     {
                         "location": null,
@@ -1519,17 +1589,17 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "tdItemCount",
                         "name": "_tdItemCount",
                         "shape": "Long",
                         "locationName": "ItemCount",
                         "documentation": "-- | The number of items in the specified table. DynamoDB updates this value\n-- approximately every six hours. Recent changes might not be reflected in this\n-- value.",
-                        "typeExposed": "Maybe Integer",
-                        "type": "Maybe Integer"
+                        "typeExposed": "Integer",
+                        "type": "Integer"
                     },
                     {
                         "location": null,
@@ -1567,65 +1637,65 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "tdProvisionedThroughput",
                         "name": "_tdProvisionedThroughput",
                         "shape": "ProvisionedThroughputDescription",
                         "locationName": "ProvisionedThroughput",
                         "documentation": "-- | The provisioned throughput settings for the table, consisting of read and\n-- write capacity units, along with data about increases and decreases.",
-                        "typeExposed": "Maybe ProvisionedThroughputDescription",
-                        "type": "Maybe ProvisionedThroughputDescription"
+                        "typeExposed": "ProvisionedThroughputDescription",
+                        "type": "ProvisionedThroughputDescription"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "tdTableName",
                         "name": "_tdTableName",
                         "shape": "TableName",
                         "locationName": "TableName",
                         "documentation": "-- | The name of the table.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "Text",
+                        "type": "Text"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "tdTableSizeBytes",
                         "name": "_tdTableSizeBytes",
                         "shape": "Long",
                         "locationName": "TableSizeBytes",
                         "documentation": "-- | The total size of the specified table, in bytes. DynamoDB updates this value\n-- approximately every six hours. Recent changes might not be reflected in this\n-- value.",
-                        "typeExposed": "Maybe Integer",
-                        "type": "Maybe Integer"
+                        "typeExposed": "Integer",
+                        "type": "Integer"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "tdTableStatus",
                         "name": "_tdTableStatus",
                         "shape": "TableStatus",
                         "locationName": "TableStatus",
                         "documentation": "-- | The current state of the table:\n--\n-- /CREATING/ - The table is being created, as the result of a /CreateTable/\n-- operation.\n--\n-- /UPDATING/ - The table is being updated, as the result of an /UpdateTable/\n-- operation.\n--\n-- /DELETING/ - The table is being deleted, as the result of a /DeleteTable/\n-- operation.\n--\n-- /ACTIVE/ - The table is ready for use.\n--\n--",
-                        "typeExposed": "Maybe TableStatus",
-                        "type": "Maybe TableStatus"
+                        "typeExposed": "TableStatus",
+                        "type": "TableStatus"
                     }
                 ]
             },
@@ -6747,40 +6817,57 @@
                     "location": null,
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "\u003cerror\u003e",
                     "monoid": false,
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "dtrTable",
                     "name": "_dtrTable",
                     "shape": "TableDescription",
                     "locationName": "Table",
                     "documentation": null,
-                    "typeExposed": "Maybe TableDescription",
-                    "type": "Maybe TableDescription"
+                    "typeExposed": "TableDescription",
+                    "type": "TableDescription"
                 },
                 "contents": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "dtrTable",
                         "name": "_dtrTable",
                         "shape": "TableDescription",
                         "locationName": "Table",
                         "documentation": null,
-                        "typeExposed": "Maybe TableDescription",
-                        "type": "Maybe TableDescription"
+                        "typeExposed": "TableDescription",
+                        "type": "TableDescription"
                     }
                 ],
                 "wrapper": false,
                 "protocol": "json",
                 "payload": null,
-                "required": [],
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dtrTable",
+                        "name": "_dtrTable",
+                        "shape": "TableDescription",
+                        "locationName": "Table",
+                        "documentation": null,
+                        "typeExposed": "TableDescription",
+                        "type": "TableDescription"
+                    }
+                ],
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
@@ -6789,40 +6876,23 @@
                 "locationPad": 0,
                 "type": "newtype",
                 "headerAll": false,
-                "optional": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "flattened": false,
-                        "required": false,
-                        "lens": "dtrTable",
-                        "name": "_dtrTable",
-                        "shape": "TableDescription",
-                        "locationName": "Table",
-                        "documentation": null,
-                        "typeExposed": "Maybe TableDescription",
-                        "type": "Maybe TableDescription"
-                    }
-                ],
+                "optional": [],
                 "fields": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "dtrTable",
                         "name": "_dtrTable",
                         "shape": "TableDescription",
                         "locationName": "Table",
                         "documentation": null,
-                        "typeExposed": "Maybe TableDescription",
-                        "type": "Maybe TableDescription"
+                        "typeExposed": "TableDescription",
+                        "type": "TableDescription"
                     }
                 ]
             },

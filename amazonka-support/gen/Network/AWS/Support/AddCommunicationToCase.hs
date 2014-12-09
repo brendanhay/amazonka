@@ -28,7 +28,7 @@
 --
 -- The response indicates the success or failure of the request.
 --
--- This operation implements a subset of the behavior on the AWS Support <https://aws.amazon.com/support YourSupport Cases> web form.
+-- This operation implements a subset of the features of the AWS Support Center.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddCommunicationToCase.html>
 module Network.AWS.Support.AddCommunicationToCase

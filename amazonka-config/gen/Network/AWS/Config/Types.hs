@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -122,8 +123,6 @@ module Network.AWS.Config.Types
     , RecorderStatus (..)
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -135,15 +134,39 @@ instance AWSService Config where
     type Sg Config = V4
     type Er Config = JSONError
 
-    service = Service
-        { _svcAbbrev       = "Config"
-        , _svcPrefix       = "config"
-        , _svcVersion      = "2014-11-12"
-        , _svcTargetPrefix = Just "StarlingDoveService"
-        , _svcJSONVersion  = Just "1.1"
-        }
+    service = service'
+      where
+        service' :: Service Config
+        service' = Service
+            { _svcAbbrev       = "Config"
+            , _svcPrefix       = "config"
+            , _svcVersion      = "2014-11-12"
+            , _svcTargetPrefix = Just "StarlingDoveService"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = jsonError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry Config
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo
     { _cediLastAttemptTime    :: Maybe ISO8601

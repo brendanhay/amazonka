@@ -1,4 +1,89 @@
 {
+    "waiters": {
+        "waiters": {
+            "ClusterDeleted": {
+                "operation": "DescribeClusters",
+                "acceptors": [
+                    {
+                        "matcher": "matchError",
+                        "state": "success",
+                        "argument": null,
+                        "expected": "\"ClusterNotFound\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dcrClusters) . cClusterStatus . _Just",
+                        "expected": "\"creating\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dcrClusters) . cClusterStatus . _Just",
+                        "expected": "\"rebooting\""
+                    }
+                ],
+                "maxAttempts": 30,
+                "delay": 60
+            },
+            "SnapshotAvailable": {
+                "operation": "DescribeClusterSnapshots",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf dcsrSnapshots) . sStatus . _Just",
+                        "expected": "\"available\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dcsrSnapshots) . sStatus . _Just",
+                        "expected": "\"failed\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dcsrSnapshots) . sStatus . _Just",
+                        "expected": "\"deleted\""
+                    }
+                ],
+                "maxAttempts": 20,
+                "delay": 15
+            },
+            "ClusterAvailable": {
+                "operation": "DescribeClusters",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf dcrClusters) . cClusterStatus . _Just",
+                        "expected": "\"available\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dcrClusters) . cClusterStatus . _Just",
+                        "expected": "\"deleting\""
+                    },
+                    {
+                        "matcher": "matchError",
+                        "state": "retry",
+                        "argument": null,
+                        "expected": "\"ClusterNotFound\""
+                    }
+                ],
+                "maxAttempts": 30,
+                "delay": 60
+            }
+        },
+        "namespace": "Network.AWS.Redshift.Waiters",
+        "imports": [
+            "Network.AWS.Redshift.DescribeClusterSnapshots",
+            "Network.AWS.Redshift.DescribeClusters",
+            "Network.AWS.Redshift.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -64,14 +149,38 @@
             "Network.AWS.Redshift.RevokeClusterSecurityGroupIngress",
             "Network.AWS.Redshift.RevokeSnapshotAccess",
             "Network.AWS.Redshift.RotateEncryptionKey",
-            "Network.AWS.Redshift.Types"
+            "Network.AWS.Redshift.Types",
+            "Network.AWS.Redshift.Waiters"
         ],
         "name": "Amazon Redshift",
         "version": "2012-12-01",
         "documentation": "-- | Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse\n-- service that makes it simple and cost-effective to efficiently analyze all\n-- your data using your existing business intelligence tools. You can start\n-- small for just $0.25 per hour with no commitments or upfront costs and scale\n-- to a petabyte or more for $1,000 per terabyte per year, less than a tenth of\n-- most other data warehousing solutions.",
         "xmlNamespace": "http://redshift.amazonaws.com/doc/2012-12-01/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "redshift",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {
@@ -136,12 +245,13 @@
             "Network.AWS.Redshift.RevokeClusterSecurityGroupIngress",
             "Network.AWS.Redshift.RevokeSnapshotAccess",
             "Network.AWS.Redshift.RotateEncryptionKey",
-            "Network.AWS.Redshift.Types"
+            "Network.AWS.Redshift.Types",
+            "Network.AWS.Redshift.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Redshift",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse\nservice that makes it simple and cost-effective to efficiently analyze all\nyour data using your existing business intelligence tools. You can start\nsmall for just $0.25 per hour with no commitments or upfront costs and scale\nto a petabyte or more for $1,000 per terabyte per year, less than a tenth of\nmost other data warehousing solutions."
     },
     "types": {

@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -327,7 +328,6 @@ module Network.AWS.ElastiCache.Types
     , pSource
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -339,18 +339,44 @@ instance AWSService ElastiCache where
     type Sg ElastiCache = V4
     type Er ElastiCache = RESTError
 
-    service = Service
-        { _svcAbbrev       = "ElastiCache"
-        , _svcPrefix       = "elasticache"
-        , _svcVersion      = "2014-09-30"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service ElastiCache
+        service' = Service
+            { _svcAbbrev       = "ElastiCache"
+            , _svcPrefix       = "elasticache"
+            , _svcVersion      = "2014-09-30"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry ElastiCache
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "Throttling" == e = True -- Throttling
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://elasticache.amazonaws.com/doc/2014-09-30/"
+{-# INLINE ns #-}
 
 data NodeSnapshot = NodeSnapshot
     { _nsCacheNodeCreateTime :: Maybe ISO8601

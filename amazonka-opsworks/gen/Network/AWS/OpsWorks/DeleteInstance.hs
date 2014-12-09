@@ -22,8 +22,10 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes a specified instance. You must stop an instance before you can delete
--- it. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html Deleting Instances>.
+-- | Deletes a specified instance, which terminates the associated Amazon EC2
+-- instance. You must stop an instance before you can delete it.
+--
+-- For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html Deleting Instances>.
 --
 -- Required Permissions: To use this action, an IAM user must have a Manage
 -- permissions level for the stack, or an attached policy that explicitly grants

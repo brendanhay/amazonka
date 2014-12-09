@@ -207,7 +207,7 @@ data HeadObjectResponse = HeadObjectResponse
     , _horContentType             :: Maybe Text
     , _horDeleteMarker            :: Maybe Bool
     , _horETag                    :: Maybe Text
-    , _horExpiration              :: Maybe RFC822
+    , _horExpiration              :: Maybe Text
     , _horExpires                 :: Maybe RFC822
     , _horLastModified            :: Maybe RFC822
     , _horMetadata                :: Map (CI Text) Text
@@ -243,7 +243,7 @@ data HeadObjectResponse = HeadObjectResponse
 --
 -- * 'horETag' @::@ 'Maybe' 'Text'
 --
--- * 'horExpiration' @::@ 'Maybe' 'UTCTime'
+-- * 'horExpiration' @::@ 'Maybe' 'Text'
 --
 -- * 'horExpires' @::@ 'Maybe' 'UTCTime'
 --
@@ -338,8 +338,8 @@ horETag = lens _horETag (\s a -> s { _horETag = a })
 -- response includes this header. It includes the expiry-date and rule-id key
 -- value pairs providing object expiration information. The value of the rule-id
 -- is URL encoded.
-horExpiration :: Lens' HeadObjectResponse (Maybe UTCTime)
-horExpiration = lens _horExpiration (\s a -> s { _horExpiration = a }) . mapping _Time
+horExpiration :: Lens' HeadObjectResponse (Maybe Text)
+horExpiration = lens _horExpiration (\s a -> s { _horExpiration = a })
 
 -- | The date and time at which the object is no longer cacheable.
 horExpires :: Lens' HeadObjectResponse (Maybe UTCTime)

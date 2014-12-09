@@ -1,5 +1,5 @@
 name:                  amazonka-kinesis
-version:               0.0.7
+version:               0.0.8
 synopsis:              Amazon Kinesis SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -46,12 +46,14 @@ library
         , Network.AWS.Kinesis.ListTagsForStream
         , Network.AWS.Kinesis.MergeShards
         , Network.AWS.Kinesis.PutRecord
+        , Network.AWS.Kinesis.PutRecords
         , Network.AWS.Kinesis.RemoveTagsFromStream
         , Network.AWS.Kinesis.SplitShard
         , Network.AWS.Kinesis.Types
+        , Network.AWS.Kinesis.Waiters
 
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.7.*
+          amazonka-core == 0.0.8.*
         , base          >= 4.7     && < 5

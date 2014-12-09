@@ -84,7 +84,7 @@ deleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
 
 instance ToPath DeleteStreamingDistribution where
     toPath DeleteStreamingDistribution{..} = mconcat
-        [ "/2014-05-31/streaming-distribution/"
+        [ "/2014-10-21/streaming-distribution/"
         , toText _dsdId
         ]
 

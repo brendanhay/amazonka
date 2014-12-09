@@ -226,8 +226,11 @@ cs1DefaultInstanceProfileArn =
     lens _cs1DefaultInstanceProfileArn
         (\s a -> s { _cs1DefaultInstanceProfileArn = a })
 
--- | The cloned stack's default operating system, which must be set to 'Amazon Linux'
--- or 'Ubuntu 12.04 LTS'. The default option is 'Amazon Linux'.
+-- | The stacks's operating system, which must be set to one of the following.
+--
+-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You
+-- specify the custom AMI you want to use when you create instances.   The
+-- default option is the current Amazon Linux version.
 cs1DefaultOs :: Lens' CloneStack (Maybe Text)
 cs1DefaultOs = lens _cs1DefaultOs (\s a -> s { _cs1DefaultOs = a })
 
@@ -245,11 +248,12 @@ cs1DefaultSshKeyName :: Lens' CloneStack (Maybe Text)
 cs1DefaultSshKeyName =
     lens _cs1DefaultSshKeyName (\s a -> s { _cs1DefaultSshKeyName = a })
 
--- | The stack's default subnet ID. All instances will be launched into this
--- subnet unless you specify otherwise when you create the instance. If you also
--- specify a value for 'DefaultAvailabilityZone', the subnet must be in the same
--- zone. For information on default values and when this parameter is required,
--- see the 'VpcId' parameter description.
+-- | The stack's default VPC subnet ID. This parameter is required if you specify
+-- a value for the 'VpcId' parameter. All instances are launched into this subnet
+-- unless you specify otherwise when you create the instance. If you also
+-- specify a value for 'DefaultAvailabilityZone', the subnet must be in that zone.
+-- For information on default values and when this parameter is required, see
+-- the 'VpcId' parameter description.
 cs1DefaultSubnetId :: Lens' CloneStack (Maybe Text)
 cs1DefaultSubnetId =
     lens _cs1DefaultSubnetId (\s a -> s { _cs1DefaultSubnetId = a })
@@ -278,6 +282,12 @@ cs1Region = lens _cs1Region (\s a -> s { _cs1Region = a })
 -- parameter to the Amazon Resource Name (ARN) for an existing IAM role. If you
 -- create a stack by using the AWS OpsWorks console, it creates the role for
 -- you. You can obtain an existing stack's IAM ARN programmatically by calling 'DescribePermissions'. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+--
+-- You must set this parameter to a valid service role ARN or the action will
+-- fail; there is no default value. You can specify the source stack's service
+-- role ARN, if you prefer, but you must do so explicitly.
+--
+--
 cs1ServiceRoleArn :: Lens' CloneStack Text
 cs1ServiceRoleArn =
     lens _cs1ServiceRoleArn (\s a -> s { _cs1ServiceRoleArn = a })
@@ -312,7 +322,7 @@ cs1UseOpsworksSecurityGroups =
         (\s a -> s { _cs1UseOpsworksSecurityGroups = a })
 
 -- | The ID of the VPC that the cloned stack is to be launched into. It must be in
--- the specified region. All instances will be launched into this VPC, and you
+-- the specified region. All instances are launched into this VPC, and you
 -- cannot change the ID later.
 --
 -- If your account supports EC2 Classic, the default value is no VPC. If your

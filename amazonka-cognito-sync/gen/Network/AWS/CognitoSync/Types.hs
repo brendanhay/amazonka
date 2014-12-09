@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -89,8 +90,6 @@ module Network.AWS.CognitoSync.Types
     , psRoleArn
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -102,15 +101,39 @@ instance AWSService CognitoSync where
     type Sg CognitoSync = V4
     type Er CognitoSync = JSONError
 
-    service = Service
-        { _svcAbbrev       = "CognitoSync"
-        , _svcPrefix       = "cognito-sync"
-        , _svcVersion      = "2014-06-30"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Just "1.1"
-        }
+    service = service'
+      where
+        service' :: Service CognitoSync
+        service' = Service
+            { _svcAbbrev       = "CognitoSync"
+            , _svcPrefix       = "cognito-sync"
+            , _svcVersion      = "2014-06-30"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = jsonError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry CognitoSync
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data IdentityPoolUsage = IdentityPoolUsage
     { _ipuDataStorage       :: Maybe Integer

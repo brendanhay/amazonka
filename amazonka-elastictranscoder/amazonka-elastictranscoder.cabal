@@ -1,5 +1,5 @@
 name:                  amazonka-elastictranscoder
-version:               0.0.7
+version:               0.0.8
 synopsis:              Amazon Elastic Transcoder SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -55,9 +55,10 @@ library
         , Network.AWS.ElasticTranscoder.UpdatePipeline
         , Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
         , Network.AWS.ElasticTranscoder.UpdatePipelineStatus
+        , Network.AWS.ElasticTranscoder.Waiters
 
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.7.*
+          amazonka-core == 0.0.8.*
         , base          >= 4.7     && < 5

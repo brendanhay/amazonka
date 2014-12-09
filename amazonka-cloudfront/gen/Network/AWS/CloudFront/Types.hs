@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -55,6 +56,7 @@ module Network.AWS.CloudFront.Types
     -- * AllowedMethods
     , AllowedMethods
     , allowedMethods
+    , amCachedMethods
     , amItems
     , amQuantity
 
@@ -248,11 +250,18 @@ module Network.AWS.CloudFront.Types
     , hItems
     , hQuantity
 
+    -- * CachedMethods
+    , CachedMethods
+    , cachedMethods
+    , cmItems
+    , cmQuantity
+
     -- * ViewerCertificate
     , ViewerCertificate
     , viewerCertificate
     , vcCloudFrontDefaultCertificate
     , vcIAMCertificateId
+    , vcMinimumProtocolVersion
     , vcSSLSupportMethod
 
     -- * Restrictions
@@ -268,6 +277,9 @@ module Network.AWS.CloudFront.Types
 
     -- * Method
     , Method (..)
+
+    -- * MinimumProtocolVersion
+    , MinimumProtocolVersion (..)
 
     -- * ForwardedValues
     , ForwardedValues
@@ -394,30 +406,54 @@ module Network.AWS.CloudFront.Types
     , lcPrefix
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
 
--- | Version @2014-05-31@ of the Amazon CloudFront service.
+-- | Version @2014-10-21@ of the Amazon CloudFront service.
 data CloudFront
 
 instance AWSService CloudFront where
     type Sg CloudFront = V4
     type Er CloudFront = RESTError
 
-    service = Service
-        { _svcAbbrev       = "CloudFront"
-        , _svcPrefix       = "cloudfront"
-        , _svcVersion      = "2014-05-31"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service CloudFront
+        service' = Service
+            { _svcAbbrev       = "CloudFront"
+            , _svcPrefix       = "cloudfront"
+            , _svcVersion      = "2014-10-21"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry CloudFront
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
-ns = "http://cloudfront.amazonaws.com/doc/2014-05-31/"
+ns = "http://cloudfront.amazonaws.com/doc/2014-10-21/"
+{-# INLINE ns #-}
 
 data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
     { _cfoailIsTruncated :: Bool
@@ -605,13 +641,16 @@ instance ToXML SSLSupportMethod where
     toXML = toXMLText
 
 data AllowedMethods = AllowedMethods
-    { _amItems    :: List "Method" Method
-    , _amQuantity :: Int
+    { _amCachedMethods :: Maybe CachedMethods
+    , _amItems         :: List "Method" Method
+    , _amQuantity      :: Int
     } deriving (Eq, Show)
 
 -- | 'AllowedMethods' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'amCachedMethods' @::@ 'Maybe' 'CachedMethods'
 --
 -- * 'amItems' @::@ ['Method']
 --
@@ -620,9 +659,13 @@ data AllowedMethods = AllowedMethods
 allowedMethods :: Int -- ^ 'amQuantity'
                -> AllowedMethods
 allowedMethods p1 = AllowedMethods
-    { _amQuantity = p1
-    , _amItems    = mempty
+    { _amQuantity      = p1
+    , _amItems         = mempty
+    , _amCachedMethods = Nothing
     }
+
+amCachedMethods :: Lens' AllowedMethods (Maybe CachedMethods)
+amCachedMethods = lens _amCachedMethods (\s a -> s { _amCachedMethods = a })
 
 -- | A complex type that contains the HTTP methods that you want CloudFront to
 -- process and forward to your origin.
@@ -630,20 +673,23 @@ amItems :: Lens' AllowedMethods [Method]
 amItems = lens _amItems (\s a -> s { _amItems = a }) . _List
 
 -- | The number of HTTP methods that you want CloudFront to forward to your
--- origin. Valid values are 2 (for GET and HEAD requests) and 7 (for DELETE,
--- GET, HEAD, OPTIONS, PATCH, POST, and PUT requests).
+-- origin. Valid values are 2 (for GET and HEAD requests), 3 (for GET, HEAD and
+-- OPTIONS requests) and 7 (for GET, HEAD, OPTIONS, PUT, PATCH, POST, and DELETE
+-- requests).
 amQuantity :: Lens' AllowedMethods Int
 amQuantity = lens _amQuantity (\s a -> s { _amQuantity = a })
 
 instance FromXML AllowedMethods where
     parseXML x = AllowedMethods
-        <$> x .@? "Items" .!@ mempty
+        <$> x .@? "CachedMethods"
+        <*> x .@? "Items" .!@ mempty
         <*> x .@  "Quantity"
 
 instance ToXML AllowedMethods where
     toXML AllowedMethods{..} = nodes "AllowedMethods"
-        [ "Quantity" =@ _amQuantity
-        , "Items"    =@ _amItems
+        [ "Quantity"      =@ _amQuantity
+        , "Items"         =@ _amItems
+        , "CachedMethods" =@ _amCachedMethods
         ]
 
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
@@ -2371,9 +2417,52 @@ instance ToXML Headers where
         , "Items"    =@ _hItems
         ]
 
+data CachedMethods = CachedMethods
+    { _cmItems    :: List "Method" Method
+    , _cmQuantity :: Int
+    } deriving (Eq, Show)
+
+-- | 'CachedMethods' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cmItems' @::@ ['Method']
+--
+-- * 'cmQuantity' @::@ 'Int'
+--
+cachedMethods :: Int -- ^ 'cmQuantity'
+              -> CachedMethods
+cachedMethods p1 = CachedMethods
+    { _cmQuantity = p1
+    , _cmItems    = mempty
+    }
+
+-- | A complex type that contains the HTTP methods that you want CloudFront to
+-- cache responses to.
+cmItems :: Lens' CachedMethods [Method]
+cmItems = lens _cmItems (\s a -> s { _cmItems = a }) . _List
+
+-- | The number of HTTP methods for which you want CloudFront to cache responses.
+-- Valid values are 2 (for caching responses to GET and HEAD requests) and 3
+-- (for caching responses to GET, HEAD, and OPTIONS requests).
+cmQuantity :: Lens' CachedMethods Int
+cmQuantity = lens _cmQuantity (\s a -> s { _cmQuantity = a })
+
+instance FromXML CachedMethods where
+    parseXML x = CachedMethods
+        <$> x .@? "Items" .!@ mempty
+        <*> x .@  "Quantity"
+
+instance ToXML CachedMethods where
+    toXML CachedMethods{..} = nodes "CachedMethods"
+        [ "Quantity" =@ _cmQuantity
+        , "Items"    =@ _cmItems
+        ]
+
 data ViewerCertificate = ViewerCertificate
     { _vcCloudFrontDefaultCertificate :: Maybe Bool
     , _vcIAMCertificateId             :: Maybe Text
+    , _vcMinimumProtocolVersion       :: Maybe MinimumProtocolVersion
     , _vcSSLSupportMethod             :: Maybe SSLSupportMethod
     } deriving (Eq, Show)
 
@@ -2385,6 +2474,8 @@ data ViewerCertificate = ViewerCertificate
 --
 -- * 'vcIAMCertificateId' @::@ 'Maybe' 'Text'
 --
+-- * 'vcMinimumProtocolVersion' @::@ 'Maybe' 'MinimumProtocolVersion'
+--
 -- * 'vcSSLSupportMethod' @::@ 'Maybe' 'SSLSupportMethod'
 --
 viewerCertificate :: ViewerCertificate
@@ -2392,6 +2483,7 @@ viewerCertificate = ViewerCertificate
     { _vcIAMCertificateId             = Nothing
     , _vcCloudFrontDefaultCertificate = Nothing
     , _vcSSLSupportMethod             = Nothing
+    , _vcMinimumProtocolVersion       = Nothing
     }
 
 -- | If you want viewers to use HTTPS to request your objects and you're using the
@@ -2412,6 +2504,23 @@ vcIAMCertificateId :: Lens' ViewerCertificate (Maybe Text)
 vcIAMCertificateId =
     lens _vcIAMCertificateId (\s a -> s { _vcIAMCertificateId = a })
 
+-- | Specify the minimum version of the SSL protocol that you want CloudFront to
+-- use, SSLv3 or TLSv1, for HTTPS connections. CloudFront will serve your
+-- objects only to browsers or devices that support at least the SSL version
+-- that you specify. The TLSv1 protocol is more secure, so we recommend that you
+-- specify SSLv3 only if your users are using browsers or devices that don't
+-- support TLSv1. If you're using a custom certificate (if you specify a value
+-- for IAMCertificateId) and if you're using dedicated IP (if you specify vip
+-- for SSLSupportMethod), you can choose SSLv3 or TLSv1 as the
+-- MinimumProtocolVersion. If you're using a custom certificate (if you specify
+-- a value for IAMCertificateId) and if you're using SNI (if you specify
+-- sni-only for SSLSupportMethod), you must specify TLSv1 for
+-- MinimumProtocolVersion.
+vcMinimumProtocolVersion :: Lens' ViewerCertificate (Maybe MinimumProtocolVersion)
+vcMinimumProtocolVersion =
+    lens _vcMinimumProtocolVersion
+        (\s a -> s { _vcMinimumProtocolVersion = a })
+
 -- | If you specify a value for IAMCertificateId, you must also specify how you
 -- want CloudFront to serve HTTPS requests. Valid values are vip and sni-only.
 -- If you specify vip, CloudFront uses dedicated IP addresses for your content
@@ -2430,6 +2539,7 @@ instance FromXML ViewerCertificate where
     parseXML x = ViewerCertificate
         <$> x .@? "CloudFrontDefaultCertificate"
         <*> x .@? "IAMCertificateId"
+        <*> x .@? "MinimumProtocolVersion"
         <*> x .@? "SSLSupportMethod"
 
 instance ToXML ViewerCertificate where
@@ -2437,6 +2547,7 @@ instance ToXML ViewerCertificate where
         [ "IAMCertificateId"             =@ _vcIAMCertificateId
         , "CloudFrontDefaultCertificate" =@ _vcCloudFrontDefaultCertificate
         , "SSLSupportMethod"             =@ _vcSSLSupportMethod
+        , "MinimumProtocolVersion"       =@ _vcMinimumProtocolVersion
         ]
 
 newtype Restrictions = Restrictions
@@ -2549,6 +2660,35 @@ instance FromXML Method where
     parseXML = parseXMLText "Method"
 
 instance ToXML Method where
+    toXML = toXMLText
+
+data MinimumProtocolVersion
+    = SSLv3 -- ^ SSLv3
+    | TLSv1 -- ^ TLSv1
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable MinimumProtocolVersion
+
+instance FromText MinimumProtocolVersion where
+    parser = takeText >>= \case
+        "SSLv3" -> pure SSLv3
+        "TLSv1" -> pure TLSv1
+        e       -> fail $
+            "Failure parsing MinimumProtocolVersion from " ++ show e
+
+instance ToText MinimumProtocolVersion where
+    toText = \case
+        SSLv3 -> "SSLv3"
+        TLSv1 -> "TLSv1"
+
+instance ToByteString MinimumProtocolVersion
+instance ToHeader     MinimumProtocolVersion
+instance ToQuery      MinimumProtocolVersion
+
+instance FromXML MinimumProtocolVersion where
+    parseXML = parseXMLText "MinimumProtocolVersion"
+
+instance ToXML MinimumProtocolVersion where
     toXML = toXMLText
 
 data ForwardedValues = ForwardedValues

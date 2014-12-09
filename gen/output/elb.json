@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.ELB.Waiters",
+        "imports": [
+            "Network.AWS.ELB.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -43,7 +50,30 @@
         "documentation": "-- | Elastic Load Balancing automatically distributes incoming application traffic\n-- across multiple Amazon EC2 instances. It enables you to achieve greater\n-- levels of fault tolerance in your applications, seamlessly providing the\n-- required amount of load balancing capacity needed to distribute application\n-- traffic.",
         "xmlNamespace": "http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "elasticloadbalancing",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {
@@ -85,7 +115,7 @@
         "url": "http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Elastic Load Balancing",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "Elastic Load Balancing automatically distributes incoming application traffic\nacross multiple Amazon EC2 instances. It enables you to achieve greater\nlevels of fault tolerance in your applications, seamlessly providing the\nrequired amount of load balancing capacity needed to distribute application\ntraffic."
     },
     "types": {

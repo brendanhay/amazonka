@@ -19,7 +19,6 @@ import Network.AWS.Prelude
 import Test.AWS.Types
 import Test.Tasty
 import Test.Tasty.HUnit
-import System.Locale
 
 tests :: TestTree
 tests = testGroup "time"

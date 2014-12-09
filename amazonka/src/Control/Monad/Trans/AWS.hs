@@ -4,7 +4,6 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE RankNTypes                 #-}
-{-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
 
@@ -25,36 +24,62 @@
 -- encapsulates various common parameters, errors, and usage patterns.
 module Control.Monad.Trans.AWS
     (
+    -- * Requests
+    -- ** Synchronous
+      send
+    , send_
+    , sendCatch
+    -- ** Paginated
+    , paginate
+    , paginateCatch
+    -- ** Eventual consistency
+    , await
+    -- ** Pre-signing URLs
+    , presign
+    , presignURL
+
     -- * Transformer
-      AWS
+    , AWS
     , AWST
     , MonadAWS
 
     -- * Running
     , runAWST
 
+    -- * Regionalisation
+    , Region      (..)
+    , within
+
+    -- * Retries
+    , once
+
     -- * Environment
     , Env
-    , envAuth
+    -- ** Lenses
     , envRegion
-    , envManager
     , envLogger
+    , envRetryCheck
+    , envRetryPolicy
+    , envManager
+    , envAuth
     -- ** Creating the environment
-    , Credentials (..)
     , AWS.newEnv
     , AWS.getEnv
+    -- ** Specifying credentials
+    , Credentials (..)
+    , fromKeys
+    , fromSession
+    , getAuth
+    , accessKey
+    , secretKey
 
     -- * Logging
     , LogLevel    (..)
     , Logger
     , newLogger
-    , logInfo
-    , logDebug
-    , logTrace
-
-    -- * Regionalisation
-    , Region      (..)
-    , within
+    , info
+    , debug
+    , trace
 
     -- * Errors
     , Error
@@ -63,20 +88,10 @@ module Control.Monad.Trans.AWS
     , verify
     , verifyWith
 
-    -- * Requests
-    -- ** Synchronous
-    , send
-    , send_
-    , sendCatch
-    -- ** Paginated
-    , paginate
-    , paginateCatch
-    -- ** Pre-signing URLs
-    , presign
-
     -- * Types
     , ToBuilder   (..)
     , module Network.AWS.Types
+    , module Network.AWS.Error
     ) where
 
 import           Control.Applicative
@@ -89,14 +104,20 @@ import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
-import           Data.Conduit
+import           Control.Retry                (limitRetries)
+import           Data.ByteString              (ByteString)
+import           Data.Conduit                 hiding (await)
 import           Data.Time
 import qualified Network.AWS                  as AWS
-import           Network.AWS.Auth
 import           Network.AWS.Data             (ToBuilder(..))
+import           Network.AWS.Error
+import           Network.AWS.Internal.Auth
 import           Network.AWS.Internal.Env
-import           Network.AWS.Internal.Log
+import qualified Network.AWS.Internal.Log     as Log
+import           Network.AWS.Internal.Log     hiding (info, debug, trace)
 import           Network.AWS.Types
+import           Network.AWS.Waiters
+import qualified Network.HTTP.Conduit         as Client
 
 -- | The top-level error type.
 type Error = ServiceError String
@@ -194,7 +215,7 @@ instance (Applicative m, MonadIO m, MonadBase IO m, MonadThrow m)
 runAWST :: MonadBaseControl IO m => Env -> AWST m a -> m (Either Error a)
 runAWST e m = runResourceT . withInternalState $ runAWST' f . (e,)
   where
-    f = liftBase ((_envLogger e) Debug (build e)) >> m
+    f = liftBase (_envLogger e Debug (build e)) >> m
 
 runAWST' :: AWST m a -> (Env, InternalState) -> m (Either Error a)
 runAWST' (AWST k) = runExceptT . runReaderT k
@@ -206,9 +227,12 @@ resources = AWST (ReaderT (return . snd))
 hoistEither :: (MonadError Error m, AWSError e) => Either e a -> m a
 hoistEither = either throwAWSError return
 
+-- | Throw any 'AWSError' using 'throwError'.
 throwAWSError :: (MonadError Error m, AWSError e) => e -> m a
 throwAWSError = throwError . awsError
 
+-- | Verify that an 'AWSError' matches the given 'Prism', otherwise throw the
+-- error using 'throwAWSError'.
 verify :: (AWSError e, MonadError Error m)
        => Prism' e a
        -> e
@@ -217,6 +241,10 @@ verify p e
     | isn't p e = throwAWSError e
     | otherwise = return ()
 
+-- | Verify that an 'AWSError' matches the given 'Prism', with an additional
+-- guard on the result of the 'Prism'.
+--
+-- /See:/ 'verify'
 verifyWith :: (AWSError e, MonadError Error m)
            => Prism' e a
            -> (a -> Bool)
@@ -234,20 +262,28 @@ scoped :: MonadReader Env m => (Env -> m a) -> m a
 scoped f = ask >>= f
 
 -- | Use the supplied logger from 'envLogger' to log info messages.
-logInfo :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
-logInfo x = view envLogger >>= (`info` x)
+--
+-- /Note:/ By default, the library does not output 'Info' level messages.
+-- Exclusive output is guaranteed via use of this function.
+info :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
+info x = view envLogger >>= (`Log.info` x)
 
 -- | Use the supplied logger from 'envLogger' to log debug messages.
-logDebug :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
-logDebug x = view envLogger >>= (`debug` x)
+debug :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
+debug x = view envLogger >>= (`Log.debug` x)
 
 -- | Use the supplied logger from 'envLogger' to log trace messages.
-logTrace :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
-logTrace x = view envLogger >>= (`trace` x)
+trace :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
+trace x = view envLogger >>= (`Log.trace` x)
 
 -- | Scope a monadic action within the specific 'Region'.
 within :: MonadReader Env m => Region -> m a -> m a
 within r = local (envRegion .~ r)
+
+-- | Scope a monadic action such that any retry logic for the 'Service' is
+-- ignored and any requests will at most be sent once.
+once :: MonadReader Env m => m a -> m a
+once = local (envRetryPolicy ?~ limitRetries 0)
 
 -- | Send a data type which is an instance of 'AWSRequest', returning it's
 -- associated 'Rs' response type.
@@ -256,6 +292,8 @@ within r = local (envRegion .~ r)
 -- service using the 'MonadError' instance. In the case of 'AWST' this will
 -- cause the internal 'ExceptT' to short-circuit and return an 'Error' in
 -- the 'Left' case as the result of the computation.
+--
+-- /See:/ 'sendCatch'
 send :: ( MonadCatch m
         , MonadResource m
         , MonadReader Env m
@@ -267,6 +305,8 @@ send :: ( MonadCatch m
 send = sendCatch >=> hoistEither
 
 -- | A variant of 'send' which discards any successful response.
+--
+-- /See:/ 'send'
 send_ :: ( MonadCatch m
          , MonadResource m
          , MonadReader Env m
@@ -283,6 +323,11 @@ send_ = void . send
 --
 -- This includes 'HTTPExceptions', serialisation errors, and any service
 -- errors returned as part of the 'Response'.
+--
+-- /Note:/ Requests will be retried depending upon each service's respective
+-- strategy. This can be overriden using 'once' or 'envRetry'.
+-- Requests which contain streaming request bodies (such as S3's 'PutObject') are
+-- never considered for retries.
 sendCatch :: ( MonadCatch m
              , MonadResource m
              , MonadReader Env m
@@ -290,7 +335,7 @@ sendCatch :: ( MonadCatch m
              )
           => a
           -> m (Response a)
-sendCatch rq = scoped (`AWS.send` rq)
+sendCatch x = scoped (`AWS.send` x)
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate while
 -- there are more results as defined by the related service operation.
@@ -299,6 +344,8 @@ sendCatch rq = scoped (`AWS.send` rq)
 --
 -- /Note:/ The 'ResumableSource' will close when there are no more results or the
 -- 'ResourceT' computation is unwrapped. See: 'runResourceT' for more information.
+--
+-- /See:/ 'paginateCatch'
 paginate :: ( MonadCatch m
             , MonadResource m
             , MonadReader Env m
@@ -307,7 +354,7 @@ paginate :: ( MonadCatch m
             )
          => a
          -> Source m (Rs a)
-paginate rq = paginateCatch rq $= awaitForever (hoistEither >=> yield)
+paginate x = paginateCatch x $= awaitForever (hoistEither >=> yield)
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate over
 -- the associated 'Rs' response type in the success case, or the related service's
@@ -322,9 +369,46 @@ paginateCatch :: ( MonadCatch m
                  )
               => a
               -> Source m (Response a)
-paginateCatch rq = scoped (`AWS.paginate` rq)
+paginateCatch x = scoped (`AWS.paginate` x)
 
--- | Presign a URL with expiry to be used at a later time.
+-- | Poll the API until a predfined condition is fulfilled using the
+-- supplied 'Wait' specification from the respective service.
+--
+-- Any errors which are unhandled by the 'Wait' specification during retries
+-- will be thrown in the same manner as 'send'.
+--
+-- /See:/ 'awaitCatch'
+await :: ( MonadCatch m
+         , MonadResource m
+         , MonadReader Env m
+         , MonadError Error m
+         , AWSRequest a
+         )
+      => Wait a
+      -> a
+      -> m (Rs a)
+await w = awaitCatch w >=> hoistEither
+
+-- | Poll the API until a predfined condition is fulfilled using the
+-- supplied 'Wait' specification from the respective service.
+--
+-- The response will be either the first error returned that is not handled
+-- by the specification, or the successful response from the await request.
+--
+-- /Note:/ You can find any available 'Wait' specifications under the
+-- namespace @Network.AWS.<ServiceName>.Waiters@ for supported services.
+awaitCatch :: ( MonadCatch m
+              , MonadResource m
+              , MonadReader Env m
+              , AWSRequest a
+              )
+           => Wait a
+           -> a
+           -> m (Response a)
+awaitCatch w x = scoped (\e -> AWS.await e w x)
+
+-- | Presign an HTTP request that expires at the specified amount of time
+-- in the future.
 --
 -- /Note:/ Requires the service's signer to be an instance of 'AWSPresigner'.
 -- Not all signing process support this.
@@ -335,6 +419,20 @@ presign :: ( MonadIO m
            )
         => a       -- ^ Request to presign.
         -> UTCTime -- ^ Signing time.
-        -> UTCTime -- ^ Expiry time.
-        -> m (Signed a (Sg (Sv a)))
-presign rq t x = scoped (\e -> AWS.presign e rq t x)
+        -> Integer -- ^ Expiry time in seconds.
+        -> m Client.Request
+presign x t ex = scoped (\e -> AWS.presign e x t ex)
+
+-- | Presign a URL that expires at the specified amount of time in the future.
+--
+-- /See:/ 'presign'
+presignURL :: ( MonadIO m
+             , MonadReader Env m
+             , AWSRequest a
+             , AWSPresigner (Sg (Sv a))
+             )
+           => a       -- ^ Request to presign.
+           -> UTCTime -- ^ Signing time.
+           -> Integer -- ^ Expiry time in seconds.
+           -> m ByteString
+presignURL x t ex = scoped (\e -> AWS.presignURL e x t ex)

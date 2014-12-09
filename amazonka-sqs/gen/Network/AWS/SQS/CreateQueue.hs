@@ -25,16 +25,24 @@
 -- | Creates a new queue, or returns the URL of an existing one. When you request 'CreateQueue', you provide a name for the queue. To successfully create a new queue, you
 -- must provide a name that is unique within the scope of your own queues.
 --
+-- If you delete a queue, you must wait at least 60 seconds before creating a
+-- queue with the same name.
+--
 -- You may pass one or more attributes in the request. If you do not provide a
 -- value for any attribute, the queue will have the default value for that
 -- attribute. Permitted attributes are the same that can be set using 'SetQueueAttributes'.
+--
+-- Use 'GetQueueUrl' to get a queue's URL. 'GetQueueUrl' requires only the 'QueueName'
+-- parameter.
 --
 -- If you provide the name of an existing queue, along with the exact names and
 -- values of all the queue's attributes, 'CreateQueue' returns the queue URL for
 -- the existing queue. If the queue name, attribute names, or attribute values
 -- do not match an existing queue, 'CreateQueue' returns an error.
 --
--- '&Attribute.1=this'
+-- Some API actions take lists of parameters. These lists are specified using
+-- the 'param.n' notation. Values of 'n' are integers starting from 1. For example,
+-- a parameter list with two elements looks like this:  '&Attribute.1=this'
 --
 -- '&Attribute.2=that'
 --
@@ -95,12 +103,11 @@ createQueue p1 = CreateQueue
 -- attribute is 262144 (256 KiB).  'MessageRetentionPeriod' - The number of
 -- seconds Amazon SQS retains a message. Integer representing seconds, from 60
 -- (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4
--- days).  'Policy' - The queue's policy. A valid form-url-encoded policy. For
--- more information about policy structure, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/BasicStructure.html Basic Policy Structure> in the /Amazon SQS Developer Guide/. For more information about form-url-encoding, see <http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1 http://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.2.1>.  'ReceiveMessageWaitTimeSeconds' - The time for which a 'ReceiveMessage' call
--- will wait for a message to arrive. An integer from 0 to 20 (seconds). The
--- default for this attribute is 0.   'VisibilityTimeout' - The visibility timeout
--- for the queue. An integer from 0 to 43200 (12 hours). The default for this
--- attribute is 30. For more information about visibility timeout, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout> in the /Amazon SQS Developer Guide/.
+-- days).  'Policy' - The queue's policy. A valid AWS policy. For more information
+-- about policy structure, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of AWS IAM Policies> in the /Amazon IAMUser Guide/.  'ReceiveMessageWaitTimeSeconds' - The time for which a 'ReceiveMessage' call will wait for a message to arrive. An integer from 0 to 20 (seconds).
+-- The default for this attribute is 0.   'VisibilityTimeout' - The visibility
+-- timeout for the queue. An integer from 0 to 43200 (12 hours). The default for
+-- this attribute is 30. For more information about visibility timeout, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout> in the /Amazon SQS Developer Guide/.
 cqAttributes :: Lens' CreateQueue (HashMap Text Text)
 cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a }) . _EMap
 

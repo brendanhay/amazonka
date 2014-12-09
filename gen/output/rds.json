@@ -1,4 +1,105 @@
 {
+    "waiters": {
+        "waiters": {
+            "DBInstanceAvailable": {
+                "operation": "DescribeDBInstances",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"available\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"deleted\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"deleting\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"failed\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"incompatible-restore\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"incompatible-parameters\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"incompatible-parameters\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"incompatible-restore\""
+                    }
+                ],
+                "maxAttempts": 60,
+                "delay": 30
+            },
+            "DBInstanceDeleted": {
+                "operation": "DescribeDBInstances",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"deleted\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"creating\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"modifying\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"rebooting\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",
+                        "expected": "\"resetting-master-credentials\""
+                    }
+                ],
+                "maxAttempts": 60,
+                "delay": 30
+            }
+        },
+        "namespace": "Network.AWS.RDS.Waiters",
+        "imports": [
+            "Network.AWS.RDS.DescribeDBInstances",
+            "Network.AWS.RDS.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -62,14 +163,38 @@
             "Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot",
             "Network.AWS.RDS.RestoreDBInstanceToPointInTime",
             "Network.AWS.RDS.RevokeDBSecurityGroupIngress",
-            "Network.AWS.RDS.Types"
+            "Network.AWS.RDS.Types",
+            "Network.AWS.RDS.Waiters"
         ],
         "name": "Amazon Relational Database Service",
         "version": "2014-09-01",
         "documentation": "-- | Amazon Relational Database Service (Amazon RDS) is a web service that makes\n-- it easy to set up, operate, and scale a relational database in the cloud. It\n-- provides cost-efficient and resizable capacity while managing time-consuming\n-- database administration tasks, freeing you up to focus on your applications\n-- and business.",
         "xmlNamespace": "http://rds.amazonaws.com/doc/2014-09-01/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "rds",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {
@@ -132,12 +257,13 @@
             "Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot",
             "Network.AWS.RDS.RestoreDBInstanceToPointInTime",
             "Network.AWS.RDS.RevokeDBSecurityGroupIngress",
-            "Network.AWS.RDS.Types"
+            "Network.AWS.RDS.Types",
+            "Network.AWS.RDS.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Relational Database Service",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "Amazon Relational Database Service (Amazon RDS) is a web service that makes\nit easy to set up, operate, and scale a relational database in the cloud. It\nprovides cost-efficient and resizable capacity while managing time-consuming\ndatabase administration tasks, freeing you up to focus on your applications\nand business."
     },
     "types": {

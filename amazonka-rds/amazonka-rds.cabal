@@ -1,5 +1,5 @@
 name:                  amazonka-rds
-version:               0.0.7
+version:               0.0.8
 synopsis:              Amazon Relational Database Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -92,9 +92,10 @@ library
         , Network.AWS.RDS.RestoreDBInstanceToPointInTime
         , Network.AWS.RDS.RevokeDBSecurityGroupIngress
         , Network.AWS.RDS.Types
+        , Network.AWS.RDS.Waiters
 
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.7.*
+          amazonka-core == 0.0.8.*
         , base          >= 4.7     && < 5

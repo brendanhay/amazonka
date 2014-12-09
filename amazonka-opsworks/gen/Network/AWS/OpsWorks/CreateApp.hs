@@ -42,6 +42,7 @@ module Network.AWS.OpsWorks.CreateApp
     , caDescription
     , caDomains
     , caEnableSsl
+    , caEnvironment
     , caName
     , caShortname
     , caSslConfiguration
@@ -68,6 +69,7 @@ data CreateApp = CreateApp
     , _caDescription      :: Maybe Text
     , _caDomains          :: List "InstanceIds" Text
     , _caEnableSsl        :: Maybe Bool
+    , _caEnvironment      :: List "Environment" EnvironmentVariable
     , _caName             :: Text
     , _caShortname        :: Maybe Text
     , _caSslConfiguration :: Maybe SslConfiguration
@@ -90,6 +92,8 @@ data CreateApp = CreateApp
 -- * 'caDomains' @::@ ['Text']
 --
 -- * 'caEnableSsl' @::@ 'Maybe' 'Bool'
+--
+-- * 'caEnvironment' @::@ ['EnvironmentVariable']
 --
 -- * 'caName' @::@ 'Text'
 --
@@ -117,6 +121,7 @@ createApp p1 p2 p3 = CreateApp
     , _caEnableSsl        = Nothing
     , _caSslConfiguration = Nothing
     , _caAttributes       = mempty
+    , _caEnvironment      = mempty
     }
 
 -- | A 'Source' object that specifies the app repository.
@@ -143,6 +148,16 @@ caDomains = lens _caDomains (\s a -> s { _caDomains = a }) . _List
 -- | Whether to enable SSL for the app.
 caEnableSsl :: Lens' CreateApp (Maybe Bool)
 caEnableSsl = lens _caEnableSsl (\s a -> s { _caEnableSsl = a })
+
+-- | An array of 'EnvironmentVariable' objects that specify environment variables to
+-- be associated with the app. You can specify up to ten environment variables.
+-- After you deploy the app, these variables are defined on the associated app
+-- server instance.
+--
+-- This parameter is supported only by Chef 11.10 stacks. If you have specified
+-- one or more environment variables, you cannot modify the stack's Chef version.
+caEnvironment :: Lens' CreateApp [EnvironmentVariable]
+caEnvironment = lens _caEnvironment (\s a -> s { _caEnvironment = a }) . _List
 
 -- | The app name.
 caName :: Lens' CreateApp Text
@@ -208,6 +223,7 @@ instance ToJSON CreateApp where
         , "EnableSsl"        .= _caEnableSsl
         , "SslConfiguration" .= _caSslConfiguration
         , "Attributes"       .= _caAttributes
+        , "Environment"      .= _caEnvironment
         ]
 
 instance AWSRequest CreateApp where

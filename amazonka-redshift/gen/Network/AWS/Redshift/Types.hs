@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -384,7 +385,6 @@ module Network.AWS.Redshift.Types
     , pSource
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -396,18 +396,44 @@ instance AWSService Redshift where
     type Sg Redshift = V4
     type Er Redshift = RESTError
 
-    service = Service
-        { _svcAbbrev       = "Redshift"
-        , _svcPrefix       = "redshift"
-        , _svcVersion      = "2012-12-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service Redshift
+        service' = Service
+            { _svcAbbrev       = "Redshift"
+            , _svcPrefix       = "redshift"
+            , _svcVersion      = "2012-12-01"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry Redshift
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "Throttling" == e = True -- Throttling
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://redshift.amazonaws.com/doc/2012-12-01/"
+{-# INLINE ns #-}
 
 data Snapshot = Snapshot
     { _sAccountsWithRestoreAccess              :: List "member" AccountWithRestoreAccess

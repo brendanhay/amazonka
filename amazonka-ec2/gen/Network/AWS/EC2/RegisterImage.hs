@@ -26,6 +26,9 @@
 -- must complete before you can launch an instance from the AMI. For more
 -- information about creating AMIs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs> in the /AmazonElastic Compute Cloud User Guide/.
 --
+-- For Amazon EBS-backed instances, 'CreateImage' creates and registers the AMI
+-- in a single request, so you don't have to register the AMI yourself.
+--
 -- You can also use 'RegisterImage' to create an Amazon EBS-backed AMI from a
 -- snapshot of a root device volume. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching anInstance from a Snapshot> in the /Amazon Elastic Compute Cloud User Guide/.
 --
@@ -33,6 +36,10 @@
 -- to an AMI backed by an instance store volume invalidates its registration. If
 -- you make changes to an image, deregister the previous image and register the
 -- new image.
+--
+-- You can't register an image where a secondary (non-root) snapshot has AWS
+-- Marketplace product codes.
+--
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RegisterImage.html>
 module Network.AWS.EC2.RegisterImage

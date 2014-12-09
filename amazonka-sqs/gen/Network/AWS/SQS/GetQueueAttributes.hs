@@ -38,7 +38,12 @@
 -- parameters for dead letter queue functionality of the source queue. For more
 -- information about RedrivePolicy and dead letter queues, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQSDead Letter Queues> in the /Amazon SQS Developer Guide/.
 --
--- '&Attribute.1=this'
+-- Going forward, new attributes might be added. If you are writing code that
+-- calls this action, we recommend that you structure your code so that it can
+-- handle new attributes gracefully. Some API actions take lists of parameters.
+-- These lists are specified using the 'param.n' notation. Values of 'n' are
+-- integers starting from 1. For example, a parameter list with two elements
+-- looks like this:  '&Attribute.1=this'
 --
 -- '&Attribute.2=that'
 --

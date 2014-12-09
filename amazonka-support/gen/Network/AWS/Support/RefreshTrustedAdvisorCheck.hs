@@ -25,7 +25,7 @@
 -- | Requests a refresh of the Trusted Advisor check that has the specified check
 -- ID. Check IDs can be obtained by calling 'DescribeTrustedAdvisorChecks'.
 --
--- The response contains a 'RefreshTrustedAdvisorCheckResult' object, which
+-- The response contains a 'TrustedAdvisorCheckRefreshStatus' object, which
 -- contains these fields:
 --
 -- Status. The refresh status of the check: "none", "enqueued", "processing",

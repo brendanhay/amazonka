@@ -33,6 +33,11 @@
 -- IAM provider as a principal will fail until the certificate thumbprint is
 -- updated.
 --
+-- Because trust for the OpenID Connect provider is ultimately derived from the
+-- provider's certificate and is validated by the thumbprint, it is a best
+-- practice to limit access to the 'UpdateOpenIDConnectProviderThumbprint' action
+-- to highly-privileged users.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateOpenIDConnectProviderThumbprint.html>
 module Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
     (

@@ -92,7 +92,11 @@ ctfrRemoveTagKeys =
 ctfrResourceId :: Lens' ChangeTagsForResource Text
 ctfrResourceId = lens _ctfrResourceId (\s a -> s { _ctfrResourceId = a })
 
--- | The type of the resource. The resource type for health checks is 'healthcheck'.
+-- | The type of the resource.
+--
+-- - The resource type for health checks is 'healthcheck'.
+--
+-- - The resource type for hosted zones is 'hostedzone'.
 ctfrResourceType :: Lens' ChangeTagsForResource TagResourceType
 ctfrResourceType = lens _ctfrResourceType (\s a -> s { _ctfrResourceType = a })
 

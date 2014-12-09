@@ -45,6 +45,7 @@ module Network.AWS.Route53
     , module Network.AWS.Route53.ListTagsForResources
     , module Network.AWS.Route53.Types
     , module Network.AWS.Route53.UpdateHealthCheck
+    , module Network.AWS.Route53.UpdateHostedZoneComment
     ) where
 
 import Network.AWS.Route53.AssociateVPCWithHostedZone
@@ -75,3 +76,4 @@ import Network.AWS.Route53.ListTagsForResource
 import Network.AWS.Route53.ListTagsForResources
 import Network.AWS.Route53.Types
 import Network.AWS.Route53.UpdateHealthCheck
+import Network.AWS.Route53.UpdateHostedZoneComment

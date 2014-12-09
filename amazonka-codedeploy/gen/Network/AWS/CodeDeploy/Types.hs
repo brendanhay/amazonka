@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -215,8 +216,6 @@ module Network.AWS.CodeDeploy.Types
     , EC2TagFilterType (..)
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -228,15 +227,39 @@ instance AWSService CodeDeploy where
     type Sg CodeDeploy = V4
     type Er CodeDeploy = JSONError
 
-    service = Service
-        { _svcAbbrev       = "CodeDeploy"
-        , _svcPrefix       = "codedeploy"
-        , _svcVersion      = "2014-10-06"
-        , _svcTargetPrefix = Just "CodeDeploy_20141006"
-        , _svcJSONVersion  = Just "1.1"
-        }
+    service = service'
+      where
+        service' :: Service CodeDeploy
+        service' = Service
+            { _svcAbbrev       = "CodeDeploy"
+            , _svcPrefix       = "codedeploy"
+            , _svcVersion      = "2014-10-06"
+            , _svcTargetPrefix = Just "CodeDeploy_20141006"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = jsonError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry CodeDeploy
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data GenericRevisionInfo = GenericRevisionInfo
     { _griDeploymentGroups :: List "deploymentGroups" Text

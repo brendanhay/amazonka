@@ -48,7 +48,7 @@ instance ToBuilder (Meta V2) where
         ]
 
 instance AWSSigner V2 where
-    signed AuthEnv{..} r x@Request{..} l t = Signed meta rq
+    signed AuthEnv{..} r x@Request{..} t = Signed meta rq
       where
         meta = Meta
             { _mSignature = signature
@@ -80,7 +80,7 @@ instance AWSSigner V2 where
 
         query =
              pair "Version"          (_svcVersion svc)
-           . pair "SignatureVersion" ("2" :: ByteString)
+           . pair "SignatureVersion" ("2"          :: ByteString)
            . pair "SignatureMethod"  ("HmacSHA256" :: ByteString)
            . pair "Timestamp"        time
            . pair "AWSAccessKeyId"   (toBS _authAccess)
@@ -90,6 +90,6 @@ instance AWSSigner V2 where
 
         headers = hdr hDate time _rqHeaders
 
-        time = toBS (LocaleTime l t :: ISO8601)
+        time = toBS (Time t :: ISO8601)
 
         svc = serviceOf x

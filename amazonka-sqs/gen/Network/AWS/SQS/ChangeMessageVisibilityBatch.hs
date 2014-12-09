@@ -28,7 +28,10 @@
 --
 -- Because the batch request can result in a combination of successful and
 -- unsuccessful actions, you should check for batch errors even when the call
--- returns an HTTP status code of 200. '&Attribute.1=this'
+-- returns an HTTP status code of 200. Some API actions take lists of
+-- parameters. These lists are specified using the 'param.n' notation. Values of 'n'
+-- are integers starting from 1. For example, a parameter list with two elements
+-- looks like this:  '&Attribute.1=this'
 --
 -- '&Attribute.2=that'
 --

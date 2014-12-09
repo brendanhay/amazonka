@@ -24,6 +24,8 @@
 
 -- | Describes the results of specified commands.
 --
+-- You must specify at least one of the parameters.
+--
 -- Required Permissions: To use this action, an IAM user must have a Show,
 -- Deploy, or Manage permissions level for the stack, or an attached policy that
 -- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.

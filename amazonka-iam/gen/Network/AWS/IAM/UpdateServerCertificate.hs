@@ -25,7 +25,12 @@
 -- | Updates the name and/or the path of the specified server certificate.
 --
 -- You should understand the implications of changing a server certificate's
--- path or name. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html Managing Server Certificates> in the /Using IAM/ guide.
+-- path or name. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html Managing Server Certificates> in the /Using IAM/ guide.   To change a server certificate name the requester must have
+-- appropriate permissions on both the source object and the target object. For
+-- example, to change the name from ProductionCert to ProdCert, the entity
+-- making the request must have permission on ProductionCert and ProdCert, or
+-- must have permission on all (*). For more information about permissions, see Permissions and Policies
+-- .
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html>
 module Network.AWS.IAM.UpdateServerCertificate

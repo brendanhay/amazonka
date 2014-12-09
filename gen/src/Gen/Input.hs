@@ -186,34 +186,6 @@ instance FromJSON Shape where
             "blob"      -> f Blob'
             e           -> fail ("Unknown Shape type: " ++ show e)
 
--- data Waiter = Waiter
---     { _wOperation    :: Maybe Text
---     , _wDescription  :: Maybe Text
---     , _wInterval     :: Maybe Int
---     , _wMaxAttempts  :: Maybe Int
---     , _wAcceptorType :: Maybe Text
---     , _wSuccessType  :: Maybe Text
---     , _wSuccessPath  :: Maybe Text
---     , _wSuccessValue :: Maybe Value
---     , _wFailureValue :: Maybe [Text]
---     , _wIgnoreErrors :: Maybe [Text]
---     , _wExtends      :: Maybe Text
---     } deriving (Eq, Show)
-
--- record (input & thField .~ keyPython) ''Waiter
-
--- data Endpoint = Endpoint
---     {
---     } deriving (Show, Eq)
-
--- data Waiter = Waiter
---     {
---     } deriving (Show, Eq)
-
--- data Retry = Retry
---     {
---     } deriving (Show, Eq)
-
 data Metadata = Metadata
     { _mServiceFullName     :: !Text
     , _mServiceAbbreviation :: !Abbrev
@@ -237,6 +209,7 @@ data Input = Input
     , _inpOperations        :: HashMap Text Operation
     , _inpShapes            :: HashMap Text Shape
     , _inpPagination        :: HashMap Text (Pager ())
+    , _inpWaiters           :: HashMap Text Waiter
     } deriving (Eq, Show)
 
 record input ''Input

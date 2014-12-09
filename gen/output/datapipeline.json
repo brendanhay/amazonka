@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.DataPipeline.Waiters",
+        "imports": [
+            "Network.AWS.DataPipeline.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -31,7 +38,30 @@
         "documentation": "-- | AWS Data Pipeline is a web service that you can use to automate the movement\n-- and transformation of data. With AWS Data Pipeline, you can define\n-- data-driven workflows, so that tasks can be dependent on the successful\n-- completion of previous tasks.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "datapipeline",
+        "retryPolicies": {
+            "throttling": {
+                "error": "Throttling",
+                "code": 400
+            },
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "DataPipeline"
     },
     "cabal": {
@@ -61,7 +91,7 @@
         "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Data Pipeline",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "AWS Data Pipeline is a web service that you can use to automate the movement\nand transformation of data. With AWS Data Pipeline, you can define\ndata-driven workflows, so that tasks can be dependent on the successful\ncompletion of previous tasks."
     },
     "types": {

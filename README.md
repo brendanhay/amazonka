@@ -8,6 +8,8 @@
     * [Credentials](#credentials)
     * [Type Signatures](#type-signatures)
     * [Sending Requests](#sending-requests)
+    * [Retries](#retries)
+    * [Waiters](#waiters)
     * [Pagination](#pagination)
     * [Presigned URLs](#presigned-urls)
     * [Asynchronous Actions](#asynchronous-actions)
@@ -23,10 +25,10 @@ Parts of the code contained in this repository are auto-generated and
 auto-magically kept up to date with Amazon's latest service APIs.
 
 An introductory blog post detailing some of the motivation and design decisions
-can be found [here](http://brendanhay.github.io/amazonka-comprehensive-haskell-aws-client.html).
+can be found [here](http://brendanhay.nz/amazonka-comprehensive-haskell-aws-client.html).
 
 Haddock documentation which is in sync with the `develop` branch
-can be found [here](http://brendanhay.github.io/amazonka).
+can be found [here](http://brendanhay.nz/amazonka).
 
 ## Organisation
 
@@ -60,7 +62,7 @@ build-depends:
 ### Credentials
 
 Credentials can either be specified explicitly, or obtained from the underlying
-environment in a [number of ways](http://brendanhay.github.io/amazonka/amazonka-core/Network-AWS-Auth.html).
+environment in a [number of ways](http://brendanhay.nz/amazonka/amazonka-core/Network-AWS-Auth.html).
 
 Usually the most convenient is to use `Discover`, which will attempt to read the `AWS_ACCESS_KEY`
 and `AWS_SECRET_KEY` variables from the environment. If either of these variables
@@ -141,7 +143,7 @@ any specific service errors related to the sent request without exiting the comp
 
 ### Pagination
 
-Pagination is supported by requests which are an instance of [`AWSPager`](http://brendanhay.github.io/amazonka/amazonka-core/Network-AWS-Types.html#t:AWSPager).
+Pagination is supported by requests which are an instance of [`AWSPager`](http://brendanhay.nz/amazonka/amazonka-core/Network-AWS-Types.html#t:AWSPager).
 
 The `paginate` method returns a conduit `Source` which will seamlessly return pages
 of results based on the initial (or default) parameters to the first request, stopping
@@ -152,11 +154,45 @@ when the service signals there are no more results.
 > This can be a convenient way to obtain only the first page of results without
 > using any conduit operators.
 
+### Retries
+
+Various services support some form of rudimentary or exotic retry logic.
+
+Usually it is some form of exponential back _on_, with general server errors,
+rate limit exceeded errors, or service unavailable errors handled in the common cases.
+
+The `Network.AWS.<ServiceName>.Types` module contains the retry specification
+for each respective service.
+
+Additionally, the library will retry basic HTTP errors. This and other retry logic
+can be overriden in the environment available to the request functions.
+
+### Waiters
+
+Waiters are used to poll for remote conditions in the face of eventually consistent
+API operations. The `Wait` specifications can be found in the `Network.AWS.<ServiceName>.Waiters`
+namespace for services that support it. These specifications can be used in conjunction
+with the `await` variants.
+
+For example, if you issued a DynamoDB `DeleteTable` operation, and then wished
+to wait for confirmation that the table has been deleted:
+
+```haskell
+await tableNotExists (describeTable "table-name")
+```
+
+This will attempt the `DescribeTable` operation a maximum of 25 times,
+with 20 seconds of delay between each attempt, until the `Wait` criteria
+succeeds, fails, or exceptionally exits.
+
+See each individual service for more information on what waiters are supported.
+
 ### Presigned URLs
 
-Presigned URLs can be generated for services which are an instance of [`AWSPresigner`](http://brendanhay.github.io/amazonka/amazonka-core/Network-AWS-Types.html#t:AWSPresigner).
+Presigned URLs can be generated for services which are an instance of [`AWSPresigner`](http://brendanhay.nz/amazonka/amazonka-core/Network-AWS-Types.html#t:AWSPresigner).
 
-The `presign` method is used to specify the request to sign and the expiry time.
+The `presign` and `presignURL` methods re used to specify the request to sign
+and the time window in which the request (or raw URL) will be valid.
 
 ### Asynchronous Actions
 

@@ -34,6 +34,7 @@ module Network.AWS.EMR
     , module Network.AWS.EMR.SetVisibleToAllUsers
     , module Network.AWS.EMR.TerminateJobFlows
     , module Network.AWS.EMR.Types
+    , module Network.AWS.EMR.Waiters
     ) where
 
 import Network.AWS.EMR.AddInstanceGroups
@@ -54,3 +55,4 @@ import Network.AWS.EMR.SetTerminationProtection
 import Network.AWS.EMR.SetVisibleToAllUsers
 import Network.AWS.EMR.TerminateJobFlows
 import Network.AWS.EMR.Types
+import Network.AWS.EMR.Waiters

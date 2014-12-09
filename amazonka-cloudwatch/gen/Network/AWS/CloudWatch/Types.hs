@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -129,7 +130,6 @@ module Network.AWS.CloudWatch.Types
     , Statistic (..)
     ) where
 
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -141,18 +141,44 @@ instance AWSService CloudWatch where
     type Sg CloudWatch = V4
     type Er CloudWatch = RESTError
 
-    service = Service
-        { _svcAbbrev       = "CloudWatch"
-        , _svcPrefix       = "monitoring"
-        , _svcVersion      = "2010-08-01"
-        , _svcTargetPrefix = Nothing
-        , _svcJSONVersion  = Nothing
-        }
+    service = service'
+      where
+        service' :: Service CloudWatch
+        service' = Service
+            { _svcAbbrev       = "CloudWatch"
+            , _svcPrefix       = "monitoring"
+            , _svcVersion      = "2010-08-01"
+            , _svcTargetPrefix = Nothing
+            , _svcJSONVersion  = Nothing
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = restError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError RESTError)
+        handle = restError statusSuccess service'
+
+        retry :: Retry CloudWatch
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> RESTError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "Throttling" == e = True -- Throttling
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 ns :: Text
 ns = "http://monitoring.amazonaws.com/doc/2010-08-01/"
+{-# INLINE ns #-}
 
 data StatisticSet = StatisticSet
     { _ssMaximum     :: Double

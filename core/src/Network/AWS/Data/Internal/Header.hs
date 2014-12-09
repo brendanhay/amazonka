@@ -19,10 +19,8 @@ import           Data.ByteString.Char8                (ByteString)
 import qualified Data.ByteString.Char8                as BS
 import qualified Data.CaseInsensitive                 as CI
 import           Data.Foldable                        as Fold
-import           Data.Function                        (on)
 import           Data.HashMap.Strict                  (HashMap)
 import qualified Data.HashMap.Strict                  as Map
-import           Data.List                            (deleteBy)
 import           Data.Monoid
 import           Data.Text                            (Text)
 import qualified Data.Text.Encoding                   as Text
@@ -53,9 +51,8 @@ class ToHeaders a where
 (=:) = toHeader
 {-# INLINE toHeaderText #-}
 
--- FIXME: Improve complexity
 hdr :: HeaderName -> ByteString -> [Header] -> [Header]
-hdr k v hs = let h = (k, v) in deleteBy ((==) `on` fst) h hs ++ [h]
+hdr k v hs = (k, v) : filter ((/= k) . fst) hs
 {-# INLINE hdr #-}
 
 hdrs :: [Header] -> [Header] -> [Header]
@@ -107,7 +104,7 @@ hAMZExpires :: HeaderName
 hAMZExpires = "X-Amz-Expires"
 
 hAMZSignedHeaders :: HeaderName
-hAMZSignedHeaders = "X-Amz-Expires"
+hAMZSignedHeaders = "X-Amz-SignedHeaders"
 
 hAMZContentSHA256 :: HeaderName
 hAMZContentSHA256 = "X-Amz-Content-SHA256"

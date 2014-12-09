@@ -1,5 +1,5 @@
 name:                  amazonka-s3
-version:               0.0.7
+version:               0.0.8
 synopsis:              Amazon Simple Storage Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -89,10 +89,11 @@ library
         , Network.AWS.S3.Types
         , Network.AWS.S3.UploadPart
         , Network.AWS.S3.UploadPartCopy
+        , Network.AWS.S3.Waiters
 
     other-modules:
           Network.AWS.S3.Internal
 
     build-depends:
-          amazonka-core == 0.0.7.*
+          amazonka-core == 0.0.8.*
         , base          >= 4.7     && < 5

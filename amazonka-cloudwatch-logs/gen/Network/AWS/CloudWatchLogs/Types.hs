@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -87,8 +88,6 @@ module Network.AWS.CloudWatchLogs.Types
     , oleTimestamp
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -100,15 +99,39 @@ instance AWSService CloudWatchLogs where
     type Sg CloudWatchLogs = V4
     type Er CloudWatchLogs = JSONError
 
-    service = Service
-        { _svcAbbrev       = "CloudWatchLogs"
-        , _svcPrefix       = "logs"
-        , _svcVersion      = "2014-03-28"
-        , _svcTargetPrefix = Just "Logs_20140328"
-        , _svcJSONVersion  = Just "1.1"
-        }
+    service = service'
+      where
+        service' :: Service CloudWatchLogs
+        service' = Service
+            { _svcAbbrev       = "CloudWatchLogs"
+            , _svcPrefix       = "logs"
+            , _svcVersion      = "2014-03-28"
+            , _svcTargetPrefix = Just "Logs_20140328"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = jsonError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry CloudWatchLogs
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data MetricFilter = MetricFilter
     { _mfCreationTime          :: Maybe Nat

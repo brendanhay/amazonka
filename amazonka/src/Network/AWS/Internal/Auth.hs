@@ -4,7 +4,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Network.AWS.Auth
+-- Module      : Network.AWS.Internal.Auth
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,20 +16,7 @@
 
 -- | Explicitly specify your Amazon AWS security credentials, or retrieve them
 -- from the underlying OS.
-module Network.AWS.Auth
-    (
-    -- * Defaults
-      accessKey
-    , secretKey
-
-    -- * Specifying credentials
-    , fromKeys
-    , fromSession
-
-    -- * Retrieving credentials
-    , Credentials (..)
-    , getAuth
-    ) where
+module Network.AWS.Internal.Auth where
 
 import           Control.Applicative
 import           Control.Concurrent

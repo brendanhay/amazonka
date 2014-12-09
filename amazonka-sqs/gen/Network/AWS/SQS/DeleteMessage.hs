@@ -29,6 +29,13 @@
 -- queue. If you leave a message in the queue for longer than the queue's
 -- configured retention period, Amazon SQS automatically deletes it.
 --
+-- The receipt handle is associated with a specific instance of receiving the
+-- message. If you receive a message more than once, the receipt handle you get
+-- each time you receive the message is different. When you request 'DeleteMessage'
+-- , if you don't provide the most recently received receipt handle for the
+-- message, the request will still succeed, but the message might not be
+-- deleted.
+--
 -- It is possible you will receive a message even after you have deleted it.
 -- This might happen on rare occasions if one of the servers storing a copy of
 -- the message is unavailable when you request to delete the message. The copy

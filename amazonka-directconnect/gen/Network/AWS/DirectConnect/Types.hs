@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -146,8 +147,6 @@ module Network.AWS.DirectConnect.Types
     , rfpCidr
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -159,15 +158,40 @@ instance AWSService DirectConnect where
     type Sg DirectConnect = V4
     type Er DirectConnect = JSONError
 
-    service = Service
-        { _svcAbbrev       = "DirectConnect"
-        , _svcPrefix       = "directconnect"
-        , _svcVersion      = "2012-10-25"
-        , _svcTargetPrefix = Just "OvertureService"
-        , _svcJSONVersion  = Just "1.1"
-        }
+    service = service'
+      where
+        service' :: Service DirectConnect
+        service' = Service
+            { _svcAbbrev       = "DirectConnect"
+            , _svcPrefix       = "directconnect"
+            , _svcVersion      = "2012-10-25"
+            , _svcTargetPrefix = Just "OvertureService"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = jsonError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry DirectConnect
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 400 && "Throttling" == e = True -- Throttling
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data VirtualInterface = VirtualInterface
     { _viAmazonAddress         :: Maybe Text

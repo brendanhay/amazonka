@@ -45,6 +45,7 @@ module Network.AWS.OpsWorks.UpdateLayer
     , ulEnableAutoHealing
     , ulInstallUpdatesOnBoot
     , ulLayerId
+    , ulLifecycleEventConfiguration
     , ulName
     , ulPackages
     , ulShortname
@@ -63,20 +64,21 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data UpdateLayer = UpdateLayer
-    { _ulAttributes               :: Map LayerAttributesKeys Text
-    , _ulAutoAssignElasticIps     :: Maybe Bool
-    , _ulAutoAssignPublicIps      :: Maybe Bool
-    , _ulCustomInstanceProfileArn :: Maybe Text
-    , _ulCustomRecipes            :: Maybe Recipes
-    , _ulCustomSecurityGroupIds   :: List "InstanceIds" Text
-    , _ulEnableAutoHealing        :: Maybe Bool
-    , _ulInstallUpdatesOnBoot     :: Maybe Bool
-    , _ulLayerId                  :: Text
-    , _ulName                     :: Maybe Text
-    , _ulPackages                 :: List "InstanceIds" Text
-    , _ulShortname                :: Maybe Text
-    , _ulUseEbsOptimizedInstances :: Maybe Bool
-    , _ulVolumeConfigurations     :: List "VolumeConfigurations" VolumeConfiguration
+    { _ulAttributes                  :: Map LayerAttributesKeys Text
+    , _ulAutoAssignElasticIps        :: Maybe Bool
+    , _ulAutoAssignPublicIps         :: Maybe Bool
+    , _ulCustomInstanceProfileArn    :: Maybe Text
+    , _ulCustomRecipes               :: Maybe Recipes
+    , _ulCustomSecurityGroupIds      :: List "InstanceIds" Text
+    , _ulEnableAutoHealing           :: Maybe Bool
+    , _ulInstallUpdatesOnBoot        :: Maybe Bool
+    , _ulLayerId                     :: Text
+    , _ulLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
+    , _ulName                        :: Maybe Text
+    , _ulPackages                    :: List "InstanceIds" Text
+    , _ulShortname                   :: Maybe Text
+    , _ulUseEbsOptimizedInstances    :: Maybe Bool
+    , _ulVolumeConfigurations        :: List "VolumeConfigurations" VolumeConfiguration
     } deriving (Eq, Show)
 
 -- | 'UpdateLayer' constructor.
@@ -101,6 +103,8 @@ data UpdateLayer = UpdateLayer
 --
 -- * 'ulLayerId' @::@ 'Text'
 --
+-- * 'ulLifecycleEventConfiguration' @::@ 'Maybe' 'LifecycleEventConfiguration'
+--
 -- * 'ulName' @::@ 'Maybe' 'Text'
 --
 -- * 'ulPackages' @::@ ['Text']
@@ -114,20 +118,21 @@ data UpdateLayer = UpdateLayer
 updateLayer :: Text -- ^ 'ulLayerId'
             -> UpdateLayer
 updateLayer p1 = UpdateLayer
-    { _ulLayerId                  = p1
-    , _ulName                     = Nothing
-    , _ulShortname                = Nothing
-    , _ulAttributes               = mempty
-    , _ulCustomInstanceProfileArn = Nothing
-    , _ulCustomSecurityGroupIds   = mempty
-    , _ulPackages                 = mempty
-    , _ulVolumeConfigurations     = mempty
-    , _ulEnableAutoHealing        = Nothing
-    , _ulAutoAssignElasticIps     = Nothing
-    , _ulAutoAssignPublicIps      = Nothing
-    , _ulCustomRecipes            = Nothing
-    , _ulInstallUpdatesOnBoot     = Nothing
-    , _ulUseEbsOptimizedInstances = Nothing
+    { _ulLayerId                     = p1
+    , _ulName                        = Nothing
+    , _ulShortname                   = Nothing
+    , _ulAttributes                  = mempty
+    , _ulCustomInstanceProfileArn    = Nothing
+    , _ulCustomSecurityGroupIds      = mempty
+    , _ulPackages                    = mempty
+    , _ulVolumeConfigurations        = mempty
+    , _ulEnableAutoHealing           = Nothing
+    , _ulAutoAssignElasticIps        = Nothing
+    , _ulAutoAssignPublicIps         = Nothing
+    , _ulCustomRecipes               = Nothing
+    , _ulInstallUpdatesOnBoot        = Nothing
+    , _ulUseEbsOptimizedInstances    = Nothing
+    , _ulLifecycleEventConfiguration = Nothing
     }
 
 -- | One or more user-defined key/value pairs to be added to the stack attributes.
@@ -173,6 +178,11 @@ ulEnableAutoHealing =
 -- boots. The default value is 'true'. To control when updates are installed, set
 -- this value to 'false'. You must then update your instances manually by using 'CreateDeployment' to run the 'update_dependencies' stack command or manually running 'yum' (Amazon
 -- Linux) or 'apt-get' (Ubuntu) on the instances.
+--
+-- We strongly recommend using the default value of 'true', to ensure that your
+-- instances have the latest security updates.
+--
+--
 ulInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
 ulInstallUpdatesOnBoot =
     lens _ulInstallUpdatesOnBoot (\s a -> s { _ulInstallUpdatesOnBoot = a })
@@ -180,6 +190,12 @@ ulInstallUpdatesOnBoot =
 -- | The layer ID.
 ulLayerId :: Lens' UpdateLayer Text
 ulLayerId = lens _ulLayerId (\s a -> s { _ulLayerId = a })
+
+
+ulLifecycleEventConfiguration :: Lens' UpdateLayer (Maybe LifecycleEventConfiguration)
+ulLifecycleEventConfiguration =
+    lens _ulLifecycleEventConfiguration
+        (\s a -> s { _ulLifecycleEventConfiguration = a })
 
 -- | The layer name, which is used by the console.
 ulName :: Lens' UpdateLayer (Maybe Text)
@@ -225,20 +241,21 @@ instance ToHeaders UpdateLayer
 
 instance ToJSON UpdateLayer where
     toJSON UpdateLayer{..} = object
-        [ "LayerId"                  .= _ulLayerId
-        , "Name"                     .= _ulName
-        , "Shortname"                .= _ulShortname
-        , "Attributes"               .= _ulAttributes
-        , "CustomInstanceProfileArn" .= _ulCustomInstanceProfileArn
-        , "CustomSecurityGroupIds"   .= _ulCustomSecurityGroupIds
-        , "Packages"                 .= _ulPackages
-        , "VolumeConfigurations"     .= _ulVolumeConfigurations
-        , "EnableAutoHealing"        .= _ulEnableAutoHealing
-        , "AutoAssignElasticIps"     .= _ulAutoAssignElasticIps
-        , "AutoAssignPublicIps"      .= _ulAutoAssignPublicIps
-        , "CustomRecipes"            .= _ulCustomRecipes
-        , "InstallUpdatesOnBoot"     .= _ulInstallUpdatesOnBoot
-        , "UseEbsOptimizedInstances" .= _ulUseEbsOptimizedInstances
+        [ "LayerId"                     .= _ulLayerId
+        , "Name"                        .= _ulName
+        , "Shortname"                   .= _ulShortname
+        , "Attributes"                  .= _ulAttributes
+        , "CustomInstanceProfileArn"    .= _ulCustomInstanceProfileArn
+        , "CustomSecurityGroupIds"      .= _ulCustomSecurityGroupIds
+        , "Packages"                    .= _ulPackages
+        , "VolumeConfigurations"        .= _ulVolumeConfigurations
+        , "EnableAutoHealing"           .= _ulEnableAutoHealing
+        , "AutoAssignElasticIps"        .= _ulAutoAssignElasticIps
+        , "AutoAssignPublicIps"         .= _ulAutoAssignPublicIps
+        , "CustomRecipes"               .= _ulCustomRecipes
+        , "InstallUpdatesOnBoot"        .= _ulInstallUpdatesOnBoot
+        , "UseEbsOptimizedInstances"    .= _ulUseEbsOptimizedInstances
+        , "LifecycleEventConfiguration" .= _ulLifecycleEventConfiguration
         ]
 
 instance AWSRequest UpdateLayer where

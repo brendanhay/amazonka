@@ -17,19 +17,23 @@ module Network.AWS.EC2.Internal where
 
 import GHC.Generics
 import Network.AWS.Data
+import Network.AWS.Error
 import Network.AWS.Prelude
 
 data Message = Message
-    { _msgCode    :: Text
+    { _msgCode    :: ErrorCode
     , _msgMessage :: Text
     } deriving (Eq, Ord, Show, Generic)
+
+instance AWSErrorCode Message where
+    awsErrorCode = _msgCode
 
 instance FromXML Message where
     parseXML x = Message
         <$> x .@ "Code"
         <*> x .@ "Message"
 
-msgCode :: Lens' Message Text
+msgCode :: Lens' Message ErrorCode
 msgCode = lens _msgCode (\s x -> s { _msgCode = x })
 
 msgMessage :: Lens' Message Text
@@ -37,8 +41,11 @@ msgMessage = lens _msgMessage (\s x -> s { _msgMessage = x })
 
 data EC2Error = EC2Error
     { _errRequestID :: Text
-    , _errErrors    :: List "Error" Message
+    , _errErrors    :: List1 "Error" Message
     } deriving (Eq, Ord, Show, Generic)
+
+instance AWSErrorCode EC2Error where
+    awsErrorCode e = let List1 (m :| _) = _errErrors e in awsErrorCode m
 
 instance FromXML EC2Error where
     parseXML x = EC2Error
@@ -48,8 +55,8 @@ instance FromXML EC2Error where
 errRequestID :: Lens' EC2Error Text
 errRequestID = lens _errRequestID (\s x -> s { _errRequestID = x })
 
-errErrors :: Lens' EC2Error [Message]
-errErrors = lens _errErrors (\s x -> s { _errErrors = x }) . _List
+errErrors :: Lens' EC2Error (NonEmpty Message)
+errErrors = lens _errErrors (\s x -> s { _errErrors = x }) . _List1
 
 -- <Response>
 --     <Errors>

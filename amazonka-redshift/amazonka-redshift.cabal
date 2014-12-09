@@ -1,5 +1,5 @@
 name:                  amazonka-redshift
-version:               0.0.7
+version:               0.0.8
 synopsis:              Amazon Redshift SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -95,9 +95,10 @@ library
         , Network.AWS.Redshift.RevokeSnapshotAccess
         , Network.AWS.Redshift.RotateEncryptionKey
         , Network.AWS.Redshift.Types
+        , Network.AWS.Redshift.Waiters
 
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.7.*
+          amazonka-core == 0.0.8.*
         , base          >= 4.7     && < 5

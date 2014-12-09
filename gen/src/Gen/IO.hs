@@ -17,9 +17,11 @@ module Gen.IO where
 import           Control.Applicative
 import           Control.Error
 import           Control.Monad.IO.Class
-import           Data.Aeson
+import qualified Data.Aeson               as A
 import           Data.Aeson.Encode.Pretty
 import qualified Data.ByteString.Lazy     as LBS
+import           Data.Jason               (eitherDecode')
+import           Data.Jason.Types
 import           Data.Monoid
 import           Data.Text                (Text)
 import qualified Data.Text                as Text
@@ -54,7 +56,7 @@ renderFile :: ToFilePath a
            -> Template
            -> FilePath
            -> a
-           -> Object
+           -> A.Object
            -> Script ()
 renderFile lbl t d p env = do
     createDir (dropFileName f)
@@ -73,10 +75,20 @@ readFromFile f p = do
         then return . Left $ "Failed to find " ++ p
         else f <$> scriptIO (LBS.readFile p)
 
-writeJSON :: ToJSON a => FilePath -> a -> Script ()
+writeJSON :: A.ToJSON a => FilePath -> a -> Script ()
 writeJSON p x = do
     say "Write JSON" p
     scriptIO (LBS.writeFile p (encodePretty x))
+
+requireObject :: FromJSON a => FilePath -> Script a
+requireObject f = loadObject f >>= hoistEither
+
+optionalObject :: Text -> FilePath -> Script Object
+optionalObject k = fmap (fromMaybe (mkObject [(k, Object mempty)]) . hush)
+    . loadObject
+
+loadObject :: FromJSON a => FilePath -> Script (Either String a)
+loadObject = readFromFile eitherDecode'
 
 say :: MonadIO m => Text -> String -> m ()
 say x msg = liftIO . Text.putStrLn $ "[ " <> y <> "] " <> Text.pack msg

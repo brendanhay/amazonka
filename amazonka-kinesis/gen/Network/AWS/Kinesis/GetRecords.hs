@@ -43,10 +43,11 @@
 --
 -- Each data record can be up to 50 KB in size, and each shard can read up to 2
 -- MB per second. You can ensure that your calls don't exceed the maximum
--- supported size or throughput by specifying the maximum number of records that 'GetRecords' can return in the 'Limit' parameter. Consider your average record
--- size when determining this limit. For example, if your average record size is
--- 40 KB, you can limit the data returned to about 1 MB per call by specifying
--- 25 as the limit.
+-- supported size or throughput by using the 'Limit' parameter to specify the
+-- maximum number of records that 'GetRecords' can return. Consider your average
+-- record size when determining this limit. For example, if your average record
+-- size is 40 KB, you can limit the data returned to about 1 MB per call by
+-- specifying 25 as the limit.
 --
 -- The size of the data returned by 'GetRecords' will vary depending on the
 -- utilization of the shard. The maximum size of data that 'GetRecords' can return
@@ -61,8 +62,8 @@
 --
 -- To detect whether the application is falling behind in processing, add a
 -- timestamp to your records and note how long it takes to process them. You can
--- also monitor how much data is in a stream using the CloudWatch metrics for 'PutRecord'. For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html Monitoring Amazon Kinesis with Amazon CloudWatch>
--- in the /Amazon Kinesis Developer Guide/.
+-- also monitor how much data is in a stream using the CloudWatch metrics for
+-- write operations ('PutRecord' and 'PutRecords'). For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html Monitoring Amazon Kinesis with Amazon CloudWatch> in the /Amazon Kinesis Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html>
 module Network.AWS.Kinesis.GetRecords

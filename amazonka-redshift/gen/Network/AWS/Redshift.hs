@@ -74,6 +74,7 @@ module Network.AWS.Redshift
     , module Network.AWS.Redshift.RevokeSnapshotAccess
     , module Network.AWS.Redshift.RotateEncryptionKey
     , module Network.AWS.Redshift.Types
+    , module Network.AWS.Redshift.Waiters
     ) where
 
 import Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
@@ -133,3 +134,4 @@ import Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
 import Network.AWS.Redshift.RevokeSnapshotAccess
 import Network.AWS.Redshift.RotateEncryptionKey
 import Network.AWS.Redshift.Types
+import Network.AWS.Redshift.Waiters

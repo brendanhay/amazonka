@@ -21,7 +21,6 @@ import qualified Crypto.MAC.HMAC        as HMAC
 import           Data.ByteString        (ByteString)
 import           Data.Time
 import           Network.AWS.Types
-import           System.Locale
 
 sign :: (MonadIO m, AWSRequest a, AWSSigner (Sg (Sv a)))
      => Auth      -- ^ AWS authentication credentials.
@@ -29,18 +28,16 @@ sign :: (MonadIO m, AWSRequest a, AWSSigner (Sg (Sv a)))
      -> Request a -- ^ Request to sign.
      -> UTCTime   -- ^ Signing time.
      -> m (Signed a (Sg (Sv a)))
-sign a r rq t = withAuth a $ \e -> return $
-    signed e r rq defaultTimeLocale t
+sign a r rq t = withAuth a $ \e -> return (signed e r rq t)
 
 presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
         => Auth      -- ^ AWS authentication credentials.
         -> Region    -- ^ AWS Region.
         -> Request a -- ^ Request to presign.
         -> UTCTime   -- ^ Signing time.
-        -> UTCTime   -- ^ Expiry time.
+        -> Integer   -- ^ Expiry time in seconds.
         -> m (Signed a (Sg (Sv a)))
-presign a r rq t x = withAuth a $ \e -> return $
-    presigned e r rq defaultTimeLocale t x
+presign a r rq t ex = withAuth a $ \e -> return (presigned e r rq t ex)
 
 hmacSHA256 :: ByteString -> ByteString -> ByteString
 hmacSHA256 = HMAC.hmac SHA256.hash 64

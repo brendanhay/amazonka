@@ -1,5 +1,5 @@
 name:                  amazonka-ses
-version:               0.0.7
+version:               0.0.8
 synopsis:              Amazon Simple Email Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -59,9 +59,10 @@ library
         , Network.AWS.SES.VerifyDomainIdentity
         , Network.AWS.SES.VerifyEmailAddress
         , Network.AWS.SES.VerifyEmailIdentity
+        , Network.AWS.SES.Waiters
 
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.7.*
+          amazonka-core == 0.0.8.*
         , base          >= 4.7     && < 5

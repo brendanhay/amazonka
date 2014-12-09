@@ -7,6 +7,7 @@
 {-# LANGUAGE OverloadedStrings           #-}
 {-# LANGUAGE RecordWildCards             #-}
 {-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE ViewPatterns                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -41,8 +42,6 @@ module Network.AWS.CloudTrail.Types
     , tSnsTopicName
     ) where
 
-import Data.Char (isUpper)
-import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
@@ -54,15 +53,39 @@ instance AWSService CloudTrail where
     type Sg CloudTrail = V4
     type Er CloudTrail = JSONError
 
-    service = Service
-        { _svcAbbrev       = "CloudTrail"
-        , _svcPrefix       = "cloudtrail"
-        , _svcVersion      = "2013-11-01"
-        , _svcTargetPrefix = Just "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101"
-        , _svcJSONVersion  = Just "1.1"
-        }
+    service = service'
+      where
+        service' :: Service CloudTrail
+        service' = Service
+            { _svcAbbrev       = "CloudTrail"
+            , _svcPrefix       = "cloudtrail"
+            , _svcVersion      = "2013-11-01"
+            , _svcTargetPrefix = Just "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101"
+            , _svcJSONVersion  = Just "1.1"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
 
-    handle = jsonError statusSuccess
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry CloudTrail
+        retry = Exponential
+            { _retryBase     = 0.05
+            , _retryGrowth   = 2
+            , _retryAttempts = 5
+            , _retryCheck    = check
+            }
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e)
+            | s == 500  = True -- General Server Error
+            | s == 509  = True -- Limit Exceeded
+            | s == 503  = True -- Service Unavailable
+            | otherwise = False
 
 data Trail = Trail
     { _tCloudWatchLogsLogGroupArn  :: Maybe Text

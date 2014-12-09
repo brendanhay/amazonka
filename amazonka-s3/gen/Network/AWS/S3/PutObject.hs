@@ -307,7 +307,7 @@ poWebsiteRedirectLocation =
 
 data PutObjectResponse = PutObjectResponse
     { _porETag                 :: Maybe Text
-    , _porExpiration           :: Maybe RFC822
+    , _porExpiration           :: Maybe Text
     , _porSSECustomerAlgorithm :: Maybe Text
     , _porSSECustomerKeyMD5    :: Maybe Text
     , _porSSEKMSKeyId          :: Maybe (Sensitive Text)
@@ -321,7 +321,7 @@ data PutObjectResponse = PutObjectResponse
 --
 -- * 'porETag' @::@ 'Maybe' 'Text'
 --
--- * 'porExpiration' @::@ 'Maybe' 'UTCTime'
+-- * 'porExpiration' @::@ 'Maybe' 'Text'
 --
 -- * 'porSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -350,8 +350,8 @@ porETag = lens _porETag (\s a -> s { _porETag = a })
 
 -- | If the object expiration is configured, this will contain the expiration date
 -- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
-porExpiration :: Lens' PutObjectResponse (Maybe UTCTime)
-porExpiration = lens _porExpiration (\s a -> s { _porExpiration = a }) . mapping _Time
+porExpiration :: Lens' PutObjectResponse (Maybe Text)
+porExpiration = lens _porExpiration (\s a -> s { _porExpiration = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption

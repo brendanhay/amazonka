@@ -1,4 +1,78 @@
 {
+    "waiters": {
+        "waiters": {
+            "ObjectNotExists": {
+                "operation": "HeadObject",
+                "acceptors": [
+                    {
+                        "matcher": "matchStatus",
+                        "state": "success",
+                        "argument": null,
+                        "expected": 404
+                    }
+                ],
+                "maxAttempts": 20,
+                "delay": 5
+            },
+            "BucketExists": {
+                "operation": "HeadBucket",
+                "acceptors": [
+                    {
+                        "matcher": "matchStatus",
+                        "state": "success",
+                        "argument": null,
+                        "expected": 200
+                    },
+                    {
+                        "matcher": "matchStatus",
+                        "state": "retry",
+                        "argument": null,
+                        "expected": 404
+                    }
+                ],
+                "maxAttempts": 20,
+                "delay": 5
+            },
+            "ObjectExists": {
+                "operation": "HeadObject",
+                "acceptors": [
+                    {
+                        "matcher": "matchStatus",
+                        "state": "success",
+                        "argument": null,
+                        "expected": 200
+                    },
+                    {
+                        "matcher": "matchStatus",
+                        "state": "retry",
+                        "argument": null,
+                        "expected": 404
+                    }
+                ],
+                "maxAttempts": 20,
+                "delay": 5
+            },
+            "BucketNotExists": {
+                "operation": "HeadBucket",
+                "acceptors": [
+                    {
+                        "matcher": "matchStatus",
+                        "state": "success",
+                        "argument": null,
+                        "expected": 404
+                    }
+                ],
+                "maxAttempts": 20,
+                "delay": 5
+            }
+        },
+        "namespace": "Network.AWS.S3.Waiters",
+        "imports": [
+            "Network.AWS.S3.HeadBucket",
+            "Network.AWS.S3.HeadObject",
+            "Network.AWS.S3.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "md5",
@@ -57,14 +131,38 @@
             "Network.AWS.S3.RestoreObject",
             "Network.AWS.S3.Types",
             "Network.AWS.S3.UploadPart",
-            "Network.AWS.S3.UploadPartCopy"
+            "Network.AWS.S3.UploadPartCopy",
+            "Network.AWS.S3.Waiters"
         ],
         "name": "Amazon Simple Storage Service",
         "version": "2006-03-01",
         "documentation": "-- | Amazon Simple Storage Service is storage for the Internet. Amazon S3 has a\n-- simple web services interface that you can use to store and retrieve any\n-- amount of data, at any time, from anywhere on the web. It gives any developer\n-- access to the same highly scalable, reliable, fast, inexpensive data storage\n-- infrastructure that Amazon uses to run its own global network of web sites.\n-- The service aims to maximize benefits of scale and to pass those benefits on\n-- to developers.",
         "xmlNamespace": "http://s3.amazonaws.com/doc/2006-03-01/",
         "jsonVersion": null,
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "s3",
+        "retryPolicies": {
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "timeouts": {
+                "error": "RequestTimeout",
+                "code": 400
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": null
     },
     "cabal": {
@@ -124,12 +222,13 @@
             "Network.AWS.S3.RestoreObject",
             "Network.AWS.S3.Types",
             "Network.AWS.S3.UploadPart",
-            "Network.AWS.S3.UploadPartCopy"
+            "Network.AWS.S3.UploadPartCopy",
+            "Network.AWS.S3.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html",
         "protocol": "rest-xml",
         "name": "Amazon Simple Storage Service",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "Amazon Simple Storage Service is storage for the Internet. Amazon S3 has a\nsimple web services interface that you can use to store and retrieve any\namount of data, at any time, from anywhere on the web. It gives any developer\naccess to the same highly scalable, reliable, fast, inexpensive data storage\ninfrastructure that Amazon uses to run its own global network of web sites.\nThe service aims to maximize benefits of scale and to pass those benefits on\nto developers."
     },
     "types": {
@@ -8431,7 +8530,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -8441,8 +8540,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, this will contain the expiration date\n-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -8545,7 +8644,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -8555,8 +8654,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, this will contain the expiration date\n-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -8975,7 +9074,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -8985,8 +9084,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, the response includes this header.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -9105,7 +9204,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -9115,8 +9214,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, the response includes this header.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -16139,7 +16238,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -16149,8 +16248,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured (see PUT Bucket lifecycle), the\n-- response includes this header. It includes the expiry-date and rule-id key\n-- value pairs providing object expiration information. The value of the rule-id\n-- is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -16605,7 +16704,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -16615,8 +16714,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured (see PUT Bucket lifecycle), the\n-- response includes this header. It includes the expiry-date and rule-id key\n-- value pairs providing object expiration information. The value of the rule-id\n-- is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -18294,7 +18393,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -18304,8 +18403,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured (see PUT Bucket lifecycle), the\n-- response includes this header. It includes the expiry-date and rule-id key\n-- value pairs providing object expiration information. The value of the rule-id\n-- is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -18744,7 +18843,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -18754,8 +18853,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured (see PUT Bucket lifecycle), the\n-- response includes this header. It includes the expiry-date and rule-id key\n-- value pairs providing object expiration information. The value of the rule-id\n-- is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -25591,7 +25690,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -25601,8 +25700,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, this will contain the expiration date\n-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",
@@ -25721,7 +25820,7 @@
                     {
                         "location": "header",
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -25731,8 +25830,8 @@
                         "shape": "Expiration",
                         "locationName": "x-amz-expiration",
                         "documentation": "-- | If the object expiration is configured, this will contain the expiration date\n-- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe RFC822"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "header",

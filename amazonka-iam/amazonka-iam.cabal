@@ -1,5 +1,5 @@
 name:                  amazonka-iam
-version:               0.0.7
+version:               0.0.8
 synopsis:              Amazon Identity and Access Management SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -69,6 +69,7 @@ library
         , Network.AWS.IAM.DeleteVirtualMFADevice
         , Network.AWS.IAM.EnableMFADevice
         , Network.AWS.IAM.GenerateCredentialReport
+        , Network.AWS.IAM.GetAccountAuthorizationDetails
         , Network.AWS.IAM.GetAccountPasswordPolicy
         , Network.AWS.IAM.GetAccountSummary
         , Network.AWS.IAM.GetCredentialReport
@@ -124,5 +125,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.7.*
+          amazonka-core == 0.0.8.*
         , base          >= 4.7     && < 5

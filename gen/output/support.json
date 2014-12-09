@@ -1,4 +1,11 @@
 {
+    "waiters": {
+        "waiters": {},
+        "namespace": "Network.AWS.Support.Waiters",
+        "imports": [
+            "Network.AWS.Support.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -29,7 +36,26 @@
         "documentation": "-- | AWS Support is a one-on-one, fast-response support channel that is staffed\n-- with experienced support personnel. The service helps customers get the most\n-- from the products and features provided by Amazon Web Services. There are\n-- four levels, or tiers, of AWS Support: Basic, Developer, Business, and\n-- Enterprise. The Basic tier is free of charge and offers support for account\n-- and billing questions and service limit increases. The other tiers offer an\n-- unlimited number of technical support cases with pay-by-the-month pricing and\n-- no long-term contracts, providing developers and businesses flexibility to\n-- choose the level of support that meets their needs.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "support",
+        "retryPolicies": {
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "AWSSupport_20130415"
     },
     "cabal": {
@@ -57,7 +83,7 @@
         "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Support",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "AWS Support is a one-on-one, fast-response support channel that is staffed\nwith experienced support personnel. The service helps customers get the most\nfrom the products and features provided by Amazon Web Services. There are\nfour levels, or tiers, of AWS Support: Basic, Developer, Business, and\nEnterprise. The Basic tier is free of charge and offers support for account\nand billing questions and service limit increases. The other tiers offer an\nunlimited number of technical support cases with pay-by-the-month pricing and\nno long-term contracts, providing developers and businesses flexibility to\nchoose the level of support that meets their needs."
     },
     "types": {
@@ -3776,7 +3802,7 @@
             "pager": null,
             "name": "AddCommunicationToCase",
             "method": "post",
-            "documentation": "-- | Adds additional customer communication to an AWS Support case. You use the 'CaseId' value to identify the case to add communication to. You can list a set of\n-- email addresses to copy on the communication using the 'CcEmailAddresses'\n-- value. The 'CommunicationBody' value contains the text of the communication.\n--\n-- The response indicates the success or failure of the request.\n--\n-- This operation implements a subset of the behavior on the AWS Support \u003chttps://aws.amazon.com/support YourSupport Cases\u003e web form.",
+            "documentation": "-- | Adds additional customer communication to an AWS Support case. You use the 'CaseId' value to identify the case to add communication to. You can list a set of\n-- email addresses to copy on the communication using the 'CcEmailAddresses'\n-- value. The 'CommunicationBody' value contains the text of the communication.\n--\n-- The response indicates the success or failure of the request.\n--\n-- This operation implements a subset of the features of the AWS Support Center.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4117,7 +4143,7 @@
             "pager": null,
             "name": "CreateCase",
             "method": "post",
-            "documentation": "-- | Creates a new case in the AWS Support Center. This operation is modeled on\n-- the behavior of the AWS Support Center \u003chttps://aws.amazon.com/support/createCase Open a new case\u003e page. Its parameters\n-- require you to specify the following information:\n--\n-- IssueType. The type of issue for the case. You can specify either\n-- \"customer-service\" or \"technical.\" If you do not indicate a value, the\n-- default is \"technical.\"   ServiceCode. The code for an AWS service. You\n-- obtain the 'ServiceCode' by calling 'DescribeServices'.   CategoryCode. The\n-- category for the service defined for the 'ServiceCode' value. You also obtain\n-- the category code for a service by calling 'DescribeServices'. Each AWS service\n-- defines its own set of category codes.   SeverityCode. A value that indicates\n-- the urgency of the case, which in turn determines the response time according\n-- to your service level agreement with AWS Support. You obtain the SeverityCode\n-- by calling 'DescribeSeverityLevels'.  Subject. The Subject field on the AWS\n-- Support Center \u003chttps://aws.amazon.com/support/createCase Open a new case\u003e page.  CommunicationBody. The Description\n-- field on the AWS Support Center \u003chttps://aws.amazon.com/support/createCase Open a new case\u003e page.  AttachmentSetId. The\n-- ID of a set of attachments that has been created by using 'AddAttachmentsToSet'.\n-- Language. The human language in which AWS Support handles the case. English\n-- and Japanese are currently supported.  CcEmailAddresses. The AWS Support\n-- Center CC field on the \u003chttps://aws.amazon.com/support/createCase Open a new case\u003e page. You can list email addresses to\n-- be copied on any correspondence about the case. The account that opens the\n-- case is already identified by passing the AWS Credentials in the HTTP POST\n-- method or in a method or function call from one of the programming languages\n-- supported by an \u003chttp://aws.amazon.com/tools/ AWS SDK\u003e.   A successful 'CreateCase' request returns an AWS\n-- Support case number. Case numbers are used by the 'DescribeCases' operation to\n-- retrieve existing AWS Support cases.",
+            "documentation": "-- | Creates a new case in the AWS Support Center. This operation is modeled on\n-- the behavior of the AWS Support Center \u003chttps://console.aws.amazon.com/support/home#/case/create Create Case\u003e page. Its parameters\n-- require you to specify the following information:\n--\n-- IssueType. The type of issue for the case. You can specify either\n-- \"customer-service\" or \"technical.\" If you do not indicate a value, the\n-- default is \"technical.\"   ServiceCode. The code for an AWS service. You\n-- obtain the 'ServiceCode' by calling 'DescribeServices'.   CategoryCode. The\n-- category for the service defined for the 'ServiceCode' value. You also obtain\n-- the category code for a service by calling 'DescribeServices'. Each AWS service\n-- defines its own set of category codes.   SeverityCode. A value that indicates\n-- the urgency of the case, which in turn determines the response time according\n-- to your service level agreement with AWS Support. You obtain the SeverityCode\n-- by calling 'DescribeSeverityLevels'.  Subject. The Subject field on the AWS\n-- Support Center \u003chttps://console.aws.amazon.com/support/home#/case/create Create Case\u003e page.  CommunicationBody. The Description field on\n-- the AWS Support Center \u003chttps://console.aws.amazon.com/support/home#/case/create Create Case\u003e page.  AttachmentSetId. The ID of a set of\n-- attachments that has been created by using 'AddAttachmentsToSet'.  Language.\n-- The human language in which AWS Support handles the case. English and\n-- Japanese are currently supported.  CcEmailAddresses. The AWS Support Center CC\n-- field on the \u003chttps://console.aws.amazon.com/support/home#/case/create Create Case\u003e page. You can list email addresses to be copied on\n-- any correspondence about the case. The account that opens the case is already\n-- identified by passing the AWS Credentials in the HTTP POST method or in a\n-- method or function call from one of the programming languages supported by an \u003chttp://aws.amazon.com/tools/ AWS SDK\u003e.   To add additional communication or attachments to an existing\n-- case, use 'AddCommunicationToCase'.\n--\n-- A successful 'CreateCase' request returns an AWS Support case number. Case\n-- numbers are used by the 'DescribeCases' operation to retrieve existing AWS\n-- Support cases.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4175,7 +4201,7 @@
                         "name": "_ccSeverityCode",
                         "shape": "SeverityCode",
                         "locationName": "severityCode",
-                        "documentation": "-- | The code for the severity level returned by the call to 'DescribeSeverityLevels'\n-- .",
+                        "documentation": "-- | The code for the severity level returned by the call to 'DescribeSeverityLevels'\n-- .\n--\n-- The availability of severity levels depends on each customer's support\n-- subscription. In other words, your subscription may not necessarily require\n-- the urgent level of response time.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4357,7 +4383,7 @@
                         "name": "_ccSeverityCode",
                         "shape": "SeverityCode",
                         "locationName": "severityCode",
-                        "documentation": "-- | The code for the severity level returned by the call to 'DescribeSeverityLevels'\n-- .",
+                        "documentation": "-- | The code for the severity level returned by the call to 'DescribeSeverityLevels'\n-- .\n--\n-- The availability of severity levels depends on each customer's support\n-- subscription. In other words, your subscription may not necessarily require\n-- the urgent level of response time.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4567,7 +4593,7 @@
                         "name": "_ccSeverityCode",
                         "shape": "SeverityCode",
                         "locationName": "severityCode",
-                        "documentation": "-- | The code for the severity level returned by the call to 'DescribeSeverityLevels'\n-- .",
+                        "documentation": "-- | The code for the severity level returned by the call to 'DescribeSeverityLevels'\n-- .\n--\n-- The availability of severity levels depends on each customer's support\n-- subscription. In other words, your subscription may not necessarily require\n-- the urgent level of response time.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4949,7 +4975,7 @@
             },
             "name": "DescribeCases",
             "method": "post",
-            "documentation": "-- | Returns a list of cases that you specify by passing one or more case IDs. In\n-- addition, you can filter the cases by date by setting values for the 'AfterTime'\n-- and 'BeforeTime' request parameters.\n--\n-- Case data is available for 12 months after creation. If a case was created\n-- more than 12 months ago, a request for data might cause an error.\n--\n-- The response returns the following in JSON format:\n--\n-- One or more 'CaseDetails' data types.  One or more 'NextToken' values, which\n-- specify where to paginate the returned records represented by the 'CaseDetails'\n-- objects.",
+            "documentation": "-- | Returns a list of cases that you specify by passing one or more case IDs. In\n-- addition, you can filter the cases by date by setting values for the 'AfterTime'\n-- and 'BeforeTime' request parameters. You can set values for the 'IncludeResolvedCases' and 'IncludeCommunications' request parameters to control how much information\n-- is returned.\n--\n-- Case data is available for 12 months after creation. If a case was created\n-- more than 12 months ago, a request for data might cause an error.\n--\n-- The response returns the following in JSON format:\n--\n-- One or more 'CaseDetails' data types.  One or more 'NextToken' values, which\n-- specify where to paginate the returned records represented by the 'CaseDetails'\n-- objects.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5956,7 +5982,7 @@
             "pager": null,
             "name": "DescribeServices",
             "method": "post",
-            "documentation": "-- | Returns the current list of AWS services and a list of service categories\n-- that applies to each one. You then use service names and categories in your 'CreateCase' requests. Each AWS service has its own set of categories.\n--\n-- The service codes and category codes correspond to the values that are\n-- displayed in the Service and Category drop-down lists on the AWS Support\n-- Center \u003chttps://aws.amazon.com/support/createCase Open a new case\u003e page. The values in those fields, however, do not\n-- necessarily match the service codes and categories returned by the 'DescribeServices' request. Always use the service codes and categories obtained\n-- programmatically. This practice ensures that you always have the most recent\n-- set of service and category codes.",
+            "documentation": "-- | Returns the current list of AWS services and a list of service categories\n-- that applies to each one. You then use service names and categories in your 'CreateCase' requests. Each AWS service has its own set of categories.\n--\n-- The service codes and category codes correspond to the values that are\n-- displayed in the Service and Category drop-down lists on the AWS Support\n-- Center \u003chttps://console.aws.amazon.com/support/home#/case/create Create Case\u003e page. The values in those fields, however, do not\n-- necessarily match the service codes and categories returned by the 'DescribeServices' request. Always use the service codes and categories obtained\n-- programmatically. This practice ensures that you always have the most recent\n-- set of service and category codes.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7300,7 +7326,7 @@
             "pager": null,
             "name": "RefreshTrustedAdvisorCheck",
             "method": "post",
-            "documentation": "-- | Requests a refresh of the Trusted Advisor check that has the specified check\n-- ID. Check IDs can be obtained by calling 'DescribeTrustedAdvisorChecks'.\n--\n-- The response contains a 'RefreshTrustedAdvisorCheckResult' object, which\n-- contains these fields:\n--\n-- Status. The refresh status of the check: \"none\", \"enqueued\", \"processing\",\n-- \"success\", or \"abandoned\".  MillisUntilNextRefreshable. The amount of time,\n-- in milliseconds, until the check is eligible for refresh.  CheckId. The\n-- unique identifier for the check.",
+            "documentation": "-- | Requests a refresh of the Trusted Advisor check that has the specified check\n-- ID. Check IDs can be obtained by calling 'DescribeTrustedAdvisorChecks'.\n--\n-- The response contains a 'TrustedAdvisorCheckRefreshStatus' object, which\n-- contains these fields:\n--\n-- Status. The refresh status of the check: \"none\", \"enqueued\", \"processing\",\n-- \"success\", or \"abandoned\".  MillisUntilNextRefreshable. The amount of time,\n-- in milliseconds, until the check is eligible for refresh.  CheckId. The\n-- unique identifier for the check.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

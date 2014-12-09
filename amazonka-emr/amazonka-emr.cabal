@@ -1,5 +1,5 @@
 name:                  amazonka-emr
-version:               0.0.7
+version:               0.0.8
 synopsis:              Amazon Elastic MapReduce SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -55,9 +55,10 @@ library
         , Network.AWS.EMR.SetVisibleToAllUsers
         , Network.AWS.EMR.TerminateJobFlows
         , Network.AWS.EMR.Types
+        , Network.AWS.EMR.Waiters
 
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.7.*
+          amazonka-core == 0.0.8.*
         , base          >= 4.7     && < 5

@@ -33,6 +33,11 @@
 -- action to manage root credentials even if the AWS account has no associated
 -- users.
 --
+-- Because the body of a X.509 certificate can be large, you should use POST
+-- rather than GET when calling 'UploadSigningCertificate'. For information about
+-- setting up signatures and authorization through the API, go to <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWSAPI Requests> in the /AWS General Reference/. For general information about
+-- using the Query API with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests> in the /Using IAM/guide.
+--
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSigningCertificate.html>
 module Network.AWS.IAM.UploadSigningCertificate
     (

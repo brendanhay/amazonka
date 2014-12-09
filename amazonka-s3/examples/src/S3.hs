@@ -24,21 +24,34 @@ import           Data.ByteString.Builder (Builder)
 import           Data.Conduit
 import qualified Data.Conduit.List       as Conduit
 import           Data.Monoid
+import           Data.Text               (Text)
+import           Data.Time.Clock
 import           Network.AWS.S3
+import           Network.HTTP.Client
 import           System.IO
 
 default (Builder)
 
 listAllObjects :: IO (Either Error ())
 listAllObjects = do
-    lgr <- newLogger Info stdout
-    env <- getEnv Ireland Discover <&> envLogger .~ lgr
-    runAWST env $ do
-        logInfo "Listing Buckets ..."
+    l <- newLogger Info stdout
+    e <- getEnv Ireland Discover <&> envLogger .~ l
+    runAWST e $ do
+        info "Listing Buckets ..."
         bs <- view lbrBuckets <$> send listBuckets
         forM_ bs $ \(view bName -> b) -> do
-            logInfo $ "Listing Keys in " <> build b
+            info $ "Listing Keys in " <> build b
             paginate (listObjects b)
                 =$ Conduit.concatMap (view lorContents)
-                $$ Conduit.mapM_ (logInfo . view oKey)
-        logInfo "Completed."
+                $$ Conduit.mapM_ (info . view oKey)
+        info "Completed."
+
+presignGetObject :: Text -> Text -> IO (Either Error ())
+presignGetObject b k = do
+    l <- newLogger Info stdout
+    e <- getEnv Ireland Discover <&> envLogger .~ l
+    t <- getCurrentTime
+    runAWST e $ do
+        sg <- _sgRequest <$> presign (getObject b k) t 360
+        let rq = _sgRequest sg
+        info ("https://" <> host rq <> path rq <> queryString rq)

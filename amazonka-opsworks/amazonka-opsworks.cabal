@@ -1,5 +1,5 @@
 name:                  amazonka-opsworks
-version:               0.0.7
+version:               0.0.8
 synopsis:              Amazon OpsWorks SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -36,6 +36,7 @@ library
 
     exposed-modules:
           Network.AWS.OpsWorks
+        , Network.AWS.OpsWorks.AssignInstance
         , Network.AWS.OpsWorks.AssignVolume
         , Network.AWS.OpsWorks.AssociateElasticIp
         , Network.AWS.OpsWorks.AttachElasticLoadBalancer
@@ -52,6 +53,7 @@ library
         , Network.AWS.OpsWorks.DeleteStack
         , Network.AWS.OpsWorks.DeleteUserProfile
         , Network.AWS.OpsWorks.DeregisterElasticIp
+        , Network.AWS.OpsWorks.DeregisterInstance
         , Network.AWS.OpsWorks.DeregisterRdsDbInstance
         , Network.AWS.OpsWorks.DeregisterVolume
         , Network.AWS.OpsWorks.DescribeApps
@@ -67,6 +69,7 @@ library
         , Network.AWS.OpsWorks.DescribeRaidArrays
         , Network.AWS.OpsWorks.DescribeRdsDbInstances
         , Network.AWS.OpsWorks.DescribeServiceErrors
+        , Network.AWS.OpsWorks.DescribeStackProvisioningParameters
         , Network.AWS.OpsWorks.DescribeStackSummary
         , Network.AWS.OpsWorks.DescribeStacks
         , Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
@@ -77,6 +80,7 @@ library
         , Network.AWS.OpsWorks.GetHostnameSuggestion
         , Network.AWS.OpsWorks.RebootInstance
         , Network.AWS.OpsWorks.RegisterElasticIp
+        , Network.AWS.OpsWorks.RegisterInstance
         , Network.AWS.OpsWorks.RegisterRdsDbInstance
         , Network.AWS.OpsWorks.RegisterVolume
         , Network.AWS.OpsWorks.SetLoadBasedAutoScaling
@@ -87,6 +91,7 @@ library
         , Network.AWS.OpsWorks.StopInstance
         , Network.AWS.OpsWorks.StopStack
         , Network.AWS.OpsWorks.Types
+        , Network.AWS.OpsWorks.UnassignInstance
         , Network.AWS.OpsWorks.UnassignVolume
         , Network.AWS.OpsWorks.UpdateApp
         , Network.AWS.OpsWorks.UpdateElasticIp
@@ -101,5 +106,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.7.*
+          amazonka-core == 0.0.8.*
         , base          >= 4.7     && < 5

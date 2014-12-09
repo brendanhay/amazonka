@@ -24,47 +24,57 @@ module Network.AWS.Prelude
     , HashMap
     , HttpException
     , Natural
-    , NonEmpty
+    , NonEmpty     (..)
     , RequestBody
     , Response
     , Text
 
     -- * Classes
-    , AWSError        (..)
-    , AWSPager        (..)
-    , AWSRequest      (..)
-    , AWSService      (..)
+    , AWSPager     (..)
+    , AWSRequest   (..)
+    , AWSService   (..)
     , Generic
-    , IsString        (..)
+    , IsString     (..)
     , Semigroup
     , Whole
 
-    -- * Shared
-    , Empty           (..)
-    , Service         (..)
+    -- * Retries
+    , Retry        (..)
 
     -- * Errors
-    , ServiceError    (..)
+    , AWSError     (..)
+    , AWSErrorCode (..)
+    , ServiceError (..)
+    , RESTError
+    , restError
+    , JSONError
+    , jsonError
+    , statusSuccess
+
+    -- * Shared
+    , Empty        (..)
+    , Service      (..)
 
     -- * HTTP
-    , StdMethod (..)
-    , Status
+    , StdMethod    (..)
+    , Status       (..)
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Types
 
 import Control.Exception         (Exception)
 import Data.ByteString           (ByteString)
 import Data.CaseInsensitive      (CI)
 import Data.HashMap.Strict       (HashMap)
-import Data.List.NonEmpty        (NonEmpty)
+import Data.List.NonEmpty        (NonEmpty(..))
 import Data.Semigroup            (Semigroup)
 import Data.String               (IsString(..))
 import Data.Text                 (Text)
 import GHC.Generics              (Generic)
 import Network.HTTP.Client       (HttpException, RequestBody)
 import Network.HTTP.Types.Method (StdMethod(..))
-import Network.HTTP.Types.Status (Status)
+import Network.HTTP.Types.Status (Status(..))
 import Numeric.Natural           (Natural, Whole)
 
 import Control.Applicative       as Export

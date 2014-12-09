@@ -3,6 +3,7 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
@@ -16,33 +17,34 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.AST (transform) where
+module Gen.AST (transformAST) where
 
 import           Control.Applicative        ((<$>), (<*>), (<|>), pure)
 import           Control.Arrow              ((&&&))
 import           Control.Error
-import           Control.Lens               hiding (op, ignored, filtered, indexed, transform)
+import           Control.Lens               hiding (Indexed, op, ignored, filtered, indexed)
 import           Control.Monad
 import           Control.Monad.State.Strict
 import qualified Data.CaseInsensitive       as CI
 import           Data.Char
+import           Data.Foldable              (foldMap)
 import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
 import           Data.HashSet               (HashSet)
 import qualified Data.HashSet               as Set
-import           Data.List                  (find, sort, group)
+import           Data.List                  (find, sort, group, nub)
 import           Data.Monoid                hiding (Product)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
 import qualified Gen.Input                  as Input
-import           Gen.Input                  hiding (Operation)
+import           Gen.Input                  hiding (Operation(..))
 import           Gen.Names
 import           Gen.Output
 import           Gen.Types
 
-transform :: Model -> Input -> Output
-transform m inp = Output cabal service ops types
+transformAST :: Retries -> Model -> Input -> Output
+transformAST Retries{..} m inp = Output cabal service ops types waiters
   where
     cabal = Cabal
         { _cName         = name
@@ -52,10 +54,8 @@ transform m inp = Output cabal service ops types
         , _cVersion      = overrides ^. oVersion
         , _cDescription  = description (inp ^. inpDocumentation)
         , _cProtocol     = protocol
-        , _cExposed      = sort $
-            service ^. svNamespace : typesNamespace : operationNamespaces
-        , _cOther        = sort $
-            (overrides ^. oOperationsModules) ++ (overrides ^. oTypesModules)
+        , _cExposed      = external
+        , _cOther        = internal
         }
 
     service = Service
@@ -63,7 +63,7 @@ transform m inp = Output cabal service ops types
         , _svUrl            = url
         , _svAbbrev         = abbrev
         , _svNamespace      = namespace [unAbbrev abbrev]
-        , _svImports        = sort (typesNamespace : operationNamespaces)
+        , _svImports        = imports
         , _svVersion        = version
         , _svDocumentation  = above (inp ^. inpDocumentation)
         , _svProtocol       = protocol
@@ -74,6 +74,8 @@ transform m inp = Output cabal service ops types
         , _svTargetPrefix   = inp ^. mTargetPrefix
         , _svJsonVersion    = inp ^. mJsonVersion
         , _svError          = errorType protocol abbrev
+        , _svRetryDelay     = delay
+        , _svRetryPolicies  = policies
         }
 
     types = Types
@@ -83,8 +85,44 @@ transform m inp = Output cabal service ops types
         , _tShared    = share
         }
 
-    typesNamespace = typesNS abbrev
+    waiters = Waiters
+        { _wNamespace = waitersNamespace
+        , _wImports   = imps
+        , _wWaiters   = ws
+        }
+      where
+        ws = prefixWaiters (ts <> os)
+           . Map.filterWithKey f
+           $ inp ^. inpWaiters
 
+        os = foldMap operationDataTypes ops
+
+        f k _ = not $ Set.member (CI.mk k) (overrides ^. oIgnoreWaiters)
+
+        imps = sort
+            . nub
+            $ typesNamespace
+            : map (operationNS abbrev . _wOperation) (Map.elems ws)
+
+    anyWaiters = not . Map.null $ _wWaiters waiters
+
+    imports = sort $
+          typesNamespace
+        : operationNamespaces
+       ++ [waitersNamespace | anyWaiters]
+
+    external = sort $
+          service ^. svNamespace
+        : typesNamespace
+        : operationNamespaces
+       ++ [waitersNamespace | anyWaiters]
+
+    internal = sort $
+          (overrides ^. oOperationsModules)
+       ++ (overrides ^. oTypesModules)
+
+    typesNamespace      = typesNS abbrev
+    waitersNamespace    = waitersNS abbrev
     operationNamespaces = sort (map (view opNamespace) ops)
 
     name = "Amazon " <> stripAWS (inp ^. mServiceFullName)
@@ -112,6 +150,25 @@ transform m inp = Output cabal service ops types
             <> version
             <> "/"
         | otherwise                             = Nothing
+
+    delay = Exp
+        { _eAttempts = retry ^. rMaxAttempts
+        , _eBase     = retry ^. rDelay . dBase
+        , _eGrowth   = retry ^. rDelay . dGrowthFactor
+        }
+
+    policies = Map.fromList . mapMaybe go . Map.toList $ retry ^. rPolicies
+      where
+        go :: (a, Policy) -> Maybe (a, RetryPolicy)
+        go (k, p)
+            | ApplyWhen (WhenStatus e c) <- p          = Just (k, Status e c)
+            | ApplyRef r <- p
+            , Just x     <- Map.lookup r _rDefinitions = go (k, x)
+            | otherwise                                = Nothing
+
+    retry = fromMaybe _rDefault $
+            Map.lookup endpointPrefix _rRetries
+        <|> Map.lookup (Text.pack (m ^. mName)) _rRetries
 
 dataTypes :: Overrides
           -> Abbrev
@@ -209,7 +266,7 @@ operation a proto base ns ss pgs n o = do
 
     request = go (\x k s d -> Request proto (prefixURI x d) k s d) True
 
-    prefixURI k d = o ^. oHttp.hRequestUri & uriSegments %~ f
+    prefixURI k d = o ^. oHttp . hRequestUri & uriSegments %~ f
       where
         f (Seg x)                     = Seg x
         f (Var x)
@@ -292,8 +349,8 @@ pager inp out (Just pg) = get >>= go
 
         applied x n
             | Just d <- Map.lookup x ts
-            , Just f <- field n d = _fName f
-            | otherwise           = error $
+            , Just f <- findField n d = _fName f
+            | otherwise               = error $
                 "Unable to apply field "
                     ++ show n
                     ++ " in datatype "
@@ -303,7 +360,7 @@ pager inp out (Just pg) = get >>= go
 
         indexed x n
             | Just d         <- Map.lookup x ts
-            , Just f         <- field n d
+            , Just f         <- findField n d
             , Just (TType l) <- listElement (f ^. typeOf) = l
             | otherwise           = error $
                 "Unable to index field "
@@ -312,11 +369,6 @@ pager inp out (Just pg) = get >>= go
                     ++ show x
                     ++ "\n"
                     ++ show (Map.keys ts)
-
-        field :: Text -> Data -> Maybe Field
-        field (CI.mk -> k) = find f . toListOf dataFields
-          where
-            f = (k ==) . CI.mk . Text.dropWhile (not . isUpper) . _fName
 
 -- | Find any datatypes that are shared as operation inputs/outputs.
 shared :: Input -> State (HashMap Text Data) (HashSet Text)
@@ -411,11 +463,11 @@ overriden = flip (Map.foldlWithKey' run)
           renameTo   k (o ^. oRenameTo)
         . replacedBy k (o ^. oReplacedBy)
         . sumPrefix  k (o ^. oSumPrefix)
-        . Map.adjust (dataFields %~ field) k
+        . Map.adjust (dataFields %~ fld) k
         $ r
       where
-        field = required (o ^. oRequired)
-              . renamed  (o ^. oRenamed)
+        fld = required (o ^. oRequired)
+            . renamed  (o ^. oRenamed)
 
     -- Types:
 
@@ -604,7 +656,6 @@ shapes proto time m =
     insert :: Text -> Type -> State (HashMap Text Type) Type
     insert k t = modify (Map.insert k t) >> return t
 
-
 errorType :: Protocol -> Abbrev -> Text
 errorType p a =
     case (p, a) of
@@ -612,3 +663,73 @@ errorType p a =
         (Json,     _)            -> "JSONError"
         (RestJson, _)            -> "JSONError"
         _                        -> "RESTError"
+
+prefixWaiters :: HashMap Text Data
+              -> HashMap Text Waiter
+              -> HashMap Text Waiter
+prefixWaiters ds = Map.map go
+  where
+    go w@Waiter{..} = w & wAcceptors %~ map acceptor
+      where
+        acceptor a =
+            case _aArgument a of
+                Nothing -> a
+                Just x  ->
+                    let (y, e) = runState (prefix initial x) (_aExpected a)
+                     in a & aArgument ?~ y
+                          & aExpected .~ e
+
+        initial = type' (_wOperation <> "Response")
+
+        prefix :: Data -> Notation -> State Expected Notation
+        prefix d = \case
+            Indexed k i -> do
+                let f = field k d
+                Indexed (lensName (_fName f)) <$>
+                    prefix (type' (firstName f)) i
+
+            Nested "*" i ->
+                Nested "traverse" <$> prefix d i
+
+            Nested  k i -> do
+                let f = field k d
+                Nested (lensName (_fName f)) <$>
+                    prefix (type' (firstName f)) i
+
+            Access  k   -> do
+                let f = field k d
+                    m = isRequired (f ^. typeOf)
+                    r = listToMaybe . mapMaybe name $ universeOn typeOf f
+                case type' <$> r of
+                    Just (Nullary _ fs) -> do
+                        e <- get
+                        case e of
+                            ExpectText x ->
+                                case find ((x ==) . snd) (Map.toList fs) of
+                                    Just y -> put (ExpectCtor (fst y))
+                                    _      -> return ()
+                            _                  -> return ()
+                    _            -> return ()
+                return $!
+                    if not m
+                        then Nested (lensName (_fName f)) (Access "_Just")
+                        else Access (lensName (_fName f))
+
+    field k d =
+        fromMaybe (error $ "Unable to find field: " ++ show (k, toListOf (dataFields . nameOf) d, Map.keys ds))
+                  (findField k d)
+
+    type' k =
+        fromMaybe (error $ "Unable to find data type:\n" ++ show (k, Map.keys ds))
+                  (Map.lookup k ds)
+
+    firstName f = head . mapMaybe name $ universeOn typeOf f
+
+    name :: Type -> Maybe Text
+    name (TType k) = Just k
+    name _         = Nothing
+
+findField :: Text -> Data -> Maybe Field
+findField (CI.mk -> k) = find f . toListOf dataFields
+  where
+    f = (k ==) . CI.mk . Text.dropWhile (not . isUpper) . _fName

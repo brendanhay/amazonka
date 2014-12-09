@@ -24,6 +24,8 @@
 
 -- | Describe an instance's RAID arrays.
 --
+-- You must specify at least one of the parameters.
+--
 -- Required Permissions: To use this action, an IAM user must have a Show,
 -- Deploy, or Manage permissions level for the stack, or an attached policy that
 -- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
@@ -38,6 +40,7 @@ module Network.AWS.OpsWorks.DescribeRaidArrays
     -- ** Request lenses
     , draInstanceId
     , draRaidArrayIds
+    , draStackId
 
     -- * Response
     , DescribeRaidArraysResponse
@@ -55,6 +58,7 @@ import qualified GHC.Exts
 data DescribeRaidArrays = DescribeRaidArrays
     { _draInstanceId   :: Maybe Text
     , _draRaidArrayIds :: List "InstanceIds" Text
+    , _draStackId      :: Maybe Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeRaidArrays' constructor.
@@ -65,9 +69,12 @@ data DescribeRaidArrays = DescribeRaidArrays
 --
 -- * 'draRaidArrayIds' @::@ ['Text']
 --
+-- * 'draStackId' @::@ 'Maybe' 'Text'
+--
 describeRaidArrays :: DescribeRaidArrays
 describeRaidArrays = DescribeRaidArrays
     { _draInstanceId   = Nothing
+    , _draStackId      = Nothing
     , _draRaidArrayIds = mempty
     }
 
@@ -81,6 +88,10 @@ draInstanceId = lens _draInstanceId (\s a -> s { _draInstanceId = a })
 -- description of every array.
 draRaidArrayIds :: Lens' DescribeRaidArrays [Text]
 draRaidArrayIds = lens _draRaidArrayIds (\s a -> s { _draRaidArrayIds = a }) . _List
+
+-- | The stack ID.
+draStackId :: Lens' DescribeRaidArrays (Maybe Text)
+draStackId = lens _draStackId (\s a -> s { _draStackId = a })
 
 newtype DescribeRaidArraysResponse = DescribeRaidArraysResponse
     { _drarRaidArrays :: List "RaidArrays" RaidArray
@@ -118,6 +129,7 @@ instance ToHeaders DescribeRaidArrays
 instance ToJSON DescribeRaidArrays where
     toJSON DescribeRaidArrays{..} = object
         [ "InstanceId"   .= _draInstanceId
+        , "StackId"      .= _draStackId
         , "RaidArrayIds" .= _draRaidArrayIds
         ]
 

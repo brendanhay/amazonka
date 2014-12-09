@@ -1,4 +1,26 @@
 {
+    "waiters": {
+        "waiters": {
+            "StreamExists": {
+                "operation": "DescribeStream",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "dsrStreamDescription . sdStreamStatus",
+                        "expected": "Active"
+                    }
+                ],
+                "maxAttempts": 18,
+                "delay": 10
+            }
+        },
+        "namespace": "Network.AWS.Kinesis.Waiters",
+        "imports": [
+            "Network.AWS.Kinesis.DescribeStream",
+            "Network.AWS.Kinesis.Types"
+        ]
+    },
     "service": {
         "signature": "V4",
         "checksum": "sha256",
@@ -18,16 +40,37 @@
             "Network.AWS.Kinesis.ListTagsForStream",
             "Network.AWS.Kinesis.MergeShards",
             "Network.AWS.Kinesis.PutRecord",
+            "Network.AWS.Kinesis.PutRecords",
             "Network.AWS.Kinesis.RemoveTagsFromStream",
             "Network.AWS.Kinesis.SplitShard",
-            "Network.AWS.Kinesis.Types"
+            "Network.AWS.Kinesis.Types",
+            "Network.AWS.Kinesis.Waiters"
         ],
         "name": "Amazon Kinesis",
         "version": "2013-12-02",
         "documentation": "-- | Amazon Kinesis is a managed service that scales elastically for real-time\n-- processing of streaming big data. The service takes in large streams of data\n-- records that can then be consumed in real time by multiple data-processing\n-- applications that can be run on Amazon EC2 instances.",
         "xmlNamespace": null,
         "jsonVersion": "1.1",
+        "retryDelay": {
+            "base": 5.0e-2,
+            "attempts": 5,
+            "growth": 2
+        },
         "endpointPrefix": "kinesis",
+        "retryPolicies": {
+            "service_unavailable": {
+                "error": null,
+                "code": 503
+            },
+            "general_server_error": {
+                "error": null,
+                "code": 500
+            },
+            "limit_exceeded": {
+                "error": null,
+                "code": 509
+            }
+        },
         "targetPrefix": "Kinesis_20131202"
     },
     "cabal": {
@@ -46,14 +89,16 @@
             "Network.AWS.Kinesis.ListTagsForStream",
             "Network.AWS.Kinesis.MergeShards",
             "Network.AWS.Kinesis.PutRecord",
+            "Network.AWS.Kinesis.PutRecords",
             "Network.AWS.Kinesis.RemoveTagsFromStream",
             "Network.AWS.Kinesis.SplitShard",
-            "Network.AWS.Kinesis.Types"
+            "Network.AWS.Kinesis.Types",
+            "Network.AWS.Kinesis.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Kinesis",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "description": "Amazon Kinesis is a managed service that scales elastically for real-time\nprocessing of streaming big data. The service takes in large streams of data\nrecords that can then be consumed in real time by multiple data-processing\napplications that can be run on Amazon EC2 instances."
     },
     "types": {
@@ -703,6 +748,384 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Show"
+                ],
+                "fieldPad": 19,
+                "ctor": "putRecordsResultEntry",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreSequenceNumber",
+                        "name": "_prreSequenceNumber",
+                        "shape": "SequenceNumber",
+                        "locationName": "SequenceNumber",
+                        "documentation": "-- | The sequence number for an individual record result.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreShardId",
+                        "name": "_prreShardId",
+                        "shape": "ShardId",
+                        "locationName": "ShardId",
+                        "documentation": "-- | The shard ID for an individual record result.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreErrorCode",
+                        "name": "_prreErrorCode",
+                        "shape": "ErrorCode",
+                        "locationName": "ErrorCode",
+                        "documentation": "-- | The error code for an individual record result. 'ErrorCodes' can be either 'ProvisionedThroughputExceededException' or 'InternalFailure'.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreErrorMessage",
+                        "name": "_prreErrorMessage",
+                        "shape": "ErrorMessage",
+                        "locationName": "ErrorMessage",
+                        "documentation": "-- | The error message for an individual record result. An 'ErrorCode' value of 'ProvisionedThroughputExceededException' has an error message that includes the account ID, stream name, and shard\n-- ID. An 'ErrorCode' value of 'InternalFailure' has the error message '\"InternalService Failure\"'.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "contentPad": 15,
+                "name": "PutRecordsResultEntry",
+                "locationPad": 15,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreSequenceNumber",
+                        "name": "_prreSequenceNumber",
+                        "shape": "SequenceNumber",
+                        "locationName": "SequenceNumber",
+                        "documentation": "-- | The sequence number for an individual record result.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreShardId",
+                        "name": "_prreShardId",
+                        "shape": "ShardId",
+                        "locationName": "ShardId",
+                        "documentation": "-- | The shard ID for an individual record result.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreErrorCode",
+                        "name": "_prreErrorCode",
+                        "shape": "ErrorCode",
+                        "locationName": "ErrorCode",
+                        "documentation": "-- | The error code for an individual record result. 'ErrorCodes' can be either 'ProvisionedThroughputExceededException' or 'InternalFailure'.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreErrorMessage",
+                        "name": "_prreErrorMessage",
+                        "shape": "ErrorMessage",
+                        "locationName": "ErrorMessage",
+                        "documentation": "-- | The error message for an individual record result. An 'ErrorCode' value of 'ProvisionedThroughputExceededException' has an error message that includes the account ID, stream name, and shard\n-- ID. An 'ErrorCode' value of 'InternalFailure' has the error message '\"InternalService Failure\"'.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreErrorCode",
+                        "name": "_prreErrorCode",
+                        "shape": "ErrorCode",
+                        "locationName": "ErrorCode",
+                        "documentation": "-- | The error code for an individual record result. 'ErrorCodes' can be either 'ProvisionedThroughputExceededException' or 'InternalFailure'.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreErrorMessage",
+                        "name": "_prreErrorMessage",
+                        "shape": "ErrorMessage",
+                        "locationName": "ErrorMessage",
+                        "documentation": "-- | The error message for an individual record result. An 'ErrorCode' value of 'ProvisionedThroughputExceededException' has an error message that includes the account ID, stream name, and shard\n-- ID. An 'ErrorCode' value of 'InternalFailure' has the error message '\"InternalService Failure\"'.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreSequenceNumber",
+                        "name": "_prreSequenceNumber",
+                        "shape": "SequenceNumber",
+                        "locationName": "SequenceNumber",
+                        "documentation": "-- | The sequence number for an individual record result.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreShardId",
+                        "name": "_prreShardId",
+                        "shape": "ShardId",
+                        "locationName": "ShardId",
+                        "documentation": "-- | The shard ID for an individual record result.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "fieldPad": 20,
+                "ctor": "putRecordsRequestEntry",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "prreData",
+                        "name": "_prreData",
+                        "shape": "Data",
+                        "locationName": "Data",
+                        "documentation": "-- | The data blob to put into the record, which is base64-encoded when the blob\n-- is serialized. The maximum size of the data blob (the payload before\n-- base64-encoding) is 50 kilobytes (KB)",
+                        "typeExposed": "Base64",
+                        "type": "Base64"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreExplicitHashKey",
+                        "name": "_prreExplicitHashKey",
+                        "shape": "HashKey",
+                        "locationName": "ExplicitHashKey",
+                        "documentation": "-- | The hash value used to determine explicitly the shard that the data record is\n-- assigned to by overriding the partition key hash.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "prrePartitionKey",
+                        "name": "_prrePartitionKey",
+                        "shape": "PartitionKey",
+                        "locationName": "PartitionKey",
+                        "documentation": "-- | Determines which shard in the stream the data record is assigned to.\n-- Partition keys are Unicode strings with a maximum length limit of 256 bytes.\n-- Amazon Kinesis uses the partition key as input to a hash function that maps\n-- the partition key and associated data to a specific shard. Specifically, an\n-- MD5 hash function is used to map partition keys to 128-bit integer values and\n-- to map associated data records to shards. As a result of this hashing\n-- mechanism, all data records with the same partition key map to the same shard\n-- within the stream.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "prreData",
+                        "name": "_prreData",
+                        "shape": "Data",
+                        "locationName": "Data",
+                        "documentation": "-- | The data blob to put into the record, which is base64-encoded when the blob\n-- is serialized. The maximum size of the data blob (the payload before\n-- base64-encoding) is 50 kilobytes (KB)",
+                        "typeExposed": "Base64",
+                        "type": "Base64"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "prrePartitionKey",
+                        "name": "_prrePartitionKey",
+                        "shape": "PartitionKey",
+                        "locationName": "PartitionKey",
+                        "documentation": "-- | Determines which shard in the stream the data record is assigned to.\n-- Partition keys are Unicode strings with a maximum length limit of 256 bytes.\n-- Amazon Kinesis uses the partition key as input to a hash function that maps\n-- the partition key and associated data to a specific shard. Specifically, an\n-- MD5 hash function is used to map partition keys to 128-bit integer values and\n-- to map associated data records to shards. As a result of this hashing\n-- mechanism, all data records with the same partition key map to the same shard\n-- within the stream.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "contentPad": 16,
+                "name": "PutRecordsRequestEntry",
+                "locationPad": 16,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreExplicitHashKey",
+                        "name": "_prreExplicitHashKey",
+                        "shape": "HashKey",
+                        "locationName": "ExplicitHashKey",
+                        "documentation": "-- | The hash value used to determine explicitly the shard that the data record is\n-- assigned to by overriding the partition key hash.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "prreData",
+                        "name": "_prreData",
+                        "shape": "Data",
+                        "locationName": "Data",
+                        "documentation": "-- | The data blob to put into the record, which is base64-encoded when the blob\n-- is serialized. The maximum size of the data blob (the payload before\n-- base64-encoding) is 50 kilobytes (KB)",
+                        "typeExposed": "Base64",
+                        "type": "Base64"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prreExplicitHashKey",
+                        "name": "_prreExplicitHashKey",
+                        "shape": "HashKey",
+                        "locationName": "ExplicitHashKey",
+                        "documentation": "-- | The hash value used to determine explicitly the shard that the data record is\n-- assigned to by overriding the partition key hash.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "prrePartitionKey",
+                        "name": "_prrePartitionKey",
+                        "shape": "PartitionKey",
+                        "locationName": "PartitionKey",
+                        "documentation": "-- | Determines which shard in the stream the data record is assigned to.\n-- Partition keys are Unicode strings with a maximum length limit of 256 bytes.\n-- Amazon Kinesis uses the partition key as input to a hash function that maps\n-- the partition key and associated data to a specific shard. Specifically, an\n-- MD5 hash function is used to map partition keys to 128-bit integer values and\n-- to map associated data records to shards. As a result of this hashing\n-- mechanism, all data records with the same partition key map to the same shard\n-- within the stream.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
                     "Show",
                     "Generic",
                     "Enum"
@@ -871,7 +1294,7 @@
                         "name": "_rData",
                         "shape": "Data",
                         "locationName": "Data",
-                        "documentation": "-- | The data blob. The data in the blob is both opaque and immutable to the\n-- Amazon Kinesis service, which does not inspect, interpret, or change the data\n-- in the blob in any way. The maximum size of the data blob (the payload before\n-- Base64-encoding) is 50 kilobytes (KB)",
+                        "documentation": "-- | The data blob. The data in the blob is both opaque and immutable to the\n-- Amazon Kinesis service, which does not inspect, interpret, or change the data\n-- in the blob in any way. The maximum size of the data blob (the payload before\n-- base64-encoding) is 50 kilobytes (KB)",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     },
@@ -922,7 +1345,7 @@
                         "name": "_rData",
                         "shape": "Data",
                         "locationName": "Data",
-                        "documentation": "-- | The data blob. The data in the blob is both opaque and immutable to the\n-- Amazon Kinesis service, which does not inspect, interpret, or change the data\n-- in the blob in any way. The maximum size of the data blob (the payload before\n-- Base64-encoding) is 50 kilobytes (KB)",
+                        "documentation": "-- | The data blob. The data in the blob is both opaque and immutable to the\n-- Amazon Kinesis service, which does not inspect, interpret, or change the data\n-- in the blob in any way. The maximum size of the data blob (the payload before\n-- base64-encoding) is 50 kilobytes (KB)",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     },
@@ -961,7 +1384,7 @@
                         "name": "_rData",
                         "shape": "Data",
                         "locationName": "Data",
-                        "documentation": "-- | The data blob. The data in the blob is both opaque and immutable to the\n-- Amazon Kinesis service, which does not inspect, interpret, or change the data\n-- in the blob in any way. The maximum size of the data blob (the payload before\n-- Base64-encoding) is 50 kilobytes (KB)",
+                        "documentation": "-- | The data blob. The data in the blob is both opaque and immutable to the\n-- Amazon Kinesis service, which does not inspect, interpret, or change the data\n-- in the blob in any way. The maximum size of the data blob (the payload before\n-- base64-encoding) is 50 kilobytes (KB)",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     },
@@ -1349,7 +1772,7 @@
             "pager": null,
             "name": "CreateStream",
             "method": "post",
-            "documentation": "-- | Creates a Amazon Kinesis stream. A stream captures and transports data\n-- records that are continuously emitted from different data sources or /producers/\n-- . Scale-out within an Amazon Kinesis stream is explicitly supported by means\n-- of shards, which are uniquely identified groups of data records in an Amazon\n-- Kinesis stream.\n--\n-- You specify and control the number of shards that a stream is composed of.\n-- Each open shard can support up to 5 read transactions per second, up to a\n-- maximum total of 2 MB of data read per second. Each shard can support up to\n-- 1000 write transactions per second, up to a maximum total of 1 MB data\n-- written per second. You can add shards to a stream if the amount of data\n-- input increases and you can remove shards if the amount of data input\n-- decreases.\n--\n-- The stream name identifies the stream. The name is scoped to the AWS account\n-- used by the application. It is also scoped by region. That is, two streams in\n-- two different accounts can have the same name, and two streams in the same\n-- account, but in two different regions, can have the same name.\n--\n-- 'CreateStream' is an asynchronous operation. Upon receiving a 'CreateStream'\n-- request, Amazon Kinesis immediately returns and sets the stream status to 'CREATING'. After the stream is created, Amazon Kinesis sets the stream status to 'ACTIVE'\n-- . You should perform read and write operations only on an 'ACTIVE' stream.\n--\n-- You receive a 'LimitExceededException' when making a 'CreateStream' request if\n-- you try to do one of the following:\n--\n-- Have more than five streams in the 'CREATING' state at any point in time. Create more shards than are authorized for your account.\n-- The default limit for an AWS account is 10 shards per stream. If you need\n-- to create a stream with more than 10 shards, \u003chttp://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support\u003e to increase\n-- the limit on your account.\n--\n-- You can use 'DescribeStream' to check the stream status, which is returned in 'StreamStatus'.\n--\n-- 'CreateStream' has a limit of 5 transactions per second per account.",
+            "documentation": "-- | Creates a Amazon Kinesis stream. A stream captures and transports data\n-- records that are continuously emitted from different data sources or /producers/\n-- . Scale-out within an Amazon Kinesis stream is explicitly supported by means\n-- of shards, which are uniquely identified groups of data records in an Amazon\n-- Kinesis stream.\n--\n-- You specify and control the number of shards that a stream is composed of.\n-- Each open shard can support up to 5 read transactions per second, up to a\n-- maximum total of 2 MB of data read per second. Each shard can support up to\n-- 1000 records written per second, up to a maximum total of 1 MB data written\n-- per second. You can add shards to a stream if the amount of data input\n-- increases and you can remove shards if the amount of data input decreases.\n--\n-- The stream name identifies the stream. The name is scoped to the AWS account\n-- used by the application. It is also scoped by region. That is, two streams in\n-- two different accounts can have the same name, and two streams in the same\n-- account, but in two different regions, can have the same name.\n--\n-- 'CreateStream' is an asynchronous operation. Upon receiving a 'CreateStream'\n-- request, Amazon Kinesis immediately returns and sets the stream status to 'CREATING'. After the stream is created, Amazon Kinesis sets the stream status to 'ACTIVE'\n-- . You should perform read and write operations only on an 'ACTIVE' stream.\n--\n-- You receive a 'LimitExceededException' when making a 'CreateStream' request if\n-- you try to do one of the following:\n--\n-- Have more than five streams in the 'CREATING' state at any point in time. Create more shards than are authorized for your account.\n-- The default limit for an AWS account is 10 shards per stream. If you need\n-- to create a stream with more than 10 shards, \u003chttp://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support\u003e to increase\n-- the limit on your account.\n--\n-- You can use 'DescribeStream' to check the stream status, which is returned in 'StreamStatus'.\n--\n-- 'CreateStream' has a limit of 5 transactions per second per account.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1521,7 +1944,7 @@
             "pager": null,
             "name": "DeleteStream",
             "method": "post",
-            "documentation": "-- | Deletes a stream and all its shards and data. You must shut down any\n-- applications that are operating on the stream before you delete the stream.\n-- If an application attempts to operate on a deleted stream, it will receive\n-- the exception 'ResourceNotFoundException'.\n--\n-- If the stream is in the 'ACTIVE' state, you can delete it. After a 'DeleteStream'\n-- request, the specified stream is in the 'DELETING' state until Amazon Kinesis\n-- completes the deletion.\n--\n-- Note: Amazon Kinesis might continue to accept data read and write\n-- operations, such as 'PutRecord' and 'GetRecords', on a stream in the 'DELETING'\n-- state until the stream deletion is complete.\n--\n-- When you delete a stream, any shards in that stream are also deleted, and\n-- any tags are dissociated from the stream.\n--\n-- You can use the 'DescribeStream' operation to check the state of the stream,\n-- which is returned in 'StreamStatus'.\n--\n-- 'DeleteStream' has a limit of 5 transactions per second per account.",
+            "documentation": "-- | Deletes a stream and all its shards and data. You must shut down any\n-- applications that are operating on the stream before you delete the stream.\n-- If an application attempts to operate on a deleted stream, it will receive\n-- the exception 'ResourceNotFoundException'.\n--\n-- If the stream is in the 'ACTIVE' state, you can delete it. After a 'DeleteStream'\n-- request, the specified stream is in the 'DELETING' state until Amazon Kinesis\n-- completes the deletion.\n--\n-- Note: Amazon Kinesis might continue to accept data read and write\n-- operations, such as 'PutRecord', 'PutRecords', and 'GetRecords', on a stream in the 'DELETING' state until the stream deletion is complete.\n--\n-- When you delete a stream, any shards in that stream are also deleted, and\n-- any tags are dissociated from the stream.\n--\n-- You can use the 'DescribeStream' operation to check the state of the stream,\n-- which is returned in 'StreamStatus'.\n--\n-- 'DeleteStream' has a limit of 5 transactions per second per account.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2065,7 +2488,7 @@
             "pager": null,
             "name": "GetRecords",
             "method": "post",
-            "documentation": "-- | Gets data records from a shard.\n--\n-- Specify a shard iterator using the 'ShardIterator' parameter. The shard\n-- iterator specifies the position in the shard from which you want to start\n-- reading data records sequentially. If there are no records available in the\n-- portion of the shard that the iterator points to, 'GetRecords' returns an empty\n-- list. Note that it might take multiple calls to get to a portion of the shard\n-- that contains records.\n--\n-- You can scale by provisioning multiple shards. Your application should have\n-- one thread per shard, each reading continuously from its stream. To read from\n-- a stream continually, call 'GetRecords' in a loop. Use 'GetShardIterator' to get\n-- the shard iterator to specify in the first 'GetRecords' call. 'GetRecords'\n-- returns a new shard iterator in 'NextShardIterator'. Specify the shard iterator\n-- returned in 'NextShardIterator' in subsequent calls to 'GetRecords'. Note that if\n-- the shard has been closed, the shard iterator can't return more data and 'GetRecords' returns 'null' in 'NextShardIterator'. You can terminate the loop when the shard\n-- is closed, or when the shard iterator reaches the record with the sequence\n-- number or other attribute that marks it as the last record to process.\n--\n-- Each data record can be up to 50 KB in size, and each shard can read up to 2\n-- MB per second. You can ensure that your calls don't exceed the maximum\n-- supported size or throughput by specifying the maximum number of records that 'GetRecords' can return in the 'Limit' parameter. Consider your average record\n-- size when determining this limit. For example, if your average record size is\n-- 40 KB, you can limit the data returned to about 1 MB per call by specifying\n-- 25 as the limit.\n--\n-- The size of the data returned by 'GetRecords' will vary depending on the\n-- utilization of the shard. The maximum size of data that 'GetRecords' can return\n-- is 10 MB. If a call returns 10 MB of data, subsequent calls made within the\n-- next 5 seconds throw 'ProvisionedThroughputExceededException'. If there is\n-- insufficient provisioned throughput on the shard, subsequent calls made\n-- within the next 1 second throw 'ProvisionedThroughputExceededException'. Note\n-- that 'GetRecords' won't return any data when it throws an exception. For this\n-- reason, we recommend that you wait one second between calls to 'GetRecords';\n-- however, it's possible that the application will get exceptions for longer\n-- than 1 second.\n--\n-- To detect whether the application is falling behind in processing, add a\n-- timestamp to your records and note how long it takes to process them. You can\n-- also monitor how much data is in a stream using the CloudWatch metrics for 'PutRecord'. For more information, see \u003chttp://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html Monitoring Amazon Kinesis with Amazon CloudWatch\u003e\n-- in the /Amazon Kinesis Developer Guide/.",
+            "documentation": "-- | Gets data records from a shard.\n--\n-- Specify a shard iterator using the 'ShardIterator' parameter. The shard\n-- iterator specifies the position in the shard from which you want to start\n-- reading data records sequentially. If there are no records available in the\n-- portion of the shard that the iterator points to, 'GetRecords' returns an empty\n-- list. Note that it might take multiple calls to get to a portion of the shard\n-- that contains records.\n--\n-- You can scale by provisioning multiple shards. Your application should have\n-- one thread per shard, each reading continuously from its stream. To read from\n-- a stream continually, call 'GetRecords' in a loop. Use 'GetShardIterator' to get\n-- the shard iterator to specify in the first 'GetRecords' call. 'GetRecords'\n-- returns a new shard iterator in 'NextShardIterator'. Specify the shard iterator\n-- returned in 'NextShardIterator' in subsequent calls to 'GetRecords'. Note that if\n-- the shard has been closed, the shard iterator can't return more data and 'GetRecords' returns 'null' in 'NextShardIterator'. You can terminate the loop when the shard\n-- is closed, or when the shard iterator reaches the record with the sequence\n-- number or other attribute that marks it as the last record to process.\n--\n-- Each data record can be up to 50 KB in size, and each shard can read up to 2\n-- MB per second. You can ensure that your calls don't exceed the maximum\n-- supported size or throughput by using the 'Limit' parameter to specify the\n-- maximum number of records that 'GetRecords' can return. Consider your average\n-- record size when determining this limit. For example, if your average record\n-- size is 40 KB, you can limit the data returned to about 1 MB per call by\n-- specifying 25 as the limit.\n--\n-- The size of the data returned by 'GetRecords' will vary depending on the\n-- utilization of the shard. The maximum size of data that 'GetRecords' can return\n-- is 10 MB. If a call returns 10 MB of data, subsequent calls made within the\n-- next 5 seconds throw 'ProvisionedThroughputExceededException'. If there is\n-- insufficient provisioned throughput on the shard, subsequent calls made\n-- within the next 1 second throw 'ProvisionedThroughputExceededException'. Note\n-- that 'GetRecords' won't return any data when it throws an exception. For this\n-- reason, we recommend that you wait one second between calls to 'GetRecords';\n-- however, it's possible that the application will get exceptions for longer\n-- than 1 second.\n--\n-- To detect whether the application is falling behind in processing, add a\n-- timestamp to your records and note how long it takes to process them. You can\n-- also monitor how much data is in a stream using the CloudWatch metrics for\n-- write operations ('PutRecord' and 'PutRecords'). For more information, see \u003chttp://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html Monitoring Amazon Kinesis with Amazon CloudWatch\u003e in the /Amazon Kinesis Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2310,7 +2733,7 @@
             "pager": null,
             "name": "GetShardIterator",
             "method": "post",
-            "documentation": "-- | Gets a shard iterator. A shard iterator expires five minutes after it is\n-- returned to the requester.\n--\n-- A shard iterator specifies the position in the shard from which to start\n-- reading data records sequentially. A shard iterator specifies this position\n-- using the sequence number of a data record in a shard. A sequence number is\n-- the identifier associated with every record ingested in the Amazon Kinesis\n-- stream. The sequence number is assigned when a record is put into the stream.\n--\n-- You must specify the shard iterator type. For example, you can set the 'ShardIteratorType' parameter to read exactly from the position denoted by a specific sequence\n-- number by using the 'AT_SEQUENCE_NUMBER' shard iterator type, or right after\n-- the sequence number by using the 'AFTER_SEQUENCE_NUMBER' shard iterator type,\n-- using sequence numbers returned by earlier calls to 'PutRecord', 'GetRecords', or 'DescribeStream'. You can specify the shard iterator type 'TRIM_HORIZON' in the\n-- request to cause 'ShardIterator' to point to the last untrimmed record in the\n-- shard in the system, which is the oldest data record in the shard. Or you can\n-- point to just after the most recent record in the shard, by using the shard\n-- iterator type 'LATEST', so that you always read the most recent data in the\n-- shard.\n--\n-- When you repeatedly read from an Amazon Kinesis stream use a 'GetShardIterator'\n-- request to get the first shard iterator to to use in your first 'GetRecords'\n-- request and then use the shard iterator returned by the 'GetRecords' request in 'NextShardIterator' for subsequent reads. A new shard iterator is returned by\n-- every 'GetRecords' request in 'NextShardIterator', which you use in the 'ShardIterator' parameter of the next 'GetRecords' request.\n--\n-- If a 'GetShardIterator' request is made too often, you receive a 'ProvisionedThroughputExceededException'. For more information about throughput limits, see 'GetRecords'.\n--\n-- If the shard is closed, the iterator can't return more data, and 'GetShardIterator' returns 'null' for its 'ShardIterator'. A shard can be closed using 'SplitShard'\n-- or 'MergeShards'.\n--\n-- 'GetShardIterator' has a limit of 5 transactions per second per account per\n-- open shard.",
+            "documentation": "-- | Gets a shard iterator. A shard iterator expires five minutes after it is\n-- returned to the requester.\n--\n-- A shard iterator specifies the position in the shard from which to start\n-- reading data records sequentially. A shard iterator specifies this position\n-- using the sequence number of a data record in a shard. A sequence number is\n-- the identifier associated with every record ingested in the Amazon Kinesis\n-- stream. The sequence number is assigned when a record is put into the stream.\n--\n-- You must specify the shard iterator type. For example, you can set the 'ShardIteratorType' parameter to read exactly from the position denoted by a specific sequence\n-- number by using the 'AT_SEQUENCE_NUMBER' shard iterator type, or right after\n-- the sequence number by using the 'AFTER_SEQUENCE_NUMBER' shard iterator type,\n-- using sequence numbers returned by earlier calls to 'PutRecord', 'PutRecords', 'GetRecords', or 'DescribeStream'. You can specify the shard iterator type 'TRIM_HORIZON' in\n-- the request to cause 'ShardIterator' to point to the last untrimmed record in\n-- the shard in the system, which is the oldest data record in the shard. Or you\n-- can point to just after the most recent record in the shard, by using the\n-- shard iterator type 'LATEST', so that you always read the most recent data in\n-- the shard.\n--\n-- When you repeatedly read from an Amazon Kinesis stream use a 'GetShardIterator'\n-- request to get the first shard iterator to to use in your first 'GetRecords'\n-- request and then use the shard iterator returned by the 'GetRecords' request in 'NextShardIterator' for subsequent reads. A new shard iterator is returned by\n-- every 'GetRecords' request in 'NextShardIterator', which you use in the 'ShardIterator' parameter of the next 'GetRecords' request.\n--\n-- If a 'GetShardIterator' request is made too often, you receive a 'ProvisionedThroughputExceededException'. For more information about throughput limits, see 'GetRecords'.\n--\n-- If the shard is closed, the iterator can't return more data, and 'GetShardIterator' returns 'null' for its 'ShardIterator'. A shard can be closed using 'SplitShard'\n-- or 'MergeShards'.\n--\n-- 'GetShardIterator' has a limit of 5 transactions per second per account per\n-- open shard.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3507,7 +3930,7 @@
             "pager": null,
             "name": "PutRecord",
             "method": "post",
-            "documentation": "-- | Puts a data record from a producer into an Amazon Kinesis stream. You must\n-- call 'PutRecord' to send data from the producer into the Amazon Kinesis stream\n-- for real-time ingestion and subsequent processing. You must specify the name\n-- of the stream that captures, stores, and transports the data; a partition\n-- key; and the data blob itself. The data blob could be a segment from a log\n-- file, geographic/location data, website clickstream data, or any other data\n-- type.\n--\n-- The partition key is used to distribute data across shards. Amazon Kinesis\n-- segregates the data records that belong to a data stream into multiple\n-- shards, using the partition key associated with each data record to determine\n-- which shard a given data record belongs to.\n--\n-- Partition keys are Unicode strings, with a maximum length limit of 256\n-- bytes. An MD5 hash function is used to map partition keys to 128-bit integer\n-- values and to map associated data records to shards using the hash key ranges\n-- of the shards. You can override hashing the partition key to determine the\n-- shard by explicitly specifying a hash value using the 'ExplicitHashKey'\n-- parameter. For more information, see \u003chttp://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-partition-key Partition Key\u003e in the /Amazon KinesisDeveloper Guide/.\n--\n-- 'PutRecord' returns the shard ID of where the data record was placed and the\n-- sequence number that was assigned to the data record.\n--\n-- Sequence numbers generally increase over time. To guarantee strictly\n-- increasing ordering, use the 'SequenceNumberForOrdering' parameter. For more\n-- information, see \u003chttp://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-sequence-number Sequence Number\u003e in the /Amazon Kinesis Developer Guide/.\n--\n-- If a 'PutRecord' request cannot be processed because of insufficient\n-- provisioned throughput on the shard involved in the request, 'PutRecord' throws 'ProvisionedThroughputExceededException'.\n--\n-- Data records are accessible for only 24 hours from the time that they are\n-- added to an Amazon Kinesis stream.",
+            "documentation": "-- | Puts (writes) a single data record from a producer into an Amazon Kinesis\n-- stream. Call 'PutRecord' to send data from the producer into the Amazon Kinesis\n-- stream for real-time ingestion and subsequent processing, one record at a\n-- time. Each shard can support up to 1000 records written per second, up to a\n-- maximum total of 1 MB data written per second.\n--\n-- You must specify the name of the stream that captures, stores, and\n-- transports the data; a partition key; and the data blob itself.\n--\n-- The data blob can be any type of data; for example, a segment from a log\n-- file, geographic/location data, website clickstream data, and so on.\n--\n-- The partition key is used by Amazon Kinesis to distribute data across\n-- shards. Amazon Kinesis segregates the data records that belong to a data\n-- stream into multiple shards, using the partition key associated with each\n-- data record to determine which shard a given data record belongs to.\n--\n-- Partition keys are Unicode strings, with a maximum length limit of 256\n-- bytes. An MD5 hash function is used to map partition keys to 128-bit integer\n-- values and to map associated data records to shards using the hash key ranges\n-- of the shards. You can override hashing the partition key to determine the\n-- shard by explicitly specifying a hash value using the 'ExplicitHashKey'\n-- parameter. For more information, see \u003chttp://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-partition-key Partition Key\u003e in the /Amazon KinesisDeveloper Guide/.\n--\n-- 'PutRecord' returns the shard ID of where the data record was placed and the\n-- sequence number that was assigned to the data record.\n--\n-- Sequence numbers generally increase over time. To guarantee strictly\n-- increasing ordering, use the 'SequenceNumberForOrdering' parameter. For more\n-- information, see \u003chttp://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-sequence-number Sequence Number\u003e in the /Amazon Kinesis Developer Guide/.\n--\n-- If a 'PutRecord' request cannot be processed because of insufficient\n-- provisioned throughput on the shard involved in the request, 'PutRecord' throws 'ProvisionedThroughputExceededException'.\n--\n-- Data records are accessible for only 24 hours from the time that they are\n-- added to an Amazon Kinesis stream.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3548,7 +3971,7 @@
                         "name": "_prData",
                         "shape": "Data",
                         "locationName": "Data",
-                        "documentation": "-- | The data blob to put into the record, which is Base64-encoded when the blob\n-- is serialized. The maximum size of the data blob (the payload before\n-- Base64-encoding) is 50 kilobytes (KB)",
+                        "documentation": "-- | The data blob to put into the record, which is base64-encoded when the blob\n-- is serialized. The maximum size of the data blob (the payload before\n-- base64-encoding) is 50 kilobytes (KB)",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     },
@@ -3638,7 +4061,7 @@
                         "name": "_prData",
                         "shape": "Data",
                         "locationName": "Data",
-                        "documentation": "-- | The data blob to put into the record, which is Base64-encoded when the blob\n-- is serialized. The maximum size of the data blob (the payload before\n-- Base64-encoding) is 50 kilobytes (KB)",
+                        "documentation": "-- | The data blob to put into the record, which is base64-encoded when the blob\n-- is serialized. The maximum size of the data blob (the payload before\n-- base64-encoding) is 50 kilobytes (KB)",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     },
@@ -3716,7 +4139,7 @@
                         "name": "_prData",
                         "shape": "Data",
                         "locationName": "Data",
-                        "documentation": "-- | The data blob to put into the record, which is Base64-encoded when the blob\n-- is serialized. The maximum size of the data blob (the payload before\n-- Base64-encoding) is 50 kilobytes (KB)",
+                        "documentation": "-- | The data blob to put into the record, which is base64-encoded when the blob\n-- is serialized. The maximum size of the data blob (the payload before\n-- base64-encoding) is 50 kilobytes (KB)",
                         "typeExposed": "Base64",
                         "type": "Base64"
                     },
@@ -3781,6 +4204,279 @@
                         "shape": "StreamName",
                         "locationName": "StreamName",
                         "documentation": "-- | The name of the stream to put the data record into.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Kinesis",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 21,
+                "ctor": "putRecordsResponse",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prrFailedRecordCount",
+                        "name": "_prrFailedRecordCount",
+                        "shape": "PositiveIntegerObject",
+                        "locationName": "FailedRecordCount",
+                        "documentation": "-- | The number of unsuccessfully processed records in a 'PutRecords' request.",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "prrRecords",
+                        "name": "_prrRecords",
+                        "shape": "PutRecordsResultEntryList",
+                        "locationName": "Records",
+                        "documentation": "-- | An array of successfully and unsuccessfully processed record results,\n-- correlated with the request by natural ordering. A record that is\n-- successfully added to your Amazon Kinesis stream includes 'SequenceNumber' and 'ShardId' in the result. A record that fails to be added to your Amazon Kinesis stream\n-- includes 'ErrorCode' and 'ErrorMessage' in the result.",
+                        "typeExposed": "NonEmpty PutRecordsResultEntry",
+                        "type": "List1 \"Records\" PutRecordsResultEntry"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "prrRecords",
+                        "name": "_prrRecords",
+                        "shape": "PutRecordsResultEntryList",
+                        "locationName": "Records",
+                        "documentation": "-- | An array of successfully and unsuccessfully processed record results,\n-- correlated with the request by natural ordering. A record that is\n-- successfully added to your Amazon Kinesis stream includes 'SequenceNumber' and 'ShardId' in the result. A record that fails to be added to your Amazon Kinesis stream\n-- includes 'ErrorCode' and 'ErrorMessage' in the result.",
+                        "typeExposed": "NonEmpty PutRecordsResultEntry",
+                        "type": "List1 \"Records\" PutRecordsResultEntry"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 18,
+                "name": "PutRecordsResponse",
+                "resultWrapper": null,
+                "locationPad": 18,
+                "type": "record",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prrFailedRecordCount",
+                        "name": "_prrFailedRecordCount",
+                        "shape": "PositiveIntegerObject",
+                        "locationName": "FailedRecordCount",
+                        "documentation": "-- | The number of unsuccessfully processed records in a 'PutRecords' request.",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "prrFailedRecordCount",
+                        "name": "_prrFailedRecordCount",
+                        "shape": "PositiveIntegerObject",
+                        "locationName": "FailedRecordCount",
+                        "documentation": "-- | The number of unsuccessfully processed records in a 'PutRecords' request.",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "prrRecords",
+                        "name": "_prrRecords",
+                        "shape": "PutRecordsResultEntryList",
+                        "locationName": "Records",
+                        "documentation": "-- | An array of successfully and unsuccessfully processed record results,\n-- correlated with the request by natural ordering. A record that is\n-- successfully added to your Amazon Kinesis stream includes 'SequenceNumber' and 'ShardId' in the result. A record that fails to be added to your Amazon Kinesis stream\n-- includes 'ErrorCode' and 'ErrorMessage' in the result.",
+                        "typeExposed": "NonEmpty PutRecordsResultEntry",
+                        "type": "List1 \"Records\" PutRecordsResultEntry"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecords.html",
+            "namespace": "Network.AWS.Kinesis.PutRecords",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.Kinesis.Types"
+            ],
+            "pager": null,
+            "name": "PutRecords",
+            "method": "post",
+            "documentation": "-- | Puts (writes) multiple data records from a producer into an Amazon Kinesis\n-- stream in a single call (also referred to as a 'PutRecords' request). Use this\n-- operation to send data from a data producer into the Amazon Kinesis stream\n-- for real-time ingestion and processing. Each shard can support up to 1000\n-- records written per second, up to a maximum total of 1 MB data written per\n-- second.\n--\n-- You must specify the name of the stream that captures, stores, and\n-- transports the data; and an array of request 'Records', with each record in the\n-- array requiring a partition key and data blob.\n--\n-- The data blob can be any type of data; for example, a segment from a log\n-- file, geographic/location data, website clickstream data, and so on.\n--\n-- The partition key is used by Amazon Kinesis as input to a hash function that\n-- maps the partition key and associated data to a specific shard. An MD5 hash\n-- function is used to map partition keys to 128-bit integer values and to map\n-- associated data records to shards. As a result of this hashing mechanism, all\n-- data records with the same partition key map to the same shard within the\n-- stream. For more information, see \u003chttp://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-partition-key Partition Key\u003e in the /Amazon KinesisDeveloper Guide/.\n--\n-- Each record in the 'Records' array may include an optional parameter, 'ExplicitHashKey', which overrides the partition key to shard mapping. This parameter allows a\n-- data producer to determine explicitly the shard where the record is stored.\n-- For more information, see \u003chttp://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-putrecords Adding Multiple Records with PutRecords\u003e in the /Amazon Kinesis Developer Guide/.\n--\n-- The 'PutRecords' response includes an array of response 'Records'. Each record\n-- in the response array directly correlates with a record in the request array\n-- using natural ordering, from the top to the bottom of the request and\n-- response. The response 'Records' array always includes the same number of\n-- records as the request array.\n--\n-- The response 'Records' array includes both successfully and unsuccessfully\n-- processed records. Amazon Kinesis attempts to process all records in each 'PutRecords' request. A single record failure does not stop the processing of subsequent\n-- records.\n--\n-- A successfully-processed record includes 'ShardId' and 'SequenceNumber' values.\n-- The 'ShardId' parameter identifies the shard in the stream where the record is\n-- stored. The 'SequenceNumber' parameter is an identifier assigned to the put\n-- record, unique to all records in the stream.\n--\n-- An unsuccessfully-processed record includes 'ErrorCode' and 'ErrorMessage'\n-- values. 'ErrorCode' reflects the type of error and can be one of the following\n-- values: 'ProvisionedThroughputExceededException' or 'InternalFailure'. 'ErrorMessage' provides more detailed information about the 'ProvisionedThroughputExceededException' exception including the account ID, stream name, and shard ID of the record\n-- that was throttled.\n--\n-- Data records are accessible for only 24 hours from the time that they are\n-- added to an Amazon Kinesis stream.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 14,
+                "ctor": "putRecords",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pr1Records",
+                        "name": "_pr1Records",
+                        "shape": "PutRecordsRequestEntryList",
+                        "locationName": "Records",
+                        "documentation": "-- | The records associated with the request.",
+                        "typeExposed": "NonEmpty PutRecordsRequestEntry",
+                        "type": "List1 \"Records\" PutRecordsRequestEntry"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pr1StreamName",
+                        "name": "_pr1StreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "-- | The stream name associated with the request.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pr1Records",
+                        "name": "_pr1Records",
+                        "shape": "PutRecordsRequestEntryList",
+                        "locationName": "Records",
+                        "documentation": "-- | The records associated with the request.",
+                        "typeExposed": "NonEmpty PutRecordsRequestEntry",
+                        "type": "List1 \"Records\" PutRecordsRequestEntry"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pr1StreamName",
+                        "name": "_pr1StreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "-- | The stream name associated with the request.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 11,
+                "queryPad": 0,
+                "name": "PutRecords",
+                "query": [],
+                "locationPad": 11,
+                "type": "record",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": "_List1",
+                        "lensMapping": "_List1",
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pr1Records",
+                        "name": "_pr1Records",
+                        "shape": "PutRecordsRequestEntryList",
+                        "locationName": "Records",
+                        "documentation": "-- | The records associated with the request.",
+                        "typeExposed": "NonEmpty PutRecordsRequestEntry",
+                        "type": "List1 \"Records\" PutRecordsRequestEntry"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pr1StreamName",
+                        "name": "_pr1StreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "-- | The stream name associated with the request.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }

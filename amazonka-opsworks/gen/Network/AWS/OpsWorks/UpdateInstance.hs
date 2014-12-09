@@ -116,8 +116,10 @@ updateInstance p1 = UpdateInstance
     }
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be based on
--- one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu 12.04 LTS. For
--- more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances.html Instances>
+-- one of the standard AWS OpsWorks AMIs: Amazon Linux, Ubuntu 12.04 LTS, or
+-- Ubuntu 14.04 LTS. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances.html Instances>
+--
+-- If you specify a custom AMI, you must set 'Os' to 'Custom'.
 uiAmiId :: Lens' UpdateInstance (Maybe Text)
 uiAmiId = lens _uiAmiId (\s a -> s { _uiAmiId = a })
 
@@ -127,12 +129,7 @@ uiAmiId = lens _uiAmiId (\s a -> s { _uiAmiId = a })
 uiArchitecture :: Lens' UpdateInstance (Maybe Architecture)
 uiArchitecture = lens _uiArchitecture (\s a -> s { _uiArchitecture = a })
 
--- | The instance's auto scaling type, which has three possible values:
---
--- AlwaysRunning: A 24/7 instance, which is not affected by auto scaling.  TimeBasedAutoScaling
--- : A time-based auto scaling instance, which is started and stopped based on a
--- specified schedule.  LoadBasedAutoScaling: A load-based auto scaling
--- instance, which is started and stopped based on load metrics.
+-- | For load-based or time-based instances, the type.
 uiAutoScalingType :: Lens' UpdateInstance (Maybe AutoScalingType)
 uiAutoScalingType =
     lens _uiAutoScalingType (\s a -> s { _uiAutoScalingType = a })
@@ -149,6 +146,11 @@ uiHostname = lens _uiHostname (\s a -> s { _uiHostname = a })
 -- boots. The default value is 'true'. To control when updates are installed, set
 -- this value to 'false'. You must then update your instances manually by using 'CreateDeployment' to run the 'update_dependencies' stack command or manually running 'yum' (Amazon
 -- Linux) or 'apt-get' (Ubuntu) on the instances.
+--
+-- We strongly recommend using the default value of 'true', to ensure that your
+-- instances have the latest security updates.
+--
+--
 uiInstallUpdatesOnBoot :: Lens' UpdateInstance (Maybe Bool)
 uiInstallUpdatesOnBoot =
     lens _uiInstallUpdatesOnBoot (\s a -> s { _uiInstallUpdatesOnBoot = a })
@@ -167,13 +169,13 @@ uiInstanceType = lens _uiInstanceType (\s a -> s { _uiInstanceType = a })
 uiLayerIds :: Lens' UpdateInstance [Text]
 uiLayerIds = lens _uiLayerIds (\s a -> s { _uiLayerIds = a }) . _List
 
--- | The instance operating system, which must be set to one of the following.
+-- | The instance's operating system, which must be set to one of the following.
 --
--- Standard operating systems: 'Amazon Linux' or 'Ubuntu 12.04 LTS'  Custom AMIs: 'Custom'   The default option is 'Amazon Linux'. If you set this parameter to 'Custom',
--- you must use the 'CreateInstance' action's AmiId parameter to specify the
--- custom AMI that you want to use. For more information on the standard
--- operating systems, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems>For more information on how to use
--- custom AMIs with OpsWorks, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
+-- Standard operating systems: An Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The
+-- default option is the current Amazon Linux version, such as 'Amazon Linux2014.09'. If you set this parameter to 'Custom', you must use the 'CreateInstance'
+-- action's AmiId parameter to specify the custom AMI that you want to use. For
+-- more information on the standard operating systems, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems>For
+-- more information on how to use custom AMIs with OpsWorks, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using CustomAMIs>.
 uiOs :: Lens' UpdateInstance (Maybe Text)
 uiOs = lens _uiOs (\s a -> s { _uiOs = a })
 

@@ -68,6 +68,7 @@ module Network.AWS.S3
     , module Network.AWS.S3.Types
     , module Network.AWS.S3.UploadPart
     , module Network.AWS.S3.UploadPartCopy
+    , module Network.AWS.S3.Waiters
     ) where
 
 import Network.AWS.S3.AbortMultipartUpload
@@ -120,3 +121,4 @@ import Network.AWS.S3.RestoreObject
 import Network.AWS.S3.Types
 import Network.AWS.S3.UploadPart
 import Network.AWS.S3.UploadPartCopy
+import Network.AWS.S3.Waiters

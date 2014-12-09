@@ -53,12 +53,17 @@ data instance Meta V4 = Meta
 instance ToBuilder (Meta V4) where
     build Meta{..} = mconcat $ intersperse "\n"
         [ "[Version 4 Metadata] {"
-        , build (BS.concatMap nl _mCReq)
-        , build (BS.concatMap nl _mSTS)
+        , "  algorithm         = " <> build _mAlgorithm
+        , "  credential scope  = " <> build _mScope
+        , "  signed headers    = " <> build _mSigned
+        , "  canonical request = {"
+        , build _mCReq
+        , "  }"
+        , "  string to sign    = " <> build _mSTS
+        , "  signature         = " <> build _mSignature
+        , "  time              = " <> build _mTime
+        , "}"
         ]
-      where
-        nl '\n' = "\\n"
-        nl c    = BS.singleton c
 
 instance AWSPresigner V4 where
     presigned a r rq t ex = out & sgRequest

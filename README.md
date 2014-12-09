@@ -156,7 +156,7 @@ when the service signals there are no more results.
 
 ### Retries
 
-Various services support some rudimentary, or potentially more exotic retry logic.
+Various services support some form of rudimentary or exotic retry logic.
 
 Usually it is some form of exponential back _on_, with general server errors,
 rate limit exceeded errors, or service unavailable errors handled in the common cases.

@@ -46,13 +46,12 @@ listAllObjects = do
                 $$ Conduit.mapM_ (info . view oKey)
         info "Completed."
 
-presignGetObject :: UTCTime -> Text -> Text -> IO (Either Error ())
-presignGetObject t b k = do
+presignGetObject :: Text -> Text -> IO (Either Error ())
+presignGetObject b k = do
     l <- newLogger Info stdout
     e <- getEnv Ireland Discover <&> envLogger .~ l
+    t <- getCurrentTime
     runAWST e $ do
-        sg <- presign (getObject b k) t 360
-        info (_sgMeta sg)
+        sg <- _sgRequest <$> presign (getObject b k) t 360
         let rq = _sgRequest sg
         info ("https://" <> host rq <> path rq <> queryString rq)
-        return ()

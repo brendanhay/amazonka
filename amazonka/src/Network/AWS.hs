@@ -159,7 +159,7 @@ presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
         => Env
         -> a       -- ^ Request to presign.
         -> UTCTime -- ^ Signing time.
-        -> UTCTime -- ^ Expiry time.
+        -> Integer -- ^ Expiry time in seconds.
         -> m (Signed a (Sg (Sv a)))
 presign Env{..} (request -> rq) = Sign.presign _envAuth _envRegion rq
 

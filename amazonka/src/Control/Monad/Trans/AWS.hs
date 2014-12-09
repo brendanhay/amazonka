@@ -415,6 +415,8 @@ presign :: ( MonadIO m
            )
         => a       -- ^ Request to presign.
         -> UTCTime -- ^ Signing time.
-        -> UTCTime -- ^ Expiry time.
+        -> Integer -- ^ Expiry time in seconds.
         -> m (Signed a (Sg (Sv a)))
-presign x t1 t2 = scoped (\e -> AWS.presign e x t1 t2)
+presign x t ex = scoped (\e -> AWS.presign e x t ex)
+
+-- add a presinURL option?

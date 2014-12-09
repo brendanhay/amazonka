@@ -185,6 +185,8 @@ This will attempt the `DescribeTable` operation a maximum of 25 times,
 with 20 seconds of delay between each attempt, until the `Wait` criteria
 succeeds, fails, or exceptionally exits.
 
+See each individual service for more information on what waiters are supported.
+
 ### Presigned URLs
 
 Presigned URLs can be generated for services which are an instance of [`AWSPresigner`](http://brendanhay.nz/amazonka/amazonka-core/Network-AWS-Types.html#t:AWSPresigner).

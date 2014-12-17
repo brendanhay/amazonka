@@ -1,5 +1,5 @@
 name:                  amazonka
-version:               0.0.8
+version:               0.1.0
 synopsis:              Comprehensive Amazon Web Services SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense

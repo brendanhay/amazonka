@@ -57,7 +57,10 @@ import           System.FilePath
 default (Text)
 
 currentLibraryVersion :: Version
-currentLibraryVersion = initial & patch .~ 8
+currentLibraryVersion = initial
+    & major .~ 0
+    & minor .~ 1
+    & patch .~ 0
 
 class ToFilePath a where
     toFilePath :: a -> FilePath

@@ -434,7 +434,7 @@ instance FromText Region where
             "Failure parsing Region from " ++ show e
 
 instance ToText Region where
-    toText r = case r of
+    toText = \case
         Ireland         -> "eu-west-1"
         Frankfurt       -> "eu-central-1"
         Tokyo           -> "ap-northeast-1"

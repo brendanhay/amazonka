@@ -85,7 +85,7 @@
         "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html",
         "protocol": "json",
         "name": "Amazon Route 53 Domains",
-        "version": "0.0.8",
+        "version": "0.1.0",
         "description": "Pending"
     },
     "types": {

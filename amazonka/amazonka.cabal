@@ -32,6 +32,7 @@ library
     exposed-modules:
           Control.Monad.Trans.AWS
         , Network.AWS
+        , Network.AWS.EC2.Metadata
 
     other-modules:
           Network.AWS.Internal.Auth

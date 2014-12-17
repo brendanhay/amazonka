@@ -35,7 +35,6 @@ library
 
     exposed-modules:
           Network.AWS.Data
-        , Network.AWS.EC2.Metadata
         , Network.AWS.Error
         , Network.AWS.Pagination
         , Network.AWS.Prelude

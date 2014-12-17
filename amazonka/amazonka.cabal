@@ -49,7 +49,7 @@ library
         , http-conduit      >= 2.1.4   && < 2.3
         , lens              >= 4.4     && < 5
         , mmorph            >= 1       && < 2
-        , monad-control     >= 0.3.2   && < 4
+        , monad-control     >= 0.3.2   && < 1
         , mtl               >= 2.2.1   && < 2.3
         , resourcet         >= 1.1     && < 1.3
         , retry             >= 0.5

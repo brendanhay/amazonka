@@ -46,8 +46,7 @@ import           Data.Monoid
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import           Network.AWS.Data
-import           Network.HTTP.Client
-import           Network.HTTP.Types         (status404)
+import           Network.HTTP.Conduit
 
 data Dynamic
     = FWS
@@ -302,9 +301,9 @@ userdata m = Just
     `liftM` get m "http://169.254.169.254/latest/user-data"
     `catchError` err
   where
-    err (StatusCodeException s _ _)
-        | status404 == s  = return Nothing
-    err e                 = throwError e
+    err (StatusCodeException s _ _) | fromEnum s == 404
+          = return Nothing
+    err e = throwError e
 
 get :: MonadIO m
     => Manager

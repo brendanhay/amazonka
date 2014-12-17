@@ -1,5 +1,5 @@
 name:                  amazonka-dynamodb-examples
-version:               0.0.8
+version:               0.1.0
 synopsis:              Amazon DynamoDB SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         DynamoDB
 
     build-depends:
-        amazonka      == 0.0.8.*
-      , amazonka-core == 0.0.8.*
-      , amazonka-dynamodb == 0.0.8.*
+        amazonka      == 0.1.0.*
+      , amazonka-core == 0.1.0.*
+      , amazonka-dynamodb == 0.1.0.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

@@ -1,5 +1,5 @@
 name:                  amazonka-dynamodb
-version:               0.0.8
+version:               0.1.0
 synopsis:              Amazon DynamoDB SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -58,5 +58,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.0.8.*
+          amazonka-core == 0.1.0.*
         , base          >= 4.7     && < 5

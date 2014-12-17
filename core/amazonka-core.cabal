@@ -1,5 +1,5 @@
 name:                  amazonka-core
-version:               0.0.8
+version:               0.1.0
 synopsis:              Core functionality and data types for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -35,7 +35,6 @@ library
 
     exposed-modules:
           Network.AWS.Data
-        , Network.AWS.EC2.Metadata
         , Network.AWS.Error
         , Network.AWS.Pagination
         , Network.AWS.Prelude

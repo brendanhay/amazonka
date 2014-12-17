@@ -34,6 +34,7 @@ module Control.Monad.Trans.AWS
     , paginateCatch
     -- ** Eventual consistency
     , await
+    , awaitCatch
     -- ** Pre-signing URLs
     , presign
     , presignURL

@@ -251,11 +251,11 @@ instance FromJSON AuthEnv where
 
 instance ToBuilder AuthEnv where
     build AuthEnv{..} = mconcat $ intersperse "\n"
-        [ "[Authentication] {"
-        , " access key     = " <> build _authAccess
-        , " secret key     = ****"
-        , " security token = ****"
-        , " expiry         = " <> build _authExpiry
+        [ "[Amazonka Auth] {"
+        , "  access key     = " <> build _authAccess
+        , "  secret key     = ****"
+        , "  security token = ****"
+        , "  expiry         = " <> build _authExpiry
         , "}"
         ]
 
@@ -266,7 +266,7 @@ data Auth
     | Auth AuthEnv
 
 instance ToBuilder Auth where
-    build (Ref t _) = "[Authentication] { <thread:" <> build (show t) <> "> }"
+    build (Ref t _) = "[Amazonka Auth] { <thread:" <> build (show t) <> "> }"
     build (Auth  e) = build e
 
 withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a

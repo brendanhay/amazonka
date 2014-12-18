@@ -65,11 +65,11 @@ envAuth = lens _envAuth (\s a -> s { _envAuth = a })
 
 instance ToBuilder Env where
     build Env{..} = mconcat $ intersperse "\n"
-        [ "[Environment] {"
+        [ "[Amazonka Env] {"
         , "  region      = " <> build _envRegion
-        , "  auth        = " <> build _envAuth
         , "  retry (n=0) = " <> maybe "Nothing" policy _envRetryPolicy
         , "}"
+        , build _envAuth
         ]
       where
         policy (RetryPolicy f) = "Just " <> build (f 0)

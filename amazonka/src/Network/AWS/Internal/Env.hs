@@ -14,14 +14,15 @@
 
 module Network.AWS.Internal.Env where
 
-import Control.Lens
-import Control.Retry
-import Data.List                (intersperse)
-import Data.Monoid
-import Network.AWS.Data         (ToBuilder(..))
-import Network.AWS.Internal.Log
-import Network.AWS.Types        (Region, Auth)
-import Network.HTTP.Conduit
+import           Control.Lens
+import           Control.Retry
+import qualified Data.ByteString.Lazy.Char8 as LBS
+import           Data.List                  (intersperse)
+import           Data.Monoid
+import           Network.AWS.Data           (ToBuilder(..), buildBS)
+import           Network.AWS.Internal.Log
+import           Network.AWS.Types          (Region, Auth)
+import           Network.HTTP.Conduit
 
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env
@@ -68,8 +69,13 @@ instance ToBuilder Env where
         [ "[Amazonka Env] {"
         , "  region      = " <> build _envRegion
         , "  retry (n=0) = " <> maybe "Nothing" policy _envRetryPolicy
+        , build . indent $ buildBS _envAuth
         , "}"
-        , build _envAuth
         ]
       where
         policy (RetryPolicy f) = "Just " <> build (f 0)
+
+        indent = mappend "  "
+               . LBS.concat
+               . intersperse "\n  "
+               . LBS.lines

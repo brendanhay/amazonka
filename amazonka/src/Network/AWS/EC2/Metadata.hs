@@ -279,7 +279,7 @@ isEC2 m = liftIO (req `catch` err)
         !_ <- request m "http://instance-data/latest"
         return True
 
-    err :: IOException -> IO Bool
+    err :: HttpException -> IO Bool
     err = const (return False)
 
 dynamic :: MonadIO m

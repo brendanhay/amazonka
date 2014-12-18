@@ -254,7 +254,7 @@ instance ToBuilder AuthEnv where
         [ "[Amazonka Auth] {"
         , "  access key     = " <> build _authAccess
         , "  secret key     = ****"
-        , "  security token = ****"
+        , "  security token = " <> maybe "Nothing" (const "Just ****") _authToken
         , "  expiry         = " <> build _authExpiry
         , "}"
         ]

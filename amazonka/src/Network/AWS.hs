@@ -209,6 +209,7 @@ raw Env{..} rq = catch go err >>= response rq
         debug _envLogger (build s)
         trace _envLogger (build m)
         rs <- liftResourceT (http s _envManager)
+        debug _envLogger (build rs)
         return (Right rs)
 
     err ex = return (Left (ex :: HttpException))

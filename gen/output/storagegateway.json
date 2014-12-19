@@ -52,6 +52,7 @@
             "Network.AWS.StorageGateway.ListLocalDisks",
             "Network.AWS.StorageGateway.ListVolumeRecoveryPoints",
             "Network.AWS.StorageGateway.ListVolumes",
+            "Network.AWS.StorageGateway.ResetCache",
             "Network.AWS.StorageGateway.RetrieveTapeArchive",
             "Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint",
             "Network.AWS.StorageGateway.ShutdownGateway",
@@ -62,7 +63,8 @@
             "Network.AWS.StorageGateway.UpdateGatewayInformation",
             "Network.AWS.StorageGateway.UpdateGatewaySoftwareNow",
             "Network.AWS.StorageGateway.UpdateMaintenanceStartTime",
-            "Network.AWS.StorageGateway.UpdateSnapshotSchedule"
+            "Network.AWS.StorageGateway.UpdateSnapshotSchedule",
+            "Network.AWS.StorageGateway.UpdateVTLDeviceType"
         ],
         "name": "Amazon Storage Gateway",
         "version": "2013-06-30",
@@ -138,6 +140,7 @@
             "Network.AWS.StorageGateway.ListLocalDisks",
             "Network.AWS.StorageGateway.ListVolumeRecoveryPoints",
             "Network.AWS.StorageGateway.ListVolumes",
+            "Network.AWS.StorageGateway.ResetCache",
             "Network.AWS.StorageGateway.RetrieveTapeArchive",
             "Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint",
             "Network.AWS.StorageGateway.ShutdownGateway",
@@ -148,7 +151,8 @@
             "Network.AWS.StorageGateway.UpdateGatewayInformation",
             "Network.AWS.StorageGateway.UpdateGatewaySoftwareNow",
             "Network.AWS.StorageGateway.UpdateMaintenanceStartTime",
-            "Network.AWS.StorageGateway.UpdateSnapshotSchedule"
+            "Network.AWS.StorageGateway.UpdateSnapshotSchedule",
+            "Network.AWS.StorageGateway.UpdateVTLDeviceType"
         ],
         "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html",
         "protocol": "json",
@@ -1027,6 +1031,22 @@
                         "monoid": false,
                         "flattened": false,
                         "required": false,
+                        "lens": "dDiskStatus",
+                        "name": "_dDiskStatus",
+                        "shape": "string",
+                        "locationName": "DiskStatus",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
                         "lens": "dDiskSizeInBytes",
                         "name": "_dDiskSizeInBytes",
                         "shape": "long",
@@ -1131,6 +1151,22 @@
                         "monoid": false,
                         "flattened": false,
                         "required": false,
+                        "lens": "dDiskStatus",
+                        "name": "_dDiskStatus",
+                        "shape": "string",
+                        "locationName": "DiskStatus",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
                         "lens": "dDiskSizeInBytes",
                         "name": "_dDiskSizeInBytes",
                         "shape": "long",
@@ -1268,6 +1304,22 @@
                         "documentation": null,
                         "typeExposed": "Maybe Integer",
                         "type": "Maybe Integer"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dDiskStatus",
+                        "name": "_dDiskStatus",
+                        "shape": "string",
+                        "locationName": "DiskStatus",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ]
             },
@@ -1315,7 +1367,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Nat",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -1325,8 +1377,8 @@
                         "shape": "TapeSize",
                         "locationName": "TapeSizeInBytes",
                         "documentation": "-- | The size, in bytes, of the virtual tape.",
-                        "typeExposed": "Maybe Natural",
-                        "type": "Maybe Nat"
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     },
                     {
                         "location": null,
@@ -1419,7 +1471,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Nat",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -1429,8 +1481,8 @@
                         "shape": "TapeSize",
                         "locationName": "TapeSizeInBytes",
                         "documentation": "-- | The size, in bytes, of the virtual tape.",
-                        "typeExposed": "Maybe Natural",
-                        "type": "Maybe Nat"
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     },
                     {
                         "location": null,
@@ -1533,7 +1585,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Nat",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -1543,8 +1595,8 @@
                         "shape": "TapeSize",
                         "locationName": "TapeSizeInBytes",
                         "documentation": "-- | The size, in bytes, of the virtual tape.",
-                        "typeExposed": "Maybe Natural",
-                        "type": "Maybe Nat"
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     },
                     {
                         "location": null,
@@ -1617,7 +1669,7 @@
                         "name": "_niMacAddress",
                         "shape": "string",
                         "locationName": "MacAddress",
-                        "documentation": "-- | The Media Access Control (MAC) address of the interface.",
+                        "documentation": "-- | The Media Access Control (MAC) address of the interface.\n--\n-- This is currently unsupported and will not be returned in output.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1673,7 +1725,7 @@
                         "name": "_niMacAddress",
                         "shape": "string",
                         "locationName": "MacAddress",
-                        "documentation": "-- | The Media Access Control (MAC) address of the interface.",
+                        "documentation": "-- | The Media Access Control (MAC) address of the interface.\n--\n-- This is currently unsupported and will not be returned in output.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1739,7 +1791,7 @@
                         "name": "_niMacAddress",
                         "shape": "string",
                         "locationName": "MacAddress",
-                        "documentation": "-- | The Media Access Control (MAC) address of the interface.",
+                        "documentation": "-- | The Media Access Control (MAC) address of the interface.\n--\n-- This is currently unsupported and will not be returned in output.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2049,7 +2101,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Nat",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -2059,8 +2111,8 @@
                         "shape": "TapeSize",
                         "locationName": "TapeSizeInBytes",
                         "documentation": "-- | The size, in bytes, of the virtual tapes to recover.",
-                        "typeExposed": "Maybe Natural",
-                        "type": "Maybe Nat"
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     },
                     {
                         "location": null,
@@ -2121,7 +2173,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Nat",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -2131,8 +2183,8 @@
                         "shape": "TapeSize",
                         "locationName": "TapeSizeInBytes",
                         "documentation": "-- | The size, in bytes, of the virtual tapes to recover.",
-                        "typeExposed": "Maybe Natural",
-                        "type": "Maybe Nat"
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     },
                     {
                         "location": null,
@@ -2187,7 +2239,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Nat",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -2197,8 +2249,8 @@
                         "shape": "TapeSize",
                         "locationName": "TapeSizeInBytes",
                         "documentation": "-- | The size, in bytes, of the virtual tapes to recover.",
-                        "typeExposed": "Maybe Natural",
-                        "type": "Maybe Nat"
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     },
                     {
                         "location": null,
@@ -2475,7 +2527,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Nat",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -2485,8 +2537,8 @@
                         "shape": "TapeSize",
                         "locationName": "TapeSizeInBytes",
                         "documentation": "-- | The size, in bytes, of the archived virtual tape.",
-                        "typeExposed": "Maybe Natural",
-                        "type": "Maybe Nat"
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     },
                     {
                         "location": null,
@@ -2579,7 +2631,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Nat",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -2589,8 +2641,8 @@
                         "shape": "TapeSize",
                         "locationName": "TapeSizeInBytes",
                         "documentation": "-- | The size, in bytes, of the archived virtual tape.",
-                        "typeExposed": "Maybe Natural",
-                        "type": "Maybe Nat"
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     },
                     {
                         "location": null,
@@ -2709,7 +2761,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Nat",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "flattened": false,
@@ -2719,8 +2771,8 @@
                         "shape": "TapeSize",
                         "locationName": "TapeSizeInBytes",
                         "documentation": "-- | The size, in bytes, of the archived virtual tape.",
-                        "typeExposed": "Maybe Natural",
-                        "type": "Maybe Nat"
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     },
                     {
                         "location": null,
@@ -4115,7 +4167,7 @@
             "pager": null,
             "name": "ActivateGateway",
             "method": "post",
-            "documentation": "-- | This operation activates the gateway you previously deployed on your host.\n-- For more information, see \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html  Activate the AWS Storage Gateway\u003e. In the\n-- activation process, you specify information such as the region you want to\n-- use for storing snapshots, the time zone for scheduled snapshots the gateway\n-- snapshot schedule window, an activation key, and a name for your gateway. The\n-- activation process also associates your gateway with your account; for more\n-- information, see 'UpdateGatewayInformation'.",
+            "documentation": "-- | This operation activates the gateway you previously deployed on your host.\n-- For more information, see \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html  Activate the AWS Storage Gateway\u003e. In the\n-- activation process, you specify information such as the region you want to\n-- use for storing snapshots, the time zone for scheduled snapshots the gateway\n-- snapshot schedule window, an activation key, and a name for your gateway. The\n-- activation process also associates your gateway with your account; for more\n-- information, see 'UpdateGatewayInformation'.\n--\n-- You must turn on the gateway VM before you can activate your gateway.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4237,7 +4289,7 @@
                         "name": "_agMediumChangerType",
                         "shape": "MediumChangerType",
                         "locationName": "MediumChangerType",
-                        "documentation": "-- | The value that indicates the type of medium changer to use for gateway-VTL.\n-- This field is optional.\n--\n-- /Valid Values/: \"STK-L700\"",
+                        "documentation": "-- | The value that indicates the type of medium changer to use for gateway-VTL.\n-- This field is optional.\n--\n-- /Valid Values/: \"STK-L700\", \"AWS-Gateway-VTL\"",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4371,7 +4423,7 @@
                         "name": "_agMediumChangerType",
                         "shape": "MediumChangerType",
                         "locationName": "MediumChangerType",
-                        "documentation": "-- | The value that indicates the type of medium changer to use for gateway-VTL.\n-- This field is optional.\n--\n-- /Valid Values/: \"STK-L700\"",
+                        "documentation": "-- | The value that indicates the type of medium changer to use for gateway-VTL.\n-- This field is optional.\n--\n-- /Valid Values/: \"STK-L700\", \"AWS-Gateway-VTL\"",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4469,7 +4521,7 @@
                         "name": "_agMediumChangerType",
                         "shape": "MediumChangerType",
                         "locationName": "MediumChangerType",
-                        "documentation": "-- | The value that indicates the type of medium changer to use for gateway-VTL.\n-- This field is optional.\n--\n-- /Valid Values/: \"STK-L700\"",
+                        "documentation": "-- | The value that indicates the type of medium changer to use for gateway-VTL.\n-- This field is optional.\n--\n-- /Valid Values/: \"STK-L700\", \"AWS-Gateway-VTL\"",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5090,7 +5142,7 @@
             "pager": null,
             "name": "AddWorkingStorage",
             "method": "post",
-            "documentation": "-- | This operation configures one or more gateway local disks as working storage\n-- for a gateway. This operation is supported only for the gateway-stored volume\n-- architecture. This operation is deprecated method in cached-volumes API\n-- version (20120630). Use AddUploadBuffer instead.\n--\n-- In the request, you specify the gateway Amazon Resource Name (ARN) to which\n-- you want to add working storage, and one or more disk IDs that you want to\n-- configure as working storage.",
+            "documentation": "-- | This operation configures one or more gateway local disks as working storage\n-- for a gateway. This operation is supported only for the gateway-stored volume\n-- architecture. This operation is deprecated method in cached-volumes API\n-- version (20120630). Use AddUploadBuffer instead.\n--\n-- Working storage is also referred to as upload buffer. You can also use the 'AddUploadBuffer' operation to add upload buffer to a stored-volume gateway.\n--\n-- In the request, you specify the gateway Amazon Resource Name (ARN) to which\n-- you want to add working storage, and one or more disk IDs that you want to\n-- configure as working storage.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5853,7 +5905,7 @@
             "pager": null,
             "name": "CreateCachediSCSIVolume",
             "method": "post",
-            "documentation": "-- | This operation creates a cached volume on a specified cached gateway. This\n-- operation is supported only for the gateway-cached volume architecture.\n--\n-- In the request, you must specify the gateway, size of the volume in bytes,\n-- the iSCSI target name, an IP address on which to expose the target, and a\n-- unique client token. In response, AWS Storage Gateway creates the volume and\n-- returns information about it such as the volume Amazon Resource Name (ARN),\n-- its size, and the iSCSI target ARN that initiators can use to connect to the\n-- volume target.",
+            "documentation": "-- | This operation creates a cached volume on a specified cached gateway. This\n-- operation is supported only for the gateway-cached volume architecture.\n--\n-- Cache storage must be allocated to the gateway before you can create a\n-- cached volume. Use the 'AddCache' operation to add cache storage to a gateway.\n-- In the request, you must specify the gateway, size of the volume in bytes,\n-- the iSCSI target name, an IP address on which to expose the target, and a\n-- unique client token. In response, AWS Storage Gateway creates the volume and\n-- returns information about it such as the volume Amazon Resource Name (ARN),\n-- its size, and the iSCSI target ARN that initiators can use to connect to the\n-- volume target.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6320,7 +6372,7 @@
             "pager": null,
             "name": "CreateSnapshot",
             "method": "post",
-            "documentation": "-- | This operation initiates a snapshot of a volume.\n--\n-- AWS Storage Gateway provides the ability to back up point-in-time snapshots\n-- of your data to Amazon Simple Storage (S3) for durable off-site recovery, as\n-- well as import the data to an Amazon Elastic Block Store (EBS) volume in\n-- Amazon Elastic Compute Cloud (EC2). You can take snapshots of your gateway\n-- volume on a scheduled or ad-hoc basis. This API enables you to take ad-hoc\n-- snapshot. For more information, see \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working With Snapshots in the AWS StorageGateway Console\u003e.\n--\n-- In the CreateSnapshot request you identify the volume by providing its\n-- Amazon Resource Name (ARN). You must also provide description for the\n-- snapshot. When AWS Storage Gateway takes the snapshot of specified volume,\n-- the snapshot and description appears in the AWS Storage Gateway Console. In\n-- response, AWS Storage Gateway returns you a snapshot ID. You can use this\n-- snapshot ID to check the snapshot progress or later use it when you want to\n-- create a volume from a snapshot.",
+            "documentation": "-- | This operation initiates a snapshot of a volume.\n--\n-- AWS Storage Gateway provides the ability to back up point-in-time snapshots\n-- of your data to Amazon Simple Storage (S3) for durable off-site recovery, as\n-- well as import the data to an Amazon Elastic Block Store (EBS) volume in\n-- Amazon Elastic Compute Cloud (EC2). You can take snapshots of your gateway\n-- volume on a scheduled or ad-hoc basis. This API enables you to take ad-hoc\n-- snapshot. For more information, see \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working With Snapshots in the AWS StorageGateway Console\u003e.\n--\n-- In the CreateSnapshot request you identify the volume by providing its\n-- Amazon Resource Name (ARN). You must also provide description for the\n-- snapshot. When AWS Storage Gateway takes the snapshot of specified volume,\n-- the snapshot and description appears in the AWS Storage Gateway Console. In\n-- response, AWS Storage Gateway returns you a snapshot ID. You can use this\n-- snapshot ID to check the snapshot progress or later use it when you want to\n-- create a volume from a snapshot.\n--\n-- To list or delete a snapshot, you must use the Amazon EC2 API. For more\n-- information, .",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6642,7 +6694,7 @@
             "pager": null,
             "name": "CreateSnapshotFromVolumeRecoveryPoint",
             "method": "post",
-            "documentation": "-- | This operation initiates a snapshot of a gateway from a volume recovery\n-- point. This operation is supported only for the gateway-cached volume\n-- architecture (see ).\n--\n-- A volume recovery point is a point in time at which all data of the volume\n-- is consistent and from which you can create a snapshot. To get a list of\n-- volume recovery point for gateway-cached volumes, use 'ListVolumeRecoveryPoints'\n-- .\n--\n-- In the 'CreateSnapshotFromVolumeRecoveryPoint' request, you identify the\n-- volume by providing its Amazon Resource Name (ARN). You must also provide a\n-- description for the snapshot. When AWS Storage Gateway takes a snapshot of\n-- the specified volume, the snapshot and its description appear in the AWS\n-- Storage Gateway console. In response, AWS Storage Gateway returns you a\n-- snapshot ID. You can use this snapshot ID to check the snapshot progress or\n-- later use it when you want to create a volume from a snapshot.",
+            "documentation": "-- | This operation initiates a snapshot of a gateway from a volume recovery\n-- point. This operation is supported only for the gateway-cached volume\n-- architecture (see ).\n--\n-- A volume recovery point is a point in time at which all data of the volume\n-- is consistent and from which you can create a snapshot. To get a list of\n-- volume recovery point for gateway-cached volumes, use 'ListVolumeRecoveryPoints'\n-- .\n--\n-- In the 'CreateSnapshotFromVolumeRecoveryPoint' request, you identify the\n-- volume by providing its Amazon Resource Name (ARN). You must also provide a\n-- description for the snapshot. When AWS Storage Gateway takes a snapshot of\n-- the specified volume, the snapshot and its description appear in the AWS\n-- Storage Gateway console. In response, AWS Storage Gateway returns you a\n-- snapshot ID. You can use this snapshot ID to check the snapshot progress or\n-- later use it when you want to create a volume from a snapshot.\n--\n-- To list or delete a snapshot, you must use the Amazon EC2 API. For more\n-- information, in /Amazon Elastic Compute Cloud API Reference/.\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7402,7 +7454,7 @@
             "pager": null,
             "name": "CreateTapes",
             "method": "post",
-            "documentation": "-- | Creates one or more virtual tapes. You write data to the virtual tapes and\n-- then archive the tapes.",
+            "documentation": "-- | Creates one or more virtual tapes. You write data to the virtual tapes and\n-- then archive the tapes.\n--\n-- Cache storage must be allocated to the gateway before you can create virtual\n-- tapes. Use the 'AddCache' operation to add cache storage to a gateway.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7434,8 +7486,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Nat",
-                        "lensMapping": "_Nat",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
@@ -7444,9 +7496,9 @@
                         "name": "_ctTapeSizeInBytes",
                         "shape": "TapeSize",
                         "locationName": "TapeSizeInBytes",
-                        "documentation": "-- | The size, in bytes, of the virtual tapes you want to create.",
-                        "typeExposed": "Natural",
-                        "type": "Nat"
+                        "documentation": "-- | The size, in bytes, of the virtual tapes you want to create.\n--\n-- The size must be gigabyte (1024*1024*1024 byte) aligned.",
+                        "typeExposed": "Integer",
+                        "type": "Integer"
                     },
                     {
                         "location": null,
@@ -7460,7 +7512,7 @@
                         "name": "_ctClientToken",
                         "shape": "ClientToken",
                         "locationName": "ClientToken",
-                        "documentation": "-- | A unique identifier that you use to retry a request. If you retry a request,\n-- use the same 'ClientToken' you specified in the initial request.",
+                        "documentation": "-- | A unique identifier that you use to retry a request. If you retry a request,\n-- use the same 'ClientToken' you specified in the initial request.\n--\n-- Using the same 'ClientToken' prevents creating the tape multiple times.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7492,7 +7544,7 @@
                         "name": "_ctTapeBarcodePrefix",
                         "shape": "TapeBarcodePrefix",
                         "locationName": "TapeBarcodePrefix",
-                        "documentation": "-- | A prefix you append to the barcode of the virtual tape you are creating. This\n-- makes a barcode unique.",
+                        "documentation": "-- | A prefix you append to the barcode of the virtual tape you are creating. This\n-- makes a barcode unique.\n--\n-- The prefix must be 1 to 4 characters in length and must be upper-case\n-- letters A-Z.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -7524,8 +7576,8 @@
                     },
                     {
                         "location": null,
-                        "iso": "_Nat",
-                        "lensMapping": "_Nat",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
@@ -7534,9 +7586,9 @@
                         "name": "_ctTapeSizeInBytes",
                         "shape": "TapeSize",
                         "locationName": "TapeSizeInBytes",
-                        "documentation": "-- | The size, in bytes, of the virtual tapes you want to create.",
-                        "typeExposed": "Natural",
-                        "type": "Nat"
+                        "documentation": "-- | The size, in bytes, of the virtual tapes you want to create.\n--\n-- The size must be gigabyte (1024*1024*1024 byte) aligned.",
+                        "typeExposed": "Integer",
+                        "type": "Integer"
                     },
                     {
                         "location": null,
@@ -7550,7 +7602,7 @@
                         "name": "_ctClientToken",
                         "shape": "ClientToken",
                         "locationName": "ClientToken",
-                        "documentation": "-- | A unique identifier that you use to retry a request. If you retry a request,\n-- use the same 'ClientToken' you specified in the initial request.",
+                        "documentation": "-- | A unique identifier that you use to retry a request. If you retry a request,\n-- use the same 'ClientToken' you specified in the initial request.\n--\n-- Using the same 'ClientToken' prevents creating the tape multiple times.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7582,7 +7634,7 @@
                         "name": "_ctTapeBarcodePrefix",
                         "shape": "TapeBarcodePrefix",
                         "locationName": "TapeBarcodePrefix",
-                        "documentation": "-- | A prefix you append to the barcode of the virtual tape you are creating. This\n-- makes a barcode unique.",
+                        "documentation": "-- | A prefix you append to the barcode of the virtual tape you are creating. This\n-- makes a barcode unique.\n--\n-- The prefix must be 1 to 4 characters in length and must be upper-case\n-- letters A-Z.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -7611,7 +7663,7 @@
                         "name": "_ctClientToken",
                         "shape": "ClientToken",
                         "locationName": "ClientToken",
-                        "documentation": "-- | A unique identifier that you use to retry a request. If you retry a request,\n-- use the same 'ClientToken' you specified in the initial request.",
+                        "documentation": "-- | A unique identifier that you use to retry a request. If you retry a request,\n-- use the same 'ClientToken' you specified in the initial request.\n--\n-- Using the same 'ClientToken' prevents creating the tape multiple times.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7659,14 +7711,14 @@
                         "name": "_ctTapeBarcodePrefix",
                         "shape": "TapeBarcodePrefix",
                         "locationName": "TapeBarcodePrefix",
-                        "documentation": "-- | A prefix you append to the barcode of the virtual tape you are creating. This\n-- makes a barcode unique.",
+                        "documentation": "-- | A prefix you append to the barcode of the virtual tape you are creating. This\n-- makes a barcode unique.\n--\n-- The prefix must be 1 to 4 characters in length and must be upper-case\n-- letters A-Z.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
                     {
                         "location": null,
-                        "iso": "_Nat",
-                        "lensMapping": "_Nat",
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
@@ -7675,9 +7727,9 @@
                         "name": "_ctTapeSizeInBytes",
                         "shape": "TapeSize",
                         "locationName": "TapeSizeInBytes",
-                        "documentation": "-- | The size, in bytes, of the virtual tapes you want to create.",
-                        "typeExposed": "Natural",
-                        "type": "Nat"
+                        "documentation": "-- | The size, in bytes, of the virtual tapes you want to create.\n--\n-- The size must be gigabyte (1024*1024*1024 byte) aligned.",
+                        "typeExposed": "Integer",
+                        "type": "Integer"
                     }
                 ]
             }
@@ -8523,7 +8575,7 @@
             "pager": null,
             "name": "DeleteSnapshotSchedule",
             "method": "post",
-            "documentation": "-- | This operation deletes a snapshot of a volume.\n--\n-- You can take snapshots of your gateway volumes on a scheduled or ad-hoc\n-- basis. This API enables you to delete a snapshot schedule for a volume. For\n-- more information, see \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working with Snapshots\u003e. In the 'DeleteSnapshotSchedule'\n-- request, you identify the volume by providing its Amazon Resource Name (ARN).",
+            "documentation": "-- | This operation deletes a snapshot of a volume.\n--\n-- You can take snapshots of your gateway volumes on a scheduled or ad-hoc\n-- basis. This API enables you to delete a snapshot schedule for a volume. For\n-- more information, see \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working with Snapshots\u003e. In the 'DeleteSnapshotSchedule'\n-- request, you identify the volume by providing its Amazon Resource Name (ARN).\n--\n-- To list or delete a snapshot, you must use the Amazon EC2 API. in /AmazonElastic Compute Cloud API Reference/.\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -12918,7 +12970,7 @@
                         "name": "_dtLimit",
                         "shape": "PositiveIntObject",
                         "locationName": "Limit",
-                        "documentation": "-- | Specifies that the number of virtual tapes described be limited to the\n-- specified number.",
+                        "documentation": "-- | Specifies that the number of virtual tapes described be limited to the\n-- specified number.\n--\n-- Amazon Web Services may impose its own limit, if this field is not set.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -13004,7 +13056,7 @@
                         "name": "_dtLimit",
                         "shape": "PositiveIntObject",
                         "locationName": "Limit",
-                        "documentation": "-- | Specifies that the number of virtual tapes described be limited to the\n-- specified number.",
+                        "documentation": "-- | Specifies that the number of virtual tapes described be limited to the\n-- specified number.\n--\n-- Amazon Web Services may impose its own limit, if this field is not set.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     }
@@ -13038,7 +13090,7 @@
                         "name": "_dtLimit",
                         "shape": "PositiveIntObject",
                         "locationName": "Limit",
-                        "documentation": "-- | Specifies that the number of virtual tapes described be limited to the\n-- specified number.",
+                        "documentation": "-- | Specifies that the number of virtual tapes described be limited to the\n-- specified number.\n--\n-- Amazon Web Services may impose its own limit, if this field is not set.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -13654,7 +13706,7 @@
                         "name": "_dvtldVTLDeviceARNs",
                         "shape": "VTLDeviceARNs",
                         "locationName": "VTLDeviceARNs",
-                        "documentation": "-- | An array of strings, where each string represents the Amazon Resource Name\n-- (ARN) of a VTL device.",
+                        "documentation": "-- | An array of strings, where each string represents the Amazon Resource Name\n-- (ARN) of a VTL device.\n--\n-- All of the specified VTL devices must be from the same gateway. If no VTL\n-- devices are specified, the result will contain all devices on the specified\n-- gateway.",
                         "typeExposed": "[Text]",
                         "type": "List \"VTLDeviceARNs\" Text"
                     },
@@ -13740,7 +13792,7 @@
                         "name": "_dvtldVTLDeviceARNs",
                         "shape": "VTLDeviceARNs",
                         "locationName": "VTLDeviceARNs",
-                        "documentation": "-- | An array of strings, where each string represents the Amazon Resource Name\n-- (ARN) of a VTL device.",
+                        "documentation": "-- | An array of strings, where each string represents the Amazon Resource Name\n-- (ARN) of a VTL device.\n--\n-- All of the specified VTL devices must be from the same gateway. If no VTL\n-- devices are specified, the result will contain all devices on the specified\n-- gateway.",
                         "typeExposed": "[Text]",
                         "type": "List \"VTLDeviceARNs\" Text"
                     },
@@ -13838,7 +13890,7 @@
                         "name": "_dvtldVTLDeviceARNs",
                         "shape": "VTLDeviceARNs",
                         "locationName": "VTLDeviceARNs",
-                        "documentation": "-- | An array of strings, where each string represents the Amazon Resource Name\n-- (ARN) of a VTL device.",
+                        "documentation": "-- | An array of strings, where each string represents the Amazon Resource Name\n-- (ARN) of a VTL device.\n--\n-- All of the specified VTL devices must be from the same gateway. If no VTL\n-- devices are specified, the result will contain all devices on the specified\n-- gateway.",
                         "typeExposed": "[Text]",
                         "type": "List \"VTLDeviceARNs\" Text"
                     }
@@ -14079,7 +14131,7 @@
             "pager": null,
             "name": "DescribeWorkingStorage",
             "method": "post",
-            "documentation": "-- | This operation returns information about the working storage of a gateway.\n-- This operation is supported only for the gateway-stored volume architecture.\n-- This operation is deprecated in cached-volumes API version (20120630). Use\n-- DescribeUploadBuffer instead.\n--\n-- The response includes disk IDs that are configured as working storage, and\n-- it includes the amount of working storage allocated and used.",
+            "documentation": "-- | This operation returns information about the working storage of a gateway.\n-- This operation is supported only for the gateway-stored volume architecture.\n-- This operation is deprecated in cached-volumes API version (20120630). Use\n-- DescribeUploadBuffer instead.\n--\n-- Working storage is also referred to as upload buffer. You can also use the\n-- DescribeUploadBuffer operation to add upload buffer to a stored-volume\n-- gateway.\n--\n-- The response includes disk IDs that are configured as working storage, and\n-- it includes the amount of working storage allocated and used.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -14820,7 +14872,7 @@
             "pager": null,
             "name": "ListLocalDisks",
             "method": "post",
-            "documentation": "-- | This operation returns a list of the local disks of a gateway. To specify\n-- which gateway to describe you use the Amazon Resource Name (ARN) of the\n-- gateway in the body of the request.\n--\n-- The request returns all disks, specifying which are configured as working\n-- storage, stored volume or not configured at all.",
+            "documentation": "-- | This operation returns a list of the gateway's local disks. To specify which\n-- gateway to describe, you use the Amazon Resource Name (ARN) of the gateway in\n-- the body of the request.\n--\n-- The request returns a list of all disks, specifying which are configured as\n-- working storage, cache storage, or stored volume or not configured at all.\n-- The response includes a 'DiskStatus' field. This field can have a value of\n-- present (the disk is availble to use), missing (the disk is no longer\n-- connected to the gateway), or mismatch (the disk node is occupied by a disk\n-- that has incorrect metadata or the disk content is corrupted).",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15563,6 +15615,221 @@
                 "listElement": null,
                 "style": "json",
                 "fieldPad": 0,
+                "ctor": "resetCacheResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "monoid": false,
+                    "flattened": false,
+                    "required": false,
+                    "lens": "rcrGatewayARN",
+                    "name": "_rcrGatewayARN",
+                    "shape": "GatewayARN",
+                    "locationName": "GatewayARN",
+                    "documentation": null,
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rcrGatewayARN",
+                        "name": "_rcrGatewayARN",
+                        "shape": "GatewayARN",
+                        "locationName": "GatewayARN",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "json",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "ResetCacheResponse",
+                "resultWrapper": null,
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rcrGatewayARN",
+                        "name": "_rcrGatewayARN",
+                        "shape": "GatewayARN",
+                        "locationName": "GatewayARN",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rcrGatewayARN",
+                        "name": "_rcrGatewayARN",
+                        "shape": "GatewayARN",
+                        "locationName": "GatewayARN",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ResetCache.html",
+            "namespace": "Network.AWS.StorageGateway.ResetCache",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.StorageGateway.Types"
+            ],
+            "pager": null,
+            "name": "ResetCache",
+            "method": "post",
+            "documentation": "-- | This operation resets all cache disks and makes the disks available for\n-- reconfiguration as cache storage. When a cache is reset, the gateway loses\n-- its cache storage. At this point you can reconfigure the disks as cache\n-- disks.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "resetCache",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "monoid": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "rcGatewayARN",
+                    "name": "_rcGatewayARN",
+                    "shape": "GatewayARN",
+                    "locationName": "GatewayARN",
+                    "documentation": null,
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rcGatewayARN",
+                        "name": "_rcGatewayARN",
+                        "shape": "GatewayARN",
+                        "locationName": "GatewayARN",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rcGatewayARN",
+                        "name": "_rcGatewayARN",
+                        "shape": "GatewayARN",
+                        "locationName": "GatewayARN",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 0,
+                "name": "ResetCache",
+                "query": [],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rcGatewayARN",
+                        "name": "_rcGatewayARN",
+                        "shape": "GatewayARN",
+                        "locationName": "GatewayARN",
+                        "documentation": null,
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "StorageGateway",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Monoid"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
                 "ctor": "retrieveTapeArchiveResponse",
                 "headerPad": 0,
                 "field": {
@@ -15902,7 +16169,7 @@
             "pager": null,
             "name": "RetrieveTapeRecoveryPoint",
             "method": "post",
-            "documentation": "-- | Retrieves the recovery point for the specified virtual tape.\n--\n-- A recovery point is a point in time view of a virtual tape at which all the\n-- data on the tape is consistent. If your gateway crashes, virtual tapes that\n-- have recovery points can be recovered to a new gateway.",
+            "documentation": "-- | Retrieves the recovery point for the specified virtual tape.\n--\n-- A recovery point is a point in time view of a virtual tape at which all the\n-- data on the tape is consistent. If your gateway crashes, virtual tapes that\n-- have recovery points can be recovered to a new gateway.\n--\n-- The virtual tape can be retrieved to only one gateway. The retrieved tape is\n-- read-only. The virtual tape can be retrieved to only a gateway-VTL. There is\n-- no charge for retrieving recovery points.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -16146,7 +16413,7 @@
             "pager": null,
             "name": "ShutdownGateway",
             "method": "post",
-            "documentation": "-- | This operation shuts down a gateway. To specify which gateway to shut down,\n-- use the Amazon Resource Name (ARN) of the gateway in the body of your request.\n--\n-- The operation shuts down the gateway service component running in the\n-- storage gateway's virtual machine (VM) and not the VM.\n--\n-- After the gateway is shutdown, you cannot call any other API except 'StartGateway', 'DescribeGatewayInformation', and 'ListGateways'. For more information, see 'ActivateGateway'. Your applications cannot read from or write to the gateway's storage\n-- volumes, and there are no snapshots taken.\n--\n-- If do not intend to use the gateway again, you must delete the gateway\n-- (using 'DeleteGateway') to no longer pay software charges associated with the\n-- gateway.",
+            "documentation": "-- | This operation shuts down a gateway. To specify which gateway to shut down,\n-- use the Amazon Resource Name (ARN) of the gateway in the body of your request.\n--\n-- The operation shuts down the gateway service component running in the\n-- storage gateway's virtual machine (VM) and not the VM.\n--\n-- If you want to shut down the VM, it is recommended that you first shut down\n-- the gateway component in the VM to avoid unpredictable conditions. After the\n-- gateway is shutdown, you cannot call any other API except 'StartGateway', 'DescribeGatewayInformation', and 'ListGateways'. For more information, see 'ActivateGateway'. Your\n-- applications cannot read from or write to the gateway's storage volumes, and\n-- there are no snapshots taken.\n--\n-- When you make a shutdown request, you will get a '200 OK' success response\n-- immediately. However, it might take some time for the gateway to shut down.\n-- You can call the 'DescribeGatewayInformation' API to check the status. For more\n-- information, see 'ActivateGateway'. If do not intend to use the gateway again,\n-- you must delete the gateway (using 'DeleteGateway') to no longer pay software\n-- charges associated with the gateway.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -16361,7 +16628,7 @@
             "pager": null,
             "name": "StartGateway",
             "method": "post",
-            "documentation": "-- | This operation starts a gateway that you previously shut down (see 'ShutdownGateway'). After the gateway starts, you can then make other API calls, your\n-- applications can read from or write to the gateway's storage volumes and you\n-- will be able to take snapshot backups.\n--\n-- To specify which gateway to start, use the Amazon Resource Name (ARN) of the\n-- gateway in your request.",
+            "documentation": "-- | This operation starts a gateway that you previously shut down (see 'ShutdownGateway'). After the gateway starts, you can then make other API calls, your\n-- applications can read from or write to the gateway's storage volumes and you\n-- will be able to take snapshot backups.\n--\n-- When you make a request, you will get a 200 OK success response immediately.\n-- However, it might take some time for the gateway to be ready. You should call 'DescribeGatewayInformation' and check the status before making any additional\n-- API calls. For more information, see 'ActivateGateway'. To specify which\n-- gateway to start, use the Amazon Resource Name (ARN) of the gateway in your\n-- request.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -17533,7 +17800,7 @@
             "pager": null,
             "name": "UpdateGatewaySoftwareNow",
             "method": "post",
-            "documentation": "-- | This operation updates the gateway virtual machine (VM) software. The request\n-- immediately triggers the software update.\n--\n-- A software update forces a system restart of your gateway. You can minimize\n-- the chance of any disruption to your applications by increasing your iSCSI\n-- Initiators' timeouts. For more information about increasing iSCSI Initiator\n-- timeouts for Windows and Linux, see \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings Customizing Your Windows iSCSI Settings\u003e\n-- and \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing Your Linux iSCSI Settings\u003e, respectively.",
+            "documentation": "-- | This operation updates the gateway virtual machine (VM) software. The request\n-- immediately triggers the software update.\n--\n-- When you make this request, you get a '200 OK' success response immediately.\n-- However, it might take some time for the update to complete. You can call 'DescribeGatewayInformation' to verify the gateway is in the 'STATE_RUNNING' state. A software update\n-- forces a system restart of your gateway. You can minimize the chance of any\n-- disruption to your applications by increasing your iSCSI Initiators'\n-- timeouts. For more information about increasing iSCSI Initiator timeouts for\n-- Windows and Linux, see \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings Customizing Your Windows iSCSI Settings\u003e and \u003chttp://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing Your Linux iSCSI Settings\u003e, respectively.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -18315,6 +18582,250 @@
                         "shape": "VolumeARN",
                         "locationName": "VolumeARN",
                         "documentation": "-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation\n-- to return a list of gateway volumes.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "StorageGateway",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Monoid"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "updateVTLDeviceTypeResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "monoid": false,
+                    "flattened": false,
+                    "required": false,
+                    "lens": "uvtldtrVTLDeviceARN",
+                    "name": "_uvtldtrVTLDeviceARN",
+                    "shape": "VTLDeviceARN",
+                    "locationName": "VTLDeviceARN",
+                    "documentation": "-- | The Amazon Resource Name (ARN) of the medium changer you have selected.",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uvtldtrVTLDeviceARN",
+                        "name": "_uvtldtrVTLDeviceARN",
+                        "shape": "VTLDeviceARN",
+                        "locationName": "VTLDeviceARN",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the medium changer you have selected.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "json",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "UpdateVTLDeviceTypeResponse",
+                "resultWrapper": null,
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uvtldtrVTLDeviceARN",
+                        "name": "_uvtldtrVTLDeviceARN",
+                        "shape": "VTLDeviceARN",
+                        "locationName": "VTLDeviceARN",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the medium changer you have selected.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uvtldtrVTLDeviceARN",
+                        "name": "_uvtldtrVTLDeviceARN",
+                        "shape": "VTLDeviceARN",
+                        "locationName": "VTLDeviceARN",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the medium changer you have selected.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateVTLDeviceType.html",
+            "namespace": "Network.AWS.StorageGateway.UpdateVTLDeviceType",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.StorageGateway.Types"
+            ],
+            "pager": null,
+            "name": "UpdateVTLDeviceType",
+            "method": "post",
+            "documentation": "-- | This operation updates the type of medium changer in a gateway-VTL. When you\n-- activate a gateway-VTL, you select a medium changer type for the gateway-VTL.\n-- This operation enables you to select a different type of medium changer after\n-- a gateway-VTL is activated.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 19,
+                "ctor": "updateVTLDeviceType",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uvtldtVTLDeviceARN",
+                        "name": "_uvtldtVTLDeviceARN",
+                        "shape": "VTLDeviceARN",
+                        "locationName": "VTLDeviceARN",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the medium changer you want to select.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uvtldtDeviceType",
+                        "name": "_uvtldtDeviceType",
+                        "shape": "DeviceType",
+                        "locationName": "DeviceType",
+                        "documentation": "-- | The type of medium changer you want to select.\n--\n-- /Valid Values/: \"STK-L700\", \"AWS-Gateway-VTL\"",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uvtldtVTLDeviceARN",
+                        "name": "_uvtldtVTLDeviceARN",
+                        "shape": "VTLDeviceARN",
+                        "locationName": "VTLDeviceARN",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the medium changer you want to select.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uvtldtDeviceType",
+                        "name": "_uvtldtDeviceType",
+                        "shape": "DeviceType",
+                        "locationName": "DeviceType",
+                        "documentation": "-- | The type of medium changer you want to select.\n--\n-- /Valid Values/: \"STK-L700\", \"AWS-Gateway-VTL\"",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 13,
+                "queryPad": 0,
+                "name": "UpdateVTLDeviceType",
+                "query": [],
+                "locationPad": 13,
+                "type": "record",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uvtldtDeviceType",
+                        "name": "_uvtldtDeviceType",
+                        "shape": "DeviceType",
+                        "locationName": "DeviceType",
+                        "documentation": "-- | The type of medium changer you want to select.\n--\n-- /Valid Values/: \"STK-L700\", \"AWS-Gateway-VTL\"",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uvtldtVTLDeviceARN",
+                        "name": "_uvtldtVTLDeviceARN",
+                        "shape": "VTLDeviceARN",
+                        "locationName": "VTLDeviceARN",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the medium changer you want to select.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }

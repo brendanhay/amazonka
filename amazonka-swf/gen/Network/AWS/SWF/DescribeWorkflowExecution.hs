@@ -22,10 +22,11 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns information about the specified workflow execution including its
--- type and some statistics.
+-- | Returns information about the specified workflow execution including its type
+-- and some statistics.
 --
--- Access Control
+-- This operation is eventually consistent. The results are best effort and may
+-- not exactly reflect recent updates and changes. Access Control
 --
 -- You can use IAM policies to control this action's access to Amazon SWF
 -- resources as follows:
@@ -35,8 +36,8 @@
 -- this action. You cannot use an IAM policy to constrain this action's
 -- parameters.  If the caller does not have sufficient permissions to invoke the
 -- action, or the parameter values fall outside the specified constraints, the
--- action fails by throwing 'OperationNotPermitted'. For details and example IAM
--- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- action fails. The associated event attribute's cause parameter will be set to
+-- OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAMto Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeWorkflowExecution.html>
 module Network.AWS.SWF.DescribeWorkflowExecution
@@ -152,8 +153,8 @@ dwerLatestActivityTaskTimestamp =
             . mapping _Time
 
 -- | The latest executionContext provided by the decider for this workflow
--- execution. A decider can provide an executionContext, which is a free form
--- string, when closing a decision task using 'RespondDecisionTaskCompleted'.
+-- execution. A decider can provide an executionContext (a free-form string)
+-- when closing a decision task using 'RespondDecisionTaskCompleted'.
 dwerLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Text)
 dwerLatestExecutionContext =
     lens _dwerLatestExecutionContext

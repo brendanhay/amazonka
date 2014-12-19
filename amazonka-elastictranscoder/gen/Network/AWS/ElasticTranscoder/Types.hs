@@ -89,6 +89,7 @@ module Network.AWS.ElasticTranscoder.Types
     , jPipelineId
     , jPlaylists
     , jStatus
+    , jUserMetadata
 
     -- * CaptionSource
     , CaptionSource
@@ -924,6 +925,7 @@ data Job' = Job'
     , _jPipelineId      :: Text
     , _jPlaylists       :: List "Playlists" Playlist
     , _jStatus          :: Text
+    , _jUserMetadata    :: Map Text Text
     } deriving (Eq, Show)
 
 -- | 'Job'' constructor.
@@ -948,6 +950,8 @@ data Job' = Job'
 --
 -- * 'jStatus' @::@ 'Text'
 --
+-- * 'jUserMetadata' @::@ 'HashMap' 'Text' 'Text'
+--
 job :: Text -- ^ 'jId'
     -> Text -- ^ 'jPipelineId'
     -> JobInput -- ^ 'jInput'
@@ -964,6 +968,7 @@ job p1 p2 p3 p4 p5 = Job'
     , _jOutput          = Nothing
     , _jOutputs         = mempty
     , _jPlaylists       = mempty
+    , _jUserMetadata    = mempty
     }
 
 -- | The Amazon Resource Name (ARN) for the job.
@@ -1025,6 +1030,24 @@ jPlaylists = lens _jPlaylists (\s a -> s { _jPlaylists = a }) . _List
 jStatus :: Lens' Job' Text
 jStatus = lens _jStatus (\s a -> s { _jStatus = a })
 
+-- | User-defined metadata that you want to associate with an Elastic Transcoder
+-- job. You specify metadata in 'key/value' pairs, and you can add up to 10 'key/value' pairs per job. Elastic Transcoder does not guarantee that 'key/value' pairs
+-- will be returned in the same order in which you specify them.
+--
+-- Metadata 'keys' and 'values' must use characters from the following list:
+--
+-- '0-9'
+--
+-- 'A-Z' and 'a-z'
+--
+-- 'Space'
+--
+-- The following symbols: '_.:/=+-%@'
+--
+--
+jUserMetadata :: Lens' Job' (HashMap Text Text)
+jUserMetadata = lens _jUserMetadata (\s a -> s { _jUserMetadata = a }) . _Map
+
 instance FromJSON Job' where
     parseJSON = withObject "Job'" $ \o -> Job'
         <$> o .:? "Arn"
@@ -1036,6 +1059,7 @@ instance FromJSON Job' where
         <*> o .:  "PipelineId"
         <*> o .:? "Playlists" .!= mempty
         <*> o .:  "Status"
+        <*> o .:? "UserMetadata" .!= mempty
 
 instance ToJSON Job' where
     toJSON Job'{..} = object
@@ -1048,6 +1072,7 @@ instance ToJSON Job' where
         , "OutputKeyPrefix" .= _jOutputKeyPrefix
         , "Playlists"       .= _jPlaylists
         , "Status"          .= _jStatus
+        , "UserMetadata"    .= _jUserMetadata
         ]
 
 data CaptionSource = CaptionSource

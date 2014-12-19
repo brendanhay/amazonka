@@ -1695,6 +1695,22 @@
                         "documentation": "-- | The status of the job: 'Submitted', 'Progressing', 'Complete', 'Canceled', or 'Error'.",
                         "typeExposed": "Text",
                         "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jUserMetadata",
+                        "name": "_jUserMetadata",
+                        "shape": "UserMetadata",
+                        "locationName": "UserMetadata",
+                        "documentation": "-- | User-defined metadata that you want to associate with an Elastic Transcoder\n-- job. You specify metadata in 'key/value' pairs, and you can add up to 10 'key/value' pairs per job. Elastic Transcoder does not guarantee that 'key/value' pairs\n-- will be returned in the same order in which you specify them.\n--\n-- Metadata 'keys' and 'values' must use characters from the following list:\n--\n-- '0-9'\n--\n-- 'A-Z' and 'a-z'\n--\n-- 'Space'\n--\n-- The following symbols: '_.:/=+-%@'\n--\n--",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
                     }
                 ],
                 "payload": null,
@@ -1848,6 +1864,22 @@
                         "documentation": "-- | Outputs in Fragmented MP4 or MPEG-TS format only.If you specify a preset in 'PresetId' for which the value of 'Container' is fmp4 (Fragmented MP4) or ts (MPEG-TS), 'Playlists' contains information about the master playlists that you want Elastic\n-- Transcoder to create.\n--\n-- The maximum number of master playlists in a job is 30.",
                         "typeExposed": "[Playlist]",
                         "type": "List \"Playlists\" Playlist"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jUserMetadata",
+                        "name": "_jUserMetadata",
+                        "shape": "UserMetadata",
+                        "locationName": "UserMetadata",
+                        "documentation": "-- | User-defined metadata that you want to associate with an Elastic Transcoder\n-- job. You specify metadata in 'key/value' pairs, and you can add up to 10 'key/value' pairs per job. Elastic Transcoder does not guarantee that 'key/value' pairs\n-- will be returned in the same order in which you specify them.\n--\n-- Metadata 'keys' and 'values' must use characters from the following list:\n--\n-- '0-9'\n--\n-- 'A-Z' and 'a-z'\n--\n-- 'Space'\n--\n-- The following symbols: '_.:/=+-%@'\n--\n--",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
                     }
                 ],
                 "fields": [
@@ -1994,6 +2026,22 @@
                         "documentation": "-- | The status of the job: 'Submitted', 'Progressing', 'Complete', 'Canceled', or 'Error'.",
                         "typeExposed": "Text",
                         "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jUserMetadata",
+                        "name": "_jUserMetadata",
+                        "shape": "UserMetadata",
+                        "locationName": "UserMetadata",
+                        "documentation": "-- | User-defined metadata that you want to associate with an Elastic Transcoder\n-- job. You specify metadata in 'key/value' pairs, and you can add up to 10 'key/value' pairs per job. Elastic Transcoder does not guarantee that 'key/value' pairs\n-- will be returned in the same order in which you specify them.\n--\n-- Metadata 'keys' and 'values' must use characters from the following list:\n--\n-- '0-9'\n--\n-- 'A-Z' and 'a-z'\n--\n-- 'Space'\n--\n-- The following symbols: '_.:/=+-%@'\n--\n--",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
                     }
                 ]
             },
@@ -8277,6 +8325,22 @@
                         "documentation": "-- | If you specify a preset in 'PresetId' for which the value of 'Container' is fmp4\n-- (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the\n-- master playlists that you want Elastic Transcoder to create.\n--\n-- The maximum number of master playlists in a job is 30.",
                         "typeExposed": "[CreateJobPlaylist]",
                         "type": "List \"Playlists\" CreateJobPlaylist"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cjUserMetadata",
+                        "name": "_cjUserMetadata",
+                        "shape": "UserMetadata",
+                        "locationName": "UserMetadata",
+                        "documentation": "-- | User-defined metadata that you want to associate with an Elastic Transcoder\n-- job. You specify metadata in 'key/value' pairs, and you can add up to 10 'key/value' pairs per job. Elastic Transcoder does not guarantee that 'key/value' pairs\n-- will be returned in the same order in which you specify them.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
                     }
                 ],
                 "path": [
@@ -8395,6 +8459,22 @@
                         "documentation": "-- | If you specify a preset in 'PresetId' for which the value of 'Container' is fmp4\n-- (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the\n-- master playlists that you want Elastic Transcoder to create.\n--\n-- The maximum number of master playlists in a job is 30.",
                         "typeExposed": "[CreateJobPlaylist]",
                         "type": "List \"Playlists\" CreateJobPlaylist"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cjUserMetadata",
+                        "name": "_cjUserMetadata",
+                        "shape": "UserMetadata",
+                        "locationName": "UserMetadata",
+                        "documentation": "-- | User-defined metadata that you want to associate with an Elastic Transcoder\n-- job. You specify metadata in 'key/value' pairs, and you can add up to 10 'key/value' pairs per job. Elastic Transcoder does not guarantee that 'key/value' pairs\n-- will be returned in the same order in which you specify them.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
                     }
                 ],
                 "fields": [
@@ -8493,6 +8573,22 @@
                         "documentation": "-- | If you specify a preset in 'PresetId' for which the value of 'Container' is fmp4\n-- (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the\n-- master playlists that you want Elastic Transcoder to create.\n--\n-- The maximum number of master playlists in a job is 30.",
                         "typeExposed": "[CreateJobPlaylist]",
                         "type": "List \"Playlists\" CreateJobPlaylist"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cjUserMetadata",
+                        "name": "_cjUserMetadata",
+                        "shape": "UserMetadata",
+                        "locationName": "UserMetadata",
+                        "documentation": "-- | User-defined metadata that you want to associate with an Elastic Transcoder\n-- job. You specify metadata in 'key/value' pairs, and you can add up to 10 'key/value' pairs per job. Elastic Transcoder does not guarantee that 'key/value' pairs\n-- will be returned in the same order in which you specify them.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
                     }
                 ]
             }

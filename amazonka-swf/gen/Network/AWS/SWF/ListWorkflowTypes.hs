@@ -22,9 +22,9 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns information about workflow types in the specified domain. The
--- results may be split into multiple pages that can be retrieved by making the
--- call repeatedly.
+-- | Returns information about workflow types in the specified domain. The results
+-- may be split into multiple pages that can be retrieved by making the call
+-- repeatedly.
 --
 -- Access Control
 --
@@ -36,8 +36,8 @@
 -- this action. You cannot use an IAM policy to constrain this action's
 -- parameters.  If the caller does not have sufficient permissions to invoke the
 -- action, or the parameter values fall outside the specified constraints, the
--- action fails by throwing 'OperationNotPermitted'. For details and example IAM
--- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- action fails. The associated event attribute's cause parameter will be set to
+-- OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAMto Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListWorkflowTypes.html>
 module Network.AWS.SWF.ListWorkflowTypes
@@ -109,11 +109,13 @@ listWorkflowTypes p1 p2 = ListWorkflowTypes
 lwtDomain :: Lens' ListWorkflowTypes Text
 lwtDomain = lens _lwtDomain (\s a -> s { _lwtDomain = a })
 
--- | The maximum number of results returned in each page. The default is 100, but
--- the caller can override this value to a page size /smaller/ than the default.
--- You cannot specify a page size greater than 100. Note that the number of
--- types may be less than the maxiumum page size, in which case, the returned
--- page will have fewer results than the maximumPageSize specified.
+-- | The maximum number of results that will be returned per call. 'nextPageToken'
+-- can be used to obtain futher pages of results. The default is 100, which is
+-- the maximum allowed page size. You can, however, specify a page size /smaller/
+-- than 100.
+--
+-- This is an upper limit only; the actual number of results returned per call
+-- may be fewer than the specified maximum.
 lwtMaximumPageSize :: Lens' ListWorkflowTypes (Maybe Natural)
 lwtMaximumPageSize =
     lens _lwtMaximumPageSize (\s a -> s { _lwtMaximumPageSize = a })
@@ -123,9 +125,12 @@ lwtMaximumPageSize =
 lwtName :: Lens' ListWorkflowTypes (Maybe Text)
 lwtName = lens _lwtName (\s a -> s { _lwtName = a })
 
--- | If on a previous call to this method a 'NextPageToken' was returned, the
--- results are being paginated. To get the next page of results, repeat the call
--- with the returned token and all other arguments unchanged.
+-- | If a 'NextPageToken' was returned by a previous call, there are more results
+-- available. To retrieve the next page of results, make the call again using
+-- the returned token in 'nextPageToken'. Keep all other arguments unchanged.
+--
+-- The configured 'maximumPageSize' determines how many results can be returned
+-- in a single call.
 lwtNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
 lwtNextPageToken = lens _lwtNextPageToken (\s a -> s { _lwtNextPageToken = a })
 
@@ -159,10 +164,12 @@ listWorkflowTypesResponse = ListWorkflowTypesResponse
     , _lwtrNextPageToken = Nothing
     }
 
--- | The token for the next page of type information. If set then the list
--- consists of more than one page. You can retrieve the next page by repeating
--- the request (that returned the structure) with the this token and all other
--- arguments unchanged.
+-- | If a 'NextPageToken' was returned by a previous call, there are more results
+-- available. To retrieve the next page of results, make the call again using
+-- the returned token in 'nextPageToken'. Keep all other arguments unchanged.
+--
+-- The configured 'maximumPageSize' determines how many results can be returned
+-- in a single call.
 lwtrNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
 lwtrNextPageToken =
     lens _lwtrNextPageToken (\s a -> s { _lwtrNextPageToken = a })

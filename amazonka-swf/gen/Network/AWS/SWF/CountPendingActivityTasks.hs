@@ -38,8 +38,9 @@
 -- element with the 'swf:taskList.name' key to allow the action to access only
 -- certain task lists.  If the caller does not have sufficient permissions to
 -- invoke the action, or the parameter values fall outside the specified
--- constraints, the action fails by throwing 'OperationNotPermitted'. For details
--- and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWFWorkflows>.
+-- constraints, the action fails. The associated event attribute's cause
+-- parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM
+-- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountPendingActivityTasks.html>
 module Network.AWS.SWF.CountPendingActivityTasks

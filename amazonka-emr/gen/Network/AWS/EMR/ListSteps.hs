@@ -34,6 +34,7 @@ module Network.AWS.EMR.ListSteps
     -- ** Request lenses
     , lsClusterId
     , lsMarker
+    , lsStepIds
     , lsStepStates
 
     -- * Response
@@ -53,6 +54,7 @@ import qualified GHC.Exts
 data ListSteps = ListSteps
     { _lsClusterId  :: Text
     , _lsMarker     :: Maybe Text
+    , _lsStepIds    :: List "Args" Text
     , _lsStepStates :: List "StepStates" StepState
     } deriving (Eq, Show)
 
@@ -64,6 +66,8 @@ data ListSteps = ListSteps
 --
 -- * 'lsMarker' @::@ 'Maybe' 'Text'
 --
+-- * 'lsStepIds' @::@ ['Text']
+--
 -- * 'lsStepStates' @::@ ['StepState']
 --
 listSteps :: Text -- ^ 'lsClusterId'
@@ -71,6 +75,7 @@ listSteps :: Text -- ^ 'lsClusterId'
 listSteps p1 = ListSteps
     { _lsClusterId  = p1
     , _lsStepStates = mempty
+    , _lsStepIds    = mempty
     , _lsMarker     = Nothing
     }
 
@@ -81,6 +86,10 @@ lsClusterId = lens _lsClusterId (\s a -> s { _lsClusterId = a })
 -- | The pagination token that indicates the next set of results to retrieve.
 lsMarker :: Lens' ListSteps (Maybe Text)
 lsMarker = lens _lsMarker (\s a -> s { _lsMarker = a })
+
+-- | The filter to limit the step list based on the identifier of the steps.
+lsStepIds :: Lens' ListSteps [Text]
+lsStepIds = lens _lsStepIds (\s a -> s { _lsStepIds = a }) . _List
 
 -- | The filter to limit the step list based on certain states.
 lsStepStates :: Lens' ListSteps [StepState]
@@ -125,6 +134,7 @@ instance ToJSON ListSteps where
     toJSON ListSteps{..} = object
         [ "ClusterId"  .= _lsClusterId
         , "StepStates" .= _lsStepStates
+        , "StepIds"    .= _lsStepIds
         , "Marker"     .= _lsMarker
         ]
 

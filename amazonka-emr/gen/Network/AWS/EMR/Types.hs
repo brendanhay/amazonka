@@ -135,7 +135,9 @@ module Network.AWS.EMR.Types
     , c1Ec2InstanceAttributes
     , c1Id
     , c1LogUri
+    , c1MasterPublicDnsName
     , c1Name
+    , c1NormalizedInstanceHours
     , c1RequestedAmiVersion
     , c1RunningAmiVersion
     , c1ServiceRole
@@ -204,6 +206,8 @@ module Network.AWS.EMR.Types
     -- * StepSummary
     , StepSummary
     , stepSummary
+    , ssActionOnFailure
+    , ssConfig
     , ssId
     , ssName
     , ssStatus
@@ -353,6 +357,7 @@ module Network.AWS.EMR.Types
     , clusterSummary
     , csId
     , csName
+    , csNormalizedInstanceHours
     , csStatus
 
     -- * JobFlowInstancesDetail
@@ -1243,19 +1248,21 @@ instance ToJSON InstanceGroupStatus where
         ]
 
 data Cluster = Cluster
-    { _c1Applications          :: List "Applications" Application
-    , _c1AutoTerminate         :: Maybe Bool
-    , _c1Ec2InstanceAttributes :: Maybe Ec2InstanceAttributes
-    , _c1Id                    :: Text
-    , _c1LogUri                :: Maybe Text
-    , _c1Name                  :: Text
-    , _c1RequestedAmiVersion   :: Maybe Text
-    , _c1RunningAmiVersion     :: Maybe Text
-    , _c1ServiceRole           :: Maybe Text
-    , _c1Status                :: ClusterStatus
-    , _c1Tags                  :: List "Tags" Tag
-    , _c1TerminationProtected  :: Maybe Bool
-    , _c1VisibleToAllUsers     :: Maybe Bool
+    { _c1Applications            :: List "Applications" Application
+    , _c1AutoTerminate           :: Maybe Bool
+    , _c1Ec2InstanceAttributes   :: Maybe Ec2InstanceAttributes
+    , _c1Id                      :: Text
+    , _c1LogUri                  :: Maybe Text
+    , _c1MasterPublicDnsName     :: Maybe Text
+    , _c1Name                    :: Text
+    , _c1NormalizedInstanceHours :: Maybe Int
+    , _c1RequestedAmiVersion     :: Maybe Text
+    , _c1RunningAmiVersion       :: Maybe Text
+    , _c1ServiceRole             :: Maybe Text
+    , _c1Status                  :: ClusterStatus
+    , _c1Tags                    :: List "Tags" Tag
+    , _c1TerminationProtected    :: Maybe Bool
+    , _c1VisibleToAllUsers       :: Maybe Bool
     } deriving (Eq, Show)
 
 -- | 'Cluster' constructor.
@@ -1272,7 +1279,11 @@ data Cluster = Cluster
 --
 -- * 'c1LogUri' @::@ 'Maybe' 'Text'
 --
+-- * 'c1MasterPublicDnsName' @::@ 'Maybe' 'Text'
+--
 -- * 'c1Name' @::@ 'Text'
+--
+-- * 'c1NormalizedInstanceHours' @::@ 'Maybe' 'Int'
 --
 -- * 'c1RequestedAmiVersion' @::@ 'Maybe' 'Text'
 --
@@ -1293,19 +1304,21 @@ cluster :: Text -- ^ 'c1Id'
         -> ClusterStatus -- ^ 'c1Status'
         -> Cluster
 cluster p1 p2 p3 = Cluster
-    { _c1Id                    = p1
-    , _c1Name                  = p2
-    , _c1Status                = p3
-    , _c1Ec2InstanceAttributes = Nothing
-    , _c1LogUri                = Nothing
-    , _c1RequestedAmiVersion   = Nothing
-    , _c1RunningAmiVersion     = Nothing
-    , _c1AutoTerminate         = Nothing
-    , _c1TerminationProtected  = Nothing
-    , _c1VisibleToAllUsers     = Nothing
-    , _c1Applications          = mempty
-    , _c1Tags                  = mempty
-    , _c1ServiceRole           = Nothing
+    { _c1Id                      = p1
+    , _c1Name                    = p2
+    , _c1Status                  = p3
+    , _c1Ec2InstanceAttributes   = Nothing
+    , _c1LogUri                  = Nothing
+    , _c1RequestedAmiVersion     = Nothing
+    , _c1RunningAmiVersion       = Nothing
+    , _c1AutoTerminate           = Nothing
+    , _c1TerminationProtected    = Nothing
+    , _c1VisibleToAllUsers       = Nothing
+    , _c1Applications            = mempty
+    , _c1Tags                    = mempty
+    , _c1ServiceRole             = Nothing
+    , _c1NormalizedInstanceHours = Nothing
+    , _c1MasterPublicDnsName     = Nothing
     }
 
 -- | The applications installed on this cluster.
@@ -1328,9 +1341,25 @@ c1Id = lens _c1Id (\s a -> s { _c1Id = a })
 c1LogUri :: Lens' Cluster (Maybe Text)
 c1LogUri = lens _c1LogUri (\s a -> s { _c1LogUri = a })
 
+-- | The public DNS name of the master Ec2 instance.
+c1MasterPublicDnsName :: Lens' Cluster (Maybe Text)
+c1MasterPublicDnsName =
+    lens _c1MasterPublicDnsName (\s a -> s { _c1MasterPublicDnsName = a })
+
 -- | The name of the cluster.
 c1Name :: Lens' Cluster Text
 c1Name = lens _c1Name (\s a -> s { _c1Name = a })
+
+-- | An approximation of the cost of the job flow, represented in m1.small/hours.
+-- This value is incremented one time for every hour an m1.small instance runs.
+-- Larger instances are weighted more, so an EC2 instance that is roughly four
+-- times more expensive would result in the normalized instance hours being
+-- incremented by four. This result is only an approximation and does not
+-- reflect the actual billing rate.
+c1NormalizedInstanceHours :: Lens' Cluster (Maybe Int)
+c1NormalizedInstanceHours =
+    lens _c1NormalizedInstanceHours
+        (\s a -> s { _c1NormalizedInstanceHours = a })
 
 -- | The AMI version requested for this cluster.
 c1RequestedAmiVersion :: Lens' Cluster (Maybe Text)
@@ -1380,7 +1409,9 @@ instance FromJSON Cluster where
         <*> o .:? "Ec2InstanceAttributes"
         <*> o .:  "Id"
         <*> o .:? "LogUri"
+        <*> o .:? "MasterPublicDnsName"
         <*> o .:  "Name"
+        <*> o .:? "NormalizedInstanceHours"
         <*> o .:? "RequestedAmiVersion"
         <*> o .:? "RunningAmiVersion"
         <*> o .:? "ServiceRole"
@@ -1391,19 +1422,21 @@ instance FromJSON Cluster where
 
 instance ToJSON Cluster where
     toJSON Cluster{..} = object
-        [ "Id"                    .= _c1Id
-        , "Name"                  .= _c1Name
-        , "Status"                .= _c1Status
-        , "Ec2InstanceAttributes" .= _c1Ec2InstanceAttributes
-        , "LogUri"                .= _c1LogUri
-        , "RequestedAmiVersion"   .= _c1RequestedAmiVersion
-        , "RunningAmiVersion"     .= _c1RunningAmiVersion
-        , "AutoTerminate"         .= _c1AutoTerminate
-        , "TerminationProtected"  .= _c1TerminationProtected
-        , "VisibleToAllUsers"     .= _c1VisibleToAllUsers
-        , "Applications"          .= _c1Applications
-        , "Tags"                  .= _c1Tags
-        , "ServiceRole"           .= _c1ServiceRole
+        [ "Id"                      .= _c1Id
+        , "Name"                    .= _c1Name
+        , "Status"                  .= _c1Status
+        , "Ec2InstanceAttributes"   .= _c1Ec2InstanceAttributes
+        , "LogUri"                  .= _c1LogUri
+        , "RequestedAmiVersion"     .= _c1RequestedAmiVersion
+        , "RunningAmiVersion"       .= _c1RunningAmiVersion
+        , "AutoTerminate"           .= _c1AutoTerminate
+        , "TerminationProtected"    .= _c1TerminationProtected
+        , "VisibleToAllUsers"       .= _c1VisibleToAllUsers
+        , "Applications"            .= _c1Applications
+        , "Tags"                    .= _c1Tags
+        , "ServiceRole"             .= _c1ServiceRole
+        , "NormalizedInstanceHours" .= _c1NormalizedInstanceHours
+        , "MasterPublicDnsName"     .= _c1MasterPublicDnsName
         ]
 
 data InstanceTimeline = InstanceTimeline
@@ -1898,14 +1931,20 @@ instance ToJSON StepStatus where
         ]
 
 data StepSummary = StepSummary
-    { _ssId     :: Maybe Text
-    , _ssName   :: Maybe Text
-    , _ssStatus :: Maybe StepStatus
+    { _ssActionOnFailure :: Maybe ActionOnFailure
+    , _ssConfig          :: Maybe HadoopStepConfig
+    , _ssId              :: Maybe Text
+    , _ssName            :: Maybe Text
+    , _ssStatus          :: Maybe StepStatus
     } deriving (Eq, Show)
 
 -- | 'StepSummary' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'ssActionOnFailure' @::@ 'Maybe' 'ActionOnFailure'
+--
+-- * 'ssConfig' @::@ 'Maybe' 'HadoopStepConfig'
 --
 -- * 'ssId' @::@ 'Maybe' 'Text'
 --
@@ -1915,10 +1954,22 @@ data StepSummary = StepSummary
 --
 stepSummary :: StepSummary
 stepSummary = StepSummary
-    { _ssId     = Nothing
-    , _ssName   = Nothing
-    , _ssStatus = Nothing
+    { _ssId              = Nothing
+    , _ssName            = Nothing
+    , _ssConfig          = Nothing
+    , _ssActionOnFailure = Nothing
+    , _ssStatus          = Nothing
     }
+
+-- | This specifies what action to take when the cluster step fails. Possible
+-- values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE.
+ssActionOnFailure :: Lens' StepSummary (Maybe ActionOnFailure)
+ssActionOnFailure =
+    lens _ssActionOnFailure (\s a -> s { _ssActionOnFailure = a })
+
+-- | The Hadoop job configuration of the cluster step.
+ssConfig :: Lens' StepSummary (Maybe HadoopStepConfig)
+ssConfig = lens _ssConfig (\s a -> s { _ssConfig = a })
 
 -- | The identifier of the cluster step.
 ssId :: Lens' StepSummary (Maybe Text)
@@ -1934,15 +1985,19 @@ ssStatus = lens _ssStatus (\s a -> s { _ssStatus = a })
 
 instance FromJSON StepSummary where
     parseJSON = withObject "StepSummary" $ \o -> StepSummary
-        <$> o .:? "Id"
+        <$> o .:? "ActionOnFailure"
+        <*> o .:? "Config"
+        <*> o .:? "Id"
         <*> o .:? "Name"
         <*> o .:? "Status"
 
 instance ToJSON StepSummary where
     toJSON StepSummary{..} = object
-        [ "Id"     .= _ssId
-        , "Name"   .= _ssName
-        , "Status" .= _ssStatus
+        [ "Id"              .= _ssId
+        , "Name"            .= _ssName
+        , "Config"          .= _ssConfig
+        , "ActionOnFailure" .= _ssActionOnFailure
+        , "Status"          .= _ssStatus
         ]
 
 data InstanceGroupState
@@ -2866,10 +2921,11 @@ jficEc2KeyName = lens _jficEc2KeyName (\s a -> s { _jficEc2KeyName = a })
 jficEc2SubnetId :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEc2SubnetId = lens _jficEc2SubnetId (\s a -> s { _jficEc2SubnetId = a })
 
--- | The Hadoop version for the job flow. Valid inputs are "0.18", "0.20", or
--- "0.20.205". If you do not set this value, the default of 0.18 is used, unless
--- the AmiVersion parameter is set in the RunJobFlow call, in which case the
--- default version of Hadoop for that AMI version is used.
+-- | The Hadoop version for the job flow. Valid inputs are "0.18", "0.20",
+-- "0.20.205", "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the
+-- default of 0.18 is used, unless the AmiVersion parameter is set in the
+-- RunJobFlow call, in which case the default version of Hadoop for that AMI
+-- version is used.
 jficHadoopVersion :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficHadoopVersion =
     lens _jficHadoopVersion (\s a -> s { _jficHadoopVersion = a })
@@ -3148,9 +3204,10 @@ instance ToJSON BootstrapActionConfig where
         ]
 
 data ClusterSummary = ClusterSummary
-    { _csId     :: Maybe Text
-    , _csName   :: Maybe Text
-    , _csStatus :: Maybe ClusterStatus
+    { _csId                      :: Maybe Text
+    , _csName                    :: Maybe Text
+    , _csNormalizedInstanceHours :: Maybe Int
+    , _csStatus                  :: Maybe ClusterStatus
     } deriving (Eq, Show)
 
 -- | 'ClusterSummary' constructor.
@@ -3161,13 +3218,16 @@ data ClusterSummary = ClusterSummary
 --
 -- * 'csName' @::@ 'Maybe' 'Text'
 --
+-- * 'csNormalizedInstanceHours' @::@ 'Maybe' 'Int'
+--
 -- * 'csStatus' @::@ 'Maybe' 'ClusterStatus'
 --
 clusterSummary :: ClusterSummary
 clusterSummary = ClusterSummary
-    { _csId     = Nothing
-    , _csName   = Nothing
-    , _csStatus = Nothing
+    { _csId                      = Nothing
+    , _csName                    = Nothing
+    , _csStatus                  = Nothing
+    , _csNormalizedInstanceHours = Nothing
     }
 
 -- | The unique identifier for the cluster.
@@ -3178,6 +3238,17 @@ csId = lens _csId (\s a -> s { _csId = a })
 csName :: Lens' ClusterSummary (Maybe Text)
 csName = lens _csName (\s a -> s { _csName = a })
 
+-- | An approximation of the cost of the job flow, represented in m1.small/hours.
+-- This value is incremented one time for every hour an m1.small instance runs.
+-- Larger instances are weighted more, so an EC2 instance that is roughly four
+-- times more expensive would result in the normalized instance hours being
+-- incremented by four. This result is only an approximation and does not
+-- reflect the actual billing rate.
+csNormalizedInstanceHours :: Lens' ClusterSummary (Maybe Int)
+csNormalizedInstanceHours =
+    lens _csNormalizedInstanceHours
+        (\s a -> s { _csNormalizedInstanceHours = a })
+
 -- | The details about the current status of the cluster.
 csStatus :: Lens' ClusterSummary (Maybe ClusterStatus)
 csStatus = lens _csStatus (\s a -> s { _csStatus = a })
@@ -3186,13 +3257,15 @@ instance FromJSON ClusterSummary where
     parseJSON = withObject "ClusterSummary" $ \o -> ClusterSummary
         <$> o .:? "Id"
         <*> o .:? "Name"
+        <*> o .:? "NormalizedInstanceHours"
         <*> o .:? "Status"
 
 instance ToJSON ClusterSummary where
     toJSON ClusterSummary{..} = object
-        [ "Id"     .= _csId
-        , "Name"   .= _csName
-        , "Status" .= _csStatus
+        [ "Id"                      .= _csId
+        , "Name"                    .= _csName
+        , "Status"                  .= _csStatus
+        , "NormalizedInstanceHours" .= _csNormalizedInstanceHours
         ]
 
 data JobFlowInstancesDetail = JobFlowInstancesDetail

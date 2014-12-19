@@ -72,6 +72,7 @@ library
         , Network.AWS.StorageGateway.ListLocalDisks
         , Network.AWS.StorageGateway.ListVolumeRecoveryPoints
         , Network.AWS.StorageGateway.ListVolumes
+        , Network.AWS.StorageGateway.ResetCache
         , Network.AWS.StorageGateway.RetrieveTapeArchive
         , Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
         , Network.AWS.StorageGateway.ShutdownGateway
@@ -83,6 +84,7 @@ library
         , Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
         , Network.AWS.StorageGateway.UpdateMaintenanceStartTime
         , Network.AWS.StorageGateway.UpdateSnapshotSchedule
+        , Network.AWS.StorageGateway.UpdateVTLDeviceType
 
     other-modules:
 

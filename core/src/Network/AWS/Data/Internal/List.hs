@@ -88,6 +88,8 @@ instance (KnownSymbol e, ToQuery a) => ToQuery (List e a) where
       where
         n = fromString $ symbolVal (Proxy :: Proxy e)
 
+How to handle flattened here correctly?
+
 instance (KnownSymbol e, ToQuery a) => ToQuery (List1 e a) where
     toQuery = toQueryList n . toList . list1
       where

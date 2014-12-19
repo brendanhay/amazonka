@@ -28,12 +28,18 @@
 -- The operation shuts down the gateway service component running in the
 -- storage gateway's virtual machine (VM) and not the VM.
 --
--- After the gateway is shutdown, you cannot call any other API except 'StartGateway', 'DescribeGatewayInformation', and 'ListGateways'. For more information, see 'ActivateGateway'. Your applications cannot read from or write to the gateway's storage
--- volumes, and there are no snapshots taken.
+-- If you want to shut down the VM, it is recommended that you first shut down
+-- the gateway component in the VM to avoid unpredictable conditions. After the
+-- gateway is shutdown, you cannot call any other API except 'StartGateway', 'DescribeGatewayInformation', and 'ListGateways'. For more information, see 'ActivateGateway'. Your
+-- applications cannot read from or write to the gateway's storage volumes, and
+-- there are no snapshots taken.
 --
--- If do not intend to use the gateway again, you must delete the gateway
--- (using 'DeleteGateway') to no longer pay software charges associated with the
--- gateway.
+-- When you make a shutdown request, you will get a '200 OK' success response
+-- immediately. However, it might take some time for the gateway to shut down.
+-- You can call the 'DescribeGatewayInformation' API to check the status. For more
+-- information, see 'ActivateGateway'. If do not intend to use the gateway again,
+-- you must delete the gateway (using 'DeleteGateway') to no longer pay software
+-- charges associated with the gateway.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ShutdownGateway.html>
 module Network.AWS.StorageGateway.ShutdownGateway

@@ -26,7 +26,8 @@
 -- deprecated, you cannot create new tasks of that activity type. Tasks of this
 -- type that were scheduled before the type was deprecated will continue to run.
 --
--- Access Control
+-- This operation is eventually consistent. The results are best effort and may
+-- not exactly reflect recent updates and changes. Access Control
 --
 -- You can use IAM policies to control this action's access to Amazon SWF
 -- resources as follows:
@@ -34,10 +35,11 @@
 -- Use a 'Resource' element with the domain name to limit the action to only
 -- specified domains. Use an 'Action' element to allow or deny permission to call
 -- this action. Constrain the following parameters by using a 'Condition' element
--- with the appropriate keys.   'activityType.name': String constraint. The key is 'swf:activityType.name'.  'activityType.version': String constraint. The key is 'swf:activityType.version'.    If the caller does not have sufficient permissions to invoke the action,
+-- with the appropriate keys.  'activityType.name': String constraint. The key is 'swf:activityType.name'. 'activityType.version': String constraint. The key is 'swf:activityType.version'
+-- .    If the caller does not have sufficient permissions to invoke the action,
 -- or the parameter values fall outside the specified constraints, the action
--- fails by throwing 'OperationNotPermitted'. For details and example IAM
--- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- fails. The associated event attribute's cause parameter will be set to
+-- OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAMto Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateActivityType.html>
 module Network.AWS.SWF.DeprecateActivityType

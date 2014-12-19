@@ -49,6 +49,7 @@ module Network.AWS.SWF.Types
     , decisionTaskScheduledEventAttributes
     , dtseaStartToCloseTimeout
     , dtseaTaskList
+    , dtseaTaskPriority
 
     -- * WorkflowExecutionCompletedEventAttributes
     , WorkflowExecutionCompletedEventAttributes
@@ -103,6 +104,7 @@ module Network.AWS.SWF.Types
     , atseaScheduleToStartTimeout
     , atseaStartToCloseTimeout
     , atseaTaskList
+    , atseaTaskPriority
 
     -- * CloseStatusFilter
     , CloseStatusFilter
@@ -124,12 +126,14 @@ module Network.AWS.SWF.Types
     , satdaScheduleToStartTimeout
     , satdaStartToCloseTimeout
     , satdaTaskList
+    , satdaTaskPriority
 
     -- * ActivityTypeConfiguration
     , ActivityTypeConfiguration
     , activityTypeConfiguration
     , atcDefaultTaskHeartbeatTimeout
     , atcDefaultTaskList
+    , atcDefaultTaskPriority
     , atcDefaultTaskScheduleToCloseTimeout
     , atcDefaultTaskScheduleToStartTimeout
     , atcDefaultTaskStartToCloseTimeout
@@ -261,6 +265,7 @@ module Network.AWS.SWF.Types
     , weseaParentWorkflowExecution
     , weseaTagList
     , weseaTaskList
+    , weseaTaskPriority
     , weseaTaskStartToCloseTimeout
     , weseaWorkflowType
 
@@ -270,6 +275,7 @@ module Network.AWS.SWF.Types
     , wtcDefaultChildPolicy
     , wtcDefaultExecutionStartToCloseTimeout
     , wtcDefaultTaskList
+    , wtcDefaultTaskPriority
     , wtcDefaultTaskStartToCloseTimeout
 
     -- * ActivityTaskTimeoutType
@@ -352,6 +358,7 @@ module Network.AWS.SWF.Types
     , scwedaInput
     , scwedaTagList
     , scwedaTaskList
+    , scwedaTaskPriority
     , scwedaTaskStartToCloseTimeout
     , scwedaWorkflowId
     , scwedaWorkflowType
@@ -413,6 +420,7 @@ module Network.AWS.SWF.Types
     , scweieaInput
     , scweieaTagList
     , scweieaTaskList
+    , scweieaTaskPriority
     , scweieaTaskStartToCloseTimeout
     , scweieaWorkflowId
     , scweieaWorkflowType
@@ -731,6 +739,7 @@ module Network.AWS.SWF.Types
     , wecChildPolicy
     , wecExecutionStartToCloseTimeout
     , wecTaskList
+    , wecTaskPriority
     , wecTaskStartToCloseTimeout
 
     -- * WorkflowExecution
@@ -750,6 +759,7 @@ module Network.AWS.SWF.Types
     , canwedaInput
     , canwedaTagList
     , canwedaTaskList
+    , canwedaTaskPriority
     , canwedaTaskStartToCloseTimeout
     , canwedaWorkflowTypeVersion
 
@@ -775,6 +785,7 @@ module Network.AWS.SWF.Types
     , wecaneaNewExecutionRunId
     , wecaneaTagList
     , wecaneaTaskList
+    , wecaneaTaskPriority
     , wecaneaTaskStartToCloseTimeout
     , wecaneaWorkflowType
     ) where
@@ -909,7 +920,7 @@ requestCancelExternalWorkflowExecutionDecisionAttributes p1 = RequestCancelExter
     , _rcewedaControl    = Nothing
     }
 
--- | Optional data attached to the event that can be used by the decider in
+-- | /Optional./ Data attached to the event that can be used by the decider in
 -- subsequent workflow tasks.
 rcewedaControl :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 rcewedaControl = lens _rcewedaControl (\s a -> s { _rcewedaControl = a })
@@ -918,8 +929,7 @@ rcewedaControl = lens _rcewedaControl (\s a -> s { _rcewedaControl = a })
 rcewedaRunId :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 rcewedaRunId = lens _rcewedaRunId (\s a -> s { _rcewedaRunId = a })
 
--- | The 'workflowId' of the external workflow execution to cancel. This field is
--- required.
+-- | Required. The 'workflowId' of the external workflow execution to cancel.
 rcewedaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes Text
 rcewedaWorkflowId =
     lens _rcewedaWorkflowId (\s a -> s { _rcewedaWorkflowId = a })
@@ -940,6 +950,7 @@ instance ToJSON RequestCancelExternalWorkflowExecutionDecisionAttributes where
 data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
     { _dtseaStartToCloseTimeout :: Maybe Text
     , _dtseaTaskList            :: TaskList
+    , _dtseaTaskPriority        :: Maybe Text
     } deriving (Eq, Show)
 
 -- | 'DecisionTaskScheduledEventAttributes' constructor.
@@ -950,19 +961,21 @@ data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
 --
 -- * 'dtseaTaskList' @::@ 'TaskList'
 --
+-- * 'dtseaTaskPriority' @::@ 'Maybe' 'Text'
+--
 decisionTaskScheduledEventAttributes :: TaskList -- ^ 'dtseaTaskList'
                                      -> DecisionTaskScheduledEventAttributes
 decisionTaskScheduledEventAttributes p1 = DecisionTaskScheduledEventAttributes
     { _dtseaTaskList            = p1
+    , _dtseaTaskPriority        = Nothing
     , _dtseaStartToCloseTimeout = Nothing
     }
 
--- | The maximum duration for this decision task. The task is considered timed
--- out if it does not completed within this duration.
+-- | The maximum duration for this decision task. The task is considered timed out
+-- if it does not completed within this duration.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 dtseaStartToCloseTimeout :: Lens' DecisionTaskScheduledEventAttributes (Maybe Text)
 dtseaStartToCloseTimeout =
     lens _dtseaStartToCloseTimeout
@@ -972,14 +985,26 @@ dtseaStartToCloseTimeout =
 dtseaTaskList :: Lens' DecisionTaskScheduledEventAttributes TaskList
 dtseaTaskList = lens _dtseaTaskList (\s a -> s { _dtseaTaskList = a })
 
+-- | /Optional./ A task priority that, if set, specifies the priority for this
+-- decision task. Valid values are integers that range from Java's 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate
+-- higher priority.
+--
+-- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+dtseaTaskPriority :: Lens' DecisionTaskScheduledEventAttributes (Maybe Text)
+dtseaTaskPriority =
+    lens _dtseaTaskPriority (\s a -> s { _dtseaTaskPriority = a })
+
 instance FromJSON DecisionTaskScheduledEventAttributes where
     parseJSON = withObject "DecisionTaskScheduledEventAttributes" $ \o -> DecisionTaskScheduledEventAttributes
         <$> o .:? "startToCloseTimeout"
         <*> o .:  "taskList"
+        <*> o .:? "taskPriority"
 
 instance ToJSON DecisionTaskScheduledEventAttributes where
     toJSON DecisionTaskScheduledEventAttributes{..} = object
         [ "taskList"            .= _dtseaTaskList
+        , "taskPriority"        .= _dtseaTaskPriority
         , "startToCloseTimeout" .= _dtseaStartToCloseTimeout
         ]
 
@@ -1006,7 +1031,7 @@ workflowExecutionCompletedEventAttributes p1 = WorkflowExecutionCompletedEventAt
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'CompleteWorkflowExecution' decision to complete this
 -- execution. This information can be useful for diagnosing problems by tracing
--- back the cause of events.
+-- back the chain of events leading up to this event.
 weceaDecisionTaskCompletedEventId :: Lens' WorkflowExecutionCompletedEventAttributes Integer
 weceaDecisionTaskCompletedEventId =
     lens _weceaDecisionTaskCompletedEventId
@@ -1092,15 +1117,18 @@ startTimerFailedEventAttributes p1 p2 p3 = StartTimerFailedEventAttributes
     , _stfeaDecisionTaskCompletedEventId = p3
     }
 
--- | The cause of the failure to process the decision. This information is
--- generated by the system and can be useful for diagnostic purposes.
+-- | The cause of the failure. This information is generated by the system and can
+-- be useful for diagnostic purposes.
+--
+-- If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
+-- lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 stfeaCause :: Lens' StartTimerFailedEventAttributes StartTimerFailedCause
 stfeaCause = lens _stfeaCause (\s a -> s { _stfeaCause = a })
 
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'StartTimer' decision for this activity task. This
--- information can be useful for diagnosing problems by tracing back the cause
--- of events.
+-- information can be useful for diagnosing problems by tracing back the chain
+-- of events leading up to this event.
 stfeaDecisionTaskCompletedEventId :: Lens' StartTimerFailedEventAttributes Integer
 stfeaDecisionTaskCompletedEventId =
     lens _stfeaDecisionTaskCompletedEventId
@@ -1152,7 +1180,7 @@ requestCancelExternalWorkflowExecutionInitiatedEventAttributes p1 p2 = RequestCa
     , _rceweieaControl                      = Nothing
     }
 
--- | Optional data attached to the event that can be used by the decider in
+-- | /Optional./ Data attached to the event that can be used by the decider in
 -- subsequent workflow tasks.
 rceweieaControl :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 rceweieaControl = lens _rceweieaControl (\s a -> s { _rceweieaControl = a })
@@ -1160,7 +1188,7 @@ rceweieaControl = lens _rceweieaControl (\s a -> s { _rceweieaControl = a })
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'RequestCancelExternalWorkflowExecution' decision for this
 -- cancellation request. This information can be useful for diagnosing problems
--- by tracing back the cause of events.
+-- by tracing back the chain of events leading up to this event.
 rceweieaDecisionTaskCompletedEventId :: Lens' RequestCancelExternalWorkflowExecutionInitiatedEventAttributes Integer
 rceweieaDecisionTaskCompletedEventId =
     lens _rceweieaDecisionTaskCompletedEventId
@@ -1216,15 +1244,18 @@ recordMarkerFailedEventAttributes p1 p2 p3 = RecordMarkerFailedEventAttributes
     , _rmfeaDecisionTaskCompletedEventId = p3
     }
 
--- | The cause of the failure to process the decision. This information is
--- generated by the system and can be useful for diagnostic purposes.
+-- | The cause of the failure. This information is generated by the system and can
+-- be useful for diagnostic purposes.
+--
+-- If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
+-- lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 rmfeaCause :: Lens' RecordMarkerFailedEventAttributes RecordMarkerFailedCause
 rmfeaCause = lens _rmfeaCause (\s a -> s { _rmfeaCause = a })
 
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'RecordMarkerFailed' decision for this cancellation
 -- request. This information can be useful for diagnosing problems by tracing
--- back the cause of events.
+-- back the chain of events leading up to this event.
 rmfeaDecisionTaskCompletedEventId :: Lens' RecordMarkerFailedEventAttributes Integer
 rmfeaDecisionTaskCompletedEventId =
     lens _rmfeaDecisionTaskCompletedEventId
@@ -1298,6 +1329,7 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
     , _atseaScheduleToStartTimeout       :: Maybe Text
     , _atseaStartToCloseTimeout          :: Maybe Text
     , _atseaTaskList                     :: TaskList
+    , _atseaTaskPriority                 :: Maybe Text
     } deriving (Eq, Show)
 
 -- | 'ActivityTaskScheduledEventAttributes' constructor.
@@ -1324,6 +1356,8 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
 --
 -- * 'atseaTaskList' @::@ 'TaskList'
 --
+-- * 'atseaTaskPriority' @::@ 'Maybe' 'Text'
+--
 activityTaskScheduledEventAttributes :: ActivityType -- ^ 'atseaActivityType'
                                      -> Text -- ^ 'atseaActivityId'
                                      -> TaskList -- ^ 'atseaTaskList'
@@ -1339,6 +1373,7 @@ activityTaskScheduledEventAttributes p1 p2 p3 p4 = ActivityTaskScheduledEventAtt
     , _atseaScheduleToStartTimeout       = Nothing
     , _atseaScheduleToCloseTimeout       = Nothing
     , _atseaStartToCloseTimeout          = Nothing
+    , _atseaTaskPriority                 = Nothing
     , _atseaHeartbeatTimeout             = Nothing
     }
 
@@ -1351,7 +1386,7 @@ atseaActivityType :: Lens' ActivityTaskScheduledEventAttributes ActivityType
 atseaActivityType =
     lens _atseaActivityType (\s a -> s { _atseaActivityType = a })
 
--- | Optional data attached to the event that can be used by the decider in
+-- | /Optional./ Data attached to the event that can be used by the decider in
 -- subsequent workflow tasks. This data is not sent to the activity.
 atseaControl :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaControl = lens _atseaControl (\s a -> s { _atseaControl = a })
@@ -1400,6 +1435,21 @@ atseaStartToCloseTimeout =
 atseaTaskList :: Lens' ActivityTaskScheduledEventAttributes TaskList
 atseaTaskList = lens _atseaTaskList (\s a -> s { _atseaTaskList = a })
 
+-- | /Optional./ The priority to assign to the scheduled activity task. This will
+-- override any default priority that was assigned when the activity type was
+-- registered. If not set, then the priority set on the activity type is used as
+-- the task priority.
+--
+-- Valid values are integers that range from Java's 'Integer.MIN_VALUE'
+-- (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate
+-- higher priority.
+--
+-- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+atseaTaskPriority :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
+atseaTaskPriority =
+    lens _atseaTaskPriority (\s a -> s { _atseaTaskPriority = a })
+
 instance FromJSON ActivityTaskScheduledEventAttributes where
     parseJSON = withObject "ActivityTaskScheduledEventAttributes" $ \o -> ActivityTaskScheduledEventAttributes
         <$> o .:  "activityId"
@@ -1412,6 +1462,7 @@ instance FromJSON ActivityTaskScheduledEventAttributes where
         <*> o .:? "scheduleToStartTimeout"
         <*> o .:? "startToCloseTimeout"
         <*> o .:  "taskList"
+        <*> o .:? "taskPriority"
 
 instance ToJSON ActivityTaskScheduledEventAttributes where
     toJSON ActivityTaskScheduledEventAttributes{..} = object
@@ -1423,6 +1474,7 @@ instance ToJSON ActivityTaskScheduledEventAttributes where
         , "scheduleToCloseTimeout"       .= _atseaScheduleToCloseTimeout
         , "startToCloseTimeout"          .= _atseaStartToCloseTimeout
         , "taskList"                     .= _atseaTaskList
+        , "taskPriority"                 .= _atseaTaskPriority
         , "decisionTaskCompletedEventId" .= _atseaDecisionTaskCompletedEventId
         , "heartbeatTimeout"             .= _atseaHeartbeatTimeout
         ]
@@ -1443,8 +1495,8 @@ closeStatusFilter p1 = CloseStatusFilter
     { _csfStatus = p1
     }
 
--- | The close status that must match the close status of an execution for it to
--- meet the criteria of this filter. This field is required.
+-- | Required. The close status that must match the close status of an execution
+-- for it to meet the criteria of this filter.
 csfStatus :: Lens' CloseStatusFilter CloseStatus
 csfStatus = lens _csfStatus (\s a -> s { _csfStatus = a })
 
@@ -1492,6 +1544,7 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
     , _satdaScheduleToStartTimeout :: Maybe Text
     , _satdaStartToCloseTimeout    :: Maybe Text
     , _satdaTaskList               :: Maybe TaskList
+    , _satdaTaskPriority           :: Maybe Text
     } deriving (Eq, Show)
 
 -- | 'ScheduleActivityTaskDecisionAttributes' constructor.
@@ -1516,6 +1569,8 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
 --
 -- * 'satdaTaskList' @::@ 'Maybe' 'TaskList'
 --
+-- * 'satdaTaskPriority' @::@ 'Maybe' 'Text'
+--
 scheduleActivityTaskDecisionAttributes :: ActivityType -- ^ 'satdaActivityType'
                                        -> Text -- ^ 'satdaActivityId'
                                        -> ScheduleActivityTaskDecisionAttributes
@@ -1526,40 +1581,40 @@ scheduleActivityTaskDecisionAttributes p1 p2 = ScheduleActivityTaskDecisionAttri
     , _satdaInput                  = Nothing
     , _satdaScheduleToCloseTimeout = Nothing
     , _satdaTaskList               = Nothing
+    , _satdaTaskPriority           = Nothing
     , _satdaScheduleToStartTimeout = Nothing
     , _satdaStartToCloseTimeout    = Nothing
     , _satdaHeartbeatTimeout       = Nothing
     }
 
--- | The 'activityId' of the activity task. This field is required.
+-- | Required. The 'activityId' of the activity task.
 --
 -- The specified string must not start or end with whitespace. It must not
 -- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
--- string "arn".
+-- string quotarnquot.
 satdaActivityId :: Lens' ScheduleActivityTaskDecisionAttributes Text
 satdaActivityId = lens _satdaActivityId (\s a -> s { _satdaActivityId = a })
 
--- | The type of the activity task to schedule. This field is required.
+-- | Required. The type of the activity task to schedule.
 satdaActivityType :: Lens' ScheduleActivityTaskDecisionAttributes ActivityType
 satdaActivityType =
     lens _satdaActivityType (\s a -> s { _satdaActivityType = a })
 
--- | Optional data attached to the event that can be used by the decider in
+-- | /Optional./ Data attached to the event that can be used by the decider in
 -- subsequent workflow tasks. This data is not sent to the activity.
 satdaControl :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaControl = lens _satdaControl (\s a -> s { _satdaControl = a })
 
--- | If set, specifies the maximum time before which a worker processing a task
--- of this type must report progress by calling 'RecordActivityTaskHeartbeat'. If
--- the timeout is exceeded, the activity task is automatically timed out. If the
+-- | If set, specifies the maximum time before which a worker processing a task of
+-- this type must report progress by calling 'RecordActivityTaskHeartbeat'. If the
+-- timeout is exceeded, the activity task is automatically timed out. If the
 -- worker subsequently attempts to record a heartbeat or returns a result, it
 -- will be ignored. This overrides the default heartbeat timeout specified when
 -- registering the activity type using 'RegisterActivityType'.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 satdaHeartbeatTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaHeartbeatTimeout =
     lens _satdaHeartbeatTimeout (\s a -> s { _satdaHeartbeatTimeout = a })
@@ -1570,21 +1625,29 @@ satdaInput = lens _satdaInput (\s a -> s { _satdaInput = a })
 
 -- | The maximum duration for this activity task.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
+--
+-- A schedule-to-close timeout for this activity task must be specified either
+-- as a default for the activity type or through this field. If neither this
+-- field is set nor a default schedule-to-close timeout was specified at
+-- registration time then a fault will be returned.
 satdaScheduleToCloseTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaScheduleToCloseTimeout =
     lens _satdaScheduleToCloseTimeout
         (\s a -> s { _satdaScheduleToCloseTimeout = a })
 
--- | If set, specifies the maximum duration the activity task can wait to be
--- assigned to a worker. This overrides the default schedule-to-start timeout
--- specified when registering the activity type using 'RegisterActivityType'.
+-- | /Optional./ If set, specifies the maximum duration the activity task can wait
+-- to be assigned to a worker. This overrides the default schedule-to-start
+-- timeout specified when registering the activity type using 'RegisterActivityType'.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
+--
+-- A schedule-to-start timeout for this activity task must be specified either
+-- as a default for the activity type or through this field. If neither this
+-- field is set nor a default schedule-to-start timeout was specified at
+-- registration time then a fault will be returned.
 satdaScheduleToStartTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaScheduleToStartTimeout =
     lens _satdaScheduleToStartTimeout
@@ -1594,24 +1657,42 @@ satdaScheduleToStartTimeout =
 -- activity task. This overrides the default start-to-close timeout specified
 -- when registering the activity type using 'RegisterActivityType'.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
+--
+-- A start-to-close timeout for this activity task must be specified either as
+-- a default for the activity type or through this field. If neither this field
+-- is set nor a default start-to-close timeout was specified at registration
+-- time then a fault will be returned.
 satdaStartToCloseTimeout :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
 satdaStartToCloseTimeout =
     lens _satdaStartToCloseTimeout
         (\s a -> s { _satdaStartToCloseTimeout = a })
 
--- | If set, specifies the name of the task list in which to schedule the
--- activity task. If not specified, the 'defaultTaskList' registered with the
--- activity type will be used.
+-- | If set, specifies the name of the task list in which to schedule the activity
+-- task. If not specified, the 'defaultTaskList' registered with the activity type
+-- will be used.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
--- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
--- string "arn".
+-- A task list for this activity task must be specified either as a default for
+-- the activity type or through this field. If neither this field is set nor a
+-- default task list was specified at registration time then a fault will be
+-- returned. The specified string must not start or end with whitespace. It must
+-- not contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control
+-- characters (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the
+-- literal string quotarnquot.
 satdaTaskList :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe TaskList)
 satdaTaskList = lens _satdaTaskList (\s a -> s { _satdaTaskList = a })
+
+-- | /Optional./ If set, specifies the priority with which the activity task is to
+-- be assigned to a worker. This overrides the defaultTaskPriority specified
+-- when registering the activity type using 'RegisterActivityType'. Valid values
+-- are integers that range from Java's 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate higher priority.
+--
+-- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+satdaTaskPriority :: Lens' ScheduleActivityTaskDecisionAttributes (Maybe Text)
+satdaTaskPriority =
+    lens _satdaTaskPriority (\s a -> s { _satdaTaskPriority = a })
 
 instance FromJSON ScheduleActivityTaskDecisionAttributes where
     parseJSON = withObject "ScheduleActivityTaskDecisionAttributes" $ \o -> ScheduleActivityTaskDecisionAttributes
@@ -1624,6 +1705,7 @@ instance FromJSON ScheduleActivityTaskDecisionAttributes where
         <*> o .:? "scheduleToStartTimeout"
         <*> o .:? "startToCloseTimeout"
         <*> o .:? "taskList"
+        <*> o .:? "taskPriority"
 
 instance ToJSON ScheduleActivityTaskDecisionAttributes where
     toJSON ScheduleActivityTaskDecisionAttributes{..} = object
@@ -1633,6 +1715,7 @@ instance ToJSON ScheduleActivityTaskDecisionAttributes where
         , "input"                  .= _satdaInput
         , "scheduleToCloseTimeout" .= _satdaScheduleToCloseTimeout
         , "taskList"               .= _satdaTaskList
+        , "taskPriority"           .= _satdaTaskPriority
         , "scheduleToStartTimeout" .= _satdaScheduleToStartTimeout
         , "startToCloseTimeout"    .= _satdaStartToCloseTimeout
         , "heartbeatTimeout"       .= _satdaHeartbeatTimeout
@@ -1641,6 +1724,7 @@ instance ToJSON ScheduleActivityTaskDecisionAttributes where
 data ActivityTypeConfiguration = ActivityTypeConfiguration
     { _atcDefaultTaskHeartbeatTimeout       :: Maybe Text
     , _atcDefaultTaskList                   :: Maybe TaskList
+    , _atcDefaultTaskPriority               :: Maybe Text
     , _atcDefaultTaskScheduleToCloseTimeout :: Maybe Text
     , _atcDefaultTaskScheduleToStartTimeout :: Maybe Text
     , _atcDefaultTaskStartToCloseTimeout    :: Maybe Text
@@ -1654,6 +1738,8 @@ data ActivityTypeConfiguration = ActivityTypeConfiguration
 --
 -- * 'atcDefaultTaskList' @::@ 'Maybe' 'TaskList'
 --
+-- * 'atcDefaultTaskPriority' @::@ 'Maybe' 'Text'
+--
 -- * 'atcDefaultTaskScheduleToCloseTimeout' @::@ 'Maybe' 'Text'
 --
 -- * 'atcDefaultTaskScheduleToStartTimeout' @::@ 'Maybe' 'Text'
@@ -1665,65 +1751,79 @@ activityTypeConfiguration = ActivityTypeConfiguration
     { _atcDefaultTaskStartToCloseTimeout    = Nothing
     , _atcDefaultTaskHeartbeatTimeout       = Nothing
     , _atcDefaultTaskList                   = Nothing
+    , _atcDefaultTaskPriority               = Nothing
     , _atcDefaultTaskScheduleToStartTimeout = Nothing
     , _atcDefaultTaskScheduleToCloseTimeout = Nothing
     }
 
--- | The optional default maximum time, specified when registering the activity
--- type, before which a worker processing a task must report progress by calling 'RecordActivityTaskHeartbeat'. You can override this default when scheduling a
--- task through the 'ScheduleActivityTask' 'Decision'. If the activity worker
--- subsequently attempts to record a heartbeat or returns a result, the activity
--- worker receives an 'UnknownResource' fault. In this case, Amazon SWF no longer
+-- | /Optional./ The default maximum time, in seconds, before which a worker
+-- processing a task must report progress by calling 'RecordActivityTaskHeartbeat'.
+--
+-- You can specify this value only when /registering/ an activity type. The
+-- registered default value can be overridden when you schedule a task through
+-- the 'ScheduleActivityTask' 'Decision'. If the activity worker subsequently
+-- attempts to record a heartbeat or returns a result, the activity worker
+-- receives an 'UnknownResource' fault. In this case, Amazon SWF no longer
 -- considers the activity task to be valid; the activity worker should clean up
 -- the activity task.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 atcDefaultTaskHeartbeatTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskHeartbeatTimeout =
     lens _atcDefaultTaskHeartbeatTimeout
         (\s a -> s { _atcDefaultTaskHeartbeatTimeout = a })
 
--- | The optional default task list specified for this activity type at
--- registration. This default task list is used if a task list is not provided
--- when a task is scheduled through the 'ScheduleActivityTask' 'Decision'. You can
--- override this default when scheduling a task through the 'ScheduleActivityTask' 'Decision'.
+-- | /Optional./ The default task list specified for this activity type at
+-- registration. This default is used if a task list is not provided when a task
+-- is scheduled through the 'ScheduleActivityTask' 'Decision'. You can override the
+-- default registered task list when scheduling a task through the 'ScheduleActivityTask' 'Decision'.
 atcDefaultTaskList :: Lens' ActivityTypeConfiguration (Maybe TaskList)
 atcDefaultTaskList =
     lens _atcDefaultTaskList (\s a -> s { _atcDefaultTaskList = a })
 
--- | The optional default maximum duration, specified when registering the
+-- | /Optional./ The default task priority for tasks of this activity type,
+-- specified at registration. If not set, then "0" will be used as the default
+-- priority. This default can be overridden when scheduling an activity task.
+--
+-- Valid values are integers that range from Java's 'Integer.MIN_VALUE'
+-- (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate
+-- higher priority.
+--
+-- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+atcDefaultTaskPriority :: Lens' ActivityTypeConfiguration (Maybe Text)
+atcDefaultTaskPriority =
+    lens _atcDefaultTaskPriority (\s a -> s { _atcDefaultTaskPriority = a })
+
+-- | /Optional./ The default maximum duration, specified when registering the
 -- activity type, for tasks of this activity type. You can override this default
 -- when scheduling a task through the 'ScheduleActivityTask' 'Decision'.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 atcDefaultTaskScheduleToCloseTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskScheduleToCloseTimeout =
     lens _atcDefaultTaskScheduleToCloseTimeout
         (\s a -> s { _atcDefaultTaskScheduleToCloseTimeout = a })
 
--- | The optional default maximum duration, specified when registering the
+-- | /Optional./ The default maximum duration, specified when registering the
 -- activity type, that a task of an activity type can wait before being assigned
 -- to a worker. You can override this default when scheduling a task through the 'ScheduleActivityTask' 'Decision'.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 atcDefaultTaskScheduleToStartTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskScheduleToStartTimeout =
     lens _atcDefaultTaskScheduleToStartTimeout
         (\s a -> s { _atcDefaultTaskScheduleToStartTimeout = a })
 
--- | The optional default maximum duration for tasks of an activity type
+-- | /Optional./ The default maximum duration for tasks of an activity type
 -- specified when registering the activity type. You can override this default
 -- when scheduling a task through the 'ScheduleActivityTask' 'Decision'.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 atcDefaultTaskStartToCloseTimeout :: Lens' ActivityTypeConfiguration (Maybe Text)
 atcDefaultTaskStartToCloseTimeout =
     lens _atcDefaultTaskStartToCloseTimeout
@@ -1733,6 +1833,7 @@ instance FromJSON ActivityTypeConfiguration where
     parseJSON = withObject "ActivityTypeConfiguration" $ \o -> ActivityTypeConfiguration
         <$> o .:? "defaultTaskHeartbeatTimeout"
         <*> o .:? "defaultTaskList"
+        <*> o .:? "defaultTaskPriority"
         <*> o .:? "defaultTaskScheduleToCloseTimeout"
         <*> o .:? "defaultTaskScheduleToStartTimeout"
         <*> o .:? "defaultTaskStartToCloseTimeout"
@@ -1742,6 +1843,7 @@ instance ToJSON ActivityTypeConfiguration where
         [ "defaultTaskStartToCloseTimeout"    .= _atcDefaultTaskStartToCloseTimeout
         , "defaultTaskHeartbeatTimeout"       .= _atcDefaultTaskHeartbeatTimeout
         , "defaultTaskList"                   .= _atcDefaultTaskList
+        , "defaultTaskPriority"               .= _atcDefaultTaskPriority
         , "defaultTaskScheduleToStartTimeout" .= _atcDefaultTaskScheduleToStartTimeout
         , "defaultTaskScheduleToCloseTimeout" .= _atcDefaultTaskScheduleToCloseTimeout
         ]
@@ -1768,10 +1870,16 @@ activityType p1 p2 = ActivityType
     }
 
 -- | The name of this activity.
+--
+-- The combination of activity type name and version must be unique within a
+-- domain.
 atName :: Lens' ActivityType Text
 atName = lens _atName (\s a -> s { _atName = a })
 
 -- | The version of this activity.
+--
+-- The combination of activity type name and version must be unique with in a
+-- domain.
 atVersion :: Lens' ActivityType Text
 atVersion = lens _atVersion (\s a -> s { _atVersion = a })
 
@@ -1895,10 +2003,9 @@ childWorkflowExecutionCompletedEventAttributes p1 p2 p3 p4 = ChildWorkflowExecut
     , _cweceaResult            = Nothing
     }
 
--- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to
--- the 'StartChildWorkflowExecution' 'Decision' to start this child workflow
--- execution. This information can be useful for diagnosing problems by tracing
--- back the chain of events leading up to this event.
+-- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' 'Decision' to start this child workflow execution.
+-- This information can be useful for diagnosing problems by tracing back the
+-- chain of events leading up to this event.
 cweceaInitiatedEventId :: Lens' ChildWorkflowExecutionCompletedEventAttributes Integer
 cweceaInitiatedEventId =
     lens _cweceaInitiatedEventId (\s a -> s { _cweceaInitiatedEventId = a })
@@ -2081,8 +2188,11 @@ satfeaActivityType :: Lens' ScheduleActivityTaskFailedEventAttributes ActivityTy
 satfeaActivityType =
     lens _satfeaActivityType (\s a -> s { _satfeaActivityType = a })
 
--- | The cause of the failure to process the decision. This information is
--- generated by the system and can be useful for diagnostic purposes.
+-- | The cause of the failure. This information is generated by the system and can
+-- be useful for diagnostic purposes.
+--
+-- If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
+-- lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 satfeaCause :: Lens' ScheduleActivityTaskFailedEventAttributes ScheduleActivityTaskFailedCause
 satfeaCause = lens _satfeaCause (\s a -> s { _satfeaCause = a })
 
@@ -2137,8 +2247,8 @@ markerRecordedEventAttributes p1 p2 = MarkerRecordedEventAttributes
 
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'RecordMarker' decision that requested this marker. This
--- information can be useful for diagnosing problems by tracing back the cause
--- of events.
+-- information can be useful for diagnosing problems by tracing back the chain
+-- of events leading up to this event.
 mreaDecisionTaskCompletedEventId :: Lens' MarkerRecordedEventAttributes Integer
 mreaDecisionTaskCompletedEventId =
     lens _mreaDecisionTaskCompletedEventId
@@ -2198,13 +2308,13 @@ signalExternalWorkflowExecutionDecisionAttributes p1 p2 = SignalExternalWorkflow
     , _sewedaControl    = Nothing
     }
 
--- | Optional data attached to the event that can be used by the decider in
+-- | /Optional./ Data attached to the event that can be used by the decider in
 -- subsequent decision tasks.
 sewedaControl :: Lens' SignalExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 sewedaControl = lens _sewedaControl (\s a -> s { _sewedaControl = a })
 
--- | Optional input to be provided with the signal.The target workflow execution
--- will use the signal name and input to process the signal.
+-- | /Optional./ Input data to be provided with the signal. The target workflow
+-- execution will use the signal name and input data to process the signal.
 sewedaInput :: Lens' SignalExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 sewedaInput = lens _sewedaInput (\s a -> s { _sewedaInput = a })
 
@@ -2212,13 +2322,12 @@ sewedaInput = lens _sewedaInput (\s a -> s { _sewedaInput = a })
 sewedaRunId :: Lens' SignalExternalWorkflowExecutionDecisionAttributes (Maybe Text)
 sewedaRunId = lens _sewedaRunId (\s a -> s { _sewedaRunId = a })
 
--- | The name of the signal.The target workflow execution will use the signal
--- name and input to process the signal. This field is required.
+-- | Required. The name of the signal.The target workflow execution will use the
+-- signal name and input to process the signal.
 sewedaSignalName :: Lens' SignalExternalWorkflowExecutionDecisionAttributes Text
 sewedaSignalName = lens _sewedaSignalName (\s a -> s { _sewedaSignalName = a })
 
--- | The 'workflowId' of the workflow execution to be signaled. This field is
--- required.
+-- | Required. The 'workflowId' of the workflow execution to be signaled.
 sewedaWorkflowId :: Lens' SignalExternalWorkflowExecutionDecisionAttributes Text
 sewedaWorkflowId = lens _sewedaWorkflowId (\s a -> s { _sewedaWorkflowId = a })
 
@@ -2352,11 +2461,11 @@ recordMarkerDecisionAttributes p1 = RecordMarkerDecisionAttributes
     , _rmdaDetails    = Nothing
     }
 
--- | Optional details of the marker.
+-- | /Optional./ details of the marker.
 rmdaDetails :: Lens' RecordMarkerDecisionAttributes (Maybe Text)
 rmdaDetails = lens _rmdaDetails (\s a -> s { _rmdaDetails = a })
 
--- | The name of the marker. This file is required.
+-- | Required. The name of the marker.
 rmdaMarkerName :: Lens' RecordMarkerDecisionAttributes Text
 rmdaMarkerName = lens _rmdaMarkerName (\s a -> s { _rmdaMarkerName = a })
 
@@ -2394,13 +2503,16 @@ completeWorkflowExecutionFailedEventAttributes p1 p2 = CompleteWorkflowExecution
 
 -- | The cause of the failure. This information is generated by the system and can
 -- be useful for diagnostic purposes.
+--
+-- If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
+-- lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 cwefeaCause :: Lens' CompleteWorkflowExecutionFailedEventAttributes CompleteWorkflowExecutionFailedCause
 cwefeaCause = lens _cwefeaCause (\s a -> s { _cwefeaCause = a })
 
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'CompleteWorkflowExecution' decision to complete this
 -- execution. This information can be useful for diagnosing problems by tracing
--- back the cause of events.
+-- back the chain of events leading up to this event.
 cwefeaDecisionTaskCompletedEventId :: Lens' CompleteWorkflowExecutionFailedEventAttributes Integer
 cwefeaDecisionTaskCompletedEventId =
     lens _cwefeaDecisionTaskCompletedEventId
@@ -2442,25 +2554,24 @@ startTimerDecisionAttributes p1 p2 = StartTimerDecisionAttributes
     , _stdaControl            = Nothing
     }
 
--- | Optional data attached to the event that can be used by the decider in
+-- | /Optional./ Data attached to the event that can be used by the decider in
 -- subsequent workflow tasks.
 stdaControl :: Lens' StartTimerDecisionAttributes (Maybe Text)
 stdaControl = lens _stdaControl (\s a -> s { _stdaControl = a })
 
--- | The duration to wait before firing the timer. This field is required.
+-- | Required. The duration to wait before firing the timer.
 --
--- The duration is specified in seconds. The valid values are integers greater
--- than or equal to 0.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
 stdaStartToFireTimeout :: Lens' StartTimerDecisionAttributes Text
 stdaStartToFireTimeout =
     lens _stdaStartToFireTimeout (\s a -> s { _stdaStartToFireTimeout = a })
 
--- | The unique Id of the timer. This field is required.
+-- | Required. The unique Id of the timer.
 --
 -- The specified string must not start or end with whitespace. It must not
 -- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
--- string "arn".
+-- string quotarnquot.
 stdaTimerId :: Lens' StartTimerDecisionAttributes Text
 stdaTimerId = lens _stdaTimerId (\s a -> s { _stdaTimerId = a })
 
@@ -2575,8 +2686,11 @@ requestCancelExternalWorkflowExecutionFailedEventAttributes p1 p2 p3 p4 = Reques
     , _rcewefeaControl                      = Nothing
     }
 
--- | The cause of the failure to process the decision. This information is
--- generated by the system and can be useful for diagnostic purposes.
+-- | The cause of the failure. This information is generated by the system and can
+-- be useful for diagnostic purposes.
+--
+-- If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
+-- lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 rcewefeaCause :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes RequestCancelExternalWorkflowExecutionFailedCause
 rcewefeaCause = lens _rcewefeaCause (\s a -> s { _rcewefeaCause = a })
 
@@ -2586,7 +2700,7 @@ rcewefeaControl = lens _rcewefeaControl (\s a -> s { _rcewefeaControl = a })
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'RequestCancelExternalWorkflowExecution' decision for this
 -- cancellation request. This information can be useful for diagnosing problems
--- by tracing back the cause of events.
+-- by tracing back the chain of events leading up to this event.
 rcewefeaDecisionTaskCompletedEventId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes Integer
 rcewefeaDecisionTaskCompletedEventId =
     lens _rcewefeaDecisionTaskCompletedEventId
@@ -2606,8 +2720,8 @@ rcewefeaInitiatedEventId =
 rcewefeaRunId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes (Maybe Text)
 rcewefeaRunId = lens _rcewefeaRunId (\s a -> s { _rcewefeaRunId = a })
 
--- | The 'workflowId' of the external workflow to which the cancel request was to
--- be delivered.
+-- | The 'workflowId' of the external workflow to which the cancel request was to be
+-- delivered.
 rcewefeaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionFailedEventAttributes Text
 rcewefeaWorkflowId =
     lens _rcewefeaWorkflowId (\s a -> s { _rcewefeaWorkflowId = a })
@@ -2669,8 +2783,7 @@ activityTypeInfo p1 p2 p3 = ActivityTypeInfo
 atiActivityType :: Lens' ActivityTypeInfo ActivityType
 atiActivityType = lens _atiActivityType (\s a -> s { _atiActivityType = a })
 
--- | The date and time this activity type was created through 'RegisterActivityType'
--- .
+-- | The date and time this activity type was created through 'RegisterActivityType'.
 atiCreationDate :: Lens' ActivityTypeInfo UTCTime
 atiCreationDate = lens _atiCreationDate (\s a -> s { _atiCreationDate = a }) . _Time
 
@@ -2733,8 +2846,8 @@ timerCanceledEventAttributes p1 p2 p3 = TimerCanceledEventAttributes
 
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'CancelTimer' decision to cancel this timer. This
--- information can be useful for diagnosing problems by tracing back the cause
--- of events.
+-- information can be useful for diagnosing problems by tracing back the chain
+-- of events leading up to this event.
 tceaDecisionTaskCompletedEventId :: Lens' TimerCanceledEventAttributes Integer
 tceaDecisionTaskCompletedEventId =
     lens _tceaDecisionTaskCompletedEventId
@@ -2773,6 +2886,7 @@ data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttr
     , _weseaParentWorkflowExecution      :: Maybe WorkflowExecution
     , _weseaTagList                      :: List "tagList" Text
     , _weseaTaskList                     :: TaskList
+    , _weseaTaskPriority                 :: Maybe Text
     , _weseaTaskStartToCloseTimeout      :: Maybe Text
     , _weseaWorkflowType                 :: WorkflowType
     } deriving (Eq, Show)
@@ -2797,6 +2911,8 @@ data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttr
 --
 -- * 'weseaTaskList' @::@ 'TaskList'
 --
+-- * 'weseaTaskPriority' @::@ 'Maybe' 'Text'
+--
 -- * 'weseaTaskStartToCloseTimeout' @::@ 'Maybe' 'Text'
 --
 -- * 'weseaWorkflowType' @::@ 'WorkflowType'
@@ -2813,6 +2929,7 @@ workflowExecutionStartedEventAttributes p1 p2 p3 = WorkflowExecutionStartedEvent
     , _weseaExecutionStartToCloseTimeout = Nothing
     , _weseaTaskStartToCloseTimeout      = Nothing
     , _weseaTagList                      = mempty
+    , _weseaTaskPriority                 = Nothing
     , _weseaContinuedExecutionRunId      = Nothing
     , _weseaParentWorkflowExecution      = Nothing
     , _weseaParentInitiatedEventId       = Nothing
@@ -2820,15 +2937,19 @@ workflowExecutionStartedEventAttributes p1 p2 p3 = WorkflowExecutionStartedEvent
 
 -- | The policy to use for the child workflow executions if this workflow
 -- execution is terminated, by calling the 'TerminateWorkflowExecution' action
--- explicitly or due to an expired timeout. The supported child policies are:   TERMINATE:
--- the child executions will be terminated.  REQUEST_CANCEL: a request to
--- cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions
--- when it receives an execution history with this event.   ABANDON: no action
+-- explicitly or due to an expired timeout.
+--
+-- The supported child policies are:
+--
+-- TERMINATE: the child executions will be terminated. REQUEST_CANCEL: a
+-- request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions
+-- when it receives an execution history with this event. ABANDON: no action
 -- will be taken. The child executions will continue to run.
 weseaChildPolicy :: Lens' WorkflowExecutionStartedEventAttributes ChildPolicy
 weseaChildPolicy = lens _weseaChildPolicy (\s a -> s { _weseaChildPolicy = a })
 
--- | If this workflow execution was started due to a 'ContinueAsNewWorkflowExecution' decision, then it contains the 'runId' of the previous workflow execution that
+-- | If this workflow execution was started due to a 'ContinueAsNewWorkflowExecution'
+-- decision, then it contains the 'runId' of the previous workflow execution that
 -- was closed and continued as this execution.
 weseaContinuedExecutionRunId :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaContinuedExecutionRunId =
@@ -2837,9 +2958,8 @@ weseaContinuedExecutionRunId =
 
 -- | The maximum duration for this workflow execution.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 weseaExecutionStartToCloseTimeout :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaExecutionStartToCloseTimeout =
     lens _weseaExecutionStartToCloseTimeout
@@ -2849,11 +2969,10 @@ weseaExecutionStartToCloseTimeout =
 weseaInput :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaInput = lens _weseaInput (\s a -> s { _weseaInput = a })
 
--- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to
--- the 'StartChildWorkflowExecution' 'Decision' to start this workflow execution.
--- The source event with this Id can be found in the history of the source
--- workflow execution. This information can be useful for diagnosing problems by
--- tracing back the chain of events leading up to this event.
+-- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' 'Decision' to start this workflow execution. The
+-- source event with this Id can be found in the history of the source workflow
+-- execution. This information can be useful for diagnosing problems by tracing
+-- back the chain of events leading up to this event.
 weseaParentInitiatedEventId :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Integer)
 weseaParentInitiatedEventId =
     lens _weseaParentInitiatedEventId
@@ -2871,16 +2990,19 @@ weseaParentWorkflowExecution =
 weseaTagList :: Lens' WorkflowExecutionStartedEventAttributes [Text]
 weseaTagList = lens _weseaTagList (\s a -> s { _weseaTagList = a }) . _List
 
--- | The name of the task list for scheduling the decision tasks for this
--- workflow execution.
+-- | The name of the task list for scheduling the decision tasks for this workflow
+-- execution.
 weseaTaskList :: Lens' WorkflowExecutionStartedEventAttributes TaskList
 weseaTaskList = lens _weseaTaskList (\s a -> s { _weseaTaskList = a })
 
+weseaTaskPriority :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
+weseaTaskPriority =
+    lens _weseaTaskPriority (\s a -> s { _weseaTaskPriority = a })
+
 -- | The maximum duration of decision tasks for this workflow type.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 weseaTaskStartToCloseTimeout :: Lens' WorkflowExecutionStartedEventAttributes (Maybe Text)
 weseaTaskStartToCloseTimeout =
     lens _weseaTaskStartToCloseTimeout
@@ -2901,6 +3023,7 @@ instance FromJSON WorkflowExecutionStartedEventAttributes where
         <*> o .:? "parentWorkflowExecution"
         <*> o .:? "tagList" .!= mempty
         <*> o .:  "taskList"
+        <*> o .:? "taskPriority"
         <*> o .:? "taskStartToCloseTimeout"
         <*> o .:  "workflowType"
 
@@ -2913,6 +3036,7 @@ instance ToJSON WorkflowExecutionStartedEventAttributes where
         , "taskList"                     .= _weseaTaskList
         , "workflowType"                 .= _weseaWorkflowType
         , "tagList"                      .= _weseaTagList
+        , "taskPriority"                 .= _weseaTaskPriority
         , "continuedExecutionRunId"      .= _weseaContinuedExecutionRunId
         , "parentWorkflowExecution"      .= _weseaParentWorkflowExecution
         , "parentInitiatedEventId"       .= _weseaParentInitiatedEventId
@@ -2922,6 +3046,7 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration
     { _wtcDefaultChildPolicy                  :: Maybe ChildPolicy
     , _wtcDefaultExecutionStartToCloseTimeout :: Maybe Text
     , _wtcDefaultTaskList                     :: Maybe TaskList
+    , _wtcDefaultTaskPriority                 :: Maybe Text
     , _wtcDefaultTaskStartToCloseTimeout      :: Maybe Text
     } deriving (Eq, Show)
 
@@ -2935,6 +3060,8 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration
 --
 -- * 'wtcDefaultTaskList' @::@ 'Maybe' 'TaskList'
 --
+-- * 'wtcDefaultTaskPriority' @::@ 'Maybe' 'Text'
+--
 -- * 'wtcDefaultTaskStartToCloseTimeout' @::@ 'Maybe' 'Text'
 --
 workflowTypeConfiguration :: WorkflowTypeConfiguration
@@ -2942,44 +3069,60 @@ workflowTypeConfiguration = WorkflowTypeConfiguration
     { _wtcDefaultTaskStartToCloseTimeout      = Nothing
     , _wtcDefaultExecutionStartToCloseTimeout = Nothing
     , _wtcDefaultTaskList                     = Nothing
+    , _wtcDefaultTaskPriority                 = Nothing
     , _wtcDefaultChildPolicy                  = Nothing
     }
 
--- | The optional default policy to use for the child workflow executions when a
+-- | /Optional./ The default policy to use for the child workflow executions when a
 -- workflow execution of this type is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This default can be
 -- overridden when starting a workflow execution using the 'StartWorkflowExecution'
--- action or the 'StartChildWorkflowExecution' 'Decision'. The supported child
--- policies are:
+-- action or the 'StartChildWorkflowExecution' 'Decision'.
 --
--- TERMINATE: the child executions will be terminated.  REQUEST_CANCEL: a
+-- The supported child policies are:
+--
+-- TERMINATE: the child executions will be terminated. REQUEST_CANCEL: a
 -- request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions
--- when it receives an execution history with this event.   ABANDON: no action
+-- when it receives an execution history with this event. ABANDON: no action
 -- will be taken. The child executions will continue to run.
 wtcDefaultChildPolicy :: Lens' WorkflowTypeConfiguration (Maybe ChildPolicy)
 wtcDefaultChildPolicy =
     lens _wtcDefaultChildPolicy (\s a -> s { _wtcDefaultChildPolicy = a })
 
--- | The optional default maximum duration, specified when registering the
+-- | /Optional./ The default maximum duration, specified when registering the
 -- workflow type, for executions of this workflow type. This default can be
 -- overridden when starting a workflow execution using the 'StartWorkflowExecution'
 -- action or the 'StartChildWorkflowExecution' 'Decision'.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 wtcDefaultExecutionStartToCloseTimeout :: Lens' WorkflowTypeConfiguration (Maybe Text)
 wtcDefaultExecutionStartToCloseTimeout =
     lens _wtcDefaultExecutionStartToCloseTimeout
         (\s a -> s { _wtcDefaultExecutionStartToCloseTimeout = a })
 
--- | The optional default task list, specified when registering the workflow
+-- | /Optional./ The default task list, specified when registering the workflow
 -- type, for decisions tasks scheduled for workflow executions of this type.
 -- This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the 'StartChildWorkflowExecution' 'Decision'.
 wtcDefaultTaskList :: Lens' WorkflowTypeConfiguration (Maybe TaskList)
 wtcDefaultTaskList =
     lens _wtcDefaultTaskList (\s a -> s { _wtcDefaultTaskList = a })
 
--- | The optional default maximum duration, specified when registering the
+-- | /Optional./ The default task priority, specified when registering the workflow
+-- type, for all decision tasks of this workflow type. This default can be
+-- overridden when starting a workflow execution using the 'StartWorkflowExecution'
+-- action or the 'StartChildWorkflowExecution' decision.
+--
+-- Valid values are integers that range from Java's 'Integer.MIN_VALUE'
+-- (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate
+-- higher priority.
+--
+-- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+wtcDefaultTaskPriority :: Lens' WorkflowTypeConfiguration (Maybe Text)
+wtcDefaultTaskPriority =
+    lens _wtcDefaultTaskPriority (\s a -> s { _wtcDefaultTaskPriority = a })
+
+-- | /Optional./ The default maximum duration, specified when registering the
 -- workflow type, that a decision task for executions of this workflow type
 -- might take before returning completion or failure. If the task does not close
 -- in the specified time then the task is automatically timed out and
@@ -2987,9 +3130,8 @@ wtcDefaultTaskList =
 -- ignored. This default can be overridden when starting a workflow execution
 -- using the 'StartWorkflowExecution' action or the 'StartChildWorkflowExecution' 'Decision'.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 wtcDefaultTaskStartToCloseTimeout :: Lens' WorkflowTypeConfiguration (Maybe Text)
 wtcDefaultTaskStartToCloseTimeout =
     lens _wtcDefaultTaskStartToCloseTimeout
@@ -3000,6 +3142,7 @@ instance FromJSON WorkflowTypeConfiguration where
         <$> o .:? "defaultChildPolicy"
         <*> o .:? "defaultExecutionStartToCloseTimeout"
         <*> o .:? "defaultTaskList"
+        <*> o .:? "defaultTaskPriority"
         <*> o .:? "defaultTaskStartToCloseTimeout"
 
 instance ToJSON WorkflowTypeConfiguration where
@@ -3007,6 +3150,7 @@ instance ToJSON WorkflowTypeConfiguration where
         [ "defaultTaskStartToCloseTimeout"      .= _wtcDefaultTaskStartToCloseTimeout
         , "defaultExecutionStartToCloseTimeout" .= _wtcDefaultExecutionStartToCloseTimeout
         , "defaultTaskList"                     .= _wtcDefaultTaskList
+        , "defaultTaskPriority"                 .= _wtcDefaultTaskPriority
         , "defaultChildPolicy"                  .= _wtcDefaultChildPolicy
         ]
 
@@ -3066,11 +3210,17 @@ workflowType p1 p2 = WorkflowType
     , _wtVersion = p2
     }
 
--- | The name of the workflow type. This field is required.
+-- | Required. The name of the workflow type.
+--
+-- The combination of workflow type name and version must be unique with in a
+-- domain.
 wtName :: Lens' WorkflowType Text
 wtName = lens _wtName (\s a -> s { _wtName = a })
 
--- | The version of the workflow type. This field is required.
+-- | Required. The version of the workflow type.
+--
+-- The combination of workflow type name and version must be unique with in a
+-- domain.
 wtVersion :: Lens' WorkflowType Text
 wtVersion = lens _wtVersion (\s a -> s { _wtVersion = a })
 
@@ -3316,8 +3466,7 @@ dttoeaStartedEventId :: Lens' DecisionTaskTimedOutEventAttributes Integer
 dttoeaStartedEventId =
     lens _dttoeaStartedEventId (\s a -> s { _dttoeaStartedEventId = a })
 
--- | The type of timeout that expired before the decision task could be
--- completed.
+-- | The type of timeout that expired before the decision task could be completed.
 dttoeaTimeoutType :: Lens' DecisionTaskTimedOutEventAttributes DecisionTaskTimeoutType
 dttoeaTimeoutType =
     lens _dttoeaTimeoutType (\s a -> s { _dttoeaTimeoutType = a })
@@ -3361,10 +3510,9 @@ childWorkflowExecutionStartedEventAttributes p1 p2 p3 = ChildWorkflowExecutionSt
     , _cweseaInitiatedEventId  = p3
     }
 
--- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to
--- the 'StartChildWorkflowExecution' 'Decision' to start this child workflow
--- execution. This information can be useful for diagnosing problems by tracing
--- back the chain of events leading up to this event.
+-- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' 'Decision' to start this child workflow execution.
+-- This information can be useful for diagnosing problems by tracing back the
+-- chain of events leading up to this event.
 cweseaInitiatedEventId :: Lens' ChildWorkflowExecutionStartedEventAttributes Integer
 cweseaInitiatedEventId =
     lens _cweseaInitiatedEventId (\s a -> s { _cweseaInitiatedEventId = a })
@@ -3418,15 +3566,18 @@ cancelTimerFailedEventAttributes p1 p2 p3 = CancelTimerFailedEventAttributes
     , _ctfeaDecisionTaskCompletedEventId = p3
     }
 
--- | The cause of the failure to process the decision. This information is
--- generated by the system and can be useful for diagnostic purposes.
+-- | The cause of the failure. This information is generated by the system and can
+-- be useful for diagnostic purposes.
+--
+-- If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
+-- lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 ctfeaCause :: Lens' CancelTimerFailedEventAttributes CancelTimerFailedCause
 ctfeaCause = lens _ctfeaCause (\s a -> s { _ctfeaCause = a })
 
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'CancelTimer' decision to cancel this timer. This
--- information can be useful for diagnosing problems by tracing back the cause
--- of events.
+-- information can be useful for diagnosing problems by tracing back the chain
+-- of events leading up to this event.
 ctfeaDecisionTaskCompletedEventId :: Lens' CancelTimerFailedEventAttributes Integer
 ctfeaDecisionTaskCompletedEventId =
     lens _ctfeaDecisionTaskCompletedEventId
@@ -3603,9 +3754,12 @@ weiExecutionInfos =
     lens _weiExecutionInfos (\s a -> s { _weiExecutionInfos = a })
         . _List
 
--- | The token of the next page in the result. If set, the results have more than
--- one page. The next page can be retrieved by repeating the request with this
--- token and all other arguments unchanged.
+-- | If a 'NextPageToken' was returned by a previous call, there are more results
+-- available. To retrieve the next page of results, make the call again using
+-- the returned token in 'nextPageToken'. Keep all other arguments unchanged.
+--
+-- The configured 'maximumPageSize' determines how many results can be returned
+-- in a single call.
 weiNextPageToken :: Lens' WorkflowExecutionInfos (Maybe Text)
 weiNextPageToken = lens _weiNextPageToken (\s a -> s { _weiNextPageToken = a })
 
@@ -3627,6 +3781,7 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
     , _scwedaInput                        :: Maybe Text
     , _scwedaTagList                      :: List "tagList" Text
     , _scwedaTaskList                     :: Maybe TaskList
+    , _scwedaTaskPriority                 :: Maybe Text
     , _scwedaTaskStartToCloseTimeout      :: Maybe Text
     , _scwedaWorkflowId                   :: Text
     , _scwedaWorkflowType                 :: WorkflowType
@@ -3648,6 +3803,8 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
 --
 -- * 'scwedaTaskList' @::@ 'Maybe' 'TaskList'
 --
+-- * 'scwedaTaskPriority' @::@ 'Maybe' 'Text'
+--
 -- * 'scwedaTaskStartToCloseTimeout' @::@ 'Maybe' 'Text'
 --
 -- * 'scwedaWorkflowId' @::@ 'Text'
@@ -3664,24 +3821,33 @@ startChildWorkflowExecutionDecisionAttributes p1 p2 = StartChildWorkflowExecutio
     , _scwedaInput                        = Nothing
     , _scwedaExecutionStartToCloseTimeout = Nothing
     , _scwedaTaskList                     = Nothing
+    , _scwedaTaskPriority                 = Nothing
     , _scwedaTaskStartToCloseTimeout      = Nothing
     , _scwedaChildPolicy                  = Nothing
     , _scwedaTagList                      = mempty
     }
 
--- | If set, specifies the policy to use for the child workflow executions if the
--- workflow execution being started is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This policy overrides the
--- default child policy specified when registering the workflow type using 'RegisterWorkflowType'. The supported child policies are:
+-- | /Optional./ If set, specifies the policy to use for the child workflow
+-- executions if the workflow execution being started is terminated by calling
+-- the 'TerminateWorkflowExecution' action explicitly or due to an expired
+-- timeout. This policy overrides the default child policy specified when
+-- registering the workflow type using 'RegisterWorkflowType'.
 --
--- TERMINATE: the child executions will be terminated.  REQUEST_CANCEL: a
+-- The supported child policies are:
+--
+-- TERMINATE: the child executions will be terminated. REQUEST_CANCEL: a
 -- request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions
--- when it receives an execution history with this event.   ABANDON: no action
--- will be taken. The child executions will continue to run.
+-- when it receives an execution history with this event. ABANDON: no action
+-- will be taken. The child executions will continue to run.  A child policy for
+-- this workflow execution must be specified either as a default for the
+-- workflow type or through this parameter. If neither this parameter is set nor
+-- a default child policy was specified at registration time then a fault will
+-- be returned.
 scwedaChildPolicy :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe ChildPolicy)
 scwedaChildPolicy =
     lens _scwedaChildPolicy (\s a -> s { _scwedaChildPolicy = a })
 
--- | Optional data attached to the event that can be used by the decider in
+-- | /Optional./ Data attached to the event that can be used by the decider in
 -- subsequent workflow tasks. This data is not sent to the child workflow
 -- execution.
 scwedaControl :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
@@ -3691,9 +3857,14 @@ scwedaControl = lens _scwedaControl (\s a -> s { _scwedaControl = a })
 -- defaultExecutionStartToCloseTimeout specified when registering the workflow
 -- type.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
+--
+-- An execution start-to-close timeout for this workflow execution must be
+-- specified either as a default for the workflow type or through this
+-- parameter. If neither this parameter is set nor a default execution
+-- start-to-close timeout was specified at registration time then a fault will
+-- be returned.
 scwedaExecutionStartToCloseTimeout :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaExecutionStartToCloseTimeout =
     lens _scwedaExecutionStartToCloseTimeout
@@ -3703,45 +3874,64 @@ scwedaExecutionStartToCloseTimeout =
 scwedaInput :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaInput = lens _scwedaInput (\s a -> s { _scwedaInput = a })
 
--- | The list of tags to associate with the child workflow execution. A maximum
--- of 5 tags can be specified. You can list workflow executions with a specific
--- tag by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and
+-- | The list of tags to associate with the child workflow execution. A maximum of
+-- 5 tags can be specified. You can list workflow executions with a specific tag
+-- by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and
 -- specifying a 'TagFilter'.
 scwedaTagList :: Lens' StartChildWorkflowExecutionDecisionAttributes [Text]
 scwedaTagList = lens _scwedaTagList (\s a -> s { _scwedaTagList = a }) . _List
 
--- | The name of the task list to be used for decision tasks of the child
--- workflow execution.
+-- | The name of the task list to be used for decision tasks of the child workflow
+-- execution.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
--- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
--- string "arn".
+-- A task list for this workflow execution must be specified either as a
+-- default for the workflow type or through this parameter. If neither this
+-- parameter is set nor a default task list was specified at registration time
+-- then a fault will be returned. The specified string must not start or end
+-- with whitespace. It must not contain a ':' (colon), '/' (slash), '|' (vertical
+-- bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it
+-- must not contain the literal string quotarnquot.
 scwedaTaskList :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe TaskList)
 scwedaTaskList = lens _scwedaTaskList (\s a -> s { _scwedaTaskList = a })
 
--- | Specifies the maximum duration of decision tasks for this workflow
--- execution. This parameter overrides the 'defaultTaskStartToCloseTimout'
--- specified when registering the workflow type using 'RegisterWorkflowType'.
+-- | /Optional./ A task priority that, if set, specifies the priority for a decision
+-- task of this workflow execution. This overrides the defaultTaskPriority
+-- specified when registering the workflow type. Valid values are integers that
+-- range from Java's 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE'
+-- (2147483647). Higher numbers indicate higher priority.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+scwedaTaskPriority :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
+scwedaTaskPriority =
+    lens _scwedaTaskPriority (\s a -> s { _scwedaTaskPriority = a })
+
+-- | Specifies the maximum duration of decision tasks for this workflow execution.
+-- This parameter overrides the 'defaultTaskStartToCloseTimout' specified when
+-- registering the workflow type using 'RegisterWorkflowType'.
+--
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
+--
+-- A task start-to-close timeout for this workflow execution must be specified
+-- either as a default for the workflow type or through this parameter. If
+-- neither this parameter is set nor a default task start-to-close timeout was
+-- specified at registration time then a fault will be returned.
 scwedaTaskStartToCloseTimeout :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe Text)
 scwedaTaskStartToCloseTimeout =
     lens _scwedaTaskStartToCloseTimeout
         (\s a -> s { _scwedaTaskStartToCloseTimeout = a })
 
--- | The 'workflowId' of the workflow execution. This field is required.
+-- | Required. The 'workflowId' of the workflow execution.
 --
 -- The specified string must not start or end with whitespace. It must not
 -- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
--- string "arn".
+-- string quotarnquot.
 scwedaWorkflowId :: Lens' StartChildWorkflowExecutionDecisionAttributes Text
 scwedaWorkflowId = lens _scwedaWorkflowId (\s a -> s { _scwedaWorkflowId = a })
 
--- | The type of the workflow execution to be started. This field is required.
+-- | Required. The type of the workflow execution to be started.
 scwedaWorkflowType :: Lens' StartChildWorkflowExecutionDecisionAttributes WorkflowType
 scwedaWorkflowType =
     lens _scwedaWorkflowType (\s a -> s { _scwedaWorkflowType = a })
@@ -3754,6 +3944,7 @@ instance FromJSON StartChildWorkflowExecutionDecisionAttributes where
         <*> o .:? "input"
         <*> o .:? "tagList" .!= mempty
         <*> o .:? "taskList"
+        <*> o .:? "taskPriority"
         <*> o .:? "taskStartToCloseTimeout"
         <*> o .:  "workflowId"
         <*> o .:  "workflowType"
@@ -3766,13 +3957,15 @@ instance ToJSON StartChildWorkflowExecutionDecisionAttributes where
         , "input"                        .= _scwedaInput
         , "executionStartToCloseTimeout" .= _scwedaExecutionStartToCloseTimeout
         , "taskList"                     .= _scwedaTaskList
+        , "taskPriority"                 .= _scwedaTaskPriority
         , "taskStartToCloseTimeout"      .= _scwedaTaskStartToCloseTimeout
         , "childPolicy"                  .= _scwedaChildPolicy
         , "tagList"                      .= _scwedaTagList
         ]
 
 data ContinueAsNewWorkflowExecutionFailedCause
-    = CANWEFCDefaultChildPolicyUndefined                  -- ^ DEFAULT_CHILD_POLICY_UNDEFINED
+    = CANWEFCContinueAsNewWorkflowExecutionRateExceeded   -- ^ CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED
+    | CANWEFCDefaultChildPolicyUndefined                  -- ^ DEFAULT_CHILD_POLICY_UNDEFINED
     | CANWEFCDefaultExecutionStartToCloseTimeoutUndefined -- ^ DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED
     | CANWEFCDefaultTaskListUndefined                     -- ^ DEFAULT_TASK_LIST_UNDEFINED
     | CANWEFCDefaultTaskStartToCloseTimeoutUndefined      -- ^ DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED
@@ -3786,6 +3979,7 @@ instance Hashable ContinueAsNewWorkflowExecutionFailedCause
 
 instance FromText ContinueAsNewWorkflowExecutionFailedCause where
     parser = takeText >>= \case
+        "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"   -> pure CANWEFCContinueAsNewWorkflowExecutionRateExceeded
         "DEFAULT_CHILD_POLICY_UNDEFINED"                     -> pure CANWEFCDefaultChildPolicyUndefined
         "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED" -> pure CANWEFCDefaultExecutionStartToCloseTimeoutUndefined
         "DEFAULT_TASK_LIST_UNDEFINED"                        -> pure CANWEFCDefaultTaskListUndefined
@@ -3799,6 +3993,7 @@ instance FromText ContinueAsNewWorkflowExecutionFailedCause where
 
 instance ToText ContinueAsNewWorkflowExecutionFailedCause where
     toText = \case
+        CANWEFCContinueAsNewWorkflowExecutionRateExceeded   -> "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"
         CANWEFCDefaultChildPolicyUndefined                  -> "DEFAULT_CHILD_POLICY_UNDEFINED"
         CANWEFCDefaultExecutionStartToCloseTimeoutUndefined -> "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
         CANWEFCDefaultTaskListUndefined                     -> "DEFAULT_TASK_LIST_UNDEFINED"
@@ -3837,7 +4032,7 @@ failWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttribute
     , _fwedaDetails = Nothing
     }
 
--- | Optional details of the failure.
+-- | /Optional./ Details of the failure.
 fwedaDetails :: Lens' FailWorkflowExecutionDecisionAttributes (Maybe Text)
 fwedaDetails = lens _fwedaDetails (\s a -> s { _fwedaDetails = a })
 
@@ -4115,21 +4310,23 @@ requestCancelActivityTaskFailedEventAttributes p1 p2 p3 = RequestCancelActivityT
     , _rcatfeaDecisionTaskCompletedEventId = p3
     }
 
--- | The activityId provided in the 'RequestCancelActivityTask' decision that
--- failed.
+-- | The activityId provided in the 'RequestCancelActivityTask' decision that failed.
 rcatfeaActivityId :: Lens' RequestCancelActivityTaskFailedEventAttributes Text
 rcatfeaActivityId =
     lens _rcatfeaActivityId (\s a -> s { _rcatfeaActivityId = a })
 
--- | The cause of the failure to process the decision. This information is
--- generated by the system and can be useful for diagnostic purposes.
+-- | The cause of the failure. This information is generated by the system and can
+-- be useful for diagnostic purposes.
+--
+-- If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
+-- lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 rcatfeaCause :: Lens' RequestCancelActivityTaskFailedEventAttributes RequestCancelActivityTaskFailedCause
 rcatfeaCause = lens _rcatfeaCause (\s a -> s { _rcatfeaCause = a })
 
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'RequestCancelActivityTask' decision for this cancellation
 -- request. This information can be useful for diagnosing problems by tracing
--- back the cause of events.
+-- back the chain of events leading up to this event.
 rcatfeaDecisionTaskCompletedEventId :: Lens' RequestCancelActivityTaskFailedEventAttributes Integer
 rcatfeaDecisionTaskCompletedEventId =
     lens _rcatfeaDecisionTaskCompletedEventId
@@ -4256,10 +4453,9 @@ childWorkflowExecutionTimedOutEventAttributes p1 p2 p3 p4 p5 = ChildWorkflowExec
     , _cwetoeaStartedEventId    = p5
     }
 
--- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to
--- the 'StartChildWorkflowExecution' 'Decision' to start this child workflow
--- execution. This information can be useful for diagnosing problems by tracing
--- back the chain of events leading up to this event.
+-- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' 'Decision' to start this child workflow execution.
+-- This information can be useful for diagnosing problems by tracing back the
+-- chain of events leading up to this event.
 cwetoeaInitiatedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes Integer
 cwetoeaInitiatedEventId =
     lens _cwetoeaInitiatedEventId (\s a -> s { _cwetoeaInitiatedEventId = a })
@@ -4271,8 +4467,7 @@ cwetoeaStartedEventId :: Lens' ChildWorkflowExecutionTimedOutEventAttributes Int
 cwetoeaStartedEventId =
     lens _cwetoeaStartedEventId (\s a -> s { _cwetoeaStartedEventId = a })
 
--- | The type of the timeout that caused the child workflow execution to time
--- out.
+-- | The type of the timeout that caused the child workflow execution to time out.
 cwetoeaTimeoutType :: Lens' ChildWorkflowExecutionTimedOutEventAttributes WorkflowExecutionTimeoutType
 cwetoeaTimeoutType =
     lens _cwetoeaTimeoutType (\s a -> s { _cwetoeaTimeoutType = a })
@@ -4313,6 +4508,7 @@ data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExe
     , _scweieaInput                        :: Maybe Text
     , _scweieaTagList                      :: List "tagList" Text
     , _scweieaTaskList                     :: TaskList
+    , _scweieaTaskPriority                 :: Maybe Text
     , _scweieaTaskStartToCloseTimeout      :: Maybe Text
     , _scweieaWorkflowId                   :: Text
     , _scweieaWorkflowType                 :: WorkflowType
@@ -4336,6 +4532,8 @@ data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExe
 --
 -- * 'scweieaTaskList' @::@ 'TaskList'
 --
+-- * 'scweieaTaskPriority' @::@ 'Maybe' 'Text'
+--
 -- * 'scweieaTaskStartToCloseTimeout' @::@ 'Maybe' 'Text'
 --
 -- * 'scweieaWorkflowId' @::@ 'Text'
@@ -4357,6 +4555,7 @@ startChildWorkflowExecutionInitiatedEventAttributes p1 p2 p3 p4 p5 = StartChildW
     , _scweieaControl                      = Nothing
     , _scweieaInput                        = Nothing
     , _scweieaExecutionStartToCloseTimeout = Nothing
+    , _scweieaTaskPriority                 = Nothing
     , _scweieaTaskStartToCloseTimeout      = Nothing
     , _scweieaTagList                      = mempty
     }
@@ -4367,15 +4566,15 @@ startChildWorkflowExecutionInitiatedEventAttributes p1 p2 p3 p4 p5 = StartChildW
 --
 -- The supported child policies are:
 --
--- TERMINATE: the child executions will be terminated.  REQUEST_CANCEL: a
+-- TERMINATE: the child executions will be terminated. REQUEST_CANCEL: a
 -- request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions
--- when it receives an execution history with this event.   ABANDON: no action
+-- when it receives an execution history with this event. ABANDON: no action
 -- will be taken. The child executions will continue to run.
 scweieaChildPolicy :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes ChildPolicy
 scweieaChildPolicy =
     lens _scweieaChildPolicy (\s a -> s { _scweieaChildPolicy = a })
 
--- | Optional data attached to the event that can be used by the decider in
+-- | /Optional./ Data attached to the event that can be used by the decider in
 -- subsequent decision tasks. This data is not sent to the activity.
 scweieaControl :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaControl = lens _scweieaControl (\s a -> s { _scweieaControl = a })
@@ -4393,9 +4592,8 @@ scweieaDecisionTaskCompletedEventId =
 -- execution is not closed within this duration, it will be timed out and force
 -- terminated.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 scweieaExecutionStartToCloseTimeout :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaExecutionStartToCloseTimeout =
     lens _scweieaExecutionStartToCloseTimeout
@@ -4414,12 +4612,22 @@ scweieaTagList = lens _scweieaTagList (\s a -> s { _scweieaTagList = a }) . _Lis
 scweieaTaskList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes TaskList
 scweieaTaskList = lens _scweieaTaskList (\s a -> s { _scweieaTaskList = a })
 
+-- | /Optional./ The priority assigned for the decision tasks for this workflow
+-- execution. Valid values are integers that range from Java's 'Integer.MIN_VALUE'
+-- (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate
+-- higher priority.
+--
+-- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+scweieaTaskPriority :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
+scweieaTaskPriority =
+    lens _scweieaTaskPriority (\s a -> s { _scweieaTaskPriority = a })
+
 -- | The maximum duration allowed for the decision tasks for this workflow
 -- execution.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 scweieaTaskStartToCloseTimeout :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 scweieaTaskStartToCloseTimeout =
     lens _scweieaTaskStartToCloseTimeout
@@ -4444,6 +4652,7 @@ instance FromJSON StartChildWorkflowExecutionInitiatedEventAttributes where
         <*> o .:? "input"
         <*> o .:? "tagList" .!= mempty
         <*> o .:  "taskList"
+        <*> o .:? "taskPriority"
         <*> o .:? "taskStartToCloseTimeout"
         <*> o .:  "workflowId"
         <*> o .:  "workflowType"
@@ -4456,6 +4665,7 @@ instance ToJSON StartChildWorkflowExecutionInitiatedEventAttributes where
         , "input"                        .= _scweieaInput
         , "executionStartToCloseTimeout" .= _scweieaExecutionStartToCloseTimeout
         , "taskList"                     .= _scweieaTaskList
+        , "taskPriority"                 .= _scweieaTaskPriority
         , "decisionTaskCompletedEventId" .= _scweieaDecisionTaskCompletedEventId
         , "childPolicy"                  .= _scweieaChildPolicy
         , "taskStartToCloseTimeout"      .= _scweieaTaskStartToCloseTimeout
@@ -4485,13 +4695,16 @@ cancelWorkflowExecutionFailedEventAttributes p1 p2 = CancelWorkflowExecutionFail
 
 -- | The cause of the failure. This information is generated by the system and can
 -- be useful for diagnostic purposes.
+--
+-- If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
+-- lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 cwefea1Cause :: Lens' CancelWorkflowExecutionFailedEventAttributes CancelWorkflowExecutionFailedCause
 cwefea1Cause = lens _cwefea1Cause (\s a -> s { _cwefea1Cause = a })
 
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'CancelWorkflowExecution' decision for this cancellation
 -- request. This information can be useful for diagnosing problems by tracing
--- back the cause of events.
+-- back the chain of events leading up to this event.
 cwefea1DecisionTaskCompletedEventId :: Lens' CancelWorkflowExecutionFailedEventAttributes Integer
 cwefea1DecisionTaskCompletedEventId =
     lens _cwefea1DecisionTaskCompletedEventId
@@ -4543,12 +4756,13 @@ workflowExecutionTerminatedEventAttributes p1 = WorkflowExecutionTerminatedEvent
 weteaCause :: Lens' WorkflowExecutionTerminatedEventAttributes (Maybe WorkflowExecutionTerminatedCause)
 weteaCause = lens _weteaCause (\s a -> s { _weteaCause = a })
 
--- | The policy used for the child workflow executions of this workflow
--- execution. The supported child policies are:
+-- | The policy used for the child workflow executions of this workflow execution.
 --
--- TERMINATE: the child executions will be terminated.  REQUEST_CANCEL: a
+-- The supported child policies are:
+--
+-- TERMINATE: the child executions will be terminated. REQUEST_CANCEL: a
 -- request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions
--- when it receives an execution history with this event.   ABANDON: no action
+-- when it receives an execution history with this event. ABANDON: no action
 -- will be taken. The child executions will continue to run.
 weteaChildPolicy :: Lens' WorkflowExecutionTerminatedEventAttributes ChildPolicy
 weteaChildPolicy = lens _weteaChildPolicy (\s a -> s { _weteaChildPolicy = a })
@@ -4700,10 +4914,9 @@ childWorkflowExecutionCanceledEventAttributes p1 p2 p3 p4 = ChildWorkflowExecuti
 cwecea1Details :: Lens' ChildWorkflowExecutionCanceledEventAttributes (Maybe Text)
 cwecea1Details = lens _cwecea1Details (\s a -> s { _cwecea1Details = a })
 
--- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to
--- the 'StartChildWorkflowExecution' 'Decision' to start this child workflow
--- execution. This information can be useful for diagnosing problems by tracing
--- back the chain of events leading up to this event.
+-- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' 'Decision' to start this child workflow execution.
+-- This information can be useful for diagnosing problems by tracing back the
+-- chain of events leading up to this event.
 cwecea1InitiatedEventId :: Lens' ChildWorkflowExecutionCanceledEventAttributes Integer
 cwecea1InitiatedEventId =
     lens _cwecea1InitiatedEventId (\s a -> s { _cwecea1InitiatedEventId = a })
@@ -4802,12 +5015,12 @@ weiCancelRequested =
 -- | If the execution status is closed then this specifies how the execution was
 -- closed:
 --
--- COMPLETED: the execution was successfully completed. CANCELED: the
+-- 'COMPLETED': the execution was successfully completed.  'CANCELED': the
 -- execution was canceled.Cancellation allows the implementation to gracefully
--- clean up before the execution is closed. TERMINATED: the execution was force
--- terminated. FAILED: the execution failed to complete. TIMED_OUT: the
+-- clean up before the execution is closed.  'TERMINATED': the execution was force
+-- terminated.  'FAILED': the execution failed to complete.  'TIMED_OUT': the
 -- execution did not complete in the alloted time and was automatically timed
--- out. CONTINUED_AS_NEW: the execution is logically continued. This means the
+-- out.  'CONTINUED_AS_NEW': the execution is logically continued. This means the
 -- current execution was completed and a new execution was started to carry on
 -- the workflow.
 weiCloseStatus :: Lens' WorkflowExecutionInfo (Maybe CloseStatus)
@@ -4914,8 +5127,11 @@ signalExternalWorkflowExecutionFailedEventAttributes p1 p2 p3 p4 = SignalExterna
     , _sewefeaControl                      = Nothing
     }
 
--- | The cause of the failure to process the decision. This information is
--- generated by the system and can be useful for diagnostic purposes.
+-- | The cause of the failure. This information is generated by the system and can
+-- be useful for diagnostic purposes.
+--
+-- If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
+-- lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 sewefeaCause :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes SignalExternalWorkflowExecutionFailedCause
 sewefeaCause = lens _sewefeaCause (\s a -> s { _sewefeaCause = a })
 
@@ -4925,14 +5141,14 @@ sewefeaControl = lens _sewefeaControl (\s a -> s { _sewefeaControl = a })
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'SignalExternalWorkflowExecution' decision for this
 -- signal. This information can be useful for diagnosing problems by tracing
--- back the cause of events leading up to this event.
+-- back the chain of events leading up to this event.
 sewefeaDecisionTaskCompletedEventId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes Integer
 sewefeaDecisionTaskCompletedEventId =
     lens _sewefeaDecisionTaskCompletedEventId
         (\s a -> s { _sewefeaDecisionTaskCompletedEventId = a })
 
--- | The id of the 'SignalExternalWorkflowExecutionInitiated' event corresponding
--- to the 'SignalExternalWorkflowExecution' decision to request this signal. This
+-- | The id of the 'SignalExternalWorkflowExecutionInitiated' event corresponding to
+-- the 'SignalExternalWorkflowExecution' decision to request this signal. This
 -- information can be useful for diagnosing problems by tracing back the chain
 -- of events leading up to this event.
 sewefeaInitiatedEventId :: Lens' SignalExternalWorkflowExecutionFailedEventAttributes Integer
@@ -4985,8 +5201,8 @@ tagFilter p1 = TagFilter
     { _tfTag = p1
     }
 
--- | Specifies the tag that must be associated with the execution for it to meet
--- the filter criteria. This field is required.
+-- | Required. Specifies the tag that must be associated with the execution for it
+-- to meet the filter criteria.
 tfTag :: Lens' TagFilter Text
 tfTag = lens _tfTag (\s a -> s { _tfTag = a })
 
@@ -5207,7 +5423,7 @@ atcreaActivityId = lens _atcreaActivityId (\s a -> s { _atcreaActivityId = a })
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'RequestCancelActivityTask' decision for this cancellation
 -- request. This information can be useful for diagnosing problems by tracing
--- back the cause of events.
+-- back the chain of events leading up to this event.
 atcreaDecisionTaskCompletedEventId :: Lens' ActivityTaskCancelRequestedEventAttributes Integer
 atcreaDecisionTaskCompletedEventId =
     lens _atcreaDecisionTaskCompletedEventId
@@ -5245,11 +5461,13 @@ workflowExecutionTimedOutEventAttributes p1 p2 = WorkflowExecutionTimedOutEventA
     , _wetoeaChildPolicy = p2
     }
 
--- | The policy used for the child workflow executions of this workflow
--- execution. The supported child policies are:   TERMINATE: the child
--- executions will be terminated.  REQUEST_CANCEL: a request to cancel will be
--- attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions
--- when it receives an execution history with this event.   ABANDON: no action
+-- | The policy used for the child workflow executions of this workflow execution.
+--
+-- The supported child policies are:
+--
+-- TERMINATE: the child executions will be terminated. REQUEST_CANCEL: a
+-- request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions
+-- when it receives an execution history with this event. ABANDON: no action
 -- will be taken. The child executions will continue to run.
 wetoeaChildPolicy :: Lens' WorkflowExecutionTimedOutEventAttributes ChildPolicy
 wetoeaChildPolicy =
@@ -5302,10 +5520,9 @@ childWorkflowExecutionTerminatedEventAttributes p1 p2 p3 p4 = ChildWorkflowExecu
     , _cweteaStartedEventId    = p4
     }
 
--- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to
--- the 'StartChildWorkflowExecution' 'Decision' to start this child workflow
--- execution. This information can be useful for diagnosing problems by tracing
--- back the chain of events leading up to this event.
+-- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' 'Decision' to start this child workflow execution.
+-- This information can be useful for diagnosing problems by tracing back the
+-- chain of events leading up to this event.
 cweteaInitiatedEventId :: Lens' ChildWorkflowExecutionTerminatedEventAttributes Integer
 cweteaInitiatedEventId =
     lens _cweteaInitiatedEventId (\s a -> s { _cweteaInitiatedEventId = a })
@@ -5365,7 +5582,7 @@ workflowExecutionCanceledEventAttributes p1 = WorkflowExecutionCanceledEventAttr
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'CancelWorkflowExecution' decision for this cancellation
 -- request. This information can be useful for diagnosing problems by tracing
--- back the cause of events.
+-- back the chain of events leading up to this event.
 wecea1DecisionTaskCompletedEventId :: Lens' WorkflowExecutionCanceledEventAttributes Integer
 wecea1DecisionTaskCompletedEventId =
     lens _wecea1DecisionTaskCompletedEventId
@@ -5414,8 +5631,8 @@ workflowExecutionSignaledEventAttributes p1 = WorkflowExecutionSignaledEventAttr
     , _wesea1ExternalInitiatedEventId  = Nothing
     }
 
--- | The id of the 'SignalExternalWorkflowExecutionInitiated' event corresponding
--- to the 'SignalExternalWorkflow' decision to signal this workflow execution.The
+-- | The id of the 'SignalExternalWorkflowExecutionInitiated' event corresponding to
+-- the 'SignalExternalWorkflow' decision to signal this workflow execution.The
 -- source event with this Id can be found in the history of the source workflow
 -- execution. This information can be useful for diagnosing problems by tracing
 -- back the chain of events leading up to this event. This field is set only if
@@ -5432,8 +5649,8 @@ wesea1ExternalWorkflowExecution =
     lens _wesea1ExternalWorkflowExecution
         (\s a -> s { _wesea1ExternalWorkflowExecution = a })
 
--- | Inputs provided with the signal (if any). The decider can use the signal
--- name and inputs to determine how to process the signal.
+-- | Inputs provided with the signal (if any). The decider can use the signal name
+-- and inputs to determine how to process the signal.
 wesea1Input :: Lens' WorkflowExecutionSignaledEventAttributes (Maybe Text)
 wesea1Input = lens _wesea1Input (\s a -> s { _wesea1Input = a })
 
@@ -5541,15 +5758,15 @@ timerStartedEventAttributes p1 p2 p3 = TimerStartedEventAttributes
     , _tseaControl                      = Nothing
     }
 
--- | Optional data attached to the event that can be used by the decider in
+-- | /Optional./ Data attached to the event that can be used by the decider in
 -- subsequent workflow tasks.
 tseaControl :: Lens' TimerStartedEventAttributes (Maybe Text)
 tseaControl = lens _tseaControl (\s a -> s { _tseaControl = a })
 
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'StartTimer' decision for this activity task. This
--- information can be useful for diagnosing problems by tracing back the cause
--- of events.
+-- information can be useful for diagnosing problems by tracing back the chain
+-- of events leading up to this event.
 tseaDecisionTaskCompletedEventId :: Lens' TimerStartedEventAttributes Integer
 tseaDecisionTaskCompletedEventId =
     lens _tseaDecisionTaskCompletedEventId
@@ -5557,8 +5774,7 @@ tseaDecisionTaskCompletedEventId =
 
 -- | The duration of time after which the timer will fire.
 --
--- The duration is specified in seconds. The valid values are integers greater
--- than or equal to 0.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
 tseaStartToFireTimeout :: Lens' TimerStartedEventAttributes Text
 tseaStartToFireTimeout =
     lens _tseaStartToFireTimeout (\s a -> s { _tseaStartToFireTimeout = a })
@@ -5689,8 +5905,8 @@ dCancelWorkflowExecutionDecisionAttributes =
     lens _dCancelWorkflowExecutionDecisionAttributes
         (\s a -> s { _dCancelWorkflowExecutionDecisionAttributes = a })
 
--- | Provides details of the 'CompleteWorkflowExecution' decision. It is not set
--- for other decision types.
+-- | Provides details of the 'CompleteWorkflowExecution' decision. It is not set for
+-- other decision types.
 dCompleteWorkflowExecutionDecisionAttributes :: Lens' Decision (Maybe CompleteWorkflowExecutionDecisionAttributes)
 dCompleteWorkflowExecutionDecisionAttributes =
     lens _dCompleteWorkflowExecutionDecisionAttributes
@@ -5721,8 +5937,8 @@ dRecordMarkerDecisionAttributes =
     lens _dRecordMarkerDecisionAttributes
         (\s a -> s { _dRecordMarkerDecisionAttributes = a })
 
--- | Provides details of the 'RequestCancelActivityTask' decision. It is not set
--- for other decision types.
+-- | Provides details of the 'RequestCancelActivityTask' decision. It is not set for
+-- other decision types.
 dRequestCancelActivityTaskDecisionAttributes :: Lens' Decision (Maybe RequestCancelActivityTaskDecisionAttributes)
 dRequestCancelActivityTaskDecisionAttributes =
     lens _dRequestCancelActivityTaskDecisionAttributes
@@ -5756,8 +5972,8 @@ dStartChildWorkflowExecutionDecisionAttributes =
     lens _dStartChildWorkflowExecutionDecisionAttributes
         (\s a -> s { _dStartChildWorkflowExecutionDecisionAttributes = a })
 
--- | Provides details of the 'StartTimer' decision. It is not set for other
--- decision types.
+-- | Provides details of the 'StartTimer' decision. It is not set for other decision
+-- types.
 dStartTimerDecisionAttributes :: Lens' Decision (Maybe StartTimerDecisionAttributes)
 dStartTimerDecisionAttributes =
     lens _dStartTimerDecisionAttributes
@@ -5891,8 +6107,8 @@ externalWorkflowExecutionSignaledEventAttributes p1 p2 = ExternalWorkflowExecuti
     , _eweseaInitiatedEventId  = p2
     }
 
--- | The id of the 'SignalExternalWorkflowExecutionInitiated' event corresponding
--- to the 'SignalExternalWorkflowExecution' decision to request this signal. This
+-- | The id of the 'SignalExternalWorkflowExecutionInitiated' event corresponding to
+-- the 'SignalExternalWorkflowExecution' decision to request this signal. This
 -- information can be useful for diagnosing problems by tracing back the chain
 -- of events leading up to this event.
 eweseaInitiatedEventId :: Lens' ExternalWorkflowExecutionSignaledEventAttributes Integer
@@ -5930,7 +6146,7 @@ cancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttri
     { _cwedaDetails = Nothing
     }
 
--- | Optional details of the cancellation.
+-- | /Optional./ details of the cancellation.
 cwedaDetails :: Lens' CancelWorkflowExecutionDecisionAttributes (Maybe Text)
 cwedaDetails = lens _cwedaDetails (\s a -> s { _cwedaDetails = a })
 
@@ -6032,13 +6248,16 @@ failWorkflowExecutionFailedEventAttributes p1 p2 = FailWorkflowExecutionFailedEv
 
 -- | The cause of the failure. This information is generated by the system and can
 -- be useful for diagnostic purposes.
+--
+-- If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
+-- lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 fwefeaCause :: Lens' FailWorkflowExecutionFailedEventAttributes FailWorkflowExecutionFailedCause
 fwefeaCause = lens _fwefeaCause (\s a -> s { _fwefeaCause = a })
 
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'FailWorkflowExecution' decision to fail this execution.
 -- This information can be useful for diagnosing problems by tracing back the
--- cause of events.
+-- chain of events leading up to this event.
 fwefeaDecisionTaskCompletedEventId :: Lens' FailWorkflowExecutionFailedEventAttributes Integer
 fwefeaDecisionTaskCompletedEventId =
     lens _fwefeaDecisionTaskCompletedEventId
@@ -6095,8 +6314,11 @@ startChildWorkflowExecutionFailedEventAttributes p1 p2 p3 p4 p5 = StartChildWork
     , _scwefeaControl                      = Nothing
     }
 
--- | The cause of the failure to process the decision. This information is
--- generated by the system and can be useful for diagnostic purposes.
+-- | The cause of the failure. This information is generated by the system and can
+-- be useful for diagnostic purposes.
+--
+-- If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
+-- lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 scwefeaCause :: Lens' StartChildWorkflowExecutionFailedEventAttributes StartChildWorkflowExecutionFailedCause
 scwefeaCause = lens _scwefeaCause (\s a -> s { _scwefeaCause = a })
 
@@ -6112,10 +6334,9 @@ scwefeaDecisionTaskCompletedEventId =
     lens _scwefeaDecisionTaskCompletedEventId
         (\s a -> s { _scwefeaDecisionTaskCompletedEventId = a })
 
--- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to
--- the 'StartChildWorkflowExecution' 'Decision' to start this child workflow
--- execution. This information can be useful for diagnosing problems by tracing
--- back the chain of events leading up to this event.
+-- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' 'Decision' to start this child workflow execution.
+-- This information can be useful for diagnosing problems by tracing back the
+-- chain of events leading up to this event.
 scwefeaInitiatedEventId :: Lens' StartChildWorkflowExecutionFailedEventAttributes Integer
 scwefeaInitiatedEventId =
     lens _scwefeaInitiatedEventId (\s a -> s { _scwefeaInitiatedEventId = a })
@@ -6170,7 +6391,7 @@ workflowTypeFilter p1 = WorkflowTypeFilter
     , _wtfVersion = Nothing
     }
 
--- | Name of the workflow type. This field is required.
+-- | Required. Name of the workflow type.
 wtfName :: Lens' WorkflowTypeFilter Text
 wtfName = lens _wtfName (\s a -> s { _wtfName = a })
 
@@ -6318,10 +6539,9 @@ childWorkflowExecutionFailedEventAttributes p1 p2 p3 p4 = ChildWorkflowExecution
 cwefeaDetails :: Lens' ChildWorkflowExecutionFailedEventAttributes (Maybe Text)
 cwefeaDetails = lens _cwefeaDetails (\s a -> s { _cwefeaDetails = a })
 
--- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to
--- the 'StartChildWorkflowExecution' 'Decision' to start this child workflow
--- execution. This information can be useful for diagnosing problems by tracing
--- back the chain of events leading up to this event.
+-- | The id of the 'StartChildWorkflowExecutionInitiated' event corresponding to the 'StartChildWorkflowExecution' 'Decision' to start this child workflow execution.
+-- This information can be useful for diagnosing problems by tracing back the
+-- chain of events leading up to this event.
 cwefeaInitiatedEventId :: Lens' ChildWorkflowExecutionFailedEventAttributes Integer
 cwefeaInitiatedEventId =
     lens _cwefeaInitiatedEventId (\s a -> s { _cwefeaInitiatedEventId = a })
@@ -6699,9 +6919,9 @@ heCancelTimerFailedEventAttributes =
     lens _heCancelTimerFailedEventAttributes
         (\s a -> s { _heCancelTimerFailedEventAttributes = a })
 
--- | If the event is of type 'CancelWorkflowExecutionFailed' then this member is
--- set and provides detailed information about the event. It is not set for
--- other event types.
+-- | If the event is of type 'CancelWorkflowExecutionFailed' then this member is set
+-- and provides detailed information about the event. It is not set for other
+-- event types.
 heCancelWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe CancelWorkflowExecutionFailedEventAttributes)
 heCancelWorkflowExecutionFailedEventAttributes =
     lens _heCancelWorkflowExecutionFailedEventAttributes
@@ -6731,9 +6951,9 @@ heChildWorkflowExecutionFailedEventAttributes =
     lens _heChildWorkflowExecutionFailedEventAttributes
         (\s a -> s { _heChildWorkflowExecutionFailedEventAttributes = a })
 
--- | If the event is of type 'ChildWorkflowExecutionStarted' then this member is
--- set and provides detailed information about the event. It is not set for
--- other event types.
+-- | If the event is of type 'ChildWorkflowExecutionStarted' then this member is set
+-- and provides detailed information about the event. It is not set for other
+-- event types.
 heChildWorkflowExecutionStartedEventAttributes :: Lens' HistoryEvent (Maybe ChildWorkflowExecutionStartedEventAttributes)
 heChildWorkflowExecutionStartedEventAttributes =
     lens _heChildWorkflowExecutionStartedEventAttributes
@@ -6763,9 +6983,9 @@ heCompleteWorkflowExecutionFailedEventAttributes =
     lens _heCompleteWorkflowExecutionFailedEventAttributes
         (\s a -> s { _heCompleteWorkflowExecutionFailedEventAttributes = a })
 
--- | If the event is of type 'ContinueAsNewWorkflowExecutionFailed' then this
--- member is set and provides detailed information about the event. It is not
--- set for other event types.
+-- | If the event is of type 'ContinueAsNewWorkflowExecutionFailed' then this member
+-- is set and provides detailed information about the event. It is not set for
+-- other event types.
 heContinueAsNewWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes)
 heContinueAsNewWorkflowExecutionFailedEventAttributes =
     lens _heContinueAsNewWorkflowExecutionFailedEventAttributes
@@ -6824,8 +7044,8 @@ heExternalWorkflowExecutionCancelRequestedEventAttributes =
     lens _heExternalWorkflowExecutionCancelRequestedEventAttributes
         (\s a -> s { _heExternalWorkflowExecutionCancelRequestedEventAttributes = a })
 
--- | If the event is of type 'ExternalWorkflowExecutionSignaled' then this member
--- is set and provides detailed information about the event. It is not set for
+-- | If the event is of type 'ExternalWorkflowExecutionSignaled' then this member is
+-- set and provides detailed information about the event. It is not set for
 -- other event types.
 heExternalWorkflowExecutionSignaledEventAttributes :: Lens' HistoryEvent (Maybe ExternalWorkflowExecutionSignaledEventAttributes)
 heExternalWorkflowExecutionSignaledEventAttributes =
@@ -6903,25 +7123,24 @@ heSignalExternalWorkflowExecutionInitiatedEventAttributes =
     lens _heSignalExternalWorkflowExecutionInitiatedEventAttributes
         (\s a -> s { _heSignalExternalWorkflowExecutionInitiatedEventAttributes = a })
 
--- | If the event is of type 'StartChildWorkflowExecutionFailed' then this member
--- is set and provides detailed information about the event. It is not set for
+-- | If the event is of type 'StartChildWorkflowExecutionFailed' then this member is
+-- set and provides detailed information about the event. It is not set for
 -- other event types.
 heStartChildWorkflowExecutionFailedEventAttributes :: Lens' HistoryEvent (Maybe StartChildWorkflowExecutionFailedEventAttributes)
 heStartChildWorkflowExecutionFailedEventAttributes =
     lens _heStartChildWorkflowExecutionFailedEventAttributes
         (\s a -> s { _heStartChildWorkflowExecutionFailedEventAttributes = a })
 
--- | If the event is of type 'StartChildWorkflowExecutionInitiated' then this
--- member is set and provides detailed information about the event. It is not
--- set for other event types.
+-- | If the event is of type 'StartChildWorkflowExecutionInitiated' then this member
+-- is set and provides detailed information about the event. It is not set for
+-- other event types.
 heStartChildWorkflowExecutionInitiatedEventAttributes :: Lens' HistoryEvent (Maybe StartChildWorkflowExecutionInitiatedEventAttributes)
 heStartChildWorkflowExecutionInitiatedEventAttributes =
     lens _heStartChildWorkflowExecutionInitiatedEventAttributes
         (\s a -> s { _heStartChildWorkflowExecutionInitiatedEventAttributes = a })
 
--- | If the event is of type 'StartTimerFailed' then this member is set and
--- provides detailed information about the event. It is not set for other event
--- types.
+-- | If the event is of type 'StartTimerFailed' then this member is set and provides
+-- detailed information about the event. It is not set for other event types.
 heStartTimerFailedEventAttributes :: Lens' HistoryEvent (Maybe StartTimerFailedEventAttributes)
 heStartTimerFailedEventAttributes =
     lens _heStartTimerFailedEventAttributes
@@ -6956,9 +7175,9 @@ heWorkflowExecutionCancelRequestedEventAttributes =
     lens _heWorkflowExecutionCancelRequestedEventAttributes
         (\s a -> s { _heWorkflowExecutionCancelRequestedEventAttributes = a })
 
--- | If the event is of type 'WorkflowExecutionCanceled' then this member is set
--- and provides detailed information about the event. It is not set for other
--- event types.
+-- | If the event is of type 'WorkflowExecutionCanceled' then this member is set and
+-- provides detailed information about the event. It is not set for other event
+-- types.
 heWorkflowExecutionCanceledEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionCanceledEventAttributes)
 heWorkflowExecutionCanceledEventAttributes =
     lens _heWorkflowExecutionCanceledEventAttributes
@@ -6988,9 +7207,9 @@ heWorkflowExecutionFailedEventAttributes =
     lens _heWorkflowExecutionFailedEventAttributes
         (\s a -> s { _heWorkflowExecutionFailedEventAttributes = a })
 
--- | If the event is of type 'WorkflowExecutionSignaled' then this member is set
--- and provides detailed information about the event. It is not set for other
--- event types.
+-- | If the event is of type 'WorkflowExecutionSignaled' then this member is set and
+-- provides detailed information about the event. It is not set for other event
+-- types.
 heWorkflowExecutionSignaledEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionSignaledEventAttributes)
 heWorkflowExecutionSignaledEventAttributes =
     lens _heWorkflowExecutionSignaledEventAttributes
@@ -7012,9 +7231,9 @@ heWorkflowExecutionTerminatedEventAttributes =
     lens _heWorkflowExecutionTerminatedEventAttributes
         (\s a -> s { _heWorkflowExecutionTerminatedEventAttributes = a })
 
--- | If the event is of type 'WorkflowExecutionTimedOut' then this member is set
--- and provides detailed information about the event. It is not set for other
--- event types.
+-- | If the event is of type 'WorkflowExecutionTimedOut' then this member is set and
+-- provides detailed information about the event. It is not set for other event
+-- types.
 heWorkflowExecutionTimedOutEventAttributes :: Lens' HistoryEvent (Maybe WorkflowExecutionTimedOutEventAttributes)
 heWorkflowExecutionTimedOutEventAttributes =
     lens _heWorkflowExecutionTimedOutEventAttributes
@@ -7150,13 +7369,16 @@ continueAsNewWorkflowExecutionFailedEventAttributes p1 p2 = ContinueAsNewWorkflo
 
 -- | The cause of the failure. This information is generated by the system and can
 -- be useful for diagnostic purposes.
+--
+-- If cause is set to OPERATION_NOT_PERMITTED, the decision failed because it
+-- lacked sufficient permissions. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 canwefeaCause :: Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes ContinueAsNewWorkflowExecutionFailedCause
 canwefeaCause = lens _canwefeaCause (\s a -> s { _canwefeaCause = a })
 
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'ContinueAsNewWorkflowExecution' decision that started
 -- this execution. This information can be useful for diagnosing problems by
--- tracing back the cause of events.
+-- tracing back the chain of events leading up to this event.
 canwefeaDecisionTaskCompletedEventId :: Lens' ContinueAsNewWorkflowExecutionFailedEventAttributes Integer
 canwefeaDecisionTaskCompletedEventId =
     lens _canwefeaDecisionTaskCompletedEventId
@@ -7211,7 +7433,7 @@ signalExternalWorkflowExecutionInitiatedEventAttributes p1 p2 p3 = SignalExterna
     , _seweieaControl                      = Nothing
     }
 
--- | Optional data attached to the event that can be used by the decider in
+-- | /Optional./ data attached to the event that can be used by the decider in
 -- subsequent decision tasks.
 seweieaControl :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes (Maybe Text)
 seweieaControl = lens _seweieaControl (\s a -> s { _seweieaControl = a })
@@ -7219,7 +7441,7 @@ seweieaControl = lens _seweieaControl (\s a -> s { _seweieaControl = a })
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'SignalExternalWorkflowExecution' decision for this
 -- signal. This information can be useful for diagnosing problems by tracing
--- back the cause of events leading up to this event.
+-- back the chain of events leading up to this event.
 seweieaDecisionTaskCompletedEventId :: Lens' SignalExternalWorkflowExecutionInitiatedEventAttributes Integer
 seweieaDecisionTaskCompletedEventId =
     lens _seweieaDecisionTaskCompletedEventId
@@ -7278,7 +7500,7 @@ cancelTimerDecisionAttributes p1 = CancelTimerDecisionAttributes
     { _ctdaTimerId = p1
     }
 
--- | The unique Id of the timer to cancel. This field is required.
+-- | Required. The unique Id of the timer to cancel.
 ctdaTimerId :: Lens' CancelTimerDecisionAttributes Text
 ctdaTimerId = lens _ctdaTimerId (\s a -> s { _ctdaTimerId = a })
 
@@ -7318,7 +7540,7 @@ workflowExecutionFailedEventAttributes p1 = WorkflowExecutionFailedEventAttribut
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'FailWorkflowExecution' decision to fail this execution.
 -- This information can be useful for diagnosing problems by tracing back the
--- cause of events.
+-- chain of events leading up to this event.
 wefeaDecisionTaskCompletedEventId :: Lens' WorkflowExecutionFailedEventAttributes Integer
 wefeaDecisionTaskCompletedEventId =
     lens _wefeaDecisionTaskCompletedEventId
@@ -7349,6 +7571,7 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration
     { _wecChildPolicy                  :: ChildPolicy
     , _wecExecutionStartToCloseTimeout :: Text
     , _wecTaskList                     :: TaskList
+    , _wecTaskPriority                 :: Maybe Text
     , _wecTaskStartToCloseTimeout      :: Text
     } deriving (Eq, Show)
 
@@ -7362,6 +7585,8 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration
 --
 -- * 'wecTaskList' @::@ 'TaskList'
 --
+-- * 'wecTaskPriority' @::@ 'Maybe' 'Text'
+--
 -- * 'wecTaskStartToCloseTimeout' @::@ 'Text'
 --
 workflowExecutionConfiguration :: Text -- ^ 'wecTaskStartToCloseTimeout'
@@ -7374,24 +7599,26 @@ workflowExecutionConfiguration p1 p2 p3 p4 = WorkflowExecutionConfiguration
     , _wecExecutionStartToCloseTimeout = p2
     , _wecTaskList                     = p3
     , _wecChildPolicy                  = p4
+    , _wecTaskPriority                 = Nothing
     }
 
 -- | The policy to use for the child workflow executions if this workflow
 -- execution is terminated, by calling the 'TerminateWorkflowExecution' action
--- explicitly or due to an expired timeout. The supported child policies are:
+-- explicitly or due to an expired timeout.
 --
--- TERMINATE: the child executions will be terminated.  REQUEST_CANCEL: a
+-- The supported child policies are:
+--
+-- TERMINATE: the child executions will be terminated. REQUEST_CANCEL: a
 -- request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions
--- when it receives an execution history with this event.   ABANDON: no action
+-- when it receives an execution history with this event. ABANDON: no action
 -- will be taken. The child executions will continue to run.
 wecChildPolicy :: Lens' WorkflowExecutionConfiguration ChildPolicy
 wecChildPolicy = lens _wecChildPolicy (\s a -> s { _wecChildPolicy = a })
 
 -- | The total duration for this workflow execution.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 wecExecutionStartToCloseTimeout :: Lens' WorkflowExecutionConfiguration Text
 wecExecutionStartToCloseTimeout =
     lens _wecExecutionStartToCloseTimeout
@@ -7402,11 +7629,18 @@ wecExecutionStartToCloseTimeout =
 wecTaskList :: Lens' WorkflowExecutionConfiguration TaskList
 wecTaskList = lens _wecTaskList (\s a -> s { _wecTaskList = a })
 
+-- | The priority assigned to decision tasks for this workflow execution. Valid
+-- values are integers that range from Java's 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate higher priority.
+--
+-- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+wecTaskPriority :: Lens' WorkflowExecutionConfiguration (Maybe Text)
+wecTaskPriority = lens _wecTaskPriority (\s a -> s { _wecTaskPriority = a })
+
 -- | The maximum duration allowed for decision tasks for this workflow execution.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 wecTaskStartToCloseTimeout :: Lens' WorkflowExecutionConfiguration Text
 wecTaskStartToCloseTimeout =
     lens _wecTaskStartToCloseTimeout
@@ -7417,6 +7651,7 @@ instance FromJSON WorkflowExecutionConfiguration where
         <$> o .:  "childPolicy"
         <*> o .:  "executionStartToCloseTimeout"
         <*> o .:  "taskList"
+        <*> o .:? "taskPriority"
         <*> o .:  "taskStartToCloseTimeout"
 
 instance ToJSON WorkflowExecutionConfiguration where
@@ -7424,6 +7659,7 @@ instance ToJSON WorkflowExecutionConfiguration where
         [ "taskStartToCloseTimeout"      .= _wecTaskStartToCloseTimeout
         , "executionStartToCloseTimeout" .= _wecExecutionStartToCloseTimeout
         , "taskList"                     .= _wecTaskList
+        , "taskPriority"                 .= _wecTaskPriority
         , "childPolicy"                  .= _wecChildPolicy
         ]
 
@@ -7448,7 +7684,7 @@ workflowExecution p1 p2 = WorkflowExecution
     , _weRunId      = p2
     }
 
--- | A system generated unique identifier for the workflow execution.
+-- | A system-generated unique identifier for the workflow execution.
 weRunId :: Lens' WorkflowExecution Text
 weRunId = lens _weRunId (\s a -> s { _weRunId = a })
 
@@ -7505,6 +7741,7 @@ data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExe
     , _canwedaInput                        :: Maybe Text
     , _canwedaTagList                      :: List "tagList" Text
     , _canwedaTaskList                     :: Maybe TaskList
+    , _canwedaTaskPriority                 :: Maybe Text
     , _canwedaTaskStartToCloseTimeout      :: Maybe Text
     , _canwedaWorkflowTypeVersion          :: Maybe Text
     } deriving (Eq, Show)
@@ -7523,6 +7760,8 @@ data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExe
 --
 -- * 'canwedaTaskList' @::@ 'Maybe' 'TaskList'
 --
+-- * 'canwedaTaskPriority' @::@ 'Maybe' 'Text'
+--
 -- * 'canwedaTaskStartToCloseTimeout' @::@ 'Maybe' 'Text'
 --
 -- * 'canwedaWorkflowTypeVersion' @::@ 'Maybe' 'Text'
@@ -7532,6 +7771,7 @@ continueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutio
     { _canwedaInput                        = Nothing
     , _canwedaExecutionStartToCloseTimeout = Nothing
     , _canwedaTaskList                     = Nothing
+    , _canwedaTaskPriority                 = Nothing
     , _canwedaTaskStartToCloseTimeout      = Nothing
     , _canwedaChildPolicy                  = Nothing
     , _canwedaTagList                      = mempty
@@ -7541,12 +7781,18 @@ continueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutio
 -- | If set, specifies the policy to use for the child workflow executions of the
 -- new execution if it is terminated by calling the 'TerminateWorkflowExecution'
 -- action explicitly or due to an expired timeout. This policy overrides the
--- default child policy specified when registering the workflow type using 'RegisterWorkflowType'. The supported child policies are:
+-- default child policy specified when registering the workflow type using 'RegisterWorkflowType'.
 --
--- TERMINATE: the child executions will be terminated.  REQUEST_CANCEL: a
+-- The supported child policies are:
+--
+-- TERMINATE: the child executions will be terminated. REQUEST_CANCEL: a
 -- request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions
--- when it receives an execution history with this event.   ABANDON: no action
--- will be taken. The child executions will continue to run.
+-- when it receives an execution history with this event. ABANDON: no action
+-- will be taken. The child executions will continue to run.  A child policy for
+-- this workflow execution must be specified either as a default for the
+-- workflow type or through this parameter. If neither this parameter is set nor
+-- a default child policy was specified at registration time then a fault will
+-- be returned.
 canwedaChildPolicy :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe ChildPolicy)
 canwedaChildPolicy =
     lens _canwedaChildPolicy (\s a -> s { _canwedaChildPolicy = a })
@@ -7555,9 +7801,13 @@ canwedaChildPolicy =
 -- overrides the 'defaultExecutionStartToCloseTimeout' specified when registering
 -- the workflow type.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
+--
+-- An execution start-to-close timeout for this workflow execution must be
+-- specified either as a default for the workflow type or through this field. If
+-- neither this field is set nor a default execution start-to-close timeout was
+-- specified at registration time then a fault will be returned.
 canwedaExecutionStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaExecutionStartToCloseTimeout =
     lens _canwedaExecutionStartToCloseTimeout
@@ -7567,8 +7817,8 @@ canwedaExecutionStartToCloseTimeout =
 canwedaInput :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaInput = lens _canwedaInput (\s a -> s { _canwedaInput = a })
 
--- | The list of tags to associate with the new workflow execution. A maximum of
--- 5 tags can be specified. You can list workflow executions with a specific tag
+-- | The list of tags to associate with the new workflow execution. A maximum of 5
+-- tags can be specified. You can list workflow executions with a specific tag
 -- by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and
 -- specifying a 'TagFilter'.
 canwedaTagList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes [Text]
@@ -7577,13 +7827,28 @@ canwedaTagList = lens _canwedaTagList (\s a -> s { _canwedaTagList = a }) . _Lis
 canwedaTaskList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe TaskList)
 canwedaTaskList = lens _canwedaTaskList (\s a -> s { _canwedaTaskList = a })
 
+-- | /Optional./ The task priority that, if set, specifies the priority for the
+-- decision tasks for this workflow execution. This overrides the
+-- defaultTaskPriority specified when registering the workflow type. Valid
+-- values are integers that range from Java's 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate higher priority.
+--
+-- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+canwedaTaskPriority :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
+canwedaTaskPriority =
+    lens _canwedaTaskPriority (\s a -> s { _canwedaTaskPriority = a })
+
 -- | Specifies the maximum duration of decision tasks for the new workflow
 -- execution. This parameter overrides the 'defaultTaskStartToCloseTimout'
 -- specified when registering the workflow type using 'RegisterWorkflowType'.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
+--
+-- A task start-to-close timeout for the new workflow execution must be
+-- specified either as a default for the workflow type or through this
+-- parameter. If neither this parameter is set nor a default task start-to-close
+-- timeout was specified at registration time then a fault will be returned.
 canwedaTaskStartToCloseTimeout :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaTaskStartToCloseTimeout =
     lens _canwedaTaskStartToCloseTimeout
@@ -7601,6 +7866,7 @@ instance FromJSON ContinueAsNewWorkflowExecutionDecisionAttributes where
         <*> o .:? "input"
         <*> o .:? "tagList" .!= mempty
         <*> o .:? "taskList"
+        <*> o .:? "taskPriority"
         <*> o .:? "taskStartToCloseTimeout"
         <*> o .:? "workflowTypeVersion"
 
@@ -7609,6 +7875,7 @@ instance ToJSON ContinueAsNewWorkflowExecutionDecisionAttributes where
         [ "input"                        .= _canwedaInput
         , "executionStartToCloseTimeout" .= _canwedaExecutionStartToCloseTimeout
         , "taskList"                     .= _canwedaTaskList
+        , "taskPriority"                 .= _canwedaTaskPriority
         , "taskStartToCloseTimeout"      .= _canwedaTaskStartToCloseTimeout
         , "childPolicy"                  .= _canwedaChildPolicy
         , "tagList"                      .= _canwedaTagList
@@ -7711,6 +7978,7 @@ data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinued
     , _wecaneaNewExecutionRunId            :: Text
     , _wecaneaTagList                      :: List "tagList" Text
     , _wecaneaTaskList                     :: TaskList
+    , _wecaneaTaskPriority                 :: Maybe Text
     , _wecaneaTaskStartToCloseTimeout      :: Maybe Text
     , _wecaneaWorkflowType                 :: WorkflowType
     } deriving (Eq, Show)
@@ -7733,6 +8001,8 @@ data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinued
 --
 -- * 'wecaneaTaskList' @::@ 'TaskList'
 --
+-- * 'wecaneaTaskPriority' @::@ 'Maybe' 'Text'
+--
 -- * 'wecaneaTaskStartToCloseTimeout' @::@ 'Maybe' 'Text'
 --
 -- * 'wecaneaWorkflowType' @::@ 'WorkflowType'
@@ -7751,6 +8021,7 @@ workflowExecutionContinuedAsNewEventAttributes p1 p2 p3 p4 p5 = WorkflowExecutio
     , _wecaneaWorkflowType                 = p5
     , _wecaneaInput                        = Nothing
     , _wecaneaExecutionStartToCloseTimeout = Nothing
+    , _wecaneaTaskPriority                 = Nothing
     , _wecaneaTaskStartToCloseTimeout      = Nothing
     , _wecaneaTagList                      = mempty
     }
@@ -7761,9 +8032,9 @@ workflowExecutionContinuedAsNewEventAttributes p1 p2 p3 p4 p5 = WorkflowExecutio
 --
 -- The supported child policies are:
 --
--- TERMINATE: the child executions will be terminated.  REQUEST_CANCEL: a
+-- TERMINATE: the child executions will be terminated. REQUEST_CANCEL: a
 -- request to cancel will be attempted for each child execution by recording a 'WorkflowExecutionCancelRequested' event in its history. It is up to the decider to take appropriate actions
--- when it receives an execution history with this event.   ABANDON: no action
+-- when it receives an execution history with this event. ABANDON: no action
 -- will be taken. The child executions will continue to run.
 wecaneaChildPolicy :: Lens' WorkflowExecutionContinuedAsNewEventAttributes ChildPolicy
 wecaneaChildPolicy =
@@ -7772,7 +8043,7 @@ wecaneaChildPolicy =
 -- | The id of the 'DecisionTaskCompleted' event corresponding to the decision task
 -- that resulted in the 'ContinueAsNewWorkflowExecution' decision that started
 -- this execution. This information can be useful for diagnosing problems by
--- tracing back the cause of events.
+-- tracing back the chain of events leading up to this event.
 wecaneaDecisionTaskCompletedEventId :: Lens' WorkflowExecutionContinuedAsNewEventAttributes Integer
 wecaneaDecisionTaskCompletedEventId =
     lens _wecaneaDecisionTaskCompletedEventId
@@ -7780,9 +8051,8 @@ wecaneaDecisionTaskCompletedEventId =
 
 -- | The total duration allowed for the new workflow execution.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 wecaneaExecutionStartToCloseTimeout :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaExecutionStartToCloseTimeout =
     lens _wecaneaExecutionStartToCloseTimeout
@@ -7805,11 +8075,14 @@ wecaneaTagList = lens _wecaneaTagList (\s a -> s { _wecaneaTagList = a }) . _Lis
 wecaneaTaskList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes TaskList
 wecaneaTaskList = lens _wecaneaTaskList (\s a -> s { _wecaneaTaskList = a })
 
+wecaneaTaskPriority :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
+wecaneaTaskPriority =
+    lens _wecaneaTaskPriority (\s a -> s { _wecaneaTaskPriority = a })
+
 -- | The maximum duration of decision tasks for the new workflow execution.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 wecaneaTaskStartToCloseTimeout :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe Text)
 wecaneaTaskStartToCloseTimeout =
     lens _wecaneaTaskStartToCloseTimeout
@@ -7828,6 +8101,7 @@ instance FromJSON WorkflowExecutionContinuedAsNewEventAttributes where
         <*> o .:  "newExecutionRunId"
         <*> o .:? "tagList" .!= mempty
         <*> o .:  "taskList"
+        <*> o .:? "taskPriority"
         <*> o .:? "taskStartToCloseTimeout"
         <*> o .:  "workflowType"
 
@@ -7838,6 +8112,7 @@ instance ToJSON WorkflowExecutionContinuedAsNewEventAttributes where
         , "newExecutionRunId"            .= _wecaneaNewExecutionRunId
         , "executionStartToCloseTimeout" .= _wecaneaExecutionStartToCloseTimeout
         , "taskList"                     .= _wecaneaTaskList
+        , "taskPriority"                 .= _wecaneaTaskPriority
         , "taskStartToCloseTimeout"      .= _wecaneaTaskStartToCloseTimeout
         , "childPolicy"                  .= _wecaneaChildPolicy
         , "tagList"                      .= _wecaneaTagList

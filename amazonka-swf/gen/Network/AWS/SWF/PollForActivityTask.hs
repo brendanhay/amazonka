@@ -32,8 +32,8 @@
 -- worker should use its type to identify and process it correctly.
 --
 -- Workers should set their client side socket timeout to at least 70 seconds
--- (10 seconds higher than the maximum time service may hold the poll request).
--- Access Control
+-- (10 seconds higher than the maximum time service may hold the poll request). Access Control
+--
 --
 -- You can use IAM policies to control this action's access to Amazon SWF
 -- resources as follows:
@@ -44,8 +44,9 @@
 -- element with the 'swf:taskList.name' key to allow the action to access only
 -- certain task lists.  If the caller does not have sufficient permissions to
 -- invoke the action, or the parameter values fall outside the specified
--- constraints, the action fails by throwing 'OperationNotPermitted'. For details
--- and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWFWorkflows>.
+-- constraints, the action fails. The associated event attribute's cause
+-- parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM
+-- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForActivityTask.html>
 module Network.AWS.SWF.PollForActivityTask
@@ -106,7 +107,8 @@ pollForActivityTask p1 p2 = PollForActivityTask
 pfatDomain :: Lens' PollForActivityTask Text
 pfatDomain = lens _pfatDomain (\s a -> s { _pfatDomain = a })
 
--- | Identity of the worker making the request, which is recorded in the 'ActivityTaskStarted' event in the workflow history. This enables diagnostic tracing when problems
+-- | Identity of the worker making the request, recorded in the 'ActivityTaskStarted'
+-- event in the workflow history. This enables diagnostic tracing when problems
 -- arise. The form of this identity is user defined.
 pfatIdentity :: Lens' PollForActivityTask (Maybe Text)
 pfatIdentity = lens _pfatIdentity (\s a -> s { _pfatIdentity = a })
@@ -116,7 +118,7 @@ pfatIdentity = lens _pfatIdentity (\s a -> s { _pfatIdentity = a })
 -- The specified string must not start or end with whitespace. It must not
 -- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
--- string "arn".
+-- string quotarnquot.
 pfatTaskList :: Lens' PollForActivityTask TaskList
 pfatTaskList = lens _pfatTaskList (\s a -> s { _pfatTaskList = a })
 
@@ -170,8 +172,7 @@ pfatrActivityType =
     lens _pfatrActivityType (\s a -> s { _pfatrActivityType = a })
 
 -- | The inputs provided when the activity task was scheduled. The form of the
--- input is user defined and should be meaningful to the activity
--- implementation.
+-- input is user defined and should be meaningful to the activity implementation.
 pfatrInput :: Lens' PollForActivityTaskResponse (Maybe Text)
 pfatrInput = lens _pfatrInput (\s a -> s { _pfatrInput = a })
 
@@ -180,9 +181,9 @@ pfatrStartedEventId :: Lens' PollForActivityTaskResponse Integer
 pfatrStartedEventId =
     lens _pfatrStartedEventId (\s a -> s { _pfatrStartedEventId = a })
 
--- | The opaque string used as a handle on the task. This token is used by
--- workers to communicate progress and response information back to the system
--- about the task.
+-- | The opaque string used as a handle on the task. This token is used by workers
+-- to communicate progress and response information back to the system about the
+-- task.
 pfatrTaskToken :: Lens' PollForActivityTaskResponse Text
 pfatrTaskToken = lens _pfatrTaskToken (\s a -> s { _pfatrTaskToken = a })
 

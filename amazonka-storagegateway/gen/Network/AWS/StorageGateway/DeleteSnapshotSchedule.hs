@@ -29,6 +29,10 @@
 -- more information, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working with Snapshots>. In the 'DeleteSnapshotSchedule'
 -- request, you identify the volume by providing its Amazon Resource Name (ARN).
 --
+-- To list or delete a snapshot, you must use the Amazon EC2 API. in /AmazonElastic Compute Cloud API Reference/.
+--
+--
+--
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteSnapshotSchedule.html>
 module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     (

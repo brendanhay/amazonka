@@ -2542,7 +2542,7 @@
                     "Eq",
                     "Show"
                 ],
-                "fieldPad": 24,
+                "fieldPad": 26,
                 "ctor": "cluster",
                 "contents": [
                     {
@@ -2752,6 +2752,38 @@
                         "documentation": "-- | The IAM role that will be assumed by the Amazon EMR service to access AWS\n-- resources on your behalf.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "c1NormalizedInstanceHours",
+                        "name": "_c1NormalizedInstanceHours",
+                        "shape": "Integer",
+                        "locationName": "NormalizedInstanceHours",
+                        "documentation": "-- | An approximation of the cost of the job flow, represented in m1.small/hours.\n-- This value is incremented one time for every hour an m1.small instance runs.\n-- Larger instances are weighted more, so an EC2 instance that is roughly four\n-- times more expensive would result in the normalized instance hours being\n-- incremented by four. This result is only an approximation and does not\n-- reflect the actual billing rate.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "c1MasterPublicDnsName",
+                        "name": "_c1MasterPublicDnsName",
+                        "shape": "String",
+                        "locationName": "MasterPublicDnsName",
+                        "documentation": "-- | The public DNS name of the master Ec2 instance.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "payload": null,
@@ -2805,9 +2837,9 @@
                         "type": "ClusterStatus"
                     }
                 ],
-                "contentPad": 22,
+                "contentPad": 24,
                 "name": "Cluster",
-                "locationPad": 22,
+                "locationPad": 24,
                 "type": "record",
                 "optional": [
                     {
@@ -2969,6 +3001,38 @@
                         "documentation": "-- | The IAM role that will be assumed by the Amazon EMR service to access AWS\n-- resources on your behalf.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "c1NormalizedInstanceHours",
+                        "name": "_c1NormalizedInstanceHours",
+                        "shape": "Integer",
+                        "locationName": "NormalizedInstanceHours",
+                        "documentation": "-- | An approximation of the cost of the job flow, represented in m1.small/hours.\n-- This value is incremented one time for every hour an m1.small instance runs.\n-- Larger instances are weighted more, so an EC2 instance that is roughly four\n-- times more expensive would result in the normalized instance hours being\n-- incremented by four. This result is only an approximation and does not\n-- reflect the actual billing rate.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "c1MasterPublicDnsName",
+                        "name": "_c1MasterPublicDnsName",
+                        "shape": "String",
+                        "locationName": "MasterPublicDnsName",
+                        "documentation": "-- | The public DNS name of the master Ec2 instance.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -3056,6 +3120,22 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "c1MasterPublicDnsName",
+                        "name": "_c1MasterPublicDnsName",
+                        "shape": "String",
+                        "locationName": "MasterPublicDnsName",
+                        "documentation": "-- | The public DNS name of the master Ec2 instance.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "monoid": false,
                         "flattened": false,
@@ -3067,6 +3147,22 @@
                         "documentation": "-- | The name of the cluster.",
                         "typeExposed": "Text",
                         "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "c1NormalizedInstanceHours",
+                        "name": "_c1NormalizedInstanceHours",
+                        "shape": "Integer",
+                        "locationName": "NormalizedInstanceHours",
+                        "documentation": "-- | An approximation of the cost of the job flow, represented in m1.small/hours.\n-- This value is incremented one time for every hour an m1.small instance runs.\n-- Larger instances are weighted more, so an EC2 instance that is roughly four\n-- times more expensive would result in the normalized instance hours being\n-- incremented by four. This result is only an approximation and does not\n-- reflect the actual billing rate.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
                     },
                     {
                         "location": null,
@@ -4271,7 +4367,7 @@
                     "Eq",
                     "Show"
                 ],
-                "fieldPad": 9,
+                "fieldPad": 18,
                 "ctor": "stepSummary",
                 "contents": [
                     {
@@ -4314,6 +4410,38 @@
                         "monoid": false,
                         "flattened": false,
                         "required": false,
+                        "lens": "ssConfig",
+                        "name": "_ssConfig",
+                        "shape": "HadoopStepConfig",
+                        "locationName": "Config",
+                        "documentation": "-- | The Hadoop job configuration of the cluster step.",
+                        "typeExposed": "Maybe HadoopStepConfig",
+                        "type": "Maybe HadoopStepConfig"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ssActionOnFailure",
+                        "name": "_ssActionOnFailure",
+                        "shape": "ActionOnFailure",
+                        "locationName": "ActionOnFailure",
+                        "documentation": "-- | This specifies what action to take when the cluster step fails. Possible\n-- values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE.",
+                        "typeExposed": "Maybe ActionOnFailure",
+                        "type": "Maybe ActionOnFailure"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
                         "lens": "ssStatus",
                         "name": "_ssStatus",
                         "shape": "StepStatus",
@@ -4325,9 +4453,9 @@
                 ],
                 "payload": null,
                 "required": [],
-                "contentPad": 7,
+                "contentPad": 16,
                 "name": "StepSummary",
-                "locationPad": 7,
+                "locationPad": 16,
                 "type": "record",
                 "optional": [
                     {
@@ -4370,6 +4498,38 @@
                         "monoid": false,
                         "flattened": false,
                         "required": false,
+                        "lens": "ssConfig",
+                        "name": "_ssConfig",
+                        "shape": "HadoopStepConfig",
+                        "locationName": "Config",
+                        "documentation": "-- | The Hadoop job configuration of the cluster step.",
+                        "typeExposed": "Maybe HadoopStepConfig",
+                        "type": "Maybe HadoopStepConfig"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ssActionOnFailure",
+                        "name": "_ssActionOnFailure",
+                        "shape": "ActionOnFailure",
+                        "locationName": "ActionOnFailure",
+                        "documentation": "-- | This specifies what action to take when the cluster step fails. Possible\n-- values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE.",
+                        "typeExposed": "Maybe ActionOnFailure",
+                        "type": "Maybe ActionOnFailure"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
                         "lens": "ssStatus",
                         "name": "_ssStatus",
                         "shape": "StepStatus",
@@ -4380,6 +4540,38 @@
                     }
                 ],
                 "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ssActionOnFailure",
+                        "name": "_ssActionOnFailure",
+                        "shape": "ActionOnFailure",
+                        "locationName": "ActionOnFailure",
+                        "documentation": "-- | This specifies what action to take when the cluster step fails. Possible\n-- values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE.",
+                        "typeExposed": "Maybe ActionOnFailure",
+                        "type": "Maybe ActionOnFailure"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ssConfig",
+                        "name": "_ssConfig",
+                        "shape": "HadoopStepConfig",
+                        "locationName": "Config",
+                        "documentation": "-- | The Hadoop job configuration of the cluster step.",
+                        "typeExposed": "Maybe HadoopStepConfig",
+                        "type": "Maybe HadoopStepConfig"
+                    },
                     {
                         "location": null,
                         "iso": null,
@@ -7040,7 +7232,7 @@
                         "name": "_jficHadoopVersion",
                         "shape": "XmlStringMaxLen256",
                         "locationName": "HadoopVersion",
-                        "documentation": "-- | The Hadoop version for the job flow. Valid inputs are \"0.18\", \"0.20\", or\n-- \"0.20.205\". If you do not set this value, the default of 0.18 is used, unless\n-- the AmiVersion parameter is set in the RunJobFlow call, in which case the\n-- default version of Hadoop for that AMI version is used.",
+                        "documentation": "-- | The Hadoop version for the job flow. Valid inputs are \"0.18\", \"0.20\",\n-- \"0.20.205\", \"1.0.3\", \"2.2.0\", or \"2.4.0\". If you do not set this value, the\n-- default of 0.18 is used, unless the AmiVersion parameter is set in the\n-- RunJobFlow call, in which case the default version of Hadoop for that AMI\n-- version is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7208,7 +7400,7 @@
                         "name": "_jficHadoopVersion",
                         "shape": "XmlStringMaxLen256",
                         "locationName": "HadoopVersion",
-                        "documentation": "-- | The Hadoop version for the job flow. Valid inputs are \"0.18\", \"0.20\", or\n-- \"0.20.205\". If you do not set this value, the default of 0.18 is used, unless\n-- the AmiVersion parameter is set in the RunJobFlow call, in which case the\n-- default version of Hadoop for that AMI version is used.",
+                        "documentation": "-- | The Hadoop version for the job flow. Valid inputs are \"0.18\", \"0.20\",\n-- \"0.20.205\", \"1.0.3\", \"2.2.0\", or \"2.4.0\". If you do not set this value, the\n-- default of 0.18 is used, unless the AmiVersion parameter is set in the\n-- RunJobFlow call, in which case the default version of Hadoop for that AMI\n-- version is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7274,7 +7466,7 @@
                         "name": "_jficHadoopVersion",
                         "shape": "XmlStringMaxLen256",
                         "locationName": "HadoopVersion",
-                        "documentation": "-- | The Hadoop version for the job flow. Valid inputs are \"0.18\", \"0.20\", or\n-- \"0.20.205\". If you do not set this value, the default of 0.18 is used, unless\n-- the AmiVersion parameter is set in the RunJobFlow call, in which case the\n-- default version of Hadoop for that AMI version is used.",
+                        "documentation": "-- | The Hadoop version for the job flow. Valid inputs are \"0.18\", \"0.20\",\n-- \"0.20.205\", \"1.0.3\", \"2.2.0\", or \"2.4.0\". If you do not set this value, the\n-- default of 0.18 is used, unless the AmiVersion parameter is set in the\n-- RunJobFlow call, in which case the default version of Hadoop for that AMI\n-- version is used.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -8130,7 +8322,7 @@
                     "Eq",
                     "Show"
                 ],
-                "fieldPad": 9,
+                "fieldPad": 26,
                 "ctor": "clusterSummary",
                 "contents": [
                     {
@@ -8180,13 +8372,29 @@
                         "documentation": "-- | The details about the current status of the cluster.",
                         "typeExposed": "Maybe ClusterStatus",
                         "type": "Maybe ClusterStatus"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "csNormalizedInstanceHours",
+                        "name": "_csNormalizedInstanceHours",
+                        "shape": "Integer",
+                        "locationName": "NormalizedInstanceHours",
+                        "documentation": "-- | An approximation of the cost of the job flow, represented in m1.small/hours.\n-- This value is incremented one time for every hour an m1.small instance runs.\n-- Larger instances are weighted more, so an EC2 instance that is roughly four\n-- times more expensive would result in the normalized instance hours being\n-- incremented by four. This result is only an approximation and does not\n-- reflect the actual billing rate.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
                     }
                 ],
                 "payload": null,
                 "required": [],
-                "contentPad": 7,
+                "contentPad": 24,
                 "name": "ClusterSummary",
-                "locationPad": 7,
+                "locationPad": 24,
                 "type": "record",
                 "optional": [
                     {
@@ -8236,6 +8444,22 @@
                         "documentation": "-- | The details about the current status of the cluster.",
                         "typeExposed": "Maybe ClusterStatus",
                         "type": "Maybe ClusterStatus"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "csNormalizedInstanceHours",
+                        "name": "_csNormalizedInstanceHours",
+                        "shape": "Integer",
+                        "locationName": "NormalizedInstanceHours",
+                        "documentation": "-- | An approximation of the cost of the job flow, represented in m1.small/hours.\n-- This value is incremented one time for every hour an m1.small instance runs.\n-- Larger instances are weighted more, so an EC2 instance that is roughly four\n-- times more expensive would result in the normalized instance hours being\n-- incremented by four. This result is only an approximation and does not\n-- reflect the actual billing rate.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
                     }
                 ],
                 "fields": [
@@ -8270,6 +8494,22 @@
                         "documentation": "-- | The name of the cluster.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "csNormalizedInstanceHours",
+                        "name": "_csNormalizedInstanceHours",
+                        "shape": "Integer",
+                        "locationName": "NormalizedInstanceHours",
+                        "documentation": "-- | An approximation of the cost of the job flow, represented in m1.small/hours.\n-- This value is incremented one time for every hour an m1.small instance runs.\n-- Larger instances are weighted more, so an EC2 instance that is roughly four\n-- times more expensive would result in the normalized instance hours being\n-- incremented by four. This result is only an approximation and does not\n-- reflect the actual billing rate.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
                     },
                     {
                         "location": null,
@@ -12784,6 +13024,22 @@
                     },
                     {
                         "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lsStepIds",
+                        "name": "_lsStepIds",
+                        "shape": "XmlStringList",
+                        "locationName": "StepIds",
+                        "documentation": "-- | The filter to limit the step list based on the identifier of the steps.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"Args\" Text"
+                    },
+                    {
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -12854,6 +13110,22 @@
                     },
                     {
                         "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lsStepIds",
+                        "name": "_lsStepIds",
+                        "shape": "XmlStringList",
+                        "locationName": "StepIds",
+                        "documentation": "-- | The filter to limit the step list based on the identifier of the steps.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"Args\" Text"
+                    },
+                    {
+                        "location": null,
                         "iso": null,
                         "lensMapping": null,
                         "default": "Nothing",
@@ -12901,6 +13173,22 @@
                         "documentation": "-- | The pagination token that indicates the next set of results to retrieve.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lsStepIds",
+                        "name": "_lsStepIds",
+                        "shape": "XmlStringList",
+                        "locationName": "StepIds",
+                        "documentation": "-- | The filter to limit the step list based on the identifier of the steps.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"Args\" Text"
                     },
                     {
                         "location": null,
@@ -14390,7 +14678,7 @@
             "pager": null,
             "name": "TerminateJobFlows",
             "method": "post",
-            "documentation": "-- | TerminateJobFlows shuts a list of job flows down. When a job flow is shut\n-- down, any step not yet completed is canceled and the EC2 instances on which\n-- the job flow is running are stopped. Any log files not already saved are\n-- uploaded to Amazon S3 if a LogUri was specified when the job flow was\n-- created.\n--\n-- The call to TerminateJobFlows is asynchronous. Depending on the\n-- configuration of the job flow, it may take up to 5-20 minutes for the job\n-- flow to completely terminate and release allocated resources, such as Amazon\n-- EC2 instances.",
+            "documentation": "-- | TerminateJobFlows shuts a list of job flows down. When a job flow is shut\n-- down, any step not yet completed is canceled and the EC2 instances on which\n-- the job flow is running are stopped. Any log files not already saved are\n-- uploaded to Amazon S3 if a LogUri was specified when the job flow was\n-- created.\n--\n-- The maximum number of JobFlows allowed is 10. The call to TerminateJobFlows\n-- is asynchronous. Depending on the configuration of the job flow, it may take\n-- up to 5-20 minutes for the job flow to completely terminate and release\n-- allocated resources, such as Amazon EC2 instances.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

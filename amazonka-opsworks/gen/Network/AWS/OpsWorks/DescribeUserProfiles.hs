@@ -52,7 +52,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 newtype DescribeUserProfiles = DescribeUserProfiles
-    { _dupIamUserArns :: List "InstanceIds" Text
+    { _dupIamUserArns :: List "IamUserArns" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeUserProfiles where

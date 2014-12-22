@@ -121,7 +121,7 @@ qoSphere = lens _qoSphere (\s a -> s { _qoSphere = a })
 
 data QueryObjectsResponse = QueryObjectsResponse
     { _qorHasMoreResults :: Maybe Bool
-    , _qorIds            :: List "pipelineIds" Text
+    , _qorIds            :: List "ids" Text
     , _qorMarker         :: Maybe Text
     } deriving (Eq, Ord, Show)
 

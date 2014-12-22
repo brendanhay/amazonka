@@ -74,7 +74,7 @@ import qualified GHC.Exts
 data CloneStack = CloneStack
     { _cs1Attributes                :: Map StackAttributesKeys Text
     , _cs1ChefConfiguration         :: Maybe ChefConfiguration
-    , _cs1CloneAppIds               :: List "InstanceIds" Text
+    , _cs1CloneAppIds               :: List "CloneAppIds" Text
     , _cs1ClonePermissions          :: Maybe Bool
     , _cs1ConfigurationManager      :: Maybe StackConfigurationManager
     , _cs1CustomCookbooksSource     :: Maybe Source

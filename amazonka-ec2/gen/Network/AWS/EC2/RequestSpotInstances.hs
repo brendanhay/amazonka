@@ -234,4 +234,4 @@ instance AWSRequest RequestSpotInstances where
 
 instance FromXML RequestSpotInstancesResponse where
     parseXML x = RequestSpotInstancesResponse
-        <$> parseXML x
+        <$> x .@? "spotInstanceRequestSet" .!@ mempty

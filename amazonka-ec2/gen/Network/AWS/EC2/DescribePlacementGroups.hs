@@ -122,8 +122,8 @@ instance ToPath DescribePlacementGroups where
 instance ToQuery DescribePlacementGroups where
     toQuery DescribePlacementGroups{..} = mconcat
         [ "dryRun"    =? _dpg1DryRun
-        , toQuery    _dpg1Filters
-        , toQuery    _dpg1GroupNames
+        , "Filter"    `toQueryList` _dpg1Filters
+        , "groupName" `toQueryList` _dpg1GroupNames
         ]
 
 instance ToHeaders DescribePlacementGroups
@@ -137,4 +137,4 @@ instance AWSRequest DescribePlacementGroups where
 
 instance FromXML DescribePlacementGroupsResponse where
     parseXML x = DescribePlacementGroupsResponse
-        <$> parseXML x
+        <$> x .@? "placementGroupSet" .!@ mempty

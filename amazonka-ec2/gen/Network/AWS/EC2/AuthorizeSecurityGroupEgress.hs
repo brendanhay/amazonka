@@ -185,7 +185,7 @@ instance ToQuery AuthorizeSecurityGroupEgress where
         , "dryRun"                     =? _asgeDryRun
         , "fromPort"                   =? _asgeFromPort
         , "groupId"                    =? _asgeGroupId
-        , toQuery                     _asgeIpPermissions
+        , "ipPermissions"              `toQueryList` _asgeIpPermissions
         , "ipProtocol"                 =? _asgeIpProtocol
         , "sourceSecurityGroupName"    =? _asgeSourceSecurityGroupName
         , "sourceSecurityGroupOwnerId" =? _asgeSourceSecurityGroupOwnerId

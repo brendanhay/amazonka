@@ -156,8 +156,8 @@ instance ToPath DescribeVpnConnections where
 instance ToQuery DescribeVpnConnections where
     toQuery DescribeVpnConnections{..} = mconcat
         [ "dryRun"          =? _dvc1DryRun
-        , toQuery          _dvc1Filters
-        , toQuery          _dvc1VpnConnectionIds
+        , "Filter"          `toQueryList` _dvc1Filters
+        , "VpnConnectionId" `toQueryList` _dvc1VpnConnectionIds
         ]
 
 instance ToHeaders DescribeVpnConnections
@@ -171,4 +171,4 @@ instance AWSRequest DescribeVpnConnections where
 
 instance FromXML DescribeVpnConnectionsResponse where
     parseXML x = DescribeVpnConnectionsResponse
-        <$> parseXML x
+        <$> x .@? "vpnConnectionSet" .!@ mempty

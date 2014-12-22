@@ -27,7 +27,7 @@
 --
 -- A 'TypeAlreadyExists' fault is returned if the type already exists in the
 -- domain. You cannot change any configuration settings of the type after its
--- registration, and it must be registered as a new version.  Access Control
+-- registration, and it must be registered as a new version. Access Control
 --
 -- You can use IAM policies to control this action's access to Amazon SWF
 -- resources as follows:
@@ -38,7 +38,9 @@
 -- with the appropriate keys.   'defaultTaskList.name': String constraint. The key
 -- is 'swf:defaultTaskList.name'.  'name': String constraint. The key is 'swf:name'.  'version': String constraint. The key is 'swf:version'.    If the caller does not have
 -- sufficient permissions to invoke the action, or the parameter values fall
--- outside the specified constraints, the action fails by throwing 'OperationNotPermitted'. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access toAmazon SWF Workflows>.
+-- outside the specified constraints, the action fails. The associated event
+-- attribute's cause parameter will be set to OPERATION_NOT_PERMITTED. For
+-- details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to AmazonSWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterActivityType.html>
 module Network.AWS.SWF.RegisterActivityType
@@ -50,6 +52,7 @@ module Network.AWS.SWF.RegisterActivityType
     -- ** Request lenses
     , ratDefaultTaskHeartbeatTimeout
     , ratDefaultTaskList
+    , ratDefaultTaskPriority
     , ratDefaultTaskScheduleToCloseTimeout
     , ratDefaultTaskScheduleToStartTimeout
     , ratDefaultTaskStartToCloseTimeout
@@ -72,6 +75,7 @@ import qualified GHC.Exts
 data RegisterActivityType = RegisterActivityType
     { _ratDefaultTaskHeartbeatTimeout       :: Maybe Text
     , _ratDefaultTaskList                   :: Maybe TaskList
+    , _ratDefaultTaskPriority               :: Maybe Text
     , _ratDefaultTaskScheduleToCloseTimeout :: Maybe Text
     , _ratDefaultTaskScheduleToStartTimeout :: Maybe Text
     , _ratDefaultTaskStartToCloseTimeout    :: Maybe Text
@@ -88,6 +92,8 @@ data RegisterActivityType = RegisterActivityType
 -- * 'ratDefaultTaskHeartbeatTimeout' @::@ 'Maybe' 'Text'
 --
 -- * 'ratDefaultTaskList' @::@ 'Maybe' 'TaskList'
+--
+-- * 'ratDefaultTaskPriority' @::@ 'Maybe' 'Text'
 --
 -- * 'ratDefaultTaskScheduleToCloseTimeout' @::@ 'Maybe' 'Text'
 --
@@ -115,20 +121,19 @@ registerActivityType p1 p2 p3 = RegisterActivityType
     , _ratDefaultTaskStartToCloseTimeout    = Nothing
     , _ratDefaultTaskHeartbeatTimeout       = Nothing
     , _ratDefaultTaskList                   = Nothing
+    , _ratDefaultTaskPriority               = Nothing
     , _ratDefaultTaskScheduleToStartTimeout = Nothing
     , _ratDefaultTaskScheduleToCloseTimeout = Nothing
     }
 
--- | If set, specifies the default maximum time before which a worker processing
--- a task of this type must report progress by calling 'RecordActivityTaskHeartbeat'. If the timeout is exceeded, the activity task is automatically timed out.
--- This default can be overridden when scheduling an activity task using the 'ScheduleActivityTask' 'Decision'. If the activity worker subsequently attempts to record a heartbeat
--- or returns a result, the activity worker receives an 'UnknownResource' fault.
--- In this case, Amazon SWF no longer considers the activity task to be valid;
--- the activity worker should clean up the activity task.
+-- | If set, specifies the default maximum time before which a worker processing a
+-- task of this type must report progress by calling 'RecordActivityTaskHeartbeat'. If the timeout is exceeded, the activity task is automatically timed out. This default can be overridden when scheduling an activity task using the
+-- 'ScheduleActivityTask' 'Decision'. If the activity worker subsequently attempts
+-- to record a heartbeat or returns a result, the activity worker receives an 'UnknownResource' fault. In this case, Amazon SWF no longer considers the activity task to be
+-- valid; the activity worker should clean up the activity task.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 ratDefaultTaskHeartbeatTimeout :: Lens' RegisterActivityType (Maybe Text)
 ratDefaultTaskHeartbeatTimeout =
     lens _ratDefaultTaskHeartbeatTimeout
@@ -141,13 +146,22 @@ ratDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
 ratDefaultTaskList =
     lens _ratDefaultTaskList (\s a -> s { _ratDefaultTaskList = a })
 
+-- | The default task priority to assign to the activity type. If not assigned,
+-- then "0" will be used. Valid values are integers that range from Java's 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers indicate
+-- higher priority.
+--
+-- For more information about setting task priority, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon Simple Workflow Developer Guide/.
+ratDefaultTaskPriority :: Lens' RegisterActivityType (Maybe Text)
+ratDefaultTaskPriority =
+    lens _ratDefaultTaskPriority (\s a -> s { _ratDefaultTaskPriority = a })
+
 -- | If set, specifies the default maximum duration for a task of this activity
 -- type. This default can be overridden when scheduling an activity task using
 -- the 'ScheduleActivityTask' 'Decision'.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 ratDefaultTaskScheduleToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
 ratDefaultTaskScheduleToCloseTimeout =
     lens _ratDefaultTaskScheduleToCloseTimeout
@@ -157,9 +171,8 @@ ratDefaultTaskScheduleToCloseTimeout =
 -- type can wait before being assigned to a worker. This default can be
 -- overridden when scheduling an activity task using the 'ScheduleActivityTask' 'Decision'.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 ratDefaultTaskScheduleToStartTimeout :: Lens' RegisterActivityType (Maybe Text)
 ratDefaultTaskScheduleToStartTimeout =
     lens _ratDefaultTaskScheduleToStartTimeout
@@ -169,9 +182,8 @@ ratDefaultTaskScheduleToStartTimeout =
 -- process tasks of this activity type. This default can be overridden when
 -- scheduling an activity task using the 'ScheduleActivityTask' 'Decision'.
 --
--- The valid values are integers greater than or equal to '0'. An integer value
--- can be used to specify the duration in seconds while 'NONE' can be used to
--- specify unlimited duration.
+-- The duration is specified in seconds; an integer greater than or equal to 0.
+-- The value "NONE" can be used to specify unlimited duration.
 ratDefaultTaskStartToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
 ratDefaultTaskStartToCloseTimeout =
     lens _ratDefaultTaskStartToCloseTimeout
@@ -190,16 +202,17 @@ ratDomain = lens _ratDomain (\s a -> s { _ratDomain = a })
 -- The specified string must not start or end with whitespace. It must not
 -- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
--- string "arn".
+-- string quotarnquot.
 ratName :: Lens' RegisterActivityType Text
 ratName = lens _ratName (\s a -> s { _ratName = a })
 
 -- | The version of the activity type.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
--- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
--- string "arn".
+-- The activity type consists of the name and version, the combination of which
+-- must be unique within the domain. The specified string must not start or end
+-- with whitespace. It must not contain a ':' (colon), '/' (slash), '|' (vertical
+-- bar), or any control characters (\u0000-\u001f | \u007f - \u009f). Also, it
+-- must not contain the literal string quotarnquot.
 ratVersion :: Lens' RegisterActivityType Text
 ratVersion = lens _ratVersion (\s a -> s { _ratVersion = a })
 
@@ -227,6 +240,7 @@ instance ToJSON RegisterActivityType where
         , "defaultTaskStartToCloseTimeout"    .= _ratDefaultTaskStartToCloseTimeout
         , "defaultTaskHeartbeatTimeout"       .= _ratDefaultTaskHeartbeatTimeout
         , "defaultTaskList"                   .= _ratDefaultTaskList
+        , "defaultTaskPriority"               .= _ratDefaultTaskPriority
         , "defaultTaskScheduleToStartTimeout" .= _ratDefaultTaskScheduleToStartTimeout
         , "defaultTaskScheduleToCloseTimeout" .= _ratDefaultTaskScheduleToCloseTimeout
         ]

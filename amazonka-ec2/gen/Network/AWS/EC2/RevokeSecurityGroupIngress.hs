@@ -184,7 +184,7 @@ instance ToQuery RevokeSecurityGroupIngress where
         , "FromPort"                   =? _rsgiFromPort
         , "GroupId"                    =? _rsgiGroupId
         , "GroupName"                  =? _rsgiGroupName
-        , toQuery                     _rsgiIpPermissions
+        , "IpPermissions"              `toQueryList` _rsgiIpPermissions
         , "IpProtocol"                 =? _rsgiIpProtocol
         , "SourceSecurityGroupName"    =? _rsgiSourceSecurityGroupName
         , "SourceSecurityGroupOwnerId" =? _rsgiSourceSecurityGroupOwnerId

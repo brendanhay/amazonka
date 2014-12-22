@@ -373,7 +373,7 @@ data RunInstancesResponse = RunInstancesResponse
     { _rirGroups        :: List "item" GroupIdentifier
     , _rirInstances     :: List "item" Instance
     , _rirOwnerId       :: Text
-    , _rirRequesterId   :: Text
+    , _rirRequesterId   :: Maybe Text
     , _rirReservationId :: Text
     } deriving (Eq, Show)
 
@@ -387,18 +387,17 @@ data RunInstancesResponse = RunInstancesResponse
 --
 -- * 'rirOwnerId' @::@ 'Text'
 --
--- * 'rirRequesterId' @::@ 'Text'
+-- * 'rirRequesterId' @::@ 'Maybe' 'Text'
 --
 -- * 'rirReservationId' @::@ 'Text'
 --
 runInstancesResponse :: Text -- ^ 'rirReservationId'
                      -> Text -- ^ 'rirOwnerId'
-                     -> Text -- ^ 'rirRequesterId'
                      -> RunInstancesResponse
-runInstancesResponse p1 p2 p3 = RunInstancesResponse
+runInstancesResponse p1 p2 = RunInstancesResponse
     { _rirReservationId = p1
     , _rirOwnerId       = p2
-    , _rirRequesterId   = p3
+    , _rirRequesterId   = Nothing
     , _rirGroups        = mempty
     , _rirInstances     = mempty
     }
@@ -417,7 +416,7 @@ rirOwnerId = lens _rirOwnerId (\s a -> s { _rirOwnerId = a })
 
 -- | The ID of the requester that launched the instances on your behalf (for
 -- example, AWS Management Console or Auto Scaling).
-rirRequesterId :: Lens' RunInstancesResponse Text
+rirRequesterId :: Lens' RunInstancesResponse (Maybe Text)
 rirRequesterId = lens _rirRequesterId (\s a -> s { _rirRequesterId = a })
 
 -- | The ID of the reservation.
@@ -430,7 +429,7 @@ instance ToPath RunInstances where
 instance ToQuery RunInstances where
     toQuery RunInstances{..} = mconcat
         [ "additionalInfo"                    =? _riAdditionalInfo
-        , toQuery                            _riBlockDeviceMappings
+        , "BlockDeviceMapping"                `toQueryList` _riBlockDeviceMappings
         , "clientToken"                       =? _riClientToken
         , "disableApiTermination"             =? _riDisableApiTermination
         , "dryRun"                            =? _riDryRun
@@ -444,12 +443,12 @@ instance ToQuery RunInstances where
         , "MaxCount"                          =? _riMaxCount
         , "MinCount"                          =? _riMinCount
         , "Monitoring"                        =? _riMonitoring
-        , toQuery                            _riNetworkInterfaces
+        , "networkInterface"                  `toQueryList` _riNetworkInterfaces
         , "Placement"                         =? _riPlacement
         , "privateIpAddress"                  =? _riPrivateIpAddress
         , "RamdiskId"                         =? _riRamdiskId
-        , toQuery                            _riSecurityGroupIds
-        , toQuery                            _riSecurityGroups
+        , "SecurityGroupId"                   `toQueryList` _riSecurityGroupIds
+        , "SecurityGroup"                     `toQueryList` _riSecurityGroups
         , "SubnetId"                          =? _riSubnetId
         , "UserData"                          =? _riUserData
         ]
@@ -465,8 +464,8 @@ instance AWSRequest RunInstances where
 
 instance FromXML RunInstancesResponse where
     parseXML x = RunInstancesResponse
-        <$> parseXML x
-        <*> parseXML x
+        <$> x .@? "groupSet" .!@ mempty
+        <*> x .@? "instancesSet" .!@ mempty
         <*> x .@  "ownerId"
-        <*> x .@  "requesterId"
+        <*> x .@? "requesterId"
         <*> x .@  "reservationId"

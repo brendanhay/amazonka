@@ -27,7 +27,10 @@
 -- given domain, workflowId and runId. The event is recorded with the specified
 -- user defined signalName and input (if provided).
 --
--- Access Control
+-- If a runId is not specified, then the 'WorkflowExecutionSignaled' event is
+-- recorded in the history of the current open workflow with the matching
+-- workflowId in the domain.  If the specified workflow execution is not open,
+-- this method fails with 'UnknownResource'. Access Control
 --
 -- You can use IAM policies to control this action's access to Amazon SWF
 -- resources as follows:
@@ -37,8 +40,8 @@
 -- this action. You cannot use an IAM policy to constrain this action's
 -- parameters.  If the caller does not have sufficient permissions to invoke the
 -- action, or the parameter values fall outside the specified constraints, the
--- action fails by throwing 'OperationNotPermitted'. For details and example IAM
--- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- action fails. The associated event attribute's cause parameter will be set to
+-- OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAMto Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_SignalWorkflowExecution.html>
 module Network.AWS.SWF.SignalWorkflowExecution

@@ -145,10 +145,10 @@ instance ToQuery ModifySnapshotAttribute where
         [ "Attribute"              =? _msaAttribute
         , "CreateVolumePermission" =? _msaCreateVolumePermission
         , "dryRun"                 =? _msaDryRun
-        , toQuery                 _msaGroupNames
+        , "UserGroup"              `toQueryList` _msaGroupNames
         , "OperationType"          =? _msaOperationType
         , "SnapshotId"             =? _msaSnapshotId
-        , toQuery                 _msaUserIds
+        , "UserId"                 `toQueryList` _msaUserIds
         ]
 
 instance ToHeaders ModifySnapshotAttribute

@@ -102,7 +102,7 @@ instance ToPath DescribeAccountAttributes where
 
 instance ToQuery DescribeAccountAttributes where
     toQuery DescribeAccountAttributes{..} = mconcat
-        [ toQuery        _daaAttributeNames
+        [ "attributeName" `toQueryList` _daaAttributeNames
         , "dryRun"        =? _daaDryRun
         ]
 
@@ -117,4 +117,4 @@ instance AWSRequest DescribeAccountAttributes where
 
 instance FromXML DescribeAccountAttributesResponse where
     parseXML x = DescribeAccountAttributesResponse
-        <$> parseXML x
+        <$> x .@? "accountAttributeSet" .!@ mempty

@@ -23,8 +23,8 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Returns information about the specified activity type. This includes
--- configuration settings provided at registration time as well as other general
--- information about the type.
+-- configuration settings provided when the type was registered and other
+-- general information about the type.
 --
 -- Access Control
 --
@@ -34,10 +34,11 @@
 -- Use a 'Resource' element with the domain name to limit the action to only
 -- specified domains. Use an 'Action' element to allow or deny permission to call
 -- this action. Constrain the following parameters by using a 'Condition' element
--- with the appropriate keys.   'activityType.name': String constraint. The key is 'swf:activityType.name'.  'activityType.version': String constraint. The key is 'swf:activityType.version'.    If the caller does not have sufficient permissions to invoke the action,
+-- with the appropriate keys.  'activityType.name': String constraint. The key is 'swf:activityType.name'. 'activityType.version': String constraint. The key is 'swf:activityType.version'
+-- .    If the caller does not have sufficient permissions to invoke the action,
 -- or the parameter values fall outside the specified constraints, the action
--- fails by throwing 'OperationNotPermitted'. For details and example IAM
--- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- fails. The associated event attribute's cause parameter will be set to
+-- OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAMto Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeActivityType.html>
 module Network.AWS.SWF.DescribeActivityType
@@ -85,7 +86,8 @@ describeActivityType p1 p2 = DescribeActivityType
     , _datActivityType = p2
     }
 
--- | The activity type to describe.
+-- | The activity type to get information about. Activity types are identified by
+-- the 'name' and 'version' that were supplied when the activity was registered.
 datActivityType :: Lens' DescribeActivityType ActivityType
 datActivityType = lens _datActivityType (\s a -> s { _datActivityType = a })
 
@@ -121,8 +123,8 @@ datrConfiguration =
 
 -- | General information about the activity type.
 --
--- The status of activity type (returned in the ActivityTypeInfo structure)
--- can be one of the following.
+-- The status of activity type (returned in the ActivityTypeInfo structure) can
+-- be one of the following.
 --
 -- REGISTERED: The type is registered and available. Workers supporting this
 -- type should be running.   DEPRECATED: The type was deprecated using 'DeprecateActivityType', but is still in use. You should keep workers supporting this type running.

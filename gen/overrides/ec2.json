@@ -141,37 +141,27 @@
         "Reservation": {
             "required": [
                 "ReservationId",
-                "OwnerId",
-                "RequesterId"
+                "OwnerId"
             ]
         },
         "Instance": {
             "required": [
-                "AmiLaunchIndex",
-                "Architecture",
-                "ClientToken",
-                "Hypervisor",
-                "ImageId",
                 "InstanceId",
-                "InstanceType",
-                "KernelId",
+                "ImageId",
                 "KeyName",
+                "AmiLaunchIndex",
+                "InstanceType",
                 "LaunchTime",
-                "Monitoring",
                 "Placement",
-                "Platform",
-                "PrivateDnsName",
-                "PrivateIpAddress",
-                "PublicDnsName",
-                "PublicIpAddress",
-                "RamdiskId",
-                "RootDeviceName",
+                "Monitoring",
+                "Architecture",
                 "RootDeviceType",
-                "SourceDestCheck",
-                "State",
-                "SubnetId",
+                "RootDeviceName",
                 "VirtualizationType",
-                "VpcId"
+                "Hypervisor",
+                "IamInstanceProfile",
+                "EbsOptimized",
+                "State"
             ]
         },
         "BundleTask": {

@@ -627,7 +627,7 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
     { _tacdCategory    :: Text
     , _tacdDescription :: Text
     , _tacdId          :: Text
-    , _tacdMetadata    :: List "checkIds" Text
+    , _tacdMetadata    :: List "metadata" Text
     , _tacdName        :: Text
     } deriving (Eq, Ord, Show)
 
@@ -831,7 +831,7 @@ instance ToJSON SupportService where
 
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
     { _tardIsSuppressed :: Maybe Bool
-    , _tardMetadata     :: List "checkIds" Text
+    , _tardMetadata     :: List "metadata" Text
     , _tardRegion       :: Text
     , _tardResourceId   :: Text
     , _tardStatus       :: Text

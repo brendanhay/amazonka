@@ -28,6 +28,10 @@
 -- data on the tape is consistent. If your gateway crashes, virtual tapes that
 -- have recovery points can be recovered to a new gateway.
 --
+-- The virtual tape can be retrieved to only one gateway. The retrieved tape is
+-- read-only. The virtual tape can be retrieved to only a gateway-VTL. There is
+-- no charge for retrieving recovery points.
+--
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeRecoveryPoint.html>
 module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     (

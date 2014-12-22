@@ -86,6 +86,8 @@ dtGatewayARN = lens _dtGatewayARN (\s a -> s { _dtGatewayARN = a })
 
 -- | Specifies that the number of virtual tapes described be limited to the
 -- specified number.
+--
+-- Amazon Web Services may impose its own limit, if this field is not set.
 dtLimit :: Lens' DescribeTapes (Maybe Natural)
 dtLimit = lens _dtLimit (\s a -> s { _dtLimit = a }) . mapping _Nat
 

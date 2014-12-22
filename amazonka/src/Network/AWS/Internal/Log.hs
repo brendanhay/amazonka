@@ -19,15 +19,8 @@ import Control.Monad.IO.Class
 import Data.ByteString.Builder
 import Data.Monoid
 import Network.AWS.Data
+import Network.AWS.Types
 import System.IO
-
-data LogLevel
-    = Info  -- ^ Informational messages supplied by the user, not used by the library.
-    | Debug -- ^ Info level + debug messages + non-streaming response bodies.
-    | Trace -- ^ Debug level + potentially sensitive signing metadata.
-      deriving (Eq, Ord, Enum, Show)
-
-type Logger = LogLevel -> Builder -> IO ()
 
 -- | This is a primitive logger which can be used to log messages to a 'Handle'.
 -- A more sophisticated logging library such as tinylog or FastLogger should be

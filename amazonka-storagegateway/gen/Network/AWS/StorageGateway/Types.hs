@@ -70,6 +70,7 @@ module Network.AWS.StorageGateway.Types
     , dDiskNode
     , dDiskPath
     , dDiskSizeInBytes
+    , dDiskStatus
 
     -- * Tape
     , Tape
@@ -461,6 +462,7 @@ data Disk = Disk
     , _dDiskNode               :: Maybe Text
     , _dDiskPath               :: Maybe Text
     , _dDiskSizeInBytes        :: Maybe Integer
+    , _dDiskStatus             :: Maybe Text
     } deriving (Eq, Ord, Show)
 
 -- | 'Disk' constructor.
@@ -479,11 +481,14 @@ data Disk = Disk
 --
 -- * 'dDiskSizeInBytes' @::@ 'Maybe' 'Integer'
 --
+-- * 'dDiskStatus' @::@ 'Maybe' 'Text'
+--
 disk :: Disk
 disk = Disk
     { _dDiskId                 = Nothing
     , _dDiskPath               = Nothing
     , _dDiskNode               = Nothing
+    , _dDiskStatus             = Nothing
     , _dDiskSizeInBytes        = Nothing
     , _dDiskAllocationType     = Nothing
     , _dDiskAllocationResource = Nothing
@@ -509,6 +514,9 @@ dDiskPath = lens _dDiskPath (\s a -> s { _dDiskPath = a })
 dDiskSizeInBytes :: Lens' Disk (Maybe Integer)
 dDiskSizeInBytes = lens _dDiskSizeInBytes (\s a -> s { _dDiskSizeInBytes = a })
 
+dDiskStatus :: Lens' Disk (Maybe Text)
+dDiskStatus = lens _dDiskStatus (\s a -> s { _dDiskStatus = a })
+
 instance FromJSON Disk where
     parseJSON = withObject "Disk" $ \o -> Disk
         <$> o .:? "DiskAllocationResource"
@@ -517,12 +525,14 @@ instance FromJSON Disk where
         <*> o .:? "DiskNode"
         <*> o .:? "DiskPath"
         <*> o .:? "DiskSizeInBytes"
+        <*> o .:? "DiskStatus"
 
 instance ToJSON Disk where
     toJSON Disk{..} = object
         [ "DiskId"                 .= _dDiskId
         , "DiskPath"               .= _dDiskPath
         , "DiskNode"               .= _dDiskNode
+        , "DiskStatus"             .= _dDiskStatus
         , "DiskSizeInBytes"        .= _dDiskSizeInBytes
         , "DiskAllocationType"     .= _dDiskAllocationType
         , "DiskAllocationResource" .= _dDiskAllocationResource
@@ -532,7 +542,7 @@ data Tape = Tape
     { _tProgress        :: Maybe Double
     , _tTapeARN         :: Maybe Text
     , _tTapeBarcode     :: Maybe Text
-    , _tTapeSizeInBytes :: Maybe Nat
+    , _tTapeSizeInBytes :: Maybe Integer
     , _tTapeStatus      :: Maybe Text
     , _tVTLDevice       :: Maybe Text
     } deriving (Eq, Ord, Show)
@@ -547,7 +557,7 @@ data Tape = Tape
 --
 -- * 'tTapeBarcode' @::@ 'Maybe' 'Text'
 --
--- * 'tTapeSizeInBytes' @::@ 'Maybe' 'Natural'
+-- * 'tTapeSizeInBytes' @::@ 'Maybe' 'Integer'
 --
 -- * 'tTapeStatus' @::@ 'Maybe' 'Text'
 --
@@ -579,8 +589,8 @@ tTapeBarcode :: Lens' Tape (Maybe Text)
 tTapeBarcode = lens _tTapeBarcode (\s a -> s { _tTapeBarcode = a })
 
 -- | The size, in bytes, of the virtual tape.
-tTapeSizeInBytes :: Lens' Tape (Maybe Natural)
-tTapeSizeInBytes = lens _tTapeSizeInBytes (\s a -> s { _tTapeSizeInBytes = a }) . mapping _Nat
+tTapeSizeInBytes :: Lens' Tape (Maybe Integer)
+tTapeSizeInBytes = lens _tTapeSizeInBytes (\s a -> s { _tTapeSizeInBytes = a })
 
 -- | The current state of the virtual tape.
 tTapeStatus :: Lens' Tape (Maybe Text)
@@ -642,6 +652,8 @@ niIpv6Address :: Lens' NetworkInterface (Maybe Text)
 niIpv6Address = lens _niIpv6Address (\s a -> s { _niIpv6Address = a })
 
 -- | The Media Access Control (MAC) address of the interface.
+--
+-- This is currently unsupported and will not be returned in output.
 niMacAddress :: Lens' NetworkInterface (Maybe Text)
 niMacAddress = lens _niMacAddress (\s a -> s { _niMacAddress = a })
 
@@ -733,7 +745,7 @@ instance ToJSON VTLDevice where
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo
     { _trpiTapeARN               :: Maybe Text
     , _trpiTapeRecoveryPointTime :: Maybe ISO8601
-    , _trpiTapeSizeInBytes       :: Maybe Nat
+    , _trpiTapeSizeInBytes       :: Maybe Integer
     , _trpiTapeStatus            :: Maybe Text
     } deriving (Eq, Ord, Show)
 
@@ -745,7 +757,7 @@ data TapeRecoveryPointInfo = TapeRecoveryPointInfo
 --
 -- * 'trpiTapeRecoveryPointTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'trpiTapeSizeInBytes' @::@ 'Maybe' 'Natural'
+-- * 'trpiTapeSizeInBytes' @::@ 'Maybe' 'Integer'
 --
 -- * 'trpiTapeStatus' @::@ 'Maybe' 'Text'
 --
@@ -773,10 +785,9 @@ trpiTapeRecoveryPointTime =
             . mapping _Time
 
 -- | The size, in bytes, of the virtual tapes to recover.
-trpiTapeSizeInBytes :: Lens' TapeRecoveryPointInfo (Maybe Natural)
+trpiTapeSizeInBytes :: Lens' TapeRecoveryPointInfo (Maybe Integer)
 trpiTapeSizeInBytes =
     lens _trpiTapeSizeInBytes (\s a -> s { _trpiTapeSizeInBytes = a })
-        . mapping _Nat
 
 trpiTapeStatus :: Lens' TapeRecoveryPointInfo (Maybe Text)
 trpiTapeStatus = lens _trpiTapeStatus (\s a -> s { _trpiTapeStatus = a })
@@ -859,7 +870,7 @@ data TapeArchive = TapeArchive
     , _taRetrievedTo     :: Maybe Text
     , _taTapeARN         :: Maybe Text
     , _taTapeBarcode     :: Maybe Text
-    , _taTapeSizeInBytes :: Maybe Nat
+    , _taTapeSizeInBytes :: Maybe Integer
     , _taTapeStatus      :: Maybe Text
     } deriving (Eq, Ord, Show)
 
@@ -875,7 +886,7 @@ data TapeArchive = TapeArchive
 --
 -- * 'taTapeBarcode' @::@ 'Maybe' 'Text'
 --
--- * 'taTapeSizeInBytes' @::@ 'Maybe' 'Natural'
+-- * 'taTapeSizeInBytes' @::@ 'Maybe' 'Integer'
 --
 -- * 'taTapeStatus' @::@ 'Maybe' 'Text'
 --
@@ -912,10 +923,9 @@ taTapeBarcode :: Lens' TapeArchive (Maybe Text)
 taTapeBarcode = lens _taTapeBarcode (\s a -> s { _taTapeBarcode = a })
 
 -- | The size, in bytes, of the archived virtual tape.
-taTapeSizeInBytes :: Lens' TapeArchive (Maybe Natural)
+taTapeSizeInBytes :: Lens' TapeArchive (Maybe Integer)
 taTapeSizeInBytes =
     lens _taTapeSizeInBytes (\s a -> s { _taTapeSizeInBytes = a })
-        . mapping _Nat
 
 -- | The current state of the archived virtual tape.
 taTapeStatus :: Lens' TapeArchive (Maybe Text)

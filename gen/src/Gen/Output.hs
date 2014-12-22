@@ -312,6 +312,7 @@ data Field = Field
     , _fPayload       :: !Bool
     , _fStream        :: !Bool
     , _fDocumentation :: Maybe Above
+    , _fProtocol      :: !Protocol
     } deriving (Eq, Show)
 
 instance Ord Field where
@@ -335,6 +336,7 @@ instance ToJSON Field where
         , "monoid"        .= isMonoid _fType
         , "default"       .= typeDefault _fType
         , "iso"           .= typeIso _fType
+        , "protocol"      .= _fProtocol
         ]
 
 instance HasName Field where

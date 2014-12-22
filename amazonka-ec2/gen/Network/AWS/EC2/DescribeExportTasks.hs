@@ -89,7 +89,7 @@ instance ToPath DescribeExportTasks where
 
 instance ToQuery DescribeExportTasks where
     toQuery DescribeExportTasks{..} = mconcat
-        [ toQuery _detExportTaskIds
+        [ "exportTaskId" `toQueryList` _detExportTaskIds
         ]
 
 instance ToHeaders DescribeExportTasks
@@ -103,4 +103,4 @@ instance AWSRequest DescribeExportTasks where
 
 instance FromXML DescribeExportTasksResponse where
     parseXML x = DescribeExportTasksResponse
-        <$> parseXML x
+        <$> x .@? "exportTaskSet" .!@ mempty

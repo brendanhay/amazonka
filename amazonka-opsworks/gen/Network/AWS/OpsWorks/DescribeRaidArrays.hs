@@ -57,7 +57,7 @@ import qualified GHC.Exts
 
 data DescribeRaidArrays = DescribeRaidArrays
     { _draInstanceId   :: Maybe Text
-    , _draRaidArrayIds :: List "InstanceIds" Text
+    , _draRaidArrayIds :: List "RaidArrayIds" Text
     , _draStackId      :: Maybe Text
     } deriving (Eq, Ord, Show)
 

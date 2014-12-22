@@ -10,7 +10,7 @@ instance FromXML {{ type.name }} where
     parseXML x = {{ type.name }}
   {% endif %}
   {% for field in type.fields %}
-    {% if field.value.flattened %}
+    {% if field.value.flattened && !(field.value.protocol == "ec2") %}
         {% include "applicative.ede" %} parseXML x
     {% else %}
         {% include "applicative.ede" %} x {% include "xml-operator.ede" %}

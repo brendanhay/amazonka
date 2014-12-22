@@ -25,6 +25,9 @@
 -- | Creates one or more virtual tapes. You write data to the virtual tapes and
 -- then archive the tapes.
 --
+-- Cache storage must be allocated to the gateway before you can create virtual
+-- tapes. Use the 'AddCache' operation to add cache storage to a gateway.
+--
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateTapes.html>
 module Network.AWS.StorageGateway.CreateTapes
     (
@@ -57,7 +60,7 @@ data CreateTapes = CreateTapes
     , _ctGatewayARN        :: Text
     , _ctNumTapesToCreate  :: Nat
     , _ctTapeBarcodePrefix :: Text
-    , _ctTapeSizeInBytes   :: Nat
+    , _ctTapeSizeInBytes   :: Integer
     } deriving (Eq, Ord, Show)
 
 -- | 'CreateTapes' constructor.
@@ -72,17 +75,17 @@ data CreateTapes = CreateTapes
 --
 -- * 'ctTapeBarcodePrefix' @::@ 'Text'
 --
--- * 'ctTapeSizeInBytes' @::@ 'Natural'
+-- * 'ctTapeSizeInBytes' @::@ 'Integer'
 --
 createTapes :: Text -- ^ 'ctGatewayARN'
-            -> Natural -- ^ 'ctTapeSizeInBytes'
+            -> Integer -- ^ 'ctTapeSizeInBytes'
             -> Text -- ^ 'ctClientToken'
             -> Natural -- ^ 'ctNumTapesToCreate'
             -> Text -- ^ 'ctTapeBarcodePrefix'
             -> CreateTapes
 createTapes p1 p2 p3 p4 p5 = CreateTapes
     { _ctGatewayARN        = p1
-    , _ctTapeSizeInBytes   = withIso _Nat (const id) p2
+    , _ctTapeSizeInBytes   = p2
     , _ctClientToken       = p3
     , _ctNumTapesToCreate  = withIso _Nat (const id) p4
     , _ctTapeBarcodePrefix = p5
@@ -90,6 +93,8 @@ createTapes p1 p2 p3 p4 p5 = CreateTapes
 
 -- | A unique identifier that you use to retry a request. If you retry a request,
 -- use the same 'ClientToken' you specified in the initial request.
+--
+-- Using the same 'ClientToken' prevents creating the tape multiple times.
 ctClientToken :: Lens' CreateTapes Text
 ctClientToken = lens _ctClientToken (\s a -> s { _ctClientToken = a })
 
@@ -107,15 +112,19 @@ ctNumTapesToCreate =
 
 -- | A prefix you append to the barcode of the virtual tape you are creating. This
 -- makes a barcode unique.
+--
+-- The prefix must be 1 to 4 characters in length and must be upper-case
+-- letters A-Z.
 ctTapeBarcodePrefix :: Lens' CreateTapes Text
 ctTapeBarcodePrefix =
     lens _ctTapeBarcodePrefix (\s a -> s { _ctTapeBarcodePrefix = a })
 
 -- | The size, in bytes, of the virtual tapes you want to create.
-ctTapeSizeInBytes :: Lens' CreateTapes Natural
+--
+-- The size must be gigabyte (1024*1024*1024 byte) aligned.
+ctTapeSizeInBytes :: Lens' CreateTapes Integer
 ctTapeSizeInBytes =
     lens _ctTapeSizeInBytes (\s a -> s { _ctTapeSizeInBytes = a })
-        . _Nat
 
 newtype CreateTapesResponse = CreateTapesResponse
     { _ctrTapeARNs :: List "TapeARNs" Text

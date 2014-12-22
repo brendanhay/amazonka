@@ -564,6 +564,7 @@ shapes proto time m =
             , _fPayload       = Just fld == pay
             , _fStream        = fromMaybe False (r ^. refStreaming)
             , _fDocumentation = above <$> r ^. refDocumentation
+            , _fProtocol      = proto
             }
 
     require :: [Text] -> Text -> Type -> Type
@@ -580,19 +581,24 @@ shapes proto time m =
     ref fld r = do
         let k = r ^. refShape
             t = TType k
-        x <- gets (Map.lookup k)
-        maybe (maybe (insert k t >> return t)
-                     (prop fld r k)
-                     (Map.lookup k m))
-              return
-              x
+        mx <- gets (Map.lookup k)
+        case mx of
+            Just x  -> return x
+            Nothing ->
+                case Map.lookup k m of
+                    Nothing -> insert k t >> return t
+                    Just y  -> prop fld r k y
 
     prop :: Text -> Ref -> Text -> Input.Shape -> State (HashMap Text Type) Type
-    prop fld r k s =  do
+    prop fld r k s = do
         x <- gets (Map.lookup k)
-        maybe (go >>= insert k)
-              return
-              x
+
+        -- running 'go' here, ends up at some point selecting the wrong 'StringValueList'
+        -- for the EC2.Filter data type, and thereby not having the correct
+        -- refLocationName to use - why?
+
+        -- Removed the memoisation due to flattened item problems
+        maybe go return x
       where
         go = case s of
             Struct' _ -> pure (TType k)

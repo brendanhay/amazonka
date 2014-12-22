@@ -23,6 +23,9 @@ install: add-sources
 add-sources:
 	cabal sandbox add-source $(TOP)/core
 
+configure:
+	cabal configure
+
 clean:
 	cabal clean
 

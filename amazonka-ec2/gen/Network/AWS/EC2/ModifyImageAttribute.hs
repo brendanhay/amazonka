@@ -171,9 +171,9 @@ instance ToQuery ModifyImageAttribute where
         , "ImageId"          =? _miaImageId
         , "LaunchPermission" =? _miaLaunchPermission
         , "OperationType"    =? _miaOperationType
-        , toQuery           _miaProductCodes
-        , toQuery           _miaUserGroups
-        , toQuery           _miaUserIds
+        , "ProductCode"      `toQueryList` _miaProductCodes
+        , "UserGroup"        `toQueryList` _miaUserGroups
+        , "UserId"           `toQueryList` _miaUserIds
         , "Value"            =? _miaValue
         ]
 

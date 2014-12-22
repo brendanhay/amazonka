@@ -68,7 +68,7 @@ data UpdateInstance = UpdateInstance
     , _uiInstallUpdatesOnBoot :: Maybe Bool
     , _uiInstanceId           :: Text
     , _uiInstanceType         :: Maybe Text
-    , _uiLayerIds             :: List "InstanceIds" Text
+    , _uiLayerIds             :: List "LayerIds" Text
     , _uiOs                   :: Maybe Text
     , _uiSshKeyName           :: Maybe Text
     } deriving (Eq, Show)

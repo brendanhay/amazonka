@@ -1,12 +1,12 @@
 name:                  amazonka-sts-examples
-version:               0.1.0
+version:               0.1.1
 synopsis:              Amazon Security Token Service SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
-category:              Network, AWS, Cloud
+category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
 
@@ -20,9 +20,9 @@ library
         STS
 
     build-depends:
-        amazonka      == 0.1.0.*
-      , amazonka-core == 0.1.0.*
-      , amazonka-sts == 0.1.0.*
+        amazonka      == 0.1.1.*
+      , amazonka-core == 0.1.1.*
+      , amazonka-sts == 0.1.1.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

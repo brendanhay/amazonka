@@ -51,6 +51,7 @@ module Network.AWS.StorageGateway
     , module Network.AWS.StorageGateway.ListLocalDisks
     , module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     , module Network.AWS.StorageGateway.ListVolumes
+    , module Network.AWS.StorageGateway.ResetCache
     , module Network.AWS.StorageGateway.RetrieveTapeArchive
     , module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     , module Network.AWS.StorageGateway.ShutdownGateway
@@ -62,6 +63,7 @@ module Network.AWS.StorageGateway
     , module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     , module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     , module Network.AWS.StorageGateway.UpdateSnapshotSchedule
+    , module Network.AWS.StorageGateway.UpdateVTLDeviceType
     ) where
 
 import Network.AWS.StorageGateway.ActivateGateway
@@ -101,6 +103,7 @@ import Network.AWS.StorageGateway.ListGateways
 import Network.AWS.StorageGateway.ListLocalDisks
 import Network.AWS.StorageGateway.ListVolumeRecoveryPoints
 import Network.AWS.StorageGateway.ListVolumes
+import Network.AWS.StorageGateway.ResetCache
 import Network.AWS.StorageGateway.RetrieveTapeArchive
 import Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
 import Network.AWS.StorageGateway.ShutdownGateway
@@ -112,3 +115,4 @@ import Network.AWS.StorageGateway.UpdateGatewayInformation
 import Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
 import Network.AWS.StorageGateway.UpdateMaintenanceStartTime
 import Network.AWS.StorageGateway.UpdateSnapshotSchedule
+import Network.AWS.StorageGateway.UpdateVTLDeviceType

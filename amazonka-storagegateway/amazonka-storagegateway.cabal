@@ -1,5 +1,5 @@
 name:                  amazonka-storagegateway
-version:               0.1.0
+version:               0.1.1
 synopsis:              Amazon Storage Gateway SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -7,7 +7,7 @@ license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
-category:              Network, AWS, Cloud
+category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
@@ -72,6 +72,7 @@ library
         , Network.AWS.StorageGateway.ListLocalDisks
         , Network.AWS.StorageGateway.ListVolumeRecoveryPoints
         , Network.AWS.StorageGateway.ListVolumes
+        , Network.AWS.StorageGateway.ResetCache
         , Network.AWS.StorageGateway.RetrieveTapeArchive
         , Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
         , Network.AWS.StorageGateway.ShutdownGateway
@@ -83,9 +84,10 @@ library
         , Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
         , Network.AWS.StorageGateway.UpdateMaintenanceStartTime
         , Network.AWS.StorageGateway.UpdateSnapshotSchedule
+        , Network.AWS.StorageGateway.UpdateVTLDeviceType
 
     other-modules:
 
     build-depends:
-          amazonka-core == 0.1.0.*
+          amazonka-core == 0.1.1.*
         , base          >= 4.7     && < 5

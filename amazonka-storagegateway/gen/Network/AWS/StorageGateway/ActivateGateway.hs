@@ -30,6 +30,8 @@
 -- activation process also associates your gateway with your account; for more
 -- information, see 'UpdateGatewayInformation'.
 --
+-- You must turn on the gateway VM before you can activate your gateway.
+--
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ActivateGateway.html>
 module Network.AWS.StorageGateway.ActivateGateway
     (
@@ -142,7 +144,7 @@ agGatewayType = lens _agGatewayType (\s a -> s { _agGatewayType = a })
 -- | The value that indicates the type of medium changer to use for gateway-VTL.
 -- This field is optional.
 --
--- /Valid Values/: "STK-L700"
+-- /Valid Values/: "STK-L700", "AWS-Gateway-VTL"
 agMediumChangerType :: Lens' ActivateGateway (Maybe Text)
 agMediumChangerType =
     lens _agMediumChangerType (\s a -> s { _agMediumChangerType = a })

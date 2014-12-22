@@ -27,7 +27,8 @@
 -- retrieve subsequent pages, make the call again using the nextPageToken
 -- returned by the initial call.
 --
--- Access Control
+-- This operation is eventually consistent. The results are best effort and may
+-- not exactly reflect recent updates and changes. Access Control
 --
 -- You can use IAM policies to control this action's access to Amazon SWF
 -- resources as follows:
@@ -35,9 +36,11 @@
 -- Use a 'Resource' element with the domain name to limit the action to only
 -- specified domains. Use an 'Action' element to allow or deny permission to call
 -- this action. Constrain the following parameters by using a 'Condition' element
--- with the appropriate keys.   'tagFilter.tag': String constraint. The key is 'swf:tagFilter.tag'.  'typeFilter.name': String constraint. The key is 'swf:typeFilter.name'.  'typeFilter.version': String constraint. The key is 'swf:typeFilter.version'.    If the caller does
+-- with the appropriate keys.  'tagFilter.tag': String constraint. The key is 'swf:tagFilter.tag'. 'typeFilter.name': String constraint. The key is 'swf:typeFilter.name'. 'typeFilter.version': String constraint. The key is 'swf:typeFilter.version'.    If the caller does
 -- not have sufficient permissions to invoke the action, or the parameter values
--- fall outside the specified constraints, the action fails by throwing 'OperationNotPermitted'. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access toAmazon SWF Workflows>.
+-- fall outside the specified constraints, the action fails. The associated
+-- event attribute's cause parameter will be set to OPERATION_NOT_PERMITTED. For
+-- details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to AmazonSWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListClosedWorkflowExecutions.html>
 module Network.AWS.SWF.ListClosedWorkflowExecutions
@@ -127,6 +130,9 @@ listClosedWorkflowExecutions p1 = ListClosedWorkflowExecutions
 -- | If specified, only workflow executions that match this /close status/ are
 -- listed. For example, if TERMINATED is specified, then only TERMINATED
 -- workflow executions are listed.
+--
+-- 'closeStatusFilter', 'executionFilter', 'typeFilter' and 'tagFilter' are mutually
+-- exclusive. You can specify at most one of these in a request.
 lcweCloseStatusFilter :: Lens' ListClosedWorkflowExecutions (Maybe CloseStatusFilter)
 lcweCloseStatusFilter =
     lens _lcweCloseStatusFilter (\s a -> s { _lcweCloseStatusFilter = a })
@@ -135,6 +141,9 @@ lcweCloseStatusFilter =
 -- based on whether their close times are within the range specified by this
 -- filter. Also, if this parameter is specified, the returned results are
 -- ordered by their close times.
+--
+-- 'startTimeFilter' and 'closeTimeFilter' are mutually exclusive. You must specify
+-- one of these in a request but not both.
 lcweCloseTimeFilter :: Lens' ListClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
 lcweCloseTimeFilter =
     lens _lcweCloseTimeFilter (\s a -> s { _lcweCloseTimeFilter = a })
@@ -145,23 +154,31 @@ lcweDomain = lens _lcweDomain (\s a -> s { _lcweDomain = a })
 
 -- | If specified, only workflow executions matching the workflow id specified in
 -- the filter are returned.
+--
+-- 'closeStatusFilter', 'executionFilter', 'typeFilter' and 'tagFilter' are mutually
+-- exclusive. You can specify at most one of these in a request.
 lcweExecutionFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowExecutionFilter)
 lcweExecutionFilter =
     lens _lcweExecutionFilter (\s a -> s { _lcweExecutionFilter = a })
 
--- | The maximum number of results returned in each page. The default is 100, but
--- the caller can override this value to a page size /smaller/ than the default.
--- You cannot specify a page size greater than 100. Note that the number of
--- executions may be less than the maxiumum page size, in which case, the
--- returned page will have fewer results than the maximumPageSize specified.
+-- | The maximum number of results that will be returned per call. 'nextPageToken'
+-- can be used to obtain futher pages of results. The default is 100, which is
+-- the maximum allowed page size. You can, however, specify a page size /smaller/
+-- than 100.
+--
+-- This is an upper limit only; the actual number of results returned per call
+-- may be fewer than the specified maximum.
 lcweMaximumPageSize :: Lens' ListClosedWorkflowExecutions (Maybe Natural)
 lcweMaximumPageSize =
     lens _lcweMaximumPageSize (\s a -> s { _lcweMaximumPageSize = a })
         . mapping _Nat
 
--- | If on a previous call to this method a 'NextPageToken' was returned, the
--- results are being paginated. To get the next page of results, repeat the call
--- with the returned token and all other arguments unchanged.
+-- | If a 'NextPageToken' was returned by a previous call, there are more results
+-- available. To retrieve the next page of results, make the call again using
+-- the returned token in 'nextPageToken'. Keep all other arguments unchanged.
+--
+-- The configured 'maximumPageSize' determines how many results can be returned
+-- in a single call.
 lcweNextPageToken :: Lens' ListClosedWorkflowExecutions (Maybe Text)
 lcweNextPageToken =
     lens _lcweNextPageToken (\s a -> s { _lcweNextPageToken = a })
@@ -176,16 +193,25 @@ lcweReverseOrder = lens _lcweReverseOrder (\s a -> s { _lcweReverseOrder = a })
 -- based on whether their start times are within the range specified by this
 -- filter. Also, if this parameter is specified, the returned results are
 -- ordered by their start times.
+--
+-- 'startTimeFilter' and 'closeTimeFilter' are mutually exclusive. You must specify
+-- one of these in a request but not both.
 lcweStartTimeFilter :: Lens' ListClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
 lcweStartTimeFilter =
     lens _lcweStartTimeFilter (\s a -> s { _lcweStartTimeFilter = a })
 
 -- | If specified, only executions that have the matching tag are listed.
+--
+-- 'closeStatusFilter', 'executionFilter', 'typeFilter' and 'tagFilter' are mutually
+-- exclusive. You can specify at most one of these in a request.
 lcweTagFilter :: Lens' ListClosedWorkflowExecutions (Maybe TagFilter)
 lcweTagFilter = lens _lcweTagFilter (\s a -> s { _lcweTagFilter = a })
 
 -- | If specified, only executions of the type specified in the filter are
 -- returned.
+--
+-- 'closeStatusFilter', 'executionFilter', 'typeFilter' and 'tagFilter' are mutually
+-- exclusive. You can specify at most one of these in a request.
 lcweTypeFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowTypeFilter)
 lcweTypeFilter = lens _lcweTypeFilter (\s a -> s { _lcweTypeFilter = a })
 
@@ -214,9 +240,12 @@ lcwerExecutionInfos =
     lens _lcwerExecutionInfos (\s a -> s { _lcwerExecutionInfos = a })
         . _List
 
--- | The token of the next page in the result. If set, the results have more than
--- one page. The next page can be retrieved by repeating the request with this
--- token and all other arguments unchanged.
+-- | If a 'NextPageToken' was returned by a previous call, there are more results
+-- available. To retrieve the next page of results, make the call again using
+-- the returned token in 'nextPageToken'. Keep all other arguments unchanged.
+--
+-- The configured 'maximumPageSize' determines how many results can be returned
+-- in a single call.
 lcwerNextPageToken :: Lens' ListClosedWorkflowExecutionsResponse (Maybe Text)
 lcwerNextPageToken =
     lens _lcwerNextPageToken (\s a -> s { _lcwerNextPageToken = a })

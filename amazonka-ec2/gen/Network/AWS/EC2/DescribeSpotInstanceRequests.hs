@@ -232,8 +232,8 @@ instance ToPath DescribeSpotInstanceRequests where
 instance ToQuery DescribeSpotInstanceRequests where
     toQuery DescribeSpotInstanceRequests{..} = mconcat
         [ "dryRun"                =? _dsirDryRun
-        , toQuery                _dsirFilters
-        , toQuery                _dsirSpotInstanceRequestIds
+        , "Filter"                `toQueryList` _dsirFilters
+        , "SpotInstanceRequestId" `toQueryList` _dsirSpotInstanceRequestIds
         ]
 
 instance ToHeaders DescribeSpotInstanceRequests
@@ -247,4 +247,4 @@ instance AWSRequest DescribeSpotInstanceRequests where
 
 instance FromXML DescribeSpotInstanceRequestsResponse where
     parseXML x = DescribeSpotInstanceRequestsResponse
-        <$> parseXML x
+        <$> x .@? "spotInstanceRequestSet" .!@ mempty

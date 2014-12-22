@@ -163,8 +163,8 @@ instance ToPath DescribeNetworkAcls where
 instance ToQuery DescribeNetworkAcls where
     toQuery DescribeNetworkAcls{..} = mconcat
         [ "dryRun"       =? _dna1DryRun
-        , toQuery       _dna1Filters
-        , toQuery       _dna1NetworkAclIds
+        , "Filter"       `toQueryList` _dna1Filters
+        , "NetworkAclId" `toQueryList` _dna1NetworkAclIds
         ]
 
 instance ToHeaders DescribeNetworkAcls
@@ -178,4 +178,4 @@ instance AWSRequest DescribeNetworkAcls where
 
 instance FromXML DescribeNetworkAclsResponse where
     parseXML x = DescribeNetworkAclsResponse
-        <$> parseXML x
+        <$> x .@? "networkAclSet" .!@ mempty

@@ -55,7 +55,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data DescribeLayers = DescribeLayers
-    { _dlLayerIds :: List "InstanceIds" Text
+    { _dlLayerIds :: List "LayerIds" Text
     , _dlStackId  :: Maybe Text
     } deriving (Eq, Ord, Show)
 

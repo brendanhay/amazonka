@@ -134,9 +134,9 @@ instance ToPath DescribeDhcpOptions where
 
 instance ToQuery DescribeDhcpOptions where
     toQuery DescribeDhcpOptions{..} = mconcat
-        [ toQuery        _ddoDhcpOptionsIds
+        [ "DhcpOptionsId" `toQueryList` _ddoDhcpOptionsIds
         , "dryRun"        =? _ddoDryRun
-        , toQuery        _ddoFilters
+        , "Filter"        `toQueryList` _ddoFilters
         ]
 
 instance ToHeaders DescribeDhcpOptions
@@ -150,4 +150,4 @@ instance AWSRequest DescribeDhcpOptions where
 
 instance FromXML DescribeDhcpOptionsResponse where
     parseXML x = DescribeDhcpOptionsResponse
-        <$> parseXML x
+        <$> x .@? "dhcpOptionsSet" .!@ mempty

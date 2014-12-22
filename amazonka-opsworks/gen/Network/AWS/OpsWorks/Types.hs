@@ -862,14 +862,14 @@ instance ToJSON RaidArray where
         ]
 
 data ElasticLoadBalancer = ElasticLoadBalancer
-    { _elbAvailabilityZones       :: List "InstanceIds" Text
+    { _elbAvailabilityZones       :: List "AvailabilityZones" Text
     , _elbDnsName                 :: Maybe Text
-    , _elbEc2InstanceIds          :: List "InstanceIds" Text
+    , _elbEc2InstanceIds          :: List "Ec2InstanceIds" Text
     , _elbElasticLoadBalancerName :: Maybe Text
     , _elbLayerId                 :: Maybe Text
     , _elbRegion                  :: Maybe Text
     , _elbStackId                 :: Maybe Text
-    , _elbSubnetIds               :: List "InstanceIds" Text
+    , _elbSubnetIds               :: List "SubnetIds" Text
     , _elbVpcId                   :: Maybe Text
     } deriving (Eq, Ord, Show)
 
@@ -1765,7 +1765,7 @@ data App = App
     , _appCreatedAt        :: Maybe Text
     , _appDataSources      :: List "DataSources" DataSource
     , _appDescription      :: Maybe Text
-    , _appDomains          :: List "InstanceIds" Text
+    , _appDomains          :: List "Domains" Text
     , _appEnableSsl        :: Maybe Bool
     , _appEnvironment      :: List "Environment" EnvironmentVariable
     , _appName             :: Maybe Text
@@ -2737,15 +2737,15 @@ data Layer = Layer
     , _lCreatedAt                   :: Maybe Text
     , _lCustomInstanceProfileArn    :: Maybe Text
     , _lCustomRecipes               :: Maybe Recipes
-    , _lCustomSecurityGroupIds      :: List "InstanceIds" Text
+    , _lCustomSecurityGroupIds      :: List "CustomSecurityGroupIds" Text
     , _lDefaultRecipes              :: Maybe Recipes
-    , _lDefaultSecurityGroupNames   :: List "InstanceIds" Text
+    , _lDefaultSecurityGroupNames   :: List "DefaultSecurityGroupNames" Text
     , _lEnableAutoHealing           :: Maybe Bool
     , _lInstallUpdatesOnBoot        :: Maybe Bool
     , _lLayerId                     :: Maybe Text
     , _lLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
     , _lName                        :: Maybe Text
-    , _lPackages                    :: List "InstanceIds" Text
+    , _lPackages                    :: List "Packages" Text
     , _lShortname                   :: Maybe Text
     , _lStackId                     :: Maybe Text
     , _lType                        :: Maybe LayerType
@@ -2977,11 +2977,11 @@ instance ToJSON Layer where
         ]
 
 data Recipes = Recipes
-    { _rConfigure :: List "InstanceIds" Text
-    , _rDeploy    :: List "InstanceIds" Text
-    , _rSetup     :: List "InstanceIds" Text
-    , _rShutdown  :: List "InstanceIds" Text
-    , _rUndeploy  :: List "InstanceIds" Text
+    { _rConfigure :: List "Configure" Text
+    , _rDeploy    :: List "Deploy" Text
+    , _rSetup     :: List "Setup" Text
+    , _rShutdown  :: List "Shutdown" Text
+    , _rUndeploy  :: List "Undeploy" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'Recipes' constructor.
@@ -3424,7 +3424,7 @@ instance ToJSON Stack where
         ]
 
 data DeploymentCommand = DeploymentCommand
-    { _dcArgs :: Map Text (List "InstanceIds" Text)
+    { _dcArgs :: Map Text (List "Args" Text)
     , _dcName :: DeploymentCommandName
     } deriving (Eq, Show)
 
@@ -3647,7 +3647,7 @@ data Instance = Instance
     , _iInstanceProfileArn       :: Maybe Text
     , _iInstanceType             :: Maybe Text
     , _iLastServiceErrorId       :: Maybe Text
-    , _iLayerIds                 :: List "InstanceIds" Text
+    , _iLayerIds                 :: List "LayerIds" Text
     , _iOs                       :: Maybe Text
     , _iPrivateDns               :: Maybe Text
     , _iPrivateIp                :: Maybe Text
@@ -3657,7 +3657,7 @@ data Instance = Instance
     , _iReportedOs               :: Maybe ReportedOs
     , _iRootDeviceType           :: Maybe RootDeviceType
     , _iRootDeviceVolumeId       :: Maybe Text
-    , _iSecurityGroupIds         :: List "InstanceIds" Text
+    , _iSecurityGroupIds         :: List "SecurityGroupIds" Text
     , _iSshHostDsaKeyFingerprint :: Maybe Text
     , _iSshHostRsaKeyFingerprint :: Maybe Text
     , _iSshKeyName               :: Maybe Text

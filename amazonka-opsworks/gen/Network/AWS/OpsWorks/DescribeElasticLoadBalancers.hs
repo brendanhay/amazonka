@@ -55,7 +55,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers
-    { _delbLayerIds :: List "InstanceIds" Text
+    { _delbLayerIds :: List "LayerIds" Text
     , _delbStackId  :: Maybe Text
     } deriving (Eq, Ord, Show)
 

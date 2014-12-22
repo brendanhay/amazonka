@@ -38,8 +38,8 @@
 -- this action. You cannot use an IAM policy to constrain this action's
 -- parameters.  If the caller does not have sufficient permissions to invoke the
 -- action, or the parameter values fall outside the specified constraints, the
--- action fails by throwing 'OperationNotPermitted'. For details and example IAM
--- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- action fails. The associated event attribute's cause parameter will be set to
+-- OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAMto Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListActivityTypes.html>
 module Network.AWS.SWF.ListActivityTypes
@@ -111,11 +111,13 @@ listActivityTypes p1 p2 = ListActivityTypes
 latDomain :: Lens' ListActivityTypes Text
 latDomain = lens _latDomain (\s a -> s { _latDomain = a })
 
--- | The maximum number of results returned in each page. The default is 100, but
--- the caller can override this value to a page size /smaller/ than the default.
--- You cannot specify a page size greater than 100. Note that the number of
--- types may be less than the maxiumum page size, in which case, the returned
--- page will have fewer results than the maximumPageSize specified.
+-- | The maximum number of results that will be returned per call. 'nextPageToken'
+-- can be used to obtain futher pages of results. The default is 100, which is
+-- the maximum allowed page size. You can, however, specify a page size /smaller/
+-- than 100.
+--
+-- This is an upper limit only; the actual number of results returned per call
+-- may be fewer than the specified maximum.
 latMaximumPageSize :: Lens' ListActivityTypes (Maybe Natural)
 latMaximumPageSize =
     lens _latMaximumPageSize (\s a -> s { _latMaximumPageSize = a })
@@ -125,9 +127,12 @@ latMaximumPageSize =
 latName :: Lens' ListActivityTypes (Maybe Text)
 latName = lens _latName (\s a -> s { _latName = a })
 
--- | If on a previous call to this method a 'NextResultToken' was returned, the
--- results have more than one page. To get the next page of results, repeat the
--- call with the 'nextPageToken' and keep all other arguments unchanged.
+-- | If a 'NextPageToken' was returned by a previous call, there are more results
+-- available. To retrieve the next page of results, make the call again using
+-- the returned token in 'nextPageToken'. Keep all other arguments unchanged.
+--
+-- The configured 'maximumPageSize' determines how many results can be returned
+-- in a single call.
 latNextPageToken :: Lens' ListActivityTypes (Maybe Text)
 latNextPageToken = lens _latNextPageToken (\s a -> s { _latNextPageToken = a })
 
@@ -136,9 +141,9 @@ latRegistrationStatus :: Lens' ListActivityTypes RegistrationStatus
 latRegistrationStatus =
     lens _latRegistrationStatus (\s a -> s { _latRegistrationStatus = a })
 
--- | When set to 'true', returns the results in reverse order. By default the
--- results are returned in ascending alphabetical order of the 'name' of the
--- activity types.
+-- | When set to 'true', returns the results in reverse order. By default, the
+-- results are returned in ascending alphabetical order by 'name' of the activity
+-- types.
 latReverseOrder :: Lens' ListActivityTypes (Maybe Bool)
 latReverseOrder = lens _latReverseOrder (\s a -> s { _latReverseOrder = a })
 
@@ -161,9 +166,12 @@ listActivityTypesResponse = ListActivityTypesResponse
     , _latrNextPageToken = Nothing
     }
 
--- | Returns a value if the results are paginated. To get the next page of
--- results, repeat the request specifying this token and all other arguments
--- unchanged.
+-- | If a 'NextPageToken' was returned by a previous call, there are more results
+-- available. To retrieve the next page of results, make the call again using
+-- the returned token in 'nextPageToken'. Keep all other arguments unchanged.
+--
+-- The configured 'maximumPageSize' determines how many results can be returned
+-- in a single call.
 latrNextPageToken :: Lens' ListActivityTypesResponse (Maybe Text)
 latrNextPageToken =
     lens _latrNextPageToken (\s a -> s { _latrNextPageToken = a })

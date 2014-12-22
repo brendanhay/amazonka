@@ -22,12 +22,16 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This operation returns a list of the local disks of a gateway. To specify
--- which gateway to describe you use the Amazon Resource Name (ARN) of the
--- gateway in the body of the request.
+-- | This operation returns a list of the gateway's local disks. To specify which
+-- gateway to describe, you use the Amazon Resource Name (ARN) of the gateway in
+-- the body of the request.
 --
--- The request returns all disks, specifying which are configured as working
--- storage, stored volume or not configured at all.
+-- The request returns a list of all disks, specifying which are configured as
+-- working storage, cache storage, or stored volume or not configured at all.
+-- The response includes a 'DiskStatus' field. This field can have a value of
+-- present (the disk is availble to use), missing (the disk is no longer
+-- connected to the gateway), or mismatch (the disk node is occupied by a disk
+-- that has incorrect metadata or the disk content is corrupted).
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListLocalDisks.html>
 module Network.AWS.StorageGateway.ListLocalDisks

@@ -57,7 +57,7 @@ import qualified GHC.Exts
 
 data DescribeElasticIps = DescribeElasticIps
     { _deiInstanceId :: Maybe Text
-    , _deiIps        :: List "InstanceIds" Text
+    , _deiIps        :: List "Ips" Text
     , _deiStackId    :: Maybe Text
     } deriving (Eq, Ord, Show)
 

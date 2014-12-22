@@ -202,10 +202,10 @@ instance ToPath DescribeVolumes where
 instance ToQuery DescribeVolumes where
     toQuery DescribeVolumes{..} = mconcat
         [ "dryRun"     =? _dv2DryRun
-        , toQuery     _dv2Filters
+        , "Filter"     `toQueryList` _dv2Filters
         , "maxResults" =? _dv2MaxResults
         , "nextToken"  =? _dv2NextToken
-        , toQuery     _dv2VolumeIds
+        , "VolumeId"   `toQueryList` _dv2VolumeIds
         ]
 
 instance ToHeaders DescribeVolumes
@@ -220,4 +220,4 @@ instance AWSRequest DescribeVolumes where
 instance FromXML DescribeVolumesResponse where
     parseXML x = DescribeVolumesResponse
         <$> x .@? "nextToken"
-        <*> parseXML x
+        <*> x .@? "volumeSet" .!@ mempty

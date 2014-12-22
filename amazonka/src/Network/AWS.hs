@@ -52,8 +52,6 @@ module Network.AWS
     , secretKey
 
     -- * Logging
-    , LogLevel    (..)
-    , Logger
     , newLogger
 
     -- * Types
@@ -200,7 +198,7 @@ raw :: (MonadCatch m, MonadResource m, AWSRequest a)
     => Env
     -> Request a
     -> m (Response' a)
-raw Env{..} rq = catch go err >>= response rq
+raw Env{..} rq = catch go err >>= response _envLogger rq
   where
     go = do
         trace _envLogger (build rq)
@@ -209,6 +207,7 @@ raw Env{..} rq = catch go err >>= response rq
         debug _envLogger (build s)
         trace _envLogger (build m)
         rs <- liftResourceT (http s _envManager)
+        debug _envLogger (build rs)
         return (Right rs)
 
     err ex = return (Left (ex :: HttpException))

@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 data AssignInstance = AssignInstance
     { _aiInstanceId :: Text
-    , _aiLayerIds   :: List "InstanceIds" Text
+    , _aiLayerIds   :: List "LayerIds" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'AssignInstance' constructor.

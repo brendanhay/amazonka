@@ -67,7 +67,7 @@ data CreateApp = CreateApp
     , _caAttributes       :: Map AppAttributesKeys Text
     , _caDataSources      :: List "DataSources" DataSource
     , _caDescription      :: Maybe Text
-    , _caDomains          :: List "InstanceIds" Text
+    , _caDomains          :: List "Domains" Text
     , _caEnableSsl        :: Maybe Bool
     , _caEnvironment      :: List "Environment" EnvironmentVariable
     , _caName             :: Text

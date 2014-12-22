@@ -22,14 +22,15 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deprecates the specified domain. After a domain has been deprecated it
--- cannot be used to create new workflow executions or register new types.
--- However, you can still use visibility actions on this domain. Deprecating a
--- domain also deprecates all activity and workflow types registered in the
--- domain. Executions that were started before the domain was deprecated will
--- continue to run.
+-- | Deprecates the specified domain. After a domain has been deprecated it cannot
+-- be used to create new workflow executions or register new types. However, you
+-- can still use visibility actions on this domain. Deprecating a domain also
+-- deprecates all activity and workflow types registered in the domain.
+-- Executions that were started before the domain was deprecated will continue
+-- to run.
 --
--- Access Control
+-- This operation is eventually consistent. The results are best effort and may
+-- not exactly reflect recent updates and changes. Access Control
 --
 -- You can use IAM policies to control this action's access to Amazon SWF
 -- resources as follows:
@@ -39,8 +40,8 @@
 -- this action. You cannot use an IAM policy to constrain this action's
 -- parameters.  If the caller does not have sufficient permissions to invoke the
 -- action, or the parameter values fall outside the specified constraints, the
--- action fails by throwing 'OperationNotPermitted'. For details and example IAM
--- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- action fails. The associated event attribute's cause parameter will be set to
+-- OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAMto Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateDomain.html>
 module Network.AWS.SWF.DeprecateDomain

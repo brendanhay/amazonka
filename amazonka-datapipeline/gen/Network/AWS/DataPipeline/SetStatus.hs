@@ -53,7 +53,7 @@ import Network.AWS.DataPipeline.Types
 import qualified GHC.Exts
 
 data SetStatus = SetStatus
-    { _ssObjectIds  :: List "pipelineIds" Text
+    { _ssObjectIds  :: List "objectIds" Text
     , _ssPipelineId :: Text
     , _ssStatus     :: Text
     } deriving (Eq, Ord, Show)

@@ -28,7 +28,10 @@
 -- whole. It is up to the decider to take appropriate actions when it receives
 -- an execution history with this event.
 --
--- Access Control
+-- If the runId is not specified, the 'WorkflowExecutionCancelRequested' event is
+-- recorded in the history of the current open workflow execution with the
+-- specified workflowId in the domain. Because this action allows the workflow
+-- to properly clean up and gracefully close, it should be used instead of 'TerminateWorkflowExecution' when possible. Access Control
 --
 -- You can use IAM policies to control this action's access to Amazon SWF
 -- resources as follows:
@@ -38,8 +41,8 @@
 -- this action. You cannot use an IAM policy to constrain this action's
 -- parameters.  If the caller does not have sufficient permissions to invoke the
 -- action, or the parameter values fall outside the specified constraints, the
--- action fails by throwing 'OperationNotPermitted'. For details and example IAM
--- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- action fails. The associated event attribute's cause parameter will be set to
+-- OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAMto Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RequestCancelWorkflowExecution.html>
 module Network.AWS.SWF.RequestCancelWorkflowExecution

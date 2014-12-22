@@ -36,10 +36,11 @@
 -- string.
 --
 -- Deciders should set their client side socket timeout to at least 70 seconds
--- (10 seconds higher than the timeout).   Because the number of workflow
--- history events for a single workflow execution might be very large, the
--- result returned might be split up across a number of pages. To retrieve
--- subsequent pages, make additional calls to 'PollForDecisionTask' using the 'nextPageToken' returned by the initial call. Note that you do not call 'GetWorkflowExecutionHistory' with this 'nextPageToken'. Instead, call 'PollForDecisionTask' again.  Access
+-- (10 seconds higher than the timeout). Because the number of workflow history
+-- events for a single workflow execution might be very large, the result
+-- returned might be split up across a number of pages. To retrieve subsequent
+-- pages, make additional calls to 'PollForDecisionTask' using the 'nextPageToken'
+-- returned by the initial call. Note that you do not call 'GetWorkflowExecutionHistory' with this 'nextPageToken'. Instead, call 'PollForDecisionTask' again. Access
 -- Control
 --
 -- You can use IAM policies to control this action's access to Amazon SWF
@@ -51,8 +52,9 @@
 -- element with the 'swf:taskList.name' key to allow the action to access only
 -- certain task lists.  If the caller does not have sufficient permissions to
 -- invoke the action, or the parameter values fall outside the specified
--- constraints, the action fails by throwing 'OperationNotPermitted'. For details
--- and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWFWorkflows>.
+-- constraints, the action fails. The associated event attribute's cause
+-- parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM
+-- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForDecisionTask.html>
 module Network.AWS.SWF.PollForDecisionTask
@@ -135,27 +137,33 @@ pfdtDomain = lens _pfdtDomain (\s a -> s { _pfdtDomain = a })
 pfdtIdentity :: Lens' PollForDecisionTask (Maybe Text)
 pfdtIdentity = lens _pfdtIdentity (\s a -> s { _pfdtIdentity = a })
 
--- | The maximum number of history events returned in each page. The default is
--- 100, but the caller can override this value to a page size /smaller/ than the
--- default. You cannot specify a page size greater than 100. Note that the
--- number of events may be less than the maxiumum page size, in which case, the
--- returned page will have fewer results than the maximumPageSize specified.
+-- | The maximum number of results that will be returned per call. 'nextPageToken'
+-- can be used to obtain futher pages of results. The default is 100, which is
+-- the maximum allowed page size. You can, however, specify a page size /smaller/
+-- than 100.
+--
+-- This is an upper limit only; the actual number of results returned per call
+-- may be fewer than the specified maximum.
 pfdtMaximumPageSize :: Lens' PollForDecisionTask (Maybe Natural)
 pfdtMaximumPageSize =
     lens _pfdtMaximumPageSize (\s a -> s { _pfdtMaximumPageSize = a })
         . mapping _Nat
 
--- | If on a previous call to this method a 'NextPageToken' was returned, the
--- results are being paginated. To get the next page of results, repeat the call
--- with the returned token and all other arguments unchanged.
+-- | If a 'NextPageToken' was returned by a previous call, there are more results
+-- available. To retrieve the next page of results, make the call again using
+-- the returned token in 'nextPageToken'. Keep all other arguments unchanged.
 --
--- .
+-- The configured 'maximumPageSize' determines how many results can be returned
+-- in a single call.
+--
+-- The 'nextPageToken' returned by this action cannot be used with 'GetWorkflowExecutionHistory' to get the next page. You must call 'PollForDecisionTask' again (with the 'nextPageToken') to retrieve the next page of history records. Calling 'PollForDecisionTask'
+-- with a 'nextPageToken' will not return a new decision task..
 pfdtNextPageToken :: Lens' PollForDecisionTask (Maybe Text)
 pfdtNextPageToken =
     lens _pfdtNextPageToken (\s a -> s { _pfdtNextPageToken = a })
 
--- | When set to 'true', returns the events in reverse order. By default the
--- results are returned in ascending order of the 'eventTimestamp' of the events.
+-- | When set to 'true', returns the events in reverse order. By default the results
+-- are returned in ascending order of the 'eventTimestamp' of the events.
 pfdtReverseOrder :: Lens' PollForDecisionTask (Maybe Bool)
 pfdtReverseOrder = lens _pfdtReverseOrder (\s a -> s { _pfdtReverseOrder = a })
 
@@ -164,7 +172,7 @@ pfdtReverseOrder = lens _pfdtReverseOrder (\s a -> s { _pfdtReverseOrder = a })
 -- The specified string must not start or end with whitespace. It must not
 -- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
 -- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
--- string "arn".
+-- string quotarnquot.
 pfdtTaskList :: Lens' PollForDecisionTask TaskList
 pfdtTaskList = lens _pfdtTaskList (\s a -> s { _pfdtTaskList = a })
 
@@ -216,17 +224,20 @@ pollForDecisionTaskResponse p1 p2 p3 p4 = PollForDecisionTaskResponse
 pfdtrEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
 pfdtrEvents = lens _pfdtrEvents (\s a -> s { _pfdtrEvents = a }) . _List
 
--- | Returns a value if the results are paginated. To get the next page of
--- results, repeat the request specifying this token and all other arguments
--- unchanged.
+-- | If a 'NextPageToken' was returned by a previous call, there are more results
+-- available. To retrieve the next page of results, make the call again using
+-- the returned token in 'nextPageToken'. Keep all other arguments unchanged.
+--
+-- The configured 'maximumPageSize' determines how many results can be returned
+-- in a single call.
 pfdtrNextPageToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
 pfdtrNextPageToken =
     lens _pfdtrNextPageToken (\s a -> s { _pfdtrNextPageToken = a })
 
--- | The id of the DecisionTaskStarted event of the previous decision task of
--- this workflow execution that was processed by the decider. This can be used
--- to determine the events in the history new since the last decision task
--- received by the decider.
+-- | The id of the DecisionTaskStarted event of the previous decision task of this
+-- workflow execution that was processed by the decider. This can be used to
+-- determine the events in the history new since the last decision task received
+-- by the decider.
 pfdtrPreviousStartedEventId :: Lens' PollForDecisionTaskResponse (Maybe Integer)
 pfdtrPreviousStartedEventId =
     lens _pfdtrPreviousStartedEventId
@@ -237,9 +248,9 @@ pfdtrStartedEventId :: Lens' PollForDecisionTaskResponse Integer
 pfdtrStartedEventId =
     lens _pfdtrStartedEventId (\s a -> s { _pfdtrStartedEventId = a })
 
--- | The opaque string used as a handle on the task. This token is used by
--- workers to communicate progress and response information back to the system
--- about the task.
+-- | The opaque string used as a handle on the task. This token is used by workers
+-- to communicate progress and response information back to the system about the
+-- task.
 pfdtrTaskToken :: Lens' PollForDecisionTaskResponse Text
 pfdtrTaskToken = lens _pfdtrTaskToken (\s a -> s { _pfdtrTaskToken = a })
 

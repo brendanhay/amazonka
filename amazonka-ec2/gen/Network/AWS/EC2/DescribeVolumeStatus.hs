@@ -204,10 +204,10 @@ instance ToPath DescribeVolumeStatus where
 instance ToQuery DescribeVolumeStatus where
     toQuery DescribeVolumeStatus{..} = mconcat
         [ "dryRun"     =? _dvsDryRun
-        , toQuery     _dvsFilters
+        , "Filter"     `toQueryList` _dvsFilters
         , "MaxResults" =? _dvsMaxResults
         , "NextToken"  =? _dvsNextToken
-        , toQuery     _dvsVolumeIds
+        , "VolumeId"   `toQueryList` _dvsVolumeIds
         ]
 
 instance ToHeaders DescribeVolumeStatus
@@ -222,7 +222,7 @@ instance AWSRequest DescribeVolumeStatus where
 instance FromXML DescribeVolumeStatusResponse where
     parseXML x = DescribeVolumeStatusResponse
         <$> x .@? "nextToken"
-        <*> parseXML x
+        <*> x .@? "volumeStatusSet" .!@ mempty
 
 instance AWSPager DescribeVolumeStatus where
     page rq rs

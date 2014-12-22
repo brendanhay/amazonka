@@ -120,7 +120,7 @@ instance ToPath TerminateInstances where
 instance ToQuery TerminateInstances where
     toQuery TerminateInstances{..} = mconcat
         [ "dryRun"     =? _tiDryRun
-        , toQuery     _tiInstanceIds
+        , "InstanceId" `toQueryList` _tiInstanceIds
         ]
 
 instance ToHeaders TerminateInstances
@@ -134,4 +134,4 @@ instance AWSRequest TerminateInstances where
 
 instance FromXML TerminateInstancesResponse where
     parseXML x = TerminateInstancesResponse
-        <$> parseXML x
+        <$> x .@? "instancesSet" .!@ mempty

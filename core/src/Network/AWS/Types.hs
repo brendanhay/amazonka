@@ -79,6 +79,10 @@ module Network.AWS.Types
     , Response'
     , Empty         (..)
 
+    -- * Logging
+    , LogLevel      (..)
+    , Logger
+
     -- * Regions
     , Region        (..)
 
@@ -101,6 +105,7 @@ import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
 import           Data.ByteString              (ByteString)
 import qualified Data.ByteString              as BS
+import           Data.ByteString.Builder      (Builder)
 import qualified Data.CaseInsensitive         as CI
 import           Data.Conduit
 import           Data.Default.Class
@@ -163,6 +168,14 @@ type Response  a = Either (ServiceError (Er (Sv a))) (Rs a)
 
 type Response' a = Either (ServiceError (Er (Sv a))) (Status, Rs a)
 
+data LogLevel
+    = Info  -- ^ Informational messages supplied by the user, not used by the library.
+    | Debug -- ^ Info level + debug messages + non-streaming response bodies.
+    | Trace -- ^ Debug level + potentially sensitive signing metadata.
+      deriving (Eq, Ord, Enum, Show)
+
+type Logger = LogLevel -> Builder -> IO ()
+
 -- | Specify how a request can be de/serialised.
 class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
     -- | The service definition for a request.
@@ -173,7 +186,8 @@ class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
 
     request  :: a -> Request a
     response :: MonadResource m
-             => Request a
+             => Logger
+             -> Request a
              -> Either HttpException ClientResponse
              -> m (Response' a)
 
@@ -251,11 +265,11 @@ instance FromJSON AuthEnv where
 
 instance ToBuilder AuthEnv where
     build AuthEnv{..} = mconcat $ intersperse "\n"
-        [ "[Authentication] {"
-        , " access key     = " <> build _authAccess
-        , " secret key     = ****"
-        , " security token = ****"
-        , " expiry         = " <> build _authExpiry
+        [ "[Amazonka Auth] {"
+        , "  access key     = " <> build _authAccess
+        , "  secret key     = ****"
+        , "  security token = " <> maybe "Nothing" (const "Just ****") _authToken
+        , "  expiry         = " <> build _authExpiry
         , "}"
         ]
 
@@ -266,7 +280,7 @@ data Auth
     | Auth AuthEnv
 
 instance ToBuilder Auth where
-    build (Ref t _) = "[Authentication] { <thread:" <> build (show t) <> "> }"
+    build (Ref t _) = "[Amazonka Auth] { <thread:" <> build (show t) <> "> }"
     build (Auth  e) = build e
 
 withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a

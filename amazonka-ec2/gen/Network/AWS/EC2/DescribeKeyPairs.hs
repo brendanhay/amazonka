@@ -118,8 +118,8 @@ instance ToPath DescribeKeyPairs where
 instance ToQuery DescribeKeyPairs where
     toQuery DescribeKeyPairs{..} = mconcat
         [ "dryRun"  =? _dkp1DryRun
-        , toQuery  _dkp1Filters
-        , toQuery  _dkp1KeyNames
+        , "Filter"  `toQueryList` _dkp1Filters
+        , "KeyName" `toQueryList` _dkp1KeyNames
         ]
 
 instance ToHeaders DescribeKeyPairs
@@ -133,4 +133,4 @@ instance AWSRequest DescribeKeyPairs where
 
 instance FromXML DescribeKeyPairsResponse where
     parseXML x = DescribeKeyPairsResponse
-        <$> parseXML x
+        <$> x .@? "keySet" .!@ mempty

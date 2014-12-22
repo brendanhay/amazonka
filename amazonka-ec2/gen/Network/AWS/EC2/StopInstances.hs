@@ -144,7 +144,7 @@ instance ToQuery StopInstances where
     toQuery StopInstances{..} = mconcat
         [ "dryRun"     =? _siDryRun
         , "force"      =? _siForce
-        , toQuery     _siInstanceIds
+        , "InstanceId" `toQueryList` _siInstanceIds
         ]
 
 instance ToHeaders StopInstances
@@ -158,4 +158,4 @@ instance AWSRequest StopInstances where
 
 instance FromXML StopInstancesResponse where
     parseXML x = StopInstancesResponse
-        <$> parseXML x
+        <$> x .@? "instancesSet" .!@ mempty

@@ -25,6 +25,8 @@
 -- | This operation creates a cached volume on a specified cached gateway. This
 -- operation is supported only for the gateway-cached volume architecture.
 --
+-- Cache storage must be allocated to the gateway before you can create a
+-- cached volume. Use the 'AddCache' operation to add cache storage to a gateway.
 -- In the request, you must specify the gateway, size of the volume in bytes,
 -- the iSCSI target name, an IP address on which to expose the target, and a
 -- unique client token. In response, AWS Storage Gateway creates the volume and

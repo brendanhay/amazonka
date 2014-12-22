@@ -44,6 +44,7 @@ module Network.AWS.ElasticTranscoder.CreateJob
     , cjOutputs
     , cjPipelineId
     , cjPlaylists
+    , cjUserMetadata
 
     -- * Response
     , CreateJobResponse
@@ -65,6 +66,7 @@ data CreateJob = CreateJob
     , _cjOutputs         :: List "Outputs" CreateJobOutput
     , _cjPipelineId      :: Text
     , _cjPlaylists       :: List "Playlists" CreateJobPlaylist
+    , _cjUserMetadata    :: Map Text Text
     } deriving (Eq, Show)
 
 -- | 'CreateJob' constructor.
@@ -83,6 +85,8 @@ data CreateJob = CreateJob
 --
 -- * 'cjPlaylists' @::@ ['CreateJobPlaylist']
 --
+-- * 'cjUserMetadata' @::@ 'HashMap' 'Text' 'Text'
+--
 createJob :: Text -- ^ 'cjPipelineId'
           -> JobInput -- ^ 'cjInput'
           -> CreateJob
@@ -93,6 +97,7 @@ createJob p1 p2 = CreateJob
     , _cjOutputs         = mempty
     , _cjOutputKeyPrefix = Nothing
     , _cjPlaylists       = mempty
+    , _cjUserMetadata    = mempty
     }
 
 -- | A section of the request body that provides information about the file that
@@ -130,6 +135,12 @@ cjPipelineId = lens _cjPipelineId (\s a -> s { _cjPipelineId = a })
 cjPlaylists :: Lens' CreateJob [CreateJobPlaylist]
 cjPlaylists = lens _cjPlaylists (\s a -> s { _cjPlaylists = a }) . _List
 
+-- | User-defined metadata that you want to associate with an Elastic Transcoder
+-- job. You specify metadata in 'key/value' pairs, and you can add up to 10 'key/value' pairs per job. Elastic Transcoder does not guarantee that 'key/value' pairs
+-- will be returned in the same order in which you specify them.
+cjUserMetadata :: Lens' CreateJob (HashMap Text Text)
+cjUserMetadata = lens _cjUserMetadata (\s a -> s { _cjUserMetadata = a }) . _Map
+
 newtype CreateJobResponse = CreateJobResponse
     { _cjrJob :: Maybe Job'
     } deriving (Eq, Show)
@@ -166,6 +177,7 @@ instance ToJSON CreateJob where
         , "Outputs"         .= _cjOutputs
         , "OutputKeyPrefix" .= _cjOutputKeyPrefix
         , "Playlists"       .= _cjPlaylists
+        , "UserMetadata"    .= _cjUserMetadata
         ]
 
 instance AWSRequest CreateJob where

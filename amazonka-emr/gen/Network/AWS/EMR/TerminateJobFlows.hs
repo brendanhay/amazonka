@@ -28,10 +28,10 @@
 -- uploaded to Amazon S3 if a LogUri was specified when the job flow was
 -- created.
 --
--- The call to TerminateJobFlows is asynchronous. Depending on the
--- configuration of the job flow, it may take up to 5-20 minutes for the job
--- flow to completely terminate and release allocated resources, such as Amazon
--- EC2 instances.
+-- The maximum number of JobFlows allowed is 10. The call to TerminateJobFlows
+-- is asynchronous. Depending on the configuration of the job flow, it may take
+-- up to 5-20 minutes for the job flow to completely terminate and release
+-- allocated resources, such as Amazon EC2 instances.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_TerminateJobFlows.html>
 module Network.AWS.EMR.TerminateJobFlows
@@ -55,7 +55,7 @@ import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
 newtype TerminateJobFlows = TerminateJobFlows
-    { _tjfJobFlowIds :: List "Args" Text
+    { _tjfJobFlowIds :: List "JobFlowIds" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList TerminateJobFlows where

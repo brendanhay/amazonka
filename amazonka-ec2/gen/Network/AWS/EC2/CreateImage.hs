@@ -154,7 +154,7 @@ instance ToPath CreateImage where
 
 instance ToQuery CreateImage where
     toQuery CreateImage{..} = mconcat
-        [ toQuery             _ci1BlockDeviceMappings
+        [ "blockDeviceMapping" `toQueryList` _ci1BlockDeviceMappings
         , "description"        =? _ci1Description
         , "dryRun"             =? _ci1DryRun
         , "instanceId"         =? _ci1InstanceId

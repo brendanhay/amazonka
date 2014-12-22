@@ -62,7 +62,7 @@ import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
 data SetTerminationProtection = SetTerminationProtection
-    { _stpJobFlowIds           :: List "Args" Text
+    { _stpJobFlowIds           :: List "JobFlowIds" Text
     , _stpTerminationProtected :: Bool
     } deriving (Eq, Ord, Show)
 

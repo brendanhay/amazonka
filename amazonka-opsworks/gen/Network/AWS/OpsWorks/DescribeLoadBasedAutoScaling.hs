@@ -54,7 +54,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
-    { _dlbasLayerIds :: List "InstanceIds" Text
+    { _dlbasLayerIds :: List "LayerIds" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLoadBasedAutoScaling where

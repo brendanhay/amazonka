@@ -39,6 +39,11 @@
 -- snapshot ID. You can use this snapshot ID to check the snapshot progress or
 -- later use it when you want to create a volume from a snapshot.
 --
+-- To list or delete a snapshot, you must use the Amazon EC2 API. For more
+-- information, in /Amazon Elastic Compute Cloud API Reference/.
+--
+--
+--
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshotFromVolumeRecoveryPoint.html>
 module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     (

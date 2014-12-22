@@ -56,7 +56,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data DescribeCommands = DescribeCommands
-    { _dcCommandIds   :: List "InstanceIds" Text
+    { _dcCommandIds   :: List "CommandIds" Text
     , _dcDeploymentId :: Maybe Text
     , _dcInstanceId   :: Maybe Text
     } deriving (Eq, Ord, Show)

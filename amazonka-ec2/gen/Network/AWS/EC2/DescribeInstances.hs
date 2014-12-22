@@ -377,8 +377,8 @@ instance ToPath DescribeInstances where
 instance ToQuery DescribeInstances where
     toQuery DescribeInstances{..} = mconcat
         [ "dryRun"     =? _di1DryRun
-        , toQuery     _di1Filters
-        , toQuery     _di1InstanceIds
+        , "Filter"     `toQueryList` _di1Filters
+        , "InstanceId" `toQueryList` _di1InstanceIds
         , "maxResults" =? _di1MaxResults
         , "nextToken"  =? _di1NextToken
         ]
@@ -395,7 +395,7 @@ instance AWSRequest DescribeInstances where
 instance FromXML DescribeInstancesResponse where
     parseXML x = DescribeInstancesResponse
         <$> x .@? "nextToken"
-        <*> parseXML x
+        <*> x .@? "reservationSet" .!@ mempty
 
 instance AWSPager DescribeInstances where
     page rq rs

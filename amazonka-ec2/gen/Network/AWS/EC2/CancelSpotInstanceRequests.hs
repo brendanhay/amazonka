@@ -114,7 +114,7 @@ instance ToPath CancelSpotInstanceRequests where
 instance ToQuery CancelSpotInstanceRequests where
     toQuery CancelSpotInstanceRequests{..} = mconcat
         [ "dryRun"                =? _csirDryRun
-        , toQuery                _csirSpotInstanceRequestIds
+        , "SpotInstanceRequestId" `toQueryList` _csirSpotInstanceRequestIds
         ]
 
 instance ToHeaders CancelSpotInstanceRequests
@@ -128,4 +128,4 @@ instance AWSRequest CancelSpotInstanceRequests where
 
 instance FromXML CancelSpotInstanceRequestsResponse where
     parseXML x = CancelSpotInstanceRequestsResponse
-        <$> parseXML x
+        <$> x .@? "spotInstanceRequestSet" .!@ mempty

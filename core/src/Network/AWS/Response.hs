@@ -114,7 +114,7 @@ deserialise :: (AWSService (Sv a), MonadResource m)
             -> m (Response' a)
 deserialise g f l = receive $ \a hs bdy -> do
     lbs <- sinkLbs bdy
-    liftIO $ l Debug ("[Client Response Body]\n" <> build lbs)
+    liftIO $ l Trace ("[Client Response Body]\n" <> build lbs)
     return $! case g lbs of
         Left  e -> Left (SerializerError a e)
         Right o ->

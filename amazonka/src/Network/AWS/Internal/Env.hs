@@ -20,9 +20,7 @@ import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.List                  (intersperse)
 import           Data.Monoid
 import           Network.AWS.Data           (ToBuilder(..), buildBS)
-import           Network.AWS.Internal.Log
 import           Network.AWS.Types
-import           Network.AWS.Types          (Region, Auth)
 import           Network.HTTP.Conduit
 
 -- | The environment containing the parameters required to make AWS requests.

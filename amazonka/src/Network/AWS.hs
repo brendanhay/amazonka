@@ -52,8 +52,6 @@ module Network.AWS
     , secretKey
 
     -- * Logging
-    , LogLevel    (..)
-    , Logger
     , newLogger
 
     -- * Types

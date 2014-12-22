@@ -75,8 +75,6 @@ module Control.Monad.Trans.AWS
     , secretKey
 
     -- * Logging
-    , LogLevel    (..)
-    , Logger
     , newLogger
     , info
     , debug

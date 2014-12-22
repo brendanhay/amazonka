@@ -141,8 +141,7 @@
         "Reservation": {
             "required": [
                 "ReservationId",
-                "OwnerId",
-                "RequesterId"
+                "OwnerId"
             ]
         },
         "Instance": {
@@ -155,9 +154,6 @@
                 "LaunchTime",
                 "Placement",
                 "Monitoring",
-                "PrivateIpAddress",
-                "IpAddress",
-                "GroupSet",
                 "Architecture",
                 "RootDeviceType",
                 "RootDeviceName",

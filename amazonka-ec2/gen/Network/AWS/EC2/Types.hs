@@ -4707,7 +4707,7 @@ data Reservation = Reservation
     { _rGroups        :: List "item" GroupIdentifier
     , _rInstances     :: List "item" Instance
     , _rOwnerId       :: Text
-    , _rRequesterId   :: Text
+    , _rRequesterId   :: Maybe Text
     , _rReservationId :: Text
     } deriving (Eq, Show)
 
@@ -4721,18 +4721,17 @@ data Reservation = Reservation
 --
 -- * 'rOwnerId' @::@ 'Text'
 --
--- * 'rRequesterId' @::@ 'Text'
+-- * 'rRequesterId' @::@ 'Maybe' 'Text'
 --
 -- * 'rReservationId' @::@ 'Text'
 --
 reservation :: Text -- ^ 'rReservationId'
             -> Text -- ^ 'rOwnerId'
-            -> Text -- ^ 'rRequesterId'
             -> Reservation
-reservation p1 p2 p3 = Reservation
+reservation p1 p2 = Reservation
     { _rReservationId = p1
     , _rOwnerId       = p2
-    , _rRequesterId   = p3
+    , _rRequesterId   = Nothing
     , _rGroups        = mempty
     , _rInstances     = mempty
     }
@@ -4751,7 +4750,7 @@ rOwnerId = lens _rOwnerId (\s a -> s { _rOwnerId = a })
 
 -- | The ID of the requester that launched the instances on your behalf (for
 -- example, AWS Management Console or Auto Scaling).
-rRequesterId :: Lens' Reservation Text
+rRequesterId :: Lens' Reservation (Maybe Text)
 rRequesterId = lens _rRequesterId (\s a -> s { _rRequesterId = a })
 
 -- | The ID of the reservation.
@@ -4763,7 +4762,7 @@ instance FromXML Reservation where
         <$> x .@? "groupSet" .!@ mempty
         <*> x .@? "instancesSet" .!@ mempty
         <*> x .@  "ownerId"
-        <*> x .@  "requesterId"
+        <*> x .@? "requesterId"
         <*> x .@  "reservationId"
 
 instance ToQuery Reservation where
@@ -11816,8 +11815,8 @@ data Instance = Instance
     , _i1NetworkInterfaces     :: List "item" InstanceNetworkInterface
     , _i1Placement             :: Placement
     , _i1Platform              :: Maybe PlatformValues
-    , _i1PrivateDnsName        :: Text
-    , _i1PrivateIpAddress      :: Text
+    , _i1PrivateDnsName        :: Maybe Text
+    , _i1PrivateIpAddress      :: Maybe Text
     , _i1ProductCodes          :: List "item" ProductCode
     , _i1PublicDnsName         :: Maybe Text
     , _i1PublicIpAddress       :: Maybe Text
@@ -11877,9 +11876,9 @@ data Instance = Instance
 --
 -- * 'i1Platform' @::@ 'Maybe' 'PlatformValues'
 --
--- * 'i1PrivateDnsName' @::@ 'Text'
+-- * 'i1PrivateDnsName' @::@ 'Maybe' 'Text'
 --
--- * 'i1PrivateIpAddress' @::@ 'Text'
+-- * 'i1PrivateIpAddress' @::@ 'Maybe' 'Text'
 --
 -- * 'i1ProductCodes' @::@ ['ProductCode']
 --
@@ -11918,14 +11917,12 @@ data Instance = Instance
 instance' :: Text -- ^ 'i1InstanceId'
           -> Text -- ^ 'i1ImageId'
           -> InstanceState -- ^ 'i1State'
-          -> Text -- ^ 'i1PrivateDnsName'
           -> Text -- ^ 'i1KeyName'
           -> Int -- ^ 'i1AmiLaunchIndex'
           -> InstanceType -- ^ 'i1InstanceType'
           -> UTCTime -- ^ 'i1LaunchTime'
           -> Placement -- ^ 'i1Placement'
           -> Monitoring -- ^ 'i1Monitoring'
-          -> Text -- ^ 'i1PrivateIpAddress'
           -> ArchitectureValues -- ^ 'i1Architecture'
           -> DeviceType -- ^ 'i1RootDeviceType'
           -> Text -- ^ 'i1RootDeviceName'
@@ -11934,25 +11931,24 @@ instance' :: Text -- ^ 'i1InstanceId'
           -> IamInstanceProfile -- ^ 'i1IamInstanceProfile'
           -> Bool -- ^ 'i1EbsOptimized'
           -> Instance
-instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p18 = Instance
+instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 = Instance
     { _i1InstanceId            = p1
     , _i1ImageId               = p2
     , _i1State                 = p3
-    , _i1PrivateDnsName        = p4
-    , _i1KeyName               = p5
-    , _i1AmiLaunchIndex        = p6
-    , _i1InstanceType          = p7
-    , _i1LaunchTime            = withIso _Time (const id) p8
-    , _i1Placement             = p9
-    , _i1Monitoring            = p10
-    , _i1PrivateIpAddress      = p11
-    , _i1Architecture          = p12
-    , _i1RootDeviceType        = p13
-    , _i1RootDeviceName        = p14
-    , _i1VirtualizationType    = p15
-    , _i1Hypervisor            = p16
-    , _i1IamInstanceProfile    = p17
-    , _i1EbsOptimized          = p18
+    , _i1KeyName               = p4
+    , _i1AmiLaunchIndex        = p5
+    , _i1InstanceType          = p6
+    , _i1LaunchTime            = withIso _Time (const id) p7
+    , _i1Placement             = p8
+    , _i1Monitoring            = p9
+    , _i1Architecture          = p10
+    , _i1RootDeviceType        = p11
+    , _i1RootDeviceName        = p12
+    , _i1VirtualizationType    = p13
+    , _i1Hypervisor            = p14
+    , _i1IamInstanceProfile    = p15
+    , _i1EbsOptimized          = p16
+    , _i1PrivateDnsName        = Nothing
     , _i1PublicDnsName         = Nothing
     , _i1StateTransitionReason = Nothing
     , _i1ProductCodes          = mempty
@@ -11961,6 +11957,7 @@ instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p18 = Insta
     , _i1Platform              = Nothing
     , _i1SubnetId              = Nothing
     , _i1VpcId                 = Nothing
+    , _i1PrivateIpAddress      = Nothing
     , _i1PublicIpAddress       = Nothing
     , _i1StateReason           = Nothing
     , _i1BlockDeviceMappings   = mempty
@@ -12061,11 +12058,11 @@ i1Platform = lens _i1Platform (\s a -> s { _i1Platform = a })
 -- | The private DNS name assigned to the instance. This DNS name can only be used
 -- inside the Amazon EC2 network. This name is not available until the instance
 -- enters the 'running' state.
-i1PrivateDnsName :: Lens' Instance Text
+i1PrivateDnsName :: Lens' Instance (Maybe Text)
 i1PrivateDnsName = lens _i1PrivateDnsName (\s a -> s { _i1PrivateDnsName = a })
 
 -- | The private IP address assigned to the instance.
-i1PrivateIpAddress :: Lens' Instance Text
+i1PrivateIpAddress :: Lens' Instance (Maybe Text)
 i1PrivateIpAddress =
     lens _i1PrivateIpAddress (\s a -> s { _i1PrivateIpAddress = a })
 
@@ -12170,8 +12167,8 @@ instance FromXML Instance where
         <*> x .@? "networkInterfaceSet" .!@ mempty
         <*> x .@  "placement"
         <*> x .@? "platform"
-        <*> x .@  "privateDnsName"
-        <*> x .@  "privateIpAddress"
+        <*> x .@? "privateDnsName"
+        <*> x .@? "privateIpAddress"
         <*> x .@? "productCodes" .!@ mempty
         <*> x .@? "dnsName"
         <*> x .@? "ipAddress"

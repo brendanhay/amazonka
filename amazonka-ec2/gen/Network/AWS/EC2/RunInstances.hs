@@ -373,7 +373,7 @@ data RunInstancesResponse = RunInstancesResponse
     { _rirGroups        :: List "item" GroupIdentifier
     , _rirInstances     :: List "item" Instance
     , _rirOwnerId       :: Text
-    , _rirRequesterId   :: Text
+    , _rirRequesterId   :: Maybe Text
     , _rirReservationId :: Text
     } deriving (Eq, Show)
 
@@ -387,18 +387,17 @@ data RunInstancesResponse = RunInstancesResponse
 --
 -- * 'rirOwnerId' @::@ 'Text'
 --
--- * 'rirRequesterId' @::@ 'Text'
+-- * 'rirRequesterId' @::@ 'Maybe' 'Text'
 --
 -- * 'rirReservationId' @::@ 'Text'
 --
 runInstancesResponse :: Text -- ^ 'rirReservationId'
                      -> Text -- ^ 'rirOwnerId'
-                     -> Text -- ^ 'rirRequesterId'
                      -> RunInstancesResponse
-runInstancesResponse p1 p2 p3 = RunInstancesResponse
+runInstancesResponse p1 p2 = RunInstancesResponse
     { _rirReservationId = p1
     , _rirOwnerId       = p2
-    , _rirRequesterId   = p3
+    , _rirRequesterId   = Nothing
     , _rirGroups        = mempty
     , _rirInstances     = mempty
     }
@@ -417,7 +416,7 @@ rirOwnerId = lens _rirOwnerId (\s a -> s { _rirOwnerId = a })
 
 -- | The ID of the requester that launched the instances on your behalf (for
 -- example, AWS Management Console or Auto Scaling).
-rirRequesterId :: Lens' RunInstancesResponse Text
+rirRequesterId :: Lens' RunInstancesResponse (Maybe Text)
 rirRequesterId = lens _rirRequesterId (\s a -> s { _rirRequesterId = a })
 
 -- | The ID of the reservation.
@@ -468,5 +467,5 @@ instance FromXML RunInstancesResponse where
         <$> x .@? "groupSet" .!@ mempty
         <*> x .@? "instancesSet" .!@ mempty
         <*> x .@  "ownerId"
-        <*> x .@  "requesterId"
+        <*> x .@? "requesterId"
         <*> x .@  "reservationId"

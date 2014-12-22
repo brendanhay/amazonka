@@ -1,5 +1,5 @@
 name:                  amazonka-emr-examples
-version:               0.1.0
+version:               0.1.1
 synopsis:              Amazon Elastic MapReduce SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         EMR
 
     build-depends:
-        amazonka      == 0.1.0.*
-      , amazonka-core == 0.1.0.*
-      , amazonka-emr == 0.1.0.*
+        amazonka      == 0.1.1.*
+      , amazonka-core == 0.1.1.*
+      , amazonka-emr == 0.1.1.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

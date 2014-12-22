@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 data DeleteTags = DeleteTags
     { _dt1DryRun    :: Maybe Bool
-    , _dt1Resources :: List "ResourceId" Text
+    , _dt1Resources :: List "resourceId" Text
     , _dt1Tags      :: List "item" Tag
     } deriving (Eq, Show)
 
@@ -100,8 +100,8 @@ instance ToPath DeleteTags where
 instance ToQuery DeleteTags where
     toQuery DeleteTags{..} = mconcat
         [ "dryRun"     =? _dt1DryRun
-        , toQuery     _dt1Resources
-        , toQuery     _dt1Tags
+        , "resourceId" `toQueryList` _dt1Resources
+        , "tag"        `toQueryList` _dt1Tags
         ]
 
 instance ToHeaders DeleteTags

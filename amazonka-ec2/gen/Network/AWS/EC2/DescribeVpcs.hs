@@ -137,8 +137,8 @@ instance ToPath DescribeVpcs where
 instance ToQuery DescribeVpcs where
     toQuery DescribeVpcs{..} = mconcat
         [ "dryRun" =? _dv1DryRun
-        , toQuery _dv1Filters
-        , toQuery _dv1VpcIds
+        , "Filter" `toQueryList` _dv1Filters
+        , "VpcId"  `toQueryList` _dv1VpcIds
         ]
 
 instance ToHeaders DescribeVpcs
@@ -152,4 +152,4 @@ instance AWSRequest DescribeVpcs where
 
 instance FromXML DescribeVpcsResponse where
     parseXML x = DescribeVpcsResponse
-        <$> parseXML x
+        <$> x .@? "vpcSet" .!@ mempty

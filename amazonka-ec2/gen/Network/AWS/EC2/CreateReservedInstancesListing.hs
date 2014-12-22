@@ -150,7 +150,7 @@ instance ToQuery CreateReservedInstancesListing where
     toQuery CreateReservedInstancesListing{..} = mconcat
         [ "clientToken"         =? _crilClientToken
         , "instanceCount"       =? _crilInstanceCount
-        , toQuery              _crilPriceSchedules
+        , "priceSchedules"      `toQueryList` _crilPriceSchedules
         , "reservedInstancesId" =? _crilReservedInstancesId
         ]
 
@@ -165,4 +165,4 @@ instance AWSRequest CreateReservedInstancesListing where
 
 instance FromXML CreateReservedInstancesListingResponse where
     parseXML x = CreateReservedInstancesListingResponse
-        <$> parseXML x
+        <$> x .@? "reservedInstancesListingsSet" .!@ mempty

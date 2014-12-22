@@ -129,7 +129,7 @@ instance ToQuery StartInstances where
     toQuery StartInstances{..} = mconcat
         [ "additionalInfo" =? _si1AdditionalInfo
         , "dryRun"         =? _si1DryRun
-        , toQuery         _si1InstanceIds
+        , "InstanceId"     `toQueryList` _si1InstanceIds
         ]
 
 instance ToHeaders StartInstances
@@ -143,4 +143,4 @@ instance AWSRequest StartInstances where
 
 instance FromXML StartInstancesResponse where
     parseXML x = StartInstancesResponse
-        <$> parseXML x
+        <$> x .@? "instancesSet" .!@ mempty

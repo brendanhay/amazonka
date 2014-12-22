@@ -113,4 +113,4 @@ instance AWSRequest CancelReservedInstancesListing where
 
 instance FromXML CancelReservedInstancesListingResponse where
     parseXML x = CancelReservedInstancesListingResponse
-        <$> parseXML x
+        <$> x .@? "reservedInstancesListingsSet" .!@ mempty

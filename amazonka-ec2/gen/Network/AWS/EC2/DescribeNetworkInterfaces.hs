@@ -215,8 +215,8 @@ instance ToPath DescribeNetworkInterfaces where
 instance ToQuery DescribeNetworkInterfaces where
     toQuery DescribeNetworkInterfaces{..} = mconcat
         [ "dryRun"             =? _dni1DryRun
-        , toQuery             _dni1Filters
-        , toQuery             _dni1NetworkInterfaceIds
+        , "filter"             `toQueryList` _dni1Filters
+        , "NetworkInterfaceId" `toQueryList` _dni1NetworkInterfaceIds
         ]
 
 instance ToHeaders DescribeNetworkInterfaces
@@ -230,4 +230,4 @@ instance AWSRequest DescribeNetworkInterfaces where
 
 instance FromXML DescribeNetworkInterfacesResponse where
     parseXML x = DescribeNetworkInterfacesResponse
-        <$> parseXML x
+        <$> x .@? "networkInterfaceSet" .!@ mempty

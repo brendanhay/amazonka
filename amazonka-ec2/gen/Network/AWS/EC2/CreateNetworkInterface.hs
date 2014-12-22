@@ -163,9 +163,9 @@ instance ToQuery CreateNetworkInterface where
     toQuery CreateNetworkInterface{..} = mconcat
         [ "description"                    =? _cniDescription
         , "dryRun"                         =? _cniDryRun
-        , toQuery                         _cniGroups
+        , "SecurityGroupId"                `toQueryList` _cniGroups
         , "privateIpAddress"               =? _cniPrivateIpAddress
-        , toQuery                         _cniPrivateIpAddresses
+        , "privateIpAddresses"             `toQueryList` _cniPrivateIpAddresses
         , "secondaryPrivateIpAddressCount" =? _cniSecondaryPrivateIpAddressCount
         , "subnetId"                       =? _cniSubnetId
         ]

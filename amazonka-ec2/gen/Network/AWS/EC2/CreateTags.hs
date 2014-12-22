@@ -100,8 +100,8 @@ instance ToPath CreateTags where
 instance ToQuery CreateTags where
     toQuery CreateTags{..} = mconcat
         [ "dryRun"     =? _ct1DryRun
-        , toQuery     _ct1Resources
-        , toQuery     _ct1Tags
+        , "ResourceId" `toQueryList` _ct1Resources
+        , "Tag"        `toQueryList` _ct1Tags
         ]
 
 instance ToHeaders CreateTags

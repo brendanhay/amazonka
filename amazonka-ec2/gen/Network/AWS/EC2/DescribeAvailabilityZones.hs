@@ -126,8 +126,8 @@ instance ToPath DescribeAvailabilityZones where
 instance ToQuery DescribeAvailabilityZones where
     toQuery DescribeAvailabilityZones{..} = mconcat
         [ "dryRun"   =? _dazDryRun
-        , toQuery   _dazFilters
-        , toQuery   _dazZoneNames
+        , "Filter"   `toQueryList` _dazFilters
+        , "ZoneName" `toQueryList` _dazZoneNames
         ]
 
 instance ToHeaders DescribeAvailabilityZones
@@ -141,4 +141,4 @@ instance AWSRequest DescribeAvailabilityZones where
 
 instance FromXML DescribeAvailabilityZonesResponse where
     parseXML x = DescribeAvailabilityZonesResponse
-        <$> parseXML x
+        <$> x .@? "availabilityZoneInfo" .!@ mempty

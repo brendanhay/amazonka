@@ -270,6 +270,6 @@ instance FromXML CreateSnapshotResponse where
         <*> x .@  "snapshotId"
         <*> x .@  "startTime"
         <*> x .@  "status"
-        <*> parseXML x
+        <*> x .@? "tagSet" .!@ mempty
         <*> x .@  "volumeId"
         <*> x .@  "volumeSize"

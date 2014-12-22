@@ -143,9 +143,9 @@ instance ToPath DescribeCustomerGateways where
 
 instance ToQuery DescribeCustomerGateways where
     toQuery DescribeCustomerGateways{..} = mconcat
-        [ toQuery            _dcgCustomerGatewayIds
+        [ "CustomerGatewayId" `toQueryList` _dcgCustomerGatewayIds
         , "dryRun"            =? _dcgDryRun
-        , toQuery            _dcgFilters
+        , "Filter"            `toQueryList` _dcgFilters
         ]
 
 instance ToHeaders DescribeCustomerGateways
@@ -159,4 +159,4 @@ instance AWSRequest DescribeCustomerGateways where
 
 instance FromXML DescribeCustomerGatewaysResponse where
     parseXML x = DescribeCustomerGatewaysResponse
-        <$> parseXML x
+        <$> x .@? "customerGatewaySet" .!@ mempty

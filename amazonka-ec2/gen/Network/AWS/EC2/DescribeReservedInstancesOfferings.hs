@@ -275,7 +275,7 @@ instance ToQuery DescribeReservedInstancesOfferings where
     toQuery DescribeReservedInstancesOfferings{..} = mconcat
         [ "AvailabilityZone"            =? _drioAvailabilityZone
         , "dryRun"                      =? _drioDryRun
-        , toQuery                      _drioFilters
+        , "Filter"                      `toQueryList` _drioFilters
         , "IncludeMarketplace"          =? _drioIncludeMarketplace
         , "instanceTenancy"             =? _drioInstanceTenancy
         , "InstanceType"                =? _drioInstanceType
@@ -286,7 +286,7 @@ instance ToQuery DescribeReservedInstancesOfferings where
         , "nextToken"                   =? _drioNextToken
         , "offeringType"                =? _drioOfferingType
         , "ProductDescription"          =? _drioProductDescription
-        , toQuery                      _drioReservedInstancesOfferingIds
+        , "ReservedInstancesOfferingId" `toQueryList` _drioReservedInstancesOfferingIds
         ]
 
 instance ToHeaders DescribeReservedInstancesOfferings
@@ -301,7 +301,7 @@ instance AWSRequest DescribeReservedInstancesOfferings where
 instance FromXML DescribeReservedInstancesOfferingsResponse where
     parseXML x = DescribeReservedInstancesOfferingsResponse
         <$> x .@? "nextToken"
-        <*> parseXML x
+        <*> x .@? "reservedInstancesOfferingsSet" .!@ mempty
 
 instance AWSPager DescribeReservedInstancesOfferings where
     page rq rs

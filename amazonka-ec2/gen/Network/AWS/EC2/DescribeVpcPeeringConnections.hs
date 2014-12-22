@@ -156,8 +156,8 @@ instance ToPath DescribeVpcPeeringConnections where
 instance ToQuery DescribeVpcPeeringConnections where
     toQuery DescribeVpcPeeringConnections{..} = mconcat
         [ "dryRun"                 =? _dvpc1DryRun
-        , toQuery                 _dvpc1Filters
-        , toQuery                 _dvpc1VpcPeeringConnectionIds
+        , "Filter"                 `toQueryList` _dvpc1Filters
+        , "VpcPeeringConnectionId" `toQueryList` _dvpc1VpcPeeringConnectionIds
         ]
 
 instance ToHeaders DescribeVpcPeeringConnections
@@ -171,4 +171,4 @@ instance AWSRequest DescribeVpcPeeringConnections where
 
 instance FromXML DescribeVpcPeeringConnectionsResponse where
     parseXML x = DescribeVpcPeeringConnectionsResponse
-        <$> parseXML x
+        <$> x .@? "vpcPeeringConnectionSet" .!@ mempty

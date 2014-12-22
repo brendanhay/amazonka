@@ -145,10 +145,10 @@ instance ToPath DescribeAddresses where
 
 instance ToQuery DescribeAddresses where
     toQuery DescribeAddresses{..} = mconcat
-        [ toQuery       _daAllocationIds
+        [ "AllocationId" `toQueryList` _daAllocationIds
         , "dryRun"       =? _daDryRun
-        , toQuery       _daFilters
-        , toQuery       _daPublicIps
+        , "Filter"       `toQueryList` _daFilters
+        , "PublicIp"     `toQueryList` _daPublicIps
         ]
 
 instance ToHeaders DescribeAddresses
@@ -162,4 +162,4 @@ instance AWSRequest DescribeAddresses where
 
 instance FromXML DescribeAddressesResponse where
     parseXML x = DescribeAddressesResponse
-        <$> parseXML x
+        <$> x .@? "addressesSet" .!@ mempty

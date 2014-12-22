@@ -16,7 +16,6 @@
 module Network.AWS.EC2.Internal where
 
 import GHC.Generics
-import Network.AWS.Data
 import Network.AWS.Error
 import Network.AWS.Prelude
 
@@ -67,4 +66,3 @@ errErrors = lens _errErrors (\s x -> s { _errErrors = x }) . _List1
 --     </Errors>
 --     <RequestID>request ID</RequestID>
 -- </Response>
-

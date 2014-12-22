@@ -102,7 +102,7 @@ instance ToPath MonitorInstances where
 instance ToQuery MonitorInstances where
     toQuery MonitorInstances{..} = mconcat
         [ "dryRun"     =? _miDryRun
-        , toQuery     _miInstanceIds
+        , "InstanceId" `toQueryList` _miInstanceIds
         ]
 
 instance ToHeaders MonitorInstances
@@ -116,4 +116,4 @@ instance AWSRequest MonitorInstances where
 
 instance FromXML MonitorInstancesResponse where
     parseXML x = MonitorInstancesResponse
-        <$> parseXML x
+        <$> x .@? "instancesSet" .!@ mempty

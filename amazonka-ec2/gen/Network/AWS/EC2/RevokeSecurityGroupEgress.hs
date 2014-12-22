@@ -175,7 +175,7 @@ instance ToQuery RevokeSecurityGroupEgress where
         , "dryRun"                     =? _rsgeDryRun
         , "fromPort"                   =? _rsgeFromPort
         , "groupId"                    =? _rsgeGroupId
-        , toQuery                     _rsgeIpPermissions
+        , "ipPermissions"              `toQueryList` _rsgeIpPermissions
         , "ipProtocol"                 =? _rsgeIpProtocol
         , "sourceSecurityGroupName"    =? _rsgeSourceSecurityGroupName
         , "sourceSecurityGroupOwnerId" =? _rsgeSourceSecurityGroupOwnerId

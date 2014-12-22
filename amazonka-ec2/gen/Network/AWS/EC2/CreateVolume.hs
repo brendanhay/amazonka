@@ -323,7 +323,7 @@ instance AWSRequest CreateVolume where
 
 instance FromXML CreateVolumeResponse where
     parseXML x = CreateVolumeResponse
-        <$> parseXML x
+        <$> x .@? "attachmentSet" .!@ mempty
         <*> x .@  "availabilityZone"
         <*> x .@  "createTime"
         <*> x .@  "encrypted"
@@ -332,6 +332,6 @@ instance FromXML CreateVolumeResponse where
         <*> x .@  "size"
         <*> x .@  "snapshotId"
         <*> x .@  "status"
-        <*> parseXML x
+        <*> x .@? "tagSet" .!@ mempty
         <*> x .@  "volumeId"
         <*> x .@  "volumeType"

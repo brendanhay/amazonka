@@ -139,9 +139,9 @@ instance ToPath DescribeBundleTasks where
 
 instance ToQuery DescribeBundleTasks where
     toQuery DescribeBundleTasks{..} = mconcat
-        [ toQuery   _dbtBundleIds
+        [ "BundleId" `toQueryList` _dbtBundleIds
         , "dryRun"   =? _dbtDryRun
-        , toQuery   _dbtFilters
+        , "Filter"   `toQueryList` _dbtFilters
         ]
 
 instance ToHeaders DescribeBundleTasks
@@ -155,4 +155,4 @@ instance AWSRequest DescribeBundleTasks where
 
 instance FromXML DescribeBundleTasksResponse where
     parseXML x = DescribeBundleTasksResponse
-        <$> parseXML x
+        <$> x .@? "bundleInstanceTasksSet" .!@ mempty

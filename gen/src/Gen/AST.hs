@@ -19,8 +19,6 @@
 
 module Gen.AST (transformAST) where
 
-import Debug.Trace
-
 import           Control.Applicative        ((<$>), (<*>), (<|>), pure)
 import           Control.Arrow              ((&&&))
 import           Control.Error
@@ -609,7 +607,7 @@ shapes proto time m =
             Time'   x -> pure (TPrim . PTime $ fromMaybe time (x ^. tsTimestampFormat))
             Blob'   _ -> pure (TPrim PBlob)
 
-            List'   x -> trace (show (fld, k)) $ list x <$> ref fld (x ^. lstMember)
+            List'   x -> list x <$> ref fld (x ^. lstMember)
             Map'    x -> hmap x <$> ref fld (x ^. mapKey) <*> ref fld (x ^. mapValue)
 
             String' x

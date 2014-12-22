@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 data DescribeServiceErrors = DescribeServiceErrors
     { _dseInstanceId      :: Maybe Text
-    , _dseServiceErrorIds :: List "InstanceIds" Text
+    , _dseServiceErrorIds :: List "ServiceErrorIds" Text
     , _dseStackId         :: Maybe Text
     } deriving (Eq, Ord, Show)
 

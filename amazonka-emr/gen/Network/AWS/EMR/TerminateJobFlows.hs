@@ -55,7 +55,7 @@ import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
 newtype TerminateJobFlows = TerminateJobFlows
-    { _tjfJobFlowIds :: List "Args" Text
+    { _tjfJobFlowIds :: List "JobFlowIds" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList TerminateJobFlows where

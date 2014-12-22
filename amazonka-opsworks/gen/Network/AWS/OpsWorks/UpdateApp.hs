@@ -65,7 +65,7 @@ data UpdateApp = UpdateApp
     , _uaAttributes       :: Map AppAttributesKeys Text
     , _uaDataSources      :: List "DataSources" DataSource
     , _uaDescription      :: Maybe Text
-    , _uaDomains          :: List "InstanceIds" Text
+    , _uaDomains          :: List "Domains" Text
     , _uaEnableSsl        :: Maybe Bool
     , _uaEnvironment      :: List "Environment" EnvironmentVariable
     , _uaName             :: Maybe Text

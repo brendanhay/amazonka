@@ -48,7 +48,7 @@ import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
 newtype BatchGetDeployments = BatchGetDeployments
-    { _bgdDeploymentIds :: List "deployments" Text
+    { _bgdDeploymentIds :: List "deploymentIds" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BatchGetDeployments where

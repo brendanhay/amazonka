@@ -135,7 +135,7 @@ udgServiceRoleArn =
     lens _udgServiceRoleArn (\s a -> s { _udgServiceRoleArn = a })
 
 newtype UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse
-    { _udgrHooksNotCleanedUp :: List "autoScalingGroups" AutoScalingGroup
+    { _udgrHooksNotCleanedUp :: List "hooksNotCleanedUp" AutoScalingGroup
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList UpdateDeploymentGroupResponse where

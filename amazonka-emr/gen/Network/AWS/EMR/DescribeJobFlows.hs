@@ -68,7 +68,7 @@ import qualified GHC.Exts
 data DescribeJobFlows = DescribeJobFlows
     { _djfCreatedAfter  :: Maybe POSIX
     , _djfCreatedBefore :: Maybe POSIX
-    , _djfJobFlowIds    :: List "Args" Text
+    , _djfJobFlowIds    :: List "JobFlowIds" Text
     , _djfJobFlowStates :: List "JobFlowStates" JobFlowExecutionState
     } deriving (Eq, Show)
 

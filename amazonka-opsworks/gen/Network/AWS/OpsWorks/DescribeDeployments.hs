@@ -57,7 +57,7 @@ import qualified GHC.Exts
 
 data DescribeDeployments = DescribeDeployments
     { _ddAppId         :: Maybe Text
-    , _ddDeploymentIds :: List "InstanceIds" Text
+    , _ddDeploymentIds :: List "DeploymentIds" Text
     , _ddStackId       :: Maybe Text
     } deriving (Eq, Ord, Show)
 

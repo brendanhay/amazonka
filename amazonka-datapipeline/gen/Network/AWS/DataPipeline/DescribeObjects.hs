@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data DescribeObjects = DescribeObjects
     { _doEvaluateExpressions :: Maybe Bool
     , _doMarker              :: Maybe Text
-    , _doObjectIds           :: List "pipelineIds" Text
+    , _doObjectIds           :: List "objectIds" Text
     , _doPipelineId          :: Text
     } deriving (Eq, Ord, Show)
 

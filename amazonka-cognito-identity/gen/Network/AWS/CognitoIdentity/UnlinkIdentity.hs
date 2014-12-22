@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data UnlinkIdentity = UnlinkIdentity
     { _uiIdentityId     :: Text
     , _uiLogins         :: Map Text Text
-    , _uiLoginsToRemove :: List "Logins" Text
+    , _uiLoginsToRemove :: List "LoginsToRemove" Text
     } deriving (Eq, Show)
 
 -- | 'UnlinkIdentity' constructor.

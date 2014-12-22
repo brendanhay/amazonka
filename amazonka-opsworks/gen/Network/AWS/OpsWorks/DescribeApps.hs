@@ -55,7 +55,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data DescribeApps = DescribeApps
-    { _daAppIds  :: List "InstanceIds" Text
+    { _daAppIds  :: List "AppIds" Text
     , _daStackId :: Maybe Text
     } deriving (Eq, Ord, Show)
 

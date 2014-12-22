@@ -52,7 +52,7 @@ import Network.AWS.EMR.Types
 import qualified GHC.Exts
 
 data SetVisibleToAllUsers = SetVisibleToAllUsers
-    { _svtauJobFlowIds        :: List "Args" Text
+    { _svtauJobFlowIds        :: List "JobFlowIds" Text
     , _svtauVisibleToAllUsers :: Bool
     } deriving (Eq, Ord, Show)
 

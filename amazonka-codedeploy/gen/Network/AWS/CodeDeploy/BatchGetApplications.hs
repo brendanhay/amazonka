@@ -48,7 +48,7 @@ import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
 newtype BatchGetApplications = BatchGetApplications
-    { _bgaApplicationNames :: List "applications" Text
+    { _bgaApplicationNames :: List "applicationNames" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BatchGetApplications where

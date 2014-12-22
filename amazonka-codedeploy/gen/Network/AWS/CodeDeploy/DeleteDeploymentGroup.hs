@@ -81,7 +81,7 @@ ddgDeploymentGroupName =
     lens _ddgDeploymentGroupName (\s a -> s { _ddgDeploymentGroupName = a })
 
 newtype DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse
-    { _ddgrHooksNotCleanedUp :: List "autoScalingGroups" AutoScalingGroup
+    { _ddgrHooksNotCleanedUp :: List "hooksNotCleanedUp" AutoScalingGroup
     } deriving (Eq, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DeleteDeploymentGroupResponse where

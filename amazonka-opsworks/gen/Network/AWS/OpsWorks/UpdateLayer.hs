@@ -69,13 +69,13 @@ data UpdateLayer = UpdateLayer
     , _ulAutoAssignPublicIps         :: Maybe Bool
     , _ulCustomInstanceProfileArn    :: Maybe Text
     , _ulCustomRecipes               :: Maybe Recipes
-    , _ulCustomSecurityGroupIds      :: List "InstanceIds" Text
+    , _ulCustomSecurityGroupIds      :: List "CustomSecurityGroupIds" Text
     , _ulEnableAutoHealing           :: Maybe Bool
     , _ulInstallUpdatesOnBoot        :: Maybe Bool
     , _ulLayerId                     :: Text
     , _ulLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
     , _ulName                        :: Maybe Text
-    , _ulPackages                    :: List "InstanceIds" Text
+    , _ulPackages                    :: List "Packages" Text
     , _ulShortname                   :: Maybe Text
     , _ulUseEbsOptimizedInstances    :: Maybe Bool
     , _ulVolumeConfigurations        :: List "VolumeConfigurations" VolumeConfiguration

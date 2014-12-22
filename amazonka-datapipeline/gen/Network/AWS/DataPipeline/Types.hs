@@ -832,7 +832,7 @@ instance ToJSON TaskStatus where
 
 data ValidationWarning = ValidationWarning
     { _vwId       :: Maybe Text
-    , _vwWarnings :: List "errors" Text
+    , _vwWarnings :: List "warnings" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'ValidationWarning' constructor.

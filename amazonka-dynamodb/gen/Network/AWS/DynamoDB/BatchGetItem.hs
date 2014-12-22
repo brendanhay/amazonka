@@ -146,7 +146,7 @@ bgiReturnConsumedCapacity =
 
 data BatchGetItemResponse = BatchGetItemResponse
     { _bgirConsumedCapacity :: List "ConsumedCapacity" ConsumedCapacity
-    , _bgirResponses        :: Map Text (List "Items" (Map Text AttributeValue))
+    , _bgirResponses        :: Map Text (List "Responses" (Map Text AttributeValue))
     , _bgirUnprocessedKeys  :: Map Text KeysAndAttributes
     } deriving (Eq, Show)
 

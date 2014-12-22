@@ -53,7 +53,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data DescribeRdsDbInstances = DescribeRdsDbInstances
-    { _drdiRdsDbInstanceArns :: List "InstanceIds" Text
+    { _drdiRdsDbInstanceArns :: List "RdsDbInstanceArns" Text
     , _drdiStackId           :: Text
     } deriving (Eq, Ord, Show)
 

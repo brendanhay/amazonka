@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data ListSteps = ListSteps
     { _lsClusterId  :: Text
     , _lsMarker     :: Maybe Text
-    , _lsStepIds    :: List "Args" Text
+    , _lsStepIds    :: List "StepIds" Text
     , _lsStepStates :: List "StepStates" StepState
     } deriving (Eq, Show)
 

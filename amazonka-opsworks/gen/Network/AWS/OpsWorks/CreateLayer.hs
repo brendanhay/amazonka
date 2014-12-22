@@ -79,12 +79,12 @@ data CreateLayer = CreateLayer
     , _clAutoAssignPublicIps         :: Maybe Bool
     , _clCustomInstanceProfileArn    :: Maybe Text
     , _clCustomRecipes               :: Maybe Recipes
-    , _clCustomSecurityGroupIds      :: List "InstanceIds" Text
+    , _clCustomSecurityGroupIds      :: List "CustomSecurityGroupIds" Text
     , _clEnableAutoHealing           :: Maybe Bool
     , _clInstallUpdatesOnBoot        :: Maybe Bool
     , _clLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
     , _clName                        :: Text
-    , _clPackages                    :: List "InstanceIds" Text
+    , _clPackages                    :: List "Packages" Text
     , _clShortname                   :: Text
     , _clStackId                     :: Text
     , _clType                        :: LayerType

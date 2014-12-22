@@ -74,7 +74,7 @@ data CreateInstance = CreateInstance
     , _ciHostname             :: Maybe Text
     , _ciInstallUpdatesOnBoot :: Maybe Bool
     , _ciInstanceType         :: Text
-    , _ciLayerIds             :: List "InstanceIds" Text
+    , _ciLayerIds             :: List "LayerIds" Text
     , _ciOs                   :: Maybe Text
     , _ciRootDeviceType       :: Maybe RootDeviceType
     , _ciSshKeyName           :: Maybe Text

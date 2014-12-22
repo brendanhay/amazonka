@@ -52,7 +52,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 newtype DescribeStacks = DescribeStacks
-    { _dsStackIds :: List "InstanceIds" Text
+    { _dsStackIds :: List "StackIds" Text
     } deriving (Eq, Ord, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeStacks where

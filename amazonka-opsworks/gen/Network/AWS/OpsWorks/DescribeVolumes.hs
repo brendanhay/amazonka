@@ -60,7 +60,7 @@ data DescribeVolumes = DescribeVolumes
     { _dvInstanceId  :: Maybe Text
     , _dvRaidArrayId :: Maybe Text
     , _dvStackId     :: Maybe Text
-    , _dvVolumeIds   :: List "InstanceIds" Text
+    , _dvVolumeIds   :: List "VolumeIds" Text
     } deriving (Eq, Ord, Show)
 
 -- | 'DescribeVolumes' constructor.

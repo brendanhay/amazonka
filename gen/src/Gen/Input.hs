@@ -78,6 +78,7 @@ data SList = SList
     , _lstMin           :: Maybe Int
     , _lstMax           :: Maybe Int
     , _lstFlattened     :: Maybe Bool
+    , _lstLocationName  :: Maybe Text
     } deriving (Eq, Show)
 
 record input ''SList

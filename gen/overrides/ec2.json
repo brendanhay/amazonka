@@ -159,7 +159,6 @@
                 "RootDeviceName",
                 "VirtualizationType",
                 "Hypervisor",
-                "IamInstanceProfile",
                 "EbsOptimized",
                 "State"
             ]

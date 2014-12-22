@@ -11803,7 +11803,7 @@ data Instance = Instance
     , _i1ClientToken           :: Maybe Text
     , _i1EbsOptimized          :: Bool
     , _i1Hypervisor            :: HypervisorType
-    , _i1IamInstanceProfile    :: IamInstanceProfile
+    , _i1IamInstanceProfile    :: Maybe IamInstanceProfile
     , _i1ImageId               :: Text
     , _i1InstanceId            :: Text
     , _i1InstanceLifecycle     :: Maybe InstanceLifecycleType
@@ -11852,7 +11852,7 @@ data Instance = Instance
 --
 -- * 'i1Hypervisor' @::@ 'HypervisorType'
 --
--- * 'i1IamInstanceProfile' @::@ 'IamInstanceProfile'
+-- * 'i1IamInstanceProfile' @::@ 'Maybe' 'IamInstanceProfile'
 --
 -- * 'i1ImageId' @::@ 'Text'
 --
@@ -11928,10 +11928,9 @@ instance' :: Text -- ^ 'i1InstanceId'
           -> Text -- ^ 'i1RootDeviceName'
           -> VirtualizationType -- ^ 'i1VirtualizationType'
           -> HypervisorType -- ^ 'i1Hypervisor'
-          -> IamInstanceProfile -- ^ 'i1IamInstanceProfile'
           -> Bool -- ^ 'i1EbsOptimized'
           -> Instance
-instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 = Instance
+instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 = Instance
     { _i1InstanceId            = p1
     , _i1ImageId               = p2
     , _i1State                 = p3
@@ -11946,8 +11945,7 @@ instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 = Instance
     , _i1RootDeviceName        = p12
     , _i1VirtualizationType    = p13
     , _i1Hypervisor            = p14
-    , _i1IamInstanceProfile    = p15
-    , _i1EbsOptimized          = p16
+    , _i1EbsOptimized          = p15
     , _i1PrivateDnsName        = Nothing
     , _i1PublicDnsName         = Nothing
     , _i1StateTransitionReason = Nothing
@@ -11968,6 +11966,7 @@ instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 = Instance
     , _i1SecurityGroups        = mempty
     , _i1SourceDestCheck       = Nothing
     , _i1NetworkInterfaces     = mempty
+    , _i1IamInstanceProfile    = Nothing
     , _i1SriovNetSupport       = Nothing
     }
 
@@ -12003,7 +12002,7 @@ i1Hypervisor :: Lens' Instance HypervisorType
 i1Hypervisor = lens _i1Hypervisor (\s a -> s { _i1Hypervisor = a })
 
 -- | The IAM instance profile associated with the instance.
-i1IamInstanceProfile :: Lens' Instance IamInstanceProfile
+i1IamInstanceProfile :: Lens' Instance (Maybe IamInstanceProfile)
 i1IamInstanceProfile =
     lens _i1IamInstanceProfile (\s a -> s { _i1IamInstanceProfile = a })
 
@@ -12155,7 +12154,7 @@ instance FromXML Instance where
         <*> x .@? "clientToken"
         <*> x .@  "ebsOptimized"
         <*> x .@  "hypervisor"
-        <*> x .@  "iamInstanceProfile"
+        <*> x .@? "iamInstanceProfile"
         <*> x .@  "imageId"
         <*> x .@  "instanceId"
         <*> x .@? "instanceLifecycle"

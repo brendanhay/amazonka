@@ -26,8 +26,9 @@ module Network.AWS.Data.Internal.Query
     , Query
     , valuesOf
 
-    , pair
     , (=?)
+    , pair
+    , toQueryList
     ) where
 
 import           Control.Lens
@@ -40,6 +41,7 @@ import           Data.Monoid
 import           Data.String
 import           Data.Text                            (Text)
 import qualified Data.Text.Encoding                   as Text
+import           GHC.Exts
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Network.HTTP.Types.URI               (urlEncode)
@@ -81,9 +83,17 @@ valuesOf = deep _Value
 
 pair :: ToQuery a => ByteString -> a -> Query -> Query
 pair k v = mappend (Pair k (toQuery v))
+{-# INLINE pair #-}
 
 (=?) :: ToQuery a => ByteString -> a -> Query
 (=?) k v = Pair k (toQuery v)
+{-# INLINE (=?) #-}
+
+toQueryList :: (IsList a, ToQuery (Item a)) => ByteString -> a -> Query
+toQueryList n = mconcat . zipWith (\i v -> n =? (toBS i, v)) idx . toList
+  where
+    idx = [1..] :: [Int]
+{-# INLINE toQueryList #-}
 
 renderQuery :: Query -> ByteString
 renderQuery = intercalate . sort . enc Nothing

@@ -23,4 +23,3 @@ instance ToQuery {{ type.name }} where
   {% endfor %}
         ]
 {% endcase %}
-

@@ -11801,40 +11801,40 @@ data Instance = Instance
     { _i1AmiLaunchIndex        :: Int
     , _i1Architecture          :: ArchitectureValues
     , _i1BlockDeviceMappings   :: List "item" InstanceBlockDeviceMapping
-    , _i1ClientToken           :: Text
-    , _i1EbsOptimized          :: Maybe Bool
+    , _i1ClientToken           :: Maybe Text
+    , _i1EbsOptimized          :: Bool
     , _i1Hypervisor            :: HypervisorType
-    , _i1IamInstanceProfile    :: Maybe IamInstanceProfile
+    , _i1IamInstanceProfile    :: IamInstanceProfile
     , _i1ImageId               :: Text
     , _i1InstanceId            :: Text
     , _i1InstanceLifecycle     :: Maybe InstanceLifecycleType
     , _i1InstanceType          :: InstanceType
-    , _i1KernelId              :: Text
+    , _i1KernelId              :: Maybe Text
     , _i1KeyName               :: Text
     , _i1LaunchTime            :: ISO8601
     , _i1Monitoring            :: Monitoring
     , _i1NetworkInterfaces     :: List "item" InstanceNetworkInterface
     , _i1Placement             :: Placement
-    , _i1Platform              :: PlatformValues
+    , _i1Platform              :: Maybe PlatformValues
     , _i1PrivateDnsName        :: Text
     , _i1PrivateIpAddress      :: Text
     , _i1ProductCodes          :: List "item" ProductCode
-    , _i1PublicDnsName         :: Text
-    , _i1PublicIpAddress       :: Text
-    , _i1RamdiskId             :: Text
+    , _i1PublicDnsName         :: Maybe Text
+    , _i1PublicIpAddress       :: Maybe Text
+    , _i1RamdiskId             :: Maybe Text
     , _i1RootDeviceName        :: Text
     , _i1RootDeviceType        :: DeviceType
     , _i1SecurityGroups        :: List "item" GroupIdentifier
-    , _i1SourceDestCheck       :: Bool
+    , _i1SourceDestCheck       :: Maybe Bool
     , _i1SpotInstanceRequestId :: Maybe Text
     , _i1SriovNetSupport       :: Maybe Text
     , _i1State                 :: InstanceState
     , _i1StateReason           :: Maybe StateReason
     , _i1StateTransitionReason :: Maybe Text
-    , _i1SubnetId              :: Text
+    , _i1SubnetId              :: Maybe Text
     , _i1Tags                  :: List "item" Tag
     , _i1VirtualizationType    :: VirtualizationType
-    , _i1VpcId                 :: Text
+    , _i1VpcId                 :: Maybe Text
     } deriving (Eq, Show)
 
 -- | 'Instance' constructor.
@@ -11847,13 +11847,13 @@ data Instance = Instance
 --
 -- * 'i1BlockDeviceMappings' @::@ ['InstanceBlockDeviceMapping']
 --
--- * 'i1ClientToken' @::@ 'Text'
+-- * 'i1ClientToken' @::@ 'Maybe' 'Text'
 --
--- * 'i1EbsOptimized' @::@ 'Maybe' 'Bool'
+-- * 'i1EbsOptimized' @::@ 'Bool'
 --
 -- * 'i1Hypervisor' @::@ 'HypervisorType'
 --
--- * 'i1IamInstanceProfile' @::@ 'Maybe' 'IamInstanceProfile'
+-- * 'i1IamInstanceProfile' @::@ 'IamInstanceProfile'
 --
 -- * 'i1ImageId' @::@ 'Text'
 --
@@ -11863,7 +11863,7 @@ data Instance = Instance
 --
 -- * 'i1InstanceType' @::@ 'InstanceType'
 --
--- * 'i1KernelId' @::@ 'Text'
+-- * 'i1KernelId' @::@ 'Maybe' 'Text'
 --
 -- * 'i1KeyName' @::@ 'Text'
 --
@@ -11875,7 +11875,7 @@ data Instance = Instance
 --
 -- * 'i1Placement' @::@ 'Placement'
 --
--- * 'i1Platform' @::@ 'PlatformValues'
+-- * 'i1Platform' @::@ 'Maybe' 'PlatformValues'
 --
 -- * 'i1PrivateDnsName' @::@ 'Text'
 --
@@ -11883,11 +11883,11 @@ data Instance = Instance
 --
 -- * 'i1ProductCodes' @::@ ['ProductCode']
 --
--- * 'i1PublicDnsName' @::@ 'Text'
+-- * 'i1PublicDnsName' @::@ 'Maybe' 'Text'
 --
--- * 'i1PublicIpAddress' @::@ 'Text'
+-- * 'i1PublicIpAddress' @::@ 'Maybe' 'Text'
 --
--- * 'i1RamdiskId' @::@ 'Text'
+-- * 'i1RamdiskId' @::@ 'Maybe' 'Text'
 --
 -- * 'i1RootDeviceName' @::@ 'Text'
 --
@@ -11895,7 +11895,7 @@ data Instance = Instance
 --
 -- * 'i1SecurityGroups' @::@ ['GroupIdentifier']
 --
--- * 'i1SourceDestCheck' @::@ 'Bool'
+-- * 'i1SourceDestCheck' @::@ 'Maybe' 'Bool'
 --
 -- * 'i1SpotInstanceRequestId' @::@ 'Maybe' 'Text'
 --
@@ -11907,77 +11907,70 @@ data Instance = Instance
 --
 -- * 'i1StateTransitionReason' @::@ 'Maybe' 'Text'
 --
--- * 'i1SubnetId' @::@ 'Text'
+-- * 'i1SubnetId' @::@ 'Maybe' 'Text'
 --
 -- * 'i1Tags' @::@ ['Tag']
 --
 -- * 'i1VirtualizationType' @::@ 'VirtualizationType'
 --
--- * 'i1VpcId' @::@ 'Text'
+-- * 'i1VpcId' @::@ 'Maybe' 'Text'
 --
 instance' :: Text -- ^ 'i1InstanceId'
           -> Text -- ^ 'i1ImageId'
           -> InstanceState -- ^ 'i1State'
           -> Text -- ^ 'i1PrivateDnsName'
-          -> Text -- ^ 'i1PublicDnsName'
           -> Text -- ^ 'i1KeyName'
           -> Int -- ^ 'i1AmiLaunchIndex'
           -> InstanceType -- ^ 'i1InstanceType'
           -> UTCTime -- ^ 'i1LaunchTime'
           -> Placement -- ^ 'i1Placement'
-          -> Text -- ^ 'i1KernelId'
-          -> Text -- ^ 'i1RamdiskId'
-          -> PlatformValues -- ^ 'i1Platform'
           -> Monitoring -- ^ 'i1Monitoring'
-          -> Text -- ^ 'i1SubnetId'
-          -> Text -- ^ 'i1VpcId'
           -> Text -- ^ 'i1PrivateIpAddress'
-          -> Text -- ^ 'i1PublicIpAddress'
           -> ArchitectureValues -- ^ 'i1Architecture'
           -> DeviceType -- ^ 'i1RootDeviceType'
           -> Text -- ^ 'i1RootDeviceName'
           -> VirtualizationType -- ^ 'i1VirtualizationType'
-          -> Text -- ^ 'i1ClientToken'
-          -> Bool -- ^ 'i1SourceDestCheck'
           -> HypervisorType -- ^ 'i1Hypervisor'
+          -> IamInstanceProfile -- ^ 'i1IamInstanceProfile'
+          -> Bool -- ^ 'i1EbsOptimized'
           -> Instance
-instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p18 p19 p20 p21 p22 p23 p24 p25 = Instance
+instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p18 = Instance
     { _i1InstanceId            = p1
     , _i1ImageId               = p2
     , _i1State                 = p3
     , _i1PrivateDnsName        = p4
-    , _i1PublicDnsName         = p5
-    , _i1KeyName               = p6
-    , _i1AmiLaunchIndex        = p7
-    , _i1InstanceType          = p8
-    , _i1LaunchTime            = withIso _Time (const id) p9
-    , _i1Placement             = p10
-    , _i1KernelId              = p11
-    , _i1RamdiskId             = p12
-    , _i1Platform              = p13
-    , _i1Monitoring            = p14
-    , _i1SubnetId              = p15
-    , _i1VpcId                 = p16
-    , _i1PrivateIpAddress      = p17
-    , _i1PublicIpAddress       = p18
-    , _i1Architecture          = p19
-    , _i1RootDeviceType        = p20
-    , _i1RootDeviceName        = p21
-    , _i1VirtualizationType    = p22
-    , _i1ClientToken           = p23
-    , _i1SourceDestCheck       = p24
-    , _i1Hypervisor            = p25
+    , _i1KeyName               = p5
+    , _i1AmiLaunchIndex        = p6
+    , _i1InstanceType          = p7
+    , _i1LaunchTime            = withIso _Time (const id) p8
+    , _i1Placement             = p9
+    , _i1Monitoring            = p10
+    , _i1PrivateIpAddress      = p11
+    , _i1Architecture          = p12
+    , _i1RootDeviceType        = p13
+    , _i1RootDeviceName        = p14
+    , _i1VirtualizationType    = p15
+    , _i1Hypervisor            = p16
+    , _i1IamInstanceProfile    = p17
+    , _i1EbsOptimized          = p18
+    , _i1PublicDnsName         = Nothing
     , _i1StateTransitionReason = Nothing
     , _i1ProductCodes          = mempty
+    , _i1KernelId              = Nothing
+    , _i1RamdiskId             = Nothing
+    , _i1Platform              = Nothing
+    , _i1SubnetId              = Nothing
+    , _i1VpcId                 = Nothing
+    , _i1PublicIpAddress       = Nothing
     , _i1StateReason           = Nothing
     , _i1BlockDeviceMappings   = mempty
     , _i1InstanceLifecycle     = Nothing
     , _i1SpotInstanceRequestId = Nothing
+    , _i1ClientToken           = Nothing
     , _i1Tags                  = mempty
     , _i1SecurityGroups        = mempty
+    , _i1SourceDestCheck       = Nothing
     , _i1NetworkInterfaces     = mempty
-    , _i1IamInstanceProfile    = Nothing
-    , _i1EbsOptimized          = Nothing
     , _i1SriovNetSupport       = Nothing
     }
 
@@ -11997,7 +11990,7 @@ i1BlockDeviceMappings =
         . _List
 
 -- | The idempotency token you provided when you launched the instance.
-i1ClientToken :: Lens' Instance Text
+i1ClientToken :: Lens' Instance (Maybe Text)
 i1ClientToken = lens _i1ClientToken (\s a -> s { _i1ClientToken = a })
 
 -- | Indicates whether the instance is optimized for EBS I/O. This optimization
@@ -12005,7 +11998,7 @@ i1ClientToken = lens _i1ClientToken (\s a -> s { _i1ClientToken = a })
 -- stack to provide optimal I/O performance. This optimization isn't available
 -- with all instance types. Additional usage charges apply when using an EBS
 -- Optimized instance.
-i1EbsOptimized :: Lens' Instance (Maybe Bool)
+i1EbsOptimized :: Lens' Instance Bool
 i1EbsOptimized = lens _i1EbsOptimized (\s a -> s { _i1EbsOptimized = a })
 
 -- | The hypervisor type of the instance.
@@ -12013,7 +12006,7 @@ i1Hypervisor :: Lens' Instance HypervisorType
 i1Hypervisor = lens _i1Hypervisor (\s a -> s { _i1Hypervisor = a })
 
 -- | The IAM instance profile associated with the instance.
-i1IamInstanceProfile :: Lens' Instance (Maybe IamInstanceProfile)
+i1IamInstanceProfile :: Lens' Instance IamInstanceProfile
 i1IamInstanceProfile =
     lens _i1IamInstanceProfile (\s a -> s { _i1IamInstanceProfile = a })
 
@@ -12035,7 +12028,7 @@ i1InstanceType :: Lens' Instance InstanceType
 i1InstanceType = lens _i1InstanceType (\s a -> s { _i1InstanceType = a })
 
 -- | The kernel associated with this instance.
-i1KernelId :: Lens' Instance Text
+i1KernelId :: Lens' Instance (Maybe Text)
 i1KernelId = lens _i1KernelId (\s a -> s { _i1KernelId = a })
 
 -- | The name of the key pair, if this instance was launched with an associated
@@ -12062,7 +12055,7 @@ i1Placement :: Lens' Instance Placement
 i1Placement = lens _i1Placement (\s a -> s { _i1Placement = a })
 
 -- | The value is 'Windows' for Windows instances; otherwise blank.
-i1Platform :: Lens' Instance PlatformValues
+i1Platform :: Lens' Instance (Maybe PlatformValues)
 i1Platform = lens _i1Platform (\s a -> s { _i1Platform = a })
 
 -- | The private DNS name assigned to the instance. This DNS name can only be used
@@ -12082,16 +12075,16 @@ i1ProductCodes = lens _i1ProductCodes (\s a -> s { _i1ProductCodes = a }) . _Lis
 
 -- | The public DNS name assigned to the instance. This name is not available
 -- until the instance enters the 'running' state.
-i1PublicDnsName :: Lens' Instance Text
+i1PublicDnsName :: Lens' Instance (Maybe Text)
 i1PublicDnsName = lens _i1PublicDnsName (\s a -> s { _i1PublicDnsName = a })
 
 -- | The public IP address assigned to the instance.
-i1PublicIpAddress :: Lens' Instance Text
+i1PublicIpAddress :: Lens' Instance (Maybe Text)
 i1PublicIpAddress =
     lens _i1PublicIpAddress (\s a -> s { _i1PublicIpAddress = a })
 
 -- | The RAM disk associated with this instance.
-i1RamdiskId :: Lens' Instance Text
+i1RamdiskId :: Lens' Instance (Maybe Text)
 i1RamdiskId = lens _i1RamdiskId (\s a -> s { _i1RamdiskId = a })
 
 -- | The root device name (for example, '/dev/sda1').
@@ -12112,7 +12105,7 @@ i1SecurityGroups = lens _i1SecurityGroups (\s a -> s { _i1SecurityGroups = a }) 
 -- A value of 'true' means checking is enabled, and 'false' means checking is
 -- disabled. The value must be 'false' for the instance to perform NAT. For more
 -- information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
-i1SourceDestCheck :: Lens' Instance Bool
+i1SourceDestCheck :: Lens' Instance (Maybe Bool)
 i1SourceDestCheck =
     lens _i1SourceDestCheck (\s a -> s { _i1SourceDestCheck = a })
 
@@ -12141,7 +12134,7 @@ i1StateTransitionReason =
     lens _i1StateTransitionReason (\s a -> s { _i1StateTransitionReason = a })
 
 -- | The ID of the subnet in which the instance is running.
-i1SubnetId :: Lens' Instance Text
+i1SubnetId :: Lens' Instance (Maybe Text)
 i1SubnetId = lens _i1SubnetId (\s a -> s { _i1SubnetId = a })
 
 -- | Any tags assigned to the instance.
@@ -12154,7 +12147,7 @@ i1VirtualizationType =
     lens _i1VirtualizationType (\s a -> s { _i1VirtualizationType = a })
 
 -- | The ID of the VPC in which the instance is running.
-i1VpcId :: Lens' Instance Text
+i1VpcId :: Lens' Instance (Maybe Text)
 i1VpcId = lens _i1VpcId (\s a -> s { _i1VpcId = a })
 
 instance FromXML Instance where
@@ -12162,40 +12155,40 @@ instance FromXML Instance where
         <$> x .@  "amiLaunchIndex"
         <*> x .@  "architecture"
         <*> x .@? "blockDeviceMapping" .!@ mempty
-        <*> x .@  "clientToken"
-        <*> x .@? "ebsOptimized"
+        <*> x .@? "clientToken"
+        <*> x .@  "ebsOptimized"
         <*> x .@  "hypervisor"
-        <*> x .@? "iamInstanceProfile"
+        <*> x .@  "iamInstanceProfile"
         <*> x .@  "imageId"
         <*> x .@  "instanceId"
         <*> x .@? "instanceLifecycle"
         <*> x .@  "instanceType"
-        <*> x .@  "kernelId"
+        <*> x .@? "kernelId"
         <*> x .@  "keyName"
         <*> x .@  "launchTime"
         <*> x .@  "monitoring"
         <*> x .@? "networkInterfaceSet" .!@ mempty
         <*> x .@  "placement"
-        <*> x .@  "platform"
+        <*> x .@? "platform"
         <*> x .@  "privateDnsName"
         <*> x .@  "privateIpAddress"
         <*> x .@? "productCodes" .!@ mempty
-        <*> x .@  "dnsName"
-        <*> x .@  "ipAddress"
-        <*> x .@  "ramdiskId"
+        <*> x .@? "dnsName"
+        <*> x .@? "ipAddress"
+        <*> x .@? "ramdiskId"
         <*> x .@  "rootDeviceName"
         <*> x .@  "rootDeviceType"
         <*> x .@? "groupSet" .!@ mempty
-        <*> x .@  "sourceDestCheck"
+        <*> x .@? "sourceDestCheck"
         <*> x .@? "spotInstanceRequestId"
         <*> x .@? "sriovNetSupport"
         <*> x .@  "instanceState"
         <*> x .@? "stateReason"
         <*> x .@? "reason"
-        <*> x .@  "subnetId"
+        <*> x .@? "subnetId"
         <*> x .@? "tagSet" .!@ mempty
         <*> x .@  "virtualizationType"
-        <*> x .@  "vpcId"
+        <*> x .@? "vpcId"
 
 instance ToQuery Instance where
     toQuery Instance{..} = mconcat

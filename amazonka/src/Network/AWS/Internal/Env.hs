@@ -21,6 +21,7 @@ import           Data.List                  (intersperse)
 import           Data.Monoid
 import           Network.AWS.Data           (ToBuilder(..), buildBS)
 import           Network.AWS.Internal.Log
+import           Network.AWS.Types
 import           Network.AWS.Types          (Region, Auth)
 import           Network.HTTP.Conduit
 

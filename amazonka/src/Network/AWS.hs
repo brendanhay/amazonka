@@ -200,7 +200,7 @@ raw :: (MonadCatch m, MonadResource m, AWSRequest a)
     => Env
     -> Request a
     -> m (Response' a)
-raw Env{..} rq = catch go err >>= response rq
+raw Env{..} rq = catch go err >>= response _envLogger rq
   where
     go = do
         trace _envLogger (build rq)

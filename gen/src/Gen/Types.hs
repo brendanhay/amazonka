@@ -129,8 +129,17 @@ instance FromJSON Timestamp where
 timestamp :: Timestamp -> Text
 timestamp = Text.pack . show
 
-defaultTS :: Maybe Timestamp -> Timestamp
-defaultTS = fromMaybe ISO8601
+-- | If a timestamp format isn't defined by the API, give a default
+-- timestamp format based on the Metadata protocol. JSON formats use
+-- unix epochs, all others use ISO8601.
+--
+defaultTS :: Protocol -> Maybe Timestamp -> Timestamp
+defaultTS Json = fromMaybe POSIX
+defaultTS RestJson = fromMaybe POSIX
+defaultTS Xml = fromMaybe ISO8601
+defaultTS RestXml = fromMaybe ISO8601
+defaultTS Query = fromMaybe ISO8601
+defaultTS Ec2 = fromMaybe ISO8601
 
 data Checksum
     = MD5

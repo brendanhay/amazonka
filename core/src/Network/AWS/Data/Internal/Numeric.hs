@@ -45,10 +45,10 @@ newtype Nat = Nat { unNat :: Natural }
 instance FromJSON Nat where
     parseJSON = parseJSON >=> \n ->
         case floatingOrInteger n of
-            Left _ -> fail $ "Cannot convert float to Natural: " ++ show n
-            Right i -> if n < 0
-                       then fail $ "Cannot convert negative number to Natural: " ++ show n
-                       else pure $ Nat (fromInteger i)
+            Left  _         -> fail $ "Cannot convert float to Natural: " ++ show n
+            Right i
+                | n < 0     -> fail $ "Cannot convert negative number to Natural: " ++ show n
+                | otherwise -> pure $ Nat (fromInteger i)
 
 instance ToJSON Nat where
     toJSON = Number . flip scientific 0 . toInteger . unNat

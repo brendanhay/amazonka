@@ -139,7 +139,7 @@ data AddEventSourceResponse = AddEventSourceResponse
     , _aesrEventSource  :: Maybe Text
     , _aesrFunctionName :: Maybe Text
     , _aesrIsActive     :: Maybe Bool
-    , _aesrLastModified :: Maybe ISO8601
+    , _aesrLastModified :: Maybe POSIX
     , _aesrParameters   :: Map Text Text
     , _aesrRole         :: Maybe Text
     , _aesrStatus       :: Maybe Text

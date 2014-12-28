@@ -166,7 +166,7 @@
                         "locationName": "Expiry",
                         "documentation": "-- | Expiration date of the domain in Coordinated Universal Time (UTC).\n--\n-- Type: Long",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "payload": null,
@@ -243,7 +243,7 @@
                         "locationName": "Expiry",
                         "documentation": "-- | Expiration date of the domain in Coordinated Universal Time (UTC).\n--\n-- Type: Long",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "fields": [
@@ -296,7 +296,7 @@
                         "locationName": "Expiry",
                         "documentation": "-- | Expiration date of the domain in Coordinated Universal Time (UTC).\n--\n-- Type: Long",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1731,7 +1731,7 @@
                         "locationName": "SubmittedDate",
                         "documentation": "-- | The date when the request was submitted.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     }
                 ],
                 "payload": null,
@@ -1802,7 +1802,7 @@
                         "locationName": "SubmittedDate",
                         "documentation": "-- | The date when the request was submitted.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     }
                 ],
                 "contentPad": 14,
@@ -1860,7 +1860,7 @@
                         "locationName": "SubmittedDate",
                         "documentation": "-- | The date when the request was submitted.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -3167,7 +3167,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | The date when the domain was created as found in the response to a WHOIS\n-- query. The date format is Unix time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -3184,7 +3184,7 @@
                         "locationName": "UpdatedDate",
                         "documentation": "-- | The last updated date of the domain as found in the response to a WHOIS\n-- query. The date format is Unix time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -3201,7 +3201,7 @@
                         "locationName": "ExpirationDate",
                         "documentation": "-- | The date when the registration for the domain is set to expire. The date\n-- format is Unix time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -3539,7 +3539,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | The date when the domain was created as found in the response to a WHOIS\n-- query. The date format is Unix time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -3556,7 +3556,7 @@
                         "locationName": "UpdatedDate",
                         "documentation": "-- | The last updated date of the domain as found in the response to a WHOIS\n-- query. The date format is Unix time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -3573,7 +3573,7 @@
                         "locationName": "ExpirationDate",
                         "documentation": "-- | The date when the registration for the domain is set to expire. The date\n-- format is Unix time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -3728,7 +3728,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | The date when the domain was created as found in the response to a WHOIS\n-- query. The date format is Unix time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -3779,7 +3779,7 @@
                         "locationName": "ExpirationDate",
                         "documentation": "-- | The date when the registration for the domain is set to expire. The date\n-- format is Unix time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -3966,7 +3966,7 @@
                         "locationName": "UpdatedDate",
                         "documentation": "-- | The last updated date of the domain as found in the response to a WHOIS\n-- query. The date format is Unix time.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -4221,7 +4221,7 @@
                         "locationName": "SubmittedDate",
                         "documentation": "-- | The date when the request was submitted.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "wrapper": false,
@@ -4337,7 +4337,7 @@
                         "locationName": "SubmittedDate",
                         "documentation": "-- | The date when the request was submitted.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "fields": [
@@ -4424,7 +4424,7 @@
                         "locationName": "SubmittedDate",
                         "documentation": "-- | The date when the request was submitted.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,

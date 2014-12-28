@@ -2206,7 +2206,7 @@
                         "locationName": "TapeRecoveryPointTime",
                         "documentation": "-- | The time when the point-in-time view of the virtual tape was replicated for\n-- later recovery.\n--\n-- The string format of the tape recovery point time is in the ISO8601 extended\n-- YYYY-MM-DD'T'HH:MM:SS'Z' format.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -2282,7 +2282,7 @@
                         "locationName": "TapeRecoveryPointTime",
                         "documentation": "-- | The time when the point-in-time view of the virtual tape was replicated for\n-- later recovery.\n--\n-- The string format of the tape recovery point time is in the ISO8601 extended\n-- YYYY-MM-DD'T'HH:MM:SS'Z' format.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -2352,7 +2352,7 @@
                         "locationName": "TapeRecoveryPointTime",
                         "documentation": "-- | The time when the point-in-time view of the virtual tape was replicated for\n-- later recovery.\n--\n-- The string format of the tape recovery point time is in the ISO8601 extended\n-- YYYY-MM-DD'T'HH:MM:SS'Z' format.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -2690,7 +2690,7 @@
                         "locationName": "CompletionTime",
                         "documentation": "-- | The time that the archiving of the virtual tape was completed.\n--\n-- The string format of the completion time is in the ISO8601 extended\n-- YYYY-MM-DD'T'HH:MM:SS'Z' format.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -2800,7 +2800,7 @@
                         "locationName": "CompletionTime",
                         "documentation": "-- | The time that the archiving of the virtual tape was completed.\n--\n-- The string format of the completion time is in the ISO8601 extended\n-- YYYY-MM-DD'T'HH:MM:SS'Z' format.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -2853,7 +2853,7 @@
                         "locationName": "CompletionTime",
                         "documentation": "-- | The time that the archiving of the virtual tape was completed.\n--\n-- The string format of the completion time is in the ISO8601 extended\n-- YYYY-MM-DD'T'HH:MM:SS'Z' format.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,

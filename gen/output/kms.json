@@ -201,7 +201,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | Date the key was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -329,7 +329,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | Date the key was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -433,7 +433,7 @@
                         "locationName": "CreationDate",
                         "documentation": "-- | Date the key was created.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,

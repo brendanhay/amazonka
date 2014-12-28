@@ -134,12 +134,13 @@ timestamp = Text.pack . show
 -- unix epochs, all others use ISO8601.
 --
 defaultTS :: Protocol -> Maybe Timestamp -> Timestamp
-defaultTS Json = fromMaybe POSIX
-defaultTS RestJson = fromMaybe POSIX
-defaultTS Xml = fromMaybe ISO8601
-defaultTS RestXml = fromMaybe ISO8601
-defaultTS Query = fromMaybe ISO8601
-defaultTS Ec2 = fromMaybe ISO8601
+defaultTS = fromMaybe . \case
+    Json     -> POSIX
+    RestJson -> POSIX
+    Xml      -> ISO8601
+    RestXml  -> ISO8601
+    Query    -> ISO8601
+    Ec2      -> ISO8601
 
 data Checksum
     = MD5

@@ -57,8 +57,10 @@ testEncode cases = testCase "Numeric JSON Encoding" $
 decodeItems :: [(Maybe Item, LazyByteString)]
 decodeItems = [ ( Just (Item (Just $ Nat 1) (Just 1) Nothing)
                 , "{\"item_nat\":1,\"item_int\":1}" )
-              , ( Just (Item (Just $ Nat 1) (Just (-1)) Nothing)
-                , "{\"item_nat\":1,\"item_int\":-1}")
+              , ( Just (Item (Just $ Nat 1) (Just (-1)) (Just "1"))
+                , "{\"item_nat\":1,\"item_int\":-1, \"item_str\":\"1\"}")
+              , ( Nothing
+                , "{\"item_nat\":1,\"item_int\":-1, \"item_str\":1}")
               , ( Just (Item (Just $ Nat 1) (Just (-1)) Nothing)
                 , "{\"item_nat\":1,\"item_int\":-1}")
               , ( Just (Item (Just $ Nat 1) (Just (-1)) Nothing)

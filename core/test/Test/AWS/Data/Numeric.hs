@@ -18,12 +18,16 @@ import Network.AWS.Prelude
 import Test.Tasty
 import Test.Tasty.HUnit
 
---------------------------------------------------------------------------------
--- Unit tests for Nat JSON serialization.
---
+tests :: TestTree
+tests = testGroup "numeric"
+    [ testGroup "JSON serialization"
+        [ testEncode encodeItems
+        , testDecode decodeItems
+        ]
+    ]
+
 -- With a basic record, checks several serialization edge cases
 -- between String, Int, and Nat values for numbers.
-
 data Item = Item
      { itemNat :: Maybe Nat
      , itemInt :: Maybe Int
@@ -44,42 +48,56 @@ instance FromJSON Item where
         <*> o .:? "item_str"
 
 encodeItems :: [(Item, LazyByteString)]
-encodeItems = [ ( Item (Just $ Nat 1) (Just 1) Nothing
-                , "{\"item_str\":null,\"item_nat\":1,\"item_int\":1}")
-              , ( Item (Just $ Nat 1) (Just 1) (Just "1")
-                , "{\"item_str\":\"1\",\"item_nat\":1,\"item_int\":1}")
-              ]
+encodeItems =
+    [ ( Item (Just $ Nat 1) (Just 1) Nothing
+      , "{\"item_str\":null,\"item_nat\":1,\"item_int\":1}"
+      )
+
+    , ( Item (Just $ Nat 1) (Just 1) (Just "1")
+      , "{\"item_str\":\"1\",\"item_nat\":1,\"item_int\":1}"
+      )
+    ]
 
 testEncode :: [(Item, LazyByteString)] -> TestTree
-testEncode cases = testCase "Numeric JSON Encoding" $
-                       mapM_ (\(input, e) -> e @=? encode input) cases
+testEncode = testCase "Numeric JSON Encoding"
+    . mapM_ (\(input, e) -> e @=? encode input)
 
 decodeItems :: [(Maybe Item, LazyByteString)]
-decodeItems = [ ( Just (Item (Just $ Nat 1) (Just 1) Nothing)
-                , "{\"item_nat\":1,\"item_int\":1}" )
-              , ( Just (Item (Just $ Nat 1) (Just (-1)) (Just "1"))
-                , "{\"item_nat\":1,\"item_int\":-1, \"item_str\":\"1\"}")
-              , ( Nothing
-                , "{\"item_nat\":1,\"item_int\":-1, \"item_str\":1}")
-              , ( Just (Item (Just $ Nat 1) (Just (-1)) Nothing)
-                , "{\"item_nat\":1,\"item_int\":-1}")
-              , ( Just (Item (Just $ Nat 1) (Just (-1)) Nothing)
-                , "{\"item_nat\":1.0,\"item_int\":-1}")
-              , ( Nothing
-                , "{\"item_nat\":-1,\"item_int\":1}")
-              , ( Nothing
-                , "{\"item_nat\":1.2,\"item_int\":1}")
-              , ( Nothing
-                , "{\"item_nat\":\"1\",\"item_int\":1}")]
+decodeItems =
+    [ ( Just (Item (Just $ Nat 1) (Just 1) Nothing)
+      , "{\"item_nat\":1,\"item_int\":1}"
+      )
+
+    , ( Just (Item (Just $ Nat 1) (Just (-1)) (Just "1"))
+      , "{\"item_nat\":1,\"item_int\":-1, \"item_str\":\"1\"}"
+      )
+
+    , ( Nothing
+      , "{\"item_nat\":1,\"item_int\":-1, \"item_str\":1}"
+      )
+
+    , ( Just (Item (Just $ Nat 1) (Just (-1)) Nothing)
+      , "{\"item_nat\":1,\"item_int\":-1}"
+      )
+
+    , ( Just (Item (Just $ Nat 1) (Just (-1)) Nothing)
+      , "{\"item_nat\":1.0,\"item_int\":-1}"
+      )
+
+    , ( Nothing
+      , "{\"item_nat\":-1,\"item_int\":1}"
+      )
+
+    , ( Nothing
+      , "{\"item_nat\":1.2,\"item_int\":1}"
+      )
+
+    , ( Nothing
+      , "{\"item_nat\":\"1\",\"item_int\":1}"
+      )
+    ]
 
 testDecode :: [(Maybe Item, LazyByteString)] -> TestTree
-testDecode cases = testCase "Numeric JSON Decoding" $ mapM_ check cases
-                       where
-                         check (e, input) = e @=? (decode input :: Maybe Item)
-
-tests :: TestTree
-tests = testGroup "numeric"
-    [ testGroup "JSON serialization"
-                [ testEncode encodeItems
-                , testDecode decodeItems ]
-    ]
+testDecode = testCase "Numeric JSON Decoding" . mapM_ check
+  where
+    check (e, input) = e @=? (decode input :: Maybe Item)

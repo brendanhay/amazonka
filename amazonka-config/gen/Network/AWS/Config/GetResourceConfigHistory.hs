@@ -60,8 +60,8 @@ import qualified GHC.Exts
 
 data GetResourceConfigHistory = GetResourceConfigHistory
     { _grchChronologicalOrder :: Maybe ChronologicalOrder
-    , _grchEarlierTime        :: Maybe ISO8601
-    , _grchLaterTime          :: Maybe ISO8601
+    , _grchEarlierTime        :: Maybe POSIX
+    , _grchLaterTime          :: Maybe POSIX
     , _grchLimit              :: Maybe Nat
     , _grchNextToken          :: Maybe Text
     , _grchResourceId         :: Text

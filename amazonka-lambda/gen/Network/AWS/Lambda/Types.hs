@@ -214,7 +214,7 @@ data FunctionConfiguration = FunctionConfiguration
     , _fcFunctionARN     :: Maybe Text
     , _fcFunctionName    :: Maybe Text
     , _fcHandler         :: Maybe Text
-    , _fcLastModified    :: Maybe ISO8601
+    , _fcLastModified    :: Maybe POSIX
     , _fcMemorySize      :: Maybe Nat
     , _fcMode            :: Maybe Mode
     , _fcRole            :: Maybe Text
@@ -357,7 +357,7 @@ data EventSourceConfiguration = EventSourceConfiguration
     , _escEventSource  :: Maybe Text
     , _escFunctionName :: Maybe Text
     , _escIsActive     :: Maybe Bool
-    , _escLastModified :: Maybe ISO8601
+    , _escLastModified :: Maybe POSIX
     , _escParameters   :: Map Text Text
     , _escRole         :: Maybe Text
     , _escStatus       :: Maybe Text

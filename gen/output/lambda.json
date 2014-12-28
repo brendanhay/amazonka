@@ -77,7 +77,7 @@
         "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html",
         "protocol": "rest-json",
         "name": "Amazon Lambda",
-        "version": "0.1.1",
+        "version": "0.1.2",
         "description": "AWS Lambda is a compute service that runs your code in response to events and\nautomatically manages the compute resources for you, making it easy to build\napplications that respond quickly to new information. AWS Lambda starts\nrunning your code within milliseconds of an event such as an image upload,\nin-app activity, website click, or output from a connected device. You can\nalso use AWS Lambda to create new back-end services where compute resources\nare automatically triggered based on custom requests. With AWS Lambda you pay\nonly for the requests served and the compute time required to run your code.\nBilling is metered in increments of 100 milliseconds, making it\ncost-effective and easy to scale automatically from a few requests per day to\nthousands per second."
     },
     "types": {
@@ -448,7 +448,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "payload": null,
@@ -660,7 +660,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "fields": [
@@ -781,7 +781,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -995,7 +995,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1156,7 +1156,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1277,7 +1277,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1489,7 +1489,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1656,7 +1656,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1777,7 +1777,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -2417,7 +2417,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -2584,7 +2584,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -2705,7 +2705,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -3339,7 +3339,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "wrapper": false,
@@ -3557,7 +3557,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "fields": [
@@ -3678,7 +3678,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -5071,7 +5071,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "wrapper": false,
@@ -5289,7 +5289,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "fields": [
@@ -5410,7 +5410,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -6002,7 +6002,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "wrapper": false,
@@ -6220,7 +6220,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "fields": [
@@ -6341,7 +6341,7 @@
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,

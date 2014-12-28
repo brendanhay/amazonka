@@ -189,7 +189,7 @@ dataTypes o a inp = res (runState run ds)
     share = shared inp
 
     datas = overriden overrides $
-        shapes proto (defaultTS (inp ^. mTimestampFormat)) (inp ^. inpShapes)
+        shapes proto (defaultTS proto (inp ^. mTimestampFormat)) (inp ^. inpShapes)
 
     proto     = inp ^. mProtocol
     url       = o ^. oOperationUrl

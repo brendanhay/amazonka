@@ -60,7 +60,7 @@ currentLibraryVersion :: Version
 currentLibraryVersion = initial
     & major .~ 0
     & minor .~ 1
-    & patch .~ 1
+    & patch .~ 2
 
 class ToFilePath a where
     toFilePath :: a -> FilePath
@@ -129,8 +129,18 @@ instance FromJSON Timestamp where
 timestamp :: Timestamp -> Text
 timestamp = Text.pack . show
 
-defaultTS :: Maybe Timestamp -> Timestamp
-defaultTS = fromMaybe ISO8601
+-- | If a timestamp format isn't defined by the API, give a default
+-- timestamp format based on the Metadata protocol. JSON formats use
+-- unix epochs, all others use ISO8601.
+--
+defaultTS :: Protocol -> Maybe Timestamp -> Timestamp
+defaultTS = fromMaybe . \case
+    Json     -> POSIX
+    RestJson -> POSIX
+    Xml      -> ISO8601
+    RestXml  -> ISO8601
+    Query    -> ISO8601
+    Ec2      -> ISO8601
 
 data Checksum
     = MD5

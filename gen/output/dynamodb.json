@@ -125,7 +125,7 @@
         "url": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon DynamoDB",
-        "version": "0.1.1",
+        "version": "0.1.2",
         "description": "Amazon DynamoDB is a fully managed NoSQL database service that provides fast\nand predictable performance with seamless scalability. You can use Amazon\nDynamoDB to create a database table that can store and retrieve any amount of\ndata, and serve any level of request traffic. Amazon DynamoDB automatically\nspreads the data and traffic for the table over a sufficient number of\nservers to handle the request capacity specified by the customer and the\namount of data stored, while maintaining consistent and fast performance."
     },
     "types": {
@@ -277,7 +277,7 @@
                         "locationName": "LastIncreaseDateTime",
                         "documentation": "-- | The date and time of the last provisioned throughput increase for this table.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -294,7 +294,7 @@
                         "locationName": "LastDecreaseDateTime",
                         "documentation": "-- | The date and time of the last provisioned throughput decrease for this table.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -370,7 +370,7 @@
                         "locationName": "LastIncreaseDateTime",
                         "documentation": "-- | The date and time of the last provisioned throughput increase for this table.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -387,7 +387,7 @@
                         "locationName": "LastDecreaseDateTime",
                         "documentation": "-- | The date and time of the last provisioned throughput decrease for this table.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -457,7 +457,7 @@
                         "locationName": "LastDecreaseDateTime",
                         "documentation": "-- | The date and time of the last provisioned throughput decrease for this table.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -474,7 +474,7 @@
                         "locationName": "LastIncreaseDateTime",
                         "documentation": "-- | The date and time of the last provisioned throughput increase for this table.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1346,7 +1346,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date and time when the table was created, in \u003chttp://www.epochconverter.com/ UNIX epoch time\u003e format.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -1502,7 +1502,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date and time when the table was created, in \u003chttp://www.epochconverter.com/ UNIX epoch time\u003e format.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,
@@ -1646,7 +1646,7 @@
                         "locationName": "CreationDateTime",
                         "documentation": "-- | The date and time when the table was created, in \u003chttp://www.epochconverter.com/ UNIX epoch time\u003e format.",
                         "typeExposed": "UTCTime",
-                        "type": "ISO8601"
+                        "type": "POSIX"
                     },
                     {
                         "location": null,

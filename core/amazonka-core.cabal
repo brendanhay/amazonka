@@ -1,5 +1,5 @@
 name:                  amazonka-core
-version:               0.1.1
+version:               0.1.2
 synopsis:              Core functionality and data types for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -91,6 +91,7 @@ library
         , mmorph               >= 1      && < 2
         , mtl                  >= 2.2.1  && < 2.3
         , resourcet            == 1.1.*
+        , scientific           == 0.3.*
         , semigroups           >= 0.12
         , tagged               >= 0.7
         , text                 >= 1.1
@@ -113,6 +114,7 @@ test-suite tests
 
     build-depends:
           amazonka-core
+        , aeson
         , base
         , tasty
         , tasty-hunit

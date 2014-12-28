@@ -69,7 +69,7 @@
         "url": "http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon CloudTrail",
-        "version": "0.1.1",
+        "version": "0.1.2",
         "description": "CloudTrail is a web service that records AWS API calls for your AWS account\nand delivers log files to an Amazon S3 bucket. The recorded information\nincludes the identity of the user, the start time of the AWS API call, the\nsource IP address, the request parameters, and the response elements returned\nby the service."
     },
     "types": {
@@ -1705,7 +1705,7 @@
                         "locationName": "LatestDeliveryTime",
                         "documentation": "-- | Specifies the date and time that CloudTrail last delivered log files to an\n-- account's Amazon S3 bucket.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1722,7 +1722,7 @@
                         "locationName": "LatestNotificationTime",
                         "documentation": "-- | Specifies the date and time of the most recent Amazon SNS notification that\n-- CloudTrail has written a new log file to an account's Amazon S3 bucket.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1739,7 +1739,7 @@
                         "locationName": "StartLoggingTime",
                         "documentation": "-- | Specifies the most recent date and time when CloudTrail started recording API\n-- calls for an AWS account.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1756,7 +1756,7 @@
                         "locationName": "StopLoggingTime",
                         "documentation": "-- | Specifies the most recent date and time when CloudTrail stopped recording API\n-- calls for an AWS account.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1790,7 +1790,7 @@
                         "locationName": "LatestCloudWatchLogsDeliveryTime",
                         "documentation": "-- | Displays the most recent date and time when CloudTrail delivered logs to\n-- CloudWatch Logs.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "wrapper": false,
@@ -1872,7 +1872,7 @@
                         "locationName": "LatestDeliveryTime",
                         "documentation": "-- | Specifies the date and time that CloudTrail last delivered log files to an\n-- account's Amazon S3 bucket.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1889,7 +1889,7 @@
                         "locationName": "LatestNotificationTime",
                         "documentation": "-- | Specifies the date and time of the most recent Amazon SNS notification that\n-- CloudTrail has written a new log file to an account's Amazon S3 bucket.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1906,7 +1906,7 @@
                         "locationName": "StartLoggingTime",
                         "documentation": "-- | Specifies the most recent date and time when CloudTrail started recording API\n-- calls for an AWS account.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1923,7 +1923,7 @@
                         "locationName": "StopLoggingTime",
                         "documentation": "-- | Specifies the most recent date and time when CloudTrail stopped recording API\n-- calls for an AWS account.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -1957,7 +1957,7 @@
                         "locationName": "LatestCloudWatchLogsDeliveryTime",
                         "documentation": "-- | Displays the most recent date and time when CloudTrail delivered logs to\n-- CloudWatch Logs.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "fields": [
@@ -2010,7 +2010,7 @@
                         "locationName": "LatestCloudWatchLogsDeliveryTime",
                         "documentation": "-- | Displays the most recent date and time when CloudTrail delivered logs to\n-- CloudWatch Logs.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -2044,7 +2044,7 @@
                         "locationName": "LatestDeliveryTime",
                         "documentation": "-- | Specifies the date and time that CloudTrail last delivered log files to an\n-- account's Amazon S3 bucket.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -2078,7 +2078,7 @@
                         "locationName": "LatestNotificationTime",
                         "documentation": "-- | Specifies the date and time of the most recent Amazon SNS notification that\n-- CloudTrail has written a new log file to an account's Amazon S3 bucket.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -2095,7 +2095,7 @@
                         "locationName": "StartLoggingTime",
                         "documentation": "-- | Specifies the most recent date and time when CloudTrail started recording API\n-- calls for an AWS account.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -2112,7 +2112,7 @@
                         "locationName": "StopLoggingTime",
                         "documentation": "-- | Specifies the most recent date and time when CloudTrail stopped recording API\n-- calls for an AWS account.",
                         "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe ISO8601"
+                        "type": "Maybe POSIX"
                     }
                 ]
             },

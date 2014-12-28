@@ -85,7 +85,7 @@ data GetOperationDetailResponse = GetOperationDetailResponse
     , _godrMessage       :: Maybe Text
     , _godrOperationId   :: Maybe Text
     , _godrStatus        :: Maybe OperationStatus
-    , _godrSubmittedDate :: Maybe ISO8601
+    , _godrSubmittedDate :: Maybe POSIX
     , _godrType          :: Maybe OperationType
     } deriving (Eq, Show)
 

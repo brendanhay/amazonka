@@ -17,6 +17,7 @@ import Control.Applicative
 import Control.Lens.TH
 import Control.Monad
 import Data.Aeson.Types
+import Data.Scientific
 import Network.AWS.Data.Internal.ByteString
 import Network.AWS.Data.Internal.Query
 import Network.AWS.Data.Internal.Text
@@ -43,11 +44,13 @@ newtype Nat = Nat { unNat :: Natural }
 
 instance FromJSON Nat where
     parseJSON = parseJSON >=> \n ->
-        if n < 0
-            then fail $ "Cannot convert negative number to Natural: " ++ show n
-            else pure $ Nat (fromInteger n)
+        case floatingOrInteger n of
+            Left  _         -> fail $ "Cannot convert float to Natural: " ++ show n
+            Right i
+                | n < 0     -> fail $ "Cannot convert negative number to Natural: " ++ show n
+                | otherwise -> pure $ Nat (fromInteger i)
 
 instance ToJSON Nat where
-    toJSON = String . toText . unNat
+    toJSON = Number . flip scientific 0 . toInteger . unNat
 
 makePrisms ''Nat

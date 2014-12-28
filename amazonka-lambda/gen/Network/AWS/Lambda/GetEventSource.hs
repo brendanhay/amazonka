@@ -82,7 +82,7 @@ data GetEventSourceResponse = GetEventSourceResponse
     , _gesrEventSource  :: Maybe Text
     , _gesrFunctionName :: Maybe Text
     , _gesrIsActive     :: Maybe Bool
-    , _gesrLastModified :: Maybe ISO8601
+    , _gesrLastModified :: Maybe POSIX
     , _gesrParameters   :: Map Text Text
     , _gesrRole         :: Maybe Text
     , _gesrStatus       :: Maybe Text

@@ -145,7 +145,7 @@ data UpdateFunctionConfigurationResponse = UpdateFunctionConfigurationResponse
     , _ufcrFunctionARN     :: Maybe Text
     , _ufcrFunctionName    :: Maybe Text
     , _ufcrHandler         :: Maybe Text
-    , _ufcrLastModified    :: Maybe ISO8601
+    , _ufcrLastModified    :: Maybe POSIX
     , _ufcrMemorySize      :: Maybe Nat
     , _ufcrMode            :: Maybe Mode
     , _ufcrRole            :: Maybe Text

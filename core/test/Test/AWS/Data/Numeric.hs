@@ -1,3 +1,6 @@
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+
 -- Module      : Test.AWS.Data.Numeric
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -7,9 +10,6 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards #-}
 
 module Test.AWS.Data.Numeric (tests) where
 

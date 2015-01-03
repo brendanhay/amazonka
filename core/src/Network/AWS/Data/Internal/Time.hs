@@ -136,8 +136,11 @@ instance FromJSON AWSTime   where parseJSON = parseJSONText "AWSTime"
 instance FromJSON BasicTime where parseJSON = parseJSONText "BasicTime"
 
 instance FromJSON POSIX where
-  parseJSON = withScientific "POSIX" $ \t ->
-                  pure . Time . posixSecondsToUTCTime . realToFrac $ t
+    parseJSON = withScientific "POSIX"
+        . pure
+        . Time
+        . posixSecondsToUTCTime
+        . realToFrac
 
 instance ToByteString RFC822    where toBS = BS.pack . renderFormattedTime
 instance ToByteString ISO8601   where toBS = BS.pack . renderFormattedTime
@@ -161,4 +164,5 @@ instance ToJSON AWSTime   where toJSON = toJSONText
 instance ToJSON BasicTime where toJSON = toJSONText
 
 instance ToJSON POSIX where
-  toJSON (Time t) = Number $ flip scientific 0 (truncate (utcTimeToPOSIXSeconds t) :: Integer)
+    toJSON (Time t) = Number $
+        scientific (truncate (utcTimeToPOSIXSeconds t) :: Integer) 0

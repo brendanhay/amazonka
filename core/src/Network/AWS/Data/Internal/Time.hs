@@ -137,7 +137,7 @@ instance FromJSON BasicTime where parseJSON = parseJSONText "BasicTime"
 
 instance FromJSON POSIX where
     parseJSON = withScientific "POSIX"
-        . pure
+        $ pure
         . Time
         . posixSecondsToUTCTime
         . realToFrac

@@ -37,6 +37,7 @@ import           Data.Aeson
 import           Data.Attoparsec.Text                 (Parser)
 import qualified Data.Attoparsec.Text                 as AText
 import qualified Data.ByteString.Char8                as BS
+import           Data.Scientific
 import           Data.Tagged
 import qualified Data.Text                            as Text
 import           Data.Time
@@ -95,7 +96,7 @@ instance FromText ISO8601 where
 
 instance FromText POSIX where
     parser = Time . posixSecondsToUTCTime . realToFrac
-        <$> (parser :: Parser Integer)
+        <$> (parser :: Parser Scientific)
 
 parseFormattedTime :: forall a. TimeFormat (Time a) => Parser (Time a)
 parseFormattedTime = do
@@ -133,7 +134,10 @@ instance FromJSON RFC822    where parseJSON = parseJSONText "RFC822"
 instance FromJSON ISO8601   where parseJSON = parseJSONText "ISO8601"
 instance FromJSON AWSTime   where parseJSON = parseJSONText "AWSTime"
 instance FromJSON BasicTime where parseJSON = parseJSONText "BasicTime"
-instance FromJSON POSIX     where parseJSON = parseJSONText "POSIX"
+
+instance FromJSON POSIX where
+  parseJSON = withScientific "POSIX" $ \t ->
+                  pure . Time . posixSecondsToUTCTime . realToFrac $ t
 
 instance ToByteString RFC822    where toBS = BS.pack . renderFormattedTime
 instance ToByteString ISO8601   where toBS = BS.pack . renderFormattedTime
@@ -155,4 +159,6 @@ instance ToJSON RFC822    where toJSON = toJSONText
 instance ToJSON ISO8601   where toJSON = toJSONText
 instance ToJSON AWSTime   where toJSON = toJSONText
 instance ToJSON BasicTime where toJSON = toJSONText
-instance ToJSON POSIX     where toJSON = toJSONText
+
+instance ToJSON POSIX where
+  toJSON (Time t) = Number $ flip scientific 0 (truncate (utcTimeToPOSIXSeconds t) :: Integer)

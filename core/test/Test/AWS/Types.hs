@@ -12,6 +12,7 @@
 
 module Test.AWS.Types where
 
+import Data.Aeson
 import Network.AWS.Data
 import Network.AWS.Prelude
 import Test.Tasty.HUnit
@@ -24,3 +25,6 @@ instance FromXML a => FromXML (Entries a) where
 
 assertXML :: (FromXML a, Show a, Eq a) => LazyByteString -> a -> Assertion
 assertXML s x = (decodeXML s >>= parseXML) @?= Right x
+
+assertJSON :: (FromJSON a, Show a, Eq a) => LazyByteString -> a -> Assertion
+assertJSON s x = eitherDecode' s @?= Right x

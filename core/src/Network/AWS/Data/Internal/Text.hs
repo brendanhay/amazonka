@@ -24,21 +24,23 @@ module Network.AWS.Data.Internal.Text
 
 import           Control.Applicative
 import           Crypto.Hash
-import           Data.Attoparsec.Text             (Parser)
-import qualified Data.Attoparsec.Text             as AText
-import           Data.ByteString                  (ByteString)
-import           Data.CaseInsensitive             (CI)
-import qualified Data.CaseInsensitive             as CI
+import           Data.Attoparsec.Text              (Parser)
+import qualified Data.Attoparsec.Text              as AText
+import           Data.ByteString                   (ByteString)
+import           Data.CaseInsensitive              (CI)
+import qualified Data.CaseInsensitive              as CI
 import           Data.Int
 import           Data.Monoid
-import           Data.Text                        (Text)
-import qualified Data.Text                        as Text
-import qualified Data.Text.Encoding               as Text
-import qualified Data.Text.Lazy                   as LText
-import           Data.Text.Lazy.Builder           (Builder)
-import qualified Data.Text.Lazy.Builder           as Build
-import qualified Data.Text.Lazy.Builder.Int       as Build
-import qualified Data.Text.Lazy.Builder.RealFloat as Build
+import           Data.Scientific
+import           Data.Text                         (Text)
+import qualified Data.Text                         as Text
+import qualified Data.Text.Encoding                as Text
+import qualified Data.Text.Lazy                    as LText
+import           Data.Text.Lazy.Builder            (Builder)
+import qualified Data.Text.Lazy.Builder            as Build
+import qualified Data.Text.Lazy.Builder.Int        as Build
+import qualified Data.Text.Lazy.Builder.RealFloat  as Build
+import qualified Data.Text.Lazy.Builder.Scientific as Build
 import           Network.HTTP.Client
 import           Network.HTTP.Types
 import           Numeric.Natural
@@ -58,6 +60,7 @@ instance FromText Text       where parser = AText.takeText
 instance FromText ByteString where parser = Text.encodeUtf8 <$> AText.takeText
 instance FromText Int        where parser = AText.decimal
 instance FromText Integer    where parser = AText.decimal
+instance FromText Scientific where parser = AText.scientific
 instance FromText Natural    where parser = AText.decimal
 instance FromText Double     where parser = AText.rational
 
@@ -94,6 +97,7 @@ instance ToText Int        where toText = shortText . Build.decimal
 instance ToText Int64      where toText = shortText . Build.decimal
 instance ToText Integer    where toText = shortText . Build.decimal
 instance ToText Natural    where toText = shortText . Build.decimal
+instance ToText Scientific where toText = shortText . Build.scientificBuilder
 instance ToText Double     where toText = shortText . Build.realFloat
 instance ToText StdMethod  where toText = toText . renderStdMethod
 instance ToText (Digest a) where toText = toText . digestToHexByteString

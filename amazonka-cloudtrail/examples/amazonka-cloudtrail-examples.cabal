@@ -1,5 +1,5 @@
 name:                  amazonka-cloudtrail-examples
-version:               0.1.3
+version:               0.1.4
 synopsis:              Amazon CloudTrail SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         CloudTrail
 
     build-depends:
-        amazonka      == 0.1.3.*
-      , amazonka-core == 0.1.3.*
-      , amazonka-cloudtrail == 0.1.3.*
+        amazonka      == 0.1.4.*
+      , amazonka-core == 0.1.4.*
+      , amazonka-cloudtrail == 0.1.4.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

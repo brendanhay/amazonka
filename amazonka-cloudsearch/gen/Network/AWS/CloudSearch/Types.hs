@@ -866,7 +866,7 @@ data OptionState
 instance Hashable OptionState
 
 instance FromText OptionState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Active"                 -> pure Active
         "FailedToValidate"       -> pure FailedToValidate
         "Processing"             -> pure Processing
@@ -968,7 +968,7 @@ data AlgorithmicStemming
 instance Hashable AlgorithmicStemming
 
 instance FromText AlgorithmicStemming where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "full"    -> pure Full
         "light"   -> pure Light
         "minimal" -> pure Minimal
@@ -1623,7 +1623,7 @@ data IndexFieldType
 instance Hashable IndexFieldType
 
 instance FromText IndexFieldType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "date"          -> pure IFTDate
         "date-array"    -> pure IFTDateArray
         "double"        -> pure IFTDouble
@@ -2037,7 +2037,7 @@ data SuggesterFuzzyMatching
 instance Hashable SuggesterFuzzyMatching
 
 instance FromText SuggesterFuzzyMatching where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "high" -> pure SFMHigh
         "low"  -> pure SFMLow
         "none" -> pure SFMNone
@@ -2168,7 +2168,7 @@ data AnalysisSchemeLanguage
 instance Hashable AnalysisSchemeLanguage
 
 instance FromText AnalysisSchemeLanguage where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ar"      -> pure Ar
         "bg"      -> pure Bg
         "ca"      -> pure Ca
@@ -2262,7 +2262,7 @@ data PartitionInstanceType
 instance Hashable PartitionInstanceType
 
 instance FromText PartitionInstanceType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "search.m1.large"   -> pure SearchM1Large
         "search.m1.small"   -> pure SearchM1Small
         "search.m2.2xlarge" -> pure SearchM22xlarge

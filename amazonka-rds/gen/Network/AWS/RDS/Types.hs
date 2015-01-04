@@ -1253,7 +1253,7 @@ data SourceType
 instance Hashable SourceType
 
 instance FromText SourceType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "db-instance"        -> pure DbInstance
         "db-parameter-group" -> pure DbParameterGroup
         "db-security-group"  -> pure DbSecurityGroup
@@ -1462,7 +1462,7 @@ data ApplyMethod
 instance Hashable ApplyMethod
 
 instance FromText ApplyMethod where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "immediate"      -> pure Immediate
         "pending-reboot" -> pure PendingReboot
         e                -> fail $

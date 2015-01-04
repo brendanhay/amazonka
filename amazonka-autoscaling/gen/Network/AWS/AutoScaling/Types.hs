@@ -2053,7 +2053,7 @@ data LifecycleState
 instance Hashable LifecycleState
 
 instance FromText LifecycleState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Detached"            -> pure Detached
         "Detaching"           -> pure Detaching
         "EnteringStandby"     -> pure EnteringStandby
@@ -2201,7 +2201,7 @@ data ScalingActivityStatusCode
 instance Hashable ScalingActivityStatusCode
 
 instance FromText ScalingActivityStatusCode where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Cancelled"                       -> pure Cancelled
         "Failed"                          -> pure Failed
         "InProgress"                      -> pure InProgress

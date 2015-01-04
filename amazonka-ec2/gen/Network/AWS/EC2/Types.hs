@@ -1462,7 +1462,7 @@ data ImageAttributeName
 instance Hashable ImageAttributeName
 
 instance FromText ImageAttributeName where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "blockDeviceMapping" -> pure ImageBlockDeviceMapping
         "description"        -> pure ImageDescription
         "kernel"             -> pure ImageKernel
@@ -1495,7 +1495,7 @@ data PermissionGroup
 instance Hashable PermissionGroup
 
 instance FromText PermissionGroup where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "all" -> pure All
         e     -> fail $
             "Failure parsing PermissionGroup from " ++ show e
@@ -2052,7 +2052,7 @@ data VpnStaticRouteSource
 instance Hashable VpnStaticRouteSource
 
 instance FromText VpnStaticRouteSource where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Static" -> pure Static
         e        -> fail $
             "Failure parsing VpnStaticRouteSource from " ++ show e
@@ -2200,7 +2200,7 @@ data InstanceLifecycleType
 instance Hashable InstanceLifecycleType
 
 instance FromText InstanceLifecycleType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "spot" -> pure Spot
         e      -> fail $
             "Failure parsing InstanceLifecycleType from " ++ show e
@@ -2223,7 +2223,7 @@ data VirtualizationType
 instance Hashable VirtualizationType
 
 instance FromText VirtualizationType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "hvm"         -> pure Hvm
         "paravirtual" -> pure Paravirtual
         e             -> fail $
@@ -2251,7 +2251,7 @@ data NetworkInterfaceStatus
 instance Hashable NetworkInterfaceStatus
 
 instance FromText NetworkInterfaceStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "attaching" -> pure Attaching
         "available" -> pure Available
         "detaching" -> pure Detaching
@@ -2280,7 +2280,7 @@ data PlatformValues
 instance Hashable PlatformValues
 
 instance FromText PlatformValues where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Windows" -> pure Windows
         e         -> fail $
             "Failure parsing PlatformValues from " ++ show e
@@ -2382,7 +2382,7 @@ data RecurringChargeFrequency
 instance Hashable RecurringChargeFrequency
 
 instance FromText RecurringChargeFrequency where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Hourly" -> pure Hourly
         e        -> fail $
             "Failure parsing RecurringChargeFrequency from " ++ show e
@@ -2601,7 +2601,7 @@ data VolumeState
 instance Hashable VolumeState
 
 instance FromText VolumeState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "available" -> pure VSAvailable
         "creating"  -> pure VSCreating
         "deleted"   -> pure VSDeleted
@@ -3047,7 +3047,7 @@ data AccountAttributeName
 instance Hashable AccountAttributeName
 
 instance FromText AccountAttributeName where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "default-vpc"         -> pure DefaultVpc
         "supported-platforms" -> pure SupportedPlatforms
         e                     -> fail $
@@ -3339,7 +3339,7 @@ data VpcState
 instance Hashable VpcState
 
 instance FromText VpcState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "available" -> pure VpcStateAvailable
         "pending"   -> pure VpcStatePending
         e           -> fail $
@@ -3380,7 +3380,7 @@ data ResourceType
 instance Hashable ResourceType
 
 instance FromText ResourceType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "customer-gateway"       -> pure RTCustomerGateway
         "dhcp-options"           -> pure RTDhcpOptions
         "image"                  -> pure RTImage
@@ -3436,7 +3436,7 @@ data ReportStatusType
 instance Hashable ReportStatusType
 
 instance FromText ReportStatusType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "impaired" -> pure Impaired
         "ok"       -> pure Ok
         e          -> fail $
@@ -3461,7 +3461,7 @@ data CurrencyCodeValues
 instance Hashable CurrencyCodeValues
 
 instance FromText CurrencyCodeValues where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "USD" -> pure Usd
         e     -> fail $
             "Failure parsing CurrencyCodeValues from " ++ show e
@@ -3784,7 +3784,7 @@ data AttachmentStatus
 instance Hashable AttachmentStatus
 
 instance FromText AttachmentStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "attached"  -> pure ASAttached
         "attaching" -> pure ASAttaching
         "detached"  -> pure ASDetached
@@ -3815,7 +3815,7 @@ data RouteOrigin
 instance Hashable RouteOrigin
 
 instance FromText RouteOrigin where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CreateRoute"               -> pure OriginCreateRoute
         "CreateRouteTable"          -> pure OriginCreateRouteTable
         "EnableVgwRoutePropagation" -> pure OriginEnableVgwRoutePropagation
@@ -3845,7 +3845,7 @@ data ListingState
 instance Hashable ListingState
 
 instance FromText ListingState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "available" -> pure LSAvailable
         "cancelled" -> pure LSCancelled
         "pending"   -> pure LSPending
@@ -4080,7 +4080,7 @@ data AvailabilityZoneState
 instance Hashable AvailabilityZoneState
 
 instance FromText AvailabilityZoneState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "available" -> pure AZSAvailable
         e           -> fail $
             "Failure parsing AvailabilityZoneState from " ++ show e
@@ -4879,7 +4879,7 @@ data SummaryStatus
 instance Hashable SummaryStatus
 
 instance FromText SummaryStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "impaired"          -> pure SSImpaired
         "insufficient-data" -> pure SSInsufficientData
         "not-applicable"    -> pure SSNotApplicable
@@ -5025,7 +5025,7 @@ data RuleAction
 instance Hashable RuleAction
 
 instance FromText RuleAction where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "allow" -> pure Allow
         "deny"  -> pure Deny
         e       -> fail $
@@ -5258,7 +5258,7 @@ data TelemetryStatus
 instance Hashable TelemetryStatus
 
 instance FromText TelemetryStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "DOWN" -> pure Down
         "UP"   -> pure Up
         e      -> fail $
@@ -5487,7 +5487,7 @@ data SnapshotState
 instance Hashable SnapshotState
 
 instance FromText SnapshotState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "completed" -> pure Completed
         "error"     -> pure Error
         "pending"   -> pure Pending
@@ -5854,7 +5854,7 @@ data VolumeAttachmentState
 instance Hashable VolumeAttachmentState
 
 instance FromText VolumeAttachmentState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "attached"  -> pure VASAttached
         "attaching" -> pure VASAttaching
         "detached"  -> pure VASDetached
@@ -5922,7 +5922,7 @@ data RouteState
 instance Hashable RouteState
 
 instance FromText RouteState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "active"    -> pure Active
         "blackhole" -> pure Blackhole
         e           -> fail $
@@ -6013,7 +6013,7 @@ data BundleTaskState
 instance Hashable BundleTaskState
 
 instance FromText BundleTaskState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "bundling"             -> pure BTSBundling
         "cancelling"           -> pure BTSCancelling
         "complete"             -> pure BTSComplete
@@ -6087,7 +6087,7 @@ data VpcAttributeName
 instance Hashable VpcAttributeName
 
 instance FromText VpcAttributeName where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "enableDnsHostnames" -> pure EnableDnsHostnames
         "enableDnsSupport"   -> pure EnableDnsSupport
         e                    -> fail $
@@ -6214,7 +6214,7 @@ data SpotInstanceState
 instance Hashable SpotInstanceState
 
 instance FromText SpotInstanceState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "active"    -> pure SISActive
         "cancelled" -> pure SISCancelled
         "closed"    -> pure SISClosed
@@ -6691,7 +6691,7 @@ data InstanceType
 instance Hashable InstanceType
 
 instance FromText InstanceType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "c1.medium"   -> pure C1_Medium
         "c1.xlarge"   -> pure C1_XLarge
         "c3.2xlarge"  -> pure C3_2XLarge
@@ -7100,7 +7100,7 @@ data CancelSpotInstanceRequestState
 instance Hashable CancelSpotInstanceRequestState
 
 instance FromText CancelSpotInstanceRequestState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "active"    -> pure CSIRSActive
         "cancelled" -> pure CSIRSCancelled
         "closed"    -> pure CSIRSClosed
@@ -7134,7 +7134,7 @@ data PlacementGroupState
 instance Hashable PlacementGroupState
 
 instance FromText PlacementGroupState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "available" -> pure PGSAvailable
         "deleted"   -> pure PGSDeleted
         "deleting"  -> pure PGSDeleting
@@ -7267,7 +7267,7 @@ data ExportEnvironment
 instance Hashable ExportEnvironment
 
 instance FromText ExportEnvironment where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "citrix"    -> pure Citrix
         "microsoft" -> pure Microsoft
         "vmware"    -> pure Vmware
@@ -7518,7 +7518,7 @@ data ShutdownBehavior
 instance Hashable ShutdownBehavior
 
 instance FromText ShutdownBehavior where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "stop"      -> pure Stop
         "terminate" -> pure Terminate
         e           -> fail $
@@ -7675,7 +7675,7 @@ data SubnetState
 instance Hashable SubnetState
 
 instance FromText SubnetState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "available" -> pure SSAvailable
         "pending"   -> pure SSPending
         e           -> fail $
@@ -7700,7 +7700,7 @@ data ContainerFormat
 instance Hashable ContainerFormat
 
 instance FromText ContainerFormat where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ova" -> pure Ova
         e     -> fail $
             "Failure parsing ContainerFormat from " ++ show e
@@ -7829,7 +7829,7 @@ data StatusType
 instance Hashable StatusType
 
 instance FromText StatusType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "failed"            -> pure Failed
         "insufficient-data" -> pure InsufficientData
         "passed"            -> pure Passed
@@ -7917,7 +7917,7 @@ data NetworkInterfaceAttribute
 instance Hashable NetworkInterfaceAttribute
 
 instance FromText NetworkInterfaceAttribute where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "attachment"      -> pure Attachment
         "description"     -> pure Description
         "groupSet"        -> pure GroupSet
@@ -7948,7 +7948,7 @@ data ImageTypeValues
 instance Hashable ImageTypeValues
 
 instance FromText ImageTypeValues where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "kernel"  -> pure Kernel
         "machine" -> pure Machine
         "ramdisk" -> pure Ramdisk
@@ -8015,7 +8015,7 @@ data SnapshotAttributeName
 instance Hashable SnapshotAttributeName
 
 instance FromText SnapshotAttributeName where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "createVolumePermission" -> pure SANCreateVolumePermission
         "productCodes"           -> pure SANProductCodes
         e                        -> fail $
@@ -8101,7 +8101,7 @@ data VpnState
 instance Hashable VpnState
 
 instance FromText VpnState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "available" -> pure VpnStateAvailable
         "deleted"   -> pure VpnStateDeleted
         "deleting"  -> pure VpnStateDeleting
@@ -8211,7 +8211,7 @@ data HypervisorType
 instance Hashable HypervisorType
 
 instance FromText HypervisorType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ovm" -> pure Ovm
         "xen" -> pure Xen
         e     -> fail $
@@ -8366,7 +8366,7 @@ data ReservedInstanceState
 instance Hashable ReservedInstanceState
 
 instance FromText ReservedInstanceState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "active"          -> pure RISActive
         "payment-failed"  -> pure RISPaymentFailed
         "payment-pending" -> pure RISPaymentPending
@@ -8407,7 +8407,7 @@ data InstanceAttributeName
 instance Hashable InstanceAttributeName
 
 instance FromText InstanceAttributeName where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "blockDeviceMapping"                -> pure IANInstanceBlockDeviceMapping
         "disableApiTermination"             -> pure IANInstanceDisableApiTermination
         "ebsOptimized"                      -> pure IANInstanceEbsOptimized
@@ -8536,7 +8536,7 @@ data ConversionTaskState
 instance Hashable ConversionTaskState
 
 instance FromText ConversionTaskState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "active"     -> pure CTSActive
         "cancelled"  -> pure CTSCancelled
         "cancelling" -> pure CTSCancelling
@@ -8611,7 +8611,7 @@ data Tenancy
 instance Hashable Tenancy
 
 instance FromText Tenancy where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "dedicated" -> pure Dedicated
         "default"   -> pure Default'
         e           -> fail $
@@ -8786,7 +8786,7 @@ data PlacementStrategy
 instance Hashable PlacementStrategy
 
 instance FromText PlacementStrategy where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "cluster" -> pure Cluster
         e         -> fail $
             "Failure parsing PlacementStrategy from " ++ show e
@@ -9300,7 +9300,7 @@ data ArchitectureValues
 instance Hashable ArchitectureValues
 
 instance FromText ArchitectureValues where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "i386"   -> pure I386
         "x86_64" -> pure X8664
         e        -> fail $
@@ -9333,7 +9333,7 @@ data ReportInstanceReasonCodes
 instance Hashable ReportInstanceReasonCodes
 
 instance FromText ReportInstanceReasonCodes where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "instance-stuck-in-state"    -> pure InstanceStuckInState
         "not-accepting-credentials"  -> pure NotAcceptingCredentials
         "other"                      -> pure Other
@@ -9584,7 +9584,7 @@ data DeviceType
 instance Hashable DeviceType
 
 instance FromText DeviceType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ebs"            -> pure Ebs
         "instance-store" -> pure InstanceStore
         e                -> fail $
@@ -9610,7 +9610,7 @@ data DomainType
 instance Hashable DomainType
 
 instance FromText DomainType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "standard" -> pure DTStandard
         "vpc"      -> pure DTVpc
         e          -> fail $
@@ -9703,7 +9703,7 @@ data OfferingTypeValues
 instance Hashable OfferingTypeValues
 
 instance FromText OfferingTypeValues where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Heavy Utilization"  -> pure HeavyUtilization
         "Light Utilization"  -> pure LightUtilization
         "Medium Utilization" -> pure MediumUtilization
@@ -9850,7 +9850,7 @@ data VolumeType
 instance Hashable VolumeType
 
 instance FromText VolumeType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "gp2"      -> pure Gp2
         "io1"      -> pure Io1
         "standard" -> pure Standard
@@ -10004,7 +10004,7 @@ data ImageState
 instance Hashable ImageState
 
 instance FromText ImageState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "available"    -> pure ISAvailable
         "deregistered" -> pure ISDeregistered
         e              -> fail $
@@ -10029,7 +10029,7 @@ data GatewayType
 instance Hashable GatewayType
 
 instance FromText GatewayType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ipsec.1" -> pure Ipsec1
         e         -> fail $
             "Failure parsing GatewayType from " ++ show e
@@ -10286,7 +10286,7 @@ data MonitoringState
 instance Hashable MonitoringState
 
 instance FromText MonitoringState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "disabled" -> pure MSDisabled
         "enabled"  -> pure MSEnabled
         "pending"  -> pure MSPending
@@ -10342,7 +10342,7 @@ data StatusName
 instance Hashable StatusName
 
 instance FromText StatusName where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "reachability" -> pure Reachability
         e              -> fail $
             "Failure parsing StatusName from " ++ show e
@@ -10415,7 +10415,7 @@ data VolumeStatusName
 instance Hashable VolumeStatusName
 
 instance FromText VolumeStatusName where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "io-enabled"     -> pure IoEnabled
         "io-performance" -> pure IoPerformance
         e                -> fail $
@@ -10441,7 +10441,7 @@ data VolumeAttributeName
 instance Hashable VolumeAttributeName
 
 instance FromText VolumeAttributeName where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "autoEnableIO" -> pure AutoEnableIO
         "productCodes" -> pure ProductCodes
         e              -> fail $
@@ -10611,7 +10611,7 @@ data ListingStatus
 instance Hashable ListingStatus
 
 instance FromText ListingStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "active"    -> pure ListingStatusActive
         "cancelled" -> pure ListingStatusCancelled
         "closed"    -> pure ListingStatusClosed
@@ -10672,7 +10672,7 @@ data VolumeStatusInfoStatus
 instance Hashable VolumeStatusInfoStatus
 
 instance FromText VolumeStatusInfoStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "impaired"          -> pure VSISImpaired
         "insufficient-data" -> pure VSISInsufficientData
         "ok"                -> pure VSISOk
@@ -10731,7 +10731,7 @@ data RIProductDescription
 instance Hashable RIProductDescription
 
 instance FromText RIProductDescription where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Linux/UNIX"              -> pure RIPDLinuxUNIX
         "Linux/UNIX (Amazon VPC)" -> pure RIPDLinuxUNIXAmazonVPC
         "Windows"                 -> pure RIPDWindows
@@ -11107,7 +11107,7 @@ data DatafeedSubscriptionState
 instance Hashable DatafeedSubscriptionState
 
 instance FromText DatafeedSubscriptionState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Active"   -> pure DSSActive
         "Inactive" -> pure DSSInactive
         e          -> fail $
@@ -11135,7 +11135,7 @@ data ExportTaskState
 instance Hashable ExportTaskState
 
 instance FromText ExportTaskState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "active"     -> pure ETSActive
         "cancelled"  -> pure ETSCancelled
         "cancelling" -> pure ETSCancelling
@@ -11165,7 +11165,7 @@ data ProductCodeValues
 instance Hashable ProductCodeValues
 
 instance FromText ProductCodeValues where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "devpay"      -> pure Devpay
         "marketplace" -> pure Marketplace
         e             -> fail $
@@ -11429,7 +11429,7 @@ data EventCode
 instance Hashable EventCode
 
 instance FromText EventCode where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "instance-reboot"     -> pure InstanceReboot
         "instance-retirement" -> pure InstanceRetirement
         "instance-stop"       -> pure InstanceStop
@@ -11461,7 +11461,7 @@ data SpotInstanceType
 instance Hashable SpotInstanceType
 
 instance FromText SpotInstanceType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "one-time"   -> pure OneTime
         "persistent" -> pure Persistent
         e            -> fail $
@@ -11770,7 +11770,7 @@ data InstanceStateName
 instance Hashable InstanceStateName
 
 instance FromText InstanceStateName where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "pending"       -> pure ISNPending
         "running"       -> pure ISNRunning
         "shutting-down" -> pure ISNShuttingDown
@@ -12317,7 +12317,7 @@ data ResetImageAttributeName
 instance Hashable ResetImageAttributeName
 
 instance FromText ResetImageAttributeName where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "launchPermission" -> pure RIANLaunchPermission
         e                  -> fail $
             "Failure parsing ResetImageAttributeName from " ++ show e
@@ -12663,7 +12663,7 @@ data DiskImageFormat
 instance Hashable DiskImageFormat
 
 instance FromText DiskImageFormat where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "RAW"  -> pure Raw
         "VHD"  -> pure Vhd
         "VMDK" -> pure Vmdk

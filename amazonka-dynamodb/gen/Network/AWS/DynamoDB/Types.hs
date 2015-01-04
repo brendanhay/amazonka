@@ -414,7 +414,7 @@ data KeyType
 instance Hashable KeyType
 
 instance FromText KeyType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "HASH"  -> pure Hash
         "RANGE" -> pure Range
         e       -> fail $
@@ -563,7 +563,7 @@ data IndexStatus
 instance Hashable IndexStatus
 
 instance FromText IndexStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ACTIVE"   -> pure Active
         "CREATING" -> pure Creating
         "DELETING" -> pure Deleting
@@ -643,7 +643,7 @@ data TableStatus
 instance Hashable TableStatus
 
 instance FromText TableStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ACTIVE"   -> pure TSActive
         "CREATING" -> pure TSCreating
         "DELETING" -> pure TSDeleting
@@ -677,7 +677,7 @@ data ProjectionType
 instance Hashable ProjectionType
 
 instance FromText ProjectionType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ALL"       -> pure All
         "INCLUDE"   -> pure Include
         "KEYS_ONLY" -> pure KeysOnly
@@ -1081,7 +1081,7 @@ data ReturnConsumedCapacity
 instance Hashable ReturnConsumedCapacity
 
 instance FromText ReturnConsumedCapacity where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "INDEXES" -> pure Indexes
         "NONE"    -> pure None
         "TOTAL"   -> pure Total
@@ -1112,7 +1112,7 @@ data ReturnItemCollectionMetrics
 instance Hashable ReturnItemCollectionMetrics
 
 instance FromText ReturnItemCollectionMetrics where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "NONE" -> pure RICMNone
         "SIZE" -> pure RICMSize
         e      -> fail $
@@ -1495,7 +1495,7 @@ data ComparisonOperator
 instance Hashable ComparisonOperator
 
 instance FromText ComparisonOperator where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "BEGINS_WITH"  -> pure BeginsWith
         "BETWEEN"      -> pure Between
         "CONTAINS"     -> pure Contains
@@ -1549,7 +1549,7 @@ data ReturnValue
 instance Hashable ReturnValue
 
 instance FromText ReturnValue where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ALL_NEW"     -> pure RVAllNew
         "ALL_OLD"     -> pure RVAllOld
         "NONE"        -> pure RVNone
@@ -2035,7 +2035,7 @@ data AttributeAction
 instance Hashable AttributeAction
 
 instance FromText AttributeAction where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ADD"    -> pure Add
         "DELETE" -> pure Delete'
         "PUT"    -> pure Put
@@ -2067,7 +2067,7 @@ data ScalarAttributeType
 instance Hashable ScalarAttributeType
 
 instance FromText ScalarAttributeType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "B" -> pure B
         "N" -> pure N
         "S" -> pure S
@@ -2155,7 +2155,7 @@ data Select
 instance Hashable Select
 
 instance FromText Select where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ALL_ATTRIBUTES"           -> pure AllAttributes
         "ALL_PROJECTED_ATTRIBUTES" -> pure AllProjectedAttributes
         "COUNT"                    -> pure Count
@@ -2503,7 +2503,7 @@ data ConditionalOperator
 instance Hashable ConditionalOperator
 
 instance FromText ConditionalOperator where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "AND" -> pure And
         "OR"  -> pure Or
         e     -> fail $

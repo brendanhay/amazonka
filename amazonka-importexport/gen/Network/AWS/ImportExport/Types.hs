@@ -101,7 +101,7 @@ data JobType
 instance Hashable JobType
 
 instance FromText JobType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Export" -> pure Export'
         "Import" -> pure Import'
         e        -> fail $

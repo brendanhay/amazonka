@@ -511,7 +511,7 @@ data HistoryItemType
 instance Hashable HistoryItemType
 
 instance FromText HistoryItemType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Action"              -> pure Action
         "ConfigurationUpdate" -> pure ConfigurationUpdate
         "StateUpdate"         -> pure StateUpdate
@@ -655,7 +655,7 @@ data StandardUnit
 instance Hashable StandardUnit
 
 instance FromText StandardUnit where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Bits"             -> pure Bits
         "Bits/Second"      -> pure BitsSecond
         "Bytes"            -> pure Bytes
@@ -773,7 +773,7 @@ data ComparisonOperator
 instance Hashable ComparisonOperator
 
 instance FromText ComparisonOperator where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "GreaterThanOrEqualToThreshold" -> pure GreaterThanOrEqualToThreshold
         "GreaterThanThreshold"          -> pure GreaterThanThreshold
         "LessThanOrEqualToThreshold"    -> pure LessThanOrEqualToThreshold
@@ -925,7 +925,7 @@ data StateValue
 instance Hashable StateValue
 
 instance FromText StateValue where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ALARM"             -> pure Alarm
         "INSUFFICIENT_DATA" -> pure InsufficientData
         "OK"                -> pure Ok
@@ -1086,7 +1086,7 @@ data Statistic
 instance Hashable Statistic
 
 instance FromText Statistic where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Average"     -> pure Average
         "Maximum"     -> pure Maximum
         "Minimum"     -> pure Minimum

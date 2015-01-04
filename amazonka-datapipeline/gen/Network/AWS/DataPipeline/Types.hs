@@ -732,7 +732,7 @@ data OperatorType
 instance Hashable OperatorType
 
 instance FromText OperatorType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "BETWEEN" -> pure OperatorBetween
         "EQ"      -> pure OperatorEq
         "GE"      -> pure OperatorGe
@@ -807,7 +807,7 @@ data TaskStatus
 instance Hashable TaskStatus
 
 instance FromText TaskStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "FAILED"   -> pure Failed
         "FALSE"    -> pure False'
         "FINISHED" -> pure Finished

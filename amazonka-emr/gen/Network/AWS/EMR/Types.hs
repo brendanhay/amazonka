@@ -469,7 +469,7 @@ data MarketType
 instance Hashable MarketType
 
 instance FromText MarketType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ON_DEMAND" -> pure OnDemand
         "SPOT"      -> pure Spot
         e           -> fail $
@@ -907,7 +907,7 @@ data StepExecutionState
 instance Hashable StepExecutionState
 
 instance FromText StepExecutionState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CANCELLED"   -> pure Cancelled
         "COMPLETED"   -> pure Completed
         "CONTINUE"    -> pure Continue
@@ -948,7 +948,7 @@ data ActionOnFailure
 instance Hashable ActionOnFailure
 
 instance FromText ActionOnFailure where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CANCEL_AND_WAIT"    -> pure AOFCancelAndWait
         "CONTINUE"           -> pure AOFContinue
         "TERMINATE_CLUSTER"  -> pure AOFTerminateCluster
@@ -1565,7 +1565,7 @@ data StepStateChangeReasonCode
 instance Hashable StepStateChangeReasonCode
 
 instance FromText StepStateChangeReasonCode where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "NONE" -> pure None
         e      -> fail $
             "Failure parsing StepStateChangeReasonCode from " ++ show e
@@ -1596,7 +1596,7 @@ data ClusterState
 instance Hashable ClusterState
 
 instance FromText ClusterState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "BOOTSTRAPPING"          -> pure CSBootstrapping
         "RUNNING"                -> pure CSRunning
         "STARTING"               -> pure CSStarting
@@ -1702,7 +1702,7 @@ data JobFlowExecutionState
 instance Hashable JobFlowExecutionState
 
 instance FromText JobFlowExecutionState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "BOOTSTRAPPING" -> pure JFESBootstrapping
         "COMPLETED"     -> pure JFESCompleted
         "FAILED"        -> pure JFESFailed
@@ -1823,7 +1823,7 @@ data InstanceGroupType
 instance Hashable InstanceGroupType
 
 instance FromText InstanceGroupType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CORE"   -> pure Core
         "MASTER" -> pure Master
         "TASK"   -> pure Task
@@ -1856,7 +1856,7 @@ data InstanceGroupStateChangeReasonCode
 instance Hashable InstanceGroupStateChangeReasonCode
 
 instance FromText InstanceGroupStateChangeReasonCode where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CLUSTER_TERMINATED" -> pure ClusterTerminated
         "INSTANCE_FAILURE"   -> pure InstanceFailure
         "INTERNAL_ERROR"     -> pure InternalError
@@ -2016,7 +2016,7 @@ data InstanceGroupState
 instance Hashable InstanceGroupState
 
 instance FromText InstanceGroupState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ARRESTED"      -> pure IGSArrested
         "BOOTSTRAPPING" -> pure IGSBootstrapping
         "ENDED"         -> pure IGSEnded
@@ -2476,7 +2476,7 @@ data ClusterStateChangeReasonCode
 instance Hashable ClusterStateChangeReasonCode
 
 instance FromText ClusterStateChangeReasonCode where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ALL_STEPS_COMPLETED" -> pure CSCRCAllStepsCompleted
         "BOOTSTRAP_FAILURE"   -> pure CSCRCBootstrapFailure
         "INSTANCE_FAILURE"    -> pure CSCRCInstanceFailure
@@ -2588,7 +2588,7 @@ data StepState
 instance Hashable StepState
 
 instance FromText StepState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CANCELLED"   -> pure SSCancelled
         "COMPLETED"   -> pure SSCompleted
         "FAILED"      -> pure SSFailed
@@ -2831,7 +2831,7 @@ data InstanceRoleType
 instance Hashable InstanceRoleType
 
 instance FromText InstanceRoleType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CORE"   -> pure IRTCore
         "MASTER" -> pure IRTMaster
         "TASK"   -> pure IRTTask
@@ -3506,7 +3506,7 @@ data InstanceState
 instance Hashable InstanceState
 
 instance FromText InstanceState where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "AWAITING_FULFILLMENT" -> pure ISAwaitingFulfillment
         "BOOTSTRAPPING"        -> pure ISBootstrapping
         "PROVISIONING"         -> pure ISProvisioning
@@ -3594,7 +3594,7 @@ data InstanceStateChangeReasonCode
 instance Hashable InstanceStateChangeReasonCode
 
 instance FromText InstanceStateChangeReasonCode where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "BOOTSTRAP_FAILURE"  -> pure ISCRCBootstrapFailure
         "CLUSTER_TERMINATED" -> pure ISCRCClusterTerminated
         "INSTANCE_FAILURE"   -> pure ISCRCInstanceFailure

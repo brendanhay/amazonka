@@ -124,7 +124,7 @@ data Runtime
 instance Hashable Runtime
 
 instance FromText Runtime where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "nodejs" -> pure Nodejs
         e        -> fail $
             "Failure parsing Runtime from " ++ show e
@@ -149,7 +149,7 @@ data Mode
 instance Hashable Mode
 
 instance FromText Mode where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "event" -> pure Event
         e       -> fail $
             "Failure parsing Mode from " ++ show e

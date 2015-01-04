@@ -187,7 +187,7 @@ data QueryParser
 instance Hashable QueryParser
 
 instance FromText QueryParser where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "dismax"     -> pure Dismax
         "lucene"     -> pure Lucene
         "simple"     -> pure Simple
@@ -561,7 +561,7 @@ data ContentType
 instance Hashable ContentType
 
 instance FromText ContentType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "application/json" -> pure ApplicationJson
         "application/xml"  -> pure ApplicationXml
         e                  -> fail $

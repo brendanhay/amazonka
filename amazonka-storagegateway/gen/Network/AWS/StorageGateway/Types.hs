@@ -1017,7 +1017,7 @@ data ErrorCode
 instance Hashable ErrorCode
 
 instance FromText ErrorCode where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ActivationKeyExpired"              -> pure ActivationKeyExpired
         "ActivationKeyInvalid"              -> pure ActivationKeyInvalid
         "ActivationKeyNotFound"             -> pure ActivationKeyNotFound

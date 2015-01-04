@@ -1516,7 +1516,7 @@ data WorkflowExecutionTimeoutType
 instance Hashable WorkflowExecutionTimeoutType
 
 instance FromText WorkflowExecutionTimeoutType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "START_TO_CLOSE" -> pure StartToClose
         e                -> fail $
             "Failure parsing WorkflowExecutionTimeoutType from " ++ show e
@@ -2127,7 +2127,7 @@ data RequestCancelActivityTaskFailedCause
 instance Hashable RequestCancelActivityTaskFailedCause
 
 instance FromText RequestCancelActivityTaskFailedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ACTIVITY_ID_UNKNOWN"     -> pure ActivityIdUnknown
         "OPERATION_NOT_PERMITTED" -> pure OperationNotPermitted
         e                         -> fail $
@@ -2357,7 +2357,7 @@ data WorkflowExecutionTerminatedCause
 instance Hashable WorkflowExecutionTerminatedCause
 
 instance FromText WorkflowExecutionTerminatedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CHILD_POLICY_APPLIED" -> pure ChildPolicyApplied
         "EVENT_LIMIT_EXCEEDED" -> pure EventLimitExceeded
         "OPERATOR_INITIATED"   -> pure OperatorInitiated
@@ -2388,7 +2388,7 @@ data CancelWorkflowExecutionFailedCause
 instance Hashable CancelWorkflowExecutionFailedCause
 
 instance FromText CancelWorkflowExecutionFailedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "OPERATION_NOT_PERMITTED" -> pure CWEFCOperationNotPermitted
         "UNHANDLED_DECISION"      -> pure CWEFCUnhandledDecision
         e                         -> fail $
@@ -2418,7 +2418,7 @@ data SignalExternalWorkflowExecutionFailedCause
 instance Hashable SignalExternalWorkflowExecutionFailedCause
 
 instance FromText SignalExternalWorkflowExecutionFailedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "OPERATION_NOT_PERMITTED"                          -> pure SEWEFCOperationNotPermitted
         "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED" -> pure SEWEFCSignalExternalWorkflowExecutionRateExceeded
         "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"              -> pure SEWEFCUnknownExternalWorkflowExecution
@@ -2606,7 +2606,7 @@ data DecisionType
 instance Hashable DecisionType
 
 instance FromText DecisionType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CancelTimer"                            -> pure CancelTimer
         "CancelWorkflowExecution"                -> pure CancelWorkflowExecution
         "CompleteWorkflowExecution"              -> pure CompleteWorkflowExecution
@@ -3164,7 +3164,7 @@ data ActivityTaskTimeoutType
 instance Hashable ActivityTaskTimeoutType
 
 instance FromText ActivityTaskTimeoutType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "HEARTBEAT"         -> pure ATTTHeartbeat
         "SCHEDULE_TO_CLOSE" -> pure ATTTScheduleToClose
         "SCHEDULE_TO_START" -> pure ATTTScheduleToStart
@@ -3299,7 +3299,7 @@ data ExecutionStatus
 instance Hashable ExecutionStatus
 
 instance FromText ExecutionStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CLOSED" -> pure Closed
         "OPEN"   -> pure Open
         e        -> fail $
@@ -3327,7 +3327,7 @@ data DecisionTaskTimeoutType
 instance Hashable DecisionTaskTimeoutType
 
 instance FromText DecisionTaskTimeoutType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "START_TO_CLOSE" -> pure DTTTStartToClose
         e                -> fail $
             "Failure parsing DecisionTaskTimeoutType from " ++ show e
@@ -3352,7 +3352,7 @@ data WorkflowExecutionCancelRequestedCause
 instance Hashable WorkflowExecutionCancelRequestedCause
 
 instance FromText WorkflowExecutionCancelRequestedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CHILD_POLICY_APPLIED" -> pure WECRCChildPolicyApplied
         e                      -> fail $
             "Failure parsing WorkflowExecutionCancelRequestedCause from " ++ show e
@@ -3387,7 +3387,7 @@ data StartChildWorkflowExecutionFailedCause
 instance Hashable StartChildWorkflowExecutionFailedCause
 
 instance FromText StartChildWorkflowExecutionFailedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CHILD_CREATION_RATE_EXCEEDED"                       -> pure SCWEFCChildCreationRateExceeded
         "DEFAULT_CHILD_POLICY_UNDEFINED"                     -> pure SCWEFCDefaultChildPolicyUndefined
         "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED" -> pure SCWEFCDefaultExecutionStartToCloseTimeoutUndefined
@@ -3608,7 +3608,7 @@ data FailWorkflowExecutionFailedCause
 instance Hashable FailWorkflowExecutionFailedCause
 
 instance FromText FailWorkflowExecutionFailedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "OPERATION_NOT_PERMITTED" -> pure FWEFCOperationNotPermitted
         "UNHANDLED_DECISION"      -> pure FWEFCUnhandledDecision
         e                         -> fail $
@@ -3978,7 +3978,7 @@ data ContinueAsNewWorkflowExecutionFailedCause
 instance Hashable ContinueAsNewWorkflowExecutionFailedCause
 
 instance FromText ContinueAsNewWorkflowExecutionFailedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"   -> pure CANWEFCContinueAsNewWorkflowExecutionRateExceeded
         "DEFAULT_CHILD_POLICY_UNDEFINED"                     -> pure CANWEFCDefaultChildPolicyUndefined
         "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED" -> pure CANWEFCDefaultExecutionStartToCloseTimeoutUndefined
@@ -4104,7 +4104,7 @@ data EventType
 instance Hashable EventType
 
 instance FromText EventType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ActivityTaskCancelRequested"                     -> pure ActivityTaskCancelRequested
         "ActivityTaskCanceled"                            -> pure ActivityTaskCanceled
         "ActivityTaskCompleted"                           -> pure ActivityTaskCompleted
@@ -4836,7 +4836,7 @@ data ScheduleActivityTaskFailedCause
 instance Hashable ScheduleActivityTaskFailedCause
 
 instance FromText ScheduleActivityTaskFailedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ACTIVITY_CREATION_RATE_EXCEEDED"             -> pure SATFCActivityCreationRateExceeded
         "ACTIVITY_ID_ALREADY_IN_USE"                  -> pure SATFCActivityIdAlreadyInUse
         "ACTIVITY_TYPE_DEPRECATED"                    -> pure SATFCActivityTypeDeprecated
@@ -5224,7 +5224,7 @@ data ChildPolicy
 instance Hashable ChildPolicy
 
 instance FromText ChildPolicy where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ABANDON"        -> pure Abandon
         "REQUEST_CANCEL" -> pure RequestCancel
         "TERMINATE"      -> pure Terminate
@@ -5302,7 +5302,7 @@ data CloseStatus
 instance Hashable CloseStatus
 
 instance FromText CloseStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CANCELED"         -> pure CSCanceled
         "COMPLETED"        -> pure CSCompleted
         "CONTINUED_AS_NEW" -> pure CSContinuedAsNew
@@ -5339,7 +5339,7 @@ data CompleteWorkflowExecutionFailedCause
 instance Hashable CompleteWorkflowExecutionFailedCause
 
 instance FromText CompleteWorkflowExecutionFailedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "OPERATION_NOT_PERMITTED" -> pure CompleteWorkflowExecutionFailedCauseOperationNotPermitted
         "UNHANDLED_DECISION"      -> pure CompleteWorkflowExecutionFailedCauseUnhandledDecision
         e                         -> fail $
@@ -5370,7 +5370,7 @@ data StartTimerFailedCause
 instance Hashable StartTimerFailedCause
 
 instance FromText StartTimerFailedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "OPEN_TIMERS_LIMIT_EXCEEDED"   -> pure STFCOpenTimersLimitExceeded
         "OPERATION_NOT_PERMITTED"      -> pure STFCOperationNotPermitted
         "TIMER_CREATION_RATE_EXCEEDED" -> pure STFCTimerCreationRateExceeded
@@ -5681,7 +5681,7 @@ data RecordMarkerFailedCause
 instance Hashable RecordMarkerFailedCause
 
 instance FromText RecordMarkerFailedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "OPERATION_NOT_PERMITTED" -> pure RMFCOperationNotPermitted
         e                         -> fail $
             "Failure parsing RecordMarkerFailedCause from " ++ show e
@@ -5707,7 +5707,7 @@ data RegistrationStatus
 instance Hashable RegistrationStatus
 
 instance FromText RegistrationStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "DEPRECATED" -> pure Deprecated
         "REGISTERED" -> pure Registered
         e            -> fail $
@@ -6418,7 +6418,7 @@ data CancelTimerFailedCause
 instance Hashable CancelTimerFailedCause
 
 instance FromText CancelTimerFailedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "OPERATION_NOT_PERMITTED" -> pure CTFCOperationNotPermitted
         "TIMER_ID_UNKNOWN"        -> pure CTFCTimerIdUnknown
         e                         -> fail $
@@ -7712,7 +7712,7 @@ data RequestCancelExternalWorkflowExecutionFailedCause
 instance Hashable RequestCancelExternalWorkflowExecutionFailedCause
 
 instance FromText RequestCancelExternalWorkflowExecutionFailedCause where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "OPERATION_NOT_PERMITTED"                                  -> pure RCEWEFCOperationNotPermitted
         "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED" -> pure RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded
         "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"                      -> pure RCEWEFCUnknownExternalWorkflowExecution

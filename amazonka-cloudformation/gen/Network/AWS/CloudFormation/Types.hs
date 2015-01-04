@@ -279,7 +279,7 @@ data StackStatus
 instance Hashable StackStatus
 
 instance FromText StackStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CREATE_COMPLETE"                              -> pure CreateComplete
         "CREATE_FAILED"                                -> pure CreateFailed
         "CREATE_IN_PROGRESS"                           -> pure CreateInProgress
@@ -707,7 +707,7 @@ data ResourceStatus
 instance Hashable ResourceStatus
 
 instance FromText ResourceStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CREATE_COMPLETE"    -> pure RSCreateComplete
         "CREATE_FAILED"      -> pure RSCreateFailed
         "CREATE_IN_PROGRESS" -> pure RSCreateInProgress
@@ -1132,7 +1132,7 @@ data Capability
 instance Hashable Capability
 
 instance FromText Capability where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CAPABILITY_IAM" -> pure CapabilityIam
         e                -> fail $
             "Failure parsing Capability from " ++ show e
@@ -1155,7 +1155,7 @@ data ResourceSignalStatus
 instance Hashable ResourceSignalStatus
 
 instance FromText ResourceSignalStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "FAILURE" -> pure Failure
         "SUCCESS" -> pure Success
         e         -> fail $
@@ -1351,7 +1351,7 @@ data OnFailure
 instance Hashable OnFailure
 
 instance FromText OnFailure where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "DELETE"     -> pure Delete'
         "DO_NOTHING" -> pure DoNothing
         "ROLLBACK"   -> pure Rollback

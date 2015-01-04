@@ -424,7 +424,7 @@ data IdentityType
 instance Hashable IdentityType
 
 instance FromText IdentityType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Domain"       -> pure ITDomain
         "EmailAddress" -> pure ITEmailAddress
         e              -> fail $
@@ -596,7 +596,7 @@ data NotificationType
 instance Hashable NotificationType
 
 instance FromText NotificationType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Bounce"    -> pure Bounce
         "Complaint" -> pure Complaint
         "Delivery"  -> pure Delivery
@@ -627,7 +627,7 @@ data VerificationStatus
 instance Hashable VerificationStatus
 
 instance FromText VerificationStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Failed"           -> pure Failed
         "NotStarted"       -> pure NotStarted
         "Pending"          -> pure Pending

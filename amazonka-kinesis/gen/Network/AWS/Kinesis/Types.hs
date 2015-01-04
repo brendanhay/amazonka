@@ -470,7 +470,7 @@ data StreamStatus
 instance Hashable StreamStatus
 
 instance FromText StreamStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ACTIVE"   -> pure Active
         "CREATING" -> pure Creating
         "DELETING" -> pure Deleting
@@ -643,7 +643,7 @@ data ShardIteratorType
 instance Hashable ShardIteratorType
 
 instance FromText ShardIteratorType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "AFTER_SEQUENCE_NUMBER" -> pure AfterSequenceNumber
         "AT_SEQUENCE_NUMBER"    -> pure AtSequenceNumber
         "LATEST"                -> pure Latest

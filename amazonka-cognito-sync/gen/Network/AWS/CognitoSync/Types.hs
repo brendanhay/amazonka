@@ -209,7 +209,7 @@ data Platform
 instance Hashable Platform
 
 instance FromText Platform where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ADM"          -> pure Adm
         "APNS"         -> pure Apns
         "APNS_SANDBOX" -> pure ApnsSandbox
@@ -335,7 +335,7 @@ data Operation
 instance Hashable Operation
 
 instance FromText Operation where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "remove"  -> pure Remove
         "replace" -> pure Replace
         e         -> fail $

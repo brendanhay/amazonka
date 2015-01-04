@@ -280,7 +280,7 @@ data AssignmentStatusType
 instance Hashable AssignmentStatusType
 
 instance FromText AssignmentStatusType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Any"        -> pure Any
         "Assigned"   -> pure Assigned
         "Unassigned" -> pure Unassigned
@@ -760,7 +760,7 @@ data ReportFormatType
 instance Hashable ReportFormatType
 
 instance FromText ReportFormatType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "text/csv" -> pure TextCsv
         e          -> fail $
             "Failure parsing ReportFormatType from " ++ show e
@@ -951,7 +951,7 @@ data EntityType
 instance Hashable EntityType
 
 instance FromText EntityType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Group" -> pure ETGroup
         "Role"  -> pure ETRole
         "User"  -> pure ETUser
@@ -991,7 +991,7 @@ data SummaryKeyType
 instance Hashable SummaryKeyType
 
 instance FromText SummaryKeyType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "AccessKeysPerUserQuota"          -> pure AccessKeysPerUserQuota
         "AccountMFAEnabled"               -> pure AccountMFAEnabled
         "GroupPolicySizeQuota"            -> pure GroupPolicySizeQuota
@@ -1123,7 +1123,7 @@ data ReportStateType
 instance Hashable ReportStateType
 
 instance FromText ReportStateType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "COMPLETE"   -> pure Complete
         "INPROGRESS" -> pure Inprogress
         "STARTED"    -> pure Started
@@ -1287,7 +1287,7 @@ data StatusType
 instance Hashable StatusType
 
 instance FromText StatusType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Active"   -> pure Active
         "Inactive" -> pure Inactive
         e          -> fail $

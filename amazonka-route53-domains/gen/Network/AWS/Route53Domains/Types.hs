@@ -235,7 +235,7 @@ data ExtraParamName
 instance Hashable ExtraParamName
 
 instance FromText ExtraParamName where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "AU_ID_NUMBER"             -> pure AuIdNumber
         "AU_ID_TYPE"               -> pure AuIdType
         "BIRTH_CITY"               -> pure BirthCity
@@ -351,7 +351,7 @@ data OperationStatus
 instance Hashable OperationStatus
 
 instance FromText OperationStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ERROR"       -> pure Error
         "FAILED"      -> pure Failed
         "IN_PROGRESS" -> pure InProgress
@@ -391,7 +391,7 @@ data DomainAvailability
 instance Hashable DomainAvailability
 
 instance FromText DomainAvailability where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "AVAILABLE"              -> pure Available
         "AVAILABLE_PREORDER"     -> pure AvailablePreorder
         "AVAILABLE_RESERVED"     -> pure AvailableReserved
@@ -435,7 +435,7 @@ data OperationType
 instance Hashable OperationType
 
 instance FromText OperationType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CHANGE_PRIVACY_PROTECTION" -> pure OTChangePrivacyProtection
         "DELETE_DOMAIN"             -> pure OTDeleteDomain
         "DOMAIN_LOCK"               -> pure OTDomainLock
@@ -701,7 +701,7 @@ data CountryCode
 instance Hashable CountryCode
 
 instance FromText CountryCode where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "AD" -> pure Ad
         "AE" -> pure Ae
         "AF" -> pure Af
@@ -1249,7 +1249,7 @@ data ContactType
 instance Hashable ContactType
 
 instance FromText ContactType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ASSOCIATION" -> pure CTAssociation
         "COMPANY"     -> pure CTCompany
         "PERSON"      -> pure CTPerson

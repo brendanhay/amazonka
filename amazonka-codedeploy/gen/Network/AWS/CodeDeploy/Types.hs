@@ -400,7 +400,7 @@ data BundleType
 instance Hashable BundleType
 
 instance FromText BundleType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "tar" -> pure Tar
         "tgz" -> pure Tgz
         "zip" -> pure Zip
@@ -473,7 +473,7 @@ data DeploymentCreator
 instance Hashable DeploymentCreator
 
 instance FromText DeploymentCreator where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "autoscaling" -> pure Autoscaling
         "user"        -> pure User
         e             -> fail $
@@ -724,7 +724,7 @@ data ApplicationRevisionSortBy
 instance Hashable ApplicationRevisionSortBy
 
 instance FromText ApplicationRevisionSortBy where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "firstUsedTime" -> pure FirstUsedTime
         "lastUsedTime"  -> pure LastUsedTime
         "registerTime"  -> pure RegisterTime
@@ -808,7 +808,7 @@ data ListStateFilterAction
 instance Hashable ListStateFilterAction
 
 instance FromText ListStateFilterAction where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "exclude" -> pure Exclude
         "ignore"  -> pure Ignore
         "include" -> pure Include
@@ -843,7 +843,7 @@ data LifecycleErrorCode
 instance Hashable LifecycleErrorCode
 
 instance FromText LifecycleErrorCode where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ScriptFailed"        -> pure ScriptFailed
         "ScriptMissing"       -> pure ScriptMissing
         "ScriptNotExecutable" -> pure ScriptNotExecutable
@@ -933,7 +933,7 @@ data LifecycleEventStatus
 instance Hashable LifecycleEventStatus
 
 instance FromText LifecycleEventStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Failed"     -> pure Failed
         "InProgress" -> pure InProgress
         "Pending"    -> pure Pending
@@ -1084,7 +1084,7 @@ data StopStatus
 instance Hashable StopStatus
 
 instance FromText StopStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Pending"   -> pure SSPending
         "Succeeded" -> pure SSSucceeded
         e           -> fail $
@@ -1168,7 +1168,7 @@ data SortOrder
 instance Hashable SortOrder
 
 instance FromText SortOrder where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ascending"  -> pure Ascending
         "descending" -> pure Descending
         e            -> fail $
@@ -1532,7 +1532,7 @@ data ErrorCode
 instance Hashable ErrorCode
 
 instance FromText ErrorCode where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "APPLICATION_MISSING"        -> pure ApplicationMissing
         "DEPLOYMENT_GROUP_MISSING"   -> pure DeploymentGroupMissing
         "HEALTH_CONSTRAINTS"         -> pure HealthConstraints
@@ -1644,7 +1644,7 @@ data InstanceStatus
 instance Hashable InstanceStatus
 
 instance FromText InstanceStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Failed"     -> pure ISFailed
         "InProgress" -> pure ISInProgress
         "Pending"    -> pure ISPending
@@ -1685,7 +1685,7 @@ data DeploymentStatus
 instance Hashable DeploymentStatus
 
 instance FromText DeploymentStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Created"    -> pure DSCreated
         "Failed"     -> pure DSFailed
         "InProgress" -> pure DSInProgress
@@ -1802,7 +1802,7 @@ data MinimumHealthyHostsType
 instance Hashable MinimumHealthyHostsType
 
 instance FromText MinimumHealthyHostsType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "FLEET_PERCENT" -> pure FleetPercent
         "HOST_COUNT"    -> pure HostCount
         e               -> fail $
@@ -1873,7 +1873,7 @@ data RevisionLocationType
 instance Hashable RevisionLocationType
 
 instance FromText RevisionLocationType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "GitHub" -> pure GitHub
         "S3"     -> pure S3
         e        -> fail $
@@ -1903,7 +1903,7 @@ data EC2TagFilterType
 instance Hashable EC2TagFilterType
 
 instance FromText EC2TagFilterType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "KEY_AND_VALUE" -> pure KeyAndValue
         "KEY_ONLY"      -> pure KeyOnly
         "VALUE_ONLY"    -> pure ValueOnly

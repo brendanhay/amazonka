@@ -619,7 +619,7 @@ data SSLSupportMethod
 instance Hashable SSLSupportMethod
 
 instance FromText SSLSupportMethod where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "sni-only" -> pure SniOnly
         "vip"      -> pure Vip
         e          -> fail $
@@ -824,7 +824,7 @@ data ViewerProtocolPolicy
 instance Hashable ViewerProtocolPolicy
 
 instance FromText ViewerProtocolPolicy where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "allow-all"         -> pure AllowAll
         "https-only"        -> pure HttpsOnly
         "redirect-to-https" -> pure RedirectToHttps
@@ -1168,7 +1168,7 @@ data OriginProtocolPolicy
 instance Hashable OriginProtocolPolicy
 
 instance FromText OriginProtocolPolicy where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "http-only"    -> pure HttpOnly
         "match-viewer" -> pure MatchViewer
         e              -> fail $
@@ -2160,7 +2160,7 @@ data PriceClass
 instance Hashable PriceClass
 
 instance FromText PriceClass where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "PriceClass_100" -> pure PriceClass100
         "PriceClass_200" -> pure PriceClass200
         "PriceClass_All" -> pure PriceClassAll
@@ -2631,7 +2631,7 @@ data Method
 instance Hashable Method
 
 instance FromText Method where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "DELETE"  -> pure Delete'
         "GET"     -> pure Get
         "HEAD"    -> pure Head'
@@ -2670,7 +2670,7 @@ data MinimumProtocolVersion
 instance Hashable MinimumProtocolVersion
 
 instance FromText MinimumProtocolVersion where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "SSLv3" -> pure SSLv3
         "TLSv1" -> pure TLSv1
         e       -> fail $
@@ -2805,7 +2805,7 @@ data ItemSelection
 instance Hashable ItemSelection
 
 instance FromText ItemSelection where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "all"       -> pure All
         "none"      -> pure None
         "whitelist" -> pure Whitelist
@@ -3693,7 +3693,7 @@ data GeoRestrictionType
 instance Hashable GeoRestrictionType
 
 instance FromText GeoRestrictionType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "blacklist" -> pure GRTBlacklist
         "none"      -> pure GRTNone
         "whitelist" -> pure GRTWhitelist

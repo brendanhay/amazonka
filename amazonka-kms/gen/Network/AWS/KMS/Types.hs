@@ -132,7 +132,7 @@ data KeyUsageType
 instance Hashable KeyUsageType
 
 instance FromText KeyUsageType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ENCRYPT_DECRYPT" -> pure EncryptDecrypt
         e                 -> fail $
             "Failure parsing KeyUsageType from " ++ show e
@@ -247,7 +247,7 @@ data DataKeySpec
 instance Hashable DataKeySpec
 
 instance FromText DataKeySpec where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "AES_128" -> pure AES128
         "AES_256" -> pure AES256
         e         -> fail $
@@ -459,7 +459,7 @@ data GrantOperation
 instance Hashable GrantOperation
 
 instance FromText GrantOperation where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CreateGrant"                     -> pure GOCreateGrant
         "Decrypt"                         -> pure GODecrypt
         "Encrypt"                         -> pure GOEncrypt

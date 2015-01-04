@@ -561,7 +561,7 @@ data VPCRegion
 instance Hashable VPCRegion
 
 instance FromText VPCRegion where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "ap-northeast-1" -> pure ApNortheast1
         "ap-southeast-1" -> pure ApSoutheast1
         "ap-southeast-2" -> pure ApSoutheast2
@@ -614,7 +614,7 @@ data RecordType
 instance Hashable RecordType
 
 instance FromText RecordType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "A"     -> pure A
         "AAAA"  -> pure AAAA
         "CNAME" -> pure CNAME
@@ -660,7 +660,7 @@ data ChangeAction
 instance Hashable ChangeAction
 
 instance FromText ChangeAction where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "CREATE" -> pure Create
         "DELETE" -> pure Delete'
         "UPSERT" -> pure Upsert
@@ -691,7 +691,7 @@ data TagResourceType
 instance Hashable TagResourceType
 
 instance FromText TagResourceType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "healthcheck" -> pure Healthcheck
         "hostedzone"  -> pure Hostedzone
         e             -> fail $
@@ -884,7 +884,7 @@ data Failover
 instance Hashable Failover
 
 instance FromText Failover where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "PRIMARY"   -> pure Primary
         "SECONDARY" -> pure Secondary
         e           -> fail $
@@ -1052,7 +1052,7 @@ data ChangeStatus
 instance Hashable ChangeStatus
 
 instance FromText ChangeStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "INSYNC"  -> pure Insync
         "PENDING" -> pure Pending
         e         -> fail $
@@ -1165,7 +1165,7 @@ data HealthCheckType
 instance Hashable HealthCheckType
 
 instance FromText HealthCheckType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "HTTP"            -> pure Http
         "HTTP_STR_MATCH"  -> pure HttpStrMatch
         "HTTPS"           -> pure Https

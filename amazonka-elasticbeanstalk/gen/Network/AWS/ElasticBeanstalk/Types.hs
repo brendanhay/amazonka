@@ -413,7 +413,7 @@ data EventSeverity
 instance Hashable EventSeverity
 
 instance FromText EventSeverity where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "DEBUG" -> pure Debug
         "ERROR" -> pure Error
         "FATAL" -> pure Fatal
@@ -671,7 +671,7 @@ data ConfigurationDeploymentStatus
 instance Hashable ConfigurationDeploymentStatus
 
 instance FromText ConfigurationDeploymentStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "deployed" -> pure Deployed
         "failed"   -> pure Failed
         "pending"  -> pure Pending
@@ -747,7 +747,7 @@ data ConfigurationOptionValueType
 instance Hashable ConfigurationOptionValueType
 
 instance FromText ConfigurationOptionValueType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "List"   -> pure List'
         "Scalar" -> pure Scalar
         e        -> fail $
@@ -1157,7 +1157,7 @@ data EnvironmentStatus
 instance Hashable EnvironmentStatus
 
 instance FromText EnvironmentStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Launching"   -> pure Launching
         "Ready"       -> pure Ready
         "Terminated"  -> pure Terminated
@@ -1796,7 +1796,7 @@ data ValidationSeverity
 instance Hashable ValidationSeverity
 
 instance FromText ValidationSeverity where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "error"   -> pure VSError
         "warning" -> pure VSWarning
         e         -> fail $
@@ -1849,7 +1849,7 @@ data EnvironmentInfoType
 instance Hashable EnvironmentInfoType
 
 instance FromText EnvironmentInfoType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "tail" -> pure Tail'
         e      -> fail $
             "Failure parsing EnvironmentInfoType from " ++ show e
@@ -2107,7 +2107,7 @@ data EnvironmentHealth
 instance Hashable EnvironmentHealth
 
 instance FromText EnvironmentHealth where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Green"  -> pure Green
         "Grey"   -> pure Grey
         "Red"    -> pure Red

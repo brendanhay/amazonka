@@ -424,7 +424,7 @@ data ChronologicalOrder
 instance Hashable ChronologicalOrder
 
 instance FromText ChronologicalOrder where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Forward" -> pure Forward
         "Reverse" -> pure Reverse
         e         -> fail $
@@ -465,7 +465,7 @@ data ResourceType
 instance Hashable ResourceType
 
 instance FromText ResourceType where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "AWS::CloudTrail::Trail"     -> pure AWSCloudTrailTrail
         "AWS::EC2::CustomerGateway"  -> pure AWSEC2CustomerGateway
         "AWS::EC2::EIP"              -> pure AWSEC2EIP
@@ -708,7 +708,7 @@ data DeliveryStatus
 instance Hashable DeliveryStatus
 
 instance FromText DeliveryStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Failure" -> pure Failure
         "Success" -> pure Success
         e         -> fail $
@@ -907,7 +907,7 @@ data ConfigurationItemStatus
 instance Hashable ConfigurationItemStatus
 
 instance FromText ConfigurationItemStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Deleted"    -> pure Deleted
         "Discovered" -> pure Discovered
         "Failed"     -> pure Failed
@@ -982,7 +982,7 @@ data RecorderStatus
 instance Hashable RecorderStatus
 
 instance FromText RecorderStatus where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "Failure" -> pure RSFailure
         "Pending" -> pure RSPending
         "Success" -> pure RSSuccess

@@ -297,7 +297,7 @@ primIso = \case
 typeDefault :: Type -> Text
 typeDefault t
     | isMonoid   t = "mempty"
-    | isRequired t = "<error>"
+    | isRequired t = "error"
     | otherwise    = "Nothing"
 
 class HasType a where

@@ -228,7 +228,7 @@
         "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html",
         "protocol": "rest-xml",
         "name": "Amazon Simple Storage Service",
-        "version": "0.1.2",
+        "version": "0.1.3",
         "description": "Amazon Simple Storage Service is storage for the Internet. Amazon S3 has a\nsimple web services interface that you can use to store and retrieve any\namount of data, at any time, from anywhere on the web. It gives any developer\naccess to the same highly scalable, reliable, fast, inexpensive data storage\ninfrastructure that Amazon uses to run its own global network of web sites.\nThe service aims to maximize benefits of scale and to pass those benefits on\nto developers."
     },
     "types": {

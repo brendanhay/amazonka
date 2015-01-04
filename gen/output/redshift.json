@@ -251,7 +251,7 @@
         "url": "http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Redshift",
-        "version": "0.1.2",
+        "version": "0.1.3",
         "description": "Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse\nservice that makes it simple and cost-effective to efficiently analyze all\nyour data using your existing business intelligence tools. You can start\nsmall for just $0.25 per hour with no commitments or upfront costs and scale\nto a petabyte or more for $1,000 per terabyte per year, less than a tenth of\nmost other data warehousing solutions."
     },
     "types": {

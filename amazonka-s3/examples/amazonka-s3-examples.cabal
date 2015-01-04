@@ -1,5 +1,5 @@
 name:                  amazonka-s3-examples
-version:               0.1.2
+version:               0.1.3
 synopsis:              Amazon Simple Storage Service SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         S3
 
     build-depends:
-        amazonka      == 0.1.2.*
-      , amazonka-core == 0.1.2.*
-      , amazonka-s3 == 0.1.2.*
+        amazonka      == 0.1.3.*
+      , amazonka-core == 0.1.3.*
+      , amazonka-s3 == 0.1.3.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

@@ -117,7 +117,7 @@
         "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/Welcome.html",
         "protocol": "query",
         "name": "Amazon Elastic Beanstalk",
-        "version": "0.1.2",
+        "version": "0.1.3",
         "description": "AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web\napplications and services developed with Java, .NET, PHP, Node.js, Python,\nRuby, and Docker on familiar servers such as Apache HTTP Server, Apache\nTomcat, Nginx, Passenger, and IIS 7.5/8. You can simply upload your code and\nElastic Beanstalk automatically handles the deployment, from capacity\nprovisioning, load balancing, auto-scaling to application health monitoring.\nAt the same time, you retain full control over the AWS resources powering\nyour application and can access the underlying resources at any time. There\nis no additional charge for Elastic Beanstalk - you pay only for the AWS\nresources needed to store and run your applications."
     },
     "types": {

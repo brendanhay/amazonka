@@ -97,7 +97,7 @@
         "url": "http://docs.aws.amazon.com/directconnect/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Direct Connect",
-        "version": "0.1.2",
+        "version": "0.1.3",
         "description": "AWS Direct Connect links your internal network to an AWS Direct Connect\nlocation over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable.\nOne end of the cable is connected to your router, the other to an AWS Direct\nConnect router. With this connection in place, you can create virtual\ninterfaces directly to the AWS cloud and Amazon Virtual Private Cloud,\nbypassing Internet service providers in your network path."
     },
     "types": {

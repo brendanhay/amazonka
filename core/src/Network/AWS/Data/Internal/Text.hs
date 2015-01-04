@@ -20,6 +20,8 @@ module Network.AWS.Data.Internal.Text
 
     , ToText   (..)
     , showText
+
+    , Text.toLower
     ) where
 
 import           Control.Applicative
@@ -35,7 +37,7 @@ import           Data.Scientific
 import           Data.Text                         (Text)
 import qualified Data.Text                         as Text
 import qualified Data.Text.Encoding                as Text
-import qualified Data.Text.Lazy                    as LText
+import qualified Data.Text.Lazy                    as LText hiding (toLower)
 import           Data.Text.Lazy.Builder            (Builder)
 import qualified Data.Text.Lazy.Builder            as Build
 import qualified Data.Text.Lazy.Builder.Int        as Build

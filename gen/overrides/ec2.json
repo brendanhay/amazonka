@@ -156,7 +156,6 @@
                 "Monitoring",
                 "Architecture",
                 "RootDeviceType",
-                "RootDeviceName",
                 "VirtualizationType",
                 "Hypervisor",
                 "EbsOptimized",

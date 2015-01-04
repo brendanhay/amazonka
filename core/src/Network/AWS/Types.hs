@@ -431,7 +431,7 @@ instance Default Region where
     def = NorthVirginia
 
 instance FromText Region where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
         "eu-west-1"          -> pure Ireland
         "eu-central-1"       -> pure Frankfurt
         "ap-northeast-1"     -> pure Tokyo

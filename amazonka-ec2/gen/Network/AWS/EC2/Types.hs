@@ -11821,7 +11821,7 @@ data Instance = Instance
     , _i1PublicDnsName         :: Maybe Text
     , _i1PublicIpAddress       :: Maybe Text
     , _i1RamdiskId             :: Maybe Text
-    , _i1RootDeviceName        :: Text
+    , _i1RootDeviceName        :: Maybe Text
     , _i1RootDeviceType        :: DeviceType
     , _i1SecurityGroups        :: List "item" GroupIdentifier
     , _i1SourceDestCheck       :: Maybe Bool
@@ -11888,7 +11888,7 @@ data Instance = Instance
 --
 -- * 'i1RamdiskId' @::@ 'Maybe' 'Text'
 --
--- * 'i1RootDeviceName' @::@ 'Text'
+-- * 'i1RootDeviceName' @::@ 'Maybe' 'Text'
 --
 -- * 'i1RootDeviceType' @::@ 'DeviceType'
 --
@@ -11925,12 +11925,11 @@ instance' :: Text -- ^ 'i1InstanceId'
           -> Monitoring -- ^ 'i1Monitoring'
           -> ArchitectureValues -- ^ 'i1Architecture'
           -> DeviceType -- ^ 'i1RootDeviceType'
-          -> Text -- ^ 'i1RootDeviceName'
           -> VirtualizationType -- ^ 'i1VirtualizationType'
           -> HypervisorType -- ^ 'i1Hypervisor'
           -> Bool -- ^ 'i1EbsOptimized'
           -> Instance
-instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 = Instance
+instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 = Instance
     { _i1InstanceId            = p1
     , _i1ImageId               = p2
     , _i1State                 = p3
@@ -11942,10 +11941,9 @@ instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 = Instance
     , _i1Monitoring            = p9
     , _i1Architecture          = p10
     , _i1RootDeviceType        = p11
-    , _i1RootDeviceName        = p12
-    , _i1VirtualizationType    = p13
-    , _i1Hypervisor            = p14
-    , _i1EbsOptimized          = p15
+    , _i1VirtualizationType    = p12
+    , _i1Hypervisor            = p13
+    , _i1EbsOptimized          = p14
     , _i1PrivateDnsName        = Nothing
     , _i1PublicDnsName         = Nothing
     , _i1StateTransitionReason = Nothing
@@ -11958,6 +11956,7 @@ instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 = Instance
     , _i1PrivateIpAddress      = Nothing
     , _i1PublicIpAddress       = Nothing
     , _i1StateReason           = Nothing
+    , _i1RootDeviceName        = Nothing
     , _i1BlockDeviceMappings   = mempty
     , _i1InstanceLifecycle     = Nothing
     , _i1SpotInstanceRequestId = Nothing
@@ -12084,7 +12083,7 @@ i1RamdiskId :: Lens' Instance (Maybe Text)
 i1RamdiskId = lens _i1RamdiskId (\s a -> s { _i1RamdiskId = a })
 
 -- | The root device name (for example, '/dev/sda1').
-i1RootDeviceName :: Lens' Instance Text
+i1RootDeviceName :: Lens' Instance (Maybe Text)
 i1RootDeviceName = lens _i1RootDeviceName (\s a -> s { _i1RootDeviceName = a })
 
 -- | The root device type used by the AMI. The AMI can use an Amazon EBS volume or
@@ -12172,7 +12171,7 @@ instance FromXML Instance where
         <*> x .@? "dnsName"
         <*> x .@? "ipAddress"
         <*> x .@? "ramdiskId"
-        <*> x .@  "rootDeviceName"
+        <*> x .@? "rootDeviceName"
         <*> x .@  "rootDeviceType"
         <*> x .@? "groupSet" .!@ mempty
         <*> x .@? "sourceDestCheck"

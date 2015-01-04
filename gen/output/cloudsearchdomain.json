@@ -61,7 +61,7 @@
         "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html",
         "protocol": "rest-json",
         "name": "Amazon CloudSearch Domain",
-        "version": "0.1.2",
+        "version": "0.1.3",
         "description": "Pending"
     },
     "types": {

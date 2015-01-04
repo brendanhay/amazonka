@@ -15,7 +15,7 @@
 module Network.AWS.Data.Internal.Text
     ( FromText (..)
     , fromText
-    , AText.takeText
+    , takeCI
     , matchCI
 
     , ToText   (..)
@@ -48,6 +48,10 @@ import           Numeric.Natural
 fromText :: FromText a => Text -> Either String a
 fromText = AText.parseOnly parser
 {-# INLINE fromText #-}
+
+takeCI :: Parser (CI Text)
+takeCI = CI.mk <$> AText.takeText
+{-# INLINE takeCI #-}
 
 matchCI :: Text -> a -> Parser a
 matchCI x y = AText.asciiCI x <* AText.endOfInput >> return y

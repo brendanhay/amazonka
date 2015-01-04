@@ -7,7 +7,7 @@ libs=$HOME/Projects/amazonka/amazonka-*
 
 standalone-haddock \
  -o $doc \
- --package-db $HOME/Projects/amazonka/.cabal-sandbox/x86_64-osx-ghc-7.8.3-packages.conf.d \
+ --package-db $HOME/Projects/amazonka/.cabal-sandbox/x86_64-osx-ghc-7.8.4-packages.conf.d \
  amazonka core $libs
 
 cd $doc

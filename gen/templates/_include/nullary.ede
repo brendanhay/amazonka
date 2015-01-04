@@ -9,7 +9,7 @@ data {{ type.name }}
 instance Hashable {{ type.name }}
 
 instance FromText {{ type.name }} where
-    parser = takeText >>= \case
+    parser = takeCI >>= \case
     {% for branch in type.branches %}
         "{{ branch.value | concat("\"") | justifyLeft(type.valuePad) }} -> pure {{ branch.key }}
     {% endfor %}

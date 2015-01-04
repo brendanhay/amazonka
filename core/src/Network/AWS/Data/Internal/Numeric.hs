@@ -1,4 +1,5 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE ScopedTypeVariables        #-}
 {-# LANGUAGE TemplateHaskell            #-}
 
 -- Module      : Network.AWS.Data.Internal.Numeric
@@ -13,10 +14,10 @@
 
 module Network.AWS.Data.Internal.Numeric where
 
-import Control.Applicative
 import Control.Lens.TH
 import Control.Monad
 import Data.Aeson.Types
+import Data.Monoid
 import Data.Scientific
 import Network.AWS.Data.Internal.ByteString
 import Network.AWS.Data.Internal.Query
@@ -43,12 +44,16 @@ newtype Nat = Nat { unNat :: Natural }
         )
 
 instance FromJSON Nat where
-    parseJSON = parseJSON >=> \n ->
-        case floatingOrInteger n of
-            Left  _         -> fail $ "Cannot convert float to Natural: " ++ show n
+    parseJSON = parseJSON >=> go
+      where
+        go n = case floatingOrInteger n of
+            Left  (_ :: Double) -> fail (floatErr n)
             Right i
-                | n < 0     -> fail $ "Cannot convert negative number to Natural: " ++ show n
-                | otherwise -> pure $ Nat (fromInteger i)
+                | n < 0         -> fail (negateErr n)
+                | otherwise     -> return . Nat $ fromInteger i
+
+        floatErr  = mappend "Cannot convert float to Natural: " . show
+        negateErr = mappend "Cannot convert negative number to Natural: " . show
 
 instance ToJSON Nat where
     toJSON = Number . flip scientific 0 . toInteger . unNat

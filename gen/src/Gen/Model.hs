@@ -33,7 +33,7 @@ loadModel d o = do
     m1 <- requireObject override
     m2 <- merge <$> sequence
         [ return m1
-        , requireObject (api v)
+        , requireObject (normal v)
         , optionalObject "waiters"    (waiters v)
         , optionalObject "pagination" (pagers  v)
         ]
@@ -44,7 +44,7 @@ loadModel d o = do
         f  <- tryHead ("Failed to get model version from " ++ d) fs
         return (takeWhile (/= '.') f)
 
-    api     = path "api.json"
+    normal  = path "normal.json"
     waiters = path "waiters.json"
     pagers  = path "paginators.json"
 

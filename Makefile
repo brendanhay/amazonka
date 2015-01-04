@@ -12,7 +12,7 @@ install: cabal.sandbox.config $(addprefix install-,$(DEPS)) install-amazonka
 install-%:
 	@make -C $* install
 
-configure: $(addprefix configure-,$(DEPS))
+configure: configure-core configure-amazonka $(addprefix configure-,$(DEPS))
 
 configure-%:
 	@make -C $* configure

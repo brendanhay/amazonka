@@ -83,17 +83,14 @@ valuesOf = deep _Value
 
 pair :: ToQuery a => ByteString -> a -> Query -> Query
 pair k v = mappend (Pair k (toQuery v))
-{-# INLINE pair #-}
 
 (=?) :: ToQuery a => ByteString -> a -> Query
 (=?) k v = Pair k (toQuery v)
-{-# INLINE (=?) #-}
 
 toQueryList :: (IsList a, ToQuery (Item a)) => ByteString -> a -> Query
 toQueryList n = mconcat . zipWith (\i v -> n =? (toBS i, v)) idx . toList
   where
     idx = [1..] :: [Int]
-{-# INLINE toQueryList #-}
 
 renderQuery :: Query -> ByteString
 renderQuery = intercalate . sort . enc Nothing
@@ -121,24 +118,19 @@ class ToQuery a where
 
     default toQuery :: ToText a => a -> Query
     toQuery = toQuery . toText
-    {-# INLINE toQuery #-}
 
 instance ToQuery Query where
     toQuery = id
-    {-# INLINE toQuery #-}
 
 instance (ToByteString k, ToQuery v) => ToQuery (k, v) where
     toQuery (k, v) = Pair (toBS k) (toQuery v)
-    {-# INLINE toQuery #-}
 
 instance ToQuery Char where
     toQuery = toQuery . BS.singleton
-    {-# INLINE toQuery #-}
 
 instance ToQuery ByteString where
     toQuery "" = Value Nothing
     toQuery bs = Value (Just bs)
-    {-# INLINE toQuery #-}
 
 instance ToQuery Text    where toQuery = toQuery . Text.encodeUtf8
 instance ToQuery Int     where toQuery = toQuery . toBS
@@ -149,15 +141,12 @@ instance ToQuery Natural where toQuery = toQuery . toBS
 instance ToQuery a => ToQuery (Maybe a) where
     toQuery (Just x) = toQuery x
     toQuery Nothing  = mempty
-    {-# INLINE toQuery #-}
 
 instance ToQuery a => ToQuery [a] where
     toQuery = List . zipWith (\n v -> toBS n =? toQuery v) idx
       where
         idx = [1..] :: [Integer]
-    {-# INLINE toQuery #-}
 
 instance ToQuery Bool where
     toQuery True  = toQuery ("true"  :: ByteString)
     toQuery False = toQuery ("false" :: ByteString)
-    {-# INLINE toQuery #-}

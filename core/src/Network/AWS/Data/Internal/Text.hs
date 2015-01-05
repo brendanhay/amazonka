@@ -47,15 +47,12 @@ import           Numeric.Natural
 
 fromText :: FromText a => Text -> Either String a
 fromText = AText.parseOnly parser
-{-# INLINE fromText #-}
 
 takeCI :: Parser (CI Text)
 takeCI = CI.mk <$> AText.takeText
-{-# INLINE takeCI #-}
 
 matchCI :: Text -> a -> Parser a
 matchCI x y = AText.asciiCI x <* AText.endOfInput >> return y
-{-# INLINE matchCI #-}
 
 class FromText a where
     parser :: Parser a
@@ -70,30 +67,24 @@ instance FromText Double     where parser = AText.rational
 
 instance FromText Bool where
     parser = matchCI "false" False <|> matchCI "true" True
-    {-# INLINE parser #-}
 
 showText :: ToText a => a -> String
 showText = Text.unpack . toText
-{-# INLINE showText #-}
 
 class ToText a where
     toText :: a -> Text
 
 instance (ToText a, ToText b) => ToText (a, b) where
     toText (a, b) = "(" <> toText a <> ", " <> toText b <> ")"
-    {-# INLINE toText #-}
 
 instance ToText a => ToText [a] where
     toText xs = "[" <> Text.intercalate ", " (map toText xs) <> "]"
-    {-# INLINE toText #-}
 
 instance ToText a => ToText (CI a) where
     toText = toText . CI.original
-    {-# INLINE toText #-}
 
 instance ToText (Response a) where
     toText rs = Text.pack . show $ rs { responseBody = () }
-    {-# INLINE toText #-}
 
 instance ToText Text       where toText = id
 instance ToText ByteString where toText = Text.decodeUtf8
@@ -109,8 +100,6 @@ instance ToText (Digest a) where toText = toText . digestToHexByteString
 instance ToText Bool where
     toText True  = "true"
     toText False = "false"
-    {-# INLINE toText #-}
 
 shortText :: Builder -> Text
 shortText = LText.toStrict . Build.toLazyTextWith 32
-{-# INLINE shortText #-}

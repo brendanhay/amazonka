@@ -85,9 +85,9 @@ data ErrorType
       deriving (Eq, Ord, Enum, Show, Generic)
 
 instance FromText ErrorType where
-    parser = takeCI >>= \case
-        "Receiver" -> pure Receiver
-        "Sender"   -> pure Sender
+    parser = takeLowerText >>= \case
+        "receiver" -> pure Receiver
+        "sender"   -> pure Sender
         e          -> fail $ "Failure parsing ErrorType from " ++ show e
 
 instance FromXML ErrorType where

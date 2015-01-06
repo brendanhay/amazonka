@@ -6,7 +6,7 @@ SHELL   := /usr/bin/env bash
 NAME    ?= $(notdir $(CURDIR:a/%=%))
 VERSION ?= $(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(NAME).cabal)
 
-CABAL_INSTALL_DEFARGS ?= -j --disable-documentation --disable-library-coverage
+CABAL_INSTALL_DEFARGS ?= -j --disable-documentation --disable-coverage
 CABAL_SANDBOX_CONFIG  := $(TOP)/cabal.sandbox.config
 
 export CABAL_SANDBOX_CONFIG

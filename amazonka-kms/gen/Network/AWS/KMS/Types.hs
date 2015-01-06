@@ -132,8 +132,8 @@ data KeyUsageType
 instance Hashable KeyUsageType
 
 instance FromText KeyUsageType where
-    parser = takeCI >>= \case
-        "ENCRYPT_DECRYPT" -> pure EncryptDecrypt
+    parser = takeLowerText >>= \case
+        "encrypt_decrypt" -> pure EncryptDecrypt
         e                 -> fail $
             "Failure parsing KeyUsageType from " ++ show e
 
@@ -247,9 +247,9 @@ data DataKeySpec
 instance Hashable DataKeySpec
 
 instance FromText DataKeySpec where
-    parser = takeCI >>= \case
-        "AES_128" -> pure AES128
-        "AES_256" -> pure AES256
+    parser = takeLowerText >>= \case
+        "aes_128" -> pure AES128
+        "aes_256" -> pure AES256
         e         -> fail $
             "Failure parsing DataKeySpec from " ++ show e
 
@@ -459,15 +459,15 @@ data GrantOperation
 instance Hashable GrantOperation
 
 instance FromText GrantOperation where
-    parser = takeCI >>= \case
-        "CreateGrant"                     -> pure GOCreateGrant
-        "Decrypt"                         -> pure GODecrypt
-        "Encrypt"                         -> pure GOEncrypt
-        "GenerateDataKey"                 -> pure GOGenerateDataKey
-        "GenerateDataKeyWithoutPlaintext" -> pure GOGenerateDataKeyWithoutPlaintext
-        "ReEncryptFrom"                   -> pure GOReEncryptFrom
-        "ReEncryptTo"                     -> pure GOReEncryptTo
-        "RetireGrant"                     -> pure GORetireGrant
+    parser = takeLowerText >>= \case
+        "creategrant"                     -> pure GOCreateGrant
+        "decrypt"                         -> pure GODecrypt
+        "encrypt"                         -> pure GOEncrypt
+        "generatedatakey"                 -> pure GOGenerateDataKey
+        "generatedatakeywithoutplaintext" -> pure GOGenerateDataKeyWithoutPlaintext
+        "reencryptfrom"                   -> pure GOReEncryptFrom
+        "reencryptto"                     -> pure GOReEncryptTo
+        "retiregrant"                     -> pure GORetireGrant
         e                                 -> fail $
             "Failure parsing GrantOperation from " ++ show e
 

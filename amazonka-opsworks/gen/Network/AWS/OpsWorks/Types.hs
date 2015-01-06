@@ -568,7 +568,7 @@ data VirtualizationType
 instance Hashable VirtualizationType
 
 instance FromText VirtualizationType where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "hvm"         -> pure Hvm
         "paravirtual" -> pure Paravirtual
         e             -> fail $
@@ -1126,10 +1126,10 @@ data AppAttributesKeys
 instance Hashable AppAttributesKeys
 
 instance FromText AppAttributesKeys where
-    parser = takeCI >>= \case
-        "AutoBundleOnDeploy" -> pure AutoBundleOnDeploy
-        "DocumentRoot"       -> pure DocumentRoot
-        "RailsEnv"           -> pure RailsEnv
+    parser = takeLowerText >>= \case
+        "autobundleondeploy" -> pure AutoBundleOnDeploy
+        "documentroot"       -> pure DocumentRoot
+        "railsenv"           -> pure RailsEnv
         e                    -> fail $
             "Failure parsing AppAttributesKeys from " ++ show e
 
@@ -1312,8 +1312,8 @@ data StackAttributesKeys
 instance Hashable StackAttributesKeys
 
 instance FromText StackAttributesKeys where
-    parser = takeCI >>= \case
-        "Color" -> pure Color
+    parser = takeLowerText >>= \case
+        "color" -> pure Color
         e       -> fail $
             "Failure parsing StackAttributesKeys from " ++ show e
 
@@ -1400,7 +1400,7 @@ data SourceType
 instance Hashable SourceType
 
 instance FromText SourceType where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "archive" -> pure Archive
         "git"     -> pure Git
         "s3"      -> pure S3
@@ -1630,7 +1630,7 @@ data LayerType
 instance Hashable LayerType
 
 instance FromText LayerType where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "custom"            -> pure Custom
         "db-master"         -> pure DbMaster
         "java-app"          -> pure JavaApp
@@ -2149,7 +2149,7 @@ data AutoScalingType
 instance Hashable AutoScalingType
 
 instance FromText AutoScalingType where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "load"  -> pure Load
         "timer" -> pure Timer
         e       -> fail $
@@ -2315,7 +2315,7 @@ data Architecture
 instance Hashable Architecture
 
 instance FromText Architecture where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "i386"   -> pure I386
         "x86_64" -> pure X8664
         e        -> fail $
@@ -2405,31 +2405,31 @@ data LayerAttributesKeys
 instance Hashable LayerAttributesKeys
 
 instance FromText LayerAttributesKeys where
-    parser = takeCI >>= \case
-        "BundlerVersion"              -> pure BundlerVersion
-        "EnableHaproxyStats"          -> pure EnableHaproxyStats
-        "GangliaPassword"             -> pure GangliaPassword
-        "GangliaUrl"                  -> pure GangliaUrl
-        "GangliaUser"                 -> pure GangliaUser
-        "HaproxyHealthCheckMethod"    -> pure HaproxyHealthCheckMethod
-        "HaproxyHealthCheckUrl"       -> pure HaproxyHealthCheckUrl
-        "HaproxyStatsPassword"        -> pure HaproxyStatsPassword
-        "HaproxyStatsUrl"             -> pure HaproxyStatsUrl
-        "HaproxyStatsUser"            -> pure HaproxyStatsUser
-        "JavaAppServer"               -> pure JavaAppServer
-        "JavaAppServerVersion"        -> pure JavaAppServerVersion
-        "Jvm"                         -> pure Jvm
-        "JvmOptions"                  -> pure JvmOptions
-        "JvmVersion"                  -> pure JvmVersion
-        "ManageBundler"               -> pure ManageBundler
-        "MemcachedMemory"             -> pure MemcachedMemory
-        "MysqlRootPassword"           -> pure MysqlRootPassword
-        "MysqlRootPasswordUbiquitous" -> pure MysqlRootPasswordUbiquitous
-        "NodejsVersion"               -> pure NodejsVersion
-        "PassengerVersion"            -> pure PassengerVersion
-        "RailsStack"                  -> pure RailsStack
-        "RubyVersion"                 -> pure RubyVersion
-        "RubygemsVersion"             -> pure RubygemsVersion
+    parser = takeLowerText >>= \case
+        "bundlerversion"              -> pure BundlerVersion
+        "enablehaproxystats"          -> pure EnableHaproxyStats
+        "gangliapassword"             -> pure GangliaPassword
+        "gangliaurl"                  -> pure GangliaUrl
+        "gangliauser"                 -> pure GangliaUser
+        "haproxyhealthcheckmethod"    -> pure HaproxyHealthCheckMethod
+        "haproxyhealthcheckurl"       -> pure HaproxyHealthCheckUrl
+        "haproxystatspassword"        -> pure HaproxyStatsPassword
+        "haproxystatsurl"             -> pure HaproxyStatsUrl
+        "haproxystatsuser"            -> pure HaproxyStatsUser
+        "javaappserver"               -> pure JavaAppServer
+        "javaappserverversion"        -> pure JavaAppServerVersion
+        "jvm"                         -> pure Jvm
+        "jvmoptions"                  -> pure JvmOptions
+        "jvmversion"                  -> pure JvmVersion
+        "managebundler"               -> pure ManageBundler
+        "memcachedmemory"             -> pure MemcachedMemory
+        "mysqlrootpassword"           -> pure MysqlRootPassword
+        "mysqlrootpasswordubiquitous" -> pure MysqlRootPasswordUbiquitous
+        "nodejsversion"               -> pure NodejsVersion
+        "passengerversion"            -> pure PassengerVersion
+        "railsstack"                  -> pure RailsStack
+        "rubyversion"                 -> pure RubyVersion
+        "rubygemsversion"             -> pure RubygemsVersion
         e                             -> fail $
             "Failure parsing LayerAttributesKeys from " ++ show e
 
@@ -3150,7 +3150,7 @@ data RootDeviceType
 instance Hashable RootDeviceType
 
 instance FromText RootDeviceType where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "ebs"            -> pure Ebs
         "instance-store" -> pure InstanceStore
         e                -> fail $
@@ -3594,7 +3594,7 @@ data DeploymentCommandName
 instance Hashable DeploymentCommandName
 
 instance FromText DeploymentCommandName where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "deploy"                  -> pure Deploy
         "execute_recipes"         -> pure ExecuteRecipes
         "install_dependencies"    -> pure InstallDependencies
@@ -4372,7 +4372,7 @@ data AppType
 instance Hashable AppType
 
 instance FromText AppType where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "java"   -> pure Java
         "nodejs" -> pure Nodejs
         "other"  -> pure Other

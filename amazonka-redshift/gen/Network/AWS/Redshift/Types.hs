@@ -1689,7 +1689,7 @@ data SourceType
 instance Hashable SourceType
 
 instance FromText SourceType where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "cluster"                 -> pure STCluster
         "cluster-parameter-group" -> pure STClusterParameterGroup
         "cluster-security-group"  -> pure STClusterSecurityGroup

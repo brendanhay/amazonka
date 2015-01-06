@@ -280,10 +280,10 @@ data AssignmentStatusType
 instance Hashable AssignmentStatusType
 
 instance FromText AssignmentStatusType where
-    parser = takeCI >>= \case
-        "Any"        -> pure Any
-        "Assigned"   -> pure Assigned
-        "Unassigned" -> pure Unassigned
+    parser = takeLowerText >>= \case
+        "any"        -> pure Any
+        "assigned"   -> pure Assigned
+        "unassigned" -> pure Unassigned
         e            -> fail $
             "Failure parsing AssignmentStatusType from " ++ show e
 
@@ -760,7 +760,7 @@ data ReportFormatType
 instance Hashable ReportFormatType
 
 instance FromText ReportFormatType where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "text/csv" -> pure TextCsv
         e          -> fail $
             "Failure parsing ReportFormatType from " ++ show e
@@ -951,10 +951,10 @@ data EntityType
 instance Hashable EntityType
 
 instance FromText EntityType where
-    parser = takeCI >>= \case
-        "Group" -> pure ETGroup
-        "Role"  -> pure ETRole
-        "User"  -> pure ETUser
+    parser = takeLowerText >>= \case
+        "group" -> pure ETGroup
+        "role"  -> pure ETRole
+        "user"  -> pure ETUser
         e       -> fail $
             "Failure parsing EntityType from " ++ show e
 
@@ -991,21 +991,21 @@ data SummaryKeyType
 instance Hashable SummaryKeyType
 
 instance FromText SummaryKeyType where
-    parser = takeCI >>= \case
-        "AccessKeysPerUserQuota"          -> pure AccessKeysPerUserQuota
-        "AccountMFAEnabled"               -> pure AccountMFAEnabled
-        "GroupPolicySizeQuota"            -> pure GroupPolicySizeQuota
-        "Groups"                          -> pure Groups
-        "GroupsPerUserQuota"              -> pure GroupsPerUserQuota
-        "GroupsQuota"                     -> pure GroupsQuota
-        "MFADevices"                      -> pure MFADevices
-        "MFADevicesInUse"                 -> pure MFADevicesInUse
-        "ServerCertificates"              -> pure ServerCertificates
-        "ServerCertificatesQuota"         -> pure ServerCertificatesQuota
-        "SigningCertificatesPerUserQuota" -> pure SigningCertificatesPerUserQuota
-        "UserPolicySizeQuota"             -> pure UserPolicySizeQuota
-        "Users"                           -> pure Users
-        "UsersQuota"                      -> pure UsersQuota
+    parser = takeLowerText >>= \case
+        "accesskeysperuserquota"          -> pure AccessKeysPerUserQuota
+        "accountmfaenabled"               -> pure AccountMFAEnabled
+        "grouppolicysizequota"            -> pure GroupPolicySizeQuota
+        "groups"                          -> pure Groups
+        "groupsperuserquota"              -> pure GroupsPerUserQuota
+        "groupsquota"                     -> pure GroupsQuota
+        "mfadevices"                      -> pure MFADevices
+        "mfadevicesinuse"                 -> pure MFADevicesInUse
+        "servercertificates"              -> pure ServerCertificates
+        "servercertificatesquota"         -> pure ServerCertificatesQuota
+        "signingcertificatesperuserquota" -> pure SigningCertificatesPerUserQuota
+        "userpolicysizequota"             -> pure UserPolicySizeQuota
+        "users"                           -> pure Users
+        "usersquota"                      -> pure UsersQuota
         e                                 -> fail $
             "Failure parsing SummaryKeyType from " ++ show e
 
@@ -1123,10 +1123,10 @@ data ReportStateType
 instance Hashable ReportStateType
 
 instance FromText ReportStateType where
-    parser = takeCI >>= \case
-        "COMPLETE"   -> pure Complete
-        "INPROGRESS" -> pure Inprogress
-        "STARTED"    -> pure Started
+    parser = takeLowerText >>= \case
+        "complete"   -> pure Complete
+        "inprogress" -> pure Inprogress
+        "started"    -> pure Started
         e            -> fail $
             "Failure parsing ReportStateType from " ++ show e
 
@@ -1287,9 +1287,9 @@ data StatusType
 instance Hashable StatusType
 
 instance FromText StatusType where
-    parser = takeCI >>= \case
-        "Active"   -> pure Active
-        "Inactive" -> pure Inactive
+    parser = takeLowerText >>= \case
+        "active"   -> pure Active
+        "inactive" -> pure Inactive
         e          -> fail $
             "Failure parsing StatusType from " ++ show e
 

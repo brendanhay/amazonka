@@ -619,7 +619,7 @@ data SSLSupportMethod
 instance Hashable SSLSupportMethod
 
 instance FromText SSLSupportMethod where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "sni-only" -> pure SniOnly
         "vip"      -> pure Vip
         e          -> fail $
@@ -824,7 +824,7 @@ data ViewerProtocolPolicy
 instance Hashable ViewerProtocolPolicy
 
 instance FromText ViewerProtocolPolicy where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "allow-all"         -> pure AllowAll
         "https-only"        -> pure HttpsOnly
         "redirect-to-https" -> pure RedirectToHttps
@@ -1168,7 +1168,7 @@ data OriginProtocolPolicy
 instance Hashable OriginProtocolPolicy
 
 instance FromText OriginProtocolPolicy where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "http-only"    -> pure HttpOnly
         "match-viewer" -> pure MatchViewer
         e              -> fail $
@@ -2160,10 +2160,10 @@ data PriceClass
 instance Hashable PriceClass
 
 instance FromText PriceClass where
-    parser = takeCI >>= \case
-        "PriceClass_100" -> pure PriceClass100
-        "PriceClass_200" -> pure PriceClass200
-        "PriceClass_All" -> pure PriceClassAll
+    parser = takeLowerText >>= \case
+        "priceclass_100" -> pure PriceClass100
+        "priceclass_200" -> pure PriceClass200
+        "priceclass_all" -> pure PriceClassAll
         e                -> fail $
             "Failure parsing PriceClass from " ++ show e
 
@@ -2631,14 +2631,14 @@ data Method
 instance Hashable Method
 
 instance FromText Method where
-    parser = takeCI >>= \case
-        "DELETE"  -> pure Delete'
-        "GET"     -> pure Get
-        "HEAD"    -> pure Head'
-        "OPTIONS" -> pure Options
-        "PATCH"   -> pure Patch
-        "POST"    -> pure Post
-        "PUT"     -> pure Put
+    parser = takeLowerText >>= \case
+        "delete"  -> pure Delete'
+        "get"     -> pure Get
+        "head"    -> pure Head'
+        "options" -> pure Options
+        "patch"   -> pure Patch
+        "post"    -> pure Post
+        "put"     -> pure Put
         e         -> fail $
             "Failure parsing Method from " ++ show e
 
@@ -2670,9 +2670,9 @@ data MinimumProtocolVersion
 instance Hashable MinimumProtocolVersion
 
 instance FromText MinimumProtocolVersion where
-    parser = takeCI >>= \case
-        "SSLv3" -> pure SSLv3
-        "TLSv1" -> pure TLSv1
+    parser = takeLowerText >>= \case
+        "sslv3" -> pure SSLv3
+        "tlsv1" -> pure TLSv1
         e       -> fail $
             "Failure parsing MinimumProtocolVersion from " ++ show e
 
@@ -2805,7 +2805,7 @@ data ItemSelection
 instance Hashable ItemSelection
 
 instance FromText ItemSelection where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "all"       -> pure All
         "none"      -> pure None
         "whitelist" -> pure Whitelist
@@ -3693,7 +3693,7 @@ data GeoRestrictionType
 instance Hashable GeoRestrictionType
 
 instance FromText GeoRestrictionType where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "blacklist" -> pure GRTBlacklist
         "none"      -> pure GRTNone
         "whitelist" -> pure GRTWhitelist

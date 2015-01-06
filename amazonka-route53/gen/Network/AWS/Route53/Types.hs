@@ -561,7 +561,7 @@ data VPCRegion
 instance Hashable VPCRegion
 
 instance FromText VPCRegion where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "ap-northeast-1" -> pure ApNortheast1
         "ap-southeast-1" -> pure ApSoutheast1
         "ap-southeast-2" -> pure ApSoutheast2
@@ -614,17 +614,17 @@ data RecordType
 instance Hashable RecordType
 
 instance FromText RecordType where
-    parser = takeCI >>= \case
-        "A"     -> pure A
-        "AAAA"  -> pure AAAA
-        "CNAME" -> pure CNAME
-        "MX"    -> pure MX
-        "NS"    -> pure NS
-        "PTR"   -> pure PTR
-        "SOA"   -> pure SOA
-        "SPF"   -> pure SPF
-        "SRV"   -> pure SRV
-        "TXT"   -> pure TXT
+    parser = takeLowerText >>= \case
+        "a"     -> pure A
+        "aaaa"  -> pure AAAA
+        "cname" -> pure CNAME
+        "mx"    -> pure MX
+        "ns"    -> pure NS
+        "ptr"   -> pure PTR
+        "soa"   -> pure SOA
+        "spf"   -> pure SPF
+        "srv"   -> pure SRV
+        "txt"   -> pure TXT
         e       -> fail $
             "Failure parsing RecordType from " ++ show e
 
@@ -660,10 +660,10 @@ data ChangeAction
 instance Hashable ChangeAction
 
 instance FromText ChangeAction where
-    parser = takeCI >>= \case
-        "CREATE" -> pure Create
-        "DELETE" -> pure Delete'
-        "UPSERT" -> pure Upsert
+    parser = takeLowerText >>= \case
+        "create" -> pure Create
+        "delete" -> pure Delete'
+        "upsert" -> pure Upsert
         e        -> fail $
             "Failure parsing ChangeAction from " ++ show e
 
@@ -691,7 +691,7 @@ data TagResourceType
 instance Hashable TagResourceType
 
 instance FromText TagResourceType where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "healthcheck" -> pure Healthcheck
         "hostedzone"  -> pure Hostedzone
         e             -> fail $
@@ -884,9 +884,9 @@ data Failover
 instance Hashable Failover
 
 instance FromText Failover where
-    parser = takeCI >>= \case
-        "PRIMARY"   -> pure Primary
-        "SECONDARY" -> pure Secondary
+    parser = takeLowerText >>= \case
+        "primary"   -> pure Primary
+        "secondary" -> pure Secondary
         e           -> fail $
             "Failure parsing Failover from " ++ show e
 
@@ -1052,9 +1052,9 @@ data ChangeStatus
 instance Hashable ChangeStatus
 
 instance FromText ChangeStatus where
-    parser = takeCI >>= \case
-        "INSYNC"  -> pure Insync
-        "PENDING" -> pure Pending
+    parser = takeLowerText >>= \case
+        "insync"  -> pure Insync
+        "pending" -> pure Pending
         e         -> fail $
             "Failure parsing ChangeStatus from " ++ show e
 
@@ -1165,12 +1165,12 @@ data HealthCheckType
 instance Hashable HealthCheckType
 
 instance FromText HealthCheckType where
-    parser = takeCI >>= \case
-        "HTTP"            -> pure Http
-        "HTTP_STR_MATCH"  -> pure HttpStrMatch
-        "HTTPS"           -> pure Https
-        "HTTPS_STR_MATCH" -> pure HttpsStrMatch
-        "TCP"             -> pure Tcp
+    parser = takeLowerText >>= \case
+        "http"            -> pure Http
+        "http_str_match"  -> pure HttpStrMatch
+        "https"           -> pure Https
+        "https_str_match" -> pure HttpsStrMatch
+        "tcp"             -> pure Tcp
         e                 -> fail $
             "Failure parsing HealthCheckType from " ++ show e
 

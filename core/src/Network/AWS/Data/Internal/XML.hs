@@ -75,42 +75,33 @@ encodeXML x = renderLBS def d
 
 parseXMLText :: FromText a => String -> [Node] -> Either String a
 parseXMLText n = withContent n fromText
-{-# INLINE parseXMLText #-}
 
 toXMLText :: ToText a => a -> [Node]
 toXMLText x = [NodeContent (toText x)]
-{-# INLINE toXMLText #-}
 
 (.@) :: FromXML a => [Node] -> Text -> Either String a
 ns .@ n = findElement n ns >>= parseXML
-{-# INLINE (.@) #-}
 
 (.@?) :: FromXML a => [Node] -> Text -> Either String (Maybe a)
 ns .@? n =
     case findElement n ns of
         Left _   -> Right Nothing
         Right xs -> parseXML xs
-{-# INLINE (.@?) #-}
 
 (.!@) :: Either String (Maybe a) -> a -> Either String a
 f .!@ x = fromMaybe x <$> f
-{-# INLINE (.!@) #-}
 
 namespaced :: Text -> Text -> [Node] -> Element
 namespaced g l = element (Name l (Just g) Nothing)
-{-# INLINE namespaced #-}
 
 element :: Name -> [Node] -> Element
 element n = Element n mempty
-{-# INLINE element #-}
 
 nodes :: Name -> [Node] -> [Node]
 nodes n ns = [NodeElement (element n ns)]
-{-# INLINE nodes #-}
 
 (=@) :: ToXML a => Name -> a -> Node
 n =@ x = NodeElement (element n (toXML x))
-{-# INLINE (=@) #-}
 
 -- | /Caution:/ This is for use with types which are 'flattened' in
 -- AWS service model terminology. It is applied by the generator/templating
@@ -119,7 +110,6 @@ unsafeToXML :: (Show a, ToXML a) => a -> Node
 unsafeToXML x =
     fromMaybe (error $ "Failed to unflatten node-list for: " ++ show x)
               (listToMaybe (toXML x))
-{-# INLINE unsafeToXML #-}
 
 withContent :: String -> (Text -> Either String a) -> [Node] -> Either String a
 withContent n f = withNode n (join . fmap f . g)
@@ -129,18 +119,15 @@ withContent n f = withNode n (join . fmap f . g)
     g (NodeElement e)
         = Left $ "unexpected element " ++ show (elementName e) ++ " when expecting node content: " ++ n
     g _ = Left $ "unexpected element, when expecting node content: " ++ n
-{-# INLINE withContent #-}
 
 withNode :: String -> (Node -> Either String a) -> [Node] -> Either String a
 withNode n f = \case
     [x] -> f x
     []  -> Left $ "empty node list, when expecting a single node: " ++ n
     _   -> Left $ "encountered node list, when expecting a single node: " ++ n
-{-# INLINE withNode #-}
 
 withElement :: Text -> ([Node] -> Either String a) -> [Node] -> Either String a
 withElement n f = join . fmap f . findElement n
-{-# INLINE withElement #-}
 
 findElement :: Text -> [Node] -> Either String [Node]
 findElement n ns = maybe err Right . listToMaybe $ mapMaybe (childNodes n) ns
@@ -149,18 +136,15 @@ findElement n ns = maybe err Right . listToMaybe $ mapMaybe (childNodes n) ns
         ++ show n
         ++ " in nodes "
         ++ show (mapMaybe localName ns)
-{-# INLINE findElement #-}
 
 childNodes :: Text -> Node -> Maybe [Node]
 childNodes n (NodeElement e)
     | nameLocalName (elementName e) == n = Just (elementNodes e)
 childNodes _ _ = Nothing
-{-# INLINE childNodes #-}
 
 localName :: Node -> Maybe Text
 localName (NodeElement e) = Just (nameLocalName (elementName e))
 localName _               = Nothing
-{-# INLINE localName #-}
 
 class FromXML a where
     parseXML :: [Node] -> Either String a
@@ -168,7 +152,6 @@ class FromXML a where
 instance FromXML a => FromXML (Maybe a) where
     parseXML [] = pure Nothing
     parseXML ns = Just <$> parseXML ns
-    {-# INLINE parseXML #-}
 
 instance FromXML Text    where parseXML = parseXMLText "Text"
 instance FromXML Int     where parseXML = parseXMLText "Int"
@@ -185,12 +168,10 @@ class ToXML a where
 
     default toXML :: ToXMLRoot a => a -> [Node]
     toXML = (:[]) . NodeElement . toXMLRoot
-    {-# INLINE toXML #-}
 
 instance ToXML a => ToXML (Maybe a) where
     toXML (Just x) = toXML x
     toXML Nothing  = []
-    {-# INLINE toXML #-}
 
 instance ToXML Text    where toXML = toXMLText
 instance ToXML Int     where toXML = toXMLText

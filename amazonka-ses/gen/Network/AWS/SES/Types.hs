@@ -424,9 +424,9 @@ data IdentityType
 instance Hashable IdentityType
 
 instance FromText IdentityType where
-    parser = takeCI >>= \case
-        "Domain"       -> pure ITDomain
-        "EmailAddress" -> pure ITEmailAddress
+    parser = takeLowerText >>= \case
+        "domain"       -> pure ITDomain
+        "emailaddress" -> pure ITEmailAddress
         e              -> fail $
             "Failure parsing IdentityType from " ++ show e
 
@@ -596,10 +596,10 @@ data NotificationType
 instance Hashable NotificationType
 
 instance FromText NotificationType where
-    parser = takeCI >>= \case
-        "Bounce"    -> pure Bounce
-        "Complaint" -> pure Complaint
-        "Delivery"  -> pure Delivery
+    parser = takeLowerText >>= \case
+        "bounce"    -> pure Bounce
+        "complaint" -> pure Complaint
+        "delivery"  -> pure Delivery
         e           -> fail $
             "Failure parsing NotificationType from " ++ show e
 
@@ -627,12 +627,12 @@ data VerificationStatus
 instance Hashable VerificationStatus
 
 instance FromText VerificationStatus where
-    parser = takeCI >>= \case
-        "Failed"           -> pure Failed
-        "NotStarted"       -> pure NotStarted
-        "Pending"          -> pure Pending
-        "Success"          -> pure Success
-        "TemporaryFailure" -> pure TemporaryFailure
+    parser = takeLowerText >>= \case
+        "failed"           -> pure Failed
+        "notstarted"       -> pure NotStarted
+        "pending"          -> pure Pending
+        "success"          -> pure Success
+        "temporaryfailure" -> pure TemporaryFailure
         e                  -> fail $
             "Failure parsing VerificationStatus from " ++ show e
 

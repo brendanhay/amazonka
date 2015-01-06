@@ -470,11 +470,11 @@ data StreamStatus
 instance Hashable StreamStatus
 
 instance FromText StreamStatus where
-    parser = takeCI >>= \case
-        "ACTIVE"   -> pure Active
-        "CREATING" -> pure Creating
-        "DELETING" -> pure Deleting
-        "UPDATING" -> pure Updating
+    parser = takeLowerText >>= \case
+        "active"   -> pure Active
+        "creating" -> pure Creating
+        "deleting" -> pure Deleting
+        "updating" -> pure Updating
         e          -> fail $
             "Failure parsing StreamStatus from " ++ show e
 
@@ -643,11 +643,11 @@ data ShardIteratorType
 instance Hashable ShardIteratorType
 
 instance FromText ShardIteratorType where
-    parser = takeCI >>= \case
-        "AFTER_SEQUENCE_NUMBER" -> pure AfterSequenceNumber
-        "AT_SEQUENCE_NUMBER"    -> pure AtSequenceNumber
-        "LATEST"                -> pure Latest
-        "TRIM_HORIZON"          -> pure TrimHorizon
+    parser = takeLowerText >>= \case
+        "after_sequence_number" -> pure AfterSequenceNumber
+        "at_sequence_number"    -> pure AtSequenceNumber
+        "latest"                -> pure Latest
+        "trim_horizon"          -> pure TrimHorizon
         e                       -> fail $
             "Failure parsing ShardIteratorType from " ++ show e
 

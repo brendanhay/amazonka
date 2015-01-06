@@ -105,7 +105,7 @@
         "url": "http://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Key Management Service",
-        "version": "0.1.3",
+        "version": "0.1.4",
         "description": "Amazon Key Management Service (KMS) is a managed service that makes it easy\nfor you to create and control the encryption keys used to encrypt your data,\nand uses Hardware Security Modules (HSMs) to protect the security of your\nkeys. Amazon Key Management Service is integrated with other Amazon services\nincluding Amazon EBS, Amazon S3, and Amazon Redshift. Amazon Key Management\nService is also integrated with Amazon CloudTrail to provide you with logs of\nall key usage to help meet your regulatory and compliance needs."
     },
     "types": {

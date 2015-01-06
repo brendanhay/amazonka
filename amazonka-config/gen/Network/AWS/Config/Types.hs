@@ -424,9 +424,9 @@ data ChronologicalOrder
 instance Hashable ChronologicalOrder
 
 instance FromText ChronologicalOrder where
-    parser = takeCI >>= \case
-        "Forward" -> pure Forward
-        "Reverse" -> pure Reverse
+    parser = takeLowerText >>= \case
+        "forward" -> pure Forward
+        "reverse" -> pure Reverse
         e         -> fail $
             "Failure parsing ChronologicalOrder from " ++ show e
 
@@ -465,21 +465,21 @@ data ResourceType
 instance Hashable ResourceType
 
 instance FromText ResourceType where
-    parser = takeCI >>= \case
-        "AWS::CloudTrail::Trail"     -> pure AWSCloudTrailTrail
-        "AWS::EC2::CustomerGateway"  -> pure AWSEC2CustomerGateway
-        "AWS::EC2::EIP"              -> pure AWSEC2EIP
-        "AWS::EC2::Instance"         -> pure AWSEC2Instance
-        "AWS::EC2::InternetGateway"  -> pure AWSEC2InternetGateway
-        "AWS::EC2::NetworkAcl"       -> pure AWSEC2NetworkAcl
-        "AWS::EC2::NetworkInterface" -> pure AWSEC2NetworkInterface
-        "AWS::EC2::RouteTable"       -> pure AWSEC2RouteTable
-        "AWS::EC2::SecurityGroup"    -> pure AWSEC2SecurityGroup
-        "AWS::EC2::Subnet"           -> pure AWSEC2Subnet
-        "AWS::EC2::VPC"              -> pure AWSEC2VPC
-        "AWS::EC2::VPNConnection"    -> pure AWSEC2VPNConnection
-        "AWS::EC2::VPNGateway"       -> pure AWSEC2VPNGateway
-        "AWS::EC2::Volume"           -> pure AWSEC2Volume
+    parser = takeLowerText >>= \case
+        "aws::cloudtrail::trail"     -> pure AWSCloudTrailTrail
+        "aws::ec2::customergateway"  -> pure AWSEC2CustomerGateway
+        "aws::ec2::eip"              -> pure AWSEC2EIP
+        "aws::ec2::instance"         -> pure AWSEC2Instance
+        "aws::ec2::internetgateway"  -> pure AWSEC2InternetGateway
+        "aws::ec2::networkacl"       -> pure AWSEC2NetworkAcl
+        "aws::ec2::networkinterface" -> pure AWSEC2NetworkInterface
+        "aws::ec2::routetable"       -> pure AWSEC2RouteTable
+        "aws::ec2::securitygroup"    -> pure AWSEC2SecurityGroup
+        "aws::ec2::subnet"           -> pure AWSEC2Subnet
+        "aws::ec2::vpc"              -> pure AWSEC2VPC
+        "aws::ec2::vpnconnection"    -> pure AWSEC2VPNConnection
+        "aws::ec2::vpngateway"       -> pure AWSEC2VPNGateway
+        "aws::ec2::volume"           -> pure AWSEC2Volume
         e                            -> fail $
             "Failure parsing ResourceType from " ++ show e
 
@@ -708,9 +708,9 @@ data DeliveryStatus
 instance Hashable DeliveryStatus
 
 instance FromText DeliveryStatus where
-    parser = takeCI >>= \case
-        "Failure" -> pure Failure
-        "Success" -> pure Success
+    parser = takeLowerText >>= \case
+        "failure" -> pure Failure
+        "success" -> pure Success
         e         -> fail $
             "Failure parsing DeliveryStatus from " ++ show e
 
@@ -907,11 +907,11 @@ data ConfigurationItemStatus
 instance Hashable ConfigurationItemStatus
 
 instance FromText ConfigurationItemStatus where
-    parser = takeCI >>= \case
-        "Deleted"    -> pure Deleted
-        "Discovered" -> pure Discovered
-        "Failed"     -> pure Failed
-        "Ok"         -> pure Ok
+    parser = takeLowerText >>= \case
+        "deleted"    -> pure Deleted
+        "discovered" -> pure Discovered
+        "failed"     -> pure Failed
+        "ok"         -> pure Ok
         e            -> fail $
             "Failure parsing ConfigurationItemStatus from " ++ show e
 
@@ -982,10 +982,10 @@ data RecorderStatus
 instance Hashable RecorderStatus
 
 instance FromText RecorderStatus where
-    parser = takeCI >>= \case
-        "Failure" -> pure RSFailure
-        "Pending" -> pure RSPending
-        "Success" -> pure RSSuccess
+    parser = takeLowerText >>= \case
+        "failure" -> pure RSFailure
+        "pending" -> pure RSPending
+        "success" -> pure RSSuccess
         e         -> fail $
             "Failure parsing RecorderStatus from " ++ show e
 

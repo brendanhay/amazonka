@@ -6,19 +6,21 @@ SHELL   := /usr/bin/env bash
 NAME    ?= $(notdir $(CURDIR:a/%=%))
 VERSION ?= $(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(NAME).cabal)
 
-CABAL_SANDBOX_CONFIG := $(TOP)/cabal.sandbox.config
+CABAL_INSTALL_DEFARGS ?= -j --disable-documentation --disable-library-coverage
+CABAL_SANDBOX_CONFIG  := $(TOP)/cabal.sandbox.config
 
 export CABAL_SANDBOX_CONFIG
 
 build:
 	cabal build -j
 
-install: add-sources
-	cabal install -j \
- --disable-documentation \
- --disable-library-coverage \
+deps: add-sources
+	cabal install $(CABAL_INSTALL_DEFARGS) \
  --only-dependencies \
  --force-reinstalls # https://github.com/haskell/cabal/issues/2101
+
+install: add-sources
+	cabal install $(CABAL_INSTALL_DEFARGS)
 
 add-sources:
 	cabal sandbox add-source $(TOP)/core

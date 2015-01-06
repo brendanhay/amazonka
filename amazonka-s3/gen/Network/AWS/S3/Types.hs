@@ -480,12 +480,12 @@ data Event
 instance Hashable Event
 
 instance FromText Event where
-    parser = takeText >>= \case
-        "s3:ObjectCreated:CompleteMultipartUpload" -> pure S3ObjectCreatedCompleteMultipartUpload
-        "s3:ObjectCreated:Copy"                    -> pure S3ObjectCreatedCopy
-        "s3:ObjectCreated:Post"                    -> pure S3ObjectCreatedPost
-        "s3:ObjectCreated:Put"                     -> pure S3ObjectCreatedPut
-        "s3:ReducedRedundancyLostObject"           -> pure S3ReducedRedundancyLostObject
+    parser = takeLowerText >>= \case
+        "s3:objectcreated:completemultipartupload" -> pure S3ObjectCreatedCompleteMultipartUpload
+        "s3:objectcreated:copy"                    -> pure S3ObjectCreatedCopy
+        "s3:objectcreated:post"                    -> pure S3ObjectCreatedPost
+        "s3:objectcreated:put"                     -> pure S3ObjectCreatedPut
+        "s3:reducedredundancylostobject"           -> pure S3ReducedRedundancyLostObject
         e                                          -> fail $
             "Failure parsing Event from " ++ show e
 
@@ -666,9 +666,9 @@ data ExpirationStatus
 instance Hashable ExpirationStatus
 
 instance FromText ExpirationStatus where
-    parser = takeText >>= \case
-        "Disabled" -> pure Disabled
-        "Enabled"  -> pure Enabled
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "enabled"  -> pure Enabled
         e          -> fail $
             "Failure parsing ExpirationStatus from " ++ show e
 
@@ -835,10 +835,10 @@ data ObjectStorageClass
 instance Hashable ObjectStorageClass
 
 instance FromText ObjectStorageClass where
-    parser = takeText >>= \case
-        "GLACIER"            -> pure Glacier
-        "REDUCED_REDUNDANCY" -> pure ReducedRedundancy
-        "STANDARD"           -> pure Standard
+    parser = takeLowerText >>= \case
+        "glacier"            -> pure Glacier
+        "reduced_redundancy" -> pure ReducedRedundancy
+        "standard"           -> pure Standard
         e                    -> fail $
             "Failure parsing ObjectStorageClass from " ++ show e
 
@@ -866,9 +866,9 @@ data MetadataDirective
 instance Hashable MetadataDirective
 
 instance FromText MetadataDirective where
-    parser = takeText >>= \case
-        "COPY"    -> pure Copy
-        "REPLACE" -> pure Replace
+    parser = takeLowerText >>= \case
+        "copy"    -> pure Copy
+        "replace" -> pure Replace
         e         -> fail $
             "Failure parsing MetadataDirective from " ++ show e
 
@@ -1086,7 +1086,7 @@ data ObjectCannedACL
 instance Hashable ObjectCannedACL
 
 instance FromText ObjectCannedACL where
-    parser = takeText >>= \case
+    parser = takeLowerText >>= \case
         "authenticated-read"        -> pure AuthenticatedRead
         "bucket-owner-full-control" -> pure BucketOwnerFullControl
         "bucket-owner-read"         -> pure BucketOwnerRead
@@ -1123,9 +1123,9 @@ data BucketVersioningStatus
 instance Hashable BucketVersioningStatus
 
 instance FromText BucketVersioningStatus where
-    parser = takeText >>= \case
-        "Enabled"   -> pure BVSEnabled
-        "Suspended" -> pure BVSSuspended
+    parser = takeLowerText >>= \case
+        "enabled"   -> pure BVSEnabled
+        "suspended" -> pure BVSSuspended
         e           -> fail $
             "Failure parsing BucketVersioningStatus from " ++ show e
 
@@ -1207,8 +1207,8 @@ data ObjectVersionStorageClass
 instance Hashable ObjectVersionStorageClass
 
 instance FromText ObjectVersionStorageClass where
-    parser = takeText >>= \case
-        "STANDARD" -> pure OVSCStandard
+    parser = takeLowerText >>= \case
+        "standard" -> pure OVSCStandard
         e          -> fail $
             "Failure parsing ObjectVersionStorageClass from " ++ show e
 
@@ -1270,7 +1270,7 @@ data EncodingType
 instance Hashable EncodingType
 
 instance FromText EncodingType where
-    parser = takeText >>= \case
+    parser = takeLowerText >>= \case
         "url" -> pure Url
         e     -> fail $
             "Failure parsing EncodingType from " ++ show e
@@ -1623,7 +1623,7 @@ data Protocol
 instance Hashable Protocol
 
 instance FromText Protocol where
-    parser = takeText >>= \case
+    parser = takeLowerText >>= \case
         "http"  -> pure Http
         "https" -> pure Https
         e       -> fail $
@@ -1989,9 +1989,9 @@ data StorageClass
 instance Hashable StorageClass
 
 instance FromText StorageClass where
-    parser = takeText >>= \case
-        "REDUCED_REDUNDANCY" -> pure SCReducedRedundancy
-        "STANDARD"           -> pure SCStandard
+    parser = takeLowerText >>= \case
+        "reduced_redundancy" -> pure SCReducedRedundancy
+        "standard"           -> pure SCStandard
         e                    -> fail $
             "Failure parsing StorageClass from " ++ show e
 
@@ -2152,9 +2152,9 @@ data MFADeleteStatus
 instance Hashable MFADeleteStatus
 
 instance FromText MFADeleteStatus where
-    parser = takeText >>= \case
-        "Disabled" -> pure MFADSDisabled
-        "Enabled"  -> pure MFADSEnabled
+    parser = takeLowerText >>= \case
+        "disabled" -> pure MFADSDisabled
+        "enabled"  -> pure MFADSEnabled
         e          -> fail $
             "Failure parsing MFADeleteStatus from " ++ show e
 
@@ -2181,9 +2181,9 @@ data Payer
 instance Hashable Payer
 
 instance FromText Payer where
-    parser = takeText >>= \case
-        "BucketOwner" -> pure BucketOwner
-        "Requester"   -> pure Requester
+    parser = takeLowerText >>= \case
+        "bucketowner" -> pure BucketOwner
+        "requester"   -> pure Requester
         e             -> fail $
             "Failure parsing Payer from " ++ show e
 
@@ -2290,10 +2290,10 @@ data BucketLogsPermission
 instance Hashable BucketLogsPermission
 
 instance FromText BucketLogsPermission where
-    parser = takeText >>= \case
-        "FULL_CONTROL" -> pure FullControl
-        "READ"         -> pure Read
-        "WRITE"        -> pure Write
+    parser = takeLowerText >>= \case
+        "full_control" -> pure FullControl
+        "read"         -> pure Read
+        "write"        -> pure Write
         e              -> fail $
             "Failure parsing BucketLogsPermission from " ++ show e
 
@@ -2674,10 +2674,10 @@ data Type
 instance Hashable Type
 
 instance FromText Type where
-    parser = takeText >>= \case
-        "AmazonCustomerByEmail" -> pure AmazonCustomerByEmail
-        "CanonicalUser"         -> pure CanonicalUser
-        "Group"                 -> pure Group
+    parser = takeLowerText >>= \case
+        "amazoncustomerbyemail" -> pure AmazonCustomerByEmail
+        "canonicaluser"         -> pure CanonicalUser
+        "group"                 -> pure Group
         e                       -> fail $
             "Failure parsing Type from " ++ show e
 
@@ -2704,8 +2704,8 @@ data TransitionStorageClass
 instance Hashable TransitionStorageClass
 
 instance FromText TransitionStorageClass where
-    parser = takeText >>= \case
-        "GLACIER" -> pure TSCGlacier
+    parser = takeLowerText >>= \case
+        "glacier" -> pure TSCGlacier
         e         -> fail $
             "Failure parsing TransitionStorageClass from " ++ show e
 
@@ -2810,12 +2810,12 @@ data Permission
 instance Hashable Permission
 
 instance FromText Permission where
-    parser = takeText >>= \case
-        "FULL_CONTROL" -> pure PFullControl
-        "READ"         -> pure PRead
-        "READ_ACP"     -> pure PReadAcp
-        "WRITE"        -> pure PWrite
-        "WRITE_ACP"    -> pure PWriteAcp
+    parser = takeLowerText >>= \case
+        "full_control" -> pure PFullControl
+        "read"         -> pure PRead
+        "read_acp"     -> pure PReadAcp
+        "write"        -> pure PWrite
+        "write_acp"    -> pure PWriteAcp
         e              -> fail $
             "Failure parsing Permission from " ++ show e
 
@@ -2886,7 +2886,7 @@ data BucketCannedACL
 instance Hashable BucketCannedACL
 
 instance FromText BucketCannedACL where
-    parser = takeText >>= \case
+    parser = takeLowerText >>= \case
         "authenticated-read" -> pure CannedAuthenticatedRead
         "private"            -> pure CannedPrivate
         "public-read"        -> pure CannedPublicRead
@@ -2919,9 +2919,9 @@ data MFADelete
 instance Hashable MFADelete
 
 instance FromText MFADelete where
-    parser = takeText >>= \case
-        "Disabled" -> pure MFADDisabled
-        "Enabled"  -> pure MFADEnabled
+    parser = takeLowerText >>= \case
+        "disabled" -> pure MFADDisabled
+        "enabled"  -> pure MFADEnabled
         e          -> fail $
             "Failure parsing MFADelete from " ++ show e
 
@@ -3160,8 +3160,8 @@ data ServerSideEncryption
 instance Hashable ServerSideEncryption
 
 instance FromText ServerSideEncryption where
-    parser = takeText >>= \case
-        "AES256" -> pure AES256
+    parser = takeLowerText >>= \case
+        "aes256" -> pure AES256
         e        -> fail $
             "Failure parsing ServerSideEncryption from " ++ show e
 

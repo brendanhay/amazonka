@@ -2053,20 +2053,20 @@ data LifecycleState
 instance Hashable LifecycleState
 
 instance FromText LifecycleState where
-    parser = takeText >>= \case
-        "Detached"            -> pure Detached
-        "Detaching"           -> pure Detaching
-        "EnteringStandby"     -> pure EnteringStandby
-        "InService"           -> pure InService
-        "Pending"             -> pure Pending
-        "Pending:Proceed"     -> pure PendingProceed
-        "Pending:Wait"        -> pure PendingWait
-        "Quarantined"         -> pure Quarantined
-        "Standby"             -> pure Standby
-        "Terminated"          -> pure Terminated
-        "Terminating"         -> pure Terminating
-        "Terminating:Proceed" -> pure TerminatingProceed
-        "Terminating:Wait"    -> pure TerminatingWait
+    parser = takeLowerText >>= \case
+        "detached"            -> pure Detached
+        "detaching"           -> pure Detaching
+        "enteringstandby"     -> pure EnteringStandby
+        "inservice"           -> pure InService
+        "pending"             -> pure Pending
+        "pending:proceed"     -> pure PendingProceed
+        "pending:wait"        -> pure PendingWait
+        "quarantined"         -> pure Quarantined
+        "standby"             -> pure Standby
+        "terminated"          -> pure Terminated
+        "terminating"         -> pure Terminating
+        "terminating:proceed" -> pure TerminatingProceed
+        "terminating:wait"    -> pure TerminatingWait
         e                     -> fail $
             "Failure parsing LifecycleState from " ++ show e
 
@@ -2201,17 +2201,17 @@ data ScalingActivityStatusCode
 instance Hashable ScalingActivityStatusCode
 
 instance FromText ScalingActivityStatusCode where
-    parser = takeText >>= \case
-        "Cancelled"                       -> pure Cancelled
-        "Failed"                          -> pure Failed
-        "InProgress"                      -> pure InProgress
-        "MidLifecycleAction"              -> pure MidLifecycleAction
-        "PreInService"                    -> pure PreInService
-        "Successful"                      -> pure Successful
-        "WaitingForELBConnectionDraining" -> pure WaitingForELBConnectionDraining
-        "WaitingForInstanceId"            -> pure WaitingForInstanceId
-        "WaitingForSpotInstanceId"        -> pure WaitingForSpotInstanceId
-        "WaitingForSpotInstanceRequestId" -> pure WaitingForSpotInstanceRequestId
+    parser = takeLowerText >>= \case
+        "cancelled"                       -> pure Cancelled
+        "failed"                          -> pure Failed
+        "inprogress"                      -> pure InProgress
+        "midlifecycleaction"              -> pure MidLifecycleAction
+        "preinservice"                    -> pure PreInService
+        "successful"                      -> pure Successful
+        "waitingforelbconnectiondraining" -> pure WaitingForELBConnectionDraining
+        "waitingforinstanceid"            -> pure WaitingForInstanceId
+        "waitingforspotinstanceid"        -> pure WaitingForSpotInstanceId
+        "waitingforspotinstancerequestid" -> pure WaitingForSpotInstanceRequestId
         e                                 -> fail $
             "Failure parsing ScalingActivityStatusCode from " ++ show e
 

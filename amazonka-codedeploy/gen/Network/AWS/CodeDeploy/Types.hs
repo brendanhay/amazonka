@@ -400,7 +400,7 @@ data BundleType
 instance Hashable BundleType
 
 instance FromText BundleType where
-    parser = takeText >>= \case
+    parser = takeLowerText >>= \case
         "tar" -> pure Tar
         "tgz" -> pure Tgz
         "zip" -> pure Zip
@@ -473,7 +473,7 @@ data DeploymentCreator
 instance Hashable DeploymentCreator
 
 instance FromText DeploymentCreator where
-    parser = takeText >>= \case
+    parser = takeLowerText >>= \case
         "autoscaling" -> pure Autoscaling
         "user"        -> pure User
         e             -> fail $
@@ -724,10 +724,10 @@ data ApplicationRevisionSortBy
 instance Hashable ApplicationRevisionSortBy
 
 instance FromText ApplicationRevisionSortBy where
-    parser = takeText >>= \case
-        "firstUsedTime" -> pure FirstUsedTime
-        "lastUsedTime"  -> pure LastUsedTime
-        "registerTime"  -> pure RegisterTime
+    parser = takeLowerText >>= \case
+        "firstusedtime" -> pure FirstUsedTime
+        "lastusedtime"  -> pure LastUsedTime
+        "registertime"  -> pure RegisterTime
         e               -> fail $
             "Failure parsing ApplicationRevisionSortBy from " ++ show e
 
@@ -808,7 +808,7 @@ data ListStateFilterAction
 instance Hashable ListStateFilterAction
 
 instance FromText ListStateFilterAction where
-    parser = takeText >>= \case
+    parser = takeLowerText >>= \case
         "exclude" -> pure Exclude
         "ignore"  -> pure Ignore
         "include" -> pure Include
@@ -843,13 +843,13 @@ data LifecycleErrorCode
 instance Hashable LifecycleErrorCode
 
 instance FromText LifecycleErrorCode where
-    parser = takeText >>= \case
-        "ScriptFailed"        -> pure ScriptFailed
-        "ScriptMissing"       -> pure ScriptMissing
-        "ScriptNotExecutable" -> pure ScriptNotExecutable
-        "ScriptTimedOut"      -> pure ScriptTimedOut
-        "Success"             -> pure Success
-        "UnknownError"        -> pure UnknownError
+    parser = takeLowerText >>= \case
+        "scriptfailed"        -> pure ScriptFailed
+        "scriptmissing"       -> pure ScriptMissing
+        "scriptnotexecutable" -> pure ScriptNotExecutable
+        "scripttimedout"      -> pure ScriptTimedOut
+        "success"             -> pure Success
+        "unknownerror"        -> pure UnknownError
         e                     -> fail $
             "Failure parsing LifecycleErrorCode from " ++ show e
 
@@ -933,13 +933,13 @@ data LifecycleEventStatus
 instance Hashable LifecycleEventStatus
 
 instance FromText LifecycleEventStatus where
-    parser = takeText >>= \case
-        "Failed"     -> pure Failed
-        "InProgress" -> pure InProgress
-        "Pending"    -> pure Pending
-        "Skipped"    -> pure Skipped
-        "Succeeded"  -> pure Succeeded
-        "Unknown"    -> pure Unknown
+    parser = takeLowerText >>= \case
+        "failed"     -> pure Failed
+        "inprogress" -> pure InProgress
+        "pending"    -> pure Pending
+        "skipped"    -> pure Skipped
+        "succeeded"  -> pure Succeeded
+        "unknown"    -> pure Unknown
         e            -> fail $
             "Failure parsing LifecycleEventStatus from " ++ show e
 
@@ -1084,9 +1084,9 @@ data StopStatus
 instance Hashable StopStatus
 
 instance FromText StopStatus where
-    parser = takeText >>= \case
-        "Pending"   -> pure SSPending
-        "Succeeded" -> pure SSSucceeded
+    parser = takeLowerText >>= \case
+        "pending"   -> pure SSPending
+        "succeeded" -> pure SSSucceeded
         e           -> fail $
             "Failure parsing StopStatus from " ++ show e
 
@@ -1168,7 +1168,7 @@ data SortOrder
 instance Hashable SortOrder
 
 instance FromText SortOrder where
-    parser = takeText >>= \case
+    parser = takeLowerText >>= \case
         "ascending"  -> pure Ascending
         "descending" -> pure Descending
         e            -> fail $
@@ -1532,18 +1532,18 @@ data ErrorCode
 instance Hashable ErrorCode
 
 instance FromText ErrorCode where
-    parser = takeText >>= \case
-        "APPLICATION_MISSING"        -> pure ApplicationMissing
-        "DEPLOYMENT_GROUP_MISSING"   -> pure DeploymentGroupMissing
-        "HEALTH_CONSTRAINTS"         -> pure HealthConstraints
-        "HEALTH_CONSTRAINTS_INVALID" -> pure HealthConstraintsInvalid
-        "IAM_ROLE_MISSING"           -> pure IamRoleMissing
-        "IAM_ROLE_PERMISSIONS"       -> pure IamRolePermissions
-        "INTERNAL_ERROR"             -> pure InternalError
-        "NO_INSTANCES"               -> pure NoInstances
-        "OVER_MAX_INSTANCES"         -> pure OverMaxInstances
-        "REVISION_MISSING"           -> pure RevisionMissing
-        "TIMEOUT"                    -> pure Timeout
+    parser = takeLowerText >>= \case
+        "application_missing"        -> pure ApplicationMissing
+        "deployment_group_missing"   -> pure DeploymentGroupMissing
+        "health_constraints"         -> pure HealthConstraints
+        "health_constraints_invalid" -> pure HealthConstraintsInvalid
+        "iam_role_missing"           -> pure IamRoleMissing
+        "iam_role_permissions"       -> pure IamRolePermissions
+        "internal_error"             -> pure InternalError
+        "no_instances"               -> pure NoInstances
+        "over_max_instances"         -> pure OverMaxInstances
+        "revision_missing"           -> pure RevisionMissing
+        "timeout"                    -> pure Timeout
         e                            -> fail $
             "Failure parsing ErrorCode from " ++ show e
 
@@ -1644,13 +1644,13 @@ data InstanceStatus
 instance Hashable InstanceStatus
 
 instance FromText InstanceStatus where
-    parser = takeText >>= \case
-        "Failed"     -> pure ISFailed
-        "InProgress" -> pure ISInProgress
-        "Pending"    -> pure ISPending
-        "Skipped"    -> pure ISSkipped
-        "Succeeded"  -> pure ISSucceeded
-        "Unknown"    -> pure ISUnknown
+    parser = takeLowerText >>= \case
+        "failed"     -> pure ISFailed
+        "inprogress" -> pure ISInProgress
+        "pending"    -> pure ISPending
+        "skipped"    -> pure ISSkipped
+        "succeeded"  -> pure ISSucceeded
+        "unknown"    -> pure ISUnknown
         e            -> fail $
             "Failure parsing InstanceStatus from " ++ show e
 
@@ -1685,13 +1685,13 @@ data DeploymentStatus
 instance Hashable DeploymentStatus
 
 instance FromText DeploymentStatus where
-    parser = takeText >>= \case
-        "Created"    -> pure DSCreated
-        "Failed"     -> pure DSFailed
-        "InProgress" -> pure DSInProgress
-        "Queued"     -> pure DSQueued
-        "Stopped"    -> pure DSStopped
-        "Succeeded"  -> pure DSSucceeded
+    parser = takeLowerText >>= \case
+        "created"    -> pure DSCreated
+        "failed"     -> pure DSFailed
+        "inprogress" -> pure DSInProgress
+        "queued"     -> pure DSQueued
+        "stopped"    -> pure DSStopped
+        "succeeded"  -> pure DSSucceeded
         e            -> fail $
             "Failure parsing DeploymentStatus from " ++ show e
 
@@ -1802,9 +1802,9 @@ data MinimumHealthyHostsType
 instance Hashable MinimumHealthyHostsType
 
 instance FromText MinimumHealthyHostsType where
-    parser = takeText >>= \case
-        "FLEET_PERCENT" -> pure FleetPercent
-        "HOST_COUNT"    -> pure HostCount
+    parser = takeLowerText >>= \case
+        "fleet_percent" -> pure FleetPercent
+        "host_count"    -> pure HostCount
         e               -> fail $
             "Failure parsing MinimumHealthyHostsType from " ++ show e
 
@@ -1873,9 +1873,9 @@ data RevisionLocationType
 instance Hashable RevisionLocationType
 
 instance FromText RevisionLocationType where
-    parser = takeText >>= \case
-        "GitHub" -> pure GitHub
-        "S3"     -> pure S3
+    parser = takeLowerText >>= \case
+        "github" -> pure GitHub
+        "s3"     -> pure S3
         e        -> fail $
             "Failure parsing RevisionLocationType from " ++ show e
 
@@ -1903,10 +1903,10 @@ data EC2TagFilterType
 instance Hashable EC2TagFilterType
 
 instance FromText EC2TagFilterType where
-    parser = takeText >>= \case
-        "KEY_AND_VALUE" -> pure KeyAndValue
-        "KEY_ONLY"      -> pure KeyOnly
-        "VALUE_ONLY"    -> pure ValueOnly
+    parser = takeLowerText >>= \case
+        "key_and_value" -> pure KeyAndValue
+        "key_only"      -> pure KeyOnly
+        "value_only"    -> pure ValueOnly
         e               -> fail $
             "Failure parsing EC2TagFilterType from " ++ show e
 

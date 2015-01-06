@@ -47,14 +47,12 @@ type LazyByteString = LBS.ByteString
 
 showBS :: ToByteString a => a -> String
 showBS = BS8.unpack . toBS
-{-# INLINE showBS #-}
 
 class ToByteString a where
     toBS :: a -> ByteString
 
     default toBS :: ToText a => a -> ByteString
     toBS = Text.encodeUtf8 . toText
-    {-# INLINE toBS #-}
 
 instance ToByteString ByteString     where toBS = id
 instance ToByteString Builder        where toBS = toBS . Build.toLazyByteString
@@ -73,14 +71,12 @@ instance ToByteString a => ToByteString (CI a) where
 
 buildBS :: ToBuilder a => a -> LazyByteString
 buildBS = Build.toLazyByteString . build
-{-# INLINE buildBS #-}
 
 class ToBuilder a where
     build :: a -> Builder
 
     default build :: ToByteString a => a -> Builder
     build = build . toBS
-    {-# INLINE build #-}
 
 instance ToBuilder Builder        where build = id
 instance ToBuilder ByteString     where build = Build.byteString
@@ -173,4 +169,3 @@ instance ToBuilder (Response a) where
 
 stripBS :: ByteString -> ByteString
 stripBS = BS8.dropWhile isSpace . fst . BS8.spanEnd isSpace
-{-# INLINE stripBS #-}

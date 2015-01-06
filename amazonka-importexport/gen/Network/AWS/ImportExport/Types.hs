@@ -101,9 +101,9 @@ data JobType
 instance Hashable JobType
 
 instance FromText JobType where
-    parser = takeText >>= \case
-        "Export" -> pure Export'
-        "Import" -> pure Import'
+    parser = takeLowerText >>= \case
+        "export" -> pure Export'
+        "import" -> pure Import'
         e        -> fail $
             "Failure parsing JobType from " ++ show e
 

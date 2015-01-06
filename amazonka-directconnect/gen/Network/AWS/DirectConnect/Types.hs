@@ -521,7 +521,7 @@ data VirtualInterfaceState
 instance Hashable VirtualInterfaceState
 
 instance FromText VirtualInterfaceState where
-    parser = takeText >>= \case
+    parser = takeLowerText >>= \case
         "available"  -> pure Available
         "confirming" -> pure Confirming
         "deleted"    -> pure Deleted
@@ -834,7 +834,7 @@ data InterconnectState
 instance Hashable InterconnectState
 
 instance FromText InterconnectState where
-    parser = takeText >>= \case
+    parser = takeLowerText >>= \case
         "available" -> pure ISAvailable
         "deleted"   -> pure ISDeleted
         "deleting"  -> pure ISDeleting
@@ -1060,7 +1060,7 @@ data ConnectionState
 instance Hashable ConnectionState
 
 instance FromText ConnectionState where
-    parser = takeText >>= \case
+    parser = takeLowerText >>= \case
         "available" -> pure CSAvailable
         "deleted"   -> pure CSDeleted
         "deleting"  -> pure CSDeleting

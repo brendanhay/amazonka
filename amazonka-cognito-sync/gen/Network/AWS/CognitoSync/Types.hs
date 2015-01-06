@@ -209,11 +209,11 @@ data Platform
 instance Hashable Platform
 
 instance FromText Platform where
-    parser = takeText >>= \case
-        "ADM"          -> pure Adm
-        "APNS"         -> pure Apns
-        "APNS_SANDBOX" -> pure ApnsSandbox
-        "GCM"          -> pure Gcm
+    parser = takeLowerText >>= \case
+        "adm"          -> pure Adm
+        "apns"         -> pure Apns
+        "apns_sandbox" -> pure ApnsSandbox
+        "gcm"          -> pure Gcm
         e              -> fail $
             "Failure parsing Platform from " ++ show e
 
@@ -335,7 +335,7 @@ data Operation
 instance Hashable Operation
 
 instance FromText Operation where
-    parser = takeText >>= \case
+    parser = takeLowerText >>= \case
         "remove"  -> pure Remove
         "replace" -> pure Replace
         e         -> fail $

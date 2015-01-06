@@ -1,39 +1,22 @@
-DEPS := $(wildcard amazonka-*)
+DEPS ?= core amazonka $(wildcard amazonka-*)
 
-.PHONY: install full-clean clean
+.PHONY: full-clean
 
-build: $(addprefix build-,$(DEPS)) build-amazonka
+define forward
+$1: cabal.sandbox.config $$(addprefix $1-,$$(DEPS))
 
-build-%:
-	@make -C $* build
+$1-%:
+	@make -C $$* $1
 
-install: cabal.sandbox.config $(addprefix install-,$(DEPS)) install-amazonka
+.PHONY: $1
+endef
 
-install-%:
-	@make -C $* install
+FORWARD := build configure deps install sdist upload clean
 
-configure: configure-core configure-amazonka $(addprefix configure-,$(DEPS))
-
-configure-%:
-	@make -C $* configure
+$(foreach c,$(FORWARD),$(eval $(call forward, $c)))
 
 full-clean: clean
 	rm -rf cabal.sandbox.config .cabal-sandbox
-
-clean: $(addprefix clean-,$(DEPS)) clean-amazonka
-
-clean-%:
-	@make -C $* clean
-
-sdist: sdist-core sdist-amazonka $(addprefix sdist-,$(DEPS))
-
-sdist-%:
-	@make -C $* sdist
-
-upload: upload-core upload-amazonka $(addprefix upload-,$(DEPS))
-
-upload-%:
-	@make -C $* upload
 
 cabal.sandbox.config:
 	cabal sandbox init

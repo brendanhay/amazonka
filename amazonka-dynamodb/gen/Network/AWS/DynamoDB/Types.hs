@@ -414,9 +414,9 @@ data KeyType
 instance Hashable KeyType
 
 instance FromText KeyType where
-    parser = takeCI >>= \case
-        "HASH"  -> pure Hash
-        "RANGE" -> pure Range
+    parser = takeLowerText >>= \case
+        "hash"  -> pure Hash
+        "range" -> pure Range
         e       -> fail $
             "Failure parsing KeyType from " ++ show e
 
@@ -563,11 +563,11 @@ data IndexStatus
 instance Hashable IndexStatus
 
 instance FromText IndexStatus where
-    parser = takeCI >>= \case
-        "ACTIVE"   -> pure Active
-        "CREATING" -> pure Creating
-        "DELETING" -> pure Deleting
-        "UPDATING" -> pure Updating
+    parser = takeLowerText >>= \case
+        "active"   -> pure Active
+        "creating" -> pure Creating
+        "deleting" -> pure Deleting
+        "updating" -> pure Updating
         e          -> fail $
             "Failure parsing IndexStatus from " ++ show e
 
@@ -643,11 +643,11 @@ data TableStatus
 instance Hashable TableStatus
 
 instance FromText TableStatus where
-    parser = takeCI >>= \case
-        "ACTIVE"   -> pure TSActive
-        "CREATING" -> pure TSCreating
-        "DELETING" -> pure TSDeleting
-        "UPDATING" -> pure TSUpdating
+    parser = takeLowerText >>= \case
+        "active"   -> pure TSActive
+        "creating" -> pure TSCreating
+        "deleting" -> pure TSDeleting
+        "updating" -> pure TSUpdating
         e          -> fail $
             "Failure parsing TableStatus from " ++ show e
 
@@ -677,10 +677,10 @@ data ProjectionType
 instance Hashable ProjectionType
 
 instance FromText ProjectionType where
-    parser = takeCI >>= \case
-        "ALL"       -> pure All
-        "INCLUDE"   -> pure Include
-        "KEYS_ONLY" -> pure KeysOnly
+    parser = takeLowerText >>= \case
+        "all"       -> pure All
+        "include"   -> pure Include
+        "keys_only" -> pure KeysOnly
         e           -> fail $
             "Failure parsing ProjectionType from " ++ show e
 
@@ -1081,10 +1081,10 @@ data ReturnConsumedCapacity
 instance Hashable ReturnConsumedCapacity
 
 instance FromText ReturnConsumedCapacity where
-    parser = takeCI >>= \case
-        "INDEXES" -> pure Indexes
-        "NONE"    -> pure None
-        "TOTAL"   -> pure Total
+    parser = takeLowerText >>= \case
+        "indexes" -> pure Indexes
+        "none"    -> pure None
+        "total"   -> pure Total
         e         -> fail $
             "Failure parsing ReturnConsumedCapacity from " ++ show e
 
@@ -1112,9 +1112,9 @@ data ReturnItemCollectionMetrics
 instance Hashable ReturnItemCollectionMetrics
 
 instance FromText ReturnItemCollectionMetrics where
-    parser = takeCI >>= \case
-        "NONE" -> pure RICMNone
-        "SIZE" -> pure RICMSize
+    parser = takeLowerText >>= \case
+        "none" -> pure RICMNone
+        "size" -> pure RICMSize
         e      -> fail $
             "Failure parsing ReturnItemCollectionMetrics from " ++ show e
 
@@ -1495,20 +1495,20 @@ data ComparisonOperator
 instance Hashable ComparisonOperator
 
 instance FromText ComparisonOperator where
-    parser = takeCI >>= \case
-        "BEGINS_WITH"  -> pure BeginsWith
-        "BETWEEN"      -> pure Between
-        "CONTAINS"     -> pure Contains
-        "EQ"           -> pure Eq
-        "GE"           -> pure Ge
-        "GT"           -> pure Gt
-        "IN"           -> pure In'
-        "LE"           -> pure Le
-        "LT"           -> pure Lt
-        "NE"           -> pure Ne
-        "NOT_CONTAINS" -> pure NotContains
-        "NOT_NULL"     -> pure NotNull
-        "NULL"         -> pure Null
+    parser = takeLowerText >>= \case
+        "begins_with"  -> pure BeginsWith
+        "between"      -> pure Between
+        "contains"     -> pure Contains
+        "eq"           -> pure Eq
+        "ge"           -> pure Ge
+        "gt"           -> pure Gt
+        "in"           -> pure In'
+        "le"           -> pure Le
+        "lt"           -> pure Lt
+        "ne"           -> pure Ne
+        "not_contains" -> pure NotContains
+        "not_null"     -> pure NotNull
+        "null"         -> pure Null
         e              -> fail $
             "Failure parsing ComparisonOperator from " ++ show e
 
@@ -1549,12 +1549,12 @@ data ReturnValue
 instance Hashable ReturnValue
 
 instance FromText ReturnValue where
-    parser = takeCI >>= \case
-        "ALL_NEW"     -> pure RVAllNew
-        "ALL_OLD"     -> pure RVAllOld
-        "NONE"        -> pure RVNone
-        "UPDATED_NEW" -> pure RVUpdatedNew
-        "UPDATED_OLD" -> pure RVUpdatedOld
+    parser = takeLowerText >>= \case
+        "all_new"     -> pure RVAllNew
+        "all_old"     -> pure RVAllOld
+        "none"        -> pure RVNone
+        "updated_new" -> pure RVUpdatedNew
+        "updated_old" -> pure RVUpdatedOld
         e             -> fail $
             "Failure parsing ReturnValue from " ++ show e
 
@@ -2035,10 +2035,10 @@ data AttributeAction
 instance Hashable AttributeAction
 
 instance FromText AttributeAction where
-    parser = takeCI >>= \case
-        "ADD"    -> pure Add
-        "DELETE" -> pure Delete'
-        "PUT"    -> pure Put
+    parser = takeLowerText >>= \case
+        "add"    -> pure Add
+        "delete" -> pure Delete'
+        "put"    -> pure Put
         e        -> fail $
             "Failure parsing AttributeAction from " ++ show e
 
@@ -2067,10 +2067,10 @@ data ScalarAttributeType
 instance Hashable ScalarAttributeType
 
 instance FromText ScalarAttributeType where
-    parser = takeCI >>= \case
-        "B" -> pure B
-        "N" -> pure N
-        "S" -> pure S
+    parser = takeLowerText >>= \case
+        "b" -> pure B
+        "n" -> pure N
+        "s" -> pure S
         e   -> fail $
             "Failure parsing ScalarAttributeType from " ++ show e
 
@@ -2155,11 +2155,11 @@ data Select
 instance Hashable Select
 
 instance FromText Select where
-    parser = takeCI >>= \case
-        "ALL_ATTRIBUTES"           -> pure AllAttributes
-        "ALL_PROJECTED_ATTRIBUTES" -> pure AllProjectedAttributes
-        "COUNT"                    -> pure Count
-        "SPECIFIC_ATTRIBUTES"      -> pure SpecificAttributes
+    parser = takeLowerText >>= \case
+        "all_attributes"           -> pure AllAttributes
+        "all_projected_attributes" -> pure AllProjectedAttributes
+        "count"                    -> pure Count
+        "specific_attributes"      -> pure SpecificAttributes
         e                          -> fail $
             "Failure parsing Select from " ++ show e
 
@@ -2503,9 +2503,9 @@ data ConditionalOperator
 instance Hashable ConditionalOperator
 
 instance FromText ConditionalOperator where
-    parser = takeCI >>= \case
-        "AND" -> pure And
-        "OR"  -> pure Or
+    parser = takeLowerText >>= \case
+        "and" -> pure And
+        "or"  -> pure Or
         e     -> fail $
             "Failure parsing ConditionalOperator from " ++ show e
 

@@ -866,11 +866,11 @@ data OptionState
 instance Hashable OptionState
 
 instance FromText OptionState where
-    parser = takeCI >>= \case
-        "Active"                 -> pure Active
-        "FailedToValidate"       -> pure FailedToValidate
-        "Processing"             -> pure Processing
-        "RequiresIndexDocuments" -> pure RequiresIndexDocuments
+    parser = takeLowerText >>= \case
+        "active"                 -> pure Active
+        "failedtovalidate"       -> pure FailedToValidate
+        "processing"             -> pure Processing
+        "requiresindexdocuments" -> pure RequiresIndexDocuments
         e                        -> fail $
             "Failure parsing OptionState from " ++ show e
 
@@ -968,7 +968,7 @@ data AlgorithmicStemming
 instance Hashable AlgorithmicStemming
 
 instance FromText AlgorithmicStemming where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "full"    -> pure Full
         "light"   -> pure Light
         "minimal" -> pure Minimal
@@ -1623,7 +1623,7 @@ data IndexFieldType
 instance Hashable IndexFieldType
 
 instance FromText IndexFieldType where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "date"          -> pure IFTDate
         "date-array"    -> pure IFTDateArray
         "double"        -> pure IFTDouble
@@ -2037,7 +2037,7 @@ data SuggesterFuzzyMatching
 instance Hashable SuggesterFuzzyMatching
 
 instance FromText SuggesterFuzzyMatching where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "high" -> pure SFMHigh
         "low"  -> pure SFMLow
         "none" -> pure SFMNone
@@ -2168,7 +2168,7 @@ data AnalysisSchemeLanguage
 instance Hashable AnalysisSchemeLanguage
 
 instance FromText AnalysisSchemeLanguage where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "ar"      -> pure Ar
         "bg"      -> pure Bg
         "ca"      -> pure Ca
@@ -2202,8 +2202,8 @@ instance FromText AnalysisSchemeLanguage where
         "sv"      -> pure Sv
         "th"      -> pure Th
         "tr"      -> pure Tr
-        "zh-Hans" -> pure ZhHans
-        "zh-Hant" -> pure ZhHant
+        "zh-hans" -> pure ZhHans
+        "zh-hant" -> pure ZhHant
         e         -> fail $
             "Failure parsing AnalysisSchemeLanguage from " ++ show e
 
@@ -2262,7 +2262,7 @@ data PartitionInstanceType
 instance Hashable PartitionInstanceType
 
 instance FromText PartitionInstanceType where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "search.m1.large"   -> pure SearchM1Large
         "search.m1.small"   -> pure SearchM1Small
         "search.m2.2xlarge" -> pure SearchM22xlarge

@@ -861,7 +861,7 @@ data PendingAutomaticFailoverStatus
 instance Hashable PendingAutomaticFailoverStatus
 
 instance FromText PendingAutomaticFailoverStatus where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "disabled" -> pure Disabled
         "enabled"  -> pure Enabled
         e          -> fail $
@@ -1059,7 +1059,7 @@ data SourceType
 instance Hashable SourceType
 
 instance FromText SourceType where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "cache-cluster"         -> pure STCacheCluster
         "cache-parameter-group" -> pure STCacheParameterGroup
         "cache-security-group"  -> pure STCacheSecurityGroup
@@ -2067,7 +2067,7 @@ data AutomaticFailoverStatus
 instance Hashable AutomaticFailoverStatus
 
 instance FromText AutomaticFailoverStatus where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "disabled"  -> pure AFSDisabled
         "disabling" -> pure AFSDisabling
         "enabled"   -> pure AFSEnabled
@@ -2268,7 +2268,7 @@ data AZMode
 instance Hashable AZMode
 
 instance FromText AZMode where
-    parser = takeCI >>= \case
+    parser = takeLowerText >>= \case
         "cross-az"  -> pure CrossAz
         "single-az" -> pure SingleAz
         e           -> fail $

@@ -73,7 +73,6 @@ data Derive
     | Enum'
     | Num'
     | Integral'
-    | Whole'
     | Real'
     | RealFrac'
     | RealFloat'
@@ -527,7 +526,7 @@ instance DerivingOf Prim where
         PInt     -> [Eq', Ord', Num', Enum', Integral', Real']
         PInteger -> [Eq', Ord', Num', Enum', Integral', Real']
         PDouble  -> [Eq', Ord', Num', Enum', RealFrac', RealFloat', Real']
-        PNatural -> [Eq', Ord', Num', Enum', Integral', Whole', Real']
+        PNatural -> [Eq', Ord', Num', Enum', Integral', Real']
         PTime _  -> [Eq', Ord']
         PBlob    -> [Eq']
         _        -> []
@@ -562,7 +561,6 @@ instance DerivingOf Type where
             , Real'
             , RealFrac'
             , RealFloat'
-            , Whole'
             , IsString'
             ]
 
@@ -581,7 +579,6 @@ instance DerivingOf Data where
               , Real'
               , RealFrac'
               , RealFloat'
-              , Whole'
               , IsString'
               , Generic'
               ]

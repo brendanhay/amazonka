@@ -26,7 +26,7 @@ import qualified Data.ByteString.Base16       as Base16
 import qualified Data.ByteString.Char8        as BS
 import qualified Data.CaseInsensitive         as CI
 import qualified Data.Foldable                as Fold
-import           Data.Function
+import           Data.Function                hiding ((&))
 import           Data.List                    (groupBy, intersperse, sortBy, sort)
 import           Data.Maybe
 import           Data.Monoid

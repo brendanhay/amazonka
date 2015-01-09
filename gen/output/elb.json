@@ -2492,7 +2492,6 @@
                     "Enum",
                     "Num",
                     "Integral",
-                    "Whole",
                     "Real"
                 ],
                 "listElement": null,

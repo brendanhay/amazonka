@@ -1274,7 +1274,7 @@ instance ToQuery AdditionalAttribute where
 
 newtype ConnectionSettings = ConnectionSettings
     { _csIdleTimeout :: Nat
-    } deriving (Eq, Ord, Show, Enum, Num, Integral, Whole, Real)
+    } deriving (Eq, Ord, Show, Enum, Num, Integral, Real)
 
 -- | 'ConnectionSettings' constructor.
 --

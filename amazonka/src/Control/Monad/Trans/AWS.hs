@@ -172,26 +172,25 @@ instance MonadBase b m => MonadBase b (AWST m) where
     {-# INLINE liftBase #-}
 
 instance MonadTransControl AWST where
-    newtype StT AWST a = StTAWS
-        { unStTAWS :: StT (ExceptT Error) (StT (ReaderT (Env, InternalState)) a)
-        }
+    type StT AWST a =
+        StT (ExceptT Error) (StT (ReaderT (Env, InternalState)) a)
 
     liftWith f = AWST $
         liftWith $ \g ->
             liftWith $ \h ->
-                f (liftM StTAWS . h . g . unAWST)
+                f (h . g . unAWST)
     {-# INLINE liftWith #-}
 
-    restoreT = AWST . restoreT . restoreT . liftM unStTAWS
+    restoreT = AWST . restoreT . restoreT
     {-# INLINE restoreT #-}
 
 instance MonadBaseControl b m => MonadBaseControl b (AWST m) where
-    newtype StM (AWST m) a = StMAWST { unStMAWST :: ComposeSt AWST m a }
+    type StM (AWST m) a = ComposeSt AWST m a
 
-    liftBaseWith = defaultLiftBaseWith StMAWST
+    liftBaseWith = defaultLiftBaseWith
     {-# INLINE liftBaseWith #-}
 
-    restoreM = defaultRestoreM unStMAWST
+    restoreM = defaultRestoreM
     {-# INLINE restoreM #-}
 
 instance MFunctor AWST where

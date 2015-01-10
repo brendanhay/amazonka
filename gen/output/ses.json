@@ -112,7 +112,7 @@
         "url": "http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Simple Email Service",
-        "version": "0.1.4",
+        "version": "0.2.0",
         "description": "Amazon Simple Email Service (Amazon SES) is a cost-effective outbound-only\nemail-sending service built on the reliable and scalable infrastructure that\nAmazon.com has developed to serve its own customer base. With Amazon SES, you\ncan send transactional email, marketing messages, or any other type of\nhigh-quality content and you only pay for what you use. Along with high\ndeliverability, Amazon SES provides easy, real-time access to your sending\nstatistics and built-in notifications for bounces, complaints, and deliveries\nto help you fine-tune your email-sending strategy."
     },
     "types": {

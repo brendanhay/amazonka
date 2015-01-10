@@ -1,5 +1,5 @@
 name:                  amazonka-cloudfront-examples
-version:               0.1.4
+version:               0.2.0
 synopsis:              Amazon CloudFront SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         CloudFront
 
     build-depends:
-        amazonka      == 0.1.4.*
-      , amazonka-core == 0.1.4.*
-      , amazonka-cloudfront == 0.1.4.*
+        amazonka      == 0.2.0.*
+      , amazonka-core == 0.2.0.*
+      , amazonka-cloudfront == 0.2.0.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

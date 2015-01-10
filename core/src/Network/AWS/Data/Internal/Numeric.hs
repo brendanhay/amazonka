@@ -34,7 +34,6 @@ newtype Nat = Nat { unNat :: Natural }
         , Num
         , Real
         , Integral
-        , Whole
         , ToByteString
         , FromText
         , ToText

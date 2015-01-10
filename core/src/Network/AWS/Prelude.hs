@@ -36,7 +36,6 @@ module Network.AWS.Prelude
     , Generic
     , IsString     (..)
     , Semigroup
-    , Whole
 
     -- * Retries
     , Retry        (..)
@@ -75,7 +74,7 @@ import GHC.Generics              (Generic)
 import Network.HTTP.Client       (HttpException, RequestBody)
 import Network.HTTP.Types.Method (StdMethod(..))
 import Network.HTTP.Types.Status (Status(..))
-import Numeric.Natural           (Natural, Whole)
+import Numeric.Natural           (Natural)
 
 import Control.Applicative       as Export
 import Data.Bifunctor            as Export

@@ -1,5 +1,5 @@
 name:                  amazonka-core
-version:               0.1.4
+version:               0.2.0
 synopsis:              Core functionality and data types for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -111,6 +111,15 @@ test-suite tests
     main-is:           Main.hs
 
     ghc-options:       -Wall -threaded -with-rtsopts=-N
+
+    other-modules:
+          Test.AWS.Data
+        , Test.AWS.Data.List
+        , Test.AWS.Data.Map
+        , Test.AWS.Data.Numeric
+        , Test.AWS.Data.Time
+        , Test.AWS.TH
+        , Test.AWS.Types
 
     build-depends:
           amazonka-core

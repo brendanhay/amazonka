@@ -95,7 +95,7 @@ library
         , semigroups           >= 0.12
         , tagged               >= 0.7
         , text                 >= 1.1
-        , time                 >= 1.5
+        , time                 >= 1.4
         , transformers         == 0.4.*
         , unordered-containers >= 0.2.3
         , vector               >= 0.10.9

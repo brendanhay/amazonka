@@ -75,7 +75,6 @@
                 "Public",
                 "Architecture",
                 "ImageType",
-                "Name",
                 "RootDeviceType",
                 "VirtualizationType",
                 "Hypervisor"

@@ -112,7 +112,7 @@ unsafeToXML x =
               (listToMaybe (toXML x))
 
 withContent :: String -> (Text -> Either String a) -> [Node] -> Either String a
-withContent n f = withNode n (join . fmap f . g)
+withContent n f = withNode n (g >=> f)
   where
     g (NodeContent x)
         = Right x
@@ -127,7 +127,7 @@ withNode n f = \case
     _   -> Left $ "encountered node list, when expecting a single node: " ++ n
 
 withElement :: Text -> ([Node] -> Either String a) -> [Node] -> Either String a
-withElement n f = join . fmap f . findElement n
+withElement n f = findElement n >=> f
 
 findElement :: Text -> [Node] -> Either String [Node]
 findElement n ns = maybe err Right . listToMaybe $ mapMaybe (childNodes n) ns

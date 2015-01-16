@@ -117,7 +117,8 @@ withContent n f = withNode n (g >=> f)
     g (NodeContent x)
         = Right x
     g (NodeElement e)
-        = Left $ "unexpected element " ++ show (elementName e) ++ " when expecting node content: " ++ n
+        = let k = show (elementName e)
+           in Left $ "unexpected element " ++ k ++ " when expecting node content: " ++ n
     g _ = Left $ "unexpected element, when expecting node content: " ++ n
 
 withNode :: String -> (Node -> Either String a) -> [Node] -> Either String a

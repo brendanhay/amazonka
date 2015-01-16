@@ -173,7 +173,7 @@ data CreateVolumeResponse = CreateVolumeResponse
     , _cvrAvailabilityZone :: Text
     , _cvrCreateTime       :: ISO8601
     , _cvrEncrypted        :: Bool
-    , _cvrIops             :: Int
+    , _cvrIops             :: Maybe Int
     , _cvrKmsKeyId         :: Maybe Text
     , _cvrSize             :: Int
     , _cvrSnapshotId       :: Text
@@ -195,7 +195,7 @@ data CreateVolumeResponse = CreateVolumeResponse
 --
 -- * 'cvrEncrypted' @::@ 'Bool'
 --
--- * 'cvrIops' @::@ 'Int'
+-- * 'cvrIops' @::@ 'Maybe' 'Int'
 --
 -- * 'cvrKmsKeyId' @::@ 'Maybe' 'Text'
 --
@@ -218,10 +218,9 @@ createVolumeResponse :: Text -- ^ 'cvrVolumeId'
                      -> VolumeState -- ^ 'cvrState'
                      -> UTCTime -- ^ 'cvrCreateTime'
                      -> VolumeType -- ^ 'cvrVolumeType'
-                     -> Int -- ^ 'cvrIops'
                      -> Bool -- ^ 'cvrEncrypted'
                      -> CreateVolumeResponse
-createVolumeResponse p1 p2 p3 p4 p5 p6 p7 p8 p9 = CreateVolumeResponse
+createVolumeResponse p1 p2 p3 p4 p5 p6 p7 p8 = CreateVolumeResponse
     { _cvrVolumeId         = p1
     , _cvrSize             = p2
     , _cvrSnapshotId       = p3
@@ -229,10 +228,10 @@ createVolumeResponse p1 p2 p3 p4 p5 p6 p7 p8 p9 = CreateVolumeResponse
     , _cvrState            = p5
     , _cvrCreateTime       = withIso _Time (const id) p6
     , _cvrVolumeType       = p7
-    , _cvrIops             = p8
-    , _cvrEncrypted        = p9
+    , _cvrEncrypted        = p8
     , _cvrAttachments      = mempty
     , _cvrTags             = mempty
+    , _cvrIops             = Nothing
     , _cvrKmsKeyId         = Nothing
     }
 
@@ -264,7 +263,7 @@ cvrEncrypted = lens _cvrEncrypted (\s a -> s { _cvrEncrypted = a })
 --
 -- Condition: This parameter is required for requests to create 'io1' volumes; it
 -- is not used in requests to create 'standard' or 'gp2' volumes.
-cvrIops :: Lens' CreateVolumeResponse Int
+cvrIops :: Lens' CreateVolumeResponse (Maybe Int)
 cvrIops = lens _cvrIops (\s a -> s { _cvrIops = a })
 
 -- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
@@ -327,7 +326,7 @@ instance FromXML CreateVolumeResponse where
         <*> x .@  "availabilityZone"
         <*> x .@  "createTime"
         <*> x .@  "encrypted"
-        <*> x .@  "iops"
+        <*> x .@? "iops"
         <*> x .@? "kmsKeyId"
         <*> x .@  "size"
         <*> x .@  "snapshotId"

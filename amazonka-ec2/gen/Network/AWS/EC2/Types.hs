@@ -4548,7 +4548,7 @@ data Volume = Volume
     , _vAvailabilityZone :: Text
     , _vCreateTime       :: ISO8601
     , _vEncrypted        :: Bool
-    , _vIops             :: Int
+    , _vIops             :: Maybe Int
     , _vKmsKeyId         :: Maybe Text
     , _vSize             :: Int
     , _vSnapshotId       :: Text
@@ -4570,7 +4570,7 @@ data Volume = Volume
 --
 -- * 'vEncrypted' @::@ 'Bool'
 --
--- * 'vIops' @::@ 'Int'
+-- * 'vIops' @::@ 'Maybe' 'Int'
 --
 -- * 'vKmsKeyId' @::@ 'Maybe' 'Text'
 --
@@ -4593,10 +4593,9 @@ volume :: Text -- ^ 'vVolumeId'
        -> VolumeState -- ^ 'vState'
        -> UTCTime -- ^ 'vCreateTime'
        -> VolumeType -- ^ 'vVolumeType'
-       -> Int -- ^ 'vIops'
        -> Bool -- ^ 'vEncrypted'
        -> Volume
-volume p1 p2 p3 p4 p5 p6 p7 p8 p9 = Volume
+volume p1 p2 p3 p4 p5 p6 p7 p8 = Volume
     { _vVolumeId         = p1
     , _vSize             = p2
     , _vSnapshotId       = p3
@@ -4604,10 +4603,10 @@ volume p1 p2 p3 p4 p5 p6 p7 p8 p9 = Volume
     , _vState            = p5
     , _vCreateTime       = withIso _Time (const id) p6
     , _vVolumeType       = p7
-    , _vIops             = p8
-    , _vEncrypted        = p9
+    , _vEncrypted        = p8
     , _vAttachments      = mempty
     , _vTags             = mempty
+    , _vIops             = Nothing
     , _vKmsKeyId         = Nothing
     }
 
@@ -4639,7 +4638,7 @@ vEncrypted = lens _vEncrypted (\s a -> s { _vEncrypted = a })
 --
 -- Condition: This parameter is required for requests to create 'io1' volumes; it
 -- is not used in requests to create 'standard' or 'gp2' volumes.
-vIops :: Lens' Volume Int
+vIops :: Lens' Volume (Maybe Int)
 vIops = lens _vIops (\s a -> s { _vIops = a })
 
 -- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
@@ -4678,7 +4677,7 @@ instance FromXML Volume where
         <*> x .@  "availabilityZone"
         <*> x .@  "createTime"
         <*> x .@  "encrypted"
-        <*> x .@  "iops"
+        <*> x .@? "iops"
         <*> x .@? "kmsKeyId"
         <*> x .@  "size"
         <*> x .@  "snapshotId"
@@ -11809,7 +11808,7 @@ data Instance = Instance
     , _i1InstanceLifecycle     :: Maybe InstanceLifecycleType
     , _i1InstanceType          :: InstanceType
     , _i1KernelId              :: Maybe Text
-    , _i1KeyName               :: Text
+    , _i1KeyName               :: Maybe Text
     , _i1LaunchTime            :: ISO8601
     , _i1Monitoring            :: Monitoring
     , _i1NetworkInterfaces     :: List "item" InstanceNetworkInterface
@@ -11864,7 +11863,7 @@ data Instance = Instance
 --
 -- * 'i1KernelId' @::@ 'Maybe' 'Text'
 --
--- * 'i1KeyName' @::@ 'Text'
+-- * 'i1KeyName' @::@ 'Maybe' 'Text'
 --
 -- * 'i1LaunchTime' @::@ 'UTCTime'
 --
@@ -11917,7 +11916,6 @@ data Instance = Instance
 instance' :: Text -- ^ 'i1InstanceId'
           -> Text -- ^ 'i1ImageId'
           -> InstanceState -- ^ 'i1State'
-          -> Text -- ^ 'i1KeyName'
           -> Int -- ^ 'i1AmiLaunchIndex'
           -> InstanceType -- ^ 'i1InstanceType'
           -> UTCTime -- ^ 'i1LaunchTime'
@@ -11929,24 +11927,24 @@ instance' :: Text -- ^ 'i1InstanceId'
           -> HypervisorType -- ^ 'i1Hypervisor'
           -> Bool -- ^ 'i1EbsOptimized'
           -> Instance
-instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 = Instance
+instance' p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 = Instance
     { _i1InstanceId            = p1
     , _i1ImageId               = p2
     , _i1State                 = p3
-    , _i1KeyName               = p4
-    , _i1AmiLaunchIndex        = p5
-    , _i1InstanceType          = p6
-    , _i1LaunchTime            = withIso _Time (const id) p7
-    , _i1Placement             = p8
-    , _i1Monitoring            = p9
-    , _i1Architecture          = p10
-    , _i1RootDeviceType        = p11
-    , _i1VirtualizationType    = p12
-    , _i1Hypervisor            = p13
-    , _i1EbsOptimized          = p14
+    , _i1AmiLaunchIndex        = p4
+    , _i1InstanceType          = p5
+    , _i1LaunchTime            = withIso _Time (const id) p6
+    , _i1Placement             = p7
+    , _i1Monitoring            = p8
+    , _i1Architecture          = p9
+    , _i1RootDeviceType        = p10
+    , _i1VirtualizationType    = p11
+    , _i1Hypervisor            = p12
+    , _i1EbsOptimized          = p13
     , _i1PrivateDnsName        = Nothing
     , _i1PublicDnsName         = Nothing
     , _i1StateTransitionReason = Nothing
+    , _i1KeyName               = Nothing
     , _i1ProductCodes          = mempty
     , _i1KernelId              = Nothing
     , _i1RamdiskId             = Nothing
@@ -12028,7 +12026,7 @@ i1KernelId = lens _i1KernelId (\s a -> s { _i1KernelId = a })
 
 -- | The name of the key pair, if this instance was launched with an associated
 -- key pair.
-i1KeyName :: Lens' Instance Text
+i1KeyName :: Lens' Instance (Maybe Text)
 i1KeyName = lens _i1KeyName (\s a -> s { _i1KeyName = a })
 
 -- | The time the instance was launched.
@@ -12159,7 +12157,7 @@ instance FromXML Instance where
         <*> x .@? "instanceLifecycle"
         <*> x .@  "instanceType"
         <*> x .@? "kernelId"
-        <*> x .@  "keyName"
+        <*> x .@? "keyName"
         <*> x .@  "launchTime"
         <*> x .@  "monitoring"
         <*> x .@? "networkInterfaceSet" .!@ mempty

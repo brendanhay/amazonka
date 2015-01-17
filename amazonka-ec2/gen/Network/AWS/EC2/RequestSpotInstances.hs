@@ -26,7 +26,7 @@
 -- starts on your behalf when the maximum price that you specify exceeds the
 -- current Spot Price. Amazon EC2 periodically sets the Spot Price based on
 -- available Spot Instance capacity and current Spot Instance requests. For more
--- information about Spot Instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html Spot Instances> in the /Amazon ElasticCompute Cloud User Guide/.
+-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /Amazon Elastic Compute CloudUser Guide for Linux/.
 --
 -- Users must be subscribed to the required product to run an instance with AWS
 -- Marketplace product codes.
@@ -200,7 +200,7 @@ requestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests = mempty
     }
 
--- | Information about the Spot Instance request.
+-- | One or more Spot Instance requests.
 rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
 rsirSpotInstanceRequests =
     lens _rsirSpotInstanceRequests

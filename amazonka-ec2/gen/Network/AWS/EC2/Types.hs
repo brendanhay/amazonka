@@ -189,6 +189,7 @@ module Network.AWS.EC2.Types
     , image
     , iArchitecture
     , iBlockDeviceMappings
+    , iCreationDate
     , iDescription
     , iHypervisor
     , iImageId
@@ -315,6 +316,14 @@ module Network.AWS.EC2.Types
 
     -- * AttachmentStatus
     , AttachmentStatus (..)
+
+    -- * ClassicLinkInstance
+    , ClassicLinkInstance
+    , classicLinkInstance
+    , cliGroups
+    , cliInstanceId
+    , cliTags
+    , cliVpcId
 
     -- * RouteOrigin
     , RouteOrigin (..)
@@ -724,6 +733,11 @@ module Network.AWS.EC2.Types
 
     -- * ExportEnvironment
     , ExportEnvironment (..)
+
+    -- * UserData
+    , UserData
+    , userData
+    , udData
 
     -- * VolumeAttachment
     , VolumeAttachment
@@ -1386,6 +1400,13 @@ module Network.AWS.EC2.Types
     , bteCode
     , bteMessage
 
+    -- * VpcClassicLink
+    , VpcClassicLink
+    , vpcClassicLink
+    , vclClassicLinkEnabled
+    , vclTags
+    , vclVpcId
+
     -- * VolumeStatusItem
     , VolumeStatusItem
     , volumeStatusItem
@@ -1638,7 +1659,7 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
     , _iilsPlacement                         :: Maybe Placement
     , _iilsPrivateIpAddress                  :: Maybe Text
     , _iilsSubnetId                          :: Maybe Text
-    , _iilsUserData                          :: Maybe Text
+    , _iilsUserData                          :: Maybe UserData
     } deriving (Eq, Show)
 
 -- | 'ImportInstanceLaunchSpecification' constructor.
@@ -1665,7 +1686,7 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
 --
 -- * 'iilsSubnetId' @::@ 'Maybe' 'Text'
 --
--- * 'iilsUserData' @::@ 'Maybe' 'Text'
+-- * 'iilsUserData' @::@ 'Maybe' 'UserData'
 --
 importInstanceLaunchSpecification :: ImportInstanceLaunchSpecification
 importInstanceLaunchSpecification = ImportInstanceLaunchSpecification
@@ -1690,6 +1711,7 @@ iilsAdditionalInfo =
 iilsArchitecture :: Lens' ImportInstanceLaunchSpecification (Maybe ArchitectureValues)
 iilsArchitecture = lens _iilsArchitecture (\s a -> s { _iilsArchitecture = a })
 
+-- | One or more security group IDs.
 iilsGroupIds :: Lens' ImportInstanceLaunchSpecification [Text]
 iilsGroupIds = lens _iilsGroupIds (\s a -> s { _iilsGroupIds = a }) . _List
 
@@ -1704,7 +1726,12 @@ iilsInstanceInitiatedShutdownBehavior =
     lens _iilsInstanceInitiatedShutdownBehavior
         (\s a -> s { _iilsInstanceInitiatedShutdownBehavior = a })
 
--- | The instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /AmazonElastic Compute Cloud User Guide/.
+-- | The instance type. This is not supported for VMs imported into a VPC, which
+-- are assigned the default security group. After a VM is imported into a VPC,
+-- you can specify another security group using the AWS Management Console. For
+-- more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud UserGuide for Linux/. For more information about the Linux instance types you can
+-- import, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html Before You Get Started> in the Amazon Elastic Compute Cloud User
+-- Guide for Linux.
 iilsInstanceType :: Lens' ImportInstanceLaunchSpecification (Maybe InstanceType)
 iilsInstanceType = lens _iilsInstanceType (\s a -> s { _iilsInstanceType = a })
 
@@ -1725,7 +1752,7 @@ iilsSubnetId :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
 iilsSubnetId = lens _iilsSubnetId (\s a -> s { _iilsSubnetId = a })
 
 -- | User data to be made available to the instance.
-iilsUserData :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
+iilsUserData :: Lens' ImportInstanceLaunchSpecification (Maybe UserData)
 iilsUserData = lens _iilsUserData (\s a -> s { _iilsUserData = a })
 
 instance FromXML ImportInstanceLaunchSpecification where
@@ -1833,9 +1860,8 @@ sDescription = lens _sDescription (\s a -> s { _sDescription = a })
 sEncrypted :: Lens' Snapshot Bool
 sEncrypted = lens _sEncrypted (\s a -> s { _sEncrypted = a })
 
--- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
--- (CMK) that was used to protect the volume encryption key for the parent
--- volume.
+-- | The full ARN of the AWS Key Management Service (KMS) master key that was used
+-- to protect the volume encryption key for the parent volume.
 sKmsKeyId :: Lens' Snapshot (Maybe Text)
 sKmsKeyId = lens _sKmsKeyId (\s a -> s { _sKmsKeyId = a })
 
@@ -1976,7 +2002,7 @@ tagDescription p1 p2 p3 p4 = TagDescription
     , _tdValue        = p4
     }
 
--- | The key of the tag.
+-- | The tag key.
 tdKey :: Lens' TagDescription Text
 tdKey = lens _tdKey (\s a -> s { _tdKey = a })
 
@@ -1984,11 +2010,11 @@ tdKey = lens _tdKey (\s a -> s { _tdKey = a })
 tdResourceId :: Lens' TagDescription Text
 tdResourceId = lens _tdResourceId (\s a -> s { _tdResourceId = a })
 
--- | The type of resource.
+-- | The resource type.
 tdResourceType :: Lens' TagDescription ResourceType
 tdResourceType = lens _tdResourceType (\s a -> s { _tdResourceType = a })
 
--- | The value of the tag.
+-- | The tag value.
 tdValue :: Lens' TagDescription Text
 tdValue = lens _tdValue (\s a -> s { _tdValue = a })
 
@@ -2699,6 +2725,7 @@ instance ToQuery PrivateIpAddressSpecification where
 data Image = Image
     { _iArchitecture        :: ArchitectureValues
     , _iBlockDeviceMappings :: List "item" BlockDeviceMapping
+    , _iCreationDate        :: Maybe Text
     , _iDescription         :: Maybe Text
     , _iHypervisor          :: HypervisorType
     , _iImageId             :: Text
@@ -2706,7 +2733,7 @@ data Image = Image
     , _iImageOwnerAlias     :: Maybe Text
     , _iImageType           :: ImageTypeValues
     , _iKernelId            :: Maybe Text
-    , _iName                :: Maybe Text
+    , _iName                :: Text
     , _iOwnerId             :: Text
     , _iPlatform            :: Maybe PlatformValues
     , _iProductCodes        :: List "item" ProductCode
@@ -2729,6 +2756,8 @@ data Image = Image
 --
 -- * 'iBlockDeviceMappings' @::@ ['BlockDeviceMapping']
 --
+-- * 'iCreationDate' @::@ 'Maybe' 'Text'
+--
 -- * 'iDescription' @::@ 'Maybe' 'Text'
 --
 -- * 'iHypervisor' @::@ 'HypervisorType'
@@ -2743,7 +2772,7 @@ data Image = Image
 --
 -- * 'iKernelId' @::@ 'Maybe' 'Text'
 --
--- * 'iName' @::@ 'Maybe' 'Text'
+-- * 'iName' @::@ 'Text'
 --
 -- * 'iOwnerId' @::@ 'Text'
 --
@@ -2776,11 +2805,12 @@ image :: Text -- ^ 'iImageId'
       -> Bool -- ^ 'iPublic'
       -> ArchitectureValues -- ^ 'iArchitecture'
       -> ImageTypeValues -- ^ 'iImageType'
+      -> Text -- ^ 'iName'
       -> DeviceType -- ^ 'iRootDeviceType'
       -> VirtualizationType -- ^ 'iVirtualizationType'
       -> HypervisorType -- ^ 'iHypervisor'
       -> Image
-image p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 = Image
+image p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 = Image
     { _iImageId             = p1
     , _iImageLocation       = p2
     , _iState               = p3
@@ -2788,9 +2818,11 @@ image p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 = Image
     , _iPublic              = p5
     , _iArchitecture        = p6
     , _iImageType           = p7
-    , _iRootDeviceType      = p8
-    , _iVirtualizationType  = p9
-    , _iHypervisor          = p10
+    , _iName                = p8
+    , _iRootDeviceType      = p9
+    , _iVirtualizationType  = p10
+    , _iHypervisor          = p11
+    , _iCreationDate        = Nothing
     , _iProductCodes        = mempty
     , _iKernelId            = Nothing
     , _iRamdiskId           = Nothing
@@ -2798,7 +2830,6 @@ image p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 = Image
     , _iSriovNetSupport     = Nothing
     , _iStateReason         = Nothing
     , _iImageOwnerAlias     = Nothing
-    , _iName                = Nothing
     , _iDescription         = Nothing
     , _iRootDeviceName      = Nothing
     , _iBlockDeviceMappings = mempty
@@ -2814,6 +2845,10 @@ iBlockDeviceMappings :: Lens' Image [BlockDeviceMapping]
 iBlockDeviceMappings =
     lens _iBlockDeviceMappings (\s a -> s { _iBlockDeviceMappings = a })
         . _List
+
+-- | The date and time the image was created.
+iCreationDate :: Lens' Image (Maybe Text)
+iCreationDate = lens _iCreationDate (\s a -> s { _iCreationDate = a })
 
 -- | The description of the AMI that was provided during image creation.
 iDescription :: Lens' Image (Maybe Text)
@@ -2846,7 +2881,7 @@ iKernelId :: Lens' Image (Maybe Text)
 iKernelId = lens _iKernelId (\s a -> s { _iKernelId = a })
 
 -- | The name of the AMI that was provided during image creation.
-iName :: Lens' Image (Maybe Text)
+iName :: Lens' Image Text
 iName = lens _iName (\s a -> s { _iName = a })
 
 -- | The AWS account ID of the image owner.
@@ -2907,6 +2942,7 @@ instance FromXML Image where
     parseXML x = Image
         <$> x .@  "architecture"
         <*> x .@? "blockDeviceMapping" .!@ mempty
+        <*> x .@? "creationDate"
         <*> x .@? "description"
         <*> x .@  "hypervisor"
         <*> x .@  "imageId"
@@ -2914,7 +2950,7 @@ instance FromXML Image where
         <*> x .@? "imageOwnerAlias"
         <*> x .@  "imageType"
         <*> x .@? "kernelId"
-        <*> x .@? "name"
+        <*> x .@  "name"
         <*> x .@  "imageOwnerId"
         <*> x .@? "platform"
         <*> x .@? "productCodes" .!@ mempty
@@ -2932,6 +2968,7 @@ instance ToQuery Image where
     toQuery Image{..} = mconcat
         [ "architecture"       =? _iArchitecture
         , "blockDeviceMapping" `toQueryList` _iBlockDeviceMappings
+        , "creationDate"       =? _iCreationDate
         , "description"        =? _iDescription
         , "hypervisor"         =? _iHypervisor
         , "imageId"            =? _iImageId
@@ -3654,8 +3691,10 @@ bdmEbs = lens _bdmEbs (\s a -> s { _bdmEbs = a })
 bdmNoDevice :: Lens' BlockDeviceMapping (Maybe Text)
 bdmNoDevice = lens _bdmNoDevice (\s a -> s { _bdmNoDevice = a })
 
--- | The virtual device name (ephemeral[0..3]). The number of available instance
--- store volumes depends on the instance type. After you connect to the
+-- | The virtual device name ('ephemeral'N). Instance store volumes are numbered
+-- starting from 0. An instance type with 2 available instance store volumes can
+-- specify mappings for 'ephemeral0' and 'ephemeral1'.The number of available
+-- instance store volumes depends on the instance type. After you connect to the
 -- instance, you must mount the volume.
 --
 -- Constraints: For M3 instances, you must specify instance store volumes in
@@ -3804,6 +3843,64 @@ instance ToQuery      AttachmentStatus
 
 instance FromXML AttachmentStatus where
     parseXML = parseXMLText "AttachmentStatus"
+
+data ClassicLinkInstance = ClassicLinkInstance
+    { _cliGroups     :: List "item" GroupIdentifier
+    , _cliInstanceId :: Maybe Text
+    , _cliTags       :: List "item" Tag
+    , _cliVpcId      :: Maybe Text
+    } deriving (Eq, Show)
+
+-- | 'ClassicLinkInstance' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cliGroups' @::@ ['GroupIdentifier']
+--
+-- * 'cliInstanceId' @::@ 'Maybe' 'Text'
+--
+-- * 'cliTags' @::@ ['Tag']
+--
+-- * 'cliVpcId' @::@ 'Maybe' 'Text'
+--
+classicLinkInstance :: ClassicLinkInstance
+classicLinkInstance = ClassicLinkInstance
+    { _cliInstanceId = Nothing
+    , _cliVpcId      = Nothing
+    , _cliGroups     = mempty
+    , _cliTags       = mempty
+    }
+
+-- | A list of security groups.
+cliGroups :: Lens' ClassicLinkInstance [GroupIdentifier]
+cliGroups = lens _cliGroups (\s a -> s { _cliGroups = a }) . _List
+
+-- | The ID of the instance.
+cliInstanceId :: Lens' ClassicLinkInstance (Maybe Text)
+cliInstanceId = lens _cliInstanceId (\s a -> s { _cliInstanceId = a })
+
+-- | Any tags assigned to the instance.
+cliTags :: Lens' ClassicLinkInstance [Tag]
+cliTags = lens _cliTags (\s a -> s { _cliTags = a }) . _List
+
+-- | The ID of the VPC.
+cliVpcId :: Lens' ClassicLinkInstance (Maybe Text)
+cliVpcId = lens _cliVpcId (\s a -> s { _cliVpcId = a })
+
+instance FromXML ClassicLinkInstance where
+    parseXML x = ClassicLinkInstance
+        <$> x .@? "groupSet" .!@ mempty
+        <*> x .@? "instanceId"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@? "vpcId"
+
+instance ToQuery ClassicLinkInstance where
+    toQuery ClassicLinkInstance{..} = mconcat
+        [ "groupSet"   `toQueryList` _cliGroups
+        , "instanceId" =? _cliInstanceId
+        , "tagSet"     `toQueryList` _cliTags
+        , "vpcId"      =? _cliVpcId
+        ]
 
 data RouteOrigin
     = OriginCreateRoute               -- ^ CreateRoute
@@ -4221,7 +4318,7 @@ siSpotPrice :: Lens' SpotInstanceRequest (Maybe Text)
 siSpotPrice = lens _siSpotPrice (\s a -> s { _siSpotPrice = a })
 
 -- | The state of the Spot Instance request. Spot bid status information can help
--- you track your Spot Instance requests. For information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-bid-status.html Tracking SpotRequests with Bid Status Codes> in the /Amazon Elastic Compute Cloud User Guide/.
+-- you track your Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot BidStatus> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 siState :: Lens' SpotInstanceRequest (Maybe SpotInstanceState)
 siState = lens _siState (\s a -> s { _siState = a })
 
@@ -4422,14 +4519,14 @@ lsPlacement = lens _lsPlacement (\s a -> s { _lsPlacement = a })
 lsRamdiskId :: Lens' LaunchSpecification (Maybe Text)
 lsRamdiskId = lens _lsRamdiskId (\s a -> s { _lsRamdiskId = a })
 
--- | One or more security groups. If requesting a Spot Instance in a nondefault
--- VPC, you must specify the security group ID. If requesting a Spot Instance in
--- EC2-Classic or a default VPC, you can specify either the security group name
--- or ID.
+-- | One or more security groups. To request an instance in a nondefault VPC, you
+-- must specify the ID of the security group. To request an instance in
+-- EC2-Classic or a default VPC, you can specify the name or the ID of the
+-- security group.
 lsSecurityGroups :: Lens' LaunchSpecification [GroupIdentifier]
 lsSecurityGroups = lens _lsSecurityGroups (\s a -> s { _lsSecurityGroups = a }) . _List
 
--- | The ID of the subnet in which to launch the Spot Instance.
+-- | The ID of the subnet in which to launch the instance.
 lsSubnetId :: Lens' LaunchSpecification (Maybe Text)
 lsSubnetId = lens _lsSubnetId (\s a -> s { _lsSubnetId = a })
 
@@ -4621,7 +4718,7 @@ vAvailabilityZone =
 vCreateTime :: Lens' Volume UTCTime
 vCreateTime = lens _vCreateTime (\s a -> s { _vCreateTime = a }) . _Time
 
--- | Indicates whether the volume is encrypted.
+-- | Indicates whether the volume will be encrypted.
 vEncrypted :: Lens' Volume Bool
 vEncrypted = lens _vEncrypted (\s a -> s { _vEncrypted = a })
 
@@ -4630,7 +4727,7 @@ vEncrypted = lens _vEncrypted (\s a -> s { _vEncrypted = a })
 -- provisioned for the volume. For General Purpose (SSD) volumes, this
 -- represents the baseline performance of the volume and the rate at which the
 -- volume accumulates I/O credits for bursting. For more information on General
--- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 --
 -- Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD) volumes and 3 to
 -- 3072 for General Purpose (SSD) volumes.
@@ -4640,8 +4737,8 @@ vEncrypted = lens _vEncrypted (\s a -> s { _vEncrypted = a })
 vIops :: Lens' Volume (Maybe Int)
 vIops = lens _vIops (\s a -> s { _vIops = a })
 
--- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
--- (CMK) that was used to protect the volume encryption key for the volume.
+-- | The full ARN of the AWS Key Management Service (KMS) master key that was used
+-- to protect the volume encryption key for the volume.
 vKmsKeyId :: Lens' Volume (Maybe Text)
 vKmsKeyId = lens _vKmsKeyId (\s a -> s { _vKmsKeyId = a })
 
@@ -5587,9 +5684,11 @@ didBytes = lens _didBytes (\s a -> s { _didBytes = a })
 didFormat :: Lens' DiskImageDetail DiskImageFormat
 didFormat = lens _didFormat (\s a -> s { _didFormat = a })
 
--- | A presigned URL for the import manifest stored in Amazon S3. For information
--- about creating a presigned URL for an Amazon S3 object, read the "Query
--- String Request Authentication Alternative" section of the <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating RESTRequests> topic in the /Amazon Simple Storage Service Developer Guide/.
+-- | A presigned URL for the import manifest stored in Amazon S3 and presented
+-- here as an Amazon S3 presigned URL. For information about creating a
+-- presigned URL for an Amazon S3 object, read the "Query String Request
+-- Authentication Alternative" section of the <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic
+-- in the /Amazon Simple Storage Service Developer Guide/.
 didImportManifestUrl :: Lens' DiskImageDetail Text
 didImportManifestUrl =
     lens _didImportManifestUrl (\s a -> s { _didImportManifestUrl = a })
@@ -6531,7 +6630,7 @@ bundleTask p1 p2 p3 p4 p5 p6 p7 = BundleTask
     , _btBundleTaskError = Nothing
     }
 
--- | The ID for this bundle task.
+-- | The ID of the bundle task.
 btBundleId :: Lens' BundleTask Text
 btBundleId = lens _btBundleId (\s a -> s { _btBundleId = a })
 
@@ -6653,6 +6752,11 @@ data InstanceType
     | C3_8XLarge  -- ^ c3.8xlarge
     | C3_Large    -- ^ c3.large
     | C3_XLarge   -- ^ c3.xlarge
+    | C4_2XLarge  -- ^ c4.2xlarge
+    | C4_4XLarge  -- ^ c4.4xlarge
+    | C4_8XLarge  -- ^ c4.8xlarge
+    | C4_Large    -- ^ c4.large
+    | C4_XLarge   -- ^ c4.xlarge
     | CC1_4XLarge -- ^ cc1.4xlarge
     | CC2_8XLarge -- ^ cc2.8xlarge
     | CG1_4XLarge -- ^ cg1.4xlarge
@@ -6697,6 +6801,11 @@ instance FromText InstanceType where
         "c3.8xlarge"  -> pure C3_8XLarge
         "c3.large"    -> pure C3_Large
         "c3.xlarge"   -> pure C3_XLarge
+        "c4.2xlarge"  -> pure C4_2XLarge
+        "c4.4xlarge"  -> pure C4_4XLarge
+        "c4.8xlarge"  -> pure C4_8XLarge
+        "c4.large"    -> pure C4_Large
+        "c4.xlarge"   -> pure C4_XLarge
         "cc1.4xlarge" -> pure CC1_4XLarge
         "cc2.8xlarge" -> pure CC2_8XLarge
         "cg1.4xlarge" -> pure CG1_4XLarge
@@ -6740,6 +6849,11 @@ instance ToText InstanceType where
         C3_8XLarge  -> "c3.8xlarge"
         C3_Large    -> "c3.large"
         C3_XLarge   -> "c3.xlarge"
+        C4_2XLarge  -> "c4.2xlarge"
+        C4_4XLarge  -> "c4.4xlarge"
+        C4_8XLarge  -> "c4.8xlarge"
+        C4_Large    -> "c4.large"
+        C4_XLarge   -> "c4.xlarge"
         CC1_4XLarge -> "cc1.4xlarge"
         CC2_8XLarge -> "cc2.8xlarge"
         CG1_4XLarge -> "cg1.4xlarge"
@@ -6918,7 +7032,7 @@ spotDatafeedSubscription = SpotDatafeedSubscription
     , _sdsFault   = Nothing
     }
 
--- | The Amazon S3 bucket where the Spot Instance datafeed is located.
+-- | The Amazon S3 bucket where the Spot Instance data feed is located.
 sdsBucket :: Lens' SpotDatafeedSubscription (Maybe Text)
 sdsBucket = lens _sdsBucket (\s a -> s { _sdsBucket = a })
 
@@ -6930,11 +7044,11 @@ sdsFault = lens _sdsFault (\s a -> s { _sdsFault = a })
 sdsOwnerId :: Lens' SpotDatafeedSubscription (Maybe Text)
 sdsOwnerId = lens _sdsOwnerId (\s a -> s { _sdsOwnerId = a })
 
--- | The prefix that is prepended to datafeed files.
+-- | The prefix that is prepended to data feed files.
 sdsPrefix :: Lens' SpotDatafeedSubscription (Maybe Text)
 sdsPrefix = lens _sdsPrefix (\s a -> s { _sdsPrefix = a })
 
--- | The state of the Spot Instance datafeed subscription.
+-- | The state of the Spot Instance data feed subscription.
 sdsState :: Lens' SpotDatafeedSubscription (Maybe DatafeedSubscriptionState)
 sdsState = lens _sdsState (\s a -> s { _sdsState = a })
 
@@ -7284,6 +7398,33 @@ instance ToQuery      ExportEnvironment
 
 instance FromXML ExportEnvironment where
     parseXML = parseXMLText "ExportEnvironment"
+
+newtype UserData = UserData
+    { _udData :: Maybe Text
+    } deriving (Eq, Ord, Show, Monoid)
+
+-- | 'UserData' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'udData' @::@ 'Maybe' 'Text'
+--
+userData :: UserData
+userData = UserData
+    { _udData = Nothing
+    }
+
+udData :: Lens' UserData (Maybe Text)
+udData = lens _udData (\s a -> s { _udData = a })
+
+instance FromXML UserData where
+    parseXML x = UserData
+        <$> x .@? "data"
+
+instance ToQuery UserData where
+    toQuery UserData{..} = mconcat
+        [ "data" =? _udData
+        ]
 
 data VolumeAttachment = VolumeAttachment
     { _vaAttachTime          :: Maybe ISO8601
@@ -9413,7 +9554,7 @@ ebdEncrypted = lens _ebdEncrypted (\s a -> s { _ebdEncrypted = a })
 -- provisioned for the volume. For General Purpose (SSD) volumes, this
 -- represents the baseline performance of the volume and the rate at which the
 -- volume accumulates I/O credits for bursting. For more information on General
--- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 --
 -- Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD) volumes and 3 to
 -- 3072 for General Purpose (SSD) volumes.
@@ -12475,7 +12616,7 @@ rslsSecurityGroups =
     lens _rslsSecurityGroups (\s a -> s { _rslsSecurityGroups = a })
         . _List
 
--- | The ID of the subnet in which to launch the Spot Instance.
+-- | The ID of the subnet in which to launch the instance.
 rslsSubnetId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsSubnetId = lens _rslsSubnetId (\s a -> s { _rslsSubnetId = a })
 
@@ -12716,6 +12857,55 @@ instance ToQuery BundleTaskError where
     toQuery BundleTaskError{..} = mconcat
         [ "code"    =? _bteCode
         , "message" =? _bteMessage
+        ]
+
+data VpcClassicLink = VpcClassicLink
+    { _vclClassicLinkEnabled :: Maybe Bool
+    , _vclTags               :: List "item" Tag
+    , _vclVpcId              :: Maybe Text
+    } deriving (Eq, Show)
+
+-- | 'VpcClassicLink' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'vclClassicLinkEnabled' @::@ 'Maybe' 'Bool'
+--
+-- * 'vclTags' @::@ ['Tag']
+--
+-- * 'vclVpcId' @::@ 'Maybe' 'Text'
+--
+vpcClassicLink :: VpcClassicLink
+vpcClassicLink = VpcClassicLink
+    { _vclVpcId              = Nothing
+    , _vclClassicLinkEnabled = Nothing
+    , _vclTags               = mempty
+    }
+
+-- | Indicates whether the VPC is enabled for ClassicLink.
+vclClassicLinkEnabled :: Lens' VpcClassicLink (Maybe Bool)
+vclClassicLinkEnabled =
+    lens _vclClassicLinkEnabled (\s a -> s { _vclClassicLinkEnabled = a })
+
+-- | Any tags assigned to the VPC.
+vclTags :: Lens' VpcClassicLink [Tag]
+vclTags = lens _vclTags (\s a -> s { _vclTags = a }) . _List
+
+-- | The ID of the VPC.
+vclVpcId :: Lens' VpcClassicLink (Maybe Text)
+vclVpcId = lens _vclVpcId (\s a -> s { _vclVpcId = a })
+
+instance FromXML VpcClassicLink where
+    parseXML x = VpcClassicLink
+        <$> x .@? "classicLinkEnabled"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@? "vpcId"
+
+instance ToQuery VpcClassicLink where
+    toQuery VpcClassicLink{..} = mconcat
+        [ "classicLinkEnabled" =? _vclClassicLinkEnabled
+        , "tagSet"             `toQueryList` _vclTags
+        , "vpcId"              =? _vclVpcId
         ]
 
 data VolumeStatusItem = VolumeStatusItem

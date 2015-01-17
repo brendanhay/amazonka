@@ -48,7 +48,7 @@
 -- encrypted. Your encrypted volumes and any associated snapshots always remain
 -- protected.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html Amazon Elastic Block Store> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBSEncryption> in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html Amazon Elastic Block Store> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBSEncryption> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSnapshot.html>
 module Network.AWS.EC2.CreateSnapshot
@@ -197,9 +197,8 @@ csr1Description = lens _csr1Description (\s a -> s { _csr1Description = a })
 csr1Encrypted :: Lens' CreateSnapshotResponse Bool
 csr1Encrypted = lens _csr1Encrypted (\s a -> s { _csr1Encrypted = a })
 
--- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
--- (CMK) that was used to protect the volume encryption key for the parent
--- volume.
+-- | The full ARN of the AWS Key Management Service (KMS) master key that was used
+-- to protect the volume encryption key for the parent volume.
 csr1KmsKeyId :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1KmsKeyId = lens _csr1KmsKeyId (\s a -> s { _csr1KmsKeyId = a })
 

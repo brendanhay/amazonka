@@ -23,11 +23,10 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Describes the Spot Instance requests that belong to your account. Spot
--- Instances are instances that Amazon EC2 starts on your behalf when the
--- maximum price that you specify exceeds the current Spot Price. Amazon EC2
--- periodically sets the Spot Price based on available Spot Instance capacity
--- and current Spot Instance requests. For more information about Spot
--- Instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html Spot Instances> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Instances are instances that Amazon EC2 launches when the bid price that you
+-- specify exceeds the current Spot Price. Amazon EC2 periodically sets the Spot
+-- Price based on available Spot Instance capacity and current Spot Instance
+-- requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /AmazonElastic Compute Cloud User Guide for Linux/.
 --
 -- You can use 'DescribeSpotInstanceRequests' to find a running Spot Instance by
 -- examining the response. If the status of the Spot Instance is 'fulfilled', the
@@ -163,7 +162,8 @@ dsirDryRun = lens _dsirDryRun (\s a -> s { _dsirDryRun = a })
 -- fulfill the request.
 --
 -- 'state' - The state of the Spot Instance request ('open' | 'active' | 'closed' | 'cancelled' | 'failed'). Spot bid status information can help you track your Amazon EC2
--- Spot Instance requests. For information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-bid-status.html Tracking Spot Requests with BidStatus Codes> in the Amazon Elastic Compute Cloud User Guide.
+-- Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot Bid Status> in the
+-- Amazon Elastic Compute Cloud User Guide for Linux.
 --
 -- 'status-code' - The short code describing the most recent evaluation of your
 -- Spot Instance request.

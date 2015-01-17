@@ -24,6 +24,9 @@
 
 -- | Resets an attribute of an AMI to its default value.
 --
+-- The productCodes attribute can't be reset.
+--
+--
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetImageAttribute.html>
 module Network.AWS.EC2.ResetImageAttribute
     (

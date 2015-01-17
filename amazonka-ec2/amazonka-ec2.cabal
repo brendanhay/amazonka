@@ -50,6 +50,7 @@ library
         , Network.AWS.EC2.AssociateAddress
         , Network.AWS.EC2.AssociateDhcpOptions
         , Network.AWS.EC2.AssociateRouteTable
+        , Network.AWS.EC2.AttachClassicLinkVpc
         , Network.AWS.EC2.AttachInternetGateway
         , Network.AWS.EC2.AttachNetworkInterface
         , Network.AWS.EC2.AttachVolume
@@ -115,6 +116,7 @@ library
         , Network.AWS.EC2.DescribeAddresses
         , Network.AWS.EC2.DescribeAvailabilityZones
         , Network.AWS.EC2.DescribeBundleTasks
+        , Network.AWS.EC2.DescribeClassicLinkInstances
         , Network.AWS.EC2.DescribeConversionTasks
         , Network.AWS.EC2.DescribeCustomerGateways
         , Network.AWS.EC2.DescribeDhcpOptions
@@ -148,19 +150,23 @@ library
         , Network.AWS.EC2.DescribeVolumeStatus
         , Network.AWS.EC2.DescribeVolumes
         , Network.AWS.EC2.DescribeVpcAttribute
+        , Network.AWS.EC2.DescribeVpcClassicLink
         , Network.AWS.EC2.DescribeVpcPeeringConnections
         , Network.AWS.EC2.DescribeVpcs
         , Network.AWS.EC2.DescribeVpnConnections
         , Network.AWS.EC2.DescribeVpnGateways
+        , Network.AWS.EC2.DetachClassicLinkVpc
         , Network.AWS.EC2.DetachInternetGateway
         , Network.AWS.EC2.DetachNetworkInterface
         , Network.AWS.EC2.DetachVolume
         , Network.AWS.EC2.DetachVpnGateway
         , Network.AWS.EC2.DisableVgwRoutePropagation
+        , Network.AWS.EC2.DisableVpcClassicLink
         , Network.AWS.EC2.DisassociateAddress
         , Network.AWS.EC2.DisassociateRouteTable
         , Network.AWS.EC2.EnableVgwRoutePropagation
         , Network.AWS.EC2.EnableVolumeIO
+        , Network.AWS.EC2.EnableVpcClassicLink
         , Network.AWS.EC2.GetConsoleOutput
         , Network.AWS.EC2.GetPasswordData
         , Network.AWS.EC2.ImportInstance

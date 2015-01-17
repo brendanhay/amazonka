@@ -24,7 +24,7 @@
 
 -- | Deletes the specified placement group. You must terminate all instances in
 -- the placement group before you can delete the placement group. For more
--- information about placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html ClusterInstances> in the /Amazon Elastic Compute Cloud User Guide/.
+-- information about placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html ClusterInstances> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeletePlacementGroup.html>
 module Network.AWS.EC2.DeletePlacementGroup

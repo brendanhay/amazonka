@@ -119,11 +119,10 @@ di1DryRun = lens _di1DryRun (\s a -> s { _di1DryRun = a })
 --
 -- 'dns-name' - The public DNS name of the instance.
 --
--- 'group-id' - The ID of the security group for the instance. If the instance
--- is in EC2-Classic or a default VPC, you can use 'group-name' instead.
+-- 'group-id' - The ID of the security group for the instance. EC2-Classic only.
 --
--- 'group-name' - The name of the security group for the instance. If the
--- instance is in a nondefault VPC, you must use 'group-id' instead.
+-- 'group-name' - The name of the security group for the instance. EC2-Classic
+-- only.
 --
 -- 'hypervisor' - The hypervisor type of the instance ('ovm' | 'xen').
 --
@@ -146,12 +145,9 @@ di1DryRun = lens _di1DryRun (\s a -> s { _di1DryRun = a })
 --
 -- 'instance-type' - The type of instance (for example, 'm1.small').
 --
--- 'instance.group-id' - The ID of the security group for the instance. If the
--- instance is in EC2-Classic or a default VPC, you can use 'instance.group-name'
--- instead.
+-- 'instance.group-id' - The ID of the security group for the instance.
 --
--- 'instance.group-name' - The name of the security group for the instance. If
--- the instance is in a nondefault VPC, you must use 'instance.group-id' instead.
+-- 'instance.group-name' - The name of the security group for the instance.
 --
 -- 'ip-address' - The public IP address of the instance.
 --

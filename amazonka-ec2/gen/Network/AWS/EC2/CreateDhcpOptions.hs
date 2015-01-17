@@ -31,18 +31,19 @@
 -- 'domain-name-servers' - The IP addresses of up to four domain name servers,
 -- or 'AmazonProvidedDNS'. The default DHCP option set specifies 'AmazonProvidedDNS'. If specifying more than one domain name server, specify the IP addresses in a single parameter, separated by commas.
 -- 'domain-name' - If you're using AmazonProvidedDNS in 'us-east-1', specify 'ec2.internal'. If you're using AmazonProvidedDNS in another region, specify 'region.compute.internal' (for example, 'ap-northeast-1.compute.internal'). Otherwise, specify a domain
--- name (for example, 'MyCompany.com'). If specifying more than one domain name,
--- separate them with spaces.  'ntp-servers' - The IP addresses of up to four
--- Network Time Protocol (NTP) servers.  'netbios-name-servers' - The IP addresses
--- of up to four NetBIOS name servers.  'netbios-node-type' - The NetBIOS node
--- type (1, 2, 4, or 8). We recommend that you specify 2 (broadcast and
--- multicast are not currently supported). For more information about these node
--- types, see <http://www.ietf.org/rfc/rfc2132.txt RFC 2132>.   Your VPC automatically starts out with a set of DHCP
--- options that includes only a DNS server that we provide (AmazonProvidedDNS).
--- If you create a set of options, and if your VPC has an Internet gateway, make
--- sure to set the 'domain-name-servers' option either to 'AmazonProvidedDNS' or to
--- a domain name server of your choice. For more information about DHCP options,
--- see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/.
+-- name (for example, 'MyCompany.com'). Important: Some Linux operating systems
+-- accept multiple domain names separated by spaces. However, Windows and other
+-- Linux operating systems treat the value as a single domain, which results in
+-- unexpected behavior. If your DHCP options set is associated with a VPC that
+-- has instances with multiple operating systems, specify only one domain name.  'ntp-servers' - The IP addresses of up to four Network Time Protocol (NTP)
+-- servers.  'netbios-name-servers' - The IP addresses of up to four NetBIOS name
+-- servers.  'netbios-node-type' - The NetBIOS node type (1, 2, 4, or 8). We
+-- recommend that you specify 2 (broadcast and multicast are not currently
+-- supported). For more information about these node types, see <http://www.ietf.org/rfc/rfc2132.txt RFC 2132>.   Your
+-- VPC automatically starts out with a set of DHCP options that includes only a
+-- DNS server that we provide (AmazonProvidedDNS). If you create a set of
+-- options, and if your VPC has an Internet gateway, make sure to set the 'domain-name-servers' option either to 'AmazonProvidedDNS' or to a domain name server of your
+-- choice. For more information about DHCP options, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateDhcpOptions.html>
 module Network.AWS.EC2.CreateDhcpOptions

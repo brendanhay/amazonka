@@ -31,7 +31,10 @@
 -- (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
 -- EC2SecurityGroupId for non-VPC).
 --
--- For an overview of CIDR ranges, go to the <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
+-- You cannot authorize ingress from an EC2 security group in one Region to an
+-- Amazon RDS DB instance in another. You cannot authorize ingress from a VPC
+-- security group in one VPC to an Amazon RDS DB instance in another.  For an
+-- overview of CIDR ranges, go to the <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AuthorizeDBSecurityGroupIngress.html>
 module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress

@@ -113,7 +113,7 @@ cdbpg1DBParameterGroupFamily =
 -- Constraints:
 --
 -- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
---
+-- This value is stored as a lower-case string.
 cdbpg1DBParameterGroupName :: Lens' CreateDBParameterGroup Text
 cdbpg1DBParameterGroupName =
     lens _cdbpg1DBParameterGroupName

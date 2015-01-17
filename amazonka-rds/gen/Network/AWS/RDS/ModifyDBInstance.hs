@@ -218,7 +218,7 @@ modifyDBInstance p1 = ModifyDBInstance
 -- performance degradation. While the migration takes place, nightly backups for
 -- the instance will be suspended. No other Amazon RDS operations can take place
 -- for the instance, including modifying the instance, rebooting the instance,
--- deleting the instance, creating a read replica for the instance, and creating
+-- deleting the instance, creating a Read Replica for the instance, and creating
 -- a DB snapshot of the instance.
 mdbiAllocatedStorage :: Lens' ModifyDBInstance (Maybe Int)
 mdbiAllocatedStorage =
@@ -278,9 +278,10 @@ mdbiAutoMinorVersionUpgrade =
 --
 -- Constraints:
 --
--- Must be a value from 0 to 35 Can be specified for a read replica only if
--- the source is running MySQL 5.6 Cannot be set to 0 if the DB instance is a
--- source to read replicas
+-- Must be a value from 0 to 35 Can be specified for a MySQL Read Replica only
+-- if the source is running MySQL 5.6 Can be specified for a PostgreSQL Read
+-- Replica only if the source is running PostgreSQL 9.3.5 Cannot be set to 0 if
+-- the DB instance is a source to Read Replicas
 mdbiBackupRetentionPeriod :: Lens' ModifyDBInstance (Maybe Int)
 mdbiBackupRetentionPeriod =
     lens _mdbiBackupRetentionPeriod
@@ -351,7 +352,7 @@ mdbiDBSecurityGroups =
 -- for the new engine version must be specified. The new DB parameter group can
 -- be the default for that DB parameter group family.
 --
--- Example: '5.1.42'
+-- For a list of valid engine versions, see 'CreateDBInstance'.
 mdbiEngineVersion :: Lens' ModifyDBInstance (Maybe Text)
 mdbiEngineVersion =
     lens _mdbiEngineVersion (\s a -> s { _mdbiEngineVersion = a })
@@ -387,7 +388,7 @@ mdbiEngineVersion =
 -- performance degradation. While the migration takes place, nightly backups for
 -- the instance will be suspended. No other Amazon RDS operations can take place
 -- for the instance, including modifying the instance, rebooting the instance,
--- deleting the instance, creating a read replica for the instance, and creating
+-- deleting the instance, creating a Read Replica for the instance, and creating
 -- a DB snapshot of the instance.
 mdbiIops :: Lens' ModifyDBInstance (Maybe Int)
 mdbiIops = lens _mdbiIops (\s a -> s { _mdbiIops = a })
@@ -405,6 +406,10 @@ mdbiIops = lens _mdbiIops (\s a -> s { _mdbiIops = a })
 -- Constraints: Must be 8 to 41 alphanumeric characters (MySQL), 8 to 30
 -- alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL
 -- Server).
+--
+-- Amazon RDS API actions never return the password, so this action provides a
+-- way to regain access to a master instance user if the password is lost. This
+-- includes restoring privileges that may have been accidentally revoked.
 mdbiMasterUserPassword :: Lens' ModifyDBInstance (Maybe Text)
 mdbiMasterUserPassword =
     lens _mdbiMasterUserPassword (\s a -> s { _mdbiMasterUserPassword = a })
@@ -414,7 +419,7 @@ mdbiMasterUserPassword =
 -- next maintenance window unless the 'ApplyImmediately' parameter is set to 'true'
 -- for this request.
 --
--- Constraints: Cannot be specified if the DB instance is a read replica.
+-- Constraints: Cannot be specified if the DB instance is a Read Replica.
 mdbiMultiAZ :: Lens' ModifyDBInstance (Maybe Bool)
 mdbiMultiAZ = lens _mdbiMultiAZ (\s a -> s { _mdbiMultiAZ = a })
 
@@ -486,11 +491,13 @@ mdbiPreferredMaintenanceWindow =
     lens _mdbiPreferredMaintenanceWindow
         (\s a -> s { _mdbiPreferredMaintenanceWindow = a })
 
--- | Specifies storage type to be associated with the DB Instance.
+-- | Specifies the storage type to be associated with the DB instance.
 --
 -- Valid values: 'standard | gp2 | io1'
 --
 -- If you specify 'io1', you must also include a value for the 'Iops' parameter.
+--
+-- Default: 'io1' if the 'Iops' parameter is specified; otherwise 'standard'
 mdbiStorageType :: Lens' ModifyDBInstance (Maybe Text)
 mdbiStorageType = lens _mdbiStorageType (\s a -> s { _mdbiStorageType = a })
 

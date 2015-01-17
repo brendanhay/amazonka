@@ -25,6 +25,8 @@
 -- | Deletes a DBSnapshot. If the snapshot is being copied, the copy operation is
 -- terminated.
 --
+-- The DBSnapshot must be in the 'available' state to be deleted.
+--
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSnapshot.html>
 module Network.AWS.RDS.DeleteDBSnapshot
     (

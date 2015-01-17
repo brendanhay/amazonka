@@ -24,6 +24,8 @@
 
 -- | Deletes a DB security group.
 --
+-- The specified DB security group must not be associated with any DB instances.
+--
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSecurityGroup.html>
 module Network.AWS.RDS.DeleteDBSecurityGroup
     (
@@ -63,7 +65,7 @@ deleteDBSecurityGroup p1 = DeleteDBSecurityGroup
 
 -- | The name of the DB security group to delete.
 --
--- Constraints:
+-- You cannot delete the default DB security group.  Constraints:
 --
 -- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
 -- Must not be "Default" May not contain spaces

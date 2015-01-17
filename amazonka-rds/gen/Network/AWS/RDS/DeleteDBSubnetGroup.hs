@@ -24,6 +24,9 @@
 
 -- | Deletes a DB subnet group.
 --
+-- The specified database subnet group must not be associated with any DB
+-- instances.
+--
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSubnetGroup.html>
 module Network.AWS.RDS.DeleteDBSubnetGroup
     (
@@ -63,7 +66,7 @@ deleteDBSubnetGroup p1 = DeleteDBSubnetGroup
 
 -- | The name of the database subnet group to delete.
 --
--- Constraints:
+-- You cannot delete the default subnet group.  Constraints:
 --
 -- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
 --

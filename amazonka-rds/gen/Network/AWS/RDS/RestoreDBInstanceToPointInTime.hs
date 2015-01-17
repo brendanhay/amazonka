@@ -23,8 +23,8 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Restores a DB instance to an arbitrary point-in-time. Users can restore to
--- any point in time before the latestRestorableTime for up to
--- backupRetentionPeriod days. The target database is created from the source
+-- any point in time before the LatestRestorableTime for up to
+-- BackupRetentionPeriod days. The target database is created from the source
 -- database with the same configuration as the original database except that the
 -- DB instance is created with the default DB security group.
 --
@@ -193,6 +193,10 @@ rdbitpitDBInstanceClass =
     lens _rdbitpitDBInstanceClass (\s a -> s { _rdbitpitDBInstanceClass = a })
 
 -- | The database name for the restored DB instance.
+--
+-- This parameter is not used for the MySQL engine.
+--
+--
 rdbitpitDBName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitDBName = lens _rdbitpitDBName (\s a -> s { _rdbitpitDBName = a })
 
@@ -208,7 +212,7 @@ rdbitpitDBSubnetGroupName =
 --
 -- Constraint: Must be compatible with the engine of the source
 --
--- Example: 'oracle-ee'
+-- Valid Values: 'MySQL' | 'oracle-se1' | 'oracle-se' | 'oracle-ee' | 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' | 'sqlserver-web' | 'postgres'
 rdbitpitEngine :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitEngine = lens _rdbitpitEngine (\s a -> s { _rdbitpitEngine = a })
 
@@ -299,11 +303,13 @@ rdbitpitSourceDBInstanceIdentifier =
     lens _rdbitpitSourceDBInstanceIdentifier
         (\s a -> s { _rdbitpitSourceDBInstanceIdentifier = a })
 
--- | Specifies storage type to be associated with the DB Instance.
+-- | Specifies the storage type to be associated with the DB instance.
 --
 -- Valid values: 'standard | gp2 | io1'
 --
 -- If you specify 'io1', you must also include a value for the 'Iops' parameter.
+--
+-- Default: 'io1' if the 'Iops' parameter is specified; otherwise 'standard'
 rdbitpitStorageType :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rdbitpitStorageType =
     lens _rdbitpitStorageType (\s a -> s { _rdbitpitStorageType = a })

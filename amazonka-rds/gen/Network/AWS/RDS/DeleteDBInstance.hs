@@ -98,10 +98,11 @@ ddbiDBInstanceIdentifier =
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when
 -- SkipFinalSnapshot is set to 'false'.
 --
--- Constraints:
+-- Specifying this parameter and also setting the SkipFinalShapshot parameter
+-- to true results in an error.  Constraints:
 --
 -- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
--- Cannot be specified when deleting a read replica.
+-- Cannot be specified when deleting a Read Replica.
 ddbiFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
 ddbiFinalDBSnapshotIdentifier =
     lens _ddbiFinalDBSnapshotIdentifier
@@ -111,9 +112,10 @@ ddbiFinalDBSnapshotIdentifier =
 -- deleted. If 'true' is specified, no DBSnapshot is created. If 'false' is
 -- specified, a DB snapshot is created before the DB instance is deleted.
 --
--- Specify 'true' when deleting a read replica.
+-- Specify 'true' when deleting a Read Replica.
 --
--- Default: 'false'
+-- The FinalDBSnapshotIdentifier parameter must be specified if
+-- SkipFinalSnapshot is 'false'. Default: 'false'
 ddbiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
 ddbiSkipFinalSnapshot =
     lens _ddbiSkipFinalSnapshot (\s a -> s { _ddbiSkipFinalSnapshot = a })

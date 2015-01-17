@@ -39,6 +39,7 @@ library
           Network.AWS.RDS
         , Network.AWS.RDS.AddSourceIdentifierToSubscription
         , Network.AWS.RDS.AddTagsToResource
+        , Network.AWS.RDS.ApplyPendingMaintenanceAction
         , Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
         , Network.AWS.RDS.CopyDBParameterGroup
         , Network.AWS.RDS.CopyDBSnapshot
@@ -73,6 +74,7 @@ library
         , Network.AWS.RDS.DescribeOptionGroupOptions
         , Network.AWS.RDS.DescribeOptionGroups
         , Network.AWS.RDS.DescribeOrderableDBInstanceOptions
+        , Network.AWS.RDS.DescribePendingMaintenanceActions
         , Network.AWS.RDS.DescribeReservedDBInstances
         , Network.AWS.RDS.DescribeReservedDBInstancesOfferings
         , Network.AWS.RDS.DownloadDBLogFilePortion

@@ -1,6 +1,7 @@
 SHELL := /usr/bin/env bash
-FLAGS := -j --disable-documentation --disable-library-coverage
 DEPS  := vendor/botocore vendor/jason
+
+CABAL_INSTALL_DEFARGS ?= -j --disable-documentation --disable-coverage
 
 XML := \
  cloudfront \
@@ -66,7 +67,7 @@ build: input output
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
 install: add-sources
-	cabal install $(FLAGS) --only-dependencies
+	cabal install $(CABAL_INSTALL_DEFARGS) --only-dependencies
 
 clean:
 	cabal clean

@@ -140,7 +140,7 @@ receive f = const (either (return . Left . HttpError) success)
                 x <- f (_svcAbbrev svc) hs bdy
                 case x of
                     Left  e -> return (Left e)
-                    Right y -> return $! Right (s, y)
+                    Right y -> return (Right (s, y))
 
     svc = service :: Service (Sv a)
 {-# INLINE receive #-}

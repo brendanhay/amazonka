@@ -2733,7 +2733,7 @@ data Image = Image
     , _iImageOwnerAlias     :: Maybe Text
     , _iImageType           :: ImageTypeValues
     , _iKernelId            :: Maybe Text
-    , _iName                :: Text
+    , _iName                :: Maybe Text
     , _iOwnerId             :: Text
     , _iPlatform            :: Maybe PlatformValues
     , _iProductCodes        :: List "item" ProductCode
@@ -2772,7 +2772,7 @@ data Image = Image
 --
 -- * 'iKernelId' @::@ 'Maybe' 'Text'
 --
--- * 'iName' @::@ 'Text'
+-- * 'iName' @::@ 'Maybe' 'Text'
 --
 -- * 'iOwnerId' @::@ 'Text'
 --
@@ -2805,12 +2805,11 @@ image :: Text -- ^ 'iImageId'
       -> Bool -- ^ 'iPublic'
       -> ArchitectureValues -- ^ 'iArchitecture'
       -> ImageTypeValues -- ^ 'iImageType'
-      -> Text -- ^ 'iName'
       -> DeviceType -- ^ 'iRootDeviceType'
       -> VirtualizationType -- ^ 'iVirtualizationType'
       -> HypervisorType -- ^ 'iHypervisor'
       -> Image
-image p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 = Image
+image p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 = Image
     { _iImageId             = p1
     , _iImageLocation       = p2
     , _iState               = p3
@@ -2818,10 +2817,9 @@ image p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 = Image
     , _iPublic              = p5
     , _iArchitecture        = p6
     , _iImageType           = p7
-    , _iName                = p8
-    , _iRootDeviceType      = p9
-    , _iVirtualizationType  = p10
-    , _iHypervisor          = p11
+    , _iRootDeviceType      = p8
+    , _iVirtualizationType  = p9
+    , _iHypervisor          = p10
     , _iCreationDate        = Nothing
     , _iProductCodes        = mempty
     , _iKernelId            = Nothing
@@ -2830,6 +2828,7 @@ image p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 = Image
     , _iSriovNetSupport     = Nothing
     , _iStateReason         = Nothing
     , _iImageOwnerAlias     = Nothing
+    , _iName                = Nothing
     , _iDescription         = Nothing
     , _iRootDeviceName      = Nothing
     , _iBlockDeviceMappings = mempty
@@ -2881,7 +2880,7 @@ iKernelId :: Lens' Image (Maybe Text)
 iKernelId = lens _iKernelId (\s a -> s { _iKernelId = a })
 
 -- | The name of the AMI that was provided during image creation.
-iName :: Lens' Image Text
+iName :: Lens' Image (Maybe Text)
 iName = lens _iName (\s a -> s { _iName = a })
 
 -- | The AWS account ID of the image owner.
@@ -2950,7 +2949,7 @@ instance FromXML Image where
         <*> x .@? "imageOwnerAlias"
         <*> x .@  "imageType"
         <*> x .@? "kernelId"
-        <*> x .@  "name"
+        <*> x .@? "name"
         <*> x .@  "imageOwnerId"
         <*> x .@? "platform"
         <*> x .@? "productCodes" .!@ mempty

@@ -41,6 +41,7 @@ module Network.AWS.ElasticTranscoder.Types
     , CreateJobPlaylist
     , createJobPlaylist
     , cjpFormat
+    , cjpHlsContentProtection
     , cjpName
     , cjpOutputKeys
 
@@ -209,6 +210,16 @@ module Network.AWS.ElasticTranscoder.Types
     , cfFormat
     , cfPattern
 
+    -- * HlsContentProtection
+    , HlsContentProtection
+    , hlsContentProtection
+    , hcpInitializationVector
+    , hcpKey
+    , hcpKeyMd5
+    , hcpKeyStoragePolicy
+    , hcpLicenseAcquisitionUrl
+    , hcpMethod
+
     -- * PresetWatermark
     , PresetWatermark
     , presetWatermark
@@ -253,6 +264,7 @@ module Network.AWS.ElasticTranscoder.Types
     , Playlist
     , playlist
     , p2Format
+    , p2HlsContentProtection
     , p2Name
     , p2OutputKeys
     , p2Status
@@ -402,10 +414,11 @@ instance ToJSON PipelineOutputConfig where
         ]
 
 data CreateJobPlaylist = CreateJobPlaylist
-    { _cjpFormat     :: Maybe Text
-    , _cjpName       :: Maybe Text
-    , _cjpOutputKeys :: List "OutputKeys" Text
-    } deriving (Eq, Ord, Show)
+    { _cjpFormat               :: Maybe Text
+    , _cjpHlsContentProtection :: Maybe HlsContentProtection
+    , _cjpName                 :: Maybe Text
+    , _cjpOutputKeys           :: List "OutputKeys" Text
+    } deriving (Eq, Show)
 
 -- | 'CreateJobPlaylist' constructor.
 --
@@ -413,20 +426,29 @@ data CreateJobPlaylist = CreateJobPlaylist
 --
 -- * 'cjpFormat' @::@ 'Maybe' 'Text'
 --
+-- * 'cjpHlsContentProtection' @::@ 'Maybe' 'HlsContentProtection'
+--
 -- * 'cjpName' @::@ 'Maybe' 'Text'
 --
 -- * 'cjpOutputKeys' @::@ ['Text']
 --
 createJobPlaylist :: CreateJobPlaylist
 createJobPlaylist = CreateJobPlaylist
-    { _cjpName       = Nothing
-    , _cjpFormat     = Nothing
-    , _cjpOutputKeys = mempty
+    { _cjpName                 = Nothing
+    , _cjpFormat               = Nothing
+    , _cjpOutputKeys           = mempty
+    , _cjpHlsContentProtection = Nothing
     }
 
 -- | The format of the output playlist. Valid formats include 'HLSv3', 'HLSv4', and 'Smooth'.
 cjpFormat :: Lens' CreateJobPlaylist (Maybe Text)
 cjpFormat = lens _cjpFormat (\s a -> s { _cjpFormat = a })
+
+-- | The HLS content protection settings, if any, that you want Elastic Transcoder
+-- to apply to the output files associated with this playlist.
+cjpHlsContentProtection :: Lens' CreateJobPlaylist (Maybe HlsContentProtection)
+cjpHlsContentProtection =
+    lens _cjpHlsContentProtection (\s a -> s { _cjpHlsContentProtection = a })
 
 -- | The name that you want Elastic Transcoder to assign to the master playlist,
 -- for example, nyc-vacation.m3u8. If the name includes a '/' character, the
@@ -480,14 +502,16 @@ cjpOutputKeys = lens _cjpOutputKeys (\s a -> s { _cjpOutputKeys = a }) . _List
 instance FromJSON CreateJobPlaylist where
     parseJSON = withObject "CreateJobPlaylist" $ \o -> CreateJobPlaylist
         <$> o .:? "Format"
+        <*> o .:? "HlsContentProtection"
         <*> o .:? "Name"
         <*> o .:? "OutputKeys" .!= mempty
 
 instance ToJSON CreateJobPlaylist where
     toJSON CreateJobPlaylist{..} = object
-        [ "Name"       .= _cjpName
-        , "Format"     .= _cjpFormat
-        , "OutputKeys" .= _cjpOutputKeys
+        [ "Name"                 .= _cjpName
+        , "Format"               .= _cjpFormat
+        , "OutputKeys"           .= _cjpOutputKeys
+        , "HlsContentProtection" .= _cjpHlsContentProtection
         ]
 
 data Captions = Captions
@@ -2397,6 +2421,115 @@ instance ToJSON CaptionFormat where
         , "Encryption" .= _cfEncryption
         ]
 
+data HlsContentProtection = HlsContentProtection
+    { _hcpInitializationVector  :: Maybe Text
+    , _hcpKey                   :: Maybe Text
+    , _hcpKeyMd5                :: Maybe Text
+    , _hcpKeyStoragePolicy      :: Maybe Text
+    , _hcpLicenseAcquisitionUrl :: Maybe Text
+    , _hcpMethod                :: Maybe Text
+    } deriving (Eq, Ord, Show)
+
+-- | 'HlsContentProtection' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'hcpInitializationVector' @::@ 'Maybe' 'Text'
+--
+-- * 'hcpKey' @::@ 'Maybe' 'Text'
+--
+-- * 'hcpKeyMd5' @::@ 'Maybe' 'Text'
+--
+-- * 'hcpKeyStoragePolicy' @::@ 'Maybe' 'Text'
+--
+-- * 'hcpLicenseAcquisitionUrl' @::@ 'Maybe' 'Text'
+--
+-- * 'hcpMethod' @::@ 'Maybe' 'Text'
+--
+hlsContentProtection :: HlsContentProtection
+hlsContentProtection = HlsContentProtection
+    { _hcpMethod                = Nothing
+    , _hcpKey                   = Nothing
+    , _hcpKeyMd5                = Nothing
+    , _hcpInitializationVector  = Nothing
+    , _hcpLicenseAcquisitionUrl = Nothing
+    , _hcpKeyStoragePolicy      = Nothing
+    }
+
+-- | If Elastic Transcoder is generating your key for you, you must leave this
+-- field blank.
+--
+-- The series of random bits created by a random bit generator, unique for
+-- every encryption operation, that you want Elastic Transcoder to use to
+-- encrypt your output files. The initialization vector must be base64-encoded,
+-- and it must be exactly 16 bytes before being base64-encoded.
+hcpInitializationVector :: Lens' HlsContentProtection (Maybe Text)
+hcpInitializationVector =
+    lens _hcpInitializationVector (\s a -> s { _hcpInitializationVector = a })
+
+-- | If you want Elastic Transcoder to generate a key for you, leave this field
+-- blank.
+--
+-- If you choose to supply your own key, you must encrypt the key by using AWS
+-- KMS. The key must be base64-encoded, and it must be one of the following bit
+-- lengths before being base64-encoded:
+--
+-- '128', '192', or '256'.
+hcpKey :: Lens' HlsContentProtection (Maybe Text)
+hcpKey = lens _hcpKey (\s a -> s { _hcpKey = a })
+
+-- | If Elastic Transcoder is generating your key for you, you must leave this
+-- field blank.
+--
+-- The MD5 digest of the key that you want Elastic Transcoder to use to encrypt
+-- your output file, and that you want Elastic Transcoder to use as a checksum
+-- to make sure your key was not corrupted in transit. The key MD5 must be
+-- base64-encoded, and it must be exactly 16 bytes before being base64- encoded.
+hcpKeyMd5 :: Lens' HlsContentProtection (Maybe Text)
+hcpKeyMd5 = lens _hcpKeyMd5 (\s a -> s { _hcpKeyMd5 = a })
+
+-- | Specify whether you want Elastic Transcoder to write your HLS license key to
+-- an Amazon S3 bucket. If you choose 'WithVariantPlaylists', 'LicenseAcquisitionUrl'
+-- must be left blank and Elastic Transcoder writes your data key into the same
+-- bucket as the associated playlist.
+hcpKeyStoragePolicy :: Lens' HlsContentProtection (Maybe Text)
+hcpKeyStoragePolicy =
+    lens _hcpKeyStoragePolicy (\s a -> s { _hcpKeyStoragePolicy = a })
+
+-- | The location of the license key required to decrypt your HLS playlist. The
+-- URL must be an absolute path, and is referenced in the URI attribute of the
+-- EXT-X-KEY metadata tag in the playlist file.
+hcpLicenseAcquisitionUrl :: Lens' HlsContentProtection (Maybe Text)
+hcpLicenseAcquisitionUrl =
+    lens _hcpLicenseAcquisitionUrl
+        (\s a -> s { _hcpLicenseAcquisitionUrl = a })
+
+-- | The content protection method for your output. The only valid value is: 'aes-128'.
+--
+-- This value will be written into the method attribute of the 'EXT-X-KEY'
+-- metadata tag in the output playlist.
+hcpMethod :: Lens' HlsContentProtection (Maybe Text)
+hcpMethod = lens _hcpMethod (\s a -> s { _hcpMethod = a })
+
+instance FromJSON HlsContentProtection where
+    parseJSON = withObject "HlsContentProtection" $ \o -> HlsContentProtection
+        <$> o .:? "InitializationVector"
+        <*> o .:? "Key"
+        <*> o .:? "KeyMd5"
+        <*> o .:? "KeyStoragePolicy"
+        <*> o .:? "LicenseAcquisitionUrl"
+        <*> o .:? "Method"
+
+instance ToJSON HlsContentProtection where
+    toJSON HlsContentProtection{..} = object
+        [ "Method"                .= _hcpMethod
+        , "Key"                   .= _hcpKey
+        , "KeyMd5"                .= _hcpKeyMd5
+        , "InitializationVector"  .= _hcpInitializationVector
+        , "LicenseAcquisitionUrl" .= _hcpLicenseAcquisitionUrl
+        , "KeyStoragePolicy"      .= _hcpKeyStoragePolicy
+        ]
+
 data PresetWatermark = PresetWatermark
     { _pwHorizontalAlign  :: Maybe Text
     , _pwHorizontalOffset :: Maybe Text
@@ -3006,18 +3139,21 @@ instance ToJSON VideoParameters where
         ]
 
 data Playlist = Playlist
-    { _p2Format       :: Maybe Text
-    , _p2Name         :: Maybe Text
-    , _p2OutputKeys   :: List "OutputKeys" Text
-    , _p2Status       :: Maybe Text
-    , _p2StatusDetail :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    { _p2Format               :: Maybe Text
+    , _p2HlsContentProtection :: Maybe HlsContentProtection
+    , _p2Name                 :: Maybe Text
+    , _p2OutputKeys           :: List "OutputKeys" Text
+    , _p2Status               :: Maybe Text
+    , _p2StatusDetail         :: Maybe Text
+    } deriving (Eq, Show)
 
 -- | 'Playlist' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'p2Format' @::@ 'Maybe' 'Text'
+--
+-- * 'p2HlsContentProtection' @::@ 'Maybe' 'HlsContentProtection'
 --
 -- * 'p2Name' @::@ 'Maybe' 'Text'
 --
@@ -3029,16 +3165,23 @@ data Playlist = Playlist
 --
 playlist :: Playlist
 playlist = Playlist
-    { _p2Name         = Nothing
-    , _p2Format       = Nothing
-    , _p2OutputKeys   = mempty
-    , _p2Status       = Nothing
-    , _p2StatusDetail = Nothing
+    { _p2Name                 = Nothing
+    , _p2Format               = Nothing
+    , _p2OutputKeys           = mempty
+    , _p2HlsContentProtection = Nothing
+    , _p2Status               = Nothing
+    , _p2StatusDetail         = Nothing
     }
 
 -- | The format of the output playlist. Valid formats include 'HLSv3', 'HLSv4', and 'Smooth'.
 p2Format :: Lens' Playlist (Maybe Text)
 p2Format = lens _p2Format (\s a -> s { _p2Format = a })
+
+-- | The HLS content protection settings, if any, that you want Elastic Transcoder
+-- to apply to the output files associated with this playlist.
+p2HlsContentProtection :: Lens' Playlist (Maybe HlsContentProtection)
+p2HlsContentProtection =
+    lens _p2HlsContentProtection (\s a -> s { _p2HlsContentProtection = a })
 
 -- | The name that you want Elastic Transcoder to assign to the master playlist,
 -- for example, nyc-vacation.m3u8. If the name includes a '/' character, the
@@ -3100,6 +3243,7 @@ p2StatusDetail = lens _p2StatusDetail (\s a -> s { _p2StatusDetail = a })
 instance FromJSON Playlist where
     parseJSON = withObject "Playlist" $ \o -> Playlist
         <$> o .:? "Format"
+        <*> o .:? "HlsContentProtection"
         <*> o .:? "Name"
         <*> o .:? "OutputKeys" .!= mempty
         <*> o .:? "Status"
@@ -3107,11 +3251,12 @@ instance FromJSON Playlist where
 
 instance ToJSON Playlist where
     toJSON Playlist{..} = object
-        [ "Name"         .= _p2Name
-        , "Format"       .= _p2Format
-        , "OutputKeys"   .= _p2OutputKeys
-        , "Status"       .= _p2Status
-        , "StatusDetail" .= _p2StatusDetail
+        [ "Name"                 .= _p2Name
+        , "Format"               .= _p2Format
+        , "OutputKeys"           .= _p2OutputKeys
+        , "HlsContentProtection" .= _p2HlsContentProtection
+        , "Status"               .= _p2Status
+        , "StatusDetail"         .= _p2StatusDetail
         ]
 
 data Notifications = Notifications

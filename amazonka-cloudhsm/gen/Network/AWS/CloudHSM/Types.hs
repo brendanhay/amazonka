@@ -190,23 +190,23 @@ instance ToJSON HsmStatus where
     toJSON = toJSONText
 
 data ClientVersion
-    = 51 -- ^ 5.1
-    | 53 -- ^ 5.3
+    = V51 -- ^ 5.1
+    | V53 -- ^ 5.3
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ClientVersion
 
 instance FromText ClientVersion where
     parser = takeLowerText >>= \case
-        "5.1" -> pure 51
-        "5.3" -> pure 53
+        "5.1" -> pure V51
+        "5.3" -> pure V53
         e     -> fail $
             "Failure parsing ClientVersion from " ++ show e
 
 instance ToText ClientVersion where
     toText = \case
-        51 -> "5.1"
-        53 -> "5.3"
+        V51 -> "5.1"
+        V53 -> "5.3"
 
 instance ToByteString ClientVersion
 instance ToHeader     ClientVersion

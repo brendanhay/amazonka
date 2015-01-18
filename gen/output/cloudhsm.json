@@ -160,13 +160,13 @@
                     "Enum"
                 ],
                 "branches": {
-                    "51": "5.1",
-                    "53": "5.3"
+                    "V51": "5.1",
+                    "V53": "5.3"
                 },
                 "valuePad": 4,
                 "name": "ClientVersion",
                 "type": "nullary",
-                "branchPad": 2
+                "branchPad": 3
             }
         ],
         "imports": [],

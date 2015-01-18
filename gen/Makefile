@@ -28,6 +28,7 @@ QUERY := \
  sts
 
 JSON := \
+ cloudhsm \
  cloudsearchdomain \
  cloudtrail \
  codedeploy \

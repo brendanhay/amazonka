@@ -5,5 +5,10 @@
     "documentation": "The AWS CloudHSM service helps you meet corporate, contractual and regulatory compliance requirements for data security by using dedicated Hardware Security Module (HSM) appliances within the AWS cloud. With CloudHSM, you control the encryption keys and cryptographic operations performed by the HSM.",
     "metadata": {
         "serviceAbbreviation": "CloudHSM"
+    },
+    "overrides": {
+        "ClientVersion": {
+            "sum_prefix": "V"
+        }
     }
 }

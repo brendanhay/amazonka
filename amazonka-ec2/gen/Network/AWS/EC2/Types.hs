@@ -9836,6 +9836,9 @@ data OfferingTypeValues
     = HeavyUtilization  -- ^ Heavy Utilization
     | LightUtilization  -- ^ Light Utilization
     | MediumUtilization -- ^ Medium Utilization
+    | NoUpfront         -- ^ No Upfront
+    | PartialUpfront    -- ^ Partial Upfront
+    | AllUpfront        -- ^ All Upfront
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable OfferingTypeValues
@@ -9845,6 +9848,9 @@ instance FromText OfferingTypeValues where
         "heavy utilization"  -> pure HeavyUtilization
         "light utilization"  -> pure LightUtilization
         "medium utilization" -> pure MediumUtilization
+        "no upfront"         -> pure NoUpfront
+        "partial upfront"    -> pure PartialUpfront
+        "all upfront"        -> pure AllUpfront
         e                    -> fail $
             "Failure parsing OfferingTypeValues from " ++ show e
 
@@ -9853,6 +9859,9 @@ instance ToText OfferingTypeValues where
         HeavyUtilization  -> "Heavy Utilization"
         LightUtilization  -> "Light Utilization"
         MediumUtilization -> "Medium Utilization"
+        NoUpfront         -> "No Upfront"
+        PartialUpfront    -> "Partial Upfront"
+        AllUpfront        -> "All Upfront"
 
 instance ToByteString OfferingTypeValues
 instance ToHeader     OfferingTypeValues

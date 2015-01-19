@@ -463,6 +463,7 @@ overriden = flip (Map.foldlWithKey' run)
           renameTo   k (o ^. oRenameTo)
         . replacedBy k (o ^. oReplacedBy)
         . sumPrefix  k (o ^. oSumPrefix)
+        . sumValues  k (o ^. oSumValues)
         . Map.adjust (dataFields %~ fld) k
         $ r
       where
@@ -509,7 +510,19 @@ overriden = flip (Map.foldlWithKey' run)
                 | z == x    -> TType y
                 | otherwise -> TType z
 
-    sumPrefix :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
+    sumValues :: Text
+              -> HashMap Text Text
+              -> HashMap Text Data
+              -> HashMap Text Data
+    sumValues k xs = Map.adjust f k
+      where
+        f (Nullary n ys) = Nullary n (ys <> xs)
+        f x              = x
+
+    sumPrefix :: Text
+              -> Maybe Text
+              -> HashMap Text Data
+              -> HashMap Text Data
     sumPrefix _ Nothing  = id
     sumPrefix k (Just y) = Map.adjust f k
       where

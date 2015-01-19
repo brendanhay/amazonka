@@ -19365,8 +19365,11 @@
                 ],
                 "branches": {
                     "MediumUtilization": "Medium Utilization",
+                    "NoUpfront": "No Upfront",
+                    "AllUpfront": "All Upfront",
                     "HeavyUtilization": "Heavy Utilization",
-                    "LightUtilization": "Light Utilization"
+                    "LightUtilization": "Light Utilization",
+                    "PartialUpfront": "Partial Upfront"
                 },
                 "valuePad": 19,
                 "name": "OfferingTypeValues",

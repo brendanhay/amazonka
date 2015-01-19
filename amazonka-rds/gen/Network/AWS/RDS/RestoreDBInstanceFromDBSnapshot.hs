@@ -27,6 +27,15 @@
 -- original source database, except that the new RDS instance is created with
 -- the default security group.
 --
+-- If your intent is to replace your original DB instance with the new,
+-- restored DB instance, then rename your original DB instance before you call
+-- the RestoreDBInstanceFromDBSnapshot action. RDS does not allow two DB
+-- instances with the same name. Once you have renamed your original DB instance
+-- with a different identifier, then you can pass the original name of the DB
+-- instance as the DBInstanceIdentifier in the call to the
+-- RestoreDBInstanceFromDBSnapshot action. The result is that you will replace
+-- the original DB instance with the DB instance created from the snapshot.
+--
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromDBSnapshot.html>
 module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     (
@@ -193,6 +202,10 @@ rdbifdbsDBInstanceIdentifier =
         (\s a -> s { _rdbifdbsDBInstanceIdentifier = a })
 
 -- | The database name for the restored DB instance.
+--
+-- This parameter doesn't apply to the MySQL engine.
+--
+--
 rdbifdbsDBName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsDBName = lens _rdbifdbsDBName (\s a -> s { _rdbifdbsDBName = a })
 
@@ -220,7 +233,7 @@ rdbifdbsDBSubnetGroupName =
 --
 -- Constraint: Must be compatible with the engine of the source
 --
--- Example: 'oracle-ee'
+-- Valid Values: 'MySQL' | 'oracle-se1' | 'oracle-se' | 'oracle-ee' | 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' | 'sqlserver-web' | 'postgres'
 rdbifdbsEngine :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsEngine = lens _rdbifdbsEngine (\s a -> s { _rdbifdbsEngine = a })
 
@@ -280,21 +293,23 @@ rdbifdbsPort = lens _rdbifdbsPort (\s a -> s { _rdbifdbsPort = a })
 -- Default: The default behavior varies depending on whether a VPC has been
 -- requested or not. The following list shows the default behavior in each case.
 --
--- Default VPC:true  VPC:false   If no DB subnet group has been specified as
--- part of the request and the PubliclyAccessible value has not been set, the DB
--- instance will be publicly accessible. If a specific DB subnet group has been
--- specified as part of the request and the PubliclyAccessible value has not
--- been set, the DB instance will be private.
+-- Default VPC: true  VPC: false   If no DB subnet group has been specified
+-- as part of the request and the PubliclyAccessible value has not been set, the
+-- DB instance will be publicly accessible. If a specific DB subnet group has
+-- been specified as part of the request and the PubliclyAccessible value has
+-- not been set, the DB instance will be private.
 rdbifdbsPubliclyAccessible :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
 rdbifdbsPubliclyAccessible =
     lens _rdbifdbsPubliclyAccessible
         (\s a -> s { _rdbifdbsPubliclyAccessible = a })
 
--- | Specifies storage type to be associated with the DB Instance.
+-- | Specifies the storage type to be associated with the DB instance.
 --
 -- Valid values: 'standard | gp2 | io1'
 --
 -- If you specify 'io1', you must also include a value for the 'Iops' parameter.
+--
+-- Default: 'io1' if the 'Iops' parameter is specified; otherwise 'standard'
 rdbifdbsStorageType :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdbifdbsStorageType =
     lens _rdbifdbsStorageType (\s a -> s { _rdbifdbsStorageType = a })

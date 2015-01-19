@@ -32,6 +32,15 @@ module Network.AWS.RDS.Types
     -- ** XML
     , ns
 
+    -- * PendingMaintenanceAction
+    , PendingMaintenanceAction
+    , pendingMaintenanceAction
+    , pmaAction
+    , pmaAutoAppliedAfterDate
+    , pmaCurrentApplyDate
+    , pmaForcedApplyDate
+    , pmaOptInStatus
+
     -- * OptionGroup
     , OptionGroup
     , optionGroup
@@ -92,10 +101,12 @@ module Network.AWS.RDS.Types
     , dbsAvailabilityZone
     , dbsDBInstanceIdentifier
     , dbsDBSnapshotIdentifier
+    , dbsEncrypted
     , dbsEngine
     , dbsEngineVersion
     , dbsInstanceCreateTime
     , dbsIops
+    , dbsKmsKeyId
     , dbsLicenseModel
     , dbsMasterUsername
     , dbsOptionGroupName
@@ -125,6 +136,12 @@ module Network.AWS.RDS.Types
 
     -- * SourceType
     , SourceType (..)
+
+    -- * ResourcePendingMaintenanceActions
+    , ResourcePendingMaintenanceActions
+    , resourcePendingMaintenanceActions
+    , rpmaPendingMaintenanceActionDetails
+    , rpmaResourceIdentifier
 
     -- * DBParameterGroup
     , DBParameterGroup
@@ -223,11 +240,13 @@ module Network.AWS.RDS.Types
     , dbiDBParameterGroups
     , dbiDBSecurityGroups
     , dbiDBSubnetGroup
+    , dbiDbiResourceId
     , dbiEndpoint
     , dbiEngine
     , dbiEngineVersion
     , dbiInstanceCreateTime
     , dbiIops
+    , dbiKmsKeyId
     , dbiLatestRestorableTime
     , dbiLicenseModel
     , dbiMasterUsername
@@ -241,6 +260,7 @@ module Network.AWS.RDS.Types
     , dbiReadReplicaSourceDBInstanceIdentifier
     , dbiSecondaryAvailabilityZone
     , dbiStatusInfos
+    , dbiStorageEncrypted
     , dbiStorageType
     , dbiTdeCredentialArn
     , dbiVpcSecurityGroups
@@ -312,6 +332,7 @@ module Network.AWS.RDS.Types
     , odbioReadReplicaCapable
     , odbioStorageType
     , odbioSupportsIops
+    , odbioSupportsStorageEncryption
     , odbioVpc
 
     -- * Filter
@@ -420,7 +441,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
 
--- | Version @2014-09-01@ of the Amazon Relational Database Service service.
+-- | Version @2014-10-31@ of the Amazon Relational Database Service service.
 data RDS
 
 instance AWSService RDS where
@@ -433,7 +454,7 @@ instance AWSService RDS where
         service' = Service
             { _svcAbbrev       = "RDS"
             , _svcPrefix       = "rds"
-            , _svcVersion      = "2014-09-01"
+            , _svcVersion      = "2014-10-31"
             , _svcTargetPrefix = Nothing
             , _svcJSONVersion  = Nothing
             , _svcHandle       = handle
@@ -463,8 +484,89 @@ instance AWSService RDS where
             | otherwise = False
 
 ns :: Text
-ns = "http://rds.amazonaws.com/doc/2014-09-01/"
+ns = "http://rds.amazonaws.com/doc/2014-10-31/"
 {-# INLINE ns #-}
+
+data PendingMaintenanceAction = PendingMaintenanceAction
+    { _pmaAction               :: Maybe Text
+    , _pmaAutoAppliedAfterDate :: Maybe ISO8601
+    , _pmaCurrentApplyDate     :: Maybe ISO8601
+    , _pmaForcedApplyDate      :: Maybe ISO8601
+    , _pmaOptInStatus          :: Maybe Text
+    } deriving (Eq, Ord, Show)
+
+-- | 'PendingMaintenanceAction' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pmaAction' @::@ 'Maybe' 'Text'
+--
+-- * 'pmaAutoAppliedAfterDate' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'pmaCurrentApplyDate' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'pmaForcedApplyDate' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'pmaOptInStatus' @::@ 'Maybe' 'Text'
+--
+pendingMaintenanceAction :: PendingMaintenanceAction
+pendingMaintenanceAction = PendingMaintenanceAction
+    { _pmaAction               = Nothing
+    , _pmaAutoAppliedAfterDate = Nothing
+    , _pmaForcedApplyDate      = Nothing
+    , _pmaOptInStatus          = Nothing
+    , _pmaCurrentApplyDate     = Nothing
+    }
+
+-- | The type of pending maintenance action that is available for the resource.
+pmaAction :: Lens' PendingMaintenanceAction (Maybe Text)
+pmaAction = lens _pmaAction (\s a -> s { _pmaAction = a })
+
+-- | The date of the maintenance window when the action will be applied. The
+-- maintenance action will be applied to the resource during its first
+-- maintenance window after this date. If this date is specified, any 'next-maintenance' opt-in requests are ignored.
+pmaAutoAppliedAfterDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
+pmaAutoAppliedAfterDate =
+    lens _pmaAutoAppliedAfterDate (\s a -> s { _pmaAutoAppliedAfterDate = a })
+        . mapping _Time
+
+-- | The effective date when the pending maintenance action will be applied to the
+-- resource. This takes into account opt-in requests received from the 'ApplyPendingMaintenanceAction' API, the 'AutoAppliedAfterDate', and the 'ForcedApplyDate'. This value is blank
+-- if an opt-in request has not been received and no value has been specified
+-- for the 'AutoAppliedAfterDate' or 'ForcedApplyDate'.
+pmaCurrentApplyDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
+pmaCurrentApplyDate =
+    lens _pmaCurrentApplyDate (\s a -> s { _pmaCurrentApplyDate = a })
+        . mapping _Time
+
+-- | The date when the maintenance action will be automatically applied. The
+-- maintenance action will be applied to the resource on this date regardless of
+-- the maintenance window for the resource. If this date is specified, any 'immediate' opt-in requests are ignored.
+pmaForcedApplyDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
+pmaForcedApplyDate =
+    lens _pmaForcedApplyDate (\s a -> s { _pmaForcedApplyDate = a })
+        . mapping _Time
+
+-- | Indicates the type of opt-in request that has been received for the resource.
+pmaOptInStatus :: Lens' PendingMaintenanceAction (Maybe Text)
+pmaOptInStatus = lens _pmaOptInStatus (\s a -> s { _pmaOptInStatus = a })
+
+instance FromXML PendingMaintenanceAction where
+    parseXML x = PendingMaintenanceAction
+        <$> x .@? "Action"
+        <*> x .@? "AutoAppliedAfterDate"
+        <*> x .@? "CurrentApplyDate"
+        <*> x .@? "ForcedApplyDate"
+        <*> x .@? "OptInStatus"
+
+instance ToQuery PendingMaintenanceAction where
+    toQuery PendingMaintenanceAction{..} = mconcat
+        [ "Action"               =? _pmaAction
+        , "AutoAppliedAfterDate" =? _pmaAutoAppliedAfterDate
+        , "CurrentApplyDate"     =? _pmaCurrentApplyDate
+        , "ForcedApplyDate"      =? _pmaForcedApplyDate
+        , "OptInStatus"          =? _pmaOptInStatus
+        ]
 
 data OptionGroup = OptionGroup
     { _ogAllowsVpcAndNonVpcInstanceMemberships :: Maybe Bool
@@ -522,7 +624,7 @@ ogMajorEngineVersion :: Lens' OptionGroup (Maybe Text)
 ogMajorEngineVersion =
     lens _ogMajorEngineVersion (\s a -> s { _ogMajorEngineVersion = a })
 
--- | Provides the description of the option group.
+-- | Provides a description of the option group.
 ogOptionGroupDescription :: Lens' OptionGroup (Maybe Text)
 ogOptionGroupDescription =
     lens _ogOptionGroupDescription
@@ -537,11 +639,11 @@ ogOptionGroupName =
 ogOptions :: Lens' OptionGroup [Option]
 ogOptions = lens _ogOptions (\s a -> s { _ogOptions = a }) . _List
 
--- | If AllowsVpcAndNonVpcInstanceMemberships is 'false', this field is blank. If
--- AllowsVpcAndNonVpcInstanceMemberships is 'true' and this field is blank, then
--- this option group can be applied to both VPC and non-VPC instances. If this
--- field contains a value, then this option group can only be applied to
--- instances that are in the VPC indicated by this field.
+-- | If AllowsVpcAndNonVpcInstanceMemberships is 'false', this field is blank. If AllowsVpcAndNonVpcInstanceMemberships
+-- is 'true' and this field is blank, then this option group can be applied to
+-- both VPC and non-VPC instances. If this field contains a value, then this
+-- option group can only be applied to instances that are in the VPC indicated
+-- by this field.
 ogVpcId :: Lens' OptionGroup (Maybe Text)
 ogVpcId = lens _ogVpcId (\s a -> s { _ogVpcId = a })
 
@@ -909,10 +1011,12 @@ data DBSnapshot = DBSnapshot
     , _dbsAvailabilityZone     :: Maybe Text
     , _dbsDBInstanceIdentifier :: Maybe Text
     , _dbsDBSnapshotIdentifier :: Maybe Text
+    , _dbsEncrypted            :: Maybe Bool
     , _dbsEngine               :: Maybe Text
     , _dbsEngineVersion        :: Maybe Text
     , _dbsInstanceCreateTime   :: Maybe ISO8601
     , _dbsIops                 :: Maybe Int
+    , _dbsKmsKeyId             :: Maybe Text
     , _dbsLicenseModel         :: Maybe Text
     , _dbsMasterUsername       :: Maybe Text
     , _dbsOptionGroupName      :: Maybe Text
@@ -939,6 +1043,8 @@ data DBSnapshot = DBSnapshot
 --
 -- * 'dbsDBSnapshotIdentifier' @::@ 'Maybe' 'Text'
 --
+-- * 'dbsEncrypted' @::@ 'Maybe' 'Bool'
+--
 -- * 'dbsEngine' @::@ 'Maybe' 'Text'
 --
 -- * 'dbsEngineVersion' @::@ 'Maybe' 'Text'
@@ -946,6 +1052,8 @@ data DBSnapshot = DBSnapshot
 -- * 'dbsInstanceCreateTime' @::@ 'Maybe' 'UTCTime'
 --
 -- * 'dbsIops' @::@ 'Maybe' 'Int'
+--
+-- * 'dbsKmsKeyId' @::@ 'Maybe' 'Text'
 --
 -- * 'dbsLicenseModel' @::@ 'Maybe' 'Text'
 --
@@ -993,6 +1101,8 @@ dbsnapshot = DBSnapshot
     , _dbsSourceRegion         = Nothing
     , _dbsStorageType          = Nothing
     , _dbsTdeCredentialArn     = Nothing
+    , _dbsEncrypted            = Nothing
+    , _dbsKmsKeyId             = Nothing
     }
 
 -- | Specifies the allocated storage size in gigabytes (GB).
@@ -1017,6 +1127,10 @@ dbsDBSnapshotIdentifier :: Lens' DBSnapshot (Maybe Text)
 dbsDBSnapshotIdentifier =
     lens _dbsDBSnapshotIdentifier (\s a -> s { _dbsDBSnapshotIdentifier = a })
 
+-- | Specifies whether the DB snapshot is encrypted.
+dbsEncrypted :: Lens' DBSnapshot (Maybe Bool)
+dbsEncrypted = lens _dbsEncrypted (\s a -> s { _dbsEncrypted = a })
+
 -- | Specifies the name of the database engine.
 dbsEngine :: Lens' DBSnapshot (Maybe Text)
 dbsEngine = lens _dbsEngine (\s a -> s { _dbsEngine = a })
@@ -1035,6 +1149,10 @@ dbsInstanceCreateTime =
 -- instance at the time of the snapshot.
 dbsIops :: Lens' DBSnapshot (Maybe Int)
 dbsIops = lens _dbsIops (\s a -> s { _dbsIops = a })
+
+-- | If 'Encrypted' is true, the KMS key identifier for the encrypted DB snapshot.
+dbsKmsKeyId :: Lens' DBSnapshot (Maybe Text)
+dbsKmsKeyId = lens _dbsKmsKeyId (\s a -> s { _dbsKmsKeyId = a })
 
 -- | License model information for the restored DB instance.
 dbsLicenseModel :: Lens' DBSnapshot (Maybe Text)
@@ -1078,7 +1196,7 @@ dbsSourceRegion = lens _dbsSourceRegion (\s a -> s { _dbsSourceRegion = a })
 dbsStatus :: Lens' DBSnapshot (Maybe Text)
 dbsStatus = lens _dbsStatus (\s a -> s { _dbsStatus = a })
 
--- | Specifies storage type associated with DB Snapshot.
+-- | Specifies the storage type associated with DB Snapshot.
 dbsStorageType :: Lens' DBSnapshot (Maybe Text)
 dbsStorageType = lens _dbsStorageType (\s a -> s { _dbsStorageType = a })
 
@@ -1098,10 +1216,12 @@ instance FromXML DBSnapshot where
         <*> x .@? "AvailabilityZone"
         <*> x .@? "DBInstanceIdentifier"
         <*> x .@? "DBSnapshotIdentifier"
+        <*> x .@? "Encrypted"
         <*> x .@? "Engine"
         <*> x .@? "EngineVersion"
         <*> x .@? "InstanceCreateTime"
         <*> x .@? "Iops"
+        <*> x .@? "KmsKeyId"
         <*> x .@? "LicenseModel"
         <*> x .@? "MasterUsername"
         <*> x .@? "OptionGroupName"
@@ -1121,10 +1241,12 @@ instance ToQuery DBSnapshot where
         , "AvailabilityZone"     =? _dbsAvailabilityZone
         , "DBInstanceIdentifier" =? _dbsDBInstanceIdentifier
         , "DBSnapshotIdentifier" =? _dbsDBSnapshotIdentifier
+        , "Encrypted"            =? _dbsEncrypted
         , "Engine"               =? _dbsEngine
         , "EngineVersion"        =? _dbsEngineVersion
         , "InstanceCreateTime"   =? _dbsInstanceCreateTime
         , "Iops"                 =? _dbsIops
+        , "KmsKeyId"             =? _dbsKmsKeyId
         , "LicenseModel"         =? _dbsLicenseModel
         , "MasterUsername"       =? _dbsMasterUsername
         , "OptionGroupName"      =? _dbsOptionGroupName
@@ -1274,6 +1396,48 @@ instance ToQuery      SourceType
 
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
+
+data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions
+    { _rpmaPendingMaintenanceActionDetails :: List "member" PendingMaintenanceAction
+    , _rpmaResourceIdentifier              :: Maybe Text
+    } deriving (Eq, Show)
+
+-- | 'ResourcePendingMaintenanceActions' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rpmaPendingMaintenanceActionDetails' @::@ ['PendingMaintenanceAction']
+--
+-- * 'rpmaResourceIdentifier' @::@ 'Maybe' 'Text'
+--
+resourcePendingMaintenanceActions :: ResourcePendingMaintenanceActions
+resourcePendingMaintenanceActions = ResourcePendingMaintenanceActions
+    { _rpmaResourceIdentifier              = Nothing
+    , _rpmaPendingMaintenanceActionDetails = mempty
+    }
+
+-- | Provides details about the pending maintenance actions for the resource.
+rpmaPendingMaintenanceActionDetails :: Lens' ResourcePendingMaintenanceActions [PendingMaintenanceAction]
+rpmaPendingMaintenanceActionDetails =
+    lens _rpmaPendingMaintenanceActionDetails
+        (\s a -> s { _rpmaPendingMaintenanceActionDetails = a })
+            . _List
+
+-- | The ARN of this resource that has pending maintenance actions.
+rpmaResourceIdentifier :: Lens' ResourcePendingMaintenanceActions (Maybe Text)
+rpmaResourceIdentifier =
+    lens _rpmaResourceIdentifier (\s a -> s { _rpmaResourceIdentifier = a })
+
+instance FromXML ResourcePendingMaintenanceActions where
+    parseXML x = ResourcePendingMaintenanceActions
+        <$> x .@? "PendingMaintenanceActionDetails" .!@ mempty
+        <*> x .@? "ResourceIdentifier"
+
+instance ToQuery ResourcePendingMaintenanceActions where
+    toQuery ResourcePendingMaintenanceActions{..} = mconcat
+        [ "PendingMaintenanceActionDetails" =? _rpmaPendingMaintenanceActionDetails
+        , "ResourceIdentifier"              =? _rpmaResourceIdentifier
+        ]
 
 data DBParameterGroup = DBParameterGroup
     { _dbpgDBParameterGroupFamily :: Maybe Text
@@ -1883,7 +2047,7 @@ ogoDefaultPort = lens _ogoDefaultPort (\s a -> s { _ogoDefaultPort = a })
 ogoDescription :: Lens' OptionGroupOption (Maybe Text)
 ogoDescription = lens _ogoDescription (\s a -> s { _ogoDescription = a })
 
--- | Engine name that this option can be applied to.
+-- | The name of the engine that this option can be applied to.
 ogoEngineName :: Lens' OptionGroupOption (Maybe Text)
 ogoEngineName = lens _ogoEngineName (\s a -> s { _ogoEngineName = a })
 
@@ -1975,11 +2139,13 @@ data DBInstance = DBInstance
     , _dbiDBParameterGroups                     :: List "member" DBParameterGroupStatus
     , _dbiDBSecurityGroups                      :: List "member" DBSecurityGroupMembership
     , _dbiDBSubnetGroup                         :: Maybe DBSubnetGroup
+    , _dbiDbiResourceId                         :: Maybe Text
     , _dbiEndpoint                              :: Maybe Endpoint
     , _dbiEngine                                :: Maybe Text
     , _dbiEngineVersion                         :: Maybe Text
     , _dbiInstanceCreateTime                    :: Maybe ISO8601
     , _dbiIops                                  :: Maybe Int
+    , _dbiKmsKeyId                              :: Maybe Text
     , _dbiLatestRestorableTime                  :: Maybe ISO8601
     , _dbiLicenseModel                          :: Maybe Text
     , _dbiMasterUsername                        :: Maybe Text
@@ -1993,6 +2159,7 @@ data DBInstance = DBInstance
     , _dbiReadReplicaSourceDBInstanceIdentifier :: Maybe Text
     , _dbiSecondaryAvailabilityZone             :: Maybe Text
     , _dbiStatusInfos                           :: List "member" DBInstanceStatusInfo
+    , _dbiStorageEncrypted                      :: Maybe Bool
     , _dbiStorageType                           :: Maybe Text
     , _dbiTdeCredentialArn                      :: Maybe Text
     , _dbiVpcSecurityGroups                     :: List "member" VpcSecurityGroupMembership
@@ -2026,6 +2193,8 @@ data DBInstance = DBInstance
 --
 -- * 'dbiDBSubnetGroup' @::@ 'Maybe' 'DBSubnetGroup'
 --
+-- * 'dbiDbiResourceId' @::@ 'Maybe' 'Text'
+--
 -- * 'dbiEndpoint' @::@ 'Maybe' 'Endpoint'
 --
 -- * 'dbiEngine' @::@ 'Maybe' 'Text'
@@ -2035,6 +2204,8 @@ data DBInstance = DBInstance
 -- * 'dbiInstanceCreateTime' @::@ 'Maybe' 'UTCTime'
 --
 -- * 'dbiIops' @::@ 'Maybe' 'Int'
+--
+-- * 'dbiKmsKeyId' @::@ 'Maybe' 'Text'
 --
 -- * 'dbiLatestRestorableTime' @::@ 'Maybe' 'UTCTime'
 --
@@ -2061,6 +2232,8 @@ data DBInstance = DBInstance
 -- * 'dbiSecondaryAvailabilityZone' @::@ 'Maybe' 'Text'
 --
 -- * 'dbiStatusInfos' @::@ ['DBInstanceStatusInfo']
+--
+-- * 'dbiStorageEncrypted' @::@ 'Maybe' 'Bool'
 --
 -- * 'dbiStorageType' @::@ 'Maybe' 'Text'
 --
@@ -2103,6 +2276,9 @@ dbinstance = DBInstance
     , _dbiStatusInfos                           = mempty
     , _dbiStorageType                           = Nothing
     , _dbiTdeCredentialArn                      = Nothing
+    , _dbiStorageEncrypted                      = Nothing
+    , _dbiKmsKeyId                              = Nothing
+    , _dbiDbiResourceId                         = Nothing
     }
 
 -- | Specifies the allocated storage size specified in gigabytes.
@@ -2151,11 +2327,11 @@ dbiDBInstanceStatus =
     lens _dbiDBInstanceStatus (\s a -> s { _dbiDBInstanceStatus = a })
 
 -- | The meaning of this parameter differs according to the database engine you
--- use. For example, this value returns only MySQL information when returning
--- values from CreateDBInstanceReadReplica since read replicas are only
--- supported for MySQL.
+-- use. For example, this value returns either MySQL or PostgreSQL information
+-- when returning values from CreateDBInstanceReadReplica since Read Replicas
+-- are only supported for MySQL and PostgreSQL.
 --
--- MySQL
+-- MySQL, SQL Server, PostgreSQL
 --
 -- Contains the name of the initial database of this instance that was
 -- provided at create time, if one was specified when the DB instance was
@@ -2187,6 +2363,12 @@ dbiDBSecurityGroups =
 dbiDBSubnetGroup :: Lens' DBInstance (Maybe DBSubnetGroup)
 dbiDBSubnetGroup = lens _dbiDBSubnetGroup (\s a -> s { _dbiDBSubnetGroup = a })
 
+-- | If 'StorageEncrypted' is true, the region-unique, immutable identifier for the
+-- encrypted DB instance. This identifier is found in AWS CloudTrail log entries
+-- whenever the KMS key for the DB instance is accessed.
+dbiDbiResourceId :: Lens' DBInstance (Maybe Text)
+dbiDbiResourceId = lens _dbiDbiResourceId (\s a -> s { _dbiDbiResourceId = a })
+
 -- | Specifies the connection endpoint.
 dbiEndpoint :: Lens' DBInstance (Maybe Endpoint)
 dbiEndpoint = lens _dbiEndpoint (\s a -> s { _dbiEndpoint = a })
@@ -2208,6 +2390,11 @@ dbiInstanceCreateTime =
 -- | Specifies the Provisioned IOPS (I/O operations per second) value.
 dbiIops :: Lens' DBInstance (Maybe Int)
 dbiIops = lens _dbiIops (\s a -> s { _dbiIops = a })
+
+-- | If 'StorageEncrypted' is true, the KMS key identifier for the encrypted DB
+-- instance.
+dbiKmsKeyId :: Lens' DBInstance (Maybe Text)
+dbiKmsKeyId = lens _dbiKmsKeyId (\s a -> s { _dbiKmsKeyId = a })
 
 -- | Specifies the latest time to which a database can be restored with
 -- point-in-time restore.
@@ -2275,7 +2462,7 @@ dbiPubliclyAccessible :: Lens' DBInstance (Maybe Bool)
 dbiPubliclyAccessible =
     lens _dbiPubliclyAccessible (\s a -> s { _dbiPubliclyAccessible = a })
 
--- | Contains one or more identifiers of the read replicas associated with this
+-- | Contains one or more identifiers of the Read Replicas associated with this
 -- DB instance.
 dbiReadReplicaDBInstanceIdentifiers :: Lens' DBInstance [Text]
 dbiReadReplicaDBInstanceIdentifiers =
@@ -2284,7 +2471,7 @@ dbiReadReplicaDBInstanceIdentifiers =
             . _List
 
 -- | Contains the identifier of the source DB instance if this DB instance is a
--- read replica.
+-- Read Replica.
 dbiReadReplicaSourceDBInstanceIdentifier :: Lens' DBInstance (Maybe Text)
 dbiReadReplicaSourceDBInstanceIdentifier =
     lens _dbiReadReplicaSourceDBInstanceIdentifier
@@ -2297,12 +2484,17 @@ dbiSecondaryAvailabilityZone =
     lens _dbiSecondaryAvailabilityZone
         (\s a -> s { _dbiSecondaryAvailabilityZone = a })
 
--- | The status of a read replica. If the instance is not a read replica, this
+-- | The status of a Read Replica. If the instance is not a Read Replica, this
 -- will be blank.
 dbiStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
 dbiStatusInfos = lens _dbiStatusInfos (\s a -> s { _dbiStatusInfos = a }) . _List
 
--- | Specifies storage type associated with DB Instance.
+-- | Specifies whether the DB instance is encrypted.
+dbiStorageEncrypted :: Lens' DBInstance (Maybe Bool)
+dbiStorageEncrypted =
+    lens _dbiStorageEncrypted (\s a -> s { _dbiStorageEncrypted = a })
+
+-- | Specifies the storage type associated with DB instance.
 dbiStorageType :: Lens' DBInstance (Maybe Text)
 dbiStorageType = lens _dbiStorageType (\s a -> s { _dbiStorageType = a })
 
@@ -2333,11 +2525,13 @@ instance FromXML DBInstance where
         <*> x .@? "DBParameterGroups" .!@ mempty
         <*> x .@? "DBSecurityGroups" .!@ mempty
         <*> x .@? "DBSubnetGroup"
+        <*> x .@? "DbiResourceId"
         <*> x .@? "Endpoint"
         <*> x .@? "Engine"
         <*> x .@? "EngineVersion"
         <*> x .@? "InstanceCreateTime"
         <*> x .@? "Iops"
+        <*> x .@? "KmsKeyId"
         <*> x .@? "LatestRestorableTime"
         <*> x .@? "LicenseModel"
         <*> x .@? "MasterUsername"
@@ -2351,6 +2545,7 @@ instance FromXML DBInstance where
         <*> x .@? "ReadReplicaSourceDBInstanceIdentifier"
         <*> x .@? "SecondaryAvailabilityZone"
         <*> x .@? "StatusInfos" .!@ mempty
+        <*> x .@? "StorageEncrypted"
         <*> x .@? "StorageType"
         <*> x .@? "TdeCredentialArn"
         <*> x .@? "VpcSecurityGroups" .!@ mempty
@@ -2369,11 +2564,13 @@ instance ToQuery DBInstance where
         , "DBParameterGroups"                     =? _dbiDBParameterGroups
         , "DBSecurityGroups"                      =? _dbiDBSecurityGroups
         , "DBSubnetGroup"                         =? _dbiDBSubnetGroup
+        , "DbiResourceId"                         =? _dbiDbiResourceId
         , "Endpoint"                              =? _dbiEndpoint
         , "Engine"                                =? _dbiEngine
         , "EngineVersion"                         =? _dbiEngineVersion
         , "InstanceCreateTime"                    =? _dbiInstanceCreateTime
         , "Iops"                                  =? _dbiIops
+        , "KmsKeyId"                              =? _dbiKmsKeyId
         , "LatestRestorableTime"                  =? _dbiLatestRestorableTime
         , "LicenseModel"                          =? _dbiLicenseModel
         , "MasterUsername"                        =? _dbiMasterUsername
@@ -2387,6 +2584,7 @@ instance ToQuery DBInstance where
         , "ReadReplicaSourceDBInstanceIdentifier" =? _dbiReadReplicaSourceDBInstanceIdentifier
         , "SecondaryAvailabilityZone"             =? _dbiSecondaryAvailabilityZone
         , "StatusInfos"                           =? _dbiStatusInfos
+        , "StorageEncrypted"                      =? _dbiStorageEncrypted
         , "StorageType"                           =? _dbiStorageType
         , "TdeCredentialArn"                      =? _dbiTdeCredentialArn
         , "VpcSecurityGroups"                     =? _dbiVpcSecurityGroups
@@ -2837,16 +3035,17 @@ instance ToQuery DescribeDBLogFilesDetails where
         ]
 
 data OrderableDBInstanceOption = OrderableDBInstanceOption
-    { _odbioAvailabilityZones  :: List "member" AvailabilityZone
-    , _odbioDBInstanceClass    :: Maybe Text
-    , _odbioEngine             :: Maybe Text
-    , _odbioEngineVersion      :: Maybe Text
-    , _odbioLicenseModel       :: Maybe Text
-    , _odbioMultiAZCapable     :: Maybe Bool
-    , _odbioReadReplicaCapable :: Maybe Bool
-    , _odbioStorageType        :: Maybe Text
-    , _odbioSupportsIops       :: Maybe Bool
-    , _odbioVpc                :: Maybe Bool
+    { _odbioAvailabilityZones         :: List "member" AvailabilityZone
+    , _odbioDBInstanceClass           :: Maybe Text
+    , _odbioEngine                    :: Maybe Text
+    , _odbioEngineVersion             :: Maybe Text
+    , _odbioLicenseModel              :: Maybe Text
+    , _odbioMultiAZCapable            :: Maybe Bool
+    , _odbioReadReplicaCapable        :: Maybe Bool
+    , _odbioStorageType               :: Maybe Text
+    , _odbioSupportsIops              :: Maybe Bool
+    , _odbioSupportsStorageEncryption :: Maybe Bool
+    , _odbioVpc                       :: Maybe Bool
     } deriving (Eq, Show)
 
 -- | 'OrderableDBInstanceOption' constructor.
@@ -2871,20 +3070,23 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption
 --
 -- * 'odbioSupportsIops' @::@ 'Maybe' 'Bool'
 --
+-- * 'odbioSupportsStorageEncryption' @::@ 'Maybe' 'Bool'
+--
 -- * 'odbioVpc' @::@ 'Maybe' 'Bool'
 --
 orderableDBInstanceOption :: OrderableDBInstanceOption
 orderableDBInstanceOption = OrderableDBInstanceOption
-    { _odbioEngine             = Nothing
-    , _odbioEngineVersion      = Nothing
-    , _odbioDBInstanceClass    = Nothing
-    , _odbioLicenseModel       = Nothing
-    , _odbioAvailabilityZones  = mempty
-    , _odbioMultiAZCapable     = Nothing
-    , _odbioReadReplicaCapable = Nothing
-    , _odbioVpc                = Nothing
-    , _odbioStorageType        = Nothing
-    , _odbioSupportsIops       = Nothing
+    { _odbioEngine                    = Nothing
+    , _odbioEngineVersion             = Nothing
+    , _odbioDBInstanceClass           = Nothing
+    , _odbioLicenseModel              = Nothing
+    , _odbioAvailabilityZones         = mempty
+    , _odbioMultiAZCapable            = Nothing
+    , _odbioReadReplicaCapable        = Nothing
+    , _odbioVpc                       = Nothing
+    , _odbioSupportsStorageEncryption = Nothing
+    , _odbioStorageType               = Nothing
+    , _odbioSupportsIops              = Nothing
     }
 
 -- | A list of availability zones for the orderable DB instance.
@@ -2917,7 +3119,7 @@ odbioMultiAZCapable :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odbioMultiAZCapable =
     lens _odbioMultiAZCapable (\s a -> s { _odbioMultiAZCapable = a })
 
--- | Indicates whether this orderable DB instance can have a read replica.
+-- | Indicates whether this orderable DB instance can have a Read Replica.
 odbioReadReplicaCapable :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odbioReadReplicaCapable =
     lens _odbioReadReplicaCapable (\s a -> s { _odbioReadReplicaCapable = a })
@@ -2930,6 +3132,12 @@ odbioStorageType = lens _odbioStorageType (\s a -> s { _odbioStorageType = a })
 odbioSupportsIops :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odbioSupportsIops =
     lens _odbioSupportsIops (\s a -> s { _odbioSupportsIops = a })
+
+-- | Indicates whether this orderable DB instance supports encrypted storage.
+odbioSupportsStorageEncryption :: Lens' OrderableDBInstanceOption (Maybe Bool)
+odbioSupportsStorageEncryption =
+    lens _odbioSupportsStorageEncryption
+        (\s a -> s { _odbioSupportsStorageEncryption = a })
 
 -- | Indicates whether this is a VPC orderable DB instance.
 odbioVpc :: Lens' OrderableDBInstanceOption (Maybe Bool)
@@ -2946,20 +3154,22 @@ instance FromXML OrderableDBInstanceOption where
         <*> x .@? "ReadReplicaCapable"
         <*> x .@? "StorageType"
         <*> x .@? "SupportsIops"
+        <*> x .@? "SupportsStorageEncryption"
         <*> x .@? "Vpc"
 
 instance ToQuery OrderableDBInstanceOption where
     toQuery OrderableDBInstanceOption{..} = mconcat
-        [ "AvailabilityZones"  =? _odbioAvailabilityZones
-        , "DBInstanceClass"    =? _odbioDBInstanceClass
-        , "Engine"             =? _odbioEngine
-        , "EngineVersion"      =? _odbioEngineVersion
-        , "LicenseModel"       =? _odbioLicenseModel
-        , "MultiAZCapable"     =? _odbioMultiAZCapable
-        , "ReadReplicaCapable" =? _odbioReadReplicaCapable
-        , "StorageType"        =? _odbioStorageType
-        , "SupportsIops"       =? _odbioSupportsIops
-        , "Vpc"                =? _odbioVpc
+        [ "AvailabilityZones"         =? _odbioAvailabilityZones
+        , "DBInstanceClass"           =? _odbioDBInstanceClass
+        , "Engine"                    =? _odbioEngine
+        , "EngineVersion"             =? _odbioEngineVersion
+        , "LicenseModel"              =? _odbioLicenseModel
+        , "MultiAZCapable"            =? _odbioMultiAZCapable
+        , "ReadReplicaCapable"        =? _odbioReadReplicaCapable
+        , "StorageType"               =? _odbioStorageType
+        , "SupportsIops"              =? _odbioSupportsIops
+        , "SupportsStorageEncryption" =? _odbioSupportsStorageEncryption
+        , "Vpc"                       =? _odbioVpc
         ]
 
 data Filter = Filter
@@ -3481,7 +3691,7 @@ pmvMultiAZ = lens _pmvMultiAZ (\s a -> s { _pmvMultiAZ = a })
 pmvPort :: Lens' PendingModifiedValues (Maybe Int)
 pmvPort = lens _pmvPort (\s a -> s { _pmvPort = a })
 
--- | Specifies storage type to be associated with the DB instance.
+-- | Specifies the storage type to be associated with the DB instance.
 pmvStorageType :: Lens' PendingModifiedValues (Maybe Text)
 pmvStorageType = lens _pmvStorageType (\s a -> s { _pmvStorageType = a })
 

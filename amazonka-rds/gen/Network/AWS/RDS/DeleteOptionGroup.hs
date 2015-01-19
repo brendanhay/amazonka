@@ -62,6 +62,8 @@ deleteOptionGroup p1 = DeleteOptionGroup
     }
 
 -- | The name of the option group to be deleted.
+--
+-- You cannot delete default option groups.
 dog1OptionGroupName :: Lens' DeleteOptionGroup Text
 dog1OptionGroupName =
     lens _dog1OptionGroupName (\s a -> s { _dog1OptionGroupName = a })

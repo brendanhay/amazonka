@@ -25,6 +25,10 @@
 -- | Modifies the parameters of a DB parameter group. To modify more than one
 -- parameter, submit a list of the following: 'ParameterName', 'ParameterValue', and 'ApplyMethod'. A maximum of 20 parameters can be modified in a single request.
 --
+-- Changes to dynamic parameters are applied immediately. Changes to static
+-- parameters require a reboot without failover to the DB instance associated
+-- with the parameter group before the change can take effect.
+--
 -- After you modify a DB parameter group, you should wait at least 5 minutes
 -- before creating your first DB instance that uses that DB parameter group as
 -- the default parameter group. This allows Amazon RDS to fully complete the
@@ -98,6 +102,10 @@ mdbpgDBParameterGroupName =
 -- be modified in a single request.
 --
 -- Valid Values (for the application method): 'immediate | pending-reboot'
+--
+-- You can use the immediate value with dynamic parameters only. You can use
+-- the pending-reboot value for both dynamic and static parameters, and changes
+-- are applied when you reboot the DB instance without failover.
 mdbpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
 mdbpgParameters = lens _mdbpgParameters (\s a -> s { _mdbpgParameters = a }) . _List
 

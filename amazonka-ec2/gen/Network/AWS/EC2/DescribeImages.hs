@@ -185,7 +185,8 @@ di2ImageIds = lens _di2ImageIds (\s a -> s { _di2ImageIds = a }) . _List
 
 -- | Filters the images by the owner. Specify an AWS account ID, 'amazon' (owner is
 -- Amazon), 'aws-marketplace' (owner is AWS Marketplace), 'self' (owner is the
--- sender of the request), or 'all' (all owners).
+-- sender of the request). Omitting this option returns all images for which you
+-- have launch permissions, regardless of ownership.
 di2Owners :: Lens' DescribeImages [Text]
 di2Owners = lens _di2Owners (\s a -> s { _di2Owners = a }) . _List
 

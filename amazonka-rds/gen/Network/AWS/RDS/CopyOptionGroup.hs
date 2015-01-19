@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Copies the specified Option Group.
+-- | Copies the specified option group.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyOptionGroup.html>
 module Network.AWS.RDS.CopyOptionGroup
@@ -80,16 +80,13 @@ copyOptionGroup p1 p2 p3 = CopyOptionGroup
     , _cog1Tags                         = mempty
     }
 
--- | The identifier or ARN for the source Option Group.
+-- | The identifier or ARN for the source option group.
 --
 -- Constraints:
 --
--- Must specify a valid Option Group. If the source Option Group is in the
--- same region as the copy, specify a valid Option Group identifier, or a valid
--- ARN. If the source Option Group is in a different region than the copy,
--- specify a valid Option group ARN.  Example: 'my-option-group'
---
--- Example: 'arn:aws:rds:us-west-2:123456789012:og:special-options'
+-- Must specify a valid option group. If the source option group is in the
+-- same region as the copy, specify a valid option group identifier, for example 'my-option-group', or a valid ARN. If the source option group is in a different
+-- region than the copy, specify a valid option group ARN, for example 'arn:aws:rds:us-west-2:123456789012:og:special-options'.
 cog1SourceOptionGroupIdentifier :: Lens' CopyOptionGroup Text
 cog1SourceOptionGroupIdentifier =
     lens _cog1SourceOptionGroupIdentifier
@@ -98,13 +95,13 @@ cog1SourceOptionGroupIdentifier =
 cog1Tags :: Lens' CopyOptionGroup [Tag]
 cog1Tags = lens _cog1Tags (\s a -> s { _cog1Tags = a }) . _List
 
--- | The description for the copied Option Group.
+-- | The description for the copied option group.
 cog1TargetOptionGroupDescription :: Lens' CopyOptionGroup Text
 cog1TargetOptionGroupDescription =
     lens _cog1TargetOptionGroupDescription
         (\s a -> s { _cog1TargetOptionGroupDescription = a })
 
--- | The identifier for the copied Option Group.
+-- | The identifier for the copied option group.
 --
 -- Constraints:
 --

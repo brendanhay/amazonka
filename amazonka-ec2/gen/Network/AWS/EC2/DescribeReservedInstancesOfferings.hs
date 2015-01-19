@@ -28,7 +28,7 @@
 -- errors, and you pay a lower usage rate than the rate charged for On-Demand
 -- instances for the actual time used.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /AmazonElastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /AmazonElastic Compute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesOfferings.html>
 module Network.AWS.EC2.DescribeReservedInstancesOfferings
@@ -185,8 +185,7 @@ drioInstanceTenancy =
     lens _drioInstanceTenancy (\s a -> s { _drioInstanceTenancy = a })
 
 -- | The instance type on which the Reserved Instance can be used. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/
--- .
+-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud UserGuide for Linux/.
 drioInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
 drioInstanceType = lens _drioInstanceType (\s a -> s { _drioInstanceType = a })
 

@@ -22,9 +22,9 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a DB instance that acts as a read replica of a source DB instance.
+-- | Creates a DB instance that acts as a Read Replica of a source DB instance.
 --
--- All read replica DB instances are created as Single-AZ deployments with
+-- All Read Replica DB instances are created as Single-AZ deployments with
 -- backups disabled. All other DB instance attributes (including DB security
 -- groups and DB parameter groups) are inherited from the source DB instance,
 -- except as specified below.
@@ -129,7 +129,7 @@ createDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplica
     }
 
 -- | Indicates that minor engine upgrades will be applied automatically to the
--- read replica during the maintenance window.
+-- Read Replica during the maintenance window.
 --
 -- Default: Inherits from the source DB instance
 cdbirrAutoMinorVersionUpgrade :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
@@ -137,7 +137,7 @@ cdbirrAutoMinorVersionUpgrade =
     lens _cdbirrAutoMinorVersionUpgrade
         (\s a -> s { _cdbirrAutoMinorVersionUpgrade = a })
 
--- | The Amazon EC2 Availability Zone that the read replica will be created in.
+-- | The Amazon EC2 Availability Zone that the Read Replica will be created in.
 --
 -- Default: A random, system-chosen Availability Zone in the endpoint's
 -- region.
@@ -147,7 +147,7 @@ cdbirrAvailabilityZone :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrAvailabilityZone =
     lens _cdbirrAvailabilityZone (\s a -> s { _cdbirrAvailabilityZone = a })
 
--- | The compute and memory capacity of the read replica.
+-- | The compute and memory capacity of the Read Replica.
 --
 -- Valid Values: 'db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge |db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large |db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge |db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium'
 --
@@ -156,7 +156,7 @@ cdbirrDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrDBInstanceClass =
     lens _cdbirrDBInstanceClass (\s a -> s { _cdbirrDBInstanceClass = a })
 
--- | The DB instance identifier of the read replica. This is the unique key that
+-- | The DB instance identifier of the Read Replica. This is the unique key that
 -- identifies a DB instance. This parameter is stored as a lowercase string.
 cdbirrDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdbirrDBInstanceIdentifier =
@@ -171,10 +171,10 @@ cdbirrDBInstanceIdentifier =
 --
 -- Can only be specified if the source DB instance identifier specifies a DB
 -- instance in another region. The specified DB subnet group must be in the same
--- region in which the operation is running.  All read replicas in one region
+-- region in which the operation is running.  All Read Replicas in one region
 -- that are created from the same source DB instance must either:  Specify DB
--- subnet groups from the same VPC. All these read replicas will be created in
--- the same VPC. Not specify a DB subnet group. All these read replicas will be
+-- subnet groups from the same VPC. All these Read Replicas will be created in
+-- the same VPC. Not specify a DB subnet group. All these Read Replicas will be
 -- created outside of any VPC.
 cdbirrDBSubnetGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrDBSubnetGroupName =
@@ -217,28 +217,32 @@ cdbirrPubliclyAccessible =
     lens _cdbirrPubliclyAccessible
         (\s a -> s { _cdbirrPubliclyAccessible = a })
 
--- | The identifier of the DB instance that will act as the source for the read
--- replica. Each DB instance can have up to five read replicas.
+-- | The identifier of the DB instance that will act as the source for the Read
+-- Replica. Each DB instance can have up to five Read Replicas.
 --
 -- Constraints:
 --
 -- Must be the identifier of an existing DB instance. Can specify a DB
--- instance that is a read replica only if the source is running MySQL 5.6. The
--- specified DB instance must have automatic backups enabled, its backup
--- retention period must be greater than 0. If the source DB instance is in the
--- same region as the read replica, specify a valid DB instance identifier. If
--- the source DB instance is in a different region than the read replica,
--- specify a valid DB instance ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructing aAmazon RDS Amazon Resource Name (ARN)>.
+-- instance that is a MySQL Read Replica only if the source is running MySQL 5.6.
+-- Can specify a DB instance that is a PostgreSQL Read Replica only if the
+-- source is running PostgreSQL 9.3.5. The specified DB instance must have
+-- automatic backups enabled, its backup retention period must be greater than 0.
+-- If the source DB instance is in the same region as the Read Replica, specify
+-- a valid DB instance identifier. If the source DB instance is in a different
+-- region than the Read Replica, specify a valid DB instance ARN. For more
+-- information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructing a Amazon RDS Amazon Resource Name (ARN)>.
 cdbirrSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdbirrSourceDBInstanceIdentifier =
     lens _cdbirrSourceDBInstanceIdentifier
         (\s a -> s { _cdbirrSourceDBInstanceIdentifier = a })
 
--- | Specifies storage type to be associated with the DB Instance read replica.
+-- | Specifies the storage type to be associated with the Read Replica.
 --
 -- Valid values: 'standard | gp2 | io1'
 --
 -- If you specify 'io1', you must also include a value for the 'Iops' parameter.
+--
+-- Default: 'io1' if the 'Iops' parameter is specified; otherwise 'standard'
 cdbirrStorageType :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdbirrStorageType =
     lens _cdbirrStorageType (\s a -> s { _cdbirrStorageType = a })

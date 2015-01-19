@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Copies the specified DBParameterGroup.
+-- | Copies the specified DB parameter group.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBParameterGroup.html>
 module Network.AWS.RDS.CopyDBParameterGroup
@@ -80,17 +80,15 @@ copyDBParameterGroup p1 p2 p3 = CopyDBParameterGroup
     , _cdbpgTags                              = mempty
     }
 
--- | The identifier or ARN for the source DB Parameter Group.
+-- | The identifier or ARN for the source DB parameter group.
 --
 -- Constraints:
 --
--- Must specify a valid DB Parameter Group. If the source DB Parameter Group
--- is in the same region as the copy, specify a valid DB Parameter Group
--- identifier, or a valid ARN. If the source DB Parameter Group is in a
--- different region than the copy, specify a valid DB parameter group ARN.  Example:
--- 'my-db-param-group'
---
--- Example: 'arn:aws:rds:us-west-2:123456789012:pg:special-parameters'
+-- Must specify a valid DB parameter group. If the source DB parameter group
+-- is in the same region as the copy, specify a valid DB parameter group
+-- identifier, for example 'my-db-param-group', or a valid ARN. If the source DB
+-- parameter group is in a different region than the copy, specify a valid DB
+-- parameter group ARN, for example 'arn:aws:rds:us-west-2:123456789012:pg:special-parameters'.
 cdbpgSourceDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
 cdbpgSourceDBParameterGroupIdentifier =
     lens _cdbpgSourceDBParameterGroupIdentifier
@@ -99,13 +97,13 @@ cdbpgSourceDBParameterGroupIdentifier =
 cdbpgTags :: Lens' CopyDBParameterGroup [Tag]
 cdbpgTags = lens _cdbpgTags (\s a -> s { _cdbpgTags = a }) . _List
 
--- | The description for the copied DB Parameter Group.
+-- | A description for the copied DB parameter group.
 cdbpgTargetDBParameterGroupDescription :: Lens' CopyDBParameterGroup Text
 cdbpgTargetDBParameterGroupDescription =
     lens _cdbpgTargetDBParameterGroupDescription
         (\s a -> s { _cdbpgTargetDBParameterGroupDescription = a })
 
--- | The identifier for the copied DB Parameter Group.
+-- | The identifier for the copied DB parameter group.
 --
 -- Constraints:
 --

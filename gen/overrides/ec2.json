@@ -75,7 +75,6 @@
                 "Public",
                 "Architecture",
                 "ImageType",
-                "Name",
                 "RootDeviceType",
                 "VirtualizationType",
                 "Hypervisor"
@@ -148,7 +147,6 @@
             "required": [
                 "InstanceId",
                 "ImageId",
-                "KeyName",
                 "AmiLaunchIndex",
                 "InstanceType",
                 "LaunchTime",
@@ -198,7 +196,6 @@
                 "AvailabilityZone",
                 "CreateTime",
                 "Encrypted",
-                "Iops",
                 "Size",
                 "SnapshotId",
                 "State",
@@ -226,6 +223,13 @@
                 "State",
                 "Type"
             ]
+        },
+        "OfferingTypeValues": {
+            "sum_values": {
+                "NoUpfront": "No Upfront",
+                "PartialUpfront": "Partial Upfront",
+                "AllUpfront": "All Upfront"
+            }
         }
     }
 }

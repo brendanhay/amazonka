@@ -25,7 +25,7 @@
 -- | Associates an Elastic IP address with an instance or a network interface.
 --
 -- An Elastic IP address is for use in either the EC2-Classic platform or in a
--- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide/.
+-- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide for Linux/.
 --
 -- [EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is
 -- already associated with a different instance, it is disassociated from that

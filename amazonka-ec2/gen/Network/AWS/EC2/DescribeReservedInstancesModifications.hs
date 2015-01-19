@@ -28,7 +28,7 @@
 -- about the specific modification is returned.
 --
 -- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html Modifying Reserved Instances> in the Amazon Elastic
--- Compute Cloud User Guide.
+-- Compute Cloud User Guide for Linux.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesModifications.html>
 module Network.AWS.EC2.DescribeReservedInstancesModifications

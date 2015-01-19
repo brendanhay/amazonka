@@ -27,7 +27,7 @@
 --
 -- The volume may remain in the 'deleting' state for several minutes.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html Deleting an Amazon EBS Volume> in the /AmazonElastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html Deleting an Amazon EBS Volume> in the /AmazonElastic Compute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVolume.html>
 module Network.AWS.EC2.DeleteVolume

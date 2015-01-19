@@ -18,6 +18,7 @@
 module Network.AWS.RDS
     ( module Network.AWS.RDS.AddSourceIdentifierToSubscription
     , module Network.AWS.RDS.AddTagsToResource
+    , module Network.AWS.RDS.ApplyPendingMaintenanceAction
     , module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     , module Network.AWS.RDS.CopyDBParameterGroup
     , module Network.AWS.RDS.CopyDBSnapshot
@@ -52,6 +53,7 @@ module Network.AWS.RDS
     , module Network.AWS.RDS.DescribeOptionGroupOptions
     , module Network.AWS.RDS.DescribeOptionGroups
     , module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
+    , module Network.AWS.RDS.DescribePendingMaintenanceActions
     , module Network.AWS.RDS.DescribeReservedDBInstances
     , module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     , module Network.AWS.RDS.DownloadDBLogFilePortion
@@ -76,6 +78,7 @@ module Network.AWS.RDS
 
 import Network.AWS.RDS.AddSourceIdentifierToSubscription
 import Network.AWS.RDS.AddTagsToResource
+import Network.AWS.RDS.ApplyPendingMaintenanceAction
 import Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
 import Network.AWS.RDS.CopyDBParameterGroup
 import Network.AWS.RDS.CopyDBSnapshot
@@ -110,6 +113,7 @@ import Network.AWS.RDS.DescribeEvents
 import Network.AWS.RDS.DescribeOptionGroupOptions
 import Network.AWS.RDS.DescribeOptionGroups
 import Network.AWS.RDS.DescribeOrderableDBInstanceOptions
+import Network.AWS.RDS.DescribePendingMaintenanceActions
 import Network.AWS.RDS.DescribeReservedDBInstances
 import Network.AWS.RDS.DescribeReservedDBInstancesOfferings
 import Network.AWS.RDS.DownloadDBLogFilePortion

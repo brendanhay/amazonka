@@ -46,6 +46,7 @@ module Network.AWS.RDS.CreateDBInstance
     , cdbiEngine
     , cdbiEngineVersion
     , cdbiIops
+    , cdbiKmsKeyId
     , cdbiLicenseModel
     , cdbiMasterUserPassword
     , cdbiMasterUsername
@@ -55,6 +56,7 @@ module Network.AWS.RDS.CreateDBInstance
     , cdbiPreferredBackupWindow
     , cdbiPreferredMaintenanceWindow
     , cdbiPubliclyAccessible
+    , cdbiStorageEncrypted
     , cdbiStorageType
     , cdbiTags
     , cdbiTdeCredentialArn
@@ -89,6 +91,7 @@ data CreateDBInstance = CreateDBInstance
     , _cdbiEngine                     :: Text
     , _cdbiEngineVersion              :: Maybe Text
     , _cdbiIops                       :: Maybe Int
+    , _cdbiKmsKeyId                   :: Maybe Text
     , _cdbiLicenseModel               :: Maybe Text
     , _cdbiMasterUserPassword         :: Text
     , _cdbiMasterUsername             :: Text
@@ -98,6 +101,7 @@ data CreateDBInstance = CreateDBInstance
     , _cdbiPreferredBackupWindow      :: Maybe Text
     , _cdbiPreferredMaintenanceWindow :: Maybe Text
     , _cdbiPubliclyAccessible         :: Maybe Bool
+    , _cdbiStorageEncrypted           :: Maybe Bool
     , _cdbiStorageType                :: Maybe Text
     , _cdbiTags                       :: List "member" Tag
     , _cdbiTdeCredentialArn           :: Maybe Text
@@ -137,6 +141,8 @@ data CreateDBInstance = CreateDBInstance
 --
 -- * 'cdbiIops' @::@ 'Maybe' 'Int'
 --
+-- * 'cdbiKmsKeyId' @::@ 'Maybe' 'Text'
+--
 -- * 'cdbiLicenseModel' @::@ 'Maybe' 'Text'
 --
 -- * 'cdbiMasterUserPassword' @::@ 'Text'
@@ -154,6 +160,8 @@ data CreateDBInstance = CreateDBInstance
 -- * 'cdbiPreferredMaintenanceWindow' @::@ 'Maybe' 'Text'
 --
 -- * 'cdbiPubliclyAccessible' @::@ 'Maybe' 'Bool'
+--
+-- * 'cdbiStorageEncrypted' @::@ 'Maybe' 'Bool'
 --
 -- * 'cdbiStorageType' @::@ 'Maybe' 'Text'
 --
@@ -201,6 +209,8 @@ createDBInstance p1 p2 p3 p4 p5 p6 = CreateDBInstance
     , _cdbiStorageType                = Nothing
     , _cdbiTdeCredentialArn           = Nothing
     , _cdbiTdeCredentialPassword      = Nothing
+    , _cdbiStorageEncrypted           = Nothing
+    , _cdbiKmsKeyId                   = Nothing
     }
 
 -- | The amount of storage (in gigabytes) to be initially allocated for the
@@ -223,7 +233,7 @@ createDBInstance p1 p2 p3 p4 p5 p6 = CreateDBInstance
 -- SQL Server
 --
 -- Constraints: Must be an integer from 200 to 1024 (Standard Edition and
--- Enterprise Edition) or from 30 to 1024 (Express Edition and Web Edition)
+-- Enterprise Edition) or from 20 to 1024 (Express Edition and Web Edition)
 cdbiAllocatedStorage :: Lens' CreateDBInstance Int
 cdbiAllocatedStorage =
     lens _cdbiAllocatedStorage (\s a -> s { _cdbiAllocatedStorage = a })
@@ -237,7 +247,8 @@ cdbiAutoMinorVersionUpgrade =
     lens _cdbiAutoMinorVersionUpgrade
         (\s a -> s { _cdbiAutoMinorVersionUpgrade = a })
 
--- | The EC2 Availability Zone that the database instance will be created in.
+-- | The EC2 Availability Zone that the database instance will be created in. For
+-- information on regions and Availability Zones, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and AvailabilityZones>.
 --
 -- Default: A random, system-chosen Availability Zone in the endpoint's
 -- region.
@@ -260,7 +271,7 @@ cdbiAvailabilityZone =
 -- Constraints:
 --
 -- Must be a value from 0 to 35 Cannot be set to 0 if the DB instance is a
--- source to read replicas
+-- source to Read Replicas
 cdbiBackupRetentionPeriod :: Lens' CreateDBInstance (Maybe Int)
 cdbiBackupRetentionPeriod =
     lens _cdbiBackupRetentionPeriod
@@ -358,32 +369,43 @@ cdbiDBSubnetGroupName =
 -- | The name of the database engine to be used for this instance.
 --
 -- Valid Values: 'MySQL' | 'oracle-se1' | 'oracle-se' | 'oracle-ee' | 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' | 'sqlserver-web' | 'postgres'
+--
+-- Not every database engine is available for every AWS region.
 cdbiEngine :: Lens' CreateDBInstance Text
 cdbiEngine = lens _cdbiEngine (\s a -> s { _cdbiEngine = a })
 
 -- | The version number of the database engine to use.
 --
+-- The following are the database engines and major and minor versions that
+-- are available with Amazon RDS. Not every database engine is available for
+-- every AWS region.
+--
 -- MySQL
 --
--- Example: '5.1.42'
+-- Version 5.1: ' 5.1.45 | 5.1.49 | 5.1.50 | 5.1.57 | 5.1.61 | 5.1.62 | 5.1.63| 5.1.69 | 5.1.71 | 5.1.73'   Version 5.5: ' 5.5.12 | 5.5.20 | 5.5.23 | 5.5.25a| 5.5.27 | 5.5.31 | 5.5.33 | 5.5.37 | 5.5.38 | 5.5.8'   Version 5.6: ' 5.6.12 |5.6.13 | 5.6.17 | 5.6.19 | 5.6.21'   Oracle Database Enterprise Edition
+-- (oracle-ee)
 --
--- Type: String
+-- Version 11.2: ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |11.2.0.2.v7 | 11.2.0.3.v1 | 11.2.0.4.v1'   Oracle Database Standard Edition
+-- (oracle-se)
 --
--- PostgreSQL
+-- Version 11.2: ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |11.2.0.2.v7 | 11.2.0.3.v1 | 11.2.0.4.v1'   Oracle Database Standard Edition
+-- One (oracle-se1)
 --
--- Example: '9.3'
+-- Version 11.2: ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |11.2.0.2.v7 | 11.2.0.3.v1 | 11.2.0.4.v1'   PostgreSQL
 --
--- Type: String
+-- Version 9.3: ' 9.3.1 | 9.3.2 | 9.3.3'   Microsoft SQL Server Enterprise
+-- Edition (sqlserver-ee)
 --
--- Oracle
+-- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'   Microsoft SQL Server Express Edition (sqlserver-ex)
 --
--- Example: '11.2.0.2.v2'
 --
--- Type: String
+-- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'   Microsoft SQL Server Standard Edition (sqlserver-se)
 --
--- SQL Server
 --
--- Example: '10.50.2789.0.v1'
+-- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'   Microsoft SQL Server Web Edition (sqlserver-web)
+--
+--
+-- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'
 cdbiEngineVersion :: Lens' CreateDBInstance (Maybe Text)
 cdbiEngineVersion =
     lens _cdbiEngineVersion (\s a -> s { _cdbiEngineVersion = a })
@@ -394,6 +416,20 @@ cdbiEngineVersion =
 -- Constraints: To use PIOPS, this value must be an integer greater than 1000.
 cdbiIops :: Lens' CreateDBInstance (Maybe Int)
 cdbiIops = lens _cdbiIops (\s a -> s { _cdbiIops = a })
+
+-- | The KMS key identifier for an encrypted DB instance.
+--
+-- The KMS key identifier is the Amazon Resoure Name (ARN) for the KMS
+-- encryption key. If you are creating a DB instance with the same AWS account
+-- that owns the KMS encryption key used to encrypt the new DB instance, then
+-- you can use the KMS key alias instead of the ARN for the KM encryption key.
+--
+-- If the 'StorageEncrypted' parameter is true, and you do not specify a value
+-- for the 'KmsKeyId' parameter, then Amazon RDS will use your default encryption
+-- key. AWS KMS creates the default encryption key for your AWS account. Your
+-- AWS account has a different default encryption key for each AWS region.
+cdbiKmsKeyId :: Lens' CreateDBInstance (Maybe Text)
+cdbiKmsKeyId = lens _cdbiKmsKeyId (\s a -> s { _cdbiKmsKeyId = a })
 
 -- | License model information for this DB instance.
 --
@@ -494,7 +530,8 @@ cdbiPort :: Lens' CreateDBInstance (Maybe Int)
 cdbiPort = lens _cdbiPort (\s a -> s { _cdbiPort = a })
 
 -- | The daily time range during which automated backups are created if automated
--- backups are enabled, using the 'BackupRetentionPeriod' parameter.
+-- backups are enabled, using the 'BackupRetentionPeriod' parameter. For more
+-- information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.BackingUpAndRestoringAmazonRDSInstances.html DB Instance Backups>.
 --
 -- Default: A 30-minute window selected at random from an 8-hour block of time
 -- per region. See the Amazon RDS User Guide for the time blocks for each region
@@ -509,6 +546,7 @@ cdbiPreferredBackupWindow =
         (\s a -> s { _cdbiPreferredBackupWindow = a })
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
+-- For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBMaintenance.html DB Instance Maintenance>.
 --
 -- Format: 'ddd:hh24:mi-ddd:hh24:mi'
 --
@@ -533,20 +571,29 @@ cdbiPreferredMaintenanceWindow =
 -- Default: The default behavior varies depending on whether a VPC has been
 -- requested or not. The following list shows the default behavior in each case.
 --
--- Default VPC:true  VPC:false   If no DB subnet group has been specified as
--- part of the request and the PubliclyAccessible value has not been set, the DB
--- instance will be publicly accessible. If a specific DB subnet group has been
--- specified as part of the request and the PubliclyAccessible value has not
--- been set, the DB instance will be private.
+-- Default VPC: true  VPC: false   If no DB subnet group has been specified
+-- as part of the request and the PubliclyAccessible value has not been set, the
+-- DB instance will be publicly accessible. If a specific DB subnet group has
+-- been specified as part of the request and the PubliclyAccessible value has
+-- not been set, the DB instance will be private.
 cdbiPubliclyAccessible :: Lens' CreateDBInstance (Maybe Bool)
 cdbiPubliclyAccessible =
     lens _cdbiPubliclyAccessible (\s a -> s { _cdbiPubliclyAccessible = a })
 
--- | Specifies storage type to be associated with the DB Instance.
+-- | Specifies whether the DB instance is encrypted.
+--
+-- Default: false
+cdbiStorageEncrypted :: Lens' CreateDBInstance (Maybe Bool)
+cdbiStorageEncrypted =
+    lens _cdbiStorageEncrypted (\s a -> s { _cdbiStorageEncrypted = a })
+
+-- | Specifies the storage type to be associated with the DB instance.
 --
 -- Valid values: 'standard | gp2 | io1'
 --
 -- If you specify 'io1', you must also include a value for the 'Iops' parameter.
+--
+-- Default: 'io1' if the 'Iops' parameter is specified; otherwise 'standard'
 cdbiStorageType :: Lens' CreateDBInstance (Maybe Text)
 cdbiStorageType = lens _cdbiStorageType (\s a -> s { _cdbiStorageType = a })
 
@@ -611,6 +658,7 @@ instance ToQuery CreateDBInstance where
         , "Engine"                     =? _cdbiEngine
         , "EngineVersion"              =? _cdbiEngineVersion
         , "Iops"                       =? _cdbiIops
+        , "KmsKeyId"                   =? _cdbiKmsKeyId
         , "LicenseModel"               =? _cdbiLicenseModel
         , "MasterUserPassword"         =? _cdbiMasterUserPassword
         , "MasterUsername"             =? _cdbiMasterUsername
@@ -620,6 +668,7 @@ instance ToQuery CreateDBInstance where
         , "PreferredBackupWindow"      =? _cdbiPreferredBackupWindow
         , "PreferredMaintenanceWindow" =? _cdbiPreferredMaintenanceWindow
         , "PubliclyAccessible"         =? _cdbiPubliclyAccessible
+        , "StorageEncrypted"           =? _cdbiStorageEncrypted
         , "StorageType"                =? _cdbiStorageType
         , "Tags"                       =? _cdbiTags
         , "TdeCredentialArn"           =? _cdbiTdeCredentialArn

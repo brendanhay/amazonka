@@ -29,6 +29,7 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.AssociateAddress
     , module Network.AWS.EC2.AssociateDhcpOptions
     , module Network.AWS.EC2.AssociateRouteTable
+    , module Network.AWS.EC2.AttachClassicLinkVpc
     , module Network.AWS.EC2.AttachInternetGateway
     , module Network.AWS.EC2.AttachNetworkInterface
     , module Network.AWS.EC2.AttachVolume
@@ -94,6 +95,7 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.DescribeAddresses
     , module Network.AWS.EC2.DescribeAvailabilityZones
     , module Network.AWS.EC2.DescribeBundleTasks
+    , module Network.AWS.EC2.DescribeClassicLinkInstances
     , module Network.AWS.EC2.DescribeConversionTasks
     , module Network.AWS.EC2.DescribeCustomerGateways
     , module Network.AWS.EC2.DescribeDhcpOptions
@@ -127,19 +129,23 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.DescribeVolumeStatus
     , module Network.AWS.EC2.DescribeVolumes
     , module Network.AWS.EC2.DescribeVpcAttribute
+    , module Network.AWS.EC2.DescribeVpcClassicLink
     , module Network.AWS.EC2.DescribeVpcPeeringConnections
     , module Network.AWS.EC2.DescribeVpcs
     , module Network.AWS.EC2.DescribeVpnConnections
     , module Network.AWS.EC2.DescribeVpnGateways
+    , module Network.AWS.EC2.DetachClassicLinkVpc
     , module Network.AWS.EC2.DetachInternetGateway
     , module Network.AWS.EC2.DetachNetworkInterface
     , module Network.AWS.EC2.DetachVolume
     , module Network.AWS.EC2.DetachVpnGateway
     , module Network.AWS.EC2.DisableVgwRoutePropagation
+    , module Network.AWS.EC2.DisableVpcClassicLink
     , module Network.AWS.EC2.DisassociateAddress
     , module Network.AWS.EC2.DisassociateRouteTable
     , module Network.AWS.EC2.EnableVgwRoutePropagation
     , module Network.AWS.EC2.EnableVolumeIO
+    , module Network.AWS.EC2.EnableVpcClassicLink
     , module Network.AWS.EC2.GetConsoleOutput
     , module Network.AWS.EC2.GetPasswordData
     , module Network.AWS.EC2.ImportInstance
@@ -187,6 +193,7 @@ import Network.AWS.EC2.AssignPrivateIpAddresses
 import Network.AWS.EC2.AssociateAddress
 import Network.AWS.EC2.AssociateDhcpOptions
 import Network.AWS.EC2.AssociateRouteTable
+import Network.AWS.EC2.AttachClassicLinkVpc
 import Network.AWS.EC2.AttachInternetGateway
 import Network.AWS.EC2.AttachNetworkInterface
 import Network.AWS.EC2.AttachVolume
@@ -252,6 +259,7 @@ import Network.AWS.EC2.DescribeAccountAttributes
 import Network.AWS.EC2.DescribeAddresses
 import Network.AWS.EC2.DescribeAvailabilityZones
 import Network.AWS.EC2.DescribeBundleTasks
+import Network.AWS.EC2.DescribeClassicLinkInstances
 import Network.AWS.EC2.DescribeConversionTasks
 import Network.AWS.EC2.DescribeCustomerGateways
 import Network.AWS.EC2.DescribeDhcpOptions
@@ -285,19 +293,23 @@ import Network.AWS.EC2.DescribeVolumeAttribute
 import Network.AWS.EC2.DescribeVolumeStatus
 import Network.AWS.EC2.DescribeVolumes
 import Network.AWS.EC2.DescribeVpcAttribute
+import Network.AWS.EC2.DescribeVpcClassicLink
 import Network.AWS.EC2.DescribeVpcPeeringConnections
 import Network.AWS.EC2.DescribeVpcs
 import Network.AWS.EC2.DescribeVpnConnections
 import Network.AWS.EC2.DescribeVpnGateways
+import Network.AWS.EC2.DetachClassicLinkVpc
 import Network.AWS.EC2.DetachInternetGateway
 import Network.AWS.EC2.DetachNetworkInterface
 import Network.AWS.EC2.DetachVolume
 import Network.AWS.EC2.DetachVpnGateway
 import Network.AWS.EC2.DisableVgwRoutePropagation
+import Network.AWS.EC2.DisableVpcClassicLink
 import Network.AWS.EC2.DisassociateAddress
 import Network.AWS.EC2.DisassociateRouteTable
 import Network.AWS.EC2.EnableVgwRoutePropagation
 import Network.AWS.EC2.EnableVolumeIO
+import Network.AWS.EC2.EnableVpcClassicLink
 import Network.AWS.EC2.GetConsoleOutput
 import Network.AWS.EC2.GetPasswordData
 import Network.AWS.EC2.ImportInstance

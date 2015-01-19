@@ -1,5 +1,5 @@
 name:                  amazonka-core
-version:               0.2.0
+version:               0.2.1
 synopsis:              Core functionality and data types for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -102,7 +102,7 @@ library
         , xml-conduit          == 1.2.*
 
     if !impl(ghc>=7.9)
-        build-depends: nats >= 0.1.3 && < 1
+        build-depends: nats >= 0.1.3
 
 test-suite tests
     type:              exitcode-stdio-1.0

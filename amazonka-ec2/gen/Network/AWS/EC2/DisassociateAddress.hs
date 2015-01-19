@@ -26,7 +26,7 @@
 -- it's associated with.
 --
 -- An Elastic IP address is for use in either the EC2-Classic platform or in a
--- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide/.
+-- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide for Linux/.
 --
 -- This is an idempotent operation. If you perform the operation more than
 -- once, Amazon EC2 doesn't return an error.

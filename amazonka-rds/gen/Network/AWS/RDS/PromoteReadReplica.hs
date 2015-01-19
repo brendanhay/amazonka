@@ -22,7 +22,13 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Promotes a read replica DB instance to a standalone DB instance.
+-- | Promotes a Read Replica DB instance to a standalone DB instance.
+--
+-- We recommend that you enable automated backups on your Read Replica before
+-- promoting the Read Replica. This ensures that no backup is taken during the
+-- promotion process. Once the instance is promoted to a primary instance,
+-- backups are taken based on your backup settings.
+--
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PromoteReadReplica.html>
 module Network.AWS.RDS.PromoteReadReplica
@@ -91,7 +97,7 @@ prrBackupRetentionPeriod =
 --
 -- Constraints:
 --
--- Must be the identifier for an existing read replica DB instance Must
+-- Must be the identifier for an existing Read Replica DB instance Must
 -- contain from 1 to 63 alphanumeric characters or hyphens First character must
 -- be a letter Cannot end with a hyphen or contain two consecutive hyphens  Example:
 -- mydbinstance

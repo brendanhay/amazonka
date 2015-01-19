@@ -1,0 +1,62 @@
+name:                  amazonka-cloudhsm
+version:               0.2.1
+synopsis:              Amazon CloudHSM SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    The AWS CloudHSM service helps you meet corporate, contractual and regulatory
+    compliance requirements for data security by using dedicated Hardware
+    Security Module (HSM) appliances within the AWS cloud. With CloudHSM, you
+    control the encryption keys and cryptographic operations performed by the HSM.
+
+    .
+    /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.CloudHSM
+        , Network.AWS.CloudHSM.CreateHapg
+        , Network.AWS.CloudHSM.CreateHsm
+        , Network.AWS.CloudHSM.CreateLunaClient
+        , Network.AWS.CloudHSM.DeleteHapg
+        , Network.AWS.CloudHSM.DeleteHsm
+        , Network.AWS.CloudHSM.DeleteLunaClient
+        , Network.AWS.CloudHSM.DescribeHapg
+        , Network.AWS.CloudHSM.DescribeHsm
+        , Network.AWS.CloudHSM.DescribeLunaClient
+        , Network.AWS.CloudHSM.GetConfig
+        , Network.AWS.CloudHSM.ListAvailableZones
+        , Network.AWS.CloudHSM.ListHapgs
+        , Network.AWS.CloudHSM.ListHsms
+        , Network.AWS.CloudHSM.ListLunaClients
+        , Network.AWS.CloudHSM.ModifyHapg
+        , Network.AWS.CloudHSM.ModifyHsm
+        , Network.AWS.CloudHSM.ModifyLunaClient
+        , Network.AWS.CloudHSM.Types
+
+    other-modules:
+
+    build-depends:
+          amazonka-core == 0.2.1.*
+        , base          >= 4.7     && < 5

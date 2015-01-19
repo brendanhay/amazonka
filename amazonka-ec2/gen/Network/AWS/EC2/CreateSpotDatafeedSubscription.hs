@@ -22,10 +22,9 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a datafeed for Spot Instances, enabling you to view Spot Instance
+-- | Creates a data feed for Spot Instances, enabling you to view Spot Instance
 -- usage logs. You can create one data feed per AWS account. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html Spot Instances> in the /Amazon Elastic Compute Cloud User Guide/
--- .
+-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed> in the /Amazon Elastic Compute CloudUser Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSpotDatafeedSubscription.html>
 module Network.AWS.EC2.CreateSpotDatafeedSubscription
@@ -76,16 +75,14 @@ createSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
     , _csdsPrefix = Nothing
     }
 
--- | The Amazon S3 bucket in which to store the Spot Instance datafeed.
---
--- Constraints: Must be a valid bucket associated with your AWS account.
+-- | The Amazon S3 bucket in which to store the Spot Instance data feed.
 csdsBucket :: Lens' CreateSpotDatafeedSubscription Text
 csdsBucket = lens _csdsBucket (\s a -> s { _csdsBucket = a })
 
 csdsDryRun :: Lens' CreateSpotDatafeedSubscription (Maybe Bool)
 csdsDryRun = lens _csdsDryRun (\s a -> s { _csdsDryRun = a })
 
--- | A prefix for the datafeed file names.
+-- | A prefix for the data feed file names.
 csdsPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
 csdsPrefix = lens _csdsPrefix (\s a -> s { _csdsPrefix = a })
 
@@ -104,7 +101,7 @@ createSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { _csdsrSpotDatafeedSubscription = Nothing
     }
 
--- | The Spot Instance datafeed subscription.
+-- | The Spot Instance data feed subscription.
 csdsrSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 csdsrSpotDatafeedSubscription =
     lens _csdsrSpotDatafeedSubscription

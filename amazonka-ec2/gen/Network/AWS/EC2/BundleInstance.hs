@@ -27,8 +27,8 @@
 -- During bundling, only the root device volume (C:\) is bundled. Data on other
 -- instance store volumes is not preserved.
 --
--- This procedure is not applicable for Linux/Unix instances or Windows
--- instances that are backed by Amazon EBS.
+-- This action is not applicable for Linux/Unix instances or Windows instances
+-- that are backed by Amazon EBS.
 --
 -- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI>.
 --
@@ -86,6 +86,12 @@ biDryRun :: Lens' BundleInstance (Maybe Bool)
 biDryRun = lens _biDryRun (\s a -> s { _biDryRun = a })
 
 -- | The ID of the instance to bundle.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Required: Yes
 biInstanceId :: Lens' BundleInstance Text
 biInstanceId = lens _biInstanceId (\s a -> s { _biInstanceId = a })
 

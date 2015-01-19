@@ -23,7 +23,6 @@ module Network.AWS.Data.Internal.XML
     , findElement
     , withContent
     , withElement
-    , withNode
     , localName
     , (.@)
     , (.@?)
@@ -74,7 +73,9 @@ encodeXML x = renderLBS def d
         }
 
 parseXMLText :: FromText a => String -> [Node] -> Either String a
-parseXMLText n = withContent n fromText
+parseXMLText n = withContent n >=> maybe err fromText
+  where
+    err = Left $ "empty node list, when expecting single node " ++ n
 
 toXMLText :: ToText a => a -> [Node]
 toXMLText x = [NodeContent (toText x)]
@@ -111,23 +112,28 @@ unsafeToXML x =
     fromMaybe (error $ "Failed to unflatten node-list for: " ++ show x)
               (listToMaybe (toXML x))
 
-withContent :: String -> (Text -> Either String a) -> [Node] -> Either String a
-withContent n f = withNode n (join . fmap f . g)
+withContent :: String -> [Node] -> Either String (Maybe Text)
+withContent n = exactly >=> \case
+    Just  x -> Just <$> content x
+    Nothing -> return Nothing
   where
-    g (NodeContent x)
-        = Right x
-    g (NodeElement e)
-        = Left $ "unexpected element " ++ show (elementName e) ++ " when expecting node content: " ++ n
-    g _ = Left $ "unexpected element, when expecting node content: " ++ n
+    exactly :: [Node] -> Either String (Maybe Node)
+    exactly = \case
+        [x] -> Right (Just x)
+        []  -> Right Nothing
+        _   -> Left $
+            "encountered node list, when expecting exactly one node: " ++ n
 
-withNode :: String -> (Node -> Either String a) -> [Node] -> Either String a
-withNode n f = \case
-    [x] -> f x
-    []  -> Left $ "empty node list, when expecting a single node: " ++ n
-    _   -> Left $ "encountered node list, when expecting a single node: " ++ n
+    content :: Node -> Either String Text
+    content (NodeContent x)
+        = Right x
+    content (NodeElement e)
+        = let k = show (elementName e)
+           in Left $ "unexpected element " ++ k ++ ", when expecting node content: " ++ n
+    content _ = Left $ "unrecognised element, when expecting node content: " ++ n
 
 withElement :: Text -> ([Node] -> Either String a) -> [Node] -> Either String a
-withElement n f = join . fmap f . findElement n
+withElement n f = findElement n >=> f
 
 findElement :: Text -> [Node] -> Either String [Node]
 findElement n ns = maybe err Right . listToMaybe $ mapMaybe (childNodes n) ns
@@ -153,7 +159,9 @@ instance FromXML a => FromXML (Maybe a) where
     parseXML [] = pure Nothing
     parseXML ns = Just <$> parseXML ns
 
-instance FromXML Text    where parseXML = parseXMLText "Text"
+instance FromXML Text where
+    parseXML = withContent "Text" >=> fromText . fromMaybe mempty
+
 instance FromXML Int     where parseXML = parseXMLText "Int"
 instance FromXML Integer where parseXML = parseXMLText "Integer"
 instance FromXML Natural where parseXML = parseXMLText "Natural"

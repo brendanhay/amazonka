@@ -429,6 +429,7 @@ data Override = Override
     { _oRenameTo   :: Maybe Text             -- ^ Rename type
     , _oReplacedBy :: Maybe Text             -- ^ Existing type that supplants this type
     , _oSumPrefix  :: Maybe Text             -- ^ Sum constructor prefix
+    , _oSumValues  :: HashMap Text Text      -- ^ Supplemental sum constructors.
     , _oRequired   :: HashSet (CI Text)      -- ^ Required fields
     , _oRenamed    :: HashMap (CI Text) Text -- ^ Rename fields
     } deriving (Eq, Show)
@@ -440,8 +441,9 @@ instance FromJSON Override where
         <$> o .:? "rename_to"
         <*> o .:? "replaced_by"
         <*> o .:? "sum_prefix"
-        <*> o .:? "required" .!= mempty
-        <*> o .:? "renamed"  .!= mempty
+        <*> o .:? "sum_values" .!= mempty
+        <*> o .:? "required"   .!= mempty
+        <*> o .:? "renamed"    .!= mempty
 
 data Overrides = Overrides
     { _oLibrary           :: !Library

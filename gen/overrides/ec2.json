@@ -223,6 +223,13 @@
                 "State",
                 "Type"
             ]
+        },
+        "OfferingTypeValues": {
+            "sum_values": {
+                "NoUpfront": "No Upfront",
+                "PartialUpfront": "Partial Upfront",
+                "AllUpfront": "All Upfront"
+            }
         }
     }
 }

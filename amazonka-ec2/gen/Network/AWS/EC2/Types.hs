@@ -9833,26 +9833,35 @@ instance ToQuery PropagatingVgw where
         ]
 
 data OfferingTypeValues
-    = HeavyUtilization  -- ^ Heavy Utilization
+    = AllUpfront        -- ^ All Upfront
+    | HeavyUtilization  -- ^ Heavy Utilization
     | LightUtilization  -- ^ Light Utilization
     | MediumUtilization -- ^ Medium Utilization
+    | NoUpfront         -- ^ No Upfront
+    | PartialUpfront    -- ^ Partial Upfront
       deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable OfferingTypeValues
 
 instance FromText OfferingTypeValues where
     parser = takeLowerText >>= \case
+        "all upfront"        -> pure AllUpfront
         "heavy utilization"  -> pure HeavyUtilization
         "light utilization"  -> pure LightUtilization
         "medium utilization" -> pure MediumUtilization
+        "no upfront"         -> pure NoUpfront
+        "partial upfront"    -> pure PartialUpfront
         e                    -> fail $
             "Failure parsing OfferingTypeValues from " ++ show e
 
 instance ToText OfferingTypeValues where
     toText = \case
+        AllUpfront        -> "All Upfront"
         HeavyUtilization  -> "Heavy Utilization"
         LightUtilization  -> "Light Utilization"
         MediumUtilization -> "Medium Utilization"
+        NoUpfront         -> "No Upfront"
+        PartialUpfront    -> "Partial Upfront"
 
 instance ToByteString OfferingTypeValues
 instance ToHeader     OfferingTypeValues

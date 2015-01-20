@@ -203,7 +203,7 @@ import qualified GHC.Exts
 data Route53
 
 instance AWSService Route53 where
-    type Sg Route53 = V3
+    type Sg Route53 = V4
     type Er Route53 = RESTError
 
     service = service'

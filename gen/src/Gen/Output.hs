@@ -522,17 +522,17 @@ isVoid _    = False
 
 instance DerivingOf Prim where
     derivingOf = (def <>) . \case
-        PBool    -> [Eq', Ord', Read', Enum']
-        PText    -> [Eq', Ord', Read', Monoid', IsString']
-        PInt     -> [Eq', Ord', Read', Num', Enum', Integral', Real']
-        PInteger -> [Eq', Ord', Read', Num', Enum', Integral', Real']
-        PDouble  -> [Eq', Ord', Read', Num', Enum', RealFrac', RealFloat', Real']
-        PNatural -> [Eq', Ord', Read', Num', Enum', Integral', Real']
-        PTime _  -> [Eq', Ord', Read']
+        PBool    -> [Eq', Ord', Enum']
+        PText    -> [Eq', Ord', Monoid', IsString']
+        PInt     -> [Eq', Ord', Num', Enum', Integral', Real']
+        PInteger -> [Eq', Ord', Num', Enum', Integral', Real']
+        PDouble  -> [Eq', Ord', Num', Enum', RealFrac', RealFloat', Real']
+        PNatural -> [Eq', Ord', Num', Enum', Integral', Real']
+        PTime _  -> [Eq', Ord']
         PBlob    -> [Eq']
         _        -> []
       where
-        def = [Show', Generic']
+        def = [Read', Show', Generic']
 
 instance DerivingOf Type where
     derivingOf = \case
@@ -541,7 +541,7 @@ instance DerivingOf Type where
         TMaybe     x     -> prim (derivingOf x)
         TSensitive x     -> Set.delete Read' $ derivingOf x
         TFlatten   x     -> derivingOf x
-        TCase      _     -> [Eq', Ord', Show', Monoid']
+        TCase      _     -> [Eq', Ord', Read', Show', Monoid']
         TList      _ x   -> list (derivingOf x)
         TList1     _ x   -> Set.delete Monoid' . list $ derivingOf x
         TMap       _ k v -> hmap k v

@@ -18,9 +18,6 @@ module Network.AWS.Signing
     -- * Version 2
       V2
 
-    -- * Version 3
-    , V3
-
     -- * Version 4
     , V4
 
@@ -31,5 +28,4 @@ module Network.AWS.Signing
 
 import Network.AWS.Signing.Internal
 import Network.AWS.Signing.Internal.V2
-import Network.AWS.Signing.Internal.V3
 import Network.AWS.Signing.Internal.V4

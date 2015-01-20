@@ -281,7 +281,9 @@ within r = local (envRegion .~ r)
 -- | Scope a monadic action such that any retry logic for the 'Service' is
 -- ignored and any requests will at most be sent once.
 once :: MonadReader Env m => m a -> m a
-once = local (envRetryPolicy ?~ limitRetries 0)
+once = local $ \e ->
+    e & envRetryPolicy ?~ limitRetries 0
+      & envRetryCheck  .~ (\_ _ -> return False)
 
 -- | Send a data type which is an instance of 'AWSRequest', returning it's
 -- associated 'Rs' response type.

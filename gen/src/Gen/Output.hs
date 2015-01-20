@@ -68,6 +68,7 @@ newtype Internal a = Internal a
 data Derive
     = Eq'
     | Ord'
+    | Read'
     | Show'
     | Generic'
     | Enum'
@@ -521,13 +522,13 @@ isVoid _    = False
 
 instance DerivingOf Prim where
     derivingOf = (def <>) . \case
-        PBool    -> [Eq', Ord', Enum']
-        PText    -> [Eq', Ord', Monoid', IsString']
-        PInt     -> [Eq', Ord', Num', Enum', Integral', Real']
-        PInteger -> [Eq', Ord', Num', Enum', Integral', Real']
-        PDouble  -> [Eq', Ord', Num', Enum', RealFrac', RealFloat', Real']
-        PNatural -> [Eq', Ord', Num', Enum', Integral', Real']
-        PTime _  -> [Eq', Ord']
+        PBool    -> [Eq', Ord', Read', Enum']
+        PText    -> [Eq', Ord', Read', Monoid', IsString']
+        PInt     -> [Eq', Ord', Read', Num', Enum', Integral', Real']
+        PInteger -> [Eq', Ord', Read', Num', Enum', Integral', Real']
+        PDouble  -> [Eq', Ord', Read', Num', Enum', RealFrac', RealFloat', Real']
+        PNatural -> [Eq', Ord', Read', Num', Enum', Integral', Real']
+        PTime _  -> [Eq', Ord', Read']
         PBlob    -> [Eq']
         _        -> []
       where
@@ -535,10 +536,10 @@ instance DerivingOf Prim where
 
 instance DerivingOf Type where
     derivingOf = \case
-        TType      _     -> [Eq', Show', Generic']
+        TType      _     -> [Eq', Read', Show', Generic']
         TPrim      p     -> derivingOf p
         TMaybe     x     -> prim (derivingOf x)
-        TSensitive x     -> derivingOf x
+        TSensitive x     -> Set.delete Read' $ derivingOf x
         TFlatten   x     -> derivingOf x
         TCase      _     -> [Eq', Ord', Show', Monoid']
         TList      _ x   -> list (derivingOf x)
@@ -568,8 +569,8 @@ instance DerivingOf Data where
     derivingOf d = f . derivingOf $ toListOf (dataFields . typeOf) d
       where
         f | Newtype {} <- d = Set.delete Generic'
-          | Nullary {} <- d = const [Eq', Ord', Enum', Show', Generic']
-          | Empty   {} <- d = const [Eq', Ord', Show', Generic']
+          | Nullary {} <- d = const [Eq', Ord', Read', Enum', Show', Generic']
+          | Empty   {} <- d = const [Eq', Ord', Read', Show', Generic']
           | otherwise       = flip Set.difference
               [ Semigroup'
               , Monoid'

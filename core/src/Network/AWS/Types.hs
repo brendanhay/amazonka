@@ -320,7 +320,7 @@ endpoint Service{..} r = go (CI.mk _svcPrefix)
             | virginia  -> global "rds.amazonaws.com"
 
         "route53"
-            | not china -> region "route53.amazonaws.com"
+            | not china -> global "route53.amazonaws.com"
 
         "emr"
             | virginia  -> global "elasticmapreduce.us-east-1.amazonaws.com"

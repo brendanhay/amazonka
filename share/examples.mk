@@ -13,11 +13,7 @@ build:
 	cabal build
 
 install: add-sources
-	cabal install -j \
- --disable-documentation \
- --disable-library-coverage \
- --only-dependencies \
- --force-reinstalls
+	cabal install -j --only-dependencies --force-reinstalls
 
 add-sources: cabal.sandbox.config
 	$(foreach dir,$(DEPS),cabal sandbox add-source $(realpath $(TOP)/$(dir));)

@@ -38,6 +38,8 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     -- ** Request lenses
     , clcAssociatePublicIpAddress
     , clcBlockDeviceMappings
+    , clcClassicLinkVPCId
+    , clcClassicLinkVPCSecurityGroups
     , clcEbsOptimized
     , clcIamInstanceProfile
     , clcImageId
@@ -65,22 +67,24 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data CreateLaunchConfiguration = CreateLaunchConfiguration
-    { _clcAssociatePublicIpAddress :: Maybe Bool
-    , _clcBlockDeviceMappings      :: List "member" BlockDeviceMapping
-    , _clcEbsOptimized             :: Maybe Bool
-    , _clcIamInstanceProfile       :: Maybe Text
-    , _clcImageId                  :: Maybe Text
-    , _clcInstanceId               :: Maybe Text
-    , _clcInstanceMonitoring       :: Maybe InstanceMonitoring
-    , _clcInstanceType             :: Maybe Text
-    , _clcKernelId                 :: Maybe Text
-    , _clcKeyName                  :: Maybe Text
-    , _clcLaunchConfigurationName  :: Text
-    , _clcPlacementTenancy         :: Maybe Text
-    , _clcRamdiskId                :: Maybe Text
-    , _clcSecurityGroups           :: List "member" Text
-    , _clcSpotPrice                :: Maybe Text
-    , _clcUserData                 :: Maybe Text
+    { _clcAssociatePublicIpAddress     :: Maybe Bool
+    , _clcBlockDeviceMappings          :: List "member" BlockDeviceMapping
+    , _clcClassicLinkVPCId             :: Maybe Text
+    , _clcClassicLinkVPCSecurityGroups :: List "member" Text
+    , _clcEbsOptimized                 :: Maybe Bool
+    , _clcIamInstanceProfile           :: Maybe Text
+    , _clcImageId                      :: Maybe Text
+    , _clcInstanceId                   :: Maybe Text
+    , _clcInstanceMonitoring           :: Maybe InstanceMonitoring
+    , _clcInstanceType                 :: Maybe Text
+    , _clcKernelId                     :: Maybe Text
+    , _clcKeyName                      :: Maybe Text
+    , _clcLaunchConfigurationName      :: Text
+    , _clcPlacementTenancy             :: Maybe Text
+    , _clcRamdiskId                    :: Maybe Text
+    , _clcSecurityGroups               :: List "member" Text
+    , _clcSpotPrice                    :: Maybe Text
+    , _clcUserData                     :: Maybe Text
     } deriving (Eq, Read, Show)
 
 -- | 'CreateLaunchConfiguration' constructor.
@@ -90,6 +94,10 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
 -- * 'clcAssociatePublicIpAddress' @::@ 'Maybe' 'Bool'
 --
 -- * 'clcBlockDeviceMappings' @::@ ['BlockDeviceMapping']
+--
+-- * 'clcClassicLinkVPCId' @::@ 'Maybe' 'Text'
+--
+-- * 'clcClassicLinkVPCSecurityGroups' @::@ ['Text']
 --
 -- * 'clcEbsOptimized' @::@ 'Maybe' 'Bool'
 --
@@ -122,22 +130,24 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
 createLaunchConfiguration :: Text -- ^ 'clcLaunchConfigurationName'
                           -> CreateLaunchConfiguration
 createLaunchConfiguration p1 = CreateLaunchConfiguration
-    { _clcLaunchConfigurationName  = p1
-    , _clcImageId                  = Nothing
-    , _clcKeyName                  = Nothing
-    , _clcSecurityGroups           = mempty
-    , _clcUserData                 = Nothing
-    , _clcInstanceId               = Nothing
-    , _clcInstanceType             = Nothing
-    , _clcKernelId                 = Nothing
-    , _clcRamdiskId                = Nothing
-    , _clcBlockDeviceMappings      = mempty
-    , _clcInstanceMonitoring       = Nothing
-    , _clcSpotPrice                = Nothing
-    , _clcIamInstanceProfile       = Nothing
-    , _clcEbsOptimized             = Nothing
-    , _clcAssociatePublicIpAddress = Nothing
-    , _clcPlacementTenancy         = Nothing
+    { _clcLaunchConfigurationName      = p1
+    , _clcImageId                      = Nothing
+    , _clcKeyName                      = Nothing
+    , _clcSecurityGroups               = mempty
+    , _clcClassicLinkVPCId             = Nothing
+    , _clcClassicLinkVPCSecurityGroups = mempty
+    , _clcUserData                     = Nothing
+    , _clcInstanceId                   = Nothing
+    , _clcInstanceType                 = Nothing
+    , _clcKernelId                     = Nothing
+    , _clcRamdiskId                    = Nothing
+    , _clcBlockDeviceMappings          = mempty
+    , _clcInstanceMonitoring           = Nothing
+    , _clcSpotPrice                    = Nothing
+    , _clcIamInstanceProfile           = Nothing
+    , _clcEbsOptimized                 = Nothing
+    , _clcAssociatePublicIpAddress     = Nothing
+    , _clcPlacementTenancy             = Nothing
     }
 
 -- | Used for groups that launch instances into a virtual private cloud (VPC).
@@ -160,6 +170,21 @@ clcBlockDeviceMappings :: Lens' CreateLaunchConfiguration [BlockDeviceMapping]
 clcBlockDeviceMappings =
     lens _clcBlockDeviceMappings (\s a -> s { _clcBlockDeviceMappings = a })
         . _List
+
+-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
+-- This parameter can only be used if you are launching EC2-Classic instances.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute CloudUser Guide/.
+clcClassicLinkVPCId :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcClassicLinkVPCId =
+    lens _clcClassicLinkVPCId (\s a -> s { _clcClassicLinkVPCId = a })
+
+-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be
+-- used otherwise. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon ElasticCompute Cloud User Guide/.
+clcClassicLinkVPCSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
+clcClassicLinkVPCSecurityGroups =
+    lens _clcClassicLinkVPCSecurityGroups
+        (\s a -> s { _clcClassicLinkVPCSecurityGroups = a })
+            . _List
 
 -- | Indicates whether the instance is optimized for Amazon EBS I/O. By default,
 -- the instance is not optimized for EBS I/O. The optimization provides
@@ -290,22 +315,24 @@ instance ToPath CreateLaunchConfiguration where
 
 instance ToQuery CreateLaunchConfiguration where
     toQuery CreateLaunchConfiguration{..} = mconcat
-        [ "AssociatePublicIpAddress" =? _clcAssociatePublicIpAddress
-        , "BlockDeviceMappings"      =? _clcBlockDeviceMappings
-        , "EbsOptimized"             =? _clcEbsOptimized
-        , "IamInstanceProfile"       =? _clcIamInstanceProfile
-        , "ImageId"                  =? _clcImageId
-        , "InstanceId"               =? _clcInstanceId
-        , "InstanceMonitoring"       =? _clcInstanceMonitoring
-        , "InstanceType"             =? _clcInstanceType
-        , "KernelId"                 =? _clcKernelId
-        , "KeyName"                  =? _clcKeyName
-        , "LaunchConfigurationName"  =? _clcLaunchConfigurationName
-        , "PlacementTenancy"         =? _clcPlacementTenancy
-        , "RamdiskId"                =? _clcRamdiskId
-        , "SecurityGroups"           =? _clcSecurityGroups
-        , "SpotPrice"                =? _clcSpotPrice
-        , "UserData"                 =? _clcUserData
+        [ "AssociatePublicIpAddress"     =? _clcAssociatePublicIpAddress
+        , "BlockDeviceMappings"          =? _clcBlockDeviceMappings
+        , "ClassicLinkVPCId"             =? _clcClassicLinkVPCId
+        , "ClassicLinkVPCSecurityGroups" =? _clcClassicLinkVPCSecurityGroups
+        , "EbsOptimized"                 =? _clcEbsOptimized
+        , "IamInstanceProfile"           =? _clcIamInstanceProfile
+        , "ImageId"                      =? _clcImageId
+        , "InstanceId"                   =? _clcInstanceId
+        , "InstanceMonitoring"           =? _clcInstanceMonitoring
+        , "InstanceType"                 =? _clcInstanceType
+        , "KernelId"                     =? _clcKernelId
+        , "KeyName"                      =? _clcKeyName
+        , "LaunchConfigurationName"      =? _clcLaunchConfigurationName
+        , "PlacementTenancy"             =? _clcPlacementTenancy
+        , "RamdiskId"                    =? _clcRamdiskId
+        , "SecurityGroups"               =? _clcSecurityGroups
+        , "SpotPrice"                    =? _clcSpotPrice
+        , "UserData"                     =? _clcUserData
         ]
 
 instance ToHeaders CreateLaunchConfiguration

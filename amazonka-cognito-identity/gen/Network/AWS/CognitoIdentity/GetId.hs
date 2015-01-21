@@ -51,7 +51,7 @@ import Network.AWS.CognitoIdentity.Types
 import qualified GHC.Exts
 
 data GetId = GetId
-    { _giAccountId      :: Text
+    { _giAccountId      :: Maybe Text
     , _giIdentityPoolId :: Text
     , _giLogins         :: Map Text Text
     } deriving (Eq, Read, Show)
@@ -60,23 +60,22 @@ data GetId = GetId
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'giAccountId' @::@ 'Text'
+-- * 'giAccountId' @::@ 'Maybe' 'Text'
 --
 -- * 'giIdentityPoolId' @::@ 'Text'
 --
 -- * 'giLogins' @::@ 'HashMap' 'Text' 'Text'
 --
-getId :: Text -- ^ 'giAccountId'
-      -> Text -- ^ 'giIdentityPoolId'
+getId :: Text -- ^ 'giIdentityPoolId'
       -> GetId
-getId p1 p2 = GetId
-    { _giAccountId      = p1
-    , _giIdentityPoolId = p2
+getId p1 = GetId
+    { _giIdentityPoolId = p1
+    , _giAccountId      = Nothing
     , _giLogins         = mempty
     }
 
 -- | A standard AWS account ID (9+ digits).
-giAccountId :: Lens' GetId Text
+giAccountId :: Lens' GetId (Maybe Text)
 giAccountId = lens _giAccountId (\s a -> s { _giAccountId = a })
 
 -- | An identity pool ID in the format REGION:GUID.

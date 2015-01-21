@@ -156,9 +156,13 @@ module Network.AWS.EMR.Types
     -- * Ec2InstanceAttributes
     , Ec2InstanceAttributes
     , ec2InstanceAttributes
+    , eiaAdditionalMasterSecurityGroups
+    , eiaAdditionalSlaveSecurityGroups
     , eiaEc2AvailabilityZone
     , eiaEc2KeyName
     , eiaEc2SubnetId
+    , eiaEmrManagedMasterSecurityGroup
+    , eiaEmrManagedSlaveSecurityGroup
     , eiaIamInstanceProfile
 
     -- * StepStateChangeReasonCode
@@ -315,8 +319,12 @@ module Network.AWS.EMR.Types
     -- * JobFlowInstancesConfig
     , JobFlowInstancesConfig
     , jobFlowInstancesConfig
+    , jficAdditionalMasterSecurityGroups
+    , jficAdditionalSlaveSecurityGroups
     , jficEc2KeyName
     , jficEc2SubnetId
+    , jficEmrManagedMasterSecurityGroup
+    , jficEmrManagedSlaveSecurityGroup
     , jficHadoopVersion
     , jficInstanceCount
     , jficInstanceGroups
@@ -1490,15 +1498,23 @@ instance ToJSON InstanceTimeline where
         ]
 
 data Ec2InstanceAttributes = Ec2InstanceAttributes
-    { _eiaEc2AvailabilityZone :: Maybe Text
-    , _eiaEc2KeyName          :: Maybe Text
-    , _eiaEc2SubnetId         :: Maybe Text
-    , _eiaIamInstanceProfile  :: Maybe Text
+    { _eiaAdditionalMasterSecurityGroups :: List "AdditionalMasterSecurityGroups" Text
+    , _eiaAdditionalSlaveSecurityGroups  :: List "AdditionalSlaveSecurityGroups" Text
+    , _eiaEc2AvailabilityZone            :: Maybe Text
+    , _eiaEc2KeyName                     :: Maybe Text
+    , _eiaEc2SubnetId                    :: Maybe Text
+    , _eiaEmrManagedMasterSecurityGroup  :: Maybe Text
+    , _eiaEmrManagedSlaveSecurityGroup   :: Maybe Text
+    , _eiaIamInstanceProfile             :: Maybe Text
     } deriving (Eq, Ord, Read, Show)
 
 -- | 'Ec2InstanceAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'eiaAdditionalMasterSecurityGroups' @::@ ['Text']
+--
+-- * 'eiaAdditionalSlaveSecurityGroups' @::@ ['Text']
 --
 -- * 'eiaEc2AvailabilityZone' @::@ 'Maybe' 'Text'
 --
@@ -1506,15 +1522,37 @@ data Ec2InstanceAttributes = Ec2InstanceAttributes
 --
 -- * 'eiaEc2SubnetId' @::@ 'Maybe' 'Text'
 --
+-- * 'eiaEmrManagedMasterSecurityGroup' @::@ 'Maybe' 'Text'
+--
+-- * 'eiaEmrManagedSlaveSecurityGroup' @::@ 'Maybe' 'Text'
+--
 -- * 'eiaIamInstanceProfile' @::@ 'Maybe' 'Text'
 --
 ec2InstanceAttributes :: Ec2InstanceAttributes
 ec2InstanceAttributes = Ec2InstanceAttributes
-    { _eiaEc2KeyName          = Nothing
-    , _eiaEc2SubnetId         = Nothing
-    , _eiaEc2AvailabilityZone = Nothing
-    , _eiaIamInstanceProfile  = Nothing
+    { _eiaEc2KeyName                     = Nothing
+    , _eiaEc2SubnetId                    = Nothing
+    , _eiaEc2AvailabilityZone            = Nothing
+    , _eiaIamInstanceProfile             = Nothing
+    , _eiaEmrManagedMasterSecurityGroup  = Nothing
+    , _eiaEmrManagedSlaveSecurityGroup   = Nothing
+    , _eiaAdditionalMasterSecurityGroups = mempty
+    , _eiaAdditionalSlaveSecurityGroups  = mempty
     }
+
+-- | A list of additional Amazon EC2 security group IDs for the master node.
+eiaAdditionalMasterSecurityGroups :: Lens' Ec2InstanceAttributes [Text]
+eiaAdditionalMasterSecurityGroups =
+    lens _eiaAdditionalMasterSecurityGroups
+        (\s a -> s { _eiaAdditionalMasterSecurityGroups = a })
+            . _List
+
+-- | A list of additional Amazon EC2 security group IDs for the slave nodes.
+eiaAdditionalSlaveSecurityGroups :: Lens' Ec2InstanceAttributes [Text]
+eiaAdditionalSlaveSecurityGroups =
+    lens _eiaAdditionalSlaveSecurityGroups
+        (\s a -> s { _eiaAdditionalSlaveSecurityGroups = a })
+            . _List
 
 -- | The Availability Zone in which the cluster will run.
 eiaEc2AvailabilityZone :: Lens' Ec2InstanceAttributes (Maybe Text)
@@ -1537,6 +1575,20 @@ eiaEc2KeyName = lens _eiaEc2KeyName (\s a -> s { _eiaEc2KeyName = a })
 eiaEc2SubnetId :: Lens' Ec2InstanceAttributes (Maybe Text)
 eiaEc2SubnetId = lens _eiaEc2SubnetId (\s a -> s { _eiaEc2SubnetId = a })
 
+-- | The identifier of the Amazon EC2 security group (managed by Amazon Elastic
+-- MapReduce) for the master node.
+eiaEmrManagedMasterSecurityGroup :: Lens' Ec2InstanceAttributes (Maybe Text)
+eiaEmrManagedMasterSecurityGroup =
+    lens _eiaEmrManagedMasterSecurityGroup
+        (\s a -> s { _eiaEmrManagedMasterSecurityGroup = a })
+
+-- | The identifier of the Amazon EC2 security group (managed by Amazon Elastic
+-- MapReduce) for the slave nodes.
+eiaEmrManagedSlaveSecurityGroup :: Lens' Ec2InstanceAttributes (Maybe Text)
+eiaEmrManagedSlaveSecurityGroup =
+    lens _eiaEmrManagedSlaveSecurityGroup
+        (\s a -> s { _eiaEmrManagedSlaveSecurityGroup = a })
+
 -- | The IAM role that was specified when the job flow was launched. The EC2
 -- instances of the job flow assume this role.
 eiaIamInstanceProfile :: Lens' Ec2InstanceAttributes (Maybe Text)
@@ -1545,17 +1597,25 @@ eiaIamInstanceProfile =
 
 instance FromJSON Ec2InstanceAttributes where
     parseJSON = withObject "Ec2InstanceAttributes" $ \o -> Ec2InstanceAttributes
-        <$> o .:? "Ec2AvailabilityZone"
+        <$> o .:? "AdditionalMasterSecurityGroups" .!= mempty
+        <*> o .:? "AdditionalSlaveSecurityGroups" .!= mempty
+        <*> o .:? "Ec2AvailabilityZone"
         <*> o .:? "Ec2KeyName"
         <*> o .:? "Ec2SubnetId"
+        <*> o .:? "EmrManagedMasterSecurityGroup"
+        <*> o .:? "EmrManagedSlaveSecurityGroup"
         <*> o .:? "IamInstanceProfile"
 
 instance ToJSON Ec2InstanceAttributes where
     toJSON Ec2InstanceAttributes{..} = object
-        [ "Ec2KeyName"          .= _eiaEc2KeyName
-        , "Ec2SubnetId"         .= _eiaEc2SubnetId
-        , "Ec2AvailabilityZone" .= _eiaEc2AvailabilityZone
-        , "IamInstanceProfile"  .= _eiaIamInstanceProfile
+        [ "Ec2KeyName"                     .= _eiaEc2KeyName
+        , "Ec2SubnetId"                    .= _eiaEc2SubnetId
+        , "Ec2AvailabilityZone"            .= _eiaEc2AvailabilityZone
+        , "IamInstanceProfile"             .= _eiaIamInstanceProfile
+        , "EmrManagedMasterSecurityGroup"  .= _eiaEmrManagedMasterSecurityGroup
+        , "EmrManagedSlaveSecurityGroup"   .= _eiaEmrManagedSlaveSecurityGroup
+        , "AdditionalMasterSecurityGroups" .= _eiaAdditionalMasterSecurityGroups
+        , "AdditionalSlaveSecurityGroups"  .= _eiaAdditionalSlaveSecurityGroups
         ]
 
 data StepStateChangeReasonCode
@@ -2855,25 +2915,37 @@ instance ToJSON InstanceRoleType where
     toJSON = toJSONText
 
 data JobFlowInstancesConfig = JobFlowInstancesConfig
-    { _jficEc2KeyName                  :: Maybe Text
-    , _jficEc2SubnetId                 :: Maybe Text
-    , _jficHadoopVersion               :: Maybe Text
-    , _jficInstanceCount               :: Maybe Int
-    , _jficInstanceGroups              :: List "InstanceGroups" InstanceGroupConfig
-    , _jficKeepJobFlowAliveWhenNoSteps :: Maybe Bool
-    , _jficMasterInstanceType          :: Maybe Text
-    , _jficPlacement                   :: Maybe PlacementType
-    , _jficSlaveInstanceType           :: Maybe Text
-    , _jficTerminationProtected        :: Maybe Bool
+    { _jficAdditionalMasterSecurityGroups :: List "AdditionalMasterSecurityGroups" Text
+    , _jficAdditionalSlaveSecurityGroups  :: List "AdditionalSlaveSecurityGroups" Text
+    , _jficEc2KeyName                     :: Maybe Text
+    , _jficEc2SubnetId                    :: Maybe Text
+    , _jficEmrManagedMasterSecurityGroup  :: Maybe Text
+    , _jficEmrManagedSlaveSecurityGroup   :: Maybe Text
+    , _jficHadoopVersion                  :: Maybe Text
+    , _jficInstanceCount                  :: Maybe Int
+    , _jficInstanceGroups                 :: List "InstanceGroups" InstanceGroupConfig
+    , _jficKeepJobFlowAliveWhenNoSteps    :: Maybe Bool
+    , _jficMasterInstanceType             :: Maybe Text
+    , _jficPlacement                      :: Maybe PlacementType
+    , _jficSlaveInstanceType              :: Maybe Text
+    , _jficTerminationProtected           :: Maybe Bool
     } deriving (Eq, Read, Show)
 
 -- | 'JobFlowInstancesConfig' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'jficAdditionalMasterSecurityGroups' @::@ ['Text']
+--
+-- * 'jficAdditionalSlaveSecurityGroups' @::@ ['Text']
+--
 -- * 'jficEc2KeyName' @::@ 'Maybe' 'Text'
 --
 -- * 'jficEc2SubnetId' @::@ 'Maybe' 'Text'
+--
+-- * 'jficEmrManagedMasterSecurityGroup' @::@ 'Maybe' 'Text'
+--
+-- * 'jficEmrManagedSlaveSecurityGroup' @::@ 'Maybe' 'Text'
 --
 -- * 'jficHadoopVersion' @::@ 'Maybe' 'Text'
 --
@@ -2893,17 +2965,35 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig
 --
 jobFlowInstancesConfig :: JobFlowInstancesConfig
 jobFlowInstancesConfig = JobFlowInstancesConfig
-    { _jficMasterInstanceType          = Nothing
-    , _jficSlaveInstanceType           = Nothing
-    , _jficInstanceCount               = Nothing
-    , _jficInstanceGroups              = mempty
-    , _jficEc2KeyName                  = Nothing
-    , _jficPlacement                   = Nothing
-    , _jficKeepJobFlowAliveWhenNoSteps = Nothing
-    , _jficTerminationProtected        = Nothing
-    , _jficHadoopVersion               = Nothing
-    , _jficEc2SubnetId                 = Nothing
+    { _jficMasterInstanceType             = Nothing
+    , _jficSlaveInstanceType              = Nothing
+    , _jficInstanceCount                  = Nothing
+    , _jficInstanceGroups                 = mempty
+    , _jficEc2KeyName                     = Nothing
+    , _jficPlacement                      = Nothing
+    , _jficKeepJobFlowAliveWhenNoSteps    = Nothing
+    , _jficTerminationProtected           = Nothing
+    , _jficHadoopVersion                  = Nothing
+    , _jficEc2SubnetId                    = Nothing
+    , _jficEmrManagedMasterSecurityGroup  = Nothing
+    , _jficEmrManagedSlaveSecurityGroup   = Nothing
+    , _jficAdditionalMasterSecurityGroups = mempty
+    , _jficAdditionalSlaveSecurityGroups  = mempty
     }
+
+-- | A list of additional Amazon EC2 security group IDs for the master node.
+jficAdditionalMasterSecurityGroups :: Lens' JobFlowInstancesConfig [Text]
+jficAdditionalMasterSecurityGroups =
+    lens _jficAdditionalMasterSecurityGroups
+        (\s a -> s { _jficAdditionalMasterSecurityGroups = a })
+            . _List
+
+-- | A list of additional Amazon EC2 security group IDs for the slave nodes.
+jficAdditionalSlaveSecurityGroups :: Lens' JobFlowInstancesConfig [Text]
+jficAdditionalSlaveSecurityGroups =
+    lens _jficAdditionalSlaveSecurityGroups
+        (\s a -> s { _jficAdditionalSlaveSecurityGroups = a })
+            . _List
 
 -- | The name of the Amazon EC2 key pair that can be used to ssh to the master
 -- node as the user called "hadoop."
@@ -2920,6 +3010,20 @@ jficEc2KeyName = lens _jficEc2KeyName (\s a -> s { _jficEc2KeyName = a })
 -- type for nodes of a job flow launched in a Amazon VPC.
 jficEc2SubnetId :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEc2SubnetId = lens _jficEc2SubnetId (\s a -> s { _jficEc2SubnetId = a })
+
+-- | The identifier of the Amazon EC2 security group (managed by Amazon
+-- ElasticMapReduce) for the master node.
+jficEmrManagedMasterSecurityGroup :: Lens' JobFlowInstancesConfig (Maybe Text)
+jficEmrManagedMasterSecurityGroup =
+    lens _jficEmrManagedMasterSecurityGroup
+        (\s a -> s { _jficEmrManagedMasterSecurityGroup = a })
+
+-- | The identifier of the Amazon EC2 security group (managed by Amazon
+-- ElasticMapReduce) for the slave nodes.
+jficEmrManagedSlaveSecurityGroup :: Lens' JobFlowInstancesConfig (Maybe Text)
+jficEmrManagedSlaveSecurityGroup =
+    lens _jficEmrManagedSlaveSecurityGroup
+        (\s a -> s { _jficEmrManagedSlaveSecurityGroup = a })
 
 -- | The Hadoop version for the job flow. Valid inputs are "0.18", "0.20",
 -- "0.20.205", "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the
@@ -2971,8 +3075,12 @@ jficTerminationProtected =
 
 instance FromJSON JobFlowInstancesConfig where
     parseJSON = withObject "JobFlowInstancesConfig" $ \o -> JobFlowInstancesConfig
-        <$> o .:? "Ec2KeyName"
+        <$> o .:? "AdditionalMasterSecurityGroups" .!= mempty
+        <*> o .:? "AdditionalSlaveSecurityGroups" .!= mempty
+        <*> o .:? "Ec2KeyName"
         <*> o .:? "Ec2SubnetId"
+        <*> o .:? "EmrManagedMasterSecurityGroup"
+        <*> o .:? "EmrManagedSlaveSecurityGroup"
         <*> o .:? "HadoopVersion"
         <*> o .:? "InstanceCount"
         <*> o .:? "InstanceGroups" .!= mempty
@@ -2984,16 +3092,20 @@ instance FromJSON JobFlowInstancesConfig where
 
 instance ToJSON JobFlowInstancesConfig where
     toJSON JobFlowInstancesConfig{..} = object
-        [ "MasterInstanceType"          .= _jficMasterInstanceType
-        , "SlaveInstanceType"           .= _jficSlaveInstanceType
-        , "InstanceCount"               .= _jficInstanceCount
-        , "InstanceGroups"              .= _jficInstanceGroups
-        , "Ec2KeyName"                  .= _jficEc2KeyName
-        , "Placement"                   .= _jficPlacement
-        , "KeepJobFlowAliveWhenNoSteps" .= _jficKeepJobFlowAliveWhenNoSteps
-        , "TerminationProtected"        .= _jficTerminationProtected
-        , "HadoopVersion"               .= _jficHadoopVersion
-        , "Ec2SubnetId"                 .= _jficEc2SubnetId
+        [ "MasterInstanceType"             .= _jficMasterInstanceType
+        , "SlaveInstanceType"              .= _jficSlaveInstanceType
+        , "InstanceCount"                  .= _jficInstanceCount
+        , "InstanceGroups"                 .= _jficInstanceGroups
+        , "Ec2KeyName"                     .= _jficEc2KeyName
+        , "Placement"                      .= _jficPlacement
+        , "KeepJobFlowAliveWhenNoSteps"    .= _jficKeepJobFlowAliveWhenNoSteps
+        , "TerminationProtected"           .= _jficTerminationProtected
+        , "HadoopVersion"                  .= _jficHadoopVersion
+        , "Ec2SubnetId"                    .= _jficEc2SubnetId
+        , "EmrManagedMasterSecurityGroup"  .= _jficEmrManagedMasterSecurityGroup
+        , "EmrManagedSlaveSecurityGroup"   .= _jficEmrManagedSlaveSecurityGroup
+        , "AdditionalMasterSecurityGroups" .= _jficAdditionalMasterSecurityGroups
+        , "AdditionalSlaveSecurityGroups"  .= _jficAdditionalSlaveSecurityGroups
         ]
 
 data StepConfig = StepConfig

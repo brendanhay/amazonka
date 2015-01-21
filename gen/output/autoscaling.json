@@ -823,7 +823,7 @@
                     "Read",
                     "Show"
                 ],
-                "fieldPad": 27,
+                "fieldPad": 31,
                 "ctor": "launchConfiguration",
                 "contents": [],
                 "payload": null,
@@ -899,7 +899,7 @@
                 ],
                 "contentPad": 0,
                 "name": "LaunchConfiguration",
-                "locationPad": 25,
+                "locationPad": 29,
                 "type": "record",
                 "optional": [
                     {
@@ -950,6 +950,40 @@
                         "shape": "SecurityGroups",
                         "locationName": "SecurityGroups",
                         "documentation": "-- | The security groups to associate with the EC2 instances.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "lcClassicLinkVPCId",
+                        "name": "_lcClassicLinkVPCId",
+                        "shape": "XmlStringMaxLen255",
+                        "locationName": "ClassicLinkVPCId",
+                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lcClassicLinkVPCSecurityGroups",
+                        "name": "_lcClassicLinkVPCSecurityGroups",
+                        "shape": "ClassicLinkVPCSecurityGroups",
+                        "locationName": "ClassicLinkVPCSecurityGroups",
+                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon ElasticCompute Cloud User Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -1158,6 +1192,40 @@
                         "documentation": "-- | A block device mapping that specifies how block devices are exposed to the\n-- instance. Each mapping is made up of a 'virtualName' and a 'deviceName'.",
                         "typeExposed": "[BlockDeviceMapping]",
                         "type": "List \"member\" BlockDeviceMapping"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "lcClassicLinkVPCId",
+                        "name": "_lcClassicLinkVPCId",
+                        "shape": "XmlStringMaxLen255",
+                        "locationName": "ClassicLinkVPCId",
+                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lcClassicLinkVPCSecurityGroups",
+                        "name": "_lcClassicLinkVPCSecurityGroups",
+                        "shape": "ClassicLinkVPCSecurityGroups",
+                        "locationName": "ClassicLinkVPCSecurityGroups",
+                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon ElasticCompute Cloud User Guide/.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -6046,7 +6114,7 @@
                 ],
                 "streaming": false,
                 "style": "query",
-                "fieldPad": 28,
+                "fieldPad": 32,
                 "ctor": "createLaunchConfiguration",
                 "headerPad": 0,
                 "contents": [],
@@ -6080,7 +6148,7 @@
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
-                "queryPad": 25,
+                "queryPad": 29,
                 "name": "CreateLaunchConfiguration",
                 "query": [
                     {
@@ -6101,6 +6169,16 @@
                     {
                         "field": "_clcSecurityGroups",
                         "locationName": "SecurityGroups",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_clcClassicLinkVPCId",
+                        "locationName": "ClassicLinkVPCId",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_clcClassicLinkVPCSecurityGroups",
+                        "locationName": "ClassicLinkVPCSecurityGroups",
                         "type": "field"
                     },
                     {
@@ -6164,7 +6242,7 @@
                         "type": "field"
                     }
                 ],
-                "locationPad": 25,
+                "locationPad": 29,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6217,6 +6295,40 @@
                         "shape": "SecurityGroups",
                         "locationName": "SecurityGroups",
                         "documentation": "-- | One or more security groups with which to associate the instances.\n--\n-- If your instances are launched in EC2-Classic, you can either specify\n-- security group names or the security group IDs. For more information about\n-- security groups for EC2-Classic, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups\u003e in the /AmazonElastic Compute Cloud User Guide/.\n--\n-- If your instances are launched in a VPC, specify security group IDs. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC\u003e in the /Amazon VirtualPrivate Cloud User Guide/.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "clcClassicLinkVPCId",
+                        "name": "_clcClassicLinkVPCId",
+                        "shape": "XmlStringMaxLen255",
+                        "locationName": "ClassicLinkVPCId",
+                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "clcClassicLinkVPCSecurityGroups",
+                        "name": "_clcClassicLinkVPCSecurityGroups",
+                        "shape": "ClassicLinkVPCSecurityGroups",
+                        "locationName": "ClassicLinkVPCSecurityGroups",
+                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon ElasticCompute Cloud User Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -6459,6 +6571,40 @@
                         "documentation": "-- | One or more mappings that specify how block devices are exposed to the\n-- instance. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping\u003e in the /AmazonElastic Compute Cloud User Guide/.",
                         "typeExposed": "[BlockDeviceMapping]",
                         "type": "List \"member\" BlockDeviceMapping"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "clcClassicLinkVPCId",
+                        "name": "_clcClassicLinkVPCId",
+                        "shape": "XmlStringMaxLen255",
+                        "locationName": "ClassicLinkVPCId",
+                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "clcClassicLinkVPCSecurityGroups",
+                        "name": "_clcClassicLinkVPCSecurityGroups",
+                        "shape": "ClassicLinkVPCSecurityGroups",
+                        "locationName": "ClassicLinkVPCSecurityGroups",
+                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon ElasticCompute Cloud User Guide/.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",

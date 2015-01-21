@@ -44,14 +44,18 @@ library
           Network.AWS.CognitoIdentity
         , Network.AWS.CognitoIdentity.CreateIdentityPool
         , Network.AWS.CognitoIdentity.DeleteIdentityPool
+        , Network.AWS.CognitoIdentity.DescribeIdentity
         , Network.AWS.CognitoIdentity.DescribeIdentityPool
+        , Network.AWS.CognitoIdentity.GetCredentialsForIdentity
         , Network.AWS.CognitoIdentity.GetId
+        , Network.AWS.CognitoIdentity.GetIdentityPoolRoles
         , Network.AWS.CognitoIdentity.GetOpenIdToken
         , Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
         , Network.AWS.CognitoIdentity.ListIdentities
         , Network.AWS.CognitoIdentity.ListIdentityPools
         , Network.AWS.CognitoIdentity.LookupDeveloperIdentity
         , Network.AWS.CognitoIdentity.MergeDeveloperIdentities
+        , Network.AWS.CognitoIdentity.SetIdentityPoolRoles
         , Network.AWS.CognitoIdentity.Types
         , Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
         , Network.AWS.CognitoIdentity.UnlinkIdentity

@@ -117,6 +117,7 @@ uipIdentityPoolName :: Lens' UpdateIdentityPool Text
 uipIdentityPoolName =
     lens _uipIdentityPoolName (\s a -> s { _uipIdentityPoolName = a })
 
+-- | A list of OpendID Connect provider ARNs.
 uipOpenIdConnectProviderARNs :: Lens' UpdateIdentityPool [Text]
 uipOpenIdConnectProviderARNs =
     lens _uipOpenIdConnectProviderARNs
@@ -190,6 +191,7 @@ uiprIdentityPoolName :: Lens' UpdateIdentityPoolResponse Text
 uiprIdentityPoolName =
     lens _uiprIdentityPoolName (\s a -> s { _uiprIdentityPoolName = a })
 
+-- | A list of OpendID Connect provider ARNs.
 uiprOpenIdConnectProviderARNs :: Lens' UpdateIdentityPoolResponse [Text]
 uiprOpenIdConnectProviderARNs =
     lens _uiprOpenIdConnectProviderARNs

@@ -114,6 +114,7 @@ cipIdentityPoolName :: Lens' CreateIdentityPool Text
 cipIdentityPoolName =
     lens _cipIdentityPoolName (\s a -> s { _cipIdentityPoolName = a })
 
+-- | A list of OpendID Connect provider ARNs.
 cipOpenIdConnectProviderARNs :: Lens' CreateIdentityPool [Text]
 cipOpenIdConnectProviderARNs =
     lens _cipOpenIdConnectProviderARNs
@@ -187,6 +188,7 @@ ciprIdentityPoolName :: Lens' CreateIdentityPoolResponse Text
 ciprIdentityPoolName =
     lens _ciprIdentityPoolName (\s a -> s { _ciprIdentityPoolName = a })
 
+-- | A list of OpendID Connect provider ARNs.
 ciprOpenIdConnectProviderARNs :: Lens' CreateIdentityPoolResponse [Text]
 ciprOpenIdConnectProviderARNs =
     lens _ciprOpenIdConnectProviderARNs

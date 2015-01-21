@@ -134,6 +134,7 @@ diprIdentityPoolName :: Lens' DescribeIdentityPoolResponse Text
 diprIdentityPoolName =
     lens _diprIdentityPoolName (\s a -> s { _diprIdentityPoolName = a })
 
+-- | A list of OpendID Connect provider ARNs.
 diprOpenIdConnectProviderARNs :: Lens' DescribeIdentityPoolResponse [Text]
 diprOpenIdConnectProviderARNs =
     lens _diprOpenIdConnectProviderARNs

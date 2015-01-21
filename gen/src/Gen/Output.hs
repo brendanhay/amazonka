@@ -539,7 +539,7 @@ instance DerivingOf Type where
         TType      _     -> [Eq', Read', Show', Generic']
         TPrim      p     -> derivingOf p
         TMaybe     x     -> prim (derivingOf x)
-        TSensitive x     -> Set.delete Read' $ derivingOf x
+        TSensitive x     -> derivingOf x
         TFlatten   x     -> derivingOf x
         TCase      _     -> [Eq', Ord', Read', Show', Monoid']
         TList      _ x   -> list (derivingOf x)
@@ -565,12 +565,15 @@ instance DerivingOf Type where
             , IsString'
             ]
 
+instance DerivingOf Field where
+    derivingOf = derivingOf . view typeOf
+
 instance DerivingOf Data where
-    derivingOf d = f . derivingOf $ toListOf (dataFields . typeOf) d
+    derivingOf x = f . derivingOf $ toListOf dataFields x
       where
-        f | Newtype {} <- d = Set.delete Generic'
-          | Nullary {} <- d = const [Eq', Ord', Read', Enum', Show', Generic']
-          | Empty   {} <- d = const [Eq', Ord', Read', Show', Generic']
+        f | Newtype {} <- x = Set.delete Generic'
+          | Nullary {} <- x = const [Eq', Ord', Read', Enum', Show', Generic']
+          | Empty   {} <- x = const [Eq', Ord', Read', Show', Generic']
           | otherwise       = flip Set.difference
               [ Semigroup'
               , Monoid'

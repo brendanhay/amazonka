@@ -22,8 +22,8 @@ import System.IO
 
 example :: IO (Either Error ListHostedZonesResponse)
 example = do
-    lgr <- newLogger Trace stdout
+    lgr <- newLogger Debug stdout
     env <- getEnv Ireland Discover <&> envLogger .~ lgr
-    runAWST (env & envRetryCheck .~ (\_ _ -> return False))
+    runAWST env
         . once
         $ send listHostedZones

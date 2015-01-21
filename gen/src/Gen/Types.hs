@@ -85,15 +85,14 @@ instance ToJSON a => ToJSON (OrdMap a) where
 
 data Signature
     = V2
-    | V3
     | V4
       deriving (Eq, Show)
 
 instance FromJSON Signature where
     parseJSON = withText "signature" $ \case
         "v2"      -> pure V2
-        "v3"      -> pure V3
-        "v3https" -> pure V3
+        "v3"      -> pure V4
+        "v3https" -> pure V4
         "v4"      -> pure V4
         "s3"      -> pure V4
         e         -> fail ("Unknown Signature: " ++ Text.unpack e)

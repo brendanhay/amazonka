@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data DeleteLifecycleHook = DeleteLifecycleHook
     { _dlh1AutoScalingGroupName :: Text
     , _dlh1LifecycleHookName    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteLifecycleHook' constructor.
 --
@@ -81,7 +81,7 @@ dlh1LifecycleHookName =
     lens _dlh1LifecycleHookName (\s a -> s { _dlh1LifecycleHookName = a })
 
 data DeleteLifecycleHookResponse = DeleteLifecycleHookResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteLifecycleHookResponse' constructor.
 deleteLifecycleHookResponse :: DeleteLifecycleHookResponse

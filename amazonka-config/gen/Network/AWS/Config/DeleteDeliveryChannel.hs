@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DeleteDeliveryChannel = DeleteDeliveryChannel
     { _ddcDeliveryChannelName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteDeliveryChannel' constructor.
 --
@@ -71,7 +71,7 @@ ddcDeliveryChannelName =
     lens _ddcDeliveryChannelName (\s a -> s { _ddcDeliveryChannelName = a })
 
 data DeleteDeliveryChannelResponse = DeleteDeliveryChannelResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteDeliveryChannelResponse' constructor.
 deleteDeliveryChannelResponse :: DeleteDeliveryChannelResponse

@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data DescribeStackEvents = DescribeStackEvents
     { _dseNextToken :: Maybe Text
     , _dseStackName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeStackEvents' constructor.
 --
@@ -91,7 +91,7 @@ dseStackName = lens _dseStackName (\s a -> s { _dseStackName = a })
 data DescribeStackEventsResponse = DescribeStackEventsResponse
     { _dserNextToken   :: Maybe Text
     , _dserStackEvents :: List "member" StackEvent
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeStackEventsResponse' constructor.
 --

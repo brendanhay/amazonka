@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype DeleteDBSnapshot = DeleteDBSnapshot
     { _ddbs1DBSnapshotIdentifier :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteDBSnapshot' constructor.
 --
@@ -77,7 +77,7 @@ ddbs1DBSnapshotIdentifier =
 
 newtype DeleteDBSnapshotResponse = DeleteDBSnapshotResponse
     { _ddbsrDBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteDBSnapshotResponse' constructor.
 --

@@ -56,7 +56,7 @@ import qualified GHC.Exts
 
 newtype DisableGateway = DisableGateway
     { _dg1GatewayARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DisableGateway' constructor.
 --
@@ -75,7 +75,7 @@ dg1GatewayARN = lens _dg1GatewayARN (\s a -> s { _dg1GatewayARN = a })
 
 newtype DisableGatewayResponse = DisableGatewayResponse
     { _dgr1GatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'DisableGatewayResponse' constructor.
 --

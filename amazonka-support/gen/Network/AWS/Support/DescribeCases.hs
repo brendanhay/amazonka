@@ -78,7 +78,7 @@ data DescribeCases = DescribeCases
     , _dcLanguage              :: Maybe Text
     , _dcMaxResults            :: Maybe Nat
     , _dcNextToken             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeCases' constructor.
 --
@@ -162,7 +162,7 @@ dcNextToken = lens _dcNextToken (\s a -> s { _dcNextToken = a })
 data DescribeCasesResponse = DescribeCasesResponse
     { _dcr1Cases     :: List "cases" CaseDetails
     , _dcr1NextToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeCasesResponse' constructor.
 --

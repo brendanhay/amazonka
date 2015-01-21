@@ -58,7 +58,7 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones
     { _dazDryRun    :: Maybe Bool
     , _dazFilters   :: List "Filter" Filter
     , _dazZoneNames :: List "ZoneName" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeAvailabilityZones' constructor.
 --
@@ -101,7 +101,7 @@ dazZoneNames = lens _dazZoneNames (\s a -> s { _dazZoneNames = a }) . _List
 
 newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { _dazrAvailabilityZones :: List "item" AvailabilityZone
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeAvailabilityZonesResponse' constructor.
 --

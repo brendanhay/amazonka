@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data DefineExpression = DefineExpression
     { _de1DomainName :: Text
     , _de1Expression :: Expression
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DefineExpression' constructor.
 --
@@ -80,7 +80,7 @@ de1Expression = lens _de1Expression (\s a -> s { _de1Expression = a })
 
 newtype DefineExpressionResponse = DefineExpressionResponse
     { _derExpression :: ExpressionStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DefineExpressionResponse' constructor.
 --

@@ -58,7 +58,7 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute
     { _dvaAttribute :: Maybe VolumeAttributeName
     , _dvaDryRun    :: Maybe Bool
     , _dvaVolumeId  :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumeAttribute' constructor.
 --
@@ -93,7 +93,7 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { _dvarAutoEnableIO :: Maybe AttributeBooleanValue
     , _dvarProductCodes :: List "item" ProductCode
     , _dvarVolumeId     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumeAttributeResponse' constructor.
 --

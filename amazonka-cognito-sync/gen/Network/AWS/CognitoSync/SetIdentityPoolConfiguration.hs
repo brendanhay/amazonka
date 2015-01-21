@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration
     { _sipcIdentityPoolId :: Text
     , _sipcPushSync       :: Maybe PushSync
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SetIdentityPoolConfiguration' constructor.
 --
@@ -83,7 +83,7 @@ sipcPushSync = lens _sipcPushSync (\s a -> s { _sipcPushSync = a })
 data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse
     { _sipcrIdentityPoolId :: Maybe Text
     , _sipcrPushSync       :: Maybe PushSync
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SetIdentityPoolConfigurationResponse' constructor.
 --

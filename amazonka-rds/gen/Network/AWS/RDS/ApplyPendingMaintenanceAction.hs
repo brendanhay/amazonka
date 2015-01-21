@@ -53,7 +53,7 @@ data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction
     { _apmaApplyAction        :: Text
     , _apmaOptInType          :: Text
     , _apmaResourceIdentifier :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ApplyPendingMaintenanceAction' constructor.
 --
@@ -99,7 +99,7 @@ apmaResourceIdentifier =
 
 newtype ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse
     { _apmarResourcePendingMaintenanceActions :: Maybe ResourcePendingMaintenanceActions
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ApplyPendingMaintenanceActionResponse' constructor.
 --

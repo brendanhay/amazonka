@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype CreateLogGroup = CreateLogGroup
     { _clgLogGroupName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'CreateLogGroup' constructor.
 --
@@ -72,7 +72,7 @@ clgLogGroupName :: Lens' CreateLogGroup Text
 clgLogGroupName = lens _clgLogGroupName (\s a -> s { _clgLogGroupName = a })
 
 data CreateLogGroupResponse = CreateLogGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateLogGroupResponse' constructor.
 createLogGroupResponse :: CreateLogGroupResponse

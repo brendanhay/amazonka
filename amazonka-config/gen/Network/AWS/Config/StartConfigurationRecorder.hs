@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype StartConfigurationRecorder = StartConfigurationRecorder
     { _scr1ConfigurationRecorderName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'StartConfigurationRecorder' constructor.
 --
@@ -73,7 +73,7 @@ scr1ConfigurationRecorderName =
         (\s a -> s { _scr1ConfigurationRecorderName = a })
 
 data StartConfigurationRecorderResponse = StartConfigurationRecorderResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'StartConfigurationRecorderResponse' constructor.
 startConfigurationRecorderResponse :: StartConfigurationRecorderResponse

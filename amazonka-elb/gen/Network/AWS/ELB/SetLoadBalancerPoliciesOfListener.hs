@@ -52,7 +52,7 @@ data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
     { _slbpolLoadBalancerName :: Text
     , _slbpolLoadBalancerPort :: Int
     , _slbpolPolicyNames      :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SetLoadBalancerPoliciesOfListener' constructor.
 --
@@ -91,7 +91,7 @@ slbpolPolicyNames =
         . _List
 
 data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetLoadBalancerPoliciesOfListenerResponse' constructor.
 setLoadBalancerPoliciesOfListenerResponse :: SetLoadBalancerPoliciesOfListenerResponse

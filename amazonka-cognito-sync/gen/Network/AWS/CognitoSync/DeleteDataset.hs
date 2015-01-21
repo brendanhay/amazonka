@@ -56,7 +56,7 @@ data DeleteDataset = DeleteDataset
     { _dd1DatasetName    :: Text
     , _dd1IdentityId     :: Text
     , _dd1IdentityPoolId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteDataset' constructor.
 --
@@ -98,7 +98,7 @@ dd1IdentityPoolId =
 
 newtype DeleteDatasetResponse = DeleteDatasetResponse
     { _ddr1Dataset :: Maybe Dataset
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteDatasetResponse' constructor.
 --

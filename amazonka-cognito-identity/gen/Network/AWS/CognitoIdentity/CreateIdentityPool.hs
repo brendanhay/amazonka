@@ -64,7 +64,7 @@ data CreateIdentityPool = CreateIdentityPool
     , _cipIdentityPoolName               :: Text
     , _cipOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
     , _cipSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateIdentityPool' constructor.
 --
@@ -114,6 +114,7 @@ cipIdentityPoolName :: Lens' CreateIdentityPool Text
 cipIdentityPoolName =
     lens _cipIdentityPoolName (\s a -> s { _cipIdentityPoolName = a })
 
+-- | A list of OpendID Connect provider ARNs.
 cipOpenIdConnectProviderARNs :: Lens' CreateIdentityPool [Text]
 cipOpenIdConnectProviderARNs =
     lens _cipOpenIdConnectProviderARNs
@@ -134,7 +135,7 @@ data CreateIdentityPoolResponse = CreateIdentityPoolResponse
     , _ciprIdentityPoolName               :: Text
     , _ciprOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
     , _ciprSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateIdentityPoolResponse' constructor.
 --
@@ -187,6 +188,7 @@ ciprIdentityPoolName :: Lens' CreateIdentityPoolResponse Text
 ciprIdentityPoolName =
     lens _ciprIdentityPoolName (\s a -> s { _ciprIdentityPoolName = a })
 
+-- | A list of OpendID Connect provider ARNs.
 ciprOpenIdConnectProviderARNs :: Lens' CreateIdentityPoolResponse [Text]
 ciprOpenIdConnectProviderARNs =
     lens _ciprOpenIdConnectProviderARNs

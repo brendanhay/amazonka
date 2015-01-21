@@ -82,7 +82,7 @@ data PollForActivityTask = PollForActivityTask
     { _pfatDomain   :: Text
     , _pfatIdentity :: Maybe Text
     , _pfatTaskList :: TaskList
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PollForActivityTask' constructor.
 --
@@ -129,7 +129,7 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse
     , _pfatrStartedEventId    :: Integer
     , _pfatrTaskToken         :: Text
     , _pfatrWorkflowExecution :: WorkflowExecution
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PollForActivityTaskResponse' constructor.
 --

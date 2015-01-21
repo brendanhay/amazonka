@@ -57,7 +57,7 @@ import qualified GHC.Exts
 
 newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow
     { _ugsnGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'UpdateGatewaySoftwareNow' constructor.
 --
@@ -76,7 +76,7 @@ ugsnGatewayARN = lens _ugsnGatewayARN (\s a -> s { _ugsnGatewayARN = a })
 
 newtype UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
     { _ugsnrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'UpdateGatewaySoftwareNowResponse' constructor.
 --

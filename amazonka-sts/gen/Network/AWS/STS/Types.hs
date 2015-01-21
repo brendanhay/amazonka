@@ -108,7 +108,7 @@ data Credentials = Credentials
     , _cExpiration      :: ISO8601
     , _cSecretAccessKey :: Text
     , _cSessionToken    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Credentials' constructor.
 --
@@ -169,7 +169,7 @@ instance ToQuery Credentials where
 data FederatedUser = FederatedUser
     { _fuArn             :: Text
     , _fuFederatedUserId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'FederatedUser' constructor.
 --
@@ -213,7 +213,7 @@ instance ToQuery FederatedUser where
 data AssumedRoleUser = AssumedRoleUser
     { _aruArn           :: Text
     , _aruAssumedRoleId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AssumedRoleUser' constructor.
 --

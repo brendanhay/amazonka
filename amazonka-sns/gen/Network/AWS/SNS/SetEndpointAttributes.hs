@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data SetEndpointAttributes = SetEndpointAttributes
     { _seaAttributes  :: EMap "entry" "key" "value" Text Text
     , _seaEndpointArn :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SetEndpointAttributes' constructor.
 --
@@ -87,7 +87,7 @@ seaEndpointArn :: Lens' SetEndpointAttributes Text
 seaEndpointArn = lens _seaEndpointArn (\s a -> s { _seaEndpointArn = a })
 
 data SetEndpointAttributesResponse = SetEndpointAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetEndpointAttributesResponse' constructor.
 setEndpointAttributesResponse :: SetEndpointAttributesResponse

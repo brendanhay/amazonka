@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data ListPresets = ListPresets
     { _lp1Ascending :: Maybe Text
     , _lp1PageToken :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListPresets' constructor.
 --
@@ -82,7 +82,7 @@ lp1PageToken = lens _lp1PageToken (\s a -> s { _lp1PageToken = a })
 data ListPresetsResponse = ListPresetsResponse
     { _lpr1NextPageToken :: Maybe Text
     , _lpr1Presets       :: List "Presets" Preset
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListPresetsResponse' constructor.
 --

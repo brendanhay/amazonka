@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DeleteInternetGateway = DeleteInternetGateway
     { _dig2DryRun            :: Maybe Bool
     , _dig2InternetGatewayId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteInternetGateway' constructor.
 --
@@ -76,7 +76,7 @@ dig2InternetGatewayId =
     lens _dig2InternetGatewayId (\s a -> s { _dig2InternetGatewayId = a })
 
 data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteInternetGatewayResponse' constructor.
 deleteInternetGatewayResponse :: DeleteInternetGatewayResponse

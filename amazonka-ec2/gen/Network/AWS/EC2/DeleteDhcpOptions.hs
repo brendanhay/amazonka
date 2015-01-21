@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data DeleteDhcpOptions = DeleteDhcpOptions
     { _ddo1DhcpOptionsId :: Text
     , _ddo1DryRun        :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteDhcpOptions' constructor.
 --
@@ -78,7 +78,7 @@ ddo1DryRun :: Lens' DeleteDhcpOptions (Maybe Bool)
 ddo1DryRun = lens _ddo1DryRun (\s a -> s { _ddo1DryRun = a })
 
 data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteDhcpOptionsResponse' constructor.
 deleteDhcpOptionsResponse :: DeleteDhcpOptionsResponse

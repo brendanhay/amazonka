@@ -218,7 +218,7 @@ data ChapInfo = ChapInfo
     , _ciSecretToAuthenticateInitiator :: Maybe Text
     , _ciSecretToAuthenticateTarget    :: Maybe Text
     , _ciTargetARN                     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ChapInfo' constructor.
 --
@@ -286,7 +286,7 @@ data VolumeiSCSIAttributes = VolumeiSCSIAttributes
     , _vscsiaNetworkInterfaceId   :: Maybe Text
     , _vscsiaNetworkInterfacePort :: Maybe Int
     , _vscsiaTargetARN            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'VolumeiSCSIAttributes' constructor.
 --
@@ -358,7 +358,7 @@ data DeviceiSCSIAttributes = DeviceiSCSIAttributes
     , _dscsiaNetworkInterfaceId   :: Maybe Text
     , _dscsiaNetworkInterfacePort :: Maybe Int
     , _dscsiaTargetARN            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeviceiSCSIAttributes' constructor.
 --
@@ -420,7 +420,7 @@ instance ToJSON DeviceiSCSIAttributes where
 data Error' = Error'
     { _eErrorCode    :: Maybe ErrorCode
     , _eErrorDetails :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Error'' constructor.
 --
@@ -463,7 +463,7 @@ data Disk = Disk
     , _dDiskPath               :: Maybe Text
     , _dDiskSizeInBytes        :: Maybe Integer
     , _dDiskStatus             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Disk' constructor.
 --
@@ -545,7 +545,7 @@ data Tape = Tape
     , _tTapeSizeInBytes :: Maybe Integer
     , _tTapeStatus      :: Maybe Text
     , _tVTLDevice       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Tape' constructor.
 --
@@ -624,7 +624,7 @@ data NetworkInterface = NetworkInterface
     { _niIpv4Address :: Maybe Text
     , _niIpv6Address :: Maybe Text
     , _niMacAddress  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'NetworkInterface' constructor.
 --
@@ -676,7 +676,7 @@ data VTLDevice = VTLDevice
     , _vtldVTLDeviceProductIdentifier :: Maybe Text
     , _vtldVTLDeviceType              :: Maybe Text
     , _vtldVTLDeviceVendor            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'VTLDevice' constructor.
 --
@@ -747,7 +747,7 @@ data TapeRecoveryPointInfo = TapeRecoveryPointInfo
     , _trpiTapeRecoveryPointTime :: Maybe POSIX
     , _trpiTapeSizeInBytes       :: Maybe Integer
     , _trpiTapeStatus            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TapeRecoveryPointInfo' constructor.
 --
@@ -812,7 +812,7 @@ data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo
     , _vrpiVolumeRecoveryPointTime :: Maybe Text
     , _vrpiVolumeSizeInBytes       :: Maybe Integer
     , _vrpiVolumeUsageInBytes      :: Maybe Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'VolumeRecoveryPointInfo' constructor.
 --
@@ -872,7 +872,7 @@ data TapeArchive = TapeArchive
     , _taTapeBarcode     :: Maybe Text
     , _taTapeSizeInBytes :: Maybe Integer
     , _taTapeStatus      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TapeArchive' constructor.
 --
@@ -1012,7 +1012,7 @@ data ErrorCode
     | VolumeInUse                       -- ^ VolumeInUse
     | VolumeNotFound                    -- ^ VolumeNotFound
     | VolumeNotReady                    -- ^ VolumeNotReady
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ErrorCode
 
@@ -1167,7 +1167,7 @@ data StorediSCSIVolume = StorediSCSIVolume
     , _sscsivVolumeStatus          :: Maybe Text
     , _sscsivVolumeType            :: Maybe Text
     , _sscsivVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StorediSCSIVolume' constructor.
 --
@@ -1282,7 +1282,7 @@ data CachediSCSIVolume = CachediSCSIVolume
     , _cscsivVolumeStatus          :: Maybe Text
     , _cscsivVolumeType            :: Maybe Text
     , _cscsivVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CachediSCSIVolume' constructor.
 --
@@ -1372,7 +1372,7 @@ instance ToJSON CachediSCSIVolume where
 data VolumeInfo = VolumeInfo
     { _viVolumeARN  :: Maybe Text
     , _viVolumeType :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'VolumeInfo' constructor.
 --
@@ -1409,7 +1409,7 @@ data GatewayInfo = GatewayInfo
     { _giGatewayARN              :: Maybe Text
     , _giGatewayOperationalState :: Maybe Text
     , _giGatewayType             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GatewayInfo' constructor.
 --

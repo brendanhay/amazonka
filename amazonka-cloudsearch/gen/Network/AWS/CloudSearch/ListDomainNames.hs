@@ -46,7 +46,7 @@ import Network.AWS.CloudSearch.Types
 import qualified GHC.Exts
 
 data ListDomainNames = ListDomainNames
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ListDomainNames' constructor.
 listDomainNames :: ListDomainNames
@@ -54,7 +54,7 @@ listDomainNames = ListDomainNames
 
 newtype ListDomainNamesResponse = ListDomainNamesResponse
     { _ldnrDomainNames :: EMap "entry" "key" "value" Text Text
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'ListDomainNamesResponse' constructor.
 --

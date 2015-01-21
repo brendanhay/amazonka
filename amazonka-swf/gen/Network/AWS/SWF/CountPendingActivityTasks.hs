@@ -70,7 +70,7 @@ import qualified GHC.Exts
 data CountPendingActivityTasks = CountPendingActivityTasks
     { _cpatDomain   :: Text
     , _cpatTaskList :: TaskList
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CountPendingActivityTasks' constructor.
 --
@@ -99,7 +99,7 @@ cpatTaskList = lens _cpatTaskList (\s a -> s { _cpatTaskList = a })
 data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
     { _cpatrCount     :: Nat
     , _cpatrTruncated :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CountPendingActivityTasksResponse' constructor.
 --

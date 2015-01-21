@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data ChangePassword = ChangePassword
     { _cpNewPassword :: Sensitive Text
     , _cpOldPassword :: Sensitive Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ChangePassword' constructor.
 --
@@ -81,7 +81,7 @@ cpOldPassword :: Lens' ChangePassword Text
 cpOldPassword = lens _cpOldPassword (\s a -> s { _cpOldPassword = a }) . _Sensitive
 
 data ChangePasswordResponse = ChangePasswordResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ChangePasswordResponse' constructor.
 changePasswordResponse :: ChangePasswordResponse

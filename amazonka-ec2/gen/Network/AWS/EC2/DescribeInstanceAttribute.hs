@@ -67,7 +67,7 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute
     { _diaAttribute  :: InstanceAttributeName
     , _diaDryRun     :: Maybe Bool
     , _diaInstanceId :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeInstanceAttribute' constructor.
 --
@@ -114,7 +114,7 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
     , _diar1SourceDestCheck                   :: Maybe AttributeBooleanValue
     , _diar1SriovNetSupport                   :: Maybe AttributeValue
     , _diar1UserData                          :: Maybe AttributeValue
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeInstanceAttributeResponse' constructor.
 --

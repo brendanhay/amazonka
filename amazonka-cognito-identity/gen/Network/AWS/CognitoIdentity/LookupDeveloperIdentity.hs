@@ -67,7 +67,7 @@ data LookupDeveloperIdentity = LookupDeveloperIdentity
     , _ldiIdentityPoolId          :: Text
     , _ldiMaxResults              :: Maybe Nat
     , _ldiNextToken               :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'LookupDeveloperIdentity' constructor.
 --
@@ -127,7 +127,7 @@ data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse
     { _ldirDeveloperUserIdentifierList :: List "DeveloperUserIdentifierList" Text
     , _ldirIdentityId                  :: Maybe Text
     , _ldirNextToken                   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'LookupDeveloperIdentityResponse' constructor.
 --

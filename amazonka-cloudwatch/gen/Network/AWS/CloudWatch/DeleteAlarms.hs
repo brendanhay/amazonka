@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DeleteAlarms = DeleteAlarms
     { _da1AlarmNames :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DeleteAlarms where
     type Item DeleteAlarms = Text
@@ -72,7 +72,7 @@ da1AlarmNames :: Lens' DeleteAlarms [Text]
 da1AlarmNames = lens _da1AlarmNames (\s a -> s { _da1AlarmNames = a }) . _List
 
 data DeleteAlarmsResponse = DeleteAlarmsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteAlarmsResponse' constructor.
 deleteAlarmsResponse :: DeleteAlarmsResponse

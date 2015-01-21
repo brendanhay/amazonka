@@ -72,7 +72,7 @@ data DescribeStream = DescribeStream
     { _ds1ExclusiveStartShardId :: Maybe Text
     , _ds1Limit                 :: Maybe Nat
     , _ds1StreamName            :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeStream' constructor.
 --
@@ -108,7 +108,7 @@ ds1StreamName = lens _ds1StreamName (\s a -> s { _ds1StreamName = a })
 
 newtype DescribeStreamResponse = DescribeStreamResponse
     { _dsrStreamDescription :: StreamDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeStreamResponse' constructor.
 --

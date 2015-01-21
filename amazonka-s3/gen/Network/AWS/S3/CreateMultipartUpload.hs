@@ -101,7 +101,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmuServerSideEncryption    :: Maybe ServerSideEncryption
     , _cmuStorageClass            :: Maybe StorageClass
     , _cmuWebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateMultipartUpload' constructor.
 --
@@ -293,7 +293,7 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
     , _cmurSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _cmurServerSideEncryption :: Maybe ServerSideEncryption
     , _cmurUploadId             :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateMultipartUploadResponse' constructor.
 --

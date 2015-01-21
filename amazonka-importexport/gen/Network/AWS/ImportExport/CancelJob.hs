@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype CancelJob = CancelJob
     { _cjJobId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'CancelJob' constructor.
 --
@@ -69,7 +69,7 @@ cjJobId = lens _cjJobId (\s a -> s { _cjJobId = a })
 
 newtype CancelJobResponse = CancelJobResponse
     { _cjrSuccess :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CancelJobResponse' constructor.
 --

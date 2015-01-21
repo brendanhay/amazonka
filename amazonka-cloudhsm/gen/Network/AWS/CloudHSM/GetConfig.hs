@@ -56,7 +56,7 @@ data GetConfig = GetConfig
     { _gcClientArn     :: Text
     , _gcClientVersion :: ClientVersion
     , _gcHapgList      :: List "HapgList" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetConfig' constructor.
 --
@@ -94,7 +94,7 @@ data GetConfigResponse = GetConfigResponse
     { _gcrConfigCred :: Maybe Text
     , _gcrConfigFile :: Maybe Text
     , _gcrConfigType :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetConfigResponse' constructor.
 --

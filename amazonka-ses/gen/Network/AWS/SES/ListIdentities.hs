@@ -57,7 +57,7 @@ data ListIdentities = ListIdentities
     { _liIdentityType :: Maybe IdentityType
     , _liMaxItems     :: Maybe Int
     , _liNextToken    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListIdentities' constructor.
 --
@@ -93,7 +93,7 @@ liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
 data ListIdentitiesResponse = ListIdentitiesResponse
     { _lirIdentities :: List "member" Text
     , _lirNextToken  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListIdentitiesResponse' constructor.
 --

@@ -61,7 +61,7 @@ data ListRoles = ListRoles
     { _lrMarker     :: Maybe Text
     , _lrMaxItems   :: Maybe Nat
     , _lrPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListRoles' constructor.
 --
@@ -104,7 +104,7 @@ data ListRolesResponse = ListRolesResponse
     { _lrrIsTruncated :: Maybe Bool
     , _lrrMarker      :: Maybe Text
     , _lrrRoles       :: List "member" Role
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListRolesResponse' constructor.
 --

@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic
     { _lsbtNextToken :: Maybe Text
     , _lsbtTopicArn  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListSubscriptionsByTopic' constructor.
 --
@@ -81,7 +81,7 @@ lsbtTopicArn = lens _lsbtTopicArn (\s a -> s { _lsbtTopicArn = a })
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     { _lsbtrNextToken     :: Maybe Text
     , _lsbtrSubscriptions :: List "member" Subscription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListSubscriptionsByTopicResponse' constructor.
 --

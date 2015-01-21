@@ -63,7 +63,7 @@ data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted
     { _rdtcDecisions        :: List "decisions" Decision
     , _rdtcExecutionContext :: Maybe Text
     , _rdtcTaskToken        :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RespondDecisionTaskCompleted' constructor.
 --
@@ -102,7 +102,7 @@ rdtcTaskToken :: Lens' RespondDecisionTaskCompleted Text
 rdtcTaskToken = lens _rdtcTaskToken (\s a -> s { _rdtcTaskToken = a })
 
 data RespondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RespondDecisionTaskCompletedResponse' constructor.
 respondDecisionTaskCompletedResponse :: RespondDecisionTaskCompletedResponse

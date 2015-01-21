@@ -51,7 +51,7 @@ data PutBucketNotification = PutBucketNotification
     { _pbnBucket                    :: Text
     , _pbnContentMD5                :: Maybe Text
     , _pbnNotificationConfiguration :: NotificationConfiguration
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutBucketNotification' constructor.
 --
@@ -84,7 +84,7 @@ pbnNotificationConfiguration =
         (\s a -> s { _pbnNotificationConfiguration = a })
 
 data PutBucketNotificationResponse = PutBucketNotificationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutBucketNotificationResponse' constructor.
 putBucketNotificationResponse :: PutBucketNotificationResponse

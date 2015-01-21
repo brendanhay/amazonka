@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
     { _lcfoaiMarker   :: Maybe Text
     , _lcfoaiMaxItems :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListCloudFrontOriginAccessIdentities' constructor.
 --
@@ -81,7 +81,7 @@ lcfoaiMaxItems = lens _lcfoaiMaxItems (\s a -> s { _lcfoaiMaxItems = a })
 
 newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
     { _lcfoairCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListCloudFrontOriginAccessIdentitiesResponse' constructor.
 --

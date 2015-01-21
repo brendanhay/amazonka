@@ -76,7 +76,7 @@ import qualified GHC.Exts
 data SendMessageBatch = SendMessageBatch
     { _smbEntries  :: List "member" SendMessageBatchRequestEntry
     , _smbQueueUrl :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SendMessageBatch' constructor.
 --
@@ -104,7 +104,7 @@ smbQueueUrl = lens _smbQueueUrl (\s a -> s { _smbQueueUrl = a })
 data SendMessageBatchResponse = SendMessageBatchResponse
     { _smbrFailed     :: List "member" BatchResultErrorEntry
     , _smbrSuccessful :: List "member" SendMessageBatchResultEntry
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SendMessageBatchResponse' constructor.
 --

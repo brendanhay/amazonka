@@ -70,7 +70,7 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates
     , _dhccMaxRecords                     :: Maybe Int
     , _dhccTagKeys                        :: List "member" Text
     , _dhccTagValues                      :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeHsmClientCertificates' constructor.
 --
@@ -144,7 +144,7 @@ dhccTagValues = lens _dhccTagValues (\s a -> s { _dhccTagValues = a }) . _List
 data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
     { _dhccrHsmClientCertificates :: List "member" HsmClientCertificate
     , _dhccrMarker                :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeHsmClientCertificatesResponse' constructor.
 --

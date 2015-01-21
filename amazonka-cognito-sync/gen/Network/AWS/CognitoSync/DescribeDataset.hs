@@ -57,7 +57,7 @@ data DescribeDataset = DescribeDataset
     { _ddDatasetName    :: Text
     , _ddIdentityId     :: Text
     , _ddIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeDataset' constructor.
 --
@@ -98,7 +98,7 @@ ddIdentityPoolId = lens _ddIdentityPoolId (\s a -> s { _ddIdentityPoolId = a })
 
 newtype DescribeDatasetResponse = DescribeDatasetResponse
     { _ddrDataset :: Maybe Dataset
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDatasetResponse' constructor.
 --

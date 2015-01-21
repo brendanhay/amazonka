@@ -51,7 +51,7 @@ data RegisterApplicationRevision = RegisterApplicationRevision
     { _rarApplicationName :: Text
     , _rarDescription     :: Maybe Text
     , _rarRevision        :: RevisionLocation
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RegisterApplicationRevision' constructor.
 --
@@ -88,7 +88,7 @@ rarRevision :: Lens' RegisterApplicationRevision RevisionLocation
 rarRevision = lens _rarRevision (\s a -> s { _rarRevision = a })
 
 data RegisterApplicationRevisionResponse = RegisterApplicationRevisionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RegisterApplicationRevisionResponse' constructor.
 registerApplicationRevisionResponse :: RegisterApplicationRevisionResponse

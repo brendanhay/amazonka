@@ -60,7 +60,7 @@ import qualified GHC.Exts
 data AddWorkingStorage = AddWorkingStorage
     { _awsDiskIds    :: List "DiskIds" Text
     , _awsGatewayARN :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AddWorkingStorage' constructor.
 --
@@ -88,7 +88,7 @@ awsGatewayARN = lens _awsGatewayARN (\s a -> s { _awsGatewayARN = a })
 
 newtype AddWorkingStorageResponse = AddWorkingStorageResponse
     { _awsrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'AddWorkingStorageResponse' constructor.
 --

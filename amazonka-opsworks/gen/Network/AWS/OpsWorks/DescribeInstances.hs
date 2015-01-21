@@ -59,7 +59,7 @@ data DescribeInstances = DescribeInstances
     { _diInstanceIds :: List "InstanceIds" Text
     , _diLayerId     :: Maybe Text
     , _diStackId     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeInstances' constructor.
 --
@@ -95,7 +95,7 @@ diStackId = lens _diStackId (\s a -> s { _diStackId = a })
 
 newtype DescribeInstancesResponse = DescribeInstancesResponse
     { _dirInstances :: List "Instances" Instance
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeInstancesResponse where
     type Item DescribeInstancesResponse = Instance

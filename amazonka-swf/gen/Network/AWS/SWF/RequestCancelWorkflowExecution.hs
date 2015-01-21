@@ -71,7 +71,7 @@ data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution
     { _rcweDomain     :: Text
     , _rcweRunId      :: Maybe Text
     , _rcweWorkflowId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RequestCancelWorkflowExecution' constructor.
 --
@@ -105,7 +105,7 @@ rcweWorkflowId :: Lens' RequestCancelWorkflowExecution Text
 rcweWorkflowId = lens _rcweWorkflowId (\s a -> s { _rcweWorkflowId = a })
 
 data RequestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RequestCancelWorkflowExecutionResponse' constructor.
 requestCancelWorkflowExecutionResponse :: RequestCancelWorkflowExecutionResponse

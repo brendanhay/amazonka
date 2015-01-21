@@ -61,7 +61,7 @@ data ModifyEventSubscription = ModifyEventSubscription
     , _mesSourceIds        :: List "member" Text
     , _mesSourceType       :: Maybe Text
     , _mesSubscriptionName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ModifyEventSubscription' constructor.
 --
@@ -149,7 +149,7 @@ mesSubscriptionName =
 
 newtype ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
     { _mesrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyEventSubscriptionResponse' constructor.
 --

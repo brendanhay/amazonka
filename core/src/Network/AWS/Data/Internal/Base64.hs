@@ -29,7 +29,7 @@ import           Network.AWS.Data.Internal.XML
 
 -- | Base64 encoded binary data.
 newtype Base64 = Base64 { unBase64 :: ByteString }
-    deriving (Eq, Ord, Generic)
+    deriving (Eq, Read, Ord, Generic)
 
 instance FromText Base64 where
     parser = AText.takeText >>=

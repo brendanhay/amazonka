@@ -55,7 +55,7 @@ data UpdateVolume = UpdateVolume
     { _uv1MountPoint :: Maybe Text
     , _uv1Name       :: Maybe Text
     , _uv1VolumeId   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateVolume' constructor.
 --
@@ -88,7 +88,7 @@ uv1VolumeId :: Lens' UpdateVolume Text
 uv1VolumeId = lens _uv1VolumeId (\s a -> s { _uv1VolumeId = a })
 
 data UpdateVolumeResponse = UpdateVolumeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateVolumeResponse' constructor.
 updateVolumeResponse :: UpdateVolumeResponse

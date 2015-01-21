@@ -55,7 +55,7 @@ data AttachNetworkInterface = AttachNetworkInterface
     , _aniDryRun             :: Maybe Bool
     , _aniInstanceId         :: Text
     , _aniNetworkInterfaceId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AttachNetworkInterface' constructor.
 --
@@ -98,7 +98,7 @@ aniNetworkInterfaceId =
 
 newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { _anirAttachmentId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'AttachNetworkInterfaceResponse' constructor.
 --

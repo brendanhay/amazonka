@@ -62,7 +62,7 @@ import qualified GHC.Exts
 
 newtype DeleteQueue = DeleteQueue
     { _dqQueueUrl :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteQueue' constructor.
 --
@@ -81,7 +81,7 @@ dqQueueUrl :: Lens' DeleteQueue Text
 dqQueueUrl = lens _dqQueueUrl (\s a -> s { _dqQueueUrl = a })
 
 data DeleteQueueResponse = DeleteQueueResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteQueueResponse' constructor.
 deleteQueueResponse :: DeleteQueueResponse

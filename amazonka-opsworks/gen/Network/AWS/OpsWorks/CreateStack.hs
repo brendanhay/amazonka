@@ -87,7 +87,7 @@ data CreateStack = CreateStack
     , _csUseCustomCookbooks        :: Maybe Bool
     , _csUseOpsworksSecurityGroups :: Maybe Bool
     , _csVpcId                     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateStack' constructor.
 --
@@ -308,7 +308,7 @@ csVpcId = lens _csVpcId (\s a -> s { _csVpcId = a })
 
 newtype CreateStackResponse = CreateStackResponse
     { _csr1StackId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateStackResponse' constructor.
 --

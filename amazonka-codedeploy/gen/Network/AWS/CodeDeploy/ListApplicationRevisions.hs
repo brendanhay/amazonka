@@ -62,7 +62,7 @@ data ListApplicationRevisions = ListApplicationRevisions
     , _larS3KeyPrefix     :: Maybe Text
     , _larSortBy          :: Maybe ApplicationRevisionSortBy
     , _larSortOrder       :: Maybe SortOrder
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListApplicationRevisions' constructor.
 --
@@ -148,7 +148,7 @@ larSortOrder = lens _larSortOrder (\s a -> s { _larSortOrder = a })
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse
     { _larrNextToken :: Maybe Text
     , _larrRevisions :: List "revisions" RevisionLocation
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListApplicationRevisionsResponse' constructor.
 --

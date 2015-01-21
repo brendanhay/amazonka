@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteOptionGroup = DeleteOptionGroup
     { _dog1OptionGroupName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteOptionGroup' constructor.
 --
@@ -69,7 +69,7 @@ dog1OptionGroupName =
     lens _dog1OptionGroupName (\s a -> s { _dog1OptionGroupName = a })
 
 data DeleteOptionGroupResponse = DeleteOptionGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteOptionGroupResponse' constructor.
 deleteOptionGroupResponse :: DeleteOptionGroupResponse

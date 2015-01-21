@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime
     { _dmstGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeMaintenanceStartTime' constructor.
 --
@@ -78,7 +78,7 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
     , _dmstrHourOfDay    :: Maybe Nat
     , _dmstrMinuteOfHour :: Maybe Nat
     , _dmstrTimezone     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeMaintenanceStartTimeResponse' constructor.
 --

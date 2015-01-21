@@ -54,7 +54,7 @@ data DeleteTags = DeleteTags
     { _dt1DryRun    :: Maybe Bool
     , _dt1Resources :: List "resourceId" Text
     , _dt1Tags      :: List "item" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteTags' constructor.
 --
@@ -88,7 +88,7 @@ dt1Tags :: Lens' DeleteTags [Tag]
 dt1Tags = lens _dt1Tags (\s a -> s { _dt1Tags = a }) . _List
 
 data DeleteTagsResponse = DeleteTagsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteTagsResponse' constructor.
 deleteTagsResponse :: DeleteTagsResponse

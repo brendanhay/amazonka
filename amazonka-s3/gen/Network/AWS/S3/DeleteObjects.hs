@@ -55,7 +55,7 @@ data DeleteObjects = DeleteObjects
     { _do1Bucket :: Text
     , _do1Delete :: Delete
     , _do1MFA    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteObjects' constructor.
 --
@@ -90,7 +90,7 @@ do1MFA = lens _do1MFA (\s a -> s { _do1MFA = a })
 data DeleteObjectsResponse = DeleteObjectsResponse
     { _dorDeleted :: List "Deleted" DeletedObject
     , _dorErrors  :: List "Error" S3ServiceError
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteObjectsResponse' constructor.
 --

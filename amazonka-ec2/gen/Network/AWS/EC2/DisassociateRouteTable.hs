@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data DisassociateRouteTable = DisassociateRouteTable
     { _drtAssociationId :: Text
     , _drtDryRun        :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DisassociateRouteTable' constructor.
 --
@@ -79,7 +79,7 @@ drtDryRun :: Lens' DisassociateRouteTable (Maybe Bool)
 drtDryRun = lens _drtDryRun (\s a -> s { _drtDryRun = a })
 
 data DisassociateRouteTableResponse = DisassociateRouteTableResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DisassociateRouteTableResponse' constructor.
 disassociateRouteTableResponse :: DisassociateRouteTableResponse

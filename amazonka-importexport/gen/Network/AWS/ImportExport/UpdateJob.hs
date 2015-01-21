@@ -60,7 +60,7 @@ data UpdateJob = UpdateJob
     , _ujJobType      :: JobType
     , _ujManifest     :: Text
     , _ujValidateOnly :: Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateJob' constructor.
 --
@@ -101,7 +101,7 @@ ujValidateOnly = lens _ujValidateOnly (\s a -> s { _ujValidateOnly = a })
 data UpdateJobResponse = UpdateJobResponse
     { _ujrSuccess        :: Maybe Bool
     , _ujrWarningMessage :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateJobResponse' constructor.
 --

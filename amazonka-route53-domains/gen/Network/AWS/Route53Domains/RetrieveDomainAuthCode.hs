@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode
     { _rdacDomainName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'RetrieveDomainAuthCode' constructor.
 --
@@ -80,7 +80,7 @@ rdacDomainName = lens _rdacDomainName (\s a -> s { _rdacDomainName = a })
 
 newtype RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
     { _rdacrAuthCode :: Sensitive Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'RetrieveDomainAuthCodeResponse' constructor.
 --

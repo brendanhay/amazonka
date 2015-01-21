@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetStackPolicy = GetStackPolicy
     { _gspStackName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetStackPolicy' constructor.
 --
@@ -71,7 +71,7 @@ gspStackName = lens _gspStackName (\s a -> s { _gspStackName = a })
 
 newtype GetStackPolicyResponse = GetStackPolicyResponse
     { _gsprStackPolicyBody :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'GetStackPolicyResponse' constructor.
 --

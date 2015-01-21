@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration
     { _dncAutoScalingGroupName :: Text
     , _dncTopicARN             :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteNotificationConfiguration' constructor.
 --
@@ -78,7 +78,7 @@ dncTopicARN :: Lens' DeleteNotificationConfiguration Text
 dncTopicARN = lens _dncTopicARN (\s a -> s { _dncTopicARN = a })
 
 data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteNotificationConfigurationResponse' constructor.
 deleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse

@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
     { _asitsSourceIdentifier :: Text
     , _asitsSubscriptionName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AddSourceIdentifierToSubscription' constructor.
 --
@@ -91,7 +91,7 @@ asitsSubscriptionName =
 
 newtype AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
     { _asitsrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AddSourceIdentifierToSubscriptionResponse' constructor.
 --

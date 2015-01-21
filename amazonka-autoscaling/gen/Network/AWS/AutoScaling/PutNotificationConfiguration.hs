@@ -57,7 +57,7 @@ data PutNotificationConfiguration = PutNotificationConfiguration
     { _pncAutoScalingGroupName :: Text
     , _pncNotificationTypes    :: List "member" Text
     , _pncTopicARN             :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PutNotificationConfiguration' constructor.
 --
@@ -96,7 +96,7 @@ pncTopicARN :: Lens' PutNotificationConfiguration Text
 pncTopicARN = lens _pncTopicARN (\s a -> s { _pncTopicARN = a })
 
 data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutNotificationConfigurationResponse' constructor.
 putNotificationConfigurationResponse :: PutNotificationConfigurationResponse

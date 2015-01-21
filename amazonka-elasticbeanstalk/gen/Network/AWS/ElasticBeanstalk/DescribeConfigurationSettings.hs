@@ -65,7 +65,7 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings
     { _dcsApplicationName :: Text
     , _dcsEnvironmentName :: Maybe Text
     , _dcsTemplateName    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeConfigurationSettings' constructor.
 --
@@ -108,7 +108,7 @@ dcsTemplateName = lens _dcsTemplateName (\s a -> s { _dcsTemplateName = a })
 
 newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
     { _dcsrConfigurationSettings :: List "member" ConfigurationSettingsDescription
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConfigurationSettingsResponse where
     type Item DescribeConfigurationSettingsResponse = ConfigurationSettingsDescription

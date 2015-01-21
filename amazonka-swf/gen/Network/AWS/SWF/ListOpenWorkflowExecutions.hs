@@ -82,7 +82,7 @@ data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions
     , _loweStartTimeFilter :: ExecutionTimeFilter
     , _loweTagFilter       :: Maybe TagFilter
     , _loweTypeFilter      :: Maybe WorkflowTypeFilter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListOpenWorkflowExecutions' constructor.
 --
@@ -182,7 +182,7 @@ loweTypeFilter = lens _loweTypeFilter (\s a -> s { _loweTypeFilter = a })
 data ListOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
     { _lowerExecutionInfos :: List "executionInfos" WorkflowExecutionInfo
     , _lowerNextPageToken  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListOpenWorkflowExecutionsResponse' constructor.
 --

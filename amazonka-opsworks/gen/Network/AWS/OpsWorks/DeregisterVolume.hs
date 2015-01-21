@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype DeregisterVolume = DeregisterVolume
     { _dvVolumeId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeregisterVolume' constructor.
 --
@@ -71,7 +71,7 @@ dvVolumeId :: Lens' DeregisterVolume Text
 dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
 
 data DeregisterVolumeResponse = DeregisterVolumeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeregisterVolumeResponse' constructor.
 deregisterVolumeResponse :: DeregisterVolumeResponse

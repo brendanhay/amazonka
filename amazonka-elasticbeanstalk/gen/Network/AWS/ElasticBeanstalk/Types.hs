@@ -326,7 +326,7 @@ data ApplicationDescription = ApplicationDescription
     , _adDateUpdated            :: Maybe ISO8601
     , _adDescription            :: Maybe Text
     , _adVersions               :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ApplicationDescription' constructor.
 --
@@ -408,7 +408,7 @@ data EventSeverity
     | Info  -- ^ INFO
     | Trace -- ^ TRACE
     | Warn  -- ^ WARN
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable EventSeverity
 
@@ -442,7 +442,7 @@ instance FromXML EventSeverity where
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Tag' constructor.
 --
@@ -486,7 +486,7 @@ data EventDescription = EventDescription
     , _edSeverity        :: Maybe EventSeverity
     , _edTemplateName    :: Maybe Text
     , _edVersionLabel    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'EventDescription' constructor.
 --
@@ -579,7 +579,7 @@ instance ToQuery EventDescription where
 
 newtype LaunchConfiguration = LaunchConfiguration
     { _lcName :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'LaunchConfiguration' constructor.
 --
@@ -607,7 +607,7 @@ instance ToQuery LaunchConfiguration where
 
 newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage
     { _avdmApplicationVersion :: Maybe ApplicationVersionDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ApplicationVersionDescriptionMessage' constructor.
 --
@@ -636,7 +636,7 @@ instance ToQuery ApplicationVersionDescriptionMessage where
 
 newtype AutoScalingGroup = AutoScalingGroup
     { _asgName :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'AutoScalingGroup' constructor.
 --
@@ -666,7 +666,7 @@ data ConfigurationDeploymentStatus
     = Deployed -- ^ deployed
     | Failed   -- ^ failed
     | Pending  -- ^ pending
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ConfigurationDeploymentStatus
 
@@ -695,7 +695,7 @@ data ConfigurationOptionSetting = ConfigurationOptionSetting
     { _cosNamespace  :: Maybe Text
     , _cosOptionName :: Maybe Text
     , _cosValue      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ConfigurationOptionSetting' constructor.
 --
@@ -742,7 +742,7 @@ instance ToQuery ConfigurationOptionSetting where
 data ConfigurationOptionValueType
     = List'  -- ^ List
     | Scalar -- ^ Scalar
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ConfigurationOptionValueType
 
@@ -775,7 +775,7 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription
     , _csdOptionSettings    :: List "member" ConfigurationOptionSetting
     , _csdSolutionStackName :: Maybe Text
     , _csdTemplateName      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ConfigurationSettingsDescription' constructor.
 --
@@ -905,7 +905,7 @@ data ApplicationVersionDescription = ApplicationVersionDescription
     , _avdDescription     :: Maybe Text
     , _avdSourceBundle    :: Maybe S3Location
     , _avdVersionLabel    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ApplicationVersionDescription' constructor.
 --
@@ -980,7 +980,7 @@ instance ToQuery ApplicationVersionDescription where
 data OptionSpecification = OptionSpecification
     { _osNamespace  :: Maybe Text
     , _osOptionName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'OptionSpecification' constructor.
 --
@@ -1023,7 +1023,7 @@ data EnvironmentResourceDescription = EnvironmentResourceDescription
     , _erdLoadBalancers        :: List "member" LoadBalancer
     , _erdQueues               :: List "member" Queue
     , _erdTriggers             :: List "member" Trigger
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'EnvironmentResourceDescription' constructor.
 --
@@ -1111,7 +1111,7 @@ instance ToQuery EnvironmentResourceDescription where
 data Queue = Queue
     { _qName :: Maybe Text
     , _qURL  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Queue' constructor.
 --
@@ -1152,7 +1152,7 @@ data EnvironmentStatus
     | Terminated  -- ^ Terminated
     | Terminating -- ^ Terminating
     | Updating    -- ^ Updating
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable EnvironmentStatus
 
@@ -1185,7 +1185,7 @@ data LoadBalancerDescription = LoadBalancerDescription
     { _lbdDomain           :: Maybe Text
     , _lbdListeners        :: List "member" Listener
     , _lbdLoadBalancerName :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'LoadBalancerDescription' constructor.
 --
@@ -1232,7 +1232,7 @@ instance ToQuery LoadBalancerDescription where
 
 newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage
     { _admApplication :: Maybe ApplicationDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ApplicationDescriptionMessage' constructor.
 --
@@ -1262,7 +1262,7 @@ data EnvironmentTier = EnvironmentTier
     { _etName    :: Maybe Text
     , _etType    :: Maybe Text
     , _etVersion :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnvironmentTier' constructor.
 --
@@ -1308,7 +1308,7 @@ instance ToQuery EnvironmentTier where
 
 newtype LoadBalancer = LoadBalancer
     { _lbName :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'LoadBalancer' constructor.
 --
@@ -1336,7 +1336,7 @@ instance ToQuery LoadBalancer where
 
 newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription
     { _erdLoadBalancer :: Maybe LoadBalancerDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'EnvironmentResourcesDescription' constructor.
 --
@@ -1365,7 +1365,7 @@ instance ToQuery EnvironmentResourcesDescription where
 data OptionRestrictionRegex = OptionRestrictionRegex
     { _orrLabel   :: Maybe Text
     , _orrPattern :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'OptionRestrictionRegex' constructor.
 --
@@ -1413,7 +1413,7 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
     , _codUserDefined    :: Maybe Bool
     , _codValueOptions   :: List "member" Text
     , _codValueType      :: Maybe ConfigurationOptionValueType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ConfigurationOptionDescription' constructor.
 --
@@ -1586,7 +1586,7 @@ instance ToQuery ConfigurationOptionDescription where
 data SourceConfiguration = SourceConfiguration
     { _scApplicationName :: Maybe Text
     , _scTemplateName    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SourceConfiguration' constructor.
 --
@@ -1627,7 +1627,7 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription
     , _eidInfoType        :: Maybe EnvironmentInfoType
     , _eidMessage         :: Maybe Text
     , _eidSampleTimestamp :: Maybe ISO8601
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'EnvironmentInfoDescription' constructor.
 --
@@ -1685,7 +1685,7 @@ instance ToQuery EnvironmentInfoDescription where
 data S3Location = S3Location
     { _slS3Bucket :: Maybe Text
     , _slS3Key    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'S3Location' constructor.
 --
@@ -1725,7 +1725,7 @@ data ValidationMessage = ValidationMessage
     , _vmNamespace  :: Maybe Text
     , _vmOptionName :: Maybe Text
     , _vmSeverity   :: Maybe ValidationSeverity
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ValidationMessage' constructor.
 --
@@ -1791,7 +1791,7 @@ instance ToQuery ValidationMessage where
 data ValidationSeverity
     = VSError   -- ^ error
     | VSWarning -- ^ warning
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ValidationSeverity
 
@@ -1816,7 +1816,7 @@ instance FromXML ValidationSeverity where
 
 newtype Trigger = Trigger
     { _tName :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'Trigger' constructor.
 --
@@ -1844,7 +1844,7 @@ instance ToQuery Trigger where
 
 data EnvironmentInfoType
     = Tail' -- ^ tail
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable EnvironmentInfoType
 
@@ -1880,7 +1880,7 @@ data EnvironmentDescription = EnvironmentDescription
     , _ed1TemplateName      :: Maybe Text
     , _ed1Tier              :: Maybe EnvironmentTier
     , _ed1VersionLabel      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'EnvironmentDescription' constructor.
 --
@@ -2062,7 +2062,7 @@ instance ToQuery EnvironmentDescription where
 data Listener = Listener
     { _lPort     :: Maybe Int
     , _lProtocol :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Listener' constructor.
 --
@@ -2102,7 +2102,7 @@ data EnvironmentHealth
     | Grey   -- ^ Grey
     | Red    -- ^ Red
     | Yellow -- ^ Yellow
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable EnvironmentHealth
 
@@ -2131,7 +2131,7 @@ instance FromXML EnvironmentHealth where
 
 newtype Instance = Instance
     { _iId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'Instance' constructor.
 --
@@ -2160,7 +2160,7 @@ instance ToQuery Instance where
 data SolutionStackDescription = SolutionStackDescription
     { _ssdPermittedFileTypes :: List "member" Text
     , _ssdSolutionStackName  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SolutionStackDescription' constructor.
 --

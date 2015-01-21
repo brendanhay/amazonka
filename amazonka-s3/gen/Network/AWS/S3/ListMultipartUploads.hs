@@ -72,7 +72,7 @@ data ListMultipartUploads = ListMultipartUploads
     , _lmuMaxUploads     :: Maybe Int
     , _lmuPrefix         :: Maybe Text
     , _lmuUploadIdMarker :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListMultipartUploads' constructor.
 --
@@ -150,7 +150,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
     , _lmurPrefix             :: Maybe Text
     , _lmurUploadIdMarker     :: Maybe Text
     , _lmurUploads            :: List "Upload" MultipartUpload
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListMultipartUploadsResponse' constructor.
 --

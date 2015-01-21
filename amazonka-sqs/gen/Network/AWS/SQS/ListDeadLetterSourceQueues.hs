@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
     { _ldlsqQueueUrl :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ListDeadLetterSourceQueues' constructor.
 --
@@ -72,7 +72,7 @@ ldlsqQueueUrl = lens _ldlsqQueueUrl (\s a -> s { _ldlsqQueueUrl = a })
 
 newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
     { _ldlsqrQueueUrls :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 -- | 'ListDeadLetterSourceQueuesResponse' constructor.
 --

@@ -63,7 +63,7 @@ data CopyClusterSnapshot = CopyClusterSnapshot
     { _ccsSourceSnapshotClusterIdentifier :: Maybe Text
     , _ccsSourceSnapshotIdentifier        :: Text
     , _ccsTargetSnapshotIdentifier        :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CopyClusterSnapshot' constructor.
 --
@@ -121,7 +121,7 @@ ccsTargetSnapshotIdentifier =
 
 newtype CopyClusterSnapshotResponse = CopyClusterSnapshotResponse
     { _ccsrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CopyClusterSnapshotResponse' constructor.
 --

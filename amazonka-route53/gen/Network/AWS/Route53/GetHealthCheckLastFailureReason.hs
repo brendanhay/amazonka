@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason
     { _ghclfrHealthCheckId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetHealthCheckLastFailureReason' constructor.
 --
@@ -74,7 +74,7 @@ ghclfrHealthCheckId =
 
 newtype GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse
     { _ghclfrrHealthCheckObservations :: List "HealthCheckObservation" HealthCheckObservation
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetHealthCheckLastFailureReasonResponse where
     type Item GetHealthCheckLastFailureReasonResponse = HealthCheckObservation

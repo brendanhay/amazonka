@@ -63,7 +63,7 @@ data UpdateSnapshotSchedule = UpdateSnapshotSchedule
     , _ussRecurrenceInHours :: Nat
     , _ussStartAt           :: Nat
     , _ussVolumeARN         :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateSnapshotSchedule' constructor.
 --
@@ -111,7 +111,7 @@ ussVolumeARN = lens _ussVolumeARN (\s a -> s { _ussVolumeARN = a })
 
 newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
     { _ussrVolumeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'UpdateSnapshotScheduleResponse' constructor.
 --

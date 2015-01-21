@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype GetOperationDetail = GetOperationDetail
     { _godOperationId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetOperationDetail' constructor.
 --
@@ -87,7 +87,7 @@ data GetOperationDetailResponse = GetOperationDetailResponse
     , _godrStatus        :: Maybe OperationStatus
     , _godrSubmittedDate :: Maybe POSIX
     , _godrType          :: Maybe OperationType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetOperationDetailResponse' constructor.
 --

@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DeleteDistribution = DeleteDistribution
     { _ddId      :: Text
     , _ddIfMatch :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteDistribution' constructor.
 --
@@ -76,7 +76,7 @@ ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
 ddIfMatch = lens _ddIfMatch (\s a -> s { _ddIfMatch = a })
 
 data DeleteDistributionResponse = DeleteDistributionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteDistributionResponse' constructor.
 deleteDistributionResponse :: DeleteDistributionResponse

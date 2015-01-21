@@ -58,7 +58,7 @@ data DescribeDBParameters = DescribeDBParameters
     , _ddbpMarker               :: Maybe Text
     , _ddbpMaxRecords           :: Maybe Int
     , _ddbpSource               :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDBParameters' constructor.
 --
@@ -126,7 +126,7 @@ ddbpSource = lens _ddbpSource (\s a -> s { _ddbpSource = a })
 data DescribeDBParametersResponse = DescribeDBParametersResponse
     { _ddbprMarker     :: Maybe Text
     , _ddbprParameters :: List "member" Parameter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDBParametersResponse' constructor.
 --

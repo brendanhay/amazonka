@@ -59,7 +59,7 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup
     , _ccsgDescription            :: Text
     , _ccsgSubnetIds              :: List "member" Text
     , _ccsgTags                   :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateClusterSubnetGroup' constructor.
 --
@@ -111,7 +111,7 @@ ccsgTags = lens _ccsgTags (\s a -> s { _ccsgTags = a }) . _List
 
 newtype CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
     { _ccsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateClusterSubnetGroupResponse' constructor.
 --

@@ -89,7 +89,7 @@ data StartWorkflowExecution = StartWorkflowExecution
     , _swe1TaskStartToCloseTimeout      :: Maybe Text
     , _swe1WorkflowId                   :: Text
     , _swe1WorkflowType                 :: WorkflowType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StartWorkflowExecution' constructor.
 --
@@ -246,7 +246,7 @@ swe1WorkflowType = lens _swe1WorkflowType (\s a -> s { _swe1WorkflowType = a })
 
 newtype StartWorkflowExecutionResponse = StartWorkflowExecutionResponse
     { _swerRunId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'StartWorkflowExecutionResponse' constructor.
 --

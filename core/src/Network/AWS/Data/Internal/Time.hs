@@ -54,14 +54,15 @@ data Format
     | BasicFormat
     | AWSFormat
     | POSIXFormat
-      deriving (Eq, Show)
+      deriving (Eq, Read, Show)
 
 data Time :: Format -> * where
     Time :: UTCTime -> Time a
 
-deriving instance Show (Time a)
 deriving instance Eq   (Time a)
 deriving instance Ord  (Time a)
+deriving instance Read (Time a)
+deriving instance Show (Time a)
 
 _Time :: Iso' (Time a) UTCTime
 _Time = iso (\(Time t) -> t) Time

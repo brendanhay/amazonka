@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data RebuildEnvironment = RebuildEnvironment
     { _reEnvironmentId   :: Maybe Text
     , _reEnvironmentName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RebuildEnvironment' constructor.
 --
@@ -83,7 +83,7 @@ reEnvironmentName =
     lens _reEnvironmentName (\s a -> s { _reEnvironmentName = a })
 
 data RebuildEnvironmentResponse = RebuildEnvironmentResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RebuildEnvironmentResponse' constructor.
 rebuildEnvironmentResponse :: RebuildEnvironmentResponse

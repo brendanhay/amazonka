@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype RetireGrant = RetireGrant
     { _rgGrantToken :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'RetireGrant' constructor.
 --
@@ -68,7 +68,7 @@ rgGrantToken :: Lens' RetireGrant Text
 rgGrantToken = lens _rgGrantToken (\s a -> s { _rgGrantToken = a })
 
 data RetireGrantResponse = RetireGrantResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RetireGrantResponse' constructor.
 retireGrantResponse :: RetireGrantResponse

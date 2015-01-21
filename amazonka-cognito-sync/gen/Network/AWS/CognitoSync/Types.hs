@@ -140,7 +140,7 @@ data IdentityPoolUsage = IdentityPoolUsage
     , _ipuIdentityPoolId    :: Maybe Text
     , _ipuLastModifiedDate  :: Maybe POSIX
     , _ipuSyncSessionsCount :: Maybe Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'IdentityPoolUsage' constructor.
 --
@@ -204,7 +204,7 @@ data Platform
     | Apns        -- ^ APNS
     | ApnsSandbox -- ^ APNS_SANDBOX
     | Gcm         -- ^ GCM
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Platform
 
@@ -242,7 +242,7 @@ data Dataset = Dataset
     , _dLastModifiedBy   :: Maybe Text
     , _dLastModifiedDate :: Maybe POSIX
     , _dNumRecords       :: Maybe Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Dataset' constructor.
 --
@@ -330,7 +330,7 @@ instance ToJSON Dataset where
 data Operation
     = Remove  -- ^ remove
     | Replace -- ^ replace
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Operation
 
@@ -363,7 +363,7 @@ data Record = Record
     , _rLastModifiedDate       :: Maybe POSIX
     , _rSyncCount              :: Maybe Integer
     , _rValue                  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Record' constructor.
 --
@@ -444,7 +444,7 @@ data IdentityUsage = IdentityUsage
     , _iuIdentityId       :: Maybe Text
     , _iuIdentityPoolId   :: Maybe Text
     , _iuLastModifiedDate :: Maybe POSIX
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'IdentityUsage' constructor.
 --
@@ -518,7 +518,7 @@ data RecordPatch = RecordPatch
     , _rpOp                     :: Operation
     , _rpSyncCount              :: Integer
     , _rpValue                  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RecordPatch' constructor.
 --
@@ -589,7 +589,7 @@ instance ToJSON RecordPatch where
 data PushSync = PushSync
     { _psApplicationArns :: List "ApplicationArns" Text
     , _psRoleArn         :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PushSync' constructor.
 --

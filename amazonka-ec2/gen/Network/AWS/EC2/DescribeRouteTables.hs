@@ -55,7 +55,7 @@ data DescribeRouteTables = DescribeRouteTables
     { _drt2DryRun        :: Maybe Bool
     , _drt2Filters       :: List "Filter" Filter
     , _drt2RouteTableIds :: List "item" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeRouteTables' constructor.
 --
@@ -141,7 +141,7 @@ drt2RouteTableIds =
 
 newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
     { _drtrRouteTables :: List "item" RouteTable
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeRouteTablesResponse' constructor.
 --

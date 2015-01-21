@@ -78,7 +78,7 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
     , _cnaeProtocol     :: Text
     , _cnaeRuleAction   :: RuleAction
     , _cnaeRuleNumber   :: Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateNetworkAclEntry' constructor.
 --
@@ -162,7 +162,7 @@ cnaeRuleNumber :: Lens' CreateNetworkAclEntry Int
 cnaeRuleNumber = lens _cnaeRuleNumber (\s a -> s { _cnaeRuleNumber = a })
 
 data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateNetworkAclEntryResponse' constructor.
 createNetworkAclEntryResponse :: CreateNetworkAclEntryResponse

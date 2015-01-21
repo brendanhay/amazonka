@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data ListDomains = ListDomains
     { _ldMarker   :: Maybe Text
     , _ldMaxItems :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListDomains' constructor.
 --
@@ -102,7 +102,7 @@ ldMaxItems = lens _ldMaxItems (\s a -> s { _ldMaxItems = a })
 data ListDomainsResponse = ListDomainsResponse
     { _ldrDomains        :: List "Domains" DomainSummary
     , _ldrNextPageMarker :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListDomainsResponse' constructor.
 --

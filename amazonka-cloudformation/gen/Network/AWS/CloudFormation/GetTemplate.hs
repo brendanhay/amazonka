@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype GetTemplate = GetTemplate
     { _gtStackName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetTemplate' constructor.
 --
@@ -80,7 +80,7 @@ gtStackName = lens _gtStackName (\s a -> s { _gtStackName = a })
 
 newtype GetTemplateResponse = GetTemplateResponse
     { _gtrTemplateBody :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'GetTemplateResponse' constructor.
 --

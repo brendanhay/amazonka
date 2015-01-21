@@ -467,7 +467,7 @@ overriden = flip (Map.foldlWithKey' run)
         . Map.adjust (dataFields %~ fld) k
         $ r
       where
-        fld = required (o ^. oRequired)
+        fld = required (o ^. oRequired) (o ^. oOptional)
             . renamed  (o ^. oRenamed)
 
     -- Types:
@@ -529,10 +529,16 @@ overriden = flip (Map.foldlWithKey' run)
         f x@Nullary{} = mapFieldNames (enumName k False y) x
         f x           = x
 
-    required s f
-        | Set.member (nameCI f) s
-        , TMaybe t <- f ^. typeOf = f & typeOf .~ t
-        | otherwise               = f
+    required x y f =
+        let k = nameCI f
+            a = Set.member k x
+            b = Set.member k y
+         in case f ^. typeOf of
+                TMaybe t
+                    | a -> f & typeOf .~ t
+                    | b -> f
+                _   | b -> f & typeOf %~ TMaybe
+                _       -> f
 
     renamed m = nameOf %~ (\n -> fromMaybe n (Map.lookup (CI.mk n) m))
 

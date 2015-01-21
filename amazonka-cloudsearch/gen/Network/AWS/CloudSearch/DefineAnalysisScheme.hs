@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data DefineAnalysisScheme = DefineAnalysisScheme
     { _das2AnalysisScheme :: AnalysisScheme
     , _das2DomainName     :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DefineAnalysisScheme' constructor.
 --
@@ -80,7 +80,7 @@ das2DomainName = lens _das2DomainName (\s a -> s { _das2DomainName = a })
 
 newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
     { _dasr1AnalysisScheme :: AnalysisSchemeStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DefineAnalysisSchemeResponse' constructor.
 --

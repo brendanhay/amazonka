@@ -48,7 +48,7 @@ import Network.AWS.ElasticBeanstalk.Types
 import qualified GHC.Exts
 
 data CreateStorageLocation = CreateStorageLocation
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateStorageLocation' constructor.
 createStorageLocation :: CreateStorageLocation
@@ -56,7 +56,7 @@ createStorageLocation = CreateStorageLocation
 
 newtype CreateStorageLocationResponse = CreateStorageLocationResponse
     { _cslrS3Bucket :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateStorageLocationResponse' constructor.
 --

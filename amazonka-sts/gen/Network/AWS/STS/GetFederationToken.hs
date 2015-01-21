@@ -108,7 +108,7 @@ data GetFederationToken = GetFederationToken
     { _gftDurationSeconds :: Maybe Nat
     , _gftName            :: Text
     , _gftPolicy          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetFederationToken' constructor.
 --
@@ -169,7 +169,7 @@ data GetFederationTokenResponse = GetFederationTokenResponse
     { _gftrCredentials      :: Maybe Credentials
     , _gftrFederatedUser    :: Maybe FederatedUser
     , _gftrPackedPolicySize :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetFederationTokenResponse' constructor.
 --

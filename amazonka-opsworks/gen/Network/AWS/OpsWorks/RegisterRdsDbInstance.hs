@@ -57,7 +57,7 @@ data RegisterRdsDbInstance = RegisterRdsDbInstance
     , _rrdiDbUser           :: Text
     , _rrdiRdsDbInstanceArn :: Text
     , _rrdiStackId          :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RegisterRdsDbInstance' constructor.
 --
@@ -101,7 +101,7 @@ rrdiStackId :: Lens' RegisterRdsDbInstance Text
 rrdiStackId = lens _rrdiStackId (\s a -> s { _rrdiStackId = a })
 
 data RegisterRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RegisterRdsDbInstanceResponse' constructor.
 registerRdsDbInstanceResponse :: RegisterRdsDbInstanceResponse

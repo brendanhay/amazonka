@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype DeliverConfigSnapshot = DeliverConfigSnapshot
     { _dcsDeliveryChannelName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeliverConfigSnapshot' constructor.
 --
@@ -76,7 +76,7 @@ dcsDeliveryChannelName =
 
 newtype DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse
     { _dcsrConfigSnapshotId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'DeliverConfigSnapshotResponse' constructor.
 --

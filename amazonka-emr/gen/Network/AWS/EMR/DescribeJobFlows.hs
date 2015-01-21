@@ -70,7 +70,7 @@ data DescribeJobFlows = DescribeJobFlows
     , _djfCreatedBefore :: Maybe POSIX
     , _djfJobFlowIds    :: List "JobFlowIds" Text
     , _djfJobFlowStates :: List "JobFlowStates" JobFlowExecutionState
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeJobFlows' constructor.
 --
@@ -110,7 +110,7 @@ djfJobFlowStates = lens _djfJobFlowStates (\s a -> s { _djfJobFlowStates = a }) 
 
 newtype DescribeJobFlowsResponse = DescribeJobFlowsResponse
     { _djfrJobFlows :: List "JobFlows" JobFlowDetail
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeJobFlowsResponse where
     type Item DescribeJobFlowsResponse = JobFlowDetail

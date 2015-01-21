@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data GetQueueUrl = GetQueueUrl
     { _gquQueueName              :: Text
     , _gquQueueOwnerAWSAccountId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetQueueUrl' constructor.
 --
@@ -86,7 +86,7 @@ gquQueueOwnerAWSAccountId =
 
 newtype GetQueueUrlResponse = GetQueueUrlResponse
     { _gqurQueueUrl :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetQueueUrlResponse' constructor.
 --

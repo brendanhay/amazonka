@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype ReadJob = ReadJob
     { _rjId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ReadJob' constructor.
 --
@@ -69,7 +69,7 @@ rjId = lens _rjId (\s a -> s { _rjId = a })
 
 newtype ReadJobResponse = ReadJobResponse
     { _rjrJob :: Job'
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ReadJobResponse' constructor.
 --

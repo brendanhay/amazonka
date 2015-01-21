@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data CreateNetworkAcl = CreateNetworkAcl
     { _cnaDryRun :: Maybe Bool
     , _cnaVpcId  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateNetworkAcl' constructor.
 --
@@ -80,7 +80,7 @@ cnaVpcId = lens _cnaVpcId (\s a -> s { _cnaVpcId = a })
 
 newtype CreateNetworkAclResponse = CreateNetworkAclResponse
     { _cnarNetworkAcl :: Maybe NetworkAcl
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateNetworkAclResponse' constructor.
 --

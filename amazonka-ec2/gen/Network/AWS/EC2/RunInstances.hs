@@ -124,7 +124,7 @@ data RunInstances = RunInstances
     , _riSecurityGroups                    :: List "SecurityGroup" Text
     , _riSubnetId                          :: Maybe Text
     , _riUserData                          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RunInstances' constructor.
 --
@@ -375,7 +375,7 @@ data RunInstancesResponse = RunInstancesResponse
     , _rirOwnerId       :: Text
     , _rirRequesterId   :: Maybe Text
     , _rirReservationId :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RunInstancesResponse' constructor.
 --

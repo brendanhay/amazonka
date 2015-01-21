@@ -96,7 +96,7 @@ ns = "http://importexport.amazonaws.com/doc/2010-06-01/"
 data JobType
     = Export' -- ^ Export
     | Import' -- ^ Import
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable JobType
 
@@ -124,7 +124,7 @@ data Job = Job
     , _jobIsCanceled   :: Bool
     , _jobJobId        :: Text
     , _jobJobType      :: JobType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Job' constructor.
 --

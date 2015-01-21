@@ -91,7 +91,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
     , _rdbitpitTdeCredentialArn           :: Maybe Text
     , _rdbitpitTdeCredentialPassword      :: Maybe Text
     , _rdbitpitUseLatestRestorableTime    :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RestoreDBInstanceToPointInTime' constructor.
 --
@@ -356,7 +356,7 @@ rdbitpitUseLatestRestorableTime =
 
 newtype RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
     { _rdbitpitrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RestoreDBInstanceToPointInTimeResponse' constructor.
 --

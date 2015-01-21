@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
     { _givaIdentities :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetIdentityVerificationAttributes where
     type Item GetIdentityVerificationAttributes = Text
@@ -78,7 +78,7 @@ givaIdentities = lens _givaIdentities (\s a -> s { _givaIdentities = a }) . _Lis
 
 newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse
     { _givarVerificationAttributes :: EMap "entry" "key" "value" Text IdentityVerificationAttributes
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'GetIdentityVerificationAttributesResponse' constructor.
 --

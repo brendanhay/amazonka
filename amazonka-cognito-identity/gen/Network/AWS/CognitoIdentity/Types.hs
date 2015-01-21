@@ -30,10 +30,20 @@ module Network.AWS.CognitoIdentity.Types
     -- ** Error
     , JSONError
 
+    -- * Credentials
+    , Credentials
+    , credentials
+    , cAccessKeyId
+    , cExpiration
+    , cSecretKey
+    , cSessionToken
+
     -- * IdentityDescription
     , IdentityDescription
     , identityDescription
+    , idCreationDate
     , idIdentityId
+    , idLastModifiedDate
     , idLogins
 
     -- * IdentityPool
@@ -98,28 +108,104 @@ instance AWSService CognitoIdentity where
             | s == 503  = True -- Service Unavailable
             | otherwise = False
 
+data Credentials = Credentials
+    { _cAccessKeyId  :: Maybe Text
+    , _cExpiration   :: Maybe POSIX
+    , _cSecretKey    :: Maybe Text
+    , _cSessionToken :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'Credentials' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cAccessKeyId' @::@ 'Maybe' 'Text'
+--
+-- * 'cExpiration' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'cSecretKey' @::@ 'Maybe' 'Text'
+--
+-- * 'cSessionToken' @::@ 'Maybe' 'Text'
+--
+credentials :: Credentials
+credentials = Credentials
+    { _cAccessKeyId  = Nothing
+    , _cSecretKey    = Nothing
+    , _cSessionToken = Nothing
+    , _cExpiration   = Nothing
+    }
+
+-- | The Access Key portion of the credentials.
+cAccessKeyId :: Lens' Credentials (Maybe Text)
+cAccessKeyId = lens _cAccessKeyId (\s a -> s { _cAccessKeyId = a })
+
+-- | The date at which these credentials will expire.
+cExpiration :: Lens' Credentials (Maybe UTCTime)
+cExpiration = lens _cExpiration (\s a -> s { _cExpiration = a }) . mapping _Time
+
+-- | The Secret Access Key portion of the credentials
+cSecretKey :: Lens' Credentials (Maybe Text)
+cSecretKey = lens _cSecretKey (\s a -> s { _cSecretKey = a })
+
+-- | The Session Token portion of the credentials
+cSessionToken :: Lens' Credentials (Maybe Text)
+cSessionToken = lens _cSessionToken (\s a -> s { _cSessionToken = a })
+
+instance FromJSON Credentials where
+    parseJSON = withObject "Credentials" $ \o -> Credentials
+        <$> o .:? "AccessKeyId"
+        <*> o .:? "Expiration"
+        <*> o .:? "SecretKey"
+        <*> o .:? "SessionToken"
+
+instance ToJSON Credentials where
+    toJSON Credentials{..} = object
+        [ "AccessKeyId"  .= _cAccessKeyId
+        , "SecretKey"    .= _cSecretKey
+        , "SessionToken" .= _cSessionToken
+        , "Expiration"   .= _cExpiration
+        ]
+
 data IdentityDescription = IdentityDescription
-    { _idIdentityId :: Maybe Text
-    , _idLogins     :: List "Logins" Text
-    } deriving (Eq, Ord, Show)
+    { _idCreationDate     :: Maybe POSIX
+    , _idIdentityId       :: Maybe Text
+    , _idLastModifiedDate :: Maybe POSIX
+    , _idLogins           :: List "Logins" Text
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'IdentityDescription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'idCreationDate' @::@ 'Maybe' 'UTCTime'
+--
 -- * 'idIdentityId' @::@ 'Maybe' 'Text'
+--
+-- * 'idLastModifiedDate' @::@ 'Maybe' 'UTCTime'
 --
 -- * 'idLogins' @::@ ['Text']
 --
 identityDescription :: IdentityDescription
 identityDescription = IdentityDescription
-    { _idIdentityId = Nothing
-    , _idLogins     = mempty
+    { _idIdentityId       = Nothing
+    , _idLogins           = mempty
+    , _idCreationDate     = Nothing
+    , _idLastModifiedDate = Nothing
     }
+
+-- | Date on which the identity was created.
+idCreationDate :: Lens' IdentityDescription (Maybe UTCTime)
+idCreationDate = lens _idCreationDate (\s a -> s { _idCreationDate = a }) . mapping _Time
 
 -- | A unique identifier in the format REGION:GUID.
 idIdentityId :: Lens' IdentityDescription (Maybe Text)
 idIdentityId = lens _idIdentityId (\s a -> s { _idIdentityId = a })
+
+-- | Date on which the identity was last modified.
+idLastModifiedDate :: Lens' IdentityDescription (Maybe UTCTime)
+idLastModifiedDate =
+    lens _idLastModifiedDate (\s a -> s { _idLastModifiedDate = a })
+        . mapping _Time
 
 -- | A set of optional name-value pairs that map provider names to provider tokens.
 idLogins :: Lens' IdentityDescription [Text]
@@ -127,13 +213,17 @@ idLogins = lens _idLogins (\s a -> s { _idLogins = a }) . _List
 
 instance FromJSON IdentityDescription where
     parseJSON = withObject "IdentityDescription" $ \o -> IdentityDescription
-        <$> o .:? "IdentityId"
+        <$> o .:? "CreationDate"
+        <*> o .:? "IdentityId"
+        <*> o .:? "LastModifiedDate"
         <*> o .:? "Logins" .!= mempty
 
 instance ToJSON IdentityDescription where
     toJSON IdentityDescription{..} = object
-        [ "IdentityId" .= _idIdentityId
-        , "Logins"     .= _idLogins
+        [ "IdentityId"       .= _idIdentityId
+        , "Logins"           .= _idLogins
+        , "CreationDate"     .= _idCreationDate
+        , "LastModifiedDate" .= _idLastModifiedDate
         ]
 
 data IdentityPool = IdentityPool
@@ -143,7 +233,7 @@ data IdentityPool = IdentityPool
     , _ipIdentityPoolName               :: Text
     , _ipOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
     , _ipSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'IdentityPool' constructor.
 --
@@ -194,6 +284,7 @@ ipIdentityPoolName :: Lens' IdentityPool Text
 ipIdentityPoolName =
     lens _ipIdentityPoolName (\s a -> s { _ipIdentityPoolName = a })
 
+-- | A list of OpendID Connect provider ARNs.
 ipOpenIdConnectProviderARNs :: Lens' IdentityPool [Text]
 ipOpenIdConnectProviderARNs =
     lens _ipOpenIdConnectProviderARNs
@@ -229,7 +320,7 @@ instance ToJSON IdentityPool where
 data IdentityPoolShortDescription = IdentityPoolShortDescription
     { _ipsdIdentityPoolId   :: Maybe Text
     , _ipsdIdentityPoolName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'IdentityPoolShortDescription' constructor.
 --

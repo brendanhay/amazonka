@@ -75,7 +75,7 @@ data CreateApp = CreateApp
     , _caSslConfiguration :: Maybe SslConfiguration
     , _caStackId          :: Text
     , _caType             :: AppType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateApp' constructor.
 --
@@ -185,7 +185,7 @@ caType = lens _caType (\s a -> s { _caType = a })
 
 newtype CreateAppResponse = CreateAppResponse
     { _carAppId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateAppResponse' constructor.
 --

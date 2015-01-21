@@ -65,7 +65,7 @@ data Select = Select
     { _sConsistentRead   :: Maybe Bool
     , _sNextToken        :: Maybe Text
     , _sSelectExpression :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Select' constructor.
 --
@@ -104,7 +104,7 @@ sSelectExpression =
 data SelectResponse = SelectResponse
     { _srItems     :: List "member" Item
     , _srNextToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SelectResponse' constructor.
 --

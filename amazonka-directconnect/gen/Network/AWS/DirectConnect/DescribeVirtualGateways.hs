@@ -50,7 +50,7 @@ import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
 data DescribeVirtualGateways = DescribeVirtualGateways
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DescribeVirtualGateways' constructor.
 describeVirtualGateways :: DescribeVirtualGateways
@@ -58,7 +58,7 @@ describeVirtualGateways = DescribeVirtualGateways
 
 newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
     { _dvgrVirtualGateways :: List "virtualGateways" VirtualGateway
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeVirtualGatewaysResponse where
     type Item DescribeVirtualGatewaysResponse = VirtualGateway

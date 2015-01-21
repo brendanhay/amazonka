@@ -66,7 +66,7 @@ import qualified GHC.Exts
 data DeprecateActivityType = DeprecateActivityType
     { _dat1ActivityType :: ActivityType
     , _dat1Domain       :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeprecateActivityType' constructor.
 --
@@ -93,7 +93,7 @@ dat1Domain :: Lens' DeprecateActivityType Text
 dat1Domain = lens _dat1Domain (\s a -> s { _dat1Domain = a })
 
 data DeprecateActivityTypeResponse = DeprecateActivityTypeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeprecateActivityTypeResponse' constructor.
 deprecateActivityTypeResponse :: DeprecateActivityTypeResponse

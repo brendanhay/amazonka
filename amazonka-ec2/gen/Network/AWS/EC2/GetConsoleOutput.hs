@@ -70,7 +70,7 @@ import qualified GHC.Exts
 data GetConsoleOutput = GetConsoleOutput
     { _gcoDryRun     :: Maybe Bool
     , _gcoInstanceId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetConsoleOutput' constructor.
 --
@@ -98,7 +98,7 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse
     { _gcorInstanceId :: Maybe Text
     , _gcorOutput     :: Maybe Text
     , _gcorTimestamp  :: Maybe ISO8601
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetConsoleOutputResponse' constructor.
 --

@@ -57,7 +57,7 @@ data DescribeDBInstances = DescribeDBInstances
     , _ddbi1Filters              :: List "member" Filter
     , _ddbi1Marker               :: Maybe Text
     , _ddbi1MaxRecords           :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDBInstances' constructor.
 --
@@ -116,7 +116,7 @@ ddbi1MaxRecords = lens _ddbi1MaxRecords (\s a -> s { _ddbi1MaxRecords = a })
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse
     { _ddbirDBInstances :: List "member" DBInstance
     , _ddbirMarker      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDBInstancesResponse' constructor.
 --

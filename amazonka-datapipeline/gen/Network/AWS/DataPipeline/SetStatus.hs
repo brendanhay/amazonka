@@ -56,7 +56,7 @@ data SetStatus = SetStatus
     { _ssObjectIds  :: List "objectIds" Text
     , _ssPipelineId :: Text
     , _ssStatus     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SetStatus' constructor.
 --
@@ -93,7 +93,7 @@ ssStatus :: Lens' SetStatus Text
 ssStatus = lens _ssStatus (\s a -> s { _ssStatus = a })
 
 data SetStatusResponse = SetStatusResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetStatusResponse' constructor.
 setStatusResponse :: SetStatusResponse

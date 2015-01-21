@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data DeleteVolume = DeleteVolume
     { _dv4DryRun   :: Maybe Bool
     , _dv4VolumeId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteVolume' constructor.
 --
@@ -79,7 +79,7 @@ dv4VolumeId :: Lens' DeleteVolume Text
 dv4VolumeId = lens _dv4VolumeId (\s a -> s { _dv4VolumeId = a })
 
 data DeleteVolumeResponse = DeleteVolumeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteVolumeResponse' constructor.
 deleteVolumeResponse :: DeleteVolumeResponse

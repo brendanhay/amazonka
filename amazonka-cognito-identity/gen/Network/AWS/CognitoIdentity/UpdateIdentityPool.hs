@@ -64,7 +64,7 @@ data UpdateIdentityPool = UpdateIdentityPool
     , _uipIdentityPoolName               :: Text
     , _uipOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
     , _uipSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateIdentityPool' constructor.
 --
@@ -117,6 +117,7 @@ uipIdentityPoolName :: Lens' UpdateIdentityPool Text
 uipIdentityPoolName =
     lens _uipIdentityPoolName (\s a -> s { _uipIdentityPoolName = a })
 
+-- | A list of OpendID Connect provider ARNs.
 uipOpenIdConnectProviderARNs :: Lens' UpdateIdentityPool [Text]
 uipOpenIdConnectProviderARNs =
     lens _uipOpenIdConnectProviderARNs
@@ -137,7 +138,7 @@ data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
     , _uiprIdentityPoolName               :: Text
     , _uiprOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
     , _uiprSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateIdentityPoolResponse' constructor.
 --
@@ -190,6 +191,7 @@ uiprIdentityPoolName :: Lens' UpdateIdentityPoolResponse Text
 uiprIdentityPoolName =
     lens _uiprIdentityPoolName (\s a -> s { _uiprIdentityPoolName = a })
 
+-- | A list of OpendID Connect provider ARNs.
 uiprOpenIdConnectProviderARNs :: Lens' UpdateIdentityPoolResponse [Text]
 uiprOpenIdConnectProviderARNs =
     lens _uiprOpenIdConnectProviderARNs

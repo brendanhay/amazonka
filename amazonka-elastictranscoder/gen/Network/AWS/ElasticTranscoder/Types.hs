@@ -345,7 +345,7 @@ data PipelineOutputConfig = PipelineOutputConfig
     { _pocBucket       :: Maybe Text
     , _pocPermissions  :: List "Permissions" Permission
     , _pocStorageClass :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PipelineOutputConfig' constructor.
 --
@@ -418,7 +418,7 @@ data CreateJobPlaylist = CreateJobPlaylist
     , _cjpHlsContentProtection :: Maybe HlsContentProtection
     , _cjpName                 :: Maybe Text
     , _cjpOutputKeys           :: List "OutputKeys" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateJobPlaylist' constructor.
 --
@@ -518,7 +518,7 @@ data Captions = Captions
     { _cCaptionFormats :: List "CaptionFormats" CaptionFormat
     , _cCaptionSources :: List "CaptionSources" CaptionSource
     , _cMergePolicy    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Captions' constructor.
 --
@@ -584,7 +584,7 @@ instance ToJSON Captions where
 
 newtype AudioCodecOptions = AudioCodecOptions
     { _acoProfile :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'AudioCodecOptions' constructor.
 --
@@ -643,7 +643,7 @@ data JobOutput = JobOutput
     , _joThumbnailPattern    :: Maybe Text
     , _joWatermarks          :: List "Watermarks" JobWatermark
     , _joWidth               :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'JobOutput' constructor.
 --
@@ -950,7 +950,7 @@ data Job' = Job'
     , _jPlaylists       :: List "Playlists" Playlist
     , _jStatus          :: Text
     , _jUserMetadata    :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Job'' constructor.
 --
@@ -1105,7 +1105,7 @@ data CaptionSource = CaptionSource
     , _csLabel      :: Maybe Text
     , _csLanguage   :: Maybe Text
     , _csTimeOffset :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CaptionSource' constructor.
 --
@@ -1190,7 +1190,7 @@ data Artwork = Artwork
     , _aMaxWidth       :: Maybe Text
     , _aPaddingPolicy  :: Maybe Text
     , _aSizingPolicy   :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Artwork' constructor.
 --
@@ -1307,7 +1307,7 @@ instance ToJSON Artwork where
 data TimeSpan = TimeSpan
     { _tsDuration  :: Maybe Text
     , _tsStartTime :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TimeSpan' constructor.
 --
@@ -1363,7 +1363,7 @@ data CreateJobOutput = CreateJobOutput
     , _cjoThumbnailEncryption :: Maybe Encryption
     , _cjoThumbnailPattern    :: Maybe Text
     , _cjoWatermarks          :: List "Watermarks" JobWatermark
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateJobOutput' constructor.
 --
@@ -1586,7 +1586,7 @@ data AudioParameters = AudioParameters
     , _apCodec        :: Maybe Text
     , _apCodecOptions :: Maybe AudioCodecOptions
     , _apSampleRate   :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AudioParameters' constructor.
 --
@@ -1676,7 +1676,7 @@ data Thumbnails = Thumbnails
     , _tPaddingPolicy :: Maybe Text
     , _tResolution    :: Maybe Text
     , _tSizingPolicy  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Thumbnails' constructor.
 --
@@ -1818,7 +1818,7 @@ data Encryption = Encryption
     , _eKey                  :: Maybe Text
     , _eKeyMd5               :: Maybe Text
     , _eMode                 :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Encryption' constructor.
 --
@@ -1922,7 +1922,7 @@ instance ToJSON Encryption where
 data JobAlbumArt = JobAlbumArt
     { _jaaArtwork     :: List "Artwork" Artwork
     , _jaaMergePolicy :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'JobAlbumArt' constructor.
 --
@@ -1967,7 +1967,7 @@ data JobWatermark = JobWatermark
     { _jwEncryption        :: Maybe Encryption
     , _jwInputKey          :: Maybe Text
     , _jwPresetWatermarkId :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'JobWatermark' constructor.
 --
@@ -2035,7 +2035,7 @@ data Pipeline = Pipeline
     , _pRole            :: Maybe Text
     , _pStatus          :: Maybe Text
     , _pThumbnailConfig :: Maybe PipelineOutputConfig
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Pipeline' constructor.
 --
@@ -2235,7 +2235,7 @@ data Preset = Preset
     , _p1Thumbnails  :: Maybe Thumbnails
     , _p1Type        :: Maybe Text
     , _p1Video       :: Maybe VideoParameters
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Preset' constructor.
 --
@@ -2342,7 +2342,7 @@ data CaptionFormat = CaptionFormat
     { _cfEncryption :: Maybe Encryption
     , _cfFormat     :: Maybe Text
     , _cfPattern    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CaptionFormat' constructor.
 --
@@ -2428,7 +2428,7 @@ data HlsContentProtection = HlsContentProtection
     , _hcpKeyStoragePolicy      :: Maybe Text
     , _hcpLicenseAcquisitionUrl :: Maybe Text
     , _hcpMethod                :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'HlsContentProtection' constructor.
 --
@@ -2541,7 +2541,7 @@ data PresetWatermark = PresetWatermark
     , _pwTarget           :: Maybe Text
     , _pwVerticalAlign    :: Maybe Text
     , _pwVerticalOffset   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PresetWatermark' constructor.
 --
@@ -2732,7 +2732,7 @@ data Permission = Permission
     { _pAccess      :: List "Access" Text
     , _pGrantee     :: Maybe Text
     , _pGranteeType :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Permission' constructor.
 --
@@ -2807,7 +2807,7 @@ data VideoParameters = VideoParameters
     , _vpResolution         :: Maybe Text
     , _vpSizingPolicy       :: Maybe Text
     , _vpWatermarks         :: List "Watermarks" PresetWatermark
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'VideoParameters' constructor.
 --
@@ -3145,7 +3145,7 @@ data Playlist = Playlist
     , _p2OutputKeys           :: List "OutputKeys" Text
     , _p2Status               :: Maybe Text
     , _p2StatusDetail         :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Playlist' constructor.
 --
@@ -3264,7 +3264,7 @@ data Notifications = Notifications
     , _nError       :: Maybe Text
     , _nProgressing :: Maybe Text
     , _nWarning     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Notifications' constructor.
 --
@@ -3323,7 +3323,7 @@ instance ToJSON Notifications where
 
 newtype Clip = Clip
     { _cTimeSpan :: Maybe TimeSpan
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Clip' constructor.
 --
@@ -3357,7 +3357,7 @@ data JobInput = JobInput
     , _jiInterlaced  :: Maybe Text
     , _jiKey         :: Maybe Text
     , _jiResolution  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'JobInput' constructor.
 --

@@ -63,7 +63,7 @@ import qualified GHC.Exts
 data CreateKeyPair = CreateKeyPair
     { _ckpDryRun  :: Maybe Bool
     , _ckpKeyName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateKeyPair' constructor.
 --
@@ -93,7 +93,7 @@ data CreateKeyPairResponse = CreateKeyPairResponse
     { _ckprKeyFingerprint :: Text
     , _ckprKeyMaterial    :: Text
     , _ckprKeyName        :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateKeyPairResponse' constructor.
 --

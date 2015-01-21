@@ -64,7 +64,7 @@ data ListVolumes = ListVolumes
     { _lvGatewayARN :: Text
     , _lvLimit      :: Maybe Nat
     , _lvMarker     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListVolumes' constructor.
 --
@@ -102,7 +102,7 @@ data ListVolumesResponse = ListVolumesResponse
     { _lvrGatewayARN  :: Maybe Text
     , _lvrMarker      :: Maybe Text
     , _lvrVolumeInfos :: List "VolumeInfos" VolumeInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListVolumesResponse' constructor.
 --

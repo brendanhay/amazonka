@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
     { _uarpPolicyDocument :: Text
     , _uarpRoleName       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateAssumeRolePolicy' constructor.
 --
@@ -78,7 +78,7 @@ uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
 uarpRoleName = lens _uarpRoleName (\s a -> s { _uarpRoleName = a })
 
 data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateAssumeRolePolicyResponse' constructor.
 updateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse

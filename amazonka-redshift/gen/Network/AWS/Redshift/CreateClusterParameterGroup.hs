@@ -64,7 +64,7 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup
     , _ccpgParameterGroupFamily :: Text
     , _ccpgParameterGroupName   :: Text
     , _ccpgTags                 :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateClusterParameterGroup' constructor.
 --
@@ -124,7 +124,7 @@ ccpgTags = lens _ccpgTags (\s a -> s { _ccpgTags = a }) . _List
 
 newtype CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
     { _ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateClusterParameterGroupResponse' constructor.
 --

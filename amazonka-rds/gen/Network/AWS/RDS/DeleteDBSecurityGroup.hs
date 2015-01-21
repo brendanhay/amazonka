@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup
     { _ddbsgDBSecurityGroupName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteDBSecurityGroup' constructor.
 --
@@ -75,7 +75,7 @@ ddbsgDBSecurityGroupName =
         (\s a -> s { _ddbsgDBSecurityGroupName = a })
 
 data DeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteDBSecurityGroupResponse' constructor.
 deleteDBSecurityGroupResponse :: DeleteDBSecurityGroupResponse

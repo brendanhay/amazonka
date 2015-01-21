@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data AssociateElasticIp = AssociateElasticIp
     { _aeiElasticIp  :: Text
     , _aeiInstanceId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AssociateElasticIp' constructor.
 --
@@ -81,7 +81,7 @@ aeiInstanceId :: Lens' AssociateElasticIp (Maybe Text)
 aeiInstanceId = lens _aeiInstanceId (\s a -> s { _aeiInstanceId = a })
 
 data AssociateElasticIpResponse = AssociateElasticIpResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AssociateElasticIpResponse' constructor.
 associateElasticIpResponse :: AssociateElasticIpResponse

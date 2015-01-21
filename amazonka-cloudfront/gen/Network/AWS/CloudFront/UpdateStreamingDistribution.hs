@@ -54,7 +54,7 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution
     { _usdId                          :: Text
     , _usdIfMatch                     :: Maybe Text
     , _usdStreamingDistributionConfig :: StreamingDistributionConfig
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateStreamingDistribution' constructor.
 --
@@ -93,7 +93,7 @@ usdStreamingDistributionConfig =
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
     { _usdrETag                  :: Maybe Text
     , _usdrStreamingDistribution :: Maybe StreamingDistribution
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateStreamingDistributionResponse' constructor.
 --

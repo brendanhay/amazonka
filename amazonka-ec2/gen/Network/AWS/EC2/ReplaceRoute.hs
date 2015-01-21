@@ -63,7 +63,7 @@ data ReplaceRoute = ReplaceRoute
     , _rrNetworkInterfaceId     :: Maybe Text
     , _rrRouteTableId           :: Text
     , _rrVpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ReplaceRoute' constructor.
 --
@@ -129,7 +129,7 @@ rrVpcPeeringConnectionId =
         (\s a -> s { _rrVpcPeeringConnectionId = a })
 
 data ReplaceRouteResponse = ReplaceRouteResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ReplaceRouteResponse' constructor.
 replaceRouteResponse :: ReplaceRouteResponse

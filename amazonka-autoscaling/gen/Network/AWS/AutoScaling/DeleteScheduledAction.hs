@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DeleteScheduledAction = DeleteScheduledAction
     { _dsaAutoScalingGroupName :: Maybe Text
     , _dsaScheduledActionName  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteScheduledAction' constructor.
 --
@@ -77,7 +77,7 @@ dsaScheduledActionName =
     lens _dsaScheduledActionName (\s a -> s { _dsaScheduledActionName = a })
 
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteScheduledActionResponse' constructor.
 deleteScheduledActionResponse :: DeleteScheduledActionResponse

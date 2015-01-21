@@ -72,7 +72,7 @@ data DescribeClusters = DescribeClusters
     , _dcMaxRecords        :: Maybe Int
     , _dcTagKeys           :: List "member" Text
     , _dcTagValues         :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeClusters' constructor.
 --
@@ -148,7 +148,7 @@ dcTagValues = lens _dcTagValues (\s a -> s { _dcTagValues = a }) . _List
 data DescribeClustersResponse = DescribeClustersResponse
     { _dcrClusters :: List "member" Cluster
     , _dcrMarker   :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeClustersResponse' constructor.
 --

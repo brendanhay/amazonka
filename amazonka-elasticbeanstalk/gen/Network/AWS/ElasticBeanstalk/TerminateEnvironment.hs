@@ -67,7 +67,7 @@ data TerminateEnvironment = TerminateEnvironment
     { _teEnvironmentId      :: Maybe Text
     , _teEnvironmentName    :: Maybe Text
     , _teTerminateResources :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TerminateEnvironment' constructor.
 --
@@ -138,7 +138,7 @@ data TerminateEnvironmentResponse = TerminateEnvironmentResponse
     , _terTemplateName      :: Maybe Text
     , _terTier              :: Maybe EnvironmentTier
     , _terVersionLabel      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'TerminateEnvironmentResponse' constructor.
 --

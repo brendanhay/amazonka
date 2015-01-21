@@ -93,7 +93,7 @@ data Search = Search
     , _s1Size         :: Maybe Integer
     , _s1Sort         :: Maybe Text
     , _s1Start        :: Maybe Integer
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Search' constructor.
 --
@@ -373,7 +373,7 @@ data SearchResponse = SearchResponse
     { _sr1Facets :: Map Text BucketInfo
     , _sr1Hits   :: Maybe Hits
     , _sr1Status :: Maybe SearchStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SearchResponse' constructor.
 --

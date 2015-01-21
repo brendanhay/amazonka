@@ -29,6 +29,7 @@ newtype Nat = Nat { unNat :: Natural }
     deriving
         ( Eq
         , Ord
+        , Read
         , Show
         , Enum
         , Num

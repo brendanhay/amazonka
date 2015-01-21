@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype VerifyEmailIdentity = VerifyEmailIdentity
     { _veiEmailAddress :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'VerifyEmailIdentity' constructor.
 --
@@ -69,7 +69,7 @@ veiEmailAddress :: Lens' VerifyEmailIdentity Text
 veiEmailAddress = lens _veiEmailAddress (\s a -> s { _veiEmailAddress = a })
 
 data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'VerifyEmailIdentityResponse' constructor.
 verifyEmailIdentityResponse :: VerifyEmailIdentityResponse

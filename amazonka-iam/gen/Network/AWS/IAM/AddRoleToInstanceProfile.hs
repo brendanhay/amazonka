@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile
     { _artipInstanceProfileName :: Text
     , _artipRoleName            :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AddRoleToInstanceProfile' constructor.
 --
@@ -80,7 +80,7 @@ artipRoleName :: Lens' AddRoleToInstanceProfile Text
 artipRoleName = lens _artipRoleName (\s a -> s { _artipRoleName = a })
 
 data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AddRoleToInstanceProfileResponse' constructor.
 addRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse

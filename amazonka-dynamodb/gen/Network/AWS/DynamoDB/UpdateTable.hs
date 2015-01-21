@@ -67,7 +67,7 @@ data UpdateTable = UpdateTable
     { _utGlobalSecondaryIndexUpdates :: List "GlobalSecondaryIndexUpdates" GlobalSecondaryIndexUpdate
     , _utProvisionedThroughput       :: Maybe ProvisionedThroughput
     , _utTableName                   :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateTable' constructor.
 --
@@ -105,7 +105,7 @@ utTableName = lens _utTableName (\s a -> s { _utTableName = a })
 
 newtype UpdateTableResponse = UpdateTableResponse
     { _utrTableDescription :: Maybe TableDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateTableResponse' constructor.
 --

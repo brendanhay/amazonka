@@ -67,7 +67,7 @@ data CreateImage = CreateImage
     , _ci1InstanceId          :: Text
     , _ci1Name                :: Text
     , _ci1NoReboot            :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateImage' constructor.
 --
@@ -132,7 +132,7 @@ ci1NoReboot = lens _ci1NoReboot (\s a -> s { _ci1NoReboot = a })
 
 newtype CreateImageResponse = CreateImageResponse
     { _cirImageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateImageResponse' constructor.
 --

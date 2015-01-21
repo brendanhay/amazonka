@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data SetVisibleToAllUsers = SetVisibleToAllUsers
     { _svtauJobFlowIds        :: List "JobFlowIds" Text
     , _svtauVisibleToAllUsers :: Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SetVisibleToAllUsers' constructor.
 --
@@ -85,7 +85,7 @@ svtauVisibleToAllUsers =
     lens _svtauVisibleToAllUsers (\s a -> s { _svtauVisibleToAllUsers = a })
 
 data SetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetVisibleToAllUsersResponse' constructor.
 setVisibleToAllUsersResponse :: SetVisibleToAllUsersResponse

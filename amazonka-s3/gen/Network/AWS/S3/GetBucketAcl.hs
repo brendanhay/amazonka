@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetBucketAcl = GetBucketAcl
     { _gbaBucket :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetBucketAcl' constructor.
 --
@@ -70,7 +70,7 @@ gbaBucket = lens _gbaBucket (\s a -> s { _gbaBucket = a })
 data GetBucketAclResponse = GetBucketAclResponse
     { _gbarGrants :: List "Grant" Grant
     , _gbarOwner  :: Maybe Owner
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetBucketAclResponse' constructor.
 --

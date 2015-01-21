@@ -58,7 +58,7 @@ import qualified GHC.Exts
 
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
     { _rtacCheckId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'RefreshTrustedAdvisorCheck' constructor.
 --
@@ -78,7 +78,7 @@ rtacCheckId = lens _rtacCheckId (\s a -> s { _rtacCheckId = a })
 
 newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
     { _rtacrStatus :: TrustedAdvisorCheckRefreshStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RefreshTrustedAdvisorCheckResponse' constructor.
 --

@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
     { _dcfoaiId      :: Text
     , _dcfoaiIfMatch :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteCloudFrontOriginAccessIdentity' constructor.
 --
@@ -76,7 +76,7 @@ dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
 dcfoaiIfMatch = lens _dcfoaiIfMatch (\s a -> s { _dcfoaiIfMatch = a })
 
 data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteCloudFrontOriginAccessIdentityResponse' constructor.
 deleteCloudFrontOriginAccessIdentityResponse :: DeleteCloudFrontOriginAccessIdentityResponse

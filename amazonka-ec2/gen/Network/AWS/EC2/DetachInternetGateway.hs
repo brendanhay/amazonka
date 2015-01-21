@@ -53,7 +53,7 @@ data DetachInternetGateway = DetachInternetGateway
     { _digDryRun            :: Maybe Bool
     , _digInternetGatewayId :: Text
     , _digVpcId             :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DetachInternetGateway' constructor.
 --
@@ -87,7 +87,7 @@ digVpcId :: Lens' DetachInternetGateway Text
 digVpcId = lens _digVpcId (\s a -> s { _digVpcId = a })
 
 data DetachInternetGatewayResponse = DetachInternetGatewayResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DetachInternetGatewayResponse' constructor.
 detachInternetGatewayResponse :: DetachInternetGatewayResponse

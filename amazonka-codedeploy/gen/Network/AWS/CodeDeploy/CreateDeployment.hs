@@ -59,7 +59,7 @@ data CreateDeployment = CreateDeployment
     , _cdDescription                   :: Maybe Text
     , _cdIgnoreApplicationStopFailures :: Maybe Bool
     , _cdRevision                      :: Maybe RevisionLocation
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDeployment' constructor.
 --
@@ -134,7 +134,7 @@ cdRevision = lens _cdRevision (\s a -> s { _cdRevision = a })
 
 newtype CreateDeploymentResponse = CreateDeploymentResponse
     { _cdrDeploymentId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateDeploymentResponse' constructor.
 --

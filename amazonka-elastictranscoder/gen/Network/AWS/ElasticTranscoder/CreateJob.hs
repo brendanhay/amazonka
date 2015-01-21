@@ -67,7 +67,7 @@ data CreateJob = CreateJob
     , _cjPipelineId      :: Text
     , _cjPlaylists       :: List "Playlists" CreateJobPlaylist
     , _cjUserMetadata    :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateJob' constructor.
 --
@@ -143,7 +143,7 @@ cjUserMetadata = lens _cjUserMetadata (\s a -> s { _cjUserMetadata = a }) . _Map
 
 newtype CreateJobResponse = CreateJobResponse
     { _cjrJob :: Maybe Job'
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateJobResponse' constructor.
 --

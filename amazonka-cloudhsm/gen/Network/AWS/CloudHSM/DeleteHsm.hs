@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DeleteHsm = DeleteHsm
     { _dhHsmArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteHsm' constructor.
 --
@@ -70,7 +70,7 @@ dhHsmArn = lens _dhHsmArn (\s a -> s { _dhHsmArn = a })
 
 newtype DeleteHsmResponse = DeleteHsmResponse
     { _dhr1Status :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteHsmResponse' constructor.
 --

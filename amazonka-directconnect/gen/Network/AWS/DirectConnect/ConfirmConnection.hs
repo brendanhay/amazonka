@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 newtype ConfirmConnection = ConfirmConnection
     { _ccConnectionId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ConfirmConnection' constructor.
 --
@@ -72,7 +72,7 @@ ccConnectionId = lens _ccConnectionId (\s a -> s { _ccConnectionId = a })
 
 newtype ConfirmConnectionResponse = ConfirmConnectionResponse
     { _ccr1ConnectionState :: Maybe ConnectionState
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ConfirmConnectionResponse' constructor.
 --

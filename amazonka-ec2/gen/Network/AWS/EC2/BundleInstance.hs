@@ -61,7 +61,7 @@ data BundleInstance = BundleInstance
     { _biDryRun     :: Maybe Bool
     , _biInstanceId :: Text
     , _biStorage    :: Storage
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'BundleInstance' constructor.
 --
@@ -103,7 +103,7 @@ biStorage = lens _biStorage (\s a -> s { _biStorage = a })
 
 newtype BundleInstanceResponse = BundleInstanceResponse
     { _birBundleTask :: Maybe BundleTask
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'BundleInstanceResponse' constructor.
 --

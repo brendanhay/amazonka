@@ -70,7 +70,7 @@ data ModifyImageAttribute = ModifyImageAttribute
     , _miaUserGroups       :: List "UserGroup" Text
     , _miaUserIds          :: List "UserId" Text
     , _miaValue            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyImageAttribute' constructor.
 --
@@ -154,7 +154,7 @@ miaValue :: Lens' ModifyImageAttribute (Maybe Text)
 miaValue = lens _miaValue (\s a -> s { _miaValue = a })
 
 data ModifyImageAttributeResponse = ModifyImageAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ModifyImageAttributeResponse' constructor.
 modifyImageAttributeResponse :: ModifyImageAttributeResponse

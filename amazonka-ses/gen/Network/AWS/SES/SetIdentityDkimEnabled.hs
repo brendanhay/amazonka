@@ -60,7 +60,7 @@ import qualified GHC.Exts
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled
     { _sideDkimEnabled :: Bool
     , _sideIdentity    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SetIdentityDkimEnabled' constructor.
 --
@@ -88,7 +88,7 @@ sideIdentity :: Lens' SetIdentityDkimEnabled Text
 sideIdentity = lens _sideIdentity (\s a -> s { _sideIdentity = a })
 
 data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetIdentityDkimEnabledResponse' constructor.
 setIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse

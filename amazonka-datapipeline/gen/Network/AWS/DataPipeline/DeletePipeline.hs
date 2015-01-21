@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype DeletePipeline = DeletePipeline
     { _dpPipelineId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeletePipeline' constructor.
 --
@@ -73,7 +73,7 @@ dpPipelineId :: Lens' DeletePipeline Text
 dpPipelineId = lens _dpPipelineId (\s a -> s { _dpPipelineId = a })
 
 data DeletePipelineResponse = DeletePipelineResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeletePipelineResponse' constructor.
 deletePipelineResponse :: DeletePipelineResponse

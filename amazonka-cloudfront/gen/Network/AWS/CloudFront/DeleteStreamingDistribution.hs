@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DeleteStreamingDistribution = DeleteStreamingDistribution
     { _dsdId      :: Text
     , _dsdIfMatch :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteStreamingDistribution' constructor.
 --
@@ -76,7 +76,7 @@ dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
 dsdIfMatch = lens _dsdIfMatch (\s a -> s { _dsdIfMatch = a })
 
 data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteStreamingDistributionResponse' constructor.
 deleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse

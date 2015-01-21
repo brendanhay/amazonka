@@ -74,7 +74,7 @@ import qualified GHC.Exts
 data GetQueueAttributes = GetQueueAttributes
     { _gqaAttributeNames :: List "member" Text
     , _gqaQueueUrl       :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetQueueAttributes' constructor.
 --
@@ -103,7 +103,7 @@ gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
 
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
     { _gqarAttributes :: EMap "entry" "Name" "Value" Text Text
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'GetQueueAttributesResponse' constructor.
 --

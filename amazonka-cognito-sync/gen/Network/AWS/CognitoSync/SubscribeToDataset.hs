@@ -54,7 +54,7 @@ data SubscribeToDataset = SubscribeToDataset
     , _stdDeviceId       :: Text
     , _stdIdentityId     :: Text
     , _stdIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SubscribeToDataset' constructor.
 --
@@ -100,7 +100,7 @@ stdIdentityPoolId =
     lens _stdIdentityPoolId (\s a -> s { _stdIdentityPoolId = a })
 
 data SubscribeToDatasetResponse = SubscribeToDatasetResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SubscribeToDatasetResponse' constructor.
 subscribeToDatasetResponse :: SubscribeToDatasetResponse

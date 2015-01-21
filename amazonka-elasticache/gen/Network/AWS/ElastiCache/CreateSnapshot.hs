@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data CreateSnapshot = CreateSnapshot
     { _csCacheClusterId :: Text
     , _csSnapshotName   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateSnapshot' constructor.
 --
@@ -81,7 +81,7 @@ csSnapshotName = lens _csSnapshotName (\s a -> s { _csSnapshotName = a })
 
 newtype CreateSnapshotResponse = CreateSnapshotResponse
     { _csr1Snapshot :: Maybe Snapshot
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateSnapshotResponse' constructor.
 --

@@ -267,7 +267,7 @@ data GenericRevisionInfo = GenericRevisionInfo
     , _griFirstUsedTime    :: Maybe POSIX
     , _griLastUsedTime     :: Maybe POSIX
     , _griRegisterTime     :: Maybe POSIX
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GenericRevisionInfo' constructor.
 --
@@ -336,7 +336,7 @@ data ApplicationInfo = ApplicationInfo
     , _aiApplicationName :: Maybe Text
     , _aiCreateTime      :: Maybe POSIX
     , _aiLinkedToGitHub  :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ApplicationInfo' constructor.
 --
@@ -395,7 +395,7 @@ data BundleType
     = Tar -- ^ tar
     | Tgz -- ^ tgz
     | Zip -- ^ zip
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable BundleType
 
@@ -426,7 +426,7 @@ instance ToJSON BundleType where
 data TimeRange = TimeRange
     { _trEnd   :: Maybe POSIX
     , _trStart :: Maybe POSIX
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TimeRange' constructor.
 --
@@ -468,7 +468,7 @@ instance ToJSON TimeRange where
 data DeploymentCreator
     = Autoscaling -- ^ autoscaling
     | User        -- ^ user
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable DeploymentCreator
 
@@ -500,7 +500,7 @@ data InstanceSummary = InstanceSummary
     , _isLastUpdatedAt   :: Maybe POSIX
     , _isLifecycleEvents :: List "lifecycleEvents" LifecycleEvent
     , _isStatus          :: Maybe InstanceStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'InstanceSummary' constructor.
 --
@@ -573,7 +573,7 @@ instance ToJSON InstanceSummary where
 data AutoScalingGroup = AutoScalingGroup
     { _asgHook :: Maybe Text
     , _asgName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AutoScalingGroup' constructor.
 --
@@ -617,7 +617,7 @@ data DeploymentGroupInfo = DeploymentGroupInfo
     , _dgiEc2TagFilters        :: List "ec2TagFilters" EC2TagFilter
     , _dgiServiceRoleArn       :: Maybe Text
     , _dgiTargetRevision       :: Maybe RevisionLocation
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeploymentGroupInfo' constructor.
 --
@@ -719,7 +719,7 @@ data ApplicationRevisionSortBy
     = FirstUsedTime -- ^ firstUsedTime
     | LastUsedTime  -- ^ lastUsedTime
     | RegisterTime  -- ^ registerTime
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ApplicationRevisionSortBy
 
@@ -750,7 +750,7 @@ instance ToJSON ApplicationRevisionSortBy where
 data MinimumHealthyHosts = MinimumHealthyHosts
     { _mhhType  :: Maybe MinimumHealthyHostsType
     , _mhhValue :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'MinimumHealthyHosts' constructor.
 --
@@ -803,7 +803,7 @@ data ListStateFilterAction
     = Exclude -- ^ exclude
     | Ignore  -- ^ ignore
     | Include -- ^ include
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ListStateFilterAction
 
@@ -838,7 +838,7 @@ data LifecycleErrorCode
     | ScriptTimedOut      -- ^ ScriptTimedOut
     | Success             -- ^ Success
     | UnknownError        -- ^ UnknownError
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable LifecycleErrorCode
 
@@ -876,7 +876,7 @@ data RevisionLocation = RevisionLocation
     { _rlGitHubLocation :: Maybe GitHubLocation
     , _rlRevisionType   :: Maybe RevisionLocationType
     , _rlS3Location     :: Maybe S3Location
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RevisionLocation' constructor.
 --
@@ -928,7 +928,7 @@ data LifecycleEventStatus
     | Skipped    -- ^ Skipped
     | Succeeded  -- ^ Succeeded
     | Unknown    -- ^ Unknown
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable LifecycleEventStatus
 
@@ -966,7 +966,7 @@ data EC2TagFilter = EC2TagFilter
     { _ectfKey   :: Maybe Text
     , _ectfType  :: Maybe EC2TagFilterType
     , _ectfValue :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'EC2TagFilter' constructor.
 --
@@ -1017,7 +1017,7 @@ data Diagnostics = Diagnostics
     , _dLogTail    :: Maybe Text
     , _dMessage    :: Maybe Text
     , _dScriptName :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Diagnostics' constructor.
 --
@@ -1079,7 +1079,7 @@ instance ToJSON Diagnostics where
 data StopStatus
     = SSPending   -- ^ Pending
     | SSSucceeded -- ^ Succeeded
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable StopStatus
 
@@ -1108,7 +1108,7 @@ instance ToJSON StopStatus where
 data ErrorInformation = ErrorInformation
     { _eiCode    :: Maybe ErrorCode
     , _eiMessage :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ErrorInformation' constructor.
 --
@@ -1163,7 +1163,7 @@ instance ToJSON ErrorInformation where
 data SortOrder
     = Ascending  -- ^ ascending
     | Descending -- ^ descending
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable SortOrder
 
@@ -1204,7 +1204,7 @@ data DeploymentInfo = DeploymentInfo
     , _diRevision                      :: Maybe RevisionLocation
     , _diStartTime                     :: Maybe POSIX
     , _diStatus                        :: Maybe DeploymentStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeploymentInfo' constructor.
 --
@@ -1377,7 +1377,7 @@ data LifecycleEvent = LifecycleEvent
     , _leLifecycleEventName :: Maybe Text
     , _leStartTime          :: Maybe POSIX
     , _leStatus             :: Maybe LifecycleEventStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'LifecycleEvent' constructor.
 --
@@ -1453,7 +1453,7 @@ data DeploymentOverview = DeploymentOverview
     , _doPending    :: Maybe Integer
     , _doSkipped    :: Maybe Integer
     , _doSucceeded  :: Maybe Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeploymentOverview' constructor.
 --
@@ -1527,7 +1527,7 @@ data ErrorCode
     | OverMaxInstances         -- ^ OVER_MAX_INSTANCES
     | RevisionMissing          -- ^ REVISION_MISSING
     | Timeout                  -- ^ TIMEOUT
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ErrorCode
 
@@ -1576,7 +1576,7 @@ data DeploymentConfigInfo = DeploymentConfigInfo
     , _dciDeploymentConfigId   :: Maybe Text
     , _dciDeploymentConfigName :: Maybe Text
     , _dciMinimumHealthyHosts  :: Maybe MinimumHealthyHosts
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeploymentConfigInfo' constructor.
 --
@@ -1639,7 +1639,7 @@ data InstanceStatus
     | ISSkipped    -- ^ Skipped
     | ISSucceeded  -- ^ Succeeded
     | ISUnknown    -- ^ Unknown
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable InstanceStatus
 
@@ -1680,7 +1680,7 @@ data DeploymentStatus
     | DSQueued     -- ^ Queued
     | DSStopped    -- ^ Stopped
     | DSSucceeded  -- ^ Succeeded
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable DeploymentStatus
 
@@ -1720,7 +1720,7 @@ data S3Location = S3Location
     , _slETag       :: Maybe Text
     , _slKey        :: Maybe Text
     , _slVersion    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'S3Location' constructor.
 --
@@ -1797,7 +1797,7 @@ instance ToJSON S3Location where
 data MinimumHealthyHostsType
     = FleetPercent -- ^ FLEET_PERCENT
     | HostCount    -- ^ HOST_COUNT
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable MinimumHealthyHostsType
 
@@ -1826,7 +1826,7 @@ instance ToJSON MinimumHealthyHostsType where
 data GitHubLocation = GitHubLocation
     { _ghlCommitId   :: Maybe Text
     , _ghlRepository :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GitHubLocation' constructor.
 --
@@ -1868,7 +1868,7 @@ instance ToJSON GitHubLocation where
 data RevisionLocationType
     = GitHub -- ^ GitHub
     | S3     -- ^ S3
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable RevisionLocationType
 
@@ -1898,7 +1898,7 @@ data EC2TagFilterType
     = KeyAndValue -- ^ KEY_AND_VALUE
     | KeyOnly     -- ^ KEY_ONLY
     | ValueOnly   -- ^ VALUE_ONLY
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable EC2TagFilterType
 

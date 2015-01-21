@@ -84,7 +84,7 @@ data CreateEnvironment = CreateEnvironment
     , _ceTemplateName      :: Maybe Text
     , _ceTier              :: Maybe EnvironmentTier
     , _ceVersionLabel      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateEnvironment' constructor.
 --
@@ -228,7 +228,7 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse
     , _cerTemplateName      :: Maybe Text
     , _cerTier              :: Maybe EnvironmentTier
     , _cerVersionLabel      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateEnvironmentResponse' constructor.
 --

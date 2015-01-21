@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetHealthCheckStatus = GetHealthCheckStatus
     { _ghcsHealthCheckId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetHealthCheckStatus' constructor.
 --
@@ -72,7 +72,7 @@ ghcsHealthCheckId =
 
 newtype GetHealthCheckStatusResponse = GetHealthCheckStatusResponse
     { _ghcsrHealthCheckObservations :: List "HealthCheckObservation" HealthCheckObservation
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetHealthCheckStatusResponse where
     type Item GetHealthCheckStatusResponse = HealthCheckObservation

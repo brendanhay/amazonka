@@ -56,7 +56,7 @@ data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
     , _clbpPolicyAttributes :: List "member" PolicyAttribute
     , _clbpPolicyName       :: Text
     , _clbpPolicyTypeName   :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateLoadBalancerPolicy' constructor.
 --
@@ -105,7 +105,7 @@ clbpPolicyTypeName =
     lens _clbpPolicyTypeName (\s a -> s { _clbpPolicyTypeName = a })
 
 data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateLoadBalancerPolicyResponse' constructor.
 createLoadBalancerPolicyResponse :: CreateLoadBalancerPolicyResponse

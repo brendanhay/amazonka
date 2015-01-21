@@ -59,7 +59,7 @@ data PromoteReadReplica = PromoteReadReplica
     { _prrBackupRetentionPeriod :: Maybe Int
     , _prrDBInstanceIdentifier  :: Text
     , _prrPreferredBackupWindow :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PromoteReadReplica' constructor.
 --
@@ -122,7 +122,7 @@ prrPreferredBackupWindow =
 
 newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse
     { _prrrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PromoteReadReplicaResponse' constructor.
 --

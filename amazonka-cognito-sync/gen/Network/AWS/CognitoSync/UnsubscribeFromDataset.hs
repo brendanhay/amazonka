@@ -54,7 +54,7 @@ data UnsubscribeFromDataset = UnsubscribeFromDataset
     , _ufdDeviceId       :: Text
     , _ufdIdentityId     :: Text
     , _ufdIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UnsubscribeFromDataset' constructor.
 --
@@ -100,7 +100,7 @@ ufdIdentityPoolId =
     lens _ufdIdentityPoolId (\s a -> s { _ufdIdentityPoolId = a })
 
 data UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UnsubscribeFromDatasetResponse' constructor.
 unsubscribeFromDatasetResponse :: UnsubscribeFromDatasetResponse

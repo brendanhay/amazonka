@@ -59,7 +59,7 @@ data DescribeEnvironments = DescribeEnvironments
     , _de1IncludeDeleted        :: Maybe Bool
     , _de1IncludedDeletedBackTo :: Maybe ISO8601
     , _de1VersionLabel          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeEnvironments' constructor.
 --
@@ -132,7 +132,7 @@ de1VersionLabel = lens _de1VersionLabel (\s a -> s { _de1VersionLabel = a })
 
 newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
     { _derEnvironments :: List "member" EnvironmentDescription
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeEnvironmentsResponse where
     type Item DescribeEnvironmentsResponse = EnvironmentDescription

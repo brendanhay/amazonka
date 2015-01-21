@@ -70,7 +70,7 @@ data CreateConnection = CreateConnection
     { _ccBandwidth      :: Text
     , _ccConnectionName :: Text
     , _ccLocation       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateConnection' constructor.
 --
@@ -111,7 +111,7 @@ data CreateConnectionResponse = CreateConnectionResponse
     , _ccrPartnerName     :: Maybe Text
     , _ccrRegion          :: Maybe Text
     , _ccrVlan            :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateConnectionResponse' constructor.
 --

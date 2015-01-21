@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data UpdateElasticIp = UpdateElasticIp
     { _ueiElasticIp :: Text
     , _ueiName      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateElasticIp' constructor.
 --
@@ -79,7 +79,7 @@ ueiName :: Lens' UpdateElasticIp (Maybe Text)
 ueiName = lens _ueiName (\s a -> s { _ueiName = a })
 
 data UpdateElasticIpResponse = UpdateElasticIpResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateElasticIpResponse' constructor.
 updateElasticIpResponse :: UpdateElasticIpResponse

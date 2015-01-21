@@ -55,7 +55,7 @@ data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
     { _mcsgClusterSubnetGroupName :: Text
     , _mcsgDescription            :: Maybe Text
     , _mcsgSubnetIds              :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ModifyClusterSubnetGroup' constructor.
 --
@@ -92,7 +92,7 @@ mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a }) . _List
 
 newtype ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
     { _mcsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyClusterSubnetGroupResponse' constructor.
 --

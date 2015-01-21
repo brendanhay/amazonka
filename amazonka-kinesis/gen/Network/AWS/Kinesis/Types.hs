@@ -146,7 +146,7 @@ data Shard = Shard
     , _sParentShardId         :: Maybe Text
     , _sSequenceNumberRange   :: SequenceNumberRange
     , _sShardId               :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Shard' constructor.
 --
@@ -217,7 +217,7 @@ instance ToJSON Shard where
 data Tag = Tag
     { _tagKey   :: Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Tag' constructor.
 --
@@ -262,7 +262,7 @@ data StreamDescription = StreamDescription
     , _sdStreamARN     :: Text
     , _sdStreamName    :: Text
     , _sdStreamStatus  :: StreamStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StreamDescription' constructor.
 --
@@ -344,7 +344,7 @@ data PutRecordsResultEntry = PutRecordsResultEntry
     , _prreErrorMessage   :: Maybe Text
     , _prreSequenceNumber :: Maybe Text
     , _prreShardId        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PutRecordsResultEntry' constructor.
 --
@@ -403,7 +403,7 @@ data PutRecordsRequestEntry = PutRecordsRequestEntry
     { _prreData            :: Base64
     , _prreExplicitHashKey :: Maybe Text
     , _prrePartitionKey    :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutRecordsRequestEntry' constructor.
 --
@@ -465,7 +465,7 @@ data StreamStatus
     | Creating -- ^ CREATING
     | Deleting -- ^ DELETING
     | Updating -- ^ UPDATING
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable StreamStatus
 
@@ -498,7 +498,7 @@ instance ToJSON StreamStatus where
 data HashKeyRange = HashKeyRange
     { _hkrEndingHashKey   :: Text
     , _hkrStartingHashKey :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'HashKeyRange' constructor.
 --
@@ -540,7 +540,7 @@ data Record = Record
     { _rData           :: Base64
     , _rPartitionKey   :: Text
     , _rSequenceNumber :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Record' constructor.
 --
@@ -593,7 +593,7 @@ instance ToJSON Record where
 data SequenceNumberRange = SequenceNumberRange
     { _snrEndingSequenceNumber   :: Maybe Text
     , _snrStartingSequenceNumber :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SequenceNumberRange' constructor.
 --
@@ -638,7 +638,7 @@ data ShardIteratorType
     | AtSequenceNumber    -- ^ AT_SEQUENCE_NUMBER
     | Latest              -- ^ LATEST
     | TrimHorizon         -- ^ TRIM_HORIZON
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ShardIteratorType
 

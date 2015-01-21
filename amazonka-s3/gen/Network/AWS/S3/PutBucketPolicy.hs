@@ -52,7 +52,7 @@ data PutBucketPolicy = PutBucketPolicy
     { _pbpBucket     :: Text
     , _pbpContentMD5 :: Maybe Text
     , _pbpPolicy     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PutBucketPolicy' constructor.
 --
@@ -84,7 +84,7 @@ pbpPolicy :: Lens' PutBucketPolicy Text
 pbpPolicy = lens _pbpPolicy (\s a -> s { _pbpPolicy = a })
 
 data PutBucketPolicyResponse = PutBucketPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutBucketPolicyResponse' constructor.
 putBucketPolicyResponse :: PutBucketPolicyResponse

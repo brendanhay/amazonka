@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data ListDistributions = ListDistributions
     { _ldMarker   :: Maybe Text
     , _ldMaxItems :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListDistributions' constructor.
 --
@@ -81,7 +81,7 @@ ldMaxItems = lens _ldMaxItems (\s a -> s { _ldMaxItems = a })
 
 newtype ListDistributionsResponse = ListDistributionsResponse
     { _ldrDistributionList :: DistributionList
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListDistributionsResponse' constructor.
 --

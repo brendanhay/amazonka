@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes
     { _dcscsivVolumeARNs :: List "VolumeARNs" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeCachediSCSIVolumes where
     type Item DescribeCachediSCSIVolumes = Text
@@ -81,7 +81,7 @@ dcscsivVolumeARNs =
 
 newtype DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
     { _dcscsivrCachediSCSIVolumes :: List "CachediSCSIVolumes" CachediSCSIVolume
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeCachediSCSIVolumesResponse where
     type Item DescribeCachediSCSIVolumesResponse = CachediSCSIVolume

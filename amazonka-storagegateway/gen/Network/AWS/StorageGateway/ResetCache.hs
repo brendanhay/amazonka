@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype ResetCache = ResetCache
     { _rcGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ResetCache' constructor.
 --
@@ -71,7 +71,7 @@ rcGatewayARN = lens _rcGatewayARN (\s a -> s { _rcGatewayARN = a })
 
 newtype ResetCacheResponse = ResetCacheResponse
     { _rcrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ResetCacheResponse' constructor.
 --

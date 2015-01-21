@@ -83,7 +83,7 @@ data CreateLoadBalancer = CreateLoadBalancer
     , _clbSecurityGroups    :: List "member" Text
     , _clbSubnets           :: List "member" Text
     , _clbTags              :: List1 "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateLoadBalancer' constructor.
 --
@@ -175,7 +175,7 @@ clbTags = lens _clbTags (\s a -> s { _clbTags = a }) . _List1
 
 newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse
     { _clbrDNSName :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateLoadBalancerResponse' constructor.
 --

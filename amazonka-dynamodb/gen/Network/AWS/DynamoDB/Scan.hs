@@ -93,7 +93,7 @@ data Scan = Scan
     , _sSelect                    :: Maybe Select
     , _sTableName                 :: Text
     , _sTotalSegments             :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Scan' constructor.
 --
@@ -392,7 +392,7 @@ data ScanResponse = ScanResponse
     , _srItems            :: List "Items" (Map Text AttributeValue)
     , _srLastEvaluatedKey :: Map Text AttributeValue
     , _srScannedCount     :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ScanResponse' constructor.
 --

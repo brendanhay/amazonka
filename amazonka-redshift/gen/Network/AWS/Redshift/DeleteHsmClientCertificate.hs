@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteHsmClientCertificate = DeleteHsmClientCertificate
     { _dhcc1HsmClientCertificateIdentifier :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteHsmClientCertificate' constructor.
 --
@@ -68,7 +68,7 @@ dhcc1HsmClientCertificateIdentifier =
         (\s a -> s { _dhcc1HsmClientCertificateIdentifier = a })
 
 data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteHsmClientCertificateResponse' constructor.
 deleteHsmClientCertificateResponse :: DeleteHsmClientCertificateResponse

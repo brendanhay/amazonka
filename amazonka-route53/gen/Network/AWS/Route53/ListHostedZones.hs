@@ -64,7 +64,7 @@ data ListHostedZones = ListHostedZones
     { _lhzDelegationSetId :: Maybe Text
     , _lhzMarker          :: Maybe Text
     , _lhzMaxItems        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListHostedZones' constructor.
 --
@@ -100,10 +100,10 @@ lhzMaxItems = lens _lhzMaxItems (\s a -> s { _lhzMaxItems = a })
 data ListHostedZonesResponse = ListHostedZonesResponse
     { _lhzrHostedZones :: List "HostedZone" HostedZone
     , _lhzrIsTruncated :: Bool
-    , _lhzrMarker      :: Text
+    , _lhzrMarker      :: Maybe Text
     , _lhzrMaxItems    :: Text
     , _lhzrNextMarker  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListHostedZonesResponse' constructor.
 --
@@ -113,21 +113,20 @@ data ListHostedZonesResponse = ListHostedZonesResponse
 --
 -- * 'lhzrIsTruncated' @::@ 'Bool'
 --
--- * 'lhzrMarker' @::@ 'Text'
+-- * 'lhzrMarker' @::@ 'Maybe' 'Text'
 --
 -- * 'lhzrMaxItems' @::@ 'Text'
 --
 -- * 'lhzrNextMarker' @::@ 'Maybe' 'Text'
 --
-listHostedZonesResponse :: Text -- ^ 'lhzrMarker'
-                        -> Bool -- ^ 'lhzrIsTruncated'
+listHostedZonesResponse :: Bool -- ^ 'lhzrIsTruncated'
                         -> Text -- ^ 'lhzrMaxItems'
                         -> ListHostedZonesResponse
-listHostedZonesResponse p1 p2 p3 = ListHostedZonesResponse
-    { _lhzrMarker      = p1
-    , _lhzrIsTruncated = p2
-    , _lhzrMaxItems    = p3
+listHostedZonesResponse p1 p2 = ListHostedZonesResponse
+    { _lhzrIsTruncated = p1
+    , _lhzrMaxItems    = p2
     , _lhzrHostedZones = mempty
+    , _lhzrMarker      = Nothing
     , _lhzrNextMarker  = Nothing
     }
 
@@ -147,7 +146,7 @@ lhzrIsTruncated = lens _lhzrIsTruncated (\s a -> s { _lhzrIsTruncated = a })
 -- | If the request returned more than one page of results, submit another request
 -- and specify the value of 'NextMarker' from the last response in the 'marker'
 -- parameter to get the next page of results.
-lhzrMarker :: Lens' ListHostedZonesResponse Text
+lhzrMarker :: Lens' ListHostedZonesResponse (Maybe Text)
 lhzrMarker = lens _lhzrMarker (\s a -> s { _lhzrMarker = a })
 
 -- | The maximum number of hosted zones to be included in the response body. If
@@ -190,7 +189,7 @@ instance FromXML ListHostedZonesResponse where
     parseXML x = ListHostedZonesResponse
         <$> x .@? "HostedZones" .!@ mempty
         <*> x .@  "IsTruncated"
-        <*> x .@  "Marker"
+        <*> x .@? "Marker"
         <*> x .@  "MaxItems"
         <*> x .@? "NextMarker"
 

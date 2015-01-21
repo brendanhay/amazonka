@@ -59,7 +59,7 @@ import qualified GHC.Exts
 data DescribeServices = DescribeServices
     { _dsLanguage        :: Maybe Text
     , _dsServiceCodeList :: List "serviceCodeList" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeServices' constructor.
 --
@@ -89,7 +89,7 @@ dsServiceCodeList =
 
 newtype DescribeServicesResponse = DescribeServicesResponse
     { _dsrServices :: List "services" SupportService
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeServicesResponse where
     type Item DescribeServicesResponse = SupportService

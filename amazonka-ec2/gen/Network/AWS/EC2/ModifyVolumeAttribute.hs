@@ -61,7 +61,7 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute
     { _mvaAutoEnableIO :: Maybe AttributeBooleanValue
     , _mvaDryRun       :: Maybe Bool
     , _mvaVolumeId     :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyVolumeAttribute' constructor.
 --
@@ -93,7 +93,7 @@ mvaVolumeId :: Lens' ModifyVolumeAttribute Text
 mvaVolumeId = lens _mvaVolumeId (\s a -> s { _mvaVolumeId = a })
 
 data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ModifyVolumeAttributeResponse' constructor.
 modifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse

@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype CheckDNSAvailability = CheckDNSAvailability
     { _cdnsaCNAMEPrefix :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'CheckDNSAvailability' constructor.
 --
@@ -71,7 +71,7 @@ cdnsaCNAMEPrefix = lens _cdnsaCNAMEPrefix (\s a -> s { _cdnsaCNAMEPrefix = a })
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
     { _cdnsarAvailable           :: Maybe Bool
     , _cdnsarFullyQualifiedCNAME :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CheckDNSAvailabilityResponse' constructor.
 --

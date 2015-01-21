@@ -67,7 +67,7 @@ import qualified GHC.Exts
 data ModifyDBParameterGroup = ModifyDBParameterGroup
     { _mdbpgDBParameterGroupName :: Text
     , _mdbpgParameters           :: List "member" Parameter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyDBParameterGroup' constructor.
 --
@@ -111,7 +111,7 @@ mdbpgParameters = lens _mdbpgParameters (\s a -> s { _mdbpgParameters = a }) . _
 
 newtype ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
     { _mdbpgrDBParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ModifyDBParameterGroupResponse' constructor.
 --

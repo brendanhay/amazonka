@@ -61,7 +61,7 @@ import qualified GHC.Exts
 data AddAttachmentsToSet = AddAttachmentsToSet
     { _aatsAttachmentSetId :: Maybe Text
     , _aatsAttachments     :: List "attachments" Attachment
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AddAttachmentsToSet' constructor.
 --
@@ -93,7 +93,7 @@ aatsAttachments = lens _aatsAttachments (\s a -> s { _aatsAttachments = a }) . _
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
     { _aatsrAttachmentSetId :: Maybe Text
     , _aatsrExpiryTime      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AddAttachmentsToSetResponse' constructor.
 --

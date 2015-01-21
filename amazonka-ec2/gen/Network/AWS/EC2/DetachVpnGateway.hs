@@ -58,7 +58,7 @@ data DetachVpnGateway = DetachVpnGateway
     { _dvg1DryRun       :: Maybe Bool
     , _dvg1VpcId        :: Text
     , _dvg1VpnGatewayId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DetachVpnGateway' constructor.
 --
@@ -91,7 +91,7 @@ dvg1VpnGatewayId :: Lens' DetachVpnGateway Text
 dvg1VpnGatewayId = lens _dvg1VpnGatewayId (\s a -> s { _dvg1VpnGatewayId = a })
 
 data DetachVpnGatewayResponse = DetachVpnGatewayResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DetachVpnGatewayResponse' constructor.
 detachVpnGatewayResponse :: DetachVpnGatewayResponse

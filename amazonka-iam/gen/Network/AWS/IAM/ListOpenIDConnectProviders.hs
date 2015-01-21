@@ -46,7 +46,7 @@ import Network.AWS.IAM.Types
 import qualified GHC.Exts
 
 data ListOpenIDConnectProviders = ListOpenIDConnectProviders
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ListOpenIDConnectProviders' constructor.
 listOpenIDConnectProviders :: ListOpenIDConnectProviders
@@ -54,7 +54,7 @@ listOpenIDConnectProviders = ListOpenIDConnectProviders
 
 newtype ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse
     { _loidcprOpenIDConnectProviderList :: List "member" OpenIDConnectProviderListEntry
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ListOpenIDConnectProvidersResponse where
     type Item ListOpenIDConnectProvidersResponse = OpenIDConnectProviderListEntry

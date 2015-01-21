@@ -89,7 +89,7 @@ data PutItem = PutItem
     , _piReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
     , _piReturnValues                :: Maybe ReturnValue
     , _piTableName                   :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutItem' constructor.
 --
@@ -454,7 +454,7 @@ data PutItemResponse = PutItemResponse
     { _pirAttributes            :: Map Text AttributeValue
     , _pirConsumedCapacity      :: Maybe ConsumedCapacity
     , _pirItemCollectionMetrics :: Maybe ItemCollectionMetrics
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutItemResponse' constructor.
 --

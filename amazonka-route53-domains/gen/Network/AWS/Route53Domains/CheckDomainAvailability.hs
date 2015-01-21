@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data CheckDomainAvailability = CheckDomainAvailability
     { _cdaDomainName  :: Text
     , _cdaIdnLangCode :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CheckDomainAvailability' constructor.
 --
@@ -91,7 +91,7 @@ cdaIdnLangCode = lens _cdaIdnLangCode (\s a -> s { _cdaIdnLangCode = a })
 
 newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
     { _cdarAvailability :: DomainAvailability
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CheckDomainAvailabilityResponse' constructor.
 --

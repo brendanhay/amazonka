@@ -209,7 +209,7 @@ data VirtualInterface = VirtualInterface
     , _viVirtualInterfaceState :: Maybe VirtualInterfaceState
     , _viVirtualInterfaceType  :: Maybe Text
     , _viVlan                  :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'VirtualInterface' constructor.
 --
@@ -359,7 +359,7 @@ instance ToJSON VirtualInterface where
 data Location = Location
     { _lLocationCode :: Maybe Text
     , _lLocationName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Location' constructor.
 --
@@ -397,7 +397,7 @@ instance ToJSON Location where
 
 newtype Connections = Connections
     { _cConnections :: List "connections" Connection
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList Connections where
     type Item Connections = Connection
@@ -436,7 +436,7 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
     , _npviaCustomerAddress      :: Maybe Text
     , _npviaVirtualInterfaceName :: Text
     , _npviaVlan                 :: Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'NewPrivateVirtualInterfaceAllocation' constructor.
 --
@@ -516,7 +516,7 @@ data VirtualInterfaceState
     | Pending    -- ^ pending
     | Rejected   -- ^ rejected
     | Verifying  -- ^ verifying
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable VirtualInterfaceState
 
@@ -562,7 +562,7 @@ data Connection = Connection
     , _cPartnerName     :: Maybe Text
     , _cRegion          :: Maybe Text
     , _cVlan            :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Connection' constructor.
 --
@@ -664,7 +664,7 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface
     , _npviRouteFilterPrefixes  :: List "routeFilterPrefixes" RouteFilterPrefix
     , _npviVirtualInterfaceName :: Text
     , _npviVlan                 :: Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'NewPublicVirtualInterface' constructor.
 --
@@ -755,7 +755,7 @@ data Interconnect = Interconnect
     , _iInterconnectState :: Maybe InterconnectState
     , _iLocation          :: Maybe Text
     , _iRegion            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Interconnect' constructor.
 --
@@ -829,7 +829,7 @@ data InterconnectState
     | ISDown      -- ^ down
     | ISPending   -- ^ pending
     | ISRequested -- ^ requested
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable InterconnectState
 
@@ -871,7 +871,7 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface
     , _npvi1VirtualGatewayId     :: Text
     , _npvi1VirtualInterfaceName :: Text
     , _npvi1Vlan                 :: Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'NewPrivateVirtualInterface' constructor.
 --
@@ -961,7 +961,7 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation
     , _npvia1RouteFilterPrefixes  :: List "routeFilterPrefixes" RouteFilterPrefix
     , _npvia1VirtualInterfaceName :: Text
     , _npvia1Vlan                 :: Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'NewPublicVirtualInterfaceAllocation' constructor.
 --
@@ -1055,7 +1055,7 @@ data ConnectionState
     | CSPending   -- ^ pending
     | CSRejected  -- ^ rejected
     | CSRequested -- ^ requested
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ConnectionState
 
@@ -1096,7 +1096,7 @@ instance ToJSON ConnectionState where
 data VirtualGateway = VirtualGateway
     { _vgVirtualGatewayId    :: Maybe Text
     , _vgVirtualGatewayState :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'VirtualGateway' constructor.
 --
@@ -1133,7 +1133,7 @@ instance ToJSON VirtualGateway where
 
 newtype RouteFilterPrefix = RouteFilterPrefix
     { _rfpCidr :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'RouteFilterPrefix' constructor.
 --

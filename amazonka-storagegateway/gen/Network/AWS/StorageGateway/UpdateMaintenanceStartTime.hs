@@ -57,7 +57,7 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
     , _umstGatewayARN   :: Text
     , _umstHourOfDay    :: Nat
     , _umstMinuteOfHour :: Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateMaintenanceStartTime' constructor.
 --
@@ -104,7 +104,7 @@ umstMinuteOfHour = lens _umstMinuteOfHour (\s a -> s { _umstMinuteOfHour = a }) 
 
 newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
     { _umstrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'UpdateMaintenanceStartTimeResponse' constructor.
 --

@@ -56,7 +56,7 @@ data ConfirmProductInstance = ConfirmProductInstance
     { _cpiDryRun      :: Maybe Bool
     , _cpiInstanceId  :: Text
     , _cpiProductCode :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ConfirmProductInstance' constructor.
 --
@@ -90,7 +90,7 @@ cpiProductCode = lens _cpiProductCode (\s a -> s { _cpiProductCode = a })
 
 newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
     { _cpirOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ConfirmProductInstanceResponse' constructor.
 --

@@ -56,7 +56,7 @@ data CreateKey = CreateKey
     { _ckDescription :: Maybe Text
     , _ckKeyUsage    :: Maybe KeyUsageType
     , _ckPolicy      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateKey' constructor.
 --
@@ -92,7 +92,7 @@ ckPolicy = lens _ckPolicy (\s a -> s { _ckPolicy = a })
 
 newtype CreateKeyResponse = CreateKeyResponse
     { _ckrKeyMetadata :: Maybe KeyMetadata
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateKeyResponse' constructor.
 --

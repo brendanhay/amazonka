@@ -57,7 +57,7 @@ data SetTaskStatus = SetTaskStatus
     , _stsErrorStackTrace :: Maybe Text
     , _stsTaskId          :: Text
     , _stsTaskStatus      :: TaskStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SetTaskStatus' constructor.
 --
@@ -116,7 +116,7 @@ stsTaskStatus :: Lens' SetTaskStatus TaskStatus
 stsTaskStatus = lens _stsTaskStatus (\s a -> s { _stsTaskStatus = a })
 
 data SetTaskStatusResponse = SetTaskStatusResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetTaskStatusResponse' constructor.
 setTaskStatusResponse :: SetTaskStatusResponse

@@ -69,7 +69,7 @@ data Suggest = Suggest
     { _sQuery     :: Text
     , _sSize      :: Maybe Integer
     , _sSuggester :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Suggest' constructor.
 --
@@ -105,7 +105,7 @@ sSuggester = lens _sSuggester (\s a -> s { _sSuggester = a })
 data SuggestResponse = SuggestResponse
     { _srStatus  :: Maybe SuggestStatus
     , _srSuggest :: Maybe SuggestModel
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SuggestResponse' constructor.
 --

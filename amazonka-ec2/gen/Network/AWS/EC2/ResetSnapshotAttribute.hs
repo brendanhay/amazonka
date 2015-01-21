@@ -54,7 +54,7 @@ data ResetSnapshotAttribute = ResetSnapshotAttribute
     { _rsaAttribute  :: SnapshotAttributeName
     , _rsaDryRun     :: Maybe Bool
     , _rsaSnapshotId :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ResetSnapshotAttribute' constructor.
 --
@@ -88,7 +88,7 @@ rsaSnapshotId :: Lens' ResetSnapshotAttribute Text
 rsaSnapshotId = lens _rsaSnapshotId (\s a -> s { _rsaSnapshotId = a })
 
 data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ResetSnapshotAttributeResponse' constructor.
 resetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse

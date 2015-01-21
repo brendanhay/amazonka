@@ -102,7 +102,7 @@ data GetObject = GetObject
     , _goSSECustomerKey             :: Maybe (Sensitive Text)
     , _goSSECustomerKeyMD5          :: Maybe Text
     , _goVersionId                  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetObject' constructor.
 --

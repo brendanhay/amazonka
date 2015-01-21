@@ -65,7 +65,7 @@ data ListSigningCertificates = ListSigningCertificates
     { _lsc1Marker   :: Maybe Text
     , _lsc1MaxItems :: Maybe Nat
     , _lsc1UserName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListSigningCertificates' constructor.
 --
@@ -105,7 +105,7 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse
     { _lscr1Certificates :: List "member" SigningCertificate
     , _lscr1IsTruncated  :: Maybe Bool
     , _lscr1Marker       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListSigningCertificatesResponse' constructor.
 --

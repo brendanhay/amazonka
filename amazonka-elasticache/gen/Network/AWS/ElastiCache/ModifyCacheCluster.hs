@@ -81,7 +81,7 @@ data ModifyCacheCluster = ModifyCacheCluster
     , _mccSecurityGroupIds           :: List "member" Text
     , _mccSnapshotRetentionLimit     :: Maybe Int
     , _mccSnapshotWindow             :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyCacheCluster' constructor.
 --
@@ -359,7 +359,7 @@ mccSnapshotWindow =
 
 newtype ModifyCacheClusterResponse = ModifyCacheClusterResponse
     { _mccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyCacheClusterResponse' constructor.
 --

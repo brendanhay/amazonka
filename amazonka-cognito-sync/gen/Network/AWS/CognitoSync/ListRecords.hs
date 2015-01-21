@@ -73,7 +73,7 @@ data ListRecords = ListRecords
     , _lrMaxResults       :: Maybe Int
     , _lrNextToken        :: Maybe Text
     , _lrSyncSessionToken :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListRecords' constructor.
 --
@@ -151,7 +151,7 @@ data ListRecordsResponse = ListRecordsResponse
     , _lrrNextToken                             :: Maybe Text
     , _lrrRecords                               :: List "Records" Record
     , _lrrSyncSessionToken                      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListRecordsResponse' constructor.
 --

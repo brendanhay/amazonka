@@ -57,7 +57,7 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion
     , _ddblfpLogFileName          :: Text
     , _ddblfpMarker               :: Maybe Text
     , _ddblfpNumberOfLines        :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DownloadDBLogFilePortion' constructor.
 --
@@ -133,7 +133,7 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
     { _ddblfprAdditionalDataPending :: Maybe Bool
     , _ddblfprLogFileData           :: Maybe Text
     , _ddblfprMarker                :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DownloadDBLogFilePortionResponse' constructor.
 --

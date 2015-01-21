@@ -61,7 +61,7 @@ import qualified GHC.Exts
 
 newtype DeleteVolume = DeleteVolume
     { _dvVolumeARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteVolume' constructor.
 --
@@ -82,7 +82,7 @@ dvVolumeARN = lens _dvVolumeARN (\s a -> s { _dvVolumeARN = a })
 
 newtype DeleteVolumeResponse = DeleteVolumeResponse
     { _dvrVolumeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'DeleteVolumeResponse' constructor.
 --

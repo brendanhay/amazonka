@@ -55,7 +55,7 @@ data DescribeVpnGateways = DescribeVpnGateways
     { _dvg2DryRun        :: Maybe Bool
     , _dvg2Filters       :: List "Filter" Filter
     , _dvg2VpnGatewayIds :: List "VpnGatewayId" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVpnGateways' constructor.
 --
@@ -120,7 +120,7 @@ dvg2VpnGatewayIds =
 
 newtype DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     { _dvgrVpnGateways :: List "item" VpnGateway
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeVpnGatewaysResponse' constructor.
 --

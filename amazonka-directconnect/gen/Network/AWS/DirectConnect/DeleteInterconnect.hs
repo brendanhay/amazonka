@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DeleteInterconnect = DeleteInterconnect
     { _di1InterconnectId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteInterconnect' constructor.
 --
@@ -69,7 +69,7 @@ di1InterconnectId =
 
 newtype DeleteInterconnectResponse = DeleteInterconnectResponse
     { _dirInterconnectState :: Maybe InterconnectState
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteInterconnectResponse' constructor.
 --

@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data GetOpenIdToken = GetOpenIdToken
     { _goitIdentityId :: Text
     , _goitLogins     :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetOpenIdToken' constructor.
 --
@@ -84,7 +84,7 @@ goitLogins = lens _goitLogins (\s a -> s { _goitLogins = a }) . _Map
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse
     { _goitrIdentityId :: Maybe Text
     , _goitrToken      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetOpenIdTokenResponse' constructor.
 --

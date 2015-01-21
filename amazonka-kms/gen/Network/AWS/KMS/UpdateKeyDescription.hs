@@ -47,7 +47,7 @@ import qualified GHC.Exts
 data UpdateKeyDescription = UpdateKeyDescription
     { _ukdDescription :: Text
     , _ukdKeyId       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateKeyDescription' constructor.
 --
@@ -72,7 +72,7 @@ ukdKeyId :: Lens' UpdateKeyDescription Text
 ukdKeyId = lens _ukdKeyId (\s a -> s { _ukdKeyId = a })
 
 data UpdateKeyDescriptionResponse = UpdateKeyDescriptionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateKeyDescriptionResponse' constructor.
 updateKeyDescriptionResponse :: UpdateKeyDescriptionResponse

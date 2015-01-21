@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data GetApplicationRevision = GetApplicationRevision
     { _garApplicationName :: Text
     , _garRevision        :: RevisionLocation
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetApplicationRevision' constructor.
 --
@@ -85,7 +85,7 @@ data GetApplicationRevisionResponse = GetApplicationRevisionResponse
     { _garrApplicationName :: Maybe Text
     , _garrRevision        :: Maybe RevisionLocation
     , _garrRevisionInfo    :: Maybe GenericRevisionInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetApplicationRevisionResponse' constructor.
 --

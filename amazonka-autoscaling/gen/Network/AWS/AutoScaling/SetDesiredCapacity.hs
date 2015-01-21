@@ -51,7 +51,7 @@ data SetDesiredCapacity = SetDesiredCapacity
     { _sdcAutoScalingGroupName :: Text
     , _sdcDesiredCapacity      :: Int
     , _sdcHonorCooldown        :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SetDesiredCapacity' constructor.
 --
@@ -91,7 +91,7 @@ sdcHonorCooldown :: Lens' SetDesiredCapacity (Maybe Bool)
 sdcHonorCooldown = lens _sdcHonorCooldown (\s a -> s { _sdcHonorCooldown = a })
 
 data SetDesiredCapacityResponse = SetDesiredCapacityResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetDesiredCapacityResponse' constructor.
 setDesiredCapacityResponse :: SetDesiredCapacityResponse

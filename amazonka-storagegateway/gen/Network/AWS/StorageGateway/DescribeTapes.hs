@@ -58,7 +58,7 @@ data DescribeTapes = DescribeTapes
     , _dtLimit      :: Maybe Nat
     , _dtMarker     :: Maybe Text
     , _dtTapeARNs   :: List "TapeARNs" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeTapes' constructor.
 --
@@ -108,7 +108,7 @@ dtTapeARNs = lens _dtTapeARNs (\s a -> s { _dtTapeARNs = a }) . _List
 data DescribeTapesResponse = DescribeTapesResponse
     { _dtrMarker :: Maybe Text
     , _dtrTapes  :: List "Tapes" Tape
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeTapesResponse' constructor.
 --

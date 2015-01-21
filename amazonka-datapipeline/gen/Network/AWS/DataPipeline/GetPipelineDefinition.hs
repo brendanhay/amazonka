@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data GetPipelineDefinition = GetPipelineDefinition
     { _gpdPipelineId :: Text
     , _gpdVersion    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetPipelineDefinition' constructor.
 --
@@ -85,7 +85,7 @@ data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
     { _gpdrParameterObjects :: List "parameterObjects" ParameterObject
     , _gpdrParameterValues  :: List "parameterValues" ParameterValue
     , _gpdrPipelineObjects  :: List "pipelineObjects" PipelineObject
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetPipelineDefinitionResponse' constructor.
 --

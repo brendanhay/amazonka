@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data ListPipelines = ListPipelines
     { _lpAscending :: Maybe Text
     , _lpPageToken :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListPipelines' constructor.
 --
@@ -82,7 +82,7 @@ lpPageToken = lens _lpPageToken (\s a -> s { _lpPageToken = a })
 data ListPipelinesResponse = ListPipelinesResponse
     { _lprNextPageToken :: Maybe Text
     , _lprPipelines     :: List "Pipelines" Pipeline
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListPipelinesResponse' constructor.
 --

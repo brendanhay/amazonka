@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data DescribeStackResource = DescribeStackResource
     { _dsr1LogicalResourceId :: Text
     , _dsr1StackName         :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeStackResource' constructor.
 --
@@ -90,7 +90,7 @@ dsr1StackName = lens _dsr1StackName (\s a -> s { _dsr1StackName = a })
 
 newtype DescribeStackResourceResponse = DescribeStackResourceResponse
     { _dsrrStackResourceDetail :: Maybe StackResourceDetail
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeStackResourceResponse' constructor.
 --

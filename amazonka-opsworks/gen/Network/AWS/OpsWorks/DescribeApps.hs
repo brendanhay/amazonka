@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data DescribeApps = DescribeApps
     { _daAppIds  :: List "AppIds" Text
     , _daStackId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeApps' constructor.
 --
@@ -85,7 +85,7 @@ daStackId = lens _daStackId (\s a -> s { _daStackId = a })
 
 newtype DescribeAppsResponse = DescribeAppsResponse
     { _darApps :: List "Apps" App
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAppsResponse where
     type Item DescribeAppsResponse = App

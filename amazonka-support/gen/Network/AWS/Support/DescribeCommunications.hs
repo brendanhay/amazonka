@@ -68,7 +68,7 @@ data DescribeCommunications = DescribeCommunications
     , _dc1CaseId     :: Text
     , _dc1MaxResults :: Maybe Nat
     , _dc1NextToken  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeCommunications' constructor.
 --
@@ -120,7 +120,7 @@ dc1NextToken = lens _dc1NextToken (\s a -> s { _dc1NextToken = a })
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse
     { _dcrCommunications :: List "communications" Communication
     , _dcrNextToken      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeCommunicationsResponse' constructor.
 --

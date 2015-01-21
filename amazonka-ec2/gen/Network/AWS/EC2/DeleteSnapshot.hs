@@ -62,7 +62,7 @@ import qualified GHC.Exts
 data DeleteSnapshot = DeleteSnapshot
     { _ds3DryRun     :: Maybe Bool
     , _ds3SnapshotId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteSnapshot' constructor.
 --
@@ -87,7 +87,7 @@ ds3SnapshotId :: Lens' DeleteSnapshot Text
 ds3SnapshotId = lens _ds3SnapshotId (\s a -> s { _ds3SnapshotId = a })
 
 data DeleteSnapshotResponse = DeleteSnapshotResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteSnapshotResponse' constructor.
 deleteSnapshotResponse :: DeleteSnapshotResponse

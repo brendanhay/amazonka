@@ -134,7 +134,7 @@
         "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html",
         "protocol": "json",
         "name": "Amazon Elastic MapReduce",
-        "version": "0.2.1",
+        "version": "0.2.2",
         "description": "Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to\nprocess large amounts of data efficiently. Amazon EMR uses Hadoop processing\ncombined with several AWS products to do such tasks as web indexing, data\nmining, log file analysis, machine learning, scientific simulation, and data\nwarehousing."
     },
     "types": {
@@ -144,6 +144,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -160,6 +161,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 17,
@@ -487,6 +489,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 12,
@@ -609,6 +612,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 25,
@@ -1243,6 +1247,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 8,
@@ -1366,6 +1371,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 8,
@@ -1489,6 +1495,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 12,
@@ -1663,6 +1670,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -1685,6 +1693,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -1703,6 +1712,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 12,
@@ -1826,6 +1836,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 9,
@@ -1948,6 +1959,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 16,
@@ -2172,6 +2184,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 27,
@@ -2499,6 +2512,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 21,
@@ -2672,6 +2686,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 26,
@@ -3459,6 +3474,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 19,
@@ -3633,9 +3649,10 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
-                "fieldPad": 23,
+                "fieldPad": 34,
                 "ctor": "ec2InstanceAttributes",
                 "contents": [
                     {
@@ -3705,13 +3722,81 @@
                         "documentation": "-- | The IAM role that was specified when the job flow was launched. The EC2\n-- instances of the job flow assume this role.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "eiaEmrManagedMasterSecurityGroup",
+                        "name": "_eiaEmrManagedMasterSecurityGroup",
+                        "shape": "String",
+                        "locationName": "EmrManagedMasterSecurityGroup",
+                        "documentation": "-- | The identifier of the Amazon EC2 security group (managed by Amazon Elastic\n-- MapReduce) for the master node.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "eiaEmrManagedSlaveSecurityGroup",
+                        "name": "_eiaEmrManagedSlaveSecurityGroup",
+                        "shape": "String",
+                        "locationName": "EmrManagedSlaveSecurityGroup",
+                        "documentation": "-- | The identifier of the Amazon EC2 security group (managed by Amazon Elastic\n-- MapReduce) for the slave nodes.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "eiaAdditionalMasterSecurityGroups",
+                        "name": "_eiaAdditionalMasterSecurityGroups",
+                        "shape": "StringList",
+                        "locationName": "AdditionalMasterSecurityGroups",
+                        "documentation": "-- | A list of additional Amazon EC2 security group IDs for the master node.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"AdditionalMasterSecurityGroups\" Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "eiaAdditionalSlaveSecurityGroups",
+                        "name": "_eiaAdditionalSlaveSecurityGroups",
+                        "shape": "StringList",
+                        "locationName": "AdditionalSlaveSecurityGroups",
+                        "documentation": "-- | A list of additional Amazon EC2 security group IDs for the slave nodes.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"AdditionalSlaveSecurityGroups\" Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
-                "contentPad": 20,
+                "contentPad": 31,
                 "name": "Ec2InstanceAttributes",
-                "locationPad": 20,
+                "locationPad": 31,
                 "type": "record",
                 "optional": [
                     {
@@ -3781,9 +3866,111 @@
                         "documentation": "-- | The IAM role that was specified when the job flow was launched. The EC2\n-- instances of the job flow assume this role.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "eiaEmrManagedMasterSecurityGroup",
+                        "name": "_eiaEmrManagedMasterSecurityGroup",
+                        "shape": "String",
+                        "locationName": "EmrManagedMasterSecurityGroup",
+                        "documentation": "-- | The identifier of the Amazon EC2 security group (managed by Amazon Elastic\n-- MapReduce) for the master node.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "eiaEmrManagedSlaveSecurityGroup",
+                        "name": "_eiaEmrManagedSlaveSecurityGroup",
+                        "shape": "String",
+                        "locationName": "EmrManagedSlaveSecurityGroup",
+                        "documentation": "-- | The identifier of the Amazon EC2 security group (managed by Amazon Elastic\n-- MapReduce) for the slave nodes.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "eiaAdditionalMasterSecurityGroups",
+                        "name": "_eiaAdditionalMasterSecurityGroups",
+                        "shape": "StringList",
+                        "locationName": "AdditionalMasterSecurityGroups",
+                        "documentation": "-- | A list of additional Amazon EC2 security group IDs for the master node.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"AdditionalMasterSecurityGroups\" Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "eiaAdditionalSlaveSecurityGroups",
+                        "name": "_eiaAdditionalSlaveSecurityGroups",
+                        "shape": "StringList",
+                        "locationName": "AdditionalSlaveSecurityGroups",
+                        "documentation": "-- | A list of additional Amazon EC2 security group IDs for the slave nodes.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"AdditionalSlaveSecurityGroups\" Text"
                     }
                 ],
                 "fields": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "eiaAdditionalMasterSecurityGroups",
+                        "name": "_eiaAdditionalMasterSecurityGroups",
+                        "shape": "StringList",
+                        "locationName": "AdditionalMasterSecurityGroups",
+                        "documentation": "-- | A list of additional Amazon EC2 security group IDs for the master node.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"AdditionalMasterSecurityGroups\" Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "eiaAdditionalSlaveSecurityGroups",
+                        "name": "_eiaAdditionalSlaveSecurityGroups",
+                        "shape": "StringList",
+                        "locationName": "AdditionalSlaveSecurityGroups",
+                        "documentation": "-- | A list of additional Amazon EC2 security group IDs for the slave nodes.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"AdditionalSlaveSecurityGroups\" Text"
+                    },
                     {
                         "location": null,
                         "iso": null,
@@ -3844,6 +4031,40 @@
                         "protocol": "json",
                         "flattened": false,
                         "required": false,
+                        "lens": "eiaEmrManagedMasterSecurityGroup",
+                        "name": "_eiaEmrManagedMasterSecurityGroup",
+                        "shape": "String",
+                        "locationName": "EmrManagedMasterSecurityGroup",
+                        "documentation": "-- | The identifier of the Amazon EC2 security group (managed by Amazon Elastic\n-- MapReduce) for the master node.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "eiaEmrManagedSlaveSecurityGroup",
+                        "name": "_eiaEmrManagedSlaveSecurityGroup",
+                        "shape": "String",
+                        "locationName": "EmrManagedSlaveSecurityGroup",
+                        "documentation": "-- | The identifier of the Amazon EC2 security group (managed by Amazon Elastic\n-- MapReduce) for the slave nodes.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
                         "lens": "eiaIamInstanceProfile",
                         "name": "_eiaIamInstanceProfile",
                         "shape": "String",
@@ -3858,6 +4079,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -3874,6 +4096,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -3895,6 +4118,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 14,
@@ -4120,6 +4344,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -4142,6 +4367,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -4264,6 +4490,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 13,
@@ -4387,6 +4614,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -4405,6 +4633,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -4423,6 +4652,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 20,
@@ -4596,6 +4826,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -4872,6 +5103,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -4897,6 +5129,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 19,
@@ -5071,6 +5304,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "IsString"
@@ -5162,6 +5396,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 15,
@@ -5388,6 +5623,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 30,
@@ -5562,6 +5798,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 25,
@@ -6297,6 +6534,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 12,
@@ -6420,6 +6658,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -6441,6 +6680,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 17,
@@ -6717,6 +6957,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -6738,6 +6979,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 20,
@@ -6911,6 +7153,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "listElement": null,
@@ -7000,6 +7243,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 26,
@@ -7276,6 +7520,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 20,
@@ -7450,6 +7695,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -7467,9 +7713,10 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
-                "fieldPad": 32,
+                "fieldPad": 35,
                 "ctor": "jobFlowInstancesConfig",
                 "contents": [
                     {
@@ -7641,13 +7888,81 @@
                         "documentation": "-- | To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set\n-- this parameter to the identifier of the Amazon VPC subnet where you want the\n-- job flow to launch. If you do not specify this value, the job flow is\n-- launched in the normal Amazon Web Services cloud, outside of an Amazon VPC.\n--\n-- Amazon VPC currently does not support cluster compute quadruple extra large\n-- (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge instance\n-- type for nodes of a job flow launched in a Amazon VPC.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "jficEmrManagedMasterSecurityGroup",
+                        "name": "_jficEmrManagedMasterSecurityGroup",
+                        "shape": "XmlStringMaxLen256",
+                        "locationName": "EmrManagedMasterSecurityGroup",
+                        "documentation": "-- | The identifier of the Amazon EC2 security group (managed by Amazon\n-- ElasticMapReduce) for the master node.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "jficEmrManagedSlaveSecurityGroup",
+                        "name": "_jficEmrManagedSlaveSecurityGroup",
+                        "shape": "XmlStringMaxLen256",
+                        "locationName": "EmrManagedSlaveSecurityGroup",
+                        "documentation": "-- | The identifier of the Amazon EC2 security group (managed by Amazon\n-- ElasticMapReduce) for the slave nodes.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jficAdditionalMasterSecurityGroups",
+                        "name": "_jficAdditionalMasterSecurityGroups",
+                        "shape": "SecurityGroupsList",
+                        "locationName": "AdditionalMasterSecurityGroups",
+                        "documentation": "-- | A list of additional Amazon EC2 security group IDs for the master node.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"AdditionalMasterSecurityGroups\" Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jficAdditionalSlaveSecurityGroups",
+                        "name": "_jficAdditionalSlaveSecurityGroups",
+                        "shape": "SecurityGroupsList",
+                        "locationName": "AdditionalSlaveSecurityGroups",
+                        "documentation": "-- | A list of additional Amazon EC2 security group IDs for the slave nodes.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"AdditionalSlaveSecurityGroups\" Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
-                "contentPad": 28,
+                "contentPad": 31,
                 "name": "JobFlowInstancesConfig",
-                "locationPad": 28,
+                "locationPad": 31,
                 "type": "record",
                 "optional": [
                     {
@@ -7819,9 +8134,111 @@
                         "documentation": "-- | To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set\n-- this parameter to the identifier of the Amazon VPC subnet where you want the\n-- job flow to launch. If you do not specify this value, the job flow is\n-- launched in the normal Amazon Web Services cloud, outside of an Amazon VPC.\n--\n-- Amazon VPC currently does not support cluster compute quadruple extra large\n-- (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge instance\n-- type for nodes of a job flow launched in a Amazon VPC.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "jficEmrManagedMasterSecurityGroup",
+                        "name": "_jficEmrManagedMasterSecurityGroup",
+                        "shape": "XmlStringMaxLen256",
+                        "locationName": "EmrManagedMasterSecurityGroup",
+                        "documentation": "-- | The identifier of the Amazon EC2 security group (managed by Amazon\n-- ElasticMapReduce) for the master node.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "jficEmrManagedSlaveSecurityGroup",
+                        "name": "_jficEmrManagedSlaveSecurityGroup",
+                        "shape": "XmlStringMaxLen256",
+                        "locationName": "EmrManagedSlaveSecurityGroup",
+                        "documentation": "-- | The identifier of the Amazon EC2 security group (managed by Amazon\n-- ElasticMapReduce) for the slave nodes.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jficAdditionalMasterSecurityGroups",
+                        "name": "_jficAdditionalMasterSecurityGroups",
+                        "shape": "SecurityGroupsList",
+                        "locationName": "AdditionalMasterSecurityGroups",
+                        "documentation": "-- | A list of additional Amazon EC2 security group IDs for the master node.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"AdditionalMasterSecurityGroups\" Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jficAdditionalSlaveSecurityGroups",
+                        "name": "_jficAdditionalSlaveSecurityGroups",
+                        "shape": "SecurityGroupsList",
+                        "locationName": "AdditionalSlaveSecurityGroups",
+                        "documentation": "-- | A list of additional Amazon EC2 security group IDs for the slave nodes.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"AdditionalSlaveSecurityGroups\" Text"
                     }
                 ],
                 "fields": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jficAdditionalMasterSecurityGroups",
+                        "name": "_jficAdditionalMasterSecurityGroups",
+                        "shape": "SecurityGroupsList",
+                        "locationName": "AdditionalMasterSecurityGroups",
+                        "documentation": "-- | A list of additional Amazon EC2 security group IDs for the master node.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"AdditionalMasterSecurityGroups\" Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "jficAdditionalSlaveSecurityGroups",
+                        "name": "_jficAdditionalSlaveSecurityGroups",
+                        "shape": "SecurityGroupsList",
+                        "locationName": "AdditionalSlaveSecurityGroups",
+                        "documentation": "-- | A list of additional Amazon EC2 security group IDs for the slave nodes.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"AdditionalSlaveSecurityGroups\" Text"
+                    },
                     {
                         "location": null,
                         "iso": null,
@@ -7853,6 +8270,40 @@
                         "shape": "XmlStringMaxLen256",
                         "locationName": "Ec2SubnetId",
                         "documentation": "-- | To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set\n-- this parameter to the identifier of the Amazon VPC subnet where you want the\n-- job flow to launch. If you do not specify this value, the job flow is\n-- launched in the normal Amazon Web Services cloud, outside of an Amazon VPC.\n--\n-- Amazon VPC currently does not support cluster compute quadruple extra large\n-- (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge instance\n-- type for nodes of a job flow launched in a Amazon VPC.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "jficEmrManagedMasterSecurityGroup",
+                        "name": "_jficEmrManagedMasterSecurityGroup",
+                        "shape": "XmlStringMaxLen256",
+                        "locationName": "EmrManagedMasterSecurityGroup",
+                        "documentation": "-- | The identifier of the Amazon EC2 security group (managed by Amazon\n-- ElasticMapReduce) for the master node.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "jficEmrManagedSlaveSecurityGroup",
+                        "name": "_jficEmrManagedSlaveSecurityGroup",
+                        "shape": "XmlStringMaxLen256",
+                        "locationName": "EmrManagedSlaveSecurityGroup",
+                        "documentation": "-- | The identifier of the Amazon EC2 security group (managed by Amazon\n-- ElasticMapReduce) for the slave nodes.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7997,6 +8448,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -8171,6 +8623,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 25,
@@ -8650,6 +9103,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 25,
@@ -8772,6 +9226,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 26,
@@ -8996,6 +9451,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 32,
@@ -9680,6 +10136,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 20,
@@ -9854,6 +10311,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -9874,6 +10332,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 19,
@@ -10048,6 +10507,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -10067,6 +10527,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -10445,6 +10906,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 9,
@@ -10579,6 +11041,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -10722,6 +11185,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -10865,6 +11329,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -10977,6 +11442,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -11120,6 +11586,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -11155,6 +11622,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -11297,6 +11765,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -11408,6 +11877,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "IsString"
@@ -11518,6 +11988,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -11630,6 +12101,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -11873,6 +12345,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -11984,6 +12457,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -12125,6 +12599,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -12278,6 +12753,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -12420,6 +12896,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -12572,6 +13049,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -12815,6 +13293,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -12968,6 +13447,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -13110,6 +13590,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -13262,6 +13743,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -13506,6 +13988,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -13658,6 +14141,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -13903,6 +14387,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -13938,6 +14423,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -14049,6 +14535,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -14085,6 +14572,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -14228,6 +14716,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid"
                 ],
@@ -14339,6 +14828,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -15043,6 +15533,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -15079,6 +15570,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -15222,6 +15714,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -15258,6 +15751,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -15401,6 +15895,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -15437,6 +15932,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"

@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype DescribeStackSummary = DescribeStackSummary
     { _dssStackId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeStackSummary' constructor.
 --
@@ -74,7 +74,7 @@ dssStackId = lens _dssStackId (\s a -> s { _dssStackId = a })
 
 newtype DescribeStackSummaryResponse = DescribeStackSummaryResponse
     { _dssrStackSummary :: Maybe StackSummary
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeStackSummaryResponse' constructor.
 --

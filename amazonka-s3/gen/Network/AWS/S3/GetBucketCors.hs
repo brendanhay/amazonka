@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetBucketCors = GetBucketCors
     { _gbcBucket :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetBucketCors' constructor.
 --
@@ -68,7 +68,7 @@ gbcBucket = lens _gbcBucket (\s a -> s { _gbcBucket = a })
 
 newtype GetBucketCorsResponse = GetBucketCorsResponse
     { _gbcrCORSRules :: List "CORSRule" CORSRule
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'GetBucketCorsResponse' constructor.
 --

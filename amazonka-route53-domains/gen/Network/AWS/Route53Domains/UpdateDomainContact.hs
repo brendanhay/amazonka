@@ -61,7 +61,7 @@ data UpdateDomainContact = UpdateDomainContact
     , _udcDomainName        :: Text
     , _udcRegistrantContact :: Maybe ContactDetail
     , _udcTechContact       :: Maybe ContactDetail
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateDomainContact' constructor.
 --
@@ -131,7 +131,7 @@ udcTechContact = lens _udcTechContact (\s a -> s { _udcTechContact = a })
 
 newtype UpdateDomainContactResponse = UpdateDomainContactResponse
     { _udcrOperationId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'UpdateDomainContactResponse' constructor.
 --

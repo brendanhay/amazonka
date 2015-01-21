@@ -57,7 +57,7 @@ data ResetCacheParameterGroup = ResetCacheParameterGroup
     { _rcpgCacheParameterGroupName :: Text
     , _rcpgParameterNameValues     :: List "member" ParameterNameValue
     , _rcpgResetAllParameters      :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ResetCacheParameterGroup' constructor.
 --
@@ -100,7 +100,7 @@ rcpgResetAllParameters =
 
 newtype ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
     { _rcpgrCacheParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ResetCacheParameterGroupResponse' constructor.
 --

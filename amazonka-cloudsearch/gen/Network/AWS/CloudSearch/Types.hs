@@ -358,7 +358,7 @@ data DomainStatus = DomainStatus
     , _dsSearchInstanceType     :: Maybe Text
     , _dsSearchPartitionCount   :: Maybe Nat
     , _dsSearchService          :: Maybe ServiceEndpoint
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DomainStatus' constructor.
 --
@@ -509,7 +509,7 @@ data DocumentSuggesterOptions = DocumentSuggesterOptions
     { _dsoFuzzyMatching  :: Maybe SuggesterFuzzyMatching
     , _dsoSortExpression :: Maybe Text
     , _dsoSourceField    :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DocumentSuggesterOptions' constructor.
 --
@@ -571,7 +571,7 @@ data DoubleArrayOptions = DoubleArrayOptions
     , _daoReturnEnabled :: Maybe Bool
     , _daoSearchEnabled :: Maybe Bool
     , _daoSourceFields  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DoubleArrayOptions' constructor.
 --
@@ -647,7 +647,7 @@ data IndexField = IndexField
     , _ifLiteralOptions      :: Maybe LiteralOptions
     , _ifTextArrayOptions    :: Maybe TextArrayOptions
     , _ifTextOptions         :: Maybe TextOptions
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'IndexField' constructor.
 --
@@ -786,7 +786,7 @@ data DateOptions = DateOptions
     , _doSearchEnabled :: Maybe Bool
     , _doSortEnabled   :: Maybe Bool
     , _doSourceField   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DateOptions' constructor.
 --
@@ -861,7 +861,7 @@ data OptionState
     | FailedToValidate       -- ^ FailedToValidate
     | Processing             -- ^ Processing
     | RequiresIndexDocuments -- ^ RequiresIndexDocuments
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable OptionState
 
@@ -894,7 +894,7 @@ data TextArrayOptions = TextArrayOptions
     , _taoHighlightEnabled :: Maybe Bool
     , _taoReturnEnabled    :: Maybe Bool
     , _taoSourceFields     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TextArrayOptions' constructor.
 --
@@ -963,7 +963,7 @@ data AlgorithmicStemming
     | Light   -- ^ light
     | Minimal -- ^ minimal
     | None    -- ^ none
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable AlgorithmicStemming
 
@@ -994,7 +994,7 @@ data AnalysisScheme = AnalysisScheme
     { _asAnalysisOptions        :: Maybe AnalysisOptions
     , _asAnalysisSchemeLanguage :: AnalysisSchemeLanguage
     , _asAnalysisSchemeName     :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AnalysisScheme' constructor.
 --
@@ -1045,7 +1045,7 @@ data ScalingParameters = ScalingParameters
     { _spDesiredInstanceType     :: Maybe PartitionInstanceType
     , _spDesiredPartitionCount   :: Maybe Nat
     , _spDesiredReplicationCount :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ScalingParameters' constructor.
 --
@@ -1102,7 +1102,7 @@ data AnalysisOptions = AnalysisOptions
     , _aoStemmingDictionary             :: Maybe Text
     , _aoStopwords                      :: Maybe Text
     , _aoSynonyms                       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AnalysisOptions' constructor.
 --
@@ -1192,7 +1192,7 @@ data DoubleOptions = DoubleOptions
     , _do1SearchEnabled :: Maybe Bool
     , _do1SortEnabled   :: Maybe Bool
     , _do1SourceField   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DoubleOptions' constructor.
 --
@@ -1272,7 +1272,7 @@ data TextOptions = TextOptions
     , _toReturnEnabled    :: Maybe Bool
     , _toSortEnabled      :: Maybe Bool
     , _toSourceField      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TextOptions' constructor.
 --
@@ -1346,7 +1346,7 @@ instance ToQuery TextOptions where
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus
     { _aosOptions :: Bool
     , _aosStatus  :: OptionStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AvailabilityOptionsStatus' constructor.
 --
@@ -1385,7 +1385,7 @@ instance ToQuery AvailabilityOptionsStatus where
 data IndexFieldStatus = IndexFieldStatus
     { _ifsOptions :: IndexField
     , _ifsStatus  :: OptionStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'IndexFieldStatus' constructor.
 --
@@ -1423,7 +1423,7 @@ instance ToQuery IndexFieldStatus where
 data ScalingParametersStatus = ScalingParametersStatus
     { _spsOptions :: ScalingParameters
     , _spsStatus  :: OptionStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ScalingParametersStatus' constructor.
 --
@@ -1461,7 +1461,7 @@ instance ToQuery ScalingParametersStatus where
 data AnalysisSchemeStatus = AnalysisSchemeStatus
     { _assOptions :: AnalysisScheme
     , _assStatus  :: OptionStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AnalysisSchemeStatus' constructor.
 --
@@ -1498,7 +1498,7 @@ instance ToQuery AnalysisSchemeStatus where
 
 newtype ServiceEndpoint = ServiceEndpoint
     { _seEndpoint :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ServiceEndpoint' constructor.
 --
@@ -1526,7 +1526,7 @@ instance ToQuery ServiceEndpoint where
 data Limits = Limits
     { _lMaximumPartitionCount   :: Nat
     , _lMaximumReplicationCount :: Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Limits' constructor.
 --
@@ -1569,7 +1569,7 @@ instance ToQuery Limits where
 data ExpressionStatus = ExpressionStatus
     { _esOptions :: Expression
     , _esStatus  :: OptionStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ExpressionStatus' constructor.
 --
@@ -1618,7 +1618,7 @@ data IndexFieldType
     | IFTLiteralArray -- ^ literal-array
     | IFTText         -- ^ text
     | IFTTextArray    -- ^ text-array
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable IndexFieldType
 
@@ -1666,7 +1666,7 @@ data LatLonOptions = LatLonOptions
     , _lloSearchEnabled :: Maybe Bool
     , _lloSortEnabled   :: Maybe Bool
     , _lloSourceField   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'LatLonOptions' constructor.
 --
@@ -1739,7 +1739,7 @@ instance ToQuery LatLonOptions where
 data SuggesterStatus = SuggesterStatus
     { _ssOptions :: Suggester
     , _ssStatus  :: OptionStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SuggesterStatus' constructor.
 --
@@ -1780,7 +1780,7 @@ data OptionStatus = OptionStatus
     , _osState           :: OptionState
     , _osUpdateDate      :: ISO8601
     , _osUpdateVersion   :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'OptionStatus' constructor.
 --
@@ -1860,7 +1860,7 @@ data LiteralArrayOptions = LiteralArrayOptions
     , _laoReturnEnabled :: Maybe Bool
     , _laoSearchEnabled :: Maybe Bool
     , _laoSourceFields  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'LiteralArrayOptions' constructor.
 --
@@ -1928,7 +1928,7 @@ data IntArrayOptions = IntArrayOptions
     , _iaoReturnEnabled :: Maybe Bool
     , _iaoSearchEnabled :: Maybe Bool
     , _iaoSourceFields  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'IntArrayOptions' constructor.
 --
@@ -1993,7 +1993,7 @@ instance ToQuery IntArrayOptions where
 data Expression = Expression
     { _eExpressionName  :: Text
     , _eExpressionValue :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Expression' constructor.
 --
@@ -2032,7 +2032,7 @@ data SuggesterFuzzyMatching
     = SFMHigh -- ^ high
     | SFMLow  -- ^ low
     | SFMNone -- ^ none
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable SuggesterFuzzyMatching
 
@@ -2063,7 +2063,7 @@ data DateArrayOptions = DateArrayOptions
     , _dao1ReturnEnabled :: Maybe Bool
     , _dao1SearchEnabled :: Maybe Bool
     , _dao1SourceFields  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DateArrayOptions' constructor.
 --
@@ -2163,7 +2163,7 @@ data AnalysisSchemeLanguage
     | Tr     -- ^ tr
     | ZhHans -- ^ zh-Hans
     | ZhHant -- ^ zh-Hant
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable AnalysisSchemeLanguage
 
@@ -2257,7 +2257,7 @@ data PartitionInstanceType
     | SearchM1Small   -- ^ search.m1.small
     | SearchM22xlarge -- ^ search.m2.2xlarge
     | SearchM2Xlarge  -- ^ search.m2.xlarge
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable PartitionInstanceType
 
@@ -2287,7 +2287,7 @@ instance FromXML PartitionInstanceType where
 data Suggester = Suggester
     { _sDocumentSuggesterOptions :: DocumentSuggesterOptions
     , _sSuggesterName            :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Suggester' constructor.
 --
@@ -2331,7 +2331,7 @@ data IntOptions = IntOptions
     , _ioSearchEnabled :: Maybe Bool
     , _ioSortEnabled   :: Maybe Bool
     , _ioSourceField   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'IntOptions' constructor.
 --
@@ -2411,7 +2411,7 @@ data LiteralOptions = LiteralOptions
     , _loSearchEnabled :: Maybe Bool
     , _loSortEnabled   :: Maybe Bool
     , _loSourceField   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'LiteralOptions' constructor.
 --
@@ -2484,7 +2484,7 @@ instance ToQuery LiteralOptions where
 data AccessPoliciesStatus = AccessPoliciesStatus
     { _apsOptions :: Text
     , _apsStatus  :: OptionStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AccessPoliciesStatus' constructor.
 --

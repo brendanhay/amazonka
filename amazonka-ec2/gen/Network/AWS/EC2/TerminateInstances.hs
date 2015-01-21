@@ -70,7 +70,7 @@ import qualified GHC.Exts
 data TerminateInstances = TerminateInstances
     { _tiDryRun      :: Maybe Bool
     , _tiInstanceIds :: List "InstanceId" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TerminateInstances' constructor.
 --
@@ -95,7 +95,7 @@ tiInstanceIds = lens _tiInstanceIds (\s a -> s { _tiInstanceIds = a }) . _List
 
 newtype TerminateInstancesResponse = TerminateInstancesResponse
     { _tirTerminatingInstances :: List "item" InstanceStateChange
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'TerminateInstancesResponse' constructor.
 --

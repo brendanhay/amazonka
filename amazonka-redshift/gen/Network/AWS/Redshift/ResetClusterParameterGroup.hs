@@ -57,7 +57,7 @@ data ResetClusterParameterGroup = ResetClusterParameterGroup
     { _rcpgParameterGroupName :: Text
     , _rcpgParameters         :: List "member" Parameter
     , _rcpgResetAllParameters :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ResetClusterParameterGroup' constructor.
 --
@@ -100,7 +100,7 @@ rcpgResetAllParameters =
 data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
     { _rcpgrParameterGroupName   :: Maybe Text
     , _rcpgrParameterGroupStatus :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ResetClusterParameterGroupResponse' constructor.
 --

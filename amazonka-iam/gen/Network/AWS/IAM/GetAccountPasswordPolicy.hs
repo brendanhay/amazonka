@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 import qualified GHC.Exts
 
 data GetAccountPasswordPolicy = GetAccountPasswordPolicy
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'GetAccountPasswordPolicy' constructor.
 getAccountPasswordPolicy :: GetAccountPasswordPolicy
@@ -55,7 +55,7 @@ getAccountPasswordPolicy = GetAccountPasswordPolicy
 
 newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
     { _gapprPasswordPolicy :: PasswordPolicy
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetAccountPasswordPolicyResponse' constructor.
 --

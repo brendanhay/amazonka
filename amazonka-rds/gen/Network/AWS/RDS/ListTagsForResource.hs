@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data ListTagsForResource = ListTagsForResource
     { _ltfrFilters      :: List "member" Filter
     , _ltfrResourceName :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListTagsForResource' constructor.
 --
@@ -81,7 +81,7 @@ ltfrResourceName = lens _ltfrResourceName (\s a -> s { _ltfrResourceName = a })
 
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrTagList :: List "member" Tag
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ListTagsForResourceResponse where
     type Item ListTagsForResourceResponse = Tag

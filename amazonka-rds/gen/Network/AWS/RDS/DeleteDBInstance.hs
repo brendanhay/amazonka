@@ -62,7 +62,7 @@ data DeleteDBInstance = DeleteDBInstance
     { _ddbiDBInstanceIdentifier      :: Text
     , _ddbiFinalDBSnapshotIdentifier :: Maybe Text
     , _ddbiSkipFinalSnapshot         :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteDBInstance' constructor.
 --
@@ -122,7 +122,7 @@ ddbiSkipFinalSnapshot =
 
 newtype DeleteDBInstanceResponse = DeleteDBInstanceResponse
     { _ddbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteDBInstanceResponse' constructor.
 --

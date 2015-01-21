@@ -48,7 +48,7 @@ import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data ListBuckets = ListBuckets
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ListBuckets' constructor.
 listBuckets :: ListBuckets
@@ -57,7 +57,7 @@ listBuckets = ListBuckets
 data ListBucketsResponse = ListBucketsResponse
     { _lbrBuckets :: List "Bucket" Bucket
     , _lbrOwner   :: Maybe Owner
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListBucketsResponse' constructor.
 --

@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data SuspendProcesses = SuspendProcesses
     { _spAutoScalingGroupName :: Text
     , _spScalingProcesses     :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SuspendProcesses' constructor.
 --
@@ -90,7 +90,7 @@ spScalingProcesses =
         . _List
 
 data SuspendProcessesResponse = SuspendProcessesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SuspendProcessesResponse' constructor.
 suspendProcessesResponse :: SuspendProcessesResponse

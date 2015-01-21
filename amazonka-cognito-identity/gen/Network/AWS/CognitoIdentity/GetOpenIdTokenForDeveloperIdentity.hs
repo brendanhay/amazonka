@@ -69,7 +69,7 @@ data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity
     , _goitfdiIdentityPoolId :: Text
     , _goitfdiLogins         :: Map Text Text
     , _goitfdiTokenDuration  :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetOpenIdTokenForDeveloperIdentity' constructor.
 --
@@ -129,7 +129,7 @@ goitfdiTokenDuration =
 data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse
     { _goitfdirIdentityId :: Maybe Text
     , _goitfdirToken      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetOpenIdTokenForDeveloperIdentityResponse' constructor.
 --

@@ -60,7 +60,7 @@ data DescribeOptionGroups = DescribeOptionGroups
     , _dogMarker             :: Maybe Text
     , _dogMaxRecords         :: Maybe Int
     , _dogOptionGroupName    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeOptionGroups' constructor.
 --
@@ -129,7 +129,7 @@ dogOptionGroupName =
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse
     { _dogrMarker           :: Maybe Text
     , _dogrOptionGroupsList :: List "member" OptionGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeOptionGroupsResponse' constructor.
 --

@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration
     { _dlcLaunchConfigurationName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteLaunchConfiguration' constructor.
 --
@@ -71,7 +71,7 @@ dlcLaunchConfigurationName =
         (\s a -> s { _dlcLaunchConfigurationName = a })
 
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteLaunchConfigurationResponse' constructor.
 deleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse

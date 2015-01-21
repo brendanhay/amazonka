@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype RebootInstance = RebootInstance
     { _riInstanceId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'RebootInstance' constructor.
 --
@@ -70,7 +70,7 @@ riInstanceId :: Lens' RebootInstance Text
 riInstanceId = lens _riInstanceId (\s a -> s { _riInstanceId = a })
 
 data RebootInstanceResponse = RebootInstanceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RebootInstanceResponse' constructor.
 rebootInstanceResponse :: RebootInstanceResponse

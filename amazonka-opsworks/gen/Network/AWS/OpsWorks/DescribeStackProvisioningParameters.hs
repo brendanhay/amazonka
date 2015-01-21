@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype DescribeStackProvisioningParameters = DescribeStackProvisioningParameters
     { _dsppStackId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeStackProvisioningParameters' constructor.
 --
@@ -75,7 +75,7 @@ dsppStackId = lens _dsppStackId (\s a -> s { _dsppStackId = a })
 data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse
     { _dspprAgentInstallerUrl :: Maybe Text
     , _dspprParameters        :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeStackProvisioningParametersResponse' constructor.
 --

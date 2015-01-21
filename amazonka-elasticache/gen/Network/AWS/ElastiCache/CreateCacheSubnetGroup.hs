@@ -56,7 +56,7 @@ data CreateCacheSubnetGroup = CreateCacheSubnetGroup
     { _ccsgCacheSubnetGroupDescription :: Text
     , _ccsgCacheSubnetGroupName        :: Text
     , _ccsgSubnetIds                   :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateCacheSubnetGroup' constructor.
 --
@@ -100,7 +100,7 @@ ccsgSubnetIds = lens _ccsgSubnetIds (\s a -> s { _ccsgSubnetIds = a }) . _List
 
 newtype CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
     { _ccsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateCacheSubnetGroupResponse' constructor.
 --

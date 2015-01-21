@@ -60,7 +60,7 @@ data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings
     { _drnoMarker                 :: Maybe Text
     , _drnoMaxRecords             :: Maybe Int
     , _drnoReservedNodeOfferingId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeReservedNodeOfferings' constructor.
 --
@@ -108,7 +108,7 @@ drnoReservedNodeOfferingId =
 data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
     { _drnorMarker                :: Maybe Text
     , _drnorReservedNodeOfferings :: List "member" ReservedNodeOffering
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedNodeOfferingsResponse' constructor.
 --

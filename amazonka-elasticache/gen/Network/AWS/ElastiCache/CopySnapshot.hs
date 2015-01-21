@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data CopySnapshot = CopySnapshot
     { _csSourceSnapshotName :: Text
     , _csTargetSnapshotName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CopySnapshot' constructor.
 --
@@ -81,7 +81,7 @@ csTargetSnapshotName =
 
 newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CopySnapshotResponse' constructor.
 --

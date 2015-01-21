@@ -275,7 +275,7 @@ data AssignmentStatusType
     = Any        -- ^ Any
     | Assigned   -- ^ Assigned
     | Unassigned -- ^ Unassigned
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable AssignmentStatusType
 
@@ -311,7 +311,7 @@ data PasswordPolicy = PasswordPolicy
     , _ppRequireNumbers             :: Maybe Bool
     , _ppRequireSymbols             :: Maybe Bool
     , _ppRequireUppercaseCharacters :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PasswordPolicy' constructor.
 --
@@ -439,7 +439,7 @@ data Group = Group
     , _gGroupId    :: Text
     , _gGroupName  :: Text
     , _gPath       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Group' constructor.
 --
@@ -513,7 +513,7 @@ data MFADevice = MFADevice
     { _mfadEnableDate   :: ISO8601
     , _mfadSerialNumber :: Text
     , _mfadUserName     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'MFADevice' constructor.
 --
@@ -568,7 +568,7 @@ data InstanceProfile = InstanceProfile
     , _ipInstanceProfileName :: Text
     , _ipPath                :: Text
     , _ipRoles               :: List "member" Role
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'InstanceProfile' constructor.
 --
@@ -658,7 +658,7 @@ data RoleDetail = RoleDetail
     , _rdRoleId                   :: Maybe Text
     , _rdRoleName                 :: Maybe Text
     , _rdRolePolicyList           :: List "member" PolicyDetail
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RoleDetail' constructor.
 --
@@ -755,7 +755,7 @@ instance ToQuery RoleDetail where
 
 data ReportFormatType
     = TextCsv -- ^ text/csv
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ReportFormatType
 
@@ -782,7 +782,7 @@ data ServerCertificateMetadata = ServerCertificateMetadata
     , _scmServerCertificateId   :: Text
     , _scmServerCertificateName :: Text
     , _scmUploadDate            :: Maybe ISO8601
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ServerCertificateMetadata' constructor.
 --
@@ -865,7 +865,7 @@ instance ToQuery ServerCertificateMetadata where
 
 newtype OpenIDConnectProviderListEntry = OpenIDConnectProviderListEntry
     { _oidcpleArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'OpenIDConnectProviderListEntry' constructor.
 --
@@ -894,7 +894,7 @@ data LoginProfile = LoginProfile
     { _lpCreateDate            :: ISO8601
     , _lpPasswordResetRequired :: Maybe Bool
     , _lpUserName              :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'LoginProfile' constructor.
 --
@@ -946,7 +946,7 @@ data EntityType
     = ETGroup -- ^ Group
     | ETRole  -- ^ Role
     | ETUser  -- ^ User
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable EntityType
 
@@ -986,7 +986,7 @@ data SummaryKeyType
     | UserPolicySizeQuota             -- ^ UserPolicySizeQuota
     | Users                           -- ^ Users
     | UsersQuota                      -- ^ UsersQuota
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable SummaryKeyType
 
@@ -1040,7 +1040,7 @@ data GroupDetail = GroupDetail
     , _gdGroupName       :: Maybe Text
     , _gdGroupPolicyList :: List "member" PolicyDetail
     , _gdPath            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GroupDetail' constructor.
 --
@@ -1118,7 +1118,7 @@ data ReportStateType
     = Complete   -- ^ COMPLETE
     | Inprogress -- ^ INPROGRESS
     | Started    -- ^ STARTED
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ReportStateType
 
@@ -1150,7 +1150,7 @@ data User = User
     , _uPath             :: Text
     , _uUserId           :: Text
     , _uUserName         :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'User' constructor.
 --
@@ -1242,7 +1242,7 @@ instance ToQuery User where
 data PolicyDetail = PolicyDetail
     { _pdPolicyDocument :: Maybe Text
     , _pdPolicyName     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PolicyDetail' constructor.
 --
@@ -1282,7 +1282,7 @@ instance ToQuery PolicyDetail where
 data StatusType
     = Active   -- ^ Active
     | Inactive -- ^ Inactive
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable StatusType
 
@@ -1309,7 +1309,7 @@ data SAMLProviderListEntry = SAMLProviderListEntry
     { _samlpleArn        :: Maybe Text
     , _samlpleCreateDate :: Maybe ISO8601
     , _samlpleValidUntil :: Maybe ISO8601
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SAMLProviderListEntry' constructor.
 --
@@ -1364,7 +1364,7 @@ data Role = Role
     , _rPath                     :: Text
     , _rRoleId                   :: Text
     , _rRoleName                 :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Role' constructor.
 --
@@ -1455,7 +1455,7 @@ data UserDetail = UserDetail
     , _udUserId         :: Maybe Text
     , _udUserName       :: Maybe Text
     , _udUserPolicyList :: List "member" PolicyDetail
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UserDetail' constructor.
 --
@@ -1540,7 +1540,7 @@ data ServerCertificate = ServerCertificate
     { _scCertificateBody           :: Text
     , _scCertificateChain          :: Maybe Text
     , _scServerCertificateMetadata :: ServerCertificateMetadata
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ServerCertificate' constructor.
 --
@@ -1597,7 +1597,7 @@ data AccessKey = AccessKey
     , _akSecretAccessKey :: Sensitive Text
     , _akStatus          :: StatusType
     , _akUserName        :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AccessKey' constructor.
 --
@@ -1672,7 +1672,7 @@ data VirtualMFADevice = VirtualMFADevice
     , _vmfadQRCodePNG        :: Maybe Base64
     , _vmfadSerialNumber     :: Text
     , _vmfadUser             :: Maybe User
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'VirtualMFADevice' constructor.
 --
@@ -1744,7 +1744,7 @@ data SigningCertificate = SigningCertificate
     , _sc1Status          :: StatusType
     , _sc1UploadDate      :: Maybe ISO8601
     , _sc1UserName        :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SigningCertificate' constructor.
 --
@@ -1817,7 +1817,7 @@ data AccessKeyMetadata = AccessKeyMetadata
     , _akmCreateDate  :: Maybe ISO8601
     , _akmStatus      :: Maybe StatusType
     , _akmUserName    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AccessKeyMetadata' constructor.
 --

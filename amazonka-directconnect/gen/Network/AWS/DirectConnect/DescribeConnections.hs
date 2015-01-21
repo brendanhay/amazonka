@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype DescribeConnections = DescribeConnections
     { _dc1ConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'DescribeConnections' constructor.
 --
@@ -70,7 +70,7 @@ dc1ConnectionId = lens _dc1ConnectionId (\s a -> s { _dc1ConnectionId = a })
 
 newtype DescribeConnectionsResponse = DescribeConnectionsResponse
     { _dcrConnections :: List "connections" Connection
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConnectionsResponse where
     type Item DescribeConnectionsResponse = Connection

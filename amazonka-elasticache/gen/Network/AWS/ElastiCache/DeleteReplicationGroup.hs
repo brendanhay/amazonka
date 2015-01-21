@@ -60,7 +60,7 @@ data DeleteReplicationGroup = DeleteReplicationGroup
     { _drgFinalSnapshotIdentifier :: Maybe Text
     , _drgReplicationGroupId      :: Text
     , _drgRetainPrimaryCluster    :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteReplicationGroup' constructor.
 --
@@ -103,7 +103,7 @@ drgRetainPrimaryCluster =
 
 newtype DeleteReplicationGroupResponse = DeleteReplicationGroupResponse
     { _drgrReplicationGroup :: Maybe ReplicationGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteReplicationGroupResponse' constructor.
 --

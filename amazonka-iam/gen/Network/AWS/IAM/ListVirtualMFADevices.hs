@@ -59,7 +59,7 @@ data ListVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadAssignmentStatus :: Maybe AssignmentStatusType
     , _lvmfadMarker           :: Maybe Text
     , _lvmfadMaxItems         :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListVirtualMFADevices' constructor.
 --
@@ -101,7 +101,7 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { _lvmfadrIsTruncated       :: Maybe Bool
     , _lvmfadrMarker            :: Maybe Text
     , _lvmfadrVirtualMFADevices :: List "member" VirtualMFADevice
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListVirtualMFADevicesResponse' constructor.
 --

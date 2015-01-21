@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data RestartAppServer = RestartAppServer
     { _rasEnvironmentId   :: Maybe Text
     , _rasEnvironmentName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RestartAppServer' constructor.
 --
@@ -82,7 +82,7 @@ rasEnvironmentName =
     lens _rasEnvironmentName (\s a -> s { _rasEnvironmentName = a })
 
 data RestartAppServerResponse = RestartAppServerResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RestartAppServerResponse' constructor.
 restartAppServerResponse :: RestartAppServerResponse

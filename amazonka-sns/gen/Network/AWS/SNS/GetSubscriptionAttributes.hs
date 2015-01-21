@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetSubscriptionAttributes = GetSubscriptionAttributes
     { _gsaSubscriptionArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetSubscriptionAttributes' constructor.
 --
@@ -70,7 +70,7 @@ gsaSubscriptionArn =
 
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes :: EMap "entry" "key" "value" Text Text
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'GetSubscriptionAttributesResponse' constructor.
 --

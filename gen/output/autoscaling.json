@@ -149,7 +149,7 @@
         "url": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Auto Scaling",
-        "version": "0.2.1",
+        "version": "0.2.2",
         "description": "Auto Scaling allows you to scale your Amazon EC2 capacity up or down\nautomatically according to conditions you define. With Auto Scaling, you can\nensure that the number of Amazon EC2 instances you’re using increases\nseamlessly during demand spikes to maintain performance, and decreases\nautomatically during demand lulls to minimize costs. Auto Scaling is\nparticularly well suited for applications that experience hourly, daily, or\nweekly variability in usage. Auto Scaling is enabled by Amazon CloudWatch and\navailable at no additional charge beyond Amazon CloudWatch fees."
     },
     "types": {
@@ -159,6 +159,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 20,
@@ -349,6 +350,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 21,
@@ -539,6 +541,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 23,
@@ -660,6 +663,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 15,
@@ -816,9 +820,10 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
-                "fieldPad": 27,
+                "fieldPad": 31,
                 "ctor": "launchConfiguration",
                 "contents": [],
                 "payload": null,
@@ -894,7 +899,7 @@
                 ],
                 "contentPad": 0,
                 "name": "LaunchConfiguration",
-                "locationPad": 25,
+                "locationPad": 29,
                 "type": "record",
                 "optional": [
                     {
@@ -945,6 +950,40 @@
                         "shape": "SecurityGroups",
                         "locationName": "SecurityGroups",
                         "documentation": "-- | The security groups to associate with the EC2 instances.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "lcClassicLinkVPCId",
+                        "name": "_lcClassicLinkVPCId",
+                        "shape": "XmlStringMaxLen255",
+                        "locationName": "ClassicLinkVPCId",
+                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lcClassicLinkVPCSecurityGroups",
+                        "name": "_lcClassicLinkVPCSecurityGroups",
+                        "shape": "ClassicLinkVPCSecurityGroups",
+                        "locationName": "ClassicLinkVPCSecurityGroups",
+                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon ElasticCompute Cloud User Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -1153,6 +1192,40 @@
                         "documentation": "-- | A block device mapping that specifies how block devices are exposed to the\n-- instance. Each mapping is made up of a 'virtualName' and a 'deviceName'.",
                         "typeExposed": "[BlockDeviceMapping]",
                         "type": "List \"member\" BlockDeviceMapping"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "lcClassicLinkVPCId",
+                        "name": "_lcClassicLinkVPCId",
+                        "shape": "XmlStringMaxLen255",
+                        "locationName": "ClassicLinkVPCId",
+                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "lcClassicLinkVPCSecurityGroups",
+                        "name": "_lcClassicLinkVPCSecurityGroups",
+                        "shape": "ClassicLinkVPCSecurityGroups",
+                        "locationName": "ClassicLinkVPCSecurityGroups",
+                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon ElasticCompute Cloud User Guide/.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
                     },
                     {
                         "location": "querystring",
@@ -1414,6 +1487,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 27,
@@ -2114,6 +2188,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -2406,6 +2481,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "listElement": null,
@@ -2478,6 +2554,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 25,
@@ -2838,6 +2915,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -2927,6 +3005,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 23,
@@ -3117,6 +3196,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid"
                 ],
@@ -3190,6 +3270,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid"
                 ],
@@ -3263,6 +3344,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -3588,6 +3670,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 22,
@@ -3949,6 +4032,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 19,
@@ -4037,6 +4121,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid"
                 ],
@@ -4110,6 +4195,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 8,
@@ -4199,6 +4285,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "IsString"
@@ -4273,6 +4360,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 11,
@@ -4361,6 +4449,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 14,
@@ -4448,6 +4537,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 25,
@@ -4638,6 +4728,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -4666,6 +4757,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 28,
@@ -4890,6 +4982,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -4926,6 +5019,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -4962,6 +5056,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -5081,6 +5176,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -5117,6 +5213,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -5313,6 +5410,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -5348,6 +5446,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -5974,6 +6073,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -6009,11 +6109,12 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
                 "style": "query",
-                "fieldPad": 28,
+                "fieldPad": 32,
                 "ctor": "createLaunchConfiguration",
                 "headerPad": 0,
                 "contents": [],
@@ -6047,7 +6148,7 @@
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
-                "queryPad": 25,
+                "queryPad": 29,
                 "name": "CreateLaunchConfiguration",
                 "query": [
                     {
@@ -6068,6 +6169,16 @@
                     {
                         "field": "_clcSecurityGroups",
                         "locationName": "SecurityGroups",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_clcClassicLinkVPCId",
+                        "locationName": "ClassicLinkVPCId",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_clcClassicLinkVPCSecurityGroups",
+                        "locationName": "ClassicLinkVPCSecurityGroups",
                         "type": "field"
                     },
                     {
@@ -6131,7 +6242,7 @@
                         "type": "field"
                     }
                 ],
-                "locationPad": 25,
+                "locationPad": 29,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -6184,6 +6295,40 @@
                         "shape": "SecurityGroups",
                         "locationName": "SecurityGroups",
                         "documentation": "-- | One or more security groups with which to associate the instances.\n--\n-- If your instances are launched in EC2-Classic, you can either specify\n-- security group names or the security group IDs. For more information about\n-- security groups for EC2-Classic, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups\u003e in the /AmazonElastic Compute Cloud User Guide/.\n--\n-- If your instances are launched in a VPC, specify security group IDs. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC\u003e in the /Amazon VirtualPrivate Cloud User Guide/.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "clcClassicLinkVPCId",
+                        "name": "_clcClassicLinkVPCId",
+                        "shape": "XmlStringMaxLen255",
+                        "locationName": "ClassicLinkVPCId",
+                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "clcClassicLinkVPCSecurityGroups",
+                        "name": "_clcClassicLinkVPCSecurityGroups",
+                        "shape": "ClassicLinkVPCSecurityGroups",
+                        "locationName": "ClassicLinkVPCSecurityGroups",
+                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon ElasticCompute Cloud User Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -6436,6 +6581,40 @@
                         "protocol": "query",
                         "flattened": false,
                         "required": false,
+                        "lens": "clcClassicLinkVPCId",
+                        "name": "_clcClassicLinkVPCId",
+                        "shape": "XmlStringMaxLen255",
+                        "locationName": "ClassicLinkVPCId",
+                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "clcClassicLinkVPCSecurityGroups",
+                        "name": "_clcClassicLinkVPCSecurityGroups",
+                        "shape": "ClassicLinkVPCSecurityGroups",
+                        "locationName": "ClassicLinkVPCSecurityGroups",
+                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon ElasticCompute Cloud User Guide/.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
                         "lens": "clcEbsOptimized",
                         "name": "_clcEbsOptimized",
                         "shape": "EbsOptimized",
@@ -6674,6 +6853,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -6709,6 +6889,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -6808,6 +6989,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -6844,6 +7026,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -6963,6 +7146,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -6999,6 +7183,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "IsString"
@@ -7098,6 +7283,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -7134,6 +7320,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -7252,6 +7439,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -7288,6 +7476,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -7406,6 +7595,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -7442,6 +7632,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -7561,6 +7752,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -7597,6 +7789,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -7716,6 +7909,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -7751,6 +7945,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -7850,6 +8045,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -7959,6 +8155,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -7992,6 +8189,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -8087,6 +8285,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -8120,6 +8319,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -8238,6 +8438,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -8394,6 +8595,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -8512,6 +8714,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -8669,6 +8872,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -8764,6 +8968,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -8797,6 +9002,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -8915,6 +9121,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -9072,6 +9279,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -9167,6 +9375,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -9200,6 +9409,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -9295,6 +9505,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -9413,6 +9624,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -9522,6 +9734,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -9555,6 +9768,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -9673,6 +9887,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -9829,6 +10044,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -9947,6 +10163,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -10142,6 +10359,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -10260,6 +10478,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -10455,6 +10674,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -10550,6 +10770,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -10583,6 +10804,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -10701,6 +10923,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -10974,6 +11197,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -11091,6 +11315,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -11248,6 +11473,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -11343,6 +11569,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -11376,6 +11603,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -11471,6 +11699,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -11629,6 +11858,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -11665,6 +11895,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -11784,6 +12015,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -11820,6 +12052,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -11977,6 +12210,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -12072,6 +12306,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -12230,6 +12465,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -12266,6 +12502,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -12423,6 +12660,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -12518,6 +12756,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -12637,6 +12876,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -12673,6 +12913,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -13026,6 +13267,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -13062,6 +13304,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -13220,6 +13463,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid"
                 ],
@@ -13314,6 +13558,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -13589,6 +13834,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -13625,6 +13871,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -14017,6 +14264,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -14053,6 +14301,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -14210,6 +14459,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -14246,6 +14496,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -14365,6 +14616,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -14401,6 +14653,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -14559,6 +14812,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -14595,6 +14849,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -14753,6 +15008,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -14789,6 +15045,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -14907,6 +15164,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -15000,6 +15258,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -15118,6 +15377,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -15154,6 +15414,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,

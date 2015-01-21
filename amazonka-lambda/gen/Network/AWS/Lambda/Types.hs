@@ -119,7 +119,7 @@ instance AWSService Lambda where
 
 data Runtime
     = Nodejs -- ^ nodejs
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Runtime
 
@@ -144,7 +144,7 @@ instance ToJSON Runtime where
 
 data Mode
     = Event -- ^ event
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Mode
 
@@ -170,7 +170,7 @@ instance ToJSON Mode where
 data FunctionCodeLocation = FunctionCodeLocation
     { _fclLocation       :: Maybe Text
     , _fclRepositoryType :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'FunctionCodeLocation' constructor.
 --
@@ -220,7 +220,7 @@ data FunctionConfiguration = FunctionConfiguration
     , _fcRole            :: Maybe Text
     , _fcRuntime         :: Maybe Runtime
     , _fcTimeout         :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'FunctionConfiguration' constructor.
 --
@@ -362,7 +362,7 @@ data EventSourceConfiguration = EventSourceConfiguration
     , _escRole         :: Maybe Text
     , _escStatus       :: Maybe Text
     , _escUUID         :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'EventSourceConfiguration' constructor.
 --

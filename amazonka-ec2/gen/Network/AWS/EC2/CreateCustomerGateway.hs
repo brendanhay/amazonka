@@ -71,7 +71,7 @@ data CreateCustomerGateway = CreateCustomerGateway
     , _ccgDryRun   :: Maybe Bool
     , _ccgPublicIp :: Text
     , _ccgType     :: GatewayType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateCustomerGateway' constructor.
 --
@@ -116,7 +116,7 @@ ccgType = lens _ccgType (\s a -> s { _ccgType = a })
 
 newtype CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
     { _ccgrCustomerGateway :: Maybe CustomerGateway
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateCustomerGatewayResponse' constructor.
 --

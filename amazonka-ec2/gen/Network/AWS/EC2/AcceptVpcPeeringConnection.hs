@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
     { _avpcDryRun                 :: Maybe Bool
     , _avpcVpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AcceptVpcPeeringConnection' constructor.
 --
@@ -81,7 +81,7 @@ avpcVpcPeeringConnectionId =
 
 newtype AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     { _avpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AcceptVpcPeeringConnectionResponse' constructor.
 --

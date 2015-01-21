@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
     { _cpviVirtualGatewayId   :: Text
     , _cpviVirtualInterfaceId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ConfirmPrivateVirtualInterface' constructor.
 --
@@ -90,7 +90,7 @@ cpviVirtualInterfaceId =
 
 newtype ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
     { _cpvir1VirtualInterfaceState :: Maybe VirtualInterfaceState
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ConfirmPrivateVirtualInterfaceResponse' constructor.
 --

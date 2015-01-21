@@ -74,7 +74,7 @@ data DetachVolume = DetachVolume
     , _dvForce      :: Maybe Bool
     , _dvInstanceId :: Maybe Text
     , _dvVolumeId   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DetachVolume' constructor.
 --
@@ -132,7 +132,7 @@ data DetachVolumeResponse = DetachVolumeResponse
     , _dvrInstanceId          :: Maybe Text
     , _dvrState               :: Maybe VolumeAttachmentState
     , _dvrVolumeId            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DetachVolumeResponse' constructor.
 --

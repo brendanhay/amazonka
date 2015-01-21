@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DisableKey = DisableKey
     { _dkKeyId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DisableKey' constructor.
 --
@@ -67,7 +67,7 @@ dkKeyId :: Lens' DisableKey Text
 dkKeyId = lens _dkKeyId (\s a -> s { _dkKeyId = a })
 
 data DisableKeyResponse = DisableKeyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DisableKeyResponse' constructor.
 disableKeyResponse :: DisableKeyResponse

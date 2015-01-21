@@ -58,7 +58,7 @@ data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone
     { _avpcwhzComment      :: Maybe Text
     , _avpcwhzHostedZoneId :: Text
     , _avpcwhzVPC          :: VPC
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AssociateVPCWithHostedZone' constructor.
 --
@@ -97,7 +97,7 @@ avpcwhzVPC = lens _avpcwhzVPC (\s a -> s { _avpcwhzVPC = a })
 
 newtype AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse
     { _avpcwhzrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AssociateVPCWithHostedZoneResponse' constructor.
 --

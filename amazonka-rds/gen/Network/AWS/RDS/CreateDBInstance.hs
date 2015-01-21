@@ -107,7 +107,7 @@ data CreateDBInstance = CreateDBInstance
     , _cdbiTdeCredentialArn           :: Maybe Text
     , _cdbiTdeCredentialPassword      :: Maybe Text
     , _cdbiVpcSecurityGroupIds        :: List "member" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDBInstance' constructor.
 --
@@ -623,7 +623,7 @@ cdbiVpcSecurityGroupIds =
 
 newtype CreateDBInstanceResponse = CreateDBInstanceResponse
     { _cdbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDBInstanceResponse' constructor.
 --

@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data RegisterElasticIp = RegisterElasticIp
     { _reiElasticIp :: Text
     , _reiStackId   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RegisterElasticIp' constructor.
 --
@@ -86,7 +86,7 @@ reiStackId = lens _reiStackId (\s a -> s { _reiStackId = a })
 
 newtype RegisterElasticIpResponse = RegisterElasticIpResponse
     { _reirElasticIp :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'RegisterElasticIpResponse' constructor.
 --

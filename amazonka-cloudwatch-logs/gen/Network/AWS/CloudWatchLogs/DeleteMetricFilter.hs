@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DeleteMetricFilter = DeleteMetricFilter
     { _dmf1FilterName   :: Text
     , _dmf1LogGroupName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteMetricFilter' constructor.
 --
@@ -74,7 +74,7 @@ dmf1LogGroupName :: Lens' DeleteMetricFilter Text
 dmf1LogGroupName = lens _dmf1LogGroupName (\s a -> s { _dmf1LogGroupName = a })
 
 data DeleteMetricFilterResponse = DeleteMetricFilterResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteMetricFilterResponse' constructor.
 deleteMetricFilterResponse :: DeleteMetricFilterResponse

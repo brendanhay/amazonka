@@ -50,7 +50,7 @@ import Network.AWS.SES.Types
 import qualified GHC.Exts
 
 data GetSendQuota = GetSendQuota
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'GetSendQuota' constructor.
 getSendQuota :: GetSendQuota
@@ -60,7 +60,7 @@ data GetSendQuotaResponse = GetSendQuotaResponse
     { _gsqrMax24HourSend   :: Maybe Double
     , _gsqrMaxSendRate     :: Maybe Double
     , _gsqrSentLast24Hours :: Maybe Double
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetSendQuotaResponse' constructor.
 --

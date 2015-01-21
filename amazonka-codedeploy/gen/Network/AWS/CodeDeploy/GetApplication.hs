@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetApplication = GetApplication
     { _gaApplicationName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetApplication' constructor.
 --
@@ -71,7 +71,7 @@ gaApplicationName =
 
 newtype GetApplicationResponse = GetApplicationResponse
     { _garApplication :: Maybe ApplicationInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetApplicationResponse' constructor.
 --

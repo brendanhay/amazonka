@@ -61,7 +61,7 @@ import qualified GHC.Exts
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
     { _dtacrCheckId  :: Text
     , _dtacrLanguage :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeTrustedAdvisorCheckResult' constructor.
 --
@@ -90,7 +90,7 @@ dtacrLanguage = lens _dtacrLanguage (\s a -> s { _dtacrLanguage = a })
 
 newtype DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
     { _dtacrrResult :: Maybe TrustedAdvisorCheckResult
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeTrustedAdvisorCheckResultResponse' constructor.
 --

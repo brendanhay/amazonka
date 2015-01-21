@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype GetRole = GetRole
     { _grRoleName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetRole' constructor.
 --
@@ -74,7 +74,7 @@ grRoleName = lens _grRoleName (\s a -> s { _grRoleName = a })
 
 newtype GetRoleResponse = GetRoleResponse
     { _grrRole :: Role
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetRoleResponse' constructor.
 --

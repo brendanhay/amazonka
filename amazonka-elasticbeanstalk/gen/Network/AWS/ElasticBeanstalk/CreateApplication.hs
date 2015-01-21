@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data CreateApplication = CreateApplication
     { _caApplicationName :: Text
     , _caDescription     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateApplication' constructor.
 --
@@ -85,7 +85,7 @@ caDescription = lens _caDescription (\s a -> s { _caDescription = a })
 
 newtype CreateApplicationResponse = CreateApplicationResponse
     { _carApplication :: Maybe ApplicationDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateApplicationResponse' constructor.
 --

@@ -56,7 +56,7 @@ data ListSteps = ListSteps
     , _lsMarker     :: Maybe Text
     , _lsStepIds    :: List "StepIds" Text
     , _lsStepStates :: List "StepStates" StepState
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListSteps' constructor.
 --
@@ -98,7 +98,7 @@ lsStepStates = lens _lsStepStates (\s a -> s { _lsStepStates = a }) . _List
 data ListStepsResponse = ListStepsResponse
     { _lsrMarker :: Maybe Text
     , _lsrSteps  :: List "Steps" StepSummary
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListStepsResponse' constructor.
 --

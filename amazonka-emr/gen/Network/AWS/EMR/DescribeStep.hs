@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data DescribeStep = DescribeStep
     { _dsClusterId :: Text
     , _dsStepId    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeStep' constructor.
 --
@@ -79,7 +79,7 @@ dsStepId = lens _dsStepId (\s a -> s { _dsStepId = a })
 
 newtype DescribeStepResponse = DescribeStepResponse
     { _dsrStep :: Maybe Step
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeStepResponse' constructor.
 --

@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype CreateApplication = CreateApplication
     { _caApplicationName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'CreateApplication' constructor.
 --
@@ -71,7 +71,7 @@ caApplicationName =
 
 newtype CreateApplicationResponse = CreateApplicationResponse
     { _carApplicationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateApplicationResponse' constructor.
 --

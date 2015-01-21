@@ -53,7 +53,7 @@ data UnlinkIdentity = UnlinkIdentity
     { _uiIdentityId     :: Text
     , _uiLogins         :: Map Text Text
     , _uiLoginsToRemove :: List "LoginsToRemove" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UnlinkIdentity' constructor.
 --
@@ -86,7 +86,7 @@ uiLoginsToRemove :: Lens' UnlinkIdentity [Text]
 uiLoginsToRemove = lens _uiLoginsToRemove (\s a -> s { _uiLoginsToRemove = a }) . _List
 
 data UnlinkIdentityResponse = UnlinkIdentityResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UnlinkIdentityResponse' constructor.
 unlinkIdentityResponse :: UnlinkIdentityResponse

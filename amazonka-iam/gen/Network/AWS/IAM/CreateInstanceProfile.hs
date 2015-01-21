@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data CreateInstanceProfile = CreateInstanceProfile
     { _cipInstanceProfileName :: Text
     , _cipPath                :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateInstanceProfile' constructor.
 --
@@ -85,7 +85,7 @@ cipPath = lens _cipPath (\s a -> s { _cipPath = a })
 
 newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
     { _ciprInstanceProfile :: InstanceProfile
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateInstanceProfileResponse' constructor.
 --

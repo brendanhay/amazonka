@@ -82,7 +82,7 @@ data DeleteItem = DeleteItem
     , _diReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
     , _diReturnValues                :: Maybe ReturnValue
     , _diTableName                   :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteItem' constructor.
 --
@@ -436,7 +436,7 @@ data DeleteItemResponse = DeleteItemResponse
     { _dirAttributes            :: Map Text AttributeValue
     , _dirConsumedCapacity      :: Maybe ConsumedCapacity
     , _dirItemCollectionMetrics :: Maybe ItemCollectionMetrics
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteItemResponse' constructor.
 --

@@ -54,7 +54,7 @@ data ResetImageAttribute = ResetImageAttribute
     { _ria1Attribute :: ResetImageAttributeName
     , _ria1DryRun    :: Maybe Bool
     , _ria1ImageId   :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ResetImageAttribute' constructor.
 --
@@ -88,7 +88,7 @@ ria1ImageId :: Lens' ResetImageAttribute Text
 ria1ImageId = lens _ria1ImageId (\s a -> s { _ria1ImageId = a })
 
 data ResetImageAttributeResponse = ResetImageAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ResetImageAttributeResponse' constructor.
 resetImageAttributeResponse :: ResetImageAttributeResponse

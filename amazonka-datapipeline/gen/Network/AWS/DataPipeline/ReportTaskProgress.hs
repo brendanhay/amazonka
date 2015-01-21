@@ -62,7 +62,7 @@ import qualified GHC.Exts
 data ReportTaskProgress = ReportTaskProgress
     { _rtpFields :: List "fields" Field
     , _rtpTaskId :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ReportTaskProgress' constructor.
 --
@@ -92,7 +92,7 @@ rtpTaskId = lens _rtpTaskId (\s a -> s { _rtpTaskId = a })
 
 newtype ReportTaskProgressResponse = ReportTaskProgressResponse
     { _rtprCanceled :: Bool
-    } deriving (Eq, Ord, Show, Enum)
+    } deriving (Eq, Ord, Read, Show, Enum)
 
 -- | 'ReportTaskProgressResponse' constructor.
 --

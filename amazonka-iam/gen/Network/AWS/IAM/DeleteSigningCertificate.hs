@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data DeleteSigningCertificate = DeleteSigningCertificate
     { _dscCertificateId :: Text
     , _dscUserName      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteSigningCertificate' constructor.
 --
@@ -80,7 +80,7 @@ dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
 dscUserName = lens _dscUserName (\s a -> s { _dscUserName = a })
 
 data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteSigningCertificateResponse' constructor.
 deleteSigningCertificateResponse :: DeleteSigningCertificateResponse

@@ -68,7 +68,7 @@ data ListAccessKeys = ListAccessKeys
     { _lakMarker   :: Maybe Text
     , _lakMaxItems :: Maybe Nat
     , _lakUserName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListAccessKeys' constructor.
 --
@@ -108,7 +108,7 @@ data ListAccessKeysResponse = ListAccessKeysResponse
     { _lakrAccessKeyMetadata :: List "member" AccessKeyMetadata
     , _lakrIsTruncated       :: Maybe Bool
     , _lakrMarker            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListAccessKeysResponse' constructor.
 --

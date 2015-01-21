@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DescribeSeverityLevels = DescribeSeverityLevels
     { _dslLanguage :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'DescribeSeverityLevels' constructor.
 --
@@ -72,7 +72,7 @@ dslLanguage = lens _dslLanguage (\s a -> s { _dslLanguage = a })
 
 newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
     { _dslrSeverityLevels :: List "severityLevels" SeverityLevel
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeSeverityLevelsResponse where
     type Item DescribeSeverityLevelsResponse = SeverityLevel

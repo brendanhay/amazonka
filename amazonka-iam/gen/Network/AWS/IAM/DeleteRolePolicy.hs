@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DeleteRolePolicy = DeleteRolePolicy
     { _drpPolicyName :: Text
     , _drpRoleName   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteRolePolicy' constructor.
 --
@@ -76,7 +76,7 @@ drpRoleName :: Lens' DeleteRolePolicy Text
 drpRoleName = lens _drpRoleName (\s a -> s { _drpRoleName = a })
 
 data DeleteRolePolicyResponse = DeleteRolePolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteRolePolicyResponse' constructor.
 deleteRolePolicyResponse :: DeleteRolePolicyResponse

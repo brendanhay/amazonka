@@ -56,7 +56,7 @@ import qualified GHC.Exts
 
 newtype ListHsms = ListHsms
     { _lh1NextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ListHsms' constructor.
 --
@@ -77,7 +77,7 @@ lh1NextToken = lens _lh1NextToken (\s a -> s { _lh1NextToken = a })
 data ListHsmsResponse = ListHsmsResponse
     { _lhrHsmList   :: List "HsmList" Text
     , _lhrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListHsmsResponse' constructor.
 --

@@ -57,7 +57,7 @@ import qualified GHC.Exts
 
 newtype DescribePipelines = DescribePipelines
     { _dpPipelineIds :: List "pipelineIds" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribePipelines where
     type Item DescribePipelines = Text
@@ -84,7 +84,7 @@ dpPipelineIds = lens _dpPipelineIds (\s a -> s { _dpPipelineIds = a }) . _List
 
 newtype DescribePipelinesResponse = DescribePipelinesResponse
     { _dprPipelineDescriptionList :: List "pipelineDescriptionList" PipelineDescription
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribePipelinesResponse where
     type Item DescribePipelinesResponse = PipelineDescription

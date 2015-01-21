@@ -64,7 +64,7 @@ data ReleaseAddress = ReleaseAddress
     { _raAllocationId :: Maybe Text
     , _raDryRun       :: Maybe Bool
     , _raPublicIp     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ReleaseAddress' constructor.
 --
@@ -95,7 +95,7 @@ raPublicIp :: Lens' ReleaseAddress (Maybe Text)
 raPublicIp = lens _raPublicIp (\s a -> s { _raPublicIp = a })
 
 data ReleaseAddressResponse = ReleaseAddressResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ReleaseAddressResponse' constructor.
 releaseAddressResponse :: ReleaseAddressResponse

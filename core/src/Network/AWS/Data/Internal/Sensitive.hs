@@ -21,10 +21,12 @@ import Network.AWS.Data.Internal.Query
 import Network.AWS.Data.Internal.Text
 import Network.AWS.Data.Internal.XML
 
+-- | read . show /= isomorphic
 newtype Sensitive a = Sensitive { desensitise :: a }
     deriving
         ( Eq
         , Ord
+        , Read
         , IsString
         , Monoid
         , ToByteString

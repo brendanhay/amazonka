@@ -54,7 +54,7 @@ data UpdateDistribution = UpdateDistribution
     { _udDistributionConfig :: DistributionConfig
     , _udId                 :: Text
     , _udIfMatch            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateDistribution' constructor.
 --
@@ -92,7 +92,7 @@ udIfMatch = lens _udIfMatch (\s a -> s { _udIfMatch = a })
 data UpdateDistributionResponse = UpdateDistributionResponse
     { _udrDistribution :: Maybe Distribution
     , _udrETag         :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateDistributionResponse' constructor.
 --

@@ -61,7 +61,7 @@ import qualified GHC.Exts
 data CreateVirtualMFADevice = CreateVirtualMFADevice
     { _cvmfadPath                 :: Maybe Text
     , _cvmfadVirtualMFADeviceName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateVirtualMFADevice' constructor.
 --
@@ -94,7 +94,7 @@ cvmfadVirtualMFADeviceName =
 
 newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
     { _cvmfadrVirtualMFADevice :: VirtualMFADevice
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateVirtualMFADeviceResponse' constructor.
 --

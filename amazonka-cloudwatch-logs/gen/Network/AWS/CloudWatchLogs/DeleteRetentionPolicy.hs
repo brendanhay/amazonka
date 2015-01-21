@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DeleteRetentionPolicy = DeleteRetentionPolicy
     { _drpLogGroupName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteRetentionPolicy' constructor.
 --
@@ -66,7 +66,7 @@ drpLogGroupName :: Lens' DeleteRetentionPolicy Text
 drpLogGroupName = lens _drpLogGroupName (\s a -> s { _drpLogGroupName = a })
 
 data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteRetentionPolicyResponse' constructor.
 deleteRetentionPolicyResponse :: DeleteRetentionPolicyResponse

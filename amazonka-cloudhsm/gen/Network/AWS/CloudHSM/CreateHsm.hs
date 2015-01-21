@@ -64,7 +64,7 @@ data CreateHsm = CreateHsm
     , _chSubnetId         :: Text
     , _chSubscriptionType :: SubscriptionType
     , _chSyslogIp         :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateHsm' constructor.
 --
@@ -139,7 +139,7 @@ chSyslogIp = lens _chSyslogIp (\s a -> s { _chSyslogIp = a })
 
 newtype CreateHsmResponse = CreateHsmResponse
     { _chrHsmArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateHsmResponse' constructor.
 --

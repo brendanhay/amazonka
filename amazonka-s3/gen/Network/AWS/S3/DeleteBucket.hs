@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DeleteBucket = DeleteBucket
     { _dbBucket :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteBucket' constructor.
 --
@@ -67,7 +67,7 @@ dbBucket :: Lens' DeleteBucket Text
 dbBucket = lens _dbBucket (\s a -> s { _dbBucket = a })
 
 data DeleteBucketResponse = DeleteBucketResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteBucketResponse' constructor.
 deleteBucketResponse :: DeleteBucketResponse

@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype BuildSuggesters = BuildSuggesters
     { _bsDomainName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'BuildSuggesters' constructor.
 --
@@ -68,7 +68,7 @@ bsDomainName = lens _bsDomainName (\s a -> s { _bsDomainName = a })
 
 newtype BuildSuggestersResponse = BuildSuggestersResponse
     { _bsrFieldNames :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BuildSuggestersResponse where
     type Item BuildSuggestersResponse = Text

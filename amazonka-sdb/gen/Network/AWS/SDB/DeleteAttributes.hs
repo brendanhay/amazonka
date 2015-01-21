@@ -62,7 +62,7 @@ data DeleteAttributes = DeleteAttributes
     , _daDomainName :: Text
     , _daExpected   :: Maybe UpdateCondition
     , _daItemName   :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteAttributes' constructor.
 --
@@ -107,7 +107,7 @@ daItemName :: Lens' DeleteAttributes Text
 daItemName = lens _daItemName (\s a -> s { _daItemName = a })
 
 data DeleteAttributesResponse = DeleteAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteAttributesResponse' constructor.
 deleteAttributesResponse :: DeleteAttributesResponse

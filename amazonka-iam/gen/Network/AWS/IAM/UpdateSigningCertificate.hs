@@ -61,7 +61,7 @@ data UpdateSigningCertificate = UpdateSigningCertificate
     { _uscCertificateId :: Text
     , _uscStatus        :: StatusType
     , _uscUserName      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateSigningCertificate' constructor.
 --
@@ -97,7 +97,7 @@ uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
 uscUserName = lens _uscUserName (\s a -> s { _uscUserName = a })
 
 data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateSigningCertificateResponse' constructor.
 updateSigningCertificateResponse :: UpdateSigningCertificateResponse

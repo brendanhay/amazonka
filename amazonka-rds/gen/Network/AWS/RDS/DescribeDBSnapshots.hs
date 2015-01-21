@@ -60,7 +60,7 @@ data DescribeDBSnapshots = DescribeDBSnapshots
     , _ddbsMarker               :: Maybe Text
     , _ddbsMaxRecords           :: Maybe Int
     , _ddbsSnapshotType         :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSnapshots' constructor.
 --
@@ -144,7 +144,7 @@ ddbsSnapshotType = lens _ddbsSnapshotType (\s a -> s { _ddbsSnapshotType = a })
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
     { _ddbsrDBSnapshots :: List "member" DBSnapshot
     , _ddbsrMarker      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSnapshotsResponse' constructor.
 --

@@ -75,7 +75,7 @@ data ListWorkflowTypes = ListWorkflowTypes
     , _lwtNextPageToken      :: Maybe Text
     , _lwtRegistrationStatus :: RegistrationStatus
     , _lwtReverseOrder       :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListWorkflowTypes' constructor.
 --
@@ -148,7 +148,7 @@ lwtReverseOrder = lens _lwtReverseOrder (\s a -> s { _lwtReverseOrder = a })
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse
     { _lwtrNextPageToken :: Maybe Text
     , _lwtrTypeInfos     :: List "typeInfos" WorkflowTypeInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListWorkflowTypesResponse' constructor.
 --

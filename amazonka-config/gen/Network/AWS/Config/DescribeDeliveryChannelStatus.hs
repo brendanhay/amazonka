@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus
     { _ddcsDeliveryChannelNames :: List "DeliveryChannelNames" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDeliveryChannelStatus where
     type Item DescribeDeliveryChannelStatus = Text
@@ -79,7 +79,7 @@ ddcsDeliveryChannelNames =
 
 newtype DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse
     { _ddcsrDeliveryChannelsStatus :: List "DeliveryChannelsStatus" DeliveryChannelStatus
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDeliveryChannelStatusResponse where
     type Item DescribeDeliveryChannelStatusResponse = DeliveryChannelStatus

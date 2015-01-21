@@ -60,7 +60,7 @@ import qualified GHC.Exts
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
     { _mlbaLoadBalancerAttributes :: LoadBalancerAttributes
     , _mlbaLoadBalancerName       :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyLoadBalancerAttributes' constructor.
 --
@@ -92,7 +92,7 @@ mlbaLoadBalancerName =
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
     { _mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
     , _mlbarLoadBalancerName       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyLoadBalancerAttributesResponse' constructor.
 --

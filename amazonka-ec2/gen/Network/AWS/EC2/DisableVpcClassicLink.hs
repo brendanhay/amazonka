@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data DisableVpcClassicLink = DisableVpcClassicLink
     { _dvcl1DryRun :: Maybe Bool
     , _dvcl1VpcId  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DisableVpcClassicLink' constructor.
 --
@@ -78,7 +78,7 @@ dvcl1VpcId = lens _dvcl1VpcId (\s a -> s { _dvcl1VpcId = a })
 
 newtype DisableVpcClassicLinkResponse = DisableVpcClassicLinkResponse
     { _dvclrReturn :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DisableVpcClassicLinkResponse' constructor.
 --

@@ -62,7 +62,7 @@ data CompleteMultipartUpload = CompleteMultipartUpload
     , _cmu1Key             :: Text
     , _cmu1MultipartUpload :: Maybe CompletedMultipartUpload
     , _cmu1UploadId        :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CompleteMultipartUpload' constructor.
 --
@@ -109,7 +109,7 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
     , _cmur1SSEKMSKeyId          :: Maybe (Sensitive Text)
     , _cmur1ServerSideEncryption :: Maybe ServerSideEncryption
     , _cmur1VersionId            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CompleteMultipartUploadResponse' constructor.
 --

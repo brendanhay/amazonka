@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data RevokeGrant = RevokeGrant
     { _rgGrantId :: Text
     , _rgKeyId   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RevokeGrant' constructor.
 --
@@ -77,7 +77,7 @@ rgKeyId :: Lens' RevokeGrant Text
 rgKeyId = lens _rgKeyId (\s a -> s { _rgKeyId = a })
 
 data RevokeGrantResponse = RevokeGrantResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RevokeGrantResponse' constructor.
 revokeGrantResponse :: RevokeGrantResponse

@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
     { _dtacsCheckIds :: List "checkIds" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTrustedAdvisorCheckSummaries where
     type Item DescribeTrustedAdvisorCheckSummaries = Text
@@ -77,7 +77,7 @@ dtacsCheckIds = lens _dtacsCheckIds (\s a -> s { _dtacsCheckIds = a }) . _List
 
 newtype DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse
     { _dtacsrSummaries :: List "summaries" TrustedAdvisorCheckSummary
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTrustedAdvisorCheckSummariesResponse where
     type Item DescribeTrustedAdvisorCheckSummariesResponse = TrustedAdvisorCheckSummary

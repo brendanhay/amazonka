@@ -61,7 +61,7 @@ data ImportInstance = ImportInstance
     , _iiDryRun              :: Maybe Bool
     , _iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
     , _iiPlatform            :: PlatformValues
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ImportInstance' constructor.
 --
@@ -108,7 +108,7 @@ iiPlatform = lens _iiPlatform (\s a -> s { _iiPlatform = a })
 
 newtype ImportInstanceResponse = ImportInstanceResponse
     { _iirConversionTask :: Maybe ConversionTask
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ImportInstanceResponse' constructor.
 --

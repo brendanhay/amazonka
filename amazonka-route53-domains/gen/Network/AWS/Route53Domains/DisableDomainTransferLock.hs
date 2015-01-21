@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DisableDomainTransferLock = DisableDomainTransferLock
     { _ddtlDomainName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DisableDomainTransferLock' constructor.
 --
@@ -83,7 +83,7 @@ ddtlDomainName = lens _ddtlDomainName (\s a -> s { _ddtlDomainName = a })
 
 newtype DisableDomainTransferLockResponse = DisableDomainTransferLockResponse
     { _ddtlrOperationId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DisableDomainTransferLockResponse' constructor.
 --

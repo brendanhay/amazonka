@@ -1,5 +1,5 @@
 name:                  amazonka-cognito-identity
-version:               0.2.1
+version:               0.2.2
 synopsis:              Amazon Cognito Identity SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -44,14 +44,18 @@ library
           Network.AWS.CognitoIdentity
         , Network.AWS.CognitoIdentity.CreateIdentityPool
         , Network.AWS.CognitoIdentity.DeleteIdentityPool
+        , Network.AWS.CognitoIdentity.DescribeIdentity
         , Network.AWS.CognitoIdentity.DescribeIdentityPool
+        , Network.AWS.CognitoIdentity.GetCredentialsForIdentity
         , Network.AWS.CognitoIdentity.GetId
+        , Network.AWS.CognitoIdentity.GetIdentityPoolRoles
         , Network.AWS.CognitoIdentity.GetOpenIdToken
         , Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
         , Network.AWS.CognitoIdentity.ListIdentities
         , Network.AWS.CognitoIdentity.ListIdentityPools
         , Network.AWS.CognitoIdentity.LookupDeveloperIdentity
         , Network.AWS.CognitoIdentity.MergeDeveloperIdentities
+        , Network.AWS.CognitoIdentity.SetIdentityPoolRoles
         , Network.AWS.CognitoIdentity.Types
         , Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
         , Network.AWS.CognitoIdentity.UnlinkIdentity
@@ -60,5 +64,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.2.1.*
+          amazonka-core == 0.2.2.*
         , base          >= 4.7     && < 5

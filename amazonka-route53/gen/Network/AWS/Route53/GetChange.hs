@@ -57,7 +57,7 @@ import qualified GHC.Exts
 
 newtype GetChange = GetChange
     { _gcId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetChange' constructor.
 --
@@ -79,7 +79,7 @@ gcId = lens _gcId (\s a -> s { _gcId = a })
 
 newtype GetChangeResponse = GetChangeResponse
     { _gcrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetChangeResponse' constructor.
 --

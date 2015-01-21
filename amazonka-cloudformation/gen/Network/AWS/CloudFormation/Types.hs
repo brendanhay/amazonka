@@ -219,7 +219,7 @@ ns = "http://cloudformation.amazonaws.com/doc/2010-05-15/"
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Tag' constructor.
 --
@@ -274,7 +274,7 @@ data StackStatus
     | UpdateRollbackCompleteCleanupInProgress -- ^ UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS
     | UpdateRollbackFailed                    -- ^ UPDATE_ROLLBACK_FAILED
     | UpdateRollbackInProgress                -- ^ UPDATE_ROLLBACK_IN_PROGRESS
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable StackStatus
 
@@ -336,7 +336,7 @@ data StackEvent = StackEvent
     , _seStackId              :: Text
     , _seStackName            :: Text
     , _seTimestamp            :: ISO8601
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StackEvent' constructor.
 --
@@ -462,7 +462,7 @@ data StackSummary = StackSummary
     , _ssStackStatus         :: StackStatus
     , _ssStackStatusReason   :: Maybe Text
     , _ssTemplateDescription :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StackSummary' constructor.
 --
@@ -570,7 +570,7 @@ data StackResourceDetail = StackResourceDetail
     , _srdResourceType         :: Text
     , _srdStackId              :: Maybe Text
     , _srdStackName            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StackResourceDetail' constructor.
 --
@@ -702,7 +702,7 @@ data ResourceStatus
     | RSUpdateComplete   -- ^ UPDATE_COMPLETE
     | RSUpdateFailed     -- ^ UPDATE_FAILED
     | RSUpdateInProgress -- ^ UPDATE_IN_PROGRESS
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ResourceStatus
 
@@ -746,7 +746,7 @@ data TemplateParameter = TemplateParameter
     , _tpDescription  :: Maybe Text
     , _tpNoEcho       :: Maybe Bool
     , _tpParameterKey :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TemplateParameter' constructor.
 --
@@ -806,7 +806,7 @@ data ParameterDeclaration = ParameterDeclaration
     , _pdNoEcho        :: Maybe Bool
     , _pdParameterKey  :: Maybe Text
     , _pdParameterType :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ParameterDeclaration' constructor.
 --
@@ -879,7 +879,7 @@ data StackResource = StackResource
     , _sr1StackId              :: Maybe Text
     , _sr1StackName            :: Maybe Text
     , _sr1Timestamp            :: ISO8601
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StackResource' constructor.
 --
@@ -991,7 +991,7 @@ data Output = Output
     { _oDescription :: Maybe Text
     , _oOutputKey   :: Maybe Text
     , _oOutputValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Output' constructor.
 --
@@ -1042,7 +1042,7 @@ data StackResourceSummary = StackResourceSummary
     , _srsResourceStatus       :: ResourceStatus
     , _srsResourceStatusReason :: Maybe Text
     , _srsResourceType         :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StackResourceSummary' constructor.
 --
@@ -1127,7 +1127,7 @@ instance ToQuery StackResourceSummary where
 
 data Capability
     = CapabilityIam -- ^ CAPABILITY_IAM
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Capability
 
@@ -1150,7 +1150,7 @@ instance FromXML Capability where
 data ResourceSignalStatus
     = Failure -- ^ FAILURE
     | Success -- ^ SUCCESS
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ResourceSignalStatus
 
@@ -1188,7 +1188,7 @@ data Stack = Stack
     , _sStackStatusReason :: Maybe Text
     , _sTags              :: List "member" Tag
     , _sTimeoutInMinutes  :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Stack' constructor.
 --
@@ -1346,7 +1346,7 @@ data OnFailure
     = Delete'   -- ^ DELETE
     | DoNothing -- ^ DO_NOTHING
     | Rollback  -- ^ ROLLBACK
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable OnFailure
 
@@ -1375,7 +1375,7 @@ data Parameter = Parameter
     { _pParameterKey     :: Maybe Text
     , _pParameterValue   :: Maybe Text
     , _pUsePreviousValue :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Parameter' constructor.
 --

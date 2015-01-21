@@ -70,6 +70,8 @@ module Network.AWS.AutoScaling.Types
     , launchConfiguration
     , lcAssociatePublicIpAddress
     , lcBlockDeviceMappings
+    , lcClassicLinkVPCId
+    , lcClassicLinkVPCSecurityGroups
     , lcCreatedTime
     , lcEbsOptimized
     , lcIamInstanceProfile
@@ -309,7 +311,7 @@ data TagDescription = TagDescription
     , _tdResourceId        :: Text
     , _tdResourceType      :: Text
     , _tdValue             :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TagDescription' constructor.
 --
@@ -386,7 +388,7 @@ data Tag = Tag
     , _tagResourceId        :: Text
     , _tagResourceType      :: Text
     , _tagValue             :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Tag' constructor.
 --
@@ -461,7 +463,7 @@ data NotificationConfiguration = NotificationConfiguration
     { _ncAutoScalingGroupName :: Maybe Text
     , _ncNotificationType     :: Maybe Text
     , _ncTopicARN             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'NotificationConfiguration' constructor.
 --
@@ -513,7 +515,7 @@ data BlockDeviceMapping = BlockDeviceMapping
     , _bdmEbs         :: Maybe Ebs
     , _bdmNoDevice    :: Maybe Bool
     , _bdmVirtualName :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'BlockDeviceMapping' constructor.
 --
@@ -572,24 +574,26 @@ instance ToQuery BlockDeviceMapping where
         ]
 
 data LaunchConfiguration = LaunchConfiguration
-    { _lcAssociatePublicIpAddress :: Maybe Bool
-    , _lcBlockDeviceMappings      :: List "member" BlockDeviceMapping
-    , _lcCreatedTime              :: ISO8601
-    , _lcEbsOptimized             :: Maybe Bool
-    , _lcIamInstanceProfile       :: Maybe Text
-    , _lcImageId                  :: Text
-    , _lcInstanceMonitoring       :: Maybe InstanceMonitoring
-    , _lcInstanceType             :: Text
-    , _lcKernelId                 :: Maybe Text
-    , _lcKeyName                  :: Maybe Text
-    , _lcLaunchConfigurationARN   :: Maybe Text
-    , _lcLaunchConfigurationName  :: Text
-    , _lcPlacementTenancy         :: Maybe Text
-    , _lcRamdiskId                :: Maybe Text
-    , _lcSecurityGroups           :: List "member" Text
-    , _lcSpotPrice                :: Maybe Text
-    , _lcUserData                 :: Maybe Text
-    } deriving (Eq, Show)
+    { _lcAssociatePublicIpAddress     :: Maybe Bool
+    , _lcBlockDeviceMappings          :: List "member" BlockDeviceMapping
+    , _lcClassicLinkVPCId             :: Maybe Text
+    , _lcClassicLinkVPCSecurityGroups :: List "member" Text
+    , _lcCreatedTime                  :: ISO8601
+    , _lcEbsOptimized                 :: Maybe Bool
+    , _lcIamInstanceProfile           :: Maybe Text
+    , _lcImageId                      :: Text
+    , _lcInstanceMonitoring           :: Maybe InstanceMonitoring
+    , _lcInstanceType                 :: Text
+    , _lcKernelId                     :: Maybe Text
+    , _lcKeyName                      :: Maybe Text
+    , _lcLaunchConfigurationARN       :: Maybe Text
+    , _lcLaunchConfigurationName      :: Text
+    , _lcPlacementTenancy             :: Maybe Text
+    , _lcRamdiskId                    :: Maybe Text
+    , _lcSecurityGroups               :: List "member" Text
+    , _lcSpotPrice                    :: Maybe Text
+    , _lcUserData                     :: Maybe Text
+    } deriving (Eq, Read, Show)
 
 -- | 'LaunchConfiguration' constructor.
 --
@@ -598,6 +602,10 @@ data LaunchConfiguration = LaunchConfiguration
 -- * 'lcAssociatePublicIpAddress' @::@ 'Maybe' 'Bool'
 --
 -- * 'lcBlockDeviceMappings' @::@ ['BlockDeviceMapping']
+--
+-- * 'lcClassicLinkVPCId' @::@ 'Maybe' 'Text'
+--
+-- * 'lcClassicLinkVPCSecurityGroups' @::@ ['Text']
 --
 -- * 'lcCreatedTime' @::@ 'UTCTime'
 --
@@ -635,23 +643,25 @@ launchConfiguration :: Text -- ^ 'lcLaunchConfigurationName'
                     -> UTCTime -- ^ 'lcCreatedTime'
                     -> LaunchConfiguration
 launchConfiguration p1 p2 p3 p4 = LaunchConfiguration
-    { _lcLaunchConfigurationName  = p1
-    , _lcImageId                  = p2
-    , _lcInstanceType             = p3
-    , _lcCreatedTime              = withIso _Time (const id) p4
-    , _lcLaunchConfigurationARN   = Nothing
-    , _lcKeyName                  = Nothing
-    , _lcSecurityGroups           = mempty
-    , _lcUserData                 = Nothing
-    , _lcKernelId                 = Nothing
-    , _lcRamdiskId                = Nothing
-    , _lcBlockDeviceMappings      = mempty
-    , _lcInstanceMonitoring       = Nothing
-    , _lcSpotPrice                = Nothing
-    , _lcIamInstanceProfile       = Nothing
-    , _lcEbsOptimized             = Nothing
-    , _lcAssociatePublicIpAddress = Nothing
-    , _lcPlacementTenancy         = Nothing
+    { _lcLaunchConfigurationName      = p1
+    , _lcImageId                      = p2
+    , _lcInstanceType                 = p3
+    , _lcCreatedTime                  = withIso _Time (const id) p4
+    , _lcLaunchConfigurationARN       = Nothing
+    , _lcKeyName                      = Nothing
+    , _lcSecurityGroups               = mempty
+    , _lcClassicLinkVPCId             = Nothing
+    , _lcClassicLinkVPCSecurityGroups = mempty
+    , _lcUserData                     = Nothing
+    , _lcKernelId                     = Nothing
+    , _lcRamdiskId                    = Nothing
+    , _lcBlockDeviceMappings          = mempty
+    , _lcInstanceMonitoring           = Nothing
+    , _lcSpotPrice                    = Nothing
+    , _lcIamInstanceProfile           = Nothing
+    , _lcEbsOptimized                 = Nothing
+    , _lcAssociatePublicIpAddress     = Nothing
+    , _lcPlacementTenancy             = Nothing
     }
 
 -- | Specifies whether the EC2 instances are associated with a public IP address ('true') or not ('false').
@@ -666,6 +676,21 @@ lcBlockDeviceMappings :: Lens' LaunchConfiguration [BlockDeviceMapping]
 lcBlockDeviceMappings =
     lens _lcBlockDeviceMappings (\s a -> s { _lcBlockDeviceMappings = a })
         . _List
+
+-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
+-- This parameter can only be used if you are launching EC2-Classic instances.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute CloudUser Guide/.
+lcClassicLinkVPCId :: Lens' LaunchConfiguration (Maybe Text)
+lcClassicLinkVPCId =
+    lens _lcClassicLinkVPCId (\s a -> s { _lcClassicLinkVPCId = a })
+
+-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be
+-- used otherwise. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon ElasticCompute Cloud User Guide/.
+lcClassicLinkVPCSecurityGroups :: Lens' LaunchConfiguration [Text]
+lcClassicLinkVPCSecurityGroups =
+    lens _lcClassicLinkVPCSecurityGroups
+        (\s a -> s { _lcClassicLinkVPCSecurityGroups = a })
+            . _List
 
 -- | The creation date and time for the launch configuration.
 lcCreatedTime :: Lens' LaunchConfiguration UTCTime
@@ -741,6 +766,8 @@ instance FromXML LaunchConfiguration where
     parseXML x = LaunchConfiguration
         <$> x .@? "AssociatePublicIpAddress"
         <*> x .@? "BlockDeviceMappings" .!@ mempty
+        <*> x .@? "ClassicLinkVPCId"
+        <*> x .@? "ClassicLinkVPCSecurityGroups" .!@ mempty
         <*> x .@  "CreatedTime"
         <*> x .@? "EbsOptimized"
         <*> x .@? "IamInstanceProfile"
@@ -759,23 +786,25 @@ instance FromXML LaunchConfiguration where
 
 instance ToQuery LaunchConfiguration where
     toQuery LaunchConfiguration{..} = mconcat
-        [ "AssociatePublicIpAddress" =? _lcAssociatePublicIpAddress
-        , "BlockDeviceMappings"      =? _lcBlockDeviceMappings
-        , "CreatedTime"              =? _lcCreatedTime
-        , "EbsOptimized"             =? _lcEbsOptimized
-        , "IamInstanceProfile"       =? _lcIamInstanceProfile
-        , "ImageId"                  =? _lcImageId
-        , "InstanceMonitoring"       =? _lcInstanceMonitoring
-        , "InstanceType"             =? _lcInstanceType
-        , "KernelId"                 =? _lcKernelId
-        , "KeyName"                  =? _lcKeyName
-        , "LaunchConfigurationARN"   =? _lcLaunchConfigurationARN
-        , "LaunchConfigurationName"  =? _lcLaunchConfigurationName
-        , "PlacementTenancy"         =? _lcPlacementTenancy
-        , "RamdiskId"                =? _lcRamdiskId
-        , "SecurityGroups"           =? _lcSecurityGroups
-        , "SpotPrice"                =? _lcSpotPrice
-        , "UserData"                 =? _lcUserData
+        [ "AssociatePublicIpAddress"     =? _lcAssociatePublicIpAddress
+        , "BlockDeviceMappings"          =? _lcBlockDeviceMappings
+        , "ClassicLinkVPCId"             =? _lcClassicLinkVPCId
+        , "ClassicLinkVPCSecurityGroups" =? _lcClassicLinkVPCSecurityGroups
+        , "CreatedTime"                  =? _lcCreatedTime
+        , "EbsOptimized"                 =? _lcEbsOptimized
+        , "IamInstanceProfile"           =? _lcIamInstanceProfile
+        , "ImageId"                      =? _lcImageId
+        , "InstanceMonitoring"           =? _lcInstanceMonitoring
+        , "InstanceType"                 =? _lcInstanceType
+        , "KernelId"                     =? _lcKernelId
+        , "KeyName"                      =? _lcKeyName
+        , "LaunchConfigurationARN"       =? _lcLaunchConfigurationARN
+        , "LaunchConfigurationName"      =? _lcLaunchConfigurationName
+        , "PlacementTenancy"             =? _lcPlacementTenancy
+        , "RamdiskId"                    =? _lcRamdiskId
+        , "SecurityGroups"               =? _lcSecurityGroups
+        , "SpotPrice"                    =? _lcSpotPrice
+        , "UserData"                     =? _lcUserData
         ]
 
 data AutoScalingGroup = AutoScalingGroup
@@ -799,7 +828,7 @@ data AutoScalingGroup = AutoScalingGroup
     , _asgTags                    :: List "member" TagDescription
     , _asgTerminationPolicies     :: List "member" Text
     , _asgVPCZoneIdentifier       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AutoScalingGroup' constructor.
 --
@@ -1043,7 +1072,7 @@ data ScalingPolicy = ScalingPolicy
     , _sp1PolicyARN            :: Maybe Text
     , _sp1PolicyName           :: Maybe Text
     , _sp1ScalingAdjustment    :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ScalingPolicy' constructor.
 --
@@ -1144,7 +1173,7 @@ instance ToQuery ScalingPolicy where
 
 newtype InstanceMonitoring = InstanceMonitoring
     { _imEnabled :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'InstanceMonitoring' constructor.
 --
@@ -1181,7 +1210,7 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     , _sugaScheduledActionName  :: Maybe Text
     , _sugaStartTime            :: Maybe ISO8601
     , _sugaTime                 :: Maybe ISO8601
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ScheduledUpdateGroupAction' constructor.
 --
@@ -1303,7 +1332,7 @@ instance ToQuery ScheduledUpdateGroupAction where
 data ScalingProcessQuery = ScalingProcessQuery
     { _spqAutoScalingGroupName :: Text
     , _spqScalingProcesses     :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ScalingProcessQuery' constructor.
 --
@@ -1351,7 +1380,7 @@ data Ebs = Ebs
     , _ebsSnapshotId          :: Maybe Text
     , _ebsVolumeSize          :: Maybe Nat
     , _ebsVolumeType          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Ebs' constructor.
 --
@@ -1436,7 +1465,7 @@ instance ToQuery Ebs where
 
 newtype AdjustmentType = AdjustmentType
     { _atAdjustmentType :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'AdjustmentType' constructor.
 --
@@ -1467,7 +1496,7 @@ instance ToQuery AdjustmentType where
 
 newtype MetricCollectionType = MetricCollectionType
     { _mctMetric :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'MetricCollectionType' constructor.
 --
@@ -1503,7 +1532,7 @@ data LifecycleHook = LifecycleHook
     , _lhNotificationMetadata  :: Maybe Text
     , _lhNotificationTargetARN :: Maybe Text
     , _lhRoleARN               :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'LifecycleHook' constructor.
 --
@@ -1630,7 +1659,7 @@ data Activity = Activity
     , _aStartTime            :: ISO8601
     , _aStatusCode           :: ScalingActivityStatusCode
     , _aStatusMessage        :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Activity' constructor.
 --
@@ -1746,7 +1775,7 @@ instance ToQuery Activity where
 data SuspendedProcess = SuspendedProcess
     { _spProcessName      :: Maybe Text
     , _spSuspensionReason :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SuspendedProcess' constructor.
 --
@@ -1784,7 +1813,7 @@ instance ToQuery SuspendedProcess where
 
 newtype MetricGranularityType = MetricGranularityType
     { _mgtGranularity :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'MetricGranularityType' constructor.
 --
@@ -1813,7 +1842,7 @@ instance ToQuery MetricGranularityType where
 data Filter = Filter
     { _fName   :: Text
     , _fValues :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Filter' constructor.
 --
@@ -1851,7 +1880,7 @@ instance ToQuery Filter where
 
 newtype ProcessType = ProcessType
     { _ptProcessName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ProcessType' constructor.
 --
@@ -1881,7 +1910,7 @@ instance ToQuery ProcessType where
 data Alarm = Alarm
     { _aAlarmARN  :: Maybe Text
     , _aAlarmName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Alarm' constructor.
 --
@@ -1919,7 +1948,7 @@ instance ToQuery Alarm where
 data EnabledMetric = EnabledMetric
     { _emGranularity :: Maybe Text
     , _emMetric      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnabledMetric' constructor.
 --
@@ -1960,7 +1989,7 @@ data Instance = Instance
     , _iInstanceId              :: Text
     , _iLaunchConfigurationName :: Text
     , _iLifecycleState          :: LifecycleState
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Instance' constructor.
 --
@@ -2048,7 +2077,7 @@ data LifecycleState
     | Terminating        -- ^ Terminating
     | TerminatingProceed -- ^ Terminating:Proceed
     | TerminatingWait    -- ^ Terminating:Wait
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable LifecycleState
 
@@ -2100,7 +2129,7 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     , _asidInstanceId              :: Text
     , _asidLaunchConfigurationName :: Text
     , _asidLifecycleState          :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AutoScalingInstanceDetails' constructor.
 --
@@ -2196,7 +2225,7 @@ data ScalingActivityStatusCode
     | WaitingForInstanceId            -- ^ WaitingForInstanceId
     | WaitingForSpotInstanceId        -- ^ WaitingForSpotInstanceId
     | WaitingForSpotInstanceRequestId -- ^ WaitingForSpotInstanceRequestId
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ScalingActivityStatusCode
 

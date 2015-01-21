@@ -57,7 +57,7 @@ data CancelConversionTask = CancelConversionTask
     { _cctConversionTaskId :: Text
     , _cctDryRun           :: Maybe Bool
     , _cctReasonMessage    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CancelConversionTask' constructor.
 --
@@ -89,7 +89,7 @@ cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
 cctReasonMessage = lens _cctReasonMessage (\s a -> s { _cctReasonMessage = a })
 
 data CancelConversionTaskResponse = CancelConversionTaskResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CancelConversionTaskResponse' constructor.
 cancelConversionTaskResponse :: CancelConversionTaskResponse

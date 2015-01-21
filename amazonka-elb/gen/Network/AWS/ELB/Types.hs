@@ -265,7 +265,7 @@ ns = "http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/"
 data SourceSecurityGroup = SourceSecurityGroup
     { _ssgGroupName  :: Maybe Text
     , _ssgOwnerAlias :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SourceSecurityGroup' constructor.
 --
@@ -304,7 +304,7 @@ instance ToQuery SourceSecurityGroup where
 data TagDescription = TagDescription
     { _tdLoadBalancerName :: Maybe Text
     , _tdTags             :: List1 "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'TagDescription' constructor.
 --
@@ -344,7 +344,7 @@ instance ToQuery TagDescription where
 data Tag = Tag
     { _tagKey   :: Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Tag' constructor.
 --
@@ -386,7 +386,7 @@ data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription
     , _patdCardinality   :: Maybe Text
     , _patdDefaultValue  :: Maybe Text
     , _patdDescription   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PolicyAttributeTypeDescription' constructor.
 --
@@ -458,7 +458,7 @@ data HealthCheck = HealthCheck
     , _hcTarget             :: Text
     , _hcTimeout            :: Nat
     , _hcUnhealthyThreshold :: Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'HealthCheck' constructor.
 --
@@ -556,7 +556,7 @@ instance ToQuery HealthCheck where
 
 newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing
     { _czlbEnabled :: Bool
-    } deriving (Eq, Ord, Show, Enum)
+    } deriving (Eq, Ord, Read, Show, Enum)
 
 -- | 'CrossZoneLoadBalancing' constructor.
 --
@@ -589,7 +589,7 @@ data LoadBalancerAttributes = LoadBalancerAttributes
     , _lbaConnectionDraining     :: Maybe ConnectionDraining
     , _lbaConnectionSettings     :: Maybe ConnectionSettings
     , _lbaCrossZoneLoadBalancing :: Maybe CrossZoneLoadBalancing
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'LoadBalancerAttributes' constructor.
 --
@@ -681,7 +681,7 @@ data AccessLog = AccessLog
     , _alEnabled        :: Bool
     , _alS3BucketName   :: Maybe Text
     , _alS3BucketPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AccessLog' constructor.
 --
@@ -742,7 +742,7 @@ instance ToQuery AccessLog where
 data ListenerDescription = ListenerDescription
     { _ldListener    :: Maybe Listener
     , _ldPolicyNames :: List "member" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListenerDescription' constructor.
 --
@@ -780,7 +780,7 @@ instance ToQuery ListenerDescription where
 data LBCookieStickinessPolicy = LBCookieStickinessPolicy
     { _lbcspCookieExpirationPeriod :: Maybe Integer
     , _lbcspPolicyName             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'LBCookieStickinessPolicy' constructor.
 --
@@ -824,7 +824,7 @@ data PolicyDescription = PolicyDescription
     { _pdPolicyAttributeDescriptions :: List "member" PolicyAttributeDescription
     , _pdPolicyName                  :: Maybe Text
     , _pdPolicyTypeName              :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PolicyDescription' constructor.
 --
@@ -874,7 +874,7 @@ instance ToQuery PolicyDescription where
 data AppCookieStickinessPolicy = AppCookieStickinessPolicy
     { _acspCookieName :: Maybe Text
     , _acspPolicyName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AppCookieStickinessPolicy' constructor.
 --
@@ -913,7 +913,7 @@ instance ToQuery AppCookieStickinessPolicy where
 data PolicyAttribute = PolicyAttribute
     { _paAttributeName  :: Maybe Text
     , _paAttributeValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PolicyAttribute' constructor.
 --
@@ -965,7 +965,7 @@ data LoadBalancerDescription = LoadBalancerDescription
     , _lbdSourceSecurityGroup       :: Maybe SourceSecurityGroup
     , _lbdSubnets                   :: List "member" Text
     , _lbdVPCId                     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'LoadBalancerDescription' constructor.
 --
@@ -1162,7 +1162,7 @@ instance ToQuery LoadBalancerDescription where
 data BackendServerDescription = BackendServerDescription
     { _bsdInstancePort :: Maybe Nat
     , _bsdPolicyNames  :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'BackendServerDescription' constructor.
 --
@@ -1200,7 +1200,7 @@ instance ToQuery BackendServerDescription where
 data PolicyAttributeDescription = PolicyAttributeDescription
     { _padAttributeName  :: Maybe Text
     , _padAttributeValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PolicyAttributeDescription' constructor.
 --
@@ -1239,7 +1239,7 @@ instance ToQuery PolicyAttributeDescription where
 data AdditionalAttribute = AdditionalAttribute
     { _aaKey   :: Maybe Text
     , _aaValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AdditionalAttribute' constructor.
 --
@@ -1274,7 +1274,7 @@ instance ToQuery AdditionalAttribute where
 
 newtype ConnectionSettings = ConnectionSettings
     { _csIdleTimeout :: Nat
-    } deriving (Eq, Ord, Show, Enum, Num, Integral, Real)
+    } deriving (Eq, Ord, Read, Show, Enum, Num, Integral, Real)
 
 -- | 'ConnectionSettings' constructor.
 --
@@ -1306,7 +1306,7 @@ data PolicyTypeDescription = PolicyTypeDescription
     { _ptdDescription                     :: Maybe Text
     , _ptdPolicyAttributeTypeDescriptions :: List "member" PolicyAttributeTypeDescription
     , _ptdPolicyTypeName                  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PolicyTypeDescription' constructor.
 --
@@ -1359,7 +1359,7 @@ data Policies = Policies
     { _pAppCookieStickinessPolicies :: List "member" AppCookieStickinessPolicy
     , _pLBCookieStickinessPolicies  :: List "member" LBCookieStickinessPolicy
     , _pOtherPolicies               :: List "member" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Policies' constructor.
 --
@@ -1415,7 +1415,7 @@ data Listener = Listener
     , _lLoadBalancerPort :: Int
     , _lProtocol         :: Text
     , _lSSLCertificateId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Listener' constructor.
 --
@@ -1500,7 +1500,7 @@ instance ToQuery Listener where
 data ConnectionDraining = ConnectionDraining
     { _cdEnabled :: Bool
     , _cdTimeout :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ConnectionDraining' constructor.
 --
@@ -1542,7 +1542,7 @@ data InstanceState = InstanceState
     , _isInstanceId  :: Maybe Text
     , _isReasonCode  :: Maybe Text
     , _isState       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'InstanceState' constructor.
 --
@@ -1603,7 +1603,7 @@ instance ToQuery InstanceState where
 
 newtype TagKeyOnly = TagKeyOnly
     { _tkoKey :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'TagKeyOnly' constructor.
 --
@@ -1631,7 +1631,7 @@ instance ToQuery TagKeyOnly where
 
 newtype Instance = Instance
     { _iInstanceId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'Instance' constructor.
 --

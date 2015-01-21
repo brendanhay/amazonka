@@ -60,7 +60,7 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress
     , _rdbsgiEC2SecurityGroupId      :: Maybe Text
     , _rdbsgiEC2SecurityGroupName    :: Maybe Text
     , _rdbsgiEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RevokeDBSecurityGroupIngress' constructor.
 --
@@ -127,7 +127,7 @@ rdbsgiEC2SecurityGroupOwnerId =
 
 newtype RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
     { _rdbsgirDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RevokeDBSecurityGroupIngressResponse' constructor.
 --

@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data UpdatePipelineStatus = UpdatePipelineStatus
     { _upsId     :: Text
     , _upsStatus :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdatePipelineStatus' constructor.
 --
@@ -89,7 +89,7 @@ upsStatus = lens _upsStatus (\s a -> s { _upsStatus = a })
 
 newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
     { _upsrPipeline :: Maybe Pipeline
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdatePipelineStatusResponse' constructor.
 --

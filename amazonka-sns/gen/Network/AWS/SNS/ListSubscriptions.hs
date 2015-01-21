@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 newtype ListSubscriptions = ListSubscriptions
     { _lsNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ListSubscriptions' constructor.
 --
@@ -73,7 +73,7 @@ lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
 data ListSubscriptionsResponse = ListSubscriptionsResponse
     { _lsrNextToken     :: Maybe Text
     , _lsrSubscriptions :: List "member" Subscription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListSubscriptionsResponse' constructor.
 --

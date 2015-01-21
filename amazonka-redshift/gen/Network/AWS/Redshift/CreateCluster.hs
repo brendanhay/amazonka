@@ -99,7 +99,7 @@ data CreateCluster = CreateCluster
     , _ccPubliclyAccessible               :: Maybe Bool
     , _ccTags                             :: List "member" Tag
     , _ccVpcSecurityGroupIds              :: List "member" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateCluster' constructor.
 --
@@ -438,7 +438,7 @@ ccVpcSecurityGroupIds =
 
 newtype CreateClusterResponse = CreateClusterResponse
     { _ccrCluster :: Maybe Cluster
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateClusterResponse' constructor.
 --

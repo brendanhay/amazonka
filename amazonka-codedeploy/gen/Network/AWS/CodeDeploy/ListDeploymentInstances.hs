@@ -54,7 +54,7 @@ data ListDeploymentInstances = ListDeploymentInstances
     { _ldiDeploymentId         :: Text
     , _ldiInstanceStatusFilter :: List "instanceStatusFilter" InstanceStatus
     , _ldiNextToken            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListDeploymentInstances' constructor.
 --
@@ -101,7 +101,7 @@ ldiNextToken = lens _ldiNextToken (\s a -> s { _ldiNextToken = a })
 data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse
     { _ldirInstancesList :: List "instancesList" Text
     , _ldirNextToken     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListDeploymentInstancesResponse' constructor.
 --

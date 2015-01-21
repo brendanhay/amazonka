@@ -58,7 +58,7 @@ data ListMetrics = ListMetrics
     , _lmMetricName :: Maybe Text
     , _lmNamespace  :: Maybe Text
     , _lmNextToken  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListMetrics' constructor.
 --
@@ -100,7 +100,7 @@ lmNextToken = lens _lmNextToken (\s a -> s { _lmNextToken = a })
 data ListMetricsResponse = ListMetricsResponse
     { _lmrMetrics   :: List "member" Metric
     , _lmrNextToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListMetricsResponse' constructor.
 --

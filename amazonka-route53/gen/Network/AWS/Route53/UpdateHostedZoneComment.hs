@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data UpdateHostedZoneComment = UpdateHostedZoneComment
     { _uhzcComment :: Maybe Text
     , _uhzcId      :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateHostedZoneComment' constructor.
 --
@@ -81,7 +81,7 @@ uhzcId = lens _uhzcId (\s a -> s { _uhzcId = a })
 
 newtype UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse
     { _uhzcrHostedZone :: HostedZone
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateHostedZoneCommentResponse' constructor.
 --

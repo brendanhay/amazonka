@@ -73,7 +73,7 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume
     , _csscsivPreserveExistingData :: Bool
     , _csscsivSnapshotId           :: Maybe Text
     , _csscsivTargetName           :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateStorediSCSIVolume' constructor.
 --
@@ -154,7 +154,7 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
     { _csscsivrTargetARN         :: Maybe Text
     , _csscsivrVolumeARN         :: Maybe Text
     , _csscsivrVolumeSizeInBytes :: Maybe Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateStorediSCSIVolumeResponse' constructor.
 --

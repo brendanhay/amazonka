@@ -54,7 +54,7 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup
     { _mdbsgDBSubnetGroupDescription :: Maybe Text
     , _mdbsgDBSubnetGroupName        :: Text
     , _mdbsgSubnetIds                :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ModifyDBSubnetGroup' constructor.
 --
@@ -97,7 +97,7 @@ mdbsgSubnetIds = lens _mdbsgSubnetIds (\s a -> s { _mdbsgSubnetIds = a }) . _Lis
 
 newtype ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
     { _mdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyDBSubnetGroupResponse' constructor.
 --

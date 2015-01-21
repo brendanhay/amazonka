@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype CreateStreamingDistribution = CreateStreamingDistribution
     { _csdStreamingDistributionConfig :: StreamingDistributionConfig
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateStreamingDistribution' constructor.
 --
@@ -75,7 +75,7 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
     { _csdrETag                  :: Maybe Text
     , _csdrLocation              :: Maybe Text
     , _csdrStreamingDistribution :: Maybe StreamingDistribution
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateStreamingDistributionResponse' constructor.
 --

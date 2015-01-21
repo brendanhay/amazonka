@@ -56,7 +56,7 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
     { _asaAccountWithRestoreAccess  :: Text
     , _asaSnapshotClusterIdentifier :: Maybe Text
     , _asaSnapshotIdentifier        :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AuthorizeSnapshotAccess' constructor.
 --
@@ -99,7 +99,7 @@ asaSnapshotIdentifier =
 
 newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
     { _asarSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AuthorizeSnapshotAccessResponse' constructor.
 --

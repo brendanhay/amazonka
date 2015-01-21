@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data ValidateTemplate = ValidateTemplate
     { _vtTemplateBody :: Maybe Text
     , _vtTemplateURL  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ValidateTemplate' constructor.
 --
@@ -94,7 +94,7 @@ data ValidateTemplateResponse = ValidateTemplateResponse
     , _vtrCapabilitiesReason :: Maybe Text
     , _vtrDescription        :: Maybe Text
     , _vtrParameters         :: List "member" TemplateParameter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ValidateTemplateResponse' constructor.
 --

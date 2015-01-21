@@ -66,7 +66,7 @@ data PollForTask = PollForTask
     { _pftHostname         :: Maybe Text
     , _pftInstanceIdentity :: Maybe InstanceIdentity
     , _pftWorkerGroup      :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PollForTask' constructor.
 --
@@ -108,7 +108,7 @@ pftWorkerGroup = lens _pftWorkerGroup (\s a -> s { _pftWorkerGroup = a })
 
 newtype PollForTaskResponse = PollForTaskResponse
     { _pftrTaskObject :: Maybe TaskObject
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PollForTaskResponse' constructor.
 --

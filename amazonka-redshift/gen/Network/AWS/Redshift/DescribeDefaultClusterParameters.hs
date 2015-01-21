@@ -56,7 +56,7 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
     { _ddcpMarker               :: Maybe Text
     , _ddcpMaxRecords           :: Maybe Int
     , _ddcpParameterGroupFamily :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeDefaultClusterParameters' constructor.
 --
@@ -103,7 +103,7 @@ ddcpParameterGroupFamily =
 
 newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
     { _ddcprDefaultClusterParameters :: DefaultClusterParameters
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDefaultClusterParametersResponse' constructor.
 --

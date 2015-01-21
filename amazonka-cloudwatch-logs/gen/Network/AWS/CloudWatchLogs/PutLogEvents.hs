@@ -67,7 +67,7 @@ data PutLogEvents = PutLogEvents
     , _pleLogGroupName  :: Text
     , _pleLogStreamName :: Text
     , _pleSequenceToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutLogEvents' constructor.
 --
@@ -107,7 +107,7 @@ pleSequenceToken = lens _pleSequenceToken (\s a -> s { _pleSequenceToken = a })
 
 newtype PutLogEventsResponse = PutLogEventsResponse
     { _plerNextSequenceToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'PutLogEventsResponse' constructor.
 --

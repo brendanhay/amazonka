@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
     { _dsdsDryRun :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeSpotDatafeedSubscription' constructor.
 --
@@ -67,7 +67,7 @@ dsdsDryRun = lens _dsdsDryRun (\s a -> s { _dsdsDryRun = a })
 
 newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
     { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotDatafeedSubscriptionResponse' constructor.
 --

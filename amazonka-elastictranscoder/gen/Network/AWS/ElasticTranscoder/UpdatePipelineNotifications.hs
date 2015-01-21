@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data UpdatePipelineNotifications = UpdatePipelineNotifications
     { _upnId            :: Text
     , _upnNotifications :: Notifications
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdatePipelineNotifications' constructor.
 --
@@ -99,7 +99,7 @@ upnNotifications = lens _upnNotifications (\s a -> s { _upnNotifications = a })
 
 newtype UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
     { _upnrPipeline :: Maybe Pipeline
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdatePipelineNotificationsResponse' constructor.
 --

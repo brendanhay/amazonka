@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers
     { _delbLayerIds :: List "LayerIds" Text
     , _delbStackId  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeElasticLoadBalancers' constructor.
 --
@@ -84,7 +84,7 @@ delbStackId = lens _delbStackId (\s a -> s { _delbStackId = a })
 
 newtype DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
     { _delbrElasticLoadBalancers :: List "ElasticLoadBalancers" ElasticLoadBalancer
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeElasticLoadBalancersResponse where
     type Item DescribeElasticLoadBalancersResponse = ElasticLoadBalancer

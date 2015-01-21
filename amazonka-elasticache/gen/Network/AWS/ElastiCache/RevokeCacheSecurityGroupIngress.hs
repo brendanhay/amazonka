@@ -55,7 +55,7 @@ data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress
     { _rcsgiCacheSecurityGroupName  :: Text
     , _rcsgiEC2SecurityGroupName    :: Text
     , _rcsgiEC2SecurityGroupOwnerId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RevokeCacheSecurityGroupIngress' constructor.
 --
@@ -99,7 +99,7 @@ rcsgiEC2SecurityGroupOwnerId =
 
 newtype RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse
     { _rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RevokeCacheSecurityGroupIngressResponse' constructor.
 --

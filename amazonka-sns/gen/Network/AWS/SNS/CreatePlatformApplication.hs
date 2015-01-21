@@ -64,7 +64,7 @@ data CreatePlatformApplication = CreatePlatformApplication
     { _cpaAttributes :: EMap "entry" "key" "value" Text Text
     , _cpaName       :: Text
     , _cpaPlatform   :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreatePlatformApplication' constructor.
 --
@@ -103,7 +103,7 @@ cpaPlatform = lens _cpaPlatform (\s a -> s { _cpaPlatform = a })
 
 newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
     { _cparPlatformApplicationArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreatePlatformApplicationResponse' constructor.
 --

@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype CreateInternetGateway = CreateInternetGateway
     { _cigDryRun :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateInternetGateway' constructor.
 --
@@ -70,7 +70,7 @@ cigDryRun = lens _cigDryRun (\s a -> s { _cigDryRun = a })
 
 newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
     { _cigrInternetGateway :: Maybe InternetGateway
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateInternetGatewayResponse' constructor.
 --

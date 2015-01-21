@@ -57,7 +57,7 @@ data ListGroups = ListGroups
     { _lgMarker     :: Maybe Text
     , _lgMaxItems   :: Maybe Nat
     , _lgPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListGroups' constructor.
 --
@@ -100,7 +100,7 @@ data ListGroupsResponse = ListGroupsResponse
     { _lgrGroups      :: List "member" Group
     , _lgrIsTruncated :: Maybe Bool
     , _lgrMarker      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListGroupsResponse' constructor.
 --

@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DeleteSAMLProvider = DeleteSAMLProvider
     { _dsamlpSAMLProviderArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteSAMLProvider' constructor.
 --
@@ -73,7 +73,7 @@ dsamlpSAMLProviderArn =
     lens _dsamlpSAMLProviderArn (\s a -> s { _dsamlpSAMLProviderArn = a })
 
 data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteSAMLProviderResponse' constructor.
 deleteSAMLProviderResponse :: DeleteSAMLProviderResponse

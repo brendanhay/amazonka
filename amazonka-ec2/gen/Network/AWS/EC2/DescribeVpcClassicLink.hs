@@ -53,7 +53,7 @@ data DescribeVpcClassicLink = DescribeVpcClassicLink
     { _dvclDryRun  :: Maybe Bool
     , _dvclFilters :: List "Filter" Filter
     , _dvclVpcIds  :: List "VpcId" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVpcClassicLink' constructor.
 --
@@ -103,7 +103,7 @@ dvclVpcIds = lens _dvclVpcIds (\s a -> s { _dvclVpcIds = a }) . _List
 
 newtype DescribeVpcClassicLinkResponse = DescribeVpcClassicLinkResponse
     { _dvclrVpcs :: List "item" VpcClassicLink
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeVpcClassicLinkResponse' constructor.
 --

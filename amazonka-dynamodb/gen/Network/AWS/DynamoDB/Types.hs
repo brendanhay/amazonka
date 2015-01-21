@@ -289,7 +289,7 @@ instance AWSService DynamoDB where
 data WriteRequest = WriteRequest
     { _wDeleteRequest :: Maybe DeleteRequest
     , _wPutRequest    :: Maybe PutRequest
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'WriteRequest' constructor.
 --
@@ -330,7 +330,7 @@ data ProvisionedThroughputDescription = ProvisionedThroughputDescription
     , _ptdNumberOfDecreasesToday :: Maybe Nat
     , _ptdReadCapacityUnits      :: Maybe Nat
     , _ptdWriteCapacityUnits     :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ProvisionedThroughputDescription' constructor.
 --
@@ -409,7 +409,7 @@ instance ToJSON ProvisionedThroughputDescription where
 data KeyType
     = Hash  -- ^ HASH
     | Range -- ^ RANGE
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable KeyType
 
@@ -446,7 +446,7 @@ data AttributeValue = AttributeValue
     , _avNULL :: Maybe Bool
     , _avS    :: Maybe Text
     , _avSS   :: List "SS" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AttributeValue' constructor.
 --
@@ -558,7 +558,7 @@ data IndexStatus
     | Creating -- ^ CREATING
     | Deleting -- ^ DELETING
     | Updating -- ^ UPDATING
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable IndexStatus
 
@@ -591,7 +591,7 @@ instance ToJSON IndexStatus where
 data ProvisionedThroughput = ProvisionedThroughput
     { _ptReadCapacityUnits  :: Nat
     , _ptWriteCapacityUnits :: Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ProvisionedThroughput' constructor.
 --
@@ -638,7 +638,7 @@ data TableStatus
     | TSCreating -- ^ CREATING
     | TSDeleting -- ^ DELETING
     | TSUpdating -- ^ UPDATING
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable TableStatus
 
@@ -672,7 +672,7 @@ data ProjectionType
     = All      -- ^ ALL
     | Include  -- ^ INCLUDE
     | KeysOnly -- ^ KEYS_ONLY
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ProjectionType
 
@@ -711,7 +711,7 @@ data TableDescription = TableDescription
     , _tdTableName              :: Text
     , _tdTableSizeBytes         :: Integer
     , _tdTableStatus            :: TableStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'TableDescription' constructor.
 --
@@ -967,7 +967,7 @@ data KeysAndAttributes = KeysAndAttributes
     , _kaaExpressionAttributeNames :: Map Text Text
     , _kaaKeys                     :: List1 "Keys" (Map Text AttributeValue)
     , _kaaProjectionExpression     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'KeysAndAttributes' constructor.
 --
@@ -1076,7 +1076,7 @@ data ReturnConsumedCapacity
     = Indexes -- ^ INDEXES
     | None    -- ^ NONE
     | Total   -- ^ TOTAL
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ReturnConsumedCapacity
 
@@ -1107,7 +1107,7 @@ instance ToJSON ReturnConsumedCapacity where
 data ReturnItemCollectionMetrics
     = RICMNone -- ^ NONE
     | RICMSize -- ^ SIZE
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ReturnItemCollectionMetrics
 
@@ -1136,7 +1136,7 @@ instance ToJSON ReturnItemCollectionMetrics where
 data AttributeValueUpdate = AttributeValueUpdate
     { _avuAction :: Maybe AttributeAction
     , _avuValue  :: Maybe AttributeValue
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AttributeValueUpdate' constructor.
 --
@@ -1225,7 +1225,7 @@ data ExpectedAttributeValue = ExpectedAttributeValue
     , _eavComparisonOperator :: Maybe ComparisonOperator
     , _eavExists             :: Maybe Bool
     , _eavValue              :: Maybe AttributeValue
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ExpectedAttributeValue' constructor.
 --
@@ -1439,7 +1439,7 @@ instance ToJSON ExpectedAttributeValue where
 data AttributeDefinition = AttributeDefinition
     { _adAttributeName :: Text
     , _adAttributeType :: ScalarAttributeType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AttributeDefinition' constructor.
 --
@@ -1490,7 +1490,7 @@ data ComparisonOperator
     | NotContains -- ^ NOT_CONTAINS
     | NotNull     -- ^ NOT_NULL
     | Null        -- ^ NULL
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ComparisonOperator
 
@@ -1544,7 +1544,7 @@ data ReturnValue
     | RVNone       -- ^ NONE
     | RVUpdatedNew -- ^ UPDATED_NEW
     | RVUpdatedOld -- ^ UPDATED_OLD
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ReturnValue
 
@@ -1580,7 +1580,7 @@ data LocalSecondaryIndex = LocalSecondaryIndex
     { _lsiIndexName  :: Text
     , _lsiKeySchema  :: List1 "KeySchema" KeySchemaElement
     , _lsiProjection :: Projection
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'LocalSecondaryIndex' constructor.
 --
@@ -1636,7 +1636,7 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     , _gsidKeySchema             :: List1 "KeySchema" KeySchemaElement
     , _gsidProjection            :: Maybe Projection
     , _gsidProvisionedThroughput :: Maybe ProvisionedThroughputDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GlobalSecondaryIndexDescription' constructor.
 --
@@ -1737,7 +1737,7 @@ instance ToJSON GlobalSecondaryIndexDescription where
 data ItemCollectionMetrics = ItemCollectionMetrics
     { _icmItemCollectionKey   :: Map Text AttributeValue
     , _icmSizeEstimateRangeGB :: List "SizeEstimateRangeGB" Double
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ItemCollectionMetrics' constructor.
 --
@@ -1787,7 +1787,7 @@ instance ToJSON ItemCollectionMetrics where
 
 newtype Capacity = Capacity
     { _cCapacityUnits :: Maybe Double
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Capacity' constructor.
 --
@@ -1819,7 +1819,7 @@ data ConsumedCapacity = ConsumedCapacity
     , _ccLocalSecondaryIndexes  :: Map Text Capacity
     , _ccTable                  :: Maybe Capacity
     , _ccTableName              :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ConsumedCapacity' constructor.
 --
@@ -1893,7 +1893,7 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex
     , _gsiKeySchema             :: List1 "KeySchema" KeySchemaElement
     , _gsiProjection            :: Projection
     , _gsiProvisionedThroughput :: ProvisionedThroughput
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GlobalSecondaryIndex' constructor.
 --
@@ -1958,7 +1958,7 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
     , _lsidItemCount      :: Maybe Integer
     , _lsidKeySchema      :: List1 "KeySchema" KeySchemaElement
     , _lsidProjection     :: Maybe Projection
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'LocalSecondaryIndexDescription' constructor.
 --
@@ -2030,7 +2030,7 @@ data AttributeAction
     = Add     -- ^ ADD
     | Delete' -- ^ DELETE
     | Put     -- ^ PUT
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable AttributeAction
 
@@ -2062,7 +2062,7 @@ data ScalarAttributeType
     = B -- ^ B
     | N -- ^ N
     | S -- ^ S
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ScalarAttributeType
 
@@ -2093,7 +2093,7 @@ instance ToJSON ScalarAttributeType where
 data Projection = Projection
     { _pNonKeyAttributes :: List1 "NonKeyAttributes" Text
     , _pProjectionType   :: Maybe ProjectionType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Projection' constructor.
 --
@@ -2150,7 +2150,7 @@ data Select
     | AllProjectedAttributes -- ^ ALL_PROJECTED_ATTRIBUTES
     | Count                  -- ^ COUNT
     | SpecificAttributes     -- ^ SPECIFIC_ATTRIBUTES
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Select
 
@@ -2183,7 +2183,7 @@ instance ToJSON Select where
 data KeySchemaElement = KeySchemaElement
     { _kseAttributeName :: Text
     , _kseKeyType       :: KeyType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'KeySchemaElement' constructor.
 --
@@ -2223,7 +2223,7 @@ instance ToJSON KeySchemaElement where
 
 newtype DeleteRequest = DeleteRequest
     { _dKey :: Map Text AttributeValue
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DeleteRequest' constructor.
 --
@@ -2254,7 +2254,7 @@ instance ToJSON DeleteRequest where
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction
     { _ugsiaIndexName             :: Text
     , _ugsiaProvisionedThroughput :: ProvisionedThroughput
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateGlobalSecondaryIndexAction' constructor.
 --
@@ -2294,7 +2294,7 @@ instance ToJSON UpdateGlobalSecondaryIndexAction where
 
 newtype PutRequest = PutRequest
     { _pItem :: Map Text AttributeValue
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'PutRequest' constructor.
 --
@@ -2327,7 +2327,7 @@ instance ToJSON PutRequest where
 data Condition = Condition
     { _cAttributeValueList :: List "AttributeValueList" AttributeValue
     , _cComparisonOperator :: ComparisonOperator
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Condition' constructor.
 --
@@ -2498,7 +2498,7 @@ instance ToJSON Condition where
 data ConditionalOperator
     = And -- ^ AND
     | Or  -- ^ OR
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ConditionalOperator
 
@@ -2526,7 +2526,7 @@ instance ToJSON ConditionalOperator where
 
 newtype GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
     { _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GlobalSecondaryIndexUpdate' constructor.
 --

@@ -60,7 +60,7 @@ currentLibraryVersion :: Version
 currentLibraryVersion = initial
     & major .~ 0
     & minor .~ 2
-    & patch .~ 1
+    & patch .~ 2
 
 class ToFilePath a where
     toFilePath :: a -> FilePath
@@ -85,15 +85,14 @@ instance ToJSON a => ToJSON (OrdMap a) where
 
 data Signature
     = V2
-    | V3
     | V4
       deriving (Eq, Show)
 
 instance FromJSON Signature where
     parseJSON = withText "signature" $ \case
         "v2"      -> pure V2
-        "v3"      -> pure V3
-        "v3https" -> pure V3
+        "v3"      -> pure V4
+        "v3https" -> pure V4
         "v4"      -> pure V4
         "s3"      -> pure V4
         e         -> fail ("Unknown Signature: " ++ Text.unpack e)
@@ -431,6 +430,7 @@ data Override = Override
     , _oSumPrefix  :: Maybe Text             -- ^ Sum constructor prefix
     , _oSumValues  :: HashMap Text Text      -- ^ Supplemental sum constructors.
     , _oRequired   :: HashSet (CI Text)      -- ^ Required fields
+    , _oOptional   :: HashSet (CI Text)      -- ^ Optional fields
     , _oRenamed    :: HashMap (CI Text) Text -- ^ Rename fields
     } deriving (Eq, Show)
 
@@ -443,6 +443,7 @@ instance FromJSON Override where
         <*> o .:? "sum_prefix"
         <*> o .:? "sum_values" .!= mempty
         <*> o .:? "required"   .!= mempty
+        <*> o .:? "optional"   .!= mempty
         <*> o .:? "renamed"    .!= mempty
 
 data Overrides = Overrides

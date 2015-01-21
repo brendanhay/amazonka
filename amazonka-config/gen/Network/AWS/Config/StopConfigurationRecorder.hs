@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype StopConfigurationRecorder = StopConfigurationRecorder
     { _scrConfigurationRecorderName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'StopConfigurationRecorder' constructor.
 --
@@ -70,7 +70,7 @@ scrConfigurationRecorderName =
         (\s a -> s { _scrConfigurationRecorderName = a })
 
 data StopConfigurationRecorderResponse = StopConfigurationRecorderResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'StopConfigurationRecorderResponse' constructor.
 stopConfigurationRecorderResponse :: StopConfigurationRecorderResponse

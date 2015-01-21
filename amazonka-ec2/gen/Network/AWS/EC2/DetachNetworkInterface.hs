@@ -51,7 +51,7 @@ data DetachNetworkInterface = DetachNetworkInterface
     { _dniAttachmentId :: Text
     , _dniDryRun       :: Maybe Bool
     , _dniForce        :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DetachNetworkInterface' constructor.
 --
@@ -83,7 +83,7 @@ dniForce :: Lens' DetachNetworkInterface (Maybe Bool)
 dniForce = lens _dniForce (\s a -> s { _dniForce = a })
 
 data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DetachNetworkInterfaceResponse' constructor.
 detachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse

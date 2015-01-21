@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
     { _dlbasLayerIds :: List "LayerIds" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLoadBasedAutoScaling where
     type Item DescribeLoadBasedAutoScaling = Text
@@ -80,7 +80,7 @@ dlbasLayerIds = lens _dlbasLayerIds (\s a -> s { _dlbasLayerIds = a }) . _List
 
 newtype DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
     { _dlbasrLoadBasedAutoScalingConfigurations :: List "LoadBasedAutoScalingConfigurations" LoadBasedAutoScalingConfiguration
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLoadBasedAutoScalingResponse where
     type Item DescribeLoadBasedAutoScalingResponse = LoadBasedAutoScalingConfiguration

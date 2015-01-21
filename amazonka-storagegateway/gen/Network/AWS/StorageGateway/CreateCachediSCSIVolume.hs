@@ -70,7 +70,7 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume
     , _ccscsivSnapshotId         :: Maybe Text
     , _ccscsivTargetName         :: Text
     , _ccscsivVolumeSizeInBytes  :: Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateCachediSCSIVolume' constructor.
 --
@@ -132,7 +132,7 @@ ccscsivVolumeSizeInBytes =
 data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
     { _ccscsivrTargetARN :: Maybe Text
     , _ccscsivrVolumeARN :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateCachediSCSIVolumeResponse' constructor.
 --

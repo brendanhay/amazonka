@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype UnassignVolume = UnassignVolume
     { _uvVolumeId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'UnassignVolume' constructor.
 --
@@ -71,7 +71,7 @@ uvVolumeId :: Lens' UnassignVolume Text
 uvVolumeId = lens _uvVolumeId (\s a -> s { _uvVolumeId = a })
 
 data UnassignVolumeResponse = UnassignVolumeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UnassignVolumeResponse' constructor.
 unassignVolumeResponse :: UnassignVolumeResponse

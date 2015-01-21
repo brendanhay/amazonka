@@ -55,7 +55,7 @@ data EnableMFADevice = EnableMFADevice
     , _emfadAuthenticationCode2 :: Text
     , _emfadSerialNumber        :: Text
     , _emfadUserName            :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnableMFADevice' constructor.
 --
@@ -104,7 +104,7 @@ emfadUserName :: Lens' EnableMFADevice Text
 emfadUserName = lens _emfadUserName (\s a -> s { _emfadUserName = a })
 
 data EnableMFADeviceResponse = EnableMFADeviceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'EnableMFADeviceResponse' constructor.
 enableMFADeviceResponse :: EnableMFADeviceResponse

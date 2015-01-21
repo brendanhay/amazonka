@@ -61,7 +61,7 @@ data PutGroupPolicy = PutGroupPolicy
     { _pgpGroupName      :: Text
     , _pgpPolicyDocument :: Text
     , _pgpPolicyName     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PutGroupPolicy' constructor.
 --
@@ -97,7 +97,7 @@ pgpPolicyName :: Lens' PutGroupPolicy Text
 pgpPolicyName = lens _pgpPolicyName (\s a -> s { _pgpPolicyName = a })
 
 data PutGroupPolicyResponse = PutGroupPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutGroupPolicyResponse' constructor.
 putGroupPolicyResponse :: PutGroupPolicyResponse

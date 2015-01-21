@@ -59,7 +59,7 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress
     , _rcsgiClusterSecurityGroupName :: Text
     , _rcsgiEC2SecurityGroupName     :: Maybe Text
     , _rcsgiEC2SecurityGroupOwnerId  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RevokeClusterSecurityGroupIngress' constructor.
 --
@@ -113,7 +113,7 @@ rcsgiEC2SecurityGroupOwnerId =
 
 newtype RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse
     { _rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RevokeClusterSecurityGroupIngressResponse' constructor.
 --

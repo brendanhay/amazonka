@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data GetDeploymentGroup = GetDeploymentGroup
     { _gdgApplicationName     :: Text
     , _gdgDeploymentGroupName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetDeploymentGroup' constructor.
 --
@@ -82,7 +82,7 @@ gdgDeploymentGroupName =
 
 newtype GetDeploymentGroupResponse = GetDeploymentGroupResponse
     { _gdgrDeploymentGroupInfo :: Maybe DeploymentGroupInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetDeploymentGroupResponse' constructor.
 --

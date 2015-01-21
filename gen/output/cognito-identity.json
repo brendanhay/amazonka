@@ -17,14 +17,18 @@
         "imports": [
             "Network.AWS.CognitoIdentity.CreateIdentityPool",
             "Network.AWS.CognitoIdentity.DeleteIdentityPool",
+            "Network.AWS.CognitoIdentity.DescribeIdentity",
             "Network.AWS.CognitoIdentity.DescribeIdentityPool",
+            "Network.AWS.CognitoIdentity.GetCredentialsForIdentity",
             "Network.AWS.CognitoIdentity.GetId",
+            "Network.AWS.CognitoIdentity.GetIdentityPoolRoles",
             "Network.AWS.CognitoIdentity.GetOpenIdToken",
             "Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity",
             "Network.AWS.CognitoIdentity.ListIdentities",
             "Network.AWS.CognitoIdentity.ListIdentityPools",
             "Network.AWS.CognitoIdentity.LookupDeveloperIdentity",
             "Network.AWS.CognitoIdentity.MergeDeveloperIdentities",
+            "Network.AWS.CognitoIdentity.SetIdentityPoolRoles",
             "Network.AWS.CognitoIdentity.Types",
             "Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity",
             "Network.AWS.CognitoIdentity.UnlinkIdentity",
@@ -65,14 +69,18 @@
             "Network.AWS.CognitoIdentity",
             "Network.AWS.CognitoIdentity.CreateIdentityPool",
             "Network.AWS.CognitoIdentity.DeleteIdentityPool",
+            "Network.AWS.CognitoIdentity.DescribeIdentity",
             "Network.AWS.CognitoIdentity.DescribeIdentityPool",
+            "Network.AWS.CognitoIdentity.GetCredentialsForIdentity",
             "Network.AWS.CognitoIdentity.GetId",
+            "Network.AWS.CognitoIdentity.GetIdentityPoolRoles",
             "Network.AWS.CognitoIdentity.GetOpenIdToken",
             "Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity",
             "Network.AWS.CognitoIdentity.ListIdentities",
             "Network.AWS.CognitoIdentity.ListIdentityPools",
             "Network.AWS.CognitoIdentity.LookupDeveloperIdentity",
             "Network.AWS.CognitoIdentity.MergeDeveloperIdentities",
+            "Network.AWS.CognitoIdentity.SetIdentityPoolRoles",
             "Network.AWS.CognitoIdentity.Types",
             "Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity",
             "Network.AWS.CognitoIdentity.UnlinkIdentity",
@@ -81,7 +89,7 @@
         "url": "http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Cognito Identity",
-        "version": "0.2.1",
+        "version": "0.2.2",
         "description": "Amazon Cognito is a web service that facilitates the delivery of scoped,\ntemporary credentials to mobile devices or other untrusted environments.\nAmazon Cognito uniquely identifies a device or user and supplies the user\nwith a consistent identity throughout the lifetime of an application. Amazon\nCognito lets users authenticate with third-party identity providers\n(Facebook, Google, or Login with Amazon). As a developer, you decide which\nidentity providers to trust. You can also choose to support unauthenticated\naccess from your application. Your users are provided with Cognito tokens\nthat uniquely identify their device and any information provided about\nthird-party logins."
     },
     "types": {
@@ -91,9 +99,236 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
-                "fieldPad": 13,
+                "fieldPad": 14,
+                "ctor": "credentials",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cAccessKeyId",
+                        "name": "_cAccessKeyId",
+                        "shape": "AccessKeyString",
+                        "locationName": "AccessKeyId",
+                        "documentation": "-- | The Access Key portion of the credentials.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cSecretKey",
+                        "name": "_cSecretKey",
+                        "shape": "SecretKeyString",
+                        "locationName": "SecretKey",
+                        "documentation": "-- | The Secret Access Key portion of the credentials",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cSessionToken",
+                        "name": "_cSessionToken",
+                        "shape": "SessionTokenString",
+                        "locationName": "SessionToken",
+                        "documentation": "-- | The Session Token portion of the credentials",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cExpiration",
+                        "name": "_cExpiration",
+                        "shape": "DateType",
+                        "locationName": "Expiration",
+                        "documentation": "-- | The date at which these credentials will expire.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "contentPad": 13,
+                "name": "Credentials",
+                "locationPad": 13,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cAccessKeyId",
+                        "name": "_cAccessKeyId",
+                        "shape": "AccessKeyString",
+                        "locationName": "AccessKeyId",
+                        "documentation": "-- | The Access Key portion of the credentials.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cSecretKey",
+                        "name": "_cSecretKey",
+                        "shape": "SecretKeyString",
+                        "locationName": "SecretKey",
+                        "documentation": "-- | The Secret Access Key portion of the credentials",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cSessionToken",
+                        "name": "_cSessionToken",
+                        "shape": "SessionTokenString",
+                        "locationName": "SessionToken",
+                        "documentation": "-- | The Session Token portion of the credentials",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cExpiration",
+                        "name": "_cExpiration",
+                        "shape": "DateType",
+                        "locationName": "Expiration",
+                        "documentation": "-- | The date at which these credentials will expire.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cAccessKeyId",
+                        "name": "_cAccessKeyId",
+                        "shape": "AccessKeyString",
+                        "locationName": "AccessKeyId",
+                        "documentation": "-- | The Access Key portion of the credentials.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cExpiration",
+                        "name": "_cExpiration",
+                        "shape": "DateType",
+                        "locationName": "Expiration",
+                        "documentation": "-- | The date at which these credentials will expire.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cSecretKey",
+                        "name": "_cSecretKey",
+                        "shape": "SecretKeyString",
+                        "locationName": "SecretKey",
+                        "documentation": "-- | The Secret Access Key portion of the credentials",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cSessionToken",
+                        "name": "_cSessionToken",
+                        "shape": "SessionTokenString",
+                        "locationName": "SessionToken",
+                        "documentation": "-- | The Session Token portion of the credentials",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 19,
                 "ctor": "identityDescription",
                 "contents": [
                     {
@@ -129,13 +364,47 @@
                         "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "[Text]",
                         "type": "List \"Logins\" Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "idCreationDate",
+                        "name": "_idCreationDate",
+                        "shape": "DateType",
+                        "locationName": "CreationDate",
+                        "documentation": "-- | Date on which the identity was created.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "idLastModifiedDate",
+                        "name": "_idLastModifiedDate",
+                        "shape": "DateType",
+                        "locationName": "LastModifiedDate",
+                        "documentation": "-- | Date on which the identity was last modified.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "payload": null,
                 "required": [],
-                "contentPad": 11,
+                "contentPad": 17,
                 "name": "IdentityDescription",
-                "locationPad": 11,
+                "locationPad": 17,
                 "type": "record",
                 "optional": [
                     {
@@ -171,9 +440,60 @@
                         "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
                         "typeExposed": "[Text]",
                         "type": "List \"Logins\" Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "idCreationDate",
+                        "name": "_idCreationDate",
+                        "shape": "DateType",
+                        "locationName": "CreationDate",
+                        "documentation": "-- | Date on which the identity was created.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "idLastModifiedDate",
+                        "name": "_idLastModifiedDate",
+                        "shape": "DateType",
+                        "locationName": "LastModifiedDate",
+                        "documentation": "-- | Date on which the identity was last modified.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "idCreationDate",
+                        "name": "_idCreationDate",
+                        "shape": "DateType",
+                        "locationName": "CreationDate",
+                        "documentation": "-- | Date on which the identity was created.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
                     {
                         "location": null,
                         "iso": null,
@@ -190,6 +510,23 @@
                         "documentation": "-- | A unique identifier in the format REGION:GUID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "idLastModifiedDate",
+                        "name": "_idLastModifiedDate",
+                        "shape": "DateType",
+                        "locationName": "LastModifiedDate",
+                        "documentation": "-- | Date on which the identity was last modified.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
                     },
                     {
                         "location": null,
@@ -213,6 +550,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 33,
@@ -316,7 +654,7 @@
                         "name": "_ipOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
@@ -427,7 +765,7 @@
                         "name": "_ipOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
@@ -514,7 +852,7 @@
                         "name": "_ipOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     },
@@ -541,6 +879,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 21,
@@ -663,6 +1002,7 @@
         ],
         "imports": [],
         "shared": [
+            "IdentityDescription",
             "IdentityPool"
         ]
     },
@@ -672,6 +1012,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -778,7 +1119,7 @@
                         "name": "_ciprOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
@@ -895,7 +1236,7 @@
                         "name": "_ciprOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
@@ -982,7 +1323,7 @@
                         "name": "_ciprOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     },
@@ -1020,6 +1361,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -1109,7 +1451,7 @@
                         "name": "_cipOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
@@ -1216,7 +1558,7 @@
                         "name": "_cipOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
@@ -1286,7 +1628,7 @@
                         "name": "_cipOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     },
@@ -1316,6 +1658,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -1352,6 +1695,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "IsString"
@@ -1462,6 +1806,366 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 20,
+                "ctor": "describeIdentityResponse",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dirIdentityId",
+                        "name": "_dirIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dirLogins",
+                        "name": "_dirLogins",
+                        "shape": "LoginsList",
+                        "locationName": "Logins",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"Logins\" Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dirCreationDate",
+                        "name": "_dirCreationDate",
+                        "shape": "DateType",
+                        "locationName": "CreationDate",
+                        "documentation": "-- | Date on which the identity was created.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dirLastModifiedDate",
+                        "name": "_dirLastModifiedDate",
+                        "shape": "DateType",
+                        "locationName": "LastModifiedDate",
+                        "documentation": "-- | Date on which the identity was last modified.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "json",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 17,
+                "name": "DescribeIdentityResponse",
+                "resultWrapper": null,
+                "locationPad": 17,
+                "type": "record",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dirIdentityId",
+                        "name": "_dirIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dirLogins",
+                        "name": "_dirLogins",
+                        "shape": "LoginsList",
+                        "locationName": "Logins",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"Logins\" Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dirCreationDate",
+                        "name": "_dirCreationDate",
+                        "shape": "DateType",
+                        "locationName": "CreationDate",
+                        "documentation": "-- | Date on which the identity was created.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dirLastModifiedDate",
+                        "name": "_dirLastModifiedDate",
+                        "shape": "DateType",
+                        "locationName": "LastModifiedDate",
+                        "documentation": "-- | Date on which the identity was last modified.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dirCreationDate",
+                        "name": "_dirCreationDate",
+                        "shape": "DateType",
+                        "locationName": "CreationDate",
+                        "documentation": "-- | Date on which the identity was created.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dirIdentityId",
+                        "name": "_dirIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dirLastModifiedDate",
+                        "name": "_dirLastModifiedDate",
+                        "shape": "DateType",
+                        "locationName": "LastModifiedDate",
+                        "documentation": "-- | Date on which the identity was last modified.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dirLogins",
+                        "name": "_dirLogins",
+                        "shape": "LoginsList",
+                        "locationName": "Logins",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"Logins\" Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DescribeIdentity.html",
+            "namespace": "Network.AWS.CognitoIdentity.DescribeIdentity",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "pager": null,
+            "name": "DescribeIdentity",
+            "method": "post",
+            "documentation": "-- | Returns metadata related to the given identity, including when the identity\n-- was created and any associated linked logins.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "describeIdentity",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "error",
+                    "monoid": false,
+                    "protocol": "json",
+                    "flattened": false,
+                    "required": true,
+                    "lens": "diIdentityId",
+                    "name": "_diIdentityId",
+                    "shape": "IdentityId",
+                    "locationName": "IdentityId",
+                    "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "diIdentityId",
+                        "name": "_diIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "diIdentityId",
+                        "name": "_diIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 0,
+                "name": "DescribeIdentity",
+                "query": [],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "diIdentityId",
+                        "name": "_diIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CognitoIdentity",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -1568,7 +2272,7 @@
                         "name": "_diprOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
@@ -1685,7 +2389,7 @@
                         "name": "_diprOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
@@ -1772,7 +2476,7 @@
                         "name": "_diprOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     },
@@ -1811,6 +2515,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "IsString"
@@ -1921,7 +2626,295 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 17,
+                "ctor": "getCredentialsForIdentityResponse",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gcfirIdentityId",
+                        "name": "_gcfirIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gcfirCredentials",
+                        "name": "_gcfirCredentials",
+                        "shape": "Credentials",
+                        "locationName": "Credentials",
+                        "documentation": "-- | Credentials for the the provided identity ID.",
+                        "typeExposed": "Maybe Credentials",
+                        "type": "Maybe Credentials"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "json",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 12,
+                "name": "GetCredentialsForIdentityResponse",
+                "resultWrapper": null,
+                "locationPad": 12,
+                "type": "record",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gcfirIdentityId",
+                        "name": "_gcfirIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gcfirCredentials",
+                        "name": "_gcfirCredentials",
+                        "shape": "Credentials",
+                        "locationName": "Credentials",
+                        "documentation": "-- | Credentials for the the provided identity ID.",
+                        "typeExposed": "Maybe Credentials",
+                        "type": "Maybe Credentials"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gcfirCredentials",
+                        "name": "_gcfirCredentials",
+                        "shape": "Credentials",
+                        "locationName": "Credentials",
+                        "documentation": "-- | Credentials for the the provided identity ID.",
+                        "typeExposed": "Maybe Credentials",
+                        "type": "Maybe Credentials"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gcfirIdentityId",
+                        "name": "_gcfirIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html",
+            "namespace": "Network.AWS.CognitoIdentity.GetCredentialsForIdentity",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "pager": null,
+            "name": "GetCredentialsForIdentity",
+            "method": "post",
+            "documentation": "-- | Returns credentials for the the provided identity ID. Any provided logins\n-- will be validated against supported login providers. If the token is for\n-- cognito-identity.amazonaws.com, it will be passed through to AWS Security\n-- Token Service with the appropriate role for the token.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 15,
+                "ctor": "getCredentialsForIdentity",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gcfiIdentityId",
+                        "name": "_gcfiIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gcfiLogins",
+                        "name": "_gcfiLogins",
+                        "shape": "LoginsMap",
+                        "locationName": "Logins",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gcfiIdentityId",
+                        "name": "_gcfiIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 11,
+                "queryPad": 0,
+                "name": "GetCredentialsForIdentity",
+                "query": [],
+                "locationPad": 11,
+                "type": "record",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gcfiLogins",
+                        "name": "_gcfiLogins",
+                        "shape": "LoginsMap",
+                        "locationName": "Logins",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gcfiIdentityId",
+                        "name": "_gcfiIdentityId",
+                        "shape": "IdentityId",
+                        "locationName": "IdentityId",
+                        "documentation": "-- | A unique identifier in the format REGION:GUID.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gcfiLogins",
+                        "name": "_gcfiLogins",
+                        "shape": "LoginsMap",
+                        "locationName": "Logins",
+                        "documentation": "-- | A set of optional name-value pairs that map provider names to provider tokens.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CognitoIdentity",
+            "response": {
+                "deriving": [
+                    "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid"
                 ],
@@ -2033,6 +3026,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -2045,18 +3039,18 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "json",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "giAccountId",
                         "name": "_giAccountId",
                         "shape": "AccountId",
                         "locationName": "AccountId",
                         "documentation": "-- | A standard AWS account ID (9+ digits).",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -2111,23 +3105,6 @@
                         "protocol": "json",
                         "flattened": false,
                         "required": true,
-                        "lens": "giAccountId",
-                        "name": "_giAccountId",
-                        "shape": "AccountId",
-                        "locationName": "AccountId",
-                        "documentation": "-- | A standard AWS account ID (9+ digits).",
-                        "typeExposed": "Text",
-                        "type": "Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "error",
-                        "monoid": false,
-                        "protocol": "json",
-                        "flattened": false,
-                        "required": true,
                         "lens": "giIdentityPoolId",
                         "name": "_giIdentityPoolId",
                         "shape": "IdentityPoolId",
@@ -2148,6 +3125,23 @@
                 "queryAll": false,
                 "headerAll": false,
                 "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "giAccountId",
+                        "name": "_giAccountId",
+                        "shape": "AccountId",
+                        "locationName": "AccountId",
+                        "documentation": "-- | A standard AWS account ID (9+ digits).",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
                     {
                         "location": null,
                         "iso": "_Map",
@@ -2171,18 +3165,18 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "json",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "giAccountId",
                         "name": "_giAccountId",
                         "shape": "AccountId",
                         "locationName": "AccountId",
                         "documentation": "-- | A standard AWS account ID (9+ digits).",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -2226,7 +3220,263 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 20,
+                "ctor": "getIdentityPoolRolesResponse",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "giprrIdentityPoolId",
+                        "name": "_giprrIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "giprrRoles",
+                        "name": "_giprrRoles",
+                        "shape": "RolesMap",
+                        "locationName": "Roles",
+                        "documentation": "-- | The map of roles associated with this pool. Currently only authenticated and\n-- unauthenticated roles are supported.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "json",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 15,
+                "name": "GetIdentityPoolRolesResponse",
+                "resultWrapper": null,
+                "locationPad": 15,
+                "type": "record",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "giprrIdentityPoolId",
+                        "name": "_giprrIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "giprrRoles",
+                        "name": "_giprrRoles",
+                        "shape": "RolesMap",
+                        "locationName": "Roles",
+                        "documentation": "-- | The map of roles associated with this pool. Currently only authenticated and\n-- unauthenticated roles are supported.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "giprrIdentityPoolId",
+                        "name": "_giprrIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "giprrRoles",
+                        "name": "_giprrRoles",
+                        "shape": "RolesMap",
+                        "locationName": "Roles",
+                        "documentation": "-- | The map of roles associated with this pool. Currently only authenticated and\n-- unauthenticated roles are supported.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetIdentityPoolRoles.html",
+            "namespace": "Network.AWS.CognitoIdentity.GetIdentityPoolRoles",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "pager": null,
+            "name": "GetIdentityPoolRoles",
+            "method": "post",
+            "documentation": "-- | Gets the roles for an identity pool.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
                     "Ord",
+                    "Read",
+                    "Show",
+                    "Monoid"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "getIdentityPoolRoles",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "monoid": false,
+                    "protocol": "json",
+                    "flattened": false,
+                    "required": false,
+                    "lens": "giprIdentityPoolId",
+                    "name": "_giprIdentityPoolId",
+                    "shape": "IdentityPoolId",
+                    "locationName": "IdentityPoolId",
+                    "documentation": "-- | An identity pool ID in the format REGION:GUID.",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "giprIdentityPoolId",
+                        "name": "_giprIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 0,
+                "name": "GetIdentityPoolRoles",
+                "query": [],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "giprIdentityPoolId",
+                        "name": "_giprIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "giprIdentityPoolId",
+                        "name": "_giprIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CognitoIdentity",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -2370,6 +3620,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -2513,6 +3764,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -2656,6 +3908,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -2900,6 +4153,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -3095,6 +4349,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -3288,6 +4543,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -3432,6 +4688,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -3575,6 +4832,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -3770,6 +5028,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -4066,6 +5325,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid"
                 ],
@@ -4178,6 +5438,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -4422,6 +5683,187 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "setIdentityPoolRolesResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "json",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "SetIdentityPoolRolesResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_SetIdentityPoolRoles.html",
+            "namespace": "Network.AWS.CognitoIdentity.SetIdentityPoolRoles",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "pager": null,
+            "name": "SetIdentityPoolRoles",
+            "method": "post",
+            "documentation": "-- | Sets the roles for an identity pool. These roles are used when making calls\n-- to 'GetCredentialsForIdentity' action.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 19,
+                "ctor": "setIdentityPoolRoles",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "siprIdentityPoolId",
+                        "name": "_siprIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "siprRoles",
+                        "name": "_siprRoles",
+                        "shape": "RolesMap",
+                        "locationName": "Roles",
+                        "documentation": "-- | The map of roles associated with this pool. Currently only authenticated and\n-- unauthenticated roles are supported.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "siprIdentityPoolId",
+                        "name": "_siprIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 15,
+                "queryPad": 0,
+                "name": "SetIdentityPoolRoles",
+                "query": [],
+                "locationPad": 15,
+                "type": "record",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "siprRoles",
+                        "name": "_siprRoles",
+                        "shape": "RolesMap",
+                        "locationName": "Roles",
+                        "documentation": "-- | The map of roles associated with this pool. Currently only authenticated and\n-- unauthenticated roles are supported.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "siprIdentityPoolId",
+                        "name": "_siprIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | An identity pool ID in the format REGION:GUID.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "siprRoles",
+                        "name": "_siprRoles",
+                        "shape": "RolesMap",
+                        "locationName": "Roles",
+                        "documentation": "-- | The map of roles associated with this pool. Currently only authenticated and\n-- unauthenticated roles are supported.",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CognitoIdentity",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -4458,6 +5900,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -4702,6 +6145,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -4737,6 +6181,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -4930,6 +6375,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -5036,7 +6482,7 @@
                         "name": "_uiprOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
@@ -5153,7 +6599,7 @@
                         "name": "_uiprOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
@@ -5240,7 +6686,7 @@
                         "name": "_uiprOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     },
@@ -5278,6 +6724,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -5384,7 +6831,7 @@
                         "name": "_uipOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
@@ -5508,7 +6955,7 @@
                         "name": "_uipOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     }
@@ -5595,7 +7042,7 @@
                         "name": "_uipOpenIdConnectProviderARNs",
                         "shape": "OIDCProviderList",
                         "locationName": "OpenIdConnectProviderARNs",
-                        "documentation": null,
+                        "documentation": "-- | A list of OpendID Connect provider ARNs.",
                         "typeExposed": "[Text]",
                         "type": "List \"OpenIdConnectProviderARNs\" Text"
                     },

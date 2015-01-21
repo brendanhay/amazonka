@@ -54,7 +54,7 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup
     { _cdbsgDBSecurityGroupDescription :: Text
     , _cdbsgDBSecurityGroupName        :: Text
     , _cdbsgTags                       :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDBSecurityGroup' constructor.
 --
@@ -98,7 +98,7 @@ cdbsgTags = lens _cdbsgTags (\s a -> s { _cdbsgTags = a }) . _List
 
 newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
     { _cdbsgrDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDBSecurityGroupResponse' constructor.
 --

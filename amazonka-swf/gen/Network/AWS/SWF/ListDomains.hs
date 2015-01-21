@@ -74,7 +74,7 @@ data ListDomains = ListDomains
     , _ldNextPageToken      :: Maybe Text
     , _ldRegistrationStatus :: RegistrationStatus
     , _ldReverseOrder       :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListDomains' constructor.
 --
@@ -131,7 +131,7 @@ ldReverseOrder = lens _ldReverseOrder (\s a -> s { _ldReverseOrder = a })
 data ListDomainsResponse = ListDomainsResponse
     { _ldrDomainInfos   :: List "domainInfos" DomainInfo
     , _ldrNextPageToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListDomainsResponse' constructor.
 --

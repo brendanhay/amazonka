@@ -85,7 +85,7 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     , _dsphNextToken           :: Maybe Text
     , _dsphProductDescriptions :: List "ProductDescription" Text
     , _dsphStartTime           :: Maybe ISO8601
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotPriceHistory' constructor.
 --
@@ -181,7 +181,7 @@ dsphStartTime = lens _dsphStartTime (\s a -> s { _dsphStartTime = a }) . mapping
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { _dsphrNextToken        :: Maybe Text
     , _dsphrSpotPriceHistory :: List "item" SpotPrice
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotPriceHistoryResponse' constructor.
 --

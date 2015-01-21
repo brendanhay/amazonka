@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype CreateDomain = CreateDomain
     { _cdDomainName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'CreateDomain' constructor.
 --
@@ -72,7 +72,7 @@ cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
 
 newtype CreateDomainResponse = CreateDomainResponse
     { _cdrDomainStatus :: Maybe DomainStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDomainResponse' constructor.
 --

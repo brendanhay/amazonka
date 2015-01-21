@@ -55,7 +55,7 @@ data UpdateLoginProfile = UpdateLoginProfile
     { _ulpPassword              :: Maybe (Sensitive Text)
     , _ulpPasswordResetRequired :: Maybe Bool
     , _ulpUserName              :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateLoginProfile' constructor.
 --
@@ -90,7 +90,7 @@ ulpUserName :: Lens' UpdateLoginProfile Text
 ulpUserName = lens _ulpUserName (\s a -> s { _ulpUserName = a })
 
 data UpdateLoginProfileResponse = UpdateLoginProfileResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateLoginProfileResponse' constructor.
 updateLoginProfileResponse :: UpdateLoginProfileResponse

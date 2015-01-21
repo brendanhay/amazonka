@@ -55,7 +55,7 @@ data DescribeSubnets = DescribeSubnets
     { _dsDryRun    :: Maybe Bool
     , _dsFilters   :: List "Filter" Filter
     , _dsSubnetIds :: List "SubnetId" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeSubnets' constructor.
 --
@@ -122,7 +122,7 @@ dsSubnetIds = lens _dsSubnetIds (\s a -> s { _dsSubnetIds = a }) . _List
 
 newtype DescribeSubnetsResponse = DescribeSubnetsResponse
     { _dsrSubnets :: List "item" Subnet
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeSubnetsResponse' constructor.
 --

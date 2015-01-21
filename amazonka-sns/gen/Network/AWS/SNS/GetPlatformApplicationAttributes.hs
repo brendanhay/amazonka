@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
     { _gpaaPlatformApplicationArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetPlatformApplicationAttributes' constructor.
 --
@@ -72,7 +72,7 @@ gpaaPlatformApplicationArn =
 
 newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
     { _gpaarAttributes :: EMap "entry" "key" "value" Text Text
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'GetPlatformApplicationAttributesResponse' constructor.
 --

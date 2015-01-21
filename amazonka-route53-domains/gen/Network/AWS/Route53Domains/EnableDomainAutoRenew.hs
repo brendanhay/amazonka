@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype EnableDomainAutoRenew = EnableDomainAutoRenew
     { _edarDomainName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'EnableDomainAutoRenew' constructor.
 --
@@ -72,7 +72,7 @@ edarDomainName :: Lens' EnableDomainAutoRenew Text
 edarDomainName = lens _edarDomainName (\s a -> s { _edarDomainName = a })
 
 data EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'EnableDomainAutoRenewResponse' constructor.
 enableDomainAutoRenewResponse :: EnableDomainAutoRenewResponse

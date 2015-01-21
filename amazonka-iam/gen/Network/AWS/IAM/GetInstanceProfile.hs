@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype GetInstanceProfile = GetInstanceProfile
     { _gipInstanceProfileName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetInstanceProfile' constructor.
 --
@@ -73,7 +73,7 @@ gipInstanceProfileName =
 
 newtype GetInstanceProfileResponse = GetInstanceProfileResponse
     { _giprInstanceProfile :: InstanceProfile
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetInstanceProfileResponse' constructor.
 --

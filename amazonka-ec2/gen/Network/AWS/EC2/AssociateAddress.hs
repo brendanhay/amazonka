@@ -76,7 +76,7 @@ data AssociateAddress = AssociateAddress
     , _aa1NetworkInterfaceId :: Maybe Text
     , _aa1PrivateIpAddress   :: Maybe Text
     , _aa1PublicIp           :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AssociateAddress' constructor.
 --
@@ -149,7 +149,7 @@ aa1PublicIp = lens _aa1PublicIp (\s a -> s { _aa1PublicIp = a })
 
 newtype AssociateAddressResponse = AssociateAddressResponse
     { _aarAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'AssociateAddressResponse' constructor.
 --

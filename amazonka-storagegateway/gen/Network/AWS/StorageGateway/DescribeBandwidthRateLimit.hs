@@ -58,7 +58,7 @@ import qualified GHC.Exts
 
 newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit
     { _dbrlGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeBandwidthRateLimit' constructor.
 --
@@ -79,7 +79,7 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
     { _dbrlrAverageDownloadRateLimitInBitsPerSec :: Maybe Nat
     , _dbrlrAverageUploadRateLimitInBitsPerSec   :: Maybe Nat
     , _dbrlrGatewayARN                           :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeBandwidthRateLimitResponse' constructor.
 --

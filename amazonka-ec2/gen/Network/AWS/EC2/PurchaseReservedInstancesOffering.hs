@@ -65,7 +65,7 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
     , _prioInstanceCount               :: Int
     , _prioLimitPrice                  :: Maybe ReservedInstanceLimitPrice
     , _prioReservedInstancesOfferingId :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PurchaseReservedInstancesOffering' constructor.
 --
@@ -111,7 +111,7 @@ prioReservedInstancesOfferingId =
 
 newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
     { _priorReservedInstancesId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'PurchaseReservedInstancesOfferingResponse' constructor.
 --

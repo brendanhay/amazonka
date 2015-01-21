@@ -61,7 +61,7 @@ data DescribeLogGroups = DescribeLogGroups
     { _dlgLimit              :: Maybe Nat
     , _dlgLogGroupNamePrefix :: Maybe Text
     , _dlgNextToken          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeLogGroups' constructor.
 --
@@ -97,7 +97,7 @@ dlgNextToken = lens _dlgNextToken (\s a -> s { _dlgNextToken = a })
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse
     { _dlgrLogGroups :: List "logGroups" LogGroup
     , _dlgrNextToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeLogGroupsResponse' constructor.
 --

@@ -64,7 +64,7 @@ import qualified GHC.Exts
 
 newtype GetFunctionConfiguration = GetFunctionConfiguration
     { _gfcFunctionName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetFunctionConfiguration' constructor.
 --
@@ -96,7 +96,7 @@ data GetFunctionConfigurationResponse = GetFunctionConfigurationResponse
     , _gfcrRole            :: Maybe Text
     , _gfcrRuntime         :: Maybe Runtime
     , _gfcrTimeout         :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetFunctionConfigurationResponse' constructor.
 --

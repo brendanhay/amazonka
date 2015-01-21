@@ -59,7 +59,7 @@ data DescribeTapeArchives = DescribeTapeArchives
     { _dtaLimit    :: Maybe Nat
     , _dtaMarker   :: Maybe Text
     , _dtaTapeARNs :: List "TapeARNs" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeTapeArchives' constructor.
 --
@@ -96,7 +96,7 @@ dtaTapeARNs = lens _dtaTapeARNs (\s a -> s { _dtaTapeARNs = a }) . _List
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse
     { _dtarMarker       :: Maybe Text
     , _dtarTapeArchives :: List "TapeArchives" TapeArchive
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeTapeArchivesResponse' constructor.
 --

@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteHsmConfiguration = DeleteHsmConfiguration
     { _dhcHsmConfigurationIdentifier :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteHsmConfiguration' constructor.
 --
@@ -68,7 +68,7 @@ dhcHsmConfigurationIdentifier =
         (\s a -> s { _dhcHsmConfigurationIdentifier = a })
 
 data DeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteHsmConfigurationResponse' constructor.
 deleteHsmConfigurationResponse :: DeleteHsmConfigurationResponse

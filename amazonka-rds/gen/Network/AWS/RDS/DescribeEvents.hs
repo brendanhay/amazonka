@@ -70,7 +70,7 @@ data DescribeEvents = DescribeEvents
     , _deSourceIdentifier :: Maybe Text
     , _deSourceType       :: Maybe SourceType
     , _deStartTime        :: Maybe ISO8601
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeEvents' constructor.
 --
@@ -177,7 +177,7 @@ deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a }) . mapping _Time
 data DescribeEventsResponse = DescribeEventsResponse
     { _derEvents :: List "member" Event
     , _derMarker :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeEventsResponse' constructor.
 --

@@ -127,7 +127,7 @@ instance AWSService KMS where
 
 data KeyUsageType
     = EncryptDecrypt -- ^ ENCRYPT_DECRYPT
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable KeyUsageType
 
@@ -158,7 +158,7 @@ data KeyMetadata = KeyMetadata
     , _kmEnabled      :: Maybe Bool
     , _kmKeyId        :: Text
     , _kmKeyUsage     :: Maybe KeyUsageType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'KeyMetadata' constructor.
 --
@@ -242,7 +242,7 @@ instance ToJSON KeyMetadata where
 data DataKeySpec
     = AES128 -- ^ AES_128
     | AES256 -- ^ AES_256
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable DataKeySpec
 
@@ -271,7 +271,7 @@ instance ToJSON DataKeySpec where
 data GrantConstraints = GrantConstraints
     { _gcEncryptionContextEquals :: Map Text Text
     , _gcEncryptionContextSubset :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GrantConstraints' constructor.
 --
@@ -317,7 +317,7 @@ data AliasListEntry = AliasListEntry
     { _aleAliasArn    :: Maybe Text
     , _aleAliasName   :: Maybe Text
     , _aleTargetKeyId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AliasListEntry' constructor.
 --
@@ -368,7 +368,7 @@ data GrantListEntry = GrantListEntry
     , _gleIssuingAccount    :: Maybe Text
     , _gleOperations        :: List "Operations" GrantOperation
     , _gleRetiringPrincipal :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GrantListEntry' constructor.
 --
@@ -454,7 +454,7 @@ data GrantOperation
     | GOReEncryptFrom                   -- ^ ReEncryptFrom
     | GOReEncryptTo                     -- ^ ReEncryptTo
     | GORetireGrant                     -- ^ RetireGrant
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable GrantOperation
 
@@ -495,7 +495,7 @@ instance ToJSON GrantOperation where
 data KeyListEntry = KeyListEntry
     { _kleKeyArn :: Maybe Text
     , _kleKeyId  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'KeyListEntry' constructor.
 --

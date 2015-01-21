@@ -59,7 +59,7 @@ data DescribeObjects = DescribeObjects
     , _doMarker              :: Maybe Text
     , _doObjectIds           :: List "objectIds" Text
     , _doPipelineId          :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeObjects' constructor.
 --
@@ -107,7 +107,7 @@ data DescribeObjectsResponse = DescribeObjectsResponse
     { _dorHasMoreResults  :: Maybe Bool
     , _dorMarker          :: Maybe Text
     , _dorPipelineObjects :: List "pipelineObjects" PipelineObject
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeObjectsResponse' constructor.
 --

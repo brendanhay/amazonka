@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice
     { _dvmfadSerialNumber :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteVirtualMFADevice' constructor.
 --
@@ -71,7 +71,7 @@ dvmfadSerialNumber =
     lens _dvmfadSerialNumber (\s a -> s { _dvmfadSerialNumber = a })
 
 data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteVirtualMFADeviceResponse' constructor.
 deleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse

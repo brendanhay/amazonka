@@ -90,7 +90,7 @@ data CreateSnapshot = CreateSnapshot
     { _cs2Description :: Maybe Text
     , _cs2DryRun      :: Maybe Bool
     , _cs2VolumeId    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateSnapshot' constructor.
 --
@@ -134,7 +134,7 @@ data CreateSnapshotResponse = CreateSnapshotResponse
     , _csr1Tags        :: List "item" Tag
     , _csr1VolumeId    :: Text
     , _csr1VolumeSize  :: Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateSnapshotResponse' constructor.
 --

@@ -53,7 +53,7 @@ data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
     , _secnameDestinationEnvironmentName :: Maybe Text
     , _secnameSourceEnvironmentId        :: Maybe Text
     , _secnameSourceEnvironmentName      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SwapEnvironmentCNAMEs' constructor.
 --
@@ -112,7 +112,7 @@ secnameSourceEnvironmentName =
         (\s a -> s { _secnameSourceEnvironmentName = a })
 
 data SwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SwapEnvironmentCNAMEsResponse' constructor.
 swapEnvironmentCNAMEsResponse :: SwapEnvironmentCNAMEsResponse

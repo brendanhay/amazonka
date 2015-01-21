@@ -51,7 +51,7 @@ data PutBucketTagging = PutBucketTagging
     { _pbtBucket     :: Text
     , _pbtContentMD5 :: Maybe Text
     , _pbtTagging    :: Tagging
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutBucketTagging' constructor.
 --
@@ -82,7 +82,7 @@ pbtTagging :: Lens' PutBucketTagging Tagging
 pbtTagging = lens _pbtTagging (\s a -> s { _pbtTagging = a })
 
 data PutBucketTaggingResponse = PutBucketTaggingResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutBucketTaggingResponse' constructor.
 putBucketTaggingResponse :: PutBucketTaggingResponse

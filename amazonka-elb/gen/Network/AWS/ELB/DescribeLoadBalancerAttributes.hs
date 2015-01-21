@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
     { _dlbaLoadBalancerName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeLoadBalancerAttributes' constructor.
 --
@@ -71,7 +71,7 @@ dlbaLoadBalancerName =
 
 newtype DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
     { _dlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancerAttributesResponse' constructor.
 --

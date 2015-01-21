@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype DeleteTable = DeleteTable
     { _dtTableName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteTable' constructor.
 --
@@ -75,7 +75,7 @@ dtTableName = lens _dtTableName (\s a -> s { _dtTableName = a })
 
 newtype DeleteTableResponse = DeleteTableResponse
     { _dtrTableDescription :: Maybe TableDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteTableResponse' constructor.
 --

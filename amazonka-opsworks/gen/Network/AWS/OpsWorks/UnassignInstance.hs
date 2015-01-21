@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype UnassignInstance = UnassignInstance
     { _ui1InstanceId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'UnassignInstance' constructor.
 --
@@ -73,7 +73,7 @@ ui1InstanceId :: Lens' UnassignInstance Text
 ui1InstanceId = lens _ui1InstanceId (\s a -> s { _ui1InstanceId = a })
 
 data UnassignInstanceResponse = UnassignInstanceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UnassignInstanceResponse' constructor.
 unassignInstanceResponse :: UnassignInstanceResponse

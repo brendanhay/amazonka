@@ -74,7 +74,7 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
     , _gwehMaximumPageSize :: Maybe Nat
     , _gwehNextPageToken   :: Maybe Text
     , _gwehReverseOrder    :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetWorkflowExecutionHistory' constructor.
 --
@@ -139,7 +139,7 @@ gwehReverseOrder = lens _gwehReverseOrder (\s a -> s { _gwehReverseOrder = a })
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
     { _gwehrEvents        :: List "events" HistoryEvent
     , _gwehrNextPageToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetWorkflowExecutionHistoryResponse' constructor.
 --

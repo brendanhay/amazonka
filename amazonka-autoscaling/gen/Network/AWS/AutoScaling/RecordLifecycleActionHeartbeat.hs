@@ -61,7 +61,7 @@ data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
     { _rlahAutoScalingGroupName :: Text
     , _rlahLifecycleActionToken :: Text
     , _rlahLifecycleHookName    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RecordLifecycleActionHeartbeat' constructor.
 --
@@ -103,7 +103,7 @@ rlahLifecycleHookName =
     lens _rlahLifecycleHookName (\s a -> s { _rlahLifecycleHookName = a })
 
 data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RecordLifecycleActionHeartbeatResponse' constructor.
 recordLifecycleActionHeartbeatResponse :: RecordLifecycleActionHeartbeatResponse

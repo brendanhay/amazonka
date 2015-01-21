@@ -55,7 +55,7 @@ data DescribeReplicationGroups = DescribeReplicationGroups
     { _drg1Marker             :: Maybe Text
     , _drg1MaxRecords         :: Maybe Int
     , _drg1ReplicationGroupId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeReplicationGroups' constructor.
 --
@@ -103,7 +103,7 @@ drg1ReplicationGroupId =
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
     { _drgrMarker            :: Maybe Text
     , _drgrReplicationGroups :: List "member" ReplicationGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeReplicationGroupsResponse' constructor.
 --

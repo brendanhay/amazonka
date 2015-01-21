@@ -55,7 +55,7 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { _rnaaAssociationId :: Text
     , _rnaaDryRun        :: Maybe Bool
     , _rnaaNetworkAclId  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ReplaceNetworkAclAssociation' constructor.
 --
@@ -91,7 +91,7 @@ rnaaNetworkAclId = lens _rnaaNetworkAclId (\s a -> s { _rnaaNetworkAclId = a })
 
 newtype ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     { _rnaarNewAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ReplaceNetworkAclAssociationResponse' constructor.
 --

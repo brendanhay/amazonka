@@ -59,7 +59,7 @@ data DescribeRaidArrays = DescribeRaidArrays
     { _draInstanceId   :: Maybe Text
     , _draRaidArrayIds :: List "RaidArrayIds" Text
     , _draStackId      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeRaidArrays' constructor.
 --
@@ -95,7 +95,7 @@ draStackId = lens _draStackId (\s a -> s { _draStackId = a })
 
 newtype DescribeRaidArraysResponse = DescribeRaidArraysResponse
     { _drarRaidArrays :: List "RaidArrays" RaidArray
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeRaidArraysResponse where
     type Item DescribeRaidArraysResponse = RaidArray

@@ -189,7 +189,7 @@
         "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon OpsWorks",
-        "version": "0.2.1",
+        "version": "0.2.2",
         "description": "AWS OpsWorks provides a simple and flexible way to create and manage stacks\nand applications. With AWS OpsWorks, you can provision AWS resources, manage\ntheir configuration, deploy applications to those resources, and monitor\ntheir health."
     },
     "types": {

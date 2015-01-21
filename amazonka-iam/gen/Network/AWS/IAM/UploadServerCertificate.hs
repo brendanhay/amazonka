@@ -67,7 +67,7 @@ data UploadServerCertificate = UploadServerCertificate
     , _uscPath                  :: Maybe Text
     , _uscPrivateKey            :: Sensitive Text
     , _uscServerCertificateName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UploadServerCertificate' constructor.
 --
@@ -130,7 +130,7 @@ uscServerCertificateName =
 
 newtype UploadServerCertificateResponse = UploadServerCertificateResponse
     { _uscrServerCertificateMetadata :: Maybe ServerCertificateMetadata
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UploadServerCertificateResponse' constructor.
 --

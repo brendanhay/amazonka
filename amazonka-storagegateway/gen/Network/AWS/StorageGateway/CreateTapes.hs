@@ -61,7 +61,7 @@ data CreateTapes = CreateTapes
     , _ctNumTapesToCreate  :: Nat
     , _ctTapeBarcodePrefix :: Text
     , _ctTapeSizeInBytes   :: Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateTapes' constructor.
 --
@@ -128,7 +128,7 @@ ctTapeSizeInBytes =
 
 newtype CreateTapesResponse = CreateTapesResponse
     { _ctrTapeARNs :: List "TapeARNs" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList CreateTapesResponse where
     type Item CreateTapesResponse = Text

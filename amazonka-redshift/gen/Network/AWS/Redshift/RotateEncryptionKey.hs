@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype RotateEncryptionKey = RotateEncryptionKey
     { _rekClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'RotateEncryptionKey' constructor.
 --
@@ -73,7 +73,7 @@ rekClusterIdentifier =
 
 newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
     { _rekrCluster :: Maybe Cluster
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RotateEncryptionKeyResponse' constructor.
 --

@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteBucketWebsite = DeleteBucketWebsite
     { _dbwBucket :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteBucketWebsite' constructor.
 --
@@ -65,7 +65,7 @@ dbwBucket :: Lens' DeleteBucketWebsite Text
 dbwBucket = lens _dbwBucket (\s a -> s { _dbwBucket = a })
 
 data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteBucketWebsiteResponse' constructor.
 deleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse

@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data UpdateScalingParameters = UpdateScalingParameters
     { _uspDomainName        :: Text
     , _uspScalingParameters :: ScalingParameters
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateScalingParameters' constructor.
 --
@@ -84,7 +84,7 @@ uspScalingParameters =
 
 newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
     { _usprScalingParameters :: ScalingParametersStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateScalingParametersResponse' constructor.
 --

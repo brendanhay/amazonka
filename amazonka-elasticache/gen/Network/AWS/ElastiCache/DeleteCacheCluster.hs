@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data DeleteCacheCluster = DeleteCacheCluster
     { _dccCacheClusterId          :: Text
     , _dccFinalSnapshotIdentifier :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteCacheCluster' constructor.
 --
@@ -91,7 +91,7 @@ dccFinalSnapshotIdentifier =
 
 newtype DeleteCacheClusterResponse = DeleteCacheClusterResponse
     { _dccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteCacheClusterResponse' constructor.
 --

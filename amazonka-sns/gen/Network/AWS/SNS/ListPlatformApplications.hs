@@ -56,7 +56,7 @@ import qualified GHC.Exts
 
 newtype ListPlatformApplications = ListPlatformApplications
     { _lpaNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ListPlatformApplications' constructor.
 --
@@ -77,7 +77,7 @@ lpaNextToken = lens _lpaNextToken (\s a -> s { _lpaNextToken = a })
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
     { _lparNextToken            :: Maybe Text
     , _lparPlatformApplications :: List "member" PlatformApplication
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListPlatformApplicationsResponse' constructor.
 --

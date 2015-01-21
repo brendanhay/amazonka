@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype ListHapgs = ListHapgs
     { _lhNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ListHapgs' constructor.
 --
@@ -76,7 +76,7 @@ lhNextToken = lens _lhNextToken (\s a -> s { _lhNextToken = a })
 data ListHapgsResponse = ListHapgsResponse
     { _lhr1HapgList  :: List "HapgList" Text
     , _lhr1NextToken :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListHapgsResponse' constructor.
 --

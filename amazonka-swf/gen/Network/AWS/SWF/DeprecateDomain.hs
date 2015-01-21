@@ -66,7 +66,7 @@ import qualified GHC.Exts
 
 newtype DeprecateDomain = DeprecateDomain
     { _dd1Name :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeprecateDomain' constructor.
 --
@@ -85,7 +85,7 @@ dd1Name :: Lens' DeprecateDomain Text
 dd1Name = lens _dd1Name (\s a -> s { _dd1Name = a })
 
 data DeprecateDomainResponse = DeprecateDomainResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeprecateDomainResponse' constructor.
 deprecateDomainResponse :: DeprecateDomainResponse

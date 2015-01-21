@@ -75,7 +75,7 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate
     , _cctSolutionStackName   :: Maybe Text
     , _cctSourceConfiguration :: Maybe SourceConfiguration
     , _cctTemplateName        :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateConfigurationTemplate' constructor.
 --
@@ -185,7 +185,7 @@ data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
     , _cctrOptionSettings    :: List "member" ConfigurationOptionSetting
     , _cctrSolutionStackName :: Maybe Text
     , _cctrTemplateName      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateConfigurationTemplateResponse' constructor.
 --

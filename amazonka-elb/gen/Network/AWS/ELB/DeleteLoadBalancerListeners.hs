@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
     { _dlblLoadBalancerName  :: Text
     , _dlblLoadBalancerPorts :: List "member" Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteLoadBalancerListeners' constructor.
 --
@@ -78,7 +78,7 @@ dlblLoadBalancerPorts =
         . _List
 
 data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteLoadBalancerListenersResponse' constructor.
 deleteLoadBalancerListenersResponse :: DeleteLoadBalancerListenersResponse

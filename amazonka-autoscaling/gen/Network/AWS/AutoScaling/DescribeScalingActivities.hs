@@ -64,7 +64,7 @@ data DescribeScalingActivities = DescribeScalingActivities
     , _dsa2AutoScalingGroupName :: Maybe Text
     , _dsa2MaxRecords           :: Maybe Int
     , _dsa2NextToken            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeScalingActivities' constructor.
 --
@@ -112,7 +112,7 @@ dsa2NextToken = lens _dsa2NextToken (\s a -> s { _dsa2NextToken = a })
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
     { _dsar1Activities :: List "member" Activity
     , _dsar1NextToken  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeScalingActivitiesResponse' constructor.
 --

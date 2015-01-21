@@ -56,7 +56,7 @@ import qualified GHC.Exts
 
 newtype GetFunction = GetFunction
     { _gfFunctionName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetFunction' constructor.
 --
@@ -77,7 +77,7 @@ gfFunctionName = lens _gfFunctionName (\s a -> s { _gfFunctionName = a })
 data GetFunctionResponse = GetFunctionResponse
     { _gfrCode          :: Maybe FunctionCodeLocation
     , _gfrConfiguration :: Maybe FunctionConfiguration
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetFunctionResponse' constructor.
 --

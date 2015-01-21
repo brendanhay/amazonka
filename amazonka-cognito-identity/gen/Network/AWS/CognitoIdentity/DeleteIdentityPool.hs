@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DeleteIdentityPool = DeleteIdentityPool
     { _dip1IdentityPoolId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteIdentityPool' constructor.
 --
@@ -68,7 +68,7 @@ dip1IdentityPoolId =
     lens _dip1IdentityPoolId (\s a -> s { _dip1IdentityPoolId = a })
 
 data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteIdentityPoolResponse' constructor.
 deleteIdentityPoolResponse :: DeleteIdentityPoolResponse

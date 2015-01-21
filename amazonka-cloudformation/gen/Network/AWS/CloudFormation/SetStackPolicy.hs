@@ -51,7 +51,7 @@ data SetStackPolicy = SetStackPolicy
     { _sspStackName       :: Text
     , _sspStackPolicyBody :: Maybe Text
     , _sspStackPolicyURL  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SetStackPolicy' constructor.
 --
@@ -91,7 +91,7 @@ sspStackPolicyURL =
     lens _sspStackPolicyURL (\s a -> s { _sspStackPolicyURL = a })
 
 data SetStackPolicyResponse = SetStackPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetStackPolicyResponse' constructor.
 setStackPolicyResponse :: SetStackPolicyResponse

@@ -95,7 +95,7 @@ data Trail = Trail
     , _tS3BucketName               :: Maybe Text
     , _tS3KeyPrefix                :: Maybe Text
     , _tSnsTopicName               :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Trail' constructor.
 --

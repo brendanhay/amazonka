@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup
     { _dcpg1CacheParameterGroupName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteCacheParameterGroup' constructor.
 --
@@ -70,7 +70,7 @@ dcpg1CacheParameterGroupName =
         (\s a -> s { _dcpg1CacheParameterGroupName = a })
 
 data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteCacheParameterGroupResponse' constructor.
 deleteCacheParameterGroupResponse :: DeleteCacheParameterGroupResponse

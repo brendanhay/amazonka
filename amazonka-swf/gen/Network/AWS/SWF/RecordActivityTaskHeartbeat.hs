@@ -83,7 +83,7 @@ import qualified GHC.Exts
 data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat
     { _rathDetails   :: Maybe Text
     , _rathTaskToken :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RecordActivityTaskHeartbeat' constructor.
 --
@@ -114,7 +114,7 @@ rathTaskToken = lens _rathTaskToken (\s a -> s { _rathTaskToken = a })
 
 newtype RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse
     { _rathrCancelRequested :: Bool
-    } deriving (Eq, Ord, Show, Enum)
+    } deriving (Eq, Ord, Read, Show, Enum)
 
 -- | 'RecordActivityTaskHeartbeatResponse' constructor.
 --

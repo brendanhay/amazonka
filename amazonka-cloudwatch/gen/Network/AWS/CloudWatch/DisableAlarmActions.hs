@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DisableAlarmActions = DisableAlarmActions
     { _daaAlarmNames :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DisableAlarmActions where
     type Item DisableAlarmActions = Text
@@ -73,7 +73,7 @@ daaAlarmNames :: Lens' DisableAlarmActions [Text]
 daaAlarmNames = lens _daaAlarmNames (\s a -> s { _daaAlarmNames = a }) . _List
 
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DisableAlarmActionsResponse' constructor.
 disableAlarmActionsResponse :: DisableAlarmActionsResponse

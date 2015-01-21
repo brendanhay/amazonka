@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DeleteSnapshot = DeleteSnapshot
     { _ds1SnapshotName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteSnapshot' constructor.
 --
@@ -71,7 +71,7 @@ ds1SnapshotName = lens _ds1SnapshotName (\s a -> s { _ds1SnapshotName = a })
 
 newtype DeleteSnapshotResponse = DeleteSnapshotResponse
     { _dsrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteSnapshotResponse' constructor.
 --

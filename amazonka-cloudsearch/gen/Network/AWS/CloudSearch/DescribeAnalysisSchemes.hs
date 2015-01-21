@@ -57,7 +57,7 @@ data DescribeAnalysisSchemes = DescribeAnalysisSchemes
     { _das1AnalysisSchemeNames :: List "member" Text
     , _das1Deployed            :: Maybe Bool
     , _das1DomainName          :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeAnalysisSchemes' constructor.
 --
@@ -94,7 +94,7 @@ das1DomainName = lens _das1DomainName (\s a -> s { _das1DomainName = a })
 
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
     { _dasrAnalysisSchemes :: List "member" AnalysisSchemeStatus
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAnalysisSchemesResponse where
     type Item DescribeAnalysisSchemesResponse = AnalysisSchemeStatus

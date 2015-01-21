@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DeleteNetworkAcl = DeleteNetworkAcl
     { _dnaDryRun       :: Maybe Bool
     , _dnaNetworkAclId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteNetworkAcl' constructor.
 --
@@ -75,7 +75,7 @@ dnaNetworkAclId :: Lens' DeleteNetworkAcl Text
 dnaNetworkAclId = lens _dnaNetworkAclId (\s a -> s { _dnaNetworkAclId = a })
 
 data DeleteNetworkAclResponse = DeleteNetworkAclResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteNetworkAclResponse' constructor.
 deleteNetworkAclResponse :: DeleteNetworkAclResponse

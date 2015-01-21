@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DescribeUserProfiles = DescribeUserProfiles
     { _dupIamUserArns :: List "IamUserArns" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeUserProfiles where
     type Item DescribeUserProfiles = Text
@@ -78,7 +78,7 @@ dupIamUserArns = lens _dupIamUserArns (\s a -> s { _dupIamUserArns = a }) . _Lis
 
 newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse
     { _duprUserProfiles :: List "UserProfiles" UserProfile
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeUserProfilesResponse where
     type Item DescribeUserProfilesResponse = UserProfile

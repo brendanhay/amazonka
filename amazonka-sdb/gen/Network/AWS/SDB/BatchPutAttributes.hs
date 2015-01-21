@@ -83,7 +83,7 @@ import qualified GHC.Exts
 data BatchPutAttributes = BatchPutAttributes
     { _bpaDomainName :: Text
     , _bpaItems      :: List "member" ReplaceableItem
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'BatchPutAttributes' constructor.
 --
@@ -109,7 +109,7 @@ bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
 bpaItems = lens _bpaItems (\s a -> s { _bpaItems = a }) . _List
 
 data BatchPutAttributesResponse = BatchPutAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'BatchPutAttributesResponse' constructor.
 batchPutAttributesResponse :: BatchPutAttributesResponse

@@ -145,7 +145,7 @@ data DomainSummary = DomainSummary
     , _dsDomainName   :: Text
     , _dsExpiry       :: Maybe POSIX
     , _dsTransferLock :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DomainSummary' constructor.
 --
@@ -230,7 +230,7 @@ data ExtraParamName
     | SeIdNumber          -- ^ SE_ID_NUMBER
     | SgIdNumber          -- ^ SG_ID_NUMBER
     | VatNumber           -- ^ VAT_NUMBER
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ExtraParamName
 
@@ -289,7 +289,7 @@ instance ToJSON ExtraParamName where
 data Nameserver = Nameserver
     { _nGlueIps :: List "GlueIps" Text
     , _nName    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Nameserver' constructor.
 --
@@ -346,7 +346,7 @@ data OperationStatus
     | InProgress -- ^ IN_PROGRESS
     | Submitted  -- ^ SUBMITTED
     | Successful -- ^ SUCCESSFUL
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable OperationStatus
 
@@ -386,7 +386,7 @@ data DomainAvailability
     | Unavailable           -- ^ UNAVAILABLE
     | UnavailablePremium    -- ^ UNAVAILABLE_PREMIUM
     | UnavailableRestricted -- ^ UNAVAILABLE_RESTRICTED
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable DomainAvailability
 
@@ -430,7 +430,7 @@ data OperationType
     | OTTransferInDomain        -- ^ TRANSFER_IN_DOMAIN
     | OTUpdateDomainContact     -- ^ UPDATE_DOMAIN_CONTACT
     | OTUpdateNameserver        -- ^ UPDATE_NAMESERVER
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable OperationType
 
@@ -696,7 +696,7 @@ data CountryCode
     | Za  -- ^ ZA
     | Zm  -- ^ ZM
     | Zw  -- ^ ZW
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable CountryCode
 
@@ -1179,7 +1179,7 @@ instance ToJSON CountryCode where
 data ExtraParam = ExtraParam
     { _epName  :: ExtraParamName
     , _epValue :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ExtraParam' constructor.
 --
@@ -1244,7 +1244,7 @@ data ContactType
     | CTPerson      -- ^ PERSON
     | CTPublicBody  -- ^ PUBLIC_BODY
     | CTReseller    -- ^ RESELLER
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ContactType
 
@@ -1291,7 +1291,7 @@ data ContactDetail = ContactDetail
     , _cdPhoneNumber      :: Maybe Text
     , _cdState            :: Maybe Text
     , _cdZipCode          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ContactDetail' constructor.
 --
@@ -1589,7 +1589,7 @@ data OperationSummary = OperationSummary
     , _osStatus        :: OperationStatus
     , _osSubmittedDate :: POSIX
     , _osType          :: OperationType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'OperationSummary' constructor.
 --

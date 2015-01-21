@@ -93,7 +93,7 @@ data CloneStack = CloneStack
     , _cs1UseCustomCookbooks        :: Maybe Bool
     , _cs1UseOpsworksSecurityGroups :: Maybe Bool
     , _cs1VpcId                     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CloneStack' constructor.
 --
@@ -345,7 +345,7 @@ cs1VpcId = lens _cs1VpcId (\s a -> s { _cs1VpcId = a })
 
 newtype CloneStackResponse = CloneStackResponse
     { _csrStackId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CloneStackResponse' constructor.
 --

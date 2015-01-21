@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data AddTagsToResource = AddTagsToResource
     { _attrResourceName :: Text
     , _attrTags         :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AddTagsToResource' constructor.
 --
@@ -80,7 +80,7 @@ attrTags :: Lens' AddTagsToResource [Tag]
 attrTags = lens _attrTags (\s a -> s { _attrTags = a }) . _List
 
 data AddTagsToResourceResponse = AddTagsToResourceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AddTagsToResourceResponse' constructor.
 addTagsToResourceResponse :: AddTagsToResourceResponse

@@ -55,7 +55,7 @@ data DeleteSecurityGroup = DeleteSecurityGroup
     { _dsgDryRun    :: Maybe Bool
     , _dsgGroupId   :: Maybe Text
     , _dsgGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteSecurityGroup' constructor.
 --
@@ -87,7 +87,7 @@ dsgGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
 dsgGroupName = lens _dsgGroupName (\s a -> s { _dsgGroupName = a })
 
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteSecurityGroupResponse' constructor.
 deleteSecurityGroupResponse :: DeleteSecurityGroupResponse

@@ -64,7 +64,7 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
     , _rnaeProtocol     :: Text
     , _rnaeRuleAction   :: RuleAction
     , _rnaeRuleNumber   :: Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ReplaceNetworkAclEntry' constructor.
 --
@@ -147,7 +147,7 @@ rnaeRuleNumber :: Lens' ReplaceNetworkAclEntry Int
 rnaeRuleNumber = lens _rnaeRuleNumber (\s a -> s { _rnaeRuleNumber = a })
 
 data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ReplaceNetworkAclEntryResponse' constructor.
 replaceNetworkAclEntryResponse :: ReplaceNetworkAclEntryResponse

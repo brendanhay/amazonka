@@ -53,7 +53,7 @@ data PutBucketLogging = PutBucketLogging
     { _pblBucket              :: Text
     , _pblBucketLoggingStatus :: BucketLoggingStatus
     , _pblContentMD5          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutBucketLogging' constructor.
 --
@@ -85,7 +85,7 @@ pblContentMD5 :: Lens' PutBucketLogging (Maybe Text)
 pblContentMD5 = lens _pblContentMD5 (\s a -> s { _pblContentMD5 = a })
 
 data PutBucketLoggingResponse = PutBucketLoggingResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutBucketLoggingResponse' constructor.
 putBucketLoggingResponse :: PutBucketLoggingResponse

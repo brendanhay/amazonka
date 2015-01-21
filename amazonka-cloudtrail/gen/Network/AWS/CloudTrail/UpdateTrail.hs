@@ -72,7 +72,7 @@ data UpdateTrail = UpdateTrail
     , _utS3BucketName               :: Maybe Text
     , _utS3KeyPrefix                :: Maybe Text
     , _utSnsTopicName               :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateTrail' constructor.
 --
@@ -152,7 +152,7 @@ data UpdateTrailResponse = UpdateTrailResponse
     , _utrS3BucketName               :: Maybe Text
     , _utrS3KeyPrefix                :: Maybe Text
     , _utrSnsTopicName               :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateTrailResponse' constructor.
 --

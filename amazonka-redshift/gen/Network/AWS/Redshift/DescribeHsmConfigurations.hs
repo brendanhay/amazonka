@@ -70,7 +70,7 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations
     , _dhc1MaxRecords                 :: Maybe Int
     , _dhc1TagKeys                    :: List "member" Text
     , _dhc1TagValues                  :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeHsmConfigurations' constructor.
 --
@@ -144,7 +144,7 @@ dhc1TagValues = lens _dhc1TagValues (\s a -> s { _dhc1TagValues = a }) . _List
 data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
     { _dhcrHsmConfigurations :: List "member" HsmConfiguration
     , _dhcrMarker            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeHsmConfigurationsResponse' constructor.
 --

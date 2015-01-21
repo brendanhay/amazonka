@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype GetHostedZone = GetHostedZone
     { _ghzId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetHostedZone' constructor.
 --
@@ -75,7 +75,7 @@ data GetHostedZoneResponse = GetHostedZoneResponse
     { _ghzrDelegationSet :: Maybe DelegationSet
     , _ghzrHostedZone    :: HostedZone
     , _ghzrVPCs          :: List1 "VPC" VPC
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetHostedZoneResponse' constructor.
 --

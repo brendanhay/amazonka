@@ -55,7 +55,7 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
     , _prdbioReservedDBInstanceId          :: Maybe Text
     , _prdbioReservedDBInstancesOfferingId :: Text
     , _prdbioTags                          :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PurchaseReservedDBInstancesOffering' constructor.
 --
@@ -106,7 +106,7 @@ prdbioTags = lens _prdbioTags (\s a -> s { _prdbioTags = a }) . _List
 
 newtype PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
     { _prdbiorReservedDBInstance :: Maybe ReservedDBInstance
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PurchaseReservedDBInstancesOfferingResponse' constructor.
 --

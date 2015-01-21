@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data ListDomains = ListDomains
     { _ldMaxNumberOfDomains :: Maybe Int
     , _ldNextToken          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListDomains' constructor.
 --
@@ -83,7 +83,7 @@ ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
 data ListDomainsResponse = ListDomainsResponse
     { _ldrDomainNames :: List "member" Text
     , _ldrNextToken   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListDomainsResponse' constructor.
 --

@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DeleteAccountAlias = DeleteAccountAlias
     { _daaAccountAlias :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteAccountAlias' constructor.
 --
@@ -68,7 +68,7 @@ daaAccountAlias :: Lens' DeleteAccountAlias Text
 daaAccountAlias = lens _daaAccountAlias (\s a -> s { _daaAccountAlias = a })
 
 data DeleteAccountAliasResponse = DeleteAccountAliasResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteAccountAliasResponse' constructor.
 deleteAccountAliasResponse :: DeleteAccountAliasResponse

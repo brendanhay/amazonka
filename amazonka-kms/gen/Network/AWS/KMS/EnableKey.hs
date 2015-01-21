@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype EnableKey = EnableKey
     { _ekKeyId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'EnableKey' constructor.
 --
@@ -68,7 +68,7 @@ ekKeyId :: Lens' EnableKey Text
 ekKeyId = lens _ekKeyId (\s a -> s { _ekKeyId = a })
 
 data EnableKeyResponse = EnableKeyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'EnableKeyResponse' constructor.
 enableKeyResponse :: EnableKeyResponse

@@ -72,7 +72,7 @@ import qualified GHC.Exts
 data UploadDocuments = UploadDocuments
     { _udContentType :: ContentType
     , _udDocuments   :: Base64
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UploadDocuments' constructor.
 --
@@ -106,7 +106,7 @@ data UploadDocumentsResponse = UploadDocumentsResponse
     , _udrDeletes  :: Maybe Integer
     , _udrStatus   :: Maybe Text
     , _udrWarnings :: List "warnings" DocumentServiceWarning
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UploadDocumentsResponse' constructor.
 --

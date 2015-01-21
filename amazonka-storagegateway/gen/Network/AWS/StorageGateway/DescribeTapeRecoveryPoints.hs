@@ -60,7 +60,7 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints
     { _dtrpGatewayARN :: Text
     , _dtrpLimit      :: Maybe Nat
     , _dtrpMarker     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeTapeRecoveryPoints' constructor.
 --
@@ -97,7 +97,7 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
     { _dtrprGatewayARN             :: Maybe Text
     , _dtrprMarker                 :: Maybe Text
     , _dtrprTapeRecoveryPointInfos :: List "TapeRecoveryPointInfos" TapeRecoveryPointInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeTapeRecoveryPointsResponse' constructor.
 --

@@ -62,7 +62,7 @@ data ReEncrypt = ReEncrypt
     , _reDestinationKeyId             :: Text
     , _reGrantTokens                  :: List "GrantTokens" Text
     , _reSourceEncryptionContext      :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ReEncrypt' constructor.
 --
@@ -121,7 +121,7 @@ data ReEncryptResponse = ReEncryptResponse
     { _rerCiphertextBlob :: Maybe Base64
     , _rerKeyId          :: Maybe Text
     , _rerSourceKeyId    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ReEncryptResponse' constructor.
 --

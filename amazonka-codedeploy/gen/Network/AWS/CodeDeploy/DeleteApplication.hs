@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteApplication = DeleteApplication
     { _daApplicationName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteApplication' constructor.
 --
@@ -68,7 +68,7 @@ daApplicationName =
     lens _daApplicationName (\s a -> s { _daApplicationName = a })
 
 data DeleteApplicationResponse = DeleteApplicationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteApplicationResponse' constructor.
 deleteApplicationResponse :: DeleteApplicationResponse

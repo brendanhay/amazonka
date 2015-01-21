@@ -56,7 +56,7 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup
     { _ccsg1ClusterSecurityGroupName :: Text
     , _ccsg1Description              :: Text
     , _ccsg1Tags                     :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateClusterSecurityGroup' constructor.
 --
@@ -100,7 +100,7 @@ ccsg1Tags = lens _ccsg1Tags (\s a -> s { _ccsg1Tags = a }) . _List
 
 newtype CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
     { _ccsgrClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateClusterSecurityGroupResponse' constructor.
 --

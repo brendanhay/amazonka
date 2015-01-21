@@ -115,7 +115,7 @@ data DescribeInstanceStatus = DescribeInstanceStatus
     , _disInstanceIds         :: List "InstanceId" Text
     , _disMaxResults          :: Maybe Int
     , _disNextToken           :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeInstanceStatus' constructor.
 --
@@ -213,7 +213,7 @@ disNextToken = lens _disNextToken (\s a -> s { _disNextToken = a })
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
     { _disrInstanceStatuses :: List "item" InstanceStatus
     , _disrNextToken        :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeInstanceStatusResponse' constructor.
 --

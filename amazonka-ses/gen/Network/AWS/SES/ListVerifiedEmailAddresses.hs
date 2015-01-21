@@ -49,7 +49,7 @@ import Network.AWS.SES.Types
 import qualified GHC.Exts
 
 data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ListVerifiedEmailAddresses' constructor.
 listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
@@ -57,7 +57,7 @@ listVerifiedEmailAddresses = ListVerifiedEmailAddresses
 
 newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     { _lvearVerifiedEmailAddresses :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ListVerifiedEmailAddressesResponse where
     type Item ListVerifiedEmailAddressesResponse = Text

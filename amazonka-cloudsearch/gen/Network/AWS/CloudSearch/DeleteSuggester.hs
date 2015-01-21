@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data DeleteSuggester = DeleteSuggester
     { _ds3DomainName    :: Text
     , _ds3SuggesterName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteSuggester' constructor.
 --
@@ -79,7 +79,7 @@ ds3SuggesterName = lens _ds3SuggesterName (\s a -> s { _ds3SuggesterName = a })
 
 newtype DeleteSuggesterResponse = DeleteSuggesterResponse
     { _dsr1Suggester :: SuggesterStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteSuggesterResponse' constructor.
 --

@@ -55,7 +55,7 @@ data ListIdentities = ListIdentities
     { _liIdentityPoolId :: Text
     , _liMaxResults     :: Nat
     , _liNextToken      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListIdentities' constructor.
 --
@@ -92,7 +92,7 @@ data ListIdentitiesResponse = ListIdentitiesResponse
     { _lirIdentities     :: List "Identities" IdentityDescription
     , _lirIdentityPoolId :: Maybe Text
     , _lirNextToken      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListIdentitiesResponse' constructor.
 --

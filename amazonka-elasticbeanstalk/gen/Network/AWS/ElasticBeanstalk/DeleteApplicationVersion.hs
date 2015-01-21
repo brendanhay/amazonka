@@ -51,7 +51,7 @@ data DeleteApplicationVersion = DeleteApplicationVersion
     { _davApplicationName    :: Text
     , _davDeleteSourceBundle :: Maybe Bool
     , _davVersionLabel       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteApplicationVersion' constructor.
 --
@@ -91,7 +91,7 @@ davVersionLabel :: Lens' DeleteApplicationVersion Text
 davVersionLabel = lens _davVersionLabel (\s a -> s { _davVersionLabel = a })
 
 data DeleteApplicationVersionResponse = DeleteApplicationVersionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteApplicationVersionResponse' constructor.
 deleteApplicationVersionResponse :: DeleteApplicationVersionResponse

@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data ListFunctions = ListFunctions
     { _lfMarker   :: Maybe Text
     , _lfMaxItems :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListFunctions' constructor.
 --
@@ -84,7 +84,7 @@ lfMaxItems = lens _lfMaxItems (\s a -> s { _lfMaxItems = a }) . mapping _Nat
 data ListFunctionsResponse = ListFunctionsResponse
     { _lfrFunctions  :: List "Functions" FunctionConfiguration
     , _lfrNextMarker :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListFunctionsResponse' constructor.
 --

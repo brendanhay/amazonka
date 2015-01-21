@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype ReadPreset = ReadPreset
     { _rpId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ReadPreset' constructor.
 --
@@ -69,7 +69,7 @@ rpId = lens _rpId (\s a -> s { _rpId = a })
 
 newtype ReadPresetResponse = ReadPresetResponse
     { _rprPreset :: Maybe Preset
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ReadPresetResponse' constructor.
 --

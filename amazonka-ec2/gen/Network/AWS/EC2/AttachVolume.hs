@@ -78,7 +78,7 @@ data AttachVolume = AttachVolume
     , _avDryRun     :: Maybe Bool
     , _avInstanceId :: Text
     , _avVolumeId   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AttachVolume' constructor.
 --
@@ -126,7 +126,7 @@ data AttachVolumeResponse = AttachVolumeResponse
     , _avrInstanceId          :: Maybe Text
     , _avrState               :: Maybe VolumeAttachmentState
     , _avrVolumeId            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AttachVolumeResponse' constructor.
 --

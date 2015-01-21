@@ -55,7 +55,7 @@ data ListGrants = ListGrants
     { _lgKeyId  :: Text
     , _lgLimit  :: Maybe Nat
     , _lgMarker :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListGrants' constructor.
 --
@@ -97,7 +97,7 @@ data ListGrantsResponse = ListGrantsResponse
     { _lgrGrants     :: List "Grants" GrantListEntry
     , _lgrNextMarker :: Maybe Text
     , _lgrTruncated  :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListGrantsResponse' constructor.
 --

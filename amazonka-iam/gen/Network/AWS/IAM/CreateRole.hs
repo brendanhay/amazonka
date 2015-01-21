@@ -59,7 +59,7 @@ data CreateRole = CreateRole
     { _crAssumeRolePolicyDocument :: Text
     , _crPath                     :: Maybe Text
     , _crRoleName                 :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateRole' constructor.
 --
@@ -100,7 +100,7 @@ crRoleName = lens _crRoleName (\s a -> s { _crRoleName = a })
 
 newtype CreateRoleResponse = CreateRoleResponse
     { _crrRole :: Role
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateRoleResponse' constructor.
 --

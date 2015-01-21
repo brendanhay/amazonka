@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DeleteUserPolicy = DeleteUserPolicy
     { _dupPolicyName :: Text
     , _dupUserName   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteUserPolicy' constructor.
 --
@@ -76,7 +76,7 @@ dupUserName :: Lens' DeleteUserPolicy Text
 dupUserName = lens _dupUserName (\s a -> s { _dupUserName = a })
 
 data DeleteUserPolicyResponse = DeleteUserPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteUserPolicyResponse' constructor.
 deleteUserPolicyResponse :: DeleteUserPolicyResponse

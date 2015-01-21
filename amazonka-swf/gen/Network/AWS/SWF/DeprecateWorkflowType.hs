@@ -67,7 +67,7 @@ import qualified GHC.Exts
 data DeprecateWorkflowType = DeprecateWorkflowType
     { _dwt1Domain       :: Text
     , _dwt1WorkflowType :: WorkflowType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeprecateWorkflowType' constructor.
 --
@@ -94,7 +94,7 @@ dwt1WorkflowType :: Lens' DeprecateWorkflowType WorkflowType
 dwt1WorkflowType = lens _dwt1WorkflowType (\s a -> s { _dwt1WorkflowType = a })
 
 data DeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeprecateWorkflowTypeResponse' constructor.
 deprecateWorkflowTypeResponse :: DeprecateWorkflowTypeResponse

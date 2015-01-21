@@ -60,7 +60,7 @@ data DescribeClusterVersions = DescribeClusterVersions
     , _dcvClusterVersion              :: Maybe Text
     , _dcvMarker                      :: Maybe Text
     , _dcvMaxRecords                  :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeClusterVersions' constructor.
 --
@@ -123,7 +123,7 @@ dcvMaxRecords = lens _dcvMaxRecords (\s a -> s { _dcvMaxRecords = a })
 data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
     { _dcvrClusterVersions :: List "member" ClusterVersion
     , _dcvrMarker          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterVersionsResponse' constructor.
 --

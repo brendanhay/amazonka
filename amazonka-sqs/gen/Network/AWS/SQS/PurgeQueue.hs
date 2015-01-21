@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype PurgeQueue = PurgeQueue
     { _pqQueueUrl :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'PurgeQueue' constructor.
 --
@@ -73,7 +73,7 @@ pqQueueUrl :: Lens' PurgeQueue Text
 pqQueueUrl = lens _pqQueueUrl (\s a -> s { _pqQueueUrl = a })
 
 data PurgeQueueResponse = PurgeQueueResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PurgeQueueResponse' constructor.
 purgeQueueResponse :: PurgeQueueResponse

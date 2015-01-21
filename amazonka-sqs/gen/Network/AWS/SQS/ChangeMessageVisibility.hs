@@ -79,7 +79,7 @@ data ChangeMessageVisibility = ChangeMessageVisibility
     { _cmvQueueUrl          :: Text
     , _cmvReceiptHandle     :: Text
     , _cmvVisibilityTimeout :: Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ChangeMessageVisibility' constructor.
 --
@@ -117,7 +117,7 @@ cmvVisibilityTimeout =
     lens _cmvVisibilityTimeout (\s a -> s { _cmvVisibilityTimeout = a })
 
 data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ChangeMessageVisibilityResponse' constructor.
 changeMessageVisibilityResponse :: ChangeMessageVisibilityResponse

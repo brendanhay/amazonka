@@ -71,7 +71,7 @@ data CreateVpnConnection = CreateVpnConnection
     , _cvcOptions           :: Maybe VpnConnectionOptionsSpecification
     , _cvcType              :: Text
     , _cvcVpnGatewayId      :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateVpnConnection' constructor.
 --
@@ -125,7 +125,7 @@ cvcVpnGatewayId = lens _cvcVpnGatewayId (\s a -> s { _cvcVpnGatewayId = a })
 
 newtype CreateVpnConnectionResponse = CreateVpnConnectionResponse
     { _cvcrVpnConnection :: Maybe VpnConnection
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateVpnConnectionResponse' constructor.
 --

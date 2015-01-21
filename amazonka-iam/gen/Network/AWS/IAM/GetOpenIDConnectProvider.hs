@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype GetOpenIDConnectProvider = GetOpenIDConnectProvider
     { _goidcpOpenIDConnectProviderArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetOpenIDConnectProvider' constructor.
 --
@@ -78,7 +78,7 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse
     , _goidcprCreateDate     :: Maybe ISO8601
     , _goidcprThumbprintList :: List "member" Text
     , _goidcprUrl            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetOpenIDConnectProviderResponse' constructor.
 --

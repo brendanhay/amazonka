@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup
     { _ddbsg1DBSubnetGroupName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteDBSubnetGroup' constructor.
 --
@@ -75,7 +75,7 @@ ddbsg1DBSubnetGroupName =
     lens _ddbsg1DBSubnetGroupName (\s a -> s { _ddbsg1DBSubnetGroupName = a })
 
 data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteDBSubnetGroupResponse' constructor.
 deleteDBSubnetGroupResponse :: DeleteDBSubnetGroupResponse

@@ -55,7 +55,7 @@ data UpdateGatewayInformation = UpdateGatewayInformation
     { _ugiGatewayARN      :: Text
     , _ugiGatewayName     :: Maybe Text
     , _ugiGatewayTimezone :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateGatewayInformation' constructor.
 --
@@ -87,7 +87,7 @@ ugiGatewayTimezone =
 
 newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
     { _ugirGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'UpdateGatewayInformationResponse' constructor.
 --

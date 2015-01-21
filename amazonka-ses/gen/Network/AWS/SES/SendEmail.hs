@@ -74,7 +74,7 @@ data SendEmail = SendEmail
     , _seReplyToAddresses :: List "member" Text
     , _seReturnPath       :: Maybe Text
     , _seSource           :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SendEmail' constructor.
 --
@@ -135,7 +135,7 @@ seSource = lens _seSource (\s a -> s { _seSource = a })
 
 newtype SendEmailResponse = SendEmailResponse
     { _serMessageId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'SendEmailResponse' constructor.
 --

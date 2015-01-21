@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data DeleteExpression = DeleteExpression
     { _de2DomainName     :: Text
     , _de2ExpressionName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteExpression' constructor.
 --
@@ -80,7 +80,7 @@ de2ExpressionName =
 
 newtype DeleteExpressionResponse = DeleteExpressionResponse
     { _der1Expression :: ExpressionStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteExpressionResponse' constructor.
 --

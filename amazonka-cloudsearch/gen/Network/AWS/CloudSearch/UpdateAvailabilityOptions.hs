@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions
     { _uaoDomainName :: Text
     , _uaoMultiAZ    :: Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateAvailabilityOptions' constructor.
 --
@@ -86,7 +86,7 @@ uaoMultiAZ = lens _uaoMultiAZ (\s a -> s { _uaoMultiAZ = a })
 
 newtype UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
     { _uaorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateAvailabilityOptionsResponse' constructor.
 --

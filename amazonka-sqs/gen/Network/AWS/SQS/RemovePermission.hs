@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data RemovePermission = RemovePermission
     { _rpLabel    :: Text
     , _rpQueueUrl :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RemovePermission' constructor.
 --
@@ -78,7 +78,7 @@ rpQueueUrl :: Lens' RemovePermission Text
 rpQueueUrl = lens _rpQueueUrl (\s a -> s { _rpQueueUrl = a })
 
 data RemovePermissionResponse = RemovePermissionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RemovePermissionResponse' constructor.
 removePermissionResponse :: RemovePermissionResponse

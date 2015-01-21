@@ -80,7 +80,7 @@ data PutMetricAlarm = PutMetricAlarm
     , _pmaStatistic               :: Statistic
     , _pmaThreshold               :: Double
     , _pmaUnit                    :: Maybe StandardUnit
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutMetricAlarm' constructor.
 --
@@ -223,7 +223,7 @@ pmaUnit :: Lens' PutMetricAlarm (Maybe StandardUnit)
 pmaUnit = lens _pmaUnit (\s a -> s { _pmaUnit = a })
 
 data PutMetricAlarmResponse = PutMetricAlarmResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutMetricAlarmResponse' constructor.
 putMetricAlarmResponse :: PutMetricAlarmResponse

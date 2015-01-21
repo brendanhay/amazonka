@@ -80,7 +80,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
     , _cdbirrSourceDBInstanceIdentifier :: Text
     , _cdbirrStorageType                :: Maybe Text
     , _cdbirrTags                       :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDBInstanceReadReplica' constructor.
 --
@@ -252,7 +252,7 @@ cdbirrTags = lens _cdbirrTags (\s a -> s { _cdbirrTags = a }) . _List
 
 newtype CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
     { _cdbirrrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDBInstanceReadReplicaResponse' constructor.
 --

@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DeleteTapeArchive = DeleteTapeArchive
     { _dtaTapeARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteTapeArchive' constructor.
 --
@@ -70,7 +70,7 @@ dtaTapeARN = lens _dtaTapeARN (\s a -> s { _dtaTapeARN = a })
 
 newtype DeleteTapeArchiveResponse = DeleteTapeArchiveResponse
     { _dtarTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'DeleteTapeArchiveResponse' constructor.
 --

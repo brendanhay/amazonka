@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype DeleteLoginProfile = DeleteLoginProfile
     { _dlpUserName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteLoginProfile' constructor.
 --
@@ -73,7 +73,7 @@ dlpUserName :: Lens' DeleteLoginProfile Text
 dlpUserName = lens _dlpUserName (\s a -> s { _dlpUserName = a })
 
 data DeleteLoginProfileResponse = DeleteLoginProfileResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteLoginProfileResponse' constructor.
 deleteLoginProfileResponse :: DeleteLoginProfileResponse

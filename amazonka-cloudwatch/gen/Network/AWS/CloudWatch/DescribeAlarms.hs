@@ -62,7 +62,7 @@ data DescribeAlarms = DescribeAlarms
     , _daMaxRecords      :: Maybe Nat
     , _daNextToken       :: Maybe Text
     , _daStateValue      :: Maybe StateValue
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarms' constructor.
 --
@@ -120,7 +120,7 @@ daStateValue = lens _daStateValue (\s a -> s { _daStateValue = a })
 data DescribeAlarmsResponse = DescribeAlarmsResponse
     { _darMetricAlarms :: List "member" MetricAlarm
     , _darNextToken    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarmsResponse' constructor.
 --

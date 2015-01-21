@@ -67,7 +67,7 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
     { _clbcspCookieExpirationPeriod :: Maybe Integer
     , _clbcspLoadBalancerName       :: Text
     , _clbcspPolicyName             :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateLBCookieStickinessPolicy' constructor.
 --
@@ -107,7 +107,7 @@ clbcspPolicyName :: Lens' CreateLBCookieStickinessPolicy Text
 clbcspPolicyName = lens _clbcspPolicyName (\s a -> s { _clbcspPolicyName = a })
 
 data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateLBCookieStickinessPolicyResponse' constructor.
 createLBCookieStickinessPolicyResponse :: CreateLBCookieStickinessPolicyResponse

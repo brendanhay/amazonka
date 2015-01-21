@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
     { _dvpcDryRun                 :: Maybe Bool
     , _dvpcVpcPeeringConnectionId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteVpcPeeringConnection' constructor.
 --
@@ -82,7 +82,7 @@ dvpcVpcPeeringConnectionId =
 
 newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     { _dvpcrReturn :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteVpcPeeringConnectionResponse' constructor.
 --

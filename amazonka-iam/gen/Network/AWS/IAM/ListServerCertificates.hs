@@ -58,7 +58,7 @@ data ListServerCertificates = ListServerCertificates
     { _lscMarker     :: Maybe Text
     , _lscMaxItems   :: Maybe Nat
     , _lscPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListServerCertificates' constructor.
 --
@@ -103,7 +103,7 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse
     { _lscrIsTruncated                   :: Maybe Bool
     , _lscrMarker                        :: Maybe Text
     , _lscrServerCertificateMetadataList :: List "member" ServerCertificateMetadata
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListServerCertificatesResponse' constructor.
 --

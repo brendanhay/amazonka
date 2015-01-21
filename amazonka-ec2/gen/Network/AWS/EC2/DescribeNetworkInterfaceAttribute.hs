@@ -58,7 +58,7 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
     { _dniaAttribute          :: Maybe NetworkInterfaceAttribute
     , _dniaDryRun             :: Maybe Bool
     , _dniaNetworkInterfaceId :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeNetworkInterfaceAttribute' constructor.
 --
@@ -96,7 +96,7 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
     , _dniarGroups             :: List "item" GroupIdentifier
     , _dniarNetworkInterfaceId :: Maybe Text
     , _dniarSourceDestCheck    :: Maybe AttributeBooleanValue
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeNetworkInterfaceAttributeResponse' constructor.
 --

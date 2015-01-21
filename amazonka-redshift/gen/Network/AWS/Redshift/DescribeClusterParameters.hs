@@ -65,7 +65,7 @@ data DescribeClusterParameters = DescribeClusterParameters
     , _dcp1MaxRecords         :: Maybe Int
     , _dcp1ParameterGroupName :: Text
     , _dcp1Source             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeClusterParameters' constructor.
 --
@@ -126,7 +126,7 @@ dcp1Source = lens _dcp1Source (\s a -> s { _dcp1Source = a })
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse
     { _dcprMarker     :: Maybe Text
     , _dcprParameters :: List "member" Parameter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterParametersResponse' constructor.
 --

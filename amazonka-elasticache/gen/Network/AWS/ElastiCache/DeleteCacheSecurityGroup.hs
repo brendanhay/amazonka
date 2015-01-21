@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
     { _dcsgCacheSecurityGroupName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteCacheSecurityGroup' constructor.
 --
@@ -68,7 +68,7 @@ dcsgCacheSecurityGroupName =
         (\s a -> s { _dcsgCacheSecurityGroupName = a })
 
 data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteCacheSecurityGroupResponse' constructor.
 deleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse

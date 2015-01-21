@@ -64,7 +64,7 @@ data UpdateIdentityPool = UpdateIdentityPool
     , _uipIdentityPoolName               :: Text
     , _uipOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
     , _uipSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateIdentityPool' constructor.
 --
@@ -137,7 +137,7 @@ data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
     , _uiprIdentityPoolName               :: Text
     , _uiprOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
     , _uiprSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateIdentityPoolResponse' constructor.
 --

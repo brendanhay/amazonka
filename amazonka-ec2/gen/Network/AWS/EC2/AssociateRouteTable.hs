@@ -59,7 +59,7 @@ data AssociateRouteTable = AssociateRouteTable
     { _artDryRun       :: Maybe Bool
     , _artRouteTableId :: Text
     , _artSubnetId     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AssociateRouteTable' constructor.
 --
@@ -93,7 +93,7 @@ artSubnetId = lens _artSubnetId (\s a -> s { _artSubnetId = a })
 
 newtype AssociateRouteTableResponse = AssociateRouteTableResponse
     { _artrAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'AssociateRouteTableResponse' constructor.
 --

@@ -63,7 +63,7 @@ import qualified GHC.Exts
 data ListStreams = ListStreams
     { _lsExclusiveStartStreamName :: Maybe Text
     , _lsLimit                    :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListStreams' constructor.
 --
@@ -92,7 +92,7 @@ lsLimit = lens _lsLimit (\s a -> s { _lsLimit = a }) . mapping _Nat
 data ListStreamsResponse = ListStreamsResponse
     { _lsrHasMoreStreams :: Bool
     , _lsrStreamNames    :: List "StreamNames" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListStreamsResponse' constructor.
 --

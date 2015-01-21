@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DeleteTags = DeleteTags
     { _dt1ResourceName :: Text
     , _dt1TagKeys      :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteTags' constructor.
 --
@@ -77,7 +77,7 @@ dt1TagKeys :: Lens' DeleteTags [Text]
 dt1TagKeys = lens _dt1TagKeys (\s a -> s { _dt1TagKeys = a }) . _List
 
 data DeleteTagsResponse = DeleteTagsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteTagsResponse' constructor.
 deleteTagsResponse :: DeleteTagsResponse

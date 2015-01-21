@@ -57,7 +57,7 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess
     { _rsaAccountWithRestoreAccess  :: Text
     , _rsaSnapshotClusterIdentifier :: Maybe Text
     , _rsaSnapshotIdentifier        :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RevokeSnapshotAccess' constructor.
 --
@@ -100,7 +100,7 @@ rsaSnapshotIdentifier =
 
 newtype RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
     { _rsarSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RevokeSnapshotAccessResponse' constructor.
 --

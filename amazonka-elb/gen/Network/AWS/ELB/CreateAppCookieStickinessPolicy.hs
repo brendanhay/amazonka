@@ -67,7 +67,7 @@ data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
     { _cacspCookieName       :: Text
     , _cacspLoadBalancerName :: Text
     , _cacspPolicyName       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateAppCookieStickinessPolicy' constructor.
 --
@@ -104,7 +104,7 @@ cacspPolicyName :: Lens' CreateAppCookieStickinessPolicy Text
 cacspPolicyName = lens _cacspPolicyName (\s a -> s { _cacspPolicyName = a })
 
 data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateAppCookieStickinessPolicyResponse' constructor.
 createAppCookieStickinessPolicyResponse :: CreateAppCookieStickinessPolicyResponse

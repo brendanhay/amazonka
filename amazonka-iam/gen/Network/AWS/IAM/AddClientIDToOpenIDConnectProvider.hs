@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProvider
     { _acidtoidcpClientID                 :: Text
     , _acidtoidcpOpenIDConnectProviderArn :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AddClientIDToOpenIDConnectProvider' constructor.
 --
@@ -85,7 +85,7 @@ acidtoidcpOpenIDConnectProviderArn =
         (\s a -> s { _acidtoidcpOpenIDConnectProviderArn = a })
 
 data AddClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProviderResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AddClientIDToOpenIDConnectProviderResponse' constructor.
 addClientIDToOpenIDConnectProviderResponse :: AddClientIDToOpenIDConnectProviderResponse

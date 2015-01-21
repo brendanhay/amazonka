@@ -58,7 +58,7 @@ data ListUserPolicies = ListUserPolicies
     { _lupMarker   :: Maybe Text
     , _lupMaxItems :: Maybe Nat
     , _lupUserName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListUserPolicies' constructor.
 --
@@ -99,7 +99,7 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse
     { _luprIsTruncated :: Maybe Bool
     , _luprMarker      :: Maybe Text
     , _luprPolicyNames :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListUserPoliciesResponse' constructor.
 --

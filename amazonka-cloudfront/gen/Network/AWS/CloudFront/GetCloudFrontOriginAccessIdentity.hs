@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity
     { _gcfoaiId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetCloudFrontOriginAccessIdentity' constructor.
 --
@@ -71,7 +71,7 @@ gcfoaiId = lens _gcfoaiId (\s a -> s { _gcfoaiId = a })
 data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse
     { _gcfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
     , _gcfoairETag                           :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetCloudFrontOriginAccessIdentityResponse' constructor.
 --

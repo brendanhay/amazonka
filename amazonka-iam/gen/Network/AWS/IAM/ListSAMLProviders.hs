@@ -48,7 +48,7 @@ import Network.AWS.IAM.Types
 import qualified GHC.Exts
 
 data ListSAMLProviders = ListSAMLProviders
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ListSAMLProviders' constructor.
 listSAMLProviders :: ListSAMLProviders
@@ -56,7 +56,7 @@ listSAMLProviders = ListSAMLProviders
 
 newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
     { _lsamlprSAMLProviderList :: List "member" SAMLProviderListEntry
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ListSAMLProvidersResponse where
     type Item ListSAMLProvidersResponse = SAMLProviderListEntry

@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DeleteGroup = DeleteGroup
     { _dgGroupName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteGroup' constructor.
 --
@@ -67,7 +67,7 @@ dgGroupName :: Lens' DeleteGroup Text
 dgGroupName = lens _dgGroupName (\s a -> s { _dgGroupName = a })
 
 data DeleteGroupResponse = DeleteGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteGroupResponse' constructor.
 deleteGroupResponse :: DeleteGroupResponse

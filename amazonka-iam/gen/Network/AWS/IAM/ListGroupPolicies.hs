@@ -58,7 +58,7 @@ data ListGroupPolicies = ListGroupPolicies
     { _lgpGroupName :: Text
     , _lgpMarker    :: Maybe Text
     , _lgpMaxItems  :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListGroupPolicies' constructor.
 --
@@ -99,7 +99,7 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     { _lgprIsTruncated :: Maybe Bool
     , _lgprMarker      :: Maybe Text
     , _lgprPolicyNames :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListGroupPoliciesResponse' constructor.
 --

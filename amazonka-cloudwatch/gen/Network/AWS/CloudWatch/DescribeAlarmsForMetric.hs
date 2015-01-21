@@ -60,7 +60,7 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric
     , _dafmPeriod     :: Maybe Nat
     , _dafmStatistic  :: Maybe Statistic
     , _dafmUnit       :: Maybe StandardUnit
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarmsForMetric' constructor.
 --
@@ -116,7 +116,7 @@ dafmUnit = lens _dafmUnit (\s a -> s { _dafmUnit = a })
 
 newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     { _dafmrMetricAlarms :: List "member" MetricAlarm
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAlarmsForMetricResponse where
     type Item DescribeAlarmsForMetricResponse = MetricAlarm

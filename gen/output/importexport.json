@@ -75,6 +75,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -91,6 +92,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 16,
@@ -256,6 +258,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -349,6 +352,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "IsString"
@@ -451,6 +455,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -695,6 +700,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -895,6 +901,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -1480,6 +1487,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "IsString"
@@ -1582,6 +1590,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -1700,6 +1709,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -1822,6 +1832,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -1930,6 +1941,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,

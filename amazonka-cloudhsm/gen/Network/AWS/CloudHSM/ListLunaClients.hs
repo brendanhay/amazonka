@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype ListLunaClients = ListLunaClients
     { _llcNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ListLunaClients' constructor.
 --
@@ -76,7 +76,7 @@ llcNextToken = lens _llcNextToken (\s a -> s { _llcNextToken = a })
 data ListLunaClientsResponse = ListLunaClientsResponse
     { _llcrClientList :: List "ClientList" Text
     , _llcrNextToken  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListLunaClientsResponse' constructor.
 --

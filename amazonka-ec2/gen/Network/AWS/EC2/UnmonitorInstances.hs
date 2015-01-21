@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data UnmonitorInstances = UnmonitorInstances
     { _uiDryRun      :: Maybe Bool
     , _uiInstanceIds :: List "InstanceId" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UnmonitorInstances' constructor.
 --
@@ -77,7 +77,7 @@ uiInstanceIds = lens _uiInstanceIds (\s a -> s { _uiInstanceIds = a }) . _List
 
 newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uirInstanceMonitorings :: List "item" InstanceMonitoring
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'UnmonitorInstancesResponse' constructor.
 --

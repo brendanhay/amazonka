@@ -64,7 +64,7 @@ import qualified GHC.Exts
 
 newtype DescribeDomain = DescribeDomain
     { _ddName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeDomain' constructor.
 --
@@ -85,7 +85,7 @@ ddName = lens _ddName (\s a -> s { _ddName = a })
 data DescribeDomainResponse = DescribeDomainResponse
     { _ddrConfiguration :: DomainConfiguration
     , _ddrDomainInfo    :: DomainInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDomainResponse' constructor.
 --

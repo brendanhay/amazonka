@@ -61,7 +61,7 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances
     , _dcliInstanceIds :: List "InstanceId" Text
     , _dcliMaxResults  :: Maybe Int
     , _dcliNextToken   :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeClassicLinkInstances' constructor.
 --
@@ -136,7 +136,7 @@ dcliNextToken = lens _dcliNextToken (\s a -> s { _dcliNextToken = a })
 data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse
     { _dclirInstances :: List "item" ClassicLinkInstance
     , _dclirNextToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeClassicLinkInstancesResponse' constructor.
 --

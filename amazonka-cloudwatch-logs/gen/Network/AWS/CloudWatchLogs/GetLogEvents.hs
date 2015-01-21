@@ -72,7 +72,7 @@ data GetLogEvents = GetLogEvents
     , _gleNextToken     :: Maybe Text
     , _gleStartFromHead :: Maybe Bool
     , _gleStartTime     :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetLogEvents' constructor.
 --
@@ -138,7 +138,7 @@ data GetLogEventsResponse = GetLogEventsResponse
     { _glerEvents            :: List "events" OutputLogEvent
     , _glerNextBackwardToken :: Maybe Text
     , _glerNextForwardToken  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetLogEventsResponse' constructor.
 --

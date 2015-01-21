@@ -61,7 +61,7 @@ data DescribeSnapshots = DescribeSnapshots
     , _dsMaxRecords     :: Maybe Int
     , _dsSnapshotName   :: Maybe Text
     , _dsSnapshotSource :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeSnapshots' constructor.
 --
@@ -123,7 +123,7 @@ dsSnapshotSource = lens _dsSnapshotSource (\s a -> s { _dsSnapshotSource = a })
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrMarker    :: Maybe Text
     , _dsrSnapshots :: List "member" Snapshot
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshotsResponse' constructor.
 --

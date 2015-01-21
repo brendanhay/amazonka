@@ -58,7 +58,7 @@ data DescribeDBSecurityGroups = DescribeDBSecurityGroups
     , _ddbsg1Filters             :: List "member" Filter
     , _ddbsg1Marker              :: Maybe Text
     , _ddbsg1MaxRecords          :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSecurityGroups' constructor.
 --
@@ -109,7 +109,7 @@ ddbsg1MaxRecords = lens _ddbsg1MaxRecords (\s a -> s { _ddbsg1MaxRecords = a })
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
     { _ddbsgr1DBSecurityGroups :: List "member" DBSecurityGroup
     , _ddbsgr1Marker           :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSecurityGroupsResponse' constructor.
 --

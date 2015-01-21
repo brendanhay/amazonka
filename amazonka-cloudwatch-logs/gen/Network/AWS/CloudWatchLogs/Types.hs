@@ -138,7 +138,7 @@ data MetricFilter = MetricFilter
     , _mfFilterName            :: Maybe Text
     , _mfFilterPattern         :: Maybe Text
     , _mfMetricTransformations :: List1 "metricTransformations" MetricTransformation
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'MetricFilter' constructor.
 --
@@ -194,7 +194,7 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord
     { _mfmrEventMessage    :: Maybe Text
     , _mfmrEventNumber     :: Maybe Integer
     , _mfmrExtractedValues :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'MetricFilterMatchRecord' constructor.
 --
@@ -241,7 +241,7 @@ data MetricTransformation = MetricTransformation
     { _mtMetricName      :: Text
     , _mtMetricNamespace :: Text
     , _mtMetricValue     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'MetricTransformation' constructor.
 --
@@ -295,7 +295,7 @@ data LogStream = LogStream
     , _lsLogStreamName       :: Maybe Text
     , _lsStoredBytes         :: Maybe Nat
     , _lsUploadSequenceToken :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'LogStream' constructor.
 --
@@ -390,7 +390,7 @@ data LogGroup = LogGroup
     , _lgMetricFilterCount :: Maybe Int
     , _lgRetentionInDays   :: Maybe Int
     , _lgStoredBytes       :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'LogGroup' constructor.
 --
@@ -460,7 +460,7 @@ instance ToJSON LogGroup where
 data InputLogEvent = InputLogEvent
     { _ileMessage   :: Text
     , _ileTimestamp :: Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'InputLogEvent' constructor.
 --
@@ -499,7 +499,7 @@ data OutputLogEvent = OutputLogEvent
     { _oleIngestionTime :: Maybe Nat
     , _oleMessage       :: Maybe Text
     , _oleTimestamp     :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'OutputLogEvent' constructor.
 --

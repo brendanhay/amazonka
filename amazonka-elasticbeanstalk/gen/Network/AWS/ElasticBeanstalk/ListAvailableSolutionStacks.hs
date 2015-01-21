@@ -47,7 +47,7 @@ import Network.AWS.ElasticBeanstalk.Types
 import qualified GHC.Exts
 
 data ListAvailableSolutionStacks = ListAvailableSolutionStacks
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ListAvailableSolutionStacks' constructor.
 listAvailableSolutionStacks :: ListAvailableSolutionStacks
@@ -56,7 +56,7 @@ listAvailableSolutionStacks = ListAvailableSolutionStacks
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
     { _lassrSolutionStackDetails :: List "member" SolutionStackDescription
     , _lassrSolutionStacks       :: List "member" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListAvailableSolutionStacksResponse' constructor.
 --

@@ -56,7 +56,7 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup
     , _cdbsg1DBSubnetGroupName        :: Text
     , _cdbsg1SubnetIds                :: List "member" Text
     , _cdbsg1Tags                     :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDBSubnetGroup' constructor.
 --
@@ -106,7 +106,7 @@ cdbsg1Tags = lens _cdbsg1Tags (\s a -> s { _cdbsg1Tags = a }) . _List
 
 newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
     { _cdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDBSubnetGroupResponse' constructor.
 --

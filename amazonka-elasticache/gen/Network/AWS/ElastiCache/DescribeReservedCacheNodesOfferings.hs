@@ -63,7 +63,7 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings
     , _drcnoOfferingType                 :: Maybe Text
     , _drcnoProductDescription           :: Maybe Text
     , _drcnoReservedCacheNodesOfferingId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeReservedCacheNodesOfferings' constructor.
 --
@@ -150,7 +150,7 @@ drcnoReservedCacheNodesOfferingId =
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse
     { _drcnorMarker                      :: Maybe Text
     , _drcnorReservedCacheNodesOfferings :: List "member" ReservedCacheNodesOffering
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedCacheNodesOfferingsResponse' constructor.
 --

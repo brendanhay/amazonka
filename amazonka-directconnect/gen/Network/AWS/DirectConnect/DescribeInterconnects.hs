@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype DescribeInterconnects = DescribeInterconnects
     { _diInterconnectId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'DescribeInterconnects' constructor.
 --
@@ -70,7 +70,7 @@ diInterconnectId = lens _diInterconnectId (\s a -> s { _diInterconnectId = a })
 
 newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse
     { _dirInterconnects :: List "interconnects" Interconnect
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeInterconnectsResponse where
     type Item DescribeInterconnectsResponse = Interconnect

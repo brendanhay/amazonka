@@ -60,7 +60,7 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     { _rrtaAssociationId :: Text
     , _rrtaDryRun        :: Maybe Bool
     , _rrtaRouteTableId  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ReplaceRouteTableAssociation' constructor.
 --
@@ -95,7 +95,7 @@ rrtaRouteTableId = lens _rrtaRouteTableId (\s a -> s { _rrtaRouteTableId = a })
 
 newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     { _rrtarNewAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ReplaceRouteTableAssociationResponse' constructor.
 --

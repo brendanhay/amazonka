@@ -60,7 +60,7 @@ import qualified GHC.Exts
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests
     { _csirDryRun                 :: Maybe Bool
     , _csirSpotInstanceRequestIds :: List "SpotInstanceRequestId" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CancelSpotInstanceRequests' constructor.
 --
@@ -88,7 +88,7 @@ csirSpotInstanceRequestIds =
 
 newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { _csirrCancelledSpotInstanceRequests :: List "item" CancelledSpotInstanceRequest
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'CancelSpotInstanceRequestsResponse' constructor.
 --

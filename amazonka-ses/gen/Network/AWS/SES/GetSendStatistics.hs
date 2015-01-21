@@ -51,7 +51,7 @@ import Network.AWS.SES.Types
 import qualified GHC.Exts
 
 data GetSendStatistics = GetSendStatistics
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'GetSendStatistics' constructor.
 getSendStatistics :: GetSendStatistics
@@ -59,7 +59,7 @@ getSendStatistics = GetSendStatistics
 
 newtype GetSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints :: List "member" SendDataPoint
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetSendStatisticsResponse where
     type Item GetSendStatisticsResponse = SendDataPoint

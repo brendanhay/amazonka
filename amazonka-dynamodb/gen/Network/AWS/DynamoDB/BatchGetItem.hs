@@ -96,7 +96,7 @@ import qualified GHC.Exts
 data BatchGetItem = BatchGetItem
     { _bgiRequestItems           :: Map Text KeysAndAttributes
     , _bgiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'BatchGetItem' constructor.
 --
@@ -148,7 +148,7 @@ data BatchGetItemResponse = BatchGetItemResponse
     { _bgirConsumedCapacity :: List "ConsumedCapacity" ConsumedCapacity
     , _bgirResponses        :: Map Text (List "Responses" (Map Text AttributeValue))
     , _bgirUnprocessedKeys  :: Map Text KeysAndAttributes
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'BatchGetItemResponse' constructor.
 --

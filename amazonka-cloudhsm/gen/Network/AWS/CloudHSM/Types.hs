@@ -92,7 +92,7 @@ data CloudHsmObjectState
     = Degraded -- ^ DEGRADED
     | Ready    -- ^ READY
     | Updating -- ^ UPDATING
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable CloudHsmObjectState
 
@@ -122,7 +122,7 @@ instance ToJSON CloudHsmObjectState where
 
 data SubscriptionType
     = Production -- ^ PRODUCTION
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable SubscriptionType
 
@@ -153,7 +153,7 @@ data HsmStatus
     | HSTerminated  -- ^ TERMINATED
     | HSTerminating -- ^ TERMINATING
     | HSUpdating    -- ^ UPDATING
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable HsmStatus
 
@@ -192,7 +192,7 @@ instance ToJSON HsmStatus where
 data ClientVersion
     = V51 -- ^ 5.1
     | V53 -- ^ 5.3
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ClientVersion
 

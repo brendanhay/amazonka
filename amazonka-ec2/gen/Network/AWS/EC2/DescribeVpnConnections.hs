@@ -55,7 +55,7 @@ data DescribeVpnConnections = DescribeVpnConnections
     { _dvc1DryRun           :: Maybe Bool
     , _dvc1Filters          :: List "Filter" Filter
     , _dvc1VpnConnectionIds :: List "VpnConnectionId" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVpnConnections' constructor.
 --
@@ -131,7 +131,7 @@ dvc1VpnConnectionIds =
 
 newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { _dvcrVpnConnections :: List "item" VpnConnection
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeVpnConnectionsResponse' constructor.
 --

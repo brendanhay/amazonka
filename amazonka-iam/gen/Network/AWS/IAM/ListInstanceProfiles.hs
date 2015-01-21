@@ -59,7 +59,7 @@ data ListInstanceProfiles = ListInstanceProfiles
     { _lipMarker     :: Maybe Text
     , _lipMaxItems   :: Maybe Nat
     , _lipPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListInstanceProfiles' constructor.
 --
@@ -103,7 +103,7 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse
     { _liprInstanceProfiles :: List "member" InstanceProfile
     , _liprIsTruncated      :: Maybe Bool
     , _liprMarker           :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListInstanceProfilesResponse' constructor.
 --

@@ -58,7 +58,7 @@ import qualified GHC.Exts
 
 newtype DescribeGatewayInformation = DescribeGatewayInformation
     { _dgiGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeGatewayInformation' constructor.
 --
@@ -83,7 +83,7 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse
     , _dgirGatewayTimezone            :: Maybe Text
     , _dgirGatewayType                :: Maybe Text
     , _dgirNextUpdateAvailabilityDate :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeGatewayInformationResponse' constructor.
 --

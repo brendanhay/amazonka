@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data ListDeploymentGroups = ListDeploymentGroups
     { _ldgApplicationName :: Text
     , _ldgNextToken       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListDeploymentGroups' constructor.
 --
@@ -87,7 +87,7 @@ data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse
     { _ldgrApplicationName  :: Maybe Text
     , _ldgrDeploymentGroups :: List "deploymentGroups" Text
     , _ldgrNextToken        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListDeploymentGroupsResponse' constructor.
 --

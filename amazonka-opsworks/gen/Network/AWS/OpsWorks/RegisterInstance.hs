@@ -70,7 +70,7 @@ data RegisterInstance = RegisterInstance
     , _riRsaPublicKey            :: Maybe Text
     , _riRsaPublicKeyFingerprint :: Maybe Text
     , _riStackId                 :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RegisterInstance' constructor.
 --
@@ -136,7 +136,7 @@ riStackId = lens _riStackId (\s a -> s { _riStackId = a })
 
 newtype RegisterInstanceResponse = RegisterInstanceResponse
     { _rirInstanceId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'RegisterInstanceResponse' constructor.
 --

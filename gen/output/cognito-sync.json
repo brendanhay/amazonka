@@ -91,6 +91,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 21,
@@ -316,6 +317,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -335,6 +337,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -713,6 +716,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -730,6 +734,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -1057,6 +1062,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 19,
@@ -1332,6 +1338,7 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 25,
@@ -1609,6 +1616,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 18,
@@ -1743,6 +1751,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -1854,6 +1863,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -2014,6 +2024,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -2125,6 +2136,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -2285,6 +2297,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -2396,6 +2409,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "IsString"
@@ -2492,6 +2506,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -2603,6 +2618,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -2721,6 +2737,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -2865,6 +2882,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid",
                     "IsString"
@@ -2965,6 +2983,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -3160,6 +3179,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -3362,6 +3382,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -3608,6 +3629,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -3725,6 +3747,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -4226,6 +4249,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -4549,6 +4573,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Monoid"
                 ],
@@ -4660,6 +4685,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -4885,6 +4911,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -5028,6 +5055,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -5162,6 +5190,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -5198,6 +5227,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -5401,6 +5431,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show",
                     "Generic"
                 ],
@@ -5437,6 +5468,7 @@
                 "deriving": [
                     "Eq",
                     "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -5639,6 +5671,7 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show",
                     "Monoid",
                     "Semigroup"
@@ -5751,6 +5784,7 @@
             "request": {
                 "deriving": [
                     "Eq",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,

@@ -53,7 +53,7 @@ data UpdateApplicationVersion = UpdateApplicationVersion
     { _uavApplicationName :: Text
     , _uavDescription     :: Maybe Text
     , _uavVersionLabel    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateApplicationVersion' constructor.
 --
@@ -94,7 +94,7 @@ uavVersionLabel = lens _uavVersionLabel (\s a -> s { _uavVersionLabel = a })
 
 newtype UpdateApplicationVersionResponse = UpdateApplicationVersionResponse
     { _uavrApplicationVersion :: Maybe ApplicationVersionDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateApplicationVersionResponse' constructor.
 --

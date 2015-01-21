@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype StopStack = StopStack
     { _ss1StackId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'StopStack' constructor.
 --
@@ -70,7 +70,7 @@ ss1StackId :: Lens' StopStack Text
 ss1StackId = lens _ss1StackId (\s a -> s { _ss1StackId = a })
 
 data StopStackResponse = StopStackResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'StopStackResponse' constructor.
 stopStackResponse :: StopStackResponse

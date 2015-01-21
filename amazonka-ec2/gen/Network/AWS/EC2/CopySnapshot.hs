@@ -71,7 +71,7 @@ data CopySnapshot = CopySnapshot
     , _csPresignedUrl      :: Maybe Text
     , _csSourceRegion      :: Text
     , _csSourceSnapshotId  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CopySnapshot' constructor.
 --
@@ -137,7 +137,7 @@ csSourceSnapshotId =
 
 newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshotId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CopySnapshotResponse' constructor.
 --

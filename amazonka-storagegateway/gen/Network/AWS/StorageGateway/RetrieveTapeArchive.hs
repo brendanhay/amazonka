@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data RetrieveTapeArchive = RetrieveTapeArchive
     { _rtaGatewayARN :: Text
     , _rtaTapeARN    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RetrieveTapeArchive' constructor.
 --
@@ -92,7 +92,7 @@ rtaTapeARN = lens _rtaTapeARN (\s a -> s { _rtaTapeARN = a })
 
 newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
     { _rtarTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'RetrieveTapeArchiveResponse' constructor.
 --

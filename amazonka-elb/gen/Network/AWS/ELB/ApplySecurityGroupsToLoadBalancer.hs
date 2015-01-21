@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
     { _asgtlbLoadBalancerName :: Text
     , _asgtlbSecurityGroups   :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ApplySecurityGroupsToLoadBalancer' constructor.
 --
@@ -88,7 +88,7 @@ asgtlbSecurityGroups =
 
 newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
     { _asgtlbrSecurityGroups :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ApplySecurityGroupsToLoadBalancerResponse where
     type Item ApplySecurityGroupsToLoadBalancerResponse = Text

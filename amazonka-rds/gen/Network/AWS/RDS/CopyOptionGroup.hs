@@ -55,7 +55,7 @@ data CopyOptionGroup = CopyOptionGroup
     , _cog1Tags                         :: List "member" Tag
     , _cog1TargetOptionGroupDescription :: Text
     , _cog1TargetOptionGroupIdentifier  :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CopyOptionGroup' constructor.
 --
@@ -115,7 +115,7 @@ cog1TargetOptionGroupIdentifier =
 
 newtype CopyOptionGroupResponse = CopyOptionGroupResponse
     { _cogrOptionGroup :: Maybe OptionGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CopyOptionGroupResponse' constructor.
 --

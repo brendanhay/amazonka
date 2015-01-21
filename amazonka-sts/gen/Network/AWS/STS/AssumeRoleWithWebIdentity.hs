@@ -113,7 +113,7 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
     , _arwwiRoleArn          :: Text
     , _arwwiRoleSessionName  :: Text
     , _arwwiWebIdentityToken :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AssumeRoleWithWebIdentity' constructor.
 --
@@ -199,7 +199,7 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
     , _arwwirPackedPolicySize            :: Maybe Nat
     , _arwwirProvider                    :: Maybe Text
     , _arwwirSubjectFromWebIdentityToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AssumeRoleWithWebIdentityResponse' constructor.
 --

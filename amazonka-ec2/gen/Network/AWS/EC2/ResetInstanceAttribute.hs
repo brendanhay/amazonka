@@ -57,7 +57,7 @@ data ResetInstanceAttribute = ResetInstanceAttribute
     { _riaAttribute  :: InstanceAttributeName
     , _riaDryRun     :: Maybe Bool
     , _riaInstanceId :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ResetInstanceAttribute' constructor.
 --
@@ -90,7 +90,7 @@ riaInstanceId :: Lens' ResetInstanceAttribute Text
 riaInstanceId = lens _riaInstanceId (\s a -> s { _riaInstanceId = a })
 
 data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ResetInstanceAttributeResponse' constructor.
 resetInstanceAttributeResponse :: ResetInstanceAttributeResponse

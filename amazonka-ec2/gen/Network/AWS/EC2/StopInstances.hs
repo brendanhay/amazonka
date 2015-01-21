@@ -81,7 +81,7 @@ data StopInstances = StopInstances
     { _siDryRun      :: Maybe Bool
     , _siForce       :: Maybe Bool
     , _siInstanceIds :: List "InstanceId" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'StopInstances' constructor.
 --
@@ -118,7 +118,7 @@ siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a }) . _List
 
 newtype StopInstancesResponse = StopInstancesResponse
     { _sirStoppingInstances :: List "item" InstanceStateChange
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'StopInstancesResponse' constructor.
 --

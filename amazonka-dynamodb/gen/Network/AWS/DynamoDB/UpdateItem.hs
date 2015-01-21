@@ -80,7 +80,7 @@ data UpdateItem = UpdateItem
     , _uiReturnValues                :: Maybe ReturnValue
     , _uiTableName                   :: Text
     , _uiUpdateExpression            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateItem' constructor.
 --
@@ -590,7 +590,7 @@ data UpdateItemResponse = UpdateItemResponse
     { _uirAttributes            :: Map Text AttributeValue
     , _uirConsumedCapacity      :: Maybe ConsumedCapacity
     , _uirItemCollectionMetrics :: Maybe ItemCollectionMetrics
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateItemResponse' constructor.
 --

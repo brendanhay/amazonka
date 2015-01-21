@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data DefineIndexField = DefineIndexField
     { _dif2DomainName :: Text
     , _dif2IndexField :: IndexField
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DefineIndexField' constructor.
 --
@@ -83,7 +83,7 @@ dif2IndexField = lens _dif2IndexField (\s a -> s { _dif2IndexField = a })
 
 newtype DefineIndexFieldResponse = DefineIndexFieldResponse
     { _difr1IndexField :: IndexFieldStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DefineIndexFieldResponse' constructor.
 --

@@ -55,7 +55,7 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup
     { _ccpgCacheParameterGroupFamily :: Text
     , _ccpgCacheParameterGroupName   :: Text
     , _ccpgDescription               :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateCacheParameterGroup' constructor.
 --
@@ -98,7 +98,7 @@ ccpgDescription = lens _ccpgDescription (\s a -> s { _ccpgDescription = a })
 
 newtype CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
     { _ccpgrCacheParameterGroup :: Maybe CacheParameterGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateCacheParameterGroupResponse' constructor.
 --

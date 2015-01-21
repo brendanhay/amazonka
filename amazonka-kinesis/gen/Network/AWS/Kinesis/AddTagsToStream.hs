@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data AddTagsToStream = AddTagsToStream
     { _attsStreamName :: Text
     , _attsTags       :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AddTagsToStream' constructor.
 --
@@ -79,7 +79,7 @@ attsTags :: Lens' AddTagsToStream (HashMap Text Text)
 attsTags = lens _attsTags (\s a -> s { _attsTags = a }) . _Map
 
 data AddTagsToStreamResponse = AddTagsToStreamResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AddTagsToStreamResponse' constructor.
 addTagsToStreamResponse :: AddTagsToStreamResponse

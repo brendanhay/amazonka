@@ -51,7 +51,7 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes
     { _ssaAttributeName   :: Text
     , _ssaAttributeValue  :: Maybe Text
     , _ssaSubscriptionArn :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SetSubscriptionAttributes' constructor.
 --
@@ -90,7 +90,7 @@ ssaSubscriptionArn =
     lens _ssaSubscriptionArn (\s a -> s { _ssaSubscriptionArn = a })
 
 data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetSubscriptionAttributesResponse' constructor.
 setSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse

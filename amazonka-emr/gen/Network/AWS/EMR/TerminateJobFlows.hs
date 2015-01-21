@@ -56,7 +56,7 @@ import qualified GHC.Exts
 
 newtype TerminateJobFlows = TerminateJobFlows
     { _tjfJobFlowIds :: List "JobFlowIds" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList TerminateJobFlows where
     type Item TerminateJobFlows = Text
@@ -80,7 +80,7 @@ tjfJobFlowIds :: Lens' TerminateJobFlows [Text]
 tjfJobFlowIds = lens _tjfJobFlowIds (\s a -> s { _tjfJobFlowIds = a }) . _List
 
 data TerminateJobFlowsResponse = TerminateJobFlowsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'TerminateJobFlowsResponse' constructor.
 terminateJobFlowsResponse :: TerminateJobFlowsResponse

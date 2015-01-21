@@ -61,7 +61,7 @@ import qualified GHC.Exts
 
 newtype VerifyDomainDkim = VerifyDomainDkim
     { _vddDomain :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'VerifyDomainDkim' constructor.
 --
@@ -81,7 +81,7 @@ vddDomain = lens _vddDomain (\s a -> s { _vddDomain = a })
 
 newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
     { _vddrDkimTokens :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList VerifyDomainDkimResponse where
     type Item VerifyDomainDkimResponse = Text

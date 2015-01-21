@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
     { _dcsg1CacheSubnetGroupName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteCacheSubnetGroup' constructor.
 --
@@ -71,7 +71,7 @@ dcsg1CacheSubnetGroupName =
         (\s a -> s { _dcsg1CacheSubnetGroupName = a })
 
 data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteCacheSubnetGroupResponse' constructor.
 deleteCacheSubnetGroupResponse :: DeleteCacheSubnetGroupResponse

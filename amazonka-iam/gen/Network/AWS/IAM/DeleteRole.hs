@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DeleteRole = DeleteRole
     { _drRoleName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteRole' constructor.
 --
@@ -72,7 +72,7 @@ drRoleName :: Lens' DeleteRole Text
 drRoleName = lens _drRoleName (\s a -> s { _drRoleName = a })
 
 data DeleteRoleResponse = DeleteRoleResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteRoleResponse' constructor.
 deleteRoleResponse :: DeleteRoleResponse

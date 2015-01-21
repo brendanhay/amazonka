@@ -57,7 +57,7 @@ data CreateVpnGateway = CreateVpnGateway
     { _cvgAvailabilityZone :: Maybe Text
     , _cvgDryRun           :: Maybe Bool
     , _cvgType             :: GatewayType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateVpnGateway' constructor.
 --
@@ -91,7 +91,7 @@ cvgType = lens _cvgType (\s a -> s { _cvgType = a })
 
 newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse
     { _cvgrVpnGateway :: Maybe VpnGateway
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateVpnGatewayResponse' constructor.
 --

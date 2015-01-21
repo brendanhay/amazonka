@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data ListIdentityPoolUsage = ListIdentityPoolUsage
     { _lipuMaxResults :: Maybe Int
     , _lipuNextToken  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListIdentityPoolUsage' constructor.
 --
@@ -83,7 +83,7 @@ data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse
     , _lipurIdentityPoolUsages :: List "IdentityPoolUsages" IdentityPoolUsage
     , _lipurMaxResults         :: Maybe Int
     , _lipurNextToken          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListIdentityPoolUsageResponse' constructor.
 --

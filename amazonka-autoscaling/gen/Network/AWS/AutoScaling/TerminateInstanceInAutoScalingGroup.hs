@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
     { _tiiasgInstanceId                     :: Text
     , _tiiasgShouldDecrementDesiredCapacity :: Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TerminateInstanceInAutoScalingGroup' constructor.
 --
@@ -86,7 +86,7 @@ tiiasgShouldDecrementDesiredCapacity =
 
 newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
     { _tiiasgrActivity :: Maybe Activity
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'TerminateInstanceInAutoScalingGroupResponse' constructor.
 --

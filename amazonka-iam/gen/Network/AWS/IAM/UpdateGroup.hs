@@ -59,7 +59,7 @@ data UpdateGroup = UpdateGroup
     { _ugGroupName    :: Text
     , _ugNewGroupName :: Maybe Text
     , _ugNewPath      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateGroup' constructor.
 --
@@ -93,7 +93,7 @@ ugNewPath :: Lens' UpdateGroup (Maybe Text)
 ugNewPath = lens _ugNewPath (\s a -> s { _ugNewPath = a })
 
 data UpdateGroupResponse = UpdateGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateGroupResponse' constructor.
 updateGroupResponse :: UpdateGroupResponse

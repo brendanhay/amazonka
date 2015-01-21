@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype StartLogging = StartLogging
     { _sl1Name :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'StartLogging' constructor.
 --
@@ -66,7 +66,7 @@ sl1Name :: Lens' StartLogging Text
 sl1Name = lens _sl1Name (\s a -> s { _sl1Name = a })
 
 data StartLoggingResponse = StartLoggingResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'StartLoggingResponse' constructor.
 startLoggingResponse :: StartLoggingResponse

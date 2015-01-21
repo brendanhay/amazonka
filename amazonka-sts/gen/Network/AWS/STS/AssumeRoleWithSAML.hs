@@ -102,7 +102,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML
     , _arwsamlPrincipalArn    :: Text
     , _arwsamlRoleArn         :: Text
     , _arwsamlSAMLAssertion   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AssumeRoleWithSAML' constructor.
 --
@@ -180,7 +180,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
     , _arwsamlrPackedPolicySize :: Maybe Nat
     , _arwsamlrSubject          :: Maybe Text
     , _arwsamlrSubjectType      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AssumeRoleWithSAMLResponse' constructor.
 --

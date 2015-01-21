@@ -59,7 +59,7 @@ data ModifyReservedInstances = ModifyReservedInstances
     { _mriClientToken          :: Maybe Text
     , _mriReservedInstancesIds :: List "ReservedInstancesId" Text
     , _mriTargetConfigurations :: List "item" ReservedInstancesConfiguration
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyReservedInstances' constructor.
 --
@@ -97,7 +97,7 @@ mriTargetConfigurations =
 
 newtype ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
     { _mrirReservedInstancesModificationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ModifyReservedInstancesResponse' constructor.
 --

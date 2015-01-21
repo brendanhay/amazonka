@@ -56,7 +56,7 @@ data ListJobsByStatus = ListJobsByStatus
     { _ljbsAscending :: Maybe Text
     , _ljbsPageToken :: Maybe Text
     , _ljbsStatus    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListJobsByStatus' constructor.
 --
@@ -94,7 +94,7 @@ ljbsStatus = lens _ljbsStatus (\s a -> s { _ljbsStatus = a })
 data ListJobsByStatusResponse = ListJobsByStatusResponse
     { _ljbsrJobs          :: List "Jobs" Job'
     , _ljbsrNextPageToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListJobsByStatusResponse' constructor.
 --

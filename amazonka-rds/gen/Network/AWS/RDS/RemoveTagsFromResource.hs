@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data RemoveTagsFromResource = RemoveTagsFromResource
     { _rtfrResourceName :: Text
     , _rtfrTagKeys      :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RemoveTagsFromResource' constructor.
 --
@@ -78,7 +78,7 @@ rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
 rtfrTagKeys = lens _rtfrTagKeys (\s a -> s { _rtfrTagKeys = a }) . _List
 
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RemoveTagsFromResourceResponse' constructor.
 removeTagsFromResourceResponse :: RemoveTagsFromResourceResponse

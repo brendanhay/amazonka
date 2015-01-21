@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data InvokeAsync = InvokeAsync
     { _iaFunctionName :: Text
     , _iaInvokeArgs   :: Base64
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'InvokeAsync' constructor.
 --
@@ -83,7 +83,7 @@ iaInvokeArgs = lens _iaInvokeArgs (\s a -> s { _iaInvokeArgs = a })
 
 newtype InvokeAsyncResponse = InvokeAsyncResponse
     { _iarStatus :: Int
-    } deriving (Eq, Ord, Show, Enum, Num, Integral, Real)
+    } deriving (Eq, Ord, Read, Show, Enum, Num, Integral, Real)
 
 -- | 'InvokeAsyncResponse' constructor.
 --

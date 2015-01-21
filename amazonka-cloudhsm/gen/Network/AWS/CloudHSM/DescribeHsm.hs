@@ -72,7 +72,7 @@ import qualified GHC.Exts
 data DescribeHsm = DescribeHsm
     { _dh1HsmArn          :: Maybe Text
     , _dh1HsmSerialNumber :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeHsm' constructor.
 --
@@ -121,7 +121,7 @@ data DescribeHsmResponse = DescribeHsmResponse
     , _dhr2SubscriptionType      :: Maybe SubscriptionType
     , _dhr2VendorName            :: Maybe Text
     , _dhr2VpcId                 :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeHsmResponse' constructor.
 --

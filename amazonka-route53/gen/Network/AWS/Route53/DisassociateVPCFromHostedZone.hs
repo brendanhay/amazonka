@@ -59,7 +59,7 @@ data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone
     { _dvpcfhzComment      :: Maybe Text
     , _dvpcfhzHostedZoneId :: Text
     , _dvpcfhzVPC          :: VPC
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DisassociateVPCFromHostedZone' constructor.
 --
@@ -97,7 +97,7 @@ dvpcfhzVPC = lens _dvpcfhzVPC (\s a -> s { _dvpcfhzVPC = a })
 
 newtype DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse
     { _dvpcfhzrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DisassociateVPCFromHostedZoneResponse' constructor.
 --

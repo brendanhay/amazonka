@@ -68,7 +68,7 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider
     { _coidcpClientIDList   :: List "member" Text
     , _coidcpThumbprintList :: List "member" Text
     , _coidcpUrl            :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateOpenIDConnectProvider' constructor.
 --
@@ -137,7 +137,7 @@ coidcpUrl = lens _coidcpUrl (\s a -> s { _coidcpUrl = a })
 
 newtype CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse
     { _coidcprOpenIDConnectProviderArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateOpenIDConnectProviderResponse' constructor.
 --

@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DescribeEventCategories = DescribeEventCategories
     { _decSourceType :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'DescribeEventCategories' constructor.
 --
@@ -73,7 +73,7 @@ decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
 
 newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
     { _decrEventCategoriesMapList :: List "member" EventCategoriesMap
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeEventCategoriesResponse where
     type Item DescribeEventCategoriesResponse = EventCategoriesMap

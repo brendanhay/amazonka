@@ -48,7 +48,7 @@ import Network.AWS.DirectConnect.Types
 import qualified GHC.Exts
 
 data DescribeLocations = DescribeLocations
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DescribeLocations' constructor.
 describeLocations :: DescribeLocations
@@ -56,7 +56,7 @@ describeLocations = DescribeLocations
 
 newtype DescribeLocationsResponse = DescribeLocationsResponse
     { _dlrLocations :: List "locations" Location
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLocationsResponse where
     type Item DescribeLocationsResponse = Location

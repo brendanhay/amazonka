@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
     { _albtsLoadBalancerName :: Text
     , _albtsSubnets          :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AttachLoadBalancerToSubnets' constructor.
 --
@@ -86,7 +86,7 @@ albtsSubnets = lens _albtsSubnets (\s a -> s { _albtsSubnets = a }) . _List
 
 newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     { _albtsrSubnets :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList AttachLoadBalancerToSubnetsResponse where
     type Item AttachLoadBalancerToSubnetsResponse = Text

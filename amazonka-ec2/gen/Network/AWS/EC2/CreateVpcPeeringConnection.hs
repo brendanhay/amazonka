@@ -65,7 +65,7 @@ data CreateVpcPeeringConnection = CreateVpcPeeringConnection
     , _cvpcPeerOwnerId :: Maybe Text
     , _cvpcPeerVpcId   :: Maybe Text
     , _cvpcVpcId       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateVpcPeeringConnection' constructor.
 --
@@ -106,7 +106,7 @@ cvpcVpcId = lens _cvpcVpcId (\s a -> s { _cvpcVpcId = a })
 
 newtype CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     { _cvpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateVpcPeeringConnectionResponse' constructor.
 --

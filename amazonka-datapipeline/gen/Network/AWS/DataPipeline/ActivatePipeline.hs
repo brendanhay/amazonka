@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data ActivatePipeline = ActivatePipeline
     { _apParameterValues :: List "parameterValues" ParameterValue
     , _apPipelineId      :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ActivatePipeline' constructor.
 --
@@ -83,7 +83,7 @@ apPipelineId :: Lens' ActivatePipeline Text
 apPipelineId = lens _apPipelineId (\s a -> s { _apPipelineId = a })
 
 data ActivatePipelineResponse = ActivatePipelineResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ActivatePipelineResponse' constructor.
 activatePipelineResponse :: ActivatePipelineResponse

@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration
     { _gipcIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetIdentityPoolConfiguration' constructor.
 --
@@ -74,7 +74,7 @@ gipcIdentityPoolId =
 data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
     { _gipcrIdentityPoolId :: Maybe Text
     , _gipcrPushSync       :: Maybe PushSync
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetIdentityPoolConfigurationResponse' constructor.
 --

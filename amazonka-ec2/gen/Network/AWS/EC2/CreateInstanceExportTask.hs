@@ -58,7 +58,7 @@ data CreateInstanceExportTask = CreateInstanceExportTask
     , _cietExportToS3Task    :: Maybe ExportToS3TaskSpecification
     , _cietInstanceId        :: Text
     , _cietTargetEnvironment :: Maybe ExportEnvironment
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateInstanceExportTask' constructor.
 --
@@ -101,7 +101,7 @@ cietTargetEnvironment =
 
 newtype CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
     { _cietrExportTask :: Maybe ExportTask
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateInstanceExportTaskResponse' constructor.
 --

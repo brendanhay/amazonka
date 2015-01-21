@@ -128,7 +128,7 @@ data AssumeRole = AssumeRole
     , _arRoleSessionName :: Text
     , _arSerialNumber    :: Maybe Text
     , _arTokenCode       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AssumeRole' constructor.
 --
@@ -219,7 +219,7 @@ data AssumeRoleResponse = AssumeRoleResponse
     { _arrAssumedRoleUser  :: Maybe AssumedRoleUser
     , _arrCredentials      :: Maybe Credentials
     , _arrPackedPolicySize :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AssumeRoleResponse' constructor.
 --

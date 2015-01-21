@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data AllocateAddress = AllocateAddress
     { _aaDomain :: Maybe DomainType
     , _aaDryRun :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AllocateAddress' constructor.
 --
@@ -85,7 +85,7 @@ data AllocateAddressResponse = AllocateAddressResponse
     { _aarAllocationId :: Maybe Text
     , _aarDomain       :: Maybe DomainType
     , _aarPublicIp     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AllocateAddressResponse' constructor.
 --

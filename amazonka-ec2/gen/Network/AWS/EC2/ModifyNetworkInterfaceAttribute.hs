@@ -58,7 +58,7 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     , _mniaGroups             :: List "SecurityGroupId" Text
     , _mniaNetworkInterfaceId :: Text
     , _mniaSourceDestCheck    :: Maybe AttributeBooleanValue
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyNetworkInterfaceAttribute' constructor.
 --
@@ -119,7 +119,7 @@ mniaSourceDestCheck =
     lens _mniaSourceDestCheck (\s a -> s { _mniaSourceDestCheck = a })
 
 data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ModifyNetworkInterfaceAttributeResponse' constructor.
 modifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse

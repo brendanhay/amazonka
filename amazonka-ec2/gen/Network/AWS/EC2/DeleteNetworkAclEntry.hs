@@ -54,7 +54,7 @@ data DeleteNetworkAclEntry = DeleteNetworkAclEntry
     , _dnaeEgress       :: Bool
     , _dnaeNetworkAclId :: Text
     , _dnaeRuleNumber   :: Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteNetworkAclEntry' constructor.
 --
@@ -95,7 +95,7 @@ dnaeRuleNumber :: Lens' DeleteNetworkAclEntry Int
 dnaeRuleNumber = lens _dnaeRuleNumber (\s a -> s { _dnaeRuleNumber = a })
 
 data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteNetworkAclEntryResponse' constructor.
 deleteNetworkAclEntryResponse :: DeleteNetworkAclEntryResponse

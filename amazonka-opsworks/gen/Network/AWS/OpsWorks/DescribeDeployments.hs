@@ -59,7 +59,7 @@ data DescribeDeployments = DescribeDeployments
     { _ddAppId         :: Maybe Text
     , _ddDeploymentIds :: List "DeploymentIds" Text
     , _ddStackId       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeDeployments' constructor.
 --
@@ -95,7 +95,7 @@ ddStackId = lens _ddStackId (\s a -> s { _ddStackId = a })
 
 newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse
     { _ddrDeployments :: List "Deployments" Deployment
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDeploymentsResponse where
     type Item DescribeDeploymentsResponse = Deployment

@@ -64,7 +64,7 @@ data CreateDeployment = CreateDeployment
     , _cdCustomJson  :: Maybe Text
     , _cdInstanceIds :: List "InstanceIds" Text
     , _cdStackId     :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDeployment' constructor.
 --
@@ -128,7 +128,7 @@ cdStackId = lens _cdStackId (\s a -> s { _cdStackId = a })
 
 newtype CreateDeploymentResponse = CreateDeploymentResponse
     { _cdrDeploymentId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateDeploymentResponse' constructor.
 --

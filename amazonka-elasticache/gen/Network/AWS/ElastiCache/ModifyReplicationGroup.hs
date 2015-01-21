@@ -80,7 +80,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup
     , _mrgSnapshotRetentionLimit      :: Maybe Int
     , _mrgSnapshotWindow              :: Maybe Text
     , _mrgSnapshottingClusterId       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ModifyReplicationGroup' constructor.
 --
@@ -287,7 +287,7 @@ mrgSnapshottingClusterId =
 
 newtype ModifyReplicationGroupResponse = ModifyReplicationGroupResponse
     { _mrgrReplicationGroup :: Maybe ReplicationGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyReplicationGroupResponse' constructor.
 --

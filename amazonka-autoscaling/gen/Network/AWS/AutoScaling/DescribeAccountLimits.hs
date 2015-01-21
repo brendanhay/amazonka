@@ -49,7 +49,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeAccountLimits = DescribeAccountLimits
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DescribeAccountLimits' constructor.
 describeAccountLimits :: DescribeAccountLimits
@@ -58,7 +58,7 @@ describeAccountLimits = DescribeAccountLimits
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse
     { _dalrMaxNumberOfAutoScalingGroups    :: Maybe Int
     , _dalrMaxNumberOfLaunchConfigurations :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeAccountLimitsResponse' constructor.
 --

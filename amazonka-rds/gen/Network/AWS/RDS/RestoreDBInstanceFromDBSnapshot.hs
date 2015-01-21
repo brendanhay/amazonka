@@ -95,7 +95,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
     , _rdbifdbsTags                    :: List "member" Tag
     , _rdbifdbsTdeCredentialArn        :: Maybe Text
     , _rdbifdbsTdeCredentialPassword   :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RestoreDBInstanceFromDBSnapshot' constructor.
 --
@@ -333,7 +333,7 @@ rdbifdbsTdeCredentialPassword =
 
 newtype RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse
     { _rdbifdbsrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RestoreDBInstanceFromDBSnapshotResponse' constructor.
 --

@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
     { _dlbptPolicyTypeNames :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLoadBalancerPolicyTypes where
     type Item DescribeLoadBalancerPolicyTypes = Text
@@ -81,7 +81,7 @@ dlbptPolicyTypeNames =
 
 newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
     { _dlbptrPolicyTypeDescriptions :: List "member" PolicyTypeDescription
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLoadBalancerPolicyTypesResponse where
     type Item DescribeLoadBalancerPolicyTypesResponse = PolicyTypeDescription

@@ -59,7 +59,7 @@ data ListJobsByPipeline = ListJobsByPipeline
     { _ljbpAscending  :: Maybe Text
     , _ljbpPageToken  :: Maybe Text
     , _ljbpPipelineId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListJobsByPipeline' constructor.
 --
@@ -96,7 +96,7 @@ ljbpPipelineId = lens _ljbpPipelineId (\s a -> s { _ljbpPipelineId = a })
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse
     { _ljbprJobs          :: List "Jobs" Job'
     , _ljbprNextPageToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListJobsByPipelineResponse' constructor.
 --

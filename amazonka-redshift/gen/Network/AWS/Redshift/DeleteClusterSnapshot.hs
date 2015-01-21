@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data DeleteClusterSnapshot = DeleteClusterSnapshot
     { _dcsSnapshotClusterIdentifier :: Maybe Text
     , _dcsSnapshotIdentifier        :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteClusterSnapshot' constructor.
 --
@@ -94,7 +94,7 @@ dcsSnapshotIdentifier =
 
 newtype DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
     { _dcsrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteClusterSnapshotResponse' constructor.
 --

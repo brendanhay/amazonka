@@ -64,7 +64,7 @@ data ReportInstanceStatus = ReportInstanceStatus
     , _risReasonCodes :: List "item" ReportInstanceReasonCodes
     , _risStartTime   :: Maybe ISO8601
     , _risStatus      :: ReportStatusType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ReportInstanceStatus' constructor.
 --
@@ -147,7 +147,7 @@ risStatus :: Lens' ReportInstanceStatus ReportStatusType
 risStatus = lens _risStatus (\s a -> s { _risStatus = a })
 
 data ReportInstanceStatusResponse = ReportInstanceStatusResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ReportInstanceStatusResponse' constructor.
 reportInstanceStatusResponse :: ReportInstanceStatusResponse

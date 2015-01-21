@@ -60,7 +60,7 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations
     { _dlcLaunchConfigurationNames :: List "member" Text
     , _dlcMaxRecords               :: Maybe Int
     , _dlcNextToken                :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeLaunchConfigurations' constructor.
 --
@@ -98,7 +98,7 @@ dlcNextToken = lens _dlcNextToken (\s a -> s { _dlcNextToken = a })
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
     { _dlcrLaunchConfigurations :: List "member" LaunchConfiguration
     , _dlcrNextToken            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeLaunchConfigurationsResponse' constructor.
 --

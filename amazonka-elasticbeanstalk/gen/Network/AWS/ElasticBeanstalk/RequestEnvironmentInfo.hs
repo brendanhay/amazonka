@@ -59,7 +59,7 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo
     { _reiEnvironmentId   :: Maybe Text
     , _reiEnvironmentName :: Maybe Text
     , _reiInfoType        :: EnvironmentInfoType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RequestEnvironmentInfo' constructor.
 --
@@ -103,7 +103,7 @@ reiInfoType :: Lens' RequestEnvironmentInfo EnvironmentInfoType
 reiInfoType = lens _reiInfoType (\s a -> s { _reiInfoType = a })
 
 data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RequestEnvironmentInfoResponse' constructor.
 requestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse

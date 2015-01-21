@@ -81,7 +81,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
     , _clcSecurityGroups           :: List "member" Text
     , _clcSpotPrice                :: Maybe Text
     , _clcUserData                 :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateLaunchConfiguration' constructor.
 --
@@ -279,7 +279,7 @@ clcUserData :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcUserData = lens _clcUserData (\s a -> s { _clcUserData = a })
 
 data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateLaunchConfigurationResponse' constructor.
 createLaunchConfigurationResponse :: CreateLaunchConfigurationResponse

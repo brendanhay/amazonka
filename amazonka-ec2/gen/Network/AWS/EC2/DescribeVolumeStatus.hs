@@ -93,7 +93,7 @@ data DescribeVolumeStatus = DescribeVolumeStatus
     , _dvsMaxResults :: Maybe Int
     , _dvsNextToken  :: Maybe Text
     , _dvsVolumeIds  :: List "VolumeId" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumeStatus' constructor.
 --
@@ -172,7 +172,7 @@ dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a }) . _List
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvsrNextToken      :: Maybe Text
     , _dvsrVolumeStatuses :: List "item" VolumeStatusItem
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumeStatusResponse' constructor.
 --

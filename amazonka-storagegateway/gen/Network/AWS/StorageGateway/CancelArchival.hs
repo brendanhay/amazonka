@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data CancelArchival = CancelArchival
     { _caGatewayARN :: Text
     , _caTapeARN    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CancelArchival' constructor.
 --
@@ -80,7 +80,7 @@ caTapeARN = lens _caTapeARN (\s a -> s { _caTapeARN = a })
 
 newtype CancelArchivalResponse = CancelArchivalResponse
     { _carTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CancelArchivalResponse' constructor.
 --

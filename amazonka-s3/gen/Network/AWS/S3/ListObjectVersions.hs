@@ -73,7 +73,7 @@ data ListObjectVersions = ListObjectVersions
     , _lovMaxKeys         :: Maybe Int
     , _lovPrefix          :: Maybe Text
     , _lovVersionIdMarker :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListObjectVersions' constructor.
 --
@@ -147,7 +147,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
     , _lovrPrefix              :: Maybe Text
     , _lovrVersionIdMarker     :: Maybe Text
     , _lovrVersions            :: List "Version" ObjectVersion
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListObjectVersionsResponse' constructor.
 --

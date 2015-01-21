@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetLoginProfile = GetLoginProfile
     { _glpUserName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetLoginProfile' constructor.
 --
@@ -70,7 +70,7 @@ glpUserName = lens _glpUserName (\s a -> s { _glpUserName = a })
 
 newtype GetLoginProfileResponse = GetLoginProfileResponse
     { _glprLoginProfile :: LoginProfile
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetLoginProfileResponse' constructor.
 --

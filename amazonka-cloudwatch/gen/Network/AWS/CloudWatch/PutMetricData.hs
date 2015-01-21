@@ -62,7 +62,7 @@ import qualified GHC.Exts
 data PutMetricData = PutMetricData
     { _pmdMetricData :: List "member" MetricDatum
     , _pmdNamespace  :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutMetricData' constructor.
 --
@@ -88,7 +88,7 @@ pmdNamespace :: Lens' PutMetricData Text
 pmdNamespace = lens _pmdNamespace (\s a -> s { _pmdNamespace = a })
 
 data PutMetricDataResponse = PutMetricDataResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutMetricDataResponse' constructor.
 putMetricDataResponse :: PutMetricDataResponse

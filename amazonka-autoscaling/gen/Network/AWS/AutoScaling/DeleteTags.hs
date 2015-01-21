@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteTags = DeleteTags
     { _dtTags :: List "member" Tag
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DeleteTags where
     type Item DeleteTags = Tag
@@ -73,7 +73,7 @@ dtTags :: Lens' DeleteTags [Tag]
 dtTags = lens _dtTags (\s a -> s { _dtTags = a }) . _List
 
 data DeleteTagsResponse = DeleteTagsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteTagsResponse' constructor.
 deleteTagsResponse :: DeleteTagsResponse

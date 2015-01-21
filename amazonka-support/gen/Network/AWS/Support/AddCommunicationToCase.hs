@@ -61,7 +61,7 @@ data AddCommunicationToCase = AddCommunicationToCase
     , _actcCaseId            :: Maybe Text
     , _actcCcEmailAddresses  :: List "ccEmailAddresses" Text
     , _actcCommunicationBody :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AddCommunicationToCase' constructor.
 --
@@ -109,7 +109,7 @@ actcCommunicationBody =
 
 newtype AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
     { _actcrResult :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AddCommunicationToCaseResponse' constructor.
 --

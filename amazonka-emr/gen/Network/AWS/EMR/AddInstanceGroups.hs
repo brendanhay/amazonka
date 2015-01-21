@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data AddInstanceGroups = AddInstanceGroups
     { _aigInstanceGroups :: List "InstanceGroups" InstanceGroupConfig
     , _aigJobFlowId      :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AddInstanceGroups' constructor.
 --
@@ -82,7 +82,7 @@ aigJobFlowId = lens _aigJobFlowId (\s a -> s { _aigJobFlowId = a })
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse
     { _aigrInstanceGroupIds :: List "InstanceGroupIds" Text
     , _aigrJobFlowId        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AddInstanceGroupsResponse' constructor.
 --

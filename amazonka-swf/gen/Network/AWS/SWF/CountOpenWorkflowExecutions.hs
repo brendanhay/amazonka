@@ -74,7 +74,7 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions
     , _coweStartTimeFilter :: ExecutionTimeFilter
     , _coweTagFilter       :: Maybe TagFilter
     , _coweTypeFilter      :: Maybe WorkflowTypeFilter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CountOpenWorkflowExecutions' constructor.
 --
@@ -138,7 +138,7 @@ coweTypeFilter = lens _coweTypeFilter (\s a -> s { _coweTypeFilter = a })
 data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
     { _cowerCount     :: Nat
     , _cowerTruncated :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CountOpenWorkflowExecutionsResponse' constructor.
 --

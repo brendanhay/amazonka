@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data ListKeys = ListKeys
     { _lkLimit  :: Maybe Nat
     , _lkMarker :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListKeys' constructor.
 --
@@ -85,7 +85,7 @@ data ListKeysResponse = ListKeysResponse
     { _lkrKeys       :: List "Keys" KeyListEntry
     , _lkrNextMarker :: Maybe Text
     , _lkrTruncated  :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListKeysResponse' constructor.
 --

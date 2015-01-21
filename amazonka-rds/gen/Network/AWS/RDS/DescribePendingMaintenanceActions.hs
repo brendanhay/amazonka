@@ -57,7 +57,7 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions
     , _dpmaMarker             :: Maybe Text
     , _dpmaMaxRecords         :: Maybe Int
     , _dpmaResourceIdentifier :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribePendingMaintenanceActions' constructor.
 --
@@ -110,7 +110,7 @@ dpmaResourceIdentifier =
 data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse
     { _dpmarMarker                    :: Maybe Text
     , _dpmarPendingMaintenanceActions :: List "member" ResourcePendingMaintenanceActions
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribePendingMaintenanceActionsResponse' constructor.
 --

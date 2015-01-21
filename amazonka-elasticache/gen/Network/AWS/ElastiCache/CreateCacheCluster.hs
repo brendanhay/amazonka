@@ -91,7 +91,7 @@ data CreateCacheCluster = CreateCacheCluster
     , _cccSnapshotName               :: Maybe Text
     , _cccSnapshotRetentionLimit     :: Maybe Int
     , _cccSnapshotWindow             :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateCacheCluster' constructor.
 --
@@ -381,7 +381,7 @@ cccSnapshotWindow =
 
 newtype CreateCacheClusterResponse = CreateCacheClusterResponse
     { _cccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateCacheClusterResponse' constructor.
 --

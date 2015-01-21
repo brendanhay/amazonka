@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DescribeStacks = DescribeStacks
     { _dsStackIds :: List "StackIds" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeStacks where
     type Item DescribeStacks = Text
@@ -79,7 +79,7 @@ dsStackIds = lens _dsStackIds (\s a -> s { _dsStackIds = a }) . _List
 
 newtype DescribeStacksResponse = DescribeStacksResponse
     { _dsrStacks :: List "Stacks" Stack
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeStacksResponse where
     type Item DescribeStacksResponse = Stack

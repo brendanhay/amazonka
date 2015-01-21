@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype HeadBucket = HeadBucket
     { _hbBucket :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'HeadBucket' constructor.
 --
@@ -66,7 +66,7 @@ hbBucket :: Lens' HeadBucket Text
 hbBucket = lens _hbBucket (\s a -> s { _hbBucket = a })
 
 data HeadBucketResponse = HeadBucketResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'HeadBucketResponse' constructor.
 headBucketResponse :: HeadBucketResponse

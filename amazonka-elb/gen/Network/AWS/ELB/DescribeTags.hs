@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DescribeTags = DescribeTags
     { _dtLoadBalancerNames :: List1 "member" Text
-    } deriving (Eq, Ord, Show, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Semigroup)
 
 -- | 'DescribeTags' constructor.
 --
@@ -71,7 +71,7 @@ dtLoadBalancerNames =
 
 newtype DescribeTagsResponse = DescribeTagsResponse
     { _dtrTagDescriptions :: List "member" TagDescription
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTagsResponse where
     type Item DescribeTagsResponse = TagDescription

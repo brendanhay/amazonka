@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks
     { _dtacLanguage :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeTrustedAdvisorChecks' constructor.
 --
@@ -74,7 +74,7 @@ dtacLanguage = lens _dtacLanguage (\s a -> s { _dtacLanguage = a })
 
 newtype DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse
     { _dtacrChecks :: List "checks" TrustedAdvisorCheckDescription
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTrustedAdvisorChecksResponse where
     type Item DescribeTrustedAdvisorChecksResponse = TrustedAdvisorCheckDescription

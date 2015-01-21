@@ -55,7 +55,7 @@ data ModifyOptionGroup = ModifyOptionGroup
     , _mogOptionGroupName  :: Text
     , _mogOptionsToInclude :: List "member" OptionConfiguration
     , _mogOptionsToRemove  :: List "member" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyOptionGroup' constructor.
 --
@@ -108,7 +108,7 @@ mogOptionsToRemove =
 
 newtype ModifyOptionGroupResponse = ModifyOptionGroupResponse
     { _mogrOptionGroup :: Maybe OptionGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyOptionGroupResponse' constructor.
 --

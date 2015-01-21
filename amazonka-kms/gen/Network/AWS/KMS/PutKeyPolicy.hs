@@ -51,7 +51,7 @@ data PutKeyPolicy = PutKeyPolicy
     { _pkpKeyId      :: Text
     , _pkpPolicy     :: Text
     , _pkpPolicyName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PutKeyPolicy' constructor.
 --
@@ -88,7 +88,7 @@ pkpPolicyName :: Lens' PutKeyPolicy Text
 pkpPolicyName = lens _pkpPolicyName (\s a -> s { _pkpPolicyName = a })
 
 data PutKeyPolicyResponse = PutKeyPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutKeyPolicyResponse' constructor.
 putKeyPolicyResponse :: PutKeyPolicyResponse

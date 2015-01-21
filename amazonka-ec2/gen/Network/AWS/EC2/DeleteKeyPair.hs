@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DeleteKeyPair = DeleteKeyPair
     { _dkpDryRun  :: Maybe Bool
     , _dkpKeyName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteKeyPair' constructor.
 --
@@ -74,7 +74,7 @@ dkpKeyName :: Lens' DeleteKeyPair Text
 dkpKeyName = lens _dkpKeyName (\s a -> s { _dkpKeyName = a })
 
 data DeleteKeyPairResponse = DeleteKeyPairResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteKeyPairResponse' constructor.
 deleteKeyPairResponse :: DeleteKeyPairResponse

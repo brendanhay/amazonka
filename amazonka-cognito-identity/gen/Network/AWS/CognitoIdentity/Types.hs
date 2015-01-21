@@ -101,7 +101,7 @@ instance AWSService CognitoIdentity where
 data IdentityDescription = IdentityDescription
     { _idIdentityId :: Maybe Text
     , _idLogins     :: List "Logins" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'IdentityDescription' constructor.
 --
@@ -143,7 +143,7 @@ data IdentityPool = IdentityPool
     , _ipIdentityPoolName               :: Text
     , _ipOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
     , _ipSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'IdentityPool' constructor.
 --
@@ -229,7 +229,7 @@ instance ToJSON IdentityPool where
 data IdentityPoolShortDescription = IdentityPoolShortDescription
     { _ipsdIdentityPoolId   :: Maybe Text
     , _ipsdIdentityPoolName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'IdentityPoolShortDescription' constructor.
 --

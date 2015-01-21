@@ -92,7 +92,7 @@ data TransferDomain = TransferDomain
     , _tdPrivacyProtectTechContact       :: Maybe Bool
     , _tdRegistrantContact               :: ContactDetail
     , _tdTechContact                     :: ContactDetail
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'TransferDomain' constructor.
 --
@@ -290,7 +290,7 @@ tdTechContact = lens _tdTechContact (\s a -> s { _tdTechContact = a })
 
 newtype TransferDomainResponse = TransferDomainResponse
     { _tdrOperationId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'TransferDomainResponse' constructor.
 --

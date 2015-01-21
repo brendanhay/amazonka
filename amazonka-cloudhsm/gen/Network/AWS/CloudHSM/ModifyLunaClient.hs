@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data ModifyLunaClient = ModifyLunaClient
     { _mlcCertificate :: Text
     , _mlcClientArn   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ModifyLunaClient' constructor.
 --
@@ -82,7 +82,7 @@ mlcClientArn = lens _mlcClientArn (\s a -> s { _mlcClientArn = a })
 
 newtype ModifyLunaClientResponse = ModifyLunaClientResponse
     { _mlcrClientArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ModifyLunaClientResponse' constructor.
 --

@@ -59,7 +59,7 @@ import qualified GHC.Exts
 
 newtype DeleteLoadBalancer = DeleteLoadBalancer
     { _dlbLoadBalancerName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteLoadBalancer' constructor.
 --
@@ -79,7 +79,7 @@ dlbLoadBalancerName =
     lens _dlbLoadBalancerName (\s a -> s { _dlbLoadBalancerName = a })
 
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteLoadBalancerResponse' constructor.
 deleteLoadBalancerResponse :: DeleteLoadBalancerResponse

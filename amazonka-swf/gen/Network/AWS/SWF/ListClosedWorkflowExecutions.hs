@@ -86,7 +86,7 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions
     , _lcweStartTimeFilter   :: Maybe ExecutionTimeFilter
     , _lcweTagFilter         :: Maybe TagFilter
     , _lcweTypeFilter        :: Maybe WorkflowTypeFilter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListClosedWorkflowExecutions' constructor.
 --
@@ -218,7 +218,7 @@ lcweTypeFilter = lens _lcweTypeFilter (\s a -> s { _lcweTypeFilter = a })
 data ListClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
     { _lcwerExecutionInfos :: List "executionInfos" WorkflowExecutionInfo
     , _lcwerNextPageToken  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListClosedWorkflowExecutionsResponse' constructor.
 --

@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
     { _dcoiInterconnectId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeConnectionsOnInterconnect' constructor.
 --
@@ -75,7 +75,7 @@ dcoiInterconnectId =
 
 newtype DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
     { _dcoirConnections :: List "connections" Connection
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConnectionsOnInterconnectResponse where
     type Item DescribeConnectionsOnInterconnectResponse = Connection

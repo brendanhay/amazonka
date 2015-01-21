@@ -85,7 +85,7 @@ data GetShardIterator = GetShardIterator
     , _gsiShardIteratorType      :: ShardIteratorType
     , _gsiStartingSequenceNumber :: Maybe Text
     , _gsiStreamName             :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetShardIterator' constructor.
 --
@@ -143,7 +143,7 @@ gsiStreamName = lens _gsiStreamName (\s a -> s { _gsiStreamName = a })
 
 newtype GetShardIteratorResponse = GetShardIteratorResponse
     { _gsirShardIterator :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'GetShardIteratorResponse' constructor.
 --

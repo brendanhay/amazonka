@@ -85,7 +85,7 @@ data RegisterDomain = RegisterDomain
     , _rdPrivacyProtectTechContact       :: Maybe Bool
     , _rdRegistrantContact               :: ContactDetail
     , _rdTechContact                     :: ContactDetail
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RegisterDomain' constructor.
 --
@@ -259,7 +259,7 @@ rdTechContact = lens _rdTechContact (\s a -> s { _rdTechContact = a })
 
 newtype RegisterDomainResponse = RegisterDomainResponse
     { _rdrOperationId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'RegisterDomainResponse' constructor.
 --

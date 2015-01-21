@@ -55,7 +55,7 @@ data DescribeCustomerGateways = DescribeCustomerGateways
     { _dcgCustomerGatewayIds :: List "CustomerGatewayId" Text
     , _dcgDryRun             :: Maybe Bool
     , _dcgFilters            :: List "Filter" Filter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeCustomerGateways' constructor.
 --
@@ -119,7 +119,7 @@ dcgFilters = lens _dcgFilters (\s a -> s { _dcgFilters = a }) . _List
 
 newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { _dcgrCustomerGateways :: List "item" CustomerGateway
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeCustomerGatewaysResponse' constructor.
 --

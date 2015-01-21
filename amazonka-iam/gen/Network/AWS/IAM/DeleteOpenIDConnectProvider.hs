@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype DeleteOpenIDConnectProvider = DeleteOpenIDConnectProvider
     { _doidcpOpenIDConnectProviderArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteOpenIDConnectProvider' constructor.
 --
@@ -76,7 +76,7 @@ doidcpOpenIDConnectProviderArn =
         (\s a -> s { _doidcpOpenIDConnectProviderArn = a })
 
 data DeleteOpenIDConnectProviderResponse = DeleteOpenIDConnectProviderResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteOpenIDConnectProviderResponse' constructor.
 deleteOpenIDConnectProviderResponse :: DeleteOpenIDConnectProviderResponse

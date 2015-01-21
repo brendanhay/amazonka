@@ -60,7 +60,7 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances
     { _dasiInstanceIds :: List "member" Text
     , _dasiMaxRecords  :: Maybe Int
     , _dasiNextToken   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeAutoScalingInstances' constructor.
 --
@@ -97,7 +97,7 @@ dasiNextToken = lens _dasiNextToken (\s a -> s { _dasiNextToken = a })
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     { _dasirAutoScalingInstances :: List "member" AutoScalingInstanceDetails
     , _dasirNextToken            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeAutoScalingInstancesResponse' constructor.
 --

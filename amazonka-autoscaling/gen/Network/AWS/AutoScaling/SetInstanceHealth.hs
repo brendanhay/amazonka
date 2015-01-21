@@ -53,7 +53,7 @@ data SetInstanceHealth = SetInstanceHealth
     { _sihHealthStatus             :: Text
     , _sihInstanceId               :: Text
     , _sihShouldRespectGracePeriod :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SetInstanceHealth' constructor.
 --
@@ -96,7 +96,7 @@ sihShouldRespectGracePeriod =
         (\s a -> s { _sihShouldRespectGracePeriod = a })
 
 data SetInstanceHealthResponse = SetInstanceHealthResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetInstanceHealthResponse' constructor.
 setInstanceHealthResponse :: SetInstanceHealthResponse

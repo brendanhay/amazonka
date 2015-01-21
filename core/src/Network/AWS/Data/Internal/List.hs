@@ -43,10 +43,10 @@ import           Network.AWS.Data.Internal.XML
 import           Text.XML
 
 newtype List (e :: Symbol) a = List { list :: [a] }
-    deriving (Eq, Ord, Show, Semigroup, Monoid)
+    deriving (Eq, Ord, Read, Show, Semigroup, Monoid)
 
 newtype List1 (e :: Symbol) a = List1 { list1 :: NonEmpty a }
-    deriving (Eq, Ord, Show, Semigroup)
+    deriving (Eq, Ord, Read, Show, Semigroup)
 
 deriving instance Functor     (List1 e)
 deriving instance Foldable    (List1 e)

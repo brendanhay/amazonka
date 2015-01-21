@@ -68,6 +68,7 @@ newtype Internal a = Internal a
 data Derive
     = Eq'
     | Ord'
+    | Read'
     | Show'
     | Generic'
     | Enum'
@@ -531,16 +532,16 @@ instance DerivingOf Prim where
         PBlob    -> [Eq']
         _        -> []
       where
-        def = [Show', Generic']
+        def = [Read', Show', Generic']
 
 instance DerivingOf Type where
     derivingOf = \case
-        TType      _     -> [Eq', Show', Generic']
+        TType      _     -> [Eq', Read', Show', Generic']
         TPrim      p     -> derivingOf p
         TMaybe     x     -> prim (derivingOf x)
         TSensitive x     -> derivingOf x
         TFlatten   x     -> derivingOf x
-        TCase      _     -> [Eq', Ord', Show', Monoid']
+        TCase      _     -> [Eq', Ord', Read', Show', Monoid']
         TList      _ x   -> list (derivingOf x)
         TList1     _ x   -> Set.delete Monoid' . list $ derivingOf x
         TMap       _ k v -> hmap k v
@@ -564,12 +565,18 @@ instance DerivingOf Type where
             , IsString'
             ]
 
-instance DerivingOf Data where
-    derivingOf d = f . derivingOf $ toListOf (dataFields . typeOf) d
+instance DerivingOf Field where
+    derivingOf x = f . derivingOf $ x ^. typeOf
       where
-        f | Newtype {} <- d = Set.delete Generic'
-          | Nullary {} <- d = const [Eq', Ord', Enum', Show', Generic']
-          | Empty   {} <- d = const [Eq', Ord', Show', Generic']
+        f | _fStream x = Set.delete Read'
+          | otherwise  = id
+
+instance DerivingOf Data where
+    derivingOf x = f . derivingOf $ toListOf dataFields x
+      where
+        f | Newtype {} <- x = Set.delete Generic'
+          | Nullary {} <- x = const [Eq', Ord', Read', Enum', Show', Generic']
+          | Empty   {} <- x = const [Eq', Ord', Read', Show', Generic']
           | otherwise       = flip Set.difference
               [ Semigroup'
               , Monoid'

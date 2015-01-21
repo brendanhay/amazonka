@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data ListTagsForResource = ListTagsForResource
     { _ltfrResourceId   :: Text
     , _ltfrResourceType :: TagResourceType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListTagsForResource' constructor.
 --
@@ -81,7 +81,7 @@ ltfrResourceType = lens _ltfrResourceType (\s a -> s { _ltfrResourceType = a })
 
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrResourceTagSet :: ResourceTagSet
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListTagsForResourceResponse' constructor.
 --

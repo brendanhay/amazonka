@@ -93,7 +93,7 @@ data PutRecord = PutRecord
     , _prPartitionKey              :: Text
     , _prSequenceNumberForOrdering :: Maybe Text
     , _prStreamName                :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutRecord' constructor.
 --
@@ -160,7 +160,7 @@ prStreamName = lens _prStreamName (\s a -> s { _prStreamName = a })
 data PutRecordResponse = PutRecordResponse
     { _prrSequenceNumber :: Text
     , _prrShardId        :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PutRecordResponse' constructor.
 --

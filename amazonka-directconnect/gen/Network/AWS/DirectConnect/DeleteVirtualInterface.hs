@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DeleteVirtualInterface = DeleteVirtualInterface
     { _dvi1VirtualInterfaceId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteVirtualInterface' constructor.
 --
@@ -69,7 +69,7 @@ dvi1VirtualInterfaceId =
 
 newtype DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
     { _dvirVirtualInterfaceState :: Maybe VirtualInterfaceState
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteVirtualInterfaceResponse' constructor.
 --

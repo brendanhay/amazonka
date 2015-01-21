@@ -56,7 +56,7 @@ data ConfirmSubscription = ConfirmSubscription
     { _csAuthenticateOnUnsubscribe :: Maybe Text
     , _csToken                     :: Text
     , _csTopicArn                  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ConfirmSubscription' constructor.
 --
@@ -96,7 +96,7 @@ csTopicArn = lens _csTopicArn (\s a -> s { _csTopicArn = a })
 
 newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
     { _csrSubscriptionArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ConfirmSubscriptionResponse' constructor.
 --

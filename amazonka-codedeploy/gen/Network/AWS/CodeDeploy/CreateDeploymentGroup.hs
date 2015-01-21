@@ -59,7 +59,7 @@ data CreateDeploymentGroup = CreateDeploymentGroup
     , _cdgDeploymentGroupName  :: Text
     , _cdgEc2TagFilters        :: List "ec2TagFilters" EC2TagFilter
     , _cdgServiceRoleArn       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDeploymentGroup' constructor.
 --
@@ -151,7 +151,7 @@ cdgServiceRoleArn =
 
 newtype CreateDeploymentGroupResponse = CreateDeploymentGroupResponse
     { _cdgrDeploymentGroupId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateDeploymentGroupResponse' constructor.
 --

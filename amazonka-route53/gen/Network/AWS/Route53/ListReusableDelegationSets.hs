@@ -63,7 +63,7 @@ import qualified GHC.Exts
 data ListReusableDelegationSets = ListReusableDelegationSets
     { _lrdsMarker   :: Maybe Text
     , _lrdsMaxItems :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListReusableDelegationSets' constructor.
 --
@@ -96,7 +96,7 @@ data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse
     , _lrdsrMarker         :: Text
     , _lrdsrMaxItems       :: Text
     , _lrdsrNextMarker     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListReusableDelegationSetsResponse' constructor.
 --

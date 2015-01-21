@@ -59,7 +59,7 @@ data DescribeElasticIps = DescribeElasticIps
     { _deiInstanceId :: Maybe Text
     , _deiIps        :: List "Ips" Text
     , _deiStackId    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeElasticIps' constructor.
 --
@@ -98,7 +98,7 @@ deiStackId = lens _deiStackId (\s a -> s { _deiStackId = a })
 
 newtype DescribeElasticIpsResponse = DescribeElasticIpsResponse
     { _deirElasticIps :: List "ElasticIps" ElasticIp
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeElasticIpsResponse where
     type Item DescribeElasticIpsResponse = ElasticIp

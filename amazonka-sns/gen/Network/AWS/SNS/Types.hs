@@ -118,7 +118,7 @@ ns = "http://sns.amazonaws.com/doc/2010-03-31/"
 
 newtype Topic = Topic
     { _tTopicArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'Topic' constructor.
 --
@@ -148,7 +148,7 @@ data MessageAttributeValue = MessageAttributeValue
     { _mavBinaryValue :: Maybe Base64
     , _mavDataType    :: Text
     , _mavStringValue :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'MessageAttributeValue' constructor.
 --
@@ -198,7 +198,7 @@ instance ToQuery MessageAttributeValue where
 data PlatformApplication = PlatformApplication
     { _paAttributes             :: EMap "entry" "key" "value" Text Text
     , _paPlatformApplicationArn :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PlatformApplication' constructor.
 --
@@ -241,7 +241,7 @@ data Subscription = Subscription
     , _s1Protocol        :: Maybe Text
     , _s1SubscriptionArn :: Maybe Text
     , _s1TopicArn        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Subscription' constructor.
 --
@@ -307,7 +307,7 @@ instance ToQuery Subscription where
 data Endpoint = Endpoint
     { _eAttributes  :: EMap "entry" "key" "value" Text Text
     , _eEndpointArn :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Endpoint' constructor.
 --

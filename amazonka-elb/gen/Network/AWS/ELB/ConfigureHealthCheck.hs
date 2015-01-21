@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data ConfigureHealthCheck = ConfigureHealthCheck
     { _chcHealthCheck      :: HealthCheck
     , _chcLoadBalancerName :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ConfigureHealthCheck' constructor.
 --
@@ -85,7 +85,7 @@ chcLoadBalancerName =
 
 newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
     { _chcrHealthCheck :: Maybe HealthCheck
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ConfigureHealthCheckResponse' constructor.
 --

@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup
     { _mcpgParameterGroupName :: Text
     , _mcpgParameters         :: List "member" Parameter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyClusterParameterGroup' constructor.
 --
@@ -91,7 +91,7 @@ mcpgParameters = lens _mcpgParameters (\s a -> s { _mcpgParameters = a }) . _Lis
 data ModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
     { _mcpgrParameterGroupName   :: Maybe Text
     , _mcpgrParameterGroupStatus :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ModifyClusterParameterGroupResponse' constructor.
 --

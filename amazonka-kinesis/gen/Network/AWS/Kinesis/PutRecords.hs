@@ -98,7 +98,7 @@ import qualified GHC.Exts
 data PutRecords = PutRecords
     { _pr1Records    :: List1 "Records" PutRecordsRequestEntry
     , _pr1StreamName :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutRecords' constructor.
 --
@@ -127,7 +127,7 @@ pr1StreamName = lens _pr1StreamName (\s a -> s { _pr1StreamName = a })
 data PutRecordsResponse = PutRecordsResponse
     { _prrFailedRecordCount :: Maybe Nat
     , _prrRecords           :: List1 "Records" PutRecordsResultEntry
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutRecordsResponse' constructor.
 --

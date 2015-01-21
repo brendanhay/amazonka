@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
     { _mscrpClusterIdentifier :: Text
     , _mscrpRetentionPeriod   :: Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ModifySnapshotCopyRetentionPeriod' constructor.
 --
@@ -95,7 +95,7 @@ mscrpRetentionPeriod =
 
 newtype ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse
     { _mscrprCluster :: Maybe Cluster
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifySnapshotCopyRetentionPeriodResponse' constructor.
 --

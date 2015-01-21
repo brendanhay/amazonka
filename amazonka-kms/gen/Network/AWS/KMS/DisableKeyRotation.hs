@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DisableKeyRotation = DisableKeyRotation
     { _dkrKeyId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DisableKeyRotation' constructor.
 --
@@ -67,7 +67,7 @@ dkrKeyId :: Lens' DisableKeyRotation Text
 dkrKeyId = lens _dkrKeyId (\s a -> s { _dkrKeyId = a })
 
 data DisableKeyRotationResponse = DisableKeyRotationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DisableKeyRotationResponse' constructor.
 disableKeyRotationResponse :: DisableKeyRotationResponse

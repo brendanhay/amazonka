@@ -61,7 +61,7 @@ data PutUserPolicy = PutUserPolicy
     { _pupPolicyDocument :: Text
     , _pupPolicyName     :: Text
     , _pupUserName       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PutUserPolicy' constructor.
 --
@@ -97,7 +97,7 @@ pupUserName :: Lens' PutUserPolicy Text
 pupUserName = lens _pupUserName (\s a -> s { _pupUserName = a })
 
 data PutUserPolicyResponse = PutUserPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutUserPolicyResponse' constructor.
 putUserPolicyResponse :: PutUserPolicyResponse

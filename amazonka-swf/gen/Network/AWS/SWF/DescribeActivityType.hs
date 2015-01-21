@@ -68,7 +68,7 @@ import qualified GHC.Exts
 data DescribeActivityType = DescribeActivityType
     { _datActivityType :: ActivityType
     , _datDomain       :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeActivityType' constructor.
 --
@@ -98,7 +98,7 @@ datDomain = lens _datDomain (\s a -> s { _datDomain = a })
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse
     { _datrConfiguration :: ActivityTypeConfiguration
     , _datrTypeInfo      :: ActivityTypeInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeActivityTypeResponse' constructor.
 --

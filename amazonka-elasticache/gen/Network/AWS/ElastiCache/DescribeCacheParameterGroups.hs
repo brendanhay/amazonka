@@ -56,7 +56,7 @@ data DescribeCacheParameterGroups = DescribeCacheParameterGroups
     { _dcpgCacheParameterGroupName :: Maybe Text
     , _dcpgMarker                  :: Maybe Text
     , _dcpgMaxRecords              :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeCacheParameterGroups' constructor.
 --
@@ -101,7 +101,7 @@ dcpgMaxRecords = lens _dcpgMaxRecords (\s a -> s { _dcpgMaxRecords = a })
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
     { _dcpgrCacheParameterGroups :: List "member" CacheParameterGroup
     , _dcpgrMarker               :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheParameterGroupsResponse' constructor.
 --

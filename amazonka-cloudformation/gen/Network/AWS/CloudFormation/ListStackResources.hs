@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data ListStackResources = ListStackResources
     { _lsrNextToken :: Maybe Text
     , _lsrStackName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListStackResources' constructor.
 --
@@ -91,7 +91,7 @@ lsrStackName = lens _lsrStackName (\s a -> s { _lsrStackName = a })
 data ListStackResourcesResponse = ListStackResourcesResponse
     { _lsrrNextToken              :: Maybe Text
     , _lsrrStackResourceSummaries :: List "member" StackResourceSummary
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListStackResourcesResponse' constructor.
 --

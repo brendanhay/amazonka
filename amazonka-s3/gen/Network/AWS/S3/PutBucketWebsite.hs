@@ -51,7 +51,7 @@ data PutBucketWebsite = PutBucketWebsite
     { _pbwBucket               :: Text
     , _pbwContentMD5           :: Maybe Text
     , _pbwWebsiteConfiguration :: WebsiteConfiguration
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutBucketWebsite' constructor.
 --
@@ -83,7 +83,7 @@ pbwWebsiteConfiguration =
     lens _pbwWebsiteConfiguration (\s a -> s { _pbwWebsiteConfiguration = a })
 
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutBucketWebsiteResponse' constructor.
 putBucketWebsiteResponse :: PutBucketWebsiteResponse

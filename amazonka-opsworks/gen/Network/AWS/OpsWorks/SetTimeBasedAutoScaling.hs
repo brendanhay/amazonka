@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
     { _stbasAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
     , _stbasInstanceId          :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SetTimeBasedAutoScaling' constructor.
 --
@@ -82,7 +82,7 @@ stbasInstanceId :: Lens' SetTimeBasedAutoScaling Text
 stbasInstanceId = lens _stbasInstanceId (\s a -> s { _stbasInstanceId = a })
 
 data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetTimeBasedAutoScalingResponse' constructor.
 setTimeBasedAutoScalingResponse :: SetTimeBasedAutoScalingResponse

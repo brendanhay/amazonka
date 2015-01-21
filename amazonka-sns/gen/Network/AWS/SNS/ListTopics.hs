@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype ListTopics = ListTopics
     { _ltNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ListTopics' constructor.
 --
@@ -72,7 +72,7 @@ ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
 data ListTopicsResponse = ListTopicsResponse
     { _ltrNextToken :: Maybe Text
     , _ltrTopics    :: List "member" Topic
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListTopicsResponse' constructor.
 --

@@ -62,7 +62,7 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions
     , _dcoOptions           :: List "member" OptionSpecification
     , _dcoSolutionStackName :: Maybe Text
     , _dcoTemplateName      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeConfigurationOptions' constructor.
 --
@@ -118,7 +118,7 @@ dcoTemplateName = lens _dcoTemplateName (\s a -> s { _dcoTemplateName = a })
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
     { _dcorOptions           :: List "member" ConfigurationOptionDescription
     , _dcorSolutionStackName :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeConfigurationOptionsResponse' constructor.
 --

@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype PutConfigurationRecorder = PutConfigurationRecorder
     { _pcrConfigurationRecorder :: ConfigurationRecorder
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutConfigurationRecorder' constructor.
 --
@@ -73,7 +73,7 @@ pcrConfigurationRecorder =
         (\s a -> s { _pcrConfigurationRecorder = a })
 
 data PutConfigurationRecorderResponse = PutConfigurationRecorderResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutConfigurationRecorderResponse' constructor.
 putConfigurationRecorderResponse :: PutConfigurationRecorderResponse

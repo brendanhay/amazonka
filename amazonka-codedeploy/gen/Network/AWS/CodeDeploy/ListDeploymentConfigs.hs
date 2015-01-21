@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype ListDeploymentConfigs = ListDeploymentConfigs
     { _ldcNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ListDeploymentConfigs' constructor.
 --
@@ -72,7 +72,7 @@ ldcNextToken = lens _ldcNextToken (\s a -> s { _ldcNextToken = a })
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse
     { _ldcrDeploymentConfigsList :: List "deploymentConfigsList" Text
     , _ldcrNextToken             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListDeploymentConfigsResponse' constructor.
 --

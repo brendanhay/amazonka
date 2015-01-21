@@ -57,7 +57,7 @@ data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
     { _rei1EnvironmentId   :: Maybe Text
     , _rei1EnvironmentName :: Maybe Text
     , _rei1InfoType        :: EnvironmentInfoType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RetrieveEnvironmentInfo' constructor.
 --
@@ -103,7 +103,7 @@ rei1InfoType = lens _rei1InfoType (\s a -> s { _rei1InfoType = a })
 
 newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
     { _reirEnvironmentInfo :: List "member" EnvironmentInfoDescription
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList RetrieveEnvironmentInfoResponse where
     type Item RetrieveEnvironmentInfoResponse = EnvironmentInfoDescription

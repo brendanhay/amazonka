@@ -54,7 +54,7 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
     { _prcnoCacheNodeCount               :: Maybe Int
     , _prcnoReservedCacheNodeId          :: Maybe Text
     , _prcnoReservedCacheNodesOfferingId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PurchaseReservedCacheNodesOffering' constructor.
 --
@@ -99,7 +99,7 @@ prcnoReservedCacheNodesOfferingId =
 
 newtype PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
     { _prcnorReservedCacheNode :: Maybe ReservedCacheNode
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PurchaseReservedCacheNodesOfferingResponse' constructor.
 --

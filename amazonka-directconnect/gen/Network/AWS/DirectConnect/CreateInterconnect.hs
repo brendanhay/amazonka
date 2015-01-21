@@ -73,7 +73,7 @@ data CreateInterconnect = CreateInterconnect
     { _ciBandwidth        :: Text
     , _ciInterconnectName :: Text
     , _ciLocation         :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateInterconnect' constructor.
 --
@@ -129,7 +129,7 @@ data CreateInterconnectResponse = CreateInterconnectResponse
     , _cirInterconnectState :: Maybe InterconnectState
     , _cirLocation          :: Maybe Text
     , _cirRegion            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateInterconnectResponse' constructor.
 --

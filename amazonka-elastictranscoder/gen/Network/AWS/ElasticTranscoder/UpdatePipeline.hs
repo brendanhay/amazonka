@@ -66,7 +66,7 @@ data UpdatePipeline = UpdatePipeline
     , _upNotifications   :: Maybe Notifications
     , _upRole            :: Maybe Text
     , _upThumbnailConfig :: Maybe PipelineOutputConfig
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdatePipeline' constructor.
 --
@@ -221,7 +221,7 @@ upThumbnailConfig =
 
 newtype UpdatePipelineResponse = UpdatePipelineResponse
     { _uprPipeline :: Maybe Pipeline
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdatePipelineResponse' constructor.
 --

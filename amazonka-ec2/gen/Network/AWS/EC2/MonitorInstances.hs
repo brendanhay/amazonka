@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data MonitorInstances = MonitorInstances
     { _miDryRun      :: Maybe Bool
     , _miInstanceIds :: List "InstanceId" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'MonitorInstances' constructor.
 --
@@ -77,7 +77,7 @@ miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a }) . _List
 
 newtype MonitorInstancesResponse = MonitorInstancesResponse
     { _mirInstanceMonitorings :: List "item" InstanceMonitoring
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'MonitorInstancesResponse' constructor.
 --

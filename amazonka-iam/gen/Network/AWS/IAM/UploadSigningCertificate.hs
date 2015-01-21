@@ -65,7 +65,7 @@ import qualified GHC.Exts
 data UploadSigningCertificate = UploadSigningCertificate
     { _usc1CertificateBody :: Text
     , _usc1UserName        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UploadSigningCertificate' constructor.
 --
@@ -93,7 +93,7 @@ usc1UserName = lens _usc1UserName (\s a -> s { _usc1UserName = a })
 
 newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
     { _uscrCertificate :: SigningCertificate
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UploadSigningCertificateResponse' constructor.
 --

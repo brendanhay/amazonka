@@ -83,7 +83,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
     , _asgeSourceSecurityGroupName    :: Maybe Text
     , _asgeSourceSecurityGroupOwnerId :: Maybe Text
     , _asgeToPort                     :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AuthorizeSecurityGroupEgress' constructor.
 --
@@ -170,7 +170,7 @@ asgeToPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
 asgeToPort = lens _asgeToPort (\s a -> s { _asgeToPort = a })
 
 data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AuthorizeSecurityGroupEgressResponse' constructor.
 authorizeSecurityGroupEgressResponse :: AuthorizeSecurityGroupEgressResponse

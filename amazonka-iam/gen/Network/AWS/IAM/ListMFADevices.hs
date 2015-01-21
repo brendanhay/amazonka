@@ -60,7 +60,7 @@ data ListMFADevices = ListMFADevices
     { _lmfadMarker   :: Maybe Text
     , _lmfadMaxItems :: Maybe Nat
     , _lmfadUserName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListMFADevices' constructor.
 --
@@ -100,7 +100,7 @@ data ListMFADevicesResponse = ListMFADevicesResponse
     { _lmfadrIsTruncated :: Maybe Bool
     , _lmfadrMFADevices  :: List "member" MFADevice
     , _lmfadrMarker      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListMFADevicesResponse' constructor.
 --

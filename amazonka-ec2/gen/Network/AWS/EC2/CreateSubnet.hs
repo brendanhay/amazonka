@@ -78,7 +78,7 @@ data CreateSubnet = CreateSubnet
     , _cs1CidrBlock        :: Text
     , _cs1DryRun           :: Maybe Bool
     , _cs1VpcId            :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateSubnet' constructor.
 --
@@ -122,7 +122,7 @@ cs1VpcId = lens _cs1VpcId (\s a -> s { _cs1VpcId = a })
 
 newtype CreateSubnetResponse = CreateSubnetResponse
     { _csrSubnet :: Maybe Subnet
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateSubnetResponse' constructor.
 --

@@ -313,7 +313,7 @@ data PutObjectResponse = PutObjectResponse
     , _porSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _porServerSideEncryption :: Maybe ServerSideEncryption
     , _porVersionId            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutObjectResponse' constructor.
 --

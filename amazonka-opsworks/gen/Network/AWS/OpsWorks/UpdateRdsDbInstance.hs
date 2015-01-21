@@ -55,7 +55,7 @@ data UpdateRdsDbInstance = UpdateRdsDbInstance
     { _urdiDbPassword       :: Maybe Text
     , _urdiDbUser           :: Maybe Text
     , _urdiRdsDbInstanceArn :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateRdsDbInstance' constructor.
 --
@@ -89,7 +89,7 @@ urdiRdsDbInstanceArn =
     lens _urdiRdsDbInstanceArn (\s a -> s { _urdiRdsDbInstanceArn = a })
 
 data UpdateRdsDbInstanceResponse = UpdateRdsDbInstanceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateRdsDbInstanceResponse' constructor.
 updateRdsDbInstanceResponse :: UpdateRdsDbInstanceResponse

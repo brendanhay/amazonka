@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DescribeExportTasks = DescribeExportTasks
     { _detExportTaskIds :: List "ExportTaskId" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeExportTasks' constructor.
 --
@@ -68,7 +68,7 @@ detExportTaskIds = lens _detExportTaskIds (\s a -> s { _detExportTaskIds = a }) 
 
 newtype DescribeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks :: List "item" ExportTask
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeExportTasksResponse' constructor.
 --

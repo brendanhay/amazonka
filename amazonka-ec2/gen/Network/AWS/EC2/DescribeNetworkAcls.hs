@@ -55,7 +55,7 @@ data DescribeNetworkAcls = DescribeNetworkAcls
     { _dna1DryRun        :: Maybe Bool
     , _dna1Filters       :: List "Filter" Filter
     , _dna1NetworkAclIds :: List "item" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeNetworkAcls' constructor.
 --
@@ -140,7 +140,7 @@ dna1NetworkAclIds =
 
 newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
     { _dnarNetworkAcls :: List "item" NetworkAcl
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeNetworkAclsResponse' constructor.
 --

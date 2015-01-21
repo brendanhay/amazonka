@@ -56,7 +56,7 @@ data CreateClusterSnapshot = CreateClusterSnapshot
     { _ccsClusterIdentifier  :: Text
     , _ccsSnapshotIdentifier :: Text
     , _ccsTags               :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateClusterSnapshot' constructor.
 --
@@ -100,7 +100,7 @@ ccsTags = lens _ccsTags (\s a -> s { _ccsTags = a }) . _List
 
 newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
     { _ccsr1Snapshot :: Maybe Snapshot
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateClusterSnapshotResponse' constructor.
 --

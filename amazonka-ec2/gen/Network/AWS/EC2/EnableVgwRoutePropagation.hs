@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
     { _evrpGatewayId    :: Text
     , _evrpRouteTableId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnableVgwRoutePropagation' constructor.
 --
@@ -77,7 +77,7 @@ evrpRouteTableId :: Lens' EnableVgwRoutePropagation Text
 evrpRouteTableId = lens _evrpRouteTableId (\s a -> s { _evrpRouteTableId = a })
 
 data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'EnableVgwRoutePropagationResponse' constructor.
 enableVgwRoutePropagationResponse :: EnableVgwRoutePropagationResponse

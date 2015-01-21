@@ -83,7 +83,7 @@ data RegisterActivityType = RegisterActivityType
     , _ratDomain                            :: Text
     , _ratName                              :: Text
     , _ratVersion                           :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RegisterActivityType' constructor.
 --
@@ -217,7 +217,7 @@ ratVersion :: Lens' RegisterActivityType Text
 ratVersion = lens _ratVersion (\s a -> s { _ratVersion = a })
 
 data RegisterActivityTypeResponse = RegisterActivityTypeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RegisterActivityTypeResponse' constructor.
 registerActivityTypeResponse :: RegisterActivityTypeResponse

@@ -57,7 +57,7 @@ data DescribeSuggesters = DescribeSuggesters
     { _ds1Deployed       :: Maybe Bool
     , _ds1DomainName     :: Text
     , _ds1SuggesterNames :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeSuggesters' constructor.
 --
@@ -94,7 +94,7 @@ ds1SuggesterNames =
 
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse
     { _dsrSuggesters :: List "member" SuggesterStatus
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeSuggestersResponse where
     type Item DescribeSuggestersResponse = SuggesterStatus

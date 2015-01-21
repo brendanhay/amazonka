@@ -60,7 +60,7 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
     { _drimFilters                          :: List "Filter" Filter
     , _drimNextToken                        :: Maybe Text
     , _drimReservedInstancesModificationIds :: List "ReservedInstancesModificationId" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesModifications' constructor.
 --
@@ -131,7 +131,7 @@ drimReservedInstancesModificationIds =
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
     { _drimrNextToken                      :: Maybe Text
     , _drimrReservedInstancesModifications :: List "item" ReservedInstancesModification
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesModificationsResponse' constructor.
 --

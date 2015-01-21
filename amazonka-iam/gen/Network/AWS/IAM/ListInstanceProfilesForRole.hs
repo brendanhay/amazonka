@@ -59,7 +59,7 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole
     { _lipfrMarker   :: Maybe Text
     , _lipfrMaxItems :: Maybe Nat
     , _lipfrRoleName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListInstanceProfilesForRole' constructor.
 --
@@ -101,7 +101,7 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     { _lipfrrInstanceProfiles :: List "member" InstanceProfile
     , _lipfrrIsTruncated      :: Maybe Bool
     , _lipfrrMarker           :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListInstanceProfilesForRoleResponse' constructor.
 --

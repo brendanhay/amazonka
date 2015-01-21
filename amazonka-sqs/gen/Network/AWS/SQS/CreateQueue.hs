@@ -73,7 +73,7 @@ import qualified GHC.Exts
 data CreateQueue = CreateQueue
     { _cqAttributes :: EMap "entry" "Name" "Value" Text Text
     , _cqQueueName  :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateQueue' constructor.
 --
@@ -117,7 +117,7 @@ cqQueueName = lens _cqQueueName (\s a -> s { _cqQueueName = a })
 
 newtype CreateQueueResponse = CreateQueueResponse
     { _cqrQueueUrl :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateQueueResponse' constructor.
 --

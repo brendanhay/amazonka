@@ -57,7 +57,7 @@ data GetGroup = GetGroup
     { _ggGroupName :: Text
     , _ggMarker    :: Maybe Text
     , _ggMaxItems  :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetGroup' constructor.
 --
@@ -99,7 +99,7 @@ data GetGroupResponse = GetGroupResponse
     , _ggrIsTruncated :: Maybe Bool
     , _ggrMarker      :: Maybe Text
     , _ggrUsers       :: List "member" User
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetGroupResponse' constructor.
 --

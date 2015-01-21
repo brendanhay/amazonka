@@ -55,7 +55,7 @@ data DetachClassicLinkVpc = DetachClassicLinkVpc
     { _dclvDryRun     :: Maybe Bool
     , _dclvInstanceId :: Text
     , _dclvVpcId      :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DetachClassicLinkVpc' constructor.
 --
@@ -89,7 +89,7 @@ dclvVpcId = lens _dclvVpcId (\s a -> s { _dclvVpcId = a })
 
 newtype DetachClassicLinkVpcResponse = DetachClassicLinkVpcResponse
     { _dclvrReturn :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DetachClassicLinkVpcResponse' constructor.
 --

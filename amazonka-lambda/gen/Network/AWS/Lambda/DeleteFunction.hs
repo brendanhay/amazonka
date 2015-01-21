@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DeleteFunction = DeleteFunction
     { _dfFunctionName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteFunction' constructor.
 --
@@ -68,7 +68,7 @@ dfFunctionName :: Lens' DeleteFunction Text
 dfFunctionName = lens _dfFunctionName (\s a -> s { _dfFunctionName = a })
 
 data DeleteFunctionResponse = DeleteFunctionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteFunctionResponse' constructor.
 deleteFunctionResponse :: DeleteFunctionResponse

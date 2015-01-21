@@ -63,7 +63,7 @@ data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
     , _slbasEnable      :: Maybe Bool
     , _slbasLayerId     :: Text
     , _slbasUpScaling   :: Maybe AutoScalingThresholds
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SetLoadBasedAutoScaling' constructor.
 --
@@ -107,7 +107,7 @@ slbasUpScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
 slbasUpScaling = lens _slbasUpScaling (\s a -> s { _slbasUpScaling = a })
 
 data SetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetLoadBasedAutoScalingResponse' constructor.
 setLoadBasedAutoScalingResponse :: SetLoadBasedAutoScalingResponse

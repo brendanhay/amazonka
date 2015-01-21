@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DeleteTopic = DeleteTopic
     { _dtTopicArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteTopic' constructor.
 --
@@ -69,7 +69,7 @@ dtTopicArn :: Lens' DeleteTopic Text
 dtTopicArn = lens _dtTopicArn (\s a -> s { _dtTopicArn = a })
 
 data DeleteTopicResponse = DeleteTopicResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteTopicResponse' constructor.
 deleteTopicResponse :: DeleteTopicResponse

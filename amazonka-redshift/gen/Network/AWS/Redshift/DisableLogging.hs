@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype DisableLogging = DisableLogging
     { _dlClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DisableLogging' constructor.
 --
@@ -83,7 +83,7 @@ data DisableLoggingResponse = DisableLoggingResponse
     , _dlrLastSuccessfulDeliveryTime :: Maybe ISO8601
     , _dlrLoggingEnabled             :: Maybe Bool
     , _dlrS3KeyPrefix                :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DisableLoggingResponse' constructor.
 --

@@ -70,7 +70,7 @@ data SendMessage = SendMessage
     , _smMessageAttributes :: EMap "entry" "Name" "Value" Text MessageAttributeValue
     , _smMessageBody       :: Text
     , _smQueueUrl          :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SendMessage' constructor.
 --
@@ -121,7 +121,7 @@ data SendMessageResponse = SendMessageResponse
     { _smrMD5OfMessageAttributes :: Maybe Text
     , _smrMD5OfMessageBody       :: Maybe Text
     , _smrMessageId              :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SendMessageResponse' constructor.
 --

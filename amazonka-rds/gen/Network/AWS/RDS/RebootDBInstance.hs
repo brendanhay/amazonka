@@ -67,7 +67,7 @@ import qualified GHC.Exts
 data RebootDBInstance = RebootDBInstance
     { _rdbiDBInstanceIdentifier :: Text
     , _rdbiForceFailover        :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RebootDBInstance' constructor.
 --
@@ -106,7 +106,7 @@ rdbiForceFailover =
 
 newtype RebootDBInstanceResponse = RebootDBInstanceResponse
     { _rdbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RebootDBInstanceResponse' constructor.
 --

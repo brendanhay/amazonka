@@ -55,7 +55,7 @@ data CreateLoginProfile = CreateLoginProfile
     { _clpPassword              :: Sensitive Text
     , _clpPasswordResetRequired :: Maybe Bool
     , _clpUserName              :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateLoginProfile' constructor.
 --
@@ -93,7 +93,7 @@ clpUserName = lens _clpUserName (\s a -> s { _clpUserName = a })
 
 newtype CreateLoginProfileResponse = CreateLoginProfileResponse
     { _clprLoginProfile :: LoginProfile
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateLoginProfileResponse' constructor.
 --

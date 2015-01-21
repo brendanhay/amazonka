@@ -66,7 +66,7 @@ data QueryObjects = QueryObjects
     , _qoPipelineId :: Text
     , _qoQuery      :: Maybe Query
     , _qoSphere     :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'QueryObjects' constructor.
 --
@@ -123,7 +123,7 @@ data QueryObjectsResponse = QueryObjectsResponse
     { _qorHasMoreResults :: Maybe Bool
     , _qorIds            :: List "ids" Text
     , _qorMarker         :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'QueryObjectsResponse' constructor.
 --

@@ -73,7 +73,7 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
     , _psugaScheduledActionName  :: Text
     , _psugaStartTime            :: Maybe ISO8601
     , _psugaTime                 :: Maybe ISO8601
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PutScheduledUpdateGroupAction' constructor.
 --
@@ -169,7 +169,7 @@ psugaTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaTime = lens _psugaTime (\s a -> s { _psugaTime = a }) . mapping _Time
 
 data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutScheduledUpdateGroupActionResponse' constructor.
 putScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse

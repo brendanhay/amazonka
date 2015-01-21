@@ -51,7 +51,7 @@ data DeleteRoute = DeleteRoute
     { _drDestinationCidrBlock :: Text
     , _drDryRun               :: Maybe Bool
     , _drRouteTableId         :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteRoute' constructor.
 --
@@ -86,7 +86,7 @@ drRouteTableId :: Lens' DeleteRoute Text
 drRouteTableId = lens _drRouteTableId (\s a -> s { _drRouteTableId = a })
 
 data DeleteRouteResponse = DeleteRouteResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteRouteResponse' constructor.
 deleteRouteResponse :: DeleteRouteResponse

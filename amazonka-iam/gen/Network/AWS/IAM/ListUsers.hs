@@ -59,7 +59,7 @@ data ListUsers = ListUsers
     { _luMarker     :: Maybe Text
     , _luMaxItems   :: Maybe Nat
     , _luPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListUsers' constructor.
 --
@@ -102,7 +102,7 @@ data ListUsersResponse = ListUsersResponse
     { _lurIsTruncated :: Maybe Bool
     , _lurMarker      :: Maybe Text
     , _lurUsers       :: List "member" User
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListUsersResponse' constructor.
 --

@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
     { _dcsg1ClusterSecurityGroupName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteClusterSecurityGroup' constructor.
 --
@@ -72,7 +72,7 @@ dcsg1ClusterSecurityGroupName =
         (\s a -> s { _dcsg1ClusterSecurityGroupName = a })
 
 data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteClusterSecurityGroupResponse' constructor.
 deleteClusterSecurityGroupResponse :: DeleteClusterSecurityGroupResponse

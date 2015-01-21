@@ -76,7 +76,7 @@ data CreateSecurityGroup = CreateSecurityGroup
     , _csgDryRun      :: Maybe Bool
     , _csgGroupName   :: Text
     , _csgVpcId       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateSecurityGroup' constructor.
 --
@@ -129,7 +129,7 @@ csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
 
 newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
     { _csgrGroupId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'CreateSecurityGroupResponse' constructor.
 --

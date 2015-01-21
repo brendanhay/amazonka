@@ -67,7 +67,7 @@ data Publish = Publish
     , _pSubject           :: Maybe Text
     , _pTargetArn         :: Maybe Text
     , _pTopicArn          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Publish' constructor.
 --
@@ -166,7 +166,7 @@ pTopicArn = lens _pTopicArn (\s a -> s { _pTopicArn = a })
 
 newtype PublishResponse = PublishResponse
     { _prMessageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'PublishResponse' constructor.
 --

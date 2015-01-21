@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteBucketLifecycle = DeleteBucketLifecycle
     { _dblBucket :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteBucketLifecycle' constructor.
 --
@@ -65,7 +65,7 @@ dblBucket :: Lens' DeleteBucketLifecycle Text
 dblBucket = lens _dblBucket (\s a -> s { _dblBucket = a })
 
 data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteBucketLifecycleResponse' constructor.
 deleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse

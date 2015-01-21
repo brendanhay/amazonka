@@ -67,7 +67,7 @@ data DescribeStackResources = DescribeStackResources
     { _dsrLogicalResourceId  :: Maybe Text
     , _dsrPhysicalResourceId :: Maybe Text
     , _dsrStackName          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeStackResources' constructor.
 --
@@ -120,7 +120,7 @@ dsrStackName = lens _dsrStackName (\s a -> s { _dsrStackName = a })
 
 newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse
     { _dsrrStackResources :: List "member" StackResource
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeStackResourcesResponse where
     type Item DescribeStackResourcesResponse = StackResource

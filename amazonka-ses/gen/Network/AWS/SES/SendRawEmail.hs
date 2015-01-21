@@ -76,7 +76,7 @@ data SendRawEmail = SendRawEmail
     { _sreDestinations :: List "member" Text
     , _sreRawMessage   :: RawMessage
     , _sreSource       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SendRawEmail' constructor.
 --
@@ -123,7 +123,7 @@ sreSource = lens _sreSource (\s a -> s { _sreSource = a })
 
 newtype SendRawEmailResponse = SendRawEmailResponse
     { _srerMessageId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'SendRawEmailResponse' constructor.
 --

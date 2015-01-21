@@ -59,7 +59,7 @@ import           Text.XML
 
 newtype Map k v = Map
     { fromMap :: HashMap k v
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 type role Map nominal representational
 
@@ -102,7 +102,7 @@ instance ToHeader (Map (CI Text) Text) where
 
 newtype EMap (e :: Symbol) (i :: Symbol) (j :: Symbol) k v = EMap
     { fromEMap :: HashMap k v
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 type role EMap phantom phantom phantom nominal representational
 

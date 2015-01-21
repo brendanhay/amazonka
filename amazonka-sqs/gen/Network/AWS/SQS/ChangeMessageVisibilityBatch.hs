@@ -63,7 +63,7 @@ import qualified GHC.Exts
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
     { _cmvbEntries  :: List "member" ChangeMessageVisibilityBatchRequestEntry
     , _cmvbQueueUrl :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ChangeMessageVisibilityBatch' constructor.
 --
@@ -92,7 +92,7 @@ cmvbQueueUrl = lens _cmvbQueueUrl (\s a -> s { _cmvbQueueUrl = a })
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
     { _cmvbrFailed     :: List "member" BatchResultErrorEntry
     , _cmvbrSuccessful :: List "member" ChangeMessageVisibilityBatchResultEntry
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ChangeMessageVisibilityBatchResponse' constructor.
 --

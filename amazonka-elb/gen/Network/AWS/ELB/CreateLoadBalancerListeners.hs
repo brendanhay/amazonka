@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners
     { _clblListeners        :: List "member" Listener
     , _clblLoadBalancerName :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateLoadBalancerListeners' constructor.
 --
@@ -81,7 +81,7 @@ clblLoadBalancerName =
     lens _clblLoadBalancerName (\s a -> s { _clblLoadBalancerName = a })
 
 data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateLoadBalancerListenersResponse' constructor.
 createLoadBalancerListenersResponse :: CreateLoadBalancerListenersResponse

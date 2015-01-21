@@ -97,7 +97,7 @@ data PollForDecisionTask = PollForDecisionTask
     , _pfdtNextPageToken   :: Maybe Text
     , _pfdtReverseOrder    :: Maybe Bool
     , _pfdtTaskList        :: TaskList
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PollForDecisionTask' constructor.
 --
@@ -184,7 +184,7 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse
     , _pfdtrTaskToken              :: Text
     , _pfdtrWorkflowExecution      :: WorkflowExecution
     , _pfdtrWorkflowType           :: WorkflowType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PollForDecisionTaskResponse' constructor.
 --

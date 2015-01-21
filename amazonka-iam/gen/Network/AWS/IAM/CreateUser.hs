@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data CreateUser = CreateUser
     { _cuPath     :: Maybe Text
     , _cuUserName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateUser' constructor.
 --
@@ -84,7 +84,7 @@ cuUserName = lens _cuUserName (\s a -> s { _cuUserName = a })
 
 newtype CreateUserResponse = CreateUserResponse
     { _curUser :: Maybe User
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateUserResponse' constructor.
 --

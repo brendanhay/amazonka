@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data ListBootstrapActions = ListBootstrapActions
     { _lbaClusterId :: Text
     , _lbaMarker    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListBootstrapActions' constructor.
 --
@@ -80,7 +80,7 @@ lbaMarker = lens _lbaMarker (\s a -> s { _lbaMarker = a })
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse
     { _lbarBootstrapActions :: List "BootstrapActions" Command
     , _lbarMarker           :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListBootstrapActionsResponse' constructor.
 --

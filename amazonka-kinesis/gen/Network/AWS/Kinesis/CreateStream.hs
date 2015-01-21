@@ -81,7 +81,7 @@ import qualified GHC.Exts
 data CreateStream = CreateStream
     { _csShardCount :: Nat
     , _csStreamName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateStream' constructor.
 --
@@ -118,7 +118,7 @@ csStreamName :: Lens' CreateStream Text
 csStreamName = lens _csStreamName (\s a -> s { _csStreamName = a })
 
 data CreateStreamResponse = CreateStreamResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateStreamResponse' constructor.
 createStreamResponse :: CreateStreamResponse

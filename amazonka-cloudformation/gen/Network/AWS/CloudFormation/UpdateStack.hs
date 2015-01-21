@@ -79,7 +79,7 @@ data UpdateStack = UpdateStack
     , _usTemplateBody                :: Maybe Text
     , _usTemplateURL                 :: Maybe Text
     , _usUsePreviousTemplate         :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateStack' constructor.
 --
@@ -224,7 +224,7 @@ usUsePreviousTemplate =
 
 newtype UpdateStackResponse = UpdateStackResponse
     { _usrStackId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'UpdateStackResponse' constructor.
 --

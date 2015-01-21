@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data CreateLogStream = CreateLogStream
     { _clsLogGroupName  :: Text
     , _clsLogStreamName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateLogStream' constructor.
 --
@@ -80,7 +80,7 @@ clsLogStreamName :: Lens' CreateLogStream Text
 clsLogStreamName = lens _clsLogStreamName (\s a -> s { _clsLogStreamName = a })
 
 data CreateLogStreamResponse = CreateLogStreamResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateLogStreamResponse' constructor.
 createLogStreamResponse :: CreateLogStreamResponse

@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data GetObjectTorrent = GetObjectTorrent
     { _gotBucket :: Text
     , _gotKey    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetObjectTorrent' constructor.
 --

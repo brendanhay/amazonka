@@ -50,7 +50,7 @@ import Network.AWS.OpsWorks.Types
 import qualified GHC.Exts
 
 data DescribeMyUserProfile = DescribeMyUserProfile
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DescribeMyUserProfile' constructor.
 describeMyUserProfile :: DescribeMyUserProfile
@@ -58,7 +58,7 @@ describeMyUserProfile = DescribeMyUserProfile
 
 newtype DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
     { _dmuprUserProfile :: Maybe SelfUserProfile
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeMyUserProfileResponse' constructor.
 --

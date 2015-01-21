@@ -59,7 +59,7 @@ import qualified GHC.Exts
 
 newtype ListLocalDisks = ListLocalDisks
     { _lldGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ListLocalDisks' constructor.
 --
@@ -79,7 +79,7 @@ lldGatewayARN = lens _lldGatewayARN (\s a -> s { _lldGatewayARN = a })
 data ListLocalDisksResponse = ListLocalDisksResponse
     { _lldrDisks      :: List "Disks" Disk
     , _lldrGatewayARN :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListLocalDisksResponse' constructor.
 --

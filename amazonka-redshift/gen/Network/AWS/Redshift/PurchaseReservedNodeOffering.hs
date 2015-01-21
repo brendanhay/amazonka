@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
     { _prnoNodeCount              :: Maybe Int
     , _prnoReservedNodeOfferingId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PurchaseReservedNodeOffering' constructor.
 --
@@ -88,7 +88,7 @@ prnoReservedNodeOfferingId =
 
 newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
     { _prnorReservedNode :: Maybe ReservedNode
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PurchaseReservedNodeOfferingResponse' constructor.
 --

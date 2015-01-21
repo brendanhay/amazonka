@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data UpdateSAMLProvider = UpdateSAMLProvider
     { _usamlpSAMLMetadataDocument :: Text
     , _usamlpSAMLProviderArn      :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateSAMLProvider' constructor.
 --
@@ -89,7 +89,7 @@ usamlpSAMLProviderArn =
 
 newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse
     { _usamlprSAMLProviderArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'UpdateSAMLProviderResponse' constructor.
 --

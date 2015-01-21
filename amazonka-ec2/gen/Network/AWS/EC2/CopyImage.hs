@@ -64,7 +64,7 @@ data CopyImage = CopyImage
     , _ciName          :: Text
     , _ciSourceImageId :: Text
     , _ciSourceRegion  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CopyImage' constructor.
 --
@@ -121,7 +121,7 @@ ciSourceRegion = lens _ciSourceRegion (\s a -> s { _ciSourceRegion = a })
 
 newtype CopyImageResponse = CopyImageResponse
     { _cir1ImageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CopyImageResponse' constructor.
 --

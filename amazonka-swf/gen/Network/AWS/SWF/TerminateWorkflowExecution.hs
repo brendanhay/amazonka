@@ -76,7 +76,7 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution
     , _tweReason      :: Maybe Text
     , _tweRunId       :: Maybe Text
     , _tweWorkflowId  :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'TerminateWorkflowExecution' constructor.
 --
@@ -145,7 +145,7 @@ tweWorkflowId :: Lens' TerminateWorkflowExecution Text
 tweWorkflowId = lens _tweWorkflowId (\s a -> s { _tweWorkflowId = a })
 
 data TerminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'TerminateWorkflowExecutionResponse' constructor.
 terminateWorkflowExecutionResponse :: TerminateWorkflowExecutionResponse

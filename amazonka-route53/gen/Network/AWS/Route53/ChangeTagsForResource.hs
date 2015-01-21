@@ -51,7 +51,7 @@ data ChangeTagsForResource = ChangeTagsForResource
     , _ctfrRemoveTagKeys :: List1 "Key" Text
     , _ctfrResourceId    :: Text
     , _ctfrResourceType  :: TagResourceType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ChangeTagsForResource' constructor.
 --
@@ -101,7 +101,7 @@ ctfrResourceType :: Lens' ChangeTagsForResource TagResourceType
 ctfrResourceType = lens _ctfrResourceType (\s a -> s { _ctfrResourceType = a })
 
 data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ChangeTagsForResourceResponse' constructor.
 changeTagsForResourceResponse :: ChangeTagsForResourceResponse

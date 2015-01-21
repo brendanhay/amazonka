@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DisableVgwRoutePropagation = DisableVgwRoutePropagation
     { _dvrpGatewayId    :: Text
     , _dvrpRouteTableId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DisableVgwRoutePropagation' constructor.
 --
@@ -77,7 +77,7 @@ dvrpRouteTableId :: Lens' DisableVgwRoutePropagation Text
 dvrpRouteTableId = lens _dvrpRouteTableId (\s a -> s { _dvrpRouteTableId = a })
 
 data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DisableVgwRoutePropagationResponse' constructor.
 disableVgwRoutePropagationResponse :: DisableVgwRoutePropagationResponse

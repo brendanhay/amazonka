@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions
     { _daoDeployed   :: Maybe Bool
     , _daoDomainName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeAvailabilityOptions' constructor.
 --
@@ -82,7 +82,7 @@ daoDomainName = lens _daoDomainName (\s a -> s { _daoDomainName = a })
 
 newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
     { _daorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeAvailabilityOptionsResponse' constructor.
 --

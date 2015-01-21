@@ -62,7 +62,7 @@ data DescribeLogStreams = DescribeLogStreams
     , _dls1LogGroupName        :: Text
     , _dls1LogStreamNamePrefix :: Maybe Text
     , _dls1NextToken           :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeLogStreams' constructor.
 --
@@ -105,7 +105,7 @@ dls1NextToken = lens _dls1NextToken (\s a -> s { _dls1NextToken = a })
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse
     { _dlsrLogStreams :: List "logStreams" LogStream
     , _dlsrNextToken  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeLogStreamsResponse' constructor.
 --

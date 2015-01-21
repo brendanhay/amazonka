@@ -57,7 +57,7 @@ data UpdateUserProfile = UpdateUserProfile
     , _uupIamUserArn          :: Text
     , _uupSshPublicKey        :: Maybe Text
     , _uupSshUsername         :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateUserProfile' constructor.
 --
@@ -103,7 +103,7 @@ uupSshUsername :: Lens' UpdateUserProfile (Maybe Text)
 uupSshUsername = lens _uupSshUsername (\s a -> s { _uupSshUsername = a })
 
 data UpdateUserProfileResponse = UpdateUserProfileResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateUserProfileResponse' constructor.
 updateUserProfileResponse :: UpdateUserProfileResponse

@@ -91,7 +91,7 @@ data SplitShard = SplitShard
     { _ssNewStartingHashKey :: Text
     , _ssShardToSplit       :: Text
     , _ssStreamName         :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SplitShard' constructor.
 --
@@ -132,7 +132,7 @@ ssStreamName :: Lens' SplitShard Text
 ssStreamName = lens _ssStreamName (\s a -> s { _ssStreamName = a })
 
 data SplitShardResponse = SplitShardResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SplitShardResponse' constructor.
 splitShardResponse :: SplitShardResponse

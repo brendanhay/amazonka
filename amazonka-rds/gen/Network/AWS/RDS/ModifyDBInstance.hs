@@ -91,7 +91,7 @@ data ModifyDBInstance = ModifyDBInstance
     , _mdbiTdeCredentialArn           :: Maybe Text
     , _mdbiTdeCredentialPassword      :: Maybe Text
     , _mdbiVpcSecurityGroupIds        :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ModifyDBInstance' constructor.
 --
@@ -528,7 +528,7 @@ mdbiVpcSecurityGroupIds =
 
 newtype ModifyDBInstanceResponse = ModifyDBInstanceResponse
     { _mdbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyDBInstanceResponse' constructor.
 --

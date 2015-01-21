@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype VerifyEmailAddress = VerifyEmailAddress
     { _veaEmailAddress :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'VerifyEmailAddress' constructor.
 --
@@ -71,7 +71,7 @@ veaEmailAddress :: Lens' VerifyEmailAddress Text
 veaEmailAddress = lens _veaEmailAddress (\s a -> s { _veaEmailAddress = a })
 
 data VerifyEmailAddressResponse = VerifyEmailAddressResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'VerifyEmailAddressResponse' constructor.
 verifyEmailAddressResponse :: VerifyEmailAddressResponse

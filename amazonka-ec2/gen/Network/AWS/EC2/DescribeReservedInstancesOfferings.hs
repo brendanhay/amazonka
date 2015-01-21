@@ -82,7 +82,7 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     , _drioOfferingType                 :: Maybe OfferingTypeValues
     , _drioProductDescription           :: Maybe RIProductDescription
     , _drioReservedInstancesOfferingIds :: List "ReservedInstancesOfferingId" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesOfferings' constructor.
 --
@@ -240,7 +240,7 @@ drioReservedInstancesOfferingIds =
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
     { _driorNextToken                  :: Maybe Text
     , _driorReservedInstancesOfferings :: List "item" ReservedInstancesOffering
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesOfferingsResponse' constructor.
 --

@@ -153,7 +153,7 @@ ns = "http://queue.amazonaws.com/doc/2012-11-05/"
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry
     { _dmbreId            :: Text
     , _dmbreReceiptHandle :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteMessageBatchRequestEntry' constructor.
 --
@@ -199,7 +199,7 @@ data MessageAttributeValue = MessageAttributeValue
     , _mavDataType         :: Text
     , _mavStringListValues :: List "member" Text
     , _mavStringValue      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'MessageAttributeValue' constructor.
 --
@@ -271,7 +271,7 @@ instance ToQuery MessageAttributeValue where
 
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry
     { _cmvbreId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ChangeMessageVisibilityBatchResultEntry' constructor.
 --
@@ -302,7 +302,7 @@ data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequ
     { _cmvbre1Id                :: Text
     , _cmvbre1ReceiptHandle     :: Text
     , _cmvbre1VisibilityTimeout :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ChangeMessageVisibilityBatchRequestEntry' constructor.
 --
@@ -355,7 +355,7 @@ instance ToQuery ChangeMessageVisibilityBatchRequestEntry where
 
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry
     { _dmbre1Id :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteMessageBatchResultEntry' constructor.
 --
@@ -390,7 +390,7 @@ data Message = Message
     , _mMessageAttributes      :: EMap "entry" "Name" "Value" Text MessageAttributeValue
     , _mMessageId              :: Maybe Text
     , _mReceiptHandle          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Message' constructor.
 --
@@ -486,7 +486,7 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
     , _smbreId                :: Text
     , _smbreMessageAttributes :: EMap "entry" "Name" "Value" Text MessageAttributeValue
     , _smbreMessageBody       :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SendMessageBatchRequestEntry' constructor.
 --
@@ -552,7 +552,7 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry
     , _smbre1MD5OfMessageAttributes :: Maybe Text
     , _smbre1MD5OfMessageBody       :: Text
     , _smbre1MessageId              :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SendMessageBatchResultEntry' constructor.
 --
@@ -622,7 +622,7 @@ data BatchResultErrorEntry = BatchResultErrorEntry
     , _breeId          :: Text
     , _breeMessage     :: Maybe Text
     , _breeSenderFault :: Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'BatchResultErrorEntry' constructor.
 --

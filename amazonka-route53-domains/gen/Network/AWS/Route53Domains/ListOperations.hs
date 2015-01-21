@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data ListOperations = ListOperations
     { _loMarker   :: Maybe Text
     , _loMaxItems :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListOperations' constructor.
 --
@@ -99,7 +99,7 @@ loMaxItems = lens _loMaxItems (\s a -> s { _loMaxItems = a })
 data ListOperationsResponse = ListOperationsResponse
     { _lorNextPageMarker :: Maybe Text
     , _lorOperations     :: List "Operations" OperationSummary
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListOperationsResponse' constructor.
 --

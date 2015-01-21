@@ -64,7 +64,7 @@ import qualified GHC.Exts
 
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
     { _gidaIdentities :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetIdentityDkimAttributes where
     type Item GetIdentityDkimAttributes = Text
@@ -89,7 +89,7 @@ gidaIdentities = lens _gidaIdentities (\s a -> s { _gidaIdentities = a }) . _Lis
 
 newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     { _gidarDkimAttributes :: EMap "entry" "key" "value" Text IdentityDkimAttributes
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'GetIdentityDkimAttributesResponse' constructor.
 --

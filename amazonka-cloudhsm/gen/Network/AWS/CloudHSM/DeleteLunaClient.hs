@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DeleteLunaClient = DeleteLunaClient
     { _dlc1ClientArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteLunaClient' constructor.
 --
@@ -69,7 +69,7 @@ dlc1ClientArn = lens _dlc1ClientArn (\s a -> s { _dlc1ClientArn = a })
 
 newtype DeleteLunaClientResponse = DeleteLunaClientResponse
     { _dlcrStatus :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteLunaClientResponse' constructor.
 --

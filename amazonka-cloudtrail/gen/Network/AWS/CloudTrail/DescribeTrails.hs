@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DescribeTrails = DescribeTrails
     { _dtTrailNameList :: List "trailNameList" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTrails where
     type Item DescribeTrails = Text
@@ -75,7 +75,7 @@ dtTrailNameList = lens _dtTrailNameList (\s a -> s { _dtTrailNameList = a }) . _
 
 newtype DescribeTrailsResponse = DescribeTrailsResponse
     { _dtrTrailList :: List "trailList" Trail
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTrailsResponse where
     type Item DescribeTrailsResponse = Trail

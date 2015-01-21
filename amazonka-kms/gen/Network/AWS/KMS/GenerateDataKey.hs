@@ -60,7 +60,7 @@ data GenerateDataKey = GenerateDataKey
     , _gdkKeyId             :: Text
     , _gdkKeySpec           :: Maybe DataKeySpec
     , _gdkNumberOfBytes     :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GenerateDataKey' constructor.
 --
@@ -118,7 +118,7 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse
     { _gdkrCiphertextBlob :: Maybe Base64
     , _gdkrKeyId          :: Maybe Text
     , _gdkrPlaintext      :: Maybe Base64
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GenerateDataKeyResponse' constructor.
 --

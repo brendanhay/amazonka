@@ -70,7 +70,7 @@ import qualified GHC.Exts
 data RespondActivityTaskCompleted = RespondActivityTaskCompleted
     { _ratcResult    :: Maybe Text
     , _ratcTaskToken :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RespondActivityTaskCompleted' constructor.
 --
@@ -101,7 +101,7 @@ ratcTaskToken :: Lens' RespondActivityTaskCompleted Text
 ratcTaskToken = lens _ratcTaskToken (\s a -> s { _ratcTaskToken = a })
 
 data RespondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RespondActivityTaskCompletedResponse' constructor.
 respondActivityTaskCompletedResponse :: RespondActivityTaskCompletedResponse

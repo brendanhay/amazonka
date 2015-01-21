@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data DeleteVpnConnection = DeleteVpnConnection
     { _dvcDryRun          :: Maybe Bool
     , _dvcVpnConnectionId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteVpnConnection' constructor.
 --
@@ -84,7 +84,7 @@ dvcVpnConnectionId =
     lens _dvcVpnConnectionId (\s a -> s { _dvcVpnConnectionId = a })
 
 data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteVpnConnectionResponse' constructor.
 deleteVpnConnectionResponse :: DeleteVpnConnectionResponse

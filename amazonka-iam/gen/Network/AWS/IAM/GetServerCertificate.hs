@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetServerCertificate = GetServerCertificate
     { _gscServerCertificateName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetServerCertificate' constructor.
 --
@@ -71,7 +71,7 @@ gscServerCertificateName =
 
 newtype GetServerCertificateResponse = GetServerCertificateResponse
     { _gscrServerCertificate :: ServerCertificate
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetServerCertificateResponse' constructor.
 --

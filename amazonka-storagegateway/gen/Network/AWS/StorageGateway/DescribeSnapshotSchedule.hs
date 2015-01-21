@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule
     { _dssVolumeARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeSnapshotSchedule' constructor.
 --
@@ -80,7 +80,7 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
     , _dssrStartAt           :: Maybe Nat
     , _dssrTimezone          :: Maybe Text
     , _dssrVolumeARN         :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeSnapshotScheduleResponse' constructor.
 --

@@ -309,7 +309,7 @@ data TagDescription = TagDescription
     , _tdResourceId        :: Text
     , _tdResourceType      :: Text
     , _tdValue             :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TagDescription' constructor.
 --
@@ -386,7 +386,7 @@ data Tag = Tag
     , _tagResourceId        :: Text
     , _tagResourceType      :: Text
     , _tagValue             :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Tag' constructor.
 --
@@ -461,7 +461,7 @@ data NotificationConfiguration = NotificationConfiguration
     { _ncAutoScalingGroupName :: Maybe Text
     , _ncNotificationType     :: Maybe Text
     , _ncTopicARN             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'NotificationConfiguration' constructor.
 --
@@ -513,7 +513,7 @@ data BlockDeviceMapping = BlockDeviceMapping
     , _bdmEbs         :: Maybe Ebs
     , _bdmNoDevice    :: Maybe Bool
     , _bdmVirtualName :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'BlockDeviceMapping' constructor.
 --
@@ -589,7 +589,7 @@ data LaunchConfiguration = LaunchConfiguration
     , _lcSecurityGroups           :: List "member" Text
     , _lcSpotPrice                :: Maybe Text
     , _lcUserData                 :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'LaunchConfiguration' constructor.
 --
@@ -799,7 +799,7 @@ data AutoScalingGroup = AutoScalingGroup
     , _asgTags                    :: List "member" TagDescription
     , _asgTerminationPolicies     :: List "member" Text
     , _asgVPCZoneIdentifier       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AutoScalingGroup' constructor.
 --
@@ -1043,7 +1043,7 @@ data ScalingPolicy = ScalingPolicy
     , _sp1PolicyARN            :: Maybe Text
     , _sp1PolicyName           :: Maybe Text
     , _sp1ScalingAdjustment    :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ScalingPolicy' constructor.
 --
@@ -1144,7 +1144,7 @@ instance ToQuery ScalingPolicy where
 
 newtype InstanceMonitoring = InstanceMonitoring
     { _imEnabled :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'InstanceMonitoring' constructor.
 --
@@ -1181,7 +1181,7 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     , _sugaScheduledActionName  :: Maybe Text
     , _sugaStartTime            :: Maybe ISO8601
     , _sugaTime                 :: Maybe ISO8601
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ScheduledUpdateGroupAction' constructor.
 --
@@ -1303,7 +1303,7 @@ instance ToQuery ScheduledUpdateGroupAction where
 data ScalingProcessQuery = ScalingProcessQuery
     { _spqAutoScalingGroupName :: Text
     , _spqScalingProcesses     :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ScalingProcessQuery' constructor.
 --
@@ -1351,7 +1351,7 @@ data Ebs = Ebs
     , _ebsSnapshotId          :: Maybe Text
     , _ebsVolumeSize          :: Maybe Nat
     , _ebsVolumeType          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Ebs' constructor.
 --
@@ -1436,7 +1436,7 @@ instance ToQuery Ebs where
 
 newtype AdjustmentType = AdjustmentType
     { _atAdjustmentType :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'AdjustmentType' constructor.
 --
@@ -1467,7 +1467,7 @@ instance ToQuery AdjustmentType where
 
 newtype MetricCollectionType = MetricCollectionType
     { _mctMetric :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'MetricCollectionType' constructor.
 --
@@ -1503,7 +1503,7 @@ data LifecycleHook = LifecycleHook
     , _lhNotificationMetadata  :: Maybe Text
     , _lhNotificationTargetARN :: Maybe Text
     , _lhRoleARN               :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'LifecycleHook' constructor.
 --
@@ -1630,7 +1630,7 @@ data Activity = Activity
     , _aStartTime            :: ISO8601
     , _aStatusCode           :: ScalingActivityStatusCode
     , _aStatusMessage        :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Activity' constructor.
 --
@@ -1746,7 +1746,7 @@ instance ToQuery Activity where
 data SuspendedProcess = SuspendedProcess
     { _spProcessName      :: Maybe Text
     , _spSuspensionReason :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SuspendedProcess' constructor.
 --
@@ -1784,7 +1784,7 @@ instance ToQuery SuspendedProcess where
 
 newtype MetricGranularityType = MetricGranularityType
     { _mgtGranularity :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'MetricGranularityType' constructor.
 --
@@ -1813,7 +1813,7 @@ instance ToQuery MetricGranularityType where
 data Filter = Filter
     { _fName   :: Text
     , _fValues :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Filter' constructor.
 --
@@ -1851,7 +1851,7 @@ instance ToQuery Filter where
 
 newtype ProcessType = ProcessType
     { _ptProcessName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ProcessType' constructor.
 --
@@ -1881,7 +1881,7 @@ instance ToQuery ProcessType where
 data Alarm = Alarm
     { _aAlarmARN  :: Maybe Text
     , _aAlarmName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Alarm' constructor.
 --
@@ -1919,7 +1919,7 @@ instance ToQuery Alarm where
 data EnabledMetric = EnabledMetric
     { _emGranularity :: Maybe Text
     , _emMetric      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnabledMetric' constructor.
 --
@@ -1960,7 +1960,7 @@ data Instance = Instance
     , _iInstanceId              :: Text
     , _iLaunchConfigurationName :: Text
     , _iLifecycleState          :: LifecycleState
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Instance' constructor.
 --
@@ -2048,7 +2048,7 @@ data LifecycleState
     | Terminating        -- ^ Terminating
     | TerminatingProceed -- ^ Terminating:Proceed
     | TerminatingWait    -- ^ Terminating:Wait
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable LifecycleState
 
@@ -2100,7 +2100,7 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     , _asidInstanceId              :: Text
     , _asidLaunchConfigurationName :: Text
     , _asidLifecycleState          :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AutoScalingInstanceDetails' constructor.
 --
@@ -2196,7 +2196,7 @@ data ScalingActivityStatusCode
     | WaitingForInstanceId            -- ^ WaitingForInstanceId
     | WaitingForSpotInstanceId        -- ^ WaitingForSpotInstanceId
     | WaitingForSpotInstanceRequestId -- ^ WaitingForSpotInstanceRequestId
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ScalingActivityStatusCode
 

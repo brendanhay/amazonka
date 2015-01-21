@@ -56,7 +56,7 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups
     { _dcsg1CacheSecurityGroupName :: Maybe Text
     , _dcsg1Marker                 :: Maybe Text
     , _dcsg1MaxRecords             :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeCacheSecurityGroups' constructor.
 --
@@ -101,7 +101,7 @@ dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
     { _dcsgr1CacheSecurityGroups :: List "member" CacheSecurityGroup
     , _dcsgr1Marker              :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheSecurityGroupsResponse' constructor.
 --

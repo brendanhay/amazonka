@@ -44,14 +44,14 @@ import Network.AWS.IAM.Types
 import qualified GHC.Exts
 
 data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteAccountPasswordPolicy' constructor.
 deleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
 deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
 
 data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteAccountPasswordPolicyResponse' constructor.
 deleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse

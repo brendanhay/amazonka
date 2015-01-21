@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data GetGroupPolicy = GetGroupPolicy
     { _ggpGroupName  :: Text
     , _ggpPolicyName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetGroupPolicy' constructor.
 --
@@ -85,7 +85,7 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse
     { _ggprGroupName      :: Text
     , _ggprPolicyDocument :: Text
     , _ggprPolicyName     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetGroupPolicyResponse' constructor.
 --

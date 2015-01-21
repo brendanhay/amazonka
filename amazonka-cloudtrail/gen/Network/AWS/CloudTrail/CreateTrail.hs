@@ -70,7 +70,7 @@ data CreateTrail = CreateTrail
     , _ctS3BucketName               :: Text
     , _ctS3KeyPrefix                :: Maybe Text
     , _ctSnsTopicName               :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateTrail' constructor.
 --
@@ -151,7 +151,7 @@ data CreateTrailResponse = CreateTrailResponse
     , _ctrS3BucketName               :: Maybe Text
     , _ctrS3KeyPrefix                :: Maybe Text
     , _ctrSnsTopicName               :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateTrailResponse' constructor.
 --

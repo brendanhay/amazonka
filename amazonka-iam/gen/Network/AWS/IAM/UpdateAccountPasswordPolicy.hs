@@ -70,7 +70,7 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     , _uappRequireNumbers             :: Maybe Bool
     , _uappRequireSymbols             :: Maybe Bool
     , _uappRequireUppercaseCharacters :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateAccountPasswordPolicy' constructor.
 --
@@ -189,7 +189,7 @@ uappRequireUppercaseCharacters =
         (\s a -> s { _uappRequireUppercaseCharacters = a })
 
 data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateAccountPasswordPolicyResponse' constructor.
 updateAccountPasswordPolicyResponse :: UpdateAccountPasswordPolicyResponse

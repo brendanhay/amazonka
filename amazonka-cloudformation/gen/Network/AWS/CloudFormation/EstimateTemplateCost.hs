@@ -55,7 +55,7 @@ data EstimateTemplateCost = EstimateTemplateCost
     { _etcParameters   :: List "member" Parameter
     , _etcTemplateBody :: Maybe Text
     , _etcTemplateURL  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'EstimateTemplateCost' constructor.
 --
@@ -98,7 +98,7 @@ etcTemplateURL = lens _etcTemplateURL (\s a -> s { _etcTemplateURL = a })
 
 newtype EstimateTemplateCostResponse = EstimateTemplateCostResponse
     { _etcrUrl :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'EstimateTemplateCostResponse' constructor.
 --

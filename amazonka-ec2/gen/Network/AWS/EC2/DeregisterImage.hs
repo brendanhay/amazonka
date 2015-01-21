@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data DeregisterImage = DeregisterImage
     { _diDryRun  :: Maybe Bool
     , _diImageId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeregisterImage' constructor.
 --
@@ -77,7 +77,7 @@ diImageId :: Lens' DeregisterImage Text
 diImageId = lens _diImageId (\s a -> s { _diImageId = a })
 
 data DeregisterImageResponse = DeregisterImageResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeregisterImageResponse' constructor.
 deregisterImageResponse :: DeregisterImageResponse

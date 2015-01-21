@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data AddUploadBuffer = AddUploadBuffer
     { _aubDiskIds    :: List "DiskIds" Text
     , _aubGatewayARN :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AddUploadBuffer' constructor.
 --
@@ -82,7 +82,7 @@ aubGatewayARN = lens _aubGatewayARN (\s a -> s { _aubGatewayARN = a })
 
 newtype AddUploadBufferResponse = AddUploadBufferResponse
     { _aubrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'AddUploadBufferResponse' constructor.
 --

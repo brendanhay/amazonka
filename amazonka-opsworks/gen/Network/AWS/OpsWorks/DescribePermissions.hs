@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data DescribePermissions = DescribePermissions
     { _dpIamUserArn :: Maybe Text
     , _dpStackId    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribePermissions' constructor.
 --
@@ -82,7 +82,7 @@ dpStackId = lens _dpStackId (\s a -> s { _dpStackId = a })
 
 newtype DescribePermissionsResponse = DescribePermissionsResponse
     { _dprPermissions :: List "Permissions" Permission
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribePermissionsResponse where
     type Item DescribePermissionsResponse = Permission

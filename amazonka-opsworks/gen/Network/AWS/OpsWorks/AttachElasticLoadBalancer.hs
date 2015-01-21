@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer
     { _aelbElasticLoadBalancerName :: Text
     , _aelbLayerId                 :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AttachElasticLoadBalancer' constructor.
 --
@@ -87,7 +87,7 @@ aelbLayerId :: Lens' AttachElasticLoadBalancer Text
 aelbLayerId = lens _aelbLayerId (\s a -> s { _aelbLayerId = a })
 
 data AttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AttachElasticLoadBalancerResponse' constructor.
 attachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse

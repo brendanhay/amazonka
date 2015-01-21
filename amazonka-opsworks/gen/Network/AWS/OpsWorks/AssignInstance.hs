@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data AssignInstance = AssignInstance
     { _aiInstanceId :: Text
     , _aiLayerIds   :: List "LayerIds" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AssignInstance' constructor.
 --
@@ -81,7 +81,7 @@ aiLayerIds :: Lens' AssignInstance [Text]
 aiLayerIds = lens _aiLayerIds (\s a -> s { _aiLayerIds = a }) . _List
 
 data AssignInstanceResponse = AssignInstanceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AssignInstanceResponse' constructor.
 assignInstanceResponse :: AssignInstanceResponse

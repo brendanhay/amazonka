@@ -92,7 +92,7 @@ data CreateCase = CreateCase
     , _ccServiceCode       :: Maybe Text
     , _ccSeverityCode      :: Maybe Text
     , _ccSubject           :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateCase' constructor.
 --
@@ -183,7 +183,7 @@ ccSubject = lens _ccSubject (\s a -> s { _ccSubject = a })
 
 newtype CreateCaseResponse = CreateCaseResponse
     { _ccrCaseId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateCaseResponse' constructor.
 --

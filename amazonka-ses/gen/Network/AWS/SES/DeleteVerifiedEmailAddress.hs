@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
     { _dveaEmailAddress :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteVerifiedEmailAddress' constructor.
 --
@@ -69,7 +69,7 @@ dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
 dveaEmailAddress = lens _dveaEmailAddress (\s a -> s { _dveaEmailAddress = a })
 
 data DeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteVerifiedEmailAddressResponse' constructor.
 deleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse

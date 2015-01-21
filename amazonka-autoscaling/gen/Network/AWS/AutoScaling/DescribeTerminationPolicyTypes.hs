@@ -46,7 +46,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DescribeTerminationPolicyTypes' constructor.
 describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
@@ -54,7 +54,7 @@ describeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 
 newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
     { _dtptrTerminationPolicyTypes :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTerminationPolicyTypesResponse where
     type Item DescribeTerminationPolicyTypesResponse = Text

@@ -66,7 +66,7 @@ import qualified GHC.Exts
 
 newtype ShutdownGateway = ShutdownGateway
     { _sg1GatewayARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ShutdownGateway' constructor.
 --
@@ -85,7 +85,7 @@ sg1GatewayARN = lens _sg1GatewayARN (\s a -> s { _sg1GatewayARN = a })
 
 newtype ShutdownGatewayResponse = ShutdownGatewayResponse
     { _sgr1GatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ShutdownGatewayResponse' constructor.
 --

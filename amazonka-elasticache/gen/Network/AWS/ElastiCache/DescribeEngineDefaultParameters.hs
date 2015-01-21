@@ -54,7 +54,7 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
     { _dedpCacheParameterGroupFamily :: Text
     , _dedpMarker                    :: Maybe Text
     , _dedpMaxRecords                :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeEngineDefaultParameters' constructor.
 --
@@ -100,7 +100,7 @@ dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
 
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
     { _dedprEngineDefaults :: EngineDefaults
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeEngineDefaultParametersResponse' constructor.
 --

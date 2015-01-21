@@ -78,7 +78,7 @@ data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions
     , _ccweStartTimeFilter   :: Maybe ExecutionTimeFilter
     , _ccweTagFilter         :: Maybe TagFilter
     , _ccweTypeFilter        :: Maybe WorkflowTypeFilter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CountClosedWorkflowExecutions' constructor.
 --
@@ -168,7 +168,7 @@ ccweTypeFilter = lens _ccweTypeFilter (\s a -> s { _ccweTypeFilter = a })
 data CountClosedWorkflowExecutionsResponse = CountClosedWorkflowExecutionsResponse
     { _ccwerCount     :: Nat
     , _ccwerTruncated :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CountClosedWorkflowExecutionsResponse' constructor.
 --

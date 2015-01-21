@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
     { _ginaIdentities :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetIdentityNotificationAttributes where
     type Item GetIdentityNotificationAttributes = Text
@@ -79,7 +79,7 @@ ginaIdentities = lens _ginaIdentities (\s a -> s { _ginaIdentities = a }) . _Lis
 
 newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
     { _ginarNotificationAttributes :: EMap "entry" "key" "value" Text IdentityNotificationAttributes
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'GetIdentityNotificationAttributesResponse' constructor.
 --

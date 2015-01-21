@@ -66,7 +66,7 @@ data GetResourceConfigHistory = GetResourceConfigHistory
     , _grchNextToken          :: Maybe Text
     , _grchResourceId         :: Text
     , _grchResourceType       :: ResourceType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetResourceConfigHistory' constructor.
 --
@@ -136,7 +136,7 @@ grchResourceType = lens _grchResourceType (\s a -> s { _grchResourceType = a })
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse
     { _grchrConfigurationItems :: List "configurationItems" ConfigurationItem
     , _grchrNextToken          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetResourceConfigHistoryResponse' constructor.
 --

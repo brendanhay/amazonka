@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype PutDeliveryChannel = PutDeliveryChannel
     { _pdcDeliveryChannel :: DeliveryChannel
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutDeliveryChannel' constructor.
 --
@@ -76,7 +76,7 @@ pdcDeliveryChannel =
     lens _pdcDeliveryChannel (\s a -> s { _pdcDeliveryChannel = a })
 
 data PutDeliveryChannelResponse = PutDeliveryChannelResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutDeliveryChannelResponse' constructor.
 putDeliveryChannelResponse :: PutDeliveryChannelResponse

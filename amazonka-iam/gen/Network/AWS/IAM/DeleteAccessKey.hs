@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data DeleteAccessKey = DeleteAccessKey
     { _dakAccessKeyId :: Text
     , _dakUserName    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteAccessKey' constructor.
 --
@@ -81,7 +81,7 @@ dakUserName :: Lens' DeleteAccessKey (Maybe Text)
 dakUserName = lens _dakUserName (\s a -> s { _dakUserName = a })
 
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteAccessKeyResponse' constructor.
 deleteAccessKeyResponse :: DeleteAccessKeyResponse

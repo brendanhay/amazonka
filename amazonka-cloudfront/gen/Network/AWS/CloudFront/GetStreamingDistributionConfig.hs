@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig
     { _gsdcId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetStreamingDistributionConfig' constructor.
 --
@@ -71,7 +71,7 @@ gsdcId = lens _gsdcId (\s a -> s { _gsdcId = a })
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse
     { _gsdcrETag                        :: Maybe Text
     , _gsdcrStreamingDistributionConfig :: Maybe StreamingDistributionConfig
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetStreamingDistributionConfigResponse' constructor.
 --

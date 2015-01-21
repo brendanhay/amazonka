@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DescribeApplications = DescribeApplications
     { _daApplicationNames :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeApplications where
     type Item DescribeApplications = Text
@@ -77,7 +77,7 @@ daApplicationNames =
 
 newtype DescribeApplicationsResponse = DescribeApplicationsResponse
     { _darApplications :: List "member" ApplicationDescription
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeApplicationsResponse where
     type Item DescribeApplicationsResponse = ApplicationDescription

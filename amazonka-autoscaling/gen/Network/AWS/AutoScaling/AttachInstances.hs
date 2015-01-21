@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data AttachInstances = AttachInstances
     { _aiAutoScalingGroupName :: Text
     , _aiInstanceIds          :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AttachInstances' constructor.
 --
@@ -78,7 +78,7 @@ aiInstanceIds :: Lens' AttachInstances [Text]
 aiInstanceIds = lens _aiInstanceIds (\s a -> s { _aiInstanceIds = a }) . _List
 
 data AttachInstancesResponse = AttachInstancesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AttachInstancesResponse' constructor.
 attachInstancesResponse :: AttachInstancesResponse

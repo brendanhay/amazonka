@@ -60,7 +60,7 @@ data ListInstances = ListInstances
     , _liInstanceGroupId    :: Maybe Text
     , _liInstanceGroupTypes :: List "InstanceGroupTypes" InstanceGroupType
     , _liMarker             :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListInstances' constructor.
 --
@@ -105,7 +105,7 @@ liMarker = lens _liMarker (\s a -> s { _liMarker = a })
 data ListInstancesResponse = ListInstancesResponse
     { _lirInstances :: List "Instances" Instance
     , _lirMarker    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListInstancesResponse' constructor.
 --

@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype DeleteInstanceProfile = DeleteInstanceProfile
     { _dipInstanceProfileName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteInstanceProfile' constructor.
 --
@@ -74,7 +74,7 @@ dipInstanceProfileName =
     lens _dipInstanceProfileName (\s a -> s { _dipInstanceProfileName = a })
 
 data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteInstanceProfileResponse' constructor.
 deleteInstanceProfileResponse :: DeleteInstanceProfileResponse

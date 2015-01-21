@@ -58,7 +58,7 @@ data ListRolePolicies = ListRolePolicies
     { _lrpMarker   :: Maybe Text
     , _lrpMaxItems :: Maybe Nat
     , _lrpRoleName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListRolePolicies' constructor.
 --
@@ -100,7 +100,7 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse
     { _lrprIsTruncated :: Maybe Bool
     , _lrprMarker      :: Maybe Text
     , _lrprPolicyNames :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListRolePoliciesResponse' constructor.
 --

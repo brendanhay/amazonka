@@ -69,7 +69,7 @@ data CreateHsmConfiguration = CreateHsmConfiguration
     , _chcHsmPartitionPassword       :: Text
     , _chcHsmServerPublicCertificate :: Text
     , _chcTags                       :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateHsmConfiguration' constructor.
 --
@@ -144,7 +144,7 @@ chcTags = lens _chcTags (\s a -> s { _chcTags = a }) . _List
 
 newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
     { _chcrHsmConfiguration :: Maybe HsmConfiguration
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateHsmConfigurationResponse' constructor.
 --

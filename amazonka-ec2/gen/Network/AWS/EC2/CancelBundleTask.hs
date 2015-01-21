@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data CancelBundleTask = CancelBundleTask
     { _cbtBundleId :: Text
     , _cbtDryRun   :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CancelBundleTask' constructor.
 --
@@ -77,7 +77,7 @@ cbtDryRun = lens _cbtDryRun (\s a -> s { _cbtDryRun = a })
 
 newtype CancelBundleTaskResponse = CancelBundleTaskResponse
     { _cbtrBundleTask :: Maybe BundleTask
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CancelBundleTaskResponse' constructor.
 --

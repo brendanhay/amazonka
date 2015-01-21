@@ -93,7 +93,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
     , _rfcsSnapshotClusterIdentifier        :: Maybe Text
     , _rfcsSnapshotIdentifier               :: Text
     , _rfcsVpcSecurityGroupIds              :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RestoreFromClusterSnapshot' constructor.
 --
@@ -325,7 +325,7 @@ rfcsVpcSecurityGroupIds =
 
 newtype RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
     { _rfcsrCluster :: Maybe Cluster
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RestoreFromClusterSnapshotResponse' constructor.
 --

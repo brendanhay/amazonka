@@ -55,7 +55,7 @@ data CreateTags = CreateTags
     { _ct1DryRun    :: Maybe Bool
     , _ct1Resources :: List "ResourceId" Text
     , _ct1Tags      :: List "item" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateTags' constructor.
 --
@@ -88,7 +88,7 @@ ct1Tags :: Lens' CreateTags [Tag]
 ct1Tags = lens _ct1Tags (\s a -> s { _ct1Tags = a }) . _List
 
 data CreateTagsResponse = CreateTagsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateTagsResponse' constructor.
 createTagsResponse :: CreateTagsResponse

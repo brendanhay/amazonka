@@ -57,7 +57,7 @@ data CreateOptionGroup = CreateOptionGroup
     , _cogOptionGroupDescription :: Text
     , _cogOptionGroupName        :: Text
     , _cogTags                   :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateOptionGroup' constructor.
 --
@@ -119,7 +119,7 @@ cogTags = lens _cogTags (\s a -> s { _cogTags = a }) . _List
 
 newtype CreateOptionGroupResponse = CreateOptionGroupResponse
     { _cogr1OptionGroup :: Maybe OptionGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateOptionGroupResponse' constructor.
 --

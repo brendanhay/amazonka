@@ -72,7 +72,7 @@ data RequestSpotInstances = RequestSpotInstances
     , _rsiType                  :: Maybe SpotInstanceType
     , _rsiValidFrom             :: Maybe ISO8601
     , _rsiValidUntil            :: Maybe ISO8601
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RequestSpotInstances' constructor.
 --
@@ -187,7 +187,7 @@ rsiValidUntil = lens _rsiValidUntil (\s a -> s { _rsiValidUntil = a }) . mapping
 
 newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests :: List "item" SpotInstanceRequest
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'RequestSpotInstancesResponse' constructor.
 --

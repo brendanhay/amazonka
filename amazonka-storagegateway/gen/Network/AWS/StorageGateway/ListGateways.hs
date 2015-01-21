@@ -63,7 +63,7 @@ import qualified GHC.Exts
 data ListGateways = ListGateways
     { _lgLimit  :: Maybe Nat
     , _lgMarker :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListGateways' constructor.
 --
@@ -92,7 +92,7 @@ lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 data ListGatewaysResponse = ListGatewaysResponse
     { _lgrGateways :: List "Gateways" GatewayInfo
     , _lgrMarker   :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListGatewaysResponse' constructor.
 --

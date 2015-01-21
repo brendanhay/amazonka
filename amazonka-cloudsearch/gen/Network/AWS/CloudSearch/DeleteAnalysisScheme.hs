@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data DeleteAnalysisScheme = DeleteAnalysisScheme
     { _dasAnalysisSchemeName :: Text
     , _dasDomainName         :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteAnalysisScheme' constructor.
 --
@@ -80,7 +80,7 @@ dasDomainName = lens _dasDomainName (\s a -> s { _dasDomainName = a })
 
 newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
     { _dasrAnalysisScheme :: AnalysisSchemeStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteAnalysisSchemeResponse' constructor.
 --

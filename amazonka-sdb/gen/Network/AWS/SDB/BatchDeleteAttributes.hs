@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data BatchDeleteAttributes = BatchDeleteAttributes
     { _bdaDomainName :: Text
     , _bdaItems      :: List "member" DeletableItem
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'BatchDeleteAttributes' constructor.
 --
@@ -80,7 +80,7 @@ bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
 bdaItems = lens _bdaItems (\s a -> s { _bdaItems = a }) . _List
 
 data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'BatchDeleteAttributesResponse' constructor.
 batchDeleteAttributesResponse :: BatchDeleteAttributesResponse

@@ -57,7 +57,7 @@ data ListGroupsForUser = ListGroupsForUser
     { _lgfuMarker   :: Maybe Text
     , _lgfuMaxItems :: Maybe Nat
     , _lgfuUserName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListGroupsForUser' constructor.
 --
@@ -98,7 +98,7 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse
     { _lgfurGroups      :: List "member" Group
     , _lgfurIsTruncated :: Maybe Bool
     , _lgfurMarker      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListGroupsForUserResponse' constructor.
 --

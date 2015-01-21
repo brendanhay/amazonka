@@ -59,7 +59,7 @@ data EnableLogging = EnableLogging
     { _elBucketName        :: Text
     , _elClusterIdentifier :: Text
     , _elS3KeyPrefix       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnableLogging' constructor.
 --
@@ -113,7 +113,7 @@ data EnableLoggingResponse = EnableLoggingResponse
     , _elrLastSuccessfulDeliveryTime :: Maybe ISO8601
     , _elrLoggingEnabled             :: Maybe Bool
     , _elrS3KeyPrefix                :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnableLoggingResponse' constructor.
 --

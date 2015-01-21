@@ -70,7 +70,7 @@ data UpdateConfigurationTemplate = UpdateConfigurationTemplate
     , _uctOptionSettings  :: List "member" ConfigurationOptionSetting
     , _uctOptionsToRemove :: List "member" OptionSpecification
     , _uctTemplateName    :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateConfigurationTemplate' constructor.
 --
@@ -141,7 +141,7 @@ data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
     , _uctrOptionSettings    :: List "member" ConfigurationOptionSetting
     , _uctrSolutionStackName :: Maybe Text
     , _uctrTemplateName      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateConfigurationTemplateResponse' constructor.
 --

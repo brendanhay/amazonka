@@ -54,7 +54,7 @@ data GetObjectAcl = GetObjectAcl
     { _goaBucket    :: Text
     , _goaKey       :: Text
     , _goaVersionId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetObjectAcl' constructor.
 --
@@ -88,7 +88,7 @@ goaVersionId = lens _goaVersionId (\s a -> s { _goaVersionId = a })
 data GetObjectAclResponse = GetObjectAclResponse
     { _goarGrants :: List "Grant" Grant
     , _goarOwner  :: Maybe Owner
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetObjectAclResponse' constructor.
 --

@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data ListTables = ListTables
     { _ltExclusiveStartTableName :: Maybe Text
     , _ltLimit                   :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListTables' constructor.
 --
@@ -86,7 +86,7 @@ ltLimit = lens _ltLimit (\s a -> s { _ltLimit = a }) . mapping _Nat
 data ListTablesResponse = ListTablesResponse
     { _ltrLastEvaluatedTableName :: Maybe Text
     , _ltrTableNames             :: List "TableNames" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListTablesResponse' constructor.
 --

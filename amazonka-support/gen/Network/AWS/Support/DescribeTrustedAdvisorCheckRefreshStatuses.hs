@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses
     { _dtacrsCheckIds :: List "checkIds" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTrustedAdvisorCheckRefreshStatuses where
     type Item DescribeTrustedAdvisorCheckRefreshStatuses = Text
@@ -75,7 +75,7 @@ dtacrsCheckIds = lens _dtacrsCheckIds (\s a -> s { _dtacrsCheckIds = a }) . _Lis
 
 newtype DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse
     { _dtacrsrStatuses :: List "statuses" TrustedAdvisorCheckRefreshStatus
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTrustedAdvisorCheckRefreshStatusesResponse where
     type Item DescribeTrustedAdvisorCheckRefreshStatusesResponse = TrustedAdvisorCheckRefreshStatus

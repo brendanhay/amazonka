@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data DescribeStacks = DescribeStacks
     { _ds1NextToken :: Maybe Text
     , _ds1StackName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeStacks' constructor.
 --
@@ -85,7 +85,7 @@ ds1StackName = lens _ds1StackName (\s a -> s { _ds1StackName = a })
 data DescribeStacksResponse = DescribeStacksResponse
     { _dsrNextToken :: Maybe Text
     , _dsrStacks    :: List "member" Stack
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeStacksResponse' constructor.
 --

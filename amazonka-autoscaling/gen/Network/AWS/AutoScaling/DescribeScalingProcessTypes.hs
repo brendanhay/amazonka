@@ -46,7 +46,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeScalingProcessTypes = DescribeScalingProcessTypes
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DescribeScalingProcessTypes' constructor.
 describeScalingProcessTypes :: DescribeScalingProcessTypes
@@ -54,7 +54,7 @@ describeScalingProcessTypes = DescribeScalingProcessTypes
 
 newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
     { _dsptrProcesses :: List "member" ProcessType
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeScalingProcessTypesResponse where
     type Item DescribeScalingProcessTypesResponse = ProcessType

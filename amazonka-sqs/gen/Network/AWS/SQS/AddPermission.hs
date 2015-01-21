@@ -68,7 +68,7 @@ data AddPermission = AddPermission
     , _apActions       :: List "member" Text
     , _apLabel         :: Text
     , _apQueueUrl      :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AddPermission' constructor.
 --
@@ -118,7 +118,7 @@ apQueueUrl :: Lens' AddPermission Text
 apQueueUrl = lens _apQueueUrl (\s a -> s { _apQueueUrl = a })
 
 data AddPermissionResponse = AddPermissionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AddPermissionResponse' constructor.
 addPermissionResponse :: AddPermissionResponse

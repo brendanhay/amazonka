@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data DeleteDeploymentGroup = DeleteDeploymentGroup
     { _ddgApplicationName     :: Text
     , _ddgDeploymentGroupName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteDeploymentGroup' constructor.
 --
@@ -82,7 +82,7 @@ ddgDeploymentGroupName =
 
 newtype DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse
     { _ddgrHooksNotCleanedUp :: List "hooksNotCleanedUp" AutoScalingGroup
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DeleteDeploymentGroupResponse where
     type Item DeleteDeploymentGroupResponse = AutoScalingGroup

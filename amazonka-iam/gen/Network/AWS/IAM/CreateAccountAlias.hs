@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype CreateAccountAlias = CreateAccountAlias
     { _caaAccountAlias :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'CreateAccountAlias' constructor.
 --
@@ -68,7 +68,7 @@ caaAccountAlias :: Lens' CreateAccountAlias Text
 caaAccountAlias = lens _caaAccountAlias (\s a -> s { _caaAccountAlias = a })
 
 data CreateAccountAliasResponse = CreateAccountAliasResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateAccountAliasResponse' constructor.
 createAccountAliasResponse :: CreateAccountAliasResponse

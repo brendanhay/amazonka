@@ -55,7 +55,7 @@ data ResetDBParameterGroup = ResetDBParameterGroup
     { _rdbpgDBParameterGroupName :: Text
     , _rdbpgParameters           :: List "member" Parameter
     , _rdbpgResetAllParameters   :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ResetDBParameterGroup' constructor.
 --
@@ -115,7 +115,7 @@ rdbpgResetAllParameters =
 
 newtype ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
     { _rdbpgrDBParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ResetDBParameterGroupResponse' constructor.
 --

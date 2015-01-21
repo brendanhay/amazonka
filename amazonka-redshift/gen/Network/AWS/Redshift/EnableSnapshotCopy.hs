@@ -54,7 +54,7 @@ data EnableSnapshotCopy = EnableSnapshotCopy
     { _escClusterIdentifier :: Text
     , _escDestinationRegion :: Text
     , _escRetentionPeriod   :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnableSnapshotCopy' constructor.
 --
@@ -102,7 +102,7 @@ escRetentionPeriod =
 
 newtype EnableSnapshotCopyResponse = EnableSnapshotCopyResponse
     { _escrCluster :: Maybe Cluster
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'EnableSnapshotCopyResponse' constructor.
 --

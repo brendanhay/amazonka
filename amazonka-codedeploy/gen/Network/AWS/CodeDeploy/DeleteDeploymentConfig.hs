@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DeleteDeploymentConfig = DeleteDeploymentConfig
     { _ddcDeploymentConfigName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteDeploymentConfig' constructor.
 --
@@ -70,7 +70,7 @@ ddcDeploymentConfigName =
     lens _ddcDeploymentConfigName (\s a -> s { _ddcDeploymentConfigName = a })
 
 data DeleteDeploymentConfigResponse = DeleteDeploymentConfigResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteDeploymentConfigResponse' constructor.
 deleteDeploymentConfigResponse :: DeleteDeploymentConfigResponse

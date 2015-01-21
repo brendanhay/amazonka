@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetDistributionConfig = GetDistributionConfig
     { _gdcId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetDistributionConfig' constructor.
 --
@@ -71,7 +71,7 @@ gdcId = lens _gdcId (\s a -> s { _gdcId = a })
 data GetDistributionConfigResponse = GetDistributionConfigResponse
     { _gdcrDistributionConfig :: Maybe DistributionConfig
     , _gdcrETag               :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetDistributionConfigResponse' constructor.
 --

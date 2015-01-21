@@ -70,7 +70,7 @@ import qualified GHC.Exts
 
 newtype GetDomainDetail = GetDomainDetail
     { _gddDomainName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetDomainDetail' constructor.
 --
@@ -120,7 +120,7 @@ data GetDomainDetailResponse = GetDomainDetailResponse
     , _gddrTechPrivacy       :: Maybe Bool
     , _gddrUpdatedDate       :: Maybe POSIX
     , _gddrWhoIsServer       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetDomainDetailResponse' constructor.
 --

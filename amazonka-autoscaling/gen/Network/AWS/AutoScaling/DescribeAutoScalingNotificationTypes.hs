@@ -46,7 +46,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DescribeAutoScalingNotificationTypes' constructor.
 describeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
@@ -54,7 +54,7 @@ describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
 
 newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
     { _dasntrAutoScalingNotificationTypes :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAutoScalingNotificationTypesResponse where
     type Item DescribeAutoScalingNotificationTypesResponse = Text

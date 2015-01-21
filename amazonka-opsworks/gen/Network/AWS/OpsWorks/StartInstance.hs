@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype StartInstance = StartInstance
     { _si1InstanceId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'StartInstance' constructor.
 --
@@ -70,7 +70,7 @@ si1InstanceId :: Lens' StartInstance Text
 si1InstanceId = lens _si1InstanceId (\s a -> s { _si1InstanceId = a })
 
 data StartInstanceResponse = StartInstanceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'StartInstanceResponse' constructor.
 startInstanceResponse :: StartInstanceResponse

@@ -57,7 +57,7 @@ data CreateApplicationVersion = CreateApplicationVersion
     , _cavDescription           :: Maybe Text
     , _cavSourceBundle          :: Maybe S3Location
     , _cavVersionLabel          :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateApplicationVersion' constructor.
 --
@@ -137,7 +137,7 @@ cavVersionLabel = lens _cavVersionLabel (\s a -> s { _cavVersionLabel = a })
 
 newtype CreateApplicationVersionResponse = CreateApplicationVersionResponse
     { _cavrApplicationVersion :: Maybe ApplicationVersionDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateApplicationVersionResponse' constructor.
 --

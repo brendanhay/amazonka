@@ -59,7 +59,7 @@ data DescribeBundleTasks = DescribeBundleTasks
     { _dbtBundleIds :: List "BundleId" Text
     , _dbtDryRun    :: Maybe Bool
     , _dbtFilters   :: List "Filter" Filter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeBundleTasks' constructor.
 --
@@ -117,7 +117,7 @@ dbtFilters = lens _dbtFilters (\s a -> s { _dbtFilters = a }) . _List
 
 newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks :: List "item" BundleTask
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeBundleTasksResponse' constructor.
 --

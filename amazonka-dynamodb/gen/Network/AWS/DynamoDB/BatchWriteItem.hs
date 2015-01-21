@@ -117,7 +117,7 @@ data BatchWriteItem = BatchWriteItem
     { _bwiRequestItems                :: Map Text (List1 "RequestItems" WriteRequest)
     , _bwiReturnConsumedCapacity      :: Maybe ReturnConsumedCapacity
     , _bwiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'BatchWriteItem' constructor.
 --
@@ -184,7 +184,7 @@ data BatchWriteItemResponse = BatchWriteItemResponse
     { _bwirConsumedCapacity      :: List "ConsumedCapacity" ConsumedCapacity
     , _bwirItemCollectionMetrics :: Map Text (List "ItemCollectionMetrics" ItemCollectionMetrics)
     , _bwirUnprocessedItems      :: Map Text (List1 "UnprocessedItems" WriteRequest)
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'BatchWriteItemResponse' constructor.
 --

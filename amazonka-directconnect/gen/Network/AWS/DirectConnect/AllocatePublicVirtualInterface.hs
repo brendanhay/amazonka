@@ -75,7 +75,7 @@ data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface
     { _apvi1ConnectionId                        :: Text
     , _apvi1NewPublicVirtualInterfaceAllocation :: NewPublicVirtualInterfaceAllocation
     , _apvi1OwnerAccount                        :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AllocatePublicVirtualInterface' constructor.
 --
@@ -135,7 +135,7 @@ data AllocatePublicVirtualInterfaceResponse = AllocatePublicVirtualInterfaceResp
     , _apvir1VirtualInterfaceState :: Maybe VirtualInterfaceState
     , _apvir1VirtualInterfaceType  :: Maybe Text
     , _apvir1Vlan                  :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AllocatePublicVirtualInterfaceResponse' constructor.
 --

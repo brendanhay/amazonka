@@ -54,7 +54,7 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
     { _ucfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
     , _ucfoaiId                                   :: Text
     , _ucfoaiIfMatch                              :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateCloudFrontOriginAccessIdentity' constructor.
 --
@@ -93,7 +93,7 @@ ucfoaiIfMatch = lens _ucfoaiIfMatch (\s a -> s { _ucfoaiIfMatch = a })
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse
     { _ucfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
     , _ucfoairETag                           :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateCloudFrontOriginAccessIdentityResponse' constructor.
 --

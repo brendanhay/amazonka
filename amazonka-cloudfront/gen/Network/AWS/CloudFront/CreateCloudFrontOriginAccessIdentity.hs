@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity
     { _ccfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateCloudFrontOriginAccessIdentity' constructor.
 --
@@ -75,7 +75,7 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
     { _ccfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
     , _ccfoairETag                           :: Maybe Text
     , _ccfoairLocation                       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateCloudFrontOriginAccessIdentityResponse' constructor.
 --

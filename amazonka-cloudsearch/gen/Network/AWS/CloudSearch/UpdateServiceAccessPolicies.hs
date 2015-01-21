@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
     { _usapAccessPolicies :: Text
     , _usapDomainName     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateServiceAccessPolicies' constructor.
 --
@@ -82,7 +82,7 @@ usapDomainName = lens _usapDomainName (\s a -> s { _usapDomainName = a })
 
 newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
     { _usaprAccessPolicies :: AccessPoliciesStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateServiceAccessPoliciesResponse' constructor.
 --

@@ -59,7 +59,7 @@ data ListDeployments = ListDeployments
     , _ldDeploymentGroupName :: Maybe Text
     , _ldIncludeOnlyStatuses :: List "includeOnlyStatuses" DeploymentStatus
     , _ldNextToken           :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListDeployments' constructor.
 --
@@ -119,7 +119,7 @@ ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
 data ListDeploymentsResponse = ListDeploymentsResponse
     { _ldrDeployments :: List "deployments" Text
     , _ldrNextToken   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListDeploymentsResponse' constructor.
 --

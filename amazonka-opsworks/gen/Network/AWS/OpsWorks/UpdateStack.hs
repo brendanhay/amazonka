@@ -83,7 +83,7 @@ data UpdateStack = UpdateStack
     , _usStackId                   :: Text
     , _usUseCustomCookbooks        :: Maybe Bool
     , _usUseOpsworksSecurityGroups :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateStack' constructor.
 --
@@ -280,7 +280,7 @@ usUseOpsworksSecurityGroups =
         (\s a -> s { _usUseOpsworksSecurityGroups = a })
 
 data UpdateStackResponse = UpdateStackResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateStackResponse' constructor.
 updateStackResponse :: UpdateStackResponse

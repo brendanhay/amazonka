@@ -56,7 +56,7 @@ data ResyncMFADevice = ResyncMFADevice
     , _rmfadAuthenticationCode2 :: Text
     , _rmfadSerialNumber        :: Text
     , _rmfadUserName            :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ResyncMFADevice' constructor.
 --
@@ -104,7 +104,7 @@ rmfadUserName :: Lens' ResyncMFADevice Text
 rmfadUserName = lens _rmfadUserName (\s a -> s { _rmfadUserName = a })
 
 data ResyncMFADeviceResponse = ResyncMFADeviceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ResyncMFADeviceResponse' constructor.
 resyncMFADeviceResponse :: ResyncMFADeviceResponse

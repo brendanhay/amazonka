@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteBucketTagging = DeleteBucketTagging
     { _dbtBucket :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteBucketTagging' constructor.
 --
@@ -65,7 +65,7 @@ dbtBucket :: Lens' DeleteBucketTagging Text
 dbtBucket = lens _dbtBucket (\s a -> s { _dbtBucket = a })
 
 data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteBucketTaggingResponse' constructor.
 deleteBucketTaggingResponse :: DeleteBucketTaggingResponse

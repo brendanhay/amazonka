@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteTrail = DeleteTrail
     { _dtName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteTrail' constructor.
 --
@@ -66,7 +66,7 @@ dtName :: Lens' DeleteTrail Text
 dtName = lens _dtName (\s a -> s { _dtName = a })
 
 data DeleteTrailResponse = DeleteTrailResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteTrailResponse' constructor.
 deleteTrailResponse :: DeleteTrailResponse

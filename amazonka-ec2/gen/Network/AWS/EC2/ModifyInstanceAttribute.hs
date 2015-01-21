@@ -79,7 +79,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
     , _mia1SriovNetSupport                   :: Maybe AttributeValue
     , _mia1UserData                          :: Maybe BlobAttributeValue
     , _mia1Value                             :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyInstanceAttribute' constructor.
 --
@@ -229,7 +229,7 @@ mia1Value :: Lens' ModifyInstanceAttribute (Maybe Text)
 mia1Value = lens _mia1Value (\s a -> s { _mia1Value = a })
 
 data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ModifyInstanceAttributeResponse' constructor.
 modifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse

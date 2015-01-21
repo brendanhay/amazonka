@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DisableDomainAutoRenew = DisableDomainAutoRenew
     { _ddarDomainName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DisableDomainAutoRenew' constructor.
 --
@@ -66,7 +66,7 @@ ddarDomainName :: Lens' DisableDomainAutoRenew Text
 ddarDomainName = lens _ddarDomainName (\s a -> s { _ddarDomainName = a })
 
 data DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DisableDomainAutoRenewResponse' constructor.
 disableDomainAutoRenewResponse :: DisableDomainAutoRenewResponse

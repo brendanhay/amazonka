@@ -56,7 +56,7 @@ import qualified GHC.Exts
 
 newtype DeleteHealthCheck = DeleteHealthCheck
     { _dhcHealthCheckId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteHealthCheck' constructor.
 --
@@ -75,7 +75,7 @@ dhcHealthCheckId :: Lens' DeleteHealthCheck Text
 dhcHealthCheckId = lens _dhcHealthCheckId (\s a -> s { _dhcHealthCheckId = a })
 
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteHealthCheckResponse' constructor.
 deleteHealthCheckResponse :: DeleteHealthCheckResponse

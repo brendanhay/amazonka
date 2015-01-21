@@ -53,7 +53,7 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces
     { _dni1DryRun              :: Maybe Bool
     , _dni1Filters             :: List "Filter" Filter
     , _dni1NetworkInterfaceIds :: List "item" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeNetworkInterfaces' constructor.
 --
@@ -190,7 +190,7 @@ dni1NetworkInterfaceIds =
 
 newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { _dnirNetworkInterfaces :: List "item" NetworkInterface
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeNetworkInterfacesResponse' constructor.
 --

@@ -46,7 +46,7 @@ import Network.AWS.CloudHSM.Types
 import qualified GHC.Exts
 
 data ListAvailableZones = ListAvailableZones
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ListAvailableZones' constructor.
 listAvailableZones :: ListAvailableZones
@@ -54,7 +54,7 @@ listAvailableZones = ListAvailableZones
 
 newtype ListAvailableZonesResponse = ListAvailableZonesResponse
     { _lazrAZList :: List "AZList" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ListAvailableZonesResponse where
     type Item ListAvailableZonesResponse = Text

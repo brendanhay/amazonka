@@ -55,7 +55,7 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
     { _csdsBucket :: Text
     , _csdsDryRun :: Maybe Bool
     , _csdsPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateSpotDatafeedSubscription' constructor.
 --
@@ -88,7 +88,7 @@ csdsPrefix = lens _csdsPrefix (\s a -> s { _csdsPrefix = a })
 
 newtype CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateSpotDatafeedSubscriptionResponse' constructor.
 --

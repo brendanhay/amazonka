@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data GetUserPolicy = GetUserPolicy
     { _gupPolicyName :: Text
     , _gupUserName   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetUserPolicy' constructor.
 --
@@ -85,7 +85,7 @@ data GetUserPolicyResponse = GetUserPolicyResponse
     { _guprPolicyDocument :: Text
     , _guprPolicyName     :: Text
     , _guprUserName       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetUserPolicyResponse' constructor.
 --

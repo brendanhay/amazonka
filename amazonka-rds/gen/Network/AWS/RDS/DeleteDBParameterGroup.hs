@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DeleteDBParameterGroup = DeleteDBParameterGroup
     { _ddbpg1DBParameterGroupName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteDBParameterGroup' constructor.
 --
@@ -77,7 +77,7 @@ ddbpg1DBParameterGroupName =
         (\s a -> s { _ddbpg1DBParameterGroupName = a })
 
 data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteDBParameterGroupResponse' constructor.
 deleteDBParameterGroupResponse :: DeleteDBParameterGroupResponse

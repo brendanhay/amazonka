@@ -64,7 +64,7 @@ data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackend
     { _slbpfbsInstancePort     :: Int
     , _slbpfbsLoadBalancerName :: Text
     , _slbpfbsPolicyNames      :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SetLoadBalancerPoliciesForBackendServer' constructor.
 --
@@ -104,7 +104,7 @@ slbpfbsPolicyNames =
         . _List
 
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetLoadBalancerPoliciesForBackendServerResponse' constructor.
 setLoadBalancerPoliciesForBackendServerResponse :: SetLoadBalancerPoliciesForBackendServerResponse

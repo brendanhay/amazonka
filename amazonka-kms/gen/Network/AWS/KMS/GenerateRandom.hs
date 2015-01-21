@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GenerateRandom = GenerateRandom
     { _grNumberOfBytes :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GenerateRandom' constructor.
 --
@@ -69,7 +69,7 @@ grNumberOfBytes = lens _grNumberOfBytes (\s a -> s { _grNumberOfBytes = a }) . m
 
 newtype GenerateRandomResponse = GenerateRandomResponse
     { _grrPlaintext :: Maybe Base64
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GenerateRandomResponse' constructor.
 --

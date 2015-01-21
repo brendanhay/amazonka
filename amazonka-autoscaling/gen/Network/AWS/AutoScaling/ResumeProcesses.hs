@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data ResumeProcesses = ResumeProcesses
     { _rpAutoScalingGroupName :: Text
     , _rpScalingProcesses     :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ResumeProcesses' constructor.
 --
@@ -84,7 +84,7 @@ rpScalingProcesses =
         . _List
 
 data ResumeProcessesResponse = ResumeProcessesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ResumeProcessesResponse' constructor.
 resumeProcessesResponse :: ResumeProcessesResponse

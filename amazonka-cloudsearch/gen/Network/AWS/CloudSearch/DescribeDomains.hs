@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype DescribeDomains = DescribeDomains
     { _ddDomainNames :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDomains where
     type Item DescribeDomains = Text
@@ -77,7 +77,7 @@ ddDomainNames = lens _ddDomainNames (\s a -> s { _ddDomainNames = a }) . _List
 
 newtype DescribeDomainsResponse = DescribeDomainsResponse
     { _ddrDomainStatusList :: List "member" DomainStatus
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeDomainsResponse where
     type Item DescribeDomainsResponse = DomainStatus

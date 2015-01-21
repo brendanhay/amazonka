@@ -63,7 +63,7 @@ import qualified GHC.Exts
 data UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbprint
     { _uoidcptOpenIDConnectProviderArn :: Text
     , _uoidcptThumbprintList           :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateOpenIDConnectProviderThumbprint' constructor.
 --
@@ -97,7 +97,7 @@ uoidcptThumbprintList =
         . _List
 
 data UpdateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProviderThumbprintResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateOpenIDConnectProviderThumbprintResponse' constructor.
 updateOpenIDConnectProviderThumbprintResponse :: UpdateOpenIDConnectProviderThumbprintResponse

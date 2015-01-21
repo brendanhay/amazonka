@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
     { _spaaAttributes             :: EMap "entry" "key" "value" Text Text
     , _spaaPlatformApplicationArn :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SetPlatformApplicationAttributes' constructor.
 --
@@ -91,7 +91,7 @@ spaaPlatformApplicationArn =
         (\s a -> s { _spaaPlatformApplicationArn = a })
 
 data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetPlatformApplicationAttributesResponse' constructor.
 setPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse

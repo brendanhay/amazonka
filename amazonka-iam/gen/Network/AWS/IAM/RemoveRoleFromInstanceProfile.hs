@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
     { _rrfipInstanceProfileName :: Text
     , _rrfipRoleName            :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RemoveRoleFromInstanceProfile' constructor.
 --
@@ -84,7 +84,7 @@ rrfipRoleName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipRoleName = lens _rrfipRoleName (\s a -> s { _rrfipRoleName = a })
 
 data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RemoveRoleFromInstanceProfileResponse' constructor.
 removeRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse

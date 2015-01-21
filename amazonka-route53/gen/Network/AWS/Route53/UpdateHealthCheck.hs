@@ -66,7 +66,7 @@ data UpdateHealthCheck = UpdateHealthCheck
     , _uhcPort                     :: Maybe Nat
     , _uhcResourcePath             :: Maybe Text
     , _uhcSearchString             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateHealthCheck' constructor.
 --
@@ -168,7 +168,7 @@ uhcSearchString = lens _uhcSearchString (\s a -> s { _uhcSearchString = a })
 
 newtype UpdateHealthCheckResponse = UpdateHealthCheckResponse
     { _uhcrHealthCheck :: HealthCheck
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateHealthCheckResponse' constructor.
 --

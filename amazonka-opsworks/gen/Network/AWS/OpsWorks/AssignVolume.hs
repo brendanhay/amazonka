@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data AssignVolume = AssignVolume
     { _avInstanceId :: Maybe Text
     , _avVolumeId   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AssignVolume' constructor.
 --
@@ -80,7 +80,7 @@ avVolumeId :: Lens' AssignVolume Text
 avVolumeId = lens _avVolumeId (\s a -> s { _avVolumeId = a })
 
 data AssignVolumeResponse = AssignVolumeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AssignVolumeResponse' constructor.
 assignVolumeResponse :: AssignVolumeResponse

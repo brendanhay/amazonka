@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data RemovePermission = RemovePermission
     { _rpLabel    :: Text
     , _rpTopicArn :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RemovePermission' constructor.
 --
@@ -76,7 +76,7 @@ rpTopicArn :: Lens' RemovePermission Text
 rpTopicArn = lens _rpTopicArn (\s a -> s { _rpTopicArn = a })
 
 data RemovePermissionResponse = RemovePermissionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RemovePermissionResponse' constructor.
 removePermissionResponse :: RemovePermissionResponse

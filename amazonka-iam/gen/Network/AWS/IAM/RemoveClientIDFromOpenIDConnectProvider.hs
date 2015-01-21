@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectProvider
     { _rcidfoidcpClientID                 :: Text
     , _rcidfoidcpOpenIDConnectProviderArn :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RemoveClientIDFromOpenIDConnectProvider' constructor.
 --
@@ -86,7 +86,7 @@ rcidfoidcpOpenIDConnectProviderArn =
         (\s a -> s { _rcidfoidcpOpenIDConnectProviderArn = a })
 
 data RemoveClientIDFromOpenIDConnectProviderResponse = RemoveClientIDFromOpenIDConnectProviderResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RemoveClientIDFromOpenIDConnectProviderResponse' constructor.
 removeClientIDFromOpenIDConnectProviderResponse :: RemoveClientIDFromOpenIDConnectProviderResponse

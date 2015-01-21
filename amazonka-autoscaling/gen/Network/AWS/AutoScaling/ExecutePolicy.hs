@@ -51,7 +51,7 @@ data ExecutePolicy = ExecutePolicy
     { _epAutoScalingGroupName :: Maybe Text
     , _epHonorCooldown        :: Maybe Bool
     , _epPolicyName           :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ExecutePolicy' constructor.
 --
@@ -93,7 +93,7 @@ epPolicyName :: Lens' ExecutePolicy Text
 epPolicyName = lens _epPolicyName (\s a -> s { _epPolicyName = a })
 
 data ExecutePolicyResponse = ExecutePolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ExecutePolicyResponse' constructor.
 executePolicyResponse :: ExecutePolicyResponse

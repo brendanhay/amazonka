@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype CancelUpdateStack = CancelUpdateStack
     { _cusStackName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'CancelUpdateStack' constructor.
 --
@@ -70,7 +70,7 @@ cusStackName :: Lens' CancelUpdateStack Text
 cusStackName = lens _cusStackName (\s a -> s { _cusStackName = a })
 
 data CancelUpdateStackResponse = CancelUpdateStackResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CancelUpdateStackResponse' constructor.
 cancelUpdateStackResponse :: CancelUpdateStackResponse

@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data DeleteIndexField = DeleteIndexField
     { _dif1DomainName     :: Text
     , _dif1IndexFieldName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteIndexField' constructor.
 --
@@ -81,7 +81,7 @@ dif1IndexFieldName =
 
 newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
     { _difrIndexField :: IndexFieldStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteIndexFieldResponse' constructor.
 --

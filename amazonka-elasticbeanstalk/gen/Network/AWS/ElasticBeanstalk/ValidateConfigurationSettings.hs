@@ -59,7 +59,7 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings
     , _vcsEnvironmentName :: Maybe Text
     , _vcsOptionSettings  :: List "member" ConfigurationOptionSetting
     , _vcsTemplateName    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ValidateConfigurationSettings' constructor.
 --
@@ -109,7 +109,7 @@ vcsTemplateName = lens _vcsTemplateName (\s a -> s { _vcsTemplateName = a })
 
 newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
     { _vcsrMessages :: List "member" ValidationMessage
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ValidateConfigurationSettingsResponse where
     type Item ValidateConfigurationSettingsResponse = ValidationMessage

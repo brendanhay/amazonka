@@ -64,7 +64,7 @@ data CreateNetworkInterface = CreateNetworkInterface
     , _cniPrivateIpAddresses             :: List "item" PrivateIpAddressSpecification
     , _cniSecondaryPrivateIpAddressCount :: Maybe Int
     , _cniSubnetId                       :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateNetworkInterface' constructor.
 --
@@ -138,7 +138,7 @@ cniSubnetId = lens _cniSubnetId (\s a -> s { _cniSubnetId = a })
 
 newtype CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     { _cnirNetworkInterface :: Maybe NetworkInterface
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateNetworkInterfaceResponse' constructor.
 --

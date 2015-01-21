@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data GetKeyPolicy = GetKeyPolicy
     { _gkpKeyId      :: Text
     , _gkpPolicyName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetKeyPolicy' constructor.
 --
@@ -81,7 +81,7 @@ gkpPolicyName = lens _gkpPolicyName (\s a -> s { _gkpPolicyName = a })
 
 newtype GetKeyPolicyResponse = GetKeyPolicyResponse
     { _gkprPolicy :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'GetKeyPolicyResponse' constructor.
 --

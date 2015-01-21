@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype DeleteStack = DeleteStack
     { _dsStackId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteStack' constructor.
 --
@@ -71,7 +71,7 @@ dsStackId :: Lens' DeleteStack Text
 dsStackId = lens _dsStackId (\s a -> s { _dsStackId = a })
 
 data DeleteStackResponse = DeleteStackResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteStackResponse' constructor.
 deleteStackResponse :: DeleteStackResponse

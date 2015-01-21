@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DisableSnapshotCopy = DisableSnapshotCopy
     { _dscClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DisableSnapshotCopy' constructor.
 --
@@ -75,7 +75,7 @@ dscClusterIdentifier =
 
 newtype DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
     { _dscrCluster :: Maybe Cluster
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DisableSnapshotCopyResponse' constructor.
 --

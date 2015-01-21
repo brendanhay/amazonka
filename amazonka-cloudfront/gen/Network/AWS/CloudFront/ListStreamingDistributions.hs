@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data ListStreamingDistributions = ListStreamingDistributions
     { _lsdMarker   :: Maybe Text
     , _lsdMaxItems :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListStreamingDistributions' constructor.
 --
@@ -81,7 +81,7 @@ lsdMaxItems = lens _lsdMaxItems (\s a -> s { _lsdMaxItems = a })
 
 newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
     { _lsdrStreamingDistributionList :: StreamingDistributionList
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListStreamingDistributionsResponse' constructor.
 --

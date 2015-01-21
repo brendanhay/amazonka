@@ -67,7 +67,7 @@ import qualified GHC.Exts
 
 newtype DescribeResize = DescribeResize
     { _drClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeResize' constructor.
 --
@@ -103,7 +103,7 @@ data DescribeResizeResponse = DescribeResizeResponse
     , _drrTargetNodeType                     :: Maybe Text
     , _drrTargetNumberOfNodes                :: Maybe Int
     , _drrTotalResizeDataInMegaBytes         :: Maybe Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeResizeResponse' constructor.
 --

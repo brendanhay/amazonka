@@ -75,7 +75,7 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
     , _rsgiSourceSecurityGroupName    :: Maybe Text
     , _rsgiSourceSecurityGroupOwnerId :: Maybe Text
     , _rsgiToPort                     :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RevokeSecurityGroupIngress' constructor.
 --
@@ -168,7 +168,7 @@ rsgiToPort :: Lens' RevokeSecurityGroupIngress (Maybe Int)
 rsgiToPort = lens _rsgiToPort (\s a -> s { _rsgiToPort = a })
 
 data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RevokeSecurityGroupIngressResponse' constructor.
 revokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse

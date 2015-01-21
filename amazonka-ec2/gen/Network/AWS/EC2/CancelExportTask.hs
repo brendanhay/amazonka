@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype CancelExportTask = CancelExportTask
     { _cetExportTaskId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'CancelExportTask' constructor.
 --
@@ -70,7 +70,7 @@ cetExportTaskId :: Lens' CancelExportTask Text
 cetExportTaskId = lens _cetExportTaskId (\s a -> s { _cetExportTaskId = a })
 
 data CancelExportTaskResponse = CancelExportTaskResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CancelExportTaskResponse' constructor.
 cancelExportTaskResponse :: CancelExportTaskResponse

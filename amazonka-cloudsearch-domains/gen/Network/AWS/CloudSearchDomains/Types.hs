@@ -142,7 +142,7 @@ instance AWSService CloudSearchDomains where
 data SearchStatus = SearchStatus
     { _ssRid    :: Maybe Text
     , _ssTimems :: Maybe Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SearchStatus' constructor.
 --
@@ -182,7 +182,7 @@ data QueryParser
     | Lucene     -- ^ lucene
     | Simple     -- ^ simple
     | Structured -- ^ structured
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable QueryParser
 
@@ -216,7 +216,7 @@ data Hit = Hit
     { _hitFields     :: Map Text (List "fields" Text)
     , _hitHighlights :: Map Text Text
     , _hitId         :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Hit' constructor.
 --
@@ -263,7 +263,7 @@ instance ToJSON Hit where
 data SuggestStatus = SuggestStatus
     { _ss1Rid    :: Maybe Text
     , _ss1Timems :: Maybe Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SuggestStatus' constructor.
 --
@@ -301,7 +301,7 @@ instance ToJSON SuggestStatus where
 data Bucket = Bucket
     { _bCount :: Maybe Integer
     , _bValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Bucket' constructor.
 --
@@ -340,7 +340,7 @@ data SuggestionMatch = SuggestionMatch
     { _smId         :: Maybe Text
     , _smScore      :: Maybe Integer
     , _smSuggestion :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SuggestionMatch' constructor.
 --
@@ -386,7 +386,7 @@ instance ToJSON SuggestionMatch where
 
 newtype BucketInfo = BucketInfo
     { _biBuckets :: List "buckets" Bucket
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BucketInfo where
     type Item BucketInfo = Bucket
@@ -420,7 +420,7 @@ instance ToJSON BucketInfo where
 
 newtype DocumentServiceWarning = DocumentServiceWarning
     { _dswMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'DocumentServiceWarning' constructor.
 --
@@ -450,7 +450,7 @@ data SuggestModel = SuggestModel
     { _smFound       :: Maybe Integer
     , _smQuery       :: Maybe Text
     , _smSuggestions :: List "suggestions" SuggestionMatch
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SuggestModel' constructor.
 --
@@ -499,7 +499,7 @@ data Hits = Hits
     , _hFound  :: Maybe Integer
     , _hHit    :: List "hit" Hit
     , _hStart  :: Maybe Integer
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Hits' constructor.
 --
@@ -556,7 +556,7 @@ instance ToJSON Hits where
 data ContentType
     = ApplicationJson -- ^ application/json
     | ApplicationXml  -- ^ application/xml
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ContentType
 

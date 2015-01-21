@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription
     { _rsifsSourceIdentifier :: Text
     , _rsifsSubscriptionName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RemoveSourceIdentifierFromSubscription' constructor.
 --
@@ -84,7 +84,7 @@ rsifsSubscriptionName =
 
 newtype RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
     { _rsifsrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RemoveSourceIdentifierFromSubscriptionResponse' constructor.
 --

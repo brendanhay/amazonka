@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
     { _siffeForwardingEnabled :: Bool
     , _siffeIdentity          :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SetIdentityFeedbackForwardingEnabled' constructor.
 --
@@ -91,7 +91,7 @@ siffeIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
 siffeIdentity = lens _siffeIdentity (\s a -> s { _siffeIdentity = a })
 
 data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetIdentityFeedbackForwardingEnabledResponse' constructor.
 setIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse

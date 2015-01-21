@@ -58,7 +58,7 @@ data DescribeTags = DescribeTags
     , _dtFilters    :: List "Filter" Filter
     , _dtMaxResults :: Maybe Int
     , _dtNextToken  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeTags' constructor.
 --
@@ -113,7 +113,7 @@ dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
 data DescribeTagsResponse = DescribeTagsResponse
     { _dtrNextToken :: Maybe Text
     , _dtrTags      :: List "item" TagDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeTagsResponse' constructor.
 --

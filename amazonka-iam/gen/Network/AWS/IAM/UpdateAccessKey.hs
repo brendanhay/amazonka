@@ -62,7 +62,7 @@ data UpdateAccessKey = UpdateAccessKey
     { _uakAccessKeyId :: Text
     , _uakStatus      :: StatusType
     , _uakUserName    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateAccessKey' constructor.
 --
@@ -98,7 +98,7 @@ uakUserName :: Lens' UpdateAccessKey (Maybe Text)
 uakUserName = lens _uakUserName (\s a -> s { _uakUserName = a })
 
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateAccessKeyResponse' constructor.
 updateAccessKeyResponse :: UpdateAccessKeyResponse

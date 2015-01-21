@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data ListAliases = ListAliases
     { _laLimit  :: Maybe Nat
     , _laMarker :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListAliases' constructor.
 --
@@ -85,7 +85,7 @@ data ListAliasesResponse = ListAliasesResponse
     { _larAliases    :: List "Aliases" AliasListEntry
     , _larNextMarker :: Maybe Text
     , _larTruncated  :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListAliasesResponse' constructor.
 --

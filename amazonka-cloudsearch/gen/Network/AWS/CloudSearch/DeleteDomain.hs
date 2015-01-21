@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DeleteDomain = DeleteDomain
     { _ddDomainName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteDomain' constructor.
 --
@@ -71,7 +71,7 @@ ddDomainName = lens _ddDomainName (\s a -> s { _ddDomainName = a })
 
 newtype DeleteDomainResponse = DeleteDomainResponse
     { _ddrDomainStatus :: Maybe DomainStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteDomainResponse' constructor.
 --

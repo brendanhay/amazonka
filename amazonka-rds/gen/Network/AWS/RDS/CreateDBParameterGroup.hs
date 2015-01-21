@@ -74,7 +74,7 @@ data CreateDBParameterGroup = CreateDBParameterGroup
     , _cdbpg1DBParameterGroupName   :: Text
     , _cdbpg1Description            :: Text
     , _cdbpg1Tags                   :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDBParameterGroup' constructor.
 --
@@ -129,7 +129,7 @@ cdbpg1Tags = lens _cdbpg1Tags (\s a -> s { _cdbpg1Tags = a }) . _List
 
 newtype CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
     { _cdbpgrDBParameterGroup :: Maybe DBParameterGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDBParameterGroupResponse' constructor.
 --

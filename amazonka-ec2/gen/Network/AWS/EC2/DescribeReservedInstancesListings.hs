@@ -73,7 +73,7 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings
     { _drilFilters                    :: List "Filter" Filter
     , _drilReservedInstancesId        :: Maybe Text
     , _drilReservedInstancesListingId :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesListings' constructor.
 --
@@ -119,7 +119,7 @@ drilReservedInstancesListingId =
 
 newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
     { _drilrReservedInstancesListings :: List "item" ReservedInstancesListing
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeReservedInstancesListingsResponse' constructor.
 --

@@ -66,7 +66,7 @@ data PutObjectAcl = PutObjectAcl
     , _poaGrantWrite          :: Maybe Text
     , _poaGrantWriteACP       :: Maybe Text
     , _poaKey                 :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutObjectAcl' constructor.
 --
@@ -148,7 +148,7 @@ poaKey :: Lens' PutObjectAcl Text
 poaKey = lens _poaKey (\s a -> s { _poaKey = a })
 
 data PutObjectAclResponse = PutObjectAclResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutObjectAclResponse' constructor.
 putObjectAclResponse :: PutObjectAclResponse

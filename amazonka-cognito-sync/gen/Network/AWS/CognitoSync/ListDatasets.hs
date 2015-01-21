@@ -60,7 +60,7 @@ data ListDatasets = ListDatasets
     , _ldIdentityPoolId :: Text
     , _ldMaxResults     :: Maybe Int
     , _ldNextToken      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListDatasets' constructor.
 --
@@ -108,7 +108,7 @@ data ListDatasetsResponse = ListDatasetsResponse
     { _ldrCount     :: Maybe Int
     , _ldrDatasets  :: List "Datasets" Dataset
     , _ldrNextToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListDatasetsResponse' constructor.
 --

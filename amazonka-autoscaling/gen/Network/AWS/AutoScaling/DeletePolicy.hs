@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DeletePolicy = DeletePolicy
     { _dpAutoScalingGroupName :: Maybe Text
     , _dpPolicyName           :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeletePolicy' constructor.
 --
@@ -76,7 +76,7 @@ dpPolicyName :: Lens' DeletePolicy Text
 dpPolicyName = lens _dpPolicyName (\s a -> s { _dpPolicyName = a })
 
 data DeletePolicyResponse = DeletePolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeletePolicyResponse' constructor.
 deletePolicyResponse :: DeletePolicyResponse

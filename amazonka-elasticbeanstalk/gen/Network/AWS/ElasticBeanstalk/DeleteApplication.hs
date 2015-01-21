@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data DeleteApplication = DeleteApplication
     { _daApplicationName     :: Text
     , _daTerminateEnvByForce :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteApplication' constructor.
 --
@@ -80,7 +80,7 @@ daTerminateEnvByForce =
     lens _daTerminateEnvByForce (\s a -> s { _daTerminateEnvByForce = a })
 
 data DeleteApplicationResponse = DeleteApplicationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteApplicationResponse' constructor.
 deleteApplicationResponse :: DeleteApplicationResponse

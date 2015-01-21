@@ -59,7 +59,7 @@ data DescribeCommands = DescribeCommands
     { _dcCommandIds   :: List "CommandIds" Text
     , _dcDeploymentId :: Maybe Text
     , _dcInstanceId   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeCommands' constructor.
 --
@@ -96,7 +96,7 @@ dcInstanceId = lens _dcInstanceId (\s a -> s { _dcInstanceId = a })
 
 newtype DescribeCommandsResponse = DescribeCommandsResponse
     { _dcrCommands :: List "Commands" Command
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeCommandsResponse where
     type Item DescribeCommandsResponse = Command

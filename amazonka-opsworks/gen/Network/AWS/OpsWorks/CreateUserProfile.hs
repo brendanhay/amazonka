@@ -59,7 +59,7 @@ data CreateUserProfile = CreateUserProfile
     , _cupIamUserArn          :: Text
     , _cupSshPublicKey        :: Maybe Text
     , _cupSshUsername         :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateUserProfile' constructor.
 --
@@ -106,7 +106,7 @@ cupSshUsername = lens _cupSshUsername (\s a -> s { _cupSshUsername = a })
 
 newtype CreateUserProfileResponse = CreateUserProfileResponse
     { _cuprIamUserArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateUserProfileResponse' constructor.
 --

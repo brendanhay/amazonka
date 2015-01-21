@@ -68,7 +68,7 @@ data PutPipelineDefinition = PutPipelineDefinition
     , _ppdParameterValues  :: List "parameterValues" ParameterValue
     , _ppdPipelineId       :: Text
     , _ppdPipelineObjects  :: List "pipelineObjects" PipelineObject
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutPipelineDefinition' constructor.
 --
@@ -118,7 +118,7 @@ data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse
     { _ppdrErrored            :: Bool
     , _ppdrValidationErrors   :: List "validationErrors" ValidationError
     , _ppdrValidationWarnings :: List "validationWarnings" ValidationWarning
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutPipelineDefinitionResponse' constructor.
 --

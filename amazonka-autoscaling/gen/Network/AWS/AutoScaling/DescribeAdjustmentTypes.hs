@@ -46,7 +46,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeAdjustmentTypes = DescribeAdjustmentTypes
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DescribeAdjustmentTypes' constructor.
 describeAdjustmentTypes :: DescribeAdjustmentTypes
@@ -54,7 +54,7 @@ describeAdjustmentTypes = DescribeAdjustmentTypes
 
 newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     { _datrAdjustmentTypes :: List "member" AdjustmentType
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeAdjustmentTypesResponse where
     type Item DescribeAdjustmentTypesResponse = AdjustmentType

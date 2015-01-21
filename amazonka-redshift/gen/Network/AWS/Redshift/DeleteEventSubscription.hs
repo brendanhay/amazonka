@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteEventSubscription = DeleteEventSubscription
     { _desSubscriptionName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteEventSubscription' constructor.
 --
@@ -67,7 +67,7 @@ desSubscriptionName =
     lens _desSubscriptionName (\s a -> s { _desSubscriptionName = a })
 
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteEventSubscriptionResponse' constructor.
 deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse

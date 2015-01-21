@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data DefineSuggester = DefineSuggester
     { _ds2DomainName :: Text
     , _ds2Suggester  :: Suggester
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DefineSuggester' constructor.
 --
@@ -81,7 +81,7 @@ ds2Suggester = lens _ds2Suggester (\s a -> s { _ds2Suggester = a })
 
 newtype DefineSuggesterResponse = DefineSuggesterResponse
     { _dsrSuggester :: SuggesterStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DefineSuggesterResponse' constructor.
 --

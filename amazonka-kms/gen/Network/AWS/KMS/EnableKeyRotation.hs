@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype EnableKeyRotation = EnableKeyRotation
     { _ekrKeyId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'EnableKeyRotation' constructor.
 --
@@ -67,7 +67,7 @@ ekrKeyId :: Lens' EnableKeyRotation Text
 ekrKeyId = lens _ekrKeyId (\s a -> s { _ekrKeyId = a })
 
 data EnableKeyRotationResponse = EnableKeyRotationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'EnableKeyRotationResponse' constructor.
 enableKeyRotationResponse :: EnableKeyRotationResponse

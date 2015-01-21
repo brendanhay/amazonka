@@ -57,7 +57,7 @@ data DescribeServiceErrors = DescribeServiceErrors
     { _dseInstanceId      :: Maybe Text
     , _dseServiceErrorIds :: List "ServiceErrorIds" Text
     , _dseStackId         :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeServiceErrors' constructor.
 --
@@ -95,7 +95,7 @@ dseStackId = lens _dseStackId (\s a -> s { _dseStackId = a })
 
 newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
     { _dserServiceErrors :: List "ServiceErrors" ServiceError'
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeServiceErrorsResponse where
     type Item DescribeServiceErrorsResponse = ServiceError'

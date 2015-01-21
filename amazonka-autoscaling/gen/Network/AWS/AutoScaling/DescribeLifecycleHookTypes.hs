@@ -46,7 +46,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DescribeLifecycleHookTypes' constructor.
 describeLifecycleHookTypes :: DescribeLifecycleHookTypes
@@ -54,7 +54,7 @@ describeLifecycleHookTypes = DescribeLifecycleHookTypes
 
 newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
     { _dlhtrLifecycleHookTypes :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLifecycleHookTypesResponse where
     type Item DescribeLifecycleHookTypesResponse = Text

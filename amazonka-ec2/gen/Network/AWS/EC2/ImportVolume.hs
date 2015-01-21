@@ -60,7 +60,7 @@ data ImportVolume = ImportVolume
     , _ivDryRun           :: Maybe Bool
     , _ivImage            :: DiskImageDetail
     , _ivVolume           :: VolumeDetail
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ImportVolume' constructor.
 --
@@ -108,7 +108,7 @@ ivVolume = lens _ivVolume (\s a -> s { _ivVolume = a })
 
 newtype ImportVolumeResponse = ImportVolumeResponse
     { _ivrConversionTask :: Maybe ConversionTask
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ImportVolumeResponse' constructor.
 --

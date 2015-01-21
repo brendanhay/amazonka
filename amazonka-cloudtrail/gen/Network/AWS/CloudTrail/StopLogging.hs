@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype StopLogging = StopLogging
     { _slName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'StopLogging' constructor.
 --
@@ -70,7 +70,7 @@ slName :: Lens' StopLogging Text
 slName = lens _slName (\s a -> s { _slName = a })
 
 data StopLoggingResponse = StopLoggingResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'StopLoggingResponse' constructor.
 stopLoggingResponse :: StopLoggingResponse

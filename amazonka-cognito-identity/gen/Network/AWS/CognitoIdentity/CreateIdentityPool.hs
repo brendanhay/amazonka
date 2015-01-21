@@ -64,7 +64,7 @@ data CreateIdentityPool = CreateIdentityPool
     , _cipIdentityPoolName               :: Text
     , _cipOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
     , _cipSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateIdentityPool' constructor.
 --
@@ -134,7 +134,7 @@ data CreateIdentityPoolResponse = CreateIdentityPoolResponse
     , _ciprIdentityPoolName               :: Text
     , _ciprOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
     , _ciprSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateIdentityPoolResponse' constructor.
 --

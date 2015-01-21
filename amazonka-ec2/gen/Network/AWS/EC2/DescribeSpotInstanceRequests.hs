@@ -63,7 +63,7 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
     { _dsirDryRun                 :: Maybe Bool
     , _dsirFilters                :: List "Filter" Filter
     , _dsirSpotInstanceRequestIds :: List "SpotInstanceRequestId" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotInstanceRequests' constructor.
 --
@@ -206,7 +206,7 @@ dsirSpotInstanceRequestIds =
 
 newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     { _dsirrSpotInstanceRequests :: List "item" SpotInstanceRequest
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeSpotInstanceRequestsResponse' constructor.
 --

@@ -63,7 +63,7 @@ data PutBucketAcl = PutBucketAcl
     , _pbaGrantReadACP        :: Maybe Text
     , _pbaGrantWrite          :: Maybe Text
     , _pbaGrantWriteACP       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutBucketAcl' constructor.
 --
@@ -138,7 +138,7 @@ pbaGrantWriteACP :: Lens' PutBucketAcl (Maybe Text)
 pbaGrantWriteACP = lens _pbaGrantWriteACP (\s a -> s { _pbaGrantWriteACP = a })
 
 data PutBucketAclResponse = PutBucketAclResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutBucketAclResponse' constructor.
 putBucketAclResponse :: PutBucketAclResponse

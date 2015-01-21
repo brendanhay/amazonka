@@ -59,7 +59,7 @@ data UpdateUser = UpdateUser
     { _uuNewPath     :: Maybe Text
     , _uuNewUserName :: Maybe Text
     , _uuUserName    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateUser' constructor.
 --
@@ -95,7 +95,7 @@ uuUserName :: Lens' UpdateUser Text
 uuUserName = lens _uuUserName (\s a -> s { _uuUserName = a })
 
 data UpdateUserResponse = UpdateUserResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateUserResponse' constructor.
 updateUserResponse :: UpdateUserResponse

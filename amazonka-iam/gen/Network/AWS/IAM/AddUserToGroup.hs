@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data AddUserToGroup = AddUserToGroup
     { _autgGroupName :: Text
     , _autgUserName  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AddUserToGroup' constructor.
 --
@@ -76,7 +76,7 @@ autgUserName :: Lens' AddUserToGroup Text
 autgUserName = lens _autgUserName (\s a -> s { _autgUserName = a })
 
 data AddUserToGroupResponse = AddUserToGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AddUserToGroupResponse' constructor.
 addUserToGroupResponse :: AddUserToGroupResponse

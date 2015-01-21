@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DeregisterInstance = DeregisterInstance
     { _di1InstanceId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeregisterInstance' constructor.
 --
@@ -72,7 +72,7 @@ di1InstanceId :: Lens' DeregisterInstance Text
 di1InstanceId = lens _di1InstanceId (\s a -> s { _di1InstanceId = a })
 
 data DeregisterInstanceResponse = DeregisterInstanceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeregisterInstanceResponse' constructor.
 deregisterInstanceResponse :: DeregisterInstanceResponse

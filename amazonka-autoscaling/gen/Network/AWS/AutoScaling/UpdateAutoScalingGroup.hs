@@ -91,7 +91,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
     , _uasgPlacementGroup          :: Maybe Text
     , _uasgTerminationPolicies     :: List "member" Text
     , _uasgVPCZoneIdentifier       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateAutoScalingGroup' constructor.
 --
@@ -223,7 +223,7 @@ uasgVPCZoneIdentifier =
     lens _uasgVPCZoneIdentifier (\s a -> s { _uasgVPCZoneIdentifier = a })
 
 data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateAutoScalingGroupResponse' constructor.
 updateAutoScalingGroupResponse :: UpdateAutoScalingGroupResponse

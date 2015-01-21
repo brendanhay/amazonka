@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data TestMetricFilter = TestMetricFilter
     { _tmfFilterPattern    :: Text
     , _tmfLogEventMessages :: List1 "logEventMessages" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TestMetricFilter' constructor.
 --
@@ -81,7 +81,7 @@ tmfLogEventMessages =
 
 newtype TestMetricFilterResponse = TestMetricFilterResponse
     { _tmfrMatches :: List "matches" MetricFilterMatchRecord
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList TestMetricFilterResponse where
     type Item TestMetricFilterResponse = MetricFilterMatchRecord

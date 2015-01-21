@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DeleteCustomerGateway = DeleteCustomerGateway
     { _dcg1CustomerGatewayId :: Text
     , _dcg1DryRun            :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteCustomerGateway' constructor.
 --
@@ -76,7 +76,7 @@ dcg1DryRun :: Lens' DeleteCustomerGateway (Maybe Bool)
 dcg1DryRun = lens _dcg1DryRun (\s a -> s { _dcg1DryRun = a })
 
 data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteCustomerGatewayResponse' constructor.
 deleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse

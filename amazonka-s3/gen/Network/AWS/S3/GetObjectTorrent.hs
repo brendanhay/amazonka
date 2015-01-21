@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data GetObjectTorrent = GetObjectTorrent
     { _gotBucket :: Text
     , _gotKey    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetObjectTorrent' constructor.
 --
@@ -77,7 +77,7 @@ gotKey = lens _gotKey (\s a -> s { _gotKey = a })
 
 newtype GetObjectTorrentResponse = GetObjectTorrentResponse
     { _gotrBody :: RsBody
-    } deriving (Show)
+    } deriving (Read, Show)
 
 -- | 'GetObjectTorrentResponse' constructor.
 --

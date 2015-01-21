@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DeleteSubnet = DeleteSubnet
     { _ds2DryRun   :: Maybe Bool
     , _ds2SubnetId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteSubnet' constructor.
 --
@@ -75,7 +75,7 @@ ds2SubnetId :: Lens' DeleteSubnet Text
 ds2SubnetId = lens _ds2SubnetId (\s a -> s { _ds2SubnetId = a })
 
 data DeleteSubnetResponse = DeleteSubnetResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteSubnetResponse' constructor.
 deleteSubnetResponse :: DeleteSubnetResponse

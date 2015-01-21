@@ -55,7 +55,7 @@ data CopyDBParameterGroup = CopyDBParameterGroup
     , _cdbpgTags                              :: List "member" Tag
     , _cdbpgTargetDBParameterGroupDescription :: Text
     , _cdbpgTargetDBParameterGroupIdentifier  :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CopyDBParameterGroup' constructor.
 --
@@ -117,7 +117,7 @@ cdbpgTargetDBParameterGroupIdentifier =
 
 newtype CopyDBParameterGroupResponse = CopyDBParameterGroupResponse
     { _cdbpgr1DBParameterGroup :: Maybe DBParameterGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CopyDBParameterGroupResponse' constructor.
 --

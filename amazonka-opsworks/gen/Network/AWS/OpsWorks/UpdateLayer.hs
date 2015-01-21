@@ -79,7 +79,7 @@ data UpdateLayer = UpdateLayer
     , _ulShortname                   :: Maybe Text
     , _ulUseEbsOptimizedInstances    :: Maybe Bool
     , _ulVolumeConfigurations        :: List "VolumeConfigurations" VolumeConfiguration
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateLayer' constructor.
 --
@@ -225,7 +225,7 @@ ulVolumeConfigurations =
         . _List
 
 data UpdateLayerResponse = UpdateLayerResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateLayerResponse' constructor.
 updateLayerResponse :: UpdateLayerResponse

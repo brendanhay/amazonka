@@ -73,7 +73,7 @@ data CreateStack = CreateStack
     , _csTemplateBody     :: Maybe Text
     , _csTemplateURL      :: Maybe Text
     , _csTimeoutInMinutes :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateStack' constructor.
 --
@@ -218,7 +218,7 @@ csTimeoutInMinutes =
 
 newtype CreateStackResponse = CreateStackResponse
     { _csrStackId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateStackResponse' constructor.
 --

@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetEndpointAttributes = GetEndpointAttributes
     { _geaEndpointArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetEndpointAttributes' constructor.
 --
@@ -70,7 +70,7 @@ geaEndpointArn = lens _geaEndpointArn (\s a -> s { _geaEndpointArn = a })
 
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes :: EMap "entry" "key" "value" Text Text
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'GetEndpointAttributesResponse' constructor.
 --

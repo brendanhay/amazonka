@@ -61,7 +61,7 @@ data PutRolePolicy = PutRolePolicy
     { _prpPolicyDocument :: Text
     , _prpPolicyName     :: Text
     , _prpRoleName       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PutRolePolicy' constructor.
 --
@@ -97,7 +97,7 @@ prpRoleName :: Lens' PutRolePolicy Text
 prpRoleName = lens _prpRoleName (\s a -> s { _prpRoleName = a })
 
 data PutRolePolicyResponse = PutRolePolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutRolePolicyResponse' constructor.
 putRolePolicyResponse :: PutRolePolicyResponse

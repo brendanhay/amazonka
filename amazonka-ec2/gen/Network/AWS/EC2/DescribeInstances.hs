@@ -67,7 +67,7 @@ data DescribeInstances = DescribeInstances
     , _di1InstanceIds :: List "InstanceId" Text
     , _di1MaxResults  :: Maybe Int
     , _di1NextToken   :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeInstances' constructor.
 --
@@ -342,7 +342,7 @@ di1NextToken = lens _di1NextToken (\s a -> s { _di1NextToken = a })
 data DescribeInstancesResponse = DescribeInstancesResponse
     { _dirNextToken    :: Maybe Text
     , _dirReservations :: List "item" Reservation
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeInstancesResponse' constructor.
 --

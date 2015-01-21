@@ -79,7 +79,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
     , _casgTags                    :: List "member" Tag
     , _casgTerminationPolicies     :: List "member" Text
     , _casgVPCZoneIdentifier       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateAutoScalingGroup' constructor.
 --
@@ -264,7 +264,7 @@ casgVPCZoneIdentifier =
     lens _casgVPCZoneIdentifier (\s a -> s { _casgVPCZoneIdentifier = a })
 
 data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateAutoScalingGroupResponse' constructor.
 createAutoScalingGroupResponse :: CreateAutoScalingGroupResponse

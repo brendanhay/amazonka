@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype UpdateMyUserProfile = UpdateMyUserProfile
     { _umupSshPublicKey :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'UpdateMyUserProfile' constructor.
 --
@@ -69,7 +69,7 @@ umupSshPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
 umupSshPublicKey = lens _umupSshPublicKey (\s a -> s { _umupSshPublicKey = a })
 
 data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateMyUserProfileResponse' constructor.
 updateMyUserProfileResponse :: UpdateMyUserProfileResponse

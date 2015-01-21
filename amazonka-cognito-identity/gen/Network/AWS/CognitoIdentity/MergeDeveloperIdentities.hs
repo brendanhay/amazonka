@@ -61,7 +61,7 @@ data MergeDeveloperIdentities = MergeDeveloperIdentities
     , _mdiDeveloperProviderName     :: Text
     , _mdiIdentityPoolId            :: Text
     , _mdiSourceUserIdentifier      :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'MergeDeveloperIdentities' constructor.
 --
@@ -115,7 +115,7 @@ mdiSourceUserIdentifier =
 
 newtype MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse
     { _mdirIdentityId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'MergeDeveloperIdentitiesResponse' constructor.
 --

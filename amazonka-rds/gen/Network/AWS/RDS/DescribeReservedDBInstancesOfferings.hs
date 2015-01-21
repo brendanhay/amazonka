@@ -66,7 +66,7 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
     , _drdbioOfferingType                  :: Maybe Text
     , _drdbioProductDescription            :: Maybe Text
     , _drdbioReservedDBInstancesOfferingId :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedDBInstancesOfferings' constructor.
 --
@@ -167,7 +167,7 @@ drdbioReservedDBInstancesOfferingId =
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse
     { _drdbiorMarker                       :: Maybe Text
     , _drdbiorReservedDBInstancesOfferings :: List "member" ReservedDBInstancesOffering
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedDBInstancesOfferingsResponse' constructor.
 --

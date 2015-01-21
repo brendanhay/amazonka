@@ -54,7 +54,7 @@ data AddPermission = AddPermission
     , _apActionName   :: List "member" Text
     , _apLabel        :: Text
     , _apTopicArn     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AddPermission' constructor.
 --
@@ -99,7 +99,7 @@ apTopicArn :: Lens' AddPermission Text
 apTopicArn = lens _apTopicArn (\s a -> s { _apTopicArn = a })
 
 data AddPermissionResponse = AddPermissionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AddPermissionResponse' constructor.
 addPermissionResponse :: AddPermissionResponse

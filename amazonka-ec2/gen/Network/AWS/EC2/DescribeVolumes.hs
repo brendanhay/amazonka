@@ -66,7 +66,7 @@ data DescribeVolumes = DescribeVolumes
     , _dv2MaxResults :: Maybe Int
     , _dv2NextToken  :: Maybe Text
     , _dv2VolumeIds  :: List "VolumeId" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumes' constructor.
 --
@@ -170,7 +170,7 @@ dv2VolumeIds = lens _dv2VolumeIds (\s a -> s { _dv2VolumeIds = a }) . _List
 data DescribeVolumesResponse = DescribeVolumesResponse
     { _dvrNextToken :: Maybe Text
     , _dvrVolumes   :: List "item" Volume
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumesResponse' constructor.
 --

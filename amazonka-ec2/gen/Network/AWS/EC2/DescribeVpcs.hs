@@ -53,7 +53,7 @@ data DescribeVpcs = DescribeVpcs
     { _dv1DryRun  :: Maybe Bool
     , _dv1Filters :: List "Filter" Filter
     , _dv1VpcIds  :: List "VpcId" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVpcs' constructor.
 --
@@ -114,7 +114,7 @@ dv1VpcIds = lens _dv1VpcIds (\s a -> s { _dv1VpcIds = a }) . _List
 
 newtype DescribeVpcsResponse = DescribeVpcsResponse
     { _dvrVpcs :: List "item" Vpc
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeVpcsResponse' constructor.
 --

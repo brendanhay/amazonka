@@ -86,7 +86,7 @@ data UpdateEnvironment = UpdateEnvironment
     , _ueTemplateName    :: Maybe Text
     , _ueTier            :: Maybe EnvironmentTier
     , _ueVersionLabel    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateEnvironment' constructor.
 --
@@ -191,7 +191,7 @@ data UpdateEnvironmentResponse = UpdateEnvironmentResponse
     , _uerTemplateName      :: Maybe Text
     , _uerTier              :: Maybe EnvironmentTier
     , _uerVersionLabel      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateEnvironmentResponse' constructor.
 --

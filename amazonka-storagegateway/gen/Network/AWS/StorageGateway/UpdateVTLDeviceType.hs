@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data UpdateVTLDeviceType = UpdateVTLDeviceType
     { _uvtldtDeviceType   :: Text
     , _uvtldtVTLDeviceARN :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateVTLDeviceType' constructor.
 --
@@ -85,7 +85,7 @@ uvtldtVTLDeviceARN =
 
 newtype UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse
     { _uvtldtrVTLDeviceARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'UpdateVTLDeviceTypeResponse' constructor.
 --

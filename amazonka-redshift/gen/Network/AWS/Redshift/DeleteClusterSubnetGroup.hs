@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
     { _dcsgClusterSubnetGroupName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteClusterSubnetGroup' constructor.
 --
@@ -68,7 +68,7 @@ dcsgClusterSubnetGroupName =
         (\s a -> s { _dcsgClusterSubnetGroupName = a })
 
 data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteClusterSubnetGroupResponse' constructor.
 deleteClusterSubnetGroupResponse :: DeleteClusterSubnetGroupResponse

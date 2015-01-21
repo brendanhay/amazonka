@@ -65,7 +65,7 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
     , _udcpDomainName        :: Text
     , _udcpRegistrantPrivacy :: Maybe Bool
     , _udcpTechPrivacy       :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateDomainContactPrivacy' constructor.
 --
@@ -150,7 +150,7 @@ udcpTechPrivacy = lens _udcpTechPrivacy (\s a -> s { _udcpTechPrivacy = a })
 
 newtype UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
     { _udcprOperationId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'UpdateDomainContactPrivacyResponse' constructor.
 --

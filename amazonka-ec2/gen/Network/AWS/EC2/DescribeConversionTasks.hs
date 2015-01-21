@@ -53,7 +53,7 @@ data DescribeConversionTasks = DescribeConversionTasks
     { _dctConversionTaskIds :: List "item" Text
     , _dctDryRun            :: Maybe Bool
     , _dctFilters           :: List "Filter" Filter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeConversionTasks' constructor.
 --
@@ -86,7 +86,7 @@ dctFilters = lens _dctFilters (\s a -> s { _dctFilters = a }) . _List
 
 newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctrConversionTasks :: List "item" ConversionTask
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeConversionTasksResponse' constructor.
 --

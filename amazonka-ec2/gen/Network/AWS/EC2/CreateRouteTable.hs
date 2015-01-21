@@ -54,7 +54,7 @@ import qualified GHC.Exts
 data CreateRouteTable = CreateRouteTable
     { _crtDryRun :: Maybe Bool
     , _crtVpcId  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateRouteTable' constructor.
 --
@@ -80,7 +80,7 @@ crtVpcId = lens _crtVpcId (\s a -> s { _crtVpcId = a })
 
 newtype CreateRouteTableResponse = CreateRouteTableResponse
     { _crtrRouteTable :: Maybe RouteTable
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateRouteTableResponse' constructor.
 --

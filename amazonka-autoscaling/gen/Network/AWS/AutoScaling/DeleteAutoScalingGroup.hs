@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup
     { _dasgAutoScalingGroupName :: Text
     , _dasgForceDelete          :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteAutoScalingGroup' constructor.
 --
@@ -83,7 +83,7 @@ dasgForceDelete :: Lens' DeleteAutoScalingGroup (Maybe Bool)
 dasgForceDelete = lens _dasgForceDelete (\s a -> s { _dasgForceDelete = a })
 
 data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteAutoScalingGroupResponse' constructor.
 deleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse

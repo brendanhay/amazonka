@@ -207,7 +207,7 @@ data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary
     , _tarsResourcesIgnored    :: Integer
     , _tarsResourcesProcessed  :: Integer
     , _tarsResourcesSuppressed :: Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TrustedAdvisorResourcesSummary' constructor.
 --
@@ -273,7 +273,7 @@ instance ToJSON TrustedAdvisorResourcesSummary where
 
 newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary
     { _tacssCostOptimizing :: Maybe TrustedAdvisorCostOptimizingSummary
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'TrustedAdvisorCategorySpecificSummary' constructor.
 --
@@ -307,7 +307,7 @@ data Communication = Communication
     , _cCaseId        :: Maybe Text
     , _cSubmittedBy   :: Maybe Text
     , _cTimeCreated   :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Communication' constructor.
 --
@@ -373,7 +373,7 @@ instance ToJSON Communication where
 data Category = Category
     { _cCode :: Maybe Text
     , _cName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Category' constructor.
 --
@@ -415,7 +415,7 @@ data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary
     , _tacsResourcesSummary        :: TrustedAdvisorResourcesSummary
     , _tacsStatus                  :: Text
     , _tacsTimestamp               :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'TrustedAdvisorCheckSummary' constructor.
 --
@@ -499,7 +499,7 @@ instance ToJSON TrustedAdvisorCheckSummary where
 data AttachmentDetails = AttachmentDetails
     { _adAttachmentId :: Maybe Text
     , _adFileName     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AttachmentDetails' constructor.
 --
@@ -541,7 +541,7 @@ data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult
     , _tacrResourcesSummary        :: TrustedAdvisorResourcesSummary
     , _tacrStatus                  :: Text
     , _tacrTimestamp               :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'TrustedAdvisorCheckResult' constructor.
 --
@@ -629,7 +629,7 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
     , _tacdId          :: Text
     , _tacdMetadata    :: List "metadata" Text
     , _tacdName        :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TrustedAdvisorCheckDescription' constructor.
 --
@@ -703,7 +703,7 @@ instance ToJSON TrustedAdvisorCheckDescription where
 data Attachment = Attachment
     { _aData     :: Maybe Base64
     , _aFileName :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Attachment' constructor.
 --
@@ -741,7 +741,7 @@ instance ToJSON Attachment where
 data RecentCaseCommunications = RecentCaseCommunications
     { _rccCommunications :: List "communications" Communication
     , _rccNextToken      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RecentCaseCommunications' constructor.
 --
@@ -782,7 +782,7 @@ data SupportService = SupportService
     { _ssCategories :: List "categories" Category
     , _ssCode       :: Maybe Text
     , _ssName       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SupportService' constructor.
 --
@@ -835,7 +835,7 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
     , _tardRegion       :: Text
     , _tardResourceId   :: Text
     , _tardStatus       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TrustedAdvisorResourceDetail' constructor.
 --
@@ -908,7 +908,7 @@ instance ToJSON TrustedAdvisorResourceDetail where
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary
     { _tacosEstimatedMonthlySavings        :: Double
     , _tacosEstimatedPercentMonthlySavings :: Double
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TrustedAdvisorCostOptimizingSummary' constructor.
 --
@@ -954,7 +954,7 @@ instance ToJSON TrustedAdvisorCostOptimizingSummary where
 data SeverityLevel = SeverityLevel
     { _slCode :: Maybe Text
     , _slName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SeverityLevel' constructor.
 --
@@ -1003,7 +1003,7 @@ data CaseDetails = CaseDetails
     , _cdSubject              :: Maybe Text
     , _cdSubmittedBy          :: Maybe Text
     , _cdTimeCreated          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CaseDetails' constructor.
 --
@@ -1141,7 +1141,7 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus
     { _tacrsCheckId                    :: Text
     , _tacrsMillisUntilNextRefreshable :: Integer
     , _tacrsStatus                     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TrustedAdvisorCheckRefreshStatus' constructor.
 --

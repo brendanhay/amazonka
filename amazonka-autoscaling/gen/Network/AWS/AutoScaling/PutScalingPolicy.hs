@@ -62,7 +62,7 @@ data PutScalingPolicy = PutScalingPolicy
     , _pspMinAdjustmentStep    :: Maybe Int
     , _pspPolicyName           :: Text
     , _pspScalingAdjustment    :: Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PutScalingPolicy' constructor.
 --
@@ -140,7 +140,7 @@ pspScalingAdjustment =
 
 newtype PutScalingPolicyResponse = PutScalingPolicyResponse
     { _psprPolicyARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'PutScalingPolicyResponse' constructor.
 --

@@ -59,7 +59,7 @@ data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext
     , _gdkwpKeyId             :: Text
     , _gdkwpKeySpec           :: Maybe DataKeySpec
     , _gdkwpNumberOfBytes     :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GenerateDataKeyWithoutPlaintext' constructor.
 --
@@ -117,7 +117,7 @@ gdkwpNumberOfBytes =
 data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse
     { _gdkwprCiphertextBlob :: Maybe Base64
     , _gdkwprKeyId          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GenerateDataKeyWithoutPlaintextResponse' constructor.
 --

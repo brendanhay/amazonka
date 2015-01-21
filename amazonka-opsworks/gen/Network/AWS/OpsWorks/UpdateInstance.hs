@@ -71,7 +71,7 @@ data UpdateInstance = UpdateInstance
     , _uiLayerIds             :: List "LayerIds" Text
     , _uiOs                   :: Maybe Text
     , _uiSshKeyName           :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateInstance' constructor.
 --
@@ -184,7 +184,7 @@ uiSshKeyName :: Lens' UpdateInstance (Maybe Text)
 uiSshKeyName = lens _uiSshKeyName (\s a -> s { _uiSshKeyName = a })
 
 data UpdateInstanceResponse = UpdateInstanceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateInstanceResponse' constructor.
 updateInstanceResponse :: UpdateInstanceResponse

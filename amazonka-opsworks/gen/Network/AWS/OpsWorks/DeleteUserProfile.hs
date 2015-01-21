@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DeleteUserProfile = DeleteUserProfile
     { _dupIamUserArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteUserProfile' constructor.
 --
@@ -70,7 +70,7 @@ dupIamUserArn :: Lens' DeleteUserProfile Text
 dupIamUserArn = lens _dupIamUserArn (\s a -> s { _dupIamUserArn = a })
 
 data DeleteUserProfileResponse = DeleteUserProfileResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteUserProfileResponse' constructor.
 deleteUserProfileResponse :: DeleteUserProfileResponse

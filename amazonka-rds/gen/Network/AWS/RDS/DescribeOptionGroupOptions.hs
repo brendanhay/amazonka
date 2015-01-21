@@ -58,7 +58,7 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions
     , _dogoMajorEngineVersion :: Maybe Text
     , _dogoMarker             :: Maybe Text
     , _dogoMaxRecords         :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeOptionGroupOptions' constructor.
 --
@@ -118,7 +118,7 @@ dogoMaxRecords = lens _dogoMaxRecords (\s a -> s { _dogoMaxRecords = a })
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
     { _dogorMarker             :: Maybe Text
     , _dogorOptionGroupOptions :: List "member" OptionGroupOption
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeOptionGroupOptionsResponse' constructor.
 --

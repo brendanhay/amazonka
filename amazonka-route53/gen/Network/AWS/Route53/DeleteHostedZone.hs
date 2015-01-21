@@ -59,7 +59,7 @@ import qualified GHC.Exts
 
 newtype DeleteHostedZone = DeleteHostedZone
     { _dhzId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteHostedZone' constructor.
 --
@@ -79,7 +79,7 @@ dhzId = lens _dhzId (\s a -> s { _dhzId = a })
 
 newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { _dhzrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteHostedZoneResponse' constructor.
 --

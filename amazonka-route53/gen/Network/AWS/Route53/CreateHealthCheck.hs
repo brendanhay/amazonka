@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data CreateHealthCheck = CreateHealthCheck
     { _chcCallerReference   :: Text
     , _chcHealthCheckConfig :: HealthCheckConfig
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateHealthCheck' constructor.
 --
@@ -92,7 +92,7 @@ chcHealthCheckConfig =
 data CreateHealthCheckResponse = CreateHealthCheckResponse
     { _chcrHealthCheck :: HealthCheck
     , _chcrLocation    :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateHealthCheckResponse' constructor.
 --

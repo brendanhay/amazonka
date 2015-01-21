@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype ReadPipeline = ReadPipeline
     { _rp1Id :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ReadPipeline' constructor.
 --
@@ -69,7 +69,7 @@ rp1Id = lens _rp1Id (\s a -> s { _rp1Id = a })
 
 newtype ReadPipelineResponse = ReadPipelineResponse
     { _rprPipeline :: Maybe Pipeline
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ReadPipelineResponse' constructor.
 --

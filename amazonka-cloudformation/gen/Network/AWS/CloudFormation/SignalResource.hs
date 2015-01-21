@@ -58,7 +58,7 @@ data SignalResource = SignalResource
     , _srStackName         :: Text
     , _srStatus            :: ResourceSignalStatus
     , _srUniqueId          :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SignalResource' constructor.
 --
@@ -108,7 +108,7 @@ srUniqueId :: Lens' SignalResource Text
 srUniqueId = lens _srUniqueId (\s a -> s { _srUniqueId = a })
 
 data SignalResourceResponse = SignalResourceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SignalResourceResponse' constructor.
 signalResourceResponse :: SignalResourceResponse

@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DescribeChapCredentials = DescribeChapCredentials
     { _dccTargetARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeChapCredentials' constructor.
 --
@@ -71,7 +71,7 @@ dccTargetARN = lens _dccTargetARN (\s a -> s { _dccTargetARN = a })
 
 newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
     { _dccrChapCredentials :: List "ChapCredentials" ChapInfo
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeChapCredentialsResponse where
     type Item DescribeChapCredentialsResponse = ChapInfo

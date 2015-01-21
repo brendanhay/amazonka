@@ -63,7 +63,7 @@ data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails
     { _gaadFilter   :: List "member" EntityType
     , _gaadMarker   :: Maybe Text
     , _gaadMaxItems :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetAccountAuthorizationDetails' constructor.
 --
@@ -105,7 +105,7 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
     , _gaadrMarker          :: Maybe Text
     , _gaadrRoleDetailList  :: List "member" RoleDetail
     , _gaadrUserDetailList  :: List "member" UserDetail
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetAccountAuthorizationDetailsResponse' constructor.
 --

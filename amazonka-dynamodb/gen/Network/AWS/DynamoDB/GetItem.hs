@@ -68,7 +68,7 @@ data GetItem = GetItem
     , _giProjectionExpression     :: Maybe Text
     , _giReturnConsumedCapacity   :: Maybe ReturnConsumedCapacity
     , _giTableName                :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetItem' constructor.
 --
@@ -189,7 +189,7 @@ giTableName = lens _giTableName (\s a -> s { _giTableName = a })
 data GetItemResponse = GetItemResponse
     { _girConsumedCapacity :: Maybe ConsumedCapacity
     , _girItem             :: Map Text AttributeValue
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetItemResponse' constructor.
 --

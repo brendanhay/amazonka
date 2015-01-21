@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data DescribeEnvironmentResources = DescribeEnvironmentResources
     { _derEnvironmentId   :: Maybe Text
     , _derEnvironmentName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeEnvironmentResources' constructor.
 --
@@ -84,7 +84,7 @@ derEnvironmentName =
 
 newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
     { _derrEnvironmentResources :: Maybe EnvironmentResourceDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeEnvironmentResourcesResponse' constructor.
 --

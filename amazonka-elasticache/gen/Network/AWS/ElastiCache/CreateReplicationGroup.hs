@@ -99,7 +99,7 @@ data CreateReplicationGroup = CreateReplicationGroup
     , _crgSnapshotName                :: Maybe Text
     , _crgSnapshotRetentionLimit      :: Maybe Int
     , _crgSnapshotWindow              :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateReplicationGroup' constructor.
 --
@@ -372,7 +372,7 @@ crgSnapshotWindow =
 
 newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse
     { _crgrReplicationGroup :: Maybe ReplicationGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateReplicationGroupResponse' constructor.
 --

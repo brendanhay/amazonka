@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetBucketTagging = GetBucketTagging
     { _gbtBucket :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetBucketTagging' constructor.
 --
@@ -68,7 +68,7 @@ gbtBucket = lens _gbtBucket (\s a -> s { _gbtBucket = a })
 
 newtype GetBucketTaggingResponse = GetBucketTaggingResponse
     { _gbtrTagSet :: List "Tag" Tag
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList GetBucketTaggingResponse where
     type Item GetBucketTaggingResponse = Tag

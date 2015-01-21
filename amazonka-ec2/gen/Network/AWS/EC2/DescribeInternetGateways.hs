@@ -53,7 +53,7 @@ data DescribeInternetGateways = DescribeInternetGateways
     { _dig1DryRun             :: Maybe Bool
     , _dig1Filters            :: List "Filter" Filter
     , _dig1InternetGatewayIds :: List "item" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeInternetGateways' constructor.
 --
@@ -111,7 +111,7 @@ dig1InternetGatewayIds =
 
 newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digrInternetGateways :: List "item" InternetGateway
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeInternetGatewaysResponse' constructor.
 --

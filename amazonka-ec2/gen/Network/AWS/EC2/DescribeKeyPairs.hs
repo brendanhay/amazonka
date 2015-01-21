@@ -55,7 +55,7 @@ data DescribeKeyPairs = DescribeKeyPairs
     { _dkp1DryRun   :: Maybe Bool
     , _dkp1Filters  :: List "Filter" Filter
     , _dkp1KeyNames :: List "KeyName" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeKeyPairs' constructor.
 --
@@ -95,7 +95,7 @@ dkp1KeyNames = lens _dkp1KeyNames (\s a -> s { _dkp1KeyNames = a }) . _List
 
 newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
     { _dkprKeyPairs :: List "item" KeyPairInfo
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeKeyPairsResponse' constructor.
 --

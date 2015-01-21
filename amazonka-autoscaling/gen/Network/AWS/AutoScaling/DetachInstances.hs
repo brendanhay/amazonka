@@ -58,7 +58,7 @@ data DetachInstances = DetachInstances
     { _diAutoScalingGroupName           :: Text
     , _diInstanceIds                    :: List "member" Text
     , _diShouldDecrementDesiredCapacity :: Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DetachInstances' constructor.
 --
@@ -97,7 +97,7 @@ diShouldDecrementDesiredCapacity =
 
 newtype DetachInstancesResponse = DetachInstancesResponse
     { _dirActivities :: List "member" Activity
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DetachInstancesResponse where
     type Item DetachInstancesResponse = Activity

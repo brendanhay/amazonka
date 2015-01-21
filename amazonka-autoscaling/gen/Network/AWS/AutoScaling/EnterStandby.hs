@@ -55,7 +55,7 @@ data EnterStandby = EnterStandby
     { _esAutoScalingGroupName           :: Text
     , _esInstanceIds                    :: List "member" Text
     , _esShouldDecrementDesiredCapacity :: Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnterStandby' constructor.
 --
@@ -97,7 +97,7 @@ esShouldDecrementDesiredCapacity =
 
 newtype EnterStandbyResponse = EnterStandbyResponse
     { _esr1Activities :: List "member" Activity
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList EnterStandbyResponse where
     type Item EnterStandbyResponse = Activity

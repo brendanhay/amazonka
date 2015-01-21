@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype StartStack = StartStack
     { _ss2StackId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'StartStack' constructor.
 --
@@ -70,7 +70,7 @@ ss2StackId :: Lens' StartStack Text
 ss2StackId = lens _ss2StackId (\s a -> s { _ss2StackId = a })
 
 data StartStackResponse = StartStackResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'StartStackResponse' constructor.
 startStackResponse :: StartStackResponse

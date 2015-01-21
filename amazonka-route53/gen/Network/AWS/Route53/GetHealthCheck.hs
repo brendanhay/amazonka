@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetHealthCheck = GetHealthCheck
     { _ghcHealthCheckId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetHealthCheck' constructor.
 --
@@ -69,7 +69,7 @@ ghcHealthCheckId = lens _ghcHealthCheckId (\s a -> s { _ghcHealthCheckId = a })
 
 newtype GetHealthCheckResponse = GetHealthCheckResponse
     { _ghcrHealthCheck :: HealthCheck
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetHealthCheckResponse' constructor.
 --

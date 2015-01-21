@@ -57,7 +57,7 @@ import qualified GHC.Exts
 
 newtype StartGateway = StartGateway
     { _sgGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'StartGateway' constructor.
 --
@@ -76,7 +76,7 @@ sgGatewayARN = lens _sgGatewayARN (\s a -> s { _sgGatewayARN = a })
 
 newtype StartGatewayResponse = StartGatewayResponse
     { _sgrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'StartGatewayResponse' constructor.
 --

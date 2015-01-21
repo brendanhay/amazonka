@@ -62,7 +62,7 @@ data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
     { _ubrlAverageDownloadRateLimitInBitsPerSec :: Maybe Nat
     , _ubrlAverageUploadRateLimitInBitsPerSec   :: Maybe Nat
     , _ubrlGatewayARN                           :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateBandwidthRateLimit' constructor.
 --
@@ -101,7 +101,7 @@ ubrlGatewayARN = lens _ubrlGatewayARN (\s a -> s { _ubrlGatewayARN = a })
 
 newtype UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
     { _ubrlrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'UpdateBandwidthRateLimitResponse' constructor.
 --

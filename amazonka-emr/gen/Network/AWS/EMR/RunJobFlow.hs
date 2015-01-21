@@ -92,7 +92,7 @@ data RunJobFlow = RunJobFlow
     , _rjfSupportedProducts    :: List "SupportedProducts" Text
     , _rjfTags                 :: List "Tags" Tag
     , _rjfVisibleToAllUsers    :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RunJobFlow' constructor.
 --
@@ -238,7 +238,7 @@ rjfVisibleToAllUsers =
 
 newtype RunJobFlowResponse = RunJobFlowResponse
     { _rjfrJobFlowId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'RunJobFlowResponse' constructor.
 --

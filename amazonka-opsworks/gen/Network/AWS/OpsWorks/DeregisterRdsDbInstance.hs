@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DeregisterRdsDbInstance = DeregisterRdsDbInstance
     { _drdiRdsDbInstanceArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeregisterRdsDbInstance' constructor.
 --
@@ -71,7 +71,7 @@ drdiRdsDbInstanceArn =
     lens _drdiRdsDbInstanceArn (\s a -> s { _drdiRdsDbInstanceArn = a })
 
 data DeregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeregisterRdsDbInstanceResponse' constructor.
 deregisterRdsDbInstanceResponse :: DeregisterRdsDbInstanceResponse

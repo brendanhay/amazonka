@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
     { _decApplicationName :: Text
     , _decEnvironmentName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteEnvironmentConfiguration' constructor.
 --
@@ -84,7 +84,7 @@ decEnvironmentName =
     lens _decEnvironmentName (\s a -> s { _decEnvironmentName = a })
 
 data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteEnvironmentConfigurationResponse' constructor.
 deleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse

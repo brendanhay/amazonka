@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data CreateInvalidation = CreateInvalidation
     { _ciDistributionId    :: Text
     , _ciInvalidationBatch :: InvalidationBatch
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateInvalidation' constructor.
 --
@@ -82,7 +82,7 @@ ciInvalidationBatch =
 data CreateInvalidationResponse = CreateInvalidationResponse
     { _cirInvalidation :: Maybe Invalidation
     , _cirLocation     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateInvalidationResponse' constructor.
 --

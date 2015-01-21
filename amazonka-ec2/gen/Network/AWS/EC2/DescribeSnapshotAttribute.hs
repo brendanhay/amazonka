@@ -59,7 +59,7 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute
     { _dsaAttribute  :: SnapshotAttributeName
     , _dsaDryRun     :: Maybe Bool
     , _dsaSnapshotId :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshotAttribute' constructor.
 --
@@ -95,7 +95,7 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     { _dsarCreateVolumePermissions :: List "item" CreateVolumePermission
     , _dsarProductCodes            :: List "item" ProductCode
     , _dsarSnapshotId              :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshotAttributeResponse' constructor.
 --

@@ -65,7 +65,7 @@ import qualified GHC.Exts
 
 newtype DeleteStream = DeleteStream
     { _dsStreamName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteStream' constructor.
 --
@@ -84,7 +84,7 @@ dsStreamName :: Lens' DeleteStream Text
 dsStreamName = lens _dsStreamName (\s a -> s { _dsStreamName = a })
 
 data DeleteStreamResponse = DeleteStreamResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteStreamResponse' constructor.
 deleteStreamResponse :: DeleteStreamResponse

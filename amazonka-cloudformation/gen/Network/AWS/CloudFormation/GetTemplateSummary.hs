@@ -66,7 +66,7 @@ data GetTemplateSummary = GetTemplateSummary
     { _gtsStackName    :: Maybe Text
     , _gtsTemplateBody :: Maybe Text
     , _gtsTemplateURL  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetTemplateSummary' constructor.
 --
@@ -119,7 +119,7 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse
     , _gtsrDescription        :: Maybe Text
     , _gtsrParameters         :: List "member" ParameterDeclaration
     , _gtsrVersion            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetTemplateSummaryResponse' constructor.
 --

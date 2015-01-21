@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DeleteIdentity = DeleteIdentity
     { _diIdentity :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteIdentity' constructor.
 --
@@ -69,7 +69,7 @@ diIdentity :: Lens' DeleteIdentity Text
 diIdentity = lens _diIdentity (\s a -> s { _diIdentity = a })
 
 data DeleteIdentityResponse = DeleteIdentityResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteIdentityResponse' constructor.
 deleteIdentityResponse :: DeleteIdentityResponse

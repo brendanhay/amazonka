@@ -55,7 +55,7 @@ data DescribeNotificationConfigurations = DescribeNotificationConfigurations
     { _dncAutoScalingGroupNames :: List "member" Text
     , _dncMaxRecords            :: Maybe Int
     , _dncNextToken             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeNotificationConfigurations' constructor.
 --
@@ -93,7 +93,7 @@ dncNextToken = lens _dncNextToken (\s a -> s { _dncNextToken = a })
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
     { _dncrNextToken                  :: Maybe Text
     , _dncrNotificationConfigurations :: List "member" NotificationConfiguration
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeNotificationConfigurationsResponse' constructor.
 --

@@ -84,7 +84,7 @@ data RegisterWorkflowType = RegisterWorkflowType
     , _rwtDomain                              :: Text
     , _rwtName                                :: Text
     , _rwtVersion                             :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RegisterWorkflowType' constructor.
 --
@@ -209,7 +209,7 @@ rwtVersion :: Lens' RegisterWorkflowType Text
 rwtVersion = lens _rwtVersion (\s a -> s { _rwtVersion = a })
 
 data RegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RegisterWorkflowTypeResponse' constructor.
 registerWorkflowTypeResponse :: RegisterWorkflowTypeResponse

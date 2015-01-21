@@ -174,7 +174,7 @@ data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo
     , _cediLastErrorMessage   :: Maybe Text
     , _cediLastStatus         :: Maybe DeliveryStatus
     , _cediLastSuccessfulTime :: Maybe POSIX
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ConfigExportDeliveryInfo' constructor.
 --
@@ -247,7 +247,7 @@ data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo
     , _csdiLastErrorMessage     :: Maybe Text
     , _csdiLastStatus           :: Maybe DeliveryStatus
     , _csdiLastStatusChangeTime :: Maybe POSIX
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ConfigStreamDeliveryInfo' constructor.
 --
@@ -309,7 +309,7 @@ data Relationship = Relationship
     { _rRelationshipName :: Maybe Text
     , _rResourceId       :: Maybe Text
     , _rResourceType     :: Maybe ResourceType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Relationship' constructor.
 --
@@ -359,7 +359,7 @@ data DeliveryChannel = DeliveryChannel
     , _dcS3BucketName :: Maybe Text
     , _dcS3KeyPrefix  :: Maybe Text
     , _dcSnsTopicARN  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeliveryChannel' constructor.
 --
@@ -419,7 +419,7 @@ instance ToJSON DeliveryChannel where
 data ChronologicalOrder
     = Forward -- ^ Forward
     | Reverse -- ^ Reverse
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ChronologicalOrder
 
@@ -460,7 +460,7 @@ data ResourceType
     | AWSEC2VPNConnection    -- ^ AWS::EC2::VPNConnection
     | AWSEC2VPNGateway       -- ^ AWS::EC2::VPNGateway
     | AWSEC2Volume           -- ^ AWS::EC2::Volume
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ResourceType
 
@@ -526,7 +526,7 @@ data ConfigurationItem = ConfigurationItem
     , _ciResourceType                 :: Maybe ResourceType
     , _ciTags                         :: Map Text Text
     , _ciVersion                      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ConfigurationItem' constructor.
 --
@@ -703,7 +703,7 @@ instance ToJSON ConfigurationItem where
 data DeliveryStatus
     = Failure -- ^ Failure
     | Success -- ^ Success
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable DeliveryStatus
 
@@ -734,7 +734,7 @@ data DeliveryChannelStatus = DeliveryChannelStatus
     , _dcsConfigSnapshotDeliveryInfo :: Maybe ConfigExportDeliveryInfo
     , _dcsConfigStreamDeliveryInfo   :: Maybe ConfigStreamDeliveryInfo
     , _dcsName                       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeliveryChannelStatus' constructor.
 --
@@ -805,7 +805,7 @@ data ConfigurationRecorderStatus = ConfigurationRecorderStatus
     , _crsLastStopTime         :: Maybe POSIX
     , _crsName                 :: Maybe Text
     , _crsRecording            :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ConfigurationRecorderStatus' constructor.
 --
@@ -902,7 +902,7 @@ data ConfigurationItemStatus
     | Discovered -- ^ Discovered
     | Failed     -- ^ Failed
     | Ok         -- ^ Ok
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ConfigurationItemStatus
 
@@ -935,7 +935,7 @@ instance ToJSON ConfigurationItemStatus where
 data ConfigurationRecorder = ConfigurationRecorder
     { _crName    :: Maybe Text
     , _crRoleARN :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ConfigurationRecorder' constructor.
 --
@@ -977,7 +977,7 @@ data RecorderStatus
     = RSFailure -- ^ Failure
     | RSPending -- ^ Pending
     | RSSuccess -- ^ Success
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable RecorderStatus
 

@@ -59,7 +59,7 @@ import qualified GHC.Exts
 
 newtype DescribeCache = DescribeCache
     { _dcGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeCache' constructor.
 --
@@ -84,7 +84,7 @@ data DescribeCacheResponse = DescribeCacheResponse
     , _dcrCacheUsedPercentage   :: Maybe Double
     , _dcrDiskIds               :: List "DiskIds" Text
     , _dcrGatewayARN            :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeCacheResponse' constructor.
 --

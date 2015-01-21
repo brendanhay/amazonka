@@ -70,7 +70,7 @@ import qualified GHC.Exts
 data DescribeAccountAttributes = DescribeAccountAttributes
     { _daaAttributeNames :: List "attributeName" AccountAttributeName
     , _daaDryRun         :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeAccountAttributes' constructor.
 --
@@ -97,7 +97,7 @@ daaDryRun = lens _daaDryRun (\s a -> s { _daaDryRun = a })
 
 newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daarAccountAttributes :: List "item" AccountAttribute
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeAccountAttributesResponse' constructor.
 --

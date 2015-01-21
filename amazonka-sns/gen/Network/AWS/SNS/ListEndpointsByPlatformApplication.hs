@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication
     { _lebpaNextToken              :: Maybe Text
     , _lebpaPlatformApplicationArn :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListEndpointsByPlatformApplication' constructor.
 --
@@ -89,7 +89,7 @@ lebpaPlatformApplicationArn =
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
     { _lebparEndpoints :: List "member" Endpoint
     , _lebparNextToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListEndpointsByPlatformApplicationResponse' constructor.
 --

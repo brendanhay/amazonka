@@ -54,7 +54,7 @@ data CopyDBSnapshot = CopyDBSnapshot
     { _cdbsSourceDBSnapshotIdentifier :: Text
     , _cdbsTags                       :: List "member" Tag
     , _cdbsTargetDBSnapshotIdentifier :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CopyDBSnapshot' constructor.
 --
@@ -107,7 +107,7 @@ cdbsTargetDBSnapshotIdentifier =
 
 newtype CopyDBSnapshotResponse = CopyDBSnapshotResponse
     { _cdbsrDBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CopyDBSnapshotResponse' constructor.
 --

@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
     { _cpvi1VirtualInterfaceId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ConfirmPublicVirtualInterface' constructor.
 --
@@ -72,7 +72,7 @@ cpvi1VirtualInterfaceId =
 
 newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
     { _cpvir3VirtualInterfaceState :: Maybe VirtualInterfaceState
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ConfirmPublicVirtualInterfaceResponse' constructor.
 --

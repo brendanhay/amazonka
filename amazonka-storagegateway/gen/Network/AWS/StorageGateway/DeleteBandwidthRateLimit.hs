@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit
     { _dbrl1BandwidthType :: Text
     , _dbrl1GatewayARN    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteBandwidthRateLimit' constructor.
 --
@@ -82,7 +82,7 @@ dbrl1GatewayARN = lens _dbrl1GatewayARN (\s a -> s { _dbrl1GatewayARN = a })
 
 newtype DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
     { _dbrlr1GatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'DeleteBandwidthRateLimitResponse' constructor.
 --

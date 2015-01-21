@@ -55,7 +55,7 @@ data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertifica
     { _slblsslcLoadBalancerName :: Text
     , _slblsslcLoadBalancerPort :: Int
     , _slblsslcSSLCertificateId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SetLoadBalancerListenerSSLCertificate' constructor.
 --
@@ -98,7 +98,7 @@ slblsslcSSLCertificateId =
         (\s a -> s { _slblsslcSSLCertificateId = a })
 
 data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetLoadBalancerListenerSSLCertificateResponse' constructor.
 setLoadBalancerListenerSSLCertificateResponse :: SetLoadBalancerListenerSSLCertificateResponse

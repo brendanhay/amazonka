@@ -58,7 +58,7 @@ data DisassociateAddress = DisassociateAddress
     { _da1AssociationId :: Maybe Text
     , _da1DryRun        :: Maybe Bool
     , _da1PublicIp      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DisassociateAddress' constructor.
 --
@@ -89,7 +89,7 @@ da1PublicIp :: Lens' DisassociateAddress (Maybe Text)
 da1PublicIp = lens _da1PublicIp (\s a -> s { _da1PublicIp = a })
 
 data DisassociateAddressResponse = DisassociateAddressResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DisassociateAddressResponse' constructor.
 disassociateAddressResponse :: DisassociateAddressResponse

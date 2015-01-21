@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data DeleteTape = DeleteTape
     { _dt1GatewayARN :: Text
     , _dt1TapeARN    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteTape' constructor.
 --
@@ -81,7 +81,7 @@ dt1TapeARN = lens _dt1TapeARN (\s a -> s { _dt1TapeARN = a })
 
 newtype DeleteTapeResponse = DeleteTapeResponse
     { _dtrTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'DeleteTapeResponse' constructor.
 --

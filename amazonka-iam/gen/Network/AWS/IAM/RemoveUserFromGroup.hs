@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data RemoveUserFromGroup = RemoveUserFromGroup
     { _rufgGroupName :: Text
     , _rufgUserName  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RemoveUserFromGroup' constructor.
 --
@@ -76,7 +76,7 @@ rufgUserName :: Lens' RemoveUserFromGroup Text
 rufgUserName = lens _rufgUserName (\s a -> s { _rufgUserName = a })
 
 data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RemoveUserFromGroupResponse' constructor.
 removeUserFromGroupResponse :: RemoveUserFromGroupResponse

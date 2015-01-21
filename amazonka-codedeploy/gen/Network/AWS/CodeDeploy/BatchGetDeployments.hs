@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype BatchGetDeployments = BatchGetDeployments
     { _bgdDeploymentIds :: List "deploymentIds" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BatchGetDeployments where
     type Item BatchGetDeployments = Text
@@ -74,7 +74,7 @@ bgdDeploymentIds = lens _bgdDeploymentIds (\s a -> s { _bgdDeploymentIds = a }) 
 
 newtype BatchGetDeploymentsResponse = BatchGetDeploymentsResponse
     { _bgdrDeploymentsInfo :: List "deploymentsInfo" DeploymentInfo
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BatchGetDeploymentsResponse where
     type Item BatchGetDeploymentsResponse = DeploymentInfo

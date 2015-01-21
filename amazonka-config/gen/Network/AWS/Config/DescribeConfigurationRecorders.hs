@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders
     { _dcrConfigurationRecorderNames :: List "ConfigurationRecorderNames" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConfigurationRecorders where
     type Item DescribeConfigurationRecorders = Text
@@ -79,7 +79,7 @@ dcrConfigurationRecorderNames =
 
 newtype DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse
     { _dcrrConfigurationRecorders :: List "ConfigurationRecorders" ConfigurationRecorder
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeConfigurationRecordersResponse where
     type Item DescribeConfigurationRecordersResponse = ConfigurationRecorder

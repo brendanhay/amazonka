@@ -56,7 +56,7 @@ data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity
     , _udiDeveloperUserIdentifier :: Text
     , _udiIdentityId              :: Text
     , _udiIdentityPoolId          :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UnlinkDeveloperIdentity' constructor.
 --
@@ -104,7 +104,7 @@ udiIdentityPoolId =
     lens _udiIdentityPoolId (\s a -> s { _udiIdentityPoolId = a })
 
 data UnlinkDeveloperIdentityResponse = UnlinkDeveloperIdentityResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UnlinkDeveloperIdentityResponse' constructor.
 unlinkDeveloperIdentityResponse :: UnlinkDeveloperIdentityResponse

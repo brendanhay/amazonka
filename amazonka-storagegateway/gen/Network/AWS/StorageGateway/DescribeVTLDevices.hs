@@ -60,7 +60,7 @@ data DescribeVTLDevices = DescribeVTLDevices
     , _dvtldLimit         :: Maybe Nat
     , _dvtldMarker        :: Maybe Text
     , _dvtldVTLDeviceARNs :: List "VTLDeviceARNs" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeVTLDevices' constructor.
 --
@@ -111,7 +111,7 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
     { _dvtldrGatewayARN :: Maybe Text
     , _dvtldrMarker     :: Maybe Text
     , _dvtldrVTLDevices :: List "VTLDevices" VTLDevice
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVTLDevicesResponse' constructor.
 --

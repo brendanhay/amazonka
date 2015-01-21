@@ -59,7 +59,7 @@ import qualified GHC.Exts
 
 newtype GetEventSource = GetEventSource
     { _gesUUID :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetEventSource' constructor.
 --
@@ -87,7 +87,7 @@ data GetEventSourceResponse = GetEventSourceResponse
     , _gesrRole         :: Maybe Text
     , _gesrStatus       :: Maybe Text
     , _gesrUUID         :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetEventSourceResponse' constructor.
 --

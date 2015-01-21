@@ -88,7 +88,7 @@ data GetMetricStatistics = GetMetricStatistics
     , _gmsStartTime  :: ISO8601
     , _gmsStatistics :: List1 "member" Statistic
     , _gmsUnit       :: Maybe StandardUnit
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetMetricStatistics' constructor.
 --
@@ -171,7 +171,7 @@ gmsUnit = lens _gmsUnit (\s a -> s { _gmsUnit = a })
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse
     { _gmsrDatapoints :: List "member" Datapoint
     , _gmsrLabel      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetMetricStatisticsResponse' constructor.
 --

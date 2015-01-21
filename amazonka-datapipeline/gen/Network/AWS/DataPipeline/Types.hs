@@ -175,7 +175,7 @@ instance AWSService DataPipeline where
 data ParameterObject = ParameterObject
     { _poAttributes :: List "attributes" ParameterAttribute
     , _poId         :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ParameterObject' constructor.
 --
@@ -215,7 +215,7 @@ data PipelineObject = PipelineObject
     { _po1Fields :: List "fields" Field
     , _po1Id     :: Text
     , _po1Name   :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PipelineObject' constructor.
 --
@@ -265,7 +265,7 @@ data Field = Field
     { _fKey         :: Text
     , _fRefValue    :: Maybe Text
     , _fStringValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Field' constructor.
 --
@@ -313,7 +313,7 @@ instance ToJSON Field where
 data ParameterValue = ParameterValue
     { _pvId          :: Text
     , _pvStringValue :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ParameterValue' constructor.
 --
@@ -353,7 +353,7 @@ instance ToJSON ParameterValue where
 data Selector = Selector
     { _sFieldName :: Maybe Text
     , _sOperator  :: Maybe Operator
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Selector' constructor.
 --
@@ -393,7 +393,7 @@ instance ToJSON Selector where
 data ParameterAttribute = ParameterAttribute
     { _paKey         :: Text
     , _paStringValue :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ParameterAttribute' constructor.
 --
@@ -433,7 +433,7 @@ instance ToJSON ParameterAttribute where
 data Operator = Operator
     { _oType   :: Maybe OperatorType
     , _oValues :: List "values" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Operator' constructor.
 --
@@ -489,7 +489,7 @@ data TaskObject = TaskObject
     , _toObjects    :: Map Text PipelineObject
     , _toPipelineId :: Maybe Text
     , _toTaskId     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'TaskObject' constructor.
 --
@@ -548,7 +548,7 @@ instance ToJSON TaskObject where
 data ValidationError = ValidationError
     { _veErrors :: List "errors" Text
     , _veId     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ValidationError' constructor.
 --
@@ -588,7 +588,7 @@ data PipelineDescription = PipelineDescription
     , _pdFields      :: List "fields" Field
     , _pdName        :: Text
     , _pdPipelineId  :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PipelineDescription' constructor.
 --
@@ -648,7 +648,7 @@ instance ToJSON PipelineDescription where
 data InstanceIdentity = InstanceIdentity
     { _iiDocument  :: Maybe Text
     , _iiSignature :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'InstanceIdentity' constructor.
 --
@@ -688,7 +688,7 @@ instance ToJSON InstanceIdentity where
 
 newtype Query = Query
     { _qSelectors :: List "selectors" Selector
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList Query where
     type Item Query = Selector
@@ -727,7 +727,7 @@ data OperatorType
     | OperatorGe      -- ^ GE
     | OperatorLe      -- ^ LE
     | OperatorRefEq   -- ^ REF_EQ
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable OperatorType
 
@@ -762,7 +762,7 @@ instance ToJSON OperatorType where
 data PipelineIdName = PipelineIdName
     { _pinId   :: Maybe Text
     , _pinName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PipelineIdName' constructor.
 --
@@ -802,7 +802,7 @@ data TaskStatus
     = Failed   -- ^ FAILED
     | False'   -- ^ FALSE
     | Finished -- ^ FINISHED
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable TaskStatus
 
@@ -833,7 +833,7 @@ instance ToJSON TaskStatus where
 data ValidationWarning = ValidationWarning
     { _vwId       :: Maybe Text
     , _vwWarnings :: List "warnings" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ValidationWarning' constructor.
 --

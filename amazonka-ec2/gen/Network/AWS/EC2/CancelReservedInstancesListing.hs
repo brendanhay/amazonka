@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing
     { _crilReservedInstancesListingId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'CancelReservedInstancesListing' constructor.
 --
@@ -74,7 +74,7 @@ crilReservedInstancesListingId =
 
 newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { _crilrReservedInstancesListings :: List "item" ReservedInstancesListing
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'CancelReservedInstancesListingResponse' constructor.
 --

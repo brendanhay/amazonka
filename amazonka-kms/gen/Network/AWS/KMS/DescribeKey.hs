@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DescribeKey = DescribeKey
     { _dk1KeyId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeKey' constructor.
 --
@@ -70,7 +70,7 @@ dk1KeyId = lens _dk1KeyId (\s a -> s { _dk1KeyId = a })
 
 newtype DescribeKeyResponse = DescribeKeyResponse
     { _dkrKeyMetadata :: Maybe KeyMetadata
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeKeyResponse' constructor.
 --

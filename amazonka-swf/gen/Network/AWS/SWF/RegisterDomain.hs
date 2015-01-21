@@ -65,7 +65,7 @@ data RegisterDomain = RegisterDomain
     { _rdDescription                            :: Maybe Text
     , _rdName                                   :: Text
     , _rdWorkflowExecutionRetentionPeriodInDays :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RegisterDomain' constructor.
 --
@@ -117,7 +117,7 @@ rdWorkflowExecutionRetentionPeriodInDays =
         (\s a -> s { _rdWorkflowExecutionRetentionPeriodInDays = a })
 
 data RegisterDomainResponse = RegisterDomainResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RegisterDomainResponse' constructor.
 registerDomainResponse :: RegisterDomainResponse

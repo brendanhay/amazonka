@@ -97,7 +97,7 @@ data ReceiveMessage = ReceiveMessage
     , _rmQueueUrl              :: Text
     , _rmVisibilityTimeout     :: Maybe Int
     , _rmWaitTimeSeconds       :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ReceiveMessage' constructor.
 --
@@ -188,7 +188,7 @@ rmWaitTimeSeconds =
 
 newtype ReceiveMessageResponse = ReceiveMessageResponse
     { _rmrMessages :: List "member" Message
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'ReceiveMessageResponse' constructor.
 --

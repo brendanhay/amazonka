@@ -73,7 +73,7 @@ data CreatePreset = CreatePreset
     , _cpName        :: Text
     , _cpThumbnails  :: Maybe Thumbnails
     , _cpVideo       :: Maybe VideoParameters
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreatePreset' constructor.
 --
@@ -131,7 +131,7 @@ cpVideo = lens _cpVideo (\s a -> s { _cpVideo = a })
 data CreatePresetResponse = CreatePresetResponse
     { _cprPreset  :: Maybe Preset
     , _cprWarning :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreatePresetResponse' constructor.
 --

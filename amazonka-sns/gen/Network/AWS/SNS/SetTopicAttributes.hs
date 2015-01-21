@@ -51,7 +51,7 @@ data SetTopicAttributes = SetTopicAttributes
     { _staAttributeName  :: Text
     , _staAttributeValue :: Maybe Text
     , _staTopicArn       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SetTopicAttributes' constructor.
 --
@@ -89,7 +89,7 @@ staTopicArn :: Lens' SetTopicAttributes Text
 staTopicArn = lens _staTopicArn (\s a -> s { _staTopicArn = a })
 
 data SetTopicAttributesResponse = SetTopicAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetTopicAttributesResponse' constructor.
 setTopicAttributesResponse :: SetTopicAttributesResponse

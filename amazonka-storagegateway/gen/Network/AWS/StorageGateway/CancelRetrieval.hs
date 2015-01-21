@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data CancelRetrieval = CancelRetrieval
     { _crGatewayARN :: Text
     , _crTapeARN    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CancelRetrieval' constructor.
 --
@@ -81,7 +81,7 @@ crTapeARN = lens _crTapeARN (\s a -> s { _crTapeARN = a })
 
 newtype CancelRetrievalResponse = CancelRetrievalResponse
     { _crrTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CancelRetrievalResponse' constructor.
 --

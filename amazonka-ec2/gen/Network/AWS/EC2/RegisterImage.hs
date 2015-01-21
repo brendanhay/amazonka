@@ -86,7 +86,7 @@ data RegisterImage = RegisterImage
     , _ri1RootDeviceName      :: Maybe Text
     , _ri1SriovNetSupport     :: Maybe Text
     , _ri1VirtualizationType  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RegisterImage' constructor.
 --
@@ -195,7 +195,7 @@ ri1VirtualizationType =
 
 newtype RegisterImageResponse = RegisterImageResponse
     { _rirImageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'RegisterImageResponse' constructor.
 --

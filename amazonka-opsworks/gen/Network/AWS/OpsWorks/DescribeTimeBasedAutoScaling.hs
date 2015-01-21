@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling
     { _dtbasInstanceIds :: List "InstanceIds" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTimeBasedAutoScaling where
     type Item DescribeTimeBasedAutoScaling = Text
@@ -80,7 +80,7 @@ dtbasInstanceIds = lens _dtbasInstanceIds (\s a -> s { _dtbasInstanceIds = a }) 
 
 newtype DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
     { _dtbasrTimeBasedAutoScalingConfigurations :: List "TimeBasedAutoScalingConfigurations" TimeBasedAutoScalingConfiguration
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeTimeBasedAutoScalingResponse where
     type Item DescribeTimeBasedAutoScalingResponse = TimeBasedAutoScalingConfiguration

@@ -51,7 +51,7 @@ data PutBucketCors = PutBucketCors
     { _pbcBucket            :: Text
     , _pbcCORSConfiguration :: Maybe CORSConfiguration
     , _pbcContentMD5        :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutBucketCors' constructor.
 --
@@ -82,7 +82,7 @@ pbcContentMD5 :: Lens' PutBucketCors (Maybe Text)
 pbcContentMD5 = lens _pbcContentMD5 (\s a -> s { _pbcContentMD5 = a })
 
 data PutBucketCorsResponse = PutBucketCorsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutBucketCorsResponse' constructor.
 putBucketCorsResponse :: PutBucketCorsResponse

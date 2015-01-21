@@ -70,7 +70,7 @@ import qualified GHC.Exts
 data CountPendingDecisionTasks = CountPendingDecisionTasks
     { _cpdtDomain   :: Text
     , _cpdtTaskList :: TaskList
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CountPendingDecisionTasks' constructor.
 --
@@ -99,7 +99,7 @@ cpdtTaskList = lens _cpdtTaskList (\s a -> s { _cpdtTaskList = a })
 data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
     { _cpdtrCount     :: Nat
     , _cpdtrTruncated :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CountPendingDecisionTasksResponse' constructor.
 --

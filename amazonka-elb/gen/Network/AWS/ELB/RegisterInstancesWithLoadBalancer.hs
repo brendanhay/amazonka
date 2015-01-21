@@ -75,7 +75,7 @@ import qualified GHC.Exts
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
     { _riwlbInstances        :: List "member" Instance
     , _riwlbLoadBalancerName :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RegisterInstancesWithLoadBalancer' constructor.
 --
@@ -104,7 +104,7 @@ riwlbLoadBalancerName =
 
 newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
     { _riwlbrInstances :: List "member" Instance
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList RegisterInstancesWithLoadBalancerResponse where
     type Item RegisterInstancesWithLoadBalancerResponse = Instance

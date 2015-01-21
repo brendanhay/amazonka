@@ -70,7 +70,7 @@ import qualified GHC.Exts
 data RespondActivityTaskCanceled = RespondActivityTaskCanceled
     { _ratc1Details   :: Maybe Text
     , _ratc1TaskToken :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RespondActivityTaskCanceled' constructor.
 --
@@ -100,7 +100,7 @@ ratc1TaskToken :: Lens' RespondActivityTaskCanceled Text
 ratc1TaskToken = lens _ratc1TaskToken (\s a -> s { _ratc1TaskToken = a })
 
 data RespondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RespondActivityTaskCanceledResponse' constructor.
 respondActivityTaskCanceledResponse :: RespondActivityTaskCanceledResponse

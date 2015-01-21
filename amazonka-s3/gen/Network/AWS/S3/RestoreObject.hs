@@ -53,7 +53,7 @@ data RestoreObject = RestoreObject
     , _roKey            :: Text
     , _roRestoreRequest :: Maybe RestoreRequest
     , _roVersionId      :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RestoreObject' constructor.
 --
@@ -90,7 +90,7 @@ roVersionId :: Lens' RestoreObject (Maybe Text)
 roVersionId = lens _roVersionId (\s a -> s { _roVersionId = a })
 
 data RestoreObjectResponse = RestoreObjectResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RestoreObjectResponse' constructor.
 restoreObjectResponse :: RestoreObjectResponse

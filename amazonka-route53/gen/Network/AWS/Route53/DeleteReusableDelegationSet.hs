@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet
     { _drdsId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteReusableDelegationSet' constructor.
 --
@@ -73,7 +73,7 @@ drdsId :: Lens' DeleteReusableDelegationSet Text
 drdsId = lens _drdsId (\s a -> s { _drdsId = a })
 
 data DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteReusableDelegationSetResponse' constructor.
 deleteReusableDelegationSetResponse :: DeleteReusableDelegationSetResponse

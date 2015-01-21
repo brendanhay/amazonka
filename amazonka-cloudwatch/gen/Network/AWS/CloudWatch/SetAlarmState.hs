@@ -56,7 +56,7 @@ data SetAlarmState = SetAlarmState
     , _sasStateReason     :: Text
     , _sasStateReasonData :: Maybe Text
     , _sasStateValue      :: StateValue
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SetAlarmState' constructor.
 --
@@ -102,7 +102,7 @@ sasStateValue :: Lens' SetAlarmState StateValue
 sasStateValue = lens _sasStateValue (\s a -> s { _sasStateValue = a })
 
 data SetAlarmStateResponse = SetAlarmStateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetAlarmStateResponse' constructor.
 setAlarmStateResponse :: SetAlarmStateResponse

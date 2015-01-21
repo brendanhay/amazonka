@@ -73,7 +73,7 @@ import qualified GHC.Exts
 data AddJobFlowSteps = AddJobFlowSteps
     { _ajfsJobFlowId :: Text
     , _ajfsSteps     :: List "Steps" StepConfig
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AddJobFlowSteps' constructor.
 --
@@ -101,7 +101,7 @@ ajfsSteps = lens _ajfsSteps (\s a -> s { _ajfsSteps = a }) . _List
 
 newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse
     { _ajfsrStepIds :: List "StepIds" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList AddJobFlowStepsResponse where
     type Item AddJobFlowStepsResponse = Text

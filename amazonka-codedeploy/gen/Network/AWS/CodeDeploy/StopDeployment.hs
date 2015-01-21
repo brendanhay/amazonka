@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype StopDeployment = StopDeployment
     { _sdDeploymentId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'StopDeployment' constructor.
 --
@@ -71,7 +71,7 @@ sdDeploymentId = lens _sdDeploymentId (\s a -> s { _sdDeploymentId = a })
 data StopDeploymentResponse = StopDeploymentResponse
     { _sdrStatus        :: Maybe StopStatus
     , _sdrStatusMessage :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StopDeploymentResponse' constructor.
 --

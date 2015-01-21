@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetReusableDelegationSet = GetReusableDelegationSet
     { _grdsId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetReusableDelegationSet' constructor.
 --
@@ -70,7 +70,7 @@ grdsId = lens _grdsId (\s a -> s { _grdsId = a })
 
 newtype GetReusableDelegationSetResponse = GetReusableDelegationSetResponse
     { _grdsrDelegationSet :: DelegationSet
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetReusableDelegationSetResponse' constructor.
 --

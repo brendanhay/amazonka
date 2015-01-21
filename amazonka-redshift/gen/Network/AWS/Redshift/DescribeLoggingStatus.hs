@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype DescribeLoggingStatus = DescribeLoggingStatus
     { _dlsClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeLoggingStatus' constructor.
 --
@@ -83,7 +83,7 @@ data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
     , _dlsrLastSuccessfulDeliveryTime :: Maybe ISO8601
     , _dlsrLoggingEnabled             :: Maybe Bool
     , _dlsrS3KeyPrefix                :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeLoggingStatusResponse' constructor.
 --

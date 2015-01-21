@@ -63,7 +63,7 @@ import qualified GHC.Exts
 
 newtype CreateAccessKey = CreateAccessKey
     { _cakUserName :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateAccessKey' constructor.
 --
@@ -82,7 +82,7 @@ cakUserName = lens _cakUserName (\s a -> s { _cakUserName = a })
 
 newtype CreateAccessKeyResponse = CreateAccessKeyResponse
     { _cakrAccessKey :: AccessKey
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateAccessKeyResponse' constructor.
 --

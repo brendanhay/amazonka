@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype DeleteLayer = DeleteLayer
     { _dlLayerId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteLayer' constructor.
 --
@@ -71,7 +71,7 @@ dlLayerId :: Lens' DeleteLayer Text
 dlLayerId = lens _dlLayerId (\s a -> s { _dlLayerId = a })
 
 data DeleteLayerResponse = DeleteLayerResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteLayerResponse' constructor.
 deleteLayerResponse :: DeleteLayerResponse

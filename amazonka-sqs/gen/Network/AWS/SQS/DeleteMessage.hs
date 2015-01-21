@@ -70,7 +70,7 @@ import qualified GHC.Exts
 data DeleteMessage = DeleteMessage
     { _dmQueueUrl      :: Text
     , _dmReceiptHandle :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteMessage' constructor.
 --
@@ -97,7 +97,7 @@ dmReceiptHandle :: Lens' DeleteMessage Text
 dmReceiptHandle = lens _dmReceiptHandle (\s a -> s { _dmReceiptHandle = a })
 
 data DeleteMessageResponse = DeleteMessageResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteMessageResponse' constructor.
 deleteMessageResponse :: DeleteMessageResponse

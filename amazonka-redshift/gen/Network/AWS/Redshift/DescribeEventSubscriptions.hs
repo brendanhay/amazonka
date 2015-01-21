@@ -56,7 +56,7 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions
     { _des1Marker           :: Maybe Text
     , _des1MaxRecords       :: Maybe Int
     , _des1SubscriptionName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeEventSubscriptions' constructor.
 --
@@ -104,7 +104,7 @@ des1SubscriptionName =
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     { _desrEventSubscriptionsList :: List "member" EventSubscription
     , _desrMarker                 :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeEventSubscriptionsResponse' constructor.
 --

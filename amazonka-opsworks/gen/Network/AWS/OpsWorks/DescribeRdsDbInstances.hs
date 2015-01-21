@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data DescribeRdsDbInstances = DescribeRdsDbInstances
     { _drdiRdsDbInstanceArns :: List "RdsDbInstanceArns" Text
     , _drdiStackId           :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeRdsDbInstances' constructor.
 --
@@ -85,7 +85,7 @@ drdiStackId = lens _drdiStackId (\s a -> s { _drdiStackId = a })
 
 newtype DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
     { _drdirRdsDbInstances :: List "RdsDbInstances" RdsDbInstance
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeRdsDbInstancesResponse where
     type Item DescribeRdsDbInstancesResponse = RdsDbInstance

@@ -81,7 +81,7 @@ data CreateInstance = CreateInstance
     , _ciStackId              :: Text
     , _ciSubnetId             :: Maybe Text
     , _ciVirtualizationType   :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateInstance' constructor.
 --
@@ -229,7 +229,7 @@ ciVirtualizationType =
 
 newtype CreateInstanceResponse = CreateInstanceResponse
     { _cirInstanceId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateInstanceResponse' constructor.
 --

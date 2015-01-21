@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate
     { _dctApplicationName :: Text
     , _dctTemplateName    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteConfigurationTemplate' constructor.
 --
@@ -77,7 +77,7 @@ dctTemplateName :: Lens' DeleteConfigurationTemplate Text
 dctTemplateName = lens _dctTemplateName (\s a -> s { _dctTemplateName = a })
 
 data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteConfigurationTemplateResponse' constructor.
 deleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse

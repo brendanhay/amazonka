@@ -65,7 +65,7 @@ data DeleteCluster = DeleteCluster
     { _dc1ClusterIdentifier              :: Text
     , _dc1FinalClusterSnapshotIdentifier :: Maybe Text
     , _dc1SkipFinalClusterSnapshot       :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteCluster' constructor.
 --
@@ -121,7 +121,7 @@ dc1SkipFinalClusterSnapshot =
 
 newtype DeleteClusterResponse = DeleteClusterResponse
     { _dcrCluster :: Maybe Cluster
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteClusterResponse' constructor.
 --

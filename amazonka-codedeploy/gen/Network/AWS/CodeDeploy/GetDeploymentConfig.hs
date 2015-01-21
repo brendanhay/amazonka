@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetDeploymentConfig = GetDeploymentConfig
     { _gdcDeploymentConfigName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetDeploymentConfig' constructor.
 --
@@ -70,7 +70,7 @@ gdcDeploymentConfigName =
 
 newtype GetDeploymentConfigResponse = GetDeploymentConfigResponse
     { _gdcrDeploymentConfigInfo :: Maybe DeploymentConfigInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetDeploymentConfigResponse' constructor.
 --

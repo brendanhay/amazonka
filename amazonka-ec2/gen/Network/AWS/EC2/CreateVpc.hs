@@ -61,7 +61,7 @@ data CreateVpc = CreateVpc
     { _cvCidrBlock       :: Text
     , _cvDryRun          :: Maybe Bool
     , _cvInstanceTenancy :: Maybe Tenancy
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateVpc' constructor.
 --
@@ -99,7 +99,7 @@ cvInstanceTenancy =
 
 newtype CreateVpcResponse = CreateVpcResponse
     { _cvrVpc :: Maybe Vpc
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateVpcResponse' constructor.
 --

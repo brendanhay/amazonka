@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 newtype DeletePreset = DeletePreset
     { _dpId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeletePreset' constructor.
 --
@@ -72,7 +72,7 @@ dpId :: Lens' DeletePreset Text
 dpId = lens _dpId (\s a -> s { _dpId = a })
 
 data DeletePresetResponse = DeletePresetResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeletePresetResponse' constructor.
 deletePresetResponse :: DeletePresetResponse

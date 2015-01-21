@@ -52,7 +52,7 @@ data PutBucketLifecycle = PutBucketLifecycle
     { _pbl1Bucket                 :: Text
     , _pbl1ContentMD5             :: Maybe Text
     , _pbl1LifecycleConfiguration :: Maybe LifecycleConfiguration
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutBucketLifecycle' constructor.
 --
@@ -84,7 +84,7 @@ pbl1LifecycleConfiguration =
         (\s a -> s { _pbl1LifecycleConfiguration = a })
 
 data PutBucketLifecycleResponse = PutBucketLifecycleResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutBucketLifecycleResponse' constructor.
 putBucketLifecycleResponse :: PutBucketLifecycleResponse

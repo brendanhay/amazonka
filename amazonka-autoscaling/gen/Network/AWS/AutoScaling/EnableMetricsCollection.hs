@@ -55,7 +55,7 @@ data EnableMetricsCollection = EnableMetricsCollection
     { _emcAutoScalingGroupName :: Text
     , _emcGranularity          :: Text
     , _emcMetrics              :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnableMetricsCollection' constructor.
 --
@@ -114,7 +114,7 @@ emcMetrics :: Lens' EnableMetricsCollection [Text]
 emcMetrics = lens _emcMetrics (\s a -> s { _emcMetrics = a }) . _List
 
 data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'EnableMetricsCollectionResponse' constructor.
 enableMetricsCollectionResponse :: EnableMetricsCollectionResponse

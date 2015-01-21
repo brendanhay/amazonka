@@ -59,7 +59,7 @@ data ModifyHsm = ModifyHsm
     , _mhIamRoleArn :: Maybe Text
     , _mhSubnetId   :: Maybe Text
     , _mhSyslogIp   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ModifyHsm' constructor.
 --
@@ -114,7 +114,7 @@ mhSyslogIp = lens _mhSyslogIp (\s a -> s { _mhSyslogIp = a })
 
 newtype ModifyHsmResponse = ModifyHsmResponse
     { _mhrHsmArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ModifyHsmResponse' constructor.
 --

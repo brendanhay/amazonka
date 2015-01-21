@@ -53,7 +53,7 @@ data CreateDBSnapshot = CreateDBSnapshot
     { _cdbs1DBInstanceIdentifier :: Text
     , _cdbs1DBSnapshotIdentifier :: Text
     , _cdbs1Tags                 :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDBSnapshot' constructor.
 --
@@ -104,7 +104,7 @@ cdbs1Tags = lens _cdbs1Tags (\s a -> s { _cdbs1Tags = a }) . _List
 
 newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
     { _cdbsr1DBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDBSnapshotResponse' constructor.
 --

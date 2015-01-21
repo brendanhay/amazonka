@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data RegisterVolume = RegisterVolume
     { _rvEc2VolumeId :: Maybe Text
     , _rvStackId     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RegisterVolume' constructor.
 --
@@ -85,7 +85,7 @@ rvStackId = lens _rvStackId (\s a -> s { _rvStackId = a })
 
 newtype RegisterVolumeResponse = RegisterVolumeResponse
     { _rvrVolumeId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'RegisterVolumeResponse' constructor.
 --

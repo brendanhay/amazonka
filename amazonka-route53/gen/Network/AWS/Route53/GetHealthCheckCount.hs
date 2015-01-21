@@ -46,7 +46,7 @@ import Network.AWS.Route53.Types
 import qualified GHC.Exts
 
 data GetHealthCheckCount = GetHealthCheckCount
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'GetHealthCheckCount' constructor.
 getHealthCheckCount :: GetHealthCheckCount
@@ -54,7 +54,7 @@ getHealthCheckCount = GetHealthCheckCount
 
 newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
     { _ghccrHealthCheckCount :: Integer
-    } deriving (Eq, Ord, Show, Enum, Num, Integral, Real)
+    } deriving (Eq, Ord, Read, Show, Enum, Num, Integral, Real)
 
 -- | 'GetHealthCheckCountResponse' constructor.
 --

@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data ModifySubnetAttribute = ModifySubnetAttribute
     { _msaMapPublicIpOnLaunch :: Maybe AttributeBooleanValue
     , _msaSubnetId            :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifySubnetAttribute' constructor.
 --
@@ -75,7 +75,7 @@ msaSubnetId :: Lens' ModifySubnetAttribute Text
 msaSubnetId = lens _msaSubnetId (\s a -> s { _msaSubnetId = a })
 
 data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ModifySubnetAttributeResponse' constructor.
 modifySubnetAttributeResponse :: ModifySubnetAttributeResponse

@@ -61,7 +61,7 @@ data AssociateDhcpOptions = AssociateDhcpOptions
     { _adoDhcpOptionsId :: Text
     , _adoDryRun        :: Maybe Bool
     , _adoVpcId         :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AssociateDhcpOptions' constructor.
 --
@@ -95,7 +95,7 @@ adoVpcId :: Lens' AssociateDhcpOptions Text
 adoVpcId = lens _adoVpcId (\s a -> s { _adoVpcId = a })
 
 data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AssociateDhcpOptionsResponse' constructor.
 associateDhcpOptionsResponse :: AssociateDhcpOptionsResponse

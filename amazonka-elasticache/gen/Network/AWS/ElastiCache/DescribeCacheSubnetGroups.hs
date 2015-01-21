@@ -56,7 +56,7 @@ data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups
     { _dcsgCacheSubnetGroupName :: Maybe Text
     , _dcsgMarker               :: Maybe Text
     , _dcsgMaxRecords           :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeCacheSubnetGroups' constructor.
 --
@@ -101,7 +101,7 @@ dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
     { _dcsgrCacheSubnetGroups :: List "member" CacheSubnetGroup
     , _dcsgrMarker            :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheSubnetGroupsResponse' constructor.
 --

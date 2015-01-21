@@ -71,7 +71,7 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing
     , _crilInstanceCount       :: Int
     , _crilPriceSchedules      :: List "item" PriceScheduleSpecification
     , _crilReservedInstancesId :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateReservedInstancesListing' constructor.
 --
@@ -123,7 +123,7 @@ crilReservedInstancesId =
 
 newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
     { _crilr1ReservedInstancesListings :: List "item" ReservedInstancesListing
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'CreateReservedInstancesListingResponse' constructor.
 --

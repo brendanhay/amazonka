@@ -56,7 +56,7 @@ import qualified GHC.Exts
 
 newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
     { _lvrpGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ListVolumeRecoveryPoints' constructor.
 --
@@ -76,7 +76,7 @@ lvrpGatewayARN = lens _lvrpGatewayARN (\s a -> s { _lvrpGatewayARN = a })
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
     { _lvrprGatewayARN               :: Maybe Text
     , _lvrprVolumeRecoveryPointInfos :: List "VolumeRecoveryPointInfos" VolumeRecoveryPointInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListVolumeRecoveryPointsResponse' constructor.
 --

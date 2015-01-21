@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data GetDeploymentInstance = GetDeploymentInstance
     { _gdiDeploymentId :: Text
     , _gdiInstanceId   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetDeploymentInstance' constructor.
 --
@@ -79,7 +79,7 @@ gdiInstanceId = lens _gdiInstanceId (\s a -> s { _gdiInstanceId = a })
 
 newtype GetDeploymentInstanceResponse = GetDeploymentInstanceResponse
     { _gdirInstanceSummary :: Maybe InstanceSummary
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetDeploymentInstanceResponse' constructor.
 --

@@ -78,7 +78,7 @@ data AddEventSource = AddEventSource
     , _aesFunctionName :: Text
     , _aesParameters   :: Map Text Text
     , _aesRole         :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AddEventSource' constructor.
 --
@@ -144,7 +144,7 @@ data AddEventSourceResponse = AddEventSourceResponse
     , _aesrRole         :: Maybe Text
     , _aesrStatus       :: Maybe Text
     , _aesrUUID         :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AddEventSourceResponse' constructor.
 --

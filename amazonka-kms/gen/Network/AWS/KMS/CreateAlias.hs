@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data CreateAlias = CreateAlias
     { _caAliasName   :: Text
     , _caTargetKeyId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateAlias' constructor.
 --
@@ -84,7 +84,7 @@ caTargetKeyId :: Lens' CreateAlias Text
 caTargetKeyId = lens _caTargetKeyId (\s a -> s { _caTargetKeyId = a })
 
 data CreateAliasResponse = CreateAliasResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateAliasResponse' constructor.
 createAliasResponse :: CreateAliasResponse

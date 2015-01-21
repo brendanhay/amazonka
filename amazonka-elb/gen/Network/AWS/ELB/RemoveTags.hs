@@ -49,7 +49,7 @@ import qualified GHC.Exts
 data RemoveTags = RemoveTags
     { _rtLoadBalancerNames :: List "member" Text
     , _rtTags              :: List1 "member" TagKeyOnly
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RemoveTags' constructor.
 --
@@ -78,7 +78,7 @@ rtTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
 rtTags = lens _rtTags (\s a -> s { _rtTags = a }) . _List1
 
 data RemoveTagsResponse = RemoveTagsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RemoveTagsResponse' constructor.
 removeTagsResponse :: RemoveTagsResponse

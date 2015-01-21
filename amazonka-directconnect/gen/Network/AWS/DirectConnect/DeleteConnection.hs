@@ -62,7 +62,7 @@ import qualified GHC.Exts
 
 newtype DeleteConnection = DeleteConnection
     { _dcConnectionId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteConnection' constructor.
 --
@@ -89,7 +89,7 @@ data DeleteConnectionResponse = DeleteConnectionResponse
     , _dcrPartnerName     :: Maybe Text
     , _dcrRegion          :: Maybe Text
     , _dcrVlan            :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteConnectionResponse' constructor.
 --

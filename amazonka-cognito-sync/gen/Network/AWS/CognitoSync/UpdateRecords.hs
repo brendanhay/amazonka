@@ -65,7 +65,7 @@ data UpdateRecords = UpdateRecords
     , _urIdentityPoolId   :: Text
     , _urRecordPatches    :: List "RecordPatches" RecordPatch
     , _urSyncSessionToken :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateRecords' constructor.
 --
@@ -138,7 +138,7 @@ urSyncSessionToken =
 
 newtype UpdateRecordsResponse = UpdateRecordsResponse
     { _urrRecords :: List "Records" Record
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList UpdateRecordsResponse where
     type Item UpdateRecordsResponse = Record

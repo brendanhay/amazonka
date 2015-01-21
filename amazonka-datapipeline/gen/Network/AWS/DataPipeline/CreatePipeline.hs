@@ -53,7 +53,7 @@ data CreatePipeline = CreatePipeline
     { _cpDescription :: Maybe Text
     , _cpName        :: Text
     , _cpUniqueId    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreatePipeline' constructor.
 --
@@ -100,7 +100,7 @@ cpUniqueId = lens _cpUniqueId (\s a -> s { _cpUniqueId = a })
 
 newtype CreatePipelineResponse = CreatePipelineResponse
     { _cprPipelineId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'CreatePipelineResponse' constructor.
 --

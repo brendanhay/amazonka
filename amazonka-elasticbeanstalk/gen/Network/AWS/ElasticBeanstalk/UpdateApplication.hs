@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data UpdateApplication = UpdateApplication
     { _uaApplicationName :: Text
     , _uaDescription     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateApplication' constructor.
 --
@@ -82,7 +82,7 @@ uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
 
 newtype UpdateApplicationResponse = UpdateApplicationResponse
     { _uarApplication :: Maybe ApplicationDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateApplicationResponse' constructor.
 --

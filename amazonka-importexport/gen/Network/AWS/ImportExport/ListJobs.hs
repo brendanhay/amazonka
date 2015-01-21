@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data ListJobs = ListJobs
     { _ljMarker  :: Maybe Text
     , _ljMaxJobs :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListJobs' constructor.
 --
@@ -81,7 +81,7 @@ ljMaxJobs = lens _ljMaxJobs (\s a -> s { _ljMaxJobs = a })
 data ListJobsResponse = ListJobsResponse
     { _ljrIsTruncated :: Maybe Bool
     , _ljrJobs        :: List "member" Job
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListJobsResponse' constructor.
 --

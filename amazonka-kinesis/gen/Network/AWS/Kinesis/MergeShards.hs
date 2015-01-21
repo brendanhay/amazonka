@@ -79,7 +79,7 @@ data MergeShards = MergeShards
     { _msAdjacentShardToMerge :: Text
     , _msShardToMerge         :: Text
     , _msStreamName           :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'MergeShards' constructor.
 --
@@ -115,7 +115,7 @@ msStreamName :: Lens' MergeShards Text
 msStreamName = lens _msStreamName (\s a -> s { _msStreamName = a })
 
 data MergeShardsResponse = MergeShardsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'MergeShardsResponse' constructor.
 mergeShardsResponse :: MergeShardsResponse

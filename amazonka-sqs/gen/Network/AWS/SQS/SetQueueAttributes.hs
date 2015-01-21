@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data SetQueueAttributes = SetQueueAttributes
     { _sqaAttributes :: EMap "entry" "Name" "Value" Text Text
     , _sqaQueueUrl   :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SetQueueAttributes' constructor.
 --
@@ -102,7 +102,7 @@ sqaQueueUrl :: Lens' SetQueueAttributes Text
 sqaQueueUrl = lens _sqaQueueUrl (\s a -> s { _sqaQueueUrl = a })
 
 data SetQueueAttributesResponse = SetQueueAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetQueueAttributesResponse' constructor.
 setQueueAttributesResponse :: SetQueueAttributesResponse

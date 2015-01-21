@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data CreateLunaClient = CreateLunaClient
     { _clcCertificate :: Text
     , _clcLabel       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateLunaClient' constructor.
 --
@@ -79,7 +79,7 @@ clcLabel = lens _clcLabel (\s a -> s { _clcLabel = a })
 
 newtype CreateLunaClientResponse = CreateLunaClientResponse
     { _clcrClientArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateLunaClientResponse' constructor.
 --

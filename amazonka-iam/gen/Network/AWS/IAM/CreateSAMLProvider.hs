@@ -67,7 +67,7 @@ import qualified GHC.Exts
 data CreateSAMLProvider = CreateSAMLProvider
     { _csamlpName                 :: Text
     , _csamlpSAMLMetadataDocument :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateSAMLProvider' constructor.
 --
@@ -104,7 +104,7 @@ csamlpSAMLMetadataDocument =
 
 newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse
     { _csamlprSAMLProviderArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateSAMLProviderResponse' constructor.
 --

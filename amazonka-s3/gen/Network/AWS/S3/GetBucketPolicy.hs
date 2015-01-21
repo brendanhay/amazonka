@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetBucketPolicy = GetBucketPolicy
     { _gbpBucket :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetBucketPolicy' constructor.
 --
@@ -68,7 +68,7 @@ gbpBucket = lens _gbpBucket (\s a -> s { _gbpBucket = a })
 
 newtype GetBucketPolicyResponse = GetBucketPolicyResponse
     { _gbprPolicy :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'GetBucketPolicyResponse' constructor.
 --

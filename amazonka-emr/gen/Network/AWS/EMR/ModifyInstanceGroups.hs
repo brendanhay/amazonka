@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype ModifyInstanceGroups = ModifyInstanceGroups
     { _migInstanceGroups :: List "InstanceGroups" InstanceGroupModifyConfig
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList ModifyInstanceGroups where
     type Item ModifyInstanceGroups = InstanceGroupModifyConfig
@@ -76,7 +76,7 @@ migInstanceGroups =
         . _List
 
 data ModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ModifyInstanceGroupsResponse' constructor.
 modifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse

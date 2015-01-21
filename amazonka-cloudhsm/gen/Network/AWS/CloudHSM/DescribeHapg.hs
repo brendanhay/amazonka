@@ -57,7 +57,7 @@ import qualified GHC.Exts
 
 newtype DescribeHapg = DescribeHapg
     { _dh1HapgArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeHapg' constructor.
 --
@@ -85,7 +85,7 @@ data DescribeHapgResponse = DescribeHapgResponse
     , _dhrLastModifiedTimestamp   :: Maybe Text
     , _dhrPartitionSerialList     :: List "PartitionSerialList" Text
     , _dhrState                   :: Maybe CloudHsmObjectState
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeHapgResponse' constructor.
 --

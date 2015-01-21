@@ -65,7 +65,7 @@ data AttachClassicLinkVpc = AttachClassicLinkVpc
     , _aclvGroups     :: List "groupId" Text
     , _aclvInstanceId :: Text
     , _aclvVpcId      :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AttachClassicLinkVpc' constructor.
 --
@@ -107,7 +107,7 @@ aclvVpcId = lens _aclvVpcId (\s a -> s { _aclvVpcId = a })
 
 newtype AttachClassicLinkVpcResponse = AttachClassicLinkVpcResponse
     { _aclvrReturn :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AttachClassicLinkVpcResponse' constructor.
 --

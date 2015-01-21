@@ -69,7 +69,7 @@ data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress
     , _adbsgiEC2SecurityGroupId      :: Maybe Text
     , _adbsgiEC2SecurityGroupName    :: Maybe Text
     , _adbsgiEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AuthorizeDBSecurityGroupIngress' constructor.
 --
@@ -128,7 +128,7 @@ adbsgiEC2SecurityGroupOwnerId =
 
 newtype AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse
     { _adbsgirDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AuthorizeDBSecurityGroupIngressResponse' constructor.
 --

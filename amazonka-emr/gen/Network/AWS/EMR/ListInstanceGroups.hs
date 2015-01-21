@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data ListInstanceGroups = ListInstanceGroups
     { _ligClusterId :: Text
     , _ligMarker    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListInstanceGroups' constructor.
 --
@@ -80,7 +80,7 @@ ligMarker = lens _ligMarker (\s a -> s { _ligMarker = a })
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse
     { _ligrInstanceGroups :: List "InstanceGroups" InstanceGroup
     , _ligrMarker         :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListInstanceGroupsResponse' constructor.
 --

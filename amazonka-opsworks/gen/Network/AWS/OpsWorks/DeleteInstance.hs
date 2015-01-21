@@ -58,7 +58,7 @@ data DeleteInstance = DeleteInstance
     { _diDeleteElasticIp :: Maybe Bool
     , _diDeleteVolumes   :: Maybe Bool
     , _diInstanceId      :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteInstance' constructor.
 --
@@ -92,7 +92,7 @@ diInstanceId :: Lens' DeleteInstance Text
 diInstanceId = lens _diInstanceId (\s a -> s { _diInstanceId = a })
 
 data DeleteInstanceResponse = DeleteInstanceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteInstanceResponse' constructor.
 deleteInstanceResponse :: DeleteInstanceResponse

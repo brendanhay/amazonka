@@ -57,7 +57,7 @@ import qualified GHC.Exts
 
 newtype DomainMetadata = DomainMetadata
     { _dmDomainName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DomainMetadata' constructor.
 --
@@ -83,7 +83,7 @@ data DomainMetadataResponse = DomainMetadataResponse
     , _dmrItemCount                :: Maybe Int
     , _dmrItemNamesSizeBytes       :: Maybe Integer
     , _dmrTimestamp                :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DomainMetadataResponse' constructor.
 --

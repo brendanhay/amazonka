@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype StopInstance = StopInstance
     { _siInstanceId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'StopInstance' constructor.
 --
@@ -73,7 +73,7 @@ siInstanceId :: Lens' StopInstance Text
 siInstanceId = lens _siInstanceId (\s a -> s { _siInstanceId = a })
 
 data StopInstanceResponse = StopInstanceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'StopInstanceResponse' constructor.
 stopInstanceResponse :: StopInstanceResponse

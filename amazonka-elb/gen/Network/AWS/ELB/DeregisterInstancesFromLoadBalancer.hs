@@ -61,7 +61,7 @@ import qualified GHC.Exts
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
     { _diflbInstances        :: List "member" Instance
     , _diflbLoadBalancerName :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeregisterInstancesFromLoadBalancer' constructor.
 --
@@ -89,7 +89,7 @@ diflbLoadBalancerName =
 
 newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
     { _diflbrInstances :: List "member" Instance
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DeregisterInstancesFromLoadBalancerResponse where
     type Item DeregisterInstancesFromLoadBalancerResponse = Instance

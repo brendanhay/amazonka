@@ -77,7 +77,7 @@ data ListActivityTypes = ListActivityTypes
     , _latNextPageToken      :: Maybe Text
     , _latRegistrationStatus :: RegistrationStatus
     , _latReverseOrder       :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListActivityTypes' constructor.
 --
@@ -150,7 +150,7 @@ latReverseOrder = lens _latReverseOrder (\s a -> s { _latReverseOrder = a })
 data ListActivityTypesResponse = ListActivityTypesResponse
     { _latrNextPageToken :: Maybe Text
     , _latrTypeInfos     :: List "typeInfos" ActivityTypeInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListActivityTypesResponse' constructor.
 --

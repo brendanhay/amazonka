@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data DeletePlacementGroup = DeletePlacementGroup
     { _dpgDryRun    :: Maybe Bool
     , _dpgGroupName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeletePlacementGroup' constructor.
 --
@@ -76,7 +76,7 @@ dpgGroupName :: Lens' DeletePlacementGroup Text
 dpgGroupName = lens _dpgGroupName (\s a -> s { _dpgGroupName = a })
 
 data DeletePlacementGroupResponse = DeletePlacementGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeletePlacementGroupResponse' constructor.
 deletePlacementGroupResponse :: DeletePlacementGroupResponse

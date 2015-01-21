@@ -54,7 +54,7 @@ data GetId = GetId
     { _giAccountId      :: Text
     , _giIdentityPoolId :: Text
     , _giLogins         :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetId' constructor.
 --
@@ -91,7 +91,7 @@ giLogins = lens _giLogins (\s a -> s { _giLogins = a }) . _Map
 
 newtype GetIdResponse = GetIdResponse
     { _girIdentityId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'GetIdResponse' constructor.
 --

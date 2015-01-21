@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype DescribeIdentityPoolUsage = DescribeIdentityPoolUsage
     { _dipuIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeIdentityPoolUsage' constructor.
 --
@@ -73,7 +73,7 @@ dipuIdentityPoolId =
 
 newtype DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse
     { _dipurIdentityPoolUsage :: Maybe IdentityPoolUsage
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeIdentityPoolUsageResponse' constructor.
 --

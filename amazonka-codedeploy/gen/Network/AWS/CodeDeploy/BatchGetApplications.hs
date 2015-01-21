@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype BatchGetApplications = BatchGetApplications
     { _bgaApplicationNames :: List "applicationNames" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BatchGetApplications where
     type Item BatchGetApplications = Text
@@ -77,7 +77,7 @@ bgaApplicationNames =
 
 newtype BatchGetApplicationsResponse = BatchGetApplicationsResponse
     { _bgarApplicationsInfo :: List "applicationsInfo" ApplicationInfo
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList BatchGetApplicationsResponse where
     type Item BatchGetApplicationsResponse = ApplicationInfo

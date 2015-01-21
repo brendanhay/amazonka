@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data DescribeLunaClient = DescribeLunaClient
     { _dlcCertificateFingerprint :: Maybe Text
     , _dlcClientArn              :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeLunaClient' constructor.
 --
@@ -87,7 +87,7 @@ data DescribeLunaClientResponse = DescribeLunaClientResponse
     , _dlcrClientArn              :: Maybe Text
     , _dlcrLabel                  :: Maybe Text
     , _dlcrLastModifiedTimestamp  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeLunaClientResponse' constructor.
 --

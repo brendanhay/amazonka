@@ -55,7 +55,7 @@ data DescribeDhcpOptions = DescribeDhcpOptions
     { _ddoDhcpOptionsIds :: List "DhcpOptionsId" Text
     , _ddoDryRun         :: Maybe Bool
     , _ddoFilters        :: List "Filter" Filter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDhcpOptions' constructor.
 --
@@ -112,7 +112,7 @@ ddoFilters = lens _ddoFilters (\s a -> s { _ddoFilters = a }) . _List
 
 newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddorDhcpOptions :: List "item" DhcpOptions
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeDhcpOptionsResponse' constructor.
 --

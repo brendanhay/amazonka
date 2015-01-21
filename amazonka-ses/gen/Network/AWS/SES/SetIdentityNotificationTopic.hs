@@ -58,7 +58,7 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic
     { _sintIdentity         :: Text
     , _sintNotificationType :: NotificationType
     , _sintSnsTopic         :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'SetIdentityNotificationTopic' constructor.
 --
@@ -96,7 +96,7 @@ sintSnsTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
 sintSnsTopic = lens _sintSnsTopic (\s a -> s { _sintSnsTopic = a })
 
 data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetIdentityNotificationTopicResponse' constructor.
 setIdentityNotificationTopicResponse :: SetIdentityNotificationTopicResponse

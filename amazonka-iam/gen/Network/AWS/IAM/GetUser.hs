@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 newtype GetUser = GetUser
     { _guUserName :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'GetUser' constructor.
 --
@@ -75,7 +75,7 @@ guUserName = lens _guUserName (\s a -> s { _guUserName = a })
 
 newtype GetUserResponse = GetUserResponse
     { _gurUser :: User
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetUserResponse' constructor.
 --

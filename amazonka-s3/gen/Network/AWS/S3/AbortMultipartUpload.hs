@@ -55,7 +55,7 @@ data AbortMultipartUpload = AbortMultipartUpload
     { _amuBucket   :: Text
     , _amuKey      :: Text
     , _amuUploadId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AbortMultipartUpload' constructor.
 --
@@ -87,7 +87,7 @@ amuUploadId :: Lens' AbortMultipartUpload Text
 amuUploadId = lens _amuUploadId (\s a -> s { _amuUploadId = a })
 
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AbortMultipartUploadResponse' constructor.
 abortMultipartUploadResponse :: AbortMultipartUploadResponse

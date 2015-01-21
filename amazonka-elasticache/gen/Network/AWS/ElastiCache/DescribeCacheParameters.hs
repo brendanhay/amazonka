@@ -58,7 +58,7 @@ data DescribeCacheParameters = DescribeCacheParameters
     , _dcpMarker                  :: Maybe Text
     , _dcpMaxRecords              :: Maybe Int
     , _dcpSource                  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeCacheParameters' constructor.
 --
@@ -114,7 +114,7 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse
     { _dcprCacheNodeTypeSpecificParameters :: List "member" CacheNodeTypeSpecificParameter
     , _dcprMarker                          :: Maybe Text
     , _dcprParameters                      :: List "member" Parameter
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheParametersResponse' constructor.
 --

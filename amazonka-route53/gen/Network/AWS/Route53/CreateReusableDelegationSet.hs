@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data CreateReusableDelegationSet = CreateReusableDelegationSet
     { _crdsCallerReference :: Text
     , _crdsHostedZoneId    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateReusableDelegationSet' constructor.
 --
@@ -94,7 +94,7 @@ crdsHostedZoneId = lens _crdsHostedZoneId (\s a -> s { _crdsHostedZoneId = a })
 data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse
     { _crdsrDelegationSet :: DelegationSet
     , _crdsrLocation      :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateReusableDelegationSetResponse' constructor.
 --

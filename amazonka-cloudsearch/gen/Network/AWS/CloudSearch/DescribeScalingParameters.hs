@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DescribeScalingParameters = DescribeScalingParameters
     { _dspDomainName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeScalingParameters' constructor.
 --
@@ -70,7 +70,7 @@ dspDomainName = lens _dspDomainName (\s a -> s { _dspDomainName = a })
 
 newtype DescribeScalingParametersResponse = DescribeScalingParametersResponse
     { _dsprScalingParameters :: ScalingParametersStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeScalingParametersResponse' constructor.
 --

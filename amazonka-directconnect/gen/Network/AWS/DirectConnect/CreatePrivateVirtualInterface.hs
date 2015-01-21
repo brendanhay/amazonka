@@ -67,7 +67,7 @@ import qualified GHC.Exts
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface
     { _cpvi1ConnectionId               :: Text
     , _cpvi1NewPrivateVirtualInterface :: NewPrivateVirtualInterface
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreatePrivateVirtualInterface' constructor.
 --
@@ -113,7 +113,7 @@ data CreatePrivateVirtualInterfaceResponse = CreatePrivateVirtualInterfaceRespon
     , _cpvir2VirtualInterfaceState :: Maybe VirtualInterfaceState
     , _cpvir2VirtualInterfaceType  :: Maybe Text
     , _cpvir2Vlan                  :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreatePrivateVirtualInterfaceResponse' constructor.
 --

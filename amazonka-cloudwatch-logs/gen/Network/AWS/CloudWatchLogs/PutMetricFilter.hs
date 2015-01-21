@@ -55,7 +55,7 @@ data PutMetricFilter = PutMetricFilter
     , _pmfFilterPattern         :: Text
     , _pmfLogGroupName          :: Text
     , _pmfMetricTransformations :: List1 "metricTransformations" MetricTransformation
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutMetricFilter' constructor.
 --
@@ -97,7 +97,7 @@ pmfMetricTransformations =
             . _List1
 
 data PutMetricFilterResponse = PutMetricFilterResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutMetricFilterResponse' constructor.
 putMetricFilterResponse :: PutMetricFilterResponse

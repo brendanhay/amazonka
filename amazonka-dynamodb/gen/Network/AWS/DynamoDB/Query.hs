@@ -103,7 +103,7 @@ data Query = Query
     , _qScanIndexForward          :: Maybe Bool
     , _qSelect                    :: Maybe Select
     , _qTableName                 :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Query' constructor.
 --
@@ -534,7 +534,7 @@ data QueryResponse = QueryResponse
     , _qrItems            :: List "Items" (Map Text AttributeValue)
     , _qrLastEvaluatedKey :: Map Text AttributeValue
     , _qrScannedCount     :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'QueryResponse' constructor.
 --

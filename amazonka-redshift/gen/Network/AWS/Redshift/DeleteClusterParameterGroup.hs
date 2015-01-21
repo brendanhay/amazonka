@@ -48,7 +48,7 @@ import qualified GHC.Exts
 
 newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup
     { _dcpg1ParameterGroupName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteClusterParameterGroup' constructor.
 --
@@ -73,7 +73,7 @@ dcpg1ParameterGroupName =
     lens _dcpg1ParameterGroupName (\s a -> s { _dcpg1ParameterGroupName = a })
 
 data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteClusterParameterGroupResponse' constructor.
 deleteClusterParameterGroupResponse :: DeleteClusterParameterGroupResponse

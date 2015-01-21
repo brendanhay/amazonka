@@ -60,7 +60,7 @@ data ImportKeyPair = ImportKeyPair
     { _ikpDryRun            :: Maybe Bool
     , _ikpKeyName           :: Text
     , _ikpPublicKeyMaterial :: Base64
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ImportKeyPair' constructor.
 --
@@ -97,7 +97,7 @@ ikpPublicKeyMaterial =
 data ImportKeyPairResponse = ImportKeyPairResponse
     { _ikprKeyFingerprint :: Maybe Text
     , _ikprKeyName        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ImportKeyPairResponse' constructor.
 --

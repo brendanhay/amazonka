@@ -90,7 +90,7 @@ data CreateLayer = CreateLayer
     , _clType                        :: LayerType
     , _clUseEbsOptimizedInstances    :: Maybe Bool
     , _clVolumeConfigurations        :: List "VolumeConfigurations" VolumeConfiguration
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateLayer' constructor.
 --
@@ -250,7 +250,7 @@ clVolumeConfigurations =
 
 newtype CreateLayerResponse = CreateLayerResponse
     { _clrLayerId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateLayerResponse' constructor.
 --

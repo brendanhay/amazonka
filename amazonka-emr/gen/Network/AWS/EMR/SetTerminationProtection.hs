@@ -64,7 +64,7 @@ import qualified GHC.Exts
 data SetTerminationProtection = SetTerminationProtection
     { _stpJobFlowIds           :: List "JobFlowIds" Text
     , _stpTerminationProtected :: Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SetTerminationProtection' constructor.
 --
@@ -94,7 +94,7 @@ stpTerminationProtected =
     lens _stpTerminationProtected (\s a -> s { _stpTerminationProtected = a })
 
 data SetTerminationProtectionResponse = SetTerminationProtectionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SetTerminationProtectionResponse' constructor.
 setTerminationProtectionResponse :: SetTerminationProtectionResponse

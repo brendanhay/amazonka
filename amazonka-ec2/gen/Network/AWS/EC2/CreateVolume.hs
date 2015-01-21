@@ -87,7 +87,7 @@ data CreateVolume = CreateVolume
     , _cv1Size             :: Maybe Int
     , _cv1SnapshotId       :: Maybe Text
     , _cv1VolumeType       :: Maybe VolumeType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateVolume' constructor.
 --
@@ -186,7 +186,7 @@ data CreateVolumeResponse = CreateVolumeResponse
     , _cvrTags             :: List "item" Tag
     , _cvrVolumeId         :: Text
     , _cvrVolumeType       :: VolumeType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateVolumeResponse' constructor.
 --

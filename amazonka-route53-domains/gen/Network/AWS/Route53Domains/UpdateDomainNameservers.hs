@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data UpdateDomainNameservers = UpdateDomainNameservers
     { _udnDomainName  :: Text
     , _udnNameservers :: List "Nameservers" Nameserver
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateDomainNameservers' constructor.
 --
@@ -101,7 +101,7 @@ udnNameservers = lens _udnNameservers (\s a -> s { _udnNameservers = a }) . _Lis
 
 newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
     { _udnrOperationId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'UpdateDomainNameserversResponse' constructor.
 --

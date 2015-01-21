@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data ListAccountAliases = ListAccountAliases
     { _laaMarker   :: Maybe Text
     , _laaMaxItems :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListAccountAliases' constructor.
 --
@@ -88,7 +88,7 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse
     { _laarAccountAliases :: List "member" Text
     , _laarIsTruncated    :: Maybe Bool
     , _laarMarker         :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListAccountAliasesResponse' constructor.
 --

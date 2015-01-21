@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype GetDeployment = GetDeployment
     { _gdDeploymentId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetDeployment' constructor.
 --
@@ -69,7 +69,7 @@ gdDeploymentId = lens _gdDeploymentId (\s a -> s { _gdDeploymentId = a })
 
 newtype GetDeploymentResponse = GetDeploymentResponse
     { _gdrDeploymentInfo :: Maybe DeploymentInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetDeploymentResponse' constructor.
 --

@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data EnableVpcClassicLink = EnableVpcClassicLink
     { _evclDryRun :: Maybe Bool
     , _evclVpcId  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnableVpcClassicLink' constructor.
 --
@@ -82,7 +82,7 @@ evclVpcId = lens _evclVpcId (\s a -> s { _evclVpcId = a })
 
 newtype EnableVpcClassicLinkResponse = EnableVpcClassicLinkResponse
     { _evclrReturn :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnableVpcClassicLinkResponse' constructor.
 --

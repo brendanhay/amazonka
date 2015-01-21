@@ -82,7 +82,7 @@ data UploadFunction = UploadFunction
     , _ufRole         :: Text
     , _ufRuntime      :: Runtime
     , _ufTimeout      :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UploadFunction' constructor.
 --
@@ -190,7 +190,7 @@ data UploadFunctionResponse = UploadFunctionResponse
     , _ufrRole            :: Maybe Text
     , _ufrRuntime         :: Maybe Runtime
     , _ufrTimeout         :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UploadFunctionResponse' constructor.
 --

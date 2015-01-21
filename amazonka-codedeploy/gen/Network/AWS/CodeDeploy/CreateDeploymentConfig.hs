@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data CreateDeploymentConfig = CreateDeploymentConfig
     { _cdcDeploymentConfigName :: Text
     , _cdcMinimumHealthyHosts  :: Maybe MinimumHealthyHosts
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDeploymentConfig' constructor.
 --
@@ -95,7 +95,7 @@ cdcMinimumHealthyHosts =
 
 newtype CreateDeploymentConfigResponse = CreateDeploymentConfigResponse
     { _cdcrDeploymentConfigId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateDeploymentConfigResponse' constructor.
 --

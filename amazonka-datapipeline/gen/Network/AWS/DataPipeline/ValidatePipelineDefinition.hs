@@ -58,7 +58,7 @@ data ValidatePipelineDefinition = ValidatePipelineDefinition
     , _vpdParameterValues  :: List "parameterValues" ParameterValue
     , _vpdPipelineId       :: Text
     , _vpdPipelineObjects  :: List "pipelineObjects" PipelineObject
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ValidatePipelineDefinition' constructor.
 --
@@ -108,7 +108,7 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
     { _vpdrErrored            :: Bool
     , _vpdrValidationErrors   :: List "validationErrors" ValidationError
     , _vpdrValidationWarnings :: List "validationWarnings" ValidationWarning
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ValidatePipelineDefinitionResponse' constructor.
 --

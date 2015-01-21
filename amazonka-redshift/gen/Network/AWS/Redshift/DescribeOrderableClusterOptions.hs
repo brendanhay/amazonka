@@ -62,7 +62,7 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
     , _docoMarker         :: Maybe Text
     , _docoMaxRecords     :: Maybe Int
     , _docoNodeType       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeOrderableClusterOptions' constructor.
 --
@@ -122,7 +122,7 @@ docoNodeType = lens _docoNodeType (\s a -> s { _docoNodeType = a })
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
     { _docorMarker                  :: Maybe Text
     , _docorOrderableClusterOptions :: List "member" OrderableClusterOption
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeOrderableClusterOptionsResponse' constructor.
 --

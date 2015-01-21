@@ -74,7 +74,7 @@ data PutLifecycleHook = PutLifecycleHook
     , _plhNotificationMetadata  :: Maybe Text
     , _plhNotificationTargetARN :: Maybe Text
     , _plhRoleARN               :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PutLifecycleHook' constructor.
 --
@@ -189,7 +189,7 @@ plhRoleARN :: Lens' PutLifecycleHook (Maybe Text)
 plhRoleARN = lens _plhRoleARN (\s a -> s { _plhRoleARN = a })
 
 data PutLifecycleHookResponse = PutLifecycleHookResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutLifecycleHookResponse' constructor.
 putLifecycleHookResponse :: PutLifecycleHookResponse

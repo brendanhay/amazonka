@@ -54,7 +54,7 @@ data CreatePlacementGroup = CreatePlacementGroup
     { _cpgDryRun    :: Maybe Bool
     , _cpgGroupName :: Text
     , _cpgStrategy  :: PlacementStrategy
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreatePlacementGroup' constructor.
 --
@@ -89,7 +89,7 @@ cpgStrategy :: Lens' CreatePlacementGroup PlacementStrategy
 cpgStrategy = lens _cpgStrategy (\s a -> s { _cpgStrategy = a })
 
 data CreatePlacementGroupResponse = CreatePlacementGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreatePlacementGroupResponse' constructor.
 createPlacementGroupResponse :: CreatePlacementGroupResponse

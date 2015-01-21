@@ -61,7 +61,7 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup
     , _udgEc2TagFilters              :: List "ec2TagFilters" EC2TagFilter
     , _udgNewDeploymentGroupName     :: Maybe Text
     , _udgServiceRoleArn             :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateDeploymentGroup' constructor.
 --
@@ -136,7 +136,7 @@ udgServiceRoleArn =
 
 newtype UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse
     { _udgrHooksNotCleanedUp :: List "hooksNotCleanedUp" AutoScalingGroup
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList UpdateDeploymentGroupResponse where
     type Item UpdateDeploymentGroupResponse = AutoScalingGroup

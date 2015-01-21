@@ -72,7 +72,7 @@ import qualified GHC.Exts
 data CreateDhcpOptions = CreateDhcpOptions
     { _cdoDhcpConfigurations :: List "item" NewDhcpConfiguration
     , _cdoDryRun             :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDhcpOptions' constructor.
 --
@@ -99,7 +99,7 @@ cdoDryRun = lens _cdoDryRun (\s a -> s { _cdoDryRun = a })
 
 newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
     { _cdorDhcpOptions :: Maybe DhcpOptions
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDhcpOptionsResponse' constructor.
 --

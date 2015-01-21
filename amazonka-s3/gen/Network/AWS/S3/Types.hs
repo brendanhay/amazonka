@@ -475,7 +475,7 @@ data Event
     | S3ObjectCreatedPost                    -- ^ s3:ObjectCreated:Post
     | S3ObjectCreatedPut                     -- ^ s3:ObjectCreated:Put
     | S3ReducedRedundancyLostObject          -- ^ s3:ReducedRedundancyLostObject
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Event
 
@@ -509,7 +509,7 @@ instance ToXML Event where
 
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
     { _nveNoncurrentDays :: Int
-    } deriving (Eq, Ord, Show, Enum, Num, Integral, Real)
+    } deriving (Eq, Ord, Read, Show, Enum, Num, Integral, Real)
 
 -- | 'NoncurrentVersionExpiration' constructor.
 --
@@ -544,7 +544,7 @@ data Transition = Transition
     { _tDate         :: Maybe ISO8601
     , _tDays         :: Maybe Int
     , _tStorageClass :: Maybe TransitionStorageClass
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Transition' constructor.
 --
@@ -596,7 +596,7 @@ data DeleteMarkerEntry = DeleteMarkerEntry
     , _dmeLastModified :: Maybe RFC822
     , _dmeOwner        :: Maybe Owner
     , _dmeVersionId    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteMarkerEntry' constructor.
 --
@@ -661,7 +661,7 @@ instance ToXML DeleteMarkerEntry where
 data ExpirationStatus
     = Disabled -- ^ Disabled
     | Enabled  -- ^ Enabled
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ExpirationStatus
 
@@ -692,7 +692,7 @@ data Part = Part
     , _pLastModified :: Maybe RFC822
     , _pPartNumber   :: Maybe Int
     , _pSize         :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Part' constructor.
 --
@@ -748,7 +748,7 @@ instance ToXML Part where
 data VersioningConfiguration = VersioningConfiguration
     { _vcMFADelete :: Maybe MFADelete
     , _vcStatus    :: Maybe BucketVersioningStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'VersioningConfiguration' constructor.
 --
@@ -789,7 +789,7 @@ instance ToXML VersioningConfiguration where
 data Tag = Tag
     { _tagKey   :: Text
     , _tagValue :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Tag' constructor.
 --
@@ -830,7 +830,7 @@ data ObjectStorageClass
     = Glacier           -- ^ GLACIER
     | ReducedRedundancy -- ^ REDUCED_REDUNDANCY
     | Standard          -- ^ STANDARD
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ObjectStorageClass
 
@@ -861,7 +861,7 @@ instance ToXML ObjectStorageClass where
 data MetadataDirective
     = Copy    -- ^ COPY
     | Replace -- ^ REPLACE
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable MetadataDirective
 
@@ -890,7 +890,7 @@ instance ToXML MetadataDirective where
 data RedirectAllRequestsTo = RedirectAllRequestsTo
     { _rartHostName :: Text
     , _rartProtocol :: Maybe Protocol
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RedirectAllRequestsTo' constructor.
 --
@@ -930,7 +930,7 @@ instance ToXML RedirectAllRequestsTo where
 data RoutingRule = RoutingRule
     { _rrCondition :: Maybe Condition
     , _rrRedirect  :: Redirect
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RoutingRule' constructor.
 --
@@ -975,7 +975,7 @@ data NotificationConfiguration = NotificationConfiguration
     { _ncCloudFunctionConfiguration :: Maybe CloudFunctionConfiguration
     , _ncQueueConfiguration         :: Maybe QueueConfiguration
     , _ncTopicConfiguration         :: Maybe TopicConfiguration
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'NotificationConfiguration' constructor.
 --
@@ -1025,7 +1025,7 @@ data S3ServiceError = S3ServiceError
     , _sseKey       :: Maybe Text
     , _sseMessage   :: Maybe Text
     , _sseVersionId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'S3ServiceError' constructor.
 --
@@ -1081,7 +1081,7 @@ data ObjectCannedACL
     | Private                -- ^ private
     | PublicRead             -- ^ public-read
     | PublicReadWrite        -- ^ public-read-write
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ObjectCannedACL
 
@@ -1118,7 +1118,7 @@ instance ToXML ObjectCannedACL where
 data BucketVersioningStatus
     = BVSEnabled   -- ^ Enabled
     | BVSSuspended -- ^ Suspended
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable BucketVersioningStatus
 
@@ -1149,7 +1149,7 @@ data DeletedObject = DeletedObject
     , _do1DeleteMarkerVersionId :: Maybe Text
     , _do1Key                   :: Maybe Text
     , _do1VersionId             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeletedObject' constructor.
 --
@@ -1202,7 +1202,7 @@ instance ToXML DeletedObject where
 
 data ObjectVersionStorageClass
     = OVSCStandard -- ^ STANDARD
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ObjectVersionStorageClass
 
@@ -1228,7 +1228,7 @@ instance ToXML ObjectVersionStorageClass where
 data CopyPartResult = CopyPartResult
     { _cprETag         :: Maybe Text
     , _cprLastModified :: Maybe RFC822
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CopyPartResult' constructor.
 --
@@ -1265,7 +1265,7 @@ instance ToXML CopyPartResult where
 
 data EncodingType
     = Url -- ^ url
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable EncodingType
 
@@ -1290,7 +1290,7 @@ instance ToXML EncodingType where
 
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration
     { _rpcPayer :: Payer
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RequestPaymentConfiguration' constructor.
 --
@@ -1323,7 +1323,7 @@ data CORSRule = CORSRule
     , _corsrAllowedOrigins :: List "AllowedOrigin" Text
     , _corsrExposeHeaders  :: List "ExposeHeader" Text
     , _corsrMaxAgeSeconds  :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CORSRule' constructor.
 --
@@ -1403,7 +1403,7 @@ data WebsiteConfiguration = WebsiteConfiguration
     , _wcIndexDocument         :: Maybe IndexDocument
     , _wcRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
     , _wcRoutingRules          :: List "RoutingRule" RoutingRule
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'WebsiteConfiguration' constructor.
 --
@@ -1456,7 +1456,7 @@ instance ToXML WebsiteConfiguration where
 data NoncurrentVersionTransition = NoncurrentVersionTransition
     { _nvtNoncurrentDays :: Int
     , _nvtStorageClass   :: TransitionStorageClass
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'NoncurrentVersionTransition' constructor.
 --
@@ -1500,7 +1500,7 @@ instance ToXML NoncurrentVersionTransition where
 data Initiator = Initiator
     { _iDisplayName :: Maybe Text
     , _iID          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Initiator' constructor.
 --
@@ -1539,7 +1539,7 @@ instance ToXML Initiator where
 data ObjectIdentifier = ObjectIdentifier
     { _oiKey       :: Text
     , _oiVersionId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ObjectIdentifier' constructor.
 --
@@ -1578,7 +1578,7 @@ instance ToXML ObjectIdentifier where
 data Bucket = Bucket
     { _bCreationDate :: RFC822
     , _bName         :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Bucket' constructor.
 --
@@ -1618,7 +1618,7 @@ instance ToXML Bucket where
 data Protocol
     = Http  -- ^ http
     | Https -- ^ https
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Protocol
 
@@ -1647,7 +1647,7 @@ instance ToXML Protocol where
 data Grant = Grant
     { _gGrantee    :: Maybe Grantee
     , _gPermission :: Maybe Permission
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Grant' constructor.
 --
@@ -1691,7 +1691,7 @@ data Rule = Rule
     , _rPrefix                      :: Text
     , _rStatus                      :: ExpirationStatus
     , _rTransition                  :: Maybe Transition
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Rule' constructor.
 --
@@ -1780,7 +1780,7 @@ data TopicConfiguration = TopicConfiguration
     , _tcEvents :: List "Event" Event
     , _tcId     :: Maybe Text
     , _tcTopic  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'TopicConfiguration' constructor.
 --
@@ -1837,7 +1837,7 @@ data QueueConfiguration = QueueConfiguration
     , _qcEvents :: List "Event" Event
     , _qcId     :: Maybe Text
     , _qcQueue  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'QueueConfiguration' constructor.
 --
@@ -1889,7 +1889,7 @@ instance ToXML QueueConfiguration where
 data Owner = Owner
     { _oDisplayName :: Maybe Text
     , _oID          :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Owner' constructor.
 --
@@ -1926,7 +1926,7 @@ instance ToXML Owner
 
 newtype BucketLoggingStatus = BucketLoggingStatus
     { _blsLoggingEnabled :: Maybe LoggingEnabled
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'BucketLoggingStatus' constructor.
 --
@@ -1954,7 +1954,7 @@ instance ToXML BucketLoggingStatus where
 
 newtype ErrorDocument = ErrorDocument
     { _edKey :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ErrorDocument' constructor.
 --
@@ -1984,7 +1984,7 @@ instance ToXML ErrorDocument where
 data StorageClass
     = SCReducedRedundancy -- ^ REDUCED_REDUNDANCY
     | SCStandard          -- ^ STANDARD
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable StorageClass
 
@@ -2019,7 +2019,7 @@ data ObjectVersion = ObjectVersion
     , _ovSize         :: Maybe Int
     , _ovStorageClass :: Maybe ObjectVersionStorageClass
     , _ovVersionId    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ObjectVersion' constructor.
 --
@@ -2110,7 +2110,7 @@ instance ToXML ObjectVersion where
 data TargetGrant = TargetGrant
     { _tgGrantee    :: Maybe Grantee
     , _tgPermission :: Maybe BucketLogsPermission
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'TargetGrant' constructor.
 --
@@ -2147,7 +2147,7 @@ instance ToXML TargetGrant where
 data MFADeleteStatus
     = MFADSDisabled -- ^ Disabled
     | MFADSEnabled  -- ^ Enabled
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable MFADeleteStatus
 
@@ -2176,7 +2176,7 @@ instance ToXML MFADeleteStatus where
 data Payer
     = BucketOwner -- ^ BucketOwner
     | Requester   -- ^ Requester
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Payer
 
@@ -2208,7 +2208,7 @@ data Redirect = Redirect
     , _rProtocol             :: Maybe Protocol
     , _rReplaceKeyPrefixWith :: Maybe Text
     , _rReplaceKeyWith       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Redirect' constructor.
 --
@@ -2285,7 +2285,7 @@ data BucketLogsPermission
     = FullControl -- ^ FULL_CONTROL
     | Read        -- ^ READ
     | Write       -- ^ WRITE
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable BucketLogsPermission
 
@@ -2316,7 +2316,7 @@ instance ToXML BucketLogsPermission where
 data CompletedPart = CompletedPart
     { _cpETag       :: Maybe Text
     , _cpPartNumber :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CompletedPart' constructor.
 --
@@ -2353,7 +2353,7 @@ instance ToXML CompletedPart where
 
 newtype CreateBucketConfiguration = CreateBucketConfiguration
     { _cbcLocationConstraint :: Maybe Region
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateBucketConfiguration' constructor.
 --
@@ -2382,7 +2382,7 @@ instance ToXML CreateBucketConfiguration where
 
 newtype Tagging = Tagging
     { _tTagSet :: List "Tag" Tag
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList Tagging where
     type Item Tagging = Tag
@@ -2416,7 +2416,7 @@ instance ToXML Tagging where
 data LifecycleExpiration = LifecycleExpiration
     { _leDate :: Maybe ISO8601
     , _leDays :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'LifecycleExpiration' constructor.
 --
@@ -2455,7 +2455,7 @@ instance ToXML LifecycleExpiration where
 
 newtype CORSConfiguration = CORSConfiguration
     { _corscCORSRules :: List "CORSRule" CORSRule
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'CORSConfiguration' constructor.
 --
@@ -2487,7 +2487,7 @@ data Object = Object
     , _oOwner        :: Owner
     , _oSize         :: Int
     , _oStorageClass :: ObjectStorageClass
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Object' constructor.
 --
@@ -2561,7 +2561,7 @@ instance ToXML Object where
 
 newtype CommonPrefix = CommonPrefix
     { _cpPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CommonPrefix' constructor.
 --
@@ -2595,7 +2595,7 @@ data MultipartUpload = MultipartUpload
     , _muOwner        :: Maybe Owner
     , _muStorageClass :: Maybe StorageClass
     , _muUploadId     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'MultipartUpload' constructor.
 --
@@ -2669,7 +2669,7 @@ data Type
     = AmazonCustomerByEmail -- ^ AmazonCustomerByEmail
     | CanonicalUser         -- ^ CanonicalUser
     | Group                 -- ^ Group
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Type
 
@@ -2699,7 +2699,7 @@ instance ToXML Type where
 
 data TransitionStorageClass
     = TSCGlacier -- ^ GLACIER
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable TransitionStorageClass
 
@@ -2724,7 +2724,7 @@ instance ToXML TransitionStorageClass where
 
 newtype CompletedMultipartUpload = CompletedMultipartUpload
     { _cmuParts :: List "Part" CompletedPart
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'CompletedMultipartUpload' constructor.
 --
@@ -2752,7 +2752,7 @@ instance ToXML CompletedMultipartUpload where
 data Condition = Condition
     { _cHttpErrorCodeReturnedEquals :: Maybe Text
     , _cKeyPrefixEquals             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Condition' constructor.
 --
@@ -2805,7 +2805,7 @@ data Permission
     | PReadAcp     -- ^ READ_ACP
     | PWrite       -- ^ WRITE
     | PWriteAcp    -- ^ WRITE_ACP
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Permission
 
@@ -2840,7 +2840,7 @@ instance ToXML Permission where
 data AccessControlPolicy = AccessControlPolicy
     { _acpGrants :: List "Grant" Grant
     , _acpOwner  :: Maybe Owner
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AccessControlPolicy' constructor.
 --
@@ -2881,7 +2881,7 @@ data BucketCannedACL
     | CannedPrivate           -- ^ private
     | CannedPublicRead        -- ^ public-read
     | CannedPublicReadWrite   -- ^ public-read-write
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable BucketCannedACL
 
@@ -2914,7 +2914,7 @@ instance ToXML BucketCannedACL where
 data MFADelete
     = MFADDisabled -- ^ Disabled
     | MFADEnabled  -- ^ Enabled
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable MFADelete
 
@@ -2946,7 +2946,7 @@ data CloudFunctionConfiguration = CloudFunctionConfiguration
     , _cfcEvents         :: List "Event" Event
     , _cfcId             :: Maybe Text
     , _cfcInvocationRole :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CloudFunctionConfiguration' constructor.
 --
@@ -3010,7 +3010,7 @@ data Grantee = Grantee
     , _gID           :: Maybe Text
     , _gType         :: Type
     , _gURI          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Grantee' constructor.
 --
@@ -3075,7 +3075,7 @@ instance ToXML Grantee where
 
 newtype LifecycleConfiguration = LifecycleConfiguration
     { _lcRules :: List "Rule" Rule
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'LifecycleConfiguration' constructor.
 --
@@ -3104,7 +3104,7 @@ data LoggingEnabled = LoggingEnabled
     { _leTargetBucket :: Maybe Text
     , _leTargetGrants :: List "Grant" TargetGrant
     , _leTargetPrefix :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'LoggingEnabled' constructor.
 --
@@ -3155,7 +3155,7 @@ instance ToXML LoggingEnabled where
 
 data ServerSideEncryption
     = AES256 -- ^ AES256
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ServerSideEncryption
 
@@ -3180,7 +3180,7 @@ instance ToXML ServerSideEncryption where
 
 newtype IndexDocument = IndexDocument
     { _idSuffix :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'IndexDocument' constructor.
 --
@@ -3214,7 +3214,7 @@ instance ToXML IndexDocument where
 data CopyObjectResult = CopyObjectResult
     { _corETag         :: Maybe Text
     , _corLastModified :: Maybe RFC822
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CopyObjectResult' constructor.
 --
@@ -3250,7 +3250,7 @@ instance ToXML CopyObjectResult where
 data Delete = Delete
     { _dObjects :: List "Object" ObjectIdentifier
     , _dQuiet   :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Delete' constructor.
 --
@@ -3287,7 +3287,7 @@ instance ToXML Delete where
 
 newtype RestoreRequest = RestoreRequest
     { _rDays :: Int
-    } deriving (Eq, Ord, Show, Enum, Num, Integral, Real)
+    } deriving (Eq, Ord, Read, Show, Enum, Num, Integral, Real)
 
 -- | 'RestoreRequest' constructor.
 --

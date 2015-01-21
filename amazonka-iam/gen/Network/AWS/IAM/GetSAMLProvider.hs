@@ -54,7 +54,7 @@ import qualified GHC.Exts
 
 newtype GetSAMLProvider = GetSAMLProvider
     { _gsamlpSAMLProviderArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetSAMLProvider' constructor.
 --
@@ -77,7 +77,7 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse
     { _gsamlprCreateDate           :: Maybe ISO8601
     , _gsamlprSAMLMetadataDocument :: Maybe Text
     , _gsamlprValidUntil           :: Maybe ISO8601
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetSAMLProviderResponse' constructor.
 --

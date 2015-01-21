@@ -56,7 +56,7 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
     { _acsgiCacheSecurityGroupName  :: Text
     , _acsgiEC2SecurityGroupName    :: Text
     , _acsgiEC2SecurityGroupOwnerId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AuthorizeCacheSecurityGroupIngress' constructor.
 --
@@ -101,7 +101,7 @@ acsgiEC2SecurityGroupOwnerId =
 
 newtype AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
     { _acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AuthorizeCacheSecurityGroupIngressResponse' constructor.
 --

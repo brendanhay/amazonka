@@ -69,7 +69,7 @@ data ActivateGateway = ActivateGateway
     , _agGatewayType       :: Maybe Text
     , _agMediumChangerType :: Maybe Text
     , _agTapeDriveType     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ActivateGateway' constructor.
 --
@@ -158,7 +158,7 @@ agTapeDriveType = lens _agTapeDriveType (\s a -> s { _agTapeDriveType = a })
 
 newtype ActivateGatewayResponse = ActivateGatewayResponse
     { _agrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ActivateGatewayResponse' constructor.
 --

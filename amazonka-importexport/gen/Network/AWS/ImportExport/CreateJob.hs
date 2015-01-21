@@ -64,7 +64,7 @@ data CreateJob = CreateJob
     , _cjManifest         :: Text
     , _cjManifestAddendum :: Maybe Text
     , _cjValidateOnly     :: Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateJob' constructor.
 --
@@ -109,7 +109,7 @@ data CreateJobResponse = CreateJobResponse
     , _cjrSignature             :: Maybe Text
     , _cjrSignatureFileContents :: Maybe Text
     , _cjrWarningMessage        :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateJobResponse' constructor.
 --

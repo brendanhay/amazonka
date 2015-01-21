@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
     { _dsds1DryRun :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteSpotDatafeedSubscription' constructor.
 --
@@ -64,7 +64,7 @@ dsds1DryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
 dsds1DryRun = lens _dsds1DryRun (\s a -> s { _dsds1DryRun = a })
 
 data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteSpotDatafeedSubscriptionResponse' constructor.
 deleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse

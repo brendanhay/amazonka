@@ -249,7 +249,7 @@ data AliasTarget = AliasTarget
     { _atDNSName              :: Text
     , _atEvaluateTargetHealth :: Bool
     , _atHostedZoneId         :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AliasTarget' constructor.
 --
@@ -318,7 +318,7 @@ instance ToXML AliasTarget where
 
 newtype ResourceRecord = ResourceRecord
     { _rrValue :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'ResourceRecord' constructor.
 --
@@ -348,7 +348,7 @@ instance ToXML ResourceRecord where
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Tag' constructor.
 --
@@ -390,7 +390,7 @@ data GeoLocationDetails = GeoLocationDetails
     , _gldCountryName     :: Maybe Text
     , _gldSubdivisionCode :: Maybe Text
     , _gldSubdivisionName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GeoLocationDetails' constructor.
 --
@@ -480,7 +480,7 @@ data HealthCheck = HealthCheck
     , _hcHealthCheckConfig  :: HealthCheckConfig
     , _hcHealthCheckVersion :: Nat
     , _hcId                 :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'HealthCheck' constructor.
 --
@@ -556,7 +556,7 @@ data VPCRegion
     | UsEast1      -- ^ us-east-1
     | UsWest1      -- ^ us-west-1
     | UsWest2      -- ^ us-west-2
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable VPCRegion
 
@@ -609,7 +609,7 @@ data RecordType
     | SPF   -- ^ SPF
     | SRV   -- ^ SRV
     | TXT   -- ^ TXT
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable RecordType
 
@@ -655,7 +655,7 @@ data ChangeAction
     = Create  -- ^ CREATE
     | Delete' -- ^ DELETE
     | Upsert  -- ^ UPSERT
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ChangeAction
 
@@ -686,7 +686,7 @@ instance ToXML ChangeAction where
 data TagResourceType
     = Healthcheck -- ^ healthcheck
     | Hostedzone  -- ^ hostedzone
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable TagResourceType
 
@@ -721,7 +721,7 @@ data HealthCheckConfig = HealthCheckConfig
     , _hccResourcePath             :: Maybe Text
     , _hccSearchString             :: Maybe Text
     , _hccType                     :: HealthCheckType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'HealthCheckConfig' constructor.
 --
@@ -836,7 +836,7 @@ instance ToXML HealthCheckConfig where
 data Change = Change
     { _cAction            :: ChangeAction
     , _cResourceRecordSet :: ResourceRecordSet
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Change' constructor.
 --
@@ -879,7 +879,7 @@ instance ToXML Change where
 data Failover
     = Primary   -- ^ PRIMARY
     | Secondary -- ^ SECONDARY
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Failover
 
@@ -911,7 +911,7 @@ data HostedZone = HostedZone
     , _hzId                     :: Text
     , _hzName                   :: Text
     , _hzResourceRecordSetCount :: Maybe Integer
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'HostedZone' constructor.
 --
@@ -993,7 +993,7 @@ data ResourceTagSet = ResourceTagSet
     { _rtsResourceId   :: Maybe Text
     , _rtsResourceType :: Maybe TagResourceType
     , _rtsTags         :: List1 "Tag" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ResourceTagSet' constructor.
 --
@@ -1047,7 +1047,7 @@ instance ToXML ResourceTagSet
 data ChangeStatus
     = Insync  -- ^ INSYNC
     | Pending -- ^ PENDING
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ChangeStatus
 
@@ -1076,7 +1076,7 @@ instance ToXML ChangeStatus where
 data ChangeBatch = ChangeBatch
     { _cbChanges :: List1 "Change" Change
     , _cbComment :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ChangeBatch' constructor.
 --
@@ -1116,7 +1116,7 @@ instance ToXML ChangeBatch where
 data StatusReport = StatusReport
     { _srCheckedTime :: Maybe ISO8601
     , _srStatus      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'StatusReport' constructor.
 --
@@ -1160,7 +1160,7 @@ data HealthCheckType
     | Https         -- ^ HTTPS
     | HttpsStrMatch -- ^ HTTPS_STR_MATCH
     | Tcp           -- ^ TCP
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable HealthCheckType
 
@@ -1195,7 +1195,7 @@ instance ToXML HealthCheckType where
 data VPC = VPC
     { _vpcVPCId     :: Maybe Text
     , _vpcVPCRegion :: Maybe VPCRegion
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'VPC' constructor.
 --
@@ -1233,7 +1233,7 @@ instance ToXML VPC
 data HostedZoneConfig = HostedZoneConfig
     { _hzcComment     :: Maybe Text
     , _hzcPrivateZone :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'HostedZoneConfig' constructor.
 --
@@ -1283,7 +1283,7 @@ data ResourceRecordSet = ResourceRecordSet
     , _rrsTTL             :: Maybe Nat
     , _rrsType            :: RecordType
     , _rrsWeight          :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ResourceRecordSet' constructor.
 --
@@ -1434,7 +1434,7 @@ data DelegationSet = DelegationSet
     { _dsCallerReference :: Maybe Text
     , _dsId              :: Maybe Text
     , _dsNameServers     :: List1 "NameServer" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DelegationSet' constructor.
 --
@@ -1487,7 +1487,7 @@ data ChangeInfo = ChangeInfo
     , _ciId          :: Text
     , _ciStatus      :: ChangeStatus
     , _ciSubmittedAt :: ISO8601
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ChangeInfo' constructor.
 --
@@ -1561,7 +1561,7 @@ data GeoLocation = GeoLocation
     { _glContinentCode   :: Maybe Text
     , _glCountryCode     :: Maybe Text
     , _glSubdivisionCode :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GeoLocation' constructor.
 --
@@ -1622,7 +1622,7 @@ instance ToXML GeoLocation where
 data HealthCheckObservation = HealthCheckObservation
     { _hcoIPAddress    :: Maybe Text
     , _hcoStatusReport :: Maybe StatusReport
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'HealthCheckObservation' constructor.
 --

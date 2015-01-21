@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetTopicAttributes = GetTopicAttributes
     { _gtaTopicArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetTopicAttributes' constructor.
 --
@@ -70,7 +70,7 @@ gtaTopicArn = lens _gtaTopicArn (\s a -> s { _gtaTopicArn = a })
 
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
     { _gtarAttributes :: EMap "entry" "key" "value" Text Text
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'GetTopicAttributesResponse' constructor.
 --

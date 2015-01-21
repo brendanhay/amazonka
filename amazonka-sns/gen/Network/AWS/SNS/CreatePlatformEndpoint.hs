@@ -68,7 +68,7 @@ data CreatePlatformEndpoint = CreatePlatformEndpoint
     , _cpeCustomUserData         :: Maybe Text
     , _cpePlatformApplicationArn :: Text
     , _cpeToken                  :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreatePlatformEndpoint' constructor.
 --
@@ -119,7 +119,7 @@ cpeToken = lens _cpeToken (\s a -> s { _cpeToken = a })
 
 newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
     { _cperEndpointArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreatePlatformEndpointResponse' constructor.
 --

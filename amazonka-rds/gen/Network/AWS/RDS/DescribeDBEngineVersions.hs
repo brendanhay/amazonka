@@ -64,7 +64,7 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions
     , _ddbevListSupportedCharacterSets :: Maybe Bool
     , _ddbevMarker                     :: Maybe Text
     , _ddbevMaxRecords                 :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDBEngineVersions' constructor.
 --
@@ -155,7 +155,7 @@ ddbevMaxRecords = lens _ddbevMaxRecords (\s a -> s { _ddbevMaxRecords = a })
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
     { _ddbevrDBEngineVersions :: List "member" DBEngineVersion
     , _ddbevrMarker           :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDBEngineVersionsResponse' constructor.
 --

@@ -53,7 +53,7 @@ import qualified GHC.Exts
 
 newtype RebootCluster = RebootCluster
     { _rcClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'RebootCluster' constructor.
 --
@@ -74,7 +74,7 @@ rcClusterIdentifier =
 
 newtype RebootClusterResponse = RebootClusterResponse
     { _rcrCluster :: Maybe Cluster
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RebootClusterResponse' constructor.
 --

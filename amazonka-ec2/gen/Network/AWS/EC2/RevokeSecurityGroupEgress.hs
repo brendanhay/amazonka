@@ -73,7 +73,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
     , _rsgeSourceSecurityGroupName    :: Maybe Text
     , _rsgeSourceSecurityGroupOwnerId :: Maybe Text
     , _rsgeToPort                     :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RevokeSecurityGroupEgress' constructor.
 --
@@ -160,7 +160,7 @@ rsgeToPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeToPort = lens _rsgeToPort (\s a -> s { _rsgeToPort = a })
 
 data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RevokeSecurityGroupEgressResponse' constructor.
 revokeSecurityGroupEgressResponse :: RevokeSecurityGroupEgressResponse

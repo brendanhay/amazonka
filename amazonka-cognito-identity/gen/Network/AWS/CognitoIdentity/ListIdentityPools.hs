@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data ListIdentityPools = ListIdentityPools
     { _lipMaxResults :: Nat
     , _lipNextToken  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListIdentityPools' constructor.
 --
@@ -80,7 +80,7 @@ lipNextToken = lens _lipNextToken (\s a -> s { _lipNextToken = a })
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse
     { _liprIdentityPools :: List "IdentityPools" IdentityPoolShortDescription
     , _liprNextToken     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListIdentityPoolsResponse' constructor.
 --

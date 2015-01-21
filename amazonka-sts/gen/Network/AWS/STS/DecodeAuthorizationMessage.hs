@@ -67,7 +67,7 @@ import qualified GHC.Exts
 
 newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage
     { _damEncodedMessage :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DecodeAuthorizationMessage' constructor.
 --
@@ -88,7 +88,7 @@ damEncodedMessage =
 
 newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
     { _damrDecodedMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'DecodeAuthorizationMessageResponse' constructor.
 --

@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data DeleteVpnGateway = DeleteVpnGateway
     { _dvgDryRun       :: Maybe Bool
     , _dvgVpnGatewayId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteVpnGateway' constructor.
 --
@@ -78,7 +78,7 @@ dvgVpnGatewayId :: Lens' DeleteVpnGateway Text
 dvgVpnGatewayId = lens _dvgVpnGatewayId (\s a -> s { _dvgVpnGatewayId = a })
 
 data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteVpnGatewayResponse' constructor.
 deleteVpnGatewayResponse :: DeleteVpnGatewayResponse

@@ -70,7 +70,7 @@ import qualified GHC.Exts
 data CreateSnapshot = CreateSnapshot
     { _csSnapshotDescription :: Text
     , _csVolumeARN           :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateSnapshot' constructor.
 --
@@ -103,7 +103,7 @@ csVolumeARN = lens _csVolumeARN (\s a -> s { _csVolumeARN = a })
 data CreateSnapshotResponse = CreateSnapshotResponse
     { _csrSnapshotId :: Maybe Text
     , _csrVolumeARN  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateSnapshotResponse' constructor.
 --

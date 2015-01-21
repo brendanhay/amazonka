@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data RejectVpcPeeringConnection = RejectVpcPeeringConnection
     { _rvpcDryRun                 :: Maybe Bool
     , _rvpcVpcPeeringConnectionId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RejectVpcPeeringConnection' constructor.
 --
@@ -83,7 +83,7 @@ rvpcVpcPeeringConnectionId =
 
 newtype RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     { _rvpcrReturn :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RejectVpcPeeringConnectionResponse' constructor.
 --

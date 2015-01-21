@@ -62,7 +62,7 @@ import qualified GHC.Exts
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces
     { _dviConnectionId       :: Maybe Text
     , _dviVirtualInterfaceId :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeVirtualInterfaces' constructor.
 --
@@ -87,7 +87,7 @@ dviVirtualInterfaceId =
 
 newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
     { _dvirVirtualInterfaces :: List "virtualInterfaces" VirtualInterface
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeVirtualInterfacesResponse where
     type Item DescribeVirtualInterfacesResponse = VirtualInterface

@@ -53,7 +53,7 @@ data ModifyHapg = ModifyHapg
     { _mhHapgArn             :: Text
     , _mhLabel               :: Maybe Text
     , _mhPartitionSerialList :: List "PartitionSerialList" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ModifyHapg' constructor.
 --
@@ -90,7 +90,7 @@ mhPartitionSerialList =
 
 newtype ModifyHapgResponse = ModifyHapgResponse
     { _mhrHapgArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ModifyHapgResponse' constructor.
 --

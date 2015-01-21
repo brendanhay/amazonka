@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype VerifyDomainIdentity = VerifyDomainIdentity
     { _vdiDomain :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'VerifyDomainIdentity' constructor.
 --
@@ -71,7 +71,7 @@ vdiDomain = lens _vdiDomain (\s a -> s { _vdiDomain = a })
 
 newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
     { _vdirVerificationToken :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'VerifyDomainIdentityResponse' constructor.
 --

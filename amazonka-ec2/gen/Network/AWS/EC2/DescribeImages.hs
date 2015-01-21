@@ -64,7 +64,7 @@ data DescribeImages = DescribeImages
     , _di2Filters         :: List "Filter" Filter
     , _di2ImageIds        :: List "ImageId" Text
     , _di2Owners          :: List "Owner" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeImages' constructor.
 --
@@ -192,7 +192,7 @@ di2Owners = lens _di2Owners (\s a -> s { _di2Owners = a }) . _List
 
 newtype DescribeImagesResponse = DescribeImagesResponse
     { _dirImages :: List "item" Image
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeImagesResponse' constructor.
 --

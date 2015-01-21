@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data GetInvalidation = GetInvalidation
     { _giDistributionId :: Text
     , _giId             :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetInvalidation' constructor.
 --
@@ -79,7 +79,7 @@ giId = lens _giId (\s a -> s { _giId = a })
 
 newtype GetInvalidationResponse = GetInvalidationResponse
     { _girInvalidation :: Maybe Invalidation
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetInvalidationResponse' constructor.
 --

@@ -53,7 +53,7 @@ data ListInvalidations = ListInvalidations
     { _liDistributionId :: Text
     , _liMarker         :: Maybe Text
     , _liMaxItems       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListInvalidations' constructor.
 --
@@ -93,7 +93,7 @@ liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
 
 newtype ListInvalidationsResponse = ListInvalidationsResponse
     { _lirInvalidationList :: InvalidationList
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListInvalidationsResponse' constructor.
 --

@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data DeactivateMFADevice = DeactivateMFADevice
     { _dmfadSerialNumber :: Text
     , _dmfadUserName     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeactivateMFADevice' constructor.
 --
@@ -82,7 +82,7 @@ dmfadUserName :: Lens' DeactivateMFADevice Text
 dmfadUserName = lens _dmfadUserName (\s a -> s { _dmfadUserName = a })
 
 data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeactivateMFADeviceResponse' constructor.
 deactivateMFADeviceResponse :: DeactivateMFADeviceResponse

@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DeleteNetworkInterface = DeleteNetworkInterface
     { _dni2DryRun             :: Maybe Bool
     , _dni2NetworkInterfaceId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteNetworkInterface' constructor.
 --
@@ -76,7 +76,7 @@ dni2NetworkInterfaceId =
     lens _dni2NetworkInterfaceId (\s a -> s { _dni2NetworkInterfaceId = a })
 
 data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteNetworkInterfaceResponse' constructor.
 deleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse

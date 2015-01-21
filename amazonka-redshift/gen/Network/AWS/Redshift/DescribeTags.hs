@@ -76,7 +76,7 @@ data DescribeTags = DescribeTags
     , _dtResourceType :: Maybe Text
     , _dtTagKeys      :: List "member" Text
     , _dtTagValues    :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeTags' constructor.
 --
@@ -155,7 +155,7 @@ dtTagValues = lens _dtTagValues (\s a -> s { _dtTagValues = a }) . _List
 data DescribeTagsResponse = DescribeTagsResponse
     { _dtrMarker          :: Maybe Text
     , _dtrTaggedResources :: List "member" TaggedResource
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeTagsResponse' constructor.
 --

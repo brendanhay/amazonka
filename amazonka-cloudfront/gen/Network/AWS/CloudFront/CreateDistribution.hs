@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype CreateDistribution = CreateDistribution
     { _cdDistributionConfig :: DistributionConfig
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDistribution' constructor.
 --
@@ -74,7 +74,7 @@ data CreateDistributionResponse = CreateDistributionResponse
     { _cdrDistribution :: Maybe Distribution
     , _cdrETag         :: Maybe Text
     , _cdrLocation     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateDistributionResponse' constructor.
 --

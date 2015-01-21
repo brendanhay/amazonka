@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DeleteLogStream = DeleteLogStream
     { _dlsLogGroupName  :: Text
     , _dlsLogStreamName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteLogStream' constructor.
 --
@@ -75,7 +75,7 @@ dlsLogStreamName :: Lens' DeleteLogStream Text
 dlsLogStreamName = lens _dlsLogStreamName (\s a -> s { _dlsLogStreamName = a })
 
 data DeleteLogStreamResponse = DeleteLogStreamResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteLogStreamResponse' constructor.
 deleteLogStreamResponse :: DeleteLogStreamResponse

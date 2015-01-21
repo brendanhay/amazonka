@@ -77,7 +77,7 @@ data UploadPart = UploadPart
     , _upSSECustomerKey       :: Maybe (Sensitive Text)
     , _upSSECustomerKeyMD5    :: Maybe Text
     , _upUploadId             :: Text
-    } deriving (Show)
+    } deriving (Read, Show)
 
 -- | 'UploadPart' constructor.
 --
@@ -175,7 +175,7 @@ data UploadPartResponse = UploadPartResponse
     , _uprSSECustomerKeyMD5    :: Maybe Text
     , _uprSSEKMSKeyId          :: Maybe (Sensitive Text)
     , _uprServerSideEncryption :: Maybe ServerSideEncryption
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UploadPartResponse' constructor.
 --

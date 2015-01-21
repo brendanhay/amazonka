@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
     { _dlbp1LoadBalancerName :: Text
     , _dlbp1PolicyName       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteLoadBalancerPolicy' constructor.
 --
@@ -78,7 +78,7 @@ dlbp1PolicyName :: Lens' DeleteLoadBalancerPolicy Text
 dlbp1PolicyName = lens _dlbp1PolicyName (\s a -> s { _dlbp1PolicyName = a })
 
 data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteLoadBalancerPolicyResponse' constructor.
 deleteLoadBalancerPolicyResponse :: DeleteLoadBalancerPolicyResponse

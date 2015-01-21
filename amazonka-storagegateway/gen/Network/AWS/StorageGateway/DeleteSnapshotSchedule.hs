@@ -58,7 +58,7 @@ import qualified GHC.Exts
 
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule
     { _dss1VolumeARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteSnapshotSchedule' constructor.
 --
@@ -77,7 +77,7 @@ dss1VolumeARN = lens _dss1VolumeARN (\s a -> s { _dss1VolumeARN = a })
 
 newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
     { _dssr1VolumeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'DeleteSnapshotScheduleResponse' constructor.
 --

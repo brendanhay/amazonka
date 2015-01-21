@@ -59,7 +59,7 @@ data UpdateServerCertificate = UpdateServerCertificate
     { _usc1NewPath                  :: Maybe Text
     , _usc1NewServerCertificateName :: Maybe Text
     , _usc1ServerCertificateName    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateServerCertificate' constructor.
 --
@@ -98,7 +98,7 @@ usc1ServerCertificateName =
         (\s a -> s { _usc1ServerCertificateName = a })
 
 data UpdateServerCertificateResponse = UpdateServerCertificateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateServerCertificateResponse' constructor.
 updateServerCertificateResponse :: UpdateServerCertificateResponse

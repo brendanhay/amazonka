@@ -60,7 +60,7 @@ data ListClusters = ListClusters
     , _lcCreatedAfter  :: Maybe POSIX
     , _lcCreatedBefore :: Maybe POSIX
     , _lcMarker        :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListClusters' constructor.
 --
@@ -101,7 +101,7 @@ lcMarker = lens _lcMarker (\s a -> s { _lcMarker = a })
 data ListClustersResponse = ListClustersResponse
     { _lcrClusters :: List "Clusters" ClusterSummary
     , _lcrMarker   :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListClustersResponse' constructor.
 --

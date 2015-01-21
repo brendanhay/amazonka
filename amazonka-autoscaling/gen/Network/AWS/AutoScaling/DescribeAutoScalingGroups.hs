@@ -60,7 +60,7 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups
     { _dasgAutoScalingGroupNames :: List "member" Text
     , _dasgMaxRecords            :: Maybe Int
     , _dasgNextToken             :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeAutoScalingGroups' constructor.
 --
@@ -98,7 +98,7 @@ dasgNextToken = lens _dasgNextToken (\s a -> s { _dasgNextToken = a })
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
     { _dasgrAutoScalingGroups :: List "member" AutoScalingGroup
     , _dasgrNextToken         :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeAutoScalingGroupsResponse' constructor.
 --

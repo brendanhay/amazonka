@@ -55,7 +55,7 @@ import qualified GHC.Exts
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
     { _dsapDeployed   :: Maybe Bool
     , _dsapDomainName :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeServiceAccessPolicies' constructor.
 --
@@ -83,7 +83,7 @@ dsapDomainName = lens _dsapDomainName (\s a -> s { _dsapDomainName = a })
 
 newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse
     { _dsaprAccessPolicies :: AccessPoliciesStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeServiceAccessPoliciesResponse' constructor.
 --

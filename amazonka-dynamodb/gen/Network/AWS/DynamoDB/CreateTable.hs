@@ -71,7 +71,7 @@ data CreateTable = CreateTable
     , _ctLocalSecondaryIndexes  :: List "LocalSecondaryIndexes" LocalSecondaryIndex
     , _ctProvisionedThroughput  :: ProvisionedThroughput
     , _ctTableName              :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateTable' constructor.
 --
@@ -218,7 +218,7 @@ ctTableName = lens _ctTableName (\s a -> s { _ctTableName = a })
 
 newtype CreateTableResponse = CreateTableResponse
     { _ctrTableDescription :: Maybe TableDescription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateTableResponse' constructor.
 --

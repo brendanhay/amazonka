@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data DeleteRouteTable = DeleteRouteTable
     { _drt1DryRun       :: Maybe Bool
     , _drt1RouteTableId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteRouteTable' constructor.
 --
@@ -75,7 +75,7 @@ drt1RouteTableId :: Lens' DeleteRouteTable Text
 drt1RouteTableId = lens _drt1RouteTableId (\s a -> s { _drt1RouteTableId = a })
 
 data DeleteRouteTableResponse = DeleteRouteTableResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteRouteTableResponse' constructor.
 deleteRouteTableResponse :: DeleteRouteTableResponse

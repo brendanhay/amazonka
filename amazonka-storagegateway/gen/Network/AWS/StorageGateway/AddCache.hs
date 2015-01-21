@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data AddCache = AddCache
     { _acDiskIds    :: List "DiskIds" Text
     , _acGatewayARN :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AddCache' constructor.
 --
@@ -82,7 +82,7 @@ acGatewayARN = lens _acGatewayARN (\s a -> s { _acGatewayARN = a })
 
 newtype AddCacheResponse = AddCacheResponse
     { _acrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'AddCacheResponse' constructor.
 --

@@ -61,7 +61,7 @@ import qualified GHC.Exts
 data ListHealthChecks = ListHealthChecks
     { _lhcMarker   :: Maybe Text
     , _lhcMaxItems :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListHealthChecks' constructor.
 --
@@ -93,7 +93,7 @@ data ListHealthChecksResponse = ListHealthChecksResponse
     , _lhcrMarker       :: Text
     , _lhcrMaxItems     :: Text
     , _lhcrNextMarker   :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListHealthChecksResponse' constructor.
 --

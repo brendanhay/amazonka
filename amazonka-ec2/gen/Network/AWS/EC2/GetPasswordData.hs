@@ -65,7 +65,7 @@ import qualified GHC.Exts
 data GetPasswordData = GetPasswordData
     { _gpdDryRun     :: Maybe Bool
     , _gpdInstanceId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetPasswordData' constructor.
 --
@@ -93,7 +93,7 @@ data GetPasswordDataResponse = GetPasswordDataResponse
     { _gpdrInstanceId   :: Maybe Text
     , _gpdrPasswordData :: Maybe Text
     , _gpdrTimestamp    :: Maybe ISO8601
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetPasswordDataResponse' constructor.
 --

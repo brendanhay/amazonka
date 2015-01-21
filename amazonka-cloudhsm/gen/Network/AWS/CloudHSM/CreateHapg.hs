@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype CreateHapg = CreateHapg
     { _chLabel :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'CreateHapg' constructor.
 --
@@ -70,7 +70,7 @@ chLabel = lens _chLabel (\s a -> s { _chLabel = a })
 
 newtype CreateHapgResponse = CreateHapgResponse
     { _chrHapgArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateHapgResponse' constructor.
 --

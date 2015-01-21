@@ -80,7 +80,7 @@ data PutAttributes = PutAttributes
     , _paDomainName :: Text
     , _paExpected   :: Maybe UpdateCondition
     , _paItemName   :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'PutAttributes' constructor.
 --
@@ -123,7 +123,7 @@ paItemName :: Lens' PutAttributes Text
 paItemName = lens _paItemName (\s a -> s { _paItemName = a })
 
 data PutAttributesResponse = PutAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutAttributesResponse' constructor.
 putAttributesResponse :: PutAttributesResponse

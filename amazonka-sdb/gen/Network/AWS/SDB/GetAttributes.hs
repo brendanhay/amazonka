@@ -61,7 +61,7 @@ data GetAttributes = GetAttributes
     , _gaConsistentRead :: Maybe Bool
     , _gaDomainName     :: Text
     , _gaItemName       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetAttributes' constructor.
 --
@@ -106,7 +106,7 @@ gaItemName = lens _gaItemName (\s a -> s { _gaItemName = a })
 
 newtype GetAttributesResponse = GetAttributesResponse
     { _garAttributes :: List "member" Attribute
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'GetAttributesResponse' constructor.
 --

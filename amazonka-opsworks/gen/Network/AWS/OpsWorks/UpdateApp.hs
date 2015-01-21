@@ -71,7 +71,7 @@ data UpdateApp = UpdateApp
     , _uaName             :: Maybe Text
     , _uaSslConfiguration :: Maybe SslConfiguration
     , _uaType             :: Maybe AppType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateApp' constructor.
 --
@@ -168,7 +168,7 @@ uaType :: Lens' UpdateApp (Maybe AppType)
 uaType = lens _uaType (\s a -> s { _uaType = a })
 
 data UpdateAppResponse = UpdateAppResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'UpdateAppResponse' constructor.
 updateAppResponse :: UpdateAppResponse

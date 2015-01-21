@@ -513,7 +513,7 @@ data SslConfiguration = SslConfiguration
     { _scCertificate :: Text
     , _scChain       :: Maybe Text
     , _scPrivateKey  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SslConfiguration' constructor.
 --
@@ -563,7 +563,7 @@ instance ToJSON SslConfiguration where
 data VirtualizationType
     = Hvm         -- ^ hvm
     | Paravirtual -- ^ paravirtual
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable VirtualizationType
 
@@ -600,7 +600,7 @@ data Command = Command
     , _cLogUrl         :: Maybe Text
     , _cStatus         :: Maybe Text
     , _cType           :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Command' constructor.
 --
@@ -725,7 +725,7 @@ data RaidArray = RaidArray
     , _raSize             :: Maybe Int
     , _raStackId          :: Maybe Text
     , _raVolumeType       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RaidArray' constructor.
 --
@@ -871,7 +871,7 @@ data ElasticLoadBalancer = ElasticLoadBalancer
     , _elbStackId                 :: Maybe Text
     , _elbSubnetIds               :: List "SubnetIds" Text
     , _elbVpcId                   :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ElasticLoadBalancer' constructor.
 --
@@ -978,7 +978,7 @@ instance ToJSON ElasticLoadBalancer where
 
 newtype LifecycleEventConfiguration = LifecycleEventConfiguration
     { _lecShutdown :: Maybe ShutdownEventConfiguration
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'LifecycleEventConfiguration' constructor.
 --
@@ -1015,7 +1015,7 @@ data RdsDbInstance = RdsDbInstance
     , _rdiRdsDbInstanceArn     :: Maybe Text
     , _rdiRegion               :: Maybe Text
     , _rdiStackId              :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RdsDbInstance' constructor.
 --
@@ -1121,7 +1121,7 @@ data AppAttributesKeys
     = AutoBundleOnDeploy -- ^ AutoBundleOnDeploy
     | DocumentRoot       -- ^ DocumentRoot
     | RailsEnv           -- ^ RailsEnv
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable AppAttributesKeys
 
@@ -1156,7 +1156,7 @@ data ServiceError' = ServiceError'
     , _seServiceErrorId :: Maybe Text
     , _seStackId        :: Maybe Text
     , _seType           :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ServiceError'' constructor.
 --
@@ -1234,7 +1234,7 @@ data StackSummary = StackSummary
     , _ssLayersCount    :: Maybe Int
     , _ssName           :: Maybe Text
     , _ssStackId        :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StackSummary' constructor.
 --
@@ -1307,7 +1307,7 @@ instance ToJSON StackSummary where
 
 data StackAttributesKeys
     = Color -- ^ Color
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable StackAttributesKeys
 
@@ -1335,7 +1335,7 @@ data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     , _lbascEnable      :: Maybe Bool
     , _lbascLayerId     :: Maybe Text
     , _lbascUpScaling   :: Maybe AutoScalingThresholds
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'LoadBasedAutoScalingConfiguration' constructor.
 --
@@ -1395,7 +1395,7 @@ data SourceType
     | Git     -- ^ git
     | S3      -- ^ s3
     | Svn     -- ^ svn
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable SourceType
 
@@ -1439,7 +1439,7 @@ data Volume = Volume
     , _vStatus           :: Maybe Text
     , _vVolumeId         :: Maybe Text
     , _vVolumeType       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Volume' constructor.
 --
@@ -1577,7 +1577,7 @@ instance ToJSON Volume where
 data ChefConfiguration = ChefConfiguration
     { _ccBerkshelfVersion :: Maybe Text
     , _ccManageBerkshelf  :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ChefConfiguration' constructor.
 --
@@ -1625,7 +1625,7 @@ data LayerType
     | PhpApp           -- ^ php-app
     | RailsApp         -- ^ rails-app
     | Web              -- ^ web
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable LayerType
 
@@ -1674,7 +1674,7 @@ data AutoScalingThresholds = AutoScalingThresholds
     , _astLoadThreshold      :: Maybe Double
     , _astMemoryThreshold    :: Maybe Double
     , _astThresholdsWaitTime :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AutoScalingThresholds' constructor.
 --
@@ -1773,7 +1773,7 @@ data App = App
     , _appSslConfiguration :: Maybe SslConfiguration
     , _appStackId          :: Maybe Text
     , _appType             :: Maybe AppType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'App' constructor.
 --
@@ -1927,7 +1927,7 @@ data ElasticIp = ElasticIp
     , _eiIp         :: Maybe Text
     , _eiName       :: Maybe Text
     , _eiRegion     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ElasticIp' constructor.
 --
@@ -1992,7 +1992,7 @@ instance ToJSON ElasticIp where
 data ShutdownEventConfiguration = ShutdownEventConfiguration
     { _secDelayUntilElbConnectionsDrained :: Maybe Bool
     , _secExecutionTimeout                :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ShutdownEventConfiguration' constructor.
 --
@@ -2035,7 +2035,7 @@ instance ToJSON ShutdownEventConfiguration where
 data InstanceIdentity = InstanceIdentity
     { _iiDocument  :: Maybe Text
     , _iiSignature :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'InstanceIdentity' constructor.
 --
@@ -2077,7 +2077,7 @@ data UserProfile = UserProfile
     , _upName                :: Maybe Text
     , _upSshPublicKey        :: Maybe Text
     , _upSshUsername         :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UserProfile' constructor.
 --
@@ -2144,7 +2144,7 @@ instance ToJSON UserProfile where
 data AutoScalingType
     = Load  -- ^ load
     | Timer -- ^ timer
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable AutoScalingType
 
@@ -2177,7 +2177,7 @@ data Source = Source
     , _sType     :: Maybe SourceType
     , _sUrl      :: Maybe Text
     , _sUsername :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Source' constructor.
 --
@@ -2262,7 +2262,7 @@ data DataSource = DataSource
     { _dsArn          :: Maybe Text
     , _dsDatabaseName :: Maybe Text
     , _dsType         :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DataSource' constructor.
 --
@@ -2310,7 +2310,7 @@ instance ToJSON DataSource where
 data Architecture
     = I386  -- ^ i386
     | X8664 -- ^ x86_64
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Architecture
 
@@ -2339,7 +2339,7 @@ instance ToJSON Architecture where
 data StackConfigurationManager = StackConfigurationManager
     { _scmName    :: Maybe Text
     , _scmVersion :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'StackConfigurationManager' constructor.
 --
@@ -2400,7 +2400,7 @@ data LayerAttributesKeys
     | RailsStack                  -- ^ RailsStack
     | RubyVersion                 -- ^ RubyVersion
     | RubygemsVersion             -- ^ RubygemsVersion
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable LayerAttributesKeys
 
@@ -2477,7 +2477,7 @@ data VolumeConfiguration = VolumeConfiguration
     , _vcRaidLevel     :: Maybe Int
     , _vcSize          :: Int
     , _vcVolumeType    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'VolumeConfiguration' constructor.
 --
@@ -2558,7 +2558,7 @@ data ReportedOs = ReportedOs
     { _roFamily  :: Maybe Text
     , _roName    :: Maybe Text
     , _roVersion :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ReportedOs' constructor.
 --
@@ -2608,7 +2608,7 @@ data Permission = Permission
     , _pIamUserArn :: Maybe Text
     , _pLevel      :: Maybe Text
     , _pStackId    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Permission' constructor.
 --
@@ -2678,7 +2678,7 @@ data EnvironmentVariable = EnvironmentVariable
     { _evKey    :: Text
     , _evSecure :: Maybe Bool
     , _evValue  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnvironmentVariable' constructor.
 --
@@ -2751,7 +2751,7 @@ data Layer = Layer
     , _lType                        :: Maybe LayerType
     , _lUseEbsOptimizedInstances    :: Maybe Bool
     , _lVolumeConfigurations        :: List "VolumeConfigurations" VolumeConfiguration
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Layer' constructor.
 --
@@ -2982,7 +2982,7 @@ data Recipes = Recipes
     , _rSetup     :: List "Setup" Text
     , _rShutdown  :: List "Shutdown" Text
     , _rUndeploy  :: List "Undeploy" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Recipes' constructor.
 --
@@ -3047,7 +3047,7 @@ instance ToJSON Recipes where
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
     { _tbascAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
     , _tbascInstanceId          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'TimeBasedAutoScalingConfiguration' constructor.
 --
@@ -3089,7 +3089,7 @@ data SelfUserProfile = SelfUserProfile
     , _supName         :: Maybe Text
     , _supSshPublicKey :: Maybe Text
     , _supSshUsername  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SelfUserProfile' constructor.
 --
@@ -3145,7 +3145,7 @@ instance ToJSON SelfUserProfile where
 data RootDeviceType
     = Ebs           -- ^ ebs
     | InstanceStore -- ^ instance-store
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable RootDeviceType
 
@@ -3193,7 +3193,7 @@ data Stack = Stack
     , _sUseCustomCookbooks        :: Maybe Bool
     , _sUseOpsworksSecurityGroups :: Maybe Bool
     , _sVpcId                     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Stack' constructor.
 --
@@ -3426,7 +3426,7 @@ instance ToJSON Stack where
 data DeploymentCommand = DeploymentCommand
     { _dcArgs :: Map Text (List "Args" Text)
     , _dcName :: DeploymentCommandName
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DeploymentCommand' constructor.
 --
@@ -3498,7 +3498,7 @@ data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
     , _wassThursday  :: Map Text Text
     , _wassTuesday   :: Map Text Text
     , _wassWednesday :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'WeeklyAutoScalingSchedule' constructor.
 --
@@ -3589,7 +3589,7 @@ data DeploymentCommandName
     | Undeploy              -- ^ undeploy
     | UpdateCustomCookbooks -- ^ update_custom_cookbooks
     | UpdateDependencies    -- ^ update_dependencies
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable DeploymentCommandName
 
@@ -3665,7 +3665,7 @@ data Instance = Instance
     , _iStatus                   :: Maybe Text
     , _iSubnetId                 :: Maybe Text
     , _iVirtualizationType       :: Maybe VirtualizationType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Instance' constructor.
 --
@@ -4020,7 +4020,7 @@ data Deployment = Deployment
     , _dInstanceIds  :: List "InstanceIds" Text
     , _dStackId      :: Maybe Text
     , _dStatus       :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Deployment' constructor.
 --
@@ -4172,7 +4172,7 @@ data InstancesCount = InstancesCount
     , _icTerminated     :: Maybe Int
     , _icTerminating    :: Maybe Int
     , _icUnassigning    :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'InstancesCount' constructor.
 --
@@ -4367,7 +4367,7 @@ data AppType
     | Php    -- ^ php
     | Rails  -- ^ rails
     | Static -- ^ static
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable AppType
 

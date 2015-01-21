@@ -156,7 +156,7 @@ data Destination = Destination
     { _dBccAddresses :: List "member" Text
     , _dCcAddresses  :: List "member" Text
     , _dToAddresses  :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Destination' constructor.
 --
@@ -204,7 +204,7 @@ data IdentityDkimAttributes = IdentityDkimAttributes
     { _idaDkimEnabled            :: Bool
     , _idaDkimTokens             :: List "member" Text
     , _idaDkimVerificationStatus :: VerificationStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'IdentityDkimAttributes' constructor.
 --
@@ -266,7 +266,7 @@ instance ToQuery IdentityDkimAttributes where
 data Body = Body
     { _bHtml :: Maybe Content
     , _bText :: Maybe Content
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Body' constructor.
 --
@@ -307,7 +307,7 @@ instance ToQuery Body where
 data IdentityVerificationAttributes = IdentityVerificationAttributes
     { _ivaVerificationStatus :: VerificationStatus
     , _ivaVerificationToken  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'IdentityVerificationAttributes' constructor.
 --
@@ -353,7 +353,7 @@ data SendDataPoint = SendDataPoint
     , _sdpDeliveryAttempts :: Maybe Integer
     , _sdpRejects          :: Maybe Integer
     , _sdpTimestamp        :: Maybe ISO8601
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SendDataPoint' constructor.
 --
@@ -419,7 +419,7 @@ instance ToQuery SendDataPoint where
 data IdentityType
     = ITDomain       -- ^ Domain
     | ITEmailAddress -- ^ EmailAddress
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable IdentityType
 
@@ -445,7 +445,7 @@ instance FromXML IdentityType where
 data Content = Content
     { _cCharset :: Maybe Text
     , _cData    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Content' constructor.
 --
@@ -486,7 +486,7 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes
     , _inaComplaintTopic    :: Text
     , _inaDeliveryTopic     :: Text
     , _inaForwardingEnabled :: Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'IdentityNotificationAttributes' constructor.
 --
@@ -554,7 +554,7 @@ instance ToQuery IdentityNotificationAttributes where
 
 newtype RawMessage = RawMessage
     { _rmData :: Base64
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RawMessage' constructor.
 --
@@ -591,7 +591,7 @@ data NotificationType
     = Bounce    -- ^ Bounce
     | Complaint -- ^ Complaint
     | Delivery  -- ^ Delivery
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable NotificationType
 
@@ -622,7 +622,7 @@ data VerificationStatus
     | Pending          -- ^ Pending
     | Success          -- ^ Success
     | TemporaryFailure -- ^ TemporaryFailure
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable VerificationStatus
 
@@ -654,7 +654,7 @@ instance FromXML VerificationStatus where
 data Message = Message
     { _mBody    :: Body
     , _mSubject :: Content
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Message' constructor.
 --

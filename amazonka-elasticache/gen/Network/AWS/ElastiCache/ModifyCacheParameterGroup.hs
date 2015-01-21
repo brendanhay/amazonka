@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup
     { _mcpgCacheParameterGroupName :: Text
     , _mcpgParameterNameValues     :: List "member" ParameterNameValue
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyCacheParameterGroup' constructor.
 --
@@ -86,7 +86,7 @@ mcpgParameterNameValues =
 
 newtype ModifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
     { _mcpgrCacheParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ModifyCacheParameterGroupResponse' constructor.
 --

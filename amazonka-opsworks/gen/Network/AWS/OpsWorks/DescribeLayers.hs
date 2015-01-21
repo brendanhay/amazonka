@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data DescribeLayers = DescribeLayers
     { _dlLayerIds :: List "LayerIds" Text
     , _dlStackId  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeLayers' constructor.
 --
@@ -85,7 +85,7 @@ dlStackId = lens _dlStackId (\s a -> s { _dlStackId = a })
 
 newtype DescribeLayersResponse = DescribeLayersResponse
     { _dlrLayers :: List "Layers" Layer
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeLayersResponse where
     type Item DescribeLayersResponse = Layer

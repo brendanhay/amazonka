@@ -54,7 +54,7 @@ data EvaluateExpression = EvaluateExpression
     { _eeExpression :: Text
     , _eeObjectId   :: Text
     , _eePipelineId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EvaluateExpression' constructor.
 --
@@ -90,7 +90,7 @@ eePipelineId = lens _eePipelineId (\s a -> s { _eePipelineId = a })
 
 newtype EvaluateExpressionResponse = EvaluateExpressionResponse
     { _eerEvaluatedExpression :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'EvaluateExpressionResponse' constructor.
 --

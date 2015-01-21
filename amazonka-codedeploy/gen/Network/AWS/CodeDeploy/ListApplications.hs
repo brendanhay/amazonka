@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype ListApplications = ListApplications
     { _laNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ListApplications' constructor.
 --
@@ -71,7 +71,7 @@ laNextToken = lens _laNextToken (\s a -> s { _laNextToken = a })
 data ListApplicationsResponse = ListApplicationsResponse
     { _lar1Applications :: List "applications" Text
     , _lar1NextToken    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListApplicationsResponse' constructor.
 --

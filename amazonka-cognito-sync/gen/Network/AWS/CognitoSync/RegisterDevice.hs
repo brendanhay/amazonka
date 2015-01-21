@@ -55,7 +55,7 @@ data RegisterDevice = RegisterDevice
     , _rdIdentityPoolId :: Text
     , _rdPlatform       :: Platform
     , _rdToken          :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'RegisterDevice' constructor.
 --
@@ -101,7 +101,7 @@ rdToken = lens _rdToken (\s a -> s { _rdToken = a })
 
 newtype RegisterDeviceResponse = RegisterDeviceResponse
     { _rdrDeviceId :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'RegisterDeviceResponse' constructor.
 --

@@ -68,7 +68,7 @@ import qualified GHC.Exts
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface
     { _cpviConnectionId              :: Text
     , _cpviNewPublicVirtualInterface :: NewPublicVirtualInterface
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreatePublicVirtualInterface' constructor.
 --
@@ -113,7 +113,7 @@ data CreatePublicVirtualInterfaceResponse = CreatePublicVirtualInterfaceResponse
     , _cpvirVirtualInterfaceState :: Maybe VirtualInterfaceState
     , _cpvirVirtualInterfaceType  :: Maybe Text
     , _cpvirVlan                  :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreatePublicVirtualInterfaceResponse' constructor.
 --

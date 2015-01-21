@@ -59,7 +59,7 @@ data DescribeLoadBalancers = DescribeLoadBalancers
     { _dlbLoadBalancerNames :: List "member" Text
     , _dlbMarker            :: Maybe Text
     , _dlbPageSize          :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeLoadBalancers' constructor.
 --
@@ -97,7 +97,7 @@ dlbPageSize = lens _dlbPageSize (\s a -> s { _dlbPageSize = a }) . mapping _Nat
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
     { _dlbrLoadBalancerDescriptions :: List "member" LoadBalancerDescription
     , _dlbrNextMarker               :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancersResponse' constructor.
 --

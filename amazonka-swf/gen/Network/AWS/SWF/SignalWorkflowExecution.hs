@@ -74,7 +74,7 @@ data SignalWorkflowExecution = SignalWorkflowExecution
     , _sweRunId      :: Maybe Text
     , _sweSignalName :: Text
     , _sweWorkflowId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SignalWorkflowExecution' constructor.
 --
@@ -124,7 +124,7 @@ sweWorkflowId :: Lens' SignalWorkflowExecution Text
 sweWorkflowId = lens _sweWorkflowId (\s a -> s { _sweWorkflowId = a })
 
 data SignalWorkflowExecutionResponse = SignalWorkflowExecutionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'SignalWorkflowExecutionResponse' constructor.
 signalWorkflowExecutionResponse :: SignalWorkflowExecutionResponse

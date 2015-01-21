@@ -84,7 +84,7 @@ data CreateEventSubscription = CreateEventSubscription
     , _cesSourceType       :: Maybe Text
     , _cesSubscriptionName :: Text
     , _cesTags             :: List "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateEventSubscription' constructor.
 --
@@ -187,7 +187,7 @@ cesTags = lens _cesTags (\s a -> s { _cesTags = a }) . _List
 
 newtype CreateEventSubscriptionResponse = CreateEventSubscriptionResponse
     { _cesrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateEventSubscriptionResponse' constructor.
 --

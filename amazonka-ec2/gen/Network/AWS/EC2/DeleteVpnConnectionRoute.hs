@@ -52,7 +52,7 @@ import qualified GHC.Exts
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
     { _dvcrDestinationCidrBlock :: Text
     , _dvcrVpnConnectionId      :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteVpnConnectionRoute' constructor.
 --
@@ -82,7 +82,7 @@ dvcrVpnConnectionId =
     lens _dvcrVpnConnectionId (\s a -> s { _dvcrVpnConnectionId = a })
 
 data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteVpnConnectionRouteResponse' constructor.
 deleteVpnConnectionRouteResponse :: DeleteVpnConnectionRouteResponse

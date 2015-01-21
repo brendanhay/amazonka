@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetBucketVersioning = GetBucketVersioning
     { _gbvBucket :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetBucketVersioning' constructor.
 --
@@ -70,7 +70,7 @@ gbvBucket = lens _gbvBucket (\s a -> s { _gbvBucket = a })
 data GetBucketVersioningResponse = GetBucketVersioningResponse
     { _gbvrMFADelete :: Maybe MFADeleteStatus
     , _gbvrStatus    :: Maybe BucketVersioningStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetBucketVersioningResponse' constructor.
 --

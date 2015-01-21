@@ -48,7 +48,7 @@ import Network.AWS.IAM.Types
 import qualified GHC.Exts
 
 data GetAccountSummary = GetAccountSummary
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'GetAccountSummary' constructor.
 getAccountSummary :: GetAccountSummary
@@ -56,7 +56,7 @@ getAccountSummary = GetAccountSummary
 
 newtype GetAccountSummaryResponse = GetAccountSummaryResponse
     { _gasrSummaryMap :: EMap "entry" "key" "value" SummaryKeyType Int
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'GetAccountSummaryResponse' constructor.
 --

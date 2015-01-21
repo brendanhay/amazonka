@@ -68,7 +68,7 @@ data RespondActivityTaskFailed = RespondActivityTaskFailed
     { _ratfDetails   :: Maybe Text
     , _ratfReason    :: Maybe Text
     , _ratfTaskToken :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RespondActivityTaskFailed' constructor.
 --
@@ -105,7 +105,7 @@ ratfTaskToken :: Lens' RespondActivityTaskFailed Text
 ratfTaskToken = lens _ratfTaskToken (\s a -> s { _ratfTaskToken = a })
 
 data RespondActivityTaskFailedResponse = RespondActivityTaskFailedResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RespondActivityTaskFailedResponse' constructor.
 respondActivityTaskFailedResponse :: RespondActivityTaskFailedResponse

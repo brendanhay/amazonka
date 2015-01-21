@@ -68,7 +68,7 @@ import qualified GHC.Exts
 data DescribeWorkflowType = DescribeWorkflowType
     { _dwtDomain       :: Text
     , _dwtWorkflowType :: WorkflowType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkflowType' constructor.
 --
@@ -97,7 +97,7 @@ dwtWorkflowType = lens _dwtWorkflowType (\s a -> s { _dwtWorkflowType = a })
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
     { _dwtrConfiguration :: WorkflowTypeConfiguration
     , _dwtrTypeInfo      :: WorkflowTypeInfo
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkflowTypeResponse' constructor.
 --

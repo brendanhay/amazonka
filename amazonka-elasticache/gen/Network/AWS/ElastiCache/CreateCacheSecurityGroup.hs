@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup
     { _ccsgCacheSecurityGroupName :: Text
     , _ccsgDescription            :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateCacheSecurityGroup' constructor.
 --
@@ -93,7 +93,7 @@ ccsgDescription = lens _ccsgDescription (\s a -> s { _ccsgDescription = a })
 
 newtype CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
     { _ccsgrCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateCacheSecurityGroupResponse' constructor.
 --

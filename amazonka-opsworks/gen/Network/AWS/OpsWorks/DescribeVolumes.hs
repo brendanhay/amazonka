@@ -61,7 +61,7 @@ data DescribeVolumes = DescribeVolumes
     , _dvRaidArrayId :: Maybe Text
     , _dvStackId     :: Maybe Text
     , _dvVolumeIds   :: List "VolumeIds" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeVolumes' constructor.
 --
@@ -105,7 +105,7 @@ dvVolumeIds = lens _dvVolumeIds (\s a -> s { _dvVolumeIds = a }) . _List
 
 newtype DescribeVolumesResponse = DescribeVolumesResponse
     { _dvrVolumes :: List "Volumes" Volume
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeVolumesResponse where
     type Item DescribeVolumesResponse = Volume

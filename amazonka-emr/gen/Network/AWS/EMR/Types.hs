@@ -464,7 +464,7 @@ instance AWSService EMR where
 data MarketType
     = OnDemand -- ^ ON_DEMAND
     | Spot     -- ^ SPOT
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable MarketType
 
@@ -497,7 +497,7 @@ data InstanceGroupConfig = InstanceGroupConfig
     , _igcInstanceType  :: Text
     , _igcMarket        :: Maybe MarketType
     , _igcName          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'InstanceGroupConfig' constructor.
 --
@@ -575,7 +575,7 @@ instance ToJSON InstanceGroupConfig where
 data InstanceStateChangeReason = InstanceStateChangeReason
     { _iscrCode    :: Maybe InstanceStateChangeReasonCode
     , _iscrMessage :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'InstanceStateChangeReason' constructor.
 --
@@ -623,7 +623,7 @@ data JobFlowDetail = JobFlowDetail
     , _jfdSteps                 :: List "Steps" StepDetail
     , _jfdSupportedProducts     :: List "SupportedProducts" Text
     , _jfdVisibleToAllUsers     :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'JobFlowDetail' constructor.
 --
@@ -773,7 +773,7 @@ instance ToJSON JobFlowDetail where
 data KeyValue = KeyValue
     { _kvKey   :: Maybe Text
     , _kvValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'KeyValue' constructor.
 --
@@ -811,7 +811,7 @@ instance ToJSON KeyValue where
 data SupportedProductConfig = SupportedProductConfig
     { _spcArgs :: List "Args" Text
     , _spcName :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'SupportedProductConfig' constructor.
 --
@@ -850,7 +850,7 @@ data Command = Command
     { _cArgs       :: List "Args" Text
     , _cName       :: Maybe Text
     , _cScriptPath :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Command' constructor.
 --
@@ -902,7 +902,7 @@ data StepExecutionState
     | Interrupted -- ^ INTERRUPTED
     | Pending     -- ^ PENDING
     | Running     -- ^ RUNNING
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable StepExecutionState
 
@@ -943,7 +943,7 @@ data ActionOnFailure
     | AOFContinue         -- ^ CONTINUE
     | AOFTerminateCluster -- ^ TERMINATE_CLUSTER
     | AOFTerminateJobFlow -- ^ TERMINATE_JOB_FLOW
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ActionOnFailure
 
@@ -976,7 +976,7 @@ instance ToJSON ActionOnFailure where
 data ClusterStateChangeReason = ClusterStateChangeReason
     { _cscrCode    :: Maybe ClusterStateChangeReasonCode
     , _cscrMessage :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ClusterStateChangeReason' constructor.
 --
@@ -1014,7 +1014,7 @@ instance ToJSON ClusterStateChangeReason where
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Tag' constructor.
 --
@@ -1055,7 +1055,7 @@ data Application = Application
     , _aArgs           :: List "Args" Text
     , _aName           :: Maybe Text
     , _aVersion        :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Application' constructor.
 --
@@ -1116,7 +1116,7 @@ data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
     , _jfesdReadyDateTime         :: Maybe POSIX
     , _jfesdStartDateTime         :: Maybe POSIX
     , _jfesdState                 :: JobFlowExecutionState
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'JobFlowExecutionStatusDetail' constructor.
 --
@@ -1202,7 +1202,7 @@ data InstanceGroupStatus = InstanceGroupStatus
     { _igsState             :: Maybe InstanceGroupState
     , _igsStateChangeReason :: Maybe InstanceGroupStateChangeReason
     , _igsTimeline          :: Maybe InstanceGroupTimeline
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'InstanceGroupStatus' constructor.
 --
@@ -1263,7 +1263,7 @@ data Cluster = Cluster
     , _c1Tags                    :: List "Tags" Tag
     , _c1TerminationProtected    :: Maybe Bool
     , _c1VisibleToAllUsers       :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Cluster' constructor.
 --
@@ -1443,7 +1443,7 @@ data InstanceTimeline = InstanceTimeline
     { _itCreationDateTime :: Maybe POSIX
     , _itEndDateTime      :: Maybe POSIX
     , _itReadyDateTime    :: Maybe POSIX
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'InstanceTimeline' constructor.
 --
@@ -1494,7 +1494,7 @@ data Ec2InstanceAttributes = Ec2InstanceAttributes
     , _eiaEc2KeyName          :: Maybe Text
     , _eiaEc2SubnetId         :: Maybe Text
     , _eiaIamInstanceProfile  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'Ec2InstanceAttributes' constructor.
 --
@@ -1560,7 +1560,7 @@ instance ToJSON Ec2InstanceAttributes where
 
 data StepStateChangeReasonCode
     = None -- ^ NONE
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable StepStateChangeReasonCode
 
@@ -1591,7 +1591,7 @@ data ClusterState
     | CSTerminatedWithErrors -- ^ TERMINATED_WITH_ERRORS
     | CSTerminating          -- ^ TERMINATING
     | CSWaiting              -- ^ WAITING
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ClusterState
 
@@ -1632,7 +1632,7 @@ data HadoopStepConfig = HadoopStepConfig
     , _hscJar        :: Maybe Text
     , _hscMainClass  :: Maybe Text
     , _hscProperties :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'HadoopStepConfig' constructor.
 --
@@ -1697,7 +1697,7 @@ data JobFlowExecutionState
     | JFESStarting      -- ^ STARTING
     | JFESTerminated    -- ^ TERMINATED
     | JFESWaiting       -- ^ WAITING
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable JobFlowExecutionState
 
@@ -1738,7 +1738,7 @@ instance ToJSON JobFlowExecutionState where
 data StepDetail = StepDetail
     { _sdExecutionStatusDetail :: StepExecutionStatusDetail
     , _sdStepConfig            :: StepConfig
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StepDetail' constructor.
 --
@@ -1779,7 +1779,7 @@ instance ToJSON StepDetail where
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason
     { _igscrCode    :: Maybe InstanceGroupStateChangeReasonCode
     , _igscrMessage :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'InstanceGroupStateChangeReason' constructor.
 --
@@ -1818,7 +1818,7 @@ data InstanceGroupType
     = Core   -- ^ CORE
     | Master -- ^ MASTER
     | Task   -- ^ TASK
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable InstanceGroupType
 
@@ -1851,7 +1851,7 @@ data InstanceGroupStateChangeReasonCode
     | InstanceFailure   -- ^ INSTANCE_FAILURE
     | InternalError     -- ^ INTERNAL_ERROR
     | ValidationError   -- ^ VALIDATION_ERROR
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable InstanceGroupStateChangeReasonCode
 
@@ -1885,7 +1885,7 @@ data StepStatus = StepStatus
     { _ssState             :: Maybe StepState
     , _ssStateChangeReason :: Maybe StepStateChangeReason
     , _ssTimeline          :: Maybe StepTimeline
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StepStatus' constructor.
 --
@@ -1936,7 +1936,7 @@ data StepSummary = StepSummary
     , _ssId              :: Maybe Text
     , _ssName            :: Maybe Text
     , _ssStatus          :: Maybe StepStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StepSummary' constructor.
 --
@@ -2011,7 +2011,7 @@ data InstanceGroupState
     | IGSSuspended     -- ^ SUSPENDED
     | IGSTerminated    -- ^ TERMINATED
     | IGSTerminating   -- ^ TERMINATING
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable InstanceGroupState
 
@@ -2057,7 +2057,7 @@ data StepTimeline = StepTimeline
     { _stCreationDateTime :: Maybe POSIX
     , _stEndDateTime      :: Maybe POSIX
     , _stStartDateTime    :: Maybe POSIX
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'StepTimeline' constructor.
 --
@@ -2105,7 +2105,7 @@ instance ToJSON StepTimeline where
 
 newtype PlacementType = PlacementType
     { _ptAvailabilityZone :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'PlacementType' constructor.
 --
@@ -2138,7 +2138,7 @@ data HadoopJarStepConfig = HadoopJarStepConfig
     , _hjscJar        :: Text
     , _hjscMainClass  :: Maybe Text
     , _hjscProperties :: List "Properties" KeyValue
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'HadoopJarStepConfig' constructor.
 --
@@ -2199,7 +2199,7 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig
     { _igmcEC2InstanceIdsToTerminate :: List "EC2InstanceIdsToTerminate" Text
     , _igmcInstanceCount             :: Maybe Int
     , _igmcInstanceGroupId           :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'InstanceGroupModifyConfig' constructor.
 --
@@ -2266,7 +2266,7 @@ data InstanceGroupDetail = InstanceGroupDetail
     , _igdReadyDateTime         :: Maybe POSIX
     , _igdStartDateTime         :: Maybe POSIX
     , _igdState                 :: InstanceGroupState
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'InstanceGroupDetail' constructor.
 --
@@ -2428,7 +2428,7 @@ instance ToJSON InstanceGroupDetail where
 data StepStateChangeReason = StepStateChangeReason
     { _sscrCode    :: Maybe StepStateChangeReasonCode
     , _sscrMessage :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StepStateChangeReason' constructor.
 --
@@ -2471,7 +2471,7 @@ data ClusterStateChangeReasonCode
     | CSCRCStepFailure       -- ^ STEP_FAILURE
     | CSCRCUserRequest       -- ^ USER_REQUEST
     | CSCRCValidationError   -- ^ VALIDATION_ERROR
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ClusterStateChangeReasonCode
 
@@ -2513,7 +2513,7 @@ data Step = Step
     , _sId              :: Maybe Text
     , _sName            :: Maybe Text
     , _sStatus          :: Maybe StepStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Step' constructor.
 --
@@ -2583,7 +2583,7 @@ data StepState
     | SSInterrupted -- ^ INTERRUPTED
     | SSPending     -- ^ PENDING
     | SSRunning     -- ^ RUNNING
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable StepState
 
@@ -2621,7 +2621,7 @@ data InstanceGroupTimeline = InstanceGroupTimeline
     { _igtCreationDateTime :: Maybe POSIX
     , _igtEndDateTime      :: Maybe POSIX
     , _igtReadyDateTime    :: Maybe POSIX
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'InstanceGroupTimeline' constructor.
 --
@@ -2669,7 +2669,7 @@ instance ToJSON InstanceGroupTimeline where
 
 newtype BootstrapActionDetail = BootstrapActionDetail
     { _badBootstrapActionConfig :: Maybe BootstrapActionConfig
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'BootstrapActionDetail' constructor.
 --
@@ -2703,7 +2703,7 @@ data StepExecutionStatusDetail = StepExecutionStatusDetail
     , _sesdLastStateChangeReason :: Maybe Text
     , _sesdStartDateTime         :: Maybe POSIX
     , _sesdState                 :: StepExecutionState
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StepExecutionStatusDetail' constructor.
 --
@@ -2777,7 +2777,7 @@ data InstanceStatus = InstanceStatus
     { _isState             :: Maybe InstanceState
     , _isStateChangeReason :: Maybe InstanceStateChangeReason
     , _isTimeline          :: Maybe InstanceTimeline
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'InstanceStatus' constructor.
 --
@@ -2826,7 +2826,7 @@ data InstanceRoleType
     = IRTCore   -- ^ CORE
     | IRTMaster -- ^ MASTER
     | IRTTask   -- ^ TASK
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable InstanceRoleType
 
@@ -2865,7 +2865,7 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig
     , _jficPlacement                   :: Maybe PlacementType
     , _jficSlaveInstanceType           :: Maybe Text
     , _jficTerminationProtected        :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'JobFlowInstancesConfig' constructor.
 --
@@ -3000,7 +3000,7 @@ data StepConfig = StepConfig
     { _scActionOnFailure :: Maybe ActionOnFailure
     , _scHadoopJarStep   :: HadoopJarStepConfig
     , _scName            :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'StepConfig' constructor.
 --
@@ -3057,7 +3057,7 @@ data InstanceGroup = InstanceGroup
     , _igRequestedInstanceCount :: Maybe Int
     , _igRunningInstanceCount   :: Maybe Int
     , _igStatus                 :: Maybe InstanceGroupStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'InstanceGroup' constructor.
 --
@@ -3164,7 +3164,7 @@ instance ToJSON InstanceGroup where
 data BootstrapActionConfig = BootstrapActionConfig
     { _bacName                  :: Text
     , _bacScriptBootstrapAction :: ScriptBootstrapActionConfig
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'BootstrapActionConfig' constructor.
 --
@@ -3208,7 +3208,7 @@ data ClusterSummary = ClusterSummary
     , _csName                    :: Maybe Text
     , _csNormalizedInstanceHours :: Maybe Int
     , _csStatus                  :: Maybe ClusterStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ClusterSummary' constructor.
 --
@@ -3282,7 +3282,7 @@ data JobFlowInstancesDetail = JobFlowInstancesDetail
     , _jfidPlacement                   :: Maybe PlacementType
     , _jfidSlaveInstanceType           :: Text
     , _jfidTerminationProtected        :: Maybe Bool
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'JobFlowInstancesDetail' constructor.
 --
@@ -3449,7 +3449,7 @@ data ClusterStatus = ClusterStatus
     { _csState             :: Maybe ClusterState
     , _csStateChangeReason :: Maybe ClusterStateChangeReason
     , _csTimeline          :: Maybe ClusterTimeline
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ClusterStatus' constructor.
 --
@@ -3501,7 +3501,7 @@ data InstanceState
     | ISProvisioning        -- ^ PROVISIONING
     | ISRunning             -- ^ RUNNING
     | ISTerminated          -- ^ TERMINATED
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable InstanceState
 
@@ -3537,7 +3537,7 @@ data ClusterTimeline = ClusterTimeline
     { _ctCreationDateTime :: Maybe POSIX
     , _ctEndDateTime      :: Maybe POSIX
     , _ctReadyDateTime    :: Maybe POSIX
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ClusterTimeline' constructor.
 --
@@ -3589,7 +3589,7 @@ data InstanceStateChangeReasonCode
     | ISCRCInstanceFailure   -- ^ INSTANCE_FAILURE
     | ISCRCInternalError     -- ^ INTERNAL_ERROR
     | ISCRCValidationError   -- ^ VALIDATION_ERROR
-      deriving (Eq, Ord, Show, Generic, Enum)
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable InstanceStateChangeReasonCode
 
@@ -3629,7 +3629,7 @@ data Instance = Instance
     , _iPublicDnsName    :: Maybe Text
     , _iPublicIpAddress  :: Maybe Text
     , _iStatus           :: Maybe InstanceStatus
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Instance' constructor.
 --
@@ -3713,7 +3713,7 @@ instance ToJSON Instance where
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig
     { _sbacArgs :: List "Args" Text
     , _sbacPath :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ScriptBootstrapActionConfig' constructor.
 --

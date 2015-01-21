@@ -55,7 +55,7 @@ data ListKeyPolicies = ListKeyPolicies
     { _lkpKeyId  :: Text
     , _lkpLimit  :: Maybe Nat
     , _lkpMarker :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListKeyPolicies' constructor.
 --
@@ -97,7 +97,7 @@ data ListKeyPoliciesResponse = ListKeyPoliciesResponse
     { _lkprNextMarker  :: Maybe Text
     , _lkprPolicyNames :: List "PolicyNames" Text
     , _lkprTruncated   :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListKeyPoliciesResponse' constructor.
 --

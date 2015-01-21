@@ -63,7 +63,7 @@ data UpdateChapCredentials = UpdateChapCredentials
     , _uccSecretToAuthenticateInitiator :: Text
     , _uccSecretToAuthenticateTarget    :: Maybe Text
     , _uccTargetARN                     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateChapCredentials' constructor.
 --
@@ -113,7 +113,7 @@ uccTargetARN = lens _uccTargetARN (\s a -> s { _uccTargetARN = a })
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse
     { _uccrInitiatorName :: Maybe Text
     , _uccrTargetARN     :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateChapCredentialsResponse' constructor.
 --

@@ -93,7 +93,7 @@ import qualified GHC.Exts
 data GetRecords = GetRecords
     { _grLimit         :: Maybe Nat
     , _grShardIterator :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetRecords' constructor.
 --
@@ -124,7 +124,7 @@ grShardIterator = lens _grShardIterator (\s a -> s { _grShardIterator = a })
 data GetRecordsResponse = GetRecordsResponse
     { _grrNextShardIterator :: Maybe Text
     , _grrRecords           :: List "Records" Record
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetRecordsResponse' constructor.
 --

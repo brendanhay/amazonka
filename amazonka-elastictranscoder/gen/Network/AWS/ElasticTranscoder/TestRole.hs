@@ -62,7 +62,7 @@ data TestRole = TestRole
     , _trOutputBucket :: Text
     , _trRole         :: Text
     , _trTopics       :: List "Topics" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TestRole' constructor.
 --
@@ -110,7 +110,7 @@ trTopics = lens _trTopics (\s a -> s { _trTopics = a }) . _List
 data TestRoleResponse = TestRoleResponse
     { _trrMessages :: List "Messages" Text
     , _trrSuccess  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'TestRoleResponse' constructor.
 --

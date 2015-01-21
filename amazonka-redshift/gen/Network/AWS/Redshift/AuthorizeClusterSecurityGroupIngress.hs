@@ -67,7 +67,7 @@ data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
     , _acsgiClusterSecurityGroupName :: Text
     , _acsgiEC2SecurityGroupName     :: Maybe Text
     , _acsgiEC2SecurityGroupOwnerId  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AuthorizeClusterSecurityGroupIngress' constructor.
 --
@@ -116,7 +116,7 @@ acsgiEC2SecurityGroupOwnerId =
 
 newtype AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse
     { _acsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AuthorizeClusterSecurityGroupIngressResponse' constructor.
 --

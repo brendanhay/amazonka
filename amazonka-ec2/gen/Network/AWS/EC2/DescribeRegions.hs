@@ -55,7 +55,7 @@ data DescribeRegions = DescribeRegions
     { _dr1DryRun      :: Maybe Bool
     , _dr1Filters     :: List "Filter" Filter
     , _dr1RegionNames :: List "RegionName" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeRegions' constructor.
 --
@@ -93,7 +93,7 @@ dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a }) . _Lis
 
 newtype DescribeRegionsResponse = DescribeRegionsResponse
     { _drrRegions :: List "item" Region
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeRegionsResponse' constructor.
 --

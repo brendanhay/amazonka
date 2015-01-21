@@ -62,7 +62,7 @@ import qualified GHC.Exts
 
 newtype DescribeWorkingStorage = DescribeWorkingStorage
     { _dwsGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeWorkingStorage' constructor.
 --
@@ -84,7 +84,7 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse
     , _dwsrGatewayARN                     :: Maybe Text
     , _dwsrWorkingStorageAllocatedInBytes :: Maybe Integer
     , _dwsrWorkingStorageUsedInBytes      :: Maybe Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeWorkingStorageResponse' constructor.
 --

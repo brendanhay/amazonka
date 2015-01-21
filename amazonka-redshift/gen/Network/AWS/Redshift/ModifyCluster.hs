@@ -87,7 +87,7 @@ data ModifyCluster = ModifyCluster
     , _mcNumberOfNodes                    :: Maybe Int
     , _mcPreferredMaintenanceWindow       :: Maybe Text
     , _mcVpcSecurityGroupIds              :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ModifyCluster' constructor.
 --
@@ -328,7 +328,7 @@ mcVpcSecurityGroupIds =
 
 newtype ModifyClusterResponse = ModifyClusterResponse
     { _mcrCluster :: Maybe Cluster
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyClusterResponse' constructor.
 --

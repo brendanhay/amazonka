@@ -49,7 +49,7 @@ import Network.AWS.IAM.Types
 import qualified GHC.Exts
 
 data GenerateCredentialReport = GenerateCredentialReport
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'GenerateCredentialReport' constructor.
 generateCredentialReport :: GenerateCredentialReport
@@ -58,7 +58,7 @@ generateCredentialReport = GenerateCredentialReport
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse
     { _gcrrDescription :: Maybe Text
     , _gcrrState       :: Maybe ReportStateType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GenerateCredentialReportResponse' constructor.
 --

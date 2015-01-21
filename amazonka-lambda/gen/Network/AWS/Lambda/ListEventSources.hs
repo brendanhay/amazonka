@@ -60,7 +60,7 @@ data ListEventSources = ListEventSources
     , _lesFunctionName   :: Maybe Text
     , _lesMarker         :: Maybe Text
     , _lesMaxItems       :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListEventSources' constructor.
 --
@@ -104,7 +104,7 @@ lesMaxItems = lens _lesMaxItems (\s a -> s { _lesMaxItems = a }) . mapping _Nat
 data ListEventSourcesResponse = ListEventSourcesResponse
     { _lesrEventSources :: List "EventSources" EventSourceConfiguration
     , _lesrNextMarker   :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListEventSourcesResponse' constructor.
 --

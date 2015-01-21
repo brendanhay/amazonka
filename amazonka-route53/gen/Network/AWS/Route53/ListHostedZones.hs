@@ -64,7 +64,7 @@ data ListHostedZones = ListHostedZones
     { _lhzDelegationSetId :: Maybe Text
     , _lhzMarker          :: Maybe Text
     , _lhzMaxItems        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListHostedZones' constructor.
 --
@@ -103,7 +103,7 @@ data ListHostedZonesResponse = ListHostedZonesResponse
     , _lhzrMarker      :: Text
     , _lhzrMaxItems    :: Text
     , _lhzrNextMarker  :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListHostedZonesResponse' constructor.
 --

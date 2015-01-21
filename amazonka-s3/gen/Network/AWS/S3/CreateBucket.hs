@@ -63,7 +63,7 @@ data CreateBucket = CreateBucket
     , _cbGrantReadACP              :: Maybe Text
     , _cbGrantWrite                :: Maybe Text
     , _cbGrantWriteACP             :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateBucket' constructor.
 --
@@ -134,7 +134,7 @@ cbGrantWriteACP = lens _cbGrantWriteACP (\s a -> s { _cbGrantWriteACP = a })
 
 newtype CreateBucketResponse = CreateBucketResponse
     { _cbrLocation :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'CreateBucketResponse' constructor.
 --

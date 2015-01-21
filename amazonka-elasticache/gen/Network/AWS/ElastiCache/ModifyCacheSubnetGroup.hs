@@ -53,7 +53,7 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
     { _mcsgCacheSubnetGroupDescription :: Maybe Text
     , _mcsgCacheSubnetGroupName        :: Text
     , _mcsgSubnetIds                   :: List "member" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ModifyCacheSubnetGroup' constructor.
 --
@@ -97,7 +97,7 @@ mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a }) . _List
 
 newtype ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
     { _mcsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyCacheSubnetGroupResponse' constructor.
 --

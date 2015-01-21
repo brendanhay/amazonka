@@ -58,7 +58,7 @@ data DescribeAddresses = DescribeAddresses
     , _daDryRun        :: Maybe Bool
     , _daFilters       :: List "Filter" Filter
     , _daPublicIps     :: List "PublicIp" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeAddresses' constructor.
 --
@@ -123,7 +123,7 @@ daPublicIps = lens _daPublicIps (\s a -> s { _daPublicIps = a }) . _List
 
 newtype DescribeAddressesResponse = DescribeAddressesResponse
     { _darAddresses :: List "item" Address
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeAddressesResponse' constructor.
 --

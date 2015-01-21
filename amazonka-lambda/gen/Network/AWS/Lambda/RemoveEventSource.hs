@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype RemoveEventSource = RemoveEventSource
     { _resUUID :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'RemoveEventSource' constructor.
 --
@@ -69,7 +69,7 @@ resUUID :: Lens' RemoveEventSource Text
 resUUID = lens _resUUID (\s a -> s { _resUUID = a })
 
 data RemoveEventSourceResponse = RemoveEventSourceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'RemoveEventSourceResponse' constructor.
 removeEventSourceResponse :: RemoveEventSourceResponse

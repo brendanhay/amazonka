@@ -62,7 +62,7 @@ data DescribeAlarmHistory = DescribeAlarmHistory
     , _dahMaxRecords      :: Maybe Nat
     , _dahNextToken       :: Maybe Text
     , _dahStartDate       :: Maybe ISO8601
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarmHistory' constructor.
 --
@@ -119,7 +119,7 @@ dahStartDate = lens _dahStartDate (\s a -> s { _dahStartDate = a }) . mapping _T
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     { _dahrAlarmHistoryItems :: List "member" AlarmHistoryItem
     , _dahrNextToken         :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarmHistoryResponse' constructor.
 --

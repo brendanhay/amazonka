@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer
     { _delbElasticLoadBalancerName :: Text
     , _delbLayerId                 :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DetachElasticLoadBalancer' constructor.
 --
@@ -82,7 +82,7 @@ delbLayerId :: Lens' DetachElasticLoadBalancer Text
 delbLayerId = lens _delbLayerId (\s a -> s { _delbLayerId = a })
 
 data DetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DetachElasticLoadBalancerResponse' constructor.
 detachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse

@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype GetBucketWebsite = GetBucketWebsite
     { _gbwBucket :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetBucketWebsite' constructor.
 --
@@ -74,7 +74,7 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse
     , _gbwrIndexDocument         :: Maybe IndexDocument
     , _gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
     , _gbwrRoutingRules          :: List "RoutingRule" RoutingRule
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetBucketWebsiteResponse' constructor.
 --

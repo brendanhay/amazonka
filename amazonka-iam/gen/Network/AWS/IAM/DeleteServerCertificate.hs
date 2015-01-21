@@ -56,7 +56,7 @@ import qualified GHC.Exts
 
 newtype DeleteServerCertificate = DeleteServerCertificate
     { _dscServerCertificateName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteServerCertificate' constructor.
 --
@@ -77,7 +77,7 @@ dscServerCertificateName =
         (\s a -> s { _dscServerCertificateName = a })
 
 data DeleteServerCertificateResponse = DeleteServerCertificateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteServerCertificateResponse' constructor.
 deleteServerCertificateResponse :: DeleteServerCertificateResponse

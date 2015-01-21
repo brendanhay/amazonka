@@ -54,7 +54,7 @@ data DescribePlacementGroups = DescribePlacementGroups
     { _dpg1DryRun     :: Maybe Bool
     , _dpg1Filters    :: List "Filter" Filter
     , _dpg1GroupNames :: List "groupName" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribePlacementGroups' constructor.
 --
@@ -97,7 +97,7 @@ dpg1GroupNames = lens _dpg1GroupNames (\s a -> s { _dpg1GroupNames = a }) . _Lis
 
 newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
     { _dpgrPlacementGroups :: List "item" PlacementGroup
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribePlacementGroupsResponse' constructor.
 --

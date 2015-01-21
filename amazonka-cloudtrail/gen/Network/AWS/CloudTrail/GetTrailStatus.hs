@@ -59,7 +59,7 @@ import qualified GHC.Exts
 
 newtype GetTrailStatus = GetTrailStatus
     { _gtsName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetTrailStatus' constructor.
 --
@@ -87,7 +87,7 @@ data GetTrailStatusResponse = GetTrailStatusResponse
     , _gtsrLatestNotificationTime            :: Maybe POSIX
     , _gtsrStartLoggingTime                  :: Maybe POSIX
     , _gtsrStopLoggingTime                   :: Maybe POSIX
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetTrailStatusResponse' constructor.
 --

@@ -58,7 +58,7 @@ import qualified GHC.Exts
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer
     { _eazflbAvailabilityZones :: List "member" Text
     , _eazflbLoadBalancerName  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnableAvailabilityZonesForLoadBalancer' constructor.
 --
@@ -89,7 +89,7 @@ eazflbLoadBalancerName =
 
 newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
     { _eazflbrAvailabilityZones :: List "member" Text
-    } deriving (Eq, Ord, Show, Monoid, Semigroup)
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList EnableAvailabilityZonesForLoadBalancerResponse where
     type Item EnableAvailabilityZonesForLoadBalancerResponse = Text

@@ -54,7 +54,7 @@ data ListTagsForStream = ListTagsForStream
     { _ltfsExclusiveStartTagKey :: Maybe Text
     , _ltfsLimit                :: Maybe Nat
     , _ltfsStreamName           :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListTagsForStream' constructor.
 --
@@ -94,7 +94,7 @@ ltfsStreamName = lens _ltfsStreamName (\s a -> s { _ltfsStreamName = a })
 data ListTagsForStreamResponse = ListTagsForStreamResponse
     { _ltfsrHasMoreTags :: Bool
     , _ltfsrTags        :: List "Tags" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListTagsForStreamResponse' constructor.
 --

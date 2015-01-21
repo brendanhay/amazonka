@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data AddTags = AddTags
     { _atLoadBalancerNames :: List "member" Text
     , _atTags              :: List1 "member" Tag
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AddTags' constructor.
 --
@@ -85,7 +85,7 @@ atTags :: Lens' AddTags (NonEmpty Tag)
 atTags = lens _atTags (\s a -> s { _atTags = a }) . _List1
 
 data AddTagsResponse = AddTagsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AddTagsResponse' constructor.
 addTagsResponse :: AddTagsResponse

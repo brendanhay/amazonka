@@ -87,7 +87,7 @@ data DescribeSnapshots = DescribeSnapshots
     , _ds1OwnerIds            :: List "Owner" Text
     , _ds1RestorableByUserIds :: List "RestorableBy" Text
     , _ds1SnapshotIds         :: List "SnapshotId" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshots' constructor.
 --
@@ -173,7 +173,7 @@ ds1SnapshotIds = lens _ds1SnapshotIds (\s a -> s { _ds1SnapshotIds = a }) . _Lis
 
 newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots :: List "item" Snapshot
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeSnapshotsResponse' constructor.
 --

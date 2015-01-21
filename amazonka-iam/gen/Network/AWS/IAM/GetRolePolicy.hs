@@ -57,7 +57,7 @@ import qualified GHC.Exts
 data GetRolePolicy = GetRolePolicy
     { _grpPolicyName :: Text
     , _grpRoleName   :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetRolePolicy' constructor.
 --
@@ -87,7 +87,7 @@ data GetRolePolicyResponse = GetRolePolicyResponse
     { _grprPolicyDocument :: Text
     , _grprPolicyName     :: Text
     , _grprRoleName       :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetRolePolicyResponse' constructor.
 --

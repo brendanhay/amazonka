@@ -53,7 +53,7 @@ data AttachVpnGateway = AttachVpnGateway
     { _avgDryRun       :: Maybe Bool
     , _avgVpcId        :: Text
     , _avgVpnGatewayId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AttachVpnGateway' constructor.
 --
@@ -87,7 +87,7 @@ avgVpnGatewayId = lens _avgVpnGatewayId (\s a -> s { _avgVpnGatewayId = a })
 
 newtype AttachVpnGatewayResponse = AttachVpnGatewayResponse
     { _avgrVpcAttachment :: Maybe VpcAttachment
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'AttachVpnGatewayResponse' constructor.
 --

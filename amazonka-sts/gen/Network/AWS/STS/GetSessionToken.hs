@@ -79,7 +79,7 @@ data GetSessionToken = GetSessionToken
     { _gstDurationSeconds :: Maybe Nat
     , _gstSerialNumber    :: Maybe Text
     , _gstTokenCode       :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetSessionToken' constructor.
 --
@@ -129,7 +129,7 @@ gstTokenCode = lens _gstTokenCode (\s a -> s { _gstTokenCode = a })
 
 newtype GetSessionTokenResponse = GetSessionTokenResponse
     { _gstrCredentials :: Maybe Credentials
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetSessionTokenResponse' constructor.
 --

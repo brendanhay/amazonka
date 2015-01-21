@@ -69,7 +69,7 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
     , _msaOperationType          :: Maybe Text
     , _msaSnapshotId             :: Text
     , _msaUserIds                :: List "UserId" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifySnapshotAttribute' constructor.
 --
@@ -131,7 +131,7 @@ msaUserIds :: Lens' ModifySnapshotAttribute [Text]
 msaUserIds = lens _msaUserIds (\s a -> s { _msaUserIds = a }) . _List
 
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ModifySnapshotAttributeResponse' constructor.
 modifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse

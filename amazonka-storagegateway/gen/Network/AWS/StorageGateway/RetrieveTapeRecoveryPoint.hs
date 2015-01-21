@@ -59,7 +59,7 @@ import qualified GHC.Exts
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint
     { _rtrpGatewayARN :: Text
     , _rtrpTapeARN    :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'RetrieveTapeRecoveryPoint' constructor.
 --
@@ -87,7 +87,7 @@ rtrpTapeARN = lens _rtrpTapeARN (\s a -> s { _rtrpTapeARN = a })
 
 newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
     { _rtrprTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'RetrieveTapeRecoveryPointResponse' constructor.
 --

@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype ListPipelines = ListPipelines
     { _lpMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Monoid)
+    } deriving (Eq, Ord, Read, Show, Monoid)
 
 -- | 'ListPipelines' constructor.
 --
@@ -74,7 +74,7 @@ data ListPipelinesResponse = ListPipelinesResponse
     { _lprHasMoreResults :: Maybe Bool
     , _lprMarker         :: Maybe Text
     , _lprPipelineIdList :: List "pipelineIdList" PipelineIdName
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListPipelinesResponse' constructor.
 --

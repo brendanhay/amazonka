@@ -51,7 +51,7 @@ import qualified GHC.Exts
 data PutRetentionPolicy = PutRetentionPolicy
     { _prpLogGroupName    :: Text
     , _prpRetentionInDays :: Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'PutRetentionPolicy' constructor.
 --
@@ -77,7 +77,7 @@ prpRetentionInDays =
     lens _prpRetentionInDays (\s a -> s { _prpRetentionInDays = a })
 
 data PutRetentionPolicyResponse = PutRetentionPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'PutRetentionPolicyResponse' constructor.
 putRetentionPolicyResponse :: PutRetentionPolicyResponse

@@ -66,7 +66,7 @@ data CreateGrant = CreateGrant
     , _cgKeyId             :: Text
     , _cgOperations        :: List "Operations" GrantOperation
     , _cgRetiringPrincipal :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateGrant' constructor.
 --
@@ -130,7 +130,7 @@ cgRetiringPrincipal =
 data CreateGrantResponse = CreateGrantResponse
     { _cgrGrantId    :: Maybe Text
     , _cgrGrantToken :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateGrantResponse' constructor.
 --

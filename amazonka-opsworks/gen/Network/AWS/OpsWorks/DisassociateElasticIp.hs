@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype DisassociateElasticIp = DisassociateElasticIp
     { _deiElasticIp :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DisassociateElasticIp' constructor.
 --
@@ -71,7 +71,7 @@ deiElasticIp :: Lens' DisassociateElasticIp Text
 deiElasticIp = lens _deiElasticIp (\s a -> s { _deiElasticIp = a })
 
 data DisassociateElasticIpResponse = DisassociateElasticIpResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DisassociateElasticIpResponse' constructor.
 disassociateElasticIpResponse :: DisassociateElasticIpResponse

@@ -63,7 +63,7 @@ data CompleteLifecycleAction = CompleteLifecycleAction
     , _claLifecycleActionResult :: Text
     , _claLifecycleActionToken  :: Text
     , _claLifecycleHookName     :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CompleteLifecycleAction' constructor.
 --
@@ -113,7 +113,7 @@ claLifecycleHookName =
     lens _claLifecycleHookName (\s a -> s { _claLifecycleHookName = a })
 
 data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CompleteLifecycleActionResponse' constructor.
 completeLifecycleActionResponse :: CompleteLifecycleActionResponse

@@ -53,7 +53,7 @@ data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
     { _dvpc1DryRun                  :: Maybe Bool
     , _dvpc1Filters                 :: List "Filter" Filter
     , _dvpc1VpcPeeringConnectionIds :: List "item" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVpcPeeringConnections' constructor.
 --
@@ -130,7 +130,7 @@ dvpc1VpcPeeringConnectionIds =
 
 newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
     { _dvpcrVpcPeeringConnections :: List "item" VpcPeeringConnection
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeVpcPeeringConnectionsResponse' constructor.
 --

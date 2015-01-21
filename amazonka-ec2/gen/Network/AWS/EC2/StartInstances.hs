@@ -70,7 +70,7 @@ data StartInstances = StartInstances
     { _si1AdditionalInfo :: Maybe Text
     , _si1DryRun         :: Maybe Bool
     , _si1InstanceIds    :: List "InstanceId" Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'StartInstances' constructor.
 --
@@ -103,7 +103,7 @@ si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a }) . _Lis
 
 newtype StartInstancesResponse = StartInstancesResponse
     { _sirStartingInstances :: List "item" InstanceStateChange
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'StartInstancesResponse' constructor.
 --

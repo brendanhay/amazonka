@@ -55,7 +55,7 @@ data Decrypt = Decrypt
     { _dCiphertextBlob    :: Base64
     , _dEncryptionContext :: Map Text Text
     , _dGrantTokens       :: List "GrantTokens" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Decrypt' constructor.
 --
@@ -95,7 +95,7 @@ dGrantTokens = lens _dGrantTokens (\s a -> s { _dGrantTokens = a }) . _List
 data DecryptResponse = DecryptResponse
     { _drKeyId     :: Maybe Text
     , _drPlaintext :: Maybe Base64
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DecryptResponse' constructor.
 --

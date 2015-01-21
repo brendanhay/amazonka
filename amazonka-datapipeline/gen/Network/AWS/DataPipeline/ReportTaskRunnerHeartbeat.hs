@@ -57,7 +57,7 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
     { _rtrhHostname     :: Maybe Text
     , _rtrhTaskrunnerId :: Text
     , _rtrhWorkerGroup  :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ReportTaskRunnerHeartbeat' constructor.
 --
@@ -98,7 +98,7 @@ rtrhWorkerGroup = lens _rtrhWorkerGroup (\s a -> s { _rtrhWorkerGroup = a })
 
 newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
     { _rtrhrTerminate :: Bool
-    } deriving (Eq, Ord, Show, Enum)
+    } deriving (Eq, Ord, Read, Show, Enum)
 
 -- | 'ReportTaskRunnerHeartbeatResponse' constructor.
 --

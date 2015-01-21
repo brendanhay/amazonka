@@ -60,7 +60,7 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups
     , _ddbsgFilters           :: List "member" Filter
     , _ddbsgMarker            :: Maybe Text
     , _ddbsgMaxRecords        :: Maybe Int
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSubnetGroups' constructor.
 --
@@ -110,7 +110,7 @@ ddbsgMaxRecords = lens _ddbsgMaxRecords (\s a -> s { _ddbsgMaxRecords = a })
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
     { _ddbsgrDBSubnetGroups :: List "member" DBSubnetGroup
     , _ddbsgrMarker         :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSubnetGroupsResponse' constructor.
 --

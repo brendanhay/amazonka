@@ -50,7 +50,7 @@ import qualified GHC.Exts
 
 newtype GetKeyRotationStatus = GetKeyRotationStatus
     { _gkrsKeyId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetKeyRotationStatus' constructor.
 --
@@ -71,7 +71,7 @@ gkrsKeyId = lens _gkrsKeyId (\s a -> s { _gkrsKeyId = a })
 
 newtype GetKeyRotationStatusResponse = GetKeyRotationStatusResponse
     { _gkrsrKeyRotationEnabled :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetKeyRotationStatusResponse' constructor.
 --

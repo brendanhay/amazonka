@@ -70,7 +70,7 @@ import qualified GHC.Exts
 data DescribeWorkflowExecution = DescribeWorkflowExecution
     { _dweDomain    :: Text
     , _dweExecution :: WorkflowExecution
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkflowExecution' constructor.
 --
@@ -102,7 +102,7 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
     , _dwerLatestActivityTaskTimestamp :: Maybe POSIX
     , _dwerLatestExecutionContext      :: Maybe Text
     , _dwerOpenCounts                  :: WorkflowExecutionOpenCounts
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkflowExecutionResponse' constructor.
 --

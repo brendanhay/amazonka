@@ -61,7 +61,7 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions
     , _dcevEngineVersion             :: Maybe Text
     , _dcevMarker                    :: Maybe Text
     , _dcevMaxRecords                :: Maybe Int
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeCacheEngineVersions' constructor.
 --
@@ -136,7 +136,7 @@ dcevMaxRecords = lens _dcevMaxRecords (\s a -> s { _dcevMaxRecords = a })
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
     { _dcevrCacheEngineVersions :: List "member" CacheEngineVersion
     , _dcevrMarker              :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheEngineVersionsResponse' constructor.
 --

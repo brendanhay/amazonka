@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype DescribeCluster = DescribeCluster
     { _dcClusterId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeCluster' constructor.
 --
@@ -71,7 +71,7 @@ dcClusterId = lens _dcClusterId (\s a -> s { _dcClusterId = a })
 
 newtype DescribeClusterResponse = DescribeClusterResponse
     { _dcrCluster :: Cluster
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterResponse' constructor.
 --

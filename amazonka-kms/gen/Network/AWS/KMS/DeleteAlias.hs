@@ -47,7 +47,7 @@ import qualified GHC.Exts
 
 newtype DeleteAlias = DeleteAlias
     { _daAliasName :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteAlias' constructor.
 --
@@ -66,7 +66,7 @@ daAliasName :: Lens' DeleteAlias Text
 daAliasName = lens _daAliasName (\s a -> s { _daAliasName = a })
 
 data DeleteAliasResponse = DeleteAliasResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteAliasResponse' constructor.
 deleteAliasResponse :: DeleteAliasResponse

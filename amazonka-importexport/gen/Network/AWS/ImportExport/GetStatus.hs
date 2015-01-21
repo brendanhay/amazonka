@@ -66,7 +66,7 @@ import qualified GHC.Exts
 
 newtype GetStatus = GetStatus
     { _gsJobId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetStatus' constructor.
 --
@@ -100,7 +100,7 @@ data GetStatusResponse = GetStatusResponse
     , _gsrSignature             :: Maybe Text
     , _gsrSignatureFileContents :: Maybe Text
     , _gsrTrackingNumber        :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetStatusResponse' constructor.
 --

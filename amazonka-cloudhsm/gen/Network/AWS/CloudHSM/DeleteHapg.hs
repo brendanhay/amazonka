@@ -49,7 +49,7 @@ import qualified GHC.Exts
 
 newtype DeleteHapg = DeleteHapg
     { _dhHapgArn :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteHapg' constructor.
 --
@@ -69,7 +69,7 @@ dhHapgArn = lens _dhHapgArn (\s a -> s { _dhHapgArn = a })
 
 newtype DeleteHapgResponse = DeleteHapgResponse
     { _dhrStatus :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DeleteHapgResponse' constructor.
 --

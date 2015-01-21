@@ -62,7 +62,7 @@ data DescribeMetricFilters = DescribeMetricFilters
     , _dmfLimit            :: Maybe Nat
     , _dmfLogGroupName     :: Text
     , _dmfNextToken        :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeMetricFilters' constructor.
 --
@@ -105,7 +105,7 @@ dmfNextToken = lens _dmfNextToken (\s a -> s { _dmfNextToken = a })
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
     { _dmfrMetricFilters :: List "metricFilters" MetricFilter
     , _dmfrNextToken     :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeMetricFiltersResponse' constructor.
 --

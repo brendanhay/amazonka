@@ -53,7 +53,7 @@ import Network.AWS.AutoScaling.Types
 import qualified GHC.Exts
 
 data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DescribeMetricCollectionTypes' constructor.
 describeMetricCollectionTypes :: DescribeMetricCollectionTypes
@@ -62,7 +62,7 @@ describeMetricCollectionTypes = DescribeMetricCollectionTypes
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
     { _dmctrGranularities :: List "member" MetricGranularityType
     , _dmctrMetrics       :: List "member" MetricCollectionType
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeMetricCollectionTypesResponse' constructor.
 --

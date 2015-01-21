@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data EnableVolumeIO = EnableVolumeIO
     { _evioDryRun   :: Maybe Bool
     , _evioVolumeId :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'EnableVolumeIO' constructor.
 --
@@ -75,7 +75,7 @@ evioVolumeId :: Lens' EnableVolumeIO Text
 evioVolumeId = lens _evioVolumeId (\s a -> s { _evioVolumeId = a })
 
 data EnableVolumeIOResponse = EnableVolumeIOResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'EnableVolumeIOResponse' constructor.
 enableVolumeIOResponse :: EnableVolumeIOResponse

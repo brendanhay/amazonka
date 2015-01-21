@@ -53,7 +53,7 @@ data AttachInternetGateway = AttachInternetGateway
     { _aigDryRun            :: Maybe Bool
     , _aigInternetGatewayId :: Text
     , _aigVpcId             :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AttachInternetGateway' constructor.
 --
@@ -87,7 +87,7 @@ aigVpcId :: Lens' AttachInternetGateway Text
 aigVpcId = lens _aigVpcId (\s a -> s { _aigVpcId = a })
 
 data AttachInternetGatewayResponse = AttachInternetGatewayResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'AttachInternetGatewayResponse' constructor.
 attachInternetGatewayResponse :: AttachInternetGatewayResponse

@@ -52,7 +52,7 @@ import qualified GHC.Exts
 
 newtype CreateOrUpdateTags = CreateOrUpdateTags
     { _coutTags :: List "member" Tag
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList CreateOrUpdateTags where
     type Item CreateOrUpdateTags = Tag
@@ -91,7 +91,7 @@ coutTags :: Lens' CreateOrUpdateTags [Tag]
 coutTags = lens _coutTags (\s a -> s { _coutTags = a }) . _List
 
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'CreateOrUpdateTagsResponse' constructor.
 createOrUpdateTagsResponse :: CreateOrUpdateTagsResponse

@@ -56,7 +56,7 @@ data Encrypt = Encrypt
     , _eGrantTokens       :: List "GrantTokens" Text
     , _eKeyId             :: Text
     , _ePlaintext         :: Base64
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'Encrypt' constructor.
 --
@@ -104,7 +104,7 @@ ePlaintext = lens _ePlaintext (\s a -> s { _ePlaintext = a })
 data EncryptResponse = EncryptResponse
     { _erCiphertextBlob :: Maybe Base64
     , _erKeyId          :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'EncryptResponse' constructor.
 --

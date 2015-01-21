@@ -52,7 +52,7 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
     { _rniaDryRun             :: Maybe Bool
     , _rniaNetworkInterfaceId :: Text
     , _rniaSourceDestCheck    :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'ResetNetworkInterfaceAttribute' constructor.
 --
@@ -86,7 +86,7 @@ rniaSourceDestCheck =
     lens _rniaSourceDestCheck (\s a -> s { _rniaSourceDestCheck = a })
 
 data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ResetNetworkInterfaceAttributeResponse' constructor.
 resetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse

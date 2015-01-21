@@ -76,7 +76,7 @@ data DescribeCacheClusters = DescribeCacheClusters
     , _dcc1Marker            :: Maybe Text
     , _dcc1MaxRecords        :: Maybe Int
     , _dcc1ShowCacheNodeInfo :: Maybe Bool
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeCacheClusters' constructor.
 --
@@ -131,7 +131,7 @@ dcc1ShowCacheNodeInfo =
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse
     { _dccrCacheClusters :: List "member" CacheCluster
     , _dccrMarker        :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheClustersResponse' constructor.
 --

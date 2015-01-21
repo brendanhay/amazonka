@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data CreateGroup = CreateGroup
     { _cgGroupName :: Text
     , _cgPath      :: Maybe Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateGroup' constructor.
 --
@@ -84,7 +84,7 @@ cgPath = lens _cgPath (\s a -> s { _cgPath = a })
 
 newtype CreateGroupResponse = CreateGroupResponse
     { _cgrGroup :: Group
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateGroupResponse' constructor.
 --

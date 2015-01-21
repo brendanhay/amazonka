@@ -57,7 +57,7 @@ import qualified GHC.Exts
 
 newtype DescribeUploadBuffer = DescribeUploadBuffer
     { _dubGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeUploadBuffer' constructor.
 --
@@ -79,7 +79,7 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse
     , _dubrGatewayARN                   :: Maybe Text
     , _dubrUploadBufferAllocatedInBytes :: Maybe Integer
     , _dubrUploadBufferUsedInBytes      :: Maybe Integer
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeUploadBufferResponse' constructor.
 --

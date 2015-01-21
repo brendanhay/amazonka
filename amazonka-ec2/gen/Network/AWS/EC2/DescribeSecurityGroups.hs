@@ -58,7 +58,7 @@ data DescribeSecurityGroups = DescribeSecurityGroups
     , _dsg1Filters    :: List "Filter" Filter
     , _dsg1GroupIds   :: List "groupId" Text
     , _dsg1GroupNames :: List "GroupName" Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeSecurityGroups' constructor.
 --
@@ -137,7 +137,7 @@ dsg1GroupNames = lens _dsg1GroupNames (\s a -> s { _dsg1GroupNames = a }) . _Lis
 
 newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgrSecurityGroups :: List "item" SecurityGroup
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 -- | 'DescribeSecurityGroupsResponse' constructor.
 --

@@ -55,7 +55,7 @@ import qualified GHC.Exts
 
 newtype DescribeIdentityPool = DescribeIdentityPool
     { _dipIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'DescribeIdentityPool' constructor.
 --
@@ -81,7 +81,7 @@ data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
     , _diprIdentityPoolName               :: Text
     , _diprOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
     , _diprSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeIdentityPoolResponse' constructor.
 --

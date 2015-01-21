@@ -76,7 +76,7 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration
     , _ufcMemorySize   :: Maybe Nat
     , _ufcRole         :: Maybe Text
     , _ufcTimeout      :: Maybe Nat
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'UpdateFunctionConfiguration' constructor.
 --
@@ -151,7 +151,7 @@ data UpdateFunctionConfigurationResponse = UpdateFunctionConfigurationResponse
     , _ufcrRole            :: Maybe Text
     , _ufcrRuntime         :: Maybe Runtime
     , _ufcrTimeout         :: Maybe Nat
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateFunctionConfigurationResponse' constructor.
 --

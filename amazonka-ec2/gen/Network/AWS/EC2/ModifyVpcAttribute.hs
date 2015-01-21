@@ -51,7 +51,7 @@ data ModifyVpcAttribute = ModifyVpcAttribute
     { _mvaEnableDnsHostnames :: Maybe AttributeBooleanValue
     , _mvaEnableDnsSupport   :: Maybe AttributeBooleanValue
     , _mvaVpcId              :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ModifyVpcAttribute' constructor.
 --
@@ -93,7 +93,7 @@ mvaVpcId :: Lens' ModifyVpcAttribute Text
 mvaVpcId = lens _mvaVpcId (\s a -> s { _mvaVpcId = a })
 
 data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'ModifyVpcAttributeResponse' constructor.
 modifyVpcAttributeResponse :: ModifyVpcAttributeResponse

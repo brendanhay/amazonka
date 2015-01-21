@@ -56,7 +56,7 @@ data DescribeVpcAttribute = DescribeVpcAttribute
     { _dva1Attribute :: Maybe VpcAttributeName
     , _dva1DryRun    :: Maybe Bool
     , _dva1VpcId     :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVpcAttribute' constructor.
 --
@@ -91,7 +91,7 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
     { _dvarEnableDnsHostnames :: Maybe AttributeBooleanValue
     , _dvarEnableDnsSupport   :: Maybe AttributeBooleanValue
     , _dvarVpcId              :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeVpcAttributeResponse' constructor.
 --

@@ -56,7 +56,7 @@ import qualified GHC.Exts
 data DescribeInstanceHealth = DescribeInstanceHealth
     { _dihInstances        :: List "member" Instance
     , _dihLoadBalancerName :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeInstanceHealth' constructor.
 --
@@ -84,7 +84,7 @@ dihLoadBalancerName =
 
 newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
     { _dihrInstanceStates :: List "member" InstanceState
-    } deriving (Eq, Show, Monoid, Semigroup)
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeInstanceHealthResponse where
     type Item DescribeInstanceHealthResponse = InstanceState

@@ -53,7 +53,7 @@ import qualified GHC.Exts
 data DeleteVpc = DeleteVpc
     { _dv3DryRun :: Maybe Bool
     , _dv3VpcId  :: Text
-    } deriving (Eq, Ord, Show)
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DeleteVpc' constructor.
 --
@@ -78,7 +78,7 @@ dv3VpcId :: Lens' DeleteVpc Text
 dv3VpcId = lens _dv3VpcId (\s a -> s { _dv3VpcId = a })
 
 data DeleteVpcResponse = DeleteVpcResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 -- | 'DeleteVpcResponse' constructor.
 deleteVpcResponse :: DeleteVpcResponse

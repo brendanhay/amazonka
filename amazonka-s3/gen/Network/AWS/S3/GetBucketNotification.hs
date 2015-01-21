@@ -51,7 +51,7 @@ import qualified GHC.Exts
 
 newtype GetBucketNotification = GetBucketNotification
     { _gbnBucket :: Text
-    } deriving (Eq, Ord, Show, Monoid, IsString)
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
 
 -- | 'GetBucketNotification' constructor.
 --
@@ -72,7 +72,7 @@ data GetBucketNotificationResponse = GetBucketNotificationResponse
     { _gbnrCloudFunctionConfiguration :: Maybe CloudFunctionConfiguration
     , _gbnrQueueConfiguration         :: Maybe QueueConfiguration
     , _gbnrTopicConfiguration         :: Maybe TopicConfiguration
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetBucketNotificationResponse' constructor.
 --

@@ -61,7 +61,7 @@ data DescribeImageAttribute = DescribeImageAttribute
     { _dia1Attribute :: ImageAttributeName
     , _dia1DryRun    :: Maybe Bool
     , _dia1ImageId   :: Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeImageAttribute' constructor.
 --
@@ -102,7 +102,7 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse
     , _diarProductCodes        :: List "item" ProductCode
     , _diarRamdiskId           :: Maybe AttributeValue
     , _diarSriovNetSupport     :: Maybe AttributeValue
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeImageAttributeResponse' constructor.
 --

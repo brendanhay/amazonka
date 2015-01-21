@@ -70,7 +70,7 @@ data DescribeEvents = DescribeEvents
     , _deStartTime       :: Maybe ISO8601
     , _deTemplateName    :: Maybe Text
     , _deVersionLabel    :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeEvents' constructor.
 --
@@ -172,7 +172,7 @@ deVersionLabel = lens _deVersionLabel (\s a -> s { _deVersionLabel = a })
 data DescribeEventsResponse = DescribeEventsResponse
     { _derEvents    :: List "member" EventDescription
     , _derNextToken :: Maybe Text
-    } deriving (Eq, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeEventsResponse' constructor.
 --

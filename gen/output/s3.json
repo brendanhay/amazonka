@@ -16901,7 +16901,6 @@
             "service": "S3",
             "response": {
                 "deriving": [
-                    "Read",
                     "Show"
                 ],
                 "streaming": true,
@@ -18829,7 +18828,6 @@
             "service": "S3",
             "response": {
                 "deriving": [
-                    "Read",
                     "Show"
                 ],
                 "streaming": true,
@@ -27295,7 +27293,6 @@
             "documentationUrl": "http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectPUT.html",
             "request": {
                 "deriving": [
-                    "Read",
                     "Show"
                 ],
                 "streaming": true,
@@ -29294,7 +29291,6 @@
             "documentationUrl": "http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadUploadPart.html",
             "request": {
                 "deriving": [
-                    "Read",
                     "Show"
                 ],
                 "streaming": true,

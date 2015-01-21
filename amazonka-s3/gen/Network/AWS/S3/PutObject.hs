@@ -101,7 +101,7 @@ data PutObject = PutObject
     , _poServerSideEncryption    :: Maybe ServerSideEncryption
     , _poStorageClass            :: Maybe StorageClass
     , _poWebsiteRedirectLocation :: Maybe Text
-    } deriving (Read, Show)
+    } deriving (Show)
 
 -- | 'PutObject' constructor.
 --

@@ -77,7 +77,7 @@ data UploadPart = UploadPart
     , _upSSECustomerKey       :: Maybe (Sensitive Text)
     , _upSSECustomerKeyMD5    :: Maybe Text
     , _upUploadId             :: Text
-    } deriving (Read, Show)
+    } deriving (Show)
 
 -- | 'UploadPart' constructor.
 --

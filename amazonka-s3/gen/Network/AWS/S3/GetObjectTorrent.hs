@@ -77,7 +77,7 @@ gotKey = lens _gotKey (\s a -> s { _gotKey = a })
 
 newtype GetObjectTorrentResponse = GetObjectTorrentResponse
     { _gotrBody :: RsBody
-    } deriving (Read, Show)
+    } deriving (Show)
 
 -- | 'GetObjectTorrentResponse' constructor.
 --

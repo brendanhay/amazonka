@@ -283,7 +283,7 @@ data GetObjectResponse = GetObjectResponse
     , _gorServerSideEncryption    :: Maybe ServerSideEncryption
     , _gorVersionId               :: Maybe Text
     , _gorWebsiteRedirectLocation :: Maybe Text
-    } deriving (Read, Show)
+    } deriving (Show)
 
 -- | 'GetObjectResponse' constructor.
 --

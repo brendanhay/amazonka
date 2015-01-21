@@ -566,7 +566,10 @@ instance DerivingOf Type where
             ]
 
 instance DerivingOf Field where
-    derivingOf = derivingOf . view typeOf
+    derivingOf x = f . derivingOf $ x ^. typeOf
+      where
+        f | _fStream x = Set.delete Read'
+          | otherwise  = id
 
 instance DerivingOf Data where
     derivingOf x = f . derivingOf $ toListOf dataFields x

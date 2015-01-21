@@ -10,6 +10,11 @@
         "Network.AWS.Route53.Internal"
     ],
     "overrides": {
+        "ListHostedZonesResponse": {
+            "not_required": [
+                "Marker"
+            ]
+        },
         "ResourceRecordSet": {
             "required": [
                 "ResourceRecords"

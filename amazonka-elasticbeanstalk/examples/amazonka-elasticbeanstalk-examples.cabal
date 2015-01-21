@@ -1,5 +1,5 @@
 name:                  amazonka-elasticbeanstalk-examples
-version:               0.2.1
+version:               0.2.2
 synopsis:              Amazon Elastic Beanstalk SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         ElasticBeanstalk
 
     build-depends:
-        amazonka      == 0.2.1.*
-      , amazonka-core == 0.2.1.*
-      , amazonka-elasticbeanstalk == 0.2.1.*
+        amazonka      == 0.2.2.*
+      , amazonka-core == 0.2.2.*
+      , amazonka-elasticbeanstalk == 0.2.2.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

@@ -467,7 +467,7 @@ overriden = flip (Map.foldlWithKey' run)
         . Map.adjust (dataFields %~ fld) k
         $ r
       where
-        fld = required (o ^. oRequired) (o ^. oNotRequired)
+        fld = required (o ^. oRequired) (o ^. oOptional)
             . renamed  (o ^. oRenamed)
 
     -- Types:

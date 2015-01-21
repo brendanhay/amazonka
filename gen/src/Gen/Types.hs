@@ -425,13 +425,13 @@ instance A.ToJSON (Token a) => A.ToJSON (Pager a) where
             pre = "isNothing " <> Text.intercalate " && isNothing " (Map.keys m)
 
 data Override = Override
-    { _oRenameTo    :: Maybe Text             -- ^ Rename type
-    , _oReplacedBy  :: Maybe Text             -- ^ Existing type that supplants this type
-    , _oSumPrefix   :: Maybe Text             -- ^ Sum constructor prefix
-    , _oSumValues   :: HashMap Text Text      -- ^ Supplemental sum constructors.
-    , _oRequired    :: HashSet (CI Text)      -- ^ Required fields
-    , _oNotRequired :: HashSet (CI Text)      -- ^ Unrequired fields
-    , _oRenamed     :: HashMap (CI Text) Text -- ^ Rename fields
+    { _oRenameTo   :: Maybe Text             -- ^ Rename type
+    , _oReplacedBy :: Maybe Text             -- ^ Existing type that supplants this type
+    , _oSumPrefix  :: Maybe Text             -- ^ Sum constructor prefix
+    , _oSumValues  :: HashMap Text Text      -- ^ Supplemental sum constructors.
+    , _oRequired   :: HashSet (CI Text)      -- ^ Required fields
+    , _oOptional   :: HashSet (CI Text)      -- ^ Optional fields
+    , _oRenamed    :: HashMap (CI Text) Text -- ^ Rename fields
     } deriving (Eq, Show)
 
 makeLenses ''Override
@@ -441,10 +441,10 @@ instance FromJSON Override where
         <$> o .:? "rename_to"
         <*> o .:? "replaced_by"
         <*> o .:? "sum_prefix"
-        <*> o .:? "sum_values"   .!= mempty
-        <*> o .:? "required"     .!= mempty
-        <*> o .:? "not_required" .!= mempty
-        <*> o .:? "renamed"      .!= mempty
+        <*> o .:? "sum_values" .!= mempty
+        <*> o .:? "required"   .!= mempty
+        <*> o .:? "optional"   .!= mempty
+        <*> o .:? "renamed"    .!= mempty
 
 data Overrides = Overrides
     { _oLibrary           :: !Library

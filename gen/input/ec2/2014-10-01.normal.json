@@ -8083,7 +8083,7 @@
         "ClientToken":{
           "shape":"String",
           "documentation":"<p>A unique, case-sensitive token you provide to ensure idempotency of your modification request.</p>",
-          "locationName":"clientToken"
+          "locationName":"ClientToken"
         },
         "ReservedInstancesIds":{
           "shape":"ReservedInstancesIdStringList",
@@ -9567,22 +9567,22 @@
         "AvailabilityZone":{
           "shape":"String",
           "documentation":"<p>The Availability Zone for the modified Reserved Instances.</p>",
-          "locationName":"availabilityZone"
+          "locationName":"AvailabilityZone"
         },
         "Platform":{
           "shape":"String",
           "documentation":"<p>The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.</p>",
-          "locationName":"platform"
+          "locationName":"Platform"
         },
         "InstanceCount":{
           "shape":"Integer",
           "documentation":"<p>The number of modified Reserved Instances.</p>",
-          "locationName":"instanceCount"
+          "locationName":"InstanceCount"
         },
         "InstanceType":{
           "shape":"InstanceType",
           "documentation":"<p>The instance type for the modified Reserved Instances.</p>",
-          "locationName":"instanceType"
+          "locationName":"InstanceType"
         }
       },
       "documentation":"<p>Describes the configuration settings for the modified Reserved Instances.</p>"

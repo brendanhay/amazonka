@@ -101,7 +101,7 @@ instance ToPath UnmonitorInstances where
 
 instance ToQuery UnmonitorInstances where
     toQuery UnmonitorInstances{..} = mconcat
-        [ "dryRun"     =? _uiDryRun
+        [ "DryRun"     =? _uiDryRun
         , "InstanceId" `toQueryList` _uiInstanceIds
         ]
 
@@ -116,4 +116,4 @@ instance AWSRequest UnmonitorInstances where
 
 instance FromXML UnmonitorInstancesResponse where
     parseXML x = UnmonitorInstancesResponse
-        <$> x .@? "instancesSet" .!@ mempty
+        <$> x .@? "InstancesSet" .!@ mempty

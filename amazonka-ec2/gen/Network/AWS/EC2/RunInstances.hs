@@ -428,24 +428,24 @@ instance ToPath RunInstances where
 
 instance ToQuery RunInstances where
     toQuery RunInstances{..} = mconcat
-        [ "additionalInfo"                    =? _riAdditionalInfo
+        [ "AdditionalInfo"                    =? _riAdditionalInfo
         , "BlockDeviceMapping"                `toQueryList` _riBlockDeviceMappings
-        , "clientToken"                       =? _riClientToken
-        , "disableApiTermination"             =? _riDisableApiTermination
-        , "dryRun"                            =? _riDryRun
-        , "ebsOptimized"                      =? _riEbsOptimized
-        , "iamInstanceProfile"                =? _riIamInstanceProfile
+        , "ClientToken"                       =? _riClientToken
+        , "DisableApiTermination"             =? _riDisableApiTermination
+        , "DryRun"                            =? _riDryRun
+        , "EbsOptimized"                      =? _riEbsOptimized
+        , "IamInstanceProfile"                =? _riIamInstanceProfile
         , "ImageId"                           =? _riImageId
-        , "instanceInitiatedShutdownBehavior" =? _riInstanceInitiatedShutdownBehavior
+        , "InstanceInitiatedShutdownBehavior" =? _riInstanceInitiatedShutdownBehavior
         , "InstanceType"                      =? _riInstanceType
         , "KernelId"                          =? _riKernelId
         , "KeyName"                           =? _riKeyName
         , "MaxCount"                          =? _riMaxCount
         , "MinCount"                          =? _riMinCount
         , "Monitoring"                        =? _riMonitoring
-        , "networkInterface"                  `toQueryList` _riNetworkInterfaces
+        , "NetworkInterface"                  `toQueryList` _riNetworkInterfaces
         , "Placement"                         =? _riPlacement
-        , "privateIpAddress"                  =? _riPrivateIpAddress
+        , "PrivateIpAddress"                  =? _riPrivateIpAddress
         , "RamdiskId"                         =? _riRamdiskId
         , "SecurityGroupId"                   `toQueryList` _riSecurityGroupIds
         , "SecurityGroup"                     `toQueryList` _riSecurityGroups
@@ -464,8 +464,8 @@ instance AWSRequest RunInstances where
 
 instance FromXML RunInstancesResponse where
     parseXML x = RunInstancesResponse
-        <$> x .@? "groupSet" .!@ mempty
-        <*> x .@? "instancesSet" .!@ mempty
-        <*> x .@  "ownerId"
-        <*> x .@? "requesterId"
-        <*> x .@  "reservationId"
+        <$> x .@? "GroupSet" .!@ mempty
+        <*> x .@? "InstancesSet" .!@ mempty
+        <*> x .@  "OwnerId"
+        <*> x .@? "RequesterId"
+        <*> x .@  "ReservationId"

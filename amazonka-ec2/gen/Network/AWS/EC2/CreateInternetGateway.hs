@@ -93,7 +93,7 @@ instance ToPath CreateInternetGateway where
 
 instance ToQuery CreateInternetGateway where
     toQuery CreateInternetGateway{..} = mconcat
-        [ "dryRun" =? _cigDryRun
+        [ "DryRun" =? _cigDryRun
         ]
 
 instance ToHeaders CreateInternetGateway
@@ -107,4 +107,4 @@ instance AWSRequest CreateInternetGateway where
 
 instance FromXML CreateInternetGatewayResponse where
     parseXML x = CreateInternetGatewayResponse
-        <$> x .@? "internetGateway"
+        <$> x .@? "InternetGateway"

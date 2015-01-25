@@ -120,10 +120,10 @@ instance ToPath AttachNetworkInterface where
 
 instance ToQuery AttachNetworkInterface where
     toQuery AttachNetworkInterface{..} = mconcat
-        [ "deviceIndex"        =? _aniDeviceIndex
-        , "dryRun"             =? _aniDryRun
-        , "instanceId"         =? _aniInstanceId
-        , "networkInterfaceId" =? _aniNetworkInterfaceId
+        [ "DeviceIndex"        =? _aniDeviceIndex
+        , "DryRun"             =? _aniDryRun
+        , "InstanceId"         =? _aniInstanceId
+        , "NetworkInterfaceId" =? _aniNetworkInterfaceId
         ]
 
 instance ToHeaders AttachNetworkInterface
@@ -137,4 +137,4 @@ instance AWSRequest AttachNetworkInterface where
 
 instance FromXML AttachNetworkInterfaceResponse where
     parseXML x = AttachNetworkInterfaceResponse
-        <$> x .@? "attachmentId"
+        <$> x .@? "AttachmentId"

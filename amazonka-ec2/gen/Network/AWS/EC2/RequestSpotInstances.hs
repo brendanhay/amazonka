@@ -212,15 +212,15 @@ instance ToPath RequestSpotInstances where
 
 instance ToQuery RequestSpotInstances where
     toQuery RequestSpotInstances{..} = mconcat
-        [ "availabilityZoneGroup" =? _rsiAvailabilityZoneGroup
-        , "dryRun"                =? _rsiDryRun
-        , "instanceCount"         =? _rsiInstanceCount
-        , "launchGroup"           =? _rsiLaunchGroup
+        [ "AvailabilityZoneGroup" =? _rsiAvailabilityZoneGroup
+        , "DryRun"                =? _rsiDryRun
+        , "InstanceCount"         =? _rsiInstanceCount
+        , "LaunchGroup"           =? _rsiLaunchGroup
         , "LaunchSpecification"   =? _rsiLaunchSpecification
-        , "spotPrice"             =? _rsiSpotPrice
-        , "type"                  =? _rsiType
-        , "validFrom"             =? _rsiValidFrom
-        , "validUntil"            =? _rsiValidUntil
+        , "SpotPrice"             =? _rsiSpotPrice
+        , "Type"                  =? _rsiType
+        , "ValidFrom"             =? _rsiValidFrom
+        , "ValidUntil"            =? _rsiValidUntil
         ]
 
 instance ToHeaders RequestSpotInstances
@@ -234,4 +234,4 @@ instance AWSRequest RequestSpotInstances where
 
 instance FromXML RequestSpotInstancesResponse where
     parseXML x = RequestSpotInstancesResponse
-        <$> x .@? "spotInstanceRequestSet" .!@ mempty
+        <$> x .@? "SpotInstanceRequestSet" .!@ mempty

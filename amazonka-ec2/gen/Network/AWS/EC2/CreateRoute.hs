@@ -155,13 +155,13 @@ instance ToPath CreateRoute where
 
 instance ToQuery CreateRoute where
     toQuery CreateRoute{..} = mconcat
-        [ "destinationCidrBlock"   =? _crDestinationCidrBlock
-        , "dryRun"                 =? _crDryRun
-        , "gatewayId"              =? _crGatewayId
-        , "instanceId"             =? _crInstanceId
-        , "networkInterfaceId"     =? _crNetworkInterfaceId
-        , "routeTableId"           =? _crRouteTableId
-        , "vpcPeeringConnectionId" =? _crVpcPeeringConnectionId
+        [ "DestinationCidrBlock"   =? _crDestinationCidrBlock
+        , "DryRun"                 =? _crDryRun
+        , "GatewayId"              =? _crGatewayId
+        , "InstanceId"             =? _crInstanceId
+        , "NetworkInterfaceId"     =? _crNetworkInterfaceId
+        , "RouteTableId"           =? _crRouteTableId
+        , "VpcPeeringConnectionId" =? _crVpcPeeringConnectionId
         ]
 
 instance ToHeaders CreateRoute

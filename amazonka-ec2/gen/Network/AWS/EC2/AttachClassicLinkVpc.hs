@@ -129,10 +129,10 @@ instance ToPath AttachClassicLinkVpc where
 
 instance ToQuery AttachClassicLinkVpc where
     toQuery AttachClassicLinkVpc{..} = mconcat
-        [ "dryRun"          =? _aclvDryRun
+        [ "DryRun"          =? _aclvDryRun
         , "SecurityGroupId" `toQueryList` _aclvGroups
-        , "instanceId"      =? _aclvInstanceId
-        , "vpcId"           =? _aclvVpcId
+        , "InstanceId"      =? _aclvInstanceId
+        , "VpcId"           =? _aclvVpcId
         ]
 
 instance ToHeaders AttachClassicLinkVpc
@@ -146,4 +146,4 @@ instance AWSRequest AttachClassicLinkVpc where
 
 instance FromXML AttachClassicLinkVpcResponse where
     parseXML x = AttachClassicLinkVpcResponse
-        <$> x .@? "return"
+        <$> x .@? "Return"

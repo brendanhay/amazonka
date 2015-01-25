@@ -125,7 +125,7 @@ instance ToPath BundleInstance where
 
 instance ToQuery BundleInstance where
     toQuery BundleInstance{..} = mconcat
-        [ "dryRun"     =? _biDryRun
+        [ "DryRun"     =? _biDryRun
         , "InstanceId" =? _biInstanceId
         , "Storage"    =? _biStorage
         ]
@@ -141,4 +141,4 @@ instance AWSRequest BundleInstance where
 
 instance FromXML BundleInstanceResponse where
     parseXML x = BundleInstanceResponse
-        <$> x .@? "bundleInstanceTask"
+        <$> x .@? "BundleInstanceTask"

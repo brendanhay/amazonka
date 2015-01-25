@@ -133,7 +133,7 @@ instance ToPath CreateKeyPair where
 
 instance ToQuery CreateKeyPair where
     toQuery CreateKeyPair{..} = mconcat
-        [ "dryRun"  =? _ckpDryRun
+        [ "DryRun"  =? _ckpDryRun
         , "KeyName" =? _ckpKeyName
         ]
 
@@ -148,6 +148,6 @@ instance AWSRequest CreateKeyPair where
 
 instance FromXML CreateKeyPairResponse where
     parseXML x = CreateKeyPairResponse
-        <$> x .@  "keyFingerprint"
-        <*> x .@  "keyMaterial"
-        <*> x .@  "keyName"
+        <$> x .@  "KeyFingerprint"
+        <*> x .@  "KeyMaterial"
+        <*> x .@  "KeyName"

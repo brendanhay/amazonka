@@ -191,7 +191,7 @@ instance ToPath DetachVolume where
 instance ToQuery DetachVolume where
     toQuery DetachVolume{..} = mconcat
         [ "Device"     =? _dvDevice
-        , "dryRun"     =? _dvDryRun
+        , "DryRun"     =? _dvDryRun
         , "Force"      =? _dvForce
         , "InstanceId" =? _dvInstanceId
         , "VolumeId"   =? _dvVolumeId
@@ -208,9 +208,9 @@ instance AWSRequest DetachVolume where
 
 instance FromXML DetachVolumeResponse where
     parseXML x = DetachVolumeResponse
-        <$> x .@? "attachTime"
-        <*> x .@? "deleteOnTermination"
-        <*> x .@? "device"
-        <*> x .@? "instanceId"
-        <*> x .@? "status"
-        <*> x .@? "volumeId"
+        <$> x .@? "AttachTime"
+        <*> x .@? "DeleteOnTermination"
+        <*> x .@? "Device"
+        <*> x .@? "InstanceId"
+        <*> x .@? "Status"
+        <*> x .@? "VolumeId"

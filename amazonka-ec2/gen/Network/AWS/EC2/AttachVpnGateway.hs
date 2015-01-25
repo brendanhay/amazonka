@@ -110,7 +110,7 @@ instance ToPath AttachVpnGateway where
 
 instance ToQuery AttachVpnGateway where
     toQuery AttachVpnGateway{..} = mconcat
-        [ "dryRun"       =? _avgDryRun
+        [ "DryRun"       =? _avgDryRun
         , "VpcId"        =? _avgVpcId
         , "VpnGatewayId" =? _avgVpnGatewayId
         ]
@@ -126,4 +126,4 @@ instance AWSRequest AttachVpnGateway where
 
 instance FromXML AttachVpnGatewayResponse where
     parseXML x = AttachVpnGatewayResponse
-        <$> x .@? "attachment"
+        <$> x .@? "Attachment"

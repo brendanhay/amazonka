@@ -88,7 +88,7 @@ instance ToPath DeleteCustomerGateway where
 instance ToQuery DeleteCustomerGateway where
     toQuery DeleteCustomerGateway{..} = mconcat
         [ "CustomerGatewayId" =? _dcg1CustomerGatewayId
-        , "dryRun"            =? _dcg1DryRun
+        , "DryRun"            =? _dcg1DryRun
         ]
 
 instance ToHeaders DeleteCustomerGateway

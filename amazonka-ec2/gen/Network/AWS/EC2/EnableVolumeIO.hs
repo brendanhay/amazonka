@@ -86,8 +86,8 @@ instance ToPath EnableVolumeIO where
 
 instance ToQuery EnableVolumeIO where
     toQuery EnableVolumeIO{..} = mconcat
-        [ "dryRun"   =? _evioDryRun
-        , "volumeId" =? _evioVolumeId
+        [ "DryRun"   =? _evioDryRun
+        , "VolumeId" =? _evioVolumeId
         ]
 
 instance ToHeaders EnableVolumeIO

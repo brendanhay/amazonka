@@ -87,8 +87,8 @@ instance ToPath DeletePlacementGroup where
 
 instance ToQuery DeletePlacementGroup where
     toQuery DeletePlacementGroup{..} = mconcat
-        [ "dryRun"    =? _dpgDryRun
-        , "groupName" =? _dpgGroupName
+        [ "DryRun"    =? _dpgDryRun
+        , "GroupName" =? _dpgGroupName
         ]
 
 instance ToHeaders DeletePlacementGroup

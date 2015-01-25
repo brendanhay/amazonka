@@ -90,7 +90,7 @@ instance ToPath DeleteVolume where
 
 instance ToQuery DeleteVolume where
     toQuery DeleteVolume{..} = mconcat
-        [ "dryRun"   =? _dv4DryRun
+        [ "DryRun"   =? _dv4DryRun
         , "VolumeId" =? _dv4VolumeId
         ]
 

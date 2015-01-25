@@ -130,7 +130,7 @@ instance ToPath DescribeVolumeAttribute where
 instance ToQuery DescribeVolumeAttribute where
     toQuery DescribeVolumeAttribute{..} = mconcat
         [ "Attribute" =? _dvaAttribute
-        , "dryRun"    =? _dvaDryRun
+        , "DryRun"    =? _dvaDryRun
         , "VolumeId"  =? _dvaVolumeId
         ]
 
@@ -145,6 +145,6 @@ instance AWSRequest DescribeVolumeAttribute where
 
 instance FromXML DescribeVolumeAttributeResponse where
     parseXML x = DescribeVolumeAttributeResponse
-        <$> x .@? "autoEnableIO"
-        <*> x .@? "productCodes" .!@ mempty
-        <*> x .@? "volumeId"
+        <$> x .@? "AutoEnableIO"
+        <*> x .@? "ProductCodes" .!@ mempty
+        <*> x .@? "VolumeId"

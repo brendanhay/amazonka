@@ -105,7 +105,7 @@ instance ToPath ModifyVolumeAttribute where
 instance ToQuery ModifyVolumeAttribute where
     toQuery ModifyVolumeAttribute{..} = mconcat
         [ "AutoEnableIO" =? _mvaAutoEnableIO
-        , "dryRun"       =? _mvaDryRun
+        , "DryRun"       =? _mvaDryRun
         , "VolumeId"     =? _mvaVolumeId
         ]
 

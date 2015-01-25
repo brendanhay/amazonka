@@ -160,9 +160,9 @@ instance ToPath CopySnapshot where
 instance ToQuery CopySnapshot where
     toQuery CopySnapshot{..} = mconcat
         [ "Description"       =? _csDescription
-        , "destinationRegion" =? _csDestinationRegion
-        , "dryRun"            =? _csDryRun
-        , "presignedUrl"      =? _csPresignedUrl
+        , "DestinationRegion" =? _csDestinationRegion
+        , "DryRun"            =? _csDryRun
+        , "PresignedUrl"      =? _csPresignedUrl
         , "SourceRegion"      =? _csSourceRegion
         , "SourceSnapshotId"  =? _csSourceSnapshotId
         ]
@@ -178,4 +178,4 @@ instance AWSRequest CopySnapshot where
 
 instance FromXML CopySnapshotResponse where
     parseXML x = CopySnapshotResponse
-        <$> x .@? "snapshotId"
+        <$> x .@? "SnapshotId"

@@ -100,7 +100,7 @@ instance ToPath ResetImageAttribute where
 instance ToQuery ResetImageAttribute where
     toQuery ResetImageAttribute{..} = mconcat
         [ "Attribute" =? _ria1Attribute
-        , "dryRun"    =? _ria1DryRun
+        , "DryRun"    =? _ria1DryRun
         , "ImageId"   =? _ria1ImageId
         ]
 

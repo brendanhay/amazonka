@@ -169,9 +169,9 @@ instance ToPath DescribeReservedInstances where
 
 instance ToQuery DescribeReservedInstances where
     toQuery DescribeReservedInstances{..} = mconcat
-        [ "dryRun"              =? _driDryRun
+        [ "DryRun"              =? _driDryRun
         , "Filter"              `toQueryList` _driFilters
-        , "offeringType"        =? _driOfferingType
+        , "OfferingType"        =? _driOfferingType
         , "ReservedInstancesId" `toQueryList` _driReservedInstancesIds
         ]
 
@@ -186,4 +186,4 @@ instance AWSRequest DescribeReservedInstances where
 
 instance FromXML DescribeReservedInstancesResponse where
     parseXML x = DescribeReservedInstancesResponse
-        <$> x .@? "reservedInstancesSet" .!@ mempty
+        <$> x .@? "ReservedInstancesSet" .!@ mempty

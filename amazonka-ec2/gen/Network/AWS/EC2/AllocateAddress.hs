@@ -124,7 +124,7 @@ instance ToPath AllocateAddress where
 instance ToQuery AllocateAddress where
     toQuery AllocateAddress{..} = mconcat
         [ "Domain" =? _aaDomain
-        , "dryRun" =? _aaDryRun
+        , "DryRun" =? _aaDryRun
         ]
 
 instance ToHeaders AllocateAddress
@@ -138,6 +138,6 @@ instance AWSRequest AllocateAddress where
 
 instance FromXML AllocateAddressResponse where
     parseXML x = AllocateAddressResponse
-        <$> x .@? "allocationId"
-        <*> x .@? "domain"
-        <*> x .@? "publicIp"
+        <$> x .@? "AllocationId"
+        <*> x .@? "Domain"
+        <*> x .@? "PublicIp"

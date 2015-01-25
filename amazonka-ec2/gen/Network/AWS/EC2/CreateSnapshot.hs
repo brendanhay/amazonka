@@ -245,7 +245,7 @@ instance ToPath CreateSnapshot where
 instance ToQuery CreateSnapshot where
     toQuery CreateSnapshot{..} = mconcat
         [ "Description" =? _cs2Description
-        , "dryRun"      =? _cs2DryRun
+        , "DryRun"      =? _cs2DryRun
         , "VolumeId"    =? _cs2VolumeId
         ]
 
@@ -260,15 +260,15 @@ instance AWSRequest CreateSnapshot where
 
 instance FromXML CreateSnapshotResponse where
     parseXML x = CreateSnapshotResponse
-        <$> x .@  "description"
-        <*> x .@  "encrypted"
-        <*> x .@? "kmsKeyId"
-        <*> x .@? "ownerAlias"
-        <*> x .@  "ownerId"
-        <*> x .@  "progress"
-        <*> x .@  "snapshotId"
-        <*> x .@  "startTime"
-        <*> x .@  "status"
-        <*> x .@? "tagSet" .!@ mempty
-        <*> x .@  "volumeId"
-        <*> x .@  "volumeSize"
+        <$> x .@  "Description"
+        <*> x .@  "Encrypted"
+        <*> x .@? "KmsKeyId"
+        <*> x .@? "OwnerAlias"
+        <*> x .@  "OwnerId"
+        <*> x .@  "Progress"
+        <*> x .@  "SnapshotId"
+        <*> x .@  "StartTime"
+        <*> x .@  "Status"
+        <*> x .@? "TagSet" .!@ mempty
+        <*> x .@  "VolumeId"
+        <*> x .@  "VolumeSize"

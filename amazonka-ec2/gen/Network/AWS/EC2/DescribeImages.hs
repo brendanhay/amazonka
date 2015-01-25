@@ -214,7 +214,7 @@ instance ToPath DescribeImages where
 
 instance ToQuery DescribeImages where
     toQuery DescribeImages{..} = mconcat
-        [ "dryRun"       =? _di2DryRun
+        [ "DryRun"       =? _di2DryRun
         , "ExecutableBy" `toQueryList` _di2ExecutableUsers
         , "Filter"       `toQueryList` _di2Filters
         , "ImageId"      `toQueryList` _di2ImageIds
@@ -232,4 +232,4 @@ instance AWSRequest DescribeImages where
 
 instance FromXML DescribeImagesResponse where
     parseXML x = DescribeImagesResponse
-        <$> x .@? "imagesSet" .!@ mempty
+        <$> x .@? "ImagesSet" .!@ mempty

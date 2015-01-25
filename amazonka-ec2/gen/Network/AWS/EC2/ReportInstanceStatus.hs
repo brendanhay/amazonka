@@ -158,13 +158,13 @@ instance ToPath ReportInstanceStatus where
 
 instance ToQuery ReportInstanceStatus where
     toQuery ReportInstanceStatus{..} = mconcat
-        [ "description" =? _risDescription
-        , "dryRun"      =? _risDryRun
-        , "endTime"     =? _risEndTime
-        , "instanceId"  `toQueryList` _risInstances
-        , "reasonCode"  `toQueryList` _risReasonCodes
-        , "startTime"   =? _risStartTime
-        , "status"      =? _risStatus
+        [ "Description" =? _risDescription
+        , "DryRun"      =? _risDryRun
+        , "EndTime"     =? _risEndTime
+        , "InstanceId"  `toQueryList` _risInstances
+        , "ReasonCode"  `toQueryList` _risReasonCodes
+        , "StartTime"   =? _risStartTime
+        , "Status"      =? _risStatus
         ]
 
 instance ToHeaders ReportInstanceStatus

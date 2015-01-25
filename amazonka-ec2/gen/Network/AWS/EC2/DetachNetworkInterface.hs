@@ -94,9 +94,9 @@ instance ToPath DetachNetworkInterface where
 
 instance ToQuery DetachNetworkInterface where
     toQuery DetachNetworkInterface{..} = mconcat
-        [ "attachmentId" =? _dniAttachmentId
-        , "dryRun"       =? _dniDryRun
-        , "force"        =? _dniForce
+        [ "AttachmentId" =? _dniAttachmentId
+        , "DryRun"       =? _dniDryRun
+        , "Force"        =? _dniForce
         ]
 
 instance ToHeaders DetachNetworkInterface

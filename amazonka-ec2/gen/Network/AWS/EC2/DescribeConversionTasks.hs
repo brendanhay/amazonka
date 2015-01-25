@@ -109,9 +109,9 @@ instance ToPath DescribeConversionTasks where
 
 instance ToQuery DescribeConversionTasks where
     toQuery DescribeConversionTasks{..} = mconcat
-        [ "conversionTaskId" `toQueryList` _dctConversionTaskIds
-        , "dryRun"           =? _dctDryRun
-        , "filter"           `toQueryList` _dctFilters
+        [ "ConversionTaskId" `toQueryList` _dctConversionTaskIds
+        , "DryRun"           =? _dctDryRun
+        , "Filter"           `toQueryList` _dctFilters
         ]
 
 instance ToHeaders DescribeConversionTasks
@@ -125,4 +125,4 @@ instance AWSRequest DescribeConversionTasks where
 
 instance FromXML DescribeConversionTasksResponse where
     parseXML x = DescribeConversionTasksResponse
-        <$> x .@? "conversionTasks" .!@ mempty
+        <$> x .@? "ConversionTasks" .!@ mempty

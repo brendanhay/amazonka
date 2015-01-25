@@ -106,7 +106,7 @@ instance ToQuery ModifyVpcAttribute where
     toQuery ModifyVpcAttribute{..} = mconcat
         [ "EnableDnsHostnames" =? _mvaEnableDnsHostnames
         , "EnableDnsSupport"   =? _mvaEnableDnsSupport
-        , "vpcId"              =? _mvaVpcId
+        , "VpcId"              =? _mvaVpcId
         ]
 
 instance ToHeaders ModifyVpcAttribute

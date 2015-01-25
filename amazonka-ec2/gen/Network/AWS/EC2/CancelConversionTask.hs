@@ -100,9 +100,9 @@ instance ToPath CancelConversionTask where
 
 instance ToQuery CancelConversionTask where
     toQuery CancelConversionTask{..} = mconcat
-        [ "conversionTaskId" =? _cctConversionTaskId
-        , "dryRun"           =? _cctDryRun
-        , "reasonMessage"    =? _cctReasonMessage
+        [ "ConversionTaskId" =? _cctConversionTaskId
+        , "DryRun"           =? _cctDryRun
+        , "ReasonMessage"    =? _cctReasonMessage
         ]
 
 instance ToHeaders CancelConversionTask

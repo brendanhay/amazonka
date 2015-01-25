@@ -89,7 +89,7 @@ instance ToPath DeleteVpc where
 
 instance ToQuery DeleteVpc where
     toQuery DeleteVpc{..} = mconcat
-        [ "dryRun" =? _dv3DryRun
+        [ "DryRun" =? _dv3DryRun
         , "VpcId"  =? _dv3VpcId
         ]
 

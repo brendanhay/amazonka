@@ -102,7 +102,7 @@ instance ToPath DetachVpnGateway where
 
 instance ToQuery DetachVpnGateway where
     toQuery DetachVpnGateway{..} = mconcat
-        [ "dryRun"       =? _dvg1DryRun
+        [ "DryRun"       =? _dvg1DryRun
         , "VpcId"        =? _dvg1VpcId
         , "VpnGatewayId" =? _dvg1VpnGatewayId
         ]

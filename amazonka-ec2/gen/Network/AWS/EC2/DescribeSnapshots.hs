@@ -194,7 +194,7 @@ instance ToPath DescribeSnapshots where
 
 instance ToQuery DescribeSnapshots where
     toQuery DescribeSnapshots{..} = mconcat
-        [ "dryRun"       =? _ds1DryRun
+        [ "DryRun"       =? _ds1DryRun
         , "Filter"       `toQueryList` _ds1Filters
         , "Owner"        `toQueryList` _ds1OwnerIds
         , "RestorableBy" `toQueryList` _ds1RestorableByUserIds
@@ -212,4 +212,4 @@ instance AWSRequest DescribeSnapshots where
 
 instance FromXML DescribeSnapshotsResponse where
     parseXML x = DescribeSnapshotsResponse
-        <$> x .@? "snapshotSet" .!@ mempty
+        <$> x .@? "SnapshotSet" .!@ mempty

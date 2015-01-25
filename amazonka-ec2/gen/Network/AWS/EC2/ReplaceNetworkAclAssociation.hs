@@ -114,9 +114,9 @@ instance ToPath ReplaceNetworkAclAssociation where
 
 instance ToQuery ReplaceNetworkAclAssociation where
     toQuery ReplaceNetworkAclAssociation{..} = mconcat
-        [ "associationId" =? _rnaaAssociationId
-        , "dryRun"        =? _rnaaDryRun
-        , "networkAclId"  =? _rnaaNetworkAclId
+        [ "AssociationId" =? _rnaaAssociationId
+        , "DryRun"        =? _rnaaDryRun
+        , "NetworkAclId"  =? _rnaaNetworkAclId
         ]
 
 instance ToHeaders ReplaceNetworkAclAssociation
@@ -130,4 +130,4 @@ instance AWSRequest ReplaceNetworkAclAssociation where
 
 instance FromXML ReplaceNetworkAclAssociationResponse where
     parseXML x = ReplaceNetworkAclAssociationResponse
-        <$> x .@? "newAssociationId"
+        <$> x .@? "NewAssociationId"

@@ -102,8 +102,8 @@ instance ToPath CreateNetworkAcl where
 
 instance ToQuery CreateNetworkAcl where
     toQuery CreateNetworkAcl{..} = mconcat
-        [ "dryRun" =? _cnaDryRun
-        , "vpcId"  =? _cnaVpcId
+        [ "DryRun" =? _cnaDryRun
+        , "VpcId"  =? _cnaVpcId
         ]
 
 instance ToHeaders CreateNetworkAcl
@@ -117,4 +117,4 @@ instance AWSRequest CreateNetworkAcl where
 
 instance FromXML CreateNetworkAclResponse where
     parseXML x = CreateNetworkAclResponse
-        <$> x .@? "networkAcl"
+        <$> x .@? "NetworkAcl"

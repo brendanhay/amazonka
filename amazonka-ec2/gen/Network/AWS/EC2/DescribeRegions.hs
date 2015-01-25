@@ -115,7 +115,7 @@ instance ToPath DescribeRegions where
 
 instance ToQuery DescribeRegions where
     toQuery DescribeRegions{..} = mconcat
-        [ "dryRun"     =? _dr1DryRun
+        [ "DryRun"     =? _dr1DryRun
         , "Filter"     `toQueryList` _dr1Filters
         , "RegionName" `toQueryList` _dr1RegionNames
         ]
@@ -131,4 +131,4 @@ instance AWSRequest DescribeRegions where
 
 instance FromXML DescribeRegionsResponse where
     parseXML x = DescribeRegionsResponse
-        <$> x .@? "regionInfo" .!@ mempty
+        <$> x .@? "RegionInfo" .!@ mempty

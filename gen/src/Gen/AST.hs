@@ -19,10 +19,11 @@
 
 module Gen.AST (transformAST) where
 
-import           Control.Applicative        ((<$>), (<*>), (<|>), pure)
+import           Control.Applicative        (pure, (<$>), (<*>), (<|>))
 import           Control.Arrow              ((&&&))
 import           Control.Error
-import           Control.Lens               hiding (Indexed, op, ignored, filtered, indexed)
+import           Control.Lens               hiding (Indexed, filtered, ignored,
+                                             indexed, op)
 import           Control.Monad
 import           Control.Monad.State.Strict
 import qualified Data.CaseInsensitive       as CI
@@ -32,13 +33,13 @@ import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
 import           Data.HashSet               (HashSet)
 import qualified Data.HashSet               as Set
-import           Data.List                  (find, sort, group, nub)
+import           Data.List                  (find, group, nub, sort)
 import           Data.Monoid                hiding (Product)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
+import           Gen.Input                  hiding (Operation (..))
 import qualified Gen.Input                  as Input
-import           Gen.Input                  hiding (Operation(..))
 import           Gen.Names
 import           Gen.Output
 import           Gen.Types
@@ -579,18 +580,12 @@ shapes proto time m =
             , _fShape         = r ^. refShape
             , _fType          = t
             , _fLocation      = location proto (r ^. refStreaming) (r ^. refLocation)
-            , _fLocationName  = locationName fld r
+            , _fLocationName  = fromMaybe fld (r ^. refLocationName)
             , _fPayload       = Just fld == pay
             , _fStream        = fromMaybe False (r ^. refStreaming)
             , _fDocumentation = above <$> r ^. refDocumentation
             , _fProtocol      = proto
             }
-
-    locationName :: Text -> Ref -> Text
-    locationName fld r = maybe fld f (r ^. refLocationName)
-      where
-        f | Ec2 <- proto = upperHead
-          | otherwise    = id
 
     require :: [Text] -> Text -> Type -> Type
     require req fld x

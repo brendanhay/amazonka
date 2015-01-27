@@ -86,8 +86,8 @@ instance ToPath DeleteNetworkAcl where
 
 instance ToQuery DeleteNetworkAcl where
     toQuery DeleteNetworkAcl{..} = mconcat
-        [ "dryRun"       =? _dnaDryRun
-        , "networkAclId" =? _dnaNetworkAclId
+        [ "DryRun"       =? _dnaDryRun
+        , "NetworkAclId" =? _dnaNetworkAclId
         ]
 
 instance ToHeaders DeleteNetworkAcl

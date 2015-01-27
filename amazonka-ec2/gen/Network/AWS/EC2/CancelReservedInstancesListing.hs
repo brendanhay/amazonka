@@ -99,7 +99,7 @@ instance ToPath CancelReservedInstancesListing where
 
 instance ToQuery CancelReservedInstancesListing where
     toQuery CancelReservedInstancesListing{..} = mconcat
-        [ "reservedInstancesListingId" =? _crilReservedInstancesListingId
+        [ "ReservedInstancesListingId" =? _crilReservedInstancesListingId
         ]
 
 instance ToHeaders CancelReservedInstancesListing
@@ -113,4 +113,4 @@ instance AWSRequest CancelReservedInstancesListing where
 
 instance FromXML CancelReservedInstancesListingResponse where
     parseXML x = CancelReservedInstancesListingResponse
-        <$> x .@? "reservedInstancesListingsSet" .!@ mempty
+        <$> x .@? "ReservedInstancesListingsSet" .!@ mempty

@@ -140,13 +140,13 @@ instance ToPath ReplaceRoute where
 
 instance ToQuery ReplaceRoute where
     toQuery ReplaceRoute{..} = mconcat
-        [ "destinationCidrBlock"   =? _rrDestinationCidrBlock
-        , "dryRun"                 =? _rrDryRun
-        , "gatewayId"              =? _rrGatewayId
-        , "instanceId"             =? _rrInstanceId
-        , "networkInterfaceId"     =? _rrNetworkInterfaceId
-        , "routeTableId"           =? _rrRouteTableId
-        , "vpcPeeringConnectionId" =? _rrVpcPeeringConnectionId
+        [ "DestinationCidrBlock"   =? _rrDestinationCidrBlock
+        , "DryRun"                 =? _rrDryRun
+        , "GatewayId"              =? _rrGatewayId
+        , "InstanceId"             =? _rrInstanceId
+        , "NetworkInterfaceId"     =? _rrNetworkInterfaceId
+        , "RouteTableId"           =? _rrRouteTableId
+        , "VpcPeeringConnectionId" =? _rrVpcPeeringConnectionId
         ]
 
 instance ToHeaders ReplaceRoute

@@ -111,9 +111,9 @@ instance ToPath DetachClassicLinkVpc where
 
 instance ToQuery DetachClassicLinkVpc where
     toQuery DetachClassicLinkVpc{..} = mconcat
-        [ "dryRun"     =? _dclvDryRun
-        , "instanceId" =? _dclvInstanceId
-        , "vpcId"      =? _dclvVpcId
+        [ "DryRun"     =? _dclvDryRun
+        , "InstanceId" =? _dclvInstanceId
+        , "VpcId"      =? _dclvVpcId
         ]
 
 instance ToHeaders DetachClassicLinkVpc
@@ -127,4 +127,4 @@ instance AWSRequest DetachClassicLinkVpc where
 
 instance FromXML DetachClassicLinkVpcResponse where
     parseXML x = DetachClassicLinkVpcResponse
-        <$> x .@? "return"
+        <$> x .@? "Return"

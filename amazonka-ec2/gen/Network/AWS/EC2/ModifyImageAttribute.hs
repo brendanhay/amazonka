@@ -167,7 +167,7 @@ instance ToQuery ModifyImageAttribute where
     toQuery ModifyImageAttribute{..} = mconcat
         [ "Attribute"        =? _miaAttribute
         , "Description"      =? _miaDescription
-        , "dryRun"           =? _miaDryRun
+        , "DryRun"           =? _miaDryRun
         , "ImageId"          =? _miaImageId
         , "LaunchPermission" =? _miaLaunchPermission
         , "OperationType"    =? _miaOperationType

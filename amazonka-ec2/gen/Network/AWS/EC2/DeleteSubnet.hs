@@ -86,7 +86,7 @@ instance ToPath DeleteSubnet where
 
 instance ToQuery DeleteSubnet where
     toQuery DeleteSubnet{..} = mconcat
-        [ "dryRun"   =? _ds2DryRun
+        [ "DryRun"   =? _ds2DryRun
         , "SubnetId" =? _ds2SubnetId
         ]
 

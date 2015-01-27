@@ -163,7 +163,7 @@ instance ToPath DescribeRouteTables where
 
 instance ToQuery DescribeRouteTables where
     toQuery DescribeRouteTables{..} = mconcat
-        [ "dryRun"       =? _drt2DryRun
+        [ "DryRun"       =? _drt2DryRun
         , "Filter"       `toQueryList` _drt2Filters
         , "RouteTableId" `toQueryList` _drt2RouteTableIds
         ]
@@ -179,4 +179,4 @@ instance AWSRequest DescribeRouteTables where
 
 instance FromXML DescribeRouteTablesResponse where
     parseXML x = DescribeRouteTablesResponse
-        <$> x .@? "routeTableSet" .!@ mempty
+        <$> x .@? "RouteTableSet" .!@ mempty

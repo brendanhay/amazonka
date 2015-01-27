@@ -90,7 +90,7 @@ instance ToPath DeleteDhcpOptions where
 instance ToQuery DeleteDhcpOptions where
     toQuery DeleteDhcpOptions{..} = mconcat
         [ "DhcpOptionsId" =? _ddo1DhcpOptionsId
-        , "dryRun"        =? _ddo1DryRun
+        , "DryRun"        =? _ddo1DryRun
         ]
 
 instance ToHeaders DeleteDhcpOptions

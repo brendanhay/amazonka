@@ -105,8 +105,8 @@ instance ToPath AcceptVpcPeeringConnection where
 
 instance ToQuery AcceptVpcPeeringConnection where
     toQuery AcceptVpcPeeringConnection{..} = mconcat
-        [ "dryRun"                 =? _avpcDryRun
-        , "vpcPeeringConnectionId" =? _avpcVpcPeeringConnectionId
+        [ "DryRun"                 =? _avpcDryRun
+        , "VpcPeeringConnectionId" =? _avpcVpcPeeringConnectionId
         ]
 
 instance ToHeaders AcceptVpcPeeringConnection
@@ -120,4 +120,4 @@ instance AWSRequest AcceptVpcPeeringConnection where
 
 instance FromXML AcceptVpcPeeringConnectionResponse where
     parseXML x = AcceptVpcPeeringConnectionResponse
-        <$> x .@? "vpcPeeringConnection"
+        <$> x .@? "VpcPeeringConnection"

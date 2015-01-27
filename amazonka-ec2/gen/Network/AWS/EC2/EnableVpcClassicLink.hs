@@ -104,8 +104,8 @@ instance ToPath EnableVpcClassicLink where
 
 instance ToQuery EnableVpcClassicLink where
     toQuery EnableVpcClassicLink{..} = mconcat
-        [ "dryRun" =? _evclDryRun
-        , "vpcId"  =? _evclVpcId
+        [ "DryRun" =? _evclDryRun
+        , "VpcId"  =? _evclVpcId
         ]
 
 instance ToHeaders EnableVpcClassicLink
@@ -119,4 +119,4 @@ instance AWSRequest EnableVpcClassicLink where
 
 instance FromXML EnableVpcClassicLinkResponse where
     parseXML x = EnableVpcClassicLinkResponse
-        <$> x .@? "return"
+        <$> x .@? "Return"

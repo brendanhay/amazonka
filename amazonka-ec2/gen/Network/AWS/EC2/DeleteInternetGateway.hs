@@ -87,8 +87,8 @@ instance ToPath DeleteInternetGateway where
 
 instance ToQuery DeleteInternetGateway where
     toQuery DeleteInternetGateway{..} = mconcat
-        [ "dryRun"            =? _dig2DryRun
-        , "internetGatewayId" =? _dig2InternetGatewayId
+        [ "DryRun"            =? _dig2DryRun
+        , "InternetGatewayId" =? _dig2InternetGatewayId
         ]
 
 instance ToHeaders DeleteInternetGateway

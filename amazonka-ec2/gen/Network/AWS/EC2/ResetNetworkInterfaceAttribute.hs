@@ -97,9 +97,9 @@ instance ToPath ResetNetworkInterfaceAttribute where
 
 instance ToQuery ResetNetworkInterfaceAttribute where
     toQuery ResetNetworkInterfaceAttribute{..} = mconcat
-        [ "dryRun"             =? _rniaDryRun
-        , "networkInterfaceId" =? _rniaNetworkInterfaceId
-        , "sourceDestCheck"    =? _rniaSourceDestCheck
+        [ "DryRun"             =? _rniaDryRun
+        , "NetworkInterfaceId" =? _rniaNetworkInterfaceId
+        , "SourceDestCheck"    =? _rniaSourceDestCheck
         ]
 
 instance ToHeaders ResetNetworkInterfaceAttribute

@@ -161,7 +161,7 @@ instance ToPath DescribeSecurityGroups where
 
 instance ToQuery DescribeSecurityGroups where
     toQuery DescribeSecurityGroups{..} = mconcat
-        [ "dryRun"    =? _dsg1DryRun
+        [ "DryRun"    =? _dsg1DryRun
         , "Filter"    `toQueryList` _dsg1Filters
         , "GroupId"   `toQueryList` _dsg1GroupIds
         , "GroupName" `toQueryList` _dsg1GroupNames
@@ -178,4 +178,4 @@ instance AWSRequest DescribeSecurityGroups where
 
 instance FromXML DescribeSecurityGroupsResponse where
     parseXML x = DescribeSecurityGroupsResponse
-        <$> x .@? "securityGroupInfo" .!@ mempty
+        <$> x .@? "SecurityGroupInfo" .!@ mempty

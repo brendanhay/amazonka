@@ -121,8 +121,8 @@ instance ToPath CreateDhcpOptions where
 
 instance ToQuery CreateDhcpOptions where
     toQuery CreateDhcpOptions{..} = mconcat
-        [ "dhcpConfiguration" `toQueryList` _cdoDhcpConfigurations
-        , "dryRun"            =? _cdoDryRun
+        [ "DhcpConfiguration" `toQueryList` _cdoDhcpConfigurations
+        , "DryRun"            =? _cdoDryRun
         ]
 
 instance ToHeaders CreateDhcpOptions
@@ -136,4 +136,4 @@ instance AWSRequest CreateDhcpOptions where
 
 instance FromXML CreateDhcpOptionsResponse where
     parseXML x = CreateDhcpOptionsResponse
-        <$> x .@? "dhcpOptions"
+        <$> x .@? "DhcpOptions"

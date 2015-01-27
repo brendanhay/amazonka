@@ -181,15 +181,15 @@ instance ToPath AuthorizeSecurityGroupEgress where
 
 instance ToQuery AuthorizeSecurityGroupEgress where
     toQuery AuthorizeSecurityGroupEgress{..} = mconcat
-        [ "cidrIp"                     =? _asgeCidrIp
-        , "dryRun"                     =? _asgeDryRun
-        , "fromPort"                   =? _asgeFromPort
-        , "groupId"                    =? _asgeGroupId
-        , "ipPermissions"              `toQueryList` _asgeIpPermissions
-        , "ipProtocol"                 =? _asgeIpProtocol
-        , "sourceSecurityGroupName"    =? _asgeSourceSecurityGroupName
-        , "sourceSecurityGroupOwnerId" =? _asgeSourceSecurityGroupOwnerId
-        , "toPort"                     =? _asgeToPort
+        [ "CidrIp"                     =? _asgeCidrIp
+        , "DryRun"                     =? _asgeDryRun
+        , "FromPort"                   =? _asgeFromPort
+        , "GroupId"                    =? _asgeGroupId
+        , "IpPermissions"              `toQueryList` _asgeIpPermissions
+        , "IpProtocol"                 =? _asgeIpProtocol
+        , "SourceSecurityGroupName"    =? _asgeSourceSecurityGroupName
+        , "SourceSecurityGroupOwnerId" =? _asgeSourceSecurityGroupOwnerId
+        , "ToPort"                     =? _asgeToPort
         ]
 
 instance ToHeaders AuthorizeSecurityGroupEgress

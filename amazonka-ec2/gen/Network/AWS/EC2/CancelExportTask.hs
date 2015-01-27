@@ -81,7 +81,7 @@ instance ToPath CancelExportTask where
 
 instance ToQuery CancelExportTask where
     toQuery CancelExportTask{..} = mconcat
-        [ "exportTaskId" =? _cetExportTaskId
+        [ "ExportTaskId" =? _cetExportTaskId
         ]
 
 instance ToHeaders CancelExportTask

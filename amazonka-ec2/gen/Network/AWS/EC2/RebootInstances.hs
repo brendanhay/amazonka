@@ -92,7 +92,7 @@ instance ToPath RebootInstances where
 
 instance ToQuery RebootInstances where
     toQuery RebootInstances{..} = mconcat
-        [ "dryRun"     =? _ri2DryRun
+        [ "DryRun"     =? _ri2DryRun
         , "InstanceId" `toQueryList` _ri2InstanceIds
         ]
 

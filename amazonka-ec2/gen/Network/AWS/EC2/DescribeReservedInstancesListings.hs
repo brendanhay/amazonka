@@ -144,9 +144,9 @@ instance ToPath DescribeReservedInstancesListings where
 
 instance ToQuery DescribeReservedInstancesListings where
     toQuery DescribeReservedInstancesListings{..} = mconcat
-        [ "filters"                    `toQueryList` _drilFilters
-        , "reservedInstancesId"        =? _drilReservedInstancesId
-        , "reservedInstancesListingId" =? _drilReservedInstancesListingId
+        [ "Filters"                    `toQueryList` _drilFilters
+        , "ReservedInstancesId"        =? _drilReservedInstancesId
+        , "ReservedInstancesListingId" =? _drilReservedInstancesListingId
         ]
 
 instance ToHeaders DescribeReservedInstancesListings
@@ -160,4 +160,4 @@ instance AWSRequest DescribeReservedInstancesListings where
 
 instance FromXML DescribeReservedInstancesListingsResponse where
     parseXML x = DescribeReservedInstancesListingsResponse
-        <$> x .@? "reservedInstancesListingsSet" .!@ mempty
+        <$> x .@? "ReservedInstancesListingsSet" .!@ mempty

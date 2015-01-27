@@ -579,12 +579,18 @@ shapes proto time m =
             , _fShape         = r ^. refShape
             , _fType          = t
             , _fLocation      = location proto (r ^. refStreaming) (r ^. refLocation)
-            , _fLocationName  = fromMaybe fld (r ^. refLocationName)
+            , _fLocationName  = locationName fld r
             , _fPayload       = Just fld == pay
             , _fStream        = fromMaybe False (r ^. refStreaming)
             , _fDocumentation = above <$> r ^. refDocumentation
             , _fProtocol      = proto
             }
+
+    locationName :: Text -> Ref -> Text
+    locationName fld r = maybe fld f (r ^. refLocationName)
+      where
+        f | Ec2 <- proto = upperHead
+          | otherwise    = id
 
     require :: [Text] -> Text -> Type -> Type
     require req fld x

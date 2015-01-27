@@ -102,8 +102,8 @@ instance ToPath CreateRouteTable where
 
 instance ToQuery CreateRouteTable where
     toQuery CreateRouteTable{..} = mconcat
-        [ "dryRun" =? _crtDryRun
-        , "vpcId"  =? _crtVpcId
+        [ "DryRun" =? _crtDryRun
+        , "VpcId"  =? _crtVpcId
         ]
 
 instance ToHeaders CreateRouteTable
@@ -117,4 +117,4 @@ instance AWSRequest CreateRouteTable where
 
 instance FromXML CreateRouteTableResponse where
     parseXML x = CreateRouteTableResponse
-        <$> x .@? "routeTable"
+        <$> x .@? "RouteTable"

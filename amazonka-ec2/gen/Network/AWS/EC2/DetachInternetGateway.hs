@@ -98,9 +98,9 @@ instance ToPath DetachInternetGateway where
 
 instance ToQuery DetachInternetGateway where
     toQuery DetachInternetGateway{..} = mconcat
-        [ "dryRun"            =? _digDryRun
-        , "internetGatewayId" =? _digInternetGatewayId
-        , "vpcId"             =? _digVpcId
+        [ "DryRun"            =? _digDryRun
+        , "InternetGatewayId" =? _digInternetGatewayId
+        , "VpcId"             =? _digVpcId
         ]
 
 instance ToHeaders DetachInternetGateway

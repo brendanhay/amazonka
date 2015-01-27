@@ -98,9 +98,9 @@ instance ToPath AttachInternetGateway where
 
 instance ToQuery AttachInternetGateway where
     toQuery AttachInternetGateway{..} = mconcat
-        [ "dryRun"            =? _aigDryRun
-        , "internetGatewayId" =? _aigInternetGatewayId
-        , "vpcId"             =? _aigVpcId
+        [ "DryRun"            =? _aigDryRun
+        , "InternetGatewayId" =? _aigInternetGatewayId
+        , "VpcId"             =? _aigVpcId
         ]
 
 instance ToHeaders AttachInternetGateway

@@ -189,7 +189,7 @@ instance ToPath AuthorizeSecurityGroupIngress where
 instance ToQuery AuthorizeSecurityGroupIngress where
     toQuery AuthorizeSecurityGroupIngress{..} = mconcat
         [ "CidrIp"                     =? _asgiCidrIp
-        , "dryRun"                     =? _asgiDryRun
+        , "DryRun"                     =? _asgiDryRun
         , "FromPort"                   =? _asgiFromPort
         , "GroupId"                    =? _asgiGroupId
         , "GroupName"                  =? _asgiGroupName

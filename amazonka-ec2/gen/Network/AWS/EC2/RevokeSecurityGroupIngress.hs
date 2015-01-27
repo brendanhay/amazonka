@@ -180,7 +180,7 @@ instance ToPath RevokeSecurityGroupIngress where
 instance ToQuery RevokeSecurityGroupIngress where
     toQuery RevokeSecurityGroupIngress{..} = mconcat
         [ "CidrIp"                     =? _rsgiCidrIp
-        , "dryRun"                     =? _rsgiDryRun
+        , "DryRun"                     =? _rsgiDryRun
         , "FromPort"                   =? _rsgiFromPort
         , "GroupId"                    =? _rsgiGroupId
         , "GroupName"                  =? _rsgiGroupName

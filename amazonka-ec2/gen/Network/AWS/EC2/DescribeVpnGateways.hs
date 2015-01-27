@@ -142,7 +142,7 @@ instance ToPath DescribeVpnGateways where
 
 instance ToQuery DescribeVpnGateways where
     toQuery DescribeVpnGateways{..} = mconcat
-        [ "dryRun"       =? _dvg2DryRun
+        [ "DryRun"       =? _dvg2DryRun
         , "Filter"       `toQueryList` _dvg2Filters
         , "VpnGatewayId" `toQueryList` _dvg2VpnGatewayIds
         ]
@@ -158,4 +158,4 @@ instance AWSRequest DescribeVpnGateways where
 
 instance FromXML DescribeVpnGatewaysResponse where
     parseXML x = DescribeVpnGatewaysResponse
-        <$> x .@? "vpnGatewaySet" .!@ mempty
+        <$> x .@? "VpnGatewaySet" .!@ mempty

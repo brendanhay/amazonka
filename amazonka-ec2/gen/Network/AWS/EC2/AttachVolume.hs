@@ -185,7 +185,7 @@ instance ToPath AttachVolume where
 instance ToQuery AttachVolume where
     toQuery AttachVolume{..} = mconcat
         [ "Device"     =? _avDevice
-        , "dryRun"     =? _avDryRun
+        , "DryRun"     =? _avDryRun
         , "InstanceId" =? _avInstanceId
         , "VolumeId"   =? _avVolumeId
         ]
@@ -201,9 +201,9 @@ instance AWSRequest AttachVolume where
 
 instance FromXML AttachVolumeResponse where
     parseXML x = AttachVolumeResponse
-        <$> x .@? "attachTime"
-        <*> x .@? "deleteOnTermination"
-        <*> x .@? "device"
-        <*> x .@? "instanceId"
-        <*> x .@? "status"
-        <*> x .@? "volumeId"
+        <$> x .@? "AttachTime"
+        <*> x .@? "DeleteOnTermination"
+        <*> x .@? "Device"
+        <*> x .@? "InstanceId"
+        <*> x .@? "Status"
+        <*> x .@? "VolumeId"

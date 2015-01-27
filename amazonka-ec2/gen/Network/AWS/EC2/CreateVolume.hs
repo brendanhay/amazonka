@@ -307,8 +307,8 @@ instance ToPath CreateVolume where
 instance ToQuery CreateVolume where
     toQuery CreateVolume{..} = mconcat
         [ "AvailabilityZone" =? _cv1AvailabilityZone
-        , "dryRun"           =? _cv1DryRun
-        , "encrypted"        =? _cv1Encrypted
+        , "DryRun"           =? _cv1DryRun
+        , "Encrypted"        =? _cv1Encrypted
         , "Iops"             =? _cv1Iops
         , "KmsKeyId"         =? _cv1KmsKeyId
         , "Size"             =? _cv1Size
@@ -327,15 +327,15 @@ instance AWSRequest CreateVolume where
 
 instance FromXML CreateVolumeResponse where
     parseXML x = CreateVolumeResponse
-        <$> x .@? "attachmentSet" .!@ mempty
-        <*> x .@  "availabilityZone"
-        <*> x .@  "createTime"
-        <*> x .@  "encrypted"
-        <*> x .@? "iops"
-        <*> x .@? "kmsKeyId"
-        <*> x .@  "size"
-        <*> x .@  "snapshotId"
-        <*> x .@  "status"
-        <*> x .@? "tagSet" .!@ mempty
-        <*> x .@  "volumeId"
-        <*> x .@  "volumeType"
+        <$> x .@? "AttachmentSet" .!@ mempty
+        <*> x .@  "AvailabilityZone"
+        <*> x .@  "CreateTime"
+        <*> x .@  "Encrypted"
+        <*> x .@? "Iops"
+        <*> x .@? "KmsKeyId"
+        <*> x .@  "Size"
+        <*> x .@  "SnapshotId"
+        <*> x .@  "Status"
+        <*> x .@? "TagSet" .!@ mempty
+        <*> x .@  "VolumeId"
+        <*> x .@  "VolumeType"

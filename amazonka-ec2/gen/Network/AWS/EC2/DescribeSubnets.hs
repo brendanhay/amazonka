@@ -144,7 +144,7 @@ instance ToPath DescribeSubnets where
 
 instance ToQuery DescribeSubnets where
     toQuery DescribeSubnets{..} = mconcat
-        [ "dryRun"   =? _dsDryRun
+        [ "DryRun"   =? _dsDryRun
         , "Filter"   `toQueryList` _dsFilters
         , "SubnetId" `toQueryList` _dsSubnetIds
         ]
@@ -160,4 +160,4 @@ instance AWSRequest DescribeSubnets where
 
 instance FromXML DescribeSubnetsResponse where
     parseXML x = DescribeSubnetsResponse
-        <$> x .@? "subnetSet" .!@ mempty
+        <$> x .@? "SubnetSet" .!@ mempty

@@ -121,7 +121,7 @@ instance ToPath ModifyReservedInstances where
 
 instance ToQuery ModifyReservedInstances where
     toQuery ModifyReservedInstances{..} = mconcat
-        [ "clientToken"                               =? _mriClientToken
+        [ "ClientToken"                               =? _mriClientToken
         , "ReservedInstancesId"                       `toQueryList` _mriReservedInstancesIds
         , "ReservedInstancesConfigurationSetItemType" `toQueryList` _mriTargetConfigurations
         ]
@@ -137,4 +137,4 @@ instance AWSRequest ModifyReservedInstances where
 
 instance FromXML ModifyReservedInstancesResponse where
     parseXML x = ModifyReservedInstancesResponse
-        <$> x .@? "reservedInstancesModificationId"
+        <$> x .@? "ReservedInstancesModificationId"

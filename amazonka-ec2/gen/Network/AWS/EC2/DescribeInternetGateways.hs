@@ -135,9 +135,9 @@ instance ToPath DescribeInternetGateways where
 
 instance ToQuery DescribeInternetGateways where
     toQuery DescribeInternetGateways{..} = mconcat
-        [ "dryRun"            =? _dig1DryRun
+        [ "DryRun"            =? _dig1DryRun
         , "Filter"            `toQueryList` _dig1Filters
-        , "internetGatewayId" `toQueryList` _dig1InternetGatewayIds
+        , "InternetGatewayId" `toQueryList` _dig1InternetGatewayIds
         ]
 
 instance ToHeaders DescribeInternetGateways
@@ -151,4 +151,4 @@ instance AWSRequest DescribeInternetGateways where
 
 instance FromXML DescribeInternetGatewaysResponse where
     parseXML x = DescribeInternetGatewaysResponse
-        <$> x .@? "internetGatewaySet" .!@ mempty
+        <$> x .@? "InternetGatewaySet" .!@ mempty

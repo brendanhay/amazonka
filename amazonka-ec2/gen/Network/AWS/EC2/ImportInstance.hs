@@ -130,11 +130,11 @@ instance ToPath ImportInstance where
 
 instance ToQuery ImportInstance where
     toQuery ImportInstance{..} = mconcat
-        [ "description"         =? _iiDescription
-        , "diskImage"           `toQueryList` _iiDiskImages
-        , "dryRun"              =? _iiDryRun
-        , "launchSpecification" =? _iiLaunchSpecification
-        , "platform"            =? _iiPlatform
+        [ "Description"         =? _iiDescription
+        , "DiskImage"           `toQueryList` _iiDiskImages
+        , "DryRun"              =? _iiDryRun
+        , "LaunchSpecification" =? _iiLaunchSpecification
+        , "Platform"            =? _iiPlatform
         ]
 
 instance ToHeaders ImportInstance
@@ -148,4 +148,4 @@ instance AWSRequest ImportInstance where
 
 instance FromXML ImportInstanceResponse where
     parseXML x = ImportInstanceResponse
-        <$> x .@? "conversionTask"
+        <$> x .@? "ConversionTask"

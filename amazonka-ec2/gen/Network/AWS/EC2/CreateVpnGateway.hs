@@ -114,7 +114,7 @@ instance ToPath CreateVpnGateway where
 instance ToQuery CreateVpnGateway where
     toQuery CreateVpnGateway{..} = mconcat
         [ "AvailabilityZone" =? _cvgAvailabilityZone
-        , "dryRun"           =? _cvgDryRun
+        , "DryRun"           =? _cvgDryRun
         , "Type"             =? _cvgType
         ]
 
@@ -129,4 +129,4 @@ instance AWSRequest CreateVpnGateway where
 
 instance FromXML CreateVpnGatewayResponse where
     parseXML x = CreateVpnGatewayResponse
-        <$> x .@? "vpnGateway"
+        <$> x .@? "VpnGateway"

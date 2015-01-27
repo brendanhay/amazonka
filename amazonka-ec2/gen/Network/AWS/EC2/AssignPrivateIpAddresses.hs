@@ -126,10 +126,10 @@ instance ToPath AssignPrivateIpAddresses where
 
 instance ToQuery AssignPrivateIpAddresses where
     toQuery AssignPrivateIpAddresses{..} = mconcat
-        [ "allowReassignment"              =? _apiaAllowReassignment
-        , "networkInterfaceId"             =? _apiaNetworkInterfaceId
-        , "privateIpAddress"               `toQueryList` _apiaPrivateIpAddresses
-        , "secondaryPrivateIpAddressCount" =? _apiaSecondaryPrivateIpAddressCount
+        [ "AllowReassignment"              =? _apiaAllowReassignment
+        , "NetworkInterfaceId"             =? _apiaNetworkInterfaceId
+        , "PrivateIpAddress"               `toQueryList` _apiaPrivateIpAddresses
+        , "SecondaryPrivateIpAddressCount" =? _apiaSecondaryPrivateIpAddressCount
         ]
 
 instance ToHeaders AssignPrivateIpAddresses

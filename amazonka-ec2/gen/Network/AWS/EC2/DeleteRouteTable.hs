@@ -86,8 +86,8 @@ instance ToPath DeleteRouteTable where
 
 instance ToQuery DeleteRouteTable where
     toQuery DeleteRouteTable{..} = mconcat
-        [ "dryRun"       =? _drt1DryRun
-        , "routeTableId" =? _drt1RouteTableId
+        [ "DryRun"       =? _drt1DryRun
+        , "RouteTableId" =? _drt1RouteTableId
         ]
 
 instance ToHeaders DeleteRouteTable

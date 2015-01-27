@@ -100,9 +100,9 @@ instance ToPath CreatePlacementGroup where
 
 instance ToQuery CreatePlacementGroup where
     toQuery CreatePlacementGroup{..} = mconcat
-        [ "dryRun"    =? _cpgDryRun
-        , "groupName" =? _cpgGroupName
-        , "strategy"  =? _cpgStrategy
+        [ "DryRun"    =? _cpgDryRun
+        , "GroupName" =? _cpgGroupName
+        , "Strategy"  =? _cpgStrategy
         ]
 
 instance ToHeaders CreatePlacementGroup

@@ -148,9 +148,9 @@ instance ToPath DescribeNetworkInterfaceAttribute where
 
 instance ToQuery DescribeNetworkInterfaceAttribute where
     toQuery DescribeNetworkInterfaceAttribute{..} = mconcat
-        [ "attribute"          =? _dniaAttribute
-        , "dryRun"             =? _dniaDryRun
-        , "networkInterfaceId" =? _dniaNetworkInterfaceId
+        [ "Attribute"          =? _dniaAttribute
+        , "DryRun"             =? _dniaDryRun
+        , "NetworkInterfaceId" =? _dniaNetworkInterfaceId
         ]
 
 instance ToHeaders DescribeNetworkInterfaceAttribute
@@ -164,8 +164,8 @@ instance AWSRequest DescribeNetworkInterfaceAttribute where
 
 instance FromXML DescribeNetworkInterfaceAttributeResponse where
     parseXML x = DescribeNetworkInterfaceAttributeResponse
-        <$> x .@? "attachment"
-        <*> x .@? "description"
-        <*> x .@? "groupSet" .!@ mempty
-        <*> x .@? "networkInterfaceId"
-        <*> x .@? "sourceDestCheck"
+        <$> x .@? "Attachment"
+        <*> x .@? "Description"
+        <*> x .@? "GroupSet" .!@ mempty
+        <*> x .@? "NetworkInterfaceId"
+        <*> x .@? "SourceDestCheck"

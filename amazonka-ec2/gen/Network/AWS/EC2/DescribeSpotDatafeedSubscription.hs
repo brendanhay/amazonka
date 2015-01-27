@@ -91,7 +91,7 @@ instance ToPath DescribeSpotDatafeedSubscription where
 
 instance ToQuery DescribeSpotDatafeedSubscription where
     toQuery DescribeSpotDatafeedSubscription{..} = mconcat
-        [ "dryRun" =? _dsdsDryRun
+        [ "DryRun" =? _dsdsDryRun
         ]
 
 instance ToHeaders DescribeSpotDatafeedSubscription
@@ -105,4 +105,4 @@ instance AWSRequest DescribeSpotDatafeedSubscription where
 
 instance FromXML DescribeSpotDatafeedSubscriptionResponse where
     parseXML x = DescribeSpotDatafeedSubscriptionResponse
-        <$> x .@? "spotDatafeedSubscription"
+        <$> x .@? "SpotDatafeedSubscription"

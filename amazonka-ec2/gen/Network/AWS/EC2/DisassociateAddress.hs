@@ -101,7 +101,7 @@ instance ToPath DisassociateAddress where
 instance ToQuery DisassociateAddress where
     toQuery DisassociateAddress{..} = mconcat
         [ "AssociationId" =? _da1AssociationId
-        , "dryRun"        =? _da1DryRun
+        , "DryRun"        =? _da1DryRun
         , "PublicIp"      =? _da1PublicIp
         ]
 

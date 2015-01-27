@@ -129,7 +129,7 @@ instance ToPath GetPasswordData where
 
 instance ToQuery GetPasswordData where
     toQuery GetPasswordData{..} = mconcat
-        [ "dryRun"     =? _gpdDryRun
+        [ "DryRun"     =? _gpdDryRun
         , "InstanceId" =? _gpdInstanceId
         ]
 
@@ -144,6 +144,6 @@ instance AWSRequest GetPasswordData where
 
 instance FromXML GetPasswordDataResponse where
     parseXML x = GetPasswordDataResponse
-        <$> x .@? "instanceId"
-        <*> x .@? "passwordData"
-        <*> x .@? "timestamp"
+        <$> x .@? "InstanceId"
+        <*> x .@? "PasswordData"
+        <*> x .@? "Timestamp"

@@ -127,9 +127,9 @@ instance ToPath ImportKeyPair where
 
 instance ToQuery ImportKeyPair where
     toQuery ImportKeyPair{..} = mconcat
-        [ "dryRun"            =? _ikpDryRun
-        , "keyName"           =? _ikpKeyName
-        , "publicKeyMaterial" =? _ikpPublicKeyMaterial
+        [ "DryRun"            =? _ikpDryRun
+        , "KeyName"           =? _ikpKeyName
+        , "PublicKeyMaterial" =? _ikpPublicKeyMaterial
         ]
 
 instance ToHeaders ImportKeyPair
@@ -143,5 +143,5 @@ instance AWSRequest ImportKeyPair where
 
 instance FromXML ImportKeyPairResponse where
     parseXML x = ImportKeyPairResponse
-        <$> x .@? "keyFingerprint"
-        <*> x .@? "keyName"
+        <$> x .@? "KeyFingerprint"
+        <*> x .@? "KeyName"

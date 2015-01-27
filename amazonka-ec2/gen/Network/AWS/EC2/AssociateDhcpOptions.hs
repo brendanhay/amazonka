@@ -107,7 +107,7 @@ instance ToPath AssociateDhcpOptions where
 instance ToQuery AssociateDhcpOptions where
     toQuery AssociateDhcpOptions{..} = mconcat
         [ "DhcpOptionsId" =? _adoDhcpOptionsId
-        , "dryRun"        =? _adoDryRun
+        , "DryRun"        =? _adoDryRun
         , "VpcId"         =? _adoVpcId
         ]
 

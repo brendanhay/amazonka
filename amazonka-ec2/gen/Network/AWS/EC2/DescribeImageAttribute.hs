@@ -178,7 +178,7 @@ instance ToPath DescribeImageAttribute where
 instance ToQuery DescribeImageAttribute where
     toQuery DescribeImageAttribute{..} = mconcat
         [ "Attribute" =? _dia1Attribute
-        , "dryRun"    =? _dia1DryRun
+        , "DryRun"    =? _dia1DryRun
         , "ImageId"   =? _dia1ImageId
         ]
 
@@ -193,11 +193,11 @@ instance AWSRequest DescribeImageAttribute where
 
 instance FromXML DescribeImageAttributeResponse where
     parseXML x = DescribeImageAttributeResponse
-        <$> x .@? "blockDeviceMapping" .!@ mempty
-        <*> x .@? "description"
-        <*> x .@? "imageId"
-        <*> x .@? "kernel"
-        <*> x .@? "launchPermission" .!@ mempty
-        <*> x .@? "productCodes" .!@ mempty
-        <*> x .@? "ramdisk"
-        <*> x .@? "sriovNetSupport"
+        <$> x .@? "BlockDeviceMapping" .!@ mempty
+        <*> x .@? "Description"
+        <*> x .@? "ImageId"
+        <*> x .@? "Kernel"
+        <*> x .@? "LaunchPermission" .!@ mempty
+        <*> x .@? "ProductCodes" .!@ mempty
+        <*> x .@? "Ramdisk"
+        <*> x .@? "SriovNetSupport"

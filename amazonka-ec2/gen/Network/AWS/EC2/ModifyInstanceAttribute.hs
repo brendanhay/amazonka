@@ -240,21 +240,21 @@ instance ToPath ModifyInstanceAttribute where
 
 instance ToQuery ModifyInstanceAttribute where
     toQuery ModifyInstanceAttribute{..} = mconcat
-        [ "attribute"                         =? _mia1Attribute
-        , "blockDeviceMapping"                `toQueryList` _mia1BlockDeviceMappings
-        , "disableApiTermination"             =? _mia1DisableApiTermination
-        , "dryRun"                            =? _mia1DryRun
-        , "ebsOptimized"                      =? _mia1EbsOptimized
+        [ "Attribute"                         =? _mia1Attribute
+        , "BlockDeviceMapping"                `toQueryList` _mia1BlockDeviceMappings
+        , "DisableApiTermination"             =? _mia1DisableApiTermination
+        , "DryRun"                            =? _mia1DryRun
+        , "EbsOptimized"                      =? _mia1EbsOptimized
         , "GroupId"                           `toQueryList` _mia1Groups
-        , "instanceId"                        =? _mia1InstanceId
-        , "instanceInitiatedShutdownBehavior" =? _mia1InstanceInitiatedShutdownBehavior
-        , "instanceType"                      =? _mia1InstanceType
-        , "kernel"                            =? _mia1Kernel
-        , "ramdisk"                           =? _mia1Ramdisk
+        , "InstanceId"                        =? _mia1InstanceId
+        , "InstanceInitiatedShutdownBehavior" =? _mia1InstanceInitiatedShutdownBehavior
+        , "InstanceType"                      =? _mia1InstanceType
+        , "Kernel"                            =? _mia1Kernel
+        , "Ramdisk"                           =? _mia1Ramdisk
         , "SourceDestCheck"                   =? _mia1SourceDestCheck
-        , "sriovNetSupport"                   =? _mia1SriovNetSupport
-        , "userData"                          =? _mia1UserData
-        , "value"                             =? _mia1Value
+        , "SriovNetSupport"                   =? _mia1SriovNetSupport
+        , "UserData"                          =? _mia1UserData
+        , "Value"                             =? _mia1Value
         ]
 
 instance ToHeaders ModifyInstanceAttribute

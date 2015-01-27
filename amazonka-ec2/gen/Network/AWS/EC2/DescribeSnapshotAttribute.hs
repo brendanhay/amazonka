@@ -135,7 +135,7 @@ instance ToPath DescribeSnapshotAttribute where
 instance ToQuery DescribeSnapshotAttribute where
     toQuery DescribeSnapshotAttribute{..} = mconcat
         [ "Attribute"  =? _dsaAttribute
-        , "dryRun"     =? _dsaDryRun
+        , "DryRun"     =? _dsaDryRun
         , "SnapshotId" =? _dsaSnapshotId
         ]
 
@@ -150,6 +150,6 @@ instance AWSRequest DescribeSnapshotAttribute where
 
 instance FromXML DescribeSnapshotAttributeResponse where
     parseXML x = DescribeSnapshotAttributeResponse
-        <$> x .@? "createVolumePermission" .!@ mempty
-        <*> x .@? "productCodes" .!@ mempty
-        <*> x .@? "snapshotId"
+        <$> x .@? "CreateVolumePermission" .!@ mempty
+        <*> x .@? "ProductCodes" .!@ mempty
+        <*> x .@? "SnapshotId"

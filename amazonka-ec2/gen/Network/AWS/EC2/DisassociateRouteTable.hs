@@ -90,8 +90,8 @@ instance ToPath DisassociateRouteTable where
 
 instance ToQuery DisassociateRouteTable where
     toQuery DisassociateRouteTable{..} = mconcat
-        [ "associationId" =? _drtAssociationId
-        , "dryRun"        =? _drtDryRun
+        [ "AssociationId" =? _drtAssociationId
+        , "DryRun"        =? _drtDryRun
         ]
 
 instance ToHeaders DisassociateRouteTable

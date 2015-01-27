@@ -101,9 +101,9 @@ instance ToPath ResetInstanceAttribute where
 
 instance ToQuery ResetInstanceAttribute where
     toQuery ResetInstanceAttribute{..} = mconcat
-        [ "attribute"  =? _riaAttribute
-        , "dryRun"     =? _riaDryRun
-        , "instanceId" =? _riaInstanceId
+        [ "Attribute"  =? _riaAttribute
+        , "DryRun"     =? _riaDryRun
+        , "InstanceId" =? _riaInstanceId
         ]
 
 instance ToHeaders ResetInstanceAttribute
